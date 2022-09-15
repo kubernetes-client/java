@@ -38,15 +38,15 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
   }
 
   private String apiVersion;
-  private java.lang.String kind;
+  private String kind;
   private V1ObjectMetaBuilder metadata;
   private ArrayList<V1ValidatingWebhookBuilder> webhooks;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -55,16 +55,16 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
     return this.apiVersion != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -74,24 +74,27 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -99,41 +102,30 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
     return new V1ValidatingWebhookConfigurationFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent.MetadataNested<
-          A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1ValidatingWebhookConfigurationFluent.MetadataNested<A> withNewMetadataLike(
+      V1ObjectMeta item) {
     return new V1ValidatingWebhookConfigurationFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent.MetadataNested<
-          A>
-      editMetadata() {
+  public V1ValidatingWebhookConfigurationFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent.MetadataNested<
-          A>
-      editOrNewMetadata() {
+  public V1ValidatingWebhookConfigurationFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent.MetadataNested<
-          A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1ValidatingWebhookConfigurationFluent.MetadataNested<A> editOrNewMetadataLike(
+      V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public A addToWebhooks(
-      Integer index, io.kubernetes.client.openapi.models.V1ValidatingWebhook item) {
+  public A addToWebhooks(Integer index, V1ValidatingWebhook item) {
     if (this.webhooks == null) {
-      this.webhooks =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder>();
+      this.webhooks = new ArrayList<V1ValidatingWebhookBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder(item);
+    V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
     _visitables
         .get("webhooks")
         .add(index >= 0 ? index : _visitables.get("webhooks").size(), builder);
@@ -141,14 +133,11 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
     return (A) this;
   }
 
-  public A setToWebhooks(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ValidatingWebhook item) {
+  public A setToWebhooks(Integer index, V1ValidatingWebhook item) {
     if (this.webhooks == null) {
-      this.webhooks =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder>();
+      this.webhooks = new ArrayList<V1ValidatingWebhookBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder(item);
+    V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
     if (index < 0 || index >= _visitables.get("webhooks").size()) {
       _visitables.get("webhooks").add(builder);
     } else {
@@ -164,27 +153,22 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
 
   public A addToWebhooks(io.kubernetes.client.openapi.models.V1ValidatingWebhook... items) {
     if (this.webhooks == null) {
-      this.webhooks =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder>();
+      this.webhooks = new ArrayList<V1ValidatingWebhookBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ValidatingWebhook item : items) {
-      io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder(item);
+    for (V1ValidatingWebhook item : items) {
+      V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
       _visitables.get("webhooks").add(builder);
       this.webhooks.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToWebhooks(
-      Collection<io.kubernetes.client.openapi.models.V1ValidatingWebhook> items) {
+  public A addAllToWebhooks(Collection<V1ValidatingWebhook> items) {
     if (this.webhooks == null) {
-      this.webhooks =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder>();
+      this.webhooks = new ArrayList<V1ValidatingWebhookBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ValidatingWebhook item : items) {
-      io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder(item);
+    for (V1ValidatingWebhook item : items) {
+      V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
       _visitables.get("webhooks").add(builder);
       this.webhooks.add(builder);
     }
@@ -192,9 +176,8 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
   }
 
   public A removeFromWebhooks(io.kubernetes.client.openapi.models.V1ValidatingWebhook... items) {
-    for (io.kubernetes.client.openapi.models.V1ValidatingWebhook item : items) {
-      io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder(item);
+    for (V1ValidatingWebhook item : items) {
+      V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
       _visitables.get("webhooks").remove(builder);
       if (this.webhooks != null) {
         this.webhooks.remove(builder);
@@ -203,11 +186,9 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
     return (A) this;
   }
 
-  public A removeAllFromWebhooks(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ValidatingWebhook> items) {
-    for (io.kubernetes.client.openapi.models.V1ValidatingWebhook item : items) {
-      io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder(item);
+  public A removeAllFromWebhooks(Collection<V1ValidatingWebhook> items) {
+    for (V1ValidatingWebhook item : items) {
+      V1ValidatingWebhookBuilder builder = new V1ValidatingWebhookBuilder(item);
       _visitables.get("webhooks").remove(builder);
       if (this.webhooks != null) {
         this.webhooks.remove(builder);
@@ -216,14 +197,12 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
     return (A) this;
   }
 
-  public A removeMatchingFromWebhooks(
-      Predicate<io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder> predicate) {
+  public A removeMatchingFromWebhooks(Predicate<V1ValidatingWebhookBuilder> predicate) {
     if (webhooks == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder> each =
-        webhooks.iterator();
+    final Iterator<V1ValidatingWebhookBuilder> each = webhooks.iterator();
     final List visitables = _visitables.get("webhooks");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder builder = each.next();
+      V1ValidatingWebhookBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -237,32 +216,29 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public List<io.kubernetes.client.openapi.models.V1ValidatingWebhook> getWebhooks() {
+  @Deprecated
+  public List<V1ValidatingWebhook> getWebhooks() {
     return webhooks != null ? build(webhooks) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ValidatingWebhook> buildWebhooks() {
+  public List<V1ValidatingWebhook> buildWebhooks() {
     return webhooks != null ? build(webhooks) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhook buildWebhook(
-      java.lang.Integer index) {
+  public V1ValidatingWebhook buildWebhook(Integer index) {
     return this.webhooks.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhook buildFirstWebhook() {
+  public V1ValidatingWebhook buildFirstWebhook() {
     return this.webhooks.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhook buildLastWebhook() {
+  public V1ValidatingWebhook buildLastWebhook() {
     return this.webhooks.get(webhooks.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhook buildMatchingWebhook(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder item : webhooks) {
+  public V1ValidatingWebhook buildMatchingWebhook(Predicate<V1ValidatingWebhookBuilder> predicate) {
+    for (V1ValidatingWebhookBuilder item : webhooks) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -270,10 +246,8 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingWebhook(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder item : webhooks) {
+  public Boolean hasMatchingWebhook(Predicate<V1ValidatingWebhookBuilder> predicate) {
+    for (V1ValidatingWebhookBuilder item : webhooks) {
       if (predicate.test(item)) {
         return true;
       }
@@ -281,14 +255,13 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
     return false;
   }
 
-  public A withWebhooks(
-      java.util.List<io.kubernetes.client.openapi.models.V1ValidatingWebhook> webhooks) {
+  public A withWebhooks(List<V1ValidatingWebhook> webhooks) {
     if (this.webhooks != null) {
       _visitables.get("webhooks").removeAll(this.webhooks);
     }
     if (webhooks != null) {
-      this.webhooks = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1ValidatingWebhook item : webhooks) {
+      this.webhooks = new ArrayList();
+      for (V1ValidatingWebhook item : webhooks) {
         this.addToWebhooks(item);
       }
     } else {
@@ -302,14 +275,14 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
       this.webhooks.clear();
     }
     if (webhooks != null) {
-      for (io.kubernetes.client.openapi.models.V1ValidatingWebhook item : webhooks) {
+      for (V1ValidatingWebhook item : webhooks) {
         this.addToWebhooks(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasWebhooks() {
+  public Boolean hasWebhooks() {
     return webhooks != null && !webhooks.isEmpty();
   }
 
@@ -317,51 +290,36 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
     return new V1ValidatingWebhookConfigurationFluentImpl.WebhooksNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent.WebhooksNested<
-          A>
-      addNewWebhookLike(io.kubernetes.client.openapi.models.V1ValidatingWebhook item) {
-    return new io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluentImpl
-        .WebhooksNestedImpl(-1, item);
+  public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> addNewWebhookLike(
+      V1ValidatingWebhook item) {
+    return new V1ValidatingWebhookConfigurationFluentImpl.WebhooksNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent.WebhooksNested<
-          A>
-      setNewWebhookLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ValidatingWebhook item) {
-    return new io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluentImpl
-        .WebhooksNestedImpl(index, item);
+  public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> setNewWebhookLike(
+      Integer index, V1ValidatingWebhook item) {
+    return new V1ValidatingWebhookConfigurationFluentImpl.WebhooksNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent.WebhooksNested<
-          A>
-      editWebhook(java.lang.Integer index) {
+  public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> editWebhook(Integer index) {
     if (webhooks.size() <= index)
       throw new RuntimeException("Can't edit webhooks. Index exceeds size.");
     return setNewWebhookLike(index, buildWebhook(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent.WebhooksNested<
-          A>
-      editFirstWebhook() {
+  public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> editFirstWebhook() {
     if (webhooks.size() == 0)
       throw new RuntimeException("Can't edit first webhooks. The list is empty.");
     return setNewWebhookLike(0, buildWebhook(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent.WebhooksNested<
-          A>
-      editLastWebhook() {
+  public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> editLastWebhook() {
     int index = webhooks.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last webhooks. The list is empty.");
     return setNewWebhookLike(index, buildWebhook(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent.WebhooksNested<
-          A>
-      editMatchingWebhook(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder>
-              predicate) {
+  public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> editMatchingWebhook(
+      Predicate<V1ValidatingWebhookBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < webhooks.size(); i++) {
       if (predicate.test(webhooks.get(i))) {
@@ -390,7 +348,7 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
     return java.util.Objects.hash(apiVersion, kind, metadata, webhooks, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -415,19 +373,16 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
 
   class MetadataNestedImpl<N>
       extends V1ObjectMetaFluentImpl<V1ValidatingWebhookConfigurationFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ValidatingWebhookConfigurationFluent
-                  .MetadataNested<
-              N>,
-          Nested<N> {
+      implements V1ValidatingWebhookConfigurationFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) V1ValidatingWebhookConfigurationFluentImpl.this.withMetadata(builder.build());
@@ -441,21 +396,19 @@ public class V1ValidatingWebhookConfigurationFluentImpl<
   class WebhooksNestedImpl<N>
       extends V1ValidatingWebhookFluentImpl<
           V1ValidatingWebhookConfigurationFluent.WebhooksNested<N>>
-      implements V1ValidatingWebhookConfigurationFluent.WebhooksNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    WebhooksNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1ValidatingWebhook item) {
+      implements V1ValidatingWebhookConfigurationFluent.WebhooksNested<N>, Nested<N> {
+    WebhooksNestedImpl(Integer index, V1ValidatingWebhook item) {
       this.index = index;
       this.builder = new V1ValidatingWebhookBuilder(this, item);
     }
 
     WebhooksNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder(this);
+      this.builder = new V1ValidatingWebhookBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder builder;
-    java.lang.Integer index;
+    V1ValidatingWebhookBuilder builder;
+    Integer index;
 
     public N and() {
       return (N)

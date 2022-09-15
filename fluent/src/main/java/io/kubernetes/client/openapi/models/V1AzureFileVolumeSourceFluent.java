@@ -19,21 +19,21 @@ public interface V1AzureFileVolumeSourceFluent<A extends V1AzureFileVolumeSource
     extends Fluent<A> {
   public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   public String getSecretName();
 
-  public A withSecretName(java.lang.String secretName);
+  public A withSecretName(String secretName);
 
-  public java.lang.Boolean hasSecretName();
+  public Boolean hasSecretName();
 
-  public java.lang.String getShareName();
+  public String getShareName();
 
-  public A withShareName(java.lang.String shareName);
+  public A withShareName(String shareName);
 
-  public java.lang.Boolean hasShareName();
+  public Boolean hasShareName();
 
   public A withReadOnly();
 }

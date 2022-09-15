@@ -21,7 +21,7 @@ public interface V1RollingUpdateStatefulSetStrategyFluent<
     extends Fluent<A> {
   public IntOrString getMaxUnavailable();
 
-  public A withMaxUnavailable(io.kubernetes.client.custom.IntOrString maxUnavailable);
+  public A withMaxUnavailable(IntOrString maxUnavailable);
 
   public Boolean hasMaxUnavailable();
 
@@ -31,7 +31,7 @@ public interface V1RollingUpdateStatefulSetStrategyFluent<
 
   public Integer getPartition();
 
-  public A withPartition(java.lang.Integer partition);
+  public A withPartition(Integer partition);
 
-  public java.lang.Boolean hasPartition();
+  public Boolean hasPartition();
 }

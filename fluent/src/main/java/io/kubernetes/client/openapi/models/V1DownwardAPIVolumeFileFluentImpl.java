@@ -21,8 +21,7 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends V1DownwardAPIVolumeFile
     extends BaseFluent<A> implements V1DownwardAPIVolumeFileFluent<A> {
   public V1DownwardAPIVolumeFileFluentImpl() {}
 
-  public V1DownwardAPIVolumeFileFluentImpl(
-      io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile instance) {
+  public V1DownwardAPIVolumeFileFluentImpl(V1DownwardAPIVolumeFile instance) {
     this.withFieldRef(instance.getFieldRef());
 
     this.withMode(instance.getMode());
@@ -43,19 +42,22 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends V1DownwardAPIVolumeFile
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectFieldSelector getFieldRef() {
+  public V1ObjectFieldSelector getFieldRef() {
     return this.fieldRef != null ? this.fieldRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectFieldSelector buildFieldRef() {
+  public V1ObjectFieldSelector buildFieldRef() {
     return this.fieldRef != null ? this.fieldRef.build() : null;
   }
 
-  public A withFieldRef(io.kubernetes.client.openapi.models.V1ObjectFieldSelector fieldRef) {
+  public A withFieldRef(V1ObjectFieldSelector fieldRef) {
     _visitables.get("fieldRef").remove(this.fieldRef);
     if (fieldRef != null) {
       this.fieldRef = new V1ObjectFieldSelectorBuilder(fieldRef);
       _visitables.get("fieldRef").add(this.fieldRef);
+    } else {
+      this.fieldRef = null;
+      _visitables.get("fieldRef").remove(this.fieldRef);
     }
     return (A) this;
   }
@@ -68,52 +70,48 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends V1DownwardAPIVolumeFile
     return new V1DownwardAPIVolumeFileFluentImpl.FieldRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent.FieldRefNested<A>
-      withNewFieldRefLike(io.kubernetes.client.openapi.models.V1ObjectFieldSelector item) {
+  public V1DownwardAPIVolumeFileFluent.FieldRefNested<A> withNewFieldRefLike(
+      V1ObjectFieldSelector item) {
     return new V1DownwardAPIVolumeFileFluentImpl.FieldRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent.FieldRefNested<A>
-      editFieldRef() {
+  public V1DownwardAPIVolumeFileFluent.FieldRefNested<A> editFieldRef() {
     return withNewFieldRefLike(getFieldRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent.FieldRefNested<A>
-      editOrNewFieldRef() {
+  public V1DownwardAPIVolumeFileFluent.FieldRefNested<A> editOrNewFieldRef() {
     return withNewFieldRefLike(
-        getFieldRef() != null
-            ? getFieldRef()
-            : new io.kubernetes.client.openapi.models.V1ObjectFieldSelectorBuilder().build());
+        getFieldRef() != null ? getFieldRef() : new V1ObjectFieldSelectorBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent.FieldRefNested<A>
-      editOrNewFieldRefLike(io.kubernetes.client.openapi.models.V1ObjectFieldSelector item) {
+  public V1DownwardAPIVolumeFileFluent.FieldRefNested<A> editOrNewFieldRefLike(
+      V1ObjectFieldSelector item) {
     return withNewFieldRefLike(getFieldRef() != null ? getFieldRef() : item);
   }
 
-  public java.lang.Integer getMode() {
+  public Integer getMode() {
     return this.mode;
   }
 
-  public A withMode(java.lang.Integer mode) {
+  public A withMode(Integer mode) {
     this.mode = mode;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMode() {
+  public Boolean hasMode() {
     return this.mode != null;
   }
 
-  public java.lang.String getPath() {
+  public String getPath() {
     return this.path;
   }
 
-  public A withPath(java.lang.String path) {
+  public A withPath(String path) {
     this.path = path;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPath() {
+  public Boolean hasPath() {
     return this.path != null;
   }
 
@@ -122,26 +120,28 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends V1DownwardAPIVolumeFile
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ResourceFieldSelector getResourceFieldRef() {
+  @Deprecated
+  public V1ResourceFieldSelector getResourceFieldRef() {
     return this.resourceFieldRef != null ? this.resourceFieldRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceFieldSelector buildResourceFieldRef() {
+  public V1ResourceFieldSelector buildResourceFieldRef() {
     return this.resourceFieldRef != null ? this.resourceFieldRef.build() : null;
   }
 
-  public A withResourceFieldRef(
-      io.kubernetes.client.openapi.models.V1ResourceFieldSelector resourceFieldRef) {
+  public A withResourceFieldRef(V1ResourceFieldSelector resourceFieldRef) {
     _visitables.get("resourceFieldRef").remove(this.resourceFieldRef);
     if (resourceFieldRef != null) {
       this.resourceFieldRef = new V1ResourceFieldSelectorBuilder(resourceFieldRef);
       _visitables.get("resourceFieldRef").add(this.resourceFieldRef);
+    } else {
+      this.resourceFieldRef = null;
+      _visitables.get("resourceFieldRef").remove(this.resourceFieldRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasResourceFieldRef() {
+  public Boolean hasResourceFieldRef() {
     return this.resourceFieldRef != null;
   }
 
@@ -149,29 +149,24 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends V1DownwardAPIVolumeFile
     return new V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A>
-      withNewResourceFieldRefLike(
-          io.kubernetes.client.openapi.models.V1ResourceFieldSelector item) {
-    return new io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluentImpl
-        .ResourceFieldRefNestedImpl(item);
+  public V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A> withNewResourceFieldRefLike(
+      V1ResourceFieldSelector item) {
+    return new V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A>
-      editResourceFieldRef() {
+  public V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A> editResourceFieldRef() {
     return withNewResourceFieldRefLike(getResourceFieldRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A>
-      editOrNewResourceFieldRef() {
+  public V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A> editOrNewResourceFieldRef() {
     return withNewResourceFieldRefLike(
         getResourceFieldRef() != null
             ? getResourceFieldRef()
-            : new io.kubernetes.client.openapi.models.V1ResourceFieldSelectorBuilder().build());
+            : new V1ResourceFieldSelectorBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A>
-      editOrNewResourceFieldRefLike(
-          io.kubernetes.client.openapi.models.V1ResourceFieldSelector item) {
+  public V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A> editOrNewResourceFieldRefLike(
+      V1ResourceFieldSelector item) {
     return withNewResourceFieldRefLike(
         getResourceFieldRef() != null ? getResourceFieldRef() : item);
   }
@@ -193,7 +188,7 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends V1DownwardAPIVolumeFile
     return java.util.Objects.hash(fieldRef, mode, path, resourceFieldRef, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fieldRef != null) {
@@ -218,18 +213,16 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends V1DownwardAPIVolumeFile
 
   class FieldRefNestedImpl<N>
       extends V1ObjectFieldSelectorFluentImpl<V1DownwardAPIVolumeFileFluent.FieldRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent.FieldRefNested<
-              N>,
-          Nested<N> {
+      implements V1DownwardAPIVolumeFileFluent.FieldRefNested<N>, Nested<N> {
     FieldRefNestedImpl(V1ObjectFieldSelector item) {
       this.builder = new V1ObjectFieldSelectorBuilder(this, item);
     }
 
     FieldRefNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectFieldSelectorBuilder(this);
+      this.builder = new V1ObjectFieldSelectorBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectFieldSelectorBuilder builder;
+    V1ObjectFieldSelectorBuilder builder;
 
     public N and() {
       return (N) V1DownwardAPIVolumeFileFluentImpl.this.withFieldRef(builder.build());
@@ -243,19 +236,16 @@ public class V1DownwardAPIVolumeFileFluentImpl<A extends V1DownwardAPIVolumeFile
   class ResourceFieldRefNestedImpl<N>
       extends V1ResourceFieldSelectorFluentImpl<
           V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent
-                  .ResourceFieldRefNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<N>, Nested<N> {
     ResourceFieldRefNestedImpl(V1ResourceFieldSelector item) {
       this.builder = new V1ResourceFieldSelectorBuilder(this, item);
     }
 
     ResourceFieldRefNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ResourceFieldSelectorBuilder(this);
+      this.builder = new V1ResourceFieldSelectorBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ResourceFieldSelectorBuilder builder;
+    V1ResourceFieldSelectorBuilder builder;
 
     public N and() {
       return (N) V1DownwardAPIVolumeFileFluentImpl.this.withResourceFieldRef(builder.build());

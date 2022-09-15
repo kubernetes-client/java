@@ -18,8 +18,7 @@ public class V1CertificateSigningRequestConditionBuilder
     extends V1CertificateSigningRequestConditionFluentImpl<
         V1CertificateSigningRequestConditionBuilder>
     implements VisitableBuilder<
-        V1CertificateSigningRequestCondition,
-        io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder> {
+        V1CertificateSigningRequestCondition, V1CertificateSigningRequestConditionBuilder> {
   public V1CertificateSigningRequestConditionBuilder() {
     this(false);
   }
@@ -29,26 +28,25 @@ public class V1CertificateSigningRequestConditionBuilder
   }
 
   public V1CertificateSigningRequestConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionFluent<?> fluent) {
+      V1CertificateSigningRequestConditionFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1CertificateSigningRequestConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CertificateSigningRequestConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CertificateSigningRequestCondition(), validationEnabled);
   }
 
   public V1CertificateSigningRequestConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition instance) {
+      V1CertificateSigningRequestConditionFluent<?> fluent,
+      V1CertificateSigningRequestCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1CertificateSigningRequestConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1CertificateSigningRequestConditionFluent<?> fluent,
+      V1CertificateSigningRequestCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -66,13 +64,12 @@ public class V1CertificateSigningRequestConditionBuilder
   }
 
   public V1CertificateSigningRequestConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition instance) {
+      V1CertificateSigningRequestCondition instance) {
     this(instance, false);
   }
 
   public V1CertificateSigningRequestConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1CertificateSigningRequestCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -89,10 +86,10 @@ public class V1CertificateSigningRequestConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CertificateSigningRequestConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition build() {
+  public V1CertificateSigningRequestCondition build() {
     V1CertificateSigningRequestCondition buildable = new V1CertificateSigningRequestCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setLastUpdateTime(fluent.getLastUpdateTime());

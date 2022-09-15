@@ -19,15 +19,15 @@ import io.kubernetes.client.fluent.Nested;
 public interface V1CronJobSpecFluent<A extends V1CronJobSpecFluent<A>> extends Fluent<A> {
   public String getConcurrencyPolicy();
 
-  public A withConcurrencyPolicy(java.lang.String concurrencyPolicy);
+  public A withConcurrencyPolicy(String concurrencyPolicy);
 
   public Boolean hasConcurrencyPolicy();
 
   public Integer getFailedJobsHistoryLimit();
 
-  public A withFailedJobsHistoryLimit(java.lang.Integer failedJobsHistoryLimit);
+  public A withFailedJobsHistoryLimit(Integer failedJobsHistoryLimit);
 
-  public java.lang.Boolean hasFailedJobsHistoryLimit();
+  public Boolean hasFailedJobsHistoryLimit();
 
   /**
    * This method has been deprecated, please use method buildJobTemplate instead.
@@ -37,55 +37,51 @@ public interface V1CronJobSpecFluent<A extends V1CronJobSpecFluent<A>> extends F
   @Deprecated
   public V1JobTemplateSpec getJobTemplate();
 
-  public io.kubernetes.client.openapi.models.V1JobTemplateSpec buildJobTemplate();
+  public V1JobTemplateSpec buildJobTemplate();
 
-  public A withJobTemplate(io.kubernetes.client.openapi.models.V1JobTemplateSpec jobTemplate);
+  public A withJobTemplate(V1JobTemplateSpec jobTemplate);
 
-  public java.lang.Boolean hasJobTemplate();
+  public Boolean hasJobTemplate();
 
   public V1CronJobSpecFluent.JobTemplateNested<A> withNewJobTemplate();
 
-  public io.kubernetes.client.openapi.models.V1CronJobSpecFluent.JobTemplateNested<A>
-      withNewJobTemplateLike(io.kubernetes.client.openapi.models.V1JobTemplateSpec item);
+  public V1CronJobSpecFluent.JobTemplateNested<A> withNewJobTemplateLike(V1JobTemplateSpec item);
 
-  public io.kubernetes.client.openapi.models.V1CronJobSpecFluent.JobTemplateNested<A>
-      editJobTemplate();
+  public V1CronJobSpecFluent.JobTemplateNested<A> editJobTemplate();
 
-  public io.kubernetes.client.openapi.models.V1CronJobSpecFluent.JobTemplateNested<A>
-      editOrNewJobTemplate();
+  public V1CronJobSpecFluent.JobTemplateNested<A> editOrNewJobTemplate();
 
-  public io.kubernetes.client.openapi.models.V1CronJobSpecFluent.JobTemplateNested<A>
-      editOrNewJobTemplateLike(io.kubernetes.client.openapi.models.V1JobTemplateSpec item);
+  public V1CronJobSpecFluent.JobTemplateNested<A> editOrNewJobTemplateLike(V1JobTemplateSpec item);
 
-  public java.lang.String getSchedule();
+  public String getSchedule();
 
-  public A withSchedule(java.lang.String schedule);
+  public A withSchedule(String schedule);
 
-  public java.lang.Boolean hasSchedule();
+  public Boolean hasSchedule();
 
   public Long getStartingDeadlineSeconds();
 
-  public A withStartingDeadlineSeconds(java.lang.Long startingDeadlineSeconds);
+  public A withStartingDeadlineSeconds(Long startingDeadlineSeconds);
 
-  public java.lang.Boolean hasStartingDeadlineSeconds();
+  public Boolean hasStartingDeadlineSeconds();
 
-  public java.lang.Integer getSuccessfulJobsHistoryLimit();
+  public Integer getSuccessfulJobsHistoryLimit();
 
-  public A withSuccessfulJobsHistoryLimit(java.lang.Integer successfulJobsHistoryLimit);
+  public A withSuccessfulJobsHistoryLimit(Integer successfulJobsHistoryLimit);
 
-  public java.lang.Boolean hasSuccessfulJobsHistoryLimit();
+  public Boolean hasSuccessfulJobsHistoryLimit();
 
-  public java.lang.Boolean getSuspend();
+  public Boolean getSuspend();
 
-  public A withSuspend(java.lang.Boolean suspend);
+  public A withSuspend(Boolean suspend);
 
-  public java.lang.Boolean hasSuspend();
+  public Boolean hasSuspend();
 
-  public java.lang.String getTimeZone();
+  public String getTimeZone();
 
-  public A withTimeZone(java.lang.String timeZone);
+  public A withTimeZone(String timeZone);
 
-  public java.lang.Boolean hasTimeZone();
+  public Boolean hasTimeZone();
 
   public A withSuspend();
 

@@ -21,8 +21,7 @@ public class V1GCEPersistentDiskVolumeSourceFluentImpl<
     extends BaseFluent<A> implements V1GCEPersistentDiskVolumeSourceFluent<A> {
   public V1GCEPersistentDiskVolumeSourceFluentImpl() {}
 
-  public V1GCEPersistentDiskVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource instance) {
+  public V1GCEPersistentDiskVolumeSourceFluentImpl(V1GCEPersistentDiskVolumeSource instance) {
     this.withFsType(instance.getFsType());
 
     this.withPartition(instance.getPartition());
@@ -34,58 +33,58 @@ public class V1GCEPersistentDiskVolumeSourceFluentImpl<
 
   private String fsType;
   private Integer partition;
-  private java.lang.String pdName;
+  private String pdName;
   private Boolean readOnly;
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsType() {
+  public Boolean hasFsType() {
     return this.fsType != null;
   }
 
-  public java.lang.Integer getPartition() {
+  public Integer getPartition() {
     return this.partition;
   }
 
-  public A withPartition(java.lang.Integer partition) {
+  public A withPartition(Integer partition) {
     this.partition = partition;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPartition() {
+  public Boolean hasPartition() {
     return this.partition != null;
   }
 
-  public java.lang.String getPdName() {
+  public String getPdName() {
     return this.pdName;
   }
 
-  public A withPdName(java.lang.String pdName) {
+  public A withPdName(String pdName) {
     this.pdName = pdName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPdName() {
+  public Boolean hasPdName() {
     return this.pdName != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
@@ -105,7 +104,7 @@ public class V1GCEPersistentDiskVolumeSourceFluentImpl<
     return java.util.Objects.hash(fsType, partition, pdName, readOnly, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fsType != null) {

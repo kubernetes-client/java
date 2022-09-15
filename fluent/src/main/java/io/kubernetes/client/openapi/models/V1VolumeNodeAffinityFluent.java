@@ -27,25 +27,21 @@ public interface V1VolumeNodeAffinityFluent<A extends V1VolumeNodeAffinityFluent
   @Deprecated
   public V1NodeSelector getRequired();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelector buildRequired();
+  public V1NodeSelector buildRequired();
 
-  public A withRequired(io.kubernetes.client.openapi.models.V1NodeSelector required);
+  public A withRequired(V1NodeSelector required);
 
   public Boolean hasRequired();
 
   public V1VolumeNodeAffinityFluent.RequiredNested<A> withNewRequired();
 
-  public io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<A>
-      withNewRequiredLike(io.kubernetes.client.openapi.models.V1NodeSelector item);
+  public V1VolumeNodeAffinityFluent.RequiredNested<A> withNewRequiredLike(V1NodeSelector item);
 
-  public io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<A>
-      editRequired();
+  public V1VolumeNodeAffinityFluent.RequiredNested<A> editRequired();
 
-  public io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<A>
-      editOrNewRequired();
+  public V1VolumeNodeAffinityFluent.RequiredNested<A> editOrNewRequired();
 
-  public io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent.RequiredNested<A>
-      editOrNewRequiredLike(io.kubernetes.client.openapi.models.V1NodeSelector item);
+  public V1VolumeNodeAffinityFluent.RequiredNested<A> editOrNewRequiredLike(V1NodeSelector item);
 
   public interface RequiredNested<N>
       extends Nested<N>, V1NodeSelectorFluent<V1VolumeNodeAffinityFluent.RequiredNested<N>> {

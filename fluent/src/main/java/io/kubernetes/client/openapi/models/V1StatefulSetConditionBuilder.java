@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1StatefulSetConditionBuilder
     extends V1StatefulSetConditionFluentImpl<V1StatefulSetConditionBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1StatefulSetCondition,
-        io.kubernetes.client.openapi.models.V1StatefulSetConditionBuilder> {
+    implements VisitableBuilder<V1StatefulSetCondition, V1StatefulSetConditionBuilder> {
   public V1StatefulSetConditionBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1StatefulSetConditionBuilder
   }
 
   public V1StatefulSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1StatefulSetConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1StatefulSetCondition(), validationEnabled);
   }
 
   public V1StatefulSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StatefulSetCondition instance) {
+      V1StatefulSetConditionFluent<?> fluent, V1StatefulSetCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1StatefulSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StatefulSetCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1StatefulSetConditionFluent<?> fluent,
+      V1StatefulSetCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -61,14 +57,11 @@ public class V1StatefulSetConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1StatefulSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetCondition instance) {
+  public V1StatefulSetConditionBuilder(V1StatefulSetCondition instance) {
     this(instance, false);
   }
 
-  public V1StatefulSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetCondition instance,
-      java.lang.Boolean validationEnabled) {
+  public V1StatefulSetConditionBuilder(V1StatefulSetCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -83,10 +76,10 @@ public class V1StatefulSetConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1StatefulSetConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1StatefulSetConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetCondition build() {
+  public V1StatefulSetCondition build() {
     V1StatefulSetCondition buildable = new V1StatefulSetCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setMessage(fluent.getMessage());

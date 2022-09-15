@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PodConditionBuilder extends V1PodConditionFluentImpl<V1PodConditionBuilder>
-    implements VisitableBuilder<
-        V1PodCondition, io.kubernetes.client.openapi.models.V1PodConditionBuilder> {
+    implements VisitableBuilder<V1PodCondition, V1PodConditionBuilder> {
   public V1PodConditionBuilder() {
     this(false);
   }
@@ -25,26 +24,20 @@ public class V1PodConditionBuilder extends V1PodConditionFluentImpl<V1PodConditi
     this(new V1PodCondition(), validationEnabled);
   }
 
-  public V1PodConditionBuilder(io.kubernetes.client.openapi.models.V1PodConditionFluent<?> fluent) {
+  public V1PodConditionBuilder(V1PodConditionFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1PodConditionBuilder(
-      io.kubernetes.client.openapi.models.V1PodConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1PodConditionBuilder(V1PodConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PodCondition(), validationEnabled);
   }
 
-  public V1PodConditionBuilder(
-      io.kubernetes.client.openapi.models.V1PodConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodCondition instance) {
+  public V1PodConditionBuilder(V1PodConditionFluent<?> fluent, V1PodCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1PodConditionBuilder(
-      io.kubernetes.client.openapi.models.V1PodConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodConditionFluent<?> fluent, V1PodCondition instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastProbeTime(instance.getLastProbeTime());
 
@@ -61,13 +54,11 @@ public class V1PodConditionBuilder extends V1PodConditionFluentImpl<V1PodConditi
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PodConditionBuilder(io.kubernetes.client.openapi.models.V1PodCondition instance) {
+  public V1PodConditionBuilder(V1PodCondition instance) {
     this(instance, false);
   }
 
-  public V1PodConditionBuilder(
-      io.kubernetes.client.openapi.models.V1PodCondition instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PodConditionBuilder(V1PodCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastProbeTime(instance.getLastProbeTime());
 
@@ -84,10 +75,10 @@ public class V1PodConditionBuilder extends V1PodConditionFluentImpl<V1PodConditi
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PodConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PodConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PodCondition build() {
+  public V1PodCondition build() {
     V1PodCondition buildable = new V1PodCondition();
     buildable.setLastProbeTime(fluent.getLastProbeTime());
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());

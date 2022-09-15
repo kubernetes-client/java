@@ -21,7 +21,7 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
     implements V1JobSpecFluent<A> {
   public V1JobSpecFluentImpl() {}
 
-  public V1JobSpecFluentImpl(io.kubernetes.client.openapi.models.V1JobSpec instance) {
+  public V1JobSpecFluentImpl(V1JobSpec instance) {
     this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
 
     this.withBackoffLimit(instance.getBackoffLimit());
@@ -33,6 +33,8 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
     this.withManualSelector(instance.getManualSelector());
 
     this.withParallelism(instance.getParallelism());
+
+    this.withPodFailurePolicy(instance.getPodFailurePolicy());
 
     this.withSelector(instance.getSelector());
 
@@ -46,90 +48,147 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
   private Long activeDeadlineSeconds;
   private Integer backoffLimit;
   private String completionMode;
-  private java.lang.Integer completions;
+  private Integer completions;
   private Boolean manualSelector;
-  private java.lang.Integer parallelism;
+  private Integer parallelism;
+  private V1PodFailurePolicyBuilder podFailurePolicy;
   private V1LabelSelectorBuilder selector;
-  private java.lang.Boolean suspend;
+  private Boolean suspend;
   private V1PodTemplateSpecBuilder template;
-  private java.lang.Integer ttlSecondsAfterFinished;
+  private Integer ttlSecondsAfterFinished;
 
-  public java.lang.Long getActiveDeadlineSeconds() {
+  public Long getActiveDeadlineSeconds() {
     return this.activeDeadlineSeconds;
   }
 
-  public A withActiveDeadlineSeconds(java.lang.Long activeDeadlineSeconds) {
+  public A withActiveDeadlineSeconds(Long activeDeadlineSeconds) {
     this.activeDeadlineSeconds = activeDeadlineSeconds;
     return (A) this;
   }
 
-  public java.lang.Boolean hasActiveDeadlineSeconds() {
+  public Boolean hasActiveDeadlineSeconds() {
     return this.activeDeadlineSeconds != null;
   }
 
-  public java.lang.Integer getBackoffLimit() {
+  public Integer getBackoffLimit() {
     return this.backoffLimit;
   }
 
-  public A withBackoffLimit(java.lang.Integer backoffLimit) {
+  public A withBackoffLimit(Integer backoffLimit) {
     this.backoffLimit = backoffLimit;
     return (A) this;
   }
 
-  public java.lang.Boolean hasBackoffLimit() {
+  public Boolean hasBackoffLimit() {
     return this.backoffLimit != null;
   }
 
-  public java.lang.String getCompletionMode() {
+  public String getCompletionMode() {
     return this.completionMode;
   }
 
-  public A withCompletionMode(java.lang.String completionMode) {
+  public A withCompletionMode(String completionMode) {
     this.completionMode = completionMode;
     return (A) this;
   }
 
-  public java.lang.Boolean hasCompletionMode() {
+  public Boolean hasCompletionMode() {
     return this.completionMode != null;
   }
 
-  public java.lang.Integer getCompletions() {
+  public Integer getCompletions() {
     return this.completions;
   }
 
-  public A withCompletions(java.lang.Integer completions) {
+  public A withCompletions(Integer completions) {
     this.completions = completions;
     return (A) this;
   }
 
-  public java.lang.Boolean hasCompletions() {
+  public Boolean hasCompletions() {
     return this.completions != null;
   }
 
-  public java.lang.Boolean getManualSelector() {
+  public Boolean getManualSelector() {
     return this.manualSelector;
   }
 
-  public A withManualSelector(java.lang.Boolean manualSelector) {
+  public A withManualSelector(Boolean manualSelector) {
     this.manualSelector = manualSelector;
     return (A) this;
   }
 
-  public java.lang.Boolean hasManualSelector() {
+  public Boolean hasManualSelector() {
     return this.manualSelector != null;
   }
 
-  public java.lang.Integer getParallelism() {
+  public Integer getParallelism() {
     return this.parallelism;
   }
 
-  public A withParallelism(java.lang.Integer parallelism) {
+  public A withParallelism(Integer parallelism) {
     this.parallelism = parallelism;
     return (A) this;
   }
 
-  public java.lang.Boolean hasParallelism() {
+  public Boolean hasParallelism() {
     return this.parallelism != null;
+  }
+
+  /**
+   * This method has been deprecated, please use method buildPodFailurePolicy instead.
+   *
+   * @return The buildable object.
+   */
+  @Deprecated
+  public V1PodFailurePolicy getPodFailurePolicy() {
+    return this.podFailurePolicy != null ? this.podFailurePolicy.build() : null;
+  }
+
+  public V1PodFailurePolicy buildPodFailurePolicy() {
+    return this.podFailurePolicy != null ? this.podFailurePolicy.build() : null;
+  }
+
+  public A withPodFailurePolicy(V1PodFailurePolicy podFailurePolicy) {
+    _visitables.get("podFailurePolicy").remove(this.podFailurePolicy);
+    if (podFailurePolicy != null) {
+      this.podFailurePolicy = new V1PodFailurePolicyBuilder(podFailurePolicy);
+      _visitables.get("podFailurePolicy").add(this.podFailurePolicy);
+    } else {
+      this.podFailurePolicy = null;
+      _visitables.get("podFailurePolicy").remove(this.podFailurePolicy);
+    }
+    return (A) this;
+  }
+
+  public Boolean hasPodFailurePolicy() {
+    return this.podFailurePolicy != null;
+  }
+
+  public V1JobSpecFluent.PodFailurePolicyNested<A> withNewPodFailurePolicy() {
+    return new V1JobSpecFluentImpl.PodFailurePolicyNestedImpl();
+  }
+
+  public V1JobSpecFluent.PodFailurePolicyNested<A> withNewPodFailurePolicyLike(
+      V1PodFailurePolicy item) {
+    return new V1JobSpecFluentImpl.PodFailurePolicyNestedImpl(item);
+  }
+
+  public V1JobSpecFluent.PodFailurePolicyNested<A> editPodFailurePolicy() {
+    return withNewPodFailurePolicyLike(getPodFailurePolicy());
+  }
+
+  public V1JobSpecFluent.PodFailurePolicyNested<A> editOrNewPodFailurePolicy() {
+    return withNewPodFailurePolicyLike(
+        getPodFailurePolicy() != null
+            ? getPodFailurePolicy()
+            : new V1PodFailurePolicyBuilder().build());
+  }
+
+  public V1JobSpecFluent.PodFailurePolicyNested<A> editOrNewPodFailurePolicyLike(
+      V1PodFailurePolicy item) {
+    return withNewPodFailurePolicyLike(
+        getPodFailurePolicy() != null ? getPodFailurePolicy() : item);
   }
 
   /**
@@ -138,24 +197,27 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
+  public V1LabelSelector getSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector() {
+  public V1LabelSelector buildSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
 
-  public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
+  public A withSelector(V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
     if (selector != null) {
       this.selector = new V1LabelSelectorBuilder(selector);
       _visitables.get("selector").add(this.selector);
+    } else {
+      this.selector = null;
+      _visitables.get("selector").remove(this.selector);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSelector() {
+  public Boolean hasSelector() {
     return this.selector != null;
   }
 
@@ -163,37 +225,33 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
     return new V1JobSpecFluentImpl.SelectorNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<A> withNewSelectorLike(
-      io.kubernetes.client.openapi.models.V1LabelSelector item) {
+  public V1JobSpecFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
     return new V1JobSpecFluentImpl.SelectorNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<A> editSelector() {
+  public V1JobSpecFluent.SelectorNested<A> editSelector() {
     return withNewSelectorLike(getSelector());
   }
 
-  public io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<A> editOrNewSelector() {
+  public V1JobSpecFluent.SelectorNested<A> editOrNewSelector() {
     return withNewSelectorLike(
-        getSelector() != null
-            ? getSelector()
-            : new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder().build());
+        getSelector() != null ? getSelector() : new V1LabelSelectorBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<A>
-      editOrNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
+  public V1JobSpecFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
     return withNewSelectorLike(getSelector() != null ? getSelector() : item);
   }
 
-  public java.lang.Boolean getSuspend() {
+  public Boolean getSuspend() {
     return this.suspend;
   }
 
-  public A withSuspend(java.lang.Boolean suspend) {
+  public A withSuspend(Boolean suspend) {
     this.suspend = suspend;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSuspend() {
+  public Boolean hasSuspend() {
     return this.suspend != null;
   }
 
@@ -202,25 +260,28 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1PodTemplateSpec getTemplate() {
     return this.template != null ? this.template.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate() {
+  public V1PodTemplateSpec buildTemplate() {
     return this.template != null ? this.template.build() : null;
   }
 
-  public A withTemplate(io.kubernetes.client.openapi.models.V1PodTemplateSpec template) {
+  public A withTemplate(V1PodTemplateSpec template) {
     _visitables.get("template").remove(this.template);
     if (template != null) {
-      this.template = new io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder(template);
+      this.template = new V1PodTemplateSpecBuilder(template);
       _visitables.get("template").add(this.template);
+    } else {
+      this.template = null;
+      _visitables.get("template").remove(this.template);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasTemplate() {
+  public Boolean hasTemplate() {
     return this.template != null;
   }
 
@@ -228,37 +289,33 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
     return new V1JobSpecFluentImpl.TemplateNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1JobSpecFluent.TemplateNested<A> withNewTemplateLike(
-      io.kubernetes.client.openapi.models.V1PodTemplateSpec item) {
-    return new io.kubernetes.client.openapi.models.V1JobSpecFluentImpl.TemplateNestedImpl(item);
+  public V1JobSpecFluent.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
+    return new V1JobSpecFluentImpl.TemplateNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1JobSpecFluent.TemplateNested<A> editTemplate() {
+  public V1JobSpecFluent.TemplateNested<A> editTemplate() {
     return withNewTemplateLike(getTemplate());
   }
 
-  public io.kubernetes.client.openapi.models.V1JobSpecFluent.TemplateNested<A> editOrNewTemplate() {
+  public V1JobSpecFluent.TemplateNested<A> editOrNewTemplate() {
     return withNewTemplateLike(
-        getTemplate() != null
-            ? getTemplate()
-            : new io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder().build());
+        getTemplate() != null ? getTemplate() : new V1PodTemplateSpecBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1JobSpecFluent.TemplateNested<A>
-      editOrNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item) {
+  public V1JobSpecFluent.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
     return withNewTemplateLike(getTemplate() != null ? getTemplate() : item);
   }
 
-  public java.lang.Integer getTtlSecondsAfterFinished() {
+  public Integer getTtlSecondsAfterFinished() {
     return this.ttlSecondsAfterFinished;
   }
 
-  public A withTtlSecondsAfterFinished(java.lang.Integer ttlSecondsAfterFinished) {
+  public A withTtlSecondsAfterFinished(Integer ttlSecondsAfterFinished) {
     this.ttlSecondsAfterFinished = ttlSecondsAfterFinished;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTtlSecondsAfterFinished() {
+  public Boolean hasTtlSecondsAfterFinished() {
     return this.ttlSecondsAfterFinished != null;
   }
 
@@ -281,6 +338,9 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
         : that.manualSelector != null) return false;
     if (parallelism != null ? !parallelism.equals(that.parallelism) : that.parallelism != null)
       return false;
+    if (podFailurePolicy != null
+        ? !podFailurePolicy.equals(that.podFailurePolicy)
+        : that.podFailurePolicy != null) return false;
     if (selector != null ? !selector.equals(that.selector) : that.selector != null) return false;
     if (suspend != null ? !suspend.equals(that.suspend) : that.suspend != null) return false;
     if (template != null ? !template.equals(that.template) : that.template != null) return false;
@@ -298,6 +358,7 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
         completions,
         manualSelector,
         parallelism,
+        podFailurePolicy,
         selector,
         suspend,
         template,
@@ -305,7 +366,7 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (activeDeadlineSeconds != null) {
@@ -331,6 +392,10 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
     if (parallelism != null) {
       sb.append("parallelism:");
       sb.append(parallelism + ",");
+    }
+    if (podFailurePolicy != null) {
+      sb.append("podFailurePolicy:");
+      sb.append(podFailurePolicy + ",");
     }
     if (selector != null) {
       sb.append("selector:");
@@ -360,17 +425,39 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
     return withSuspend(true);
   }
 
+  class PodFailurePolicyNestedImpl<N>
+      extends V1PodFailurePolicyFluentImpl<V1JobSpecFluent.PodFailurePolicyNested<N>>
+      implements V1JobSpecFluent.PodFailurePolicyNested<N>, Nested<N> {
+    PodFailurePolicyNestedImpl(V1PodFailurePolicy item) {
+      this.builder = new V1PodFailurePolicyBuilder(this, item);
+    }
+
+    PodFailurePolicyNestedImpl() {
+      this.builder = new V1PodFailurePolicyBuilder(this);
+    }
+
+    V1PodFailurePolicyBuilder builder;
+
+    public N and() {
+      return (N) V1JobSpecFluentImpl.this.withPodFailurePolicy(builder.build());
+    }
+
+    public N endPodFailurePolicy() {
+      return and();
+    }
+  }
+
   class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1JobSpecFluent.SelectorNested<N>>
-      implements io.kubernetes.client.openapi.models.V1JobSpecFluent.SelectorNested<N>, Nested<N> {
+      implements V1JobSpecFluent.SelectorNested<N>, Nested<N> {
     SelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     SelectorNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this);
+      this.builder = new V1LabelSelectorBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LabelSelectorBuilder builder;
+    V1LabelSelectorBuilder builder;
 
     public N and() {
       return (N) V1JobSpecFluentImpl.this.withSelector(builder.build());
@@ -382,17 +469,16 @@ public class V1JobSpecFluentImpl<A extends V1JobSpecFluent<A>> extends BaseFluen
   }
 
   class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1JobSpecFluent.TemplateNested<N>>
-      implements io.kubernetes.client.openapi.models.V1JobSpecFluent.TemplateNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1JobSpecFluent.TemplateNested<N>, Nested<N> {
     TemplateNestedImpl(V1PodTemplateSpec item) {
       this.builder = new V1PodTemplateSpecBuilder(this, item);
     }
 
     TemplateNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder(this);
+      this.builder = new V1PodTemplateSpecBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder builder;
+    V1PodTemplateSpecBuilder builder;
 
     public N and() {
       return (N) V1JobSpecFluentImpl.this.withTemplate(builder.build());

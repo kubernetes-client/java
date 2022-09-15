@@ -20,21 +20,20 @@ public class V1ContainerStateWaitingFluentImpl<A extends V1ContainerStateWaiting
     extends BaseFluent<A> implements V1ContainerStateWaitingFluent<A> {
   public V1ContainerStateWaitingFluentImpl() {}
 
-  public V1ContainerStateWaitingFluentImpl(
-      io.kubernetes.client.openapi.models.V1ContainerStateWaiting instance) {
+  public V1ContainerStateWaitingFluentImpl(V1ContainerStateWaiting instance) {
     this.withMessage(instance.getMessage());
 
     this.withReason(instance.getReason());
   }
 
   private String message;
-  private java.lang.String reason;
+  private String reason;
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1ContainerStateWaitingFluentImpl<A extends V1ContainerStateWaiting
     return this.message != null;
   }
 
-  public java.lang.String getReason() {
+  public String getReason() {
     return this.reason;
   }
 
-  public A withReason(java.lang.String reason) {
+  public A withReason(String reason) {
     this.reason = reason;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReason() {
+  public Boolean hasReason() {
     return this.reason != null;
   }
 
@@ -69,7 +68,7 @@ public class V1ContainerStateWaitingFluentImpl<A extends V1ContainerStateWaiting
     return java.util.Objects.hash(message, reason, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (message != null) {

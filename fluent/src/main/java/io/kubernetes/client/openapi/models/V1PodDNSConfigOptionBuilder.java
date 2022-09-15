@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PodDNSConfigOptionBuilder
     extends V1PodDNSConfigOptionFluentImpl<V1PodDNSConfigOptionBuilder>
-    implements VisitableBuilder<
-        V1PodDNSConfigOption, io.kubernetes.client.openapi.models.V1PodDNSConfigOptionBuilder> {
+    implements VisitableBuilder<V1PodDNSConfigOption, V1PodDNSConfigOptionBuilder> {
   public V1PodDNSConfigOptionBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1PodDNSConfigOptionBuilder
   }
 
   public V1PodDNSConfigOptionBuilder(
-      io.kubernetes.client.openapi.models.V1PodDNSConfigOptionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1PodDNSConfigOptionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PodDNSConfigOption(), validationEnabled);
   }
 
   public V1PodDNSConfigOptionBuilder(
-      io.kubernetes.client.openapi.models.V1PodDNSConfigOptionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodDNSConfigOption instance) {
+      V1PodDNSConfigOptionFluent<?> fluent, V1PodDNSConfigOption instance) {
     this(fluent, instance, false);
   }
 
   public V1PodDNSConfigOptionBuilder(
-      io.kubernetes.client.openapi.models.V1PodDNSConfigOptionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodDNSConfigOption instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodDNSConfigOptionFluent<?> fluent,
+      V1PodDNSConfigOption instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
@@ -54,14 +51,11 @@ public class V1PodDNSConfigOptionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PodDNSConfigOptionBuilder(
-      io.kubernetes.client.openapi.models.V1PodDNSConfigOption instance) {
+  public V1PodDNSConfigOptionBuilder(V1PodDNSConfigOption instance) {
     this(instance, false);
   }
 
-  public V1PodDNSConfigOptionBuilder(
-      io.kubernetes.client.openapi.models.V1PodDNSConfigOption instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PodDNSConfigOptionBuilder(V1PodDNSConfigOption instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
@@ -70,10 +64,10 @@ public class V1PodDNSConfigOptionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PodDNSConfigOptionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PodDNSConfigOptionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigOption build() {
+  public V1PodDNSConfigOption build() {
     V1PodDNSConfigOption buildable = new V1PodDNSConfigOption();
     buildable.setName(fluent.getName());
     buildable.setValue(fluent.getValue());

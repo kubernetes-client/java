@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SubjectBuilder extends V1SubjectFluentImpl<V1SubjectBuilder>
-    implements VisitableBuilder<io.kubernetes.client.openapi.models.V1Subject, V1SubjectBuilder> {
+    implements VisitableBuilder<V1Subject, V1SubjectBuilder> {
   public V1SubjectBuilder() {
     this(false);
   }
@@ -24,26 +24,20 @@ public class V1SubjectBuilder extends V1SubjectFluentImpl<V1SubjectBuilder>
     this(new V1Subject(), validationEnabled);
   }
 
-  public V1SubjectBuilder(io.kubernetes.client.openapi.models.V1SubjectFluent<?> fluent) {
+  public V1SubjectBuilder(V1SubjectFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1SubjectBuilder(
-      io.kubernetes.client.openapi.models.V1SubjectFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1SubjectBuilder(V1SubjectFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Subject(), validationEnabled);
   }
 
-  public V1SubjectBuilder(
-      io.kubernetes.client.openapi.models.V1SubjectFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Subject instance) {
+  public V1SubjectBuilder(V1SubjectFluent<?> fluent, V1Subject instance) {
     this(fluent, instance, false);
   }
 
   public V1SubjectBuilder(
-      io.kubernetes.client.openapi.models.V1SubjectFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Subject instance,
-      java.lang.Boolean validationEnabled) {
+      V1SubjectFluent<?> fluent, V1Subject instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiGroup(instance.getApiGroup());
 
@@ -56,12 +50,11 @@ public class V1SubjectBuilder extends V1SubjectFluentImpl<V1SubjectBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SubjectBuilder(io.kubernetes.client.openapi.models.V1Subject instance) {
+  public V1SubjectBuilder(V1Subject instance) {
     this(instance, false);
   }
 
-  public V1SubjectBuilder(
-      io.kubernetes.client.openapi.models.V1Subject instance, java.lang.Boolean validationEnabled) {
+  public V1SubjectBuilder(V1Subject instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiGroup(instance.getApiGroup());
 
@@ -74,10 +67,10 @@ public class V1SubjectBuilder extends V1SubjectFluentImpl<V1SubjectBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SubjectFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SubjectFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Subject build() {
+  public V1Subject build() {
     V1Subject buildable = new V1Subject();
     buildable.setApiGroup(fluent.getApiGroup());
     buildable.setKind(fluent.getKind());

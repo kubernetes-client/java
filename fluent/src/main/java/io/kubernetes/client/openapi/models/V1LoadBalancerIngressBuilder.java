@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LoadBalancerIngressBuilder
     extends V1LoadBalancerIngressFluentImpl<V1LoadBalancerIngressBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1LoadBalancerIngress, V1LoadBalancerIngressBuilder> {
+    implements VisitableBuilder<V1LoadBalancerIngress, V1LoadBalancerIngressBuilder> {
   public V1LoadBalancerIngressBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1LoadBalancerIngressBuilder
   }
 
   public V1LoadBalancerIngressBuilder(
-      io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1LoadBalancerIngressFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1LoadBalancerIngress(), validationEnabled);
   }
 
   public V1LoadBalancerIngressBuilder(
-      io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LoadBalancerIngress instance) {
+      V1LoadBalancerIngressFluent<?> fluent, V1LoadBalancerIngress instance) {
     this(fluent, instance, false);
   }
 
   public V1LoadBalancerIngressBuilder(
-      io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LoadBalancerIngress instance,
-      java.lang.Boolean validationEnabled) {
+      V1LoadBalancerIngressFluent<?> fluent,
+      V1LoadBalancerIngress instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withHostname(instance.getHostname());
 
@@ -56,14 +53,11 @@ public class V1LoadBalancerIngressBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LoadBalancerIngressBuilder(
-      io.kubernetes.client.openapi.models.V1LoadBalancerIngress instance) {
+  public V1LoadBalancerIngressBuilder(V1LoadBalancerIngress instance) {
     this(instance, false);
   }
 
-  public V1LoadBalancerIngressBuilder(
-      io.kubernetes.client.openapi.models.V1LoadBalancerIngress instance,
-      java.lang.Boolean validationEnabled) {
+  public V1LoadBalancerIngressBuilder(V1LoadBalancerIngress instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withHostname(instance.getHostname());
 
@@ -74,10 +68,10 @@ public class V1LoadBalancerIngressBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LoadBalancerIngressFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerIngress build() {
+  public V1LoadBalancerIngress build() {
     V1LoadBalancerIngress buildable = new V1LoadBalancerIngress();
     buildable.setHostname(fluent.getHostname());
     buildable.setIp(fluent.getIp());

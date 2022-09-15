@@ -20,8 +20,7 @@ public class V1ConfigMapEnvSourceFluentImpl<A extends V1ConfigMapEnvSourceFluent
     extends BaseFluent<A> implements V1ConfigMapEnvSourceFluent<A> {
   public V1ConfigMapEnvSourceFluentImpl() {}
 
-  public V1ConfigMapEnvSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1ConfigMapEnvSource instance) {
+  public V1ConfigMapEnvSourceFluentImpl(V1ConfigMapEnvSource instance) {
     this.withName(instance.getName());
 
     this.withOptional(instance.getOptional());
@@ -30,29 +29,29 @@ public class V1ConfigMapEnvSourceFluentImpl<A extends V1ConfigMapEnvSourceFluent
   private String name;
   private Boolean optional;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.Boolean getOptional() {
+  public Boolean getOptional() {
     return this.optional;
   }
 
-  public A withOptional(java.lang.Boolean optional) {
+  public A withOptional(Boolean optional) {
     this.optional = optional;
     return (A) this;
   }
 
-  public java.lang.Boolean hasOptional() {
+  public Boolean hasOptional() {
     return this.optional != null;
   }
 
@@ -69,7 +68,7 @@ public class V1ConfigMapEnvSourceFluentImpl<A extends V1ConfigMapEnvSourceFluent
     return java.util.Objects.hash(name, optional, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {

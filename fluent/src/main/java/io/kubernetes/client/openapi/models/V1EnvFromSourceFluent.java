@@ -26,59 +26,53 @@ public interface V1EnvFromSourceFluent<A extends V1EnvFromSourceFluent<A>> exten
   @Deprecated
   public V1ConfigMapEnvSource getConfigMapRef();
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapEnvSource buildConfigMapRef();
+  public V1ConfigMapEnvSource buildConfigMapRef();
 
-  public A withConfigMapRef(io.kubernetes.client.openapi.models.V1ConfigMapEnvSource configMapRef);
+  public A withConfigMapRef(V1ConfigMapEnvSource configMapRef);
 
   public Boolean hasConfigMapRef();
 
   public V1EnvFromSourceFluent.ConfigMapRefNested<A> withNewConfigMapRef();
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.ConfigMapRefNested<A>
-      withNewConfigMapRefLike(io.kubernetes.client.openapi.models.V1ConfigMapEnvSource item);
+  public V1EnvFromSourceFluent.ConfigMapRefNested<A> withNewConfigMapRefLike(
+      V1ConfigMapEnvSource item);
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.ConfigMapRefNested<A>
-      editConfigMapRef();
+  public V1EnvFromSourceFluent.ConfigMapRefNested<A> editConfigMapRef();
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.ConfigMapRefNested<A>
-      editOrNewConfigMapRef();
+  public V1EnvFromSourceFluent.ConfigMapRefNested<A> editOrNewConfigMapRef();
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.ConfigMapRefNested<A>
-      editOrNewConfigMapRefLike(io.kubernetes.client.openapi.models.V1ConfigMapEnvSource item);
+  public V1EnvFromSourceFluent.ConfigMapRefNested<A> editOrNewConfigMapRefLike(
+      V1ConfigMapEnvSource item);
 
   public String getPrefix();
 
-  public A withPrefix(java.lang.String prefix);
+  public A withPrefix(String prefix);
 
-  public java.lang.Boolean hasPrefix();
+  public Boolean hasPrefix();
 
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1SecretEnvSource getSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1SecretEnvSource buildSecretRef();
+  public V1SecretEnvSource buildSecretRef();
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1SecretEnvSource secretRef);
+  public A withSecretRef(V1SecretEnvSource secretRef);
 
-  public java.lang.Boolean hasSecretRef();
+  public Boolean hasSecretRef();
 
   public V1EnvFromSourceFluent.SecretRefNested<A> withNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretEnvSource item);
+  public V1EnvFromSourceFluent.SecretRefNested<A> withNewSecretRefLike(V1SecretEnvSource item);
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.SecretRefNested<A>
-      editSecretRef();
+  public V1EnvFromSourceFluent.SecretRefNested<A> editSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef();
+  public V1EnvFromSourceFluent.SecretRefNested<A> editOrNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretEnvSource item);
+  public V1EnvFromSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(V1SecretEnvSource item);
 
   public interface ConfigMapRefNested<N>
       extends Nested<N>, V1ConfigMapEnvSourceFluent<V1EnvFromSourceFluent.ConfigMapRefNested<N>> {
@@ -88,8 +82,7 @@ public interface V1EnvFromSourceFluent<A extends V1EnvFromSourceFluent<A>> exten
   }
 
   public interface SecretRefNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1SecretEnvSourceFluent<V1EnvFromSourceFluent.SecretRefNested<N>> {
+      extends Nested<N>, V1SecretEnvSourceFluent<V1EnvFromSourceFluent.SecretRefNested<N>> {
     public N and();
 
     public N endSecretRef();

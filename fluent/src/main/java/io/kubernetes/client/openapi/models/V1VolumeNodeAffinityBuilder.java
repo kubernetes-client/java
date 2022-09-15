@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1VolumeNodeAffinityBuilder
     extends V1VolumeNodeAffinityFluentImpl<V1VolumeNodeAffinityBuilder>
-    implements VisitableBuilder<
-        V1VolumeNodeAffinity, io.kubernetes.client.openapi.models.V1VolumeNodeAffinityBuilder> {
+    implements VisitableBuilder<V1VolumeNodeAffinity, V1VolumeNodeAffinityBuilder> {
   public V1VolumeNodeAffinityBuilder() {
     this(false);
   }
@@ -31,45 +30,40 @@ public class V1VolumeNodeAffinityBuilder
   }
 
   public V1VolumeNodeAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeNodeAffinityFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1VolumeNodeAffinity(), validationEnabled);
   }
 
   public V1VolumeNodeAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeNodeAffinity instance) {
+      V1VolumeNodeAffinityFluent<?> fluent, V1VolumeNodeAffinity instance) {
     this(fluent, instance, false);
   }
 
   public V1VolumeNodeAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeNodeAffinity instance,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeNodeAffinityFluent<?> fluent,
+      V1VolumeNodeAffinity instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withRequired(instance.getRequired());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1VolumeNodeAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeNodeAffinity instance) {
+  public V1VolumeNodeAffinityBuilder(V1VolumeNodeAffinity instance) {
     this(instance, false);
   }
 
-  public V1VolumeNodeAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeNodeAffinity instance,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeNodeAffinityBuilder(V1VolumeNodeAffinity instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withRequired(instance.getRequired());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1VolumeNodeAffinityFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1VolumeNodeAffinityFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1VolumeNodeAffinity build() {
+  public V1VolumeNodeAffinity build() {
     V1VolumeNodeAffinity buildable = new V1VolumeNodeAffinity();
     buildable.setRequired(fluent.getRequired());
     return buildable;

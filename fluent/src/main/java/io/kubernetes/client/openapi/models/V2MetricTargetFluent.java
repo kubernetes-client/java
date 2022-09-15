@@ -19,29 +19,29 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V2MetricTargetFluent<A extends V2MetricTargetFluent<A>> extends Fluent<A> {
   public Integer getAverageUtilization();
 
-  public A withAverageUtilization(java.lang.Integer averageUtilization);
+  public A withAverageUtilization(Integer averageUtilization);
 
   public Boolean hasAverageUtilization();
 
   public Quantity getAverageValue();
 
-  public A withAverageValue(io.kubernetes.client.custom.Quantity averageValue);
+  public A withAverageValue(Quantity averageValue);
 
-  public java.lang.Boolean hasAverageValue();
+  public Boolean hasAverageValue();
 
   public A withNewAverageValue(String value);
 
-  public java.lang.String getType();
+  public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 
-  public io.kubernetes.client.custom.Quantity getValue();
+  public Quantity getValue();
 
-  public A withValue(io.kubernetes.client.custom.Quantity value);
+  public A withValue(Quantity value);
 
-  public java.lang.Boolean hasValue();
+  public Boolean hasValue();
 
-  public A withNewValue(java.lang.String value);
+  public A withNewValue(String value);
 }

@@ -20,7 +20,7 @@ public class V1OwnerReferenceFluentImpl<A extends V1OwnerReferenceFluent<A>> ext
     implements V1OwnerReferenceFluent<A> {
   public V1OwnerReferenceFluentImpl() {}
 
-  public V1OwnerReferenceFluentImpl(io.kubernetes.client.openapi.models.V1OwnerReference instance) {
+  public V1OwnerReferenceFluentImpl(V1OwnerReference instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withBlockOwnerDeletion(instance.getBlockOwnerDeletion());
@@ -36,86 +36,86 @@ public class V1OwnerReferenceFluentImpl<A extends V1OwnerReferenceFluent<A>> ext
 
   private String apiVersion;
   private Boolean blockOwnerDeletion;
-  private java.lang.Boolean controller;
-  private java.lang.String kind;
-  private java.lang.String name;
-  private java.lang.String uid;
+  private Boolean controller;
+  private String kind;
+  private String name;
+  private String uid;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
 
-  public java.lang.Boolean getBlockOwnerDeletion() {
+  public Boolean getBlockOwnerDeletion() {
     return this.blockOwnerDeletion;
   }
 
-  public A withBlockOwnerDeletion(java.lang.Boolean blockOwnerDeletion) {
+  public A withBlockOwnerDeletion(Boolean blockOwnerDeletion) {
     this.blockOwnerDeletion = blockOwnerDeletion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasBlockOwnerDeletion() {
+  public Boolean hasBlockOwnerDeletion() {
     return this.blockOwnerDeletion != null;
   }
 
-  public java.lang.Boolean getController() {
+  public Boolean getController() {
     return this.controller;
   }
 
-  public A withController(java.lang.Boolean controller) {
+  public A withController(Boolean controller) {
     this.controller = controller;
     return (A) this;
   }
 
-  public java.lang.Boolean hasController() {
+  public Boolean hasController() {
     return this.controller != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.String getUid() {
+  public String getUid() {
     return this.uid;
   }
 
-  public A withUid(java.lang.String uid) {
+  public A withUid(String uid) {
     this.uid = uid;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUid() {
+  public Boolean hasUid() {
     return this.uid != null;
   }
 
@@ -141,7 +141,7 @@ public class V1OwnerReferenceFluentImpl<A extends V1OwnerReferenceFluent<A>> ext
         apiVersion, blockOwnerDeletion, controller, kind, name, uid, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {

@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PodAffinityBuilder extends V1PodAffinityFluentImpl<V1PodAffinityBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PodAffinity,
-        io.kubernetes.client.openapi.models.V1PodAffinityBuilder> {
+    implements VisitableBuilder<V1PodAffinity, V1PodAffinityBuilder> {
   public V1PodAffinityBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1PodAffinityBuilder extends V1PodAffinityFluentImpl<V1PodAffinityB
     this(fluent, false);
   }
 
-  public V1PodAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1PodAffinityFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1PodAffinityBuilder(V1PodAffinityFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PodAffinity(), validationEnabled);
   }
 
-  public V1PodAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1PodAffinityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodAffinity instance) {
+  public V1PodAffinityBuilder(V1PodAffinityFluent<?> fluent, V1PodAffinity instance) {
     this(fluent, instance, false);
   }
 
   public V1PodAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1PodAffinityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodAffinity instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodAffinityFluent<?> fluent, V1PodAffinity instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withPreferredDuringSchedulingIgnoredDuringExecution(
         instance.getPreferredDuringSchedulingIgnoredDuringExecution());
@@ -56,13 +48,11 @@ public class V1PodAffinityBuilder extends V1PodAffinityFluentImpl<V1PodAffinityB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PodAffinityBuilder(io.kubernetes.client.openapi.models.V1PodAffinity instance) {
+  public V1PodAffinityBuilder(V1PodAffinity instance) {
     this(instance, false);
   }
 
-  public V1PodAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1PodAffinity instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PodAffinityBuilder(V1PodAffinity instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withPreferredDuringSchedulingIgnoredDuringExecution(
         instance.getPreferredDuringSchedulingIgnoredDuringExecution());
@@ -73,10 +63,10 @@ public class V1PodAffinityBuilder extends V1PodAffinityFluentImpl<V1PodAffinityB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PodAffinityFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PodAffinityFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PodAffinity build() {
+  public V1PodAffinity build() {
     V1PodAffinity buildable = new V1PodAffinity();
     buildable.setPreferredDuringSchedulingIgnoredDuringExecution(
         fluent.getPreferredDuringSchedulingIgnoredDuringExecution());

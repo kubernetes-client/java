@@ -21,8 +21,7 @@ public class V1WeightedPodAffinityTermFluentImpl<A extends V1WeightedPodAffinity
     extends BaseFluent<A> implements V1WeightedPodAffinityTermFluent<A> {
   public V1WeightedPodAffinityTermFluentImpl() {}
 
-  public V1WeightedPodAffinityTermFluentImpl(
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm instance) {
+  public V1WeightedPodAffinityTermFluentImpl(V1WeightedPodAffinityTerm instance) {
     this.withPodAffinityTerm(instance.getPodAffinityTerm());
 
     this.withWeight(instance.getWeight());
@@ -41,17 +40,18 @@ public class V1WeightedPodAffinityTermFluentImpl<A extends V1WeightedPodAffinity
     return this.podAffinityTerm != null ? this.podAffinityTerm.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTerm buildPodAffinityTerm() {
+  public V1PodAffinityTerm buildPodAffinityTerm() {
     return this.podAffinityTerm != null ? this.podAffinityTerm.build() : null;
   }
 
-  public A withPodAffinityTerm(
-      io.kubernetes.client.openapi.models.V1PodAffinityTerm podAffinityTerm) {
+  public A withPodAffinityTerm(V1PodAffinityTerm podAffinityTerm) {
     _visitables.get("podAffinityTerm").remove(this.podAffinityTerm);
     if (podAffinityTerm != null) {
-      this.podAffinityTerm =
-          new io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder(podAffinityTerm);
+      this.podAffinityTerm = new V1PodAffinityTermBuilder(podAffinityTerm);
       _visitables.get("podAffinityTerm").add(this.podAffinityTerm);
+    } else {
+      this.podAffinityTerm = null;
+      _visitables.get("podAffinityTerm").remove(this.podAffinityTerm);
     }
     return (A) this;
   }
@@ -64,43 +64,37 @@ public class V1WeightedPodAffinityTermFluentImpl<A extends V1WeightedPodAffinity
     return new V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent.PodAffinityTermNested<
-          A>
-      withNewPodAffinityTermLike(io.kubernetes.client.openapi.models.V1PodAffinityTerm item) {
+  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> withNewPodAffinityTermLike(
+      V1PodAffinityTerm item) {
     return new V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent.PodAffinityTermNested<
-          A>
-      editPodAffinityTerm() {
+  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> editPodAffinityTerm() {
     return withNewPodAffinityTermLike(getPodAffinityTerm());
   }
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent.PodAffinityTermNested<
-          A>
-      editOrNewPodAffinityTerm() {
+  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> editOrNewPodAffinityTerm() {
     return withNewPodAffinityTermLike(
         getPodAffinityTerm() != null
             ? getPodAffinityTerm()
-            : new io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder().build());
+            : new V1PodAffinityTermBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent.PodAffinityTermNested<
-          A>
-      editOrNewPodAffinityTermLike(io.kubernetes.client.openapi.models.V1PodAffinityTerm item) {
+  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> editOrNewPodAffinityTermLike(
+      V1PodAffinityTerm item) {
     return withNewPodAffinityTermLike(getPodAffinityTerm() != null ? getPodAffinityTerm() : item);
   }
 
-  public java.lang.Integer getWeight() {
+  public Integer getWeight() {
     return this.weight;
   }
 
-  public A withWeight(java.lang.Integer weight) {
+  public A withWeight(Integer weight) {
     this.weight = weight;
     return (A) this;
   }
 
-  public java.lang.Boolean hasWeight() {
+  public Boolean hasWeight() {
     return this.weight != null;
   }
 
@@ -136,19 +130,16 @@ public class V1WeightedPodAffinityTermFluentImpl<A extends V1WeightedPodAffinity
 
   class PodAffinityTermNestedImpl<N>
       extends V1PodAffinityTermFluentImpl<V1WeightedPodAffinityTermFluent.PodAffinityTermNested<N>>
-      implements io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent
-                  .PodAffinityTermNested<
-              N>,
-          Nested<N> {
-    PodAffinityTermNestedImpl(io.kubernetes.client.openapi.models.V1PodAffinityTerm item) {
+      implements V1WeightedPodAffinityTermFluent.PodAffinityTermNested<N>, Nested<N> {
+    PodAffinityTermNestedImpl(V1PodAffinityTerm item) {
       this.builder = new V1PodAffinityTermBuilder(this, item);
     }
 
     PodAffinityTermNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder(this);
+      this.builder = new V1PodAffinityTermBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder builder;
+    V1PodAffinityTermBuilder builder;
 
     public N and() {
       return (N) V1WeightedPodAffinityTermFluentImpl.this.withPodAffinityTerm(builder.build());

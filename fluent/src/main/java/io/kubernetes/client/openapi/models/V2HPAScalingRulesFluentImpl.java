@@ -26,8 +26,7 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
     implements V2HPAScalingRulesFluent<A> {
   public V2HPAScalingRulesFluentImpl() {}
 
-  public V2HPAScalingRulesFluentImpl(
-      io.kubernetes.client.openapi.models.V2HPAScalingRules instance) {
+  public V2HPAScalingRulesFluentImpl(V2HPAScalingRules instance) {
     this.withPolicies(instance.getPolicies());
 
     this.withSelectPolicy(instance.getSelectPolicy());
@@ -39,13 +38,11 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
   private String selectPolicy;
   private Integer stabilizationWindowSeconds;
 
-  public A addToPolicies(java.lang.Integer index, V2HPAScalingPolicy item) {
+  public A addToPolicies(Integer index, V2HPAScalingPolicy item) {
     if (this.policies == null) {
-      this.policies =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder>();
+      this.policies = new ArrayList<V2HPAScalingPolicyBuilder>();
     }
-    io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder builder =
-        new io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder(item);
+    V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
     _visitables
         .get("policies")
         .add(index >= 0 ? index : _visitables.get("policies").size(), builder);
@@ -53,14 +50,11 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
     return (A) this;
   }
 
-  public A setToPolicies(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V2HPAScalingPolicy item) {
+  public A setToPolicies(Integer index, V2HPAScalingPolicy item) {
     if (this.policies == null) {
-      this.policies =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder>();
+      this.policies = new ArrayList<V2HPAScalingPolicyBuilder>();
     }
-    io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder builder =
-        new io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder(item);
+    V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
     if (index < 0 || index >= _visitables.get("policies").size()) {
       _visitables.get("policies").add(builder);
     } else {
@@ -76,27 +70,22 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
 
   public A addToPolicies(io.kubernetes.client.openapi.models.V2HPAScalingPolicy... items) {
     if (this.policies == null) {
-      this.policies =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder>();
+      this.policies = new ArrayList<V2HPAScalingPolicyBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V2HPAScalingPolicy item : items) {
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder builder =
-          new io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder(item);
+    for (V2HPAScalingPolicy item : items) {
+      V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
       _visitables.get("policies").add(builder);
       this.policies.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToPolicies(
-      Collection<io.kubernetes.client.openapi.models.V2HPAScalingPolicy> items) {
+  public A addAllToPolicies(Collection<V2HPAScalingPolicy> items) {
     if (this.policies == null) {
-      this.policies =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder>();
+      this.policies = new ArrayList<V2HPAScalingPolicyBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V2HPAScalingPolicy item : items) {
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder builder =
-          new io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder(item);
+    for (V2HPAScalingPolicy item : items) {
+      V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
       _visitables.get("policies").add(builder);
       this.policies.add(builder);
     }
@@ -104,9 +93,8 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
   }
 
   public A removeFromPolicies(io.kubernetes.client.openapi.models.V2HPAScalingPolicy... items) {
-    for (io.kubernetes.client.openapi.models.V2HPAScalingPolicy item : items) {
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder builder =
-          new io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder(item);
+    for (V2HPAScalingPolicy item : items) {
+      V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
       _visitables.get("policies").remove(builder);
       if (this.policies != null) {
         this.policies.remove(builder);
@@ -115,11 +103,9 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromPolicies(
-      java.util.Collection<io.kubernetes.client.openapi.models.V2HPAScalingPolicy> items) {
-    for (io.kubernetes.client.openapi.models.V2HPAScalingPolicy item : items) {
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder builder =
-          new io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder(item);
+  public A removeAllFromPolicies(Collection<V2HPAScalingPolicy> items) {
+    for (V2HPAScalingPolicy item : items) {
+      V2HPAScalingPolicyBuilder builder = new V2HPAScalingPolicyBuilder(item);
       _visitables.get("policies").remove(builder);
       if (this.policies != null) {
         this.policies.remove(builder);
@@ -128,14 +114,12 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
     return (A) this;
   }
 
-  public A removeMatchingFromPolicies(
-      Predicate<io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder> predicate) {
+  public A removeMatchingFromPolicies(Predicate<V2HPAScalingPolicyBuilder> predicate) {
     if (policies == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder> each =
-        policies.iterator();
+    final Iterator<V2HPAScalingPolicyBuilder> each = policies.iterator();
     final List visitables = _visitables.get("policies");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder builder = each.next();
+      V2HPAScalingPolicyBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -150,31 +134,28 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V2HPAScalingPolicy> getPolicies() {
+  public List<V2HPAScalingPolicy> getPolicies() {
     return policies != null ? build(policies) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V2HPAScalingPolicy> buildPolicies() {
+  public List<V2HPAScalingPolicy> buildPolicies() {
     return policies != null ? build(policies) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingPolicy buildPolicy(
-      java.lang.Integer index) {
+  public V2HPAScalingPolicy buildPolicy(Integer index) {
     return this.policies.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingPolicy buildFirstPolicy() {
+  public V2HPAScalingPolicy buildFirstPolicy() {
     return this.policies.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingPolicy buildLastPolicy() {
+  public V2HPAScalingPolicy buildLastPolicy() {
     return this.policies.get(policies.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingPolicy buildMatchingPolicy(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder item : policies) {
+  public V2HPAScalingPolicy buildMatchingPolicy(Predicate<V2HPAScalingPolicyBuilder> predicate) {
+    for (V2HPAScalingPolicyBuilder item : policies) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -182,10 +163,8 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
     return null;
   }
 
-  public Boolean hasMatchingPolicy(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder item : policies) {
+  public Boolean hasMatchingPolicy(Predicate<V2HPAScalingPolicyBuilder> predicate) {
+    for (V2HPAScalingPolicyBuilder item : policies) {
       if (predicate.test(item)) {
         return true;
       }
@@ -193,14 +172,13 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
     return false;
   }
 
-  public A withPolicies(
-      java.util.List<io.kubernetes.client.openapi.models.V2HPAScalingPolicy> policies) {
+  public A withPolicies(List<V2HPAScalingPolicy> policies) {
     if (this.policies != null) {
       _visitables.get("policies").removeAll(this.policies);
     }
     if (policies != null) {
-      this.policies = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V2HPAScalingPolicy item : policies) {
+      this.policies = new ArrayList();
+      for (V2HPAScalingPolicy item : policies) {
         this.addToPolicies(item);
       }
     } else {
@@ -214,14 +192,14 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
       this.policies.clear();
     }
     if (policies != null) {
-      for (io.kubernetes.client.openapi.models.V2HPAScalingPolicy item : policies) {
+      for (V2HPAScalingPolicy item : policies) {
         this.addToPolicies(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPolicies() {
+  public Boolean hasPolicies() {
     return policies != null && !policies.isEmpty();
   }
 
@@ -229,44 +207,35 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
     return new V2HPAScalingRulesFluentImpl.PoliciesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
-      addNewPolicyLike(io.kubernetes.client.openapi.models.V2HPAScalingPolicy item) {
+  public V2HPAScalingRulesFluent.PoliciesNested<A> addNewPolicyLike(V2HPAScalingPolicy item) {
     return new V2HPAScalingRulesFluentImpl.PoliciesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
-      setNewPolicyLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V2HPAScalingPolicy item) {
-    return new io.kubernetes.client.openapi.models.V2HPAScalingRulesFluentImpl.PoliciesNestedImpl(
-        index, item);
+  public V2HPAScalingRulesFluent.PoliciesNested<A> setNewPolicyLike(
+      Integer index, V2HPAScalingPolicy item) {
+    return new V2HPAScalingRulesFluentImpl.PoliciesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A> editPolicy(
-      java.lang.Integer index) {
+  public V2HPAScalingRulesFluent.PoliciesNested<A> editPolicy(Integer index) {
     if (policies.size() <= index)
       throw new RuntimeException("Can't edit policies. Index exceeds size.");
     return setNewPolicyLike(index, buildPolicy(index));
   }
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
-      editFirstPolicy() {
+  public V2HPAScalingRulesFluent.PoliciesNested<A> editFirstPolicy() {
     if (policies.size() == 0)
       throw new RuntimeException("Can't edit first policies. The list is empty.");
     return setNewPolicyLike(0, buildPolicy(0));
   }
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
-      editLastPolicy() {
+  public V2HPAScalingRulesFluent.PoliciesNested<A> editLastPolicy() {
     int index = policies.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last policies. The list is empty.");
     return setNewPolicyLike(index, buildPolicy(index));
   }
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
-      editMatchingPolicy(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder>
-              predicate) {
+  public V2HPAScalingRulesFluent.PoliciesNested<A> editMatchingPolicy(
+      Predicate<V2HPAScalingPolicyBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < policies.size(); i++) {
       if (predicate.test(policies.get(i))) {
@@ -278,29 +247,29 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
     return setNewPolicyLike(index, buildPolicy(index));
   }
 
-  public java.lang.String getSelectPolicy() {
+  public String getSelectPolicy() {
     return this.selectPolicy;
   }
 
-  public A withSelectPolicy(java.lang.String selectPolicy) {
+  public A withSelectPolicy(String selectPolicy) {
     this.selectPolicy = selectPolicy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSelectPolicy() {
+  public Boolean hasSelectPolicy() {
     return this.selectPolicy != null;
   }
 
-  public java.lang.Integer getStabilizationWindowSeconds() {
+  public Integer getStabilizationWindowSeconds() {
     return this.stabilizationWindowSeconds;
   }
 
-  public A withStabilizationWindowSeconds(java.lang.Integer stabilizationWindowSeconds) {
+  public A withStabilizationWindowSeconds(Integer stabilizationWindowSeconds) {
     this.stabilizationWindowSeconds = stabilizationWindowSeconds;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStabilizationWindowSeconds() {
+  public Boolean hasStabilizationWindowSeconds() {
     return this.stabilizationWindowSeconds != null;
   }
 
@@ -322,7 +291,7 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
         policies, selectPolicy, stabilizationWindowSeconds, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (policies != null && !policies.isEmpty()) {
@@ -343,21 +312,19 @@ public class V2HPAScalingRulesFluentImpl<A extends V2HPAScalingRulesFluent<A>> e
 
   class PoliciesNestedImpl<N>
       extends V2HPAScalingPolicyFluentImpl<V2HPAScalingRulesFluent.PoliciesNested<N>>
-      implements io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<N>,
-          Nested<N> {
-    PoliciesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V2HPAScalingPolicy item) {
+      implements V2HPAScalingRulesFluent.PoliciesNested<N>, Nested<N> {
+    PoliciesNestedImpl(Integer index, V2HPAScalingPolicy item) {
       this.index = index;
       this.builder = new V2HPAScalingPolicyBuilder(this, item);
     }
 
     PoliciesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder(this);
+      this.builder = new V2HPAScalingPolicyBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder builder;
-    java.lang.Integer index;
+    V2HPAScalingPolicyBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V2HPAScalingRulesFluentImpl.this.setToPolicies(index, builder.build());

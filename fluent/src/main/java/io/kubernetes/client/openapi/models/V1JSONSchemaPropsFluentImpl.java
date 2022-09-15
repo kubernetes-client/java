@@ -28,8 +28,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     implements V1JSONSchemaPropsFluent<A> {
   public V1JSONSchemaPropsFluentImpl() {}
 
-  public V1JSONSchemaPropsFluentImpl(
-      io.kubernetes.client.openapi.models.V1JSONSchemaProps instance) {
+  public V1JSONSchemaPropsFluentImpl(V1JSONSchemaProps instance) {
     this.withRef(instance.get$Ref());
 
     this.withSchema(instance.get$Schema());
@@ -106,117 +105,110 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
   }
 
   private String $ref;
-  private java.lang.String $schema;
+  private String $schema;
   private Object additionalItems;
-  private java.lang.Object additionalProperties;
+  private Object additionalProperties;
   private ArrayList<V1JSONSchemaPropsBuilder> allOf;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> anyOf;
-  private java.lang.Object _default;
-  private Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps> definitions;
-  private java.util.Map<java.lang.String, java.lang.Object> dependencies;
-  private java.lang.String description;
-  private List<java.lang.Object> _enum;
-  private java.lang.Object example;
+  private ArrayList<V1JSONSchemaPropsBuilder> anyOf;
+  private Object _default;
+  private Map<String, V1JSONSchemaProps> definitions;
+  private Map<String, Object> dependencies;
+  private String description;
+  private List<Object> _enum;
+  private Object example;
   private Boolean exclusiveMaximum;
-  private java.lang.Boolean exclusiveMinimum;
+  private Boolean exclusiveMinimum;
   private V1ExternalDocumentationBuilder externalDocs;
-  private java.lang.String format;
-  private java.lang.String id;
-  private java.lang.Object items;
+  private String format;
+  private String id;
+  private Object items;
   private Long maxItems;
-  private java.lang.Long maxLength;
-  private java.lang.Long maxProperties;
+  private Long maxLength;
+  private Long maxProperties;
   private Double maximum;
-  private java.lang.Long minItems;
-  private java.lang.Long minLength;
-  private java.lang.Long minProperties;
-  private java.lang.Double minimum;
-  private java.lang.Double multipleOf;
-  private io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder not;
-  private java.lang.Boolean nullable;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> oneOf;
-  private java.lang.String pattern;
-  private java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps>
-      patternProperties;
-  private java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps>
-      properties;
-  private java.util.List<java.lang.String> required;
-  private java.lang.String title;
-  private java.lang.String type;
-  private java.lang.Boolean uniqueItems;
+  private Long minItems;
+  private Long minLength;
+  private Long minProperties;
+  private Double minimum;
+  private Double multipleOf;
+  private V1JSONSchemaPropsBuilder not;
+  private Boolean nullable;
+  private ArrayList<V1JSONSchemaPropsBuilder> oneOf;
+  private String pattern;
+  private Map<String, V1JSONSchemaProps> patternProperties;
+  private Map<String, V1JSONSchemaProps> properties;
+  private List<String> required;
+  private String title;
+  private String type;
+  private Boolean uniqueItems;
 
-  public java.lang.String getRef() {
+  public String getRef() {
     return this.$ref;
   }
 
-  public A withRef(java.lang.String $ref) {
+  public A withRef(String $ref) {
     this.$ref = $ref;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRef() {
+  public Boolean hasRef() {
     return this.$ref != null;
   }
 
-  public java.lang.String getSchema() {
+  public String getSchema() {
     return this.$schema;
   }
 
-  public A withSchema(java.lang.String $schema) {
+  public A withSchema(String $schema) {
     this.$schema = $schema;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSchema() {
+  public Boolean hasSchema() {
     return this.$schema != null;
   }
 
-  public java.lang.Object getAdditionalItems() {
+  public Object getAdditionalItems() {
     return this.additionalItems;
   }
 
-  public A withAdditionalItems(java.lang.Object additionalItems) {
+  public A withAdditionalItems(Object additionalItems) {
     this.additionalItems = additionalItems;
     return (A) this;
   }
 
-  public java.lang.Boolean hasAdditionalItems() {
+  public Boolean hasAdditionalItems() {
     return this.additionalItems != null;
   }
 
-  public java.lang.Object getAdditionalProperties() {
+  public Object getAdditionalProperties() {
     return this.additionalProperties;
   }
 
-  public A withAdditionalProperties(java.lang.Object additionalProperties) {
+  public A withAdditionalProperties(Object additionalProperties) {
     this.additionalProperties = additionalProperties;
     return (A) this;
   }
 
-  public java.lang.Boolean hasAdditionalProperties() {
+  public Boolean hasAdditionalProperties() {
     return this.additionalProperties != null;
   }
 
-  public A addToAllOf(Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+  public A addToAllOf(Integer index, V1JSONSchemaProps item) {
     if (this.allOf == null) {
-      this.allOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-        new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     _visitables.get("allOf").add(index >= 0 ? index : _visitables.get("allOf").size(), builder);
     this.allOf.add(index >= 0 ? index : allOf.size(), builder);
     return (A) this;
   }
 
-  public A setToAllOf(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+  public A setToAllOf(Integer index, V1JSONSchemaProps item) {
     if (this.allOf == null) {
-      this.allOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-        new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= _visitables.get("allOf").size()) {
       _visitables.get("allOf").add(builder);
     } else {
@@ -232,26 +224,22 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   public A addToAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
     if (this.allOf == null) {
-      this.allOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("allOf").add(builder);
       this.allOf.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToAllOf(Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items) {
+  public A addAllToAllOf(Collection<V1JSONSchemaProps> items) {
     if (this.allOf == null) {
-      this.allOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("allOf").add(builder);
       this.allOf.add(builder);
     }
@@ -259,9 +247,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
   }
 
   public A removeFromAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("allOf").remove(builder);
       if (this.allOf != null) {
         this.allOf.remove(builder);
@@ -270,11 +257,9 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromAllOf(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+  public A removeAllFromAllOf(Collection<V1JSONSchemaProps> items) {
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("allOf").remove(builder);
       if (this.allOf != null) {
         this.allOf.remove(builder);
@@ -283,14 +268,12 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeMatchingFromAllOf(
-      Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> predicate) {
+  public A removeMatchingFromAllOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
     if (allOf == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> each =
-        allOf.iterator();
+    final Iterator<V1JSONSchemaPropsBuilder> each = allOf.iterator();
     final List visitables = _visitables.get("allOf");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder = each.next();
+      V1JSONSchemaPropsBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -305,30 +288,28 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> getAllOf() {
+  public List<V1JSONSchemaProps> getAllOf() {
     return allOf != null ? build(allOf) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> buildAllOf() {
+  public List<V1JSONSchemaProps> buildAllOf() {
     return allOf != null ? build(allOf) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildAllOf(java.lang.Integer index) {
+  public V1JSONSchemaProps buildAllOf(Integer index) {
     return this.allOf.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildFirstAllOf() {
+  public V1JSONSchemaProps buildFirstAllOf() {
     return this.allOf.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildLastAllOf() {
+  public V1JSONSchemaProps buildLastAllOf() {
     return this.allOf.get(allOf.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildMatchingAllOf(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder item : allOf) {
+  public V1JSONSchemaProps buildMatchingAllOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
+    for (V1JSONSchemaPropsBuilder item : allOf) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -336,10 +317,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAllOf(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder item : allOf) {
+  public Boolean hasMatchingAllOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
+    for (V1JSONSchemaPropsBuilder item : allOf) {
       if (predicate.test(item)) {
         return true;
       }
@@ -347,13 +326,13 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return false;
   }
 
-  public A withAllOf(java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> allOf) {
+  public A withAllOf(List<V1JSONSchemaProps> allOf) {
     if (this.allOf != null) {
       _visitables.get("allOf").removeAll(this.allOf);
     }
     if (allOf != null) {
-      this.allOf = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : allOf) {
+      this.allOf = new ArrayList();
+      for (V1JSONSchemaProps item : allOf) {
         this.addToAllOf(item);
       }
     } else {
@@ -367,14 +346,14 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
       this.allOf.clear();
     }
     if (allOf != null) {
-      for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : allOf) {
+      for (V1JSONSchemaProps item : allOf) {
         this.addToAllOf(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAllOf() {
+  public Boolean hasAllOf() {
     return allOf != null && !allOf.isEmpty();
   }
 
@@ -382,40 +361,33 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return new V1JSONSchemaPropsFluentImpl.AllOfNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOfLike(
-      io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+  public V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOfLike(V1JSONSchemaProps item) {
     return new V1JSONSchemaPropsFluentImpl.AllOfNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A> setNewAllOfLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.AllOfNestedImpl(
-        index, item);
+  public V1JSONSchemaPropsFluent.AllOfNested<A> setNewAllOfLike(
+      Integer index, V1JSONSchemaProps item) {
+    return new V1JSONSchemaPropsFluentImpl.AllOfNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A> editAllOf(
-      java.lang.Integer index) {
+  public V1JSONSchemaPropsFluent.AllOfNested<A> editAllOf(Integer index) {
     if (allOf.size() <= index) throw new RuntimeException("Can't edit allOf. Index exceeds size.");
     return setNewAllOfLike(index, buildAllOf(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A>
-      editFirstAllOf() {
+  public V1JSONSchemaPropsFluent.AllOfNested<A> editFirstAllOf() {
     if (allOf.size() == 0) throw new RuntimeException("Can't edit first allOf. The list is empty.");
     return setNewAllOfLike(0, buildAllOf(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A>
-      editLastAllOf() {
+  public V1JSONSchemaPropsFluent.AllOfNested<A> editLastAllOf() {
     int index = allOf.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last allOf. The list is empty.");
     return setNewAllOfLike(index, buildAllOf(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AllOfNested<A>
-      editMatchingAllOf(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-              predicate) {
+  public V1JSONSchemaPropsFluent.AllOfNested<A> editMatchingAllOf(
+      Predicate<V1JSONSchemaPropsBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < allOf.size(); i++) {
       if (predicate.test(allOf.get(i))) {
@@ -427,27 +399,21 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return setNewAllOfLike(index, buildAllOf(index));
   }
 
-  public A addToAnyOf(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+  public A addToAnyOf(Integer index, V1JSONSchemaProps item) {
     if (this.anyOf == null) {
-      this.anyOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-        new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     _visitables.get("anyOf").add(index >= 0 ? index : _visitables.get("anyOf").size(), builder);
     this.anyOf.add(index >= 0 ? index : anyOf.size(), builder);
     return (A) this;
   }
 
-  public A setToAnyOf(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+  public A setToAnyOf(Integer index, V1JSONSchemaProps item) {
     if (this.anyOf == null) {
-      this.anyOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-        new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= _visitables.get("anyOf").size()) {
       _visitables.get("anyOf").add(builder);
     } else {
@@ -463,27 +429,22 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   public A addToAnyOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
     if (this.anyOf == null) {
-      this.anyOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("anyOf").add(builder);
       this.anyOf.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToAnyOf(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items) {
+  public A addAllToAnyOf(Collection<V1JSONSchemaProps> items) {
     if (this.anyOf == null) {
-      this.anyOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("anyOf").add(builder);
       this.anyOf.add(builder);
     }
@@ -491,9 +452,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
   }
 
   public A removeFromAnyOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("anyOf").remove(builder);
       if (this.anyOf != null) {
         this.anyOf.remove(builder);
@@ -502,11 +462,9 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromAnyOf(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+  public A removeAllFromAnyOf(Collection<V1JSONSchemaProps> items) {
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("anyOf").remove(builder);
       if (this.anyOf != null) {
         this.anyOf.remove(builder);
@@ -515,15 +473,12 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeMatchingFromAnyOf(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-          predicate) {
+  public A removeMatchingFromAnyOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
     if (anyOf == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> each =
-        anyOf.iterator();
+    final Iterator<V1JSONSchemaPropsBuilder> each = anyOf.iterator();
     final List visitables = _visitables.get("anyOf");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder = each.next();
+      V1JSONSchemaPropsBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -537,31 +492,29 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> getAnyOf() {
+  @Deprecated
+  public List<V1JSONSchemaProps> getAnyOf() {
     return anyOf != null ? build(anyOf) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> buildAnyOf() {
+  public List<V1JSONSchemaProps> buildAnyOf() {
     return anyOf != null ? build(anyOf) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildAnyOf(java.lang.Integer index) {
+  public V1JSONSchemaProps buildAnyOf(Integer index) {
     return this.anyOf.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildFirstAnyOf() {
+  public V1JSONSchemaProps buildFirstAnyOf() {
     return this.anyOf.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildLastAnyOf() {
+  public V1JSONSchemaProps buildLastAnyOf() {
     return this.anyOf.get(anyOf.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildMatchingAnyOf(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder item : anyOf) {
+  public V1JSONSchemaProps buildMatchingAnyOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
+    for (V1JSONSchemaPropsBuilder item : anyOf) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -569,10 +522,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAnyOf(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder item : anyOf) {
+  public Boolean hasMatchingAnyOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
+    for (V1JSONSchemaPropsBuilder item : anyOf) {
       if (predicate.test(item)) {
         return true;
       }
@@ -580,13 +531,13 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return false;
   }
 
-  public A withAnyOf(java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> anyOf) {
+  public A withAnyOf(List<V1JSONSchemaProps> anyOf) {
     if (this.anyOf != null) {
       _visitables.get("anyOf").removeAll(this.anyOf);
     }
     if (anyOf != null) {
-      this.anyOf = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : anyOf) {
+      this.anyOf = new ArrayList();
+      for (V1JSONSchemaProps item : anyOf) {
         this.addToAnyOf(item);
       }
     } else {
@@ -600,14 +551,14 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
       this.anyOf.clear();
     }
     if (anyOf != null) {
-      for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : anyOf) {
+      for (V1JSONSchemaProps item : anyOf) {
         this.addToAnyOf(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAnyOf() {
+  public Boolean hasAnyOf() {
     return anyOf != null && !anyOf.isEmpty();
   }
 
@@ -615,41 +566,33 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return new V1JSONSchemaPropsFluentImpl.AnyOfNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOfLike(
-      io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.AnyOfNestedImpl(
-        -1, item);
+  public V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOfLike(V1JSONSchemaProps item) {
+    return new V1JSONSchemaPropsFluentImpl.AnyOfNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A> setNewAnyOfLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.AnyOfNestedImpl(
-        index, item);
+  public V1JSONSchemaPropsFluent.AnyOfNested<A> setNewAnyOfLike(
+      Integer index, V1JSONSchemaProps item) {
+    return new V1JSONSchemaPropsFluentImpl.AnyOfNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A> editAnyOf(
-      java.lang.Integer index) {
+  public V1JSONSchemaPropsFluent.AnyOfNested<A> editAnyOf(Integer index) {
     if (anyOf.size() <= index) throw new RuntimeException("Can't edit anyOf. Index exceeds size.");
     return setNewAnyOfLike(index, buildAnyOf(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A>
-      editFirstAnyOf() {
+  public V1JSONSchemaPropsFluent.AnyOfNested<A> editFirstAnyOf() {
     if (anyOf.size() == 0) throw new RuntimeException("Can't edit first anyOf. The list is empty.");
     return setNewAnyOfLike(0, buildAnyOf(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A>
-      editLastAnyOf() {
+  public V1JSONSchemaPropsFluent.AnyOfNested<A> editLastAnyOf() {
     int index = anyOf.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last anyOf. The list is empty.");
     return setNewAnyOfLike(index, buildAnyOf(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.AnyOfNested<A>
-      editMatchingAnyOf(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-              predicate) {
+  public V1JSONSchemaPropsFluent.AnyOfNested<A> editMatchingAnyOf(
+      Predicate<V1JSONSchemaPropsBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < anyOf.size(); i++) {
       if (predicate.test(anyOf.get(i))) {
@@ -661,21 +604,20 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return setNewAnyOfLike(index, buildAnyOf(index));
   }
 
-  public java.lang.Object getDefault() {
+  public Object getDefault() {
     return this._default;
   }
 
-  public A withDefault(java.lang.Object _default) {
+  public A withDefault(Object _default) {
     this._default = _default;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDefault() {
+  public Boolean hasDefault() {
     return this._default != null;
   }
 
-  public A addToDefinitions(
-      java.lang.String key, io.kubernetes.client.openapi.models.V1JSONSchemaProps value) {
+  public A addToDefinitions(String key, V1JSONSchemaProps value) {
     if (this.definitions == null && key != null && value != null) {
       this.definitions = new LinkedHashMap();
     }
@@ -685,10 +627,9 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A addToDefinitions(
-      java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps> map) {
+  public A addToDefinitions(Map<String, V1JSONSchemaProps> map) {
     if (this.definitions == null && map != null) {
-      this.definitions = new java.util.LinkedHashMap();
+      this.definitions = new LinkedHashMap();
     }
     if (map != null) {
       this.definitions.putAll(map);
@@ -696,7 +637,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeFromDefinitions(java.lang.String key) {
+  public A removeFromDefinitions(String key) {
     if (this.definitions == null) {
       return (A) this;
     }
@@ -706,8 +647,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeFromDefinitions(
-      java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps> map) {
+  public A removeFromDefinitions(Map<String, V1JSONSchemaProps> map) {
     if (this.definitions == null) {
       return (A) this;
     }
@@ -721,29 +661,26 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps>
-      getDefinitions() {
+  public Map<String, V1JSONSchemaProps> getDefinitions() {
     return this.definitions;
   }
 
-  public <K, V> A withDefinitions(
-      java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps>
-          definitions) {
+  public <K, V> A withDefinitions(Map<String, V1JSONSchemaProps> definitions) {
     if (definitions == null) {
       this.definitions = null;
     } else {
-      this.definitions = new java.util.LinkedHashMap(definitions);
+      this.definitions = new LinkedHashMap(definitions);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDefinitions() {
+  public Boolean hasDefinitions() {
     return this.definitions != null;
   }
 
-  public A addToDependencies(java.lang.String key, java.lang.Object value) {
+  public A addToDependencies(String key, Object value) {
     if (this.dependencies == null && key != null && value != null) {
-      this.dependencies = new java.util.LinkedHashMap();
+      this.dependencies = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.dependencies.put(key, value);
@@ -751,9 +688,9 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A addToDependencies(java.util.Map<java.lang.String, java.lang.Object> map) {
+  public A addToDependencies(Map<String, Object> map) {
     if (this.dependencies == null && map != null) {
-      this.dependencies = new java.util.LinkedHashMap();
+      this.dependencies = new LinkedHashMap();
     }
     if (map != null) {
       this.dependencies.putAll(map);
@@ -761,7 +698,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeFromDependencies(java.lang.String key) {
+  public A removeFromDependencies(String key) {
     if (this.dependencies == null) {
       return (A) this;
     }
@@ -771,7 +708,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeFromDependencies(java.util.Map<java.lang.String, java.lang.Object> map) {
+  public A removeFromDependencies(Map<String, Object> map) {
     if (this.dependencies == null) {
       return (A) this;
     }
@@ -785,47 +722,47 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, java.lang.Object> getDependencies() {
+  public Map<String, Object> getDependencies() {
     return this.dependencies;
   }
 
-  public <K, V> A withDependencies(java.util.Map<java.lang.String, java.lang.Object> dependencies) {
+  public <K, V> A withDependencies(Map<String, Object> dependencies) {
     if (dependencies == null) {
       this.dependencies = null;
     } else {
-      this.dependencies = new java.util.LinkedHashMap(dependencies);
+      this.dependencies = new LinkedHashMap(dependencies);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDependencies() {
+  public Boolean hasDependencies() {
     return this.dependencies != null;
   }
 
-  public java.lang.String getDescription() {
+  public String getDescription() {
     return this.description;
   }
 
-  public A withDescription(java.lang.String description) {
+  public A withDescription(String description) {
     this.description = description;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDescription() {
+  public Boolean hasDescription() {
     return this.description != null;
   }
 
-  public A addToEnum(java.lang.Integer index, java.lang.Object item) {
+  public A addToEnum(Integer index, Object item) {
     if (this._enum == null) {
-      this._enum = new java.util.ArrayList<java.lang.Object>();
+      this._enum = new ArrayList<Object>();
     }
     this._enum.add(index, item);
     return (A) this;
   }
 
-  public A setToEnum(java.lang.Integer index, java.lang.Object item) {
+  public A setToEnum(Integer index, Object item) {
     if (this._enum == null) {
-      this._enum = new java.util.ArrayList<java.lang.Object>();
+      this._enum = new ArrayList<Object>();
     }
     this._enum.set(index, item);
     return (A) this;
@@ -833,26 +770,26 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   public A addToEnum(java.lang.Object... items) {
     if (this._enum == null) {
-      this._enum = new java.util.ArrayList<java.lang.Object>();
+      this._enum = new ArrayList<Object>();
     }
-    for (java.lang.Object item : items) {
+    for (Object item : items) {
       this._enum.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToEnum(java.util.Collection<java.lang.Object> items) {
+  public A addAllToEnum(Collection<Object> items) {
     if (this._enum == null) {
-      this._enum = new java.util.ArrayList<java.lang.Object>();
+      this._enum = new ArrayList<Object>();
     }
-    for (java.lang.Object item : items) {
+    for (Object item : items) {
       this._enum.add(item);
     }
     return (A) this;
   }
 
   public A removeFromEnum(java.lang.Object... items) {
-    for (java.lang.Object item : items) {
+    for (Object item : items) {
       if (this._enum != null) {
         this._enum.remove(item);
       }
@@ -860,8 +797,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromEnum(java.util.Collection<java.lang.Object> items) {
-    for (java.lang.Object item : items) {
+  public A removeAllFromEnum(Collection<Object> items) {
+    for (Object item : items) {
       if (this._enum != null) {
         this._enum.remove(item);
       }
@@ -869,25 +806,24 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public java.util.List<java.lang.Object> getEnum() {
+  public List<Object> getEnum() {
     return this._enum;
   }
 
-  public java.lang.Object getEnum(java.lang.Integer index) {
+  public Object getEnum(Integer index) {
     return this._enum.get(index);
   }
 
-  public java.lang.Object getFirstEnum() {
+  public Object getFirstEnum() {
     return this._enum.get(0);
   }
 
-  public java.lang.Object getLastEnum() {
+  public Object getLastEnum() {
     return this._enum.get(_enum.size() - 1);
   }
 
-  public java.lang.Object getMatchingEnum(
-      java.util.function.Predicate<java.lang.Object> predicate) {
-    for (java.lang.Object item : _enum) {
+  public Object getMatchingEnum(Predicate<Object> predicate) {
+    for (Object item : _enum) {
       if (predicate.test(item)) {
         return item;
       }
@@ -895,9 +831,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return null;
   }
 
-  public java.lang.Boolean hasMatchingEnum(
-      java.util.function.Predicate<java.lang.Object> predicate) {
-    for (java.lang.Object item : _enum) {
+  public Boolean hasMatchingEnum(Predicate<Object> predicate) {
+    for (Object item : _enum) {
       if (predicate.test(item)) {
         return true;
       }
@@ -905,10 +840,10 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return false;
   }
 
-  public A withEnum(java.util.List<java.lang.Object> _enum) {
+  public A withEnum(List<Object> _enum) {
     if (_enum != null) {
-      this._enum = new java.util.ArrayList();
-      for (java.lang.Object item : _enum) {
+      this._enum = new ArrayList();
+      for (Object item : _enum) {
         this.addToEnum(item);
       }
     } else {
@@ -922,53 +857,53 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
       this._enum.clear();
     }
     if (_enum != null) {
-      for (java.lang.Object item : _enum) {
+      for (Object item : _enum) {
         this.addToEnum(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasEnum() {
+  public Boolean hasEnum() {
     return _enum != null && !_enum.isEmpty();
   }
 
-  public java.lang.Object getExample() {
+  public Object getExample() {
     return this.example;
   }
 
-  public A withExample(java.lang.Object example) {
+  public A withExample(Object example) {
     this.example = example;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExample() {
+  public Boolean hasExample() {
     return this.example != null;
   }
 
-  public java.lang.Boolean getExclusiveMaximum() {
+  public Boolean getExclusiveMaximum() {
     return this.exclusiveMaximum;
   }
 
-  public A withExclusiveMaximum(java.lang.Boolean exclusiveMaximum) {
+  public A withExclusiveMaximum(Boolean exclusiveMaximum) {
     this.exclusiveMaximum = exclusiveMaximum;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExclusiveMaximum() {
+  public Boolean hasExclusiveMaximum() {
     return this.exclusiveMaximum != null;
   }
 
-  public java.lang.Boolean getExclusiveMinimum() {
+  public Boolean getExclusiveMinimum() {
     return this.exclusiveMinimum;
   }
 
-  public A withExclusiveMinimum(java.lang.Boolean exclusiveMinimum) {
+  public A withExclusiveMinimum(Boolean exclusiveMinimum) {
     this.exclusiveMinimum = exclusiveMinimum;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExclusiveMinimum() {
+  public Boolean hasExclusiveMinimum() {
     return this.exclusiveMinimum != null;
   }
 
@@ -977,26 +912,28 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ExternalDocumentation getExternalDocs() {
+  @Deprecated
+  public V1ExternalDocumentation getExternalDocs() {
     return this.externalDocs != null ? this.externalDocs.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ExternalDocumentation buildExternalDocs() {
+  public V1ExternalDocumentation buildExternalDocs() {
     return this.externalDocs != null ? this.externalDocs.build() : null;
   }
 
-  public A withExternalDocs(
-      io.kubernetes.client.openapi.models.V1ExternalDocumentation externalDocs) {
+  public A withExternalDocs(V1ExternalDocumentation externalDocs) {
     _visitables.get("externalDocs").remove(this.externalDocs);
     if (externalDocs != null) {
       this.externalDocs = new V1ExternalDocumentationBuilder(externalDocs);
       _visitables.get("externalDocs").add(this.externalDocs);
+    } else {
+      this.externalDocs = null;
+      _visitables.get("externalDocs").remove(this.externalDocs);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasExternalDocs() {
+  public Boolean hasExternalDocs() {
     return this.externalDocs != null;
   }
 
@@ -1004,183 +941,180 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return new V1JSONSchemaPropsFluentImpl.ExternalDocsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<A>
-      withNewExternalDocsLike(io.kubernetes.client.openapi.models.V1ExternalDocumentation item) {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl
-        .ExternalDocsNestedImpl(item);
+  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> withNewExternalDocsLike(
+      V1ExternalDocumentation item) {
+    return new V1JSONSchemaPropsFluentImpl.ExternalDocsNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<A>
-      editExternalDocs() {
+  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> editExternalDocs() {
     return withNewExternalDocsLike(getExternalDocs());
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<A>
-      editOrNewExternalDocs() {
+  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> editOrNewExternalDocs() {
     return withNewExternalDocsLike(
         getExternalDocs() != null
             ? getExternalDocs()
-            : new io.kubernetes.client.openapi.models.V1ExternalDocumentationBuilder().build());
+            : new V1ExternalDocumentationBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<A>
-      editOrNewExternalDocsLike(io.kubernetes.client.openapi.models.V1ExternalDocumentation item) {
+  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> editOrNewExternalDocsLike(
+      V1ExternalDocumentation item) {
     return withNewExternalDocsLike(getExternalDocs() != null ? getExternalDocs() : item);
   }
 
-  public java.lang.String getFormat() {
+  public String getFormat() {
     return this.format;
   }
 
-  public A withFormat(java.lang.String format) {
+  public A withFormat(String format) {
     this.format = format;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFormat() {
+  public Boolean hasFormat() {
     return this.format != null;
   }
 
-  public java.lang.String getId() {
+  public String getId() {
     return this.id;
   }
 
-  public A withId(java.lang.String id) {
+  public A withId(String id) {
     this.id = id;
     return (A) this;
   }
 
-  public java.lang.Boolean hasId() {
+  public Boolean hasId() {
     return this.id != null;
   }
 
-  public java.lang.Object getItems() {
+  public Object getItems() {
     return this.items;
   }
 
-  public A withItems(java.lang.Object items) {
+  public A withItems(Object items) {
     this.items = items;
     return (A) this;
   }
 
-  public java.lang.Boolean hasItems() {
+  public Boolean hasItems() {
     return this.items != null;
   }
 
-  public java.lang.Long getMaxItems() {
+  public Long getMaxItems() {
     return this.maxItems;
   }
 
-  public A withMaxItems(java.lang.Long maxItems) {
+  public A withMaxItems(Long maxItems) {
     this.maxItems = maxItems;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMaxItems() {
+  public Boolean hasMaxItems() {
     return this.maxItems != null;
   }
 
-  public java.lang.Long getMaxLength() {
+  public Long getMaxLength() {
     return this.maxLength;
   }
 
-  public A withMaxLength(java.lang.Long maxLength) {
+  public A withMaxLength(Long maxLength) {
     this.maxLength = maxLength;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMaxLength() {
+  public Boolean hasMaxLength() {
     return this.maxLength != null;
   }
 
-  public java.lang.Long getMaxProperties() {
+  public Long getMaxProperties() {
     return this.maxProperties;
   }
 
-  public A withMaxProperties(java.lang.Long maxProperties) {
+  public A withMaxProperties(Long maxProperties) {
     this.maxProperties = maxProperties;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMaxProperties() {
+  public Boolean hasMaxProperties() {
     return this.maxProperties != null;
   }
 
-  public java.lang.Double getMaximum() {
+  public Double getMaximum() {
     return this.maximum;
   }
 
-  public A withMaximum(java.lang.Double maximum) {
+  public A withMaximum(Double maximum) {
     this.maximum = maximum;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMaximum() {
+  public Boolean hasMaximum() {
     return this.maximum != null;
   }
 
-  public java.lang.Long getMinItems() {
+  public Long getMinItems() {
     return this.minItems;
   }
 
-  public A withMinItems(java.lang.Long minItems) {
+  public A withMinItems(Long minItems) {
     this.minItems = minItems;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMinItems() {
+  public Boolean hasMinItems() {
     return this.minItems != null;
   }
 
-  public java.lang.Long getMinLength() {
+  public Long getMinLength() {
     return this.minLength;
   }
 
-  public A withMinLength(java.lang.Long minLength) {
+  public A withMinLength(Long minLength) {
     this.minLength = minLength;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMinLength() {
+  public Boolean hasMinLength() {
     return this.minLength != null;
   }
 
-  public java.lang.Long getMinProperties() {
+  public Long getMinProperties() {
     return this.minProperties;
   }
 
-  public A withMinProperties(java.lang.Long minProperties) {
+  public A withMinProperties(Long minProperties) {
     this.minProperties = minProperties;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMinProperties() {
+  public Boolean hasMinProperties() {
     return this.minProperties != null;
   }
 
-  public java.lang.Double getMinimum() {
+  public Double getMinimum() {
     return this.minimum;
   }
 
-  public A withMinimum(java.lang.Double minimum) {
+  public A withMinimum(Double minimum) {
     this.minimum = minimum;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMinimum() {
+  public Boolean hasMinimum() {
     return this.minimum != null;
   }
 
-  public java.lang.Double getMultipleOf() {
+  public Double getMultipleOf() {
     return this.multipleOf;
   }
 
-  public A withMultipleOf(java.lang.Double multipleOf) {
+  public A withMultipleOf(Double multipleOf) {
     this.multipleOf = multipleOf;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMultipleOf() {
+  public Boolean hasMultipleOf() {
     return this.multipleOf != null;
   }
 
@@ -1189,25 +1123,28 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps getNot() {
+  @Deprecated
+  public V1JSONSchemaProps getNot() {
     return this.not != null ? this.not.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildNot() {
+  public V1JSONSchemaProps buildNot() {
     return this.not != null ? this.not.build() : null;
   }
 
-  public A withNot(io.kubernetes.client.openapi.models.V1JSONSchemaProps not) {
+  public A withNot(V1JSONSchemaProps not) {
     _visitables.get("not").remove(this.not);
     if (not != null) {
-      this.not = new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(not);
+      this.not = new V1JSONSchemaPropsBuilder(not);
       _visitables.get("not").add(this.not);
+    } else {
+      this.not = null;
+      _visitables.get("not").remove(this.not);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasNot() {
+  public Boolean hasNot() {
     return this.not != null;
   }
 
@@ -1215,61 +1152,50 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return new V1JSONSchemaPropsFluentImpl.NotNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<A> withNewNotLike(
-      io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.NotNestedImpl(item);
+  public V1JSONSchemaPropsFluent.NotNested<A> withNewNotLike(V1JSONSchemaProps item) {
+    return new V1JSONSchemaPropsFluentImpl.NotNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<A> editNot() {
+  public V1JSONSchemaPropsFluent.NotNested<A> editNot() {
     return withNewNotLike(getNot());
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<A> editOrNewNot() {
-    return withNewNotLike(
-        getNot() != null
-            ? getNot()
-            : new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder().build());
+  public V1JSONSchemaPropsFluent.NotNested<A> editOrNewNot() {
+    return withNewNotLike(getNot() != null ? getNot() : new V1JSONSchemaPropsBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.NotNested<A> editOrNewNotLike(
-      io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+  public V1JSONSchemaPropsFluent.NotNested<A> editOrNewNotLike(V1JSONSchemaProps item) {
     return withNewNotLike(getNot() != null ? getNot() : item);
   }
 
-  public java.lang.Boolean getNullable() {
+  public Boolean getNullable() {
     return this.nullable;
   }
 
-  public A withNullable(java.lang.Boolean nullable) {
+  public A withNullable(Boolean nullable) {
     this.nullable = nullable;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNullable() {
+  public Boolean hasNullable() {
     return this.nullable != null;
   }
 
-  public A addToOneOf(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+  public A addToOneOf(Integer index, V1JSONSchemaProps item) {
     if (this.oneOf == null) {
-      this.oneOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-        new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     _visitables.get("oneOf").add(index >= 0 ? index : _visitables.get("oneOf").size(), builder);
     this.oneOf.add(index >= 0 ? index : oneOf.size(), builder);
     return (A) this;
   }
 
-  public A setToOneOf(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+  public A setToOneOf(Integer index, V1JSONSchemaProps item) {
     if (this.oneOf == null) {
-      this.oneOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-        new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
     if (index < 0 || index >= _visitables.get("oneOf").size()) {
       _visitables.get("oneOf").add(builder);
     } else {
@@ -1285,27 +1211,22 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   public A addToOneOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
     if (this.oneOf == null) {
-      this.oneOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("oneOf").add(builder);
       this.oneOf.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToOneOf(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items) {
+  public A addAllToOneOf(Collection<V1JSONSchemaProps> items) {
     if (this.oneOf == null) {
-      this.oneOf =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>();
+      this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("oneOf").add(builder);
       this.oneOf.add(builder);
     }
@@ -1313,9 +1234,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
   }
 
   public A removeFromOneOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("oneOf").remove(builder);
       if (this.oneOf != null) {
         this.oneOf.remove(builder);
@@ -1324,11 +1244,9 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromOneOf(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1JSONSchemaProps> items) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : items) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(item);
+  public A removeAllFromOneOf(Collection<V1JSONSchemaProps> items) {
+    for (V1JSONSchemaProps item : items) {
+      V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
       _visitables.get("oneOf").remove(builder);
       if (this.oneOf != null) {
         this.oneOf.remove(builder);
@@ -1337,15 +1255,12 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeMatchingFromOneOf(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-          predicate) {
+  public A removeMatchingFromOneOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
     if (oneOf == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> each =
-        oneOf.iterator();
+    final Iterator<V1JSONSchemaPropsBuilder> each = oneOf.iterator();
     final List visitables = _visitables.get("oneOf");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder = each.next();
+      V1JSONSchemaPropsBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -1359,31 +1274,29 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> getOneOf() {
+  @Deprecated
+  public List<V1JSONSchemaProps> getOneOf() {
     return oneOf != null ? build(oneOf) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> buildOneOf() {
+  public List<V1JSONSchemaProps> buildOneOf() {
     return oneOf != null ? build(oneOf) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildOneOf(java.lang.Integer index) {
+  public V1JSONSchemaProps buildOneOf(Integer index) {
     return this.oneOf.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildFirstOneOf() {
+  public V1JSONSchemaProps buildFirstOneOf() {
     return this.oneOf.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildLastOneOf() {
+  public V1JSONSchemaProps buildLastOneOf() {
     return this.oneOf.get(oneOf.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildMatchingOneOf(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder item : oneOf) {
+  public V1JSONSchemaProps buildMatchingOneOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
+    for (V1JSONSchemaPropsBuilder item : oneOf) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -1391,10 +1304,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return null;
   }
 
-  public java.lang.Boolean hasMatchingOneOf(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder item : oneOf) {
+  public Boolean hasMatchingOneOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
+    for (V1JSONSchemaPropsBuilder item : oneOf) {
       if (predicate.test(item)) {
         return true;
       }
@@ -1402,13 +1313,13 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return false;
   }
 
-  public A withOneOf(java.util.List<io.kubernetes.client.openapi.models.V1JSONSchemaProps> oneOf) {
+  public A withOneOf(List<V1JSONSchemaProps> oneOf) {
     if (this.oneOf != null) {
       _visitables.get("oneOf").removeAll(this.oneOf);
     }
     if (oneOf != null) {
-      this.oneOf = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : oneOf) {
+      this.oneOf = new ArrayList();
+      for (V1JSONSchemaProps item : oneOf) {
         this.addToOneOf(item);
       }
     } else {
@@ -1422,14 +1333,14 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
       this.oneOf.clear();
     }
     if (oneOf != null) {
-      for (io.kubernetes.client.openapi.models.V1JSONSchemaProps item : oneOf) {
+      for (V1JSONSchemaProps item : oneOf) {
         this.addToOneOf(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasOneOf() {
+  public Boolean hasOneOf() {
     return oneOf != null && !oneOf.isEmpty();
   }
 
@@ -1437,41 +1348,33 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return new V1JSONSchemaPropsFluentImpl.OneOfNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOfLike(
-      io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.OneOfNestedImpl(
-        -1, item);
+  public V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOfLike(V1JSONSchemaProps item) {
+    return new V1JSONSchemaPropsFluentImpl.OneOfNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A> setNewOneOfLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
-    return new io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluentImpl.OneOfNestedImpl(
-        index, item);
+  public V1JSONSchemaPropsFluent.OneOfNested<A> setNewOneOfLike(
+      Integer index, V1JSONSchemaProps item) {
+    return new V1JSONSchemaPropsFluentImpl.OneOfNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A> editOneOf(
-      java.lang.Integer index) {
+  public V1JSONSchemaPropsFluent.OneOfNested<A> editOneOf(Integer index) {
     if (oneOf.size() <= index) throw new RuntimeException("Can't edit oneOf. Index exceeds size.");
     return setNewOneOfLike(index, buildOneOf(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A>
-      editFirstOneOf() {
+  public V1JSONSchemaPropsFluent.OneOfNested<A> editFirstOneOf() {
     if (oneOf.size() == 0) throw new RuntimeException("Can't edit first oneOf. The list is empty.");
     return setNewOneOfLike(0, buildOneOf(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A>
-      editLastOneOf() {
+  public V1JSONSchemaPropsFluent.OneOfNested<A> editLastOneOf() {
     int index = oneOf.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last oneOf. The list is empty.");
     return setNewOneOfLike(index, buildOneOf(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.OneOfNested<A>
-      editMatchingOneOf(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder>
-              predicate) {
+  public V1JSONSchemaPropsFluent.OneOfNested<A> editMatchingOneOf(
+      Predicate<V1JSONSchemaPropsBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < oneOf.size(); i++) {
       if (predicate.test(oneOf.get(i))) {
@@ -1483,23 +1386,22 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return setNewOneOfLike(index, buildOneOf(index));
   }
 
-  public java.lang.String getPattern() {
+  public String getPattern() {
     return this.pattern;
   }
 
-  public A withPattern(java.lang.String pattern) {
+  public A withPattern(String pattern) {
     this.pattern = pattern;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPattern() {
+  public Boolean hasPattern() {
     return this.pattern != null;
   }
 
-  public A addToPatternProperties(
-      java.lang.String key, io.kubernetes.client.openapi.models.V1JSONSchemaProps value) {
+  public A addToPatternProperties(String key, V1JSONSchemaProps value) {
     if (this.patternProperties == null && key != null && value != null) {
-      this.patternProperties = new java.util.LinkedHashMap();
+      this.patternProperties = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.patternProperties.put(key, value);
@@ -1507,10 +1409,9 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A addToPatternProperties(
-      java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps> map) {
+  public A addToPatternProperties(Map<String, V1JSONSchemaProps> map) {
     if (this.patternProperties == null && map != null) {
-      this.patternProperties = new java.util.LinkedHashMap();
+      this.patternProperties = new LinkedHashMap();
     }
     if (map != null) {
       this.patternProperties.putAll(map);
@@ -1518,7 +1419,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeFromPatternProperties(java.lang.String key) {
+  public A removeFromPatternProperties(String key) {
     if (this.patternProperties == null) {
       return (A) this;
     }
@@ -1528,8 +1429,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeFromPatternProperties(
-      java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps> map) {
+  public A removeFromPatternProperties(Map<String, V1JSONSchemaProps> map) {
     if (this.patternProperties == null) {
       return (A) this;
     }
@@ -1543,30 +1443,26 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps>
-      getPatternProperties() {
+  public Map<String, V1JSONSchemaProps> getPatternProperties() {
     return this.patternProperties;
   }
 
-  public <K, V> A withPatternProperties(
-      java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps>
-          patternProperties) {
+  public <K, V> A withPatternProperties(Map<String, V1JSONSchemaProps> patternProperties) {
     if (patternProperties == null) {
       this.patternProperties = null;
     } else {
-      this.patternProperties = new java.util.LinkedHashMap(patternProperties);
+      this.patternProperties = new LinkedHashMap(patternProperties);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPatternProperties() {
+  public Boolean hasPatternProperties() {
     return this.patternProperties != null;
   }
 
-  public A addToProperties(
-      java.lang.String key, io.kubernetes.client.openapi.models.V1JSONSchemaProps value) {
+  public A addToProperties(String key, V1JSONSchemaProps value) {
     if (this.properties == null && key != null && value != null) {
-      this.properties = new java.util.LinkedHashMap();
+      this.properties = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.properties.put(key, value);
@@ -1574,10 +1470,9 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A addToProperties(
-      java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps> map) {
+  public A addToProperties(Map<String, V1JSONSchemaProps> map) {
     if (this.properties == null && map != null) {
-      this.properties = new java.util.LinkedHashMap();
+      this.properties = new LinkedHashMap();
     }
     if (map != null) {
       this.properties.putAll(map);
@@ -1585,7 +1480,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeFromProperties(java.lang.String key) {
+  public A removeFromProperties(String key) {
     if (this.properties == null) {
       return (A) this;
     }
@@ -1595,8 +1490,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeFromProperties(
-      java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps> map) {
+  public A removeFromProperties(Map<String, V1JSONSchemaProps> map) {
     if (this.properties == null) {
       return (A) this;
     }
@@ -1610,37 +1504,34 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps>
-      getProperties() {
+  public Map<String, V1JSONSchemaProps> getProperties() {
     return this.properties;
   }
 
-  public <K, V> A withProperties(
-      java.util.Map<java.lang.String, io.kubernetes.client.openapi.models.V1JSONSchemaProps>
-          properties) {
+  public <K, V> A withProperties(Map<String, V1JSONSchemaProps> properties) {
     if (properties == null) {
       this.properties = null;
     } else {
-      this.properties = new java.util.LinkedHashMap(properties);
+      this.properties = new LinkedHashMap(properties);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasProperties() {
+  public Boolean hasProperties() {
     return this.properties != null;
   }
 
-  public A addToRequired(java.lang.Integer index, java.lang.String item) {
+  public A addToRequired(Integer index, String item) {
     if (this.required == null) {
-      this.required = new java.util.ArrayList<java.lang.String>();
+      this.required = new ArrayList<String>();
     }
     this.required.add(index, item);
     return (A) this;
   }
 
-  public A setToRequired(java.lang.Integer index, java.lang.String item) {
+  public A setToRequired(Integer index, String item) {
     if (this.required == null) {
-      this.required = new java.util.ArrayList<java.lang.String>();
+      this.required = new ArrayList<String>();
     }
     this.required.set(index, item);
     return (A) this;
@@ -1648,26 +1539,26 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   public A addToRequired(java.lang.String... items) {
     if (this.required == null) {
-      this.required = new java.util.ArrayList<java.lang.String>();
+      this.required = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.required.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToRequired(java.util.Collection<java.lang.String> items) {
+  public A addAllToRequired(Collection<String> items) {
     if (this.required == null) {
-      this.required = new java.util.ArrayList<java.lang.String>();
+      this.required = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.required.add(item);
     }
     return (A) this;
   }
 
   public A removeFromRequired(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.required != null) {
         this.required.remove(item);
       }
@@ -1675,8 +1566,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromRequired(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromRequired(Collection<String> items) {
+    for (String item : items) {
       if (this.required != null) {
         this.required.remove(item);
       }
@@ -1684,25 +1575,24 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getRequired() {
+  public List<String> getRequired() {
     return this.required;
   }
 
-  public java.lang.String getRequired(java.lang.Integer index) {
+  public String getRequired(Integer index) {
     return this.required.get(index);
   }
 
-  public java.lang.String getFirstRequired() {
+  public String getFirstRequired() {
     return this.required.get(0);
   }
 
-  public java.lang.String getLastRequired() {
+  public String getLastRequired() {
     return this.required.get(required.size() - 1);
   }
 
-  public java.lang.String getMatchingRequired(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : required) {
+  public String getMatchingRequired(Predicate<String> predicate) {
+    for (String item : required) {
       if (predicate.test(item)) {
         return item;
       }
@@ -1710,9 +1600,8 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return null;
   }
 
-  public java.lang.Boolean hasMatchingRequired(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : required) {
+  public Boolean hasMatchingRequired(Predicate<String> predicate) {
+    for (String item : required) {
       if (predicate.test(item)) {
         return true;
       }
@@ -1720,10 +1609,10 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
     return false;
   }
 
-  public A withRequired(java.util.List<java.lang.String> required) {
+  public A withRequired(List<String> required) {
     if (required != null) {
-      this.required = new java.util.ArrayList();
-      for (java.lang.String item : required) {
+      this.required = new ArrayList();
+      for (String item : required) {
         this.addToRequired(item);
       }
     } else {
@@ -1737,57 +1626,57 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
       this.required.clear();
     }
     if (required != null) {
-      for (java.lang.String item : required) {
+      for (String item : required) {
         this.addToRequired(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasRequired() {
+  public Boolean hasRequired() {
     return required != null && !required.isEmpty();
   }
 
-  public java.lang.String getTitle() {
+  public String getTitle() {
     return this.title;
   }
 
-  public A withTitle(java.lang.String title) {
+  public A withTitle(String title) {
     this.title = title;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTitle() {
+  public Boolean hasTitle() {
     return this.title != null;
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
-  public java.lang.Boolean getUniqueItems() {
+  public Boolean getUniqueItems() {
     return this.uniqueItems;
   }
 
-  public A withUniqueItems(java.lang.Boolean uniqueItems) {
+  public A withUniqueItems(Boolean uniqueItems) {
     this.uniqueItems = uniqueItems;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUniqueItems() {
+  public Boolean hasUniqueItems() {
     return this.uniqueItems != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1JSONSchemaPropsFluentImpl that = (V1JSONSchemaPropsFluentImpl) o;
@@ -1896,7 +1785,7 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if ($ref != null) {
@@ -2070,19 +1959,18 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
   class AllOfNestedImpl<N>
       extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.AllOfNested<N>>
       implements V1JSONSchemaPropsFluent.AllOfNested<N>, Nested<N> {
-    AllOfNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+    AllOfNestedImpl(Integer index, V1JSONSchemaProps item) {
       this.index = index;
       this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
 
     AllOfNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(this);
+      this.builder = new V1JSONSchemaPropsBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder;
-    java.lang.Integer index;
+    V1JSONSchemaPropsBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1JSONSchemaPropsFluentImpl.this.setToAllOf(index, builder.build());
@@ -2095,20 +1983,19 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   class AnyOfNestedImpl<N>
       extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.AnyOfNested<N>>
-      implements V1JSONSchemaPropsFluent.AnyOfNested<N>, io.kubernetes.client.fluent.Nested<N> {
-    AnyOfNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+      implements V1JSONSchemaPropsFluent.AnyOfNested<N>, Nested<N> {
+    AnyOfNestedImpl(Integer index, V1JSONSchemaProps item) {
       this.index = index;
       this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
 
     AnyOfNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(this);
+      this.builder = new V1JSONSchemaPropsBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder;
-    java.lang.Integer index;
+    V1JSONSchemaPropsBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1JSONSchemaPropsFluentImpl.this.setToAnyOf(index, builder.build());
@@ -2121,17 +2008,16 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   class ExternalDocsNestedImpl<N>
       extends V1ExternalDocumentationFluentImpl<V1JSONSchemaPropsFluent.ExternalDocsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent.ExternalDocsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ExternalDocsNestedImpl(io.kubernetes.client.openapi.models.V1ExternalDocumentation item) {
+      implements V1JSONSchemaPropsFluent.ExternalDocsNested<N>, Nested<N> {
+    ExternalDocsNestedImpl(V1ExternalDocumentation item) {
       this.builder = new V1ExternalDocumentationBuilder(this, item);
     }
 
     ExternalDocsNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ExternalDocumentationBuilder(this);
+      this.builder = new V1ExternalDocumentationBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ExternalDocumentationBuilder builder;
+    V1ExternalDocumentationBuilder builder;
 
     public N and() {
       return (N) V1JSONSchemaPropsFluentImpl.this.withExternalDocs(builder.build());
@@ -2143,16 +2029,16 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
   }
 
   class NotNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.NotNested<N>>
-      implements V1JSONSchemaPropsFluent.NotNested<N>, io.kubernetes.client.fluent.Nested<N> {
-    NotNestedImpl(io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+      implements V1JSONSchemaPropsFluent.NotNested<N>, Nested<N> {
+    NotNestedImpl(V1JSONSchemaProps item) {
       this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
 
     NotNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(this);
+      this.builder = new V1JSONSchemaPropsBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder;
+    V1JSONSchemaPropsBuilder builder;
 
     public N and() {
       return (N) V1JSONSchemaPropsFluentImpl.this.withNot(builder.build());
@@ -2165,20 +2051,19 @@ public class V1JSONSchemaPropsFluentImpl<A extends V1JSONSchemaPropsFluent<A>> e
 
   class OneOfNestedImpl<N>
       extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.OneOfNested<N>>
-      implements V1JSONSchemaPropsFluent.OneOfNested<N>, io.kubernetes.client.fluent.Nested<N> {
-    OneOfNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1JSONSchemaProps item) {
+      implements V1JSONSchemaPropsFluent.OneOfNested<N>, Nested<N> {
+    OneOfNestedImpl(Integer index, V1JSONSchemaProps item) {
       this.index = index;
       this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
 
     OneOfNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder(this);
+      this.builder = new V1JSONSchemaPropsBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder builder;
-    java.lang.Integer index;
+    V1JSONSchemaPropsBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1JSONSchemaPropsFluentImpl.this.setToOneOf(index, builder.build());

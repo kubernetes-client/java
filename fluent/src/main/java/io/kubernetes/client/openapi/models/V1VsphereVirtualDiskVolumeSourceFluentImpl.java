@@ -21,8 +21,7 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
     extends BaseFluent<A> implements V1VsphereVirtualDiskVolumeSourceFluent<A> {
   public V1VsphereVirtualDiskVolumeSourceFluentImpl() {}
 
-  public V1VsphereVirtualDiskVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1VsphereVirtualDiskVolumeSource instance) {
+  public V1VsphereVirtualDiskVolumeSourceFluentImpl(V1VsphereVirtualDiskVolumeSource instance) {
     this.withFsType(instance.getFsType());
 
     this.withStoragePolicyID(instance.getStoragePolicyID());
@@ -33,15 +32,15 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
   }
 
   private String fsType;
-  private java.lang.String storagePolicyID;
-  private java.lang.String storagePolicyName;
-  private java.lang.String volumePath;
+  private String storagePolicyID;
+  private String storagePolicyName;
+  private String volumePath;
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
@@ -50,42 +49,42 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
     return this.fsType != null;
   }
 
-  public java.lang.String getStoragePolicyID() {
+  public String getStoragePolicyID() {
     return this.storagePolicyID;
   }
 
-  public A withStoragePolicyID(java.lang.String storagePolicyID) {
+  public A withStoragePolicyID(String storagePolicyID) {
     this.storagePolicyID = storagePolicyID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStoragePolicyID() {
+  public Boolean hasStoragePolicyID() {
     return this.storagePolicyID != null;
   }
 
-  public java.lang.String getStoragePolicyName() {
+  public String getStoragePolicyName() {
     return this.storagePolicyName;
   }
 
-  public A withStoragePolicyName(java.lang.String storagePolicyName) {
+  public A withStoragePolicyName(String storagePolicyName) {
     this.storagePolicyName = storagePolicyName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStoragePolicyName() {
+  public Boolean hasStoragePolicyName() {
     return this.storagePolicyName != null;
   }
 
-  public java.lang.String getVolumePath() {
+  public String getVolumePath() {
     return this.volumePath;
   }
 
-  public A withVolumePath(java.lang.String volumePath) {
+  public A withVolumePath(String volumePath) {
     this.volumePath = volumePath;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVolumePath() {
+  public Boolean hasVolumePath() {
     return this.volumePath != null;
   }
 
@@ -111,7 +110,7 @@ public class V1VsphereVirtualDiskVolumeSourceFluentImpl<
         fsType, storagePolicyID, storagePolicyName, volumePath, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fsType != null) {

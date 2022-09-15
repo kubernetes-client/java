@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PriorityClassListBuilder
     extends V1PriorityClassListFluentImpl<V1PriorityClassListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PriorityClassList,
-        io.kubernetes.client.openapi.models.V1PriorityClassListBuilder> {
+    implements VisitableBuilder<V1PriorityClassList, V1PriorityClassListBuilder> {
   public V1PriorityClassListBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1PriorityClassListBuilder
   }
 
   public V1PriorityClassListBuilder(
-      io.kubernetes.client.openapi.models.V1PriorityClassListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1PriorityClassListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PriorityClassList(), validationEnabled);
   }
 
   public V1PriorityClassListBuilder(
-      io.kubernetes.client.openapi.models.V1PriorityClassListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PriorityClassList instance) {
+      V1PriorityClassListFluent<?> fluent, V1PriorityClassList instance) {
     this(fluent, instance, false);
   }
 
   public V1PriorityClassListBuilder(
-      io.kubernetes.client.openapi.models.V1PriorityClassListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PriorityClassList instance,
-      java.lang.Boolean validationEnabled) {
+      V1PriorityClassListFluent<?> fluent,
+      V1PriorityClassList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,14 +55,11 @@ public class V1PriorityClassListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PriorityClassListBuilder(
-      io.kubernetes.client.openapi.models.V1PriorityClassList instance) {
+  public V1PriorityClassListBuilder(V1PriorityClassList instance) {
     this(instance, false);
   }
 
-  public V1PriorityClassListBuilder(
-      io.kubernetes.client.openapi.models.V1PriorityClassList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PriorityClassListBuilder(V1PriorityClassList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -79,10 +72,10 @@ public class V1PriorityClassListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PriorityClassListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PriorityClassListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PriorityClassList build() {
+  public V1PriorityClassList build() {
     V1PriorityClassList buildable = new V1PriorityClassList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

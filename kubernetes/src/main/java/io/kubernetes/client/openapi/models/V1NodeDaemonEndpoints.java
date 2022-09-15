@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "NodeDaemonEndpoints lists ports opened by daemons running on the Node.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1NodeDaemonEndpoints {
   public static final String SERIALIZED_NAME_KUBELET_ENDPOINT = "kubeletEndpoint";
 

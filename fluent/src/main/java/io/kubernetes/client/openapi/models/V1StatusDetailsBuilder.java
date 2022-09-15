@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1StatusDetailsBuilder extends V1StatusDetailsFluentImpl<V1StatusDetailsBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1StatusDetails,
-        io.kubernetes.client.openapi.models.V1StatusDetailsBuilder> {
+    implements VisitableBuilder<V1StatusDetails, V1StatusDetailsBuilder> {
   public V1StatusDetailsBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1StatusDetailsBuilder extends V1StatusDetailsFluentImpl<V1StatusDe
     this(fluent, false);
   }
 
-  public V1StatusDetailsBuilder(
-      io.kubernetes.client.openapi.models.V1StatusDetailsFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1StatusDetailsBuilder(V1StatusDetailsFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1StatusDetails(), validationEnabled);
   }
 
-  public V1StatusDetailsBuilder(
-      io.kubernetes.client.openapi.models.V1StatusDetailsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StatusDetails instance) {
+  public V1StatusDetailsBuilder(V1StatusDetailsFluent<?> fluent, V1StatusDetails instance) {
     this(fluent, instance, false);
   }
 
   public V1StatusDetailsBuilder(
-      io.kubernetes.client.openapi.models.V1StatusDetailsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StatusDetails instance,
-      java.lang.Boolean validationEnabled) {
+      V1StatusDetailsFluent<?> fluent, V1StatusDetails instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCauses(instance.getCauses());
 
@@ -62,13 +54,11 @@ public class V1StatusDetailsBuilder extends V1StatusDetailsFluentImpl<V1StatusDe
     this.validationEnabled = validationEnabled;
   }
 
-  public V1StatusDetailsBuilder(io.kubernetes.client.openapi.models.V1StatusDetails instance) {
+  public V1StatusDetailsBuilder(V1StatusDetails instance) {
     this(instance, false);
   }
 
-  public V1StatusDetailsBuilder(
-      io.kubernetes.client.openapi.models.V1StatusDetails instance,
-      java.lang.Boolean validationEnabled) {
+  public V1StatusDetailsBuilder(V1StatusDetails instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCauses(instance.getCauses());
 
@@ -85,10 +75,10 @@ public class V1StatusDetailsBuilder extends V1StatusDetailsFluentImpl<V1StatusDe
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1StatusDetailsFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1StatusDetailsFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1StatusDetails build() {
+  public V1StatusDetails build() {
     V1StatusDetails buildable = new V1StatusDetails();
     buildable.setCauses(fluent.getCauses());
     buildable.setGroup(fluent.getGroup());

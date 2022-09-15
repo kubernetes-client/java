@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NetworkPolicyEgressRuleBuilder
     extends V1NetworkPolicyEgressRuleFluentImpl<V1NetworkPolicyEgressRuleBuilder>
-    implements VisitableBuilder<
-        V1NetworkPolicyEgressRule,
-        io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleBuilder> {
+    implements VisitableBuilder<V1NetworkPolicyEgressRule, V1NetworkPolicyEgressRuleBuilder> {
   public V1NetworkPolicyEgressRuleBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1NetworkPolicyEgressRuleBuilder
   }
 
   public V1NetworkPolicyEgressRuleBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicyEgressRuleFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NetworkPolicyEgressRule(), validationEnabled);
   }
 
   public V1NetworkPolicyEgressRuleBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule instance) {
+      V1NetworkPolicyEgressRuleFluent<?> fluent, V1NetworkPolicyEgressRule instance) {
     this(fluent, instance, false);
   }
 
   public V1NetworkPolicyEgressRuleBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule instance,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicyEgressRuleFluent<?> fluent,
+      V1NetworkPolicyEgressRule instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withPorts(instance.getPorts());
 
@@ -55,14 +51,12 @@ public class V1NetworkPolicyEgressRuleBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NetworkPolicyEgressRuleBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule instance) {
+  public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRule instance) {
     this(instance, false);
   }
 
   public V1NetworkPolicyEgressRuleBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule instance,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicyEgressRule instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withPorts(instance.getPorts());
 
@@ -71,10 +65,10 @@ public class V1NetworkPolicyEgressRuleBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NetworkPolicyEgressRuleFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule build() {
+  public V1NetworkPolicyEgressRule build() {
     V1NetworkPolicyEgressRule buildable = new V1NetworkPolicyEgressRule();
     buildable.setPorts(fluent.getPorts());
     buildable.setTo(fluent.getTo());

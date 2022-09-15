@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class EventsV1EventListBuilder extends EventsV1EventListFluentImpl<EventsV1EventListBuilder>
-    implements VisitableBuilder<
-        EventsV1EventList, io.kubernetes.client.openapi.models.EventsV1EventListBuilder> {
+    implements VisitableBuilder<EventsV1EventList, EventsV1EventListBuilder> {
   public EventsV1EventListBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class EventsV1EventListBuilder extends EventsV1EventListFluentImpl<Events
     this(fluent, false);
   }
 
-  public EventsV1EventListBuilder(
-      io.kubernetes.client.openapi.models.EventsV1EventListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public EventsV1EventListBuilder(EventsV1EventListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new EventsV1EventList(), validationEnabled);
   }
 
-  public EventsV1EventListBuilder(
-      io.kubernetes.client.openapi.models.EventsV1EventListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.EventsV1EventList instance) {
+  public EventsV1EventListBuilder(EventsV1EventListFluent<?> fluent, EventsV1EventList instance) {
     this(fluent, instance, false);
   }
 
   public EventsV1EventListBuilder(
-      io.kubernetes.client.openapi.models.EventsV1EventListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.EventsV1EventList instance,
-      java.lang.Boolean validationEnabled) {
+      EventsV1EventListFluent<?> fluent, EventsV1EventList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -57,13 +50,11 @@ public class EventsV1EventListBuilder extends EventsV1EventListFluentImpl<Events
     this.validationEnabled = validationEnabled;
   }
 
-  public EventsV1EventListBuilder(io.kubernetes.client.openapi.models.EventsV1EventList instance) {
+  public EventsV1EventListBuilder(EventsV1EventList instance) {
     this(instance, false);
   }
 
-  public EventsV1EventListBuilder(
-      io.kubernetes.client.openapi.models.EventsV1EventList instance,
-      java.lang.Boolean validationEnabled) {
+  public EventsV1EventListBuilder(EventsV1EventList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -76,10 +67,10 @@ public class EventsV1EventListBuilder extends EventsV1EventListFluentImpl<Events
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.EventsV1EventListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  EventsV1EventListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.EventsV1EventList build() {
+  public EventsV1EventList build() {
     EventsV1EventList buildable = new EventsV1EventList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

@@ -23,35 +23,33 @@ import java.util.function.Predicate;
 public interface V1JobStatusFluent<A extends V1JobStatusFluent<A>> extends Fluent<A> {
   public Integer getActive();
 
-  public A withActive(java.lang.Integer active);
+  public A withActive(Integer active);
 
   public Boolean hasActive();
 
   public String getCompletedIndexes();
 
-  public A withCompletedIndexes(java.lang.String completedIndexes);
+  public A withCompletedIndexes(String completedIndexes);
 
-  public java.lang.Boolean hasCompletedIndexes();
+  public Boolean hasCompletedIndexes();
 
   public OffsetDateTime getCompletionTime();
 
-  public A withCompletionTime(java.time.OffsetDateTime completionTime);
+  public A withCompletionTime(OffsetDateTime completionTime);
 
-  public java.lang.Boolean hasCompletionTime();
+  public Boolean hasCompletionTime();
 
-  public A addToConditions(java.lang.Integer index, V1JobCondition item);
+  public A addToConditions(Integer index, V1JobCondition item);
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1JobCondition item);
+  public A setToConditions(Integer index, V1JobCondition item);
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1JobCondition... items);
 
-  public A addAllToConditions(Collection<io.kubernetes.client.openapi.models.V1JobCondition> items);
+  public A addAllToConditions(Collection<V1JobCondition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1JobCondition... items);
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1JobCondition> items);
+  public A removeAllFromConditions(Collection<V1JobCondition> items);
 
   public A removeMatchingFromConditions(Predicate<V1JobConditionBuilder> predicate);
 
@@ -61,109 +59,91 @@ public interface V1JobStatusFluent<A extends V1JobStatusFluent<A>> extends Fluen
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1JobCondition> getConditions();
+  public List<V1JobCondition> getConditions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1JobCondition> buildConditions();
+  public List<V1JobCondition> buildConditions();
 
-  public io.kubernetes.client.openapi.models.V1JobCondition buildCondition(java.lang.Integer index);
+  public V1JobCondition buildCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1JobCondition buildFirstCondition();
+  public V1JobCondition buildFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1JobCondition buildLastCondition();
+  public V1JobCondition buildLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1JobCondition buildMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JobConditionBuilder>
-          predicate);
+  public V1JobCondition buildMatchingCondition(Predicate<V1JobConditionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JobConditionBuilder>
-          predicate);
+  public Boolean hasMatchingCondition(Predicate<V1JobConditionBuilder> predicate);
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1JobCondition> conditions);
+  public A withConditions(List<V1JobCondition> conditions);
 
   public A withConditions(io.kubernetes.client.openapi.models.V1JobCondition... conditions);
 
-  public java.lang.Boolean hasConditions();
+  public Boolean hasConditions();
 
   public V1JobStatusFluent.ConditionsNested<A> addNewCondition();
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1JobCondition item);
+  public V1JobStatusFluent.ConditionsNested<A> addNewConditionLike(V1JobCondition item);
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1JobCondition item);
+  public V1JobStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1JobCondition item);
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<A> editCondition(
-      java.lang.Integer index);
+  public V1JobStatusFluent.ConditionsNested<A> editCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<A>
-      editFirstCondition();
+  public V1JobStatusFluent.ConditionsNested<A> editFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<A>
-      editLastCondition();
+  public V1JobStatusFluent.ConditionsNested<A> editLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1JobConditionBuilder>
-              predicate);
+  public V1JobStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1JobConditionBuilder> predicate);
 
-  public java.lang.Integer getFailed();
+  public Integer getFailed();
 
-  public A withFailed(java.lang.Integer failed);
+  public A withFailed(Integer failed);
 
-  public java.lang.Boolean hasFailed();
+  public Boolean hasFailed();
 
-  public java.lang.Integer getReady();
+  public Integer getReady();
 
-  public A withReady(java.lang.Integer ready);
+  public A withReady(Integer ready);
 
-  public java.lang.Boolean hasReady();
+  public Boolean hasReady();
 
-  public java.time.OffsetDateTime getStartTime();
+  public OffsetDateTime getStartTime();
 
-  public A withStartTime(java.time.OffsetDateTime startTime);
+  public A withStartTime(OffsetDateTime startTime);
 
-  public java.lang.Boolean hasStartTime();
+  public Boolean hasStartTime();
 
-  public java.lang.Integer getSucceeded();
+  public Integer getSucceeded();
 
-  public A withSucceeded(java.lang.Integer succeeded);
+  public A withSucceeded(Integer succeeded);
 
-  public java.lang.Boolean hasSucceeded();
+  public Boolean hasSucceeded();
 
   /**
    * This method has been deprecated, please use method buildUncountedTerminatedPods instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1UncountedTerminatedPods getUncountedTerminatedPods();
 
-  public io.kubernetes.client.openapi.models.V1UncountedTerminatedPods
-      buildUncountedTerminatedPods();
+  public V1UncountedTerminatedPods buildUncountedTerminatedPods();
 
-  public A withUncountedTerminatedPods(
-      io.kubernetes.client.openapi.models.V1UncountedTerminatedPods uncountedTerminatedPods);
+  public A withUncountedTerminatedPods(V1UncountedTerminatedPods uncountedTerminatedPods);
 
-  public java.lang.Boolean hasUncountedTerminatedPods();
+  public Boolean hasUncountedTerminatedPods();
 
   public V1JobStatusFluent.UncountedTerminatedPodsNested<A> withNewUncountedTerminatedPods();
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.UncountedTerminatedPodsNested<A>
-      withNewUncountedTerminatedPodsLike(
-          io.kubernetes.client.openapi.models.V1UncountedTerminatedPods item);
+  public V1JobStatusFluent.UncountedTerminatedPodsNested<A> withNewUncountedTerminatedPodsLike(
+      V1UncountedTerminatedPods item);
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.UncountedTerminatedPodsNested<A>
-      editUncountedTerminatedPods();
+  public V1JobStatusFluent.UncountedTerminatedPodsNested<A> editUncountedTerminatedPods();
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.UncountedTerminatedPodsNested<A>
-      editOrNewUncountedTerminatedPods();
+  public V1JobStatusFluent.UncountedTerminatedPodsNested<A> editOrNewUncountedTerminatedPods();
 
-  public io.kubernetes.client.openapi.models.V1JobStatusFluent.UncountedTerminatedPodsNested<A>
-      editOrNewUncountedTerminatedPodsLike(
-          io.kubernetes.client.openapi.models.V1UncountedTerminatedPods item);
+  public V1JobStatusFluent.UncountedTerminatedPodsNested<A> editOrNewUncountedTerminatedPodsLike(
+      V1UncountedTerminatedPods item);
 
   public interface ConditionsNested<N>
       extends Nested<N>, V1JobConditionFluent<V1JobStatusFluent.ConditionsNested<N>> {
@@ -173,7 +153,7 @@ public interface V1JobStatusFluent<A extends V1JobStatusFluent<A>> extends Fluen
   }
 
   public interface UncountedTerminatedPodsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1UncountedTerminatedPodsFluent<V1JobStatusFluent.UncountedTerminatedPodsNested<N>> {
     public N and();
 

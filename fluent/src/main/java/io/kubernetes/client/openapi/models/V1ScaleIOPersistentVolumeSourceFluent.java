@@ -21,27 +21,27 @@ public interface V1ScaleIOPersistentVolumeSourceFluent<
     extends Fluent<A> {
   public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
   public Boolean hasFsType();
 
-  public java.lang.String getGateway();
+  public String getGateway();
 
-  public A withGateway(java.lang.String gateway);
+  public A withGateway(String gateway);
 
-  public java.lang.Boolean hasGateway();
+  public Boolean hasGateway();
 
-  public java.lang.String getProtectionDomain();
+  public String getProtectionDomain();
 
-  public A withProtectionDomain(java.lang.String protectionDomain);
+  public A withProtectionDomain(String protectionDomain);
 
-  public java.lang.Boolean hasProtectionDomain();
+  public Boolean hasProtectionDomain();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
@@ -51,59 +51,53 @@ public interface V1ScaleIOPersistentVolumeSourceFluent<
   @Deprecated
   public V1SecretReference getSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1SecretReference buildSecretRef();
+  public V1SecretReference buildSecretRef();
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1SecretReference secretRef);
+  public A withSecretRef(V1SecretReference secretRef);
 
-  public java.lang.Boolean hasSecretRef();
+  public Boolean hasSecretRef();
 
   public V1ScaleIOPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceFluent.SecretRefNested<
-          A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item);
+  public V1ScaleIOPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1SecretReference item);
 
-  public io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceFluent.SecretRefNested<
-          A>
-      editSecretRef();
+  public V1ScaleIOPersistentVolumeSourceFluent.SecretRefNested<A> editSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceFluent.SecretRefNested<
-          A>
-      editOrNewSecretRef();
+  public V1ScaleIOPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1ScaleIOPersistentVolumeSourceFluent.SecretRefNested<
-          A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item);
+  public V1ScaleIOPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1SecretReference item);
 
-  public java.lang.Boolean getSslEnabled();
+  public Boolean getSslEnabled();
 
-  public A withSslEnabled(java.lang.Boolean sslEnabled);
+  public A withSslEnabled(Boolean sslEnabled);
 
-  public java.lang.Boolean hasSslEnabled();
+  public Boolean hasSslEnabled();
 
-  public java.lang.String getStorageMode();
+  public String getStorageMode();
 
-  public A withStorageMode(java.lang.String storageMode);
+  public A withStorageMode(String storageMode);
 
-  public java.lang.Boolean hasStorageMode();
+  public Boolean hasStorageMode();
 
-  public java.lang.String getStoragePool();
+  public String getStoragePool();
 
-  public A withStoragePool(java.lang.String storagePool);
+  public A withStoragePool(String storagePool);
 
-  public java.lang.Boolean hasStoragePool();
+  public Boolean hasStoragePool();
 
-  public java.lang.String getSystem();
+  public String getSystem();
 
-  public A withSystem(java.lang.String system);
+  public A withSystem(String system);
 
-  public java.lang.Boolean hasSystem();
+  public Boolean hasSystem();
 
-  public java.lang.String getVolumeName();
+  public String getVolumeName();
 
-  public A withVolumeName(java.lang.String volumeName);
+  public A withVolumeName(String volumeName);
 
-  public java.lang.Boolean hasVolumeName();
+  public Boolean hasVolumeName();
 
   public A withReadOnly();
 

@@ -20,8 +20,7 @@ public class V1SecretKeySelectorFluentImpl<A extends V1SecretKeySelectorFluent<A
     extends BaseFluent<A> implements V1SecretKeySelectorFluent<A> {
   public V1SecretKeySelectorFluentImpl() {}
 
-  public V1SecretKeySelectorFluentImpl(
-      io.kubernetes.client.openapi.models.V1SecretKeySelector instance) {
+  public V1SecretKeySelectorFluentImpl(V1SecretKeySelector instance) {
     this.withKey(instance.getKey());
 
     this.withName(instance.getName());
@@ -30,45 +29,45 @@ public class V1SecretKeySelectorFluentImpl<A extends V1SecretKeySelectorFluent<A
   }
 
   private String key;
-  private java.lang.String name;
+  private String name;
   private Boolean optional;
 
-  public java.lang.String getKey() {
+  public String getKey() {
     return this.key;
   }
 
-  public A withKey(java.lang.String key) {
+  public A withKey(String key) {
     this.key = key;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKey() {
+  public Boolean hasKey() {
     return this.key != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.Boolean getOptional() {
+  public Boolean getOptional() {
     return this.optional;
   }
 
-  public A withOptional(java.lang.Boolean optional) {
+  public A withOptional(Boolean optional) {
     this.optional = optional;
     return (A) this;
   }
 
-  public java.lang.Boolean hasOptional() {
+  public Boolean hasOptional() {
     return this.optional != null;
   }
 
@@ -86,7 +85,7 @@ public class V1SecretKeySelectorFluentImpl<A extends V1SecretKeySelectorFluent<A
     return java.util.Objects.hash(key, name, optional, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (key != null) {

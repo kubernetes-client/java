@@ -26,7 +26,7 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     implements V1NodeSpecFluent<A> {
   public V1NodeSpecFluentImpl() {}
 
-  public V1NodeSpecFluentImpl(io.kubernetes.client.openapi.models.V1NodeSpec instance) {
+  public V1NodeSpecFluentImpl(V1NodeSpec instance) {
     this.withConfigSource(instance.getConfigSource());
 
     this.withExternalID(instance.getExternalID());
@@ -44,9 +44,9 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
 
   private V1NodeConfigSourceBuilder configSource;
   private String externalID;
-  private java.lang.String podCIDR;
-  private List<java.lang.String> podCIDRs;
-  private java.lang.String providerID;
+  private String podCIDR;
+  private List<String> podCIDRs;
+  private String providerID;
   private ArrayList<V1TaintBuilder> taints;
   private Boolean unschedulable;
 
@@ -56,24 +56,27 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1NodeConfigSource getConfigSource() {
+  public V1NodeConfigSource getConfigSource() {
     return this.configSource != null ? this.configSource.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigSource buildConfigSource() {
+  public V1NodeConfigSource buildConfigSource() {
     return this.configSource != null ? this.configSource.build() : null;
   }
 
-  public A withConfigSource(io.kubernetes.client.openapi.models.V1NodeConfigSource configSource) {
+  public A withConfigSource(V1NodeConfigSource configSource) {
     _visitables.get("configSource").remove(this.configSource);
     if (configSource != null) {
       this.configSource = new V1NodeConfigSourceBuilder(configSource);
       _visitables.get("configSource").add(this.configSource);
+    } else {
+      this.configSource = null;
+      _visitables.get("configSource").remove(this.configSource);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasConfigSource() {
+  public Boolean hasConfigSource() {
     return this.configSource != null;
   }
 
@@ -81,66 +84,60 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return new V1NodeSpecFluentImpl.ConfigSourceNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.ConfigSourceNested<A>
-      withNewConfigSourceLike(io.kubernetes.client.openapi.models.V1NodeConfigSource item) {
+  public V1NodeSpecFluent.ConfigSourceNested<A> withNewConfigSourceLike(V1NodeConfigSource item) {
     return new V1NodeSpecFluentImpl.ConfigSourceNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.ConfigSourceNested<A>
-      editConfigSource() {
+  public V1NodeSpecFluent.ConfigSourceNested<A> editConfigSource() {
     return withNewConfigSourceLike(getConfigSource());
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.ConfigSourceNested<A>
-      editOrNewConfigSource() {
+  public V1NodeSpecFluent.ConfigSourceNested<A> editOrNewConfigSource() {
     return withNewConfigSourceLike(
-        getConfigSource() != null
-            ? getConfigSource()
-            : new io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder().build());
+        getConfigSource() != null ? getConfigSource() : new V1NodeConfigSourceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.ConfigSourceNested<A>
-      editOrNewConfigSourceLike(io.kubernetes.client.openapi.models.V1NodeConfigSource item) {
+  public V1NodeSpecFluent.ConfigSourceNested<A> editOrNewConfigSourceLike(V1NodeConfigSource item) {
     return withNewConfigSourceLike(getConfigSource() != null ? getConfigSource() : item);
   }
 
-  public java.lang.String getExternalID() {
+  public String getExternalID() {
     return this.externalID;
   }
 
-  public A withExternalID(java.lang.String externalID) {
+  public A withExternalID(String externalID) {
     this.externalID = externalID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExternalID() {
+  public Boolean hasExternalID() {
     return this.externalID != null;
   }
 
-  public java.lang.String getPodCIDR() {
+  public String getPodCIDR() {
     return this.podCIDR;
   }
 
-  public A withPodCIDR(java.lang.String podCIDR) {
+  public A withPodCIDR(String podCIDR) {
     this.podCIDR = podCIDR;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPodCIDR() {
+  public Boolean hasPodCIDR() {
     return this.podCIDR != null;
   }
 
-  public A addToPodCIDRs(Integer index, java.lang.String item) {
+  public A addToPodCIDRs(Integer index, String item) {
     if (this.podCIDRs == null) {
-      this.podCIDRs = new java.util.ArrayList<java.lang.String>();
+      this.podCIDRs = new ArrayList<String>();
     }
     this.podCIDRs.add(index, item);
     return (A) this;
   }
 
-  public A setToPodCIDRs(java.lang.Integer index, java.lang.String item) {
+  public A setToPodCIDRs(Integer index, String item) {
     if (this.podCIDRs == null) {
-      this.podCIDRs = new java.util.ArrayList<java.lang.String>();
+      this.podCIDRs = new ArrayList<String>();
     }
     this.podCIDRs.set(index, item);
     return (A) this;
@@ -148,26 +145,26 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
 
   public A addToPodCIDRs(java.lang.String... items) {
     if (this.podCIDRs == null) {
-      this.podCIDRs = new java.util.ArrayList<java.lang.String>();
+      this.podCIDRs = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.podCIDRs.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToPodCIDRs(Collection<java.lang.String> items) {
+  public A addAllToPodCIDRs(Collection<String> items) {
     if (this.podCIDRs == null) {
-      this.podCIDRs = new java.util.ArrayList<java.lang.String>();
+      this.podCIDRs = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.podCIDRs.add(item);
     }
     return (A) this;
   }
 
   public A removeFromPodCIDRs(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.podCIDRs != null) {
         this.podCIDRs.remove(item);
       }
@@ -175,8 +172,8 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeAllFromPodCIDRs(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromPodCIDRs(Collection<String> items) {
+    for (String item : items) {
       if (this.podCIDRs != null) {
         this.podCIDRs.remove(item);
       }
@@ -184,24 +181,24 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getPodCIDRs() {
+  public List<String> getPodCIDRs() {
     return this.podCIDRs;
   }
 
-  public java.lang.String getPodCIDR(java.lang.Integer index) {
+  public String getPodCIDR(Integer index) {
     return this.podCIDRs.get(index);
   }
 
-  public java.lang.String getFirstPodCIDR() {
+  public String getFirstPodCIDR() {
     return this.podCIDRs.get(0);
   }
 
-  public java.lang.String getLastPodCIDR() {
+  public String getLastPodCIDR() {
     return this.podCIDRs.get(podCIDRs.size() - 1);
   }
 
-  public java.lang.String getMatchingPodCIDR(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : podCIDRs) {
+  public String getMatchingPodCIDR(Predicate<String> predicate) {
+    for (String item : podCIDRs) {
       if (predicate.test(item)) {
         return item;
       }
@@ -209,9 +206,8 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return null;
   }
 
-  public java.lang.Boolean hasMatchingPodCIDR(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : podCIDRs) {
+  public Boolean hasMatchingPodCIDR(Predicate<String> predicate) {
+    for (String item : podCIDRs) {
       if (predicate.test(item)) {
         return true;
       }
@@ -219,10 +215,10 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return false;
   }
 
-  public A withPodCIDRs(java.util.List<java.lang.String> podCIDRs) {
+  public A withPodCIDRs(List<String> podCIDRs) {
     if (podCIDRs != null) {
-      this.podCIDRs = new java.util.ArrayList();
-      for (java.lang.String item : podCIDRs) {
+      this.podCIDRs = new ArrayList();
+      for (String item : podCIDRs) {
         this.addToPodCIDRs(item);
       }
     } else {
@@ -236,47 +232,45 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
       this.podCIDRs.clear();
     }
     if (podCIDRs != null) {
-      for (java.lang.String item : podCIDRs) {
+      for (String item : podCIDRs) {
         this.addToPodCIDRs(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPodCIDRs() {
+  public Boolean hasPodCIDRs() {
     return podCIDRs != null && !podCIDRs.isEmpty();
   }
 
-  public java.lang.String getProviderID() {
+  public String getProviderID() {
     return this.providerID;
   }
 
-  public A withProviderID(java.lang.String providerID) {
+  public A withProviderID(String providerID) {
     this.providerID = providerID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasProviderID() {
+  public Boolean hasProviderID() {
     return this.providerID != null;
   }
 
-  public A addToTaints(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Taint item) {
+  public A addToTaints(Integer index, V1Taint item) {
     if (this.taints == null) {
-      this.taints = new java.util.ArrayList<V1TaintBuilder>();
+      this.taints = new ArrayList<V1TaintBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1TaintBuilder builder =
-        new io.kubernetes.client.openapi.models.V1TaintBuilder(item);
+    V1TaintBuilder builder = new V1TaintBuilder(item);
     _visitables.get("taints").add(index >= 0 ? index : _visitables.get("taints").size(), builder);
     this.taints.add(index >= 0 ? index : taints.size(), builder);
     return (A) this;
   }
 
-  public A setToTaints(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Taint item) {
+  public A setToTaints(Integer index, V1Taint item) {
     if (this.taints == null) {
-      this.taints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1TaintBuilder>();
+      this.taints = new ArrayList<V1TaintBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1TaintBuilder builder =
-        new io.kubernetes.client.openapi.models.V1TaintBuilder(item);
+    V1TaintBuilder builder = new V1TaintBuilder(item);
     if (index < 0 || index >= _visitables.get("taints").size()) {
       _visitables.get("taints").add(builder);
     } else {
@@ -292,24 +286,22 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
 
   public A addToTaints(io.kubernetes.client.openapi.models.V1Taint... items) {
     if (this.taints == null) {
-      this.taints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1TaintBuilder>();
+      this.taints = new ArrayList<V1TaintBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Taint item : items) {
-      io.kubernetes.client.openapi.models.V1TaintBuilder builder =
-          new io.kubernetes.client.openapi.models.V1TaintBuilder(item);
+    for (V1Taint item : items) {
+      V1TaintBuilder builder = new V1TaintBuilder(item);
       _visitables.get("taints").add(builder);
       this.taints.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToTaints(java.util.Collection<io.kubernetes.client.openapi.models.V1Taint> items) {
+  public A addAllToTaints(Collection<V1Taint> items) {
     if (this.taints == null) {
-      this.taints = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1TaintBuilder>();
+      this.taints = new ArrayList<V1TaintBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Taint item : items) {
-      io.kubernetes.client.openapi.models.V1TaintBuilder builder =
-          new io.kubernetes.client.openapi.models.V1TaintBuilder(item);
+    for (V1Taint item : items) {
+      V1TaintBuilder builder = new V1TaintBuilder(item);
       _visitables.get("taints").add(builder);
       this.taints.add(builder);
     }
@@ -317,9 +309,8 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
   }
 
   public A removeFromTaints(io.kubernetes.client.openapi.models.V1Taint... items) {
-    for (io.kubernetes.client.openapi.models.V1Taint item : items) {
-      io.kubernetes.client.openapi.models.V1TaintBuilder builder =
-          new io.kubernetes.client.openapi.models.V1TaintBuilder(item);
+    for (V1Taint item : items) {
+      V1TaintBuilder builder = new V1TaintBuilder(item);
       _visitables.get("taints").remove(builder);
       if (this.taints != null) {
         this.taints.remove(builder);
@@ -328,11 +319,9 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeAllFromTaints(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Taint> items) {
-    for (io.kubernetes.client.openapi.models.V1Taint item : items) {
-      io.kubernetes.client.openapi.models.V1TaintBuilder builder =
-          new io.kubernetes.client.openapi.models.V1TaintBuilder(item);
+  public A removeAllFromTaints(Collection<V1Taint> items) {
+    for (V1Taint item : items) {
+      V1TaintBuilder builder = new V1TaintBuilder(item);
       _visitables.get("taints").remove(builder);
       if (this.taints != null) {
         this.taints.remove(builder);
@@ -341,13 +330,12 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeMatchingFromTaints(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1TaintBuilder> predicate) {
+  public A removeMatchingFromTaints(Predicate<V1TaintBuilder> predicate) {
     if (taints == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1TaintBuilder> each = taints.iterator();
+    final Iterator<V1TaintBuilder> each = taints.iterator();
     final List visitables = _visitables.get("taints");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1TaintBuilder builder = each.next();
+      V1TaintBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -361,30 +349,29 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1Taint> getTaints() {
+  @Deprecated
+  public List<V1Taint> getTaints() {
     return taints != null ? build(taints) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1Taint> buildTaints() {
+  public List<V1Taint> buildTaints() {
     return taints != null ? build(taints) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1Taint buildTaint(java.lang.Integer index) {
+  public V1Taint buildTaint(Integer index) {
     return this.taints.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Taint buildFirstTaint() {
+  public V1Taint buildFirstTaint() {
     return this.taints.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Taint buildLastTaint() {
+  public V1Taint buildLastTaint() {
     return this.taints.get(taints.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Taint buildMatchingTaint(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1TaintBuilder> predicate) {
-    for (io.kubernetes.client.openapi.models.V1TaintBuilder item : taints) {
+  public V1Taint buildMatchingTaint(Predicate<V1TaintBuilder> predicate) {
+    for (V1TaintBuilder item : taints) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -392,9 +379,8 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return null;
   }
 
-  public java.lang.Boolean hasMatchingTaint(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1TaintBuilder> predicate) {
-    for (io.kubernetes.client.openapi.models.V1TaintBuilder item : taints) {
+  public Boolean hasMatchingTaint(Predicate<V1TaintBuilder> predicate) {
+    for (V1TaintBuilder item : taints) {
       if (predicate.test(item)) {
         return true;
       }
@@ -402,13 +388,13 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return false;
   }
 
-  public A withTaints(java.util.List<io.kubernetes.client.openapi.models.V1Taint> taints) {
+  public A withTaints(List<V1Taint> taints) {
     if (this.taints != null) {
       _visitables.get("taints").removeAll(this.taints);
     }
     if (taints != null) {
-      this.taints = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1Taint item : taints) {
+      this.taints = new ArrayList();
+      for (V1Taint item : taints) {
         this.addToTaints(item);
       }
     } else {
@@ -422,14 +408,14 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
       this.taints.clear();
     }
     if (taints != null) {
-      for (io.kubernetes.client.openapi.models.V1Taint item : taints) {
+      for (V1Taint item : taints) {
         this.addToTaints(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasTaints() {
+  public Boolean hasTaints() {
     return taints != null && !taints.isEmpty();
   }
 
@@ -437,38 +423,33 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return new V1NodeSpecFluentImpl.TaintsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<A> addNewTaintLike(
-      io.kubernetes.client.openapi.models.V1Taint item) {
-    return new io.kubernetes.client.openapi.models.V1NodeSpecFluentImpl.TaintsNestedImpl(-1, item);
+  public V1NodeSpecFluent.TaintsNested<A> addNewTaintLike(V1Taint item) {
+    return new V1NodeSpecFluentImpl.TaintsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<A> setNewTaintLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Taint item) {
-    return new io.kubernetes.client.openapi.models.V1NodeSpecFluentImpl.TaintsNestedImpl(
-        index, item);
+  public V1NodeSpecFluent.TaintsNested<A> setNewTaintLike(Integer index, V1Taint item) {
+    return new V1NodeSpecFluentImpl.TaintsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<A> editTaint(
-      java.lang.Integer index) {
+  public V1NodeSpecFluent.TaintsNested<A> editTaint(Integer index) {
     if (taints.size() <= index)
       throw new RuntimeException("Can't edit taints. Index exceeds size.");
     return setNewTaintLike(index, buildTaint(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<A> editFirstTaint() {
+  public V1NodeSpecFluent.TaintsNested<A> editFirstTaint() {
     if (taints.size() == 0)
       throw new RuntimeException("Can't edit first taints. The list is empty.");
     return setNewTaintLike(0, buildTaint(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<A> editLastTaint() {
+  public V1NodeSpecFluent.TaintsNested<A> editLastTaint() {
     int index = taints.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last taints. The list is empty.");
     return setNewTaintLike(index, buildTaint(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<A> editMatchingTaint(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1TaintBuilder> predicate) {
+  public V1NodeSpecFluent.TaintsNested<A> editMatchingTaint(Predicate<V1TaintBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < taints.size(); i++) {
       if (predicate.test(taints.get(i))) {
@@ -480,16 +461,16 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
     return setNewTaintLike(index, buildTaint(index));
   }
 
-  public java.lang.Boolean getUnschedulable() {
+  public Boolean getUnschedulable() {
     return this.unschedulable;
   }
 
-  public A withUnschedulable(java.lang.Boolean unschedulable) {
+  public A withUnschedulable(Boolean unschedulable) {
     this.unschedulable = unschedulable;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUnschedulable() {
+  public Boolean hasUnschedulable() {
     return this.unschedulable != null;
   }
 
@@ -524,7 +505,7 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (configSource != null) {
@@ -565,17 +546,16 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
 
   class ConfigSourceNestedImpl<N>
       extends V1NodeConfigSourceFluentImpl<V1NodeSpecFluent.ConfigSourceNested<N>>
-      implements io.kubernetes.client.openapi.models.V1NodeSpecFluent.ConfigSourceNested<N>,
-          Nested<N> {
-    ConfigSourceNestedImpl(io.kubernetes.client.openapi.models.V1NodeConfigSource item) {
+      implements V1NodeSpecFluent.ConfigSourceNested<N>, Nested<N> {
+    ConfigSourceNestedImpl(V1NodeConfigSource item) {
       this.builder = new V1NodeConfigSourceBuilder(this, item);
     }
 
     ConfigSourceNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder(this);
+      this.builder = new V1NodeConfigSourceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1NodeConfigSourceBuilder builder;
+    V1NodeConfigSourceBuilder builder;
 
     public N and() {
       return (N) V1NodeSpecFluentImpl.this.withConfigSource(builder.build());
@@ -587,20 +567,19 @@ public class V1NodeSpecFluentImpl<A extends V1NodeSpecFluent<A>> extends BaseFlu
   }
 
   class TaintsNestedImpl<N> extends V1TaintFluentImpl<V1NodeSpecFluent.TaintsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1NodeSpecFluent.TaintsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    TaintsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Taint item) {
+      implements V1NodeSpecFluent.TaintsNested<N>, Nested<N> {
+    TaintsNestedImpl(Integer index, V1Taint item) {
       this.index = index;
       this.builder = new V1TaintBuilder(this, item);
     }
 
     TaintsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1TaintBuilder(this);
+      this.builder = new V1TaintBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1TaintBuilder builder;
-    java.lang.Integer index;
+    V1TaintBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1NodeSpecFluentImpl.this.setToTaints(index, builder.build());

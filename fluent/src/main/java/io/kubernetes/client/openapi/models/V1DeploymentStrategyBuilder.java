@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DeploymentStrategyBuilder
     extends V1DeploymentStrategyFluentImpl<V1DeploymentStrategyBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DeploymentStrategy,
-        io.kubernetes.client.openapi.models.V1DeploymentStrategyBuilder> {
+    implements VisitableBuilder<V1DeploymentStrategy, V1DeploymentStrategyBuilder> {
   public V1DeploymentStrategyBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1DeploymentStrategyBuilder
   }
 
   public V1DeploymentStrategyBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1DeploymentStrategyFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DeploymentStrategy(), validationEnabled);
   }
 
   public V1DeploymentStrategyBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DeploymentStrategy instance) {
+      V1DeploymentStrategyFluent<?> fluent, V1DeploymentStrategy instance) {
     this(fluent, instance, false);
   }
 
   public V1DeploymentStrategyBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DeploymentStrategy instance,
-      java.lang.Boolean validationEnabled) {
+      V1DeploymentStrategyFluent<?> fluent,
+      V1DeploymentStrategy instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withRollingUpdate(instance.getRollingUpdate());
 
@@ -55,14 +51,11 @@ public class V1DeploymentStrategyBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DeploymentStrategyBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentStrategy instance) {
+  public V1DeploymentStrategyBuilder(V1DeploymentStrategy instance) {
     this(instance, false);
   }
 
-  public V1DeploymentStrategyBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentStrategy instance,
-      java.lang.Boolean validationEnabled) {
+  public V1DeploymentStrategyBuilder(V1DeploymentStrategy instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withRollingUpdate(instance.getRollingUpdate());
 
@@ -71,10 +64,10 @@ public class V1DeploymentStrategyBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DeploymentStrategyFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DeploymentStrategy build() {
+  public V1DeploymentStrategy build() {
     V1DeploymentStrategy buildable = new V1DeploymentStrategy();
     buildable.setRollingUpdate(fluent.getRollingUpdate());
     buildable.setType(fluent.getType());

@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **controllerPublishSecretRef** | [**V1SecretReference**](V1SecretReference.md) |  |  [optional]
 **driver** | **String** | driver is the name of the driver to use for this volume. Required. | 
 **fsType** | **String** | fsType to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. |  [optional]
+**nodeExpandSecretRef** | [**V1SecretReference**](V1SecretReference.md) |  |  [optional]
 **nodePublishSecretRef** | [**V1SecretReference**](V1SecretReference.md) |  |  [optional]
 **nodeStageSecretRef** | [**V1SecretReference**](V1SecretReference.md) |  |  [optional]
 **readOnly** | **Boolean** | readOnly value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write). |  [optional]

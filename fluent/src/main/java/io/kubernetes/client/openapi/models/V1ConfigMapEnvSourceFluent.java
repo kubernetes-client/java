@@ -19,15 +19,15 @@ public interface V1ConfigMapEnvSourceFluent<A extends V1ConfigMapEnvSourceFluent
     extends Fluent<A> {
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
   public Boolean hasName();
 
-  public java.lang.Boolean getOptional();
+  public Boolean getOptional();
 
-  public A withOptional(java.lang.Boolean optional);
+  public A withOptional(Boolean optional);
 
-  public java.lang.Boolean hasOptional();
+  public Boolean hasOptional();
 
   public A withOptional();
 }

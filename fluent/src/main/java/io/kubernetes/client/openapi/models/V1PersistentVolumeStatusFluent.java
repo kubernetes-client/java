@@ -19,19 +19,19 @@ public interface V1PersistentVolumeStatusFluent<A extends V1PersistentVolumeStat
     extends Fluent<A> {
   public String getMessage();
 
-  public A withMessage(java.lang.String message);
+  public A withMessage(String message);
 
   public Boolean hasMessage();
 
-  public java.lang.String getPhase();
+  public String getPhase();
 
-  public A withPhase(java.lang.String phase);
+  public A withPhase(String phase);
 
-  public java.lang.Boolean hasPhase();
+  public Boolean hasPhase();
 
-  public java.lang.String getReason();
+  public String getReason();
 
-  public A withReason(java.lang.String reason);
+  public A withReason(String reason);
 
-  public java.lang.Boolean hasReason();
+  public Boolean hasReason();
 }

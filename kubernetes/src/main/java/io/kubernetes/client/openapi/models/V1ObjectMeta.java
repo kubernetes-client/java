@@ -31,17 +31,12 @@ import java.util.Objects;
         "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1ObjectMeta {
   public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
 
   @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
   private Map<String, String> annotations = null;
-
-  public static final String SERIALIZED_NAME_CLUSTER_NAME = "clusterName";
-
-  @SerializedName(SERIALIZED_NAME_CLUSTER_NAME)
-  private String clusterName;
 
   public static final String SERIALIZED_NAME_CREATION_TIMESTAMP = "creationTimestamp";
 
@@ -145,31 +140,6 @@ public class V1ObjectMeta {
 
   public void setAnnotations(Map<String, String> annotations) {
     this.annotations = annotations;
-  }
-
-  public V1ObjectMeta clusterName(String clusterName) {
-
-    this.clusterName = clusterName;
-    return this;
-  }
-
-  /**
-   * Deprecated: ClusterName is a legacy field that was always cleared by the system and never used;
-   * it will be removed completely in 1.25. The name in the go struct is changed to help clients
-   * detect accidental use.
-   *
-   * @return clusterName
-   */
-  @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Deprecated: ClusterName is a legacy field that was always cleared by the system and never used; it will be removed completely in 1.25.  The name in the go struct is changed to help clients detect accidental use.")
-  public String getClusterName() {
-    return clusterName;
-  }
-
-  public void setClusterName(String clusterName) {
-    this.clusterName = clusterName;
   }
 
   public V1ObjectMeta creationTimestamp(OffsetDateTime creationTimestamp) {
@@ -597,7 +567,6 @@ public class V1ObjectMeta {
     }
     V1ObjectMeta v1ObjectMeta = (V1ObjectMeta) o;
     return Objects.equals(this.annotations, v1ObjectMeta.annotations)
-        && Objects.equals(this.clusterName, v1ObjectMeta.clusterName)
         && Objects.equals(this.creationTimestamp, v1ObjectMeta.creationTimestamp)
         && Objects.equals(this.deletionGracePeriodSeconds, v1ObjectMeta.deletionGracePeriodSeconds)
         && Objects.equals(this.deletionTimestamp, v1ObjectMeta.deletionTimestamp)
@@ -618,7 +587,6 @@ public class V1ObjectMeta {
   public int hashCode() {
     return Objects.hash(
         annotations,
-        clusterName,
         creationTimestamp,
         deletionGracePeriodSeconds,
         deletionTimestamp,
@@ -640,7 +608,6 @@ public class V1ObjectMeta {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ObjectMeta {\n");
     sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
-    sb.append("    clusterName: ").append(toIndentedString(clusterName)).append("\n");
     sb.append("    creationTimestamp: ").append(toIndentedString(creationTimestamp)).append("\n");
     sb.append("    deletionGracePeriodSeconds: ")
         .append(toIndentedString(deletionGracePeriodSeconds))

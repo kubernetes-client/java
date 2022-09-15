@@ -22,7 +22,7 @@ public class AdmissionregistrationV1ServiceReferenceFluentImpl<
   public AdmissionregistrationV1ServiceReferenceFluentImpl() {}
 
   public AdmissionregistrationV1ServiceReferenceFluentImpl(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference instance) {
+      AdmissionregistrationV1ServiceReference instance) {
     this.withName(instance.getName());
 
     this.withNamespace(instance.getNamespace());
@@ -33,15 +33,15 @@ public class AdmissionregistrationV1ServiceReferenceFluentImpl<
   }
 
   private String name;
-  private java.lang.String namespace;
-  private java.lang.String path;
+  private String namespace;
+  private String path;
   private Integer port;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -50,42 +50,42 @@ public class AdmissionregistrationV1ServiceReferenceFluentImpl<
     return this.name != null;
   }
 
-  public java.lang.String getNamespace() {
+  public String getNamespace() {
     return this.namespace;
   }
 
-  public A withNamespace(java.lang.String namespace) {
+  public A withNamespace(String namespace) {
     this.namespace = namespace;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNamespace() {
+  public Boolean hasNamespace() {
     return this.namespace != null;
   }
 
-  public java.lang.String getPath() {
+  public String getPath() {
     return this.path;
   }
 
-  public A withPath(java.lang.String path) {
+  public A withPath(String path) {
     this.path = path;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPath() {
+  public Boolean hasPath() {
     return this.path != null;
   }
 
-  public java.lang.Integer getPort() {
+  public Integer getPort() {
     return this.port;
   }
 
-  public A withPort(java.lang.Integer port) {
+  public A withPort(Integer port) {
     this.port = port;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPort() {
+  public Boolean hasPort() {
     return this.port != null;
   }
 
@@ -106,7 +106,7 @@ public class AdmissionregistrationV1ServiceReferenceFluentImpl<
     return java.util.Objects.hash(name, namespace, path, port, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {

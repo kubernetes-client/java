@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NetworkPolicyPortBuilder
     extends V1NetworkPolicyPortFluentImpl<V1NetworkPolicyPortBuilder>
-    implements VisitableBuilder<
-        V1NetworkPolicyPort, io.kubernetes.client.openapi.models.V1NetworkPolicyPortBuilder> {
+    implements VisitableBuilder<V1NetworkPolicyPort, V1NetworkPolicyPortBuilder> {
   public V1NetworkPolicyPortBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1NetworkPolicyPortBuilder
   }
 
   public V1NetworkPolicyPortBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPortFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicyPortFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NetworkPolicyPort(), validationEnabled);
   }
 
   public V1NetworkPolicyPortBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPortFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPort instance) {
+      V1NetworkPolicyPortFluent<?> fluent, V1NetworkPolicyPort instance) {
     this(fluent, instance, false);
   }
 
   public V1NetworkPolicyPortBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPortFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPort instance,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicyPortFluent<?> fluent,
+      V1NetworkPolicyPort instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withEndPort(instance.getEndPort());
 
@@ -56,14 +53,11 @@ public class V1NetworkPolicyPortBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NetworkPolicyPortBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPort instance) {
+  public V1NetworkPolicyPortBuilder(V1NetworkPolicyPort instance) {
     this(instance, false);
   }
 
-  public V1NetworkPolicyPortBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPort instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NetworkPolicyPortBuilder(V1NetworkPolicyPort instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withEndPort(instance.getEndPort());
 
@@ -74,10 +68,10 @@ public class V1NetworkPolicyPortBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NetworkPolicyPortFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NetworkPolicyPortFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPort build() {
+  public V1NetworkPolicyPort build() {
     V1NetworkPolicyPort buildable = new V1NetworkPolicyPort();
     buildable.setEndPort(fluent.getEndPort());
     buildable.setPort(fluent.getPort());

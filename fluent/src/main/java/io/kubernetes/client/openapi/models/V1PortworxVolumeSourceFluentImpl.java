@@ -20,8 +20,7 @@ public class V1PortworxVolumeSourceFluentImpl<A extends V1PortworxVolumeSourceFl
     extends BaseFluent<A> implements V1PortworxVolumeSourceFluent<A> {
   public V1PortworxVolumeSourceFluentImpl() {}
 
-  public V1PortworxVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1PortworxVolumeSource instance) {
+  public V1PortworxVolumeSourceFluentImpl(V1PortworxVolumeSource instance) {
     this.withFsType(instance.getFsType());
 
     this.withReadOnly(instance.getReadOnly());
@@ -31,44 +30,44 @@ public class V1PortworxVolumeSourceFluentImpl<A extends V1PortworxVolumeSourceFl
 
   private String fsType;
   private Boolean readOnly;
-  private java.lang.String volumeID;
+  private String volumeID;
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsType() {
+  public Boolean hasFsType() {
     return this.fsType != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
-  public java.lang.String getVolumeID() {
+  public String getVolumeID() {
     return this.volumeID;
   }
 
-  public A withVolumeID(java.lang.String volumeID) {
+  public A withVolumeID(String volumeID) {
     this.volumeID = volumeID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVolumeID() {
+  public Boolean hasVolumeID() {
     return this.volumeID != null;
   }
 
@@ -86,7 +85,7 @@ public class V1PortworxVolumeSourceFluentImpl<A extends V1PortworxVolumeSourceFl
     return java.util.Objects.hash(fsType, readOnly, volumeID, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fsType != null) {

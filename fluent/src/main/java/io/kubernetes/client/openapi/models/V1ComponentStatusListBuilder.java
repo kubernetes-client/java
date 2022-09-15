@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ComponentStatusListBuilder
     extends V1ComponentStatusListFluentImpl<V1ComponentStatusListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ComponentStatusList, V1ComponentStatusListBuilder> {
+    implements VisitableBuilder<V1ComponentStatusList, V1ComponentStatusListBuilder> {
   public V1ComponentStatusListBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1ComponentStatusListBuilder
   }
 
   public V1ComponentStatusListBuilder(
-      io.kubernetes.client.openapi.models.V1ComponentStatusListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ComponentStatusListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ComponentStatusList(), validationEnabled);
   }
 
   public V1ComponentStatusListBuilder(
-      io.kubernetes.client.openapi.models.V1ComponentStatusListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ComponentStatusList instance) {
+      V1ComponentStatusListFluent<?> fluent, V1ComponentStatusList instance) {
     this(fluent, instance, false);
   }
 
   public V1ComponentStatusListBuilder(
-      io.kubernetes.client.openapi.models.V1ComponentStatusListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ComponentStatusList instance,
-      java.lang.Boolean validationEnabled) {
+      V1ComponentStatusListFluent<?> fluent,
+      V1ComponentStatusList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,14 +55,11 @@ public class V1ComponentStatusListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ComponentStatusListBuilder(
-      io.kubernetes.client.openapi.models.V1ComponentStatusList instance) {
+  public V1ComponentStatusListBuilder(V1ComponentStatusList instance) {
     this(instance, false);
   }
 
-  public V1ComponentStatusListBuilder(
-      io.kubernetes.client.openapi.models.V1ComponentStatusList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ComponentStatusListBuilder(V1ComponentStatusList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -78,10 +72,10 @@ public class V1ComponentStatusListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ComponentStatusListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ComponentStatusListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusList build() {
+  public V1ComponentStatusList build() {
     V1ComponentStatusList buildable = new V1ComponentStatusList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

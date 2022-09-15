@@ -18,19 +18,19 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1PortStatusFluent<A extends V1PortStatusFluent<A>> extends Fluent<A> {
   public String getError();
 
-  public A withError(java.lang.String error);
+  public A withError(String error);
 
   public Boolean hasError();
 
   public Integer getPort();
 
-  public A withPort(java.lang.Integer port);
+  public A withPort(Integer port);
 
-  public java.lang.Boolean hasPort();
+  public Boolean hasPort();
 
-  public java.lang.String getProtocol();
+  public String getProtocol();
 
-  public A withProtocol(java.lang.String protocol);
+  public A withProtocol(String protocol);
 
-  public java.lang.Boolean hasProtocol();
+  public Boolean hasProtocol();
 }

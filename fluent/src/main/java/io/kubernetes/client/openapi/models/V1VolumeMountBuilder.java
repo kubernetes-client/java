@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1VolumeMountBuilder extends V1VolumeMountFluentImpl<V1VolumeMountBuilder>
-    implements VisitableBuilder<
-        V1VolumeMount, io.kubernetes.client.openapi.models.V1VolumeMountBuilder> {
+    implements VisitableBuilder<V1VolumeMount, V1VolumeMountBuilder> {
   public V1VolumeMountBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1VolumeMountBuilder extends V1VolumeMountFluentImpl<V1VolumeMountB
     this(fluent, false);
   }
 
-  public V1VolumeMountBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeMountFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeMountBuilder(V1VolumeMountFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1VolumeMount(), validationEnabled);
   }
 
-  public V1VolumeMountBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeMountFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeMount instance) {
+  public V1VolumeMountBuilder(V1VolumeMountFluent<?> fluent, V1VolumeMount instance) {
     this(fluent, instance, false);
   }
 
   public V1VolumeMountBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeMountFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeMount instance,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeMountFluent<?> fluent, V1VolumeMount instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMountPath(instance.getMountPath());
 
@@ -61,13 +54,11 @@ public class V1VolumeMountBuilder extends V1VolumeMountFluentImpl<V1VolumeMountB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1VolumeMountBuilder(io.kubernetes.client.openapi.models.V1VolumeMount instance) {
+  public V1VolumeMountBuilder(V1VolumeMount instance) {
     this(instance, false);
   }
 
-  public V1VolumeMountBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeMount instance,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeMountBuilder(V1VolumeMount instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMountPath(instance.getMountPath());
 
@@ -84,10 +75,10 @@ public class V1VolumeMountBuilder extends V1VolumeMountFluentImpl<V1VolumeMountB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1VolumeMountFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1VolumeMountFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1VolumeMount build() {
+  public V1VolumeMount build() {
     V1VolumeMount buildable = new V1VolumeMount();
     buildable.setMountPath(fluent.getMountPath());
     buildable.setMountPropagation(fluent.getMountPropagation());

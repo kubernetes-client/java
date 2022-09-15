@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1BindingBuilder extends V1BindingFluentImpl<V1BindingBuilder>
-    implements VisitableBuilder<V1Binding, io.kubernetes.client.openapi.models.V1BindingBuilder> {
+    implements VisitableBuilder<V1Binding, V1BindingBuilder> {
   public V1BindingBuilder() {
     this(false);
   }
@@ -28,22 +28,16 @@ public class V1BindingBuilder extends V1BindingFluentImpl<V1BindingBuilder>
     this(fluent, false);
   }
 
-  public V1BindingBuilder(
-      io.kubernetes.client.openapi.models.V1BindingFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1BindingBuilder(V1BindingFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Binding(), validationEnabled);
   }
 
-  public V1BindingBuilder(
-      io.kubernetes.client.openapi.models.V1BindingFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Binding instance) {
+  public V1BindingBuilder(V1BindingFluent<?> fluent, V1Binding instance) {
     this(fluent, instance, false);
   }
 
   public V1BindingBuilder(
-      io.kubernetes.client.openapi.models.V1BindingFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Binding instance,
-      java.lang.Boolean validationEnabled) {
+      V1BindingFluent<?> fluent, V1Binding instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -56,12 +50,11 @@ public class V1BindingBuilder extends V1BindingFluentImpl<V1BindingBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1BindingBuilder(io.kubernetes.client.openapi.models.V1Binding instance) {
+  public V1BindingBuilder(V1Binding instance) {
     this(instance, false);
   }
 
-  public V1BindingBuilder(
-      io.kubernetes.client.openapi.models.V1Binding instance, java.lang.Boolean validationEnabled) {
+  public V1BindingBuilder(V1Binding instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -74,10 +67,10 @@ public class V1BindingBuilder extends V1BindingFluentImpl<V1BindingBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1BindingFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1BindingFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Binding build() {
+  public V1Binding build() {
     V1Binding buildable = new V1Binding();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

@@ -21,7 +21,7 @@ public class V1BindingFluentImpl<A extends V1BindingFluent<A>> extends BaseFluen
     implements V1BindingFluent<A> {
   public V1BindingFluentImpl() {}
 
-  public V1BindingFluentImpl(io.kubernetes.client.openapi.models.V1Binding instance) {
+  public V1BindingFluentImpl(V1Binding instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withKind(instance.getKind());
@@ -32,15 +32,15 @@ public class V1BindingFluentImpl<A extends V1BindingFluent<A>> extends BaseFluen
   }
 
   private String apiVersion;
-  private java.lang.String kind;
+  private String kind;
   private V1ObjectMetaBuilder metadata;
   private V1ObjectReferenceBuilder target;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -49,16 +49,16 @@ public class V1BindingFluentImpl<A extends V1BindingFluent<A>> extends BaseFluen
     return this.apiVersion != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -68,24 +68,27 @@ public class V1BindingFluentImpl<A extends V1BindingFluent<A>> extends BaseFluen
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -93,24 +96,20 @@ public class V1BindingFluentImpl<A extends V1BindingFluent<A>> extends BaseFluen
     return new V1BindingFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<A> withNewMetadataLike(
-      io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1BindingFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1BindingFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<A> editMetadata() {
+  public V1BindingFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1BindingFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1BindingFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -119,25 +118,28 @@ public class V1BindingFluentImpl<A extends V1BindingFluent<A>> extends BaseFluen
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectReference getTarget() {
+  @Deprecated
+  public V1ObjectReference getTarget() {
     return this.target != null ? this.target.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildTarget() {
+  public V1ObjectReference buildTarget() {
     return this.target != null ? this.target.build() : null;
   }
 
-  public A withTarget(io.kubernetes.client.openapi.models.V1ObjectReference target) {
+  public A withTarget(V1ObjectReference target) {
     _visitables.get("target").remove(this.target);
     if (target != null) {
       this.target = new V1ObjectReferenceBuilder(target);
       _visitables.get("target").add(this.target);
+    } else {
+      this.target = null;
+      _visitables.get("target").remove(this.target);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasTarget() {
+  public Boolean hasTarget() {
     return this.target != null;
   }
 
@@ -145,24 +147,20 @@ public class V1BindingFluentImpl<A extends V1BindingFluent<A>> extends BaseFluen
     return new V1BindingFluentImpl.TargetNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<A> withNewTargetLike(
-      io.kubernetes.client.openapi.models.V1ObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V1BindingFluentImpl.TargetNestedImpl(item);
+  public V1BindingFluent.TargetNested<A> withNewTargetLike(V1ObjectReference item) {
+    return new V1BindingFluentImpl.TargetNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<A> editTarget() {
+  public V1BindingFluent.TargetNested<A> editTarget() {
     return withNewTargetLike(getTarget());
   }
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<A> editOrNewTarget() {
+  public V1BindingFluent.TargetNested<A> editOrNewTarget() {
     return withNewTargetLike(
-        getTarget() != null
-            ? getTarget()
-            : new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder().build());
+        getTarget() != null ? getTarget() : new V1ObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<A> editOrNewTargetLike(
-      io.kubernetes.client.openapi.models.V1ObjectReference item) {
+  public V1BindingFluent.TargetNested<A> editOrNewTargetLike(V1ObjectReference item) {
     return withNewTargetLike(getTarget() != null ? getTarget() : item);
   }
 
@@ -182,7 +180,7 @@ public class V1BindingFluentImpl<A extends V1BindingFluent<A>> extends BaseFluen
     return java.util.Objects.hash(apiVersion, kind, metadata, target, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -206,16 +204,16 @@ public class V1BindingFluentImpl<A extends V1BindingFluent<A>> extends BaseFluen
   }
 
   class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1BindingFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<N>, Nested<N> {
+      implements V1BindingFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) V1BindingFluentImpl.this.withMetadata(builder.build());
@@ -227,17 +225,16 @@ public class V1BindingFluentImpl<A extends V1BindingFluent<A>> extends BaseFluen
   }
 
   class TargetNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1BindingFluent.TargetNested<N>>
-      implements io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    TargetNestedImpl(io.kubernetes.client.openapi.models.V1ObjectReference item) {
+      implements V1BindingFluent.TargetNested<N>, Nested<N> {
+    TargetNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }
 
     TargetNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(this);
+      this.builder = new V1ObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder;
+    V1ObjectReferenceBuilder builder;
 
     public N and() {
       return (N) V1BindingFluentImpl.this.withTarget(builder.build());

@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class CoreV1EventSeriesBuilder extends CoreV1EventSeriesFluentImpl<CoreV1EventSeriesBuilder>
-    implements VisitableBuilder<
-        CoreV1EventSeries, io.kubernetes.client.openapi.models.CoreV1EventSeriesBuilder> {
+    implements VisitableBuilder<CoreV1EventSeries, CoreV1EventSeriesBuilder> {
   public CoreV1EventSeriesBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class CoreV1EventSeriesBuilder extends CoreV1EventSeriesFluentImpl<CoreV1
     this(new CoreV1EventSeries(), validationEnabled);
   }
 
-  public CoreV1EventSeriesBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EventSeriesFluent<?> fluent) {
+  public CoreV1EventSeriesBuilder(CoreV1EventSeriesFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public CoreV1EventSeriesBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EventSeriesFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public CoreV1EventSeriesBuilder(CoreV1EventSeriesFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new CoreV1EventSeries(), validationEnabled);
   }
 
-  public CoreV1EventSeriesBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EventSeriesFluent<?> fluent,
-      io.kubernetes.client.openapi.models.CoreV1EventSeries instance) {
+  public CoreV1EventSeriesBuilder(CoreV1EventSeriesFluent<?> fluent, CoreV1EventSeries instance) {
     this(fluent, instance, false);
   }
 
   public CoreV1EventSeriesBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EventSeriesFluent<?> fluent,
-      io.kubernetes.client.openapi.models.CoreV1EventSeries instance,
-      java.lang.Boolean validationEnabled) {
+      CoreV1EventSeriesFluent<?> fluent, CoreV1EventSeries instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCount(instance.getCount());
 
@@ -54,13 +46,11 @@ public class CoreV1EventSeriesBuilder extends CoreV1EventSeriesFluentImpl<CoreV1
     this.validationEnabled = validationEnabled;
   }
 
-  public CoreV1EventSeriesBuilder(io.kubernetes.client.openapi.models.CoreV1EventSeries instance) {
+  public CoreV1EventSeriesBuilder(CoreV1EventSeries instance) {
     this(instance, false);
   }
 
-  public CoreV1EventSeriesBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EventSeries instance,
-      java.lang.Boolean validationEnabled) {
+  public CoreV1EventSeriesBuilder(CoreV1EventSeries instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCount(instance.getCount());
 
@@ -69,10 +59,10 @@ public class CoreV1EventSeriesBuilder extends CoreV1EventSeriesFluentImpl<CoreV1
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.CoreV1EventSeriesFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  CoreV1EventSeriesFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.CoreV1EventSeries build() {
+  public CoreV1EventSeries build() {
     CoreV1EventSeries buildable = new CoreV1EventSeries();
     buildable.setCount(fluent.getCount());
     buildable.setLastObservedTime(fluent.getLastObservedTime());

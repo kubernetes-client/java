@@ -21,35 +21,35 @@ public interface V1FlexPersistentVolumeSourceFluent<A extends V1FlexPersistentVo
     extends Fluent<A> {
   public String getDriver();
 
-  public A withDriver(java.lang.String driver);
+  public A withDriver(String driver);
 
   public Boolean hasDriver();
 
-  public java.lang.String getFsType();
+  public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
-  public java.lang.Boolean hasFsType();
+  public Boolean hasFsType();
 
-  public A addToOptions(java.lang.String key, java.lang.String value);
+  public A addToOptions(String key, String value);
 
-  public A addToOptions(Map<java.lang.String, java.lang.String> map);
+  public A addToOptions(Map<String, String> map);
 
-  public A removeFromOptions(java.lang.String key);
+  public A removeFromOptions(String key);
 
-  public A removeFromOptions(java.util.Map<java.lang.String, java.lang.String> map);
+  public A removeFromOptions(Map<String, String> map);
 
-  public java.util.Map<java.lang.String, java.lang.String> getOptions();
+  public Map<String, String> getOptions();
 
-  public <K, V> A withOptions(java.util.Map<java.lang.String, java.lang.String> options);
+  public <K, V> A withOptions(Map<String, String> options);
 
-  public java.lang.Boolean hasOptions();
+  public Boolean hasOptions();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
@@ -59,25 +59,23 @@ public interface V1FlexPersistentVolumeSourceFluent<A extends V1FlexPersistentVo
   @Deprecated
   public V1SecretReference getSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1SecretReference buildSecretRef();
+  public V1SecretReference buildSecretRef();
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1SecretReference secretRef);
+  public A withSecretRef(V1SecretReference secretRef);
 
-  public java.lang.Boolean hasSecretRef();
+  public Boolean hasSecretRef();
 
   public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item);
+  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1SecretReference item);
 
-  public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<A>
-      editSecretRef();
+  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> editSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef();
+  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item);
+  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1SecretReference item);
 
   public A withReadOnly();
 

@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1APIResourceBuilder extends V1APIResourceFluentImpl<V1APIResourceBuilder>
-    implements VisitableBuilder<
-        V1APIResource, io.kubernetes.client.openapi.models.V1APIResourceBuilder> {
+    implements VisitableBuilder<V1APIResource, V1APIResourceBuilder> {
   public V1APIResourceBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1APIResourceBuilder extends V1APIResourceFluentImpl<V1APIResourceB
     this(fluent, false);
   }
 
-  public V1APIResourceBuilder(
-      io.kubernetes.client.openapi.models.V1APIResourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1APIResourceBuilder(V1APIResourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1APIResource(), validationEnabled);
   }
 
-  public V1APIResourceBuilder(
-      io.kubernetes.client.openapi.models.V1APIResourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1APIResource instance) {
+  public V1APIResourceBuilder(V1APIResourceFluent<?> fluent, V1APIResource instance) {
     this(fluent, instance, false);
   }
 
   public V1APIResourceBuilder(
-      io.kubernetes.client.openapi.models.V1APIResourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1APIResource instance,
-      java.lang.Boolean validationEnabled) {
+      V1APIResourceFluent<?> fluent, V1APIResource instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCategories(instance.getCategories());
 
@@ -69,13 +62,11 @@ public class V1APIResourceBuilder extends V1APIResourceFluentImpl<V1APIResourceB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1APIResourceBuilder(io.kubernetes.client.openapi.models.V1APIResource instance) {
+  public V1APIResourceBuilder(V1APIResource instance) {
     this(instance, false);
   }
 
-  public V1APIResourceBuilder(
-      io.kubernetes.client.openapi.models.V1APIResource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1APIResourceBuilder(V1APIResource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCategories(instance.getCategories());
 
@@ -100,10 +91,10 @@ public class V1APIResourceBuilder extends V1APIResourceFluentImpl<V1APIResourceB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1APIResourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1APIResourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1APIResource build() {
+  public V1APIResource build() {
     V1APIResource buildable = new V1APIResource();
     buildable.setCategories(fluent.getCategories());
     buildable.setGroup(fluent.getGroup());

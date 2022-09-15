@@ -21,8 +21,7 @@ public class V1CustomResourceSubresourceScaleFluentImpl<
     extends BaseFluent<A> implements V1CustomResourceSubresourceScaleFluent<A> {
   public V1CustomResourceSubresourceScaleFluentImpl() {}
 
-  public V1CustomResourceSubresourceScaleFluentImpl(
-      io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale instance) {
+  public V1CustomResourceSubresourceScaleFluentImpl(V1CustomResourceSubresourceScale instance) {
     this.withLabelSelectorPath(instance.getLabelSelectorPath());
 
     this.withSpecReplicasPath(instance.getSpecReplicasPath());
@@ -31,14 +30,14 @@ public class V1CustomResourceSubresourceScaleFluentImpl<
   }
 
   private String labelSelectorPath;
-  private java.lang.String specReplicasPath;
-  private java.lang.String statusReplicasPath;
+  private String specReplicasPath;
+  private String statusReplicasPath;
 
-  public java.lang.String getLabelSelectorPath() {
+  public String getLabelSelectorPath() {
     return this.labelSelectorPath;
   }
 
-  public A withLabelSelectorPath(java.lang.String labelSelectorPath) {
+  public A withLabelSelectorPath(String labelSelectorPath) {
     this.labelSelectorPath = labelSelectorPath;
     return (A) this;
   }
@@ -47,29 +46,29 @@ public class V1CustomResourceSubresourceScaleFluentImpl<
     return this.labelSelectorPath != null;
   }
 
-  public java.lang.String getSpecReplicasPath() {
+  public String getSpecReplicasPath() {
     return this.specReplicasPath;
   }
 
-  public A withSpecReplicasPath(java.lang.String specReplicasPath) {
+  public A withSpecReplicasPath(String specReplicasPath) {
     this.specReplicasPath = specReplicasPath;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSpecReplicasPath() {
+  public Boolean hasSpecReplicasPath() {
     return this.specReplicasPath != null;
   }
 
-  public java.lang.String getStatusReplicasPath() {
+  public String getStatusReplicasPath() {
     return this.statusReplicasPath;
   }
 
-  public A withStatusReplicasPath(java.lang.String statusReplicasPath) {
+  public A withStatusReplicasPath(String statusReplicasPath) {
     this.statusReplicasPath = statusReplicasPath;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStatusReplicasPath() {
+  public Boolean hasStatusReplicasPath() {
     return this.statusReplicasPath != null;
   }
 
@@ -95,7 +94,7 @@ public class V1CustomResourceSubresourceScaleFluentImpl<
         labelSelectorPath, specReplicasPath, statusReplicasPath, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (labelSelectorPath != null) {

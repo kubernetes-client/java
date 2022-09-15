@@ -24,24 +24,21 @@ public interface V1CustomResourceDefinitionListFluent<
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
   public A addToItems(Integer index, V1CustomResourceDefinition item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1CustomResourceDefinition item);
+  public A setToItems(Integer index, V1CustomResourceDefinition item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1CustomResourceDefinition... items);
 
-  public A addAllToItems(
-      Collection<io.kubernetes.client.openapi.models.V1CustomResourceDefinition> items);
+  public A addAllToItems(Collection<V1CustomResourceDefinition> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1CustomResourceDefinition... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CustomResourceDefinition> items);
+  public A removeAllFromItems(Collection<V1CustomResourceDefinition> items);
 
   public A removeMatchingFromItems(Predicate<V1CustomResourceDefinitionBuilder> predicate);
 
@@ -51,93 +48,75 @@ public interface V1CustomResourceDefinitionListFluent<
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1CustomResourceDefinition> getItems();
+  public List<V1CustomResourceDefinition> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinition>
-      buildItems();
+  public List<V1CustomResourceDefinition> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinition buildItem(
-      java.lang.Integer index);
+  public V1CustomResourceDefinition buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinition buildFirstItem();
+  public V1CustomResourceDefinition buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinition buildLastItem();
+  public V1CustomResourceDefinition buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinition buildMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionBuilder>
-          predicate);
+  public V1CustomResourceDefinition buildMatchingItem(
+      Predicate<V1CustomResourceDefinitionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1CustomResourceDefinitionBuilder> predicate);
 
-  public A withItems(
-      java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinition> items);
+  public A withItems(List<V1CustomResourceDefinition> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1CustomResourceDefinition... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1CustomResourceDefinitionListFluent.ItemsNested<A> addNewItem();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent.ItemsNested<A>
-      addNewItemLike(io.kubernetes.client.openapi.models.V1CustomResourceDefinition item);
+  public V1CustomResourceDefinitionListFluent.ItemsNested<A> addNewItemLike(
+      V1CustomResourceDefinition item);
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinition item);
+  public V1CustomResourceDefinitionListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1CustomResourceDefinition item);
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent.ItemsNested<A>
-      editItem(java.lang.Integer index);
+  public V1CustomResourceDefinitionListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent.ItemsNested<A>
-      editFirstItem();
+  public V1CustomResourceDefinitionListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent.ItemsNested<A>
-      editLastItem();
+  public V1CustomResourceDefinitionListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1CustomResourceDefinitionBuilder>
-              predicate);
+  public V1CustomResourceDefinitionListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1CustomResourceDefinitionBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1CustomResourceDefinitionListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1CustomResourceDefinitionListFluent.MetadataNested<A> withNewMetadataLike(
+      V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent.MetadataNested<A>
-      editMetadata();
+  public V1CustomResourceDefinitionListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1CustomResourceDefinitionListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1CustomResourceDefinitionListFluent.MetadataNested<A> editOrNewMetadataLike(
+      V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>,
@@ -148,8 +127,7 @@ public interface V1CustomResourceDefinitionListFluent<
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1CustomResourceDefinitionListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1CustomResourceDefinitionListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

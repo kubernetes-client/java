@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PersistentVolumeListBuilder
     extends V1PersistentVolumeListFluentImpl<V1PersistentVolumeListBuilder>
-    implements VisitableBuilder<
-        V1PersistentVolumeList, io.kubernetes.client.openapi.models.V1PersistentVolumeListBuilder> {
+    implements VisitableBuilder<V1PersistentVolumeList, V1PersistentVolumeListBuilder> {
   public V1PersistentVolumeListBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V1PersistentVolumeListBuilder
     this(new V1PersistentVolumeList(), validationEnabled);
   }
 
-  public V1PersistentVolumeListBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent<?> fluent) {
+  public V1PersistentVolumeListBuilder(V1PersistentVolumeListFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1PersistentVolumeListBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1PersistentVolumeListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PersistentVolumeList(), validationEnabled);
   }
 
   public V1PersistentVolumeListBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PersistentVolumeList instance) {
+      V1PersistentVolumeListFluent<?> fluent, V1PersistentVolumeList instance) {
     this(fluent, instance, false);
   }
 
   public V1PersistentVolumeListBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PersistentVolumeList instance,
-      java.lang.Boolean validationEnabled) {
+      V1PersistentVolumeListFluent<?> fluent,
+      V1PersistentVolumeList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,14 +55,11 @@ public class V1PersistentVolumeListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PersistentVolumeListBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeList instance) {
+  public V1PersistentVolumeListBuilder(V1PersistentVolumeList instance) {
     this(instance, false);
   }
 
-  public V1PersistentVolumeListBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PersistentVolumeListBuilder(V1PersistentVolumeList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -79,10 +72,10 @@ public class V1PersistentVolumeListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PersistentVolumeListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeList build() {
+  public V1PersistentVolumeList build() {
     V1PersistentVolumeList buildable = new V1PersistentVolumeList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

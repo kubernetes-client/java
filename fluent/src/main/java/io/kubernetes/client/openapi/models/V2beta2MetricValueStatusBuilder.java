@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2beta2MetricValueStatusBuilder
     extends V2beta2MetricValueStatusFluentImpl<V2beta2MetricValueStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2beta2MetricValueStatus,
-        V2beta2MetricValueStatusBuilder> {
+    implements VisitableBuilder<V2beta2MetricValueStatus, V2beta2MetricValueStatusBuilder> {
   public V2beta2MetricValueStatusBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V2beta2MetricValueStatusBuilder
   }
 
   public V2beta2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2beta2MetricValueStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2beta2MetricValueStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2beta2MetricValueStatus(), validationEnabled);
   }
 
   public V2beta2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2beta2MetricValueStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2beta2MetricValueStatus instance) {
+      V2beta2MetricValueStatusFluent<?> fluent, V2beta2MetricValueStatus instance) {
     this(fluent, instance, false);
   }
 
   public V2beta2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2beta2MetricValueStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2beta2MetricValueStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V2beta2MetricValueStatusFluent<?> fluent,
+      V2beta2MetricValueStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAverageUtilization(instance.getAverageUtilization());
 
@@ -57,14 +53,12 @@ public class V2beta2MetricValueStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2beta2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2beta2MetricValueStatus instance) {
+  public V2beta2MetricValueStatusBuilder(V2beta2MetricValueStatus instance) {
     this(instance, false);
   }
 
   public V2beta2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2beta2MetricValueStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V2beta2MetricValueStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAverageUtilization(instance.getAverageUtilization());
 
@@ -75,10 +69,10 @@ public class V2beta2MetricValueStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2beta2MetricValueStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2beta2MetricValueStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus build() {
+  public V2beta2MetricValueStatus build() {
     V2beta2MetricValueStatus buildable = new V2beta2MetricValueStatus();
     buildable.setAverageUtilization(fluent.getAverageUtilization());
     buildable.setAverageValue(fluent.getAverageValue());

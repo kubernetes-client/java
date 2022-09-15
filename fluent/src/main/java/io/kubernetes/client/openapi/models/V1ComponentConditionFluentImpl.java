@@ -20,8 +20,7 @@ public class V1ComponentConditionFluentImpl<A extends V1ComponentConditionFluent
     extends BaseFluent<A> implements V1ComponentConditionFluent<A> {
   public V1ComponentConditionFluentImpl() {}
 
-  public V1ComponentConditionFluentImpl(
-      io.kubernetes.client.openapi.models.V1ComponentCondition instance) {
+  public V1ComponentConditionFluentImpl(V1ComponentCondition instance) {
     this.withError(instance.getError());
 
     this.withMessage(instance.getMessage());
@@ -32,15 +31,15 @@ public class V1ComponentConditionFluentImpl<A extends V1ComponentConditionFluent
   }
 
   private String error;
-  private java.lang.String message;
-  private java.lang.String status;
-  private java.lang.String type;
+  private String message;
+  private String status;
+  private String type;
 
-  public java.lang.String getError() {
+  public String getError() {
     return this.error;
   }
 
-  public A withError(java.lang.String error) {
+  public A withError(String error) {
     this.error = error;
     return (A) this;
   }
@@ -49,42 +48,42 @@ public class V1ComponentConditionFluentImpl<A extends V1ComponentConditionFluent
     return this.error != null;
   }
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMessage() {
+  public Boolean hasMessage() {
     return this.message != null;
   }
 
-  public java.lang.String getStatus() {
+  public String getStatus() {
     return this.status;
   }
 
-  public A withStatus(java.lang.String status) {
+  public A withStatus(String status) {
     this.status = status;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStatus() {
+  public Boolean hasStatus() {
     return this.status != null;
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
@@ -103,7 +102,7 @@ public class V1ComponentConditionFluentImpl<A extends V1ComponentConditionFluent
     return java.util.Objects.hash(error, message, status, type, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (error != null) {

@@ -21,15 +21,15 @@ public interface V1StorageOSPersistentVolumeSourceFluent<
     extends Fluent<A> {
   public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
   public Boolean hasFsType();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
@@ -39,45 +39,35 @@ public interface V1StorageOSPersistentVolumeSourceFluent<
   @Deprecated
   public V1ObjectReference getSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildSecretRef();
+  public V1ObjectReference buildSecretRef();
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1ObjectReference secretRef);
+  public A withSecretRef(V1ObjectReference secretRef);
 
-  public java.lang.Boolean hasSecretRef();
+  public Boolean hasSecretRef();
 
   public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent
-              .SecretRefNested<
-          A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1ObjectReference item);
+  public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1ObjectReference item);
 
-  public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent
-              .SecretRefNested<
-          A>
-      editSecretRef();
+  public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> editSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent
-              .SecretRefNested<
-          A>
-      editOrNewSecretRef();
+  public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1StorageOSPersistentVolumeSourceFluent
-              .SecretRefNested<
-          A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1ObjectReference item);
+  public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1ObjectReference item);
 
-  public java.lang.String getVolumeName();
+  public String getVolumeName();
 
-  public A withVolumeName(java.lang.String volumeName);
+  public A withVolumeName(String volumeName);
 
-  public java.lang.Boolean hasVolumeName();
+  public Boolean hasVolumeName();
 
-  public java.lang.String getVolumeNamespace();
+  public String getVolumeNamespace();
 
-  public A withVolumeNamespace(java.lang.String volumeNamespace);
+  public A withVolumeNamespace(String volumeNamespace);
 
-  public java.lang.Boolean hasVolumeNamespace();
+  public Boolean hasVolumeNamespace();
 
   public A withReadOnly();
 

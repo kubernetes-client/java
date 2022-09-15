@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ResourceRuleBuilder extends V1ResourceRuleFluentImpl<V1ResourceRuleBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ResourceRule,
-        io.kubernetes.client.openapi.models.V1ResourceRuleBuilder> {
+    implements VisitableBuilder<V1ResourceRule, V1ResourceRuleBuilder> {
   public V1ResourceRuleBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1ResourceRuleBuilder extends V1ResourceRuleFluentImpl<V1ResourceRu
     this(fluent, false);
   }
 
-  public V1ResourceRuleBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceRuleFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ResourceRuleBuilder(V1ResourceRuleFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ResourceRule(), validationEnabled);
   }
 
-  public V1ResourceRuleBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ResourceRule instance) {
+  public V1ResourceRuleBuilder(V1ResourceRuleFluent<?> fluent, V1ResourceRule instance) {
     this(fluent, instance, false);
   }
 
   public V1ResourceRuleBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ResourceRule instance,
-      java.lang.Boolean validationEnabled) {
+      V1ResourceRuleFluent<?> fluent, V1ResourceRule instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiGroups(instance.getApiGroups());
 
@@ -58,13 +50,11 @@ public class V1ResourceRuleBuilder extends V1ResourceRuleFluentImpl<V1ResourceRu
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ResourceRuleBuilder(io.kubernetes.client.openapi.models.V1ResourceRule instance) {
+  public V1ResourceRuleBuilder(V1ResourceRule instance) {
     this(instance, false);
   }
 
-  public V1ResourceRuleBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceRule instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ResourceRuleBuilder(V1ResourceRule instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiGroups(instance.getApiGroups());
 
@@ -77,10 +67,10 @@ public class V1ResourceRuleBuilder extends V1ResourceRuleFluentImpl<V1ResourceRu
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ResourceRuleFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ResourceRuleFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ResourceRule build() {
+  public V1ResourceRule build() {
     V1ResourceRule buildable = new V1ResourceRule();
     buildable.setApiGroups(fluent.getApiGroups());
     buildable.setResourceNames(fluent.getResourceNames());

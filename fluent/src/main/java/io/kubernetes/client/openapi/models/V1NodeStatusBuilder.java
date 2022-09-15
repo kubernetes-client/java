@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1NodeStatus,
-        io.kubernetes.client.openapi.models.V1NodeStatusBuilder> {
+    implements VisitableBuilder<V1NodeStatus, V1NodeStatusBuilder> {
   public V1NodeStatusBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuil
     this(fluent, false);
   }
 
-  public V1NodeStatusBuilder(
-      io.kubernetes.client.openapi.models.V1NodeStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NodeStatus(), validationEnabled);
   }
 
-  public V1NodeStatusBuilder(
-      io.kubernetes.client.openapi.models.V1NodeStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeStatus instance) {
+  public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent, V1NodeStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1NodeStatusBuilder(
-      io.kubernetes.client.openapi.models.V1NodeStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1NodeStatusFluent<?> fluent, V1NodeStatus instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAddresses(instance.getAddresses());
 
@@ -72,13 +64,11 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuil
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NodeStatusBuilder(io.kubernetes.client.openapi.models.V1NodeStatus instance) {
+  public V1NodeStatusBuilder(V1NodeStatus instance) {
     this(instance, false);
   }
 
-  public V1NodeStatusBuilder(
-      io.kubernetes.client.openapi.models.V1NodeStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NodeStatusBuilder(V1NodeStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAddresses(instance.getAddresses());
 
@@ -105,10 +95,10 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuil
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NodeStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NodeStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NodeStatus build() {
+  public V1NodeStatus build() {
     V1NodeStatus buildable = new V1NodeStatus();
     buildable.setAddresses(fluent.getAddresses());
     buildable.setAllocatable(fluent.getAllocatable());

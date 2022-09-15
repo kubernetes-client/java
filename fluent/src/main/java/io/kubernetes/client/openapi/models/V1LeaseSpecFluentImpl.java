@@ -21,7 +21,7 @@ public class V1LeaseSpecFluentImpl<A extends V1LeaseSpecFluent<A>> extends BaseF
     implements V1LeaseSpecFluent<A> {
   public V1LeaseSpecFluentImpl() {}
 
-  public V1LeaseSpecFluentImpl(io.kubernetes.client.openapi.models.V1LeaseSpec instance) {
+  public V1LeaseSpecFluentImpl(V1LeaseSpec instance) {
     this.withAcquireTime(instance.getAcquireTime());
 
     this.withHolderIdentity(instance.getHolderIdentity());
@@ -36,14 +36,14 @@ public class V1LeaseSpecFluentImpl<A extends V1LeaseSpecFluent<A>> extends BaseF
   private OffsetDateTime acquireTime;
   private String holderIdentity;
   private Integer leaseDurationSeconds;
-  private java.lang.Integer leaseTransitions;
-  private java.time.OffsetDateTime renewTime;
+  private Integer leaseTransitions;
+  private OffsetDateTime renewTime;
 
-  public java.time.OffsetDateTime getAcquireTime() {
+  public OffsetDateTime getAcquireTime() {
     return this.acquireTime;
   }
 
-  public A withAcquireTime(java.time.OffsetDateTime acquireTime) {
+  public A withAcquireTime(OffsetDateTime acquireTime) {
     this.acquireTime = acquireTime;
     return (A) this;
   }
@@ -52,55 +52,55 @@ public class V1LeaseSpecFluentImpl<A extends V1LeaseSpecFluent<A>> extends BaseF
     return this.acquireTime != null;
   }
 
-  public java.lang.String getHolderIdentity() {
+  public String getHolderIdentity() {
     return this.holderIdentity;
   }
 
-  public A withHolderIdentity(java.lang.String holderIdentity) {
+  public A withHolderIdentity(String holderIdentity) {
     this.holderIdentity = holderIdentity;
     return (A) this;
   }
 
-  public java.lang.Boolean hasHolderIdentity() {
+  public Boolean hasHolderIdentity() {
     return this.holderIdentity != null;
   }
 
-  public java.lang.Integer getLeaseDurationSeconds() {
+  public Integer getLeaseDurationSeconds() {
     return this.leaseDurationSeconds;
   }
 
-  public A withLeaseDurationSeconds(java.lang.Integer leaseDurationSeconds) {
+  public A withLeaseDurationSeconds(Integer leaseDurationSeconds) {
     this.leaseDurationSeconds = leaseDurationSeconds;
     return (A) this;
   }
 
-  public java.lang.Boolean hasLeaseDurationSeconds() {
+  public Boolean hasLeaseDurationSeconds() {
     return this.leaseDurationSeconds != null;
   }
 
-  public java.lang.Integer getLeaseTransitions() {
+  public Integer getLeaseTransitions() {
     return this.leaseTransitions;
   }
 
-  public A withLeaseTransitions(java.lang.Integer leaseTransitions) {
+  public A withLeaseTransitions(Integer leaseTransitions) {
     this.leaseTransitions = leaseTransitions;
     return (A) this;
   }
 
-  public java.lang.Boolean hasLeaseTransitions() {
+  public Boolean hasLeaseTransitions() {
     return this.leaseTransitions != null;
   }
 
-  public java.time.OffsetDateTime getRenewTime() {
+  public OffsetDateTime getRenewTime() {
     return this.renewTime;
   }
 
-  public A withRenewTime(java.time.OffsetDateTime renewTime) {
+  public A withRenewTime(OffsetDateTime renewTime) {
     this.renewTime = renewTime;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRenewTime() {
+  public Boolean hasRenewTime() {
     return this.renewTime != null;
   }
 
@@ -134,7 +134,7 @@ public class V1LeaseSpecFluentImpl<A extends V1LeaseSpecFluent<A>> extends BaseF
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (acquireTime != null) {

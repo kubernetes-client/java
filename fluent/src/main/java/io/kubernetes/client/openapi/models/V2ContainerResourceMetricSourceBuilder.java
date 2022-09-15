@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V2ContainerResourceMetricSourceBuilder
     extends V2ContainerResourceMetricSourceFluentImpl<V2ContainerResourceMetricSourceBuilder>
     implements VisitableBuilder<
-        V2ContainerResourceMetricSource,
-        io.kubernetes.client.openapi.models.V2ContainerResourceMetricSourceBuilder> {
+        V2ContainerResourceMetricSource, V2ContainerResourceMetricSourceBuilder> {
   public V2ContainerResourceMetricSourceBuilder() {
     this(false);
   }
@@ -27,27 +26,24 @@ public class V2ContainerResourceMetricSourceBuilder
     this(new V2ContainerResourceMetricSource(), validationEnabled);
   }
 
-  public V2ContainerResourceMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ContainerResourceMetricSourceFluent<?> fluent) {
+  public V2ContainerResourceMetricSourceBuilder(V2ContainerResourceMetricSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V2ContainerResourceMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ContainerResourceMetricSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2ContainerResourceMetricSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2ContainerResourceMetricSource(), validationEnabled);
   }
 
   public V2ContainerResourceMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ContainerResourceMetricSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2ContainerResourceMetricSource instance) {
+      V2ContainerResourceMetricSourceFluent<?> fluent, V2ContainerResourceMetricSource instance) {
     this(fluent, instance, false);
   }
 
   public V2ContainerResourceMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ContainerResourceMetricSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2ContainerResourceMetricSource instance,
-      java.lang.Boolean validationEnabled) {
+      V2ContainerResourceMetricSourceFluent<?> fluent,
+      V2ContainerResourceMetricSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withContainer(instance.getContainer());
 
@@ -58,14 +54,12 @@ public class V2ContainerResourceMetricSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2ContainerResourceMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ContainerResourceMetricSource instance) {
+  public V2ContainerResourceMetricSourceBuilder(V2ContainerResourceMetricSource instance) {
     this(instance, false);
   }
 
   public V2ContainerResourceMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ContainerResourceMetricSource instance,
-      java.lang.Boolean validationEnabled) {
+      V2ContainerResourceMetricSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withContainer(instance.getContainer());
 
@@ -76,10 +70,10 @@ public class V2ContainerResourceMetricSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2ContainerResourceMetricSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2ContainerResourceMetricSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2ContainerResourceMetricSource build() {
+  public V2ContainerResourceMetricSource build() {
     V2ContainerResourceMetricSource buildable = new V2ContainerResourceMetricSource();
     buildable.setContainer(fluent.getContainer());
     buildable.setName(fluent.getName());

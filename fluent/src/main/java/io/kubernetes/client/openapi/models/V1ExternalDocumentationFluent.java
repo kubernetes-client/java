@@ -19,13 +19,13 @@ public interface V1ExternalDocumentationFluent<A extends V1ExternalDocumentation
     extends Fluent<A> {
   public String getDescription();
 
-  public A withDescription(java.lang.String description);
+  public A withDescription(String description);
 
   public Boolean hasDescription();
 
-  public java.lang.String getUrl();
+  public String getUrl();
 
-  public A withUrl(java.lang.String url);
+  public A withUrl(String url);
 
-  public java.lang.Boolean hasUrl();
+  public Boolean hasUrl();
 }

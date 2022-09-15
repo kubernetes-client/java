@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DownwardAPIVolumeFileBuilder
     extends V1DownwardAPIVolumeFileFluentImpl<V1DownwardAPIVolumeFileBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile,
-        io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder> {
+    implements VisitableBuilder<V1DownwardAPIVolumeFile, V1DownwardAPIVolumeFileBuilder> {
   public V1DownwardAPIVolumeFileBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1DownwardAPIVolumeFileBuilder
   }
 
   public V1DownwardAPIVolumeFileBuilder(
-      io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1DownwardAPIVolumeFileFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DownwardAPIVolumeFile(), validationEnabled);
   }
 
   public V1DownwardAPIVolumeFileBuilder(
-      io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile instance) {
+      V1DownwardAPIVolumeFileFluent<?> fluent, V1DownwardAPIVolumeFile instance) {
     this(fluent, instance, false);
   }
 
   public V1DownwardAPIVolumeFileBuilder(
-      io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile instance,
-      java.lang.Boolean validationEnabled) {
+      V1DownwardAPIVolumeFileFluent<?> fluent,
+      V1DownwardAPIVolumeFile instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFieldRef(instance.getFieldRef());
 
@@ -59,14 +55,12 @@ public class V1DownwardAPIVolumeFileBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DownwardAPIVolumeFileBuilder(
-      io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile instance) {
+  public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFile instance) {
     this(instance, false);
   }
 
   public V1DownwardAPIVolumeFileBuilder(
-      io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile instance,
-      java.lang.Boolean validationEnabled) {
+      V1DownwardAPIVolumeFile instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFieldRef(instance.getFieldRef());
 
@@ -79,10 +73,10 @@ public class V1DownwardAPIVolumeFileBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DownwardAPIVolumeFileFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile build() {
+  public V1DownwardAPIVolumeFile build() {
     V1DownwardAPIVolumeFile buildable = new V1DownwardAPIVolumeFile();
     buildable.setFieldRef(fluent.getFieldRef());
     buildable.setMode(fluent.getMode());

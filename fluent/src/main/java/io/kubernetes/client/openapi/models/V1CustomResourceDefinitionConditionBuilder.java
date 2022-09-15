@@ -18,8 +18,7 @@ public class V1CustomResourceDefinitionConditionBuilder
     extends V1CustomResourceDefinitionConditionFluentImpl<
         V1CustomResourceDefinitionConditionBuilder>
     implements VisitableBuilder<
-        V1CustomResourceDefinitionCondition,
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder> {
+        V1CustomResourceDefinitionCondition, V1CustomResourceDefinitionConditionBuilder> {
   public V1CustomResourceDefinitionConditionBuilder() {
     this(false);
   }
@@ -34,21 +33,20 @@ public class V1CustomResourceDefinitionConditionBuilder
   }
 
   public V1CustomResourceDefinitionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CustomResourceDefinitionCondition(), validationEnabled);
   }
 
   public V1CustomResourceDefinitionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition instance) {
+      V1CustomResourceDefinitionConditionFluent<?> fluent,
+      V1CustomResourceDefinitionCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1CustomResourceDefinitionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionConditionFluent<?> fluent,
+      V1CustomResourceDefinitionCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -63,14 +61,12 @@ public class V1CustomResourceDefinitionConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CustomResourceDefinitionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition instance) {
+  public V1CustomResourceDefinitionConditionBuilder(V1CustomResourceDefinitionCondition instance) {
     this(instance, false);
   }
 
   public V1CustomResourceDefinitionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -85,10 +81,10 @@ public class V1CustomResourceDefinitionConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CustomResourceDefinitionConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition build() {
+  public V1CustomResourceDefinitionCondition build() {
     V1CustomResourceDefinitionCondition buildable = new V1CustomResourceDefinitionCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setMessage(fluent.getMessage());

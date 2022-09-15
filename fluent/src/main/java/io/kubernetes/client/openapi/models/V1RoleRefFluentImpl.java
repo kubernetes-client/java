@@ -20,7 +20,7 @@ public class V1RoleRefFluentImpl<A extends V1RoleRefFluent<A>> extends BaseFluen
     implements V1RoleRefFluent<A> {
   public V1RoleRefFluentImpl() {}
 
-  public V1RoleRefFluentImpl(io.kubernetes.client.openapi.models.V1RoleRef instance) {
+  public V1RoleRefFluentImpl(V1RoleRef instance) {
     this.withApiGroup(instance.getApiGroup());
 
     this.withKind(instance.getKind());
@@ -29,14 +29,14 @@ public class V1RoleRefFluentImpl<A extends V1RoleRefFluent<A>> extends BaseFluen
   }
 
   private String apiGroup;
-  private java.lang.String kind;
-  private java.lang.String name;
+  private String kind;
+  private String name;
 
-  public java.lang.String getApiGroup() {
+  public String getApiGroup() {
     return this.apiGroup;
   }
 
-  public A withApiGroup(java.lang.String apiGroup) {
+  public A withApiGroup(String apiGroup) {
     this.apiGroup = apiGroup;
     return (A) this;
   }
@@ -45,29 +45,29 @@ public class V1RoleRefFluentImpl<A extends V1RoleRefFluent<A>> extends BaseFluen
     return this.apiGroup != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
@@ -85,7 +85,7 @@ public class V1RoleRefFluentImpl<A extends V1RoleRefFluent<A>> extends BaseFluen
     return java.util.Objects.hash(apiGroup, kind, name, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiGroup != null) {

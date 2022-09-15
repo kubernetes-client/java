@@ -21,7 +21,7 @@ public class V1EnvVarFluentImpl<A extends V1EnvVarFluent<A>> extends BaseFluent<
     implements V1EnvVarFluent<A> {
   public V1EnvVarFluentImpl() {}
 
-  public V1EnvVarFluentImpl(io.kubernetes.client.openapi.models.V1EnvVar instance) {
+  public V1EnvVarFluentImpl(V1EnvVar instance) {
     this.withName(instance.getName());
 
     this.withValue(instance.getValue());
@@ -30,14 +30,14 @@ public class V1EnvVarFluentImpl<A extends V1EnvVarFluent<A>> extends BaseFluent<
   }
 
   private String name;
-  private java.lang.String value;
+  private String value;
   private V1EnvVarSourceBuilder valueFrom;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -46,16 +46,16 @@ public class V1EnvVarFluentImpl<A extends V1EnvVarFluent<A>> extends BaseFluent<
     return this.name != null;
   }
 
-  public java.lang.String getValue() {
+  public String getValue() {
     return this.value;
   }
 
-  public A withValue(java.lang.String value) {
+  public A withValue(String value) {
     this.value = value;
     return (A) this;
   }
 
-  public java.lang.Boolean hasValue() {
+  public Boolean hasValue() {
     return this.value != null;
   }
 
@@ -65,24 +65,27 @@ public class V1EnvVarFluentImpl<A extends V1EnvVarFluent<A>> extends BaseFluent<
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1EnvVarSource getValueFrom() {
+  public V1EnvVarSource getValueFrom() {
     return this.valueFrom != null ? this.valueFrom.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EnvVarSource buildValueFrom() {
+  public V1EnvVarSource buildValueFrom() {
     return this.valueFrom != null ? this.valueFrom.build() : null;
   }
 
-  public A withValueFrom(io.kubernetes.client.openapi.models.V1EnvVarSource valueFrom) {
+  public A withValueFrom(V1EnvVarSource valueFrom) {
     _visitables.get("valueFrom").remove(this.valueFrom);
     if (valueFrom != null) {
       this.valueFrom = new V1EnvVarSourceBuilder(valueFrom);
       _visitables.get("valueFrom").add(this.valueFrom);
+    } else {
+      this.valueFrom = null;
+      _visitables.get("valueFrom").remove(this.valueFrom);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasValueFrom() {
+  public Boolean hasValueFrom() {
     return this.valueFrom != null;
   }
 
@@ -90,25 +93,20 @@ public class V1EnvVarFluentImpl<A extends V1EnvVarFluent<A>> extends BaseFluent<
     return new V1EnvVarFluentImpl.ValueFromNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EnvVarFluent.ValueFromNested<A> withNewValueFromLike(
-      io.kubernetes.client.openapi.models.V1EnvVarSource item) {
+  public V1EnvVarFluent.ValueFromNested<A> withNewValueFromLike(V1EnvVarSource item) {
     return new V1EnvVarFluentImpl.ValueFromNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EnvVarFluent.ValueFromNested<A> editValueFrom() {
+  public V1EnvVarFluent.ValueFromNested<A> editValueFrom() {
     return withNewValueFromLike(getValueFrom());
   }
 
-  public io.kubernetes.client.openapi.models.V1EnvVarFluent.ValueFromNested<A>
-      editOrNewValueFrom() {
+  public V1EnvVarFluent.ValueFromNested<A> editOrNewValueFrom() {
     return withNewValueFromLike(
-        getValueFrom() != null
-            ? getValueFrom()
-            : new io.kubernetes.client.openapi.models.V1EnvVarSourceBuilder().build());
+        getValueFrom() != null ? getValueFrom() : new V1EnvVarSourceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1EnvVarFluent.ValueFromNested<A>
-      editOrNewValueFromLike(io.kubernetes.client.openapi.models.V1EnvVarSource item) {
+  public V1EnvVarFluent.ValueFromNested<A> editOrNewValueFromLike(V1EnvVarSource item) {
     return withNewValueFromLike(getValueFrom() != null ? getValueFrom() : item);
   }
 
@@ -127,7 +125,7 @@ public class V1EnvVarFluentImpl<A extends V1EnvVarFluent<A>> extends BaseFluent<
     return java.util.Objects.hash(name, value, valueFrom, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {
@@ -147,16 +145,16 @@ public class V1EnvVarFluentImpl<A extends V1EnvVarFluent<A>> extends BaseFluent<
   }
 
   class ValueFromNestedImpl<N> extends V1EnvVarSourceFluentImpl<V1EnvVarFluent.ValueFromNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EnvVarFluent.ValueFromNested<N>, Nested<N> {
-    ValueFromNestedImpl(io.kubernetes.client.openapi.models.V1EnvVarSource item) {
+      implements V1EnvVarFluent.ValueFromNested<N>, Nested<N> {
+    ValueFromNestedImpl(V1EnvVarSource item) {
       this.builder = new V1EnvVarSourceBuilder(this, item);
     }
 
     ValueFromNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1EnvVarSourceBuilder(this);
+      this.builder = new V1EnvVarSourceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1EnvVarSourceBuilder builder;
+    V1EnvVarSourceBuilder builder;
 
     public N and() {
       return (N) V1EnvVarFluentImpl.this.withValueFrom(builder.build());

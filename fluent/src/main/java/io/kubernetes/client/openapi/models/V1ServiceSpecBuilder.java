@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ServiceSpecBuilder extends V1ServiceSpecFluentImpl<V1ServiceSpecBuilder>
-    implements VisitableBuilder<
-        V1ServiceSpec, io.kubernetes.client.openapi.models.V1ServiceSpecBuilder> {
+    implements VisitableBuilder<V1ServiceSpec, V1ServiceSpecBuilder> {
   public V1ServiceSpecBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1ServiceSpecBuilder extends V1ServiceSpecFluentImpl<V1ServiceSpecB
     this(fluent, false);
   }
 
-  public V1ServiceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ServiceSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ServiceSpecBuilder(V1ServiceSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ServiceSpec(), validationEnabled);
   }
 
-  public V1ServiceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ServiceSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ServiceSpec instance) {
+  public V1ServiceSpecBuilder(V1ServiceSpecFluent<?> fluent, V1ServiceSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1ServiceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ServiceSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ServiceSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1ServiceSpecFluent<?> fluent, V1ServiceSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAllocateLoadBalancerNodePorts(instance.getAllocateLoadBalancerNodePorts());
 
@@ -87,13 +80,11 @@ public class V1ServiceSpecBuilder extends V1ServiceSpecFluentImpl<V1ServiceSpecB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ServiceSpecBuilder(io.kubernetes.client.openapi.models.V1ServiceSpec instance) {
+  public V1ServiceSpecBuilder(V1ServiceSpec instance) {
     this(instance, false);
   }
 
-  public V1ServiceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ServiceSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ServiceSpecBuilder(V1ServiceSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAllocateLoadBalancerNodePorts(instance.getAllocateLoadBalancerNodePorts());
 
@@ -136,10 +127,10 @@ public class V1ServiceSpecBuilder extends V1ServiceSpecFluentImpl<V1ServiceSpecB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ServiceSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ServiceSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpec build() {
+  public V1ServiceSpec build() {
     V1ServiceSpec buildable = new V1ServiceSpec();
     buildable.setAllocateLoadBalancerNodePorts(fluent.getAllocateLoadBalancerNodePorts());
     buildable.setClusterIP(fluent.getClusterIP());

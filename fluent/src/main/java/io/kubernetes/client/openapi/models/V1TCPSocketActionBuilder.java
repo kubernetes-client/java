@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1TCPSocketActionBuilder extends V1TCPSocketActionFluentImpl<V1TCPSocketActionBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1TCPSocketAction, V1TCPSocketActionBuilder> {
+    implements VisitableBuilder<V1TCPSocketAction, V1TCPSocketActionBuilder> {
   public V1TCPSocketActionBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1TCPSocketActionBuilder extends V1TCPSocketActionFluentImpl<V1TCPS
     this(new V1TCPSocketAction(), validationEnabled);
   }
 
-  public V1TCPSocketActionBuilder(
-      io.kubernetes.client.openapi.models.V1TCPSocketActionFluent<?> fluent) {
+  public V1TCPSocketActionBuilder(V1TCPSocketActionFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1TCPSocketActionBuilder(
-      io.kubernetes.client.openapi.models.V1TCPSocketActionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1TCPSocketActionBuilder(V1TCPSocketActionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1TCPSocketAction(), validationEnabled);
   }
 
-  public V1TCPSocketActionBuilder(
-      io.kubernetes.client.openapi.models.V1TCPSocketActionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1TCPSocketAction instance) {
+  public V1TCPSocketActionBuilder(V1TCPSocketActionFluent<?> fluent, V1TCPSocketAction instance) {
     this(fluent, instance, false);
   }
 
   public V1TCPSocketActionBuilder(
-      io.kubernetes.client.openapi.models.V1TCPSocketActionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1TCPSocketAction instance,
-      java.lang.Boolean validationEnabled) {
+      V1TCPSocketActionFluent<?> fluent, V1TCPSocketAction instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withHost(instance.getHost());
 
@@ -54,13 +46,11 @@ public class V1TCPSocketActionBuilder extends V1TCPSocketActionFluentImpl<V1TCPS
     this.validationEnabled = validationEnabled;
   }
 
-  public V1TCPSocketActionBuilder(io.kubernetes.client.openapi.models.V1TCPSocketAction instance) {
+  public V1TCPSocketActionBuilder(V1TCPSocketAction instance) {
     this(instance, false);
   }
 
-  public V1TCPSocketActionBuilder(
-      io.kubernetes.client.openapi.models.V1TCPSocketAction instance,
-      java.lang.Boolean validationEnabled) {
+  public V1TCPSocketActionBuilder(V1TCPSocketAction instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withHost(instance.getHost());
 
@@ -69,10 +59,10 @@ public class V1TCPSocketActionBuilder extends V1TCPSocketActionFluentImpl<V1TCPS
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1TCPSocketActionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1TCPSocketActionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1TCPSocketAction build() {
+  public V1TCPSocketAction build() {
     V1TCPSocketAction buildable = new V1TCPSocketAction();
     buildable.setHost(fluent.getHost());
     buildable.setPort(fluent.getPort());

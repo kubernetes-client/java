@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1HorizontalPodAutoscalerStatusBuilder
     extends V1HorizontalPodAutoscalerStatusFluentImpl<V1HorizontalPodAutoscalerStatusBuilder>
     implements VisitableBuilder<
-        V1HorizontalPodAutoscalerStatus,
-        io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusBuilder> {
+        V1HorizontalPodAutoscalerStatus, V1HorizontalPodAutoscalerStatusBuilder> {
   public V1HorizontalPodAutoscalerStatusBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V1HorizontalPodAutoscalerStatusBuilder
   }
 
   public V1HorizontalPodAutoscalerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1HorizontalPodAutoscalerStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1HorizontalPodAutoscalerStatus(), validationEnabled);
   }
 
   public V1HorizontalPodAutoscalerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatus instance) {
+      V1HorizontalPodAutoscalerStatusFluent<?> fluent, V1HorizontalPodAutoscalerStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1HorizontalPodAutoscalerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1HorizontalPodAutoscalerStatusFluent<?> fluent,
+      V1HorizontalPodAutoscalerStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
 
@@ -61,14 +58,12 @@ public class V1HorizontalPodAutoscalerStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1HorizontalPodAutoscalerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatus instance) {
+  public V1HorizontalPodAutoscalerStatusBuilder(V1HorizontalPodAutoscalerStatus instance) {
     this(instance, false);
   }
 
   public V1HorizontalPodAutoscalerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1HorizontalPodAutoscalerStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
 
@@ -83,10 +78,10 @@ public class V1HorizontalPodAutoscalerStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1HorizontalPodAutoscalerStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatus build() {
+  public V1HorizontalPodAutoscalerStatus build() {
     V1HorizontalPodAutoscalerStatus buildable = new V1HorizontalPodAutoscalerStatus();
     buildable.setCurrentCPUUtilizationPercentage(fluent.getCurrentCPUUtilizationPercentage());
     buildable.setCurrentReplicas(fluent.getCurrentReplicas());

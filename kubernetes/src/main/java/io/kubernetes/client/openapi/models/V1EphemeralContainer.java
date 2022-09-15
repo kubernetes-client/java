@@ -25,15 +25,14 @@ import java.util.Objects;
  * guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted.
  * The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource
  * allocation. To add an ephemeral container, use the ephemeralcontainers subresource of an existing
- * Pod. Ephemeral containers may not be removed or restarted. This is a beta feature available on
- * clusters that haven&#39;t disabled the EphemeralContainers feature gate.
+ * Pod. Ephemeral containers may not be removed or restarted.
  */
 @ApiModel(
     description =
-        "An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.  To add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.  This is a beta feature available on clusters that haven't disabled the EphemeralContainers feature gate.")
+        "An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.  To add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1EphemeralContainer {
   public static final String SERIALIZED_NAME_ARGS = "args";
 

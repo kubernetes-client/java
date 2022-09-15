@@ -20,20 +20,20 @@ public class V1VolumeDeviceFluentImpl<A extends V1VolumeDeviceFluent<A>> extends
     implements V1VolumeDeviceFluent<A> {
   public V1VolumeDeviceFluentImpl() {}
 
-  public V1VolumeDeviceFluentImpl(io.kubernetes.client.openapi.models.V1VolumeDevice instance) {
+  public V1VolumeDeviceFluentImpl(V1VolumeDevice instance) {
     this.withDevicePath(instance.getDevicePath());
 
     this.withName(instance.getName());
   }
 
   private String devicePath;
-  private java.lang.String name;
+  private String name;
 
-  public java.lang.String getDevicePath() {
+  public String getDevicePath() {
     return this.devicePath;
   }
 
-  public A withDevicePath(java.lang.String devicePath) {
+  public A withDevicePath(String devicePath) {
     this.devicePath = devicePath;
     return (A) this;
   }
@@ -42,16 +42,16 @@ public class V1VolumeDeviceFluentImpl<A extends V1VolumeDeviceFluent<A>> extends
     return this.devicePath != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
@@ -69,7 +69,7 @@ public class V1VolumeDeviceFluentImpl<A extends V1VolumeDeviceFluent<A>> extends
     return java.util.Objects.hash(devicePath, name, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (devicePath != null) {

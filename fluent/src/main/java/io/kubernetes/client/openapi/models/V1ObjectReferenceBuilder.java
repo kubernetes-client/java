@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ObjectReferenceBuilder extends V1ObjectReferenceFluentImpl<V1ObjectReferenceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ObjectReference,
-        io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder> {
+    implements VisitableBuilder<V1ObjectReference, V1ObjectReferenceBuilder> {
   public V1ObjectReferenceBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1ObjectReferenceBuilder extends V1ObjectReferenceFluentImpl<V1Obje
     this(fluent, false);
   }
 
-  public V1ObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ObjectReferenceBuilder(V1ObjectReferenceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ObjectReference(), validationEnabled);
   }
 
-  public V1ObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ObjectReference instance) {
+  public V1ObjectReferenceBuilder(V1ObjectReferenceFluent<?> fluent, V1ObjectReference instance) {
     this(fluent, instance, false);
   }
 
   public V1ObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ObjectReference instance,
-      java.lang.Boolean validationEnabled) {
+      V1ObjectReferenceFluent<?> fluent, V1ObjectReference instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -64,13 +56,11 @@ public class V1ObjectReferenceBuilder extends V1ObjectReferenceFluentImpl<V1Obje
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ObjectReferenceBuilder(io.kubernetes.client.openapi.models.V1ObjectReference instance) {
+  public V1ObjectReferenceBuilder(V1ObjectReference instance) {
     this(instance, false);
   }
 
-  public V1ObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectReference instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ObjectReferenceBuilder(V1ObjectReference instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -89,10 +79,10 @@ public class V1ObjectReferenceBuilder extends V1ObjectReferenceFluentImpl<V1Obje
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ObjectReferenceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ObjectReferenceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference build() {
+  public V1ObjectReference build() {
     V1ObjectReference buildable = new V1ObjectReference();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setFieldPath(fluent.getFieldPath());

@@ -38,14 +38,14 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
 
   private String apiVersion;
   private ArrayList<V1PersistentVolumeBuilder> items;
-  private java.lang.String kind;
+  private String kind;
   private V1ListMetaBuilder metadata;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -54,26 +54,21 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
     return this.apiVersion != null;
   }
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1PersistentVolume item) {
+  public A addToItems(Integer index, V1PersistentVolume item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder>();
+      this.items = new ArrayList<V1PersistentVolumeBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder(item);
+    V1PersistentVolumeBuilder builder = new V1PersistentVolumeBuilder(item);
     _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
     this.items.add(index >= 0 ? index : items.size(), builder);
     return (A) this;
   }
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PersistentVolume item) {
+  public A setToItems(Integer index, V1PersistentVolume item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder>();
+      this.items = new ArrayList<V1PersistentVolumeBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder(item);
+    V1PersistentVolumeBuilder builder = new V1PersistentVolumeBuilder(item);
     if (index < 0 || index >= _visitables.get("items").size()) {
       _visitables.get("items").add(builder);
     } else {
@@ -89,26 +84,22 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
 
   public A addToItems(io.kubernetes.client.openapi.models.V1PersistentVolume... items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder>();
+      this.items = new ArrayList<V1PersistentVolumeBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PersistentVolume item : items) {
-      io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder(item);
+    for (V1PersistentVolume item : items) {
+      V1PersistentVolumeBuilder builder = new V1PersistentVolumeBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1PersistentVolume> items) {
+  public A addAllToItems(Collection<V1PersistentVolume> items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder>();
+      this.items = new ArrayList<V1PersistentVolumeBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PersistentVolume item : items) {
-      io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder(item);
+    for (V1PersistentVolume item : items) {
+      V1PersistentVolumeBuilder builder = new V1PersistentVolumeBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
@@ -116,9 +107,8 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
   }
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1PersistentVolume... items) {
-    for (io.kubernetes.client.openapi.models.V1PersistentVolume item : items) {
-      io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder(item);
+    for (V1PersistentVolume item : items) {
+      V1PersistentVolumeBuilder builder = new V1PersistentVolumeBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -127,11 +117,9 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
     return (A) this;
   }
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PersistentVolume> items) {
-    for (io.kubernetes.client.openapi.models.V1PersistentVolume item : items) {
-      io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder(item);
+  public A removeAllFromItems(Collection<V1PersistentVolume> items) {
+    for (V1PersistentVolume item : items) {
+      V1PersistentVolumeBuilder builder = new V1PersistentVolumeBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -140,14 +128,12 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
     return (A) this;
   }
 
-  public A removeMatchingFromItems(
-      Predicate<io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder> predicate) {
+  public A removeMatchingFromItems(Predicate<V1PersistentVolumeBuilder> predicate) {
     if (items == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder> each =
-        items.iterator();
+    final Iterator<V1PersistentVolumeBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder builder = each.next();
+      V1PersistentVolumeBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -162,30 +148,28 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1PersistentVolume> getItems() {
+  public List<V1PersistentVolume> getItems() {
     return items != null ? build(items) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolume> buildItems() {
+  public List<V1PersistentVolume> buildItems() {
     return items != null ? build(items) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolume buildItem(java.lang.Integer index) {
+  public V1PersistentVolume buildItem(Integer index) {
     return this.items.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolume buildFirstItem() {
+  public V1PersistentVolume buildFirstItem() {
     return this.items.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolume buildLastItem() {
+  public V1PersistentVolume buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolume buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder item : items) {
+  public V1PersistentVolume buildMatchingItem(Predicate<V1PersistentVolumeBuilder> predicate) {
+    for (V1PersistentVolumeBuilder item : items) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -193,10 +177,8 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
     return null;
   }
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder item : items) {
+  public Boolean hasMatchingItem(Predicate<V1PersistentVolumeBuilder> predicate) {
+    for (V1PersistentVolumeBuilder item : items) {
       if (predicate.test(item)) {
         return true;
       }
@@ -204,13 +186,13 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
     return false;
   }
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolume> items) {
+  public A withItems(List<V1PersistentVolume> items) {
     if (this.items != null) {
       _visitables.get("items").removeAll(this.items);
     }
     if (items != null) {
-      this.items = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1PersistentVolume item : items) {
+      this.items = new ArrayList();
+      for (V1PersistentVolume item : items) {
         this.addToItems(item);
       }
     } else {
@@ -224,14 +206,14 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
       this.items.clear();
     }
     if (items != null) {
-      for (io.kubernetes.client.openapi.models.V1PersistentVolume item : items) {
+      for (V1PersistentVolume item : items) {
         this.addToItems(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasItems() {
+  public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
 
@@ -239,42 +221,33 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
     return new V1PersistentVolumeListFluentImpl.ItemsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A>
-      addNewItemLike(io.kubernetes.client.openapi.models.V1PersistentVolume item) {
+  public V1PersistentVolumeListFluent.ItemsNested<A> addNewItemLike(V1PersistentVolume item) {
     return new V1PersistentVolumeListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1PersistentVolume item) {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeListFluentImpl.ItemsNestedImpl(
-        index, item);
+  public V1PersistentVolumeListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1PersistentVolume item) {
+    return new V1PersistentVolumeListFluentImpl.ItemsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index) {
+  public V1PersistentVolumeListFluent.ItemsNested<A> editItem(Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A>
-      editFirstItem() {
+  public V1PersistentVolumeListFluent.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A>
-      editLastItem() {
+  public V1PersistentVolumeListFluent.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder>
-              predicate) {
+  public V1PersistentVolumeListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1PersistentVolumeBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < items.size(); i++) {
       if (predicate.test(items.get(i))) {
@@ -286,16 +259,16 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
     return setNewItemLike(index, buildItem(index));
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -304,25 +277,28 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
+  @Deprecated
+  public V1ListMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
+  public V1ListMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
+  public A withMetadata(V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -330,27 +306,20 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
     return new V1PersistentVolumeListFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V1PersistentVolumeListFluentImpl
-        .MetadataNestedImpl(item);
+  public V1PersistentVolumeListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+    return new V1PersistentVolumeListFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.MetadataNested<A>
-      editMetadata() {
+  public V1PersistentVolumeListFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1PersistentVolumeListFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
+  public V1PersistentVolumeListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -370,7 +339,7 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -395,21 +364,19 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
 
   class ItemsNestedImpl<N>
       extends V1PersistentVolumeFluentImpl<V1PersistentVolumeListFluent.ItemsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<N>,
-          Nested<N> {
-    ItemsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1PersistentVolume item) {
+      implements V1PersistentVolumeListFluent.ItemsNested<N>, Nested<N> {
+    ItemsNestedImpl(Integer index, V1PersistentVolume item) {
       this.index = index;
       this.builder = new V1PersistentVolumeBuilder(this, item);
     }
 
     ItemsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder(this);
+      this.builder = new V1PersistentVolumeBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder builder;
-    java.lang.Integer index;
+    V1PersistentVolumeBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1PersistentVolumeListFluentImpl.this.setToItems(index, builder.build());
@@ -422,17 +389,16 @@ public class V1PersistentVolumeListFluentImpl<A extends V1PersistentVolumeListFl
 
   class MetadataNestedImpl<N>
       extends V1ListMetaFluentImpl<V1PersistentVolumeListFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1PersistentVolumeListFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this);
+      this.builder = new V1ListMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
+    V1ListMetaBuilder builder;
 
     public N and() {
       return (N) V1PersistentVolumeListFluentImpl.this.withMetadata(builder.build());

@@ -20,15 +20,15 @@ public interface V1PersistentVolumeClaimFluent<A extends V1PersistentVolumeClaim
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -38,80 +38,73 @@ public interface V1PersistentVolumeClaimFluent<A extends V1PersistentVolumeClaim
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1PersistentVolumeClaimFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1PersistentVolumeClaimFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.MetadataNested<A>
-      editMetadata();
+  public V1PersistentVolumeClaimFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1PersistentVolumeClaimFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1PersistentVolumeClaimFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildSpec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1PersistentVolumeClaimSpec getSpec();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpec buildSpec();
+  public V1PersistentVolumeClaimSpec buildSpec();
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpec spec);
+  public A withSpec(V1PersistentVolumeClaimSpec spec);
 
-  public java.lang.Boolean hasSpec();
+  public Boolean hasSpec();
 
   public V1PersistentVolumeClaimFluent.SpecNested<A> withNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.SpecNested<A>
-      withNewSpecLike(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpec item);
+  public V1PersistentVolumeClaimFluent.SpecNested<A> withNewSpecLike(
+      V1PersistentVolumeClaimSpec item);
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.SpecNested<A> editSpec();
+  public V1PersistentVolumeClaimFluent.SpecNested<A> editSpec();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.SpecNested<A>
-      editOrNewSpec();
+  public V1PersistentVolumeClaimFluent.SpecNested<A> editOrNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.SpecNested<A>
-      editOrNewSpecLike(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimSpec item);
+  public V1PersistentVolumeClaimFluent.SpecNested<A> editOrNewSpecLike(
+      V1PersistentVolumeClaimSpec item);
 
   /**
    * This method has been deprecated, please use method buildStatus instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1PersistentVolumeClaimStatus getStatus();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatus buildStatus();
+  public V1PersistentVolumeClaimStatus buildStatus();
 
-  public A withStatus(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatus status);
+  public A withStatus(V1PersistentVolumeClaimStatus status);
 
-  public java.lang.Boolean hasStatus();
+  public Boolean hasStatus();
 
   public V1PersistentVolumeClaimFluent.StatusNested<A> withNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.StatusNested<A>
-      withNewStatusLike(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatus item);
+  public V1PersistentVolumeClaimFluent.StatusNested<A> withNewStatusLike(
+      V1PersistentVolumeClaimStatus item);
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.StatusNested<A>
-      editStatus();
+  public V1PersistentVolumeClaimFluent.StatusNested<A> editStatus();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.StatusNested<A>
-      editOrNewStatus();
+  public V1PersistentVolumeClaimFluent.StatusNested<A> editOrNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimFluent.StatusNested<A>
-      editOrNewStatusLike(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimStatus item);
+  public V1PersistentVolumeClaimFluent.StatusNested<A> editOrNewStatusLike(
+      V1PersistentVolumeClaimStatus item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1PersistentVolumeClaimFluent.MetadataNested<N>> {
@@ -121,7 +114,7 @@ public interface V1PersistentVolumeClaimFluent<A extends V1PersistentVolumeClaim
   }
 
   public interface SpecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1PersistentVolumeClaimSpecFluent<V1PersistentVolumeClaimFluent.SpecNested<N>> {
     public N and();
 
@@ -129,7 +122,7 @@ public interface V1PersistentVolumeClaimFluent<A extends V1PersistentVolumeClaim
   }
 
   public interface StatusNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1PersistentVolumeClaimStatusFluent<V1PersistentVolumeClaimFluent.StatusNested<N>> {
     public N and();
 

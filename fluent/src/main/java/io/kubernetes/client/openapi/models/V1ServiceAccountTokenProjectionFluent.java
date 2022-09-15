@@ -20,19 +20,19 @@ public interface V1ServiceAccountTokenProjectionFluent<
     extends Fluent<A> {
   public String getAudience();
 
-  public A withAudience(java.lang.String audience);
+  public A withAudience(String audience);
 
   public Boolean hasAudience();
 
   public Long getExpirationSeconds();
 
-  public A withExpirationSeconds(java.lang.Long expirationSeconds);
+  public A withExpirationSeconds(Long expirationSeconds);
 
-  public java.lang.Boolean hasExpirationSeconds();
+  public Boolean hasExpirationSeconds();
 
-  public java.lang.String getPath();
+  public String getPath();
 
-  public A withPath(java.lang.String path);
+  public A withPath(String path);
 
-  public java.lang.Boolean hasPath();
+  public Boolean hasPath();
 }

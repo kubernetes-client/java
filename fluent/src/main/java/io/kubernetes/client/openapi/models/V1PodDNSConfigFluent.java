@@ -22,51 +22,47 @@ import java.util.function.Predicate;
 public interface V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends Fluent<A> {
   public A addToNameservers(Integer index, String item);
 
-  public A setToNameservers(java.lang.Integer index, java.lang.String item);
+  public A setToNameservers(Integer index, String item);
 
   public A addToNameservers(java.lang.String... items);
 
-  public A addAllToNameservers(Collection<java.lang.String> items);
+  public A addAllToNameservers(Collection<String> items);
 
   public A removeFromNameservers(java.lang.String... items);
 
-  public A removeAllFromNameservers(java.util.Collection<java.lang.String> items);
+  public A removeAllFromNameservers(Collection<String> items);
 
-  public List<java.lang.String> getNameservers();
+  public List<String> getNameservers();
 
-  public java.lang.String getNameserver(java.lang.Integer index);
+  public String getNameserver(Integer index);
 
-  public java.lang.String getFirstNameserver();
+  public String getFirstNameserver();
 
-  public java.lang.String getLastNameserver();
+  public String getLastNameserver();
 
-  public java.lang.String getMatchingNameserver(Predicate<java.lang.String> predicate);
+  public String getMatchingNameserver(Predicate<String> predicate);
 
-  public Boolean hasMatchingNameserver(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingNameserver(Predicate<String> predicate);
 
-  public A withNameservers(java.util.List<java.lang.String> nameservers);
+  public A withNameservers(List<String> nameservers);
 
   public A withNameservers(java.lang.String... nameservers);
 
-  public java.lang.Boolean hasNameservers();
+  public Boolean hasNameservers();
 
-  public A addToOptions(java.lang.Integer index, V1PodDNSConfigOption item);
+  public A addToOptions(Integer index, V1PodDNSConfigOption item);
 
-  public A setToOptions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodDNSConfigOption item);
+  public A setToOptions(Integer index, V1PodDNSConfigOption item);
 
   public A addToOptions(io.kubernetes.client.openapi.models.V1PodDNSConfigOption... items);
 
-  public A addAllToOptions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PodDNSConfigOption> items);
+  public A addAllToOptions(Collection<V1PodDNSConfigOption> items);
 
   public A removeFromOptions(io.kubernetes.client.openapi.models.V1PodDNSConfigOption... items);
 
-  public A removeAllFromOptions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PodDNSConfigOption> items);
+  public A removeAllFromOptions(Collection<V1PodDNSConfigOption> items);
 
-  public A removeMatchingFromOptions(
-      java.util.function.Predicate<V1PodDNSConfigOptionBuilder> predicate);
+  public A removeMatchingFromOptions(Predicate<V1PodDNSConfigOptionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildOptions instead.
@@ -74,85 +70,71 @@ public interface V1PodDNSConfigFluent<A extends V1PodDNSConfigFluent<A>> extends
    * @return The buildable object.
    */
   @Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1PodDNSConfigOption> getOptions();
+  public List<V1PodDNSConfigOption> getOptions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PodDNSConfigOption> buildOptions();
+  public List<V1PodDNSConfigOption> buildOptions();
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigOption buildOption(
-      java.lang.Integer index);
+  public V1PodDNSConfigOption buildOption(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigOption buildFirstOption();
+  public V1PodDNSConfigOption buildFirstOption();
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigOption buildLastOption();
+  public V1PodDNSConfigOption buildLastOption();
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigOption buildMatchingOption(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodDNSConfigOptionBuilder>
-          predicate);
+  public V1PodDNSConfigOption buildMatchingOption(Predicate<V1PodDNSConfigOptionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingOption(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodDNSConfigOptionBuilder>
-          predicate);
+  public Boolean hasMatchingOption(Predicate<V1PodDNSConfigOptionBuilder> predicate);
 
-  public A withOptions(
-      java.util.List<io.kubernetes.client.openapi.models.V1PodDNSConfigOption> options);
+  public A withOptions(List<V1PodDNSConfigOption> options);
 
   public A withOptions(io.kubernetes.client.openapi.models.V1PodDNSConfigOption... options);
 
-  public java.lang.Boolean hasOptions();
+  public Boolean hasOptions();
 
   public V1PodDNSConfigFluent.OptionsNested<A> addNewOption();
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<A> addNewOptionLike(
-      io.kubernetes.client.openapi.models.V1PodDNSConfigOption item);
+  public V1PodDNSConfigFluent.OptionsNested<A> addNewOptionLike(V1PodDNSConfigOption item);
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<A> setNewOptionLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodDNSConfigOption item);
+  public V1PodDNSConfigFluent.OptionsNested<A> setNewOptionLike(
+      Integer index, V1PodDNSConfigOption item);
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<A> editOption(
-      java.lang.Integer index);
+  public V1PodDNSConfigFluent.OptionsNested<A> editOption(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<A>
-      editFirstOption();
+  public V1PodDNSConfigFluent.OptionsNested<A> editFirstOption();
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<A> editLastOption();
+  public V1PodDNSConfigFluent.OptionsNested<A> editLastOption();
 
-  public io.kubernetes.client.openapi.models.V1PodDNSConfigFluent.OptionsNested<A>
-      editMatchingOption(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1PodDNSConfigOptionBuilder>
-              predicate);
+  public V1PodDNSConfigFluent.OptionsNested<A> editMatchingOption(
+      Predicate<V1PodDNSConfigOptionBuilder> predicate);
 
-  public A addToSearches(java.lang.Integer index, java.lang.String item);
+  public A addToSearches(Integer index, String item);
 
-  public A setToSearches(java.lang.Integer index, java.lang.String item);
+  public A setToSearches(Integer index, String item);
 
   public A addToSearches(java.lang.String... items);
 
-  public A addAllToSearches(java.util.Collection<java.lang.String> items);
+  public A addAllToSearches(Collection<String> items);
 
   public A removeFromSearches(java.lang.String... items);
 
-  public A removeAllFromSearches(java.util.Collection<java.lang.String> items);
+  public A removeAllFromSearches(Collection<String> items);
 
-  public java.util.List<java.lang.String> getSearches();
+  public List<String> getSearches();
 
-  public java.lang.String getSearch(java.lang.Integer index);
+  public String getSearch(Integer index);
 
-  public java.lang.String getFirstSearch();
+  public String getFirstSearch();
 
-  public java.lang.String getLastSearch();
+  public String getLastSearch();
 
-  public java.lang.String getMatchingSearch(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingSearch(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingSearch(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingSearch(Predicate<String> predicate);
 
-  public A withSearches(java.util.List<java.lang.String> searches);
+  public A withSearches(List<String> searches);
 
   public A withSearches(java.lang.String... searches);
 
-  public java.lang.Boolean hasSearches();
+  public Boolean hasSearches();
 
   public interface OptionsNested<N>
       extends Nested<N>, V1PodDNSConfigOptionFluent<V1PodDNSConfigFluent.OptionsNested<N>> {

@@ -21,8 +21,7 @@ public class V1AzureFilePersistentVolumeSourceFluentImpl<
     extends BaseFluent<A> implements V1AzureFilePersistentVolumeSourceFluent<A> {
   public V1AzureFilePersistentVolumeSourceFluentImpl() {}
 
-  public V1AzureFilePersistentVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource instance) {
+  public V1AzureFilePersistentVolumeSourceFluentImpl(V1AzureFilePersistentVolumeSource instance) {
     this.withReadOnly(instance.getReadOnly());
 
     this.withSecretName(instance.getSecretName());
@@ -34,58 +33,58 @@ public class V1AzureFilePersistentVolumeSourceFluentImpl<
 
   private Boolean readOnly;
   private String secretName;
-  private java.lang.String secretNamespace;
-  private java.lang.String shareName;
+  private String secretNamespace;
+  private String shareName;
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
-  public java.lang.String getSecretName() {
+  public String getSecretName() {
     return this.secretName;
   }
 
-  public A withSecretName(java.lang.String secretName) {
+  public A withSecretName(String secretName) {
     this.secretName = secretName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecretName() {
+  public Boolean hasSecretName() {
     return this.secretName != null;
   }
 
-  public java.lang.String getSecretNamespace() {
+  public String getSecretNamespace() {
     return this.secretNamespace;
   }
 
-  public A withSecretNamespace(java.lang.String secretNamespace) {
+  public A withSecretNamespace(String secretNamespace) {
     this.secretNamespace = secretNamespace;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecretNamespace() {
+  public Boolean hasSecretNamespace() {
     return this.secretNamespace != null;
   }
 
-  public java.lang.String getShareName() {
+  public String getShareName() {
     return this.shareName;
   }
 
-  public A withShareName(java.lang.String shareName) {
+  public A withShareName(String shareName) {
     this.shareName = shareName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasShareName() {
+  public Boolean hasShareName() {
     return this.shareName != null;
   }
 
@@ -110,7 +109,7 @@ public class V1AzureFilePersistentVolumeSourceFluentImpl<
         readOnly, secretName, secretNamespace, shareName, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (readOnly != null) {

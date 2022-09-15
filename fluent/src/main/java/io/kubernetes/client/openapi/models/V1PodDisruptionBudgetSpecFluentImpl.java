@@ -22,8 +22,7 @@ public class V1PodDisruptionBudgetSpecFluentImpl<A extends V1PodDisruptionBudget
     extends BaseFluent<A> implements V1PodDisruptionBudgetSpecFluent<A> {
   public V1PodDisruptionBudgetSpecFluentImpl() {}
 
-  public V1PodDisruptionBudgetSpecFluentImpl(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec instance) {
+  public V1PodDisruptionBudgetSpecFluentImpl(V1PodDisruptionBudgetSpec instance) {
     this.withMaxUnavailable(instance.getMaxUnavailable());
 
     this.withMinAvailable(instance.getMinAvailable());
@@ -32,14 +31,14 @@ public class V1PodDisruptionBudgetSpecFluentImpl<A extends V1PodDisruptionBudget
   }
 
   private IntOrString maxUnavailable;
-  private io.kubernetes.client.custom.IntOrString minAvailable;
+  private IntOrString minAvailable;
   private V1LabelSelectorBuilder selector;
 
-  public io.kubernetes.client.custom.IntOrString getMaxUnavailable() {
+  public IntOrString getMaxUnavailable() {
     return this.maxUnavailable;
   }
 
-  public A withMaxUnavailable(io.kubernetes.client.custom.IntOrString maxUnavailable) {
+  public A withMaxUnavailable(IntOrString maxUnavailable) {
     this.maxUnavailable = maxUnavailable;
     return (A) this;
   }
@@ -56,16 +55,16 @@ public class V1PodDisruptionBudgetSpecFluentImpl<A extends V1PodDisruptionBudget
     return (A) withMaxUnavailable(new IntOrString(value));
   }
 
-  public io.kubernetes.client.custom.IntOrString getMinAvailable() {
+  public IntOrString getMinAvailable() {
     return this.minAvailable;
   }
 
-  public A withMinAvailable(io.kubernetes.client.custom.IntOrString minAvailable) {
+  public A withMinAvailable(IntOrString minAvailable) {
     this.minAvailable = minAvailable;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMinAvailable() {
+  public Boolean hasMinAvailable() {
     return this.minAvailable != null;
   }
 
@@ -73,7 +72,7 @@ public class V1PodDisruptionBudgetSpecFluentImpl<A extends V1PodDisruptionBudget
     return (A) withMinAvailable(new IntOrString(value));
   }
 
-  public A withNewMinAvailable(java.lang.String value) {
+  public A withNewMinAvailable(String value) {
     return (A) withMinAvailable(new IntOrString(value));
   }
 
@@ -83,24 +82,27 @@ public class V1PodDisruptionBudgetSpecFluentImpl<A extends V1PodDisruptionBudget
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
+  public V1LabelSelector getSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector() {
+  public V1LabelSelector buildSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
 
-  public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
+  public A withSelector(V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
     if (selector != null) {
       this.selector = new V1LabelSelectorBuilder(selector);
       _visitables.get("selector").add(this.selector);
+    } else {
+      this.selector = null;
+      _visitables.get("selector").remove(this.selector);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSelector() {
+  public Boolean hasSelector() {
     return this.selector != null;
   }
 
@@ -108,26 +110,22 @@ public class V1PodDisruptionBudgetSpecFluentImpl<A extends V1PodDisruptionBudget
     return new V1PodDisruptionBudgetSpecFluentImpl.SelectorNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent.SelectorNested<A>
-      withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
+  public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> withNewSelectorLike(
+      V1LabelSelector item) {
     return new V1PodDisruptionBudgetSpecFluentImpl.SelectorNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent.SelectorNested<A>
-      editSelector() {
+  public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> editSelector() {
     return withNewSelectorLike(getSelector());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent.SelectorNested<A>
-      editOrNewSelector() {
+  public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> editOrNewSelector() {
     return withNewSelectorLike(
-        getSelector() != null
-            ? getSelector()
-            : new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder().build());
+        getSelector() != null ? getSelector() : new V1LabelSelectorBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent.SelectorNested<A>
-      editOrNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
+  public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> editOrNewSelectorLike(
+      V1LabelSelector item) {
     return withNewSelectorLike(getSelector() != null ? getSelector() : item);
   }
 
@@ -148,7 +146,7 @@ public class V1PodDisruptionBudgetSpecFluentImpl<A extends V1PodDisruptionBudget
     return java.util.Objects.hash(maxUnavailable, minAvailable, selector, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (maxUnavailable != null) {
@@ -169,18 +167,16 @@ public class V1PodDisruptionBudgetSpecFluentImpl<A extends V1PodDisruptionBudget
 
   class SelectorNestedImpl<N>
       extends V1LabelSelectorFluentImpl<V1PodDisruptionBudgetSpecFluent.SelectorNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent.SelectorNested<
-              N>,
-          Nested<N> {
+      implements V1PodDisruptionBudgetSpecFluent.SelectorNested<N>, Nested<N> {
     SelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     SelectorNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this);
+      this.builder = new V1LabelSelectorBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LabelSelectorBuilder builder;
+    V1LabelSelectorBuilder builder;
 
     public N and() {
       return (N) V1PodDisruptionBudgetSpecFluentImpl.this.withSelector(builder.build());

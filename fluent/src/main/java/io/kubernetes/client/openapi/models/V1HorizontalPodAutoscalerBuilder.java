@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1HorizontalPodAutoscalerBuilder
     extends V1HorizontalPodAutoscalerFluentImpl<V1HorizontalPodAutoscalerBuilder>
-    implements VisitableBuilder<
-        V1HorizontalPodAutoscaler,
-        io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerBuilder> {
+    implements VisitableBuilder<V1HorizontalPodAutoscaler, V1HorizontalPodAutoscalerBuilder> {
   public V1HorizontalPodAutoscalerBuilder() {
     this(false);
   }
@@ -27,27 +25,24 @@ public class V1HorizontalPodAutoscalerBuilder
     this(new V1HorizontalPodAutoscaler(), validationEnabled);
   }
 
-  public V1HorizontalPodAutoscalerBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent<?> fluent) {
+  public V1HorizontalPodAutoscalerBuilder(V1HorizontalPodAutoscalerFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1HorizontalPodAutoscalerBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1HorizontalPodAutoscalerFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1HorizontalPodAutoscaler(), validationEnabled);
   }
 
   public V1HorizontalPodAutoscalerBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscaler instance) {
+      V1HorizontalPodAutoscalerFluent<?> fluent, V1HorizontalPodAutoscaler instance) {
     this(fluent, instance, false);
   }
 
   public V1HorizontalPodAutoscalerBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscaler instance,
-      java.lang.Boolean validationEnabled) {
+      V1HorizontalPodAutoscalerFluent<?> fluent,
+      V1HorizontalPodAutoscaler instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -62,14 +57,12 @@ public class V1HorizontalPodAutoscalerBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1HorizontalPodAutoscalerBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscaler instance) {
+  public V1HorizontalPodAutoscalerBuilder(V1HorizontalPodAutoscaler instance) {
     this(instance, false);
   }
 
   public V1HorizontalPodAutoscalerBuilder(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscaler instance,
-      java.lang.Boolean validationEnabled) {
+      V1HorizontalPodAutoscaler instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -84,10 +77,10 @@ public class V1HorizontalPodAutoscalerBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1HorizontalPodAutoscalerFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscaler build() {
+  public V1HorizontalPodAutoscaler build() {
     V1HorizontalPodAutoscaler buildable = new V1HorizontalPodAutoscaler();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

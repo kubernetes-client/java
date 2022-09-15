@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V2HorizontalPodAutoscalerConditionBuilder
     extends V2HorizontalPodAutoscalerConditionFluentImpl<V2HorizontalPodAutoscalerConditionBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition,
-        V2HorizontalPodAutoscalerConditionBuilder> {
+        V2HorizontalPodAutoscalerCondition, V2HorizontalPodAutoscalerConditionBuilder> {
   public V2HorizontalPodAutoscalerConditionBuilder() {
     this(false);
   }
@@ -28,26 +27,25 @@ public class V2HorizontalPodAutoscalerConditionBuilder
   }
 
   public V2HorizontalPodAutoscalerConditionBuilder(
-      io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerConditionFluent<?> fluent) {
+      V2HorizontalPodAutoscalerConditionFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V2HorizontalPodAutoscalerConditionBuilder(
-      io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2HorizontalPodAutoscalerConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2HorizontalPodAutoscalerCondition(), validationEnabled);
   }
 
   public V2HorizontalPodAutoscalerConditionBuilder(
-      io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition instance) {
+      V2HorizontalPodAutoscalerConditionFluent<?> fluent,
+      V2HorizontalPodAutoscalerCondition instance) {
     this(fluent, instance, false);
   }
 
   public V2HorizontalPodAutoscalerConditionBuilder(
-      io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V2HorizontalPodAutoscalerConditionFluent<?> fluent,
+      V2HorizontalPodAutoscalerCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -62,14 +60,12 @@ public class V2HorizontalPodAutoscalerConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2HorizontalPodAutoscalerConditionBuilder(
-      io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition instance) {
+  public V2HorizontalPodAutoscalerConditionBuilder(V2HorizontalPodAutoscalerCondition instance) {
     this(instance, false);
   }
 
   public V2HorizontalPodAutoscalerConditionBuilder(
-      io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V2HorizontalPodAutoscalerCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -84,10 +80,10 @@ public class V2HorizontalPodAutoscalerConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2HorizontalPodAutoscalerConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition build() {
+  public V2HorizontalPodAutoscalerCondition build() {
     V2HorizontalPodAutoscalerCondition buildable = new V2HorizontalPodAutoscalerCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setMessage(fluent.getMessage());

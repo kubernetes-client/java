@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1IngressRuleBuilder extends V1IngressRuleFluentImpl<V1IngressRuleBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1IngressRule,
-        io.kubernetes.client.openapi.models.V1IngressRuleBuilder> {
+    implements VisitableBuilder<V1IngressRule, V1IngressRuleBuilder> {
   public V1IngressRuleBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1IngressRuleBuilder extends V1IngressRuleFluentImpl<V1IngressRuleB
     this(fluent, false);
   }
 
-  public V1IngressRuleBuilder(
-      io.kubernetes.client.openapi.models.V1IngressRuleFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1IngressRuleBuilder(V1IngressRuleFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1IngressRule(), validationEnabled);
   }
 
-  public V1IngressRuleBuilder(
-      io.kubernetes.client.openapi.models.V1IngressRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1IngressRule instance) {
+  public V1IngressRuleBuilder(V1IngressRuleFluent<?> fluent, V1IngressRule instance) {
     this(fluent, instance, false);
   }
 
   public V1IngressRuleBuilder(
-      io.kubernetes.client.openapi.models.V1IngressRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1IngressRule instance,
-      java.lang.Boolean validationEnabled) {
+      V1IngressRuleFluent<?> fluent, V1IngressRule instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withHost(instance.getHost());
 
@@ -54,13 +46,11 @@ public class V1IngressRuleBuilder extends V1IngressRuleFluentImpl<V1IngressRuleB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1IngressRuleBuilder(io.kubernetes.client.openapi.models.V1IngressRule instance) {
+  public V1IngressRuleBuilder(V1IngressRule instance) {
     this(instance, false);
   }
 
-  public V1IngressRuleBuilder(
-      io.kubernetes.client.openapi.models.V1IngressRule instance,
-      java.lang.Boolean validationEnabled) {
+  public V1IngressRuleBuilder(V1IngressRule instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withHost(instance.getHost());
 
@@ -69,10 +59,10 @@ public class V1IngressRuleBuilder extends V1IngressRuleFluentImpl<V1IngressRuleB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1IngressRuleFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1IngressRuleFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1IngressRule build() {
+  public V1IngressRule build() {
     V1IngressRule buildable = new V1IngressRule();
     buildable.setHost(fluent.getHost());
     buildable.setHttp(fluent.getHttp());

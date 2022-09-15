@@ -27,39 +27,29 @@ public interface V1StatefulSetUpdateStrategyFluent<A extends V1StatefulSetUpdate
   @Deprecated
   public V1RollingUpdateStatefulSetStrategy getRollingUpdate();
 
-  public io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy
-      buildRollingUpdate();
+  public V1RollingUpdateStatefulSetStrategy buildRollingUpdate();
 
-  public A withRollingUpdate(
-      io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy rollingUpdate);
+  public A withRollingUpdate(V1RollingUpdateStatefulSetStrategy rollingUpdate);
 
   public Boolean hasRollingUpdate();
 
   public V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<A> withNewRollingUpdate();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<
-          A>
-      withNewRollingUpdateLike(
-          io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy item);
+  public V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<A> withNewRollingUpdateLike(
+      V1RollingUpdateStatefulSetStrategy item);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<
-          A>
-      editRollingUpdate();
+  public V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<A> editRollingUpdate();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<
-          A>
-      editOrNewRollingUpdate();
+  public V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdate();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<
-          A>
-      editOrNewRollingUpdateLike(
-          io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy item);
+  public V1StatefulSetUpdateStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdateLike(
+      V1RollingUpdateStatefulSetStrategy item);
 
   public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 
   public interface RollingUpdateNested<N>
       extends Nested<N>,

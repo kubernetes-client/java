@@ -20,7 +20,7 @@ public class V1ScaleStatusFluentImpl<A extends V1ScaleStatusFluent<A>> extends B
     implements V1ScaleStatusFluent<A> {
   public V1ScaleStatusFluentImpl() {}
 
-  public V1ScaleStatusFluentImpl(io.kubernetes.client.openapi.models.V1ScaleStatus instance) {
+  public V1ScaleStatusFluentImpl(V1ScaleStatus instance) {
     this.withReplicas(instance.getReplicas());
 
     this.withSelector(instance.getSelector());
@@ -29,11 +29,11 @@ public class V1ScaleStatusFluentImpl<A extends V1ScaleStatusFluent<A>> extends B
   private Integer replicas;
   private String selector;
 
-  public java.lang.Integer getReplicas() {
+  public Integer getReplicas() {
     return this.replicas;
   }
 
-  public A withReplicas(java.lang.Integer replicas) {
+  public A withReplicas(Integer replicas) {
     this.replicas = replicas;
     return (A) this;
   }
@@ -42,16 +42,16 @@ public class V1ScaleStatusFluentImpl<A extends V1ScaleStatusFluent<A>> extends B
     return this.replicas != null;
   }
 
-  public java.lang.String getSelector() {
+  public String getSelector() {
     return this.selector;
   }
 
-  public A withSelector(java.lang.String selector) {
+  public A withSelector(String selector) {
     this.selector = selector;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSelector() {
+  public Boolean hasSelector() {
     return this.selector != null;
   }
 
@@ -68,7 +68,7 @@ public class V1ScaleStatusFluentImpl<A extends V1ScaleStatusFluent<A>> extends B
     return java.util.Objects.hash(replicas, selector, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (replicas != null) {

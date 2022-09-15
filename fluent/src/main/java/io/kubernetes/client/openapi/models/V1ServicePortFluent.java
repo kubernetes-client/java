@@ -19,41 +19,41 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1ServicePortFluent<A extends V1ServicePortFluent<A>> extends Fluent<A> {
   public String getAppProtocol();
 
-  public A withAppProtocol(java.lang.String appProtocol);
+  public A withAppProtocol(String appProtocol);
 
   public Boolean hasAppProtocol();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
   public Integer getNodePort();
 
-  public A withNodePort(java.lang.Integer nodePort);
+  public A withNodePort(Integer nodePort);
 
-  public java.lang.Boolean hasNodePort();
+  public Boolean hasNodePort();
 
-  public java.lang.Integer getPort();
+  public Integer getPort();
 
-  public A withPort(java.lang.Integer port);
+  public A withPort(Integer port);
 
-  public java.lang.Boolean hasPort();
+  public Boolean hasPort();
 
-  public java.lang.String getProtocol();
+  public String getProtocol();
 
-  public A withProtocol(java.lang.String protocol);
+  public A withProtocol(String protocol);
 
-  public java.lang.Boolean hasProtocol();
+  public Boolean hasProtocol();
 
   public IntOrString getTargetPort();
 
-  public A withTargetPort(io.kubernetes.client.custom.IntOrString targetPort);
+  public A withTargetPort(IntOrString targetPort);
 
-  public java.lang.Boolean hasTargetPort();
+  public Boolean hasTargetPort();
 
   public A withNewTargetPort(int value);
 
-  public A withNewTargetPort(java.lang.String value);
+  public A withNewTargetPort(String value);
 }

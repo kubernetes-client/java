@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1VolumeNodeResourcesBuilder
     extends V1VolumeNodeResourcesFluentImpl<V1VolumeNodeResourcesBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1VolumeNodeResources,
-        io.kubernetes.client.openapi.models.V1VolumeNodeResourcesBuilder> {
+    implements VisitableBuilder<V1VolumeNodeResources, V1VolumeNodeResourcesBuilder> {
   public V1VolumeNodeResourcesBuilder() {
     this(false);
   }
@@ -32,45 +30,40 @@ public class V1VolumeNodeResourcesBuilder
   }
 
   public V1VolumeNodeResourcesBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeNodeResourcesFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeNodeResourcesFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1VolumeNodeResources(), validationEnabled);
   }
 
   public V1VolumeNodeResourcesBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeNodeResourcesFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeNodeResources instance) {
+      V1VolumeNodeResourcesFluent<?> fluent, V1VolumeNodeResources instance) {
     this(fluent, instance, false);
   }
 
   public V1VolumeNodeResourcesBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeNodeResourcesFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeNodeResources instance,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeNodeResourcesFluent<?> fluent,
+      V1VolumeNodeResources instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCount(instance.getCount());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1VolumeNodeResourcesBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeNodeResources instance) {
+  public V1VolumeNodeResourcesBuilder(V1VolumeNodeResources instance) {
     this(instance, false);
   }
 
-  public V1VolumeNodeResourcesBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeNodeResources instance,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeNodeResourcesBuilder(V1VolumeNodeResources instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCount(instance.getCount());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1VolumeNodeResourcesFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1VolumeNodeResourcesFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1VolumeNodeResources build() {
+  public V1VolumeNodeResources build() {
     V1VolumeNodeResources buildable = new V1VolumeNodeResources();
     buildable.setCount(fluent.getCount());
     return buildable;

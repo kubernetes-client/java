@@ -18,7 +18,7 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1PodReadinessGateFluent<A extends V1PodReadinessGateFluent<A>> extends Fluent<A> {
   public String getConditionType();
 
-  public A withConditionType(java.lang.String conditionType);
+  public A withConditionType(String conditionType);
 
   public Boolean hasConditionType();
 }

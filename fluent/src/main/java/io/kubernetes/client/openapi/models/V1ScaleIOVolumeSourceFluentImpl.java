@@ -21,8 +21,7 @@ public class V1ScaleIOVolumeSourceFluentImpl<A extends V1ScaleIOVolumeSourceFlue
     extends BaseFluent<A> implements V1ScaleIOVolumeSourceFluent<A> {
   public V1ScaleIOVolumeSourceFluentImpl() {}
 
-  public V1ScaleIOVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1ScaleIOVolumeSource instance) {
+  public V1ScaleIOVolumeSourceFluentImpl(V1ScaleIOVolumeSource instance) {
     this.withFsType(instance.getFsType());
 
     this.withGateway(instance.getGateway());
@@ -45,65 +44,65 @@ public class V1ScaleIOVolumeSourceFluentImpl<A extends V1ScaleIOVolumeSourceFlue
   }
 
   private String fsType;
-  private java.lang.String gateway;
-  private java.lang.String protectionDomain;
+  private String gateway;
+  private String protectionDomain;
   private Boolean readOnly;
   private V1LocalObjectReferenceBuilder secretRef;
-  private java.lang.Boolean sslEnabled;
-  private java.lang.String storageMode;
-  private java.lang.String storagePool;
-  private java.lang.String system;
-  private java.lang.String volumeName;
+  private Boolean sslEnabled;
+  private String storageMode;
+  private String storagePool;
+  private String system;
+  private String volumeName;
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsType() {
+  public Boolean hasFsType() {
     return this.fsType != null;
   }
 
-  public java.lang.String getGateway() {
+  public String getGateway() {
     return this.gateway;
   }
 
-  public A withGateway(java.lang.String gateway) {
+  public A withGateway(String gateway) {
     this.gateway = gateway;
     return (A) this;
   }
 
-  public java.lang.Boolean hasGateway() {
+  public Boolean hasGateway() {
     return this.gateway != null;
   }
 
-  public java.lang.String getProtectionDomain() {
+  public String getProtectionDomain() {
     return this.protectionDomain;
   }
 
-  public A withProtectionDomain(java.lang.String protectionDomain) {
+  public A withProtectionDomain(String protectionDomain) {
     this.protectionDomain = protectionDomain;
     return (A) this;
   }
 
-  public java.lang.Boolean hasProtectionDomain() {
+  public Boolean hasProtectionDomain() {
     return this.protectionDomain != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
@@ -117,21 +116,23 @@ public class V1ScaleIOVolumeSourceFluentImpl<A extends V1ScaleIOVolumeSourceFlue
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef() {
+  public V1LocalObjectReference buildSecretRef() {
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
+  public A withSecretRef(V1LocalObjectReference secretRef) {
     _visitables.get("secretRef").remove(this.secretRef);
     if (secretRef != null) {
-      this.secretRef =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(secretRef);
+      this.secretRef = new V1LocalObjectReferenceBuilder(secretRef);
       _visitables.get("secretRef").add(this.secretRef);
+    } else {
+      this.secretRef = null;
+      _visitables.get("secretRef").remove(this.secretRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecretRef() {
+  public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
 
@@ -139,91 +140,87 @@ public class V1ScaleIOVolumeSourceFluentImpl<A extends V1ScaleIOVolumeSourceFlue
     return new V1ScaleIOVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ScaleIOVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+  public V1ScaleIOVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1LocalObjectReference item) {
     return new V1ScaleIOVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ScaleIOVolumeSourceFluent.SecretRefNested<A>
-      editSecretRef() {
+  public V1ScaleIOVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1ScaleIOVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef() {
+  public V1ScaleIOVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(
-        getSecretRef() != null
-            ? getSecretRef()
-            : new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder().build());
+        getSecretRef() != null ? getSecretRef() : new V1LocalObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1ScaleIOVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+  public V1ScaleIOVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1LocalObjectReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef() : item);
   }
 
-  public java.lang.Boolean getSslEnabled() {
+  public Boolean getSslEnabled() {
     return this.sslEnabled;
   }
 
-  public A withSslEnabled(java.lang.Boolean sslEnabled) {
+  public A withSslEnabled(Boolean sslEnabled) {
     this.sslEnabled = sslEnabled;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSslEnabled() {
+  public Boolean hasSslEnabled() {
     return this.sslEnabled != null;
   }
 
-  public java.lang.String getStorageMode() {
+  public String getStorageMode() {
     return this.storageMode;
   }
 
-  public A withStorageMode(java.lang.String storageMode) {
+  public A withStorageMode(String storageMode) {
     this.storageMode = storageMode;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStorageMode() {
+  public Boolean hasStorageMode() {
     return this.storageMode != null;
   }
 
-  public java.lang.String getStoragePool() {
+  public String getStoragePool() {
     return this.storagePool;
   }
 
-  public A withStoragePool(java.lang.String storagePool) {
+  public A withStoragePool(String storagePool) {
     this.storagePool = storagePool;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStoragePool() {
+  public Boolean hasStoragePool() {
     return this.storagePool != null;
   }
 
-  public java.lang.String getSystem() {
+  public String getSystem() {
     return this.system;
   }
 
-  public A withSystem(java.lang.String system) {
+  public A withSystem(String system) {
     this.system = system;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSystem() {
+  public Boolean hasSystem() {
     return this.system != null;
   }
 
-  public java.lang.String getVolumeName() {
+  public String getVolumeName() {
     return this.volumeName;
   }
 
-  public A withVolumeName(java.lang.String volumeName) {
+  public A withVolumeName(String volumeName) {
     this.volumeName = volumeName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVolumeName() {
+  public Boolean hasVolumeName() {
     return this.volumeName != null;
   }
 
@@ -266,7 +263,7 @@ public class V1ScaleIOVolumeSourceFluentImpl<A extends V1ScaleIOVolumeSourceFlue
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fsType != null) {
@@ -323,17 +320,16 @@ public class V1ScaleIOVolumeSourceFluentImpl<A extends V1ScaleIOVolumeSourceFlue
 
   class SecretRefNestedImpl<N>
       extends V1LocalObjectReferenceFluentImpl<V1ScaleIOVolumeSourceFluent.SecretRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ScaleIOVolumeSourceFluent.SecretRefNested<N>,
-          Nested<N> {
+      implements V1ScaleIOVolumeSourceFluent.SecretRefNested<N>, Nested<N> {
     SecretRefNestedImpl(V1LocalObjectReference item) {
       this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }
 
     SecretRefNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(this);
+      this.builder = new V1LocalObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder;
+    V1LocalObjectReferenceBuilder builder;
 
     public N and() {
       return (N) V1ScaleIOVolumeSourceFluentImpl.this.withSecretRef(builder.build());

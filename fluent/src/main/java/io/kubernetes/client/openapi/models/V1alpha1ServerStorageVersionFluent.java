@@ -22,44 +22,43 @@ public interface V1alpha1ServerStorageVersionFluent<A extends V1alpha1ServerStor
     extends Fluent<A> {
   public String getApiServerID();
 
-  public A withApiServerID(java.lang.String apiServerID);
+  public A withApiServerID(String apiServerID);
 
   public Boolean hasApiServerID();
 
-  public A addToDecodableVersions(Integer index, java.lang.String item);
+  public A addToDecodableVersions(Integer index, String item);
 
-  public A setToDecodableVersions(java.lang.Integer index, java.lang.String item);
+  public A setToDecodableVersions(Integer index, String item);
 
   public A addToDecodableVersions(java.lang.String... items);
 
-  public A addAllToDecodableVersions(Collection<java.lang.String> items);
+  public A addAllToDecodableVersions(Collection<String> items);
 
   public A removeFromDecodableVersions(java.lang.String... items);
 
-  public A removeAllFromDecodableVersions(java.util.Collection<java.lang.String> items);
+  public A removeAllFromDecodableVersions(Collection<String> items);
 
-  public List<java.lang.String> getDecodableVersions();
+  public List<String> getDecodableVersions();
 
-  public java.lang.String getDecodableVersion(java.lang.Integer index);
+  public String getDecodableVersion(Integer index);
 
-  public java.lang.String getFirstDecodableVersion();
+  public String getFirstDecodableVersion();
 
-  public java.lang.String getLastDecodableVersion();
+  public String getLastDecodableVersion();
 
-  public java.lang.String getMatchingDecodableVersion(Predicate<java.lang.String> predicate);
+  public String getMatchingDecodableVersion(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingDecodableVersion(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingDecodableVersion(Predicate<String> predicate);
 
-  public A withDecodableVersions(java.util.List<java.lang.String> decodableVersions);
+  public A withDecodableVersions(List<String> decodableVersions);
 
   public A withDecodableVersions(java.lang.String... decodableVersions);
 
-  public java.lang.Boolean hasDecodableVersions();
+  public Boolean hasDecodableVersions();
 
-  public java.lang.String getEncodingVersion();
+  public String getEncodingVersion();
 
-  public A withEncodingVersion(java.lang.String encodingVersion);
+  public A withEncodingVersion(String encodingVersion);
 
-  public java.lang.Boolean hasEncodingVersion();
+  public Boolean hasEncodingVersion();
 }

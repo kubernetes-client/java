@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SecretProjectionBuilder
     extends V1SecretProjectionFluentImpl<V1SecretProjectionBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1SecretProjection, V1SecretProjectionBuilder> {
+    implements VisitableBuilder<V1SecretProjection, V1SecretProjectionBuilder> {
   public V1SecretProjectionBuilder() {
     this(false);
   }
@@ -26,27 +25,21 @@ public class V1SecretProjectionBuilder
     this(new V1SecretProjection(), validationEnabled);
   }
 
-  public V1SecretProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1SecretProjectionFluent<?> fluent) {
+  public V1SecretProjectionBuilder(V1SecretProjectionFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1SecretProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1SecretProjectionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1SecretProjectionBuilder(V1SecretProjectionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1SecretProjection(), validationEnabled);
   }
 
   public V1SecretProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1SecretProjectionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SecretProjection instance) {
+      V1SecretProjectionFluent<?> fluent, V1SecretProjection instance) {
     this(fluent, instance, false);
   }
 
   public V1SecretProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1SecretProjectionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SecretProjection instance,
-      java.lang.Boolean validationEnabled) {
+      V1SecretProjectionFluent<?> fluent, V1SecretProjection instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withItems(instance.getItems());
 
@@ -57,14 +50,11 @@ public class V1SecretProjectionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SecretProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1SecretProjection instance) {
+  public V1SecretProjectionBuilder(V1SecretProjection instance) {
     this(instance, false);
   }
 
-  public V1SecretProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1SecretProjection instance,
-      java.lang.Boolean validationEnabled) {
+  public V1SecretProjectionBuilder(V1SecretProjection instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withItems(instance.getItems());
 
@@ -75,10 +65,10 @@ public class V1SecretProjectionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SecretProjectionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SecretProjectionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1SecretProjection build() {
+  public V1SecretProjection build() {
     V1SecretProjection buildable = new V1SecretProjection();
     buildable.setItems(fluent.getItems());
     buildable.setName(fluent.getName());

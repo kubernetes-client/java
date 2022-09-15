@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1HostAliasBuilder extends V1HostAliasFluentImpl<V1HostAliasBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1HostAlias,
-        io.kubernetes.client.openapi.models.V1HostAliasBuilder> {
+    implements VisitableBuilder<V1HostAlias, V1HostAliasBuilder> {
   public V1HostAliasBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1HostAliasBuilder extends V1HostAliasFluentImpl<V1HostAliasBuilder
     this(fluent, false);
   }
 
-  public V1HostAliasBuilder(
-      io.kubernetes.client.openapi.models.V1HostAliasFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1HostAliasBuilder(V1HostAliasFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1HostAlias(), validationEnabled);
   }
 
-  public V1HostAliasBuilder(
-      io.kubernetes.client.openapi.models.V1HostAliasFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1HostAlias instance) {
+  public V1HostAliasBuilder(V1HostAliasFluent<?> fluent, V1HostAlias instance) {
     this(fluent, instance, false);
   }
 
   public V1HostAliasBuilder(
-      io.kubernetes.client.openapi.models.V1HostAliasFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1HostAlias instance,
-      java.lang.Boolean validationEnabled) {
+      V1HostAliasFluent<?> fluent, V1HostAlias instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withHostnames(instance.getHostnames());
 
@@ -54,13 +46,11 @@ public class V1HostAliasBuilder extends V1HostAliasFluentImpl<V1HostAliasBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1HostAliasBuilder(io.kubernetes.client.openapi.models.V1HostAlias instance) {
+  public V1HostAliasBuilder(V1HostAlias instance) {
     this(instance, false);
   }
 
-  public V1HostAliasBuilder(
-      io.kubernetes.client.openapi.models.V1HostAlias instance,
-      java.lang.Boolean validationEnabled) {
+  public V1HostAliasBuilder(V1HostAlias instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withHostnames(instance.getHostnames());
 
@@ -69,10 +59,10 @@ public class V1HostAliasBuilder extends V1HostAliasFluentImpl<V1HostAliasBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1HostAliasFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1HostAliasFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1HostAlias build() {
+  public V1HostAlias build() {
     V1HostAlias buildable = new V1HostAlias();
     buildable.setHostnames(fluent.getHostnames());
     buildable.setIp(fluent.getIp());

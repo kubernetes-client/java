@@ -19,13 +19,13 @@ public interface StorageV1TokenRequestFluent<A extends StorageV1TokenRequestFlue
     extends Fluent<A> {
   public String getAudience();
 
-  public A withAudience(java.lang.String audience);
+  public A withAudience(String audience);
 
   public Boolean hasAudience();
 
   public Long getExpirationSeconds();
 
-  public A withExpirationSeconds(java.lang.Long expirationSeconds);
+  public A withExpirationSeconds(Long expirationSeconds);
 
-  public java.lang.Boolean hasExpirationSeconds();
+  public Boolean hasExpirationSeconds();
 }

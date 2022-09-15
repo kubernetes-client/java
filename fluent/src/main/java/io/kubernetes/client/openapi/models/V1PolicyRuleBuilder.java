@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PolicyRuleBuilder extends V1PolicyRuleFluentImpl<V1PolicyRuleBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PolicyRule, V1PolicyRuleBuilder> {
+    implements VisitableBuilder<V1PolicyRule, V1PolicyRuleBuilder> {
   public V1PolicyRuleBuilder() {
     this(false);
   }
@@ -25,26 +24,20 @@ public class V1PolicyRuleBuilder extends V1PolicyRuleFluentImpl<V1PolicyRuleBuil
     this(new V1PolicyRule(), validationEnabled);
   }
 
-  public V1PolicyRuleBuilder(io.kubernetes.client.openapi.models.V1PolicyRuleFluent<?> fluent) {
+  public V1PolicyRuleBuilder(V1PolicyRuleFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1PolicyRuleBuilder(
-      io.kubernetes.client.openapi.models.V1PolicyRuleFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1PolicyRuleBuilder(V1PolicyRuleFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PolicyRule(), validationEnabled);
   }
 
-  public V1PolicyRuleBuilder(
-      io.kubernetes.client.openapi.models.V1PolicyRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PolicyRule instance) {
+  public V1PolicyRuleBuilder(V1PolicyRuleFluent<?> fluent, V1PolicyRule instance) {
     this(fluent, instance, false);
   }
 
   public V1PolicyRuleBuilder(
-      io.kubernetes.client.openapi.models.V1PolicyRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PolicyRule instance,
-      java.lang.Boolean validationEnabled) {
+      V1PolicyRuleFluent<?> fluent, V1PolicyRule instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiGroups(instance.getApiGroups());
 
@@ -59,13 +52,11 @@ public class V1PolicyRuleBuilder extends V1PolicyRuleFluentImpl<V1PolicyRuleBuil
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PolicyRuleBuilder(io.kubernetes.client.openapi.models.V1PolicyRule instance) {
+  public V1PolicyRuleBuilder(V1PolicyRule instance) {
     this(instance, false);
   }
 
-  public V1PolicyRuleBuilder(
-      io.kubernetes.client.openapi.models.V1PolicyRule instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PolicyRuleBuilder(V1PolicyRule instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiGroups(instance.getApiGroups());
 
@@ -80,10 +71,10 @@ public class V1PolicyRuleBuilder extends V1PolicyRuleFluentImpl<V1PolicyRuleBuil
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PolicyRuleFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PolicyRuleFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PolicyRule build() {
+  public V1PolicyRule build() {
     V1PolicyRule buildable = new V1PolicyRule();
     buildable.setApiGroups(fluent.getApiGroups());
     buildable.setNonResourceURLs(fluent.getNonResourceURLs());

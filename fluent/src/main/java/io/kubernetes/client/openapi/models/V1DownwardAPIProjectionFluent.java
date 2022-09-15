@@ -23,18 +23,15 @@ public interface V1DownwardAPIProjectionFluent<A extends V1DownwardAPIProjection
     extends Fluent<A> {
   public A addToItems(Integer index, V1DownwardAPIVolumeFile item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile item);
+  public A setToItems(Integer index, V1DownwardAPIVolumeFile item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile... items);
 
-  public A addAllToItems(
-      Collection<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile> items);
+  public A addAllToItems(Collection<V1DownwardAPIVolumeFile> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile> items);
+  public A removeAllFromItems(Collection<V1DownwardAPIVolumeFile> items);
 
   public A removeMatchingFromItems(Predicate<V1DownwardAPIVolumeFileBuilder> predicate);
 
@@ -44,58 +41,42 @@ public interface V1DownwardAPIProjectionFluent<A extends V1DownwardAPIProjection
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile> getItems();
+  public List<V1DownwardAPIVolumeFile> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile> buildItems();
+  public List<V1DownwardAPIVolumeFile> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile buildItem(
-      java.lang.Integer index);
+  public V1DownwardAPIVolumeFile buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile buildFirstItem();
+  public V1DownwardAPIVolumeFile buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile buildLastItem();
+  public V1DownwardAPIVolumeFile buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile buildMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder>
-          predicate);
+  public V1DownwardAPIVolumeFile buildMatchingItem(
+      Predicate<V1DownwardAPIVolumeFileBuilder> predicate);
 
-  public Boolean hasMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1DownwardAPIVolumeFileBuilder> predicate);
 
-  public A withItems(
-      java.util.List<io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile> items);
+  public A withItems(List<V1DownwardAPIVolumeFile> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1DownwardAPIProjectionFluent.ItemsNested<A> addNewItem();
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIProjectionFluent.ItemsNested<A>
-      addNewItemLike(io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile item);
+  public V1DownwardAPIProjectionFluent.ItemsNested<A> addNewItemLike(V1DownwardAPIVolumeFile item);
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIProjectionFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile item);
+  public V1DownwardAPIProjectionFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1DownwardAPIVolumeFile item);
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIProjectionFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1DownwardAPIProjectionFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIProjectionFluent.ItemsNested<A>
-      editFirstItem();
+  public V1DownwardAPIProjectionFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIProjectionFluent.ItemsNested<A>
-      editLastItem();
+  public V1DownwardAPIProjectionFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIProjectionFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFileBuilder>
-              predicate);
+  public V1DownwardAPIProjectionFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1DownwardAPIVolumeFileBuilder> predicate);
 
   public interface ItemsNested<N>
       extends Nested<N>,

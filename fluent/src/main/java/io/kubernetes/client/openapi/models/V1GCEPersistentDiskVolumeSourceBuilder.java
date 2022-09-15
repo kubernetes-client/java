@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1GCEPersistentDiskVolumeSourceBuilder
     extends V1GCEPersistentDiskVolumeSourceFluentImpl<V1GCEPersistentDiskVolumeSourceBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource,
-        io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceBuilder> {
+        V1GCEPersistentDiskVolumeSource, V1GCEPersistentDiskVolumeSourceBuilder> {
   public V1GCEPersistentDiskVolumeSourceBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V1GCEPersistentDiskVolumeSourceBuilder
   }
 
   public V1GCEPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1GCEPersistentDiskVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1GCEPersistentDiskVolumeSource(), validationEnabled);
   }
 
   public V1GCEPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource instance) {
+      V1GCEPersistentDiskVolumeSourceFluent<?> fluent, V1GCEPersistentDiskVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1GCEPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1GCEPersistentDiskVolumeSourceFluent<?> fluent,
+      V1GCEPersistentDiskVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFsType(instance.getFsType());
 
@@ -59,14 +56,12 @@ public class V1GCEPersistentDiskVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1GCEPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource instance) {
+  public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSource instance) {
     this(instance, false);
   }
 
   public V1GCEPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1GCEPersistentDiskVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFsType(instance.getFsType());
 
@@ -79,10 +74,10 @@ public class V1GCEPersistentDiskVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1GCEPersistentDiskVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1GCEPersistentDiskVolumeSource build() {
+  public V1GCEPersistentDiskVolumeSource build() {
     V1GCEPersistentDiskVolumeSource buildable = new V1GCEPersistentDiskVolumeSource();
     buildable.setFsType(fluent.getFsType());
     buildable.setPartition(fluent.getPartition());

@@ -18,13 +18,13 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1GRPCActionFluent<A extends V1GRPCActionFluent<A>> extends Fluent<A> {
   public Integer getPort();
 
-  public A withPort(java.lang.Integer port);
+  public A withPort(Integer port);
 
   public Boolean hasPort();
 
   public String getService();
 
-  public A withService(java.lang.String service);
+  public A withService(String service);
 
-  public java.lang.Boolean hasService();
+  public Boolean hasService();
 }

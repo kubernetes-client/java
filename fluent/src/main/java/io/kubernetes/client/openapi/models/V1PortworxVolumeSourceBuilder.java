@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PortworxVolumeSourceBuilder
     extends V1PortworxVolumeSourceFluentImpl<V1PortworxVolumeSourceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PortworxVolumeSource, V1PortworxVolumeSourceBuilder> {
+    implements VisitableBuilder<V1PortworxVolumeSource, V1PortworxVolumeSourceBuilder> {
   public V1PortworxVolumeSourceBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V1PortworxVolumeSourceBuilder
     this(new V1PortworxVolumeSource(), validationEnabled);
   }
 
-  public V1PortworxVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluent<?> fluent) {
+  public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1PortworxVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1PortworxVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PortworxVolumeSource(), validationEnabled);
   }
 
   public V1PortworxVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PortworxVolumeSource instance) {
+      V1PortworxVolumeSourceFluent<?> fluent, V1PortworxVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1PortworxVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PortworxVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1PortworxVolumeSourceFluent<?> fluent,
+      V1PortworxVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFsType(instance.getFsType());
 
@@ -57,14 +53,11 @@ public class V1PortworxVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PortworxVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PortworxVolumeSource instance) {
+  public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSource instance) {
     this(instance, false);
   }
 
-  public V1PortworxVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PortworxVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFsType(instance.getFsType());
 
@@ -75,10 +68,10 @@ public class V1PortworxVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PortworxVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PortworxVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PortworxVolumeSource build() {
+  public V1PortworxVolumeSource build() {
     V1PortworxVolumeSource buildable = new V1PortworxVolumeSource();
     buildable.setFsType(fluent.getFsType());
     buildable.setReadOnly(fluent.getReadOnly());

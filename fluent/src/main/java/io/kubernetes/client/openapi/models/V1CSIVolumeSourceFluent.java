@@ -20,15 +20,15 @@ import java.util.Map;
 public interface V1CSIVolumeSourceFluent<A extends V1CSIVolumeSourceFluent<A>> extends Fluent<A> {
   public String getDriver();
 
-  public A withDriver(java.lang.String driver);
+  public A withDriver(String driver);
 
   public Boolean hasDriver();
 
-  public java.lang.String getFsType();
+  public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
-  public java.lang.Boolean hasFsType();
+  public Boolean hasFsType();
 
   /**
    * This method has been deprecated, please use method buildNodePublishSecretRef instead.
@@ -38,49 +38,43 @@ public interface V1CSIVolumeSourceFluent<A extends V1CSIVolumeSourceFluent<A>> e
   @Deprecated
   public V1LocalObjectReference getNodePublishSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildNodePublishSecretRef();
+  public V1LocalObjectReference buildNodePublishSecretRef();
 
-  public A withNodePublishSecretRef(
-      io.kubernetes.client.openapi.models.V1LocalObjectReference nodePublishSecretRef);
+  public A withNodePublishSecretRef(V1LocalObjectReference nodePublishSecretRef);
 
-  public java.lang.Boolean hasNodePublishSecretRef();
+  public Boolean hasNodePublishSecretRef();
 
   public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> withNewNodePublishSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A>
-      withNewNodePublishSecretRefLike(
-          io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> withNewNodePublishSecretRefLike(
+      V1LocalObjectReference item);
 
-  public io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A>
-      editNodePublishSecretRef();
+  public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> editNodePublishSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A>
-      editOrNewNodePublishSecretRef();
+  public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> editOrNewNodePublishSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A>
-      editOrNewNodePublishSecretRefLike(
-          io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> editOrNewNodePublishSecretRefLike(
+      V1LocalObjectReference item);
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
-  public A addToVolumeAttributes(java.lang.String key, java.lang.String value);
+  public A addToVolumeAttributes(String key, String value);
 
-  public A addToVolumeAttributes(Map<java.lang.String, java.lang.String> map);
+  public A addToVolumeAttributes(Map<String, String> map);
 
-  public A removeFromVolumeAttributes(java.lang.String key);
+  public A removeFromVolumeAttributes(String key);
 
-  public A removeFromVolumeAttributes(java.util.Map<java.lang.String, java.lang.String> map);
+  public A removeFromVolumeAttributes(Map<String, String> map);
 
-  public java.util.Map<java.lang.String, java.lang.String> getVolumeAttributes();
+  public Map<String, String> getVolumeAttributes();
 
-  public <K, V> A withVolumeAttributes(
-      java.util.Map<java.lang.String, java.lang.String> volumeAttributes);
+  public <K, V> A withVolumeAttributes(Map<String, String> volumeAttributes);
 
-  public java.lang.Boolean hasVolumeAttributes();
+  public Boolean hasVolumeAttributes();
 
   public A withReadOnly();
 

@@ -22,23 +22,21 @@ import java.util.function.Predicate;
 public interface V1StatefulSetListFluent<A extends V1StatefulSetListFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
   public A addToItems(Integer index, V1StatefulSet item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatefulSet item);
+  public A setToItems(Integer index, V1StatefulSet item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1StatefulSet... items);
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1StatefulSet> items);
+  public A addAllToItems(Collection<V1StatefulSet> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1StatefulSet... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1StatefulSet> items);
+  public A removeAllFromItems(Collection<V1StatefulSet> items);
 
   public A removeMatchingFromItems(Predicate<V1StatefulSetBuilder> predicate);
 
@@ -48,83 +46,70 @@ public interface V1StatefulSetListFluent<A extends V1StatefulSetListFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1StatefulSet> getItems();
+  public List<V1StatefulSet> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1StatefulSet> buildItems();
+  public List<V1StatefulSet> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSet buildItem(java.lang.Integer index);
+  public V1StatefulSet buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSet buildFirstItem();
+  public V1StatefulSet buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSet buildLastItem();
+  public V1StatefulSet buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSet buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatefulSetBuilder>
-          predicate);
+  public V1StatefulSet buildMatchingItem(Predicate<V1StatefulSetBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatefulSetBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1StatefulSetBuilder> predicate);
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1StatefulSet> items);
+  public A withItems(List<V1StatefulSet> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1StatefulSet... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1StatefulSetListFluent.ItemsNested<A> addNewItem();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1StatefulSet item);
+  public V1StatefulSetListFluent.ItemsNested<A> addNewItemLike(V1StatefulSet item);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A> setNewItemLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatefulSet item);
+  public V1StatefulSetListFluent.ItemsNested<A> setNewItemLike(Integer index, V1StatefulSet item);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1StatefulSetListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A> editFirstItem();
+  public V1StatefulSetListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A> editLastItem();
+  public V1StatefulSetListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatefulSetBuilder>
-              predicate);
+  public V1StatefulSetListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1StatefulSetBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1StatefulSetListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1StatefulSetListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.MetadataNested<A>
-      editMetadata();
+  public V1StatefulSetListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1StatefulSetListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1StatefulSetListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>, V1StatefulSetFluent<V1StatefulSetListFluent.ItemsNested<N>> {
@@ -134,8 +119,7 @@ public interface V1StatefulSetListFluent<A extends V1StatefulSetListFluent<A>> e
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1StatefulSetListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1StatefulSetListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

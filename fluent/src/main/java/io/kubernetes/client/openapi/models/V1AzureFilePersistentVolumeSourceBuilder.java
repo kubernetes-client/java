@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1AzureFilePersistentVolumeSourceBuilder
     extends V1AzureFilePersistentVolumeSourceFluentImpl<V1AzureFilePersistentVolumeSourceBuilder>
     implements VisitableBuilder<
-        V1AzureFilePersistentVolumeSource,
-        io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceBuilder> {
+        V1AzureFilePersistentVolumeSource, V1AzureFilePersistentVolumeSourceBuilder> {
   public V1AzureFilePersistentVolumeSourceBuilder() {
     this(false);
   }
@@ -33,21 +32,20 @@ public class V1AzureFilePersistentVolumeSourceBuilder
   }
 
   public V1AzureFilePersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1AzureFilePersistentVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1AzureFilePersistentVolumeSource(), validationEnabled);
   }
 
   public V1AzureFilePersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource instance) {
+      V1AzureFilePersistentVolumeSourceFluent<?> fluent,
+      V1AzureFilePersistentVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1AzureFilePersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1AzureFilePersistentVolumeSourceFluent<?> fluent,
+      V1AzureFilePersistentVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withReadOnly(instance.getReadOnly());
 
@@ -60,14 +58,12 @@ public class V1AzureFilePersistentVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1AzureFilePersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource instance) {
+  public V1AzureFilePersistentVolumeSourceBuilder(V1AzureFilePersistentVolumeSource instance) {
     this(instance, false);
   }
 
   public V1AzureFilePersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1AzureFilePersistentVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withReadOnly(instance.getReadOnly());
 
@@ -80,10 +76,10 @@ public class V1AzureFilePersistentVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1AzureFilePersistentVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1AzureFilePersistentVolumeSource build() {
+  public V1AzureFilePersistentVolumeSource build() {
     V1AzureFilePersistentVolumeSource buildable = new V1AzureFilePersistentVolumeSource();
     buildable.setReadOnly(fluent.getReadOnly());
     buildable.setSecretName(fluent.getSecretName());

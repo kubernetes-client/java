@@ -28,43 +28,29 @@ public interface V1beta1PriorityLevelConfigurationSpecFluent<
   @Deprecated
   public V1beta1LimitedPriorityLevelConfiguration getLimited();
 
-  public io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration
-      buildLimited();
+  public V1beta1LimitedPriorityLevelConfiguration buildLimited();
 
-  public A withLimited(
-      io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration limited);
+  public A withLimited(V1beta1LimitedPriorityLevelConfiguration limited);
 
   public Boolean hasLimited();
 
   public V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<A> withNewLimited();
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-              .LimitedNested<
-          A>
-      withNewLimitedLike(
-          io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration item);
+  public V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<A> withNewLimitedLike(
+      V1beta1LimitedPriorityLevelConfiguration item);
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-              .LimitedNested<
-          A>
-      editLimited();
+  public V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<A> editLimited();
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-              .LimitedNested<
-          A>
-      editOrNewLimited();
+  public V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<A> editOrNewLimited();
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-              .LimitedNested<
-          A>
-      editOrNewLimitedLike(
-          io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration item);
+  public V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<A> editOrNewLimitedLike(
+      V1beta1LimitedPriorityLevelConfiguration item);
 
   public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 
   public interface LimitedNested<N>
       extends Nested<N>,

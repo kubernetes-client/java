@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1UncountedTerminatedPodsBuilder
     extends V1UncountedTerminatedPodsFluentImpl<V1UncountedTerminatedPodsBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1UncountedTerminatedPods,
-        io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsBuilder> {
+    implements VisitableBuilder<V1UncountedTerminatedPods, V1UncountedTerminatedPodsBuilder> {
   public V1UncountedTerminatedPodsBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1UncountedTerminatedPodsBuilder
   }
 
   public V1UncountedTerminatedPodsBuilder(
-      io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1UncountedTerminatedPodsFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1UncountedTerminatedPods(), validationEnabled);
   }
 
   public V1UncountedTerminatedPodsBuilder(
-      io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1UncountedTerminatedPods instance) {
+      V1UncountedTerminatedPodsFluent<?> fluent, V1UncountedTerminatedPods instance) {
     this(fluent, instance, false);
   }
 
   public V1UncountedTerminatedPodsBuilder(
-      io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1UncountedTerminatedPods instance,
-      java.lang.Boolean validationEnabled) {
+      V1UncountedTerminatedPodsFluent<?> fluent,
+      V1UncountedTerminatedPods instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFailed(instance.getFailed());
 
@@ -55,14 +51,12 @@ public class V1UncountedTerminatedPodsBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1UncountedTerminatedPodsBuilder(
-      io.kubernetes.client.openapi.models.V1UncountedTerminatedPods instance) {
+  public V1UncountedTerminatedPodsBuilder(V1UncountedTerminatedPods instance) {
     this(instance, false);
   }
 
   public V1UncountedTerminatedPodsBuilder(
-      io.kubernetes.client.openapi.models.V1UncountedTerminatedPods instance,
-      java.lang.Boolean validationEnabled) {
+      V1UncountedTerminatedPods instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFailed(instance.getFailed());
 
@@ -71,10 +65,10 @@ public class V1UncountedTerminatedPodsBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1UncountedTerminatedPodsFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1UncountedTerminatedPodsFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1UncountedTerminatedPods build() {
+  public V1UncountedTerminatedPods build() {
     V1UncountedTerminatedPods buildable = new V1UncountedTerminatedPods();
     buildable.setFailed(fluent.getFailed());
     buildable.setSucceeded(fluent.getSucceeded());

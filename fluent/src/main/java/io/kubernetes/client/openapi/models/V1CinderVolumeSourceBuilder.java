@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1CinderVolumeSourceBuilder
     extends V1CinderVolumeSourceFluentImpl<V1CinderVolumeSourceBuilder>
-    implements VisitableBuilder<
-        V1CinderVolumeSource, io.kubernetes.client.openapi.models.V1CinderVolumeSourceBuilder> {
+    implements VisitableBuilder<V1CinderVolumeSource, V1CinderVolumeSourceBuilder> {
   public V1CinderVolumeSourceBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V1CinderVolumeSourceBuilder
     this(new V1CinderVolumeSource(), validationEnabled);
   }
 
-  public V1CinderVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent<?> fluent) {
+  public V1CinderVolumeSourceBuilder(V1CinderVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1CinderVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CinderVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CinderVolumeSource(), validationEnabled);
   }
 
   public V1CinderVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CinderVolumeSource instance) {
+      V1CinderVolumeSourceFluent<?> fluent, V1CinderVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1CinderVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CinderVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1CinderVolumeSourceFluent<?> fluent,
+      V1CinderVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFsType(instance.getFsType());
 
@@ -59,14 +55,11 @@ public class V1CinderVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CinderVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CinderVolumeSource instance) {
+  public V1CinderVolumeSourceBuilder(V1CinderVolumeSource instance) {
     this(instance, false);
   }
 
-  public V1CinderVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CinderVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1CinderVolumeSourceBuilder(V1CinderVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFsType(instance.getFsType());
 
@@ -79,10 +72,10 @@ public class V1CinderVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CinderVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CinderVolumeSource build() {
+  public V1CinderVolumeSource build() {
     V1CinderVolumeSource buildable = new V1CinderVolumeSource();
     buildable.setFsType(fluent.getFsType());
     buildable.setReadOnly(fluent.getReadOnly());

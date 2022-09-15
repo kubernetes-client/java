@@ -22,17 +22,15 @@ import java.util.function.Predicate;
 public interface V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends Fluent<A> {
   public A addToCauses(Integer index, V1StatusCause item);
 
-  public A setToCauses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatusCause item);
+  public A setToCauses(Integer index, V1StatusCause item);
 
   public A addToCauses(io.kubernetes.client.openapi.models.V1StatusCause... items);
 
-  public A addAllToCauses(Collection<io.kubernetes.client.openapi.models.V1StatusCause> items);
+  public A addAllToCauses(Collection<V1StatusCause> items);
 
   public A removeFromCauses(io.kubernetes.client.openapi.models.V1StatusCause... items);
 
-  public A removeAllFromCauses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1StatusCause> items);
+  public A removeAllFromCauses(Collection<V1StatusCause> items);
 
   public A removeMatchingFromCauses(Predicate<V1StatusCauseBuilder> predicate);
 
@@ -42,79 +40,70 @@ public interface V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> exten
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1StatusCause> getCauses();
+  public List<V1StatusCause> getCauses();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1StatusCause> buildCauses();
+  public List<V1StatusCause> buildCauses();
 
-  public io.kubernetes.client.openapi.models.V1StatusCause buildCause(java.lang.Integer index);
+  public V1StatusCause buildCause(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1StatusCause buildFirstCause();
+  public V1StatusCause buildFirstCause();
 
-  public io.kubernetes.client.openapi.models.V1StatusCause buildLastCause();
+  public V1StatusCause buildLastCause();
 
-  public io.kubernetes.client.openapi.models.V1StatusCause buildMatchingCause(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatusCauseBuilder>
-          predicate);
+  public V1StatusCause buildMatchingCause(Predicate<V1StatusCauseBuilder> predicate);
 
-  public Boolean hasMatchingCause(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatusCauseBuilder>
-          predicate);
+  public Boolean hasMatchingCause(Predicate<V1StatusCauseBuilder> predicate);
 
-  public A withCauses(java.util.List<io.kubernetes.client.openapi.models.V1StatusCause> causes);
+  public A withCauses(List<V1StatusCause> causes);
 
   public A withCauses(io.kubernetes.client.openapi.models.V1StatusCause... causes);
 
-  public java.lang.Boolean hasCauses();
+  public Boolean hasCauses();
 
   public V1StatusDetailsFluent.CausesNested<A> addNewCause();
 
-  public io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<A> addNewCauseLike(
-      io.kubernetes.client.openapi.models.V1StatusCause item);
+  public V1StatusDetailsFluent.CausesNested<A> addNewCauseLike(V1StatusCause item);
 
-  public io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<A> setNewCauseLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatusCause item);
+  public V1StatusDetailsFluent.CausesNested<A> setNewCauseLike(Integer index, V1StatusCause item);
 
-  public io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<A> editCause(
-      java.lang.Integer index);
+  public V1StatusDetailsFluent.CausesNested<A> editCause(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<A> editFirstCause();
+  public V1StatusDetailsFluent.CausesNested<A> editFirstCause();
 
-  public io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<A> editLastCause();
+  public V1StatusDetailsFluent.CausesNested<A> editLastCause();
 
-  public io.kubernetes.client.openapi.models.V1StatusDetailsFluent.CausesNested<A>
-      editMatchingCause(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatusCauseBuilder>
-              predicate);
+  public V1StatusDetailsFluent.CausesNested<A> editMatchingCause(
+      Predicate<V1StatusCauseBuilder> predicate);
 
   public String getGroup();
 
-  public A withGroup(java.lang.String group);
+  public A withGroup(String group);
 
-  public java.lang.Boolean hasGroup();
+  public Boolean hasGroup();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.Integer getRetryAfterSeconds();
+  public Integer getRetryAfterSeconds();
 
-  public A withRetryAfterSeconds(java.lang.Integer retryAfterSeconds);
+  public A withRetryAfterSeconds(Integer retryAfterSeconds);
 
-  public java.lang.Boolean hasRetryAfterSeconds();
+  public Boolean hasRetryAfterSeconds();
 
-  public java.lang.String getUid();
+  public String getUid();
 
-  public A withUid(java.lang.String uid);
+  public A withUid(String uid);
 
-  public java.lang.Boolean hasUid();
+  public Boolean hasUid();
 
   public interface CausesNested<N>
       extends Nested<N>, V1StatusCauseFluent<V1StatusDetailsFluent.CausesNested<N>> {

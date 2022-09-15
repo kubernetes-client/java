@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1EndpointAddressBuilder extends V1EndpointAddressFluentImpl<V1EndpointAddressBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1EndpointAddress, V1EndpointAddressBuilder> {
+    implements VisitableBuilder<V1EndpointAddress, V1EndpointAddressBuilder> {
   public V1EndpointAddressBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1EndpointAddressBuilder extends V1EndpointAddressFluentImpl<V1Endp
     this(fluent, false);
   }
 
-  public V1EndpointAddressBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointAddressFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1EndpointAddressBuilder(V1EndpointAddressFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1EndpointAddress(), validationEnabled);
   }
 
-  public V1EndpointAddressBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointAddressFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EndpointAddress instance) {
+  public V1EndpointAddressBuilder(V1EndpointAddressFluent<?> fluent, V1EndpointAddress instance) {
     this(fluent, instance, false);
   }
 
   public V1EndpointAddressBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointAddressFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EndpointAddress instance,
-      java.lang.Boolean validationEnabled) {
+      V1EndpointAddressFluent<?> fluent, V1EndpointAddress instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withHostname(instance.getHostname());
 
@@ -57,13 +50,11 @@ public class V1EndpointAddressBuilder extends V1EndpointAddressFluentImpl<V1Endp
     this.validationEnabled = validationEnabled;
   }
 
-  public V1EndpointAddressBuilder(io.kubernetes.client.openapi.models.V1EndpointAddress instance) {
+  public V1EndpointAddressBuilder(V1EndpointAddress instance) {
     this(instance, false);
   }
 
-  public V1EndpointAddressBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointAddress instance,
-      java.lang.Boolean validationEnabled) {
+  public V1EndpointAddressBuilder(V1EndpointAddress instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withHostname(instance.getHostname());
 
@@ -76,10 +67,10 @@ public class V1EndpointAddressBuilder extends V1EndpointAddressFluentImpl<V1Endp
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1EndpointAddressFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1EndpointAddressFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddress build() {
+  public V1EndpointAddress build() {
     V1EndpointAddress buildable = new V1EndpointAddress();
     buildable.setHostname(fluent.getHostname());
     buildable.setIp(fluent.getIp());

@@ -19,13 +19,13 @@ public interface V1ContainerStateWaitingFluent<A extends V1ContainerStateWaiting
     extends Fluent<A> {
   public String getMessage();
 
-  public A withMessage(java.lang.String message);
+  public A withMessage(String message);
 
   public Boolean hasMessage();
 
-  public java.lang.String getReason();
+  public String getReason();
 
-  public A withReason(java.lang.String reason);
+  public A withReason(String reason);
 
-  public java.lang.Boolean hasReason();
+  public Boolean hasReason();
 }

@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NodeSystemInfoBuilder extends V1NodeSystemInfoFluentImpl<V1NodeSystemInfoBuilder>
-    implements VisitableBuilder<
-        V1NodeSystemInfo, io.kubernetes.client.openapi.models.V1NodeSystemInfoBuilder> {
+    implements VisitableBuilder<V1NodeSystemInfo, V1NodeSystemInfoBuilder> {
   public V1NodeSystemInfoBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1NodeSystemInfoBuilder extends V1NodeSystemInfoFluentImpl<V1NodeSy
     this(fluent, false);
   }
 
-  public V1NodeSystemInfoBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSystemInfoFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1NodeSystemInfoBuilder(V1NodeSystemInfoFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NodeSystemInfo(), validationEnabled);
   }
 
-  public V1NodeSystemInfoBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSystemInfoFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeSystemInfo instance) {
+  public V1NodeSystemInfoBuilder(V1NodeSystemInfoFluent<?> fluent, V1NodeSystemInfo instance) {
     this(fluent, instance, false);
   }
 
   public V1NodeSystemInfoBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSystemInfoFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeSystemInfo instance,
-      java.lang.Boolean validationEnabled) {
+      V1NodeSystemInfoFluent<?> fluent, V1NodeSystemInfo instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withArchitecture(instance.getArchitecture());
 
@@ -69,13 +62,11 @@ public class V1NodeSystemInfoBuilder extends V1NodeSystemInfoFluentImpl<V1NodeSy
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NodeSystemInfoBuilder(io.kubernetes.client.openapi.models.V1NodeSystemInfo instance) {
+  public V1NodeSystemInfoBuilder(V1NodeSystemInfo instance) {
     this(instance, false);
   }
 
-  public V1NodeSystemInfoBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSystemInfo instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NodeSystemInfoBuilder(V1NodeSystemInfo instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withArchitecture(instance.getArchitecture());
 
@@ -100,10 +91,10 @@ public class V1NodeSystemInfoBuilder extends V1NodeSystemInfoFluentImpl<V1NodeSy
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NodeSystemInfoFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NodeSystemInfoFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NodeSystemInfo build() {
+  public V1NodeSystemInfo build() {
     V1NodeSystemInfo buildable = new V1NodeSystemInfo();
     buildable.setArchitecture(fluent.getArchitecture());
     buildable.setBootID(fluent.getBootID());

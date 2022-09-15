@@ -25,8 +25,7 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
     extends BaseFluent<A> implements V1TokenRequestSpecFluent<A> {
   public V1TokenRequestSpecFluentImpl() {}
 
-  public V1TokenRequestSpecFluentImpl(
-      io.kubernetes.client.openapi.models.V1TokenRequestSpec instance) {
+  public V1TokenRequestSpecFluentImpl(V1TokenRequestSpec instance) {
     this.withAudiences(instance.getAudiences());
 
     this.withBoundObjectRef(instance.getBoundObjectRef());
@@ -38,17 +37,17 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
   private V1BoundObjectReferenceBuilder boundObjectRef;
   private Long expirationSeconds;
 
-  public A addToAudiences(Integer index, java.lang.String item) {
+  public A addToAudiences(Integer index, String item) {
     if (this.audiences == null) {
-      this.audiences = new ArrayList<java.lang.String>();
+      this.audiences = new ArrayList<String>();
     }
     this.audiences.add(index, item);
     return (A) this;
   }
 
-  public A setToAudiences(java.lang.Integer index, java.lang.String item) {
+  public A setToAudiences(Integer index, String item) {
     if (this.audiences == null) {
-      this.audiences = new java.util.ArrayList<java.lang.String>();
+      this.audiences = new ArrayList<String>();
     }
     this.audiences.set(index, item);
     return (A) this;
@@ -56,26 +55,26 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
 
   public A addToAudiences(java.lang.String... items) {
     if (this.audiences == null) {
-      this.audiences = new java.util.ArrayList<java.lang.String>();
+      this.audiences = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.audiences.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToAudiences(Collection<java.lang.String> items) {
+  public A addAllToAudiences(Collection<String> items) {
     if (this.audiences == null) {
-      this.audiences = new java.util.ArrayList<java.lang.String>();
+      this.audiences = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.audiences.add(item);
     }
     return (A) this;
   }
 
   public A removeFromAudiences(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.audiences != null) {
         this.audiences.remove(item);
       }
@@ -83,8 +82,8 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
     return (A) this;
   }
 
-  public A removeAllFromAudiences(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromAudiences(Collection<String> items) {
+    for (String item : items) {
       if (this.audiences != null) {
         this.audiences.remove(item);
       }
@@ -92,24 +91,24 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getAudiences() {
+  public List<String> getAudiences() {
     return this.audiences;
   }
 
-  public java.lang.String getAudience(java.lang.Integer index) {
+  public String getAudience(Integer index) {
     return this.audiences.get(index);
   }
 
-  public java.lang.String getFirstAudience() {
+  public String getFirstAudience() {
     return this.audiences.get(0);
   }
 
-  public java.lang.String getLastAudience() {
+  public String getLastAudience() {
     return this.audiences.get(audiences.size() - 1);
   }
 
-  public java.lang.String getMatchingAudience(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : audiences) {
+  public String getMatchingAudience(Predicate<String> predicate) {
+    for (String item : audiences) {
       if (predicate.test(item)) {
         return item;
       }
@@ -117,8 +116,8 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
     return null;
   }
 
-  public Boolean hasMatchingAudience(java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : audiences) {
+  public Boolean hasMatchingAudience(Predicate<String> predicate) {
+    for (String item : audiences) {
       if (predicate.test(item)) {
         return true;
       }
@@ -126,10 +125,10 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
     return false;
   }
 
-  public A withAudiences(java.util.List<java.lang.String> audiences) {
+  public A withAudiences(List<String> audiences) {
     if (audiences != null) {
-      this.audiences = new java.util.ArrayList();
-      for (java.lang.String item : audiences) {
+      this.audiences = new ArrayList();
+      for (String item : audiences) {
         this.addToAudiences(item);
       }
     } else {
@@ -143,14 +142,14 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
       this.audiences.clear();
     }
     if (audiences != null) {
-      for (java.lang.String item : audiences) {
+      for (String item : audiences) {
         this.addToAudiences(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAudiences() {
+  public Boolean hasAudiences() {
     return audiences != null && !audiences.isEmpty();
   }
 
@@ -164,22 +163,23 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
     return this.boundObjectRef != null ? this.boundObjectRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1BoundObjectReference buildBoundObjectRef() {
+  public V1BoundObjectReference buildBoundObjectRef() {
     return this.boundObjectRef != null ? this.boundObjectRef.build() : null;
   }
 
-  public A withBoundObjectRef(
-      io.kubernetes.client.openapi.models.V1BoundObjectReference boundObjectRef) {
+  public A withBoundObjectRef(V1BoundObjectReference boundObjectRef) {
     _visitables.get("boundObjectRef").remove(this.boundObjectRef);
     if (boundObjectRef != null) {
-      this.boundObjectRef =
-          new io.kubernetes.client.openapi.models.V1BoundObjectReferenceBuilder(boundObjectRef);
+      this.boundObjectRef = new V1BoundObjectReferenceBuilder(boundObjectRef);
       _visitables.get("boundObjectRef").add(this.boundObjectRef);
+    } else {
+      this.boundObjectRef = null;
+      _visitables.get("boundObjectRef").remove(this.boundObjectRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasBoundObjectRef() {
+  public Boolean hasBoundObjectRef() {
     return this.boundObjectRef != null;
   }
 
@@ -187,39 +187,37 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
     return new V1TokenRequestSpecFluentImpl.BoundObjectRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1TokenRequestSpecFluent.BoundObjectRefNested<A>
-      withNewBoundObjectRefLike(io.kubernetes.client.openapi.models.V1BoundObjectReference item) {
+  public V1TokenRequestSpecFluent.BoundObjectRefNested<A> withNewBoundObjectRefLike(
+      V1BoundObjectReference item) {
     return new V1TokenRequestSpecFluentImpl.BoundObjectRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1TokenRequestSpecFluent.BoundObjectRefNested<A>
-      editBoundObjectRef() {
+  public V1TokenRequestSpecFluent.BoundObjectRefNested<A> editBoundObjectRef() {
     return withNewBoundObjectRefLike(getBoundObjectRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1TokenRequestSpecFluent.BoundObjectRefNested<A>
-      editOrNewBoundObjectRef() {
+  public V1TokenRequestSpecFluent.BoundObjectRefNested<A> editOrNewBoundObjectRef() {
     return withNewBoundObjectRefLike(
         getBoundObjectRef() != null
             ? getBoundObjectRef()
-            : new io.kubernetes.client.openapi.models.V1BoundObjectReferenceBuilder().build());
+            : new V1BoundObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1TokenRequestSpecFluent.BoundObjectRefNested<A>
-      editOrNewBoundObjectRefLike(io.kubernetes.client.openapi.models.V1BoundObjectReference item) {
+  public V1TokenRequestSpecFluent.BoundObjectRefNested<A> editOrNewBoundObjectRefLike(
+      V1BoundObjectReference item) {
     return withNewBoundObjectRefLike(getBoundObjectRef() != null ? getBoundObjectRef() : item);
   }
 
-  public java.lang.Long getExpirationSeconds() {
+  public Long getExpirationSeconds() {
     return this.expirationSeconds;
   }
 
-  public A withExpirationSeconds(java.lang.Long expirationSeconds) {
+  public A withExpirationSeconds(Long expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExpirationSeconds() {
+  public Boolean hasExpirationSeconds() {
     return this.expirationSeconds != null;
   }
 
@@ -242,7 +240,7 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
     return java.util.Objects.hash(audiences, boundObjectRef, expirationSeconds, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (audiences != null && !audiences.isEmpty()) {
@@ -263,18 +261,16 @@ public class V1TokenRequestSpecFluentImpl<A extends V1TokenRequestSpecFluent<A>>
 
   class BoundObjectRefNestedImpl<N>
       extends V1BoundObjectReferenceFluentImpl<V1TokenRequestSpecFluent.BoundObjectRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1TokenRequestSpecFluent.BoundObjectRefNested<
-              N>,
-          Nested<N> {
-    BoundObjectRefNestedImpl(io.kubernetes.client.openapi.models.V1BoundObjectReference item) {
+      implements V1TokenRequestSpecFluent.BoundObjectRefNested<N>, Nested<N> {
+    BoundObjectRefNestedImpl(V1BoundObjectReference item) {
       this.builder = new V1BoundObjectReferenceBuilder(this, item);
     }
 
     BoundObjectRefNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1BoundObjectReferenceBuilder(this);
+      this.builder = new V1BoundObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1BoundObjectReferenceBuilder builder;
+    V1BoundObjectReferenceBuilder builder;
 
     public N and() {
       return (N) V1TokenRequestSpecFluentImpl.this.withBoundObjectRef(builder.build());

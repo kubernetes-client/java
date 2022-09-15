@@ -22,24 +22,21 @@ import java.util.function.Predicate;
 public interface V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
   public A addToConditions(Integer index, V1ComponentCondition item);
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ComponentCondition item);
+  public A setToConditions(Integer index, V1ComponentCondition item);
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1ComponentCondition... items);
 
-  public A addAllToConditions(
-      Collection<io.kubernetes.client.openapi.models.V1ComponentCondition> items);
+  public A addAllToConditions(Collection<V1ComponentCondition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1ComponentCondition... items);
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ComponentCondition> items);
+  public A removeAllFromConditions(Collection<V1ComponentCondition> items);
 
   public A removeMatchingFromConditions(Predicate<V1ComponentConditionBuilder> predicate);
 
@@ -49,89 +46,72 @@ public interface V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1ComponentCondition> getConditions();
+  public List<V1ComponentCondition> getConditions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ComponentCondition> buildConditions();
+  public List<V1ComponentCondition> buildConditions();
 
-  public io.kubernetes.client.openapi.models.V1ComponentCondition buildCondition(
-      java.lang.Integer index);
+  public V1ComponentCondition buildCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ComponentCondition buildFirstCondition();
+  public V1ComponentCondition buildFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1ComponentCondition buildLastCondition();
+  public V1ComponentCondition buildLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1ComponentCondition buildMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ComponentConditionBuilder>
-          predicate);
+  public V1ComponentCondition buildMatchingCondition(
+      Predicate<V1ComponentConditionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ComponentConditionBuilder>
-          predicate);
+  public Boolean hasMatchingCondition(Predicate<V1ComponentConditionBuilder> predicate);
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1ComponentCondition> conditions);
+  public A withConditions(List<V1ComponentCondition> conditions);
 
   public A withConditions(io.kubernetes.client.openapi.models.V1ComponentCondition... conditions);
 
-  public java.lang.Boolean hasConditions();
+  public Boolean hasConditions();
 
   public V1ComponentStatusFluent.ConditionsNested<A> addNewCondition();
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1ComponentCondition item);
+  public V1ComponentStatusFluent.ConditionsNested<A> addNewConditionLike(V1ComponentCondition item);
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ComponentCondition item);
+  public V1ComponentStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1ComponentCondition item);
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<A>
-      editCondition(java.lang.Integer index);
+  public V1ComponentStatusFluent.ConditionsNested<A> editCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<A>
-      editFirstCondition();
+  public V1ComponentStatusFluent.ConditionsNested<A> editFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<A>
-      editLastCondition();
+  public V1ComponentStatusFluent.ConditionsNested<A> editLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ComponentConditionBuilder>
-              predicate);
+  public V1ComponentStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1ComponentConditionBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1ComponentStatusFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1ComponentStatusFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.MetadataNested<A>
-      editMetadata();
+  public V1ComponentStatusFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1ComponentStatusFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ComponentStatusFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1ComponentStatusFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   public interface ConditionsNested<N>
       extends Nested<N>, V1ComponentConditionFluent<V1ComponentStatusFluent.ConditionsNested<N>> {
@@ -141,8 +121,7 @@ public interface V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> e
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ObjectMetaFluent<V1ComponentStatusFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ObjectMetaFluent<V1ComponentStatusFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

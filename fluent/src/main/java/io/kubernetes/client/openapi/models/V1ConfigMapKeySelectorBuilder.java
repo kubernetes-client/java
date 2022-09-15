@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ConfigMapKeySelectorBuilder
     extends V1ConfigMapKeySelectorFluentImpl<V1ConfigMapKeySelectorBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ConfigMapKeySelector,
-        io.kubernetes.client.openapi.models.V1ConfigMapKeySelectorBuilder> {
+    implements VisitableBuilder<V1ConfigMapKeySelector, V1ConfigMapKeySelectorBuilder> {
   public V1ConfigMapKeySelectorBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1ConfigMapKeySelectorBuilder
   }
 
   public V1ConfigMapKeySelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapKeySelectorFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ConfigMapKeySelectorFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ConfigMapKeySelector(), validationEnabled);
   }
 
   public V1ConfigMapKeySelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapKeySelectorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ConfigMapKeySelector instance) {
+      V1ConfigMapKeySelectorFluent<?> fluent, V1ConfigMapKeySelector instance) {
     this(fluent, instance, false);
   }
 
   public V1ConfigMapKeySelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapKeySelectorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ConfigMapKeySelector instance,
-      java.lang.Boolean validationEnabled) {
+      V1ConfigMapKeySelectorFluent<?> fluent,
+      V1ConfigMapKeySelector instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withKey(instance.getKey());
 
@@ -57,14 +53,11 @@ public class V1ConfigMapKeySelectorBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ConfigMapKeySelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapKeySelector instance) {
+  public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelector instance) {
     this(instance, false);
   }
 
-  public V1ConfigMapKeySelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapKeySelector instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelector instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withKey(instance.getKey());
 
@@ -75,10 +68,10 @@ public class V1ConfigMapKeySelectorBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ConfigMapKeySelectorFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ConfigMapKeySelectorFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapKeySelector build() {
+  public V1ConfigMapKeySelector build() {
     V1ConfigMapKeySelector buildable = new V1ConfigMapKeySelector();
     buildable.setKey(fluent.getKey());
     buildable.setName(fluent.getName());

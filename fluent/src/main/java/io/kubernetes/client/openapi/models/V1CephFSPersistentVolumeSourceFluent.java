@@ -24,51 +24,51 @@ public interface V1CephFSPersistentVolumeSourceFluent<
     extends Fluent<A> {
   public A addToMonitors(Integer index, String item);
 
-  public A setToMonitors(java.lang.Integer index, java.lang.String item);
+  public A setToMonitors(Integer index, String item);
 
   public A addToMonitors(java.lang.String... items);
 
-  public A addAllToMonitors(Collection<java.lang.String> items);
+  public A addAllToMonitors(Collection<String> items);
 
   public A removeFromMonitors(java.lang.String... items);
 
-  public A removeAllFromMonitors(java.util.Collection<java.lang.String> items);
+  public A removeAllFromMonitors(Collection<String> items);
 
-  public List<java.lang.String> getMonitors();
+  public List<String> getMonitors();
 
-  public java.lang.String getMonitor(java.lang.Integer index);
+  public String getMonitor(Integer index);
 
-  public java.lang.String getFirstMonitor();
+  public String getFirstMonitor();
 
-  public java.lang.String getLastMonitor();
+  public String getLastMonitor();
 
-  public java.lang.String getMatchingMonitor(Predicate<java.lang.String> predicate);
+  public String getMatchingMonitor(Predicate<String> predicate);
 
-  public Boolean hasMatchingMonitor(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingMonitor(Predicate<String> predicate);
 
-  public A withMonitors(java.util.List<java.lang.String> monitors);
+  public A withMonitors(List<String> monitors);
 
   public A withMonitors(java.lang.String... monitors);
 
-  public java.lang.Boolean hasMonitors();
+  public Boolean hasMonitors();
 
-  public java.lang.String getPath();
+  public String getPath();
 
-  public A withPath(java.lang.String path);
+  public A withPath(String path);
 
-  public java.lang.Boolean hasPath();
+  public Boolean hasPath();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
-  public java.lang.String getSecretFile();
+  public String getSecretFile();
 
-  public A withSecretFile(java.lang.String secretFile);
+  public A withSecretFile(String secretFile);
 
-  public java.lang.Boolean hasSecretFile();
+  public Boolean hasSecretFile();
 
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
@@ -78,31 +78,29 @@ public interface V1CephFSPersistentVolumeSourceFluent<
   @Deprecated
   public V1SecretReference getSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1SecretReference buildSecretRef();
+  public V1SecretReference buildSecretRef();
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1SecretReference secretRef);
+  public A withSecretRef(V1SecretReference secretRef);
 
-  public java.lang.Boolean hasSecretRef();
+  public Boolean hasSecretRef();
 
   public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item);
+  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1SecretReference item);
 
-  public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A>
-      editSecretRef();
+  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> editSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef();
+  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item);
+  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1SecretReference item);
 
-  public java.lang.String getUser();
+  public String getUser();
 
-  public A withUser(java.lang.String user);
+  public A withUser(String user);
 
-  public java.lang.Boolean hasUser();
+  public Boolean hasUser();
 
   public A withReadOnly();
 

@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1beta1FlowSchemaListBuilder
     extends V1beta1FlowSchemaListFluentImpl<V1beta1FlowSchemaListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1FlowSchemaList,
-        io.kubernetes.client.openapi.models.V1beta1FlowSchemaListBuilder> {
+    implements VisitableBuilder<V1beta1FlowSchemaList, V1beta1FlowSchemaListBuilder> {
   public V1beta1FlowSchemaListBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1beta1FlowSchemaListBuilder
   }
 
   public V1beta1FlowSchemaListBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1FlowSchemaListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1FlowSchemaList(), validationEnabled);
   }
 
   public V1beta1FlowSchemaListBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaList instance) {
+      V1beta1FlowSchemaListFluent<?> fluent, V1beta1FlowSchemaList instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1FlowSchemaListBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaList instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1FlowSchemaListFluent<?> fluent,
+      V1beta1FlowSchemaList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,14 +55,11 @@ public class V1beta1FlowSchemaListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta1FlowSchemaListBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaList instance) {
+  public V1beta1FlowSchemaListBuilder(V1beta1FlowSchemaList instance) {
     this(instance, false);
   }
 
-  public V1beta1FlowSchemaListBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1beta1FlowSchemaListBuilder(V1beta1FlowSchemaList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -79,10 +72,10 @@ public class V1beta1FlowSchemaListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1FlowSchemaListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1FlowSchemaListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1FlowSchemaList build() {
+  public V1beta1FlowSchemaList build() {
     V1beta1FlowSchemaList buildable = new V1beta1FlowSchemaList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

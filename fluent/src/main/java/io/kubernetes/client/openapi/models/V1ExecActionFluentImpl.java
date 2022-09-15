@@ -24,23 +24,23 @@ public class V1ExecActionFluentImpl<A extends V1ExecActionFluent<A>> extends Bas
     implements V1ExecActionFluent<A> {
   public V1ExecActionFluentImpl() {}
 
-  public V1ExecActionFluentImpl(io.kubernetes.client.openapi.models.V1ExecAction instance) {
+  public V1ExecActionFluentImpl(V1ExecAction instance) {
     this.withCommand(instance.getCommand());
   }
 
   private List<String> command;
 
-  public A addToCommand(Integer index, java.lang.String item) {
+  public A addToCommand(Integer index, String item) {
     if (this.command == null) {
-      this.command = new ArrayList<java.lang.String>();
+      this.command = new ArrayList<String>();
     }
     this.command.add(index, item);
     return (A) this;
   }
 
-  public A setToCommand(java.lang.Integer index, java.lang.String item) {
+  public A setToCommand(Integer index, String item) {
     if (this.command == null) {
-      this.command = new java.util.ArrayList<java.lang.String>();
+      this.command = new ArrayList<String>();
     }
     this.command.set(index, item);
     return (A) this;
@@ -48,26 +48,26 @@ public class V1ExecActionFluentImpl<A extends V1ExecActionFluent<A>> extends Bas
 
   public A addToCommand(java.lang.String... items) {
     if (this.command == null) {
-      this.command = new java.util.ArrayList<java.lang.String>();
+      this.command = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.command.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToCommand(Collection<java.lang.String> items) {
+  public A addAllToCommand(Collection<String> items) {
     if (this.command == null) {
-      this.command = new java.util.ArrayList<java.lang.String>();
+      this.command = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.command.add(item);
     }
     return (A) this;
   }
 
   public A removeFromCommand(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.command != null) {
         this.command.remove(item);
       }
@@ -75,8 +75,8 @@ public class V1ExecActionFluentImpl<A extends V1ExecActionFluent<A>> extends Bas
     return (A) this;
   }
 
-  public A removeAllFromCommand(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromCommand(Collection<String> items) {
+    for (String item : items) {
       if (this.command != null) {
         this.command.remove(item);
       }
@@ -84,24 +84,24 @@ public class V1ExecActionFluentImpl<A extends V1ExecActionFluent<A>> extends Bas
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getCommand() {
+  public List<String> getCommand() {
     return this.command;
   }
 
-  public java.lang.String getCommand(java.lang.Integer index) {
+  public String getCommand(Integer index) {
     return this.command.get(index);
   }
 
-  public java.lang.String getFirstCommand() {
+  public String getFirstCommand() {
     return this.command.get(0);
   }
 
-  public java.lang.String getLastCommand() {
+  public String getLastCommand() {
     return this.command.get(command.size() - 1);
   }
 
-  public java.lang.String getMatchingCommand(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : command) {
+  public String getMatchingCommand(Predicate<String> predicate) {
+    for (String item : command) {
       if (predicate.test(item)) {
         return item;
       }
@@ -109,8 +109,8 @@ public class V1ExecActionFluentImpl<A extends V1ExecActionFluent<A>> extends Bas
     return null;
   }
 
-  public Boolean hasMatchingCommand(java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : command) {
+  public Boolean hasMatchingCommand(Predicate<String> predicate) {
+    for (String item : command) {
       if (predicate.test(item)) {
         return true;
       }
@@ -118,10 +118,10 @@ public class V1ExecActionFluentImpl<A extends V1ExecActionFluent<A>> extends Bas
     return false;
   }
 
-  public A withCommand(java.util.List<java.lang.String> command) {
+  public A withCommand(List<String> command) {
     if (command != null) {
-      this.command = new java.util.ArrayList();
-      for (java.lang.String item : command) {
+      this.command = new ArrayList();
+      for (String item : command) {
         this.addToCommand(item);
       }
     } else {
@@ -135,14 +135,14 @@ public class V1ExecActionFluentImpl<A extends V1ExecActionFluent<A>> extends Bas
       this.command.clear();
     }
     if (command != null) {
-      for (java.lang.String item : command) {
+      for (String item : command) {
         this.addToCommand(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasCommand() {
+  public Boolean hasCommand() {
     return command != null && !command.isEmpty();
   }
 
@@ -158,7 +158,7 @@ public class V1ExecActionFluentImpl<A extends V1ExecActionFluent<A>> extends Bas
     return java.util.Objects.hash(command, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (command != null && !command.isEmpty()) {

@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LeaseBuilder extends V1LeaseFluentImpl<V1LeaseBuilder>
-    implements VisitableBuilder<io.kubernetes.client.openapi.models.V1Lease, V1LeaseBuilder> {
+    implements VisitableBuilder<V1Lease, V1LeaseBuilder> {
   public V1LeaseBuilder() {
     this(false);
   }
@@ -28,22 +28,15 @@ public class V1LeaseBuilder extends V1LeaseFluentImpl<V1LeaseBuilder>
     this(fluent, false);
   }
 
-  public V1LeaseBuilder(
-      io.kubernetes.client.openapi.models.V1LeaseFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1LeaseBuilder(V1LeaseFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Lease(), validationEnabled);
   }
 
-  public V1LeaseBuilder(
-      io.kubernetes.client.openapi.models.V1LeaseFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Lease instance) {
+  public V1LeaseBuilder(V1LeaseFluent<?> fluent, V1Lease instance) {
     this(fluent, instance, false);
   }
 
-  public V1LeaseBuilder(
-      io.kubernetes.client.openapi.models.V1LeaseFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Lease instance,
-      java.lang.Boolean validationEnabled) {
+  public V1LeaseBuilder(V1LeaseFluent<?> fluent, V1Lease instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -56,12 +49,11 @@ public class V1LeaseBuilder extends V1LeaseFluentImpl<V1LeaseBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LeaseBuilder(io.kubernetes.client.openapi.models.V1Lease instance) {
+  public V1LeaseBuilder(V1Lease instance) {
     this(instance, false);
   }
 
-  public V1LeaseBuilder(
-      io.kubernetes.client.openapi.models.V1Lease instance, java.lang.Boolean validationEnabled) {
+  public V1LeaseBuilder(V1Lease instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -74,10 +66,10 @@ public class V1LeaseBuilder extends V1LeaseFluentImpl<V1LeaseBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LeaseFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LeaseFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Lease build() {
+  public V1Lease build() {
     V1Lease buildable = new V1Lease();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

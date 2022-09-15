@@ -19,39 +19,39 @@ public interface V1QuobyteVolumeSourceFluent<A extends V1QuobyteVolumeSourceFlue
     extends Fluent<A> {
   public String getGroup();
 
-  public A withGroup(java.lang.String group);
+  public A withGroup(String group);
 
   public Boolean hasGroup();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
-  public java.lang.String getRegistry();
+  public String getRegistry();
 
-  public A withRegistry(java.lang.String registry);
+  public A withRegistry(String registry);
 
-  public java.lang.Boolean hasRegistry();
+  public Boolean hasRegistry();
 
-  public java.lang.String getTenant();
+  public String getTenant();
 
-  public A withTenant(java.lang.String tenant);
+  public A withTenant(String tenant);
 
-  public java.lang.Boolean hasTenant();
+  public Boolean hasTenant();
 
-  public java.lang.String getUser();
+  public String getUser();
 
-  public A withUser(java.lang.String user);
+  public A withUser(String user);
 
-  public java.lang.Boolean hasUser();
+  public Boolean hasUser();
 
-  public java.lang.String getVolume();
+  public String getVolume();
 
-  public A withVolume(java.lang.String volume);
+  public A withVolume(String volume);
 
-  public java.lang.Boolean hasVolume();
+  public Boolean hasVolume();
 
   public A withReadOnly();
 }

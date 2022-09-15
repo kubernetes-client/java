@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LabelSelectorRequirementBuilder
     extends V1LabelSelectorRequirementFluentImpl<V1LabelSelectorRequirementBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1LabelSelectorRequirement,
-        io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder> {
+    implements VisitableBuilder<V1LabelSelectorRequirement, V1LabelSelectorRequirementBuilder> {
   public V1LabelSelectorRequirementBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1LabelSelectorRequirementBuilder
   }
 
   public V1LabelSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1LabelSelectorRequirementFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1LabelSelectorRequirementFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1LabelSelectorRequirement(), validationEnabled);
   }
 
   public V1LabelSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1LabelSelectorRequirementFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LabelSelectorRequirement instance) {
+      V1LabelSelectorRequirementFluent<?> fluent, V1LabelSelectorRequirement instance) {
     this(fluent, instance, false);
   }
 
   public V1LabelSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1LabelSelectorRequirementFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LabelSelectorRequirement instance,
-      java.lang.Boolean validationEnabled) {
+      V1LabelSelectorRequirementFluent<?> fluent,
+      V1LabelSelectorRequirement instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withKey(instance.getKey());
 
@@ -57,14 +53,12 @@ public class V1LabelSelectorRequirementBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LabelSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1LabelSelectorRequirement instance) {
+  public V1LabelSelectorRequirementBuilder(V1LabelSelectorRequirement instance) {
     this(instance, false);
   }
 
   public V1LabelSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1LabelSelectorRequirement instance,
-      java.lang.Boolean validationEnabled) {
+      V1LabelSelectorRequirement instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withKey(instance.getKey());
 
@@ -75,10 +69,10 @@ public class V1LabelSelectorRequirementBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LabelSelectorRequirementFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LabelSelectorRequirementFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorRequirement build() {
+  public V1LabelSelectorRequirement build() {
     V1LabelSelectorRequirement buildable = new V1LabelSelectorRequirement();
     buildable.setKey(fluent.getKey());
     buildable.setOperator(fluent.getOperator());

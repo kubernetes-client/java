@@ -27,8 +27,7 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
     extends BaseFluent<A> implements V1CustomResourceDefinitionVersionFluent<A> {
   public V1CustomResourceDefinitionVersionFluentImpl() {}
 
-  public V1CustomResourceDefinitionVersionFluentImpl(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion instance) {
+  public V1CustomResourceDefinitionVersionFluentImpl(V1CustomResourceDefinitionVersion instance) {
     this.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
 
     this.withDeprecated(instance.getDeprecated());
@@ -49,20 +48,18 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
   private ArrayList<V1CustomResourceColumnDefinitionBuilder> additionalPrinterColumns;
   private Boolean deprecated;
   private String deprecationWarning;
-  private java.lang.String name;
+  private String name;
   private V1CustomResourceValidationBuilder schema;
-  private java.lang.Boolean served;
-  private java.lang.Boolean storage;
+  private Boolean served;
+  private Boolean storage;
   private V1CustomResourceSubresourcesBuilder subresources;
 
-  public A addToAdditionalPrinterColumns(
-      Integer index, io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item) {
+  public A addToAdditionalPrinterColumns(Integer index, V1CustomResourceColumnDefinition item) {
     if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns =
-          new java.util.ArrayList<V1CustomResourceColumnDefinitionBuilder>();
+      this.additionalPrinterColumns = new ArrayList<V1CustomResourceColumnDefinitionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder(item);
+    V1CustomResourceColumnDefinitionBuilder builder =
+        new V1CustomResourceColumnDefinitionBuilder(item);
     _visitables
         .get("additionalPrinterColumns")
         .add(index >= 0 ? index : _visitables.get("additionalPrinterColumns").size(), builder);
@@ -71,16 +68,12 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
     return (A) this;
   }
 
-  public A setToAdditionalPrinterColumns(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item) {
+  public A setToAdditionalPrinterColumns(Integer index, V1CustomResourceColumnDefinition item) {
     if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>();
+      this.additionalPrinterColumns = new ArrayList<V1CustomResourceColumnDefinitionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder(item);
+    V1CustomResourceColumnDefinitionBuilder builder =
+        new V1CustomResourceColumnDefinitionBuilder(item);
     if (index < 0 || index >= _visitables.get("additionalPrinterColumns").size()) {
       _visitables.get("additionalPrinterColumns").add(builder);
     } else {
@@ -97,29 +90,24 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
   public A addToAdditionalPrinterColumns(
       io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition... items) {
     if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>();
+      this.additionalPrinterColumns = new ArrayList<V1CustomResourceColumnDefinitionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item : items) {
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder(item);
+    for (V1CustomResourceColumnDefinition item : items) {
+      V1CustomResourceColumnDefinitionBuilder builder =
+          new V1CustomResourceColumnDefinitionBuilder(item);
       _visitables.get("additionalPrinterColumns").add(builder);
       this.additionalPrinterColumns.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToAdditionalPrinterColumns(
-      Collection<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition> items) {
+  public A addAllToAdditionalPrinterColumns(Collection<V1CustomResourceColumnDefinition> items) {
     if (this.additionalPrinterColumns == null) {
-      this.additionalPrinterColumns =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>();
+      this.additionalPrinterColumns = new ArrayList<V1CustomResourceColumnDefinitionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item : items) {
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder(item);
+    for (V1CustomResourceColumnDefinition item : items) {
+      V1CustomResourceColumnDefinitionBuilder builder =
+          new V1CustomResourceColumnDefinitionBuilder(item);
       _visitables.get("additionalPrinterColumns").add(builder);
       this.additionalPrinterColumns.add(builder);
     }
@@ -128,9 +116,9 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
 
   public A removeFromAdditionalPrinterColumns(
       io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition... items) {
-    for (io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item : items) {
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder(item);
+    for (V1CustomResourceColumnDefinition item : items) {
+      V1CustomResourceColumnDefinitionBuilder builder =
+          new V1CustomResourceColumnDefinitionBuilder(item);
       _visitables.get("additionalPrinterColumns").remove(builder);
       if (this.additionalPrinterColumns != null) {
         this.additionalPrinterColumns.remove(builder);
@@ -140,11 +128,10 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
   }
 
   public A removeAllFromAdditionalPrinterColumns(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition>
-          items) {
-    for (io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item : items) {
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder(item);
+      Collection<V1CustomResourceColumnDefinition> items) {
+    for (V1CustomResourceColumnDefinition item : items) {
+      V1CustomResourceColumnDefinitionBuilder builder =
+          new V1CustomResourceColumnDefinitionBuilder(item);
       _visitables.get("additionalPrinterColumns").remove(builder);
       if (this.additionalPrinterColumns != null) {
         this.additionalPrinterColumns.remove(builder);
@@ -154,15 +141,13 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
   }
 
   public A removeMatchingFromAdditionalPrinterColumns(
-      Predicate<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>
-          predicate) {
+      Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
     if (additionalPrinterColumns == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>
-        each = additionalPrinterColumns.iterator();
+    final Iterator<V1CustomResourceColumnDefinitionBuilder> each =
+        additionalPrinterColumns.iterator();
     final List visitables = _visitables.get("additionalPrinterColumns");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder builder =
-          each.next();
+      V1CustomResourceColumnDefinitionBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -177,38 +162,29 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition>
-      getAdditionalPrinterColumns() {
+  public List<V1CustomResourceColumnDefinition> getAdditionalPrinterColumns() {
     return additionalPrinterColumns != null ? build(additionalPrinterColumns) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition>
-      buildAdditionalPrinterColumns() {
+  public List<V1CustomResourceColumnDefinition> buildAdditionalPrinterColumns() {
     return additionalPrinterColumns != null ? build(additionalPrinterColumns) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition
-      buildAdditionalPrinterColumn(java.lang.Integer index) {
+  public V1CustomResourceColumnDefinition buildAdditionalPrinterColumn(Integer index) {
     return this.additionalPrinterColumns.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition
-      buildFirstAdditionalPrinterColumn() {
+  public V1CustomResourceColumnDefinition buildFirstAdditionalPrinterColumn() {
     return this.additionalPrinterColumns.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition
-      buildLastAdditionalPrinterColumn() {
+  public V1CustomResourceColumnDefinition buildLastAdditionalPrinterColumn() {
     return this.additionalPrinterColumns.get(additionalPrinterColumns.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition
-      buildMatchingAdditionalPrinterColumn(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>
-              predicate) {
-    for (io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder item :
-        additionalPrinterColumns) {
+  public V1CustomResourceColumnDefinition buildMatchingAdditionalPrinterColumn(
+      Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
+    for (V1CustomResourceColumnDefinitionBuilder item : additionalPrinterColumns) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -216,12 +192,9 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingAdditionalPrinterColumn(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder item :
-        additionalPrinterColumns) {
+  public Boolean hasMatchingAdditionalPrinterColumn(
+      Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
+    for (V1CustomResourceColumnDefinitionBuilder item : additionalPrinterColumns) {
       if (predicate.test(item)) {
         return true;
       }
@@ -230,15 +203,13 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
   }
 
   public A withAdditionalPrinterColumns(
-      java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition>
-          additionalPrinterColumns) {
+      List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
     if (this.additionalPrinterColumns != null) {
       _visitables.get("additionalPrinterColumns").removeAll(this.additionalPrinterColumns);
     }
     if (additionalPrinterColumns != null) {
-      this.additionalPrinterColumns = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item :
-          additionalPrinterColumns) {
+      this.additionalPrinterColumns = new ArrayList();
+      for (V1CustomResourceColumnDefinition item : additionalPrinterColumns) {
         this.addToAdditionalPrinterColumns(item);
       }
     } else {
@@ -254,15 +225,14 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
       this.additionalPrinterColumns.clear();
     }
     if (additionalPrinterColumns != null) {
-      for (io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item :
-          additionalPrinterColumns) {
+      for (V1CustomResourceColumnDefinition item : additionalPrinterColumns) {
         this.addToAdditionalPrinterColumns(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAdditionalPrinterColumns() {
+  public Boolean hasAdditionalPrinterColumns() {
     return additionalPrinterColumns != null && !additionalPrinterColumns.isEmpty();
   }
 
@@ -271,46 +241,33 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
     return new V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .AdditionalPrinterColumnsNested<
-          A>
-      addNewAdditionalPrinterColumnLike(
-          io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item) {
+  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A>
+      addNewAdditionalPrinterColumnLike(V1CustomResourceColumnDefinition item) {
     return new V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNestedImpl(
         -1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .AdditionalPrinterColumnsNested<
-          A>
-      setNewAdditionalPrinterColumnLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item) {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluentImpl
-        .AdditionalPrinterColumnsNestedImpl(index, item);
+  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A>
+      setNewAdditionalPrinterColumnLike(Integer index, V1CustomResourceColumnDefinition item) {
+    return new V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNestedImpl(
+        index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .AdditionalPrinterColumnsNested<
-          A>
-      editAdditionalPrinterColumn(java.lang.Integer index) {
+  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A>
+      editAdditionalPrinterColumn(Integer index) {
     if (additionalPrinterColumns.size() <= index)
       throw new RuntimeException("Can't edit additionalPrinterColumns. Index exceeds size.");
     return setNewAdditionalPrinterColumnLike(index, buildAdditionalPrinterColumn(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .AdditionalPrinterColumnsNested<
-          A>
+  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A>
       editFirstAdditionalPrinterColumn() {
     if (additionalPrinterColumns.size() == 0)
       throw new RuntimeException("Can't edit first additionalPrinterColumns. The list is empty.");
     return setNewAdditionalPrinterColumnLike(0, buildAdditionalPrinterColumn(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .AdditionalPrinterColumnsNested<
-          A>
+  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A>
       editLastAdditionalPrinterColumn() {
     int index = additionalPrinterColumns.size() - 1;
     if (index < 0)
@@ -318,13 +275,9 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
     return setNewAdditionalPrinterColumnLike(index, buildAdditionalPrinterColumn(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .AdditionalPrinterColumnsNested<
-          A>
+  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A>
       editMatchingAdditionalPrinterColumn(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder>
-              predicate) {
+          Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < additionalPrinterColumns.size(); i++) {
       if (predicate.test(additionalPrinterColumns.get(i))) {
@@ -337,42 +290,42 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
     return setNewAdditionalPrinterColumnLike(index, buildAdditionalPrinterColumn(index));
   }
 
-  public java.lang.Boolean getDeprecated() {
+  public Boolean getDeprecated() {
     return this.deprecated;
   }
 
-  public A withDeprecated(java.lang.Boolean deprecated) {
+  public A withDeprecated(Boolean deprecated) {
     this.deprecated = deprecated;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDeprecated() {
+  public Boolean hasDeprecated() {
     return this.deprecated != null;
   }
 
-  public java.lang.String getDeprecationWarning() {
+  public String getDeprecationWarning() {
     return this.deprecationWarning;
   }
 
-  public A withDeprecationWarning(java.lang.String deprecationWarning) {
+  public A withDeprecationWarning(String deprecationWarning) {
     this.deprecationWarning = deprecationWarning;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDeprecationWarning() {
+  public Boolean hasDeprecationWarning() {
     return this.deprecationWarning != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
@@ -381,25 +334,28 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceValidation getSchema() {
+  @Deprecated
+  public V1CustomResourceValidation getSchema() {
     return this.schema != null ? this.schema.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceValidation buildSchema() {
+  public V1CustomResourceValidation buildSchema() {
     return this.schema != null ? this.schema.build() : null;
   }
 
-  public A withSchema(io.kubernetes.client.openapi.models.V1CustomResourceValidation schema) {
+  public A withSchema(V1CustomResourceValidation schema) {
     _visitables.get("schema").remove(this.schema);
     if (schema != null) {
       this.schema = new V1CustomResourceValidationBuilder(schema);
       _visitables.get("schema").add(this.schema);
+    } else {
+      this.schema = null;
+      _visitables.get("schema").remove(this.schema);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSchema() {
+  public Boolean hasSchema() {
     return this.schema != null;
   }
 
@@ -407,53 +363,48 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
     return new V1CustomResourceDefinitionVersionFluentImpl.SchemaNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent.SchemaNested<A>
-      withNewSchemaLike(io.kubernetes.client.openapi.models.V1CustomResourceValidation item) {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluentImpl
-        .SchemaNestedImpl(item);
+  public V1CustomResourceDefinitionVersionFluent.SchemaNested<A> withNewSchemaLike(
+      V1CustomResourceValidation item) {
+    return new V1CustomResourceDefinitionVersionFluentImpl.SchemaNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent.SchemaNested<A>
-      editSchema() {
+  public V1CustomResourceDefinitionVersionFluent.SchemaNested<A> editSchema() {
     return withNewSchemaLike(getSchema());
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent.SchemaNested<A>
-      editOrNewSchema() {
+  public V1CustomResourceDefinitionVersionFluent.SchemaNested<A> editOrNewSchema() {
     return withNewSchemaLike(
-        getSchema() != null
-            ? getSchema()
-            : new io.kubernetes.client.openapi.models.V1CustomResourceValidationBuilder().build());
+        getSchema() != null ? getSchema() : new V1CustomResourceValidationBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent.SchemaNested<A>
-      editOrNewSchemaLike(io.kubernetes.client.openapi.models.V1CustomResourceValidation item) {
+  public V1CustomResourceDefinitionVersionFluent.SchemaNested<A> editOrNewSchemaLike(
+      V1CustomResourceValidation item) {
     return withNewSchemaLike(getSchema() != null ? getSchema() : item);
   }
 
-  public java.lang.Boolean getServed() {
+  public Boolean getServed() {
     return this.served;
   }
 
-  public A withServed(java.lang.Boolean served) {
+  public A withServed(Boolean served) {
     this.served = served;
     return (A) this;
   }
 
-  public java.lang.Boolean hasServed() {
+  public Boolean hasServed() {
     return this.served != null;
   }
 
-  public java.lang.Boolean getStorage() {
+  public Boolean getStorage() {
     return this.storage;
   }
 
-  public A withStorage(java.lang.Boolean storage) {
+  public A withStorage(Boolean storage) {
     this.storage = storage;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStorage() {
+  public Boolean hasStorage() {
     return this.storage != null;
   }
 
@@ -462,26 +413,28 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresources getSubresources() {
+  @Deprecated
+  public V1CustomResourceSubresources getSubresources() {
     return this.subresources != null ? this.subresources.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresources buildSubresources() {
+  public V1CustomResourceSubresources buildSubresources() {
     return this.subresources != null ? this.subresources.build() : null;
   }
 
-  public A withSubresources(
-      io.kubernetes.client.openapi.models.V1CustomResourceSubresources subresources) {
+  public A withSubresources(V1CustomResourceSubresources subresources) {
     _visitables.get("subresources").remove(this.subresources);
     if (subresources != null) {
       this.subresources = new V1CustomResourceSubresourcesBuilder(subresources);
       _visitables.get("subresources").add(this.subresources);
+    } else {
+      this.subresources = null;
+      _visitables.get("subresources").remove(this.subresources);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSubresources() {
+  public Boolean hasSubresources() {
     return this.subresources != null;
   }
 
@@ -489,38 +442,24 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
     return new V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .SubresourcesNested<
-          A>
-      withNewSubresourcesLike(
-          io.kubernetes.client.openapi.models.V1CustomResourceSubresources item) {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluentImpl
-        .SubresourcesNestedImpl(item);
+  public V1CustomResourceDefinitionVersionFluent.SubresourcesNested<A> withNewSubresourcesLike(
+      V1CustomResourceSubresources item) {
+    return new V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .SubresourcesNested<
-          A>
-      editSubresources() {
+  public V1CustomResourceDefinitionVersionFluent.SubresourcesNested<A> editSubresources() {
     return withNewSubresourcesLike(getSubresources());
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .SubresourcesNested<
-          A>
-      editOrNewSubresources() {
+  public V1CustomResourceDefinitionVersionFluent.SubresourcesNested<A> editOrNewSubresources() {
     return withNewSubresourcesLike(
         getSubresources() != null
             ? getSubresources()
-            : new io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesBuilder()
-                .build());
+            : new V1CustomResourceSubresourcesBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-              .SubresourcesNested<
-          A>
-      editOrNewSubresourcesLike(
-          io.kubernetes.client.openapi.models.V1CustomResourceSubresources item) {
+  public V1CustomResourceDefinitionVersionFluent.SubresourcesNested<A> editOrNewSubresourcesLike(
+      V1CustomResourceSubresources item) {
     return withNewSubresourcesLike(getSubresources() != null ? getSubresources() : item);
   }
 
@@ -559,7 +498,7 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (additionalPrinterColumns != null && !additionalPrinterColumns.isEmpty()) {
@@ -613,25 +552,20 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
   class AdditionalPrinterColumnsNestedImpl<N>
       extends V1CustomResourceColumnDefinitionFluentImpl<
           V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-                  .AdditionalPrinterColumnsNested<
-              N>,
+      implements V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<N>,
           Nested<N> {
-    AdditionalPrinterColumnsNestedImpl(
-        java.lang.Integer index,
-        io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition item) {
+    AdditionalPrinterColumnsNestedImpl(Integer index, V1CustomResourceColumnDefinition item) {
       this.index = index;
       this.builder = new V1CustomResourceColumnDefinitionBuilder(this, item);
     }
 
     AdditionalPrinterColumnsNestedImpl() {
       this.index = -1;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder(this);
+      this.builder = new V1CustomResourceColumnDefinitionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder builder;
-    java.lang.Integer index;
+    V1CustomResourceColumnDefinitionBuilder builder;
+    Integer index;
 
     public N and() {
       return (N)
@@ -647,20 +581,16 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
   class SchemaNestedImpl<N>
       extends V1CustomResourceValidationFluentImpl<
           V1CustomResourceDefinitionVersionFluent.SchemaNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-                  .SchemaNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SchemaNestedImpl(io.kubernetes.client.openapi.models.V1CustomResourceValidation item) {
+      implements V1CustomResourceDefinitionVersionFluent.SchemaNested<N>, Nested<N> {
+    SchemaNestedImpl(V1CustomResourceValidation item) {
       this.builder = new V1CustomResourceValidationBuilder(this, item);
     }
 
     SchemaNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceValidationBuilder(this);
+      this.builder = new V1CustomResourceValidationBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1CustomResourceValidationBuilder builder;
+    V1CustomResourceValidationBuilder builder;
 
     public N and() {
       return (N) V1CustomResourceDefinitionVersionFluentImpl.this.withSchema(builder.build());
@@ -674,20 +604,16 @@ public class V1CustomResourceDefinitionVersionFluentImpl<
   class SubresourcesNestedImpl<N>
       extends V1CustomResourceSubresourcesFluentImpl<
           V1CustomResourceDefinitionVersionFluent.SubresourcesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent
-                  .SubresourcesNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SubresourcesNestedImpl(io.kubernetes.client.openapi.models.V1CustomResourceSubresources item) {
+      implements V1CustomResourceDefinitionVersionFluent.SubresourcesNested<N>, Nested<N> {
+    SubresourcesNestedImpl(V1CustomResourceSubresources item) {
       this.builder = new V1CustomResourceSubresourcesBuilder(this, item);
     }
 
     SubresourcesNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesBuilder(this);
+      this.builder = new V1CustomResourceSubresourcesBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesBuilder builder;
+    V1CustomResourceSubresourcesBuilder builder;
 
     public N and() {
       return (N) V1CustomResourceDefinitionVersionFluentImpl.this.withSubresources(builder.build());

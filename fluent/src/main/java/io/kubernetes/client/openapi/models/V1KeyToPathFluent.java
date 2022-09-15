@@ -18,19 +18,19 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1KeyToPathFluent<A extends V1KeyToPathFluent<A>> extends Fluent<A> {
   public String getKey();
 
-  public A withKey(java.lang.String key);
+  public A withKey(String key);
 
   public Boolean hasKey();
 
   public Integer getMode();
 
-  public A withMode(java.lang.Integer mode);
+  public A withMode(Integer mode);
 
-  public java.lang.Boolean hasMode();
+  public Boolean hasMode();
 
-  public java.lang.String getPath();
+  public String getPath();
 
-  public A withPath(java.lang.String path);
+  public A withPath(String path);
 
-  public java.lang.Boolean hasPath();
+  public Boolean hasPath();
 }

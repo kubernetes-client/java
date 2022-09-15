@@ -20,37 +20,37 @@ public interface V1DeploymentConditionFluent<A extends V1DeploymentConditionFlue
     extends Fluent<A> {
   public OffsetDateTime getLastTransitionTime();
 
-  public A withLastTransitionTime(java.time.OffsetDateTime lastTransitionTime);
+  public A withLastTransitionTime(OffsetDateTime lastTransitionTime);
 
   public Boolean hasLastTransitionTime();
 
-  public java.time.OffsetDateTime getLastUpdateTime();
+  public OffsetDateTime getLastUpdateTime();
 
-  public A withLastUpdateTime(java.time.OffsetDateTime lastUpdateTime);
+  public A withLastUpdateTime(OffsetDateTime lastUpdateTime);
 
-  public java.lang.Boolean hasLastUpdateTime();
+  public Boolean hasLastUpdateTime();
 
   public String getMessage();
 
-  public A withMessage(java.lang.String message);
+  public A withMessage(String message);
 
-  public java.lang.Boolean hasMessage();
+  public Boolean hasMessage();
 
-  public java.lang.String getReason();
+  public String getReason();
 
-  public A withReason(java.lang.String reason);
+  public A withReason(String reason);
 
-  public java.lang.Boolean hasReason();
+  public Boolean hasReason();
 
-  public java.lang.String getStatus();
+  public String getStatus();
 
-  public A withStatus(java.lang.String status);
+  public A withStatus(String status);
 
-  public java.lang.Boolean hasStatus();
+  public Boolean hasStatus();
 
-  public java.lang.String getType();
+  public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 }

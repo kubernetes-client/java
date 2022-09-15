@@ -23,201 +23,191 @@ import java.util.function.Predicate;
 public interface V1ServiceSpecFluent<A extends V1ServiceSpecFluent<A>> extends Fluent<A> {
   public Boolean getAllocateLoadBalancerNodePorts();
 
-  public A withAllocateLoadBalancerNodePorts(java.lang.Boolean allocateLoadBalancerNodePorts);
+  public A withAllocateLoadBalancerNodePorts(Boolean allocateLoadBalancerNodePorts);
 
-  public java.lang.Boolean hasAllocateLoadBalancerNodePorts();
+  public Boolean hasAllocateLoadBalancerNodePorts();
 
   public String getClusterIP();
 
-  public A withClusterIP(java.lang.String clusterIP);
+  public A withClusterIP(String clusterIP);
 
-  public java.lang.Boolean hasClusterIP();
+  public Boolean hasClusterIP();
 
-  public A addToClusterIPs(Integer index, java.lang.String item);
+  public A addToClusterIPs(Integer index, String item);
 
-  public A setToClusterIPs(java.lang.Integer index, java.lang.String item);
+  public A setToClusterIPs(Integer index, String item);
 
   public A addToClusterIPs(java.lang.String... items);
 
-  public A addAllToClusterIPs(Collection<java.lang.String> items);
+  public A addAllToClusterIPs(Collection<String> items);
 
   public A removeFromClusterIPs(java.lang.String... items);
 
-  public A removeAllFromClusterIPs(java.util.Collection<java.lang.String> items);
+  public A removeAllFromClusterIPs(Collection<String> items);
 
-  public List<java.lang.String> getClusterIPs();
+  public List<String> getClusterIPs();
 
-  public java.lang.String getClusterIP(java.lang.Integer index);
+  public String getClusterIP(Integer index);
 
-  public java.lang.String getFirstClusterIP();
+  public String getFirstClusterIP();
 
-  public java.lang.String getLastClusterIP();
+  public String getLastClusterIP();
 
-  public java.lang.String getMatchingClusterIP(Predicate<java.lang.String> predicate);
+  public String getMatchingClusterIP(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingClusterIP(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingClusterIP(Predicate<String> predicate);
 
-  public A withClusterIPs(java.util.List<java.lang.String> clusterIPs);
+  public A withClusterIPs(List<String> clusterIPs);
 
   public A withClusterIPs(java.lang.String... clusterIPs);
 
-  public java.lang.Boolean hasClusterIPs();
+  public Boolean hasClusterIPs();
 
-  public A addToExternalIPs(java.lang.Integer index, java.lang.String item);
+  public A addToExternalIPs(Integer index, String item);
 
-  public A setToExternalIPs(java.lang.Integer index, java.lang.String item);
+  public A setToExternalIPs(Integer index, String item);
 
   public A addToExternalIPs(java.lang.String... items);
 
-  public A addAllToExternalIPs(java.util.Collection<java.lang.String> items);
+  public A addAllToExternalIPs(Collection<String> items);
 
   public A removeFromExternalIPs(java.lang.String... items);
 
-  public A removeAllFromExternalIPs(java.util.Collection<java.lang.String> items);
+  public A removeAllFromExternalIPs(Collection<String> items);
 
-  public java.util.List<java.lang.String> getExternalIPs();
+  public List<String> getExternalIPs();
 
-  public java.lang.String getExternalIP(java.lang.Integer index);
+  public String getExternalIP(Integer index);
 
-  public java.lang.String getFirstExternalIP();
+  public String getFirstExternalIP();
 
-  public java.lang.String getLastExternalIP();
+  public String getLastExternalIP();
 
-  public java.lang.String getMatchingExternalIP(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingExternalIP(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingExternalIP(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingExternalIP(Predicate<String> predicate);
 
-  public A withExternalIPs(java.util.List<java.lang.String> externalIPs);
+  public A withExternalIPs(List<String> externalIPs);
 
   public A withExternalIPs(java.lang.String... externalIPs);
 
-  public java.lang.Boolean hasExternalIPs();
+  public Boolean hasExternalIPs();
 
-  public java.lang.String getExternalName();
+  public String getExternalName();
 
-  public A withExternalName(java.lang.String externalName);
+  public A withExternalName(String externalName);
 
-  public java.lang.Boolean hasExternalName();
+  public Boolean hasExternalName();
 
-  public java.lang.String getExternalTrafficPolicy();
+  public String getExternalTrafficPolicy();
 
-  public A withExternalTrafficPolicy(java.lang.String externalTrafficPolicy);
+  public A withExternalTrafficPolicy(String externalTrafficPolicy);
 
-  public java.lang.Boolean hasExternalTrafficPolicy();
+  public Boolean hasExternalTrafficPolicy();
 
-  public java.lang.Integer getHealthCheckNodePort();
+  public Integer getHealthCheckNodePort();
 
-  public A withHealthCheckNodePort(java.lang.Integer healthCheckNodePort);
+  public A withHealthCheckNodePort(Integer healthCheckNodePort);
 
-  public java.lang.Boolean hasHealthCheckNodePort();
+  public Boolean hasHealthCheckNodePort();
 
-  public java.lang.String getInternalTrafficPolicy();
+  public String getInternalTrafficPolicy();
 
-  public A withInternalTrafficPolicy(java.lang.String internalTrafficPolicy);
+  public A withInternalTrafficPolicy(String internalTrafficPolicy);
 
-  public java.lang.Boolean hasInternalTrafficPolicy();
+  public Boolean hasInternalTrafficPolicy();
 
-  public A addToIpFamilies(java.lang.Integer index, java.lang.String item);
+  public A addToIpFamilies(Integer index, String item);
 
-  public A setToIpFamilies(java.lang.Integer index, java.lang.String item);
+  public A setToIpFamilies(Integer index, String item);
 
   public A addToIpFamilies(java.lang.String... items);
 
-  public A addAllToIpFamilies(java.util.Collection<java.lang.String> items);
+  public A addAllToIpFamilies(Collection<String> items);
 
   public A removeFromIpFamilies(java.lang.String... items);
 
-  public A removeAllFromIpFamilies(java.util.Collection<java.lang.String> items);
+  public A removeAllFromIpFamilies(Collection<String> items);
 
-  public java.util.List<java.lang.String> getIpFamilies();
+  public List<String> getIpFamilies();
 
-  public java.lang.String getIpFamily(java.lang.Integer index);
+  public String getIpFamily(Integer index);
 
-  public java.lang.String getFirstIpFamily();
+  public String getFirstIpFamily();
 
-  public java.lang.String getLastIpFamily();
+  public String getLastIpFamily();
 
-  public java.lang.String getMatchingIpFamily(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingIpFamily(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingIpFamily(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingIpFamily(Predicate<String> predicate);
 
-  public A withIpFamilies(java.util.List<java.lang.String> ipFamilies);
+  public A withIpFamilies(List<String> ipFamilies);
 
   public A withIpFamilies(java.lang.String... ipFamilies);
 
-  public java.lang.Boolean hasIpFamilies();
+  public Boolean hasIpFamilies();
 
-  public java.lang.String getIpFamilyPolicy();
+  public String getIpFamilyPolicy();
 
-  public A withIpFamilyPolicy(java.lang.String ipFamilyPolicy);
+  public A withIpFamilyPolicy(String ipFamilyPolicy);
 
-  public java.lang.Boolean hasIpFamilyPolicy();
+  public Boolean hasIpFamilyPolicy();
 
-  public java.lang.String getLoadBalancerClass();
+  public String getLoadBalancerClass();
 
-  public A withLoadBalancerClass(java.lang.String loadBalancerClass);
+  public A withLoadBalancerClass(String loadBalancerClass);
 
-  public java.lang.Boolean hasLoadBalancerClass();
+  public Boolean hasLoadBalancerClass();
 
-  public java.lang.String getLoadBalancerIP();
+  public String getLoadBalancerIP();
 
-  public A withLoadBalancerIP(java.lang.String loadBalancerIP);
+  public A withLoadBalancerIP(String loadBalancerIP);
 
-  public java.lang.Boolean hasLoadBalancerIP();
+  public Boolean hasLoadBalancerIP();
 
-  public A addToLoadBalancerSourceRanges(java.lang.Integer index, java.lang.String item);
+  public A addToLoadBalancerSourceRanges(Integer index, String item);
 
-  public A setToLoadBalancerSourceRanges(java.lang.Integer index, java.lang.String item);
+  public A setToLoadBalancerSourceRanges(Integer index, String item);
 
   public A addToLoadBalancerSourceRanges(java.lang.String... items);
 
-  public A addAllToLoadBalancerSourceRanges(java.util.Collection<java.lang.String> items);
+  public A addAllToLoadBalancerSourceRanges(Collection<String> items);
 
   public A removeFromLoadBalancerSourceRanges(java.lang.String... items);
 
-  public A removeAllFromLoadBalancerSourceRanges(java.util.Collection<java.lang.String> items);
+  public A removeAllFromLoadBalancerSourceRanges(Collection<String> items);
 
-  public java.util.List<java.lang.String> getLoadBalancerSourceRanges();
+  public List<String> getLoadBalancerSourceRanges();
 
-  public java.lang.String getLoadBalancerSourceRange(java.lang.Integer index);
+  public String getLoadBalancerSourceRange(Integer index);
 
-  public java.lang.String getFirstLoadBalancerSourceRange();
+  public String getFirstLoadBalancerSourceRange();
 
-  public java.lang.String getLastLoadBalancerSourceRange();
+  public String getLastLoadBalancerSourceRange();
 
-  public java.lang.String getMatchingLoadBalancerSourceRange(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingLoadBalancerSourceRange(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingLoadBalancerSourceRange(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingLoadBalancerSourceRange(Predicate<String> predicate);
 
-  public A withLoadBalancerSourceRanges(java.util.List<java.lang.String> loadBalancerSourceRanges);
+  public A withLoadBalancerSourceRanges(List<String> loadBalancerSourceRanges);
 
   public A withLoadBalancerSourceRanges(java.lang.String... loadBalancerSourceRanges);
 
-  public java.lang.Boolean hasLoadBalancerSourceRanges();
+  public Boolean hasLoadBalancerSourceRanges();
 
-  public A addToPorts(java.lang.Integer index, V1ServicePort item);
+  public A addToPorts(Integer index, V1ServicePort item);
 
-  public A setToPorts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ServicePort item);
+  public A setToPorts(Integer index, V1ServicePort item);
 
   public A addToPorts(io.kubernetes.client.openapi.models.V1ServicePort... items);
 
-  public A addAllToPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ServicePort> items);
+  public A addAllToPorts(Collection<V1ServicePort> items);
 
   public A removeFromPorts(io.kubernetes.client.openapi.models.V1ServicePort... items);
 
-  public A removeAllFromPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ServicePort> items);
+  public A removeAllFromPorts(Collection<V1ServicePort> items);
 
-  public A removeMatchingFromPorts(java.util.function.Predicate<V1ServicePortBuilder> predicate);
+  public A removeMatchingFromPorts(Predicate<V1ServicePortBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildPorts instead.
@@ -225,111 +215,98 @@ public interface V1ServiceSpecFluent<A extends V1ServiceSpecFluent<A>> extends F
    * @return The buildable object.
    */
   @Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ServicePort> getPorts();
+  public List<V1ServicePort> getPorts();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ServicePort> buildPorts();
+  public List<V1ServicePort> buildPorts();
 
-  public io.kubernetes.client.openapi.models.V1ServicePort buildPort(java.lang.Integer index);
+  public V1ServicePort buildPort(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ServicePort buildFirstPort();
+  public V1ServicePort buildFirstPort();
 
-  public io.kubernetes.client.openapi.models.V1ServicePort buildLastPort();
+  public V1ServicePort buildLastPort();
 
-  public io.kubernetes.client.openapi.models.V1ServicePort buildMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServicePortBuilder>
-          predicate);
+  public V1ServicePort buildMatchingPort(Predicate<V1ServicePortBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServicePortBuilder>
-          predicate);
+  public Boolean hasMatchingPort(Predicate<V1ServicePortBuilder> predicate);
 
-  public A withPorts(java.util.List<io.kubernetes.client.openapi.models.V1ServicePort> ports);
+  public A withPorts(List<V1ServicePort> ports);
 
   public A withPorts(io.kubernetes.client.openapi.models.V1ServicePort... ports);
 
-  public java.lang.Boolean hasPorts();
+  public Boolean hasPorts();
 
   public V1ServiceSpecFluent.PortsNested<A> addNewPort();
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> addNewPortLike(
-      io.kubernetes.client.openapi.models.V1ServicePort item);
+  public V1ServiceSpecFluent.PortsNested<A> addNewPortLike(V1ServicePort item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> setNewPortLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ServicePort item);
+  public V1ServiceSpecFluent.PortsNested<A> setNewPortLike(Integer index, V1ServicePort item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> editPort(
-      java.lang.Integer index);
+  public V1ServiceSpecFluent.PortsNested<A> editPort(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> editFirstPort();
+  public V1ServiceSpecFluent.PortsNested<A> editFirstPort();
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> editLastPort();
+  public V1ServiceSpecFluent.PortsNested<A> editLastPort();
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> editMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServicePortBuilder>
-          predicate);
+  public V1ServiceSpecFluent.PortsNested<A> editMatchingPort(
+      Predicate<V1ServicePortBuilder> predicate);
 
-  public java.lang.Boolean getPublishNotReadyAddresses();
+  public Boolean getPublishNotReadyAddresses();
 
-  public A withPublishNotReadyAddresses(java.lang.Boolean publishNotReadyAddresses);
+  public A withPublishNotReadyAddresses(Boolean publishNotReadyAddresses);
 
-  public java.lang.Boolean hasPublishNotReadyAddresses();
+  public Boolean hasPublishNotReadyAddresses();
 
-  public A addToSelector(java.lang.String key, java.lang.String value);
+  public A addToSelector(String key, String value);
 
-  public A addToSelector(Map<java.lang.String, java.lang.String> map);
+  public A addToSelector(Map<String, String> map);
 
-  public A removeFromSelector(java.lang.String key);
+  public A removeFromSelector(String key);
 
-  public A removeFromSelector(java.util.Map<java.lang.String, java.lang.String> map);
+  public A removeFromSelector(Map<String, String> map);
 
-  public java.util.Map<java.lang.String, java.lang.String> getSelector();
+  public Map<String, String> getSelector();
 
-  public <K, V> A withSelector(java.util.Map<java.lang.String, java.lang.String> selector);
+  public <K, V> A withSelector(Map<String, String> selector);
 
-  public java.lang.Boolean hasSelector();
+  public Boolean hasSelector();
 
-  public java.lang.String getSessionAffinity();
+  public String getSessionAffinity();
 
-  public A withSessionAffinity(java.lang.String sessionAffinity);
+  public A withSessionAffinity(String sessionAffinity);
 
-  public java.lang.Boolean hasSessionAffinity();
+  public Boolean hasSessionAffinity();
 
   /**
    * This method has been deprecated, please use method buildSessionAffinityConfig instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1SessionAffinityConfig getSessionAffinityConfig();
 
-  public io.kubernetes.client.openapi.models.V1SessionAffinityConfig buildSessionAffinityConfig();
+  public V1SessionAffinityConfig buildSessionAffinityConfig();
 
-  public A withSessionAffinityConfig(
-      io.kubernetes.client.openapi.models.V1SessionAffinityConfig sessionAffinityConfig);
+  public A withSessionAffinityConfig(V1SessionAffinityConfig sessionAffinityConfig);
 
-  public java.lang.Boolean hasSessionAffinityConfig();
+  public Boolean hasSessionAffinityConfig();
 
   public V1ServiceSpecFluent.SessionAffinityConfigNested<A> withNewSessionAffinityConfig();
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<A>
-      withNewSessionAffinityConfigLike(
-          io.kubernetes.client.openapi.models.V1SessionAffinityConfig item);
+  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> withNewSessionAffinityConfigLike(
+      V1SessionAffinityConfig item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<A>
-      editSessionAffinityConfig();
+  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> editSessionAffinityConfig();
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<A>
-      editOrNewSessionAffinityConfig();
+  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> editOrNewSessionAffinityConfig();
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<A>
-      editOrNewSessionAffinityConfigLike(
-          io.kubernetes.client.openapi.models.V1SessionAffinityConfig item);
+  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> editOrNewSessionAffinityConfigLike(
+      V1SessionAffinityConfig item);
 
-  public java.lang.String getType();
+  public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 
   public A withAllocateLoadBalancerNodePorts();
 
@@ -343,7 +320,7 @@ public interface V1ServiceSpecFluent<A extends V1ServiceSpecFluent<A>> extends F
   }
 
   public interface SessionAffinityConfigNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1SessionAffinityConfigFluent<V1ServiceSpecFluent.SessionAffinityConfigNested<N>> {
     public N and();
 

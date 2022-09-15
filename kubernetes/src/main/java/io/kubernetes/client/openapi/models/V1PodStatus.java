@@ -29,7 +29,7 @@ import java.util.Objects;
         "PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1PodStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
@@ -178,15 +178,12 @@ public class V1PodStatus {
   }
 
   /**
-   * Status for any ephemeral containers that have run in this pod. This field is beta-level and
-   * available on clusters that haven&#39;t disabled the EphemeralContainers feature gate.
+   * Status for any ephemeral containers that have run in this pod.
    *
    * @return ephemeralContainerStatuses
    */
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Status for any ephemeral containers that have run in this pod. This field is beta-level and available on clusters that haven't disabled the EphemeralContainers feature gate.")
+  @ApiModelProperty(value = "Status for any ephemeral containers that have run in this pod.")
   public List<V1ContainerStatus> getEphemeralContainerStatuses() {
     return ephemeralContainerStatuses;
   }

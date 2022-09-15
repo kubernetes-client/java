@@ -22,21 +22,20 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl() {}
 
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl(
-      io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
-          instance) {
+      V1StatefulSetPersistentVolumeClaimRetentionPolicy instance) {
     this.withWhenDeleted(instance.getWhenDeleted());
 
     this.withWhenScaled(instance.getWhenScaled());
   }
 
   private String whenDeleted;
-  private java.lang.String whenScaled;
+  private String whenScaled;
 
-  public java.lang.String getWhenDeleted() {
+  public String getWhenDeleted() {
     return this.whenDeleted;
   }
 
-  public A withWhenDeleted(java.lang.String whenDeleted) {
+  public A withWhenDeleted(String whenDeleted) {
     this.whenDeleted = whenDeleted;
     return (A) this;
   }
@@ -45,16 +44,16 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
     return this.whenDeleted != null;
   }
 
-  public java.lang.String getWhenScaled() {
+  public String getWhenScaled() {
     return this.whenScaled;
   }
 
-  public A withWhenScaled(java.lang.String whenScaled) {
+  public A withWhenScaled(String whenScaled) {
     this.whenScaled = whenScaled;
     return (A) this;
   }
 
-  public java.lang.Boolean hasWhenScaled() {
+  public Boolean hasWhenScaled() {
     return this.whenScaled != null;
   }
 
@@ -74,7 +73,7 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
     return java.util.Objects.hash(whenDeleted, whenScaled, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (whenDeleted != null) {

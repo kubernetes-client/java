@@ -26,8 +26,7 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
     extends BaseFluent<A> implements V1ResourceQuotaListFluent<A> {
   public V1ResourceQuotaListFluentImpl() {}
 
-  public V1ResourceQuotaListFluentImpl(
-      io.kubernetes.client.openapi.models.V1ResourceQuotaList instance) {
+  public V1ResourceQuotaListFluentImpl(V1ResourceQuotaList instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withItems(instance.getItems());
@@ -39,14 +38,14 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
 
   private String apiVersion;
   private ArrayList<V1ResourceQuotaBuilder> items;
-  private java.lang.String kind;
+  private String kind;
   private V1ListMetaBuilder metadata;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -55,26 +54,21 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
     return this.apiVersion != null;
   }
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1ResourceQuota item) {
+  public A addToItems(Integer index, V1ResourceQuota item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder>();
+      this.items = new ArrayList<V1ResourceQuotaBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder(item);
+    V1ResourceQuotaBuilder builder = new V1ResourceQuotaBuilder(item);
     _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
     this.items.add(index >= 0 ? index : items.size(), builder);
     return (A) this;
   }
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ResourceQuota item) {
+  public A setToItems(Integer index, V1ResourceQuota item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder>();
+      this.items = new ArrayList<V1ResourceQuotaBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder(item);
+    V1ResourceQuotaBuilder builder = new V1ResourceQuotaBuilder(item);
     if (index < 0 || index >= _visitables.get("items").size()) {
       _visitables.get("items").add(builder);
     } else {
@@ -90,26 +84,22 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
 
   public A addToItems(io.kubernetes.client.openapi.models.V1ResourceQuota... items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder>();
+      this.items = new ArrayList<V1ResourceQuotaBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ResourceQuota item : items) {
-      io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder(item);
+    for (V1ResourceQuota item : items) {
+      V1ResourceQuotaBuilder builder = new V1ResourceQuotaBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1ResourceQuota> items) {
+  public A addAllToItems(Collection<V1ResourceQuota> items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder>();
+      this.items = new ArrayList<V1ResourceQuotaBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ResourceQuota item : items) {
-      io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder(item);
+    for (V1ResourceQuota item : items) {
+      V1ResourceQuotaBuilder builder = new V1ResourceQuotaBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
@@ -117,9 +107,8 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
   }
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1ResourceQuota... items) {
-    for (io.kubernetes.client.openapi.models.V1ResourceQuota item : items) {
-      io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder(item);
+    for (V1ResourceQuota item : items) {
+      V1ResourceQuotaBuilder builder = new V1ResourceQuotaBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -128,11 +117,9 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
     return (A) this;
   }
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ResourceQuota> items) {
-    for (io.kubernetes.client.openapi.models.V1ResourceQuota item : items) {
-      io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder(item);
+  public A removeAllFromItems(Collection<V1ResourceQuota> items) {
+    for (V1ResourceQuota item : items) {
+      V1ResourceQuotaBuilder builder = new V1ResourceQuotaBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -141,14 +128,12 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
     return (A) this;
   }
 
-  public A removeMatchingFromItems(
-      Predicate<io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder> predicate) {
+  public A removeMatchingFromItems(Predicate<V1ResourceQuotaBuilder> predicate) {
     if (items == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder> each =
-        items.iterator();
+    final Iterator<V1ResourceQuotaBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder builder = each.next();
+      V1ResourceQuotaBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -163,30 +148,28 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1ResourceQuota> getItems() {
+  public List<V1ResourceQuota> getItems() {
     return items != null ? build(items) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ResourceQuota> buildItems() {
+  public List<V1ResourceQuota> buildItems() {
     return items != null ? build(items) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuota buildItem(java.lang.Integer index) {
+  public V1ResourceQuota buildItem(Integer index) {
     return this.items.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuota buildFirstItem() {
+  public V1ResourceQuota buildFirstItem() {
     return this.items.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuota buildLastItem() {
+  public V1ResourceQuota buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuota buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder item : items) {
+  public V1ResourceQuota buildMatchingItem(Predicate<V1ResourceQuotaBuilder> predicate) {
+    for (V1ResourceQuotaBuilder item : items) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -194,10 +177,8 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
     return null;
   }
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder item : items) {
+  public Boolean hasMatchingItem(Predicate<V1ResourceQuotaBuilder> predicate) {
+    for (V1ResourceQuotaBuilder item : items) {
       if (predicate.test(item)) {
         return true;
       }
@@ -205,13 +186,13 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
     return false;
   }
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1ResourceQuota> items) {
+  public A withItems(List<V1ResourceQuota> items) {
     if (this.items != null) {
       _visitables.get("items").removeAll(this.items);
     }
     if (items != null) {
-      this.items = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1ResourceQuota item : items) {
+      this.items = new ArrayList();
+      for (V1ResourceQuota item : items) {
         this.addToItems(item);
       }
     } else {
@@ -225,14 +206,14 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
       this.items.clear();
     }
     if (items != null) {
-      for (io.kubernetes.client.openapi.models.V1ResourceQuota item : items) {
+      for (V1ResourceQuota item : items) {
         this.addToItems(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasItems() {
+  public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
 
@@ -240,41 +221,33 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
     return new V1ResourceQuotaListFluentImpl.ItemsNestedImpl();
   }
 
-  public V1ResourceQuotaListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1ResourceQuota item) {
+  public V1ResourceQuotaListFluent.ItemsNested<A> addNewItemLike(V1ResourceQuota item) {
     return new V1ResourceQuotaListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ResourceQuota item) {
-    return new io.kubernetes.client.openapi.models.V1ResourceQuotaListFluentImpl.ItemsNestedImpl(
-        index, item);
+  public V1ResourceQuotaListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1ResourceQuota item) {
+    return new V1ResourceQuotaListFluentImpl.ItemsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index) {
+  public V1ResourceQuotaListFluent.ItemsNested<A> editItem(Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaListFluent.ItemsNested<A>
-      editFirstItem() {
+  public V1ResourceQuotaListFluent.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaListFluent.ItemsNested<A>
-      editLastItem() {
+  public V1ResourceQuotaListFluent.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder>
-              predicate) {
+  public V1ResourceQuotaListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1ResourceQuotaBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < items.size(); i++) {
       if (predicate.test(items.get(i))) {
@@ -286,16 +259,16 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
     return setNewItemLike(index, buildItem(index));
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -304,25 +277,28 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
+  @Deprecated
+  public V1ListMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
+  public V1ListMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
+  public A withMetadata(V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -330,27 +306,20 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
     return new V1ResourceQuotaListFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V1ResourceQuotaListFluentImpl.MetadataNestedImpl(
-        item);
+  public V1ResourceQuotaListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+    return new V1ResourceQuotaListFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaListFluent.MetadataNested<A>
-      editMetadata() {
+  public V1ResourceQuotaListFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaListFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1ResourceQuotaListFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuotaListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
+  public V1ResourceQuotaListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -370,7 +339,7 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -396,19 +365,18 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
   class ItemsNestedImpl<N>
       extends V1ResourceQuotaFluentImpl<V1ResourceQuotaListFluent.ItemsNested<N>>
       implements V1ResourceQuotaListFluent.ItemsNested<N>, Nested<N> {
-    ItemsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1ResourceQuota item) {
+    ItemsNestedImpl(Integer index, V1ResourceQuota item) {
       this.index = index;
       this.builder = new V1ResourceQuotaBuilder(this, item);
     }
 
     ItemsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder(this);
+      this.builder = new V1ResourceQuotaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder builder;
-    java.lang.Integer index;
+    V1ResourceQuotaBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1ResourceQuotaListFluentImpl.this.setToItems(index, builder.build());
@@ -421,17 +389,16 @@ public class V1ResourceQuotaListFluentImpl<A extends V1ResourceQuotaListFluent<A
 
   class MetadataNestedImpl<N>
       extends V1ListMetaFluentImpl<V1ResourceQuotaListFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ResourceQuotaListFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1ResourceQuotaListFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this);
+      this.builder = new V1ListMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
+    V1ListMetaBuilder builder;
 
     public N and() {
       return (N) V1ResourceQuotaListFluentImpl.this.withMetadata(builder.build());

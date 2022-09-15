@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1CSIDriverListBuilder extends V1CSIDriverListFluentImpl<V1CSIDriverListBuilder>
-    implements VisitableBuilder<
-        V1CSIDriverList, io.kubernetes.client.openapi.models.V1CSIDriverListBuilder> {
+    implements VisitableBuilder<V1CSIDriverList, V1CSIDriverListBuilder> {
   public V1CSIDriverListBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1CSIDriverListBuilder extends V1CSIDriverListFluentImpl<V1CSIDrive
     this(new V1CSIDriverList(), validationEnabled);
   }
 
-  public V1CSIDriverListBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverListFluent<?> fluent) {
+  public V1CSIDriverListBuilder(V1CSIDriverListFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1CSIDriverListBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1CSIDriverListBuilder(V1CSIDriverListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CSIDriverList(), validationEnabled);
   }
 
-  public V1CSIDriverListBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSIDriverList instance) {
+  public V1CSIDriverListBuilder(V1CSIDriverListFluent<?> fluent, V1CSIDriverList instance) {
     this(fluent, instance, false);
   }
 
   public V1CSIDriverListBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSIDriverList instance,
-      java.lang.Boolean validationEnabled) {
+      V1CSIDriverListFluent<?> fluent, V1CSIDriverList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,13 +50,11 @@ public class V1CSIDriverListBuilder extends V1CSIDriverListFluentImpl<V1CSIDrive
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CSIDriverListBuilder(io.kubernetes.client.openapi.models.V1CSIDriverList instance) {
+  public V1CSIDriverListBuilder(V1CSIDriverList instance) {
     this(instance, false);
   }
 
-  public V1CSIDriverListBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1CSIDriverListBuilder(V1CSIDriverList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -77,10 +67,10 @@ public class V1CSIDriverListBuilder extends V1CSIDriverListFluentImpl<V1CSIDrive
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CSIDriverListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CSIDriverListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverList build() {
+  public V1CSIDriverList build() {
     V1CSIDriverList buildable = new V1CSIDriverList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

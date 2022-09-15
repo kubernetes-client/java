@@ -19,19 +19,19 @@ public interface V1GitRepoVolumeSourceFluent<A extends V1GitRepoVolumeSourceFlue
     extends Fluent<A> {
   public String getDirectory();
 
-  public A withDirectory(java.lang.String directory);
+  public A withDirectory(String directory);
 
   public Boolean hasDirectory();
 
-  public java.lang.String getRepository();
+  public String getRepository();
 
-  public A withRepository(java.lang.String repository);
+  public A withRepository(String repository);
 
-  public java.lang.Boolean hasRepository();
+  public Boolean hasRepository();
 
-  public java.lang.String getRevision();
+  public String getRevision();
 
-  public A withRevision(java.lang.String revision);
+  public A withRevision(String revision);
 
-  public java.lang.Boolean hasRevision();
+  public Boolean hasRevision();
 }

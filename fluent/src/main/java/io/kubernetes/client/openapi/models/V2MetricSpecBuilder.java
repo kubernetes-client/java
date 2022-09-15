@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2MetricSpecBuilder extends V2MetricSpecFluentImpl<V2MetricSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2MetricSpec,
-        io.kubernetes.client.openapi.models.V2MetricSpecBuilder> {
+    implements VisitableBuilder<V2MetricSpec, V2MetricSpecBuilder> {
   public V2MetricSpecBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V2MetricSpecBuilder extends V2MetricSpecFluentImpl<V2MetricSpecBuil
     this(fluent, false);
   }
 
-  public V2MetricSpecBuilder(
-      io.kubernetes.client.openapi.models.V2MetricSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V2MetricSpecBuilder(V2MetricSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2MetricSpec(), validationEnabled);
   }
 
-  public V2MetricSpecBuilder(
-      io.kubernetes.client.openapi.models.V2MetricSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2MetricSpec instance) {
+  public V2MetricSpecBuilder(V2MetricSpecFluent<?> fluent, V2MetricSpec instance) {
     this(fluent, instance, false);
   }
 
   public V2MetricSpecBuilder(
-      io.kubernetes.client.openapi.models.V2MetricSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2MetricSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V2MetricSpecFluent<?> fluent, V2MetricSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withContainerResource(instance.getContainerResource());
 
@@ -62,13 +54,11 @@ public class V2MetricSpecBuilder extends V2MetricSpecFluentImpl<V2MetricSpecBuil
     this.validationEnabled = validationEnabled;
   }
 
-  public V2MetricSpecBuilder(io.kubernetes.client.openapi.models.V2MetricSpec instance) {
+  public V2MetricSpecBuilder(V2MetricSpec instance) {
     this(instance, false);
   }
 
-  public V2MetricSpecBuilder(
-      io.kubernetes.client.openapi.models.V2MetricSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V2MetricSpecBuilder(V2MetricSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withContainerResource(instance.getContainerResource());
 
@@ -85,10 +75,10 @@ public class V2MetricSpecBuilder extends V2MetricSpecFluentImpl<V2MetricSpecBuil
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2MetricSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2MetricSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2MetricSpec build() {
+  public V2MetricSpec build() {
     V2MetricSpec buildable = new V2MetricSpec();
     buildable.setContainerResource(fluent.getContainerResource());
     buildable.setExternal(fluent.getExternal());

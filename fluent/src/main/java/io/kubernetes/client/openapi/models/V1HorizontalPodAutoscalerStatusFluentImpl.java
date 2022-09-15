@@ -22,8 +22,7 @@ public class V1HorizontalPodAutoscalerStatusFluentImpl<
     extends BaseFluent<A> implements V1HorizontalPodAutoscalerStatusFluent<A> {
   public V1HorizontalPodAutoscalerStatusFluentImpl() {}
 
-  public V1HorizontalPodAutoscalerStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerStatus instance) {
+  public V1HorizontalPodAutoscalerStatusFluentImpl(V1HorizontalPodAutoscalerStatus instance) {
     this.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
 
     this.withCurrentReplicas(instance.getCurrentReplicas());
@@ -36,16 +35,16 @@ public class V1HorizontalPodAutoscalerStatusFluentImpl<
   }
 
   private Integer currentCPUUtilizationPercentage;
-  private java.lang.Integer currentReplicas;
-  private java.lang.Integer desiredReplicas;
+  private Integer currentReplicas;
+  private Integer desiredReplicas;
   private OffsetDateTime lastScaleTime;
   private Long observedGeneration;
 
-  public java.lang.Integer getCurrentCPUUtilizationPercentage() {
+  public Integer getCurrentCPUUtilizationPercentage() {
     return this.currentCPUUtilizationPercentage;
   }
 
-  public A withCurrentCPUUtilizationPercentage(java.lang.Integer currentCPUUtilizationPercentage) {
+  public A withCurrentCPUUtilizationPercentage(Integer currentCPUUtilizationPercentage) {
     this.currentCPUUtilizationPercentage = currentCPUUtilizationPercentage;
     return (A) this;
   }
@@ -54,55 +53,55 @@ public class V1HorizontalPodAutoscalerStatusFluentImpl<
     return this.currentCPUUtilizationPercentage != null;
   }
 
-  public java.lang.Integer getCurrentReplicas() {
+  public Integer getCurrentReplicas() {
     return this.currentReplicas;
   }
 
-  public A withCurrentReplicas(java.lang.Integer currentReplicas) {
+  public A withCurrentReplicas(Integer currentReplicas) {
     this.currentReplicas = currentReplicas;
     return (A) this;
   }
 
-  public java.lang.Boolean hasCurrentReplicas() {
+  public Boolean hasCurrentReplicas() {
     return this.currentReplicas != null;
   }
 
-  public java.lang.Integer getDesiredReplicas() {
+  public Integer getDesiredReplicas() {
     return this.desiredReplicas;
   }
 
-  public A withDesiredReplicas(java.lang.Integer desiredReplicas) {
+  public A withDesiredReplicas(Integer desiredReplicas) {
     this.desiredReplicas = desiredReplicas;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDesiredReplicas() {
+  public Boolean hasDesiredReplicas() {
     return this.desiredReplicas != null;
   }
 
-  public java.time.OffsetDateTime getLastScaleTime() {
+  public OffsetDateTime getLastScaleTime() {
     return this.lastScaleTime;
   }
 
-  public A withLastScaleTime(java.time.OffsetDateTime lastScaleTime) {
+  public A withLastScaleTime(OffsetDateTime lastScaleTime) {
     this.lastScaleTime = lastScaleTime;
     return (A) this;
   }
 
-  public java.lang.Boolean hasLastScaleTime() {
+  public Boolean hasLastScaleTime() {
     return this.lastScaleTime != null;
   }
 
-  public java.lang.Long getObservedGeneration() {
+  public Long getObservedGeneration() {
     return this.observedGeneration;
   }
 
-  public A withObservedGeneration(java.lang.Long observedGeneration) {
+  public A withObservedGeneration(Long observedGeneration) {
     this.observedGeneration = observedGeneration;
     return (A) this;
   }
 
-  public java.lang.Boolean hasObservedGeneration() {
+  public Boolean hasObservedGeneration() {
     return this.observedGeneration != null;
   }
 

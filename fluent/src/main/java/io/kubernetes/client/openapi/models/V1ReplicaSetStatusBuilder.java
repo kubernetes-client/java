@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ReplicaSetStatusBuilder
     extends V1ReplicaSetStatusFluentImpl<V1ReplicaSetStatusBuilder>
-    implements VisitableBuilder<
-        V1ReplicaSetStatus, io.kubernetes.client.openapi.models.V1ReplicaSetStatusBuilder> {
+    implements VisitableBuilder<V1ReplicaSetStatus, V1ReplicaSetStatusBuilder> {
   public V1ReplicaSetStatusBuilder() {
     this(false);
   }
@@ -30,22 +29,17 @@ public class V1ReplicaSetStatusBuilder
     this(fluent, false);
   }
 
-  public V1ReplicaSetStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ReplicaSetStatusBuilder(V1ReplicaSetStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ReplicaSetStatus(), validationEnabled);
   }
 
   public V1ReplicaSetStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ReplicaSetStatus instance) {
+      V1ReplicaSetStatusFluent<?> fluent, V1ReplicaSetStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1ReplicaSetStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ReplicaSetStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1ReplicaSetStatusFluent<?> fluent, V1ReplicaSetStatus instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAvailableReplicas(instance.getAvailableReplicas());
 
@@ -62,14 +56,11 @@ public class V1ReplicaSetStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ReplicaSetStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetStatus instance) {
+  public V1ReplicaSetStatusBuilder(V1ReplicaSetStatus instance) {
     this(instance, false);
   }
 
-  public V1ReplicaSetStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ReplicaSetStatusBuilder(V1ReplicaSetStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAvailableReplicas(instance.getAvailableReplicas());
 
@@ -86,10 +77,10 @@ public class V1ReplicaSetStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ReplicaSetStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetStatus build() {
+  public V1ReplicaSetStatus build() {
     V1ReplicaSetStatus buildable = new V1ReplicaSetStatus();
     buildable.setAvailableReplicas(fluent.getAvailableReplicas());
     buildable.setConditions(fluent.getConditions());

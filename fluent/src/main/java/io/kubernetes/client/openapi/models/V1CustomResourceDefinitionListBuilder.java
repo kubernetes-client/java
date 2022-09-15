@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1CustomResourceDefinitionListBuilder
     extends V1CustomResourceDefinitionListFluentImpl<V1CustomResourceDefinitionListBuilder>
     implements VisitableBuilder<
-        V1CustomResourceDefinitionList,
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListBuilder> {
+        V1CustomResourceDefinitionList, V1CustomResourceDefinitionListBuilder> {
   public V1CustomResourceDefinitionListBuilder() {
     this(false);
   }
@@ -27,27 +26,24 @@ public class V1CustomResourceDefinitionListBuilder
     this(new V1CustomResourceDefinitionList(), validationEnabled);
   }
 
-  public V1CustomResourceDefinitionListBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent<?> fluent) {
+  public V1CustomResourceDefinitionListBuilder(V1CustomResourceDefinitionListFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1CustomResourceDefinitionListBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CustomResourceDefinitionList(), validationEnabled);
   }
 
   public V1CustomResourceDefinitionListBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionList instance) {
+      V1CustomResourceDefinitionListFluent<?> fluent, V1CustomResourceDefinitionList instance) {
     this(fluent, instance, false);
   }
 
   public V1CustomResourceDefinitionListBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionList instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionListFluent<?> fluent,
+      V1CustomResourceDefinitionList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -60,14 +56,12 @@ public class V1CustomResourceDefinitionListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CustomResourceDefinitionListBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionList instance) {
+  public V1CustomResourceDefinitionListBuilder(V1CustomResourceDefinitionList instance) {
     this(instance, false);
   }
 
   public V1CustomResourceDefinitionListBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionList instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -80,10 +74,10 @@ public class V1CustomResourceDefinitionListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CustomResourceDefinitionListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CustomResourceDefinitionListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionList build() {
+  public V1CustomResourceDefinitionList build() {
     V1CustomResourceDefinitionList buildable = new V1CustomResourceDefinitionList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

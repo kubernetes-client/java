@@ -26,7 +26,7 @@ import java.util.Objects;
         "LimitRangeItem defines a min/max usage limit for any resource that matches on kind.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1LimitRangeItem {
   public static final String SERIALIZED_NAME_DEFAULT = "default";
 

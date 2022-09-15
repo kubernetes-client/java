@@ -26,7 +26,7 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     implements V1IngressSpecFluent<A> {
   public V1IngressSpecFluentImpl() {}
 
-  public V1IngressSpecFluentImpl(io.kubernetes.client.openapi.models.V1IngressSpec instance) {
+  public V1IngressSpecFluentImpl(V1IngressSpec instance) {
     this.withDefaultBackend(instance.getDefaultBackend());
 
     this.withIngressClassName(instance.getIngressClassName());
@@ -39,7 +39,7 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
   private V1IngressBackendBuilder defaultBackend;
   private String ingressClassName;
   private ArrayList<V1IngressRuleBuilder> rules;
-  private java.util.ArrayList<V1IngressTLSBuilder> tls;
+  private ArrayList<V1IngressTLSBuilder> tls;
 
   /**
    * This method has been deprecated, please use method buildDefaultBackend instead.
@@ -47,19 +47,22 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1IngressBackend getDefaultBackend() {
+  public V1IngressBackend getDefaultBackend() {
     return this.defaultBackend != null ? this.defaultBackend.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressBackend buildDefaultBackend() {
+  public V1IngressBackend buildDefaultBackend() {
     return this.defaultBackend != null ? this.defaultBackend.build() : null;
   }
 
-  public A withDefaultBackend(io.kubernetes.client.openapi.models.V1IngressBackend defaultBackend) {
+  public A withDefaultBackend(V1IngressBackend defaultBackend) {
     _visitables.get("defaultBackend").remove(this.defaultBackend);
     if (defaultBackend != null) {
       this.defaultBackend = new V1IngressBackendBuilder(defaultBackend);
       _visitables.get("defaultBackend").add(this.defaultBackend);
+    } else {
+      this.defaultBackend = null;
+      _visitables.get("defaultBackend").remove(this.defaultBackend);
     }
     return (A) this;
   }
@@ -72,61 +75,53 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return new V1IngressSpecFluentImpl.DefaultBackendNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<A>
-      withNewDefaultBackendLike(io.kubernetes.client.openapi.models.V1IngressBackend item) {
+  public V1IngressSpecFluent.DefaultBackendNested<A> withNewDefaultBackendLike(
+      V1IngressBackend item) {
     return new V1IngressSpecFluentImpl.DefaultBackendNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<A>
-      editDefaultBackend() {
+  public V1IngressSpecFluent.DefaultBackendNested<A> editDefaultBackend() {
     return withNewDefaultBackendLike(getDefaultBackend());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<A>
-      editOrNewDefaultBackend() {
+  public V1IngressSpecFluent.DefaultBackendNested<A> editOrNewDefaultBackend() {
     return withNewDefaultBackendLike(
-        getDefaultBackend() != null
-            ? getDefaultBackend()
-            : new io.kubernetes.client.openapi.models.V1IngressBackendBuilder().build());
+        getDefaultBackend() != null ? getDefaultBackend() : new V1IngressBackendBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<A>
-      editOrNewDefaultBackendLike(io.kubernetes.client.openapi.models.V1IngressBackend item) {
+  public V1IngressSpecFluent.DefaultBackendNested<A> editOrNewDefaultBackendLike(
+      V1IngressBackend item) {
     return withNewDefaultBackendLike(getDefaultBackend() != null ? getDefaultBackend() : item);
   }
 
-  public java.lang.String getIngressClassName() {
+  public String getIngressClassName() {
     return this.ingressClassName;
   }
 
-  public A withIngressClassName(java.lang.String ingressClassName) {
+  public A withIngressClassName(String ingressClassName) {
     this.ingressClassName = ingressClassName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasIngressClassName() {
+  public Boolean hasIngressClassName() {
     return this.ingressClassName != null;
   }
 
-  public A addToRules(Integer index, io.kubernetes.client.openapi.models.V1IngressRule item) {
+  public A addToRules(Integer index, V1IngressRule item) {
     if (this.rules == null) {
-      this.rules = new java.util.ArrayList<V1IngressRuleBuilder>();
+      this.rules = new ArrayList<V1IngressRuleBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1IngressRuleBuilder builder =
-        new io.kubernetes.client.openapi.models.V1IngressRuleBuilder(item);
+    V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
     _visitables.get("rules").add(index >= 0 ? index : _visitables.get("rules").size(), builder);
     this.rules.add(index >= 0 ? index : rules.size(), builder);
     return (A) this;
   }
 
-  public A setToRules(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressRule item) {
+  public A setToRules(Integer index, V1IngressRule item) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>();
+      this.rules = new ArrayList<V1IngressRuleBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1IngressRuleBuilder builder =
-        new io.kubernetes.client.openapi.models.V1IngressRuleBuilder(item);
+    V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
     if (index < 0 || index >= _visitables.get("rules").size()) {
       _visitables.get("rules").add(builder);
     } else {
@@ -142,26 +137,22 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
 
   public A addToRules(io.kubernetes.client.openapi.models.V1IngressRule... items) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>();
+      this.rules = new ArrayList<V1IngressRuleBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1IngressRule item : items) {
-      io.kubernetes.client.openapi.models.V1IngressRuleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1IngressRuleBuilder(item);
+    for (V1IngressRule item : items) {
+      V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
       _visitables.get("rules").add(builder);
       this.rules.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToRules(Collection<io.kubernetes.client.openapi.models.V1IngressRule> items) {
+  public A addAllToRules(Collection<V1IngressRule> items) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>();
+      this.rules = new ArrayList<V1IngressRuleBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1IngressRule item : items) {
-      io.kubernetes.client.openapi.models.V1IngressRuleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1IngressRuleBuilder(item);
+    for (V1IngressRule item : items) {
+      V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
       _visitables.get("rules").add(builder);
       this.rules.add(builder);
     }
@@ -169,9 +160,8 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
   }
 
   public A removeFromRules(io.kubernetes.client.openapi.models.V1IngressRule... items) {
-    for (io.kubernetes.client.openapi.models.V1IngressRule item : items) {
-      io.kubernetes.client.openapi.models.V1IngressRuleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1IngressRuleBuilder(item);
+    for (V1IngressRule item : items) {
+      V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
       _visitables.get("rules").remove(builder);
       if (this.rules != null) {
         this.rules.remove(builder);
@@ -180,11 +170,9 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeAllFromRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1IngressRule> items) {
-    for (io.kubernetes.client.openapi.models.V1IngressRule item : items) {
-      io.kubernetes.client.openapi.models.V1IngressRuleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1IngressRuleBuilder(item);
+  public A removeAllFromRules(Collection<V1IngressRule> items) {
+    for (V1IngressRule item : items) {
+      V1IngressRuleBuilder builder = new V1IngressRuleBuilder(item);
       _visitables.get("rules").remove(builder);
       if (this.rules != null) {
         this.rules.remove(builder);
@@ -193,14 +181,12 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeMatchingFromRules(
-      Predicate<io.kubernetes.client.openapi.models.V1IngressRuleBuilder> predicate) {
+  public A removeMatchingFromRules(Predicate<V1IngressRuleBuilder> predicate) {
     if (rules == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1IngressRuleBuilder> each =
-        rules.iterator();
+    final Iterator<V1IngressRuleBuilder> each = rules.iterator();
     final List visitables = _visitables.get("rules");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1IngressRuleBuilder builder = each.next();
+      V1IngressRuleBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -214,31 +200,29 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public List<io.kubernetes.client.openapi.models.V1IngressRule> getRules() {
+  @Deprecated
+  public List<V1IngressRule> getRules() {
     return rules != null ? build(rules) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1IngressRule> buildRules() {
+  public List<V1IngressRule> buildRules() {
     return rules != null ? build(rules) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressRule buildRule(java.lang.Integer index) {
+  public V1IngressRule buildRule(Integer index) {
     return this.rules.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressRule buildFirstRule() {
+  public V1IngressRule buildFirstRule() {
     return this.rules.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressRule buildLastRule() {
+  public V1IngressRule buildLastRule() {
     return this.rules.get(rules.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressRule buildMatchingRule(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1IngressRuleBuilder item : rules) {
+  public V1IngressRule buildMatchingRule(Predicate<V1IngressRuleBuilder> predicate) {
+    for (V1IngressRuleBuilder item : rules) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -246,10 +230,8 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return null;
   }
 
-  public java.lang.Boolean hasMatchingRule(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1IngressRuleBuilder item : rules) {
+  public Boolean hasMatchingRule(Predicate<V1IngressRuleBuilder> predicate) {
+    for (V1IngressRuleBuilder item : rules) {
       if (predicate.test(item)) {
         return true;
       }
@@ -257,13 +239,13 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return false;
   }
 
-  public A withRules(java.util.List<io.kubernetes.client.openapi.models.V1IngressRule> rules) {
+  public A withRules(List<V1IngressRule> rules) {
     if (this.rules != null) {
       _visitables.get("rules").removeAll(this.rules);
     }
     if (rules != null) {
-      this.rules = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1IngressRule item : rules) {
+      this.rules = new ArrayList();
+      for (V1IngressRule item : rules) {
         this.addToRules(item);
       }
     } else {
@@ -277,14 +259,14 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
       this.rules.clear();
     }
     if (rules != null) {
-      for (io.kubernetes.client.openapi.models.V1IngressRule item : rules) {
+      for (V1IngressRule item : rules) {
         this.addToRules(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasRules() {
+  public Boolean hasRules() {
     return rules != null && !rules.isEmpty();
   }
 
@@ -292,38 +274,32 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return new V1IngressSpecFluentImpl.RulesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> addNewRuleLike(
-      io.kubernetes.client.openapi.models.V1IngressRule item) {
-    return new io.kubernetes.client.openapi.models.V1IngressSpecFluentImpl.RulesNestedImpl(
-        -1, item);
+  public V1IngressSpecFluent.RulesNested<A> addNewRuleLike(V1IngressRule item) {
+    return new V1IngressSpecFluentImpl.RulesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> setNewRuleLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressRule item) {
-    return new io.kubernetes.client.openapi.models.V1IngressSpecFluentImpl.RulesNestedImpl(
-        index, item);
+  public V1IngressSpecFluent.RulesNested<A> setNewRuleLike(Integer index, V1IngressRule item) {
+    return new V1IngressSpecFluentImpl.RulesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> editRule(
-      java.lang.Integer index) {
+  public V1IngressSpecFluent.RulesNested<A> editRule(Integer index) {
     if (rules.size() <= index) throw new RuntimeException("Can't edit rules. Index exceeds size.");
     return setNewRuleLike(index, buildRule(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> editFirstRule() {
+  public V1IngressSpecFluent.RulesNested<A> editFirstRule() {
     if (rules.size() == 0) throw new RuntimeException("Can't edit first rules. The list is empty.");
     return setNewRuleLike(0, buildRule(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> editLastRule() {
+  public V1IngressSpecFluent.RulesNested<A> editLastRule() {
     int index = rules.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last rules. The list is empty.");
     return setNewRuleLike(index, buildRule(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<A> editMatchingRule(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressRuleBuilder>
-          predicate) {
+  public V1IngressSpecFluent.RulesNested<A> editMatchingRule(
+      Predicate<V1IngressRuleBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < rules.size(); i++) {
       if (predicate.test(rules.get(i))) {
@@ -335,25 +311,21 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return setNewRuleLike(index, buildRule(index));
   }
 
-  public A addToTls(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressTLS item) {
+  public A addToTls(Integer index, V1IngressTLS item) {
     if (this.tls == null) {
-      this.tls = new java.util.ArrayList<V1IngressTLSBuilder>();
+      this.tls = new ArrayList<V1IngressTLSBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1IngressTLSBuilder builder =
-        new io.kubernetes.client.openapi.models.V1IngressTLSBuilder(item);
+    V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
     _visitables.get("tls").add(index >= 0 ? index : _visitables.get("tls").size(), builder);
     this.tls.add(index >= 0 ? index : tls.size(), builder);
     return (A) this;
   }
 
-  public A setToTls(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressTLS item) {
+  public A setToTls(Integer index, V1IngressTLS item) {
     if (this.tls == null) {
-      this.tls = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressTLSBuilder>();
+      this.tls = new ArrayList<V1IngressTLSBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1IngressTLSBuilder builder =
-        new io.kubernetes.client.openapi.models.V1IngressTLSBuilder(item);
+    V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
     if (index < 0 || index >= _visitables.get("tls").size()) {
       _visitables.get("tls").add(builder);
     } else {
@@ -369,25 +341,22 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
 
   public A addToTls(io.kubernetes.client.openapi.models.V1IngressTLS... items) {
     if (this.tls == null) {
-      this.tls = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressTLSBuilder>();
+      this.tls = new ArrayList<V1IngressTLSBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1IngressTLS item : items) {
-      io.kubernetes.client.openapi.models.V1IngressTLSBuilder builder =
-          new io.kubernetes.client.openapi.models.V1IngressTLSBuilder(item);
+    for (V1IngressTLS item : items) {
+      V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
       _visitables.get("tls").add(builder);
       this.tls.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToTls(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1IngressTLS> items) {
+  public A addAllToTls(Collection<V1IngressTLS> items) {
     if (this.tls == null) {
-      this.tls = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1IngressTLSBuilder>();
+      this.tls = new ArrayList<V1IngressTLSBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1IngressTLS item : items) {
-      io.kubernetes.client.openapi.models.V1IngressTLSBuilder builder =
-          new io.kubernetes.client.openapi.models.V1IngressTLSBuilder(item);
+    for (V1IngressTLS item : items) {
+      V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
       _visitables.get("tls").add(builder);
       this.tls.add(builder);
     }
@@ -395,9 +364,8 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
   }
 
   public A removeFromTls(io.kubernetes.client.openapi.models.V1IngressTLS... items) {
-    for (io.kubernetes.client.openapi.models.V1IngressTLS item : items) {
-      io.kubernetes.client.openapi.models.V1IngressTLSBuilder builder =
-          new io.kubernetes.client.openapi.models.V1IngressTLSBuilder(item);
+    for (V1IngressTLS item : items) {
+      V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
       _visitables.get("tls").remove(builder);
       if (this.tls != null) {
         this.tls.remove(builder);
@@ -406,11 +374,9 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeAllFromTls(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1IngressTLS> items) {
-    for (io.kubernetes.client.openapi.models.V1IngressTLS item : items) {
-      io.kubernetes.client.openapi.models.V1IngressTLSBuilder builder =
-          new io.kubernetes.client.openapi.models.V1IngressTLSBuilder(item);
+  public A removeAllFromTls(Collection<V1IngressTLS> items) {
+    for (V1IngressTLS item : items) {
+      V1IngressTLSBuilder builder = new V1IngressTLSBuilder(item);
       _visitables.get("tls").remove(builder);
       if (this.tls != null) {
         this.tls.remove(builder);
@@ -419,14 +385,12 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeMatchingFromTls(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressTLSBuilder>
-          predicate) {
+  public A removeMatchingFromTls(Predicate<V1IngressTLSBuilder> predicate) {
     if (tls == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1IngressTLSBuilder> each = tls.iterator();
+    final Iterator<V1IngressTLSBuilder> each = tls.iterator();
     final List visitables = _visitables.get("tls");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1IngressTLSBuilder builder = each.next();
+      V1IngressTLSBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -440,31 +404,29 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1IngressTLS> getTls() {
+  @Deprecated
+  public List<V1IngressTLS> getTls() {
     return tls != null ? build(tls) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1IngressTLS> buildTls() {
+  public List<V1IngressTLS> buildTls() {
     return tls != null ? build(tls) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressTLS buildTl(java.lang.Integer index) {
+  public V1IngressTLS buildTl(Integer index) {
     return this.tls.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressTLS buildFirstTl() {
+  public V1IngressTLS buildFirstTl() {
     return this.tls.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressTLS buildLastTl() {
+  public V1IngressTLS buildLastTl() {
     return this.tls.get(tls.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressTLS buildMatchingTl(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressTLSBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1IngressTLSBuilder item : tls) {
+  public V1IngressTLS buildMatchingTl(Predicate<V1IngressTLSBuilder> predicate) {
+    for (V1IngressTLSBuilder item : tls) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -472,10 +434,8 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return null;
   }
 
-  public java.lang.Boolean hasMatchingTl(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressTLSBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1IngressTLSBuilder item : tls) {
+  public Boolean hasMatchingTl(Predicate<V1IngressTLSBuilder> predicate) {
+    for (V1IngressTLSBuilder item : tls) {
       if (predicate.test(item)) {
         return true;
       }
@@ -483,13 +443,13 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return false;
   }
 
-  public A withTls(java.util.List<io.kubernetes.client.openapi.models.V1IngressTLS> tls) {
+  public A withTls(List<V1IngressTLS> tls) {
     if (this.tls != null) {
       _visitables.get("tls").removeAll(this.tls);
     }
     if (tls != null) {
-      this.tls = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1IngressTLS item : tls) {
+      this.tls = new ArrayList();
+      for (V1IngressTLS item : tls) {
         this.addToTls(item);
       }
     } else {
@@ -503,14 +463,14 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
       this.tls.clear();
     }
     if (tls != null) {
-      for (io.kubernetes.client.openapi.models.V1IngressTLS item : tls) {
+      for (V1IngressTLS item : tls) {
         this.addToTls(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasTls() {
+  public Boolean hasTls() {
     return tls != null && !tls.isEmpty();
   }
 
@@ -518,37 +478,31 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return new V1IngressSpecFluentImpl.TlsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> addNewTlLike(
-      io.kubernetes.client.openapi.models.V1IngressTLS item) {
-    return new io.kubernetes.client.openapi.models.V1IngressSpecFluentImpl.TlsNestedImpl(-1, item);
+  public V1IngressSpecFluent.TlsNested<A> addNewTlLike(V1IngressTLS item) {
+    return new V1IngressSpecFluentImpl.TlsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> setNewTlLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressTLS item) {
-    return new io.kubernetes.client.openapi.models.V1IngressSpecFluentImpl.TlsNestedImpl(
-        index, item);
+  public V1IngressSpecFluent.TlsNested<A> setNewTlLike(Integer index, V1IngressTLS item) {
+    return new V1IngressSpecFluentImpl.TlsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> editTl(
-      java.lang.Integer index) {
+  public V1IngressSpecFluent.TlsNested<A> editTl(Integer index) {
     if (tls.size() <= index) throw new RuntimeException("Can't edit tls. Index exceeds size.");
     return setNewTlLike(index, buildTl(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> editFirstTl() {
+  public V1IngressSpecFluent.TlsNested<A> editFirstTl() {
     if (tls.size() == 0) throw new RuntimeException("Can't edit first tls. The list is empty.");
     return setNewTlLike(0, buildTl(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> editLastTl() {
+  public V1IngressSpecFluent.TlsNested<A> editLastTl() {
     int index = tls.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last tls. The list is empty.");
     return setNewTlLike(index, buildTl(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<A> editMatchingTl(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1IngressTLSBuilder>
-          predicate) {
+  public V1IngressSpecFluent.TlsNested<A> editMatchingTl(Predicate<V1IngressTLSBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < tls.size(); i++) {
       if (predicate.test(tls.get(i))) {
@@ -579,7 +533,7 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
     return java.util.Objects.hash(defaultBackend, ingressClassName, rules, tls, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (defaultBackend != null) {
@@ -604,17 +558,16 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
 
   class DefaultBackendNestedImpl<N>
       extends V1IngressBackendFluentImpl<V1IngressSpecFluent.DefaultBackendNested<N>>
-      implements io.kubernetes.client.openapi.models.V1IngressSpecFluent.DefaultBackendNested<N>,
-          Nested<N> {
+      implements V1IngressSpecFluent.DefaultBackendNested<N>, Nested<N> {
     DefaultBackendNestedImpl(V1IngressBackend item) {
       this.builder = new V1IngressBackendBuilder(this, item);
     }
 
     DefaultBackendNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1IngressBackendBuilder(this);
+      this.builder = new V1IngressBackendBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1IngressBackendBuilder builder;
+    V1IngressBackendBuilder builder;
 
     public N and() {
       return (N) V1IngressSpecFluentImpl.this.withDefaultBackend(builder.build());
@@ -626,21 +579,19 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
   }
 
   class RulesNestedImpl<N> extends V1IngressRuleFluentImpl<V1IngressSpecFluent.RulesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1IngressSpecFluent.RulesNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    RulesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressRule item) {
+      implements V1IngressSpecFluent.RulesNested<N>, Nested<N> {
+    RulesNestedImpl(Integer index, V1IngressRule item) {
       this.index = index;
       this.builder = new V1IngressRuleBuilder(this, item);
     }
 
     RulesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1IngressRuleBuilder(this);
+      this.builder = new V1IngressRuleBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1IngressRuleBuilder builder;
-    java.lang.Integer index;
+    V1IngressRuleBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1IngressSpecFluentImpl.this.setToRules(index, builder.build());
@@ -652,20 +603,19 @@ public class V1IngressSpecFluentImpl<A extends V1IngressSpecFluent<A>> extends B
   }
 
   class TlsNestedImpl<N> extends V1IngressTLSFluentImpl<V1IngressSpecFluent.TlsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1IngressSpecFluent.TlsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    TlsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1IngressTLS item) {
+      implements V1IngressSpecFluent.TlsNested<N>, Nested<N> {
+    TlsNestedImpl(Integer index, V1IngressTLS item) {
       this.index = index;
       this.builder = new V1IngressTLSBuilder(this, item);
     }
 
     TlsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1IngressTLSBuilder(this);
+      this.builder = new V1IngressTLSBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1IngressTLSBuilder builder;
-    java.lang.Integer index;
+    V1IngressTLSBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1IngressSpecFluentImpl.this.setToTls(index, builder.build());

@@ -21,8 +21,7 @@ public class V1NodeDaemonEndpointsFluentImpl<A extends V1NodeDaemonEndpointsFlue
     extends BaseFluent<A> implements V1NodeDaemonEndpointsFluent<A> {
   public V1NodeDaemonEndpointsFluentImpl() {}
 
-  public V1NodeDaemonEndpointsFluentImpl(
-      io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints instance) {
+  public V1NodeDaemonEndpointsFluentImpl(V1NodeDaemonEndpoints instance) {
     this.withKubeletEndpoint(instance.getKubeletEndpoint());
   }
 
@@ -38,17 +37,18 @@ public class V1NodeDaemonEndpointsFluentImpl<A extends V1NodeDaemonEndpointsFlue
     return this.kubeletEndpoint != null ? this.kubeletEndpoint.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1DaemonEndpoint buildKubeletEndpoint() {
+  public V1DaemonEndpoint buildKubeletEndpoint() {
     return this.kubeletEndpoint != null ? this.kubeletEndpoint.build() : null;
   }
 
-  public A withKubeletEndpoint(
-      io.kubernetes.client.openapi.models.V1DaemonEndpoint kubeletEndpoint) {
+  public A withKubeletEndpoint(V1DaemonEndpoint kubeletEndpoint) {
     _visitables.get("kubeletEndpoint").remove(this.kubeletEndpoint);
     if (kubeletEndpoint != null) {
-      this.kubeletEndpoint =
-          new io.kubernetes.client.openapi.models.V1DaemonEndpointBuilder(kubeletEndpoint);
+      this.kubeletEndpoint = new V1DaemonEndpointBuilder(kubeletEndpoint);
       _visitables.get("kubeletEndpoint").add(this.kubeletEndpoint);
+    } else {
+      this.kubeletEndpoint = null;
+      _visitables.get("kubeletEndpoint").remove(this.kubeletEndpoint);
     }
     return (A) this;
   }
@@ -61,26 +61,24 @@ public class V1NodeDaemonEndpointsFluentImpl<A extends V1NodeDaemonEndpointsFlue
     return new V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A>
-      withNewKubeletEndpointLike(io.kubernetes.client.openapi.models.V1DaemonEndpoint item) {
+  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> withNewKubeletEndpointLike(
+      V1DaemonEndpoint item) {
     return new V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A>
-      editKubeletEndpoint() {
+  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> editKubeletEndpoint() {
     return withNewKubeletEndpointLike(getKubeletEndpoint());
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A>
-      editOrNewKubeletEndpoint() {
+  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> editOrNewKubeletEndpoint() {
     return withNewKubeletEndpointLike(
         getKubeletEndpoint() != null
             ? getKubeletEndpoint()
-            : new io.kubernetes.client.openapi.models.V1DaemonEndpointBuilder().build());
+            : new V1DaemonEndpointBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A>
-      editOrNewKubeletEndpointLike(io.kubernetes.client.openapi.models.V1DaemonEndpoint item) {
+  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> editOrNewKubeletEndpointLike(
+      V1DaemonEndpoint item) {
     return withNewKubeletEndpointLike(getKubeletEndpoint() != null ? getKubeletEndpoint() : item);
   }
 
@@ -111,19 +109,16 @@ public class V1NodeDaemonEndpointsFluentImpl<A extends V1NodeDaemonEndpointsFlue
 
   class KubeletEndpointNestedImpl<N>
       extends V1DaemonEndpointFluentImpl<V1NodeDaemonEndpointsFluent.KubeletEndpointNested<N>>
-      implements io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent
-                  .KubeletEndpointNested<
-              N>,
-          Nested<N> {
-    KubeletEndpointNestedImpl(io.kubernetes.client.openapi.models.V1DaemonEndpoint item) {
+      implements V1NodeDaemonEndpointsFluent.KubeletEndpointNested<N>, Nested<N> {
+    KubeletEndpointNestedImpl(V1DaemonEndpoint item) {
       this.builder = new V1DaemonEndpointBuilder(this, item);
     }
 
     KubeletEndpointNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1DaemonEndpointBuilder(this);
+      this.builder = new V1DaemonEndpointBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1DaemonEndpointBuilder builder;
+    V1DaemonEndpointBuilder builder;
 
     public N and() {
       return (N) V1NodeDaemonEndpointsFluentImpl.this.withKubeletEndpoint(builder.build());

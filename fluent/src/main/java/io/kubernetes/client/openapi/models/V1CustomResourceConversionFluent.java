@@ -20,7 +20,7 @@ public interface V1CustomResourceConversionFluent<A extends V1CustomResourceConv
     extends Fluent<A> {
   public String getStrategy();
 
-  public A withStrategy(java.lang.String strategy);
+  public A withStrategy(String strategy);
 
   public Boolean hasStrategy();
 
@@ -32,25 +32,23 @@ public interface V1CustomResourceConversionFluent<A extends V1CustomResourceConv
   @Deprecated
   public V1WebhookConversion getWebhook();
 
-  public io.kubernetes.client.openapi.models.V1WebhookConversion buildWebhook();
+  public V1WebhookConversion buildWebhook();
 
-  public A withWebhook(io.kubernetes.client.openapi.models.V1WebhookConversion webhook);
+  public A withWebhook(V1WebhookConversion webhook);
 
-  public java.lang.Boolean hasWebhook();
+  public Boolean hasWebhook();
 
   public V1CustomResourceConversionFluent.WebhookNested<A> withNewWebhook();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent.WebhookNested<A>
-      withNewWebhookLike(io.kubernetes.client.openapi.models.V1WebhookConversion item);
+  public V1CustomResourceConversionFluent.WebhookNested<A> withNewWebhookLike(
+      V1WebhookConversion item);
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent.WebhookNested<A>
-      editWebhook();
+  public V1CustomResourceConversionFluent.WebhookNested<A> editWebhook();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent.WebhookNested<A>
-      editOrNewWebhook();
+  public V1CustomResourceConversionFluent.WebhookNested<A> editOrNewWebhook();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent.WebhookNested<A>
-      editOrNewWebhookLike(io.kubernetes.client.openapi.models.V1WebhookConversion item);
+  public V1CustomResourceConversionFluent.WebhookNested<A> editOrNewWebhookLike(
+      V1WebhookConversion item);
 
   public interface WebhookNested<N>
       extends Nested<N>,

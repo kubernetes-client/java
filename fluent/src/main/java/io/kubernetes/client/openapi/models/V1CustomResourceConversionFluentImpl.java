@@ -21,8 +21,7 @@ public class V1CustomResourceConversionFluentImpl<A extends V1CustomResourceConv
     extends BaseFluent<A> implements V1CustomResourceConversionFluent<A> {
   public V1CustomResourceConversionFluentImpl() {}
 
-  public V1CustomResourceConversionFluentImpl(
-      io.kubernetes.client.openapi.models.V1CustomResourceConversion instance) {
+  public V1CustomResourceConversionFluentImpl(V1CustomResourceConversion instance) {
     this.withStrategy(instance.getStrategy());
 
     this.withWebhook(instance.getWebhook());
@@ -31,11 +30,11 @@ public class V1CustomResourceConversionFluentImpl<A extends V1CustomResourceConv
   private String strategy;
   private V1WebhookConversionBuilder webhook;
 
-  public java.lang.String getStrategy() {
+  public String getStrategy() {
     return this.strategy;
   }
 
-  public A withStrategy(java.lang.String strategy) {
+  public A withStrategy(String strategy) {
     this.strategy = strategy;
     return (A) this;
   }
@@ -50,24 +49,27 @@ public class V1CustomResourceConversionFluentImpl<A extends V1CustomResourceConv
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1WebhookConversion getWebhook() {
+  public V1WebhookConversion getWebhook() {
     return this.webhook != null ? this.webhook.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1WebhookConversion buildWebhook() {
+  public V1WebhookConversion buildWebhook() {
     return this.webhook != null ? this.webhook.build() : null;
   }
 
-  public A withWebhook(io.kubernetes.client.openapi.models.V1WebhookConversion webhook) {
+  public A withWebhook(V1WebhookConversion webhook) {
     _visitables.get("webhook").remove(this.webhook);
     if (webhook != null) {
       this.webhook = new V1WebhookConversionBuilder(webhook);
       _visitables.get("webhook").add(this.webhook);
+    } else {
+      this.webhook = null;
+      _visitables.get("webhook").remove(this.webhook);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasWebhook() {
+  public Boolean hasWebhook() {
     return this.webhook != null;
   }
 
@@ -75,26 +77,22 @@ public class V1CustomResourceConversionFluentImpl<A extends V1CustomResourceConv
     return new V1CustomResourceConversionFluentImpl.WebhookNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent.WebhookNested<A>
-      withNewWebhookLike(io.kubernetes.client.openapi.models.V1WebhookConversion item) {
+  public V1CustomResourceConversionFluent.WebhookNested<A> withNewWebhookLike(
+      V1WebhookConversion item) {
     return new V1CustomResourceConversionFluentImpl.WebhookNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent.WebhookNested<A>
-      editWebhook() {
+  public V1CustomResourceConversionFluent.WebhookNested<A> editWebhook() {
     return withNewWebhookLike(getWebhook());
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent.WebhookNested<A>
-      editOrNewWebhook() {
+  public V1CustomResourceConversionFluent.WebhookNested<A> editOrNewWebhook() {
     return withNewWebhookLike(
-        getWebhook() != null
-            ? getWebhook()
-            : new io.kubernetes.client.openapi.models.V1WebhookConversionBuilder().build());
+        getWebhook() != null ? getWebhook() : new V1WebhookConversionBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent.WebhookNested<A>
-      editOrNewWebhookLike(io.kubernetes.client.openapi.models.V1WebhookConversion item) {
+  public V1CustomResourceConversionFluent.WebhookNested<A> editOrNewWebhookLike(
+      V1WebhookConversion item) {
     return withNewWebhookLike(getWebhook() != null ? getWebhook() : item);
   }
 
@@ -111,7 +109,7 @@ public class V1CustomResourceConversionFluentImpl<A extends V1CustomResourceConv
     return java.util.Objects.hash(strategy, webhook, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (strategy != null) {
@@ -128,18 +126,16 @@ public class V1CustomResourceConversionFluentImpl<A extends V1CustomResourceConv
 
   class WebhookNestedImpl<N>
       extends V1WebhookConversionFluentImpl<V1CustomResourceConversionFluent.WebhookNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CustomResourceConversionFluent.WebhookNested<
-              N>,
-          Nested<N> {
+      implements V1CustomResourceConversionFluent.WebhookNested<N>, Nested<N> {
     WebhookNestedImpl(V1WebhookConversion item) {
       this.builder = new V1WebhookConversionBuilder(this, item);
     }
 
     WebhookNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1WebhookConversionBuilder(this);
+      this.builder = new V1WebhookConversionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1WebhookConversionBuilder builder;
+    V1WebhookConversionBuilder builder;
 
     public N and() {
       return (N) V1CustomResourceConversionFluentImpl.this.withWebhook(builder.build());

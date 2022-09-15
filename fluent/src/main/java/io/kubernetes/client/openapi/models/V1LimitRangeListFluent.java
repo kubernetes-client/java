@@ -22,23 +22,21 @@ import java.util.function.Predicate;
 public interface V1LimitRangeListFluent<A extends V1LimitRangeListFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1LimitRange item);
+  public A addToItems(Integer index, V1LimitRange item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1LimitRange item);
+  public A setToItems(Integer index, V1LimitRange item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1LimitRange... items);
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1LimitRange> items);
+  public A addAllToItems(Collection<V1LimitRange> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1LimitRange... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1LimitRange> items);
+  public A removeAllFromItems(Collection<V1LimitRange> items);
 
   public A removeMatchingFromItems(Predicate<V1LimitRangeBuilder> predicate);
 
@@ -48,82 +46,70 @@ public interface V1LimitRangeListFluent<A extends V1LimitRangeListFluent<A>> ext
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1LimitRange> getItems();
+  public List<V1LimitRange> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1LimitRange> buildItems();
+  public List<V1LimitRange> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1LimitRange buildItem(java.lang.Integer index);
+  public V1LimitRange buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1LimitRange buildFirstItem();
+  public V1LimitRange buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1LimitRange buildLastItem();
+  public V1LimitRange buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1LimitRange buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1LimitRangeBuilder>
-          predicate);
+  public V1LimitRange buildMatchingItem(Predicate<V1LimitRangeBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1LimitRangeBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1LimitRangeBuilder> predicate);
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1LimitRange> items);
+  public A withItems(List<V1LimitRange> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1LimitRange... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1LimitRangeListFluent.ItemsNested<A> addNewItem();
 
-  public V1LimitRangeListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1LimitRange item);
+  public V1LimitRangeListFluent.ItemsNested<A> addNewItemLike(V1LimitRange item);
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeListFluent.ItemsNested<A> setNewItemLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1LimitRange item);
+  public V1LimitRangeListFluent.ItemsNested<A> setNewItemLike(Integer index, V1LimitRange item);
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1LimitRangeListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeListFluent.ItemsNested<A> editFirstItem();
+  public V1LimitRangeListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeListFluent.ItemsNested<A> editLastItem();
+  public V1LimitRangeListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeListFluent.ItemsNested<A> editMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1LimitRangeBuilder>
-          predicate);
+  public V1LimitRangeListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1LimitRangeBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1LimitRangeListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1LimitRangeListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeListFluent.MetadataNested<A>
-      editMetadata();
+  public V1LimitRangeListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1LimitRangeListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1LimitRangeListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>, V1LimitRangeFluent<V1LimitRangeListFluent.ItemsNested<N>> {
@@ -133,8 +119,7 @@ public interface V1LimitRangeListFluent<A extends V1LimitRangeListFluent<A>> ext
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1LimitRangeListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1LimitRangeListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

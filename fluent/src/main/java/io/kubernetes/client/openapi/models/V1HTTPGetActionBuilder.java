@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1HTTPGetActionBuilder extends V1HTTPGetActionFluentImpl<V1HTTPGetActionBuilder>
-    implements VisitableBuilder<
-        V1HTTPGetAction, io.kubernetes.client.openapi.models.V1HTTPGetActionBuilder> {
+    implements VisitableBuilder<V1HTTPGetAction, V1HTTPGetActionBuilder> {
   public V1HTTPGetActionBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1HTTPGetActionBuilder extends V1HTTPGetActionFluentImpl<V1HTTPGetA
     this(new V1HTTPGetAction(), validationEnabled);
   }
 
-  public V1HTTPGetActionBuilder(
-      io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<?> fluent) {
+  public V1HTTPGetActionBuilder(V1HTTPGetActionFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1HTTPGetActionBuilder(
-      io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1HTTPGetActionBuilder(V1HTTPGetActionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1HTTPGetAction(), validationEnabled);
   }
 
-  public V1HTTPGetActionBuilder(
-      io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1HTTPGetAction instance) {
+  public V1HTTPGetActionBuilder(V1HTTPGetActionFluent<?> fluent, V1HTTPGetAction instance) {
     this(fluent, instance, false);
   }
 
   public V1HTTPGetActionBuilder(
-      io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1HTTPGetAction instance,
-      java.lang.Boolean validationEnabled) {
+      V1HTTPGetActionFluent<?> fluent, V1HTTPGetAction instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withHost(instance.getHost());
 
@@ -60,13 +52,11 @@ public class V1HTTPGetActionBuilder extends V1HTTPGetActionFluentImpl<V1HTTPGetA
     this.validationEnabled = validationEnabled;
   }
 
-  public V1HTTPGetActionBuilder(io.kubernetes.client.openapi.models.V1HTTPGetAction instance) {
+  public V1HTTPGetActionBuilder(V1HTTPGetAction instance) {
     this(instance, false);
   }
 
-  public V1HTTPGetActionBuilder(
-      io.kubernetes.client.openapi.models.V1HTTPGetAction instance,
-      java.lang.Boolean validationEnabled) {
+  public V1HTTPGetActionBuilder(V1HTTPGetAction instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withHost(instance.getHost());
 
@@ -81,10 +71,10 @@ public class V1HTTPGetActionBuilder extends V1HTTPGetActionFluentImpl<V1HTTPGetA
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1HTTPGetActionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1HTTPGetActionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1HTTPGetAction build() {
+  public V1HTTPGetAction build() {
     V1HTTPGetAction buildable = new V1HTTPGetAction();
     buildable.setHost(fluent.getHost());
     buildable.setHttpHeaders(fluent.getHttpHeaders());

@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1beta1UserSubjectBuilder
     extends V1beta1UserSubjectFluentImpl<V1beta1UserSubjectBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1UserSubject, V1beta1UserSubjectBuilder> {
+    implements VisitableBuilder<V1beta1UserSubject, V1beta1UserSubjectBuilder> {
   public V1beta1UserSubjectBuilder() {
     this(false);
   }
@@ -30,46 +29,38 @@ public class V1beta1UserSubjectBuilder
     this(fluent, false);
   }
 
-  public V1beta1UserSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1UserSubjectFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1beta1UserSubjectBuilder(V1beta1UserSubjectFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1UserSubject(), validationEnabled);
   }
 
   public V1beta1UserSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1UserSubjectFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1UserSubject instance) {
+      V1beta1UserSubjectFluent<?> fluent, V1beta1UserSubject instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1UserSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1UserSubjectFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1UserSubject instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1UserSubjectFluent<?> fluent, V1beta1UserSubject instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta1UserSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1UserSubject instance) {
+  public V1beta1UserSubjectBuilder(V1beta1UserSubject instance) {
     this(instance, false);
   }
 
-  public V1beta1UserSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1UserSubject instance,
-      java.lang.Boolean validationEnabled) {
+  public V1beta1UserSubjectBuilder(V1beta1UserSubject instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1UserSubjectFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1UserSubjectFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1UserSubject build() {
+  public V1beta1UserSubject build() {
     V1beta1UserSubject buildable = new V1beta1UserSubject();
     buildable.setName(fluent.getName());
     return buildable;

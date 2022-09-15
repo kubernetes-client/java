@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1AffinityBuilder extends V1AffinityFluentImpl<V1AffinityBuilder>
-    implements VisitableBuilder<io.kubernetes.client.openapi.models.V1Affinity, V1AffinityBuilder> {
+    implements VisitableBuilder<V1Affinity, V1AffinityBuilder> {
   public V1AffinityBuilder() {
     this(false);
   }
@@ -28,22 +28,16 @@ public class V1AffinityBuilder extends V1AffinityFluentImpl<V1AffinityBuilder>
     this(fluent, false);
   }
 
-  public V1AffinityBuilder(
-      io.kubernetes.client.openapi.models.V1AffinityFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1AffinityBuilder(V1AffinityFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Affinity(), validationEnabled);
   }
 
-  public V1AffinityBuilder(
-      io.kubernetes.client.openapi.models.V1AffinityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Affinity instance) {
+  public V1AffinityBuilder(V1AffinityFluent<?> fluent, V1Affinity instance) {
     this(fluent, instance, false);
   }
 
   public V1AffinityBuilder(
-      io.kubernetes.client.openapi.models.V1AffinityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Affinity instance,
-      java.lang.Boolean validationEnabled) {
+      V1AffinityFluent<?> fluent, V1Affinity instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withNodeAffinity(instance.getNodeAffinity());
 
@@ -54,13 +48,11 @@ public class V1AffinityBuilder extends V1AffinityFluentImpl<V1AffinityBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1AffinityBuilder(io.kubernetes.client.openapi.models.V1Affinity instance) {
+  public V1AffinityBuilder(V1Affinity instance) {
     this(instance, false);
   }
 
-  public V1AffinityBuilder(
-      io.kubernetes.client.openapi.models.V1Affinity instance,
-      java.lang.Boolean validationEnabled) {
+  public V1AffinityBuilder(V1Affinity instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withNodeAffinity(instance.getNodeAffinity());
 
@@ -71,10 +63,10 @@ public class V1AffinityBuilder extends V1AffinityFluentImpl<V1AffinityBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1AffinityFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1AffinityFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Affinity build() {
+  public V1Affinity build() {
     V1Affinity buildable = new V1Affinity();
     buildable.setNodeAffinity(fluent.getNodeAffinity());
     buildable.setPodAffinity(fluent.getPodAffinity());

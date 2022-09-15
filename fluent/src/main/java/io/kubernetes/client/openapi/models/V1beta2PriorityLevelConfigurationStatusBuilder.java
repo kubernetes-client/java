@@ -18,8 +18,7 @@ public class V1beta2PriorityLevelConfigurationStatusBuilder
     extends V1beta2PriorityLevelConfigurationStatusFluentImpl<
         V1beta2PriorityLevelConfigurationStatusBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationStatus,
-        V1beta2PriorityLevelConfigurationStatusBuilder> {
+        V1beta2PriorityLevelConfigurationStatus, V1beta2PriorityLevelConfigurationStatusBuilder> {
   public V1beta2PriorityLevelConfigurationStatusBuilder() {
     this(false);
   }
@@ -34,21 +33,20 @@ public class V1beta2PriorityLevelConfigurationStatusBuilder
   }
 
   public V1beta2PriorityLevelConfigurationStatusBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta2PriorityLevelConfigurationStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta2PriorityLevelConfigurationStatus(), validationEnabled);
   }
 
   public V1beta2PriorityLevelConfigurationStatusBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationStatus instance) {
+      V1beta2PriorityLevelConfigurationStatusFluent<?> fluent,
+      V1beta2PriorityLevelConfigurationStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1beta2PriorityLevelConfigurationStatusBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2PriorityLevelConfigurationStatusFluent<?> fluent,
+      V1beta2PriorityLevelConfigurationStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withConditions(instance.getConditions());
 
@@ -56,23 +54,22 @@ public class V1beta2PriorityLevelConfigurationStatusBuilder
   }
 
   public V1beta2PriorityLevelConfigurationStatusBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationStatus instance) {
+      V1beta2PriorityLevelConfigurationStatus instance) {
     this(instance, false);
   }
 
   public V1beta2PriorityLevelConfigurationStatusBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2PriorityLevelConfigurationStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withConditions(instance.getConditions());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta2PriorityLevelConfigurationStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationStatus build() {
+  public V1beta2PriorityLevelConfigurationStatus build() {
     V1beta2PriorityLevelConfigurationStatus buildable =
         new V1beta2PriorityLevelConfigurationStatus();
     buildable.setConditions(fluent.getConditions());

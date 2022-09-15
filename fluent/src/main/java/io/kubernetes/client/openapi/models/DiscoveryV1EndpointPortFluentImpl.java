@@ -20,8 +20,7 @@ public class DiscoveryV1EndpointPortFluentImpl<A extends DiscoveryV1EndpointPort
     extends BaseFluent<A> implements DiscoveryV1EndpointPortFluent<A> {
   public DiscoveryV1EndpointPortFluentImpl() {}
 
-  public DiscoveryV1EndpointPortFluentImpl(
-      io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort instance) {
+  public DiscoveryV1EndpointPortFluentImpl(DiscoveryV1EndpointPort instance) {
     this.withAppProtocol(instance.getAppProtocol());
 
     this.withName(instance.getName());
@@ -32,15 +31,15 @@ public class DiscoveryV1EndpointPortFluentImpl<A extends DiscoveryV1EndpointPort
   }
 
   private String appProtocol;
-  private java.lang.String name;
+  private String name;
   private Integer port;
-  private java.lang.String protocol;
+  private String protocol;
 
-  public java.lang.String getAppProtocol() {
+  public String getAppProtocol() {
     return this.appProtocol;
   }
 
-  public A withAppProtocol(java.lang.String appProtocol) {
+  public A withAppProtocol(String appProtocol) {
     this.appProtocol = appProtocol;
     return (A) this;
   }
@@ -49,42 +48,42 @@ public class DiscoveryV1EndpointPortFluentImpl<A extends DiscoveryV1EndpointPort
     return this.appProtocol != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.Integer getPort() {
+  public Integer getPort() {
     return this.port;
   }
 
-  public A withPort(java.lang.Integer port) {
+  public A withPort(Integer port) {
     this.port = port;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPort() {
+  public Boolean hasPort() {
     return this.port != null;
   }
 
-  public java.lang.String getProtocol() {
+  public String getProtocol() {
     return this.protocol;
   }
 
-  public A withProtocol(java.lang.String protocol) {
+  public A withProtocol(String protocol) {
     this.protocol = protocol;
     return (A) this;
   }
 
-  public java.lang.Boolean hasProtocol() {
+  public Boolean hasProtocol() {
     return this.protocol != null;
   }
 
@@ -104,7 +103,7 @@ public class DiscoveryV1EndpointPortFluentImpl<A extends DiscoveryV1EndpointPort
     return java.util.Objects.hash(appProtocol, name, port, protocol, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (appProtocol != null) {

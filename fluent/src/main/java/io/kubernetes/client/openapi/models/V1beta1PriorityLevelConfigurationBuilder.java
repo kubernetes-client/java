@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1beta1PriorityLevelConfigurationBuilder
     extends V1beta1PriorityLevelConfigurationFluentImpl<V1beta1PriorityLevelConfigurationBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration,
-        V1beta1PriorityLevelConfigurationBuilder> {
+        V1beta1PriorityLevelConfiguration, V1beta1PriorityLevelConfigurationBuilder> {
   public V1beta1PriorityLevelConfigurationBuilder() {
     this(false);
   }
@@ -28,26 +27,25 @@ public class V1beta1PriorityLevelConfigurationBuilder
   }
 
   public V1beta1PriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationFluent<?> fluent) {
+      V1beta1PriorityLevelConfigurationFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1beta1PriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1PriorityLevelConfigurationFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1PriorityLevelConfiguration(), validationEnabled);
   }
 
   public V1beta1PriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration instance) {
+      V1beta1PriorityLevelConfigurationFluent<?> fluent,
+      V1beta1PriorityLevelConfiguration instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1PriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1PriorityLevelConfigurationFluent<?> fluent,
+      V1beta1PriorityLevelConfiguration instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -62,14 +60,12 @@ public class V1beta1PriorityLevelConfigurationBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta1PriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration instance) {
+  public V1beta1PriorityLevelConfigurationBuilder(V1beta1PriorityLevelConfiguration instance) {
     this(instance, false);
   }
 
   public V1beta1PriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1PriorityLevelConfiguration instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -84,10 +80,10 @@ public class V1beta1PriorityLevelConfigurationBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1PriorityLevelConfigurationFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration build() {
+  public V1beta1PriorityLevelConfiguration build() {
     V1beta1PriorityLevelConfiguration buildable = new V1beta1PriorityLevelConfiguration();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

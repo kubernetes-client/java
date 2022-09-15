@@ -18,13 +18,13 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1EventSourceFluent<A extends V1EventSourceFluent<A>> extends Fluent<A> {
   public String getComponent();
 
-  public A withComponent(java.lang.String component);
+  public A withComponent(String component);
 
   public Boolean hasComponent();
 
-  public java.lang.String getHost();
+  public String getHost();
 
-  public A withHost(java.lang.String host);
+  public A withHost(String host);
 
-  public java.lang.Boolean hasHost();
+  public Boolean hasHost();
 }

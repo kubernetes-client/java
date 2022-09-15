@@ -22,24 +22,21 @@ import java.util.function.Predicate;
 public interface V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> extends Fluent<A> {
   public Integer getCollisionCount();
 
-  public A withCollisionCount(java.lang.Integer collisionCount);
+  public A withCollisionCount(Integer collisionCount);
 
   public Boolean hasCollisionCount();
 
-  public A addToConditions(java.lang.Integer index, V1DaemonSetCondition item);
+  public A addToConditions(Integer index, V1DaemonSetCondition item);
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1DaemonSetCondition item);
+  public A setToConditions(Integer index, V1DaemonSetCondition item);
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... items);
 
-  public A addAllToConditions(
-      Collection<io.kubernetes.client.openapi.models.V1DaemonSetCondition> items);
+  public A addAllToConditions(Collection<V1DaemonSetCondition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... items);
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1DaemonSetCondition> items);
+  public A removeAllFromConditions(Collection<V1DaemonSetCondition> items);
 
   public A removeMatchingFromConditions(Predicate<V1DaemonSetConditionBuilder> predicate);
 
@@ -49,103 +46,90 @@ public interface V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1DaemonSetCondition> getConditions();
+  public List<V1DaemonSetCondition> getConditions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1DaemonSetCondition> buildConditions();
+  public List<V1DaemonSetCondition> buildConditions();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetCondition buildCondition(
-      java.lang.Integer index);
+  public V1DaemonSetCondition buildCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetCondition buildFirstCondition();
+  public V1DaemonSetCondition buildFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetCondition buildLastCondition();
+  public V1DaemonSetCondition buildLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetCondition buildMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1DaemonSetConditionBuilder>
-          predicate);
+  public V1DaemonSetCondition buildMatchingCondition(
+      Predicate<V1DaemonSetConditionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1DaemonSetConditionBuilder>
-          predicate);
+  public Boolean hasMatchingCondition(Predicate<V1DaemonSetConditionBuilder> predicate);
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1DaemonSetCondition> conditions);
+  public A withConditions(List<V1DaemonSetCondition> conditions);
 
   public A withConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... conditions);
 
-  public java.lang.Boolean hasConditions();
+  public Boolean hasConditions();
 
   public V1DaemonSetStatusFluent.ConditionsNested<A> addNewCondition();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1DaemonSetCondition item);
+  public V1DaemonSetStatusFluent.ConditionsNested<A> addNewConditionLike(V1DaemonSetCondition item);
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1DaemonSetCondition item);
+  public V1DaemonSetStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1DaemonSetCondition item);
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent.ConditionsNested<A>
-      editCondition(java.lang.Integer index);
+  public V1DaemonSetStatusFluent.ConditionsNested<A> editCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent.ConditionsNested<A>
-      editFirstCondition();
+  public V1DaemonSetStatusFluent.ConditionsNested<A> editFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent.ConditionsNested<A>
-      editLastCondition();
+  public V1DaemonSetStatusFluent.ConditionsNested<A> editLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1DaemonSetConditionBuilder>
-              predicate);
+  public V1DaemonSetStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1DaemonSetConditionBuilder> predicate);
 
-  public java.lang.Integer getCurrentNumberScheduled();
+  public Integer getCurrentNumberScheduled();
 
-  public A withCurrentNumberScheduled(java.lang.Integer currentNumberScheduled);
+  public A withCurrentNumberScheduled(Integer currentNumberScheduled);
 
-  public java.lang.Boolean hasCurrentNumberScheduled();
+  public Boolean hasCurrentNumberScheduled();
 
-  public java.lang.Integer getDesiredNumberScheduled();
+  public Integer getDesiredNumberScheduled();
 
-  public A withDesiredNumberScheduled(java.lang.Integer desiredNumberScheduled);
+  public A withDesiredNumberScheduled(Integer desiredNumberScheduled);
 
-  public java.lang.Boolean hasDesiredNumberScheduled();
+  public Boolean hasDesiredNumberScheduled();
 
-  public java.lang.Integer getNumberAvailable();
+  public Integer getNumberAvailable();
 
-  public A withNumberAvailable(java.lang.Integer numberAvailable);
+  public A withNumberAvailable(Integer numberAvailable);
 
-  public java.lang.Boolean hasNumberAvailable();
+  public Boolean hasNumberAvailable();
 
-  public java.lang.Integer getNumberMisscheduled();
+  public Integer getNumberMisscheduled();
 
-  public A withNumberMisscheduled(java.lang.Integer numberMisscheduled);
+  public A withNumberMisscheduled(Integer numberMisscheduled);
 
-  public java.lang.Boolean hasNumberMisscheduled();
+  public Boolean hasNumberMisscheduled();
 
-  public java.lang.Integer getNumberReady();
+  public Integer getNumberReady();
 
-  public A withNumberReady(java.lang.Integer numberReady);
+  public A withNumberReady(Integer numberReady);
 
-  public java.lang.Boolean hasNumberReady();
+  public Boolean hasNumberReady();
 
-  public java.lang.Integer getNumberUnavailable();
+  public Integer getNumberUnavailable();
 
-  public A withNumberUnavailable(java.lang.Integer numberUnavailable);
+  public A withNumberUnavailable(Integer numberUnavailable);
 
-  public java.lang.Boolean hasNumberUnavailable();
+  public Boolean hasNumberUnavailable();
 
   public Long getObservedGeneration();
 
-  public A withObservedGeneration(java.lang.Long observedGeneration);
+  public A withObservedGeneration(Long observedGeneration);
 
-  public java.lang.Boolean hasObservedGeneration();
+  public Boolean hasObservedGeneration();
 
-  public java.lang.Integer getUpdatedNumberScheduled();
+  public Integer getUpdatedNumberScheduled();
 
-  public A withUpdatedNumberScheduled(java.lang.Integer updatedNumberScheduled);
+  public A withUpdatedNumberScheduled(Integer updatedNumberScheduled);
 
-  public java.lang.Boolean hasUpdatedNumberScheduled();
+  public Boolean hasUpdatedNumberScheduled();
 
   public interface ConditionsNested<N>
       extends Nested<N>, V1DaemonSetConditionFluent<V1DaemonSetStatusFluent.ConditionsNested<N>> {

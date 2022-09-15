@@ -20,17 +20,17 @@ public class V1PodIPFluentImpl<A extends V1PodIPFluent<A>> extends BaseFluent<A>
     implements V1PodIPFluent<A> {
   public V1PodIPFluentImpl() {}
 
-  public V1PodIPFluentImpl(io.kubernetes.client.openapi.models.V1PodIP instance) {
+  public V1PodIPFluentImpl(V1PodIP instance) {
     this.withIp(instance.getIp());
   }
 
   private String ip;
 
-  public java.lang.String getIp() {
+  public String getIp() {
     return this.ip;
   }
 
-  public A withIp(java.lang.String ip) {
+  public A withIp(String ip) {
     this.ip = ip;
     return (A) this;
   }
@@ -51,7 +51,7 @@ public class V1PodIPFluentImpl<A extends V1PodIPFluent<A>> extends BaseFluent<A>
     return java.util.Objects.hash(ip, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (ip != null) {

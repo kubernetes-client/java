@@ -26,25 +26,23 @@ public interface V1NodeConfigSourceFluent<A extends V1NodeConfigSourceFluent<A>>
   @Deprecated
   public V1ConfigMapNodeConfigSource getConfigMap();
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource buildConfigMap();
+  public V1ConfigMapNodeConfigSource buildConfigMap();
 
-  public A withConfigMap(io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource configMap);
+  public A withConfigMap(V1ConfigMapNodeConfigSource configMap);
 
   public Boolean hasConfigMap();
 
   public V1NodeConfigSourceFluent.ConfigMapNested<A> withNewConfigMap();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigSourceFluent.ConfigMapNested<A>
-      withNewConfigMapLike(io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource item);
+  public V1NodeConfigSourceFluent.ConfigMapNested<A> withNewConfigMapLike(
+      V1ConfigMapNodeConfigSource item);
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigSourceFluent.ConfigMapNested<A>
-      editConfigMap();
+  public V1NodeConfigSourceFluent.ConfigMapNested<A> editConfigMap();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigSourceFluent.ConfigMapNested<A>
-      editOrNewConfigMap();
+  public V1NodeConfigSourceFluent.ConfigMapNested<A> editOrNewConfigMap();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigSourceFluent.ConfigMapNested<A>
-      editOrNewConfigMapLike(io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource item);
+  public V1NodeConfigSourceFluent.ConfigMapNested<A> editOrNewConfigMapLike(
+      V1ConfigMapNodeConfigSource item);
 
   public interface ConfigMapNested<N>
       extends Nested<N>,

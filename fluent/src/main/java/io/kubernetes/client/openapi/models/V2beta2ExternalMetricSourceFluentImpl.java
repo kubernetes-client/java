@@ -21,8 +21,7 @@ public class V2beta2ExternalMetricSourceFluentImpl<A extends V2beta2ExternalMetr
     extends BaseFluent<A> implements V2beta2ExternalMetricSourceFluent<A> {
   public V2beta2ExternalMetricSourceFluentImpl() {}
 
-  public V2beta2ExternalMetricSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V2beta2ExternalMetricSource instance) {
+  public V2beta2ExternalMetricSourceFluentImpl(V2beta2ExternalMetricSource instance) {
     this.withMetric(instance.getMetric());
 
     this.withTarget(instance.getTarget());
@@ -41,15 +40,18 @@ public class V2beta2ExternalMetricSourceFluentImpl<A extends V2beta2ExternalMetr
     return this.metric != null ? this.metric.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier buildMetric() {
+  public V2beta2MetricIdentifier buildMetric() {
     return this.metric != null ? this.metric.build() : null;
   }
 
-  public A withMetric(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier metric) {
+  public A withMetric(V2beta2MetricIdentifier metric) {
     _visitables.get("metric").remove(this.metric);
     if (metric != null) {
-      this.metric = new io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder(metric);
+      this.metric = new V2beta2MetricIdentifierBuilder(metric);
       _visitables.get("metric").add(this.metric);
+    } else {
+      this.metric = null;
+      _visitables.get("metric").remove(this.metric);
     }
     return (A) this;
   }
@@ -62,26 +64,22 @@ public class V2beta2ExternalMetricSourceFluentImpl<A extends V2beta2ExternalMetr
     return new V2beta2ExternalMetricSourceFluentImpl.MetricNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluent.MetricNested<A>
-      withNewMetricLike(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier item) {
+  public V2beta2ExternalMetricSourceFluent.MetricNested<A> withNewMetricLike(
+      V2beta2MetricIdentifier item) {
     return new V2beta2ExternalMetricSourceFluentImpl.MetricNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluent.MetricNested<A>
-      editMetric() {
+  public V2beta2ExternalMetricSourceFluent.MetricNested<A> editMetric() {
     return withNewMetricLike(getMetric());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluent.MetricNested<A>
-      editOrNewMetric() {
+  public V2beta2ExternalMetricSourceFluent.MetricNested<A> editOrNewMetric() {
     return withNewMetricLike(
-        getMetric() != null
-            ? getMetric()
-            : new io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder().build());
+        getMetric() != null ? getMetric() : new V2beta2MetricIdentifierBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluent.MetricNested<A>
-      editOrNewMetricLike(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier item) {
+  public V2beta2ExternalMetricSourceFluent.MetricNested<A> editOrNewMetricLike(
+      V2beta2MetricIdentifier item) {
     return withNewMetricLike(getMetric() != null ? getMetric() : item);
   }
 
@@ -90,25 +88,28 @@ public class V2beta2ExternalMetricSourceFluentImpl<A extends V2beta2ExternalMetr
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta2MetricTarget getTarget() {
+  @Deprecated
+  public V2beta2MetricTarget getTarget() {
     return this.target != null ? this.target.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricTarget buildTarget() {
+  public V2beta2MetricTarget buildTarget() {
     return this.target != null ? this.target.build() : null;
   }
 
-  public A withTarget(io.kubernetes.client.openapi.models.V2beta2MetricTarget target) {
+  public A withTarget(V2beta2MetricTarget target) {
     _visitables.get("target").remove(this.target);
     if (target != null) {
       this.target = new V2beta2MetricTargetBuilder(target);
       _visitables.get("target").add(this.target);
+    } else {
+      this.target = null;
+      _visitables.get("target").remove(this.target);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasTarget() {
+  public Boolean hasTarget() {
     return this.target != null;
   }
 
@@ -116,27 +117,22 @@ public class V2beta2ExternalMetricSourceFluentImpl<A extends V2beta2ExternalMetr
     return new V2beta2ExternalMetricSourceFluentImpl.TargetNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluent.TargetNested<A>
-      withNewTargetLike(io.kubernetes.client.openapi.models.V2beta2MetricTarget item) {
-    return new io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluentImpl
-        .TargetNestedImpl(item);
+  public V2beta2ExternalMetricSourceFluent.TargetNested<A> withNewTargetLike(
+      V2beta2MetricTarget item) {
+    return new V2beta2ExternalMetricSourceFluentImpl.TargetNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluent.TargetNested<A>
-      editTarget() {
+  public V2beta2ExternalMetricSourceFluent.TargetNested<A> editTarget() {
     return withNewTargetLike(getTarget());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluent.TargetNested<A>
-      editOrNewTarget() {
+  public V2beta2ExternalMetricSourceFluent.TargetNested<A> editOrNewTarget() {
     return withNewTargetLike(
-        getTarget() != null
-            ? getTarget()
-            : new io.kubernetes.client.openapi.models.V2beta2MetricTargetBuilder().build());
+        getTarget() != null ? getTarget() : new V2beta2MetricTargetBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluent.TargetNested<A>
-      editOrNewTargetLike(io.kubernetes.client.openapi.models.V2beta2MetricTarget item) {
+  public V2beta2ExternalMetricSourceFluent.TargetNested<A> editOrNewTargetLike(
+      V2beta2MetricTarget item) {
     return withNewTargetLike(getTarget() != null ? getTarget() : item);
   }
 
@@ -170,18 +166,16 @@ public class V2beta2ExternalMetricSourceFluentImpl<A extends V2beta2ExternalMetr
 
   class MetricNestedImpl<N>
       extends V2beta2MetricIdentifierFluentImpl<V2beta2ExternalMetricSourceFluent.MetricNested<N>>
-      implements io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluent.MetricNested<
-              N>,
-          Nested<N> {
-    MetricNestedImpl(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier item) {
+      implements V2beta2ExternalMetricSourceFluent.MetricNested<N>, Nested<N> {
+    MetricNestedImpl(V2beta2MetricIdentifier item) {
       this.builder = new V2beta2MetricIdentifierBuilder(this, item);
     }
 
     MetricNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder(this);
+      this.builder = new V2beta2MetricIdentifierBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2beta2MetricIdentifierBuilder builder;
+    V2beta2MetricIdentifierBuilder builder;
 
     public N and() {
       return (N) V2beta2ExternalMetricSourceFluentImpl.this.withMetric(builder.build());
@@ -194,18 +188,16 @@ public class V2beta2ExternalMetricSourceFluentImpl<A extends V2beta2ExternalMetr
 
   class TargetNestedImpl<N>
       extends V2beta2MetricTargetFluentImpl<V2beta2ExternalMetricSourceFluent.TargetNested<N>>
-      implements io.kubernetes.client.openapi.models.V2beta2ExternalMetricSourceFluent.TargetNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V2beta2ExternalMetricSourceFluent.TargetNested<N>, Nested<N> {
     TargetNestedImpl(V2beta2MetricTarget item) {
       this.builder = new V2beta2MetricTargetBuilder(this, item);
     }
 
     TargetNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V2beta2MetricTargetBuilder(this);
+      this.builder = new V2beta2MetricTargetBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2beta2MetricTargetBuilder builder;
+    V2beta2MetricTargetBuilder builder;
 
     public N and() {
       return (N) V2beta2ExternalMetricSourceFluentImpl.this.withTarget(builder.build());

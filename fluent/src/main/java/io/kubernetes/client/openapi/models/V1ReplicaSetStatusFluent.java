@@ -22,24 +22,21 @@ import java.util.function.Predicate;
 public interface V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>> extends Fluent<A> {
   public Integer getAvailableReplicas();
 
-  public A withAvailableReplicas(java.lang.Integer availableReplicas);
+  public A withAvailableReplicas(Integer availableReplicas);
 
   public Boolean hasAvailableReplicas();
 
-  public A addToConditions(java.lang.Integer index, V1ReplicaSetCondition item);
+  public A addToConditions(Integer index, V1ReplicaSetCondition item);
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ReplicaSetCondition item);
+  public A setToConditions(Integer index, V1ReplicaSetCondition item);
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1ReplicaSetCondition... items);
 
-  public A addAllToConditions(
-      Collection<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> items);
+  public A addAllToConditions(Collection<V1ReplicaSetCondition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1ReplicaSetCondition... items);
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> items);
+  public A removeAllFromConditions(Collection<V1ReplicaSetCondition> items);
 
   public A removeMatchingFromConditions(Predicate<V1ReplicaSetConditionBuilder> predicate);
 
@@ -49,80 +46,67 @@ public interface V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>>
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> getConditions();
+  public List<V1ReplicaSetCondition> getConditions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ReplicaSetCondition>
-      buildConditions();
+  public List<V1ReplicaSetCondition> buildConditions();
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetCondition buildCondition(
-      java.lang.Integer index);
+  public V1ReplicaSetCondition buildCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetCondition buildFirstCondition();
+  public V1ReplicaSetCondition buildFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetCondition buildLastCondition();
+  public V1ReplicaSetCondition buildLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetCondition buildMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ReplicaSetConditionBuilder>
-          predicate);
+  public V1ReplicaSetCondition buildMatchingCondition(
+      Predicate<V1ReplicaSetConditionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ReplicaSetConditionBuilder>
-          predicate);
+  public Boolean hasMatchingCondition(Predicate<V1ReplicaSetConditionBuilder> predicate);
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1ReplicaSetCondition> conditions);
+  public A withConditions(List<V1ReplicaSetCondition> conditions);
 
   public A withConditions(io.kubernetes.client.openapi.models.V1ReplicaSetCondition... conditions);
 
-  public java.lang.Boolean hasConditions();
+  public Boolean hasConditions();
 
   public V1ReplicaSetStatusFluent.ConditionsNested<A> addNewCondition();
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1ReplicaSetCondition item);
+  public V1ReplicaSetStatusFluent.ConditionsNested<A> addNewConditionLike(
+      V1ReplicaSetCondition item);
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ReplicaSetCondition item);
+  public V1ReplicaSetStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1ReplicaSetCondition item);
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent.ConditionsNested<A>
-      editCondition(java.lang.Integer index);
+  public V1ReplicaSetStatusFluent.ConditionsNested<A> editCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent.ConditionsNested<A>
-      editFirstCondition();
+  public V1ReplicaSetStatusFluent.ConditionsNested<A> editFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent.ConditionsNested<A>
-      editLastCondition();
+  public V1ReplicaSetStatusFluent.ConditionsNested<A> editLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ReplicaSetConditionBuilder>
-              predicate);
+  public V1ReplicaSetStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1ReplicaSetConditionBuilder> predicate);
 
-  public java.lang.Integer getFullyLabeledReplicas();
+  public Integer getFullyLabeledReplicas();
 
-  public A withFullyLabeledReplicas(java.lang.Integer fullyLabeledReplicas);
+  public A withFullyLabeledReplicas(Integer fullyLabeledReplicas);
 
-  public java.lang.Boolean hasFullyLabeledReplicas();
+  public Boolean hasFullyLabeledReplicas();
 
   public Long getObservedGeneration();
 
-  public A withObservedGeneration(java.lang.Long observedGeneration);
+  public A withObservedGeneration(Long observedGeneration);
 
-  public java.lang.Boolean hasObservedGeneration();
+  public Boolean hasObservedGeneration();
 
-  public java.lang.Integer getReadyReplicas();
+  public Integer getReadyReplicas();
 
-  public A withReadyReplicas(java.lang.Integer readyReplicas);
+  public A withReadyReplicas(Integer readyReplicas);
 
-  public java.lang.Boolean hasReadyReplicas();
+  public Boolean hasReadyReplicas();
 
-  public java.lang.Integer getReplicas();
+  public Integer getReplicas();
 
-  public A withReplicas(java.lang.Integer replicas);
+  public A withReplicas(Integer replicas);
 
-  public java.lang.Boolean hasReplicas();
+  public Boolean hasReplicas();
 
   public interface ConditionsNested<N>
       extends Nested<N>, V1ReplicaSetConditionFluent<V1ReplicaSetStatusFluent.ConditionsNested<N>> {

@@ -24,27 +24,26 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
     extends BaseFluent<A> implements V1UncountedTerminatedPodsFluent<A> {
   public V1UncountedTerminatedPodsFluentImpl() {}
 
-  public V1UncountedTerminatedPodsFluentImpl(
-      io.kubernetes.client.openapi.models.V1UncountedTerminatedPods instance) {
+  public V1UncountedTerminatedPodsFluentImpl(V1UncountedTerminatedPods instance) {
     this.withFailed(instance.getFailed());
 
     this.withSucceeded(instance.getSucceeded());
   }
 
   private List<String> failed;
-  private java.util.List<java.lang.String> succeeded;
+  private List<String> succeeded;
 
-  public A addToFailed(Integer index, java.lang.String item) {
+  public A addToFailed(Integer index, String item) {
     if (this.failed == null) {
-      this.failed = new ArrayList<java.lang.String>();
+      this.failed = new ArrayList<String>();
     }
     this.failed.add(index, item);
     return (A) this;
   }
 
-  public A setToFailed(java.lang.Integer index, java.lang.String item) {
+  public A setToFailed(Integer index, String item) {
     if (this.failed == null) {
-      this.failed = new java.util.ArrayList<java.lang.String>();
+      this.failed = new ArrayList<String>();
     }
     this.failed.set(index, item);
     return (A) this;
@@ -52,26 +51,26 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
 
   public A addToFailed(java.lang.String... items) {
     if (this.failed == null) {
-      this.failed = new java.util.ArrayList<java.lang.String>();
+      this.failed = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.failed.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToFailed(Collection<java.lang.String> items) {
+  public A addAllToFailed(Collection<String> items) {
     if (this.failed == null) {
-      this.failed = new java.util.ArrayList<java.lang.String>();
+      this.failed = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.failed.add(item);
     }
     return (A) this;
   }
 
   public A removeFromFailed(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.failed != null) {
         this.failed.remove(item);
       }
@@ -79,8 +78,8 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
     return (A) this;
   }
 
-  public A removeAllFromFailed(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromFailed(Collection<String> items) {
+    for (String item : items) {
       if (this.failed != null) {
         this.failed.remove(item);
       }
@@ -88,24 +87,24 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getFailed() {
+  public List<String> getFailed() {
     return this.failed;
   }
 
-  public java.lang.String getFailed(java.lang.Integer index) {
+  public String getFailed(Integer index) {
     return this.failed.get(index);
   }
 
-  public java.lang.String getFirstFailed() {
+  public String getFirstFailed() {
     return this.failed.get(0);
   }
 
-  public java.lang.String getLastFailed() {
+  public String getLastFailed() {
     return this.failed.get(failed.size() - 1);
   }
 
-  public java.lang.String getMatchingFailed(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : failed) {
+  public String getMatchingFailed(Predicate<String> predicate) {
+    for (String item : failed) {
       if (predicate.test(item)) {
         return item;
       }
@@ -113,8 +112,8 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
     return null;
   }
 
-  public Boolean hasMatchingFailed(java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : failed) {
+  public Boolean hasMatchingFailed(Predicate<String> predicate) {
+    for (String item : failed) {
       if (predicate.test(item)) {
         return true;
       }
@@ -122,10 +121,10 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
     return false;
   }
 
-  public A withFailed(java.util.List<java.lang.String> failed) {
+  public A withFailed(List<String> failed) {
     if (failed != null) {
-      this.failed = new java.util.ArrayList();
-      for (java.lang.String item : failed) {
+      this.failed = new ArrayList();
+      for (String item : failed) {
         this.addToFailed(item);
       }
     } else {
@@ -139,28 +138,28 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
       this.failed.clear();
     }
     if (failed != null) {
-      for (java.lang.String item : failed) {
+      for (String item : failed) {
         this.addToFailed(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasFailed() {
+  public Boolean hasFailed() {
     return failed != null && !failed.isEmpty();
   }
 
-  public A addToSucceeded(java.lang.Integer index, java.lang.String item) {
+  public A addToSucceeded(Integer index, String item) {
     if (this.succeeded == null) {
-      this.succeeded = new java.util.ArrayList<java.lang.String>();
+      this.succeeded = new ArrayList<String>();
     }
     this.succeeded.add(index, item);
     return (A) this;
   }
 
-  public A setToSucceeded(java.lang.Integer index, java.lang.String item) {
+  public A setToSucceeded(Integer index, String item) {
     if (this.succeeded == null) {
-      this.succeeded = new java.util.ArrayList<java.lang.String>();
+      this.succeeded = new ArrayList<String>();
     }
     this.succeeded.set(index, item);
     return (A) this;
@@ -168,26 +167,26 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
 
   public A addToSucceeded(java.lang.String... items) {
     if (this.succeeded == null) {
-      this.succeeded = new java.util.ArrayList<java.lang.String>();
+      this.succeeded = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.succeeded.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToSucceeded(java.util.Collection<java.lang.String> items) {
+  public A addAllToSucceeded(Collection<String> items) {
     if (this.succeeded == null) {
-      this.succeeded = new java.util.ArrayList<java.lang.String>();
+      this.succeeded = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.succeeded.add(item);
     }
     return (A) this;
   }
 
   public A removeFromSucceeded(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.succeeded != null) {
         this.succeeded.remove(item);
       }
@@ -195,8 +194,8 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
     return (A) this;
   }
 
-  public A removeAllFromSucceeded(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromSucceeded(Collection<String> items) {
+    for (String item : items) {
       if (this.succeeded != null) {
         this.succeeded.remove(item);
       }
@@ -204,25 +203,24 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getSucceeded() {
+  public List<String> getSucceeded() {
     return this.succeeded;
   }
 
-  public java.lang.String getSucceeded(java.lang.Integer index) {
+  public String getSucceeded(Integer index) {
     return this.succeeded.get(index);
   }
 
-  public java.lang.String getFirstSucceeded() {
+  public String getFirstSucceeded() {
     return this.succeeded.get(0);
   }
 
-  public java.lang.String getLastSucceeded() {
+  public String getLastSucceeded() {
     return this.succeeded.get(succeeded.size() - 1);
   }
 
-  public java.lang.String getMatchingSucceeded(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : succeeded) {
+  public String getMatchingSucceeded(Predicate<String> predicate) {
+    for (String item : succeeded) {
       if (predicate.test(item)) {
         return item;
       }
@@ -230,9 +228,8 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
     return null;
   }
 
-  public java.lang.Boolean hasMatchingSucceeded(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : succeeded) {
+  public Boolean hasMatchingSucceeded(Predicate<String> predicate) {
+    for (String item : succeeded) {
       if (predicate.test(item)) {
         return true;
       }
@@ -240,10 +237,10 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
     return false;
   }
 
-  public A withSucceeded(java.util.List<java.lang.String> succeeded) {
+  public A withSucceeded(List<String> succeeded) {
     if (succeeded != null) {
-      this.succeeded = new java.util.ArrayList();
-      for (java.lang.String item : succeeded) {
+      this.succeeded = new ArrayList();
+      for (String item : succeeded) {
         this.addToSucceeded(item);
       }
     } else {
@@ -257,14 +254,14 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
       this.succeeded.clear();
     }
     if (succeeded != null) {
-      for (java.lang.String item : succeeded) {
+      for (String item : succeeded) {
         this.addToSucceeded(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSucceeded() {
+  public Boolean hasSucceeded() {
     return succeeded != null && !succeeded.isEmpty();
   }
 
@@ -282,7 +279,7 @@ public class V1UncountedTerminatedPodsFluentImpl<A extends V1UncountedTerminated
     return java.util.Objects.hash(failed, succeeded, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (failed != null && !failed.isEmpty()) {

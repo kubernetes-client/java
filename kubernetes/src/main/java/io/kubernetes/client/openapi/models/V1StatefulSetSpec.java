@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "A StatefulSetSpec is the specification of a StatefulSet.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1StatefulSetSpec {
   public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
 
@@ -85,15 +85,14 @@ public class V1StatefulSetSpec {
   /**
    * Minimum number of seconds for which a newly created pod should be ready without any of its
    * container crashing for it to be considered available. Defaults to 0 (pod will be considered
-   * available as soon as it is ready) This is an alpha field and requires enabling
-   * StatefulSetMinReadySeconds feature gate.
+   * available as soon as it is ready)
    *
    * @return minReadySeconds
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready) This is an alpha field and requires enabling StatefulSetMinReadySeconds feature gate.")
+          "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)")
   public Integer getMinReadySeconds() {
     return minReadySeconds;
   }

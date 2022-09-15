@@ -20,43 +20,43 @@ public interface V1ContainerStateTerminatedFluent<A extends V1ContainerStateTerm
     extends Fluent<A> {
   public String getContainerID();
 
-  public A withContainerID(java.lang.String containerID);
+  public A withContainerID(String containerID);
 
   public Boolean hasContainerID();
 
   public Integer getExitCode();
 
-  public A withExitCode(java.lang.Integer exitCode);
+  public A withExitCode(Integer exitCode);
 
-  public java.lang.Boolean hasExitCode();
+  public Boolean hasExitCode();
 
   public OffsetDateTime getFinishedAt();
 
-  public A withFinishedAt(java.time.OffsetDateTime finishedAt);
+  public A withFinishedAt(OffsetDateTime finishedAt);
 
-  public java.lang.Boolean hasFinishedAt();
+  public Boolean hasFinishedAt();
 
-  public java.lang.String getMessage();
+  public String getMessage();
 
-  public A withMessage(java.lang.String message);
+  public A withMessage(String message);
 
-  public java.lang.Boolean hasMessage();
+  public Boolean hasMessage();
 
-  public java.lang.String getReason();
+  public String getReason();
 
-  public A withReason(java.lang.String reason);
+  public A withReason(String reason);
 
-  public java.lang.Boolean hasReason();
+  public Boolean hasReason();
 
-  public java.lang.Integer getSignal();
+  public Integer getSignal();
 
-  public A withSignal(java.lang.Integer signal);
+  public A withSignal(Integer signal);
 
-  public java.lang.Boolean hasSignal();
+  public Boolean hasSignal();
 
-  public java.time.OffsetDateTime getStartedAt();
+  public OffsetDateTime getStartedAt();
 
-  public A withStartedAt(java.time.OffsetDateTime startedAt);
+  public A withStartedAt(OffsetDateTime startedAt);
 
-  public java.lang.Boolean hasStartedAt();
+  public Boolean hasStartedAt();
 }

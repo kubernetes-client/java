@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ScopeSelectorBuilder extends V1ScopeSelectorFluentImpl<V1ScopeSelectorBuilder>
-    implements VisitableBuilder<
-        V1ScopeSelector, io.kubernetes.client.openapi.models.V1ScopeSelectorBuilder> {
+    implements VisitableBuilder<V1ScopeSelector, V1ScopeSelectorBuilder> {
   public V1ScopeSelectorBuilder() {
     this(false);
   }
@@ -29,45 +28,37 @@ public class V1ScopeSelectorBuilder extends V1ScopeSelectorFluentImpl<V1ScopeSel
     this(fluent, false);
   }
 
-  public V1ScopeSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ScopeSelectorFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ScopeSelectorBuilder(V1ScopeSelectorFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ScopeSelector(), validationEnabled);
   }
 
-  public V1ScopeSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ScopeSelectorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ScopeSelector instance) {
+  public V1ScopeSelectorBuilder(V1ScopeSelectorFluent<?> fluent, V1ScopeSelector instance) {
     this(fluent, instance, false);
   }
 
   public V1ScopeSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ScopeSelectorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ScopeSelector instance,
-      java.lang.Boolean validationEnabled) {
+      V1ScopeSelectorFluent<?> fluent, V1ScopeSelector instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMatchExpressions(instance.getMatchExpressions());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ScopeSelectorBuilder(io.kubernetes.client.openapi.models.V1ScopeSelector instance) {
+  public V1ScopeSelectorBuilder(V1ScopeSelector instance) {
     this(instance, false);
   }
 
-  public V1ScopeSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ScopeSelector instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ScopeSelectorBuilder(V1ScopeSelector instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMatchExpressions(instance.getMatchExpressions());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ScopeSelectorFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ScopeSelectorFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ScopeSelector build() {
+  public V1ScopeSelector build() {
     V1ScopeSelector buildable = new V1ScopeSelector();
     buildable.setMatchExpressions(fluent.getMatchExpressions());
     return buildable;

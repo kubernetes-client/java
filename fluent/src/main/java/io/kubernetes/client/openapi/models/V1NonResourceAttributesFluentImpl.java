@@ -20,21 +20,20 @@ public class V1NonResourceAttributesFluentImpl<A extends V1NonResourceAttributes
     extends BaseFluent<A> implements V1NonResourceAttributesFluent<A> {
   public V1NonResourceAttributesFluentImpl() {}
 
-  public V1NonResourceAttributesFluentImpl(
-      io.kubernetes.client.openapi.models.V1NonResourceAttributes instance) {
+  public V1NonResourceAttributesFluentImpl(V1NonResourceAttributes instance) {
     this.withPath(instance.getPath());
 
     this.withVerb(instance.getVerb());
   }
 
   private String path;
-  private java.lang.String verb;
+  private String verb;
 
-  public java.lang.String getPath() {
+  public String getPath() {
     return this.path;
   }
 
-  public A withPath(java.lang.String path) {
+  public A withPath(String path) {
     this.path = path;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1NonResourceAttributesFluentImpl<A extends V1NonResourceAttributes
     return this.path != null;
   }
 
-  public java.lang.String getVerb() {
+  public String getVerb() {
     return this.verb;
   }
 
-  public A withVerb(java.lang.String verb) {
+  public A withVerb(String verb) {
     this.verb = verb;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVerb() {
+  public Boolean hasVerb() {
     return this.verb != null;
   }
 
@@ -69,7 +68,7 @@ public class V1NonResourceAttributesFluentImpl<A extends V1NonResourceAttributes
     return java.util.Objects.hash(path, verb, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (path != null) {

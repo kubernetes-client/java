@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1CSIDriverSpecBuilder extends V1CSIDriverSpecFluentImpl<V1CSIDriverSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CSIDriverSpec,
-        io.kubernetes.client.openapi.models.V1CSIDriverSpecBuilder> {
+    implements VisitableBuilder<V1CSIDriverSpec, V1CSIDriverSpecBuilder> {
   public V1CSIDriverSpecBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1CSIDriverSpecBuilder extends V1CSIDriverSpecFluentImpl<V1CSIDrive
     this(fluent, false);
   }
 
-  public V1CSIDriverSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1CSIDriverSpecBuilder(V1CSIDriverSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CSIDriverSpec(), validationEnabled);
   }
 
-  public V1CSIDriverSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSIDriverSpec instance) {
+  public V1CSIDriverSpecBuilder(V1CSIDriverSpecFluent<?> fluent, V1CSIDriverSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1CSIDriverSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSIDriverSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1CSIDriverSpecFluent<?> fluent, V1CSIDriverSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAttachRequired(instance.getAttachRequired());
 
@@ -54,6 +46,8 @@ public class V1CSIDriverSpecBuilder extends V1CSIDriverSpecFluentImpl<V1CSIDrive
     fluent.withPodInfoOnMount(instance.getPodInfoOnMount());
 
     fluent.withRequiresRepublish(instance.getRequiresRepublish());
+
+    fluent.withSeLinuxMount(instance.getSeLinuxMount());
 
     fluent.withStorageCapacity(instance.getStorageCapacity());
 
@@ -64,13 +58,11 @@ public class V1CSIDriverSpecBuilder extends V1CSIDriverSpecFluentImpl<V1CSIDrive
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CSIDriverSpecBuilder(io.kubernetes.client.openapi.models.V1CSIDriverSpec instance) {
+  public V1CSIDriverSpecBuilder(V1CSIDriverSpec instance) {
     this(instance, false);
   }
 
-  public V1CSIDriverSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1CSIDriverSpecBuilder(V1CSIDriverSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAttachRequired(instance.getAttachRequired());
 
@@ -79,6 +71,8 @@ public class V1CSIDriverSpecBuilder extends V1CSIDriverSpecFluentImpl<V1CSIDrive
     this.withPodInfoOnMount(instance.getPodInfoOnMount());
 
     this.withRequiresRepublish(instance.getRequiresRepublish());
+
+    this.withSeLinuxMount(instance.getSeLinuxMount());
 
     this.withStorageCapacity(instance.getStorageCapacity());
 
@@ -89,15 +83,16 @@ public class V1CSIDriverSpecBuilder extends V1CSIDriverSpecFluentImpl<V1CSIDrive
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CSIDriverSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CSIDriverSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverSpec build() {
+  public V1CSIDriverSpec build() {
     V1CSIDriverSpec buildable = new V1CSIDriverSpec();
     buildable.setAttachRequired(fluent.getAttachRequired());
     buildable.setFsGroupPolicy(fluent.getFsGroupPolicy());
     buildable.setPodInfoOnMount(fluent.getPodInfoOnMount());
     buildable.setRequiresRepublish(fluent.getRequiresRepublish());
+    buildable.setSeLinuxMount(fluent.getSeLinuxMount());
     buildable.setStorageCapacity(fluent.getStorageCapacity());
     buildable.setTokenRequests(fluent.getTokenRequests());
     buildable.setVolumeLifecycleModes(fluent.getVolumeLifecycleModes());

@@ -19,25 +19,25 @@ public interface V1ComponentConditionFluent<A extends V1ComponentConditionFluent
     extends Fluent<A> {
   public String getError();
 
-  public A withError(java.lang.String error);
+  public A withError(String error);
 
   public Boolean hasError();
 
-  public java.lang.String getMessage();
+  public String getMessage();
 
-  public A withMessage(java.lang.String message);
+  public A withMessage(String message);
 
-  public java.lang.Boolean hasMessage();
+  public Boolean hasMessage();
 
-  public java.lang.String getStatus();
+  public String getStatus();
 
-  public A withStatus(java.lang.String status);
+  public A withStatus(String status);
 
-  public java.lang.Boolean hasStatus();
+  public Boolean hasStatus();
 
-  public java.lang.String getType();
+  public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 }

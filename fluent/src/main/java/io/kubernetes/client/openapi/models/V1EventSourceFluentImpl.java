@@ -20,20 +20,20 @@ public class V1EventSourceFluentImpl<A extends V1EventSourceFluent<A>> extends B
     implements V1EventSourceFluent<A> {
   public V1EventSourceFluentImpl() {}
 
-  public V1EventSourceFluentImpl(io.kubernetes.client.openapi.models.V1EventSource instance) {
+  public V1EventSourceFluentImpl(V1EventSource instance) {
     this.withComponent(instance.getComponent());
 
     this.withHost(instance.getHost());
   }
 
   private String component;
-  private java.lang.String host;
+  private String host;
 
-  public java.lang.String getComponent() {
+  public String getComponent() {
     return this.component;
   }
 
-  public A withComponent(java.lang.String component) {
+  public A withComponent(String component) {
     this.component = component;
     return (A) this;
   }
@@ -42,16 +42,16 @@ public class V1EventSourceFluentImpl<A extends V1EventSourceFluent<A>> extends B
     return this.component != null;
   }
 
-  public java.lang.String getHost() {
+  public String getHost() {
     return this.host;
   }
 
-  public A withHost(java.lang.String host) {
+  public A withHost(String host) {
     this.host = host;
     return (A) this;
   }
 
-  public java.lang.Boolean hasHost() {
+  public Boolean hasHost() {
     return this.host != null;
   }
 
@@ -69,7 +69,7 @@ public class V1EventSourceFluentImpl<A extends V1EventSourceFluent<A>> extends B
     return java.util.Objects.hash(component, host, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (component != null) {

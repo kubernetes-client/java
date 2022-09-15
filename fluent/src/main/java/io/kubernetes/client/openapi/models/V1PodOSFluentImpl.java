@@ -20,17 +20,17 @@ public class V1PodOSFluentImpl<A extends V1PodOSFluent<A>> extends BaseFluent<A>
     implements V1PodOSFluent<A> {
   public V1PodOSFluentImpl() {}
 
-  public V1PodOSFluentImpl(io.kubernetes.client.openapi.models.V1PodOS instance) {
+  public V1PodOSFluentImpl(V1PodOS instance) {
     this.withName(instance.getName());
   }
 
   private String name;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -51,7 +51,7 @@ public class V1PodOSFluentImpl<A extends V1PodOSFluent<A>> extends BaseFluent<A>
     return java.util.Objects.hash(name, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {

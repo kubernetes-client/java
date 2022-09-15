@@ -27,37 +27,29 @@ public interface V1VolumeAttachmentSourceFluent<A extends V1VolumeAttachmentSour
   @Deprecated
   public V1PersistentVolumeSpec getInlineVolumeSpec();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec buildInlineVolumeSpec();
+  public V1PersistentVolumeSpec buildInlineVolumeSpec();
 
-  public A withInlineVolumeSpec(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpec inlineVolumeSpec);
+  public A withInlineVolumeSpec(V1PersistentVolumeSpec inlineVolumeSpec);
 
   public Boolean hasInlineVolumeSpec();
 
   public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> withNewInlineVolumeSpec();
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<
-          A>
-      withNewInlineVolumeSpecLike(io.kubernetes.client.openapi.models.V1PersistentVolumeSpec item);
+  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> withNewInlineVolumeSpecLike(
+      V1PersistentVolumeSpec item);
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<
-          A>
-      editInlineVolumeSpec();
+  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> editInlineVolumeSpec();
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<
-          A>
-      editOrNewInlineVolumeSpec();
+  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> editOrNewInlineVolumeSpec();
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<
-          A>
-      editOrNewInlineVolumeSpecLike(
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpec item);
+  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> editOrNewInlineVolumeSpecLike(
+      V1PersistentVolumeSpec item);
 
   public String getPersistentVolumeName();
 
-  public A withPersistentVolumeName(java.lang.String persistentVolumeName);
+  public A withPersistentVolumeName(String persistentVolumeName);
 
-  public java.lang.Boolean hasPersistentVolumeName();
+  public Boolean hasPersistentVolumeName();
 
   public interface InlineVolumeSpecNested<N>
       extends Nested<N>,

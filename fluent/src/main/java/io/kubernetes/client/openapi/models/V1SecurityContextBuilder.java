@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SecurityContextBuilder extends V1SecurityContextFluentImpl<V1SecurityContextBuilder>
-    implements VisitableBuilder<
-        V1SecurityContext, io.kubernetes.client.openapi.models.V1SecurityContextBuilder> {
+    implements VisitableBuilder<V1SecurityContext, V1SecurityContextBuilder> {
   public V1SecurityContextBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1SecurityContextBuilder extends V1SecurityContextFluentImpl<V1Secu
     this(new V1SecurityContext(), validationEnabled);
   }
 
-  public V1SecurityContextBuilder(
-      io.kubernetes.client.openapi.models.V1SecurityContextFluent<?> fluent) {
+  public V1SecurityContextBuilder(V1SecurityContextFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1SecurityContextBuilder(
-      io.kubernetes.client.openapi.models.V1SecurityContextFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1SecurityContextBuilder(V1SecurityContextFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1SecurityContext(), validationEnabled);
   }
 
-  public V1SecurityContextBuilder(
-      io.kubernetes.client.openapi.models.V1SecurityContextFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SecurityContext instance) {
+  public V1SecurityContextBuilder(V1SecurityContextFluent<?> fluent, V1SecurityContext instance) {
     this(fluent, instance, false);
   }
 
   public V1SecurityContextBuilder(
-      io.kubernetes.client.openapi.models.V1SecurityContextFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SecurityContext instance,
-      java.lang.Boolean validationEnabled) {
+      V1SecurityContextFluent<?> fluent, V1SecurityContext instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAllowPrivilegeEscalation(instance.getAllowPrivilegeEscalation());
 
@@ -72,13 +64,11 @@ public class V1SecurityContextBuilder extends V1SecurityContextFluentImpl<V1Secu
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SecurityContextBuilder(io.kubernetes.client.openapi.models.V1SecurityContext instance) {
+  public V1SecurityContextBuilder(V1SecurityContext instance) {
     this(instance, false);
   }
 
-  public V1SecurityContextBuilder(
-      io.kubernetes.client.openapi.models.V1SecurityContext instance,
-      java.lang.Boolean validationEnabled) {
+  public V1SecurityContextBuilder(V1SecurityContext instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAllowPrivilegeEscalation(instance.getAllowPrivilegeEscalation());
 
@@ -105,10 +95,10 @@ public class V1SecurityContextBuilder extends V1SecurityContextFluentImpl<V1Secu
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SecurityContextFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SecurityContextFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1SecurityContext build() {
+  public V1SecurityContext build() {
     V1SecurityContext buildable = new V1SecurityContext();
     buildable.setAllowPrivilegeEscalation(fluent.getAllowPrivilegeEscalation());
     buildable.setCapabilities(fluent.getCapabilities());

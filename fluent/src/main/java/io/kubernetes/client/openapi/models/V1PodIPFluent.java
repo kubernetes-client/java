@@ -18,7 +18,7 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1PodIPFluent<A extends V1PodIPFluent<A>> extends Fluent<A> {
   public String getIp();
 
-  public A withIp(java.lang.String ip);
+  public A withIp(String ip);
 
   public Boolean hasIp();
 }

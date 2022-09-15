@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2beta2PodsMetricSourceBuilder
     extends V2beta2PodsMetricSourceFluentImpl<V2beta2PodsMetricSourceBuilder>
-    implements VisitableBuilder<
-        V2beta2PodsMetricSource,
-        io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceBuilder> {
+    implements VisitableBuilder<V2beta2PodsMetricSource, V2beta2PodsMetricSourceBuilder> {
   public V2beta2PodsMetricSourceBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V2beta2PodsMetricSourceBuilder
   }
 
   public V2beta2PodsMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2beta2PodsMetricSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2beta2PodsMetricSource(), validationEnabled);
   }
 
   public V2beta2PodsMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2beta2PodsMetricSource instance) {
+      V2beta2PodsMetricSourceFluent<?> fluent, V2beta2PodsMetricSource instance) {
     this(fluent, instance, false);
   }
 
   public V2beta2PodsMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2beta2PodsMetricSource instance,
-      java.lang.Boolean validationEnabled) {
+      V2beta2PodsMetricSourceFluent<?> fluent,
+      V2beta2PodsMetricSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMetric(instance.getMetric());
 
@@ -55,14 +51,12 @@ public class V2beta2PodsMetricSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2beta2PodsMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2beta2PodsMetricSource instance) {
+  public V2beta2PodsMetricSourceBuilder(V2beta2PodsMetricSource instance) {
     this(instance, false);
   }
 
   public V2beta2PodsMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2beta2PodsMetricSource instance,
-      java.lang.Boolean validationEnabled) {
+      V2beta2PodsMetricSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMetric(instance.getMetric());
 
@@ -71,10 +65,10 @@ public class V2beta2PodsMetricSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2beta2PodsMetricSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricSource build() {
+  public V2beta2PodsMetricSource build() {
     V2beta2PodsMetricSource buildable = new V2beta2PodsMetricSource();
     buildable.setMetric(fluent.getMetric());
     buildable.setTarget(fluent.getTarget());

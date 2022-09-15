@@ -19,19 +19,19 @@ public interface V1beta2QueuingConfigurationFluent<A extends V1beta2QueuingConfi
     extends Fluent<A> {
   public Integer getHandSize();
 
-  public A withHandSize(java.lang.Integer handSize);
+  public A withHandSize(Integer handSize);
 
   public Boolean hasHandSize();
 
-  public java.lang.Integer getQueueLengthLimit();
+  public Integer getQueueLengthLimit();
 
-  public A withQueueLengthLimit(java.lang.Integer queueLengthLimit);
+  public A withQueueLengthLimit(Integer queueLengthLimit);
 
-  public java.lang.Boolean hasQueueLengthLimit();
+  public Boolean hasQueueLengthLimit();
 
-  public java.lang.Integer getQueues();
+  public Integer getQueues();
 
-  public A withQueues(java.lang.Integer queues);
+  public A withQueues(Integer queues);
 
-  public java.lang.Boolean hasQueues();
+  public Boolean hasQueues();
 }

@@ -38,14 +38,14 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
 
   private String apiVersion;
   private ArrayList<V1RoleBuilder> items;
-  private java.lang.String kind;
+  private String kind;
   private V1ListMetaBuilder metadata;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -54,23 +54,21 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
     return this.apiVersion != null;
   }
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1Role item) {
+  public A addToItems(Integer index, V1Role item) {
     if (this.items == null) {
-      this.items = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1RoleBuilder>();
+      this.items = new ArrayList<V1RoleBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1RoleBuilder builder =
-        new io.kubernetes.client.openapi.models.V1RoleBuilder(item);
+    V1RoleBuilder builder = new V1RoleBuilder(item);
     _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
     this.items.add(index >= 0 ? index : items.size(), builder);
     return (A) this;
   }
 
-  public A setToItems(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Role item) {
+  public A setToItems(Integer index, V1Role item) {
     if (this.items == null) {
-      this.items = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1RoleBuilder>();
+      this.items = new ArrayList<V1RoleBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1RoleBuilder builder =
-        new io.kubernetes.client.openapi.models.V1RoleBuilder(item);
+    V1RoleBuilder builder = new V1RoleBuilder(item);
     if (index < 0 || index >= _visitables.get("items").size()) {
       _visitables.get("items").add(builder);
     } else {
@@ -86,24 +84,22 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
 
   public A addToItems(io.kubernetes.client.openapi.models.V1Role... items) {
     if (this.items == null) {
-      this.items = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1RoleBuilder>();
+      this.items = new ArrayList<V1RoleBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Role item : items) {
-      io.kubernetes.client.openapi.models.V1RoleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1RoleBuilder(item);
+    for (V1Role item : items) {
+      V1RoleBuilder builder = new V1RoleBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1Role> items) {
+  public A addAllToItems(Collection<V1Role> items) {
     if (this.items == null) {
-      this.items = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1RoleBuilder>();
+      this.items = new ArrayList<V1RoleBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Role item : items) {
-      io.kubernetes.client.openapi.models.V1RoleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1RoleBuilder(item);
+    for (V1Role item : items) {
+      V1RoleBuilder builder = new V1RoleBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
@@ -111,9 +107,8 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
   }
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Role... items) {
-    for (io.kubernetes.client.openapi.models.V1Role item : items) {
-      io.kubernetes.client.openapi.models.V1RoleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1RoleBuilder(item);
+    for (V1Role item : items) {
+      V1RoleBuilder builder = new V1RoleBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -122,11 +117,9 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Role> items) {
-    for (io.kubernetes.client.openapi.models.V1Role item : items) {
-      io.kubernetes.client.openapi.models.V1RoleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1RoleBuilder(item);
+  public A removeAllFromItems(Collection<V1Role> items) {
+    for (V1Role item : items) {
+      V1RoleBuilder builder = new V1RoleBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -135,13 +128,12 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeMatchingFromItems(
-      Predicate<io.kubernetes.client.openapi.models.V1RoleBuilder> predicate) {
+  public A removeMatchingFromItems(Predicate<V1RoleBuilder> predicate) {
     if (items == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1RoleBuilder> each = items.iterator();
+    final Iterator<V1RoleBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1RoleBuilder builder = each.next();
+      V1RoleBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -156,29 +148,28 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1Role> getItems() {
+  public List<V1Role> getItems() {
     return items != null ? build(items) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1Role> buildItems() {
+  public List<V1Role> buildItems() {
     return items != null ? build(items) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1Role buildItem(java.lang.Integer index) {
+  public V1Role buildItem(Integer index) {
     return this.items.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Role buildFirstItem() {
+  public V1Role buildFirstItem() {
     return this.items.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Role buildLastItem() {
+  public V1Role buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Role buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1RoleBuilder> predicate) {
-    for (io.kubernetes.client.openapi.models.V1RoleBuilder item : items) {
+  public V1Role buildMatchingItem(Predicate<V1RoleBuilder> predicate) {
+    for (V1RoleBuilder item : items) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -186,9 +177,8 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
     return null;
   }
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1RoleBuilder> predicate) {
-    for (io.kubernetes.client.openapi.models.V1RoleBuilder item : items) {
+  public Boolean hasMatchingItem(Predicate<V1RoleBuilder> predicate) {
+    for (V1RoleBuilder item : items) {
       if (predicate.test(item)) {
         return true;
       }
@@ -196,13 +186,13 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
     return false;
   }
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1Role> items) {
+  public A withItems(List<V1Role> items) {
     if (this.items != null) {
       _visitables.get("items").removeAll(this.items);
     }
     if (items != null) {
-      this.items = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1Role item : items) {
+      this.items = new ArrayList();
+      for (V1Role item : items) {
         this.addToItems(item);
       }
     } else {
@@ -216,14 +206,14 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
       this.items.clear();
     }
     if (items != null) {
-      for (io.kubernetes.client.openapi.models.V1Role item : items) {
+      for (V1Role item : items) {
         this.addToItems(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasItems() {
+  public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
 
@@ -231,36 +221,31 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
     return new V1RoleListFluentImpl.ItemsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1RoleListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1Role item) {
+  public V1RoleListFluent.ItemsNested<A> addNewItemLike(V1Role item) {
     return new V1RoleListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1RoleListFluent.ItemsNested<A> setNewItemLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Role item) {
-    return new io.kubernetes.client.openapi.models.V1RoleListFluentImpl.ItemsNestedImpl(
-        index, item);
+  public V1RoleListFluent.ItemsNested<A> setNewItemLike(Integer index, V1Role item) {
+    return new V1RoleListFluentImpl.ItemsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1RoleListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index) {
+  public V1RoleListFluent.ItemsNested<A> editItem(Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1RoleListFluent.ItemsNested<A> editFirstItem() {
+  public V1RoleListFluent.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1RoleListFluent.ItemsNested<A> editLastItem() {
+  public V1RoleListFluent.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1RoleListFluent.ItemsNested<A> editMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1RoleBuilder> predicate) {
+  public V1RoleListFluent.ItemsNested<A> editMatchingItem(Predicate<V1RoleBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < items.size(); i++) {
       if (predicate.test(items.get(i))) {
@@ -272,16 +257,16 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
     return setNewItemLike(index, buildItem(index));
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -290,25 +275,28 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
+  @Deprecated
+  public V1ListMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
+  public V1ListMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
+  public A withMetadata(V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -316,25 +304,20 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
     return new V1RoleListFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1RoleListFluent.MetadataNested<A> withNewMetadataLike(
-      io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V1RoleListFluentImpl.MetadataNestedImpl(item);
+  public V1RoleListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+    return new V1RoleListFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1RoleListFluent.MetadataNested<A> editMetadata() {
+  public V1RoleListFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1RoleListFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1RoleListFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1RoleListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
+  public V1RoleListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -354,7 +337,7 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -378,19 +361,19 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
   }
 
   class ItemsNestedImpl<N> extends V1RoleFluentImpl<V1RoleListFluent.ItemsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1RoleListFluent.ItemsNested<N>, Nested<N> {
-    ItemsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Role item) {
+      implements V1RoleListFluent.ItemsNested<N>, Nested<N> {
+    ItemsNestedImpl(Integer index, V1Role item) {
       this.index = index;
       this.builder = new V1RoleBuilder(this, item);
     }
 
     ItemsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1RoleBuilder(this);
+      this.builder = new V1RoleBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1RoleBuilder builder;
-    java.lang.Integer index;
+    V1RoleBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1RoleListFluentImpl.this.setToItems(index, builder.build());
@@ -402,17 +385,16 @@ public class V1RoleListFluentImpl<A extends V1RoleListFluent<A>> extends BaseFlu
   }
 
   class MetadataNestedImpl<N> extends V1ListMetaFluentImpl<V1RoleListFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1RoleListFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1RoleListFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this);
+      this.builder = new V1ListMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
+    V1ListMetaBuilder builder;
 
     public N and() {
       return (N) V1RoleListFluentImpl.this.withMetadata(builder.build());

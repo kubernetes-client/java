@@ -20,13 +20,13 @@ public interface V1TokenRequestStatusFluent<A extends V1TokenRequestStatusFluent
     extends Fluent<A> {
   public OffsetDateTime getExpirationTimestamp();
 
-  public A withExpirationTimestamp(java.time.OffsetDateTime expirationTimestamp);
+  public A withExpirationTimestamp(OffsetDateTime expirationTimestamp);
 
   public Boolean hasExpirationTimestamp();
 
   public String getToken();
 
-  public A withToken(java.lang.String token);
+  public A withToken(String token);
 
-  public java.lang.Boolean hasToken();
+  public Boolean hasToken();
 }

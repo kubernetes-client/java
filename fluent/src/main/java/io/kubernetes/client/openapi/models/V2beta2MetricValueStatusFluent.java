@@ -20,23 +20,23 @@ public interface V2beta2MetricValueStatusFluent<A extends V2beta2MetricValueStat
     extends Fluent<A> {
   public Integer getAverageUtilization();
 
-  public A withAverageUtilization(java.lang.Integer averageUtilization);
+  public A withAverageUtilization(Integer averageUtilization);
 
   public Boolean hasAverageUtilization();
 
   public Quantity getAverageValue();
 
-  public A withAverageValue(io.kubernetes.client.custom.Quantity averageValue);
+  public A withAverageValue(Quantity averageValue);
 
-  public java.lang.Boolean hasAverageValue();
+  public Boolean hasAverageValue();
 
   public A withNewAverageValue(String value);
 
-  public io.kubernetes.client.custom.Quantity getValue();
+  public Quantity getValue();
 
-  public A withValue(io.kubernetes.client.custom.Quantity value);
+  public A withValue(Quantity value);
 
-  public java.lang.Boolean hasValue();
+  public Boolean hasValue();
 
-  public A withNewValue(java.lang.String value);
+  public A withNewValue(String value);
 }

@@ -20,8 +20,7 @@ public class V1beta1QueuingConfigurationFluentImpl<A extends V1beta1QueuingConfi
     extends BaseFluent<A> implements V1beta1QueuingConfigurationFluent<A> {
   public V1beta1QueuingConfigurationFluentImpl() {}
 
-  public V1beta1QueuingConfigurationFluentImpl(
-      io.kubernetes.client.openapi.models.V1beta1QueuingConfiguration instance) {
+  public V1beta1QueuingConfigurationFluentImpl(V1beta1QueuingConfiguration instance) {
     this.withHandSize(instance.getHandSize());
 
     this.withQueueLengthLimit(instance.getQueueLengthLimit());
@@ -30,14 +29,14 @@ public class V1beta1QueuingConfigurationFluentImpl<A extends V1beta1QueuingConfi
   }
 
   private Integer handSize;
-  private java.lang.Integer queueLengthLimit;
-  private java.lang.Integer queues;
+  private Integer queueLengthLimit;
+  private Integer queues;
 
-  public java.lang.Integer getHandSize() {
+  public Integer getHandSize() {
     return this.handSize;
   }
 
-  public A withHandSize(java.lang.Integer handSize) {
+  public A withHandSize(Integer handSize) {
     this.handSize = handSize;
     return (A) this;
   }
@@ -46,29 +45,29 @@ public class V1beta1QueuingConfigurationFluentImpl<A extends V1beta1QueuingConfi
     return this.handSize != null;
   }
 
-  public java.lang.Integer getQueueLengthLimit() {
+  public Integer getQueueLengthLimit() {
     return this.queueLengthLimit;
   }
 
-  public A withQueueLengthLimit(java.lang.Integer queueLengthLimit) {
+  public A withQueueLengthLimit(Integer queueLengthLimit) {
     this.queueLengthLimit = queueLengthLimit;
     return (A) this;
   }
 
-  public java.lang.Boolean hasQueueLengthLimit() {
+  public Boolean hasQueueLengthLimit() {
     return this.queueLengthLimit != null;
   }
 
-  public java.lang.Integer getQueues() {
+  public Integer getQueues() {
     return this.queues;
   }
 
-  public A withQueues(java.lang.Integer queues) {
+  public A withQueues(Integer queues) {
     this.queues = queues;
     return (A) this;
   }
 
-  public java.lang.Boolean hasQueues() {
+  public Boolean hasQueues() {
     return this.queues != null;
   }
 

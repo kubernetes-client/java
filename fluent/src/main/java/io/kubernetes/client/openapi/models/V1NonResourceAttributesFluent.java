@@ -19,13 +19,13 @@ public interface V1NonResourceAttributesFluent<A extends V1NonResourceAttributes
     extends Fluent<A> {
   public String getPath();
 
-  public A withPath(java.lang.String path);
+  public A withPath(String path);
 
   public Boolean hasPath();
 
-  public java.lang.String getVerb();
+  public String getVerb();
 
-  public A withVerb(java.lang.String verb);
+  public A withVerb(String verb);
 
-  public java.lang.Boolean hasVerb();
+  public Boolean hasVerb();
 }

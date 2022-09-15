@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "BoundObjectReference is a reference to an object that a token is bound to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1BoundObjectReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
 

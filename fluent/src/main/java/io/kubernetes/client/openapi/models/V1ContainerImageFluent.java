@@ -21,37 +21,37 @@ import java.util.function.Predicate;
 public interface V1ContainerImageFluent<A extends V1ContainerImageFluent<A>> extends Fluent<A> {
   public A addToNames(Integer index, String item);
 
-  public A setToNames(java.lang.Integer index, java.lang.String item);
+  public A setToNames(Integer index, String item);
 
   public A addToNames(java.lang.String... items);
 
-  public A addAllToNames(Collection<java.lang.String> items);
+  public A addAllToNames(Collection<String> items);
 
   public A removeFromNames(java.lang.String... items);
 
-  public A removeAllFromNames(java.util.Collection<java.lang.String> items);
+  public A removeAllFromNames(Collection<String> items);
 
-  public List<java.lang.String> getNames();
+  public List<String> getNames();
 
-  public java.lang.String getName(java.lang.Integer index);
+  public String getName(Integer index);
 
-  public java.lang.String getFirstName();
+  public String getFirstName();
 
-  public java.lang.String getLastName();
+  public String getLastName();
 
-  public java.lang.String getMatchingName(Predicate<java.lang.String> predicate);
+  public String getMatchingName(Predicate<String> predicate);
 
-  public Boolean hasMatchingName(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingName(Predicate<String> predicate);
 
-  public A withNames(java.util.List<java.lang.String> names);
+  public A withNames(List<String> names);
 
   public A withNames(java.lang.String... names);
 
-  public java.lang.Boolean hasNames();
+  public Boolean hasNames();
 
   public Long getSizeBytes();
 
-  public A withSizeBytes(java.lang.Long sizeBytes);
+  public A withSizeBytes(Long sizeBytes);
 
-  public java.lang.Boolean hasSizeBytes();
+  public Boolean hasSizeBytes();
 }

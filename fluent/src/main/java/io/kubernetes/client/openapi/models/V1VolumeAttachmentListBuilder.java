@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1VolumeAttachmentListBuilder
     extends V1VolumeAttachmentListFluentImpl<V1VolumeAttachmentListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1VolumeAttachmentList, V1VolumeAttachmentListBuilder> {
+    implements VisitableBuilder<V1VolumeAttachmentList, V1VolumeAttachmentListBuilder> {
   public V1VolumeAttachmentListBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1VolumeAttachmentListBuilder
   }
 
   public V1VolumeAttachmentListBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeAttachmentListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1VolumeAttachmentList(), validationEnabled);
   }
 
   public V1VolumeAttachmentListBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentList instance) {
+      V1VolumeAttachmentListFluent<?> fluent, V1VolumeAttachmentList instance) {
     this(fluent, instance, false);
   }
 
   public V1VolumeAttachmentListBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentList instance,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeAttachmentListFluent<?> fluent,
+      V1VolumeAttachmentList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,14 +55,11 @@ public class V1VolumeAttachmentListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1VolumeAttachmentListBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentList instance) {
+  public V1VolumeAttachmentListBuilder(V1VolumeAttachmentList instance) {
     this(instance, false);
   }
 
-  public V1VolumeAttachmentListBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeAttachmentListBuilder(V1VolumeAttachmentList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -78,10 +72,10 @@ public class V1VolumeAttachmentListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1VolumeAttachmentListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentList build() {
+  public V1VolumeAttachmentList build() {
     V1VolumeAttachmentList buildable = new V1VolumeAttachmentList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

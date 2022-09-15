@@ -20,21 +20,20 @@ public class V1ExternalDocumentationFluentImpl<A extends V1ExternalDocumentation
     extends BaseFluent<A> implements V1ExternalDocumentationFluent<A> {
   public V1ExternalDocumentationFluentImpl() {}
 
-  public V1ExternalDocumentationFluentImpl(
-      io.kubernetes.client.openapi.models.V1ExternalDocumentation instance) {
+  public V1ExternalDocumentationFluentImpl(V1ExternalDocumentation instance) {
     this.withDescription(instance.getDescription());
 
     this.withUrl(instance.getUrl());
   }
 
   private String description;
-  private java.lang.String url;
+  private String url;
 
-  public java.lang.String getDescription() {
+  public String getDescription() {
     return this.description;
   }
 
-  public A withDescription(java.lang.String description) {
+  public A withDescription(String description) {
     this.description = description;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1ExternalDocumentationFluentImpl<A extends V1ExternalDocumentation
     return this.description != null;
   }
 
-  public java.lang.String getUrl() {
+  public String getUrl() {
     return this.url;
   }
 
-  public A withUrl(java.lang.String url) {
+  public A withUrl(String url) {
     this.url = url;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUrl() {
+  public Boolean hasUrl() {
     return this.url != null;
   }
 
@@ -70,7 +69,7 @@ public class V1ExternalDocumentationFluentImpl<A extends V1ExternalDocumentation
     return java.util.Objects.hash(description, url, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (description != null) {

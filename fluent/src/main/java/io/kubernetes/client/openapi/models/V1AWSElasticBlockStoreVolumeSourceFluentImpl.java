@@ -21,8 +21,7 @@ public class V1AWSElasticBlockStoreVolumeSourceFluentImpl<
     extends BaseFluent<A> implements V1AWSElasticBlockStoreVolumeSourceFluent<A> {
   public V1AWSElasticBlockStoreVolumeSourceFluentImpl() {}
 
-  public V1AWSElasticBlockStoreVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource instance) {
+  public V1AWSElasticBlockStoreVolumeSourceFluentImpl(V1AWSElasticBlockStoreVolumeSource instance) {
     this.withFsType(instance.getFsType());
 
     this.withPartition(instance.getPartition());
@@ -35,57 +34,57 @@ public class V1AWSElasticBlockStoreVolumeSourceFluentImpl<
   private String fsType;
   private Integer partition;
   private Boolean readOnly;
-  private java.lang.String volumeID;
+  private String volumeID;
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsType() {
+  public Boolean hasFsType() {
     return this.fsType != null;
   }
 
-  public java.lang.Integer getPartition() {
+  public Integer getPartition() {
     return this.partition;
   }
 
-  public A withPartition(java.lang.Integer partition) {
+  public A withPartition(Integer partition) {
     this.partition = partition;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPartition() {
+  public Boolean hasPartition() {
     return this.partition != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
-  public java.lang.String getVolumeID() {
+  public String getVolumeID() {
     return this.volumeID;
   }
 
-  public A withVolumeID(java.lang.String volumeID) {
+  public A withVolumeID(String volumeID) {
     this.volumeID = volumeID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVolumeID() {
+  public Boolean hasVolumeID() {
     return this.volumeID != null;
   }
 
@@ -106,7 +105,7 @@ public class V1AWSElasticBlockStoreVolumeSourceFluentImpl<
     return java.util.Objects.hash(fsType, partition, readOnly, volumeID, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fsType != null) {

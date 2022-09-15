@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2ExternalMetricSourceBuilder
     extends V2ExternalMetricSourceFluentImpl<V2ExternalMetricSourceBuilder>
-    implements VisitableBuilder<
-        V2ExternalMetricSource, io.kubernetes.client.openapi.models.V2ExternalMetricSourceBuilder> {
+    implements VisitableBuilder<V2ExternalMetricSource, V2ExternalMetricSourceBuilder> {
   public V2ExternalMetricSourceBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V2ExternalMetricSourceBuilder
     this(new V2ExternalMetricSource(), validationEnabled);
   }
 
-  public V2ExternalMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ExternalMetricSourceFluent<?> fluent) {
+  public V2ExternalMetricSourceBuilder(V2ExternalMetricSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V2ExternalMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ExternalMetricSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2ExternalMetricSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2ExternalMetricSource(), validationEnabled);
   }
 
   public V2ExternalMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ExternalMetricSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2ExternalMetricSource instance) {
+      V2ExternalMetricSourceFluent<?> fluent, V2ExternalMetricSource instance) {
     this(fluent, instance, false);
   }
 
   public V2ExternalMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ExternalMetricSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2ExternalMetricSource instance,
-      java.lang.Boolean validationEnabled) {
+      V2ExternalMetricSourceFluent<?> fluent,
+      V2ExternalMetricSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMetric(instance.getMetric());
 
@@ -55,14 +51,11 @@ public class V2ExternalMetricSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2ExternalMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ExternalMetricSource instance) {
+  public V2ExternalMetricSourceBuilder(V2ExternalMetricSource instance) {
     this(instance, false);
   }
 
-  public V2ExternalMetricSourceBuilder(
-      io.kubernetes.client.openapi.models.V2ExternalMetricSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V2ExternalMetricSourceBuilder(V2ExternalMetricSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMetric(instance.getMetric());
 
@@ -71,10 +64,10 @@ public class V2ExternalMetricSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2ExternalMetricSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2ExternalMetricSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2ExternalMetricSource build() {
+  public V2ExternalMetricSource build() {
     V2ExternalMetricSource buildable = new V2ExternalMetricSource();
     buildable.setMetric(fluent.getMetric());
     buildable.setTarget(fluent.getTarget());

@@ -24,17 +24,15 @@ import java.util.function.Predicate;
 public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Fluent<A> {
   public A addToAddresses(Integer index, V1NodeAddress item);
 
-  public A setToAddresses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeAddress item);
+  public A setToAddresses(Integer index, V1NodeAddress item);
 
   public A addToAddresses(io.kubernetes.client.openapi.models.V1NodeAddress... items);
 
-  public A addAllToAddresses(Collection<io.kubernetes.client.openapi.models.V1NodeAddress> items);
+  public A addAllToAddresses(Collection<V1NodeAddress> items);
 
   public A removeFromAddresses(io.kubernetes.client.openapi.models.V1NodeAddress... items);
 
-  public A removeAllFromAddresses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NodeAddress> items);
+  public A removeAllFromAddresses(Collection<V1NodeAddress> items);
 
   public A removeMatchingFromAddresses(Predicate<V1NodeAddressBuilder> predicate);
 
@@ -44,420 +42,348 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1NodeAddress> getAddresses();
+  public List<V1NodeAddress> getAddresses();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1NodeAddress> buildAddresses();
+  public List<V1NodeAddress> buildAddresses();
 
-  public io.kubernetes.client.openapi.models.V1NodeAddress buildAddress(java.lang.Integer index);
+  public V1NodeAddress buildAddress(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NodeAddress buildFirstAddress();
+  public V1NodeAddress buildFirstAddress();
 
-  public io.kubernetes.client.openapi.models.V1NodeAddress buildLastAddress();
+  public V1NodeAddress buildLastAddress();
 
-  public io.kubernetes.client.openapi.models.V1NodeAddress buildMatchingAddress(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeAddressBuilder>
-          predicate);
+  public V1NodeAddress buildMatchingAddress(Predicate<V1NodeAddressBuilder> predicate);
 
-  public Boolean hasMatchingAddress(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeAddressBuilder>
-          predicate);
+  public Boolean hasMatchingAddress(Predicate<V1NodeAddressBuilder> predicate);
 
-  public A withAddresses(
-      java.util.List<io.kubernetes.client.openapi.models.V1NodeAddress> addresses);
+  public A withAddresses(List<V1NodeAddress> addresses);
 
   public A withAddresses(io.kubernetes.client.openapi.models.V1NodeAddress... addresses);
 
-  public java.lang.Boolean hasAddresses();
+  public Boolean hasAddresses();
 
   public V1NodeStatusFluent.AddressesNested<A> addNewAddress();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.AddressesNested<A>
-      addNewAddressLike(io.kubernetes.client.openapi.models.V1NodeAddress item);
+  public V1NodeStatusFluent.AddressesNested<A> addNewAddressLike(V1NodeAddress item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.AddressesNested<A>
-      setNewAddressLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeAddress item);
+  public V1NodeStatusFluent.AddressesNested<A> setNewAddressLike(Integer index, V1NodeAddress item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.AddressesNested<A> editAddress(
-      java.lang.Integer index);
+  public V1NodeStatusFluent.AddressesNested<A> editAddress(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.AddressesNested<A>
-      editFirstAddress();
+  public V1NodeStatusFluent.AddressesNested<A> editFirstAddress();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.AddressesNested<A>
-      editLastAddress();
+  public V1NodeStatusFluent.AddressesNested<A> editLastAddress();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.AddressesNested<A>
-      editMatchingAddress(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeAddressBuilder>
-              predicate);
+  public V1NodeStatusFluent.AddressesNested<A> editMatchingAddress(
+      Predicate<V1NodeAddressBuilder> predicate);
 
   public A addToAllocatable(String key, Quantity value);
 
-  public A addToAllocatable(Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A addToAllocatable(Map<String, Quantity> map);
 
-  public A removeFromAllocatable(java.lang.String key);
+  public A removeFromAllocatable(String key);
 
-  public A removeFromAllocatable(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A removeFromAllocatable(Map<String, Quantity> map);
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getAllocatable();
+  public Map<String, Quantity> getAllocatable();
 
-  public <K, V> A withAllocatable(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> allocatable);
+  public <K, V> A withAllocatable(Map<String, Quantity> allocatable);
 
-  public java.lang.Boolean hasAllocatable();
+  public Boolean hasAllocatable();
 
-  public A addToCapacity(java.lang.String key, io.kubernetes.client.custom.Quantity value);
+  public A addToCapacity(String key, Quantity value);
 
-  public A addToCapacity(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A addToCapacity(Map<String, Quantity> map);
 
-  public A removeFromCapacity(java.lang.String key);
+  public A removeFromCapacity(String key);
 
-  public A removeFromCapacity(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A removeFromCapacity(Map<String, Quantity> map);
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getCapacity();
+  public Map<String, Quantity> getCapacity();
 
-  public <K, V> A withCapacity(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> capacity);
+  public <K, V> A withCapacity(Map<String, Quantity> capacity);
 
-  public java.lang.Boolean hasCapacity();
+  public Boolean hasCapacity();
 
-  public A addToConditions(java.lang.Integer index, V1NodeCondition item);
+  public A addToConditions(Integer index, V1NodeCondition item);
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeCondition item);
+  public A setToConditions(Integer index, V1NodeCondition item);
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1NodeCondition... items);
 
-  public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NodeCondition> items);
+  public A addAllToConditions(Collection<V1NodeCondition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1NodeCondition... items);
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NodeCondition> items);
+  public A removeAllFromConditions(Collection<V1NodeCondition> items);
 
-  public A removeMatchingFromConditions(
-      java.util.function.Predicate<V1NodeConditionBuilder> predicate);
+  public A removeMatchingFromConditions(Predicate<V1NodeConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConditions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1NodeCondition> getConditions();
+  @Deprecated
+  public List<V1NodeCondition> getConditions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1NodeCondition> buildConditions();
+  public List<V1NodeCondition> buildConditions();
 
-  public io.kubernetes.client.openapi.models.V1NodeCondition buildCondition(
-      java.lang.Integer index);
+  public V1NodeCondition buildCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NodeCondition buildFirstCondition();
+  public V1NodeCondition buildFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1NodeCondition buildLastCondition();
+  public V1NodeCondition buildLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1NodeCondition buildMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeConditionBuilder>
-          predicate);
+  public V1NodeCondition buildMatchingCondition(Predicate<V1NodeConditionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeConditionBuilder>
-          predicate);
+  public Boolean hasMatchingCondition(Predicate<V1NodeConditionBuilder> predicate);
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1NodeCondition> conditions);
+  public A withConditions(List<V1NodeCondition> conditions);
 
   public A withConditions(io.kubernetes.client.openapi.models.V1NodeCondition... conditions);
 
-  public java.lang.Boolean hasConditions();
+  public Boolean hasConditions();
 
   public V1NodeStatusFluent.ConditionsNested<A> addNewCondition();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1NodeCondition item);
+  public V1NodeStatusFluent.ConditionsNested<A> addNewConditionLike(V1NodeCondition item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeCondition item);
+  public V1NodeStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1NodeCondition item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ConditionsNested<A> editCondition(
-      java.lang.Integer index);
+  public V1NodeStatusFluent.ConditionsNested<A> editCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ConditionsNested<A>
-      editFirstCondition();
+  public V1NodeStatusFluent.ConditionsNested<A> editFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ConditionsNested<A>
-      editLastCondition();
+  public V1NodeStatusFluent.ConditionsNested<A> editLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeConditionBuilder>
-              predicate);
+  public V1NodeStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1NodeConditionBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildConfig instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1NodeConfigStatus getConfig();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatus buildConfig();
+  public V1NodeConfigStatus buildConfig();
 
-  public A withConfig(io.kubernetes.client.openapi.models.V1NodeConfigStatus config);
+  public A withConfig(V1NodeConfigStatus config);
 
-  public java.lang.Boolean hasConfig();
+  public Boolean hasConfig();
 
   public V1NodeStatusFluent.ConfigNested<A> withNewConfig();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ConfigNested<A> withNewConfigLike(
-      io.kubernetes.client.openapi.models.V1NodeConfigStatus item);
+  public V1NodeStatusFluent.ConfigNested<A> withNewConfigLike(V1NodeConfigStatus item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ConfigNested<A> editConfig();
+  public V1NodeStatusFluent.ConfigNested<A> editConfig();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ConfigNested<A> editOrNewConfig();
+  public V1NodeStatusFluent.ConfigNested<A> editOrNewConfig();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ConfigNested<A> editOrNewConfigLike(
-      io.kubernetes.client.openapi.models.V1NodeConfigStatus item);
+  public V1NodeStatusFluent.ConfigNested<A> editOrNewConfigLike(V1NodeConfigStatus item);
 
   /**
    * This method has been deprecated, please use method buildDaemonEndpoints instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1NodeDaemonEndpoints getDaemonEndpoints();
 
-  public io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints buildDaemonEndpoints();
+  public V1NodeDaemonEndpoints buildDaemonEndpoints();
 
-  public A withDaemonEndpoints(
-      io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints daemonEndpoints);
+  public A withDaemonEndpoints(V1NodeDaemonEndpoints daemonEndpoints);
 
-  public java.lang.Boolean hasDaemonEndpoints();
+  public Boolean hasDaemonEndpoints();
 
   public V1NodeStatusFluent.DaemonEndpointsNested<A> withNewDaemonEndpoints();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.DaemonEndpointsNested<A>
-      withNewDaemonEndpointsLike(io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints item);
+  public V1NodeStatusFluent.DaemonEndpointsNested<A> withNewDaemonEndpointsLike(
+      V1NodeDaemonEndpoints item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.DaemonEndpointsNested<A>
-      editDaemonEndpoints();
+  public V1NodeStatusFluent.DaemonEndpointsNested<A> editDaemonEndpoints();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.DaemonEndpointsNested<A>
-      editOrNewDaemonEndpoints();
+  public V1NodeStatusFluent.DaemonEndpointsNested<A> editOrNewDaemonEndpoints();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.DaemonEndpointsNested<A>
-      editOrNewDaemonEndpointsLike(io.kubernetes.client.openapi.models.V1NodeDaemonEndpoints item);
+  public V1NodeStatusFluent.DaemonEndpointsNested<A> editOrNewDaemonEndpointsLike(
+      V1NodeDaemonEndpoints item);
 
-  public A addToImages(java.lang.Integer index, V1ContainerImage item);
+  public A addToImages(Integer index, V1ContainerImage item);
 
-  public A setToImages(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerImage item);
+  public A setToImages(Integer index, V1ContainerImage item);
 
   public A addToImages(io.kubernetes.client.openapi.models.V1ContainerImage... items);
 
-  public A addAllToImages(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ContainerImage> items);
+  public A addAllToImages(Collection<V1ContainerImage> items);
 
   public A removeFromImages(io.kubernetes.client.openapi.models.V1ContainerImage... items);
 
-  public A removeAllFromImages(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ContainerImage> items);
+  public A removeAllFromImages(Collection<V1ContainerImage> items);
 
-  public A removeMatchingFromImages(
-      java.util.function.Predicate<V1ContainerImageBuilder> predicate);
+  public A removeMatchingFromImages(Predicate<V1ContainerImageBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildImages instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ContainerImage> getImages();
+  @Deprecated
+  public List<V1ContainerImage> getImages();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ContainerImage> buildImages();
+  public List<V1ContainerImage> buildImages();
 
-  public io.kubernetes.client.openapi.models.V1ContainerImage buildImage(java.lang.Integer index);
+  public V1ContainerImage buildImage(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ContainerImage buildFirstImage();
+  public V1ContainerImage buildFirstImage();
 
-  public io.kubernetes.client.openapi.models.V1ContainerImage buildLastImage();
+  public V1ContainerImage buildLastImage();
 
-  public io.kubernetes.client.openapi.models.V1ContainerImage buildMatchingImage(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerImageBuilder>
-          predicate);
+  public V1ContainerImage buildMatchingImage(Predicate<V1ContainerImageBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingImage(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerImageBuilder>
-          predicate);
+  public Boolean hasMatchingImage(Predicate<V1ContainerImageBuilder> predicate);
 
-  public A withImages(java.util.List<io.kubernetes.client.openapi.models.V1ContainerImage> images);
+  public A withImages(List<V1ContainerImage> images);
 
   public A withImages(io.kubernetes.client.openapi.models.V1ContainerImage... images);
 
-  public java.lang.Boolean hasImages();
+  public Boolean hasImages();
 
   public V1NodeStatusFluent.ImagesNested<A> addNewImage();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ImagesNested<A> addNewImageLike(
-      io.kubernetes.client.openapi.models.V1ContainerImage item);
+  public V1NodeStatusFluent.ImagesNested<A> addNewImageLike(V1ContainerImage item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ImagesNested<A> setNewImageLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerImage item);
+  public V1NodeStatusFluent.ImagesNested<A> setNewImageLike(Integer index, V1ContainerImage item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ImagesNested<A> editImage(
-      java.lang.Integer index);
+  public V1NodeStatusFluent.ImagesNested<A> editImage(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ImagesNested<A> editFirstImage();
+  public V1NodeStatusFluent.ImagesNested<A> editFirstImage();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ImagesNested<A> editLastImage();
+  public V1NodeStatusFluent.ImagesNested<A> editLastImage();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.ImagesNested<A> editMatchingImage(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerImageBuilder>
-          predicate);
+  public V1NodeStatusFluent.ImagesNested<A> editMatchingImage(
+      Predicate<V1ContainerImageBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildNodeInfo instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1NodeSystemInfo getNodeInfo();
 
-  public io.kubernetes.client.openapi.models.V1NodeSystemInfo buildNodeInfo();
+  public V1NodeSystemInfo buildNodeInfo();
 
-  public A withNodeInfo(io.kubernetes.client.openapi.models.V1NodeSystemInfo nodeInfo);
+  public A withNodeInfo(V1NodeSystemInfo nodeInfo);
 
-  public java.lang.Boolean hasNodeInfo();
+  public Boolean hasNodeInfo();
 
   public V1NodeStatusFluent.NodeInfoNested<A> withNewNodeInfo();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.NodeInfoNested<A>
-      withNewNodeInfoLike(io.kubernetes.client.openapi.models.V1NodeSystemInfo item);
+  public V1NodeStatusFluent.NodeInfoNested<A> withNewNodeInfoLike(V1NodeSystemInfo item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.NodeInfoNested<A> editNodeInfo();
+  public V1NodeStatusFluent.NodeInfoNested<A> editNodeInfo();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.NodeInfoNested<A>
-      editOrNewNodeInfo();
+  public V1NodeStatusFluent.NodeInfoNested<A> editOrNewNodeInfo();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.NodeInfoNested<A>
-      editOrNewNodeInfoLike(io.kubernetes.client.openapi.models.V1NodeSystemInfo item);
+  public V1NodeStatusFluent.NodeInfoNested<A> editOrNewNodeInfoLike(V1NodeSystemInfo item);
 
-  public java.lang.String getPhase();
+  public String getPhase();
 
-  public A withPhase(java.lang.String phase);
+  public A withPhase(String phase);
 
-  public java.lang.Boolean hasPhase();
+  public Boolean hasPhase();
 
-  public A addToVolumesAttached(java.lang.Integer index, V1AttachedVolume item);
+  public A addToVolumesAttached(Integer index, V1AttachedVolume item);
 
-  public A setToVolumesAttached(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1AttachedVolume item);
+  public A setToVolumesAttached(Integer index, V1AttachedVolume item);
 
   public A addToVolumesAttached(io.kubernetes.client.openapi.models.V1AttachedVolume... items);
 
-  public A addAllToVolumesAttached(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1AttachedVolume> items);
+  public A addAllToVolumesAttached(Collection<V1AttachedVolume> items);
 
   public A removeFromVolumesAttached(io.kubernetes.client.openapi.models.V1AttachedVolume... items);
 
-  public A removeAllFromVolumesAttached(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1AttachedVolume> items);
+  public A removeAllFromVolumesAttached(Collection<V1AttachedVolume> items);
 
-  public A removeMatchingFromVolumesAttached(
-      java.util.function.Predicate<V1AttachedVolumeBuilder> predicate);
+  public A removeMatchingFromVolumesAttached(Predicate<V1AttachedVolumeBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildVolumesAttached instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1AttachedVolume> getVolumesAttached();
+  @Deprecated
+  public List<V1AttachedVolume> getVolumesAttached();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1AttachedVolume>
-      buildVolumesAttached();
+  public List<V1AttachedVolume> buildVolumesAttached();
 
-  public io.kubernetes.client.openapi.models.V1AttachedVolume buildVolumesAttached(
-      java.lang.Integer index);
+  public V1AttachedVolume buildVolumesAttached(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1AttachedVolume buildFirstVolumesAttached();
+  public V1AttachedVolume buildFirstVolumesAttached();
 
-  public io.kubernetes.client.openapi.models.V1AttachedVolume buildLastVolumesAttached();
+  public V1AttachedVolume buildLastVolumesAttached();
 
-  public io.kubernetes.client.openapi.models.V1AttachedVolume buildMatchingVolumesAttached(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1AttachedVolumeBuilder>
-          predicate);
+  public V1AttachedVolume buildMatchingVolumesAttached(
+      Predicate<V1AttachedVolumeBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingVolumesAttached(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1AttachedVolumeBuilder>
-          predicate);
+  public Boolean hasMatchingVolumesAttached(Predicate<V1AttachedVolumeBuilder> predicate);
 
-  public A withVolumesAttached(
-      java.util.List<io.kubernetes.client.openapi.models.V1AttachedVolume> volumesAttached);
+  public A withVolumesAttached(List<V1AttachedVolume> volumesAttached);
 
   public A withVolumesAttached(
       io.kubernetes.client.openapi.models.V1AttachedVolume... volumesAttached);
 
-  public java.lang.Boolean hasVolumesAttached();
+  public Boolean hasVolumesAttached();
 
   public V1NodeStatusFluent.VolumesAttachedNested<A> addNewVolumesAttached();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.VolumesAttachedNested<A>
-      addNewVolumesAttachedLike(io.kubernetes.client.openapi.models.V1AttachedVolume item);
+  public V1NodeStatusFluent.VolumesAttachedNested<A> addNewVolumesAttachedLike(
+      V1AttachedVolume item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.VolumesAttachedNested<A>
-      setNewVolumesAttachedLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1AttachedVolume item);
+  public V1NodeStatusFluent.VolumesAttachedNested<A> setNewVolumesAttachedLike(
+      Integer index, V1AttachedVolume item);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.VolumesAttachedNested<A>
-      editVolumesAttached(java.lang.Integer index);
+  public V1NodeStatusFluent.VolumesAttachedNested<A> editVolumesAttached(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.VolumesAttachedNested<A>
-      editFirstVolumesAttached();
+  public V1NodeStatusFluent.VolumesAttachedNested<A> editFirstVolumesAttached();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.VolumesAttachedNested<A>
-      editLastVolumesAttached();
+  public V1NodeStatusFluent.VolumesAttachedNested<A> editLastVolumesAttached();
 
-  public io.kubernetes.client.openapi.models.V1NodeStatusFluent.VolumesAttachedNested<A>
-      editMatchingVolumesAttached(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1AttachedVolumeBuilder>
-              predicate);
+  public V1NodeStatusFluent.VolumesAttachedNested<A> editMatchingVolumesAttached(
+      Predicate<V1AttachedVolumeBuilder> predicate);
 
-  public A addToVolumesInUse(java.lang.Integer index, java.lang.String item);
+  public A addToVolumesInUse(Integer index, String item);
 
-  public A setToVolumesInUse(java.lang.Integer index, java.lang.String item);
+  public A setToVolumesInUse(Integer index, String item);
 
   public A addToVolumesInUse(java.lang.String... items);
 
-  public A addAllToVolumesInUse(java.util.Collection<java.lang.String> items);
+  public A addAllToVolumesInUse(Collection<String> items);
 
   public A removeFromVolumesInUse(java.lang.String... items);
 
-  public A removeAllFromVolumesInUse(java.util.Collection<java.lang.String> items);
+  public A removeAllFromVolumesInUse(Collection<String> items);
 
-  public java.util.List<java.lang.String> getVolumesInUse();
+  public List<String> getVolumesInUse();
 
-  public java.lang.String getVolumesInUse(java.lang.Integer index);
+  public String getVolumesInUse(Integer index);
 
-  public java.lang.String getFirstVolumesInUse();
+  public String getFirstVolumesInUse();
 
-  public java.lang.String getLastVolumesInUse();
+  public String getLastVolumesInUse();
 
-  public java.lang.String getMatchingVolumesInUse(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingVolumesInUse(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingVolumesInUse(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingVolumesInUse(Predicate<String> predicate);
 
-  public A withVolumesInUse(java.util.List<java.lang.String> volumesInUse);
+  public A withVolumesInUse(List<String> volumesInUse);
 
   public A withVolumesInUse(java.lang.String... volumesInUse);
 
-  public java.lang.Boolean hasVolumesInUse();
+  public Boolean hasVolumesInUse();
 
   public interface AddressesNested<N>
       extends Nested<N>, V1NodeAddressFluent<V1NodeStatusFluent.AddressesNested<N>> {
@@ -467,48 +393,42 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   }
 
   public interface ConditionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1NodeConditionFluent<V1NodeStatusFluent.ConditionsNested<N>> {
+      extends Nested<N>, V1NodeConditionFluent<V1NodeStatusFluent.ConditionsNested<N>> {
     public N and();
 
     public N endCondition();
   }
 
   public interface ConfigNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1NodeConfigStatusFluent<V1NodeStatusFluent.ConfigNested<N>> {
+      extends Nested<N>, V1NodeConfigStatusFluent<V1NodeStatusFluent.ConfigNested<N>> {
     public N and();
 
     public N endConfig();
   }
 
   public interface DaemonEndpointsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1NodeDaemonEndpointsFluent<V1NodeStatusFluent.DaemonEndpointsNested<N>> {
+      extends Nested<N>, V1NodeDaemonEndpointsFluent<V1NodeStatusFluent.DaemonEndpointsNested<N>> {
     public N and();
 
     public N endDaemonEndpoints();
   }
 
   public interface ImagesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ContainerImageFluent<V1NodeStatusFluent.ImagesNested<N>> {
+      extends Nested<N>, V1ContainerImageFluent<V1NodeStatusFluent.ImagesNested<N>> {
     public N and();
 
     public N endImage();
   }
 
   public interface NodeInfoNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1NodeSystemInfoFluent<V1NodeStatusFluent.NodeInfoNested<N>> {
+      extends Nested<N>, V1NodeSystemInfoFluent<V1NodeStatusFluent.NodeInfoNested<N>> {
     public N and();
 
     public N endNodeInfo();
   }
 
   public interface VolumesAttachedNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1AttachedVolumeFluent<V1NodeStatusFluent.VolumesAttachedNested<N>> {
+      extends Nested<N>, V1AttachedVolumeFluent<V1NodeStatusFluent.VolumesAttachedNested<N>> {
     public N and();
 
     public N endVolumesAttached();

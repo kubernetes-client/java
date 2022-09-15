@@ -23,7 +23,7 @@ import java.util.Objects;
         "CronJobSpec describes how the job execution will look like and when it will actually run.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1CronJobSpec {
   public static final String SERIALIZED_NAME_CONCURRENCY_POLICY = "concurrencyPolicy";
 
@@ -237,17 +237,24 @@ public class V1CronJobSpec {
   }
 
   /**
-   * The time zone for the given schedule, see
-   * https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will rely
-   * on the time zone of the kube-controller-manager process. ALPHA: This field is in alpha and must
-   * be enabled via the &#x60;CronJobTimeZone&#x60; feature gate.
+   * The time zone name for the given schedule, see
+   * https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will
+   * default to the time zone of the kube-controller-manager process. The set of valid time zone
+   * names and the time zone offset is loaded from the system-wide time zone database by the API
+   * server during CronJob validation and the controller manager during execution. If no system-wide
+   * time zone database can be found a bundled version of the database is used instead. If the time
+   * zone name becomes invalid during the lifetime of a CronJob or due to a change in host
+   * configuration, the controller will stop creating new new Jobs and will create a system event
+   * with the reason UnknownTimeZone. More information can be found in
+   * https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones This is beta
+   * field and must be enabled via the &#x60;CronJobTimeZone&#x60; feature gate.
    *
    * @return timeZone
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "The time zone for the given schedule, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will rely on the time zone of the kube-controller-manager process. ALPHA: This field is in alpha and must be enabled via the `CronJobTimeZone` feature gate.")
+          "The time zone name for the given schedule, see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones. If not specified, this will default to the time zone of the kube-controller-manager process. The set of valid time zone names and the time zone offset is loaded from the system-wide time zone database by the API server during CronJob validation and the controller manager during execution. If no system-wide time zone database can be found a bundled version of the database is used instead. If the time zone name becomes invalid during the lifetime of a CronJob or due to a change in host configuration, the controller will stop creating new new Jobs and will create a system event with the reason UnknownTimeZone. More information can be found in https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#time-zones This is beta field and must be enabled via the `CronJobTimeZone` feature gate.")
   public String getTimeZone() {
     return timeZone;
   }

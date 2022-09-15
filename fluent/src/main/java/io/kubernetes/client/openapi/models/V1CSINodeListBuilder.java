@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1CSINodeListBuilder extends V1CSINodeListFluentImpl<V1CSINodeListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CSINodeList,
-        io.kubernetes.client.openapi.models.V1CSINodeListBuilder> {
+    implements VisitableBuilder<V1CSINodeList, V1CSINodeListBuilder> {
   public V1CSINodeListBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1CSINodeListBuilder extends V1CSINodeListFluentImpl<V1CSINodeListB
     this(fluent, false);
   }
 
-  public V1CSINodeListBuilder(
-      io.kubernetes.client.openapi.models.V1CSINodeListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1CSINodeListBuilder(V1CSINodeListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CSINodeList(), validationEnabled);
   }
 
-  public V1CSINodeListBuilder(
-      io.kubernetes.client.openapi.models.V1CSINodeListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSINodeList instance) {
+  public V1CSINodeListBuilder(V1CSINodeListFluent<?> fluent, V1CSINodeList instance) {
     this(fluent, instance, false);
   }
 
   public V1CSINodeListBuilder(
-      io.kubernetes.client.openapi.models.V1CSINodeListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSINodeList instance,
-      java.lang.Boolean validationEnabled) {
+      V1CSINodeListFluent<?> fluent, V1CSINodeList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,13 +50,11 @@ public class V1CSINodeListBuilder extends V1CSINodeListFluentImpl<V1CSINodeListB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CSINodeListBuilder(io.kubernetes.client.openapi.models.V1CSINodeList instance) {
+  public V1CSINodeListBuilder(V1CSINodeList instance) {
     this(instance, false);
   }
 
-  public V1CSINodeListBuilder(
-      io.kubernetes.client.openapi.models.V1CSINodeList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1CSINodeListBuilder(V1CSINodeList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -77,10 +67,10 @@ public class V1CSINodeListBuilder extends V1CSINodeListFluentImpl<V1CSINodeListB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CSINodeListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CSINodeListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CSINodeList build() {
+  public V1CSINodeList build() {
     V1CSINodeList buildable = new V1CSINodeList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

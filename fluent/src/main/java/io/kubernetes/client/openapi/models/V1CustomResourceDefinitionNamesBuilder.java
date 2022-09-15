@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1CustomResourceDefinitionNamesBuilder
     extends V1CustomResourceDefinitionNamesFluentImpl<V1CustomResourceDefinitionNamesBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames,
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesBuilder> {
+        V1CustomResourceDefinitionNames, V1CustomResourceDefinitionNamesBuilder> {
   public V1CustomResourceDefinitionNamesBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V1CustomResourceDefinitionNamesBuilder
   }
 
   public V1CustomResourceDefinitionNamesBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionNamesFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CustomResourceDefinitionNames(), validationEnabled);
   }
 
   public V1CustomResourceDefinitionNamesBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames instance) {
+      V1CustomResourceDefinitionNamesFluent<?> fluent, V1CustomResourceDefinitionNames instance) {
     this(fluent, instance, false);
   }
 
   public V1CustomResourceDefinitionNamesBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionNamesFluent<?> fluent,
+      V1CustomResourceDefinitionNames instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCategories(instance.getCategories());
 
@@ -63,14 +60,12 @@ public class V1CustomResourceDefinitionNamesBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CustomResourceDefinitionNamesBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames instance) {
+  public V1CustomResourceDefinitionNamesBuilder(V1CustomResourceDefinitionNames instance) {
     this(instance, false);
   }
 
   public V1CustomResourceDefinitionNamesBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionNames instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCategories(instance.getCategories());
 
@@ -87,10 +82,10 @@ public class V1CustomResourceDefinitionNamesBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CustomResourceDefinitionNamesFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames build() {
+  public V1CustomResourceDefinitionNames build() {
     V1CustomResourceDefinitionNames buildable = new V1CustomResourceDefinitionNames();
     buildable.setCategories(fluent.getCategories());
     buildable.setKind(fluent.getKind());

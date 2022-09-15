@@ -20,15 +20,15 @@ public interface V1alpha1StorageVersionFluent<A extends V1alpha1StorageVersionFl
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -38,59 +38,53 @@ public interface V1alpha1StorageVersionFluent<A extends V1alpha1StorageVersionFl
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1alpha1StorageVersionFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1alpha1StorageVersionFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionFluent.MetadataNested<A>
-      editMetadata();
+  public V1alpha1StorageVersionFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1alpha1StorageVersionFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1alpha1StorageVersionFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   public Object getSpec();
 
-  public A withSpec(java.lang.Object spec);
+  public A withSpec(Object spec);
 
-  public java.lang.Boolean hasSpec();
+  public Boolean hasSpec();
 
   /**
    * This method has been deprecated, please use method buildStatus instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1alpha1StorageVersionStatus getStatus();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatus buildStatus();
+  public V1alpha1StorageVersionStatus buildStatus();
 
-  public A withStatus(io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatus status);
+  public A withStatus(V1alpha1StorageVersionStatus status);
 
-  public java.lang.Boolean hasStatus();
+  public Boolean hasStatus();
 
   public V1alpha1StorageVersionFluent.StatusNested<A> withNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionFluent.StatusNested<A>
-      withNewStatusLike(io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatus item);
+  public V1alpha1StorageVersionFluent.StatusNested<A> withNewStatusLike(
+      V1alpha1StorageVersionStatus item);
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionFluent.StatusNested<A>
-      editStatus();
+  public V1alpha1StorageVersionFluent.StatusNested<A> editStatus();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionFluent.StatusNested<A>
-      editOrNewStatus();
+  public V1alpha1StorageVersionFluent.StatusNested<A> editOrNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionFluent.StatusNested<A>
-      editOrNewStatusLike(io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatus item);
+  public V1alpha1StorageVersionFluent.StatusNested<A> editOrNewStatusLike(
+      V1alpha1StorageVersionStatus item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1alpha1StorageVersionFluent.MetadataNested<N>> {
@@ -100,7 +94,7 @@ public interface V1alpha1StorageVersionFluent<A extends V1alpha1StorageVersionFl
   }
 
   public interface StatusNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1alpha1StorageVersionStatusFluent<V1alpha1StorageVersionFluent.StatusNested<N>> {
     public N and();
 

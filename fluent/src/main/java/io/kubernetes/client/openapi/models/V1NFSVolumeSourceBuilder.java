@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NFSVolumeSourceBuilder extends V1NFSVolumeSourceFluentImpl<V1NFSVolumeSourceBuilder>
-    implements VisitableBuilder<
-        V1NFSVolumeSource, io.kubernetes.client.openapi.models.V1NFSVolumeSourceBuilder> {
+    implements VisitableBuilder<V1NFSVolumeSource, V1NFSVolumeSourceBuilder> {
   public V1NFSVolumeSourceBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1NFSVolumeSourceBuilder extends V1NFSVolumeSourceFluentImpl<V1NFSV
     this(fluent, false);
   }
 
-  public V1NFSVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1NFSVolumeSourceBuilder(V1NFSVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NFSVolumeSource(), validationEnabled);
   }
 
-  public V1NFSVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NFSVolumeSource instance) {
+  public V1NFSVolumeSourceBuilder(V1NFSVolumeSourceFluent<?> fluent, V1NFSVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1NFSVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NFSVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1NFSVolumeSourceFluent<?> fluent, V1NFSVolumeSource instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withPath(instance.getPath());
 
@@ -55,13 +48,11 @@ public class V1NFSVolumeSourceBuilder extends V1NFSVolumeSourceFluentImpl<V1NFSV
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NFSVolumeSourceBuilder(io.kubernetes.client.openapi.models.V1NFSVolumeSource instance) {
+  public V1NFSVolumeSourceBuilder(V1NFSVolumeSource instance) {
     this(instance, false);
   }
 
-  public V1NFSVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1NFSVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NFSVolumeSourceBuilder(V1NFSVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withPath(instance.getPath());
 
@@ -72,10 +63,10 @@ public class V1NFSVolumeSourceBuilder extends V1NFSVolumeSourceFluentImpl<V1NFSV
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NFSVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NFSVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NFSVolumeSource build() {
+  public V1NFSVolumeSource build() {
     V1NFSVolumeSource buildable = new V1NFSVolumeSource();
     buildable.setPath(fluent.getPath());
     buildable.setReadOnly(fluent.getReadOnly());

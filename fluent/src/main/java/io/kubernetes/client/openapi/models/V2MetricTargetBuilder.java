@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2MetricTargetBuilder extends V2MetricTargetFluentImpl<V2MetricTargetBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2MetricTarget,
-        io.kubernetes.client.openapi.models.V2MetricTargetBuilder> {
+    implements VisitableBuilder<V2MetricTarget, V2MetricTargetBuilder> {
   public V2MetricTargetBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V2MetricTargetBuilder extends V2MetricTargetFluentImpl<V2MetricTarg
     this(fluent, false);
   }
 
-  public V2MetricTargetBuilder(
-      io.kubernetes.client.openapi.models.V2MetricTargetFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V2MetricTargetBuilder(V2MetricTargetFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2MetricTarget(), validationEnabled);
   }
 
-  public V2MetricTargetBuilder(
-      io.kubernetes.client.openapi.models.V2MetricTargetFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2MetricTarget instance) {
+  public V2MetricTargetBuilder(V2MetricTargetFluent<?> fluent, V2MetricTarget instance) {
     this(fluent, instance, false);
   }
 
   public V2MetricTargetBuilder(
-      io.kubernetes.client.openapi.models.V2MetricTargetFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2MetricTarget instance,
-      java.lang.Boolean validationEnabled) {
+      V2MetricTargetFluent<?> fluent, V2MetricTarget instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAverageUtilization(instance.getAverageUtilization());
 
@@ -58,13 +50,11 @@ public class V2MetricTargetBuilder extends V2MetricTargetFluentImpl<V2MetricTarg
     this.validationEnabled = validationEnabled;
   }
 
-  public V2MetricTargetBuilder(io.kubernetes.client.openapi.models.V2MetricTarget instance) {
+  public V2MetricTargetBuilder(V2MetricTarget instance) {
     this(instance, false);
   }
 
-  public V2MetricTargetBuilder(
-      io.kubernetes.client.openapi.models.V2MetricTarget instance,
-      java.lang.Boolean validationEnabled) {
+  public V2MetricTargetBuilder(V2MetricTarget instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAverageUtilization(instance.getAverageUtilization());
 
@@ -77,10 +67,10 @@ public class V2MetricTargetBuilder extends V2MetricTargetFluentImpl<V2MetricTarg
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2MetricTargetFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2MetricTargetFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2MetricTarget build() {
+  public V2MetricTarget build() {
     V2MetricTarget buildable = new V2MetricTarget();
     buildable.setAverageUtilization(fluent.getAverageUtilization());
     buildable.setAverageValue(fluent.getAverageValue());

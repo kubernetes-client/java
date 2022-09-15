@@ -19,13 +19,13 @@ public interface V1HostPathVolumeSourceFluent<A extends V1HostPathVolumeSourceFl
     extends Fluent<A> {
   public String getPath();
 
-  public A withPath(java.lang.String path);
+  public A withPath(String path);
 
   public Boolean hasPath();
 
-  public java.lang.String getType();
+  public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 }

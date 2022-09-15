@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ReplicaSetSpecBuilder extends V1ReplicaSetSpecFluentImpl<V1ReplicaSetSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ReplicaSetSpec,
-        io.kubernetes.client.openapi.models.V1ReplicaSetSpecBuilder> {
+    implements VisitableBuilder<V1ReplicaSetSpec, V1ReplicaSetSpecBuilder> {
   public V1ReplicaSetSpecBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1ReplicaSetSpecBuilder extends V1ReplicaSetSpecFluentImpl<V1Replic
     this(fluent, false);
   }
 
-  public V1ReplicaSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ReplicaSetSpecBuilder(V1ReplicaSetSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ReplicaSetSpec(), validationEnabled);
   }
 
-  public V1ReplicaSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ReplicaSetSpec instance) {
+  public V1ReplicaSetSpecBuilder(V1ReplicaSetSpecFluent<?> fluent, V1ReplicaSetSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1ReplicaSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ReplicaSetSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1ReplicaSetSpecFluent<?> fluent, V1ReplicaSetSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMinReadySeconds(instance.getMinReadySeconds());
 
@@ -58,13 +50,11 @@ public class V1ReplicaSetSpecBuilder extends V1ReplicaSetSpecFluentImpl<V1Replic
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ReplicaSetSpecBuilder(io.kubernetes.client.openapi.models.V1ReplicaSetSpec instance) {
+  public V1ReplicaSetSpecBuilder(V1ReplicaSetSpec instance) {
     this(instance, false);
   }
 
-  public V1ReplicaSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ReplicaSetSpecBuilder(V1ReplicaSetSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMinReadySeconds(instance.getMinReadySeconds());
 
@@ -77,10 +67,10 @@ public class V1ReplicaSetSpecBuilder extends V1ReplicaSetSpecFluentImpl<V1Replic
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ReplicaSetSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ReplicaSetSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetSpec build() {
+  public V1ReplicaSetSpec build() {
     V1ReplicaSetSpec buildable = new V1ReplicaSetSpec();
     buildable.setMinReadySeconds(fluent.getMinReadySeconds());
     buildable.setReplicas(fluent.getReplicas());

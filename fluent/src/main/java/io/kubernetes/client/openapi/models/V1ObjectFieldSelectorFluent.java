@@ -19,13 +19,13 @@ public interface V1ObjectFieldSelectorFluent<A extends V1ObjectFieldSelectorFlue
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getFieldPath();
+  public String getFieldPath();
 
-  public A withFieldPath(java.lang.String fieldPath);
+  public A withFieldPath(String fieldPath);
 
-  public java.lang.Boolean hasFieldPath();
+  public Boolean hasFieldPath();
 }

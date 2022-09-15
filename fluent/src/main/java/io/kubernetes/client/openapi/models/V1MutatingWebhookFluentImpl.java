@@ -26,8 +26,7 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     implements V1MutatingWebhookFluent<A> {
   public V1MutatingWebhookFluentImpl() {}
 
-  public V1MutatingWebhookFluentImpl(
-      io.kubernetes.client.openapi.models.V1MutatingWebhook instance) {
+  public V1MutatingWebhookFluentImpl(V1MutatingWebhook instance) {
     this.withAdmissionReviewVersions(instance.getAdmissionReviewVersions());
 
     this.withClientConfig(instance.getClientConfig());
@@ -53,27 +52,27 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
 
   private List<String> admissionReviewVersions;
   private AdmissionregistrationV1WebhookClientConfigBuilder clientConfig;
-  private java.lang.String failurePolicy;
-  private java.lang.String matchPolicy;
-  private java.lang.String name;
+  private String failurePolicy;
+  private String matchPolicy;
+  private String name;
   private V1LabelSelectorBuilder namespaceSelector;
   private V1LabelSelectorBuilder objectSelector;
-  private java.lang.String reinvocationPolicy;
+  private String reinvocationPolicy;
   private ArrayList<V1RuleWithOperationsBuilder> rules;
-  private java.lang.String sideEffects;
+  private String sideEffects;
   private Integer timeoutSeconds;
 
-  public A addToAdmissionReviewVersions(java.lang.Integer index, java.lang.String item) {
+  public A addToAdmissionReviewVersions(Integer index, String item) {
     if (this.admissionReviewVersions == null) {
-      this.admissionReviewVersions = new java.util.ArrayList<java.lang.String>();
+      this.admissionReviewVersions = new ArrayList<String>();
     }
     this.admissionReviewVersions.add(index, item);
     return (A) this;
   }
 
-  public A setToAdmissionReviewVersions(java.lang.Integer index, java.lang.String item) {
+  public A setToAdmissionReviewVersions(Integer index, String item) {
     if (this.admissionReviewVersions == null) {
-      this.admissionReviewVersions = new java.util.ArrayList<java.lang.String>();
+      this.admissionReviewVersions = new ArrayList<String>();
     }
     this.admissionReviewVersions.set(index, item);
     return (A) this;
@@ -81,26 +80,26 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
 
   public A addToAdmissionReviewVersions(java.lang.String... items) {
     if (this.admissionReviewVersions == null) {
-      this.admissionReviewVersions = new java.util.ArrayList<java.lang.String>();
+      this.admissionReviewVersions = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.admissionReviewVersions.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToAdmissionReviewVersions(Collection<java.lang.String> items) {
+  public A addAllToAdmissionReviewVersions(Collection<String> items) {
     if (this.admissionReviewVersions == null) {
-      this.admissionReviewVersions = new java.util.ArrayList<java.lang.String>();
+      this.admissionReviewVersions = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.admissionReviewVersions.add(item);
     }
     return (A) this;
   }
 
   public A removeFromAdmissionReviewVersions(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.admissionReviewVersions != null) {
         this.admissionReviewVersions.remove(item);
       }
@@ -108,8 +107,8 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromAdmissionReviewVersions(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromAdmissionReviewVersions(Collection<String> items) {
+    for (String item : items) {
       if (this.admissionReviewVersions != null) {
         this.admissionReviewVersions.remove(item);
       }
@@ -117,24 +116,24 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getAdmissionReviewVersions() {
+  public List<String> getAdmissionReviewVersions() {
     return this.admissionReviewVersions;
   }
 
-  public java.lang.String getAdmissionReviewVersion(java.lang.Integer index) {
+  public String getAdmissionReviewVersion(Integer index) {
     return this.admissionReviewVersions.get(index);
   }
 
-  public java.lang.String getFirstAdmissionReviewVersion() {
+  public String getFirstAdmissionReviewVersion() {
     return this.admissionReviewVersions.get(0);
   }
 
-  public java.lang.String getLastAdmissionReviewVersion() {
+  public String getLastAdmissionReviewVersion() {
     return this.admissionReviewVersions.get(admissionReviewVersions.size() - 1);
   }
 
-  public java.lang.String getMatchingAdmissionReviewVersion(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : admissionReviewVersions) {
+  public String getMatchingAdmissionReviewVersion(Predicate<String> predicate) {
+    for (String item : admissionReviewVersions) {
       if (predicate.test(item)) {
         return item;
       }
@@ -142,9 +141,8 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return null;
   }
 
-  public Boolean hasMatchingAdmissionReviewVersion(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : admissionReviewVersions) {
+  public Boolean hasMatchingAdmissionReviewVersion(Predicate<String> predicate) {
+    for (String item : admissionReviewVersions) {
       if (predicate.test(item)) {
         return true;
       }
@@ -152,10 +150,10 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return false;
   }
 
-  public A withAdmissionReviewVersions(java.util.List<java.lang.String> admissionReviewVersions) {
+  public A withAdmissionReviewVersions(List<String> admissionReviewVersions) {
     if (admissionReviewVersions != null) {
-      this.admissionReviewVersions = new java.util.ArrayList();
-      for (java.lang.String item : admissionReviewVersions) {
+      this.admissionReviewVersions = new ArrayList();
+      for (String item : admissionReviewVersions) {
         this.addToAdmissionReviewVersions(item);
       }
     } else {
@@ -169,14 +167,14 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
       this.admissionReviewVersions.clear();
     }
     if (admissionReviewVersions != null) {
-      for (java.lang.String item : admissionReviewVersions) {
+      for (String item : admissionReviewVersions) {
         this.addToAdmissionReviewVersions(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAdmissionReviewVersions() {
+  public Boolean hasAdmissionReviewVersions() {
     return admissionReviewVersions != null && !admissionReviewVersions.isEmpty();
   }
 
@@ -186,27 +184,27 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig
-      getClientConfig() {
+  public AdmissionregistrationV1WebhookClientConfig getClientConfig() {
     return this.clientConfig != null ? this.clientConfig.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig
-      buildClientConfig() {
+  public AdmissionregistrationV1WebhookClientConfig buildClientConfig() {
     return this.clientConfig != null ? this.clientConfig.build() : null;
   }
 
-  public A withClientConfig(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig clientConfig) {
+  public A withClientConfig(AdmissionregistrationV1WebhookClientConfig clientConfig) {
     _visitables.get("clientConfig").remove(this.clientConfig);
     if (clientConfig != null) {
       this.clientConfig = new AdmissionregistrationV1WebhookClientConfigBuilder(clientConfig);
       _visitables.get("clientConfig").add(this.clientConfig);
+    } else {
+      this.clientConfig = null;
+      _visitables.get("clientConfig").remove(this.clientConfig);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasClientConfig() {
+  public Boolean hasClientConfig() {
     return this.clientConfig != null;
   }
 
@@ -214,69 +212,63 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return new V1MutatingWebhookFluentImpl.ClientConfigNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ClientConfigNested<A>
-      withNewClientConfigLike(
-          io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig item) {
+  public V1MutatingWebhookFluent.ClientConfigNested<A> withNewClientConfigLike(
+      AdmissionregistrationV1WebhookClientConfig item) {
     return new V1MutatingWebhookFluentImpl.ClientConfigNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ClientConfigNested<A>
-      editClientConfig() {
+  public V1MutatingWebhookFluent.ClientConfigNested<A> editClientConfig() {
     return withNewClientConfigLike(getClientConfig());
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ClientConfigNested<A>
-      editOrNewClientConfig() {
+  public V1MutatingWebhookFluent.ClientConfigNested<A> editOrNewClientConfig() {
     return withNewClientConfigLike(
         getClientConfig() != null
             ? getClientConfig()
-            : new io.kubernetes.client.openapi.models
-                    .AdmissionregistrationV1WebhookClientConfigBuilder()
-                .build());
+            : new AdmissionregistrationV1WebhookClientConfigBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ClientConfigNested<A>
-      editOrNewClientConfigLike(
-          io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig item) {
+  public V1MutatingWebhookFluent.ClientConfigNested<A> editOrNewClientConfigLike(
+      AdmissionregistrationV1WebhookClientConfig item) {
     return withNewClientConfigLike(getClientConfig() != null ? getClientConfig() : item);
   }
 
-  public java.lang.String getFailurePolicy() {
+  public String getFailurePolicy() {
     return this.failurePolicy;
   }
 
-  public A withFailurePolicy(java.lang.String failurePolicy) {
+  public A withFailurePolicy(String failurePolicy) {
     this.failurePolicy = failurePolicy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFailurePolicy() {
+  public Boolean hasFailurePolicy() {
     return this.failurePolicy != null;
   }
 
-  public java.lang.String getMatchPolicy() {
+  public String getMatchPolicy() {
     return this.matchPolicy;
   }
 
-  public A withMatchPolicy(java.lang.String matchPolicy) {
+  public A withMatchPolicy(String matchPolicy) {
     this.matchPolicy = matchPolicy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMatchPolicy() {
+  public Boolean hasMatchPolicy() {
     return this.matchPolicy != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
@@ -285,27 +277,28 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getNamespaceSelector() {
+  @Deprecated
+  public V1LabelSelector getNamespaceSelector() {
     return this.namespaceSelector != null ? this.namespaceSelector.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildNamespaceSelector() {
+  public V1LabelSelector buildNamespaceSelector() {
     return this.namespaceSelector != null ? this.namespaceSelector.build() : null;
   }
 
-  public A withNamespaceSelector(
-      io.kubernetes.client.openapi.models.V1LabelSelector namespaceSelector) {
+  public A withNamespaceSelector(V1LabelSelector namespaceSelector) {
     _visitables.get("namespaceSelector").remove(this.namespaceSelector);
     if (namespaceSelector != null) {
-      this.namespaceSelector =
-          new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(namespaceSelector);
+      this.namespaceSelector = new V1LabelSelectorBuilder(namespaceSelector);
       _visitables.get("namespaceSelector").add(this.namespaceSelector);
+    } else {
+      this.namespaceSelector = null;
+      _visitables.get("namespaceSelector").remove(this.namespaceSelector);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasNamespaceSelector() {
+  public Boolean hasNamespaceSelector() {
     return this.namespaceSelector != null;
   }
 
@@ -313,27 +306,24 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return new V1MutatingWebhookFluentImpl.NamespaceSelectorNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.NamespaceSelectorNested<A>
-      withNewNamespaceSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl
-        .NamespaceSelectorNestedImpl(item);
+  public V1MutatingWebhookFluent.NamespaceSelectorNested<A> withNewNamespaceSelectorLike(
+      V1LabelSelector item) {
+    return new V1MutatingWebhookFluentImpl.NamespaceSelectorNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.NamespaceSelectorNested<A>
-      editNamespaceSelector() {
+  public V1MutatingWebhookFluent.NamespaceSelectorNested<A> editNamespaceSelector() {
     return withNewNamespaceSelectorLike(getNamespaceSelector());
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.NamespaceSelectorNested<A>
-      editOrNewNamespaceSelector() {
+  public V1MutatingWebhookFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelector() {
     return withNewNamespaceSelectorLike(
         getNamespaceSelector() != null
             ? getNamespaceSelector()
-            : new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder().build());
+            : new V1LabelSelectorBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.NamespaceSelectorNested<A>
-      editOrNewNamespaceSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
+  public V1MutatingWebhookFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelectorLike(
+      V1LabelSelector item) {
     return withNewNamespaceSelectorLike(
         getNamespaceSelector() != null ? getNamespaceSelector() : item);
   }
@@ -343,26 +333,28 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getObjectSelector() {
+  @Deprecated
+  public V1LabelSelector getObjectSelector() {
     return this.objectSelector != null ? this.objectSelector.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildObjectSelector() {
+  public V1LabelSelector buildObjectSelector() {
     return this.objectSelector != null ? this.objectSelector.build() : null;
   }
 
-  public A withObjectSelector(io.kubernetes.client.openapi.models.V1LabelSelector objectSelector) {
+  public A withObjectSelector(V1LabelSelector objectSelector) {
     _visitables.get("objectSelector").remove(this.objectSelector);
     if (objectSelector != null) {
-      this.objectSelector =
-          new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(objectSelector);
+      this.objectSelector = new V1LabelSelectorBuilder(objectSelector);
       _visitables.get("objectSelector").add(this.objectSelector);
+    } else {
+      this.objectSelector = null;
+      _visitables.get("objectSelector").remove(this.objectSelector);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasObjectSelector() {
+  public Boolean hasObjectSelector() {
     return this.objectSelector != null;
   }
 
@@ -370,65 +362,53 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return new V1MutatingWebhookFluentImpl.ObjectSelectorNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ObjectSelectorNested<A>
-      withNewObjectSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl
-        .ObjectSelectorNestedImpl(item);
+  public V1MutatingWebhookFluent.ObjectSelectorNested<A> withNewObjectSelectorLike(
+      V1LabelSelector item) {
+    return new V1MutatingWebhookFluentImpl.ObjectSelectorNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ObjectSelectorNested<A>
-      editObjectSelector() {
+  public V1MutatingWebhookFluent.ObjectSelectorNested<A> editObjectSelector() {
     return withNewObjectSelectorLike(getObjectSelector());
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ObjectSelectorNested<A>
-      editOrNewObjectSelector() {
+  public V1MutatingWebhookFluent.ObjectSelectorNested<A> editOrNewObjectSelector() {
     return withNewObjectSelectorLike(
-        getObjectSelector() != null
-            ? getObjectSelector()
-            : new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder().build());
+        getObjectSelector() != null ? getObjectSelector() : new V1LabelSelectorBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ObjectSelectorNested<A>
-      editOrNewObjectSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
+  public V1MutatingWebhookFluent.ObjectSelectorNested<A> editOrNewObjectSelectorLike(
+      V1LabelSelector item) {
     return withNewObjectSelectorLike(getObjectSelector() != null ? getObjectSelector() : item);
   }
 
-  public java.lang.String getReinvocationPolicy() {
+  public String getReinvocationPolicy() {
     return this.reinvocationPolicy;
   }
 
-  public A withReinvocationPolicy(java.lang.String reinvocationPolicy) {
+  public A withReinvocationPolicy(String reinvocationPolicy) {
     this.reinvocationPolicy = reinvocationPolicy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReinvocationPolicy() {
+  public Boolean hasReinvocationPolicy() {
     return this.reinvocationPolicy != null;
   }
 
-  public A addToRules(java.lang.Integer index, V1RuleWithOperations item) {
+  public A addToRules(Integer index, V1RuleWithOperations item) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>();
+      this.rules = new ArrayList<V1RuleWithOperationsBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder builder =
-        new io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder(item);
+    V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
     _visitables.get("rules").add(index >= 0 ? index : _visitables.get("rules").size(), builder);
     this.rules.add(index >= 0 ? index : rules.size(), builder);
     return (A) this;
   }
 
-  public A setToRules(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1RuleWithOperations item) {
+  public A setToRules(Integer index, V1RuleWithOperations item) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>();
+      this.rules = new ArrayList<V1RuleWithOperationsBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder builder =
-        new io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder(item);
+    V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
     if (index < 0 || index >= _visitables.get("rules").size()) {
       _visitables.get("rules").add(builder);
     } else {
@@ -444,29 +424,22 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
 
   public A addToRules(io.kubernetes.client.openapi.models.V1RuleWithOperations... items) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>();
+      this.rules = new ArrayList<V1RuleWithOperationsBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1RuleWithOperations item : items) {
-      io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder(item);
+    for (V1RuleWithOperations item : items) {
+      V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
       _visitables.get("rules").add(builder);
       this.rules.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1RuleWithOperations> items) {
+  public A addAllToRules(Collection<V1RuleWithOperations> items) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>();
+      this.rules = new ArrayList<V1RuleWithOperationsBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1RuleWithOperations item : items) {
-      io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder(item);
+    for (V1RuleWithOperations item : items) {
+      V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
       _visitables.get("rules").add(builder);
       this.rules.add(builder);
     }
@@ -474,9 +447,8 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
   }
 
   public A removeFromRules(io.kubernetes.client.openapi.models.V1RuleWithOperations... items) {
-    for (io.kubernetes.client.openapi.models.V1RuleWithOperations item : items) {
-      io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder(item);
+    for (V1RuleWithOperations item : items) {
+      V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
       _visitables.get("rules").remove(builder);
       if (this.rules != null) {
         this.rules.remove(builder);
@@ -485,11 +457,9 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1RuleWithOperations> items) {
-    for (io.kubernetes.client.openapi.models.V1RuleWithOperations item : items) {
-      io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder builder =
-          new io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder(item);
+  public A removeAllFromRules(Collection<V1RuleWithOperations> items) {
+    for (V1RuleWithOperations item : items) {
+      V1RuleWithOperationsBuilder builder = new V1RuleWithOperationsBuilder(item);
       _visitables.get("rules").remove(builder);
       if (this.rules != null) {
         this.rules.remove(builder);
@@ -498,15 +468,12 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return (A) this;
   }
 
-  public A removeMatchingFromRules(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>
-          predicate) {
+  public A removeMatchingFromRules(Predicate<V1RuleWithOperationsBuilder> predicate) {
     if (rules == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder> each =
-        rules.iterator();
+    final Iterator<V1RuleWithOperationsBuilder> each = rules.iterator();
     final List visitables = _visitables.get("rules");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder builder = each.next();
+      V1RuleWithOperationsBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -520,32 +487,29 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1RuleWithOperations> getRules() {
+  @Deprecated
+  public List<V1RuleWithOperations> getRules() {
     return rules != null ? build(rules) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1RuleWithOperations> buildRules() {
+  public List<V1RuleWithOperations> buildRules() {
     return rules != null ? build(rules) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1RuleWithOperations buildRule(
-      java.lang.Integer index) {
+  public V1RuleWithOperations buildRule(Integer index) {
     return this.rules.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1RuleWithOperations buildFirstRule() {
+  public V1RuleWithOperations buildFirstRule() {
     return this.rules.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1RuleWithOperations buildLastRule() {
+  public V1RuleWithOperations buildLastRule() {
     return this.rules.get(rules.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1RuleWithOperations buildMatchingRule(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder item : rules) {
+  public V1RuleWithOperations buildMatchingRule(Predicate<V1RuleWithOperationsBuilder> predicate) {
+    for (V1RuleWithOperationsBuilder item : rules) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -553,10 +517,8 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return null;
   }
 
-  public java.lang.Boolean hasMatchingRule(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder item : rules) {
+  public Boolean hasMatchingRule(Predicate<V1RuleWithOperationsBuilder> predicate) {
+    for (V1RuleWithOperationsBuilder item : rules) {
       if (predicate.test(item)) {
         return true;
       }
@@ -564,14 +526,13 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return false;
   }
 
-  public A withRules(
-      java.util.List<io.kubernetes.client.openapi.models.V1RuleWithOperations> rules) {
+  public A withRules(List<V1RuleWithOperations> rules) {
     if (this.rules != null) {
       _visitables.get("rules").removeAll(this.rules);
     }
     if (rules != null) {
-      this.rules = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1RuleWithOperations item : rules) {
+      this.rules = new ArrayList();
+      for (V1RuleWithOperations item : rules) {
         this.addToRules(item);
       }
     } else {
@@ -585,14 +546,14 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
       this.rules.clear();
     }
     if (rules != null) {
-      for (io.kubernetes.client.openapi.models.V1RuleWithOperations item : rules) {
+      for (V1RuleWithOperations item : rules) {
         this.addToRules(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasRules() {
+  public Boolean hasRules() {
     return rules != null && !rules.isEmpty();
   }
 
@@ -600,41 +561,33 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return new V1MutatingWebhookFluentImpl.RulesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<A> addNewRuleLike(
-      io.kubernetes.client.openapi.models.V1RuleWithOperations item) {
-    return new io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl.RulesNestedImpl(
-        -1, item);
+  public V1MutatingWebhookFluent.RulesNested<A> addNewRuleLike(V1RuleWithOperations item) {
+    return new V1MutatingWebhookFluentImpl.RulesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<A> setNewRuleLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1RuleWithOperations item) {
-    return new io.kubernetes.client.openapi.models.V1MutatingWebhookFluentImpl.RulesNestedImpl(
-        index, item);
+  public V1MutatingWebhookFluent.RulesNested<A> setNewRuleLike(
+      Integer index, V1RuleWithOperations item) {
+    return new V1MutatingWebhookFluentImpl.RulesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<A> editRule(
-      java.lang.Integer index) {
+  public V1MutatingWebhookFluent.RulesNested<A> editRule(Integer index) {
     if (rules.size() <= index) throw new RuntimeException("Can't edit rules. Index exceeds size.");
     return setNewRuleLike(index, buildRule(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<A>
-      editFirstRule() {
+  public V1MutatingWebhookFluent.RulesNested<A> editFirstRule() {
     if (rules.size() == 0) throw new RuntimeException("Can't edit first rules. The list is empty.");
     return setNewRuleLike(0, buildRule(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<A> editLastRule() {
+  public V1MutatingWebhookFluent.RulesNested<A> editLastRule() {
     int index = rules.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last rules. The list is empty.");
     return setNewRuleLike(index, buildRule(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<A>
-      editMatchingRule(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder>
-              predicate) {
+  public V1MutatingWebhookFluent.RulesNested<A> editMatchingRule(
+      Predicate<V1RuleWithOperationsBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < rules.size(); i++) {
       if (predicate.test(rules.get(i))) {
@@ -646,29 +599,29 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
     return setNewRuleLike(index, buildRule(index));
   }
 
-  public java.lang.String getSideEffects() {
+  public String getSideEffects() {
     return this.sideEffects;
   }
 
-  public A withSideEffects(java.lang.String sideEffects) {
+  public A withSideEffects(String sideEffects) {
     this.sideEffects = sideEffects;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSideEffects() {
+  public Boolean hasSideEffects() {
     return this.sideEffects != null;
   }
 
-  public java.lang.Integer getTimeoutSeconds() {
+  public Integer getTimeoutSeconds() {
     return this.timeoutSeconds;
   }
 
-  public A withTimeoutSeconds(java.lang.Integer timeoutSeconds) {
+  public A withTimeoutSeconds(Integer timeoutSeconds) {
     this.timeoutSeconds = timeoutSeconds;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTimeoutSeconds() {
+  public Boolean hasTimeoutSeconds() {
     return this.timeoutSeconds != null;
   }
 
@@ -721,7 +674,7 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (admissionReviewVersions != null && !admissionReviewVersions.isEmpty()) {
@@ -775,20 +728,16 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
   class ClientConfigNestedImpl<N>
       extends AdmissionregistrationV1WebhookClientConfigFluentImpl<
           V1MutatingWebhookFluent.ClientConfigNested<N>>
-      implements io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ClientConfigNested<N>,
-          Nested<N> {
-    ClientConfigNestedImpl(
-        io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig item) {
+      implements V1MutatingWebhookFluent.ClientConfigNested<N>, Nested<N> {
+    ClientConfigNestedImpl(AdmissionregistrationV1WebhookClientConfig item) {
       this.builder = new AdmissionregistrationV1WebhookClientConfigBuilder(this, item);
     }
 
     ClientConfigNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigBuilder(
-              this);
+      this.builder = new AdmissionregistrationV1WebhookClientConfigBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigBuilder builder;
+    AdmissionregistrationV1WebhookClientConfigBuilder builder;
 
     public N and() {
       return (N) V1MutatingWebhookFluentImpl.this.withClientConfig(builder.build());
@@ -801,19 +750,16 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
 
   class NamespaceSelectorNestedImpl<N>
       extends V1LabelSelectorFluentImpl<V1MutatingWebhookFluent.NamespaceSelectorNested<N>>
-      implements io.kubernetes.client.openapi.models.V1MutatingWebhookFluent
-                  .NamespaceSelectorNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1MutatingWebhookFluent.NamespaceSelectorNested<N>, Nested<N> {
     NamespaceSelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     NamespaceSelectorNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this);
+      this.builder = new V1LabelSelectorBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LabelSelectorBuilder builder;
+    V1LabelSelectorBuilder builder;
 
     public N and() {
       return (N) V1MutatingWebhookFluentImpl.this.withNamespaceSelector(builder.build());
@@ -826,18 +772,16 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
 
   class ObjectSelectorNestedImpl<N>
       extends V1LabelSelectorFluentImpl<V1MutatingWebhookFluent.ObjectSelectorNested<N>>
-      implements io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.ObjectSelectorNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1MutatingWebhookFluent.ObjectSelectorNested<N>, Nested<N> {
     ObjectSelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     ObjectSelectorNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this);
+      this.builder = new V1LabelSelectorBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LabelSelectorBuilder builder;
+    V1LabelSelectorBuilder builder;
 
     public N and() {
       return (N) V1MutatingWebhookFluentImpl.this.withObjectSelector(builder.build());
@@ -850,21 +794,19 @@ public class V1MutatingWebhookFluentImpl<A extends V1MutatingWebhookFluent<A>> e
 
   class RulesNestedImpl<N>
       extends V1RuleWithOperationsFluentImpl<V1MutatingWebhookFluent.RulesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1MutatingWebhookFluent.RulesNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    RulesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1RuleWithOperations item) {
+      implements V1MutatingWebhookFluent.RulesNested<N>, Nested<N> {
+    RulesNestedImpl(Integer index, V1RuleWithOperations item) {
       this.index = index;
       this.builder = new V1RuleWithOperationsBuilder(this, item);
     }
 
     RulesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder(this);
+      this.builder = new V1RuleWithOperationsBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder builder;
-    java.lang.Integer index;
+    V1RuleWithOperationsBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1MutatingWebhookFluentImpl.this.setToRules(index, builder.build());

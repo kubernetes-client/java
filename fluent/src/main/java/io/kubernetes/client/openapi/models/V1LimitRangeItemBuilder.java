@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LimitRangeItemBuilder extends V1LimitRangeItemFluentImpl<V1LimitRangeItemBuilder>
-    implements VisitableBuilder<
-        V1LimitRangeItem, io.kubernetes.client.openapi.models.V1LimitRangeItemBuilder> {
+    implements VisitableBuilder<V1LimitRangeItem, V1LimitRangeItemBuilder> {
   public V1LimitRangeItemBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1LimitRangeItemBuilder extends V1LimitRangeItemFluentImpl<V1LimitR
     this(fluent, false);
   }
 
-  public V1LimitRangeItemBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeItemFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1LimitRangeItemBuilder(V1LimitRangeItemFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1LimitRangeItem(), validationEnabled);
   }
 
-  public V1LimitRangeItemBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeItemFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LimitRangeItem instance) {
+  public V1LimitRangeItemBuilder(V1LimitRangeItemFluent<?> fluent, V1LimitRangeItem instance) {
     this(fluent, instance, false);
   }
 
   public V1LimitRangeItemBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeItemFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LimitRangeItem instance,
-      java.lang.Boolean validationEnabled) {
+      V1LimitRangeItemFluent<?> fluent, V1LimitRangeItem instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withDefault(instance.getDefault());
 
@@ -61,13 +54,11 @@ public class V1LimitRangeItemBuilder extends V1LimitRangeItemFluentImpl<V1LimitR
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LimitRangeItemBuilder(io.kubernetes.client.openapi.models.V1LimitRangeItem instance) {
+  public V1LimitRangeItemBuilder(V1LimitRangeItem instance) {
     this(instance, false);
   }
 
-  public V1LimitRangeItemBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeItem instance,
-      java.lang.Boolean validationEnabled) {
+  public V1LimitRangeItemBuilder(V1LimitRangeItem instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withDefault(instance.getDefault());
 
@@ -84,10 +75,10 @@ public class V1LimitRangeItemBuilder extends V1LimitRangeItemFluentImpl<V1LimitR
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LimitRangeItemFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LimitRangeItemFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeItem build() {
+  public V1LimitRangeItem build() {
     V1LimitRangeItem buildable = new V1LimitRangeItem();
     buildable.setDefault(fluent.getDefault());
     buildable.setDefaultRequest(fluent.getDefaultRequest());

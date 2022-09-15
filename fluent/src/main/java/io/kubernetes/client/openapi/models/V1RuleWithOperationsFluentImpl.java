@@ -24,8 +24,7 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     extends BaseFluent<A> implements V1RuleWithOperationsFluent<A> {
   public V1RuleWithOperationsFluentImpl() {}
 
-  public V1RuleWithOperationsFluentImpl(
-      io.kubernetes.client.openapi.models.V1RuleWithOperations instance) {
+  public V1RuleWithOperationsFluentImpl(V1RuleWithOperations instance) {
     this.withApiGroups(instance.getApiGroups());
 
     this.withApiVersions(instance.getApiVersions());
@@ -38,22 +37,22 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
   }
 
   private List<String> apiGroups;
-  private java.util.List<java.lang.String> apiVersions;
-  private java.util.List<java.lang.String> operations;
-  private java.util.List<java.lang.String> resources;
-  private java.lang.String scope;
+  private List<String> apiVersions;
+  private List<String> operations;
+  private List<String> resources;
+  private String scope;
 
-  public A addToApiGroups(Integer index, java.lang.String item) {
+  public A addToApiGroups(Integer index, String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<String>();
     }
     this.apiGroups.add(index, item);
     return (A) this;
   }
 
-  public A setToApiGroups(java.lang.Integer index, java.lang.String item) {
+  public A setToApiGroups(Integer index, String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new java.util.ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<String>();
     }
     this.apiGroups.set(index, item);
     return (A) this;
@@ -61,26 +60,26 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
 
   public A addToApiGroups(java.lang.String... items) {
     if (this.apiGroups == null) {
-      this.apiGroups = new java.util.ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.apiGroups.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToApiGroups(Collection<java.lang.String> items) {
+  public A addAllToApiGroups(Collection<String> items) {
     if (this.apiGroups == null) {
-      this.apiGroups = new java.util.ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.apiGroups.add(item);
     }
     return (A) this;
   }
 
   public A removeFromApiGroups(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.apiGroups != null) {
         this.apiGroups.remove(item);
       }
@@ -88,8 +87,8 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return (A) this;
   }
 
-  public A removeAllFromApiGroups(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromApiGroups(Collection<String> items) {
+    for (String item : items) {
       if (this.apiGroups != null) {
         this.apiGroups.remove(item);
       }
@@ -97,24 +96,24 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getApiGroups() {
+  public List<String> getApiGroups() {
     return this.apiGroups;
   }
 
-  public java.lang.String getApiGroup(java.lang.Integer index) {
+  public String getApiGroup(Integer index) {
     return this.apiGroups.get(index);
   }
 
-  public java.lang.String getFirstApiGroup() {
+  public String getFirstApiGroup() {
     return this.apiGroups.get(0);
   }
 
-  public java.lang.String getLastApiGroup() {
+  public String getLastApiGroup() {
     return this.apiGroups.get(apiGroups.size() - 1);
   }
 
-  public java.lang.String getMatchingApiGroup(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : apiGroups) {
+  public String getMatchingApiGroup(Predicate<String> predicate) {
+    for (String item : apiGroups) {
       if (predicate.test(item)) {
         return item;
       }
@@ -122,8 +121,8 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return null;
   }
 
-  public Boolean hasMatchingApiGroup(java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : apiGroups) {
+  public Boolean hasMatchingApiGroup(Predicate<String> predicate) {
+    for (String item : apiGroups) {
       if (predicate.test(item)) {
         return true;
       }
@@ -131,10 +130,10 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return false;
   }
 
-  public A withApiGroups(java.util.List<java.lang.String> apiGroups) {
+  public A withApiGroups(List<String> apiGroups) {
     if (apiGroups != null) {
-      this.apiGroups = new java.util.ArrayList();
-      for (java.lang.String item : apiGroups) {
+      this.apiGroups = new ArrayList();
+      for (String item : apiGroups) {
         this.addToApiGroups(item);
       }
     } else {
@@ -148,28 +147,28 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
       this.apiGroups.clear();
     }
     if (apiGroups != null) {
-      for (java.lang.String item : apiGroups) {
+      for (String item : apiGroups) {
         this.addToApiGroups(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiGroups() {
+  public Boolean hasApiGroups() {
     return apiGroups != null && !apiGroups.isEmpty();
   }
 
-  public A addToApiVersions(java.lang.Integer index, java.lang.String item) {
+  public A addToApiVersions(Integer index, String item) {
     if (this.apiVersions == null) {
-      this.apiVersions = new java.util.ArrayList<java.lang.String>();
+      this.apiVersions = new ArrayList<String>();
     }
     this.apiVersions.add(index, item);
     return (A) this;
   }
 
-  public A setToApiVersions(java.lang.Integer index, java.lang.String item) {
+  public A setToApiVersions(Integer index, String item) {
     if (this.apiVersions == null) {
-      this.apiVersions = new java.util.ArrayList<java.lang.String>();
+      this.apiVersions = new ArrayList<String>();
     }
     this.apiVersions.set(index, item);
     return (A) this;
@@ -177,26 +176,26 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
 
   public A addToApiVersions(java.lang.String... items) {
     if (this.apiVersions == null) {
-      this.apiVersions = new java.util.ArrayList<java.lang.String>();
+      this.apiVersions = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.apiVersions.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToApiVersions(java.util.Collection<java.lang.String> items) {
+  public A addAllToApiVersions(Collection<String> items) {
     if (this.apiVersions == null) {
-      this.apiVersions = new java.util.ArrayList<java.lang.String>();
+      this.apiVersions = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.apiVersions.add(item);
     }
     return (A) this;
   }
 
   public A removeFromApiVersions(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.apiVersions != null) {
         this.apiVersions.remove(item);
       }
@@ -204,8 +203,8 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return (A) this;
   }
 
-  public A removeAllFromApiVersions(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromApiVersions(Collection<String> items) {
+    for (String item : items) {
       if (this.apiVersions != null) {
         this.apiVersions.remove(item);
       }
@@ -213,25 +212,24 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getApiVersions() {
+  public List<String> getApiVersions() {
     return this.apiVersions;
   }
 
-  public java.lang.String getApiVersion(java.lang.Integer index) {
+  public String getApiVersion(Integer index) {
     return this.apiVersions.get(index);
   }
 
-  public java.lang.String getFirstApiVersion() {
+  public String getFirstApiVersion() {
     return this.apiVersions.get(0);
   }
 
-  public java.lang.String getLastApiVersion() {
+  public String getLastApiVersion() {
     return this.apiVersions.get(apiVersions.size() - 1);
   }
 
-  public java.lang.String getMatchingApiVersion(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : apiVersions) {
+  public String getMatchingApiVersion(Predicate<String> predicate) {
+    for (String item : apiVersions) {
       if (predicate.test(item)) {
         return item;
       }
@@ -239,9 +237,8 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return null;
   }
 
-  public java.lang.Boolean hasMatchingApiVersion(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : apiVersions) {
+  public Boolean hasMatchingApiVersion(Predicate<String> predicate) {
+    for (String item : apiVersions) {
       if (predicate.test(item)) {
         return true;
       }
@@ -249,10 +246,10 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return false;
   }
 
-  public A withApiVersions(java.util.List<java.lang.String> apiVersions) {
+  public A withApiVersions(List<String> apiVersions) {
     if (apiVersions != null) {
-      this.apiVersions = new java.util.ArrayList();
-      for (java.lang.String item : apiVersions) {
+      this.apiVersions = new ArrayList();
+      for (String item : apiVersions) {
         this.addToApiVersions(item);
       }
     } else {
@@ -266,28 +263,28 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
       this.apiVersions.clear();
     }
     if (apiVersions != null) {
-      for (java.lang.String item : apiVersions) {
+      for (String item : apiVersions) {
         this.addToApiVersions(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersions() {
+  public Boolean hasApiVersions() {
     return apiVersions != null && !apiVersions.isEmpty();
   }
 
-  public A addToOperations(java.lang.Integer index, java.lang.String item) {
+  public A addToOperations(Integer index, String item) {
     if (this.operations == null) {
-      this.operations = new java.util.ArrayList<java.lang.String>();
+      this.operations = new ArrayList<String>();
     }
     this.operations.add(index, item);
     return (A) this;
   }
 
-  public A setToOperations(java.lang.Integer index, java.lang.String item) {
+  public A setToOperations(Integer index, String item) {
     if (this.operations == null) {
-      this.operations = new java.util.ArrayList<java.lang.String>();
+      this.operations = new ArrayList<String>();
     }
     this.operations.set(index, item);
     return (A) this;
@@ -295,26 +292,26 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
 
   public A addToOperations(java.lang.String... items) {
     if (this.operations == null) {
-      this.operations = new java.util.ArrayList<java.lang.String>();
+      this.operations = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.operations.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToOperations(java.util.Collection<java.lang.String> items) {
+  public A addAllToOperations(Collection<String> items) {
     if (this.operations == null) {
-      this.operations = new java.util.ArrayList<java.lang.String>();
+      this.operations = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.operations.add(item);
     }
     return (A) this;
   }
 
   public A removeFromOperations(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.operations != null) {
         this.operations.remove(item);
       }
@@ -322,8 +319,8 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return (A) this;
   }
 
-  public A removeAllFromOperations(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromOperations(Collection<String> items) {
+    for (String item : items) {
       if (this.operations != null) {
         this.operations.remove(item);
       }
@@ -331,25 +328,24 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getOperations() {
+  public List<String> getOperations() {
     return this.operations;
   }
 
-  public java.lang.String getOperation(java.lang.Integer index) {
+  public String getOperation(Integer index) {
     return this.operations.get(index);
   }
 
-  public java.lang.String getFirstOperation() {
+  public String getFirstOperation() {
     return this.operations.get(0);
   }
 
-  public java.lang.String getLastOperation() {
+  public String getLastOperation() {
     return this.operations.get(operations.size() - 1);
   }
 
-  public java.lang.String getMatchingOperation(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : operations) {
+  public String getMatchingOperation(Predicate<String> predicate) {
+    for (String item : operations) {
       if (predicate.test(item)) {
         return item;
       }
@@ -357,9 +353,8 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return null;
   }
 
-  public java.lang.Boolean hasMatchingOperation(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : operations) {
+  public Boolean hasMatchingOperation(Predicate<String> predicate) {
+    for (String item : operations) {
       if (predicate.test(item)) {
         return true;
       }
@@ -367,10 +362,10 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return false;
   }
 
-  public A withOperations(java.util.List<java.lang.String> operations) {
+  public A withOperations(List<String> operations) {
     if (operations != null) {
-      this.operations = new java.util.ArrayList();
-      for (java.lang.String item : operations) {
+      this.operations = new ArrayList();
+      for (String item : operations) {
         this.addToOperations(item);
       }
     } else {
@@ -384,28 +379,28 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
       this.operations.clear();
     }
     if (operations != null) {
-      for (java.lang.String item : operations) {
+      for (String item : operations) {
         this.addToOperations(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasOperations() {
+  public Boolean hasOperations() {
     return operations != null && !operations.isEmpty();
   }
 
-  public A addToResources(java.lang.Integer index, java.lang.String item) {
+  public A addToResources(Integer index, String item) {
     if (this.resources == null) {
-      this.resources = new java.util.ArrayList<java.lang.String>();
+      this.resources = new ArrayList<String>();
     }
     this.resources.add(index, item);
     return (A) this;
   }
 
-  public A setToResources(java.lang.Integer index, java.lang.String item) {
+  public A setToResources(Integer index, String item) {
     if (this.resources == null) {
-      this.resources = new java.util.ArrayList<java.lang.String>();
+      this.resources = new ArrayList<String>();
     }
     this.resources.set(index, item);
     return (A) this;
@@ -413,26 +408,26 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
 
   public A addToResources(java.lang.String... items) {
     if (this.resources == null) {
-      this.resources = new java.util.ArrayList<java.lang.String>();
+      this.resources = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.resources.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToResources(java.util.Collection<java.lang.String> items) {
+  public A addAllToResources(Collection<String> items) {
     if (this.resources == null) {
-      this.resources = new java.util.ArrayList<java.lang.String>();
+      this.resources = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.resources.add(item);
     }
     return (A) this;
   }
 
   public A removeFromResources(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.resources != null) {
         this.resources.remove(item);
       }
@@ -440,8 +435,8 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return (A) this;
   }
 
-  public A removeAllFromResources(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromResources(Collection<String> items) {
+    for (String item : items) {
       if (this.resources != null) {
         this.resources.remove(item);
       }
@@ -449,25 +444,24 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getResources() {
+  public List<String> getResources() {
     return this.resources;
   }
 
-  public java.lang.String getResource(java.lang.Integer index) {
+  public String getResource(Integer index) {
     return this.resources.get(index);
   }
 
-  public java.lang.String getFirstResource() {
+  public String getFirstResource() {
     return this.resources.get(0);
   }
 
-  public java.lang.String getLastResource() {
+  public String getLastResource() {
     return this.resources.get(resources.size() - 1);
   }
 
-  public java.lang.String getMatchingResource(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : resources) {
+  public String getMatchingResource(Predicate<String> predicate) {
+    for (String item : resources) {
       if (predicate.test(item)) {
         return item;
       }
@@ -475,9 +469,8 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return null;
   }
 
-  public java.lang.Boolean hasMatchingResource(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : resources) {
+  public Boolean hasMatchingResource(Predicate<String> predicate) {
+    for (String item : resources) {
       if (predicate.test(item)) {
         return true;
       }
@@ -485,10 +478,10 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
     return false;
   }
 
-  public A withResources(java.util.List<java.lang.String> resources) {
+  public A withResources(List<String> resources) {
     if (resources != null) {
-      this.resources = new java.util.ArrayList();
-      for (java.lang.String item : resources) {
+      this.resources = new ArrayList();
+      for (String item : resources) {
         this.addToResources(item);
       }
     } else {
@@ -502,27 +495,27 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
       this.resources.clear();
     }
     if (resources != null) {
-      for (java.lang.String item : resources) {
+      for (String item : resources) {
         this.addToResources(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasResources() {
+  public Boolean hasResources() {
     return resources != null && !resources.isEmpty();
   }
 
-  public java.lang.String getScope() {
+  public String getScope() {
     return this.scope;
   }
 
-  public A withScope(java.lang.String scope) {
+  public A withScope(String scope) {
     this.scope = scope;
     return (A) this;
   }
 
-  public java.lang.Boolean hasScope() {
+  public Boolean hasScope() {
     return this.scope != null;
   }
 
@@ -547,7 +540,7 @@ public class V1RuleWithOperationsFluentImpl<A extends V1RuleWithOperationsFluent
         apiGroups, apiVersions, operations, resources, scope, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiGroups != null && !apiGroups.isEmpty()) {

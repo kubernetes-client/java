@@ -20,43 +20,43 @@ public interface V1ManagedFieldsEntryFluent<A extends V1ManagedFieldsEntryFluent
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getFieldsType();
+  public String getFieldsType();
 
-  public A withFieldsType(java.lang.String fieldsType);
+  public A withFieldsType(String fieldsType);
 
-  public java.lang.Boolean hasFieldsType();
+  public Boolean hasFieldsType();
 
   public Object getFieldsV1();
 
-  public A withFieldsV1(java.lang.Object fieldsV1);
+  public A withFieldsV1(Object fieldsV1);
 
-  public java.lang.Boolean hasFieldsV1();
+  public Boolean hasFieldsV1();
 
-  public java.lang.String getManager();
+  public String getManager();
 
-  public A withManager(java.lang.String manager);
+  public A withManager(String manager);
 
-  public java.lang.Boolean hasManager();
+  public Boolean hasManager();
 
-  public java.lang.String getOperation();
+  public String getOperation();
 
-  public A withOperation(java.lang.String operation);
+  public A withOperation(String operation);
 
-  public java.lang.Boolean hasOperation();
+  public Boolean hasOperation();
 
-  public java.lang.String getSubresource();
+  public String getSubresource();
 
-  public A withSubresource(java.lang.String subresource);
+  public A withSubresource(String subresource);
 
-  public java.lang.Boolean hasSubresource();
+  public Boolean hasSubresource();
 
   public OffsetDateTime getTime();
 
-  public A withTime(java.time.OffsetDateTime time);
+  public A withTime(OffsetDateTime time);
 
-  public java.lang.Boolean hasTime();
+  public Boolean hasTime();
 }

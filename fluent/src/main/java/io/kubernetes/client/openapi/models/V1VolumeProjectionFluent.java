@@ -26,112 +26,99 @@ public interface V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>>
   @Deprecated
   public V1ConfigMapProjection getConfigMap();
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapProjection buildConfigMap();
+  public V1ConfigMapProjection buildConfigMap();
 
-  public A withConfigMap(io.kubernetes.client.openapi.models.V1ConfigMapProjection configMap);
+  public A withConfigMap(V1ConfigMapProjection configMap);
 
   public Boolean hasConfigMap();
 
   public V1VolumeProjectionFluent.ConfigMapNested<A> withNewConfigMap();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ConfigMapNested<A>
-      withNewConfigMapLike(io.kubernetes.client.openapi.models.V1ConfigMapProjection item);
+  public V1VolumeProjectionFluent.ConfigMapNested<A> withNewConfigMapLike(
+      V1ConfigMapProjection item);
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ConfigMapNested<A>
-      editConfigMap();
+  public V1VolumeProjectionFluent.ConfigMapNested<A> editConfigMap();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ConfigMapNested<A>
-      editOrNewConfigMap();
+  public V1VolumeProjectionFluent.ConfigMapNested<A> editOrNewConfigMap();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ConfigMapNested<A>
-      editOrNewConfigMapLike(io.kubernetes.client.openapi.models.V1ConfigMapProjection item);
+  public V1VolumeProjectionFluent.ConfigMapNested<A> editOrNewConfigMapLike(
+      V1ConfigMapProjection item);
 
   /**
    * This method has been deprecated, please use method buildDownwardAPI instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1DownwardAPIProjection getDownwardAPI();
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIProjection buildDownwardAPI();
+  public V1DownwardAPIProjection buildDownwardAPI();
 
-  public A withDownwardAPI(io.kubernetes.client.openapi.models.V1DownwardAPIProjection downwardAPI);
+  public A withDownwardAPI(V1DownwardAPIProjection downwardAPI);
 
-  public java.lang.Boolean hasDownwardAPI();
+  public Boolean hasDownwardAPI();
 
   public V1VolumeProjectionFluent.DownwardAPINested<A> withNewDownwardAPI();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.DownwardAPINested<A>
-      withNewDownwardAPILike(io.kubernetes.client.openapi.models.V1DownwardAPIProjection item);
+  public V1VolumeProjectionFluent.DownwardAPINested<A> withNewDownwardAPILike(
+      V1DownwardAPIProjection item);
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.DownwardAPINested<A>
-      editDownwardAPI();
+  public V1VolumeProjectionFluent.DownwardAPINested<A> editDownwardAPI();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.DownwardAPINested<A>
-      editOrNewDownwardAPI();
+  public V1VolumeProjectionFluent.DownwardAPINested<A> editOrNewDownwardAPI();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.DownwardAPINested<A>
-      editOrNewDownwardAPILike(io.kubernetes.client.openapi.models.V1DownwardAPIProjection item);
+  public V1VolumeProjectionFluent.DownwardAPINested<A> editOrNewDownwardAPILike(
+      V1DownwardAPIProjection item);
 
   /**
    * This method has been deprecated, please use method buildSecret instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1SecretProjection getSecret();
 
-  public io.kubernetes.client.openapi.models.V1SecretProjection buildSecret();
+  public V1SecretProjection buildSecret();
 
-  public A withSecret(io.kubernetes.client.openapi.models.V1SecretProjection secret);
+  public A withSecret(V1SecretProjection secret);
 
-  public java.lang.Boolean hasSecret();
+  public Boolean hasSecret();
 
   public V1VolumeProjectionFluent.SecretNested<A> withNewSecret();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.SecretNested<A>
-      withNewSecretLike(io.kubernetes.client.openapi.models.V1SecretProjection item);
+  public V1VolumeProjectionFluent.SecretNested<A> withNewSecretLike(V1SecretProjection item);
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.SecretNested<A> editSecret();
+  public V1VolumeProjectionFluent.SecretNested<A> editSecret();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.SecretNested<A>
-      editOrNewSecret();
+  public V1VolumeProjectionFluent.SecretNested<A> editOrNewSecret();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.SecretNested<A>
-      editOrNewSecretLike(io.kubernetes.client.openapi.models.V1SecretProjection item);
+  public V1VolumeProjectionFluent.SecretNested<A> editOrNewSecretLike(V1SecretProjection item);
 
   /**
    * This method has been deprecated, please use method buildServiceAccountToken instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ServiceAccountTokenProjection getServiceAccountToken();
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection
-      buildServiceAccountToken();
+  public V1ServiceAccountTokenProjection buildServiceAccountToken();
 
-  public A withServiceAccountToken(
-      io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection serviceAccountToken);
+  public A withServiceAccountToken(V1ServiceAccountTokenProjection serviceAccountToken);
 
-  public java.lang.Boolean hasServiceAccountToken();
+  public Boolean hasServiceAccountToken();
 
   public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> withNewServiceAccountToken();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ServiceAccountTokenNested<A>
-      withNewServiceAccountTokenLike(
-          io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection item);
+  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> withNewServiceAccountTokenLike(
+      V1ServiceAccountTokenProjection item);
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ServiceAccountTokenNested<A>
-      editServiceAccountToken();
+  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> editServiceAccountToken();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ServiceAccountTokenNested<A>
-      editOrNewServiceAccountToken();
+  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> editOrNewServiceAccountToken();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ServiceAccountTokenNested<A>
-      editOrNewServiceAccountTokenLike(
-          io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection item);
+  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> editOrNewServiceAccountTokenLike(
+      V1ServiceAccountTokenProjection item);
 
   public interface ConfigMapNested<N>
       extends Nested<N>, V1ConfigMapProjectionFluent<V1VolumeProjectionFluent.ConfigMapNested<N>> {
@@ -141,7 +128,7 @@ public interface V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>>
   }
 
   public interface DownwardAPINested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1DownwardAPIProjectionFluent<V1VolumeProjectionFluent.DownwardAPINested<N>> {
     public N and();
 
@@ -149,15 +136,14 @@ public interface V1VolumeProjectionFluent<A extends V1VolumeProjectionFluent<A>>
   }
 
   public interface SecretNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1SecretProjectionFluent<V1VolumeProjectionFluent.SecretNested<N>> {
+      extends Nested<N>, V1SecretProjectionFluent<V1VolumeProjectionFluent.SecretNested<N>> {
     public N and();
 
     public N endSecret();
   }
 
   public interface ServiceAccountTokenNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1ServiceAccountTokenProjectionFluent<
               V1VolumeProjectionFluent.ServiceAccountTokenNested<N>> {
     public N and();

@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ConfigMapNodeConfigSourceBuilder
     extends V1ConfigMapNodeConfigSourceFluentImpl<V1ConfigMapNodeConfigSourceBuilder>
-    implements VisitableBuilder<
-        V1ConfigMapNodeConfigSource,
-        io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSourceBuilder> {
+    implements VisitableBuilder<V1ConfigMapNodeConfigSource, V1ConfigMapNodeConfigSourceBuilder> {
   public V1ConfigMapNodeConfigSourceBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1ConfigMapNodeConfigSourceBuilder
   }
 
   public V1ConfigMapNodeConfigSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ConfigMapNodeConfigSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ConfigMapNodeConfigSource(), validationEnabled);
   }
 
   public V1ConfigMapNodeConfigSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource instance) {
+      V1ConfigMapNodeConfigSourceFluent<?> fluent, V1ConfigMapNodeConfigSource instance) {
     this(fluent, instance, false);
   }
 
   public V1ConfigMapNodeConfigSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1ConfigMapNodeConfigSourceFluent<?> fluent,
+      V1ConfigMapNodeConfigSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withKubeletConfigKey(instance.getKubeletConfigKey());
 
@@ -61,14 +57,12 @@ public class V1ConfigMapNodeConfigSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ConfigMapNodeConfigSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource instance) {
+  public V1ConfigMapNodeConfigSourceBuilder(V1ConfigMapNodeConfigSource instance) {
     this(instance, false);
   }
 
   public V1ConfigMapNodeConfigSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1ConfigMapNodeConfigSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withKubeletConfigKey(instance.getKubeletConfigKey());
 
@@ -83,10 +77,10 @@ public class V1ConfigMapNodeConfigSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ConfigMapNodeConfigSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource build() {
+  public V1ConfigMapNodeConfigSource build() {
     V1ConfigMapNodeConfigSource buildable = new V1ConfigMapNodeConfigSource();
     buildable.setKubeletConfigKey(fluent.getKubeletConfigKey());
     buildable.setName(fluent.getName());

@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NetworkPolicyPeerBuilder
     extends V1NetworkPolicyPeerFluentImpl<V1NetworkPolicyPeerBuilder>
-    implements VisitableBuilder<
-        V1NetworkPolicyPeer, io.kubernetes.client.openapi.models.V1NetworkPolicyPeerBuilder> {
+    implements VisitableBuilder<V1NetworkPolicyPeer, V1NetworkPolicyPeerBuilder> {
   public V1NetworkPolicyPeerBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V1NetworkPolicyPeerBuilder
     this(new V1NetworkPolicyPeer(), validationEnabled);
   }
 
-  public V1NetworkPolicyPeerBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent<?> fluent) {
+  public V1NetworkPolicyPeerBuilder(V1NetworkPolicyPeerFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1NetworkPolicyPeerBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicyPeerFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NetworkPolicyPeer(), validationEnabled);
   }
 
   public V1NetworkPolicyPeerBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPeer instance) {
+      V1NetworkPolicyPeerFluent<?> fluent, V1NetworkPolicyPeer instance) {
     this(fluent, instance, false);
   }
 
   public V1NetworkPolicyPeerBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPeer instance,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicyPeerFluent<?> fluent,
+      V1NetworkPolicyPeer instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withIpBlock(instance.getIpBlock());
 
@@ -57,14 +53,11 @@ public class V1NetworkPolicyPeerBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NetworkPolicyPeerBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPeer instance) {
+  public V1NetworkPolicyPeerBuilder(V1NetworkPolicyPeer instance) {
     this(instance, false);
   }
 
-  public V1NetworkPolicyPeerBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPeer instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NetworkPolicyPeerBuilder(V1NetworkPolicyPeer instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withIpBlock(instance.getIpBlock());
 
@@ -75,10 +68,10 @@ public class V1NetworkPolicyPeerBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NetworkPolicyPeerFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeer build() {
+  public V1NetworkPolicyPeer build() {
     V1NetworkPolicyPeer buildable = new V1NetworkPolicyPeer();
     buildable.setIpBlock(fluent.getIpBlock());
     buildable.setNamespaceSelector(fluent.getNamespaceSelector());

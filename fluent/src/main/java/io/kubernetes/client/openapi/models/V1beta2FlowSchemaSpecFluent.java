@@ -30,99 +30,72 @@ public interface V1beta2FlowSchemaSpecFluent<A extends V1beta2FlowSchemaSpecFlue
   @Deprecated
   public V1beta2FlowDistinguisherMethod getDistinguisherMethod();
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethod
-      buildDistinguisherMethod();
+  public V1beta2FlowDistinguisherMethod buildDistinguisherMethod();
 
-  public A withDistinguisherMethod(
-      io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethod distinguisherMethod);
+  public A withDistinguisherMethod(V1beta2FlowDistinguisherMethod distinguisherMethod);
 
   public Boolean hasDistinguisherMethod();
 
   public V1beta2FlowSchemaSpecFluent.DistinguisherMethodNested<A> withNewDistinguisherMethod();
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent.DistinguisherMethodNested<
-          A>
-      withNewDistinguisherMethodLike(
-          io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethod item);
+  public V1beta2FlowSchemaSpecFluent.DistinguisherMethodNested<A> withNewDistinguisherMethodLike(
+      V1beta2FlowDistinguisherMethod item);
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent.DistinguisherMethodNested<
-          A>
-      editDistinguisherMethod();
+  public V1beta2FlowSchemaSpecFluent.DistinguisherMethodNested<A> editDistinguisherMethod();
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent.DistinguisherMethodNested<
-          A>
-      editOrNewDistinguisherMethod();
+  public V1beta2FlowSchemaSpecFluent.DistinguisherMethodNested<A> editOrNewDistinguisherMethod();
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent.DistinguisherMethodNested<
-          A>
-      editOrNewDistinguisherMethodLike(
-          io.kubernetes.client.openapi.models.V1beta2FlowDistinguisherMethod item);
+  public V1beta2FlowSchemaSpecFluent.DistinguisherMethodNested<A> editOrNewDistinguisherMethodLike(
+      V1beta2FlowDistinguisherMethod item);
 
   public Integer getMatchingPrecedence();
 
-  public A withMatchingPrecedence(java.lang.Integer matchingPrecedence);
+  public A withMatchingPrecedence(Integer matchingPrecedence);
 
-  public java.lang.Boolean hasMatchingPrecedence();
+  public Boolean hasMatchingPrecedence();
 
   /**
    * This method has been deprecated, please use method buildPriorityLevelConfiguration instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1beta2PriorityLevelConfigurationReference getPriorityLevelConfiguration();
 
-  public io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationReference
-      buildPriorityLevelConfiguration();
+  public V1beta2PriorityLevelConfigurationReference buildPriorityLevelConfiguration();
 
   public A withPriorityLevelConfiguration(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationReference
-          priorityLevelConfiguration);
+      V1beta2PriorityLevelConfigurationReference priorityLevelConfiguration);
 
-  public java.lang.Boolean hasPriorityLevelConfiguration();
+  public Boolean hasPriorityLevelConfiguration();
 
   public V1beta2FlowSchemaSpecFluent.PriorityLevelConfigurationNested<A>
       withNewPriorityLevelConfiguration();
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent
-              .PriorityLevelConfigurationNested<
-          A>
-      withNewPriorityLevelConfigurationLike(
-          io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationReference item);
+  public V1beta2FlowSchemaSpecFluent.PriorityLevelConfigurationNested<A>
+      withNewPriorityLevelConfigurationLike(V1beta2PriorityLevelConfigurationReference item);
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent
-              .PriorityLevelConfigurationNested<
-          A>
+  public V1beta2FlowSchemaSpecFluent.PriorityLevelConfigurationNested<A>
       editPriorityLevelConfiguration();
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent
-              .PriorityLevelConfigurationNested<
-          A>
+  public V1beta2FlowSchemaSpecFluent.PriorityLevelConfigurationNested<A>
       editOrNewPriorityLevelConfiguration();
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent
-              .PriorityLevelConfigurationNested<
-          A>
-      editOrNewPriorityLevelConfigurationLike(
-          io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationReference item);
+  public V1beta2FlowSchemaSpecFluent.PriorityLevelConfigurationNested<A>
+      editOrNewPriorityLevelConfigurationLike(V1beta2PriorityLevelConfigurationReference item);
 
-  public A addToRules(java.lang.Integer index, V1beta2PolicyRulesWithSubjects item);
+  public A addToRules(Integer index, V1beta2PolicyRulesWithSubjects item);
 
-  public A setToRules(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects item);
+  public A setToRules(Integer index, V1beta2PolicyRulesWithSubjects item);
 
   public A addToRules(io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects... items);
 
-  public A addAllToRules(
-      Collection<io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects> items);
+  public A addAllToRules(Collection<V1beta2PolicyRulesWithSubjects> items);
 
   public A removeFromRules(
       io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects... items);
 
-  public A removeAllFromRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects>
-          items);
+  public A removeAllFromRules(Collection<V1beta2PolicyRulesWithSubjects> items);
 
   public A removeMatchingFromRules(Predicate<V1beta2PolicyRulesWithSubjectsBuilder> predicate);
 
@@ -131,60 +104,44 @@ public interface V1beta2FlowSchemaSpecFluent<A extends V1beta2FlowSchemaSpecFlue
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public List<io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects> getRules();
+  @Deprecated
+  public List<V1beta2PolicyRulesWithSubjects> getRules();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects>
-      buildRules();
+  public List<V1beta2PolicyRulesWithSubjects> buildRules();
 
-  public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects buildRule(
-      java.lang.Integer index);
+  public V1beta2PolicyRulesWithSubjects buildRule(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects buildFirstRule();
+  public V1beta2PolicyRulesWithSubjects buildFirstRule();
 
-  public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects buildLastRule();
+  public V1beta2PolicyRulesWithSubjects buildLastRule();
 
-  public io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects buildMatchingRule(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsBuilder>
-          predicate);
+  public V1beta2PolicyRulesWithSubjects buildMatchingRule(
+      Predicate<V1beta2PolicyRulesWithSubjectsBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingRule(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsBuilder>
-          predicate);
+  public Boolean hasMatchingRule(Predicate<V1beta2PolicyRulesWithSubjectsBuilder> predicate);
 
-  public A withRules(
-      java.util.List<io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects> rules);
+  public A withRules(List<V1beta2PolicyRulesWithSubjects> rules);
 
   public A withRules(io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects... rules);
 
-  public java.lang.Boolean hasRules();
+  public Boolean hasRules();
 
   public V1beta2FlowSchemaSpecFluent.RulesNested<A> addNewRule();
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent.RulesNested<A>
-      addNewRuleLike(io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects item);
+  public V1beta2FlowSchemaSpecFluent.RulesNested<A> addNewRuleLike(
+      V1beta2PolicyRulesWithSubjects item);
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent.RulesNested<A>
-      setNewRuleLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects item);
+  public V1beta2FlowSchemaSpecFluent.RulesNested<A> setNewRuleLike(
+      Integer index, V1beta2PolicyRulesWithSubjects item);
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent.RulesNested<A> editRule(
-      java.lang.Integer index);
+  public V1beta2FlowSchemaSpecFluent.RulesNested<A> editRule(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent.RulesNested<A>
-      editFirstRule();
+  public V1beta2FlowSchemaSpecFluent.RulesNested<A> editFirstRule();
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent.RulesNested<A>
-      editLastRule();
+  public V1beta2FlowSchemaSpecFluent.RulesNested<A> editLastRule();
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchemaSpecFluent.RulesNested<A>
-      editMatchingRule(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjectsBuilder>
-              predicate);
+  public V1beta2FlowSchemaSpecFluent.RulesNested<A> editMatchingRule(
+      Predicate<V1beta2PolicyRulesWithSubjectsBuilder> predicate);
 
   public interface DistinguisherMethodNested<N>
       extends Nested<N>,
@@ -196,7 +153,7 @@ public interface V1beta2FlowSchemaSpecFluent<A extends V1beta2FlowSchemaSpecFlue
   }
 
   public interface PriorityLevelConfigurationNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1beta2PriorityLevelConfigurationReferenceFluent<
               V1beta2FlowSchemaSpecFluent.PriorityLevelConfigurationNested<N>> {
     public N and();
@@ -205,7 +162,7 @@ public interface V1beta2FlowSchemaSpecFluent<A extends V1beta2FlowSchemaSpecFlue
   }
 
   public interface RulesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1beta2PolicyRulesWithSubjectsFluent<V1beta2FlowSchemaSpecFluent.RulesNested<N>> {
     public N and();
 

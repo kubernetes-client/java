@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1alpha1StorageVersionConditionBuilder
     extends V1alpha1StorageVersionConditionFluentImpl<V1alpha1StorageVersionConditionBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition,
-        V1alpha1StorageVersionConditionBuilder> {
+        V1alpha1StorageVersionCondition, V1alpha1StorageVersionConditionBuilder> {
   public V1alpha1StorageVersionConditionBuilder() {
     this(false);
   }
@@ -27,27 +26,24 @@ public class V1alpha1StorageVersionConditionBuilder
     this(new V1alpha1StorageVersionCondition(), validationEnabled);
   }
 
-  public V1alpha1StorageVersionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionFluent<?> fluent) {
+  public V1alpha1StorageVersionConditionBuilder(V1alpha1StorageVersionConditionFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1alpha1StorageVersionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1alpha1StorageVersionConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1alpha1StorageVersionCondition(), validationEnabled);
   }
 
   public V1alpha1StorageVersionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition instance) {
+      V1alpha1StorageVersionConditionFluent<?> fluent, V1alpha1StorageVersionCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1alpha1StorageVersionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1alpha1StorageVersionConditionFluent<?> fluent,
+      V1alpha1StorageVersionCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -64,14 +60,12 @@ public class V1alpha1StorageVersionConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1alpha1StorageVersionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition instance) {
+  public V1alpha1StorageVersionConditionBuilder(V1alpha1StorageVersionCondition instance) {
     this(instance, false);
   }
 
   public V1alpha1StorageVersionConditionBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1alpha1StorageVersionCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -88,10 +82,10 @@ public class V1alpha1StorageVersionConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1alpha1StorageVersionConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1alpha1StorageVersionConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition build() {
+  public V1alpha1StorageVersionCondition build() {
     V1alpha1StorageVersionCondition buildable = new V1alpha1StorageVersionCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setMessage(fluent.getMessage());

@@ -21,8 +21,7 @@ public class ApiregistrationV1ServiceReferenceFluentImpl<
     extends BaseFluent<A> implements ApiregistrationV1ServiceReferenceFluent<A> {
   public ApiregistrationV1ServiceReferenceFluentImpl() {}
 
-  public ApiregistrationV1ServiceReferenceFluentImpl(
-      io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference instance) {
+  public ApiregistrationV1ServiceReferenceFluentImpl(ApiregistrationV1ServiceReference instance) {
     this.withName(instance.getName());
 
     this.withNamespace(instance.getNamespace());
@@ -31,14 +30,14 @@ public class ApiregistrationV1ServiceReferenceFluentImpl<
   }
 
   private String name;
-  private java.lang.String namespace;
+  private String namespace;
   private Integer port;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -47,29 +46,29 @@ public class ApiregistrationV1ServiceReferenceFluentImpl<
     return this.name != null;
   }
 
-  public java.lang.String getNamespace() {
+  public String getNamespace() {
     return this.namespace;
   }
 
-  public A withNamespace(java.lang.String namespace) {
+  public A withNamespace(String namespace) {
     this.namespace = namespace;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNamespace() {
+  public Boolean hasNamespace() {
     return this.namespace != null;
   }
 
-  public java.lang.Integer getPort() {
+  public Integer getPort() {
     return this.port;
   }
 
-  public A withPort(java.lang.Integer port) {
+  public A withPort(Integer port) {
     this.port = port;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPort() {
+  public Boolean hasPort() {
     return this.port != null;
   }
 
@@ -89,7 +88,7 @@ public class ApiregistrationV1ServiceReferenceFluentImpl<
     return java.util.Objects.hash(name, namespace, port, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {

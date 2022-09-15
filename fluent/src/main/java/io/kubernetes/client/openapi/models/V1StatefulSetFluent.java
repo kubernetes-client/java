@@ -19,15 +19,15 @@ import io.kubernetes.client.fluent.Nested;
 public interface V1StatefulSetFluent<A extends V1StatefulSetFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -37,76 +37,69 @@ public interface V1StatefulSetFluent<A extends V1StatefulSetFluent<A>> extends F
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1StatefulSetFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1StatefulSetFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.MetadataNested<A> editMetadata();
+  public V1StatefulSetFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1StatefulSetFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1StatefulSetFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildSpec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1StatefulSetSpec getSpec();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpec buildSpec();
+  public V1StatefulSetSpec buildSpec();
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1StatefulSetSpec spec);
+  public A withSpec(V1StatefulSetSpec spec);
 
-  public java.lang.Boolean hasSpec();
+  public Boolean hasSpec();
 
   public V1StatefulSetFluent.SpecNested<A> withNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.SpecNested<A> withNewSpecLike(
-      io.kubernetes.client.openapi.models.V1StatefulSetSpec item);
+  public V1StatefulSetFluent.SpecNested<A> withNewSpecLike(V1StatefulSetSpec item);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.SpecNested<A> editSpec();
+  public V1StatefulSetFluent.SpecNested<A> editSpec();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.SpecNested<A> editOrNewSpec();
+  public V1StatefulSetFluent.SpecNested<A> editOrNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.SpecNested<A> editOrNewSpecLike(
-      io.kubernetes.client.openapi.models.V1StatefulSetSpec item);
+  public V1StatefulSetFluent.SpecNested<A> editOrNewSpecLike(V1StatefulSetSpec item);
 
   /**
    * This method has been deprecated, please use method buildStatus instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1StatefulSetStatus getStatus();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetStatus buildStatus();
+  public V1StatefulSetStatus buildStatus();
 
-  public A withStatus(io.kubernetes.client.openapi.models.V1StatefulSetStatus status);
+  public A withStatus(V1StatefulSetStatus status);
 
-  public java.lang.Boolean hasStatus();
+  public Boolean hasStatus();
 
   public V1StatefulSetFluent.StatusNested<A> withNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.StatusNested<A> withNewStatusLike(
-      io.kubernetes.client.openapi.models.V1StatefulSetStatus item);
+  public V1StatefulSetFluent.StatusNested<A> withNewStatusLike(V1StatefulSetStatus item);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.StatusNested<A> editStatus();
+  public V1StatefulSetFluent.StatusNested<A> editStatus();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.StatusNested<A> editOrNewStatus();
+  public V1StatefulSetFluent.StatusNested<A> editOrNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetFluent.StatusNested<A>
-      editOrNewStatusLike(io.kubernetes.client.openapi.models.V1StatefulSetStatus item);
+  public V1StatefulSetFluent.StatusNested<A> editOrNewStatusLike(V1StatefulSetStatus item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1StatefulSetFluent.MetadataNested<N>> {
@@ -116,16 +109,14 @@ public interface V1StatefulSetFluent<A extends V1StatefulSetFluent<A>> extends F
   }
 
   public interface SpecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1StatefulSetSpecFluent<V1StatefulSetFluent.SpecNested<N>> {
+      extends Nested<N>, V1StatefulSetSpecFluent<V1StatefulSetFluent.SpecNested<N>> {
     public N and();
 
     public N endSpec();
   }
 
   public interface StatusNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1StatefulSetStatusFluent<V1StatefulSetFluent.StatusNested<N>> {
+      extends Nested<N>, V1StatefulSetStatusFluent<V1StatefulSetFluent.StatusNested<N>> {
     public N and();
 
     public N endStatus();

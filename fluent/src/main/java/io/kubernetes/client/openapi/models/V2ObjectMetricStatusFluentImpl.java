@@ -21,8 +21,7 @@ public class V2ObjectMetricStatusFluentImpl<A extends V2ObjectMetricStatusFluent
     extends BaseFluent<A> implements V2ObjectMetricStatusFluent<A> {
   public V2ObjectMetricStatusFluentImpl() {}
 
-  public V2ObjectMetricStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V2ObjectMetricStatus instance) {
+  public V2ObjectMetricStatusFluentImpl(V2ObjectMetricStatus instance) {
     this.withCurrent(instance.getCurrent());
 
     this.withDescribedObject(instance.getDescribedObject());
@@ -40,19 +39,22 @@ public class V2ObjectMetricStatusFluentImpl<A extends V2ObjectMetricStatusFluent
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V2MetricValueStatus getCurrent() {
+  public V2MetricValueStatus getCurrent() {
     return this.current != null ? this.current.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2MetricValueStatus buildCurrent() {
+  public V2MetricValueStatus buildCurrent() {
     return this.current != null ? this.current.build() : null;
   }
 
-  public A withCurrent(io.kubernetes.client.openapi.models.V2MetricValueStatus current) {
+  public A withCurrent(V2MetricValueStatus current) {
     _visitables.get("current").remove(this.current);
     if (current != null) {
       this.current = new V2MetricValueStatusBuilder(current);
       _visitables.get("current").add(this.current);
+    } else {
+      this.current = null;
+      _visitables.get("current").remove(this.current);
     }
     return (A) this;
   }
@@ -65,26 +67,21 @@ public class V2ObjectMetricStatusFluentImpl<A extends V2ObjectMetricStatusFluent
     return new V2ObjectMetricStatusFluentImpl.CurrentNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.CurrentNested<A>
-      withNewCurrentLike(io.kubernetes.client.openapi.models.V2MetricValueStatus item) {
+  public V2ObjectMetricStatusFluent.CurrentNested<A> withNewCurrentLike(V2MetricValueStatus item) {
     return new V2ObjectMetricStatusFluentImpl.CurrentNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.CurrentNested<A>
-      editCurrent() {
+  public V2ObjectMetricStatusFluent.CurrentNested<A> editCurrent() {
     return withNewCurrentLike(getCurrent());
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.CurrentNested<A>
-      editOrNewCurrent() {
+  public V2ObjectMetricStatusFluent.CurrentNested<A> editOrNewCurrent() {
     return withNewCurrentLike(
-        getCurrent() != null
-            ? getCurrent()
-            : new io.kubernetes.client.openapi.models.V2MetricValueStatusBuilder().build());
+        getCurrent() != null ? getCurrent() : new V2MetricValueStatusBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.CurrentNested<A>
-      editOrNewCurrentLike(io.kubernetes.client.openapi.models.V2MetricValueStatus item) {
+  public V2ObjectMetricStatusFluent.CurrentNested<A> editOrNewCurrentLike(
+      V2MetricValueStatus item) {
     return withNewCurrentLike(getCurrent() != null ? getCurrent() : item);
   }
 
@@ -93,28 +90,28 @@ public class V2ObjectMetricStatusFluentImpl<A extends V2ObjectMetricStatusFluent
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V2CrossVersionObjectReference getDescribedObject() {
     return this.describedObject != null ? this.describedObject.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2CrossVersionObjectReference buildDescribedObject() {
+  public V2CrossVersionObjectReference buildDescribedObject() {
     return this.describedObject != null ? this.describedObject.build() : null;
   }
 
-  public A withDescribedObject(
-      io.kubernetes.client.openapi.models.V2CrossVersionObjectReference describedObject) {
+  public A withDescribedObject(V2CrossVersionObjectReference describedObject) {
     _visitables.get("describedObject").remove(this.describedObject);
     if (describedObject != null) {
-      this.describedObject =
-          new io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceBuilder(
-              describedObject);
+      this.describedObject = new V2CrossVersionObjectReferenceBuilder(describedObject);
       _visitables.get("describedObject").add(this.describedObject);
+    } else {
+      this.describedObject = null;
+      _visitables.get("describedObject").remove(this.describedObject);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDescribedObject() {
+  public Boolean hasDescribedObject() {
     return this.describedObject != null;
   }
 
@@ -122,30 +119,24 @@ public class V2ObjectMetricStatusFluentImpl<A extends V2ObjectMetricStatusFluent
     return new V2ObjectMetricStatusFluentImpl.DescribedObjectNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.DescribedObjectNested<A>
-      withNewDescribedObjectLike(
-          io.kubernetes.client.openapi.models.V2CrossVersionObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluentImpl
-        .DescribedObjectNestedImpl(item);
+  public V2ObjectMetricStatusFluent.DescribedObjectNested<A> withNewDescribedObjectLike(
+      V2CrossVersionObjectReference item) {
+    return new V2ObjectMetricStatusFluentImpl.DescribedObjectNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.DescribedObjectNested<A>
-      editDescribedObject() {
+  public V2ObjectMetricStatusFluent.DescribedObjectNested<A> editDescribedObject() {
     return withNewDescribedObjectLike(getDescribedObject());
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.DescribedObjectNested<A>
-      editOrNewDescribedObject() {
+  public V2ObjectMetricStatusFluent.DescribedObjectNested<A> editOrNewDescribedObject() {
     return withNewDescribedObjectLike(
         getDescribedObject() != null
             ? getDescribedObject()
-            : new io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceBuilder()
-                .build());
+            : new V2CrossVersionObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.DescribedObjectNested<A>
-      editOrNewDescribedObjectLike(
-          io.kubernetes.client.openapi.models.V2CrossVersionObjectReference item) {
+  public V2ObjectMetricStatusFluent.DescribedObjectNested<A> editOrNewDescribedObjectLike(
+      V2CrossVersionObjectReference item) {
     return withNewDescribedObjectLike(getDescribedObject() != null ? getDescribedObject() : item);
   }
 
@@ -154,25 +145,28 @@ public class V2ObjectMetricStatusFluentImpl<A extends V2ObjectMetricStatusFluent
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V2MetricIdentifier getMetric() {
     return this.metric != null ? this.metric.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2MetricIdentifier buildMetric() {
+  public V2MetricIdentifier buildMetric() {
     return this.metric != null ? this.metric.build() : null;
   }
 
-  public A withMetric(io.kubernetes.client.openapi.models.V2MetricIdentifier metric) {
+  public A withMetric(V2MetricIdentifier metric) {
     _visitables.get("metric").remove(this.metric);
     if (metric != null) {
-      this.metric = new io.kubernetes.client.openapi.models.V2MetricIdentifierBuilder(metric);
+      this.metric = new V2MetricIdentifierBuilder(metric);
       _visitables.get("metric").add(this.metric);
+    } else {
+      this.metric = null;
+      _visitables.get("metric").remove(this.metric);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetric() {
+  public Boolean hasMetric() {
     return this.metric != null;
   }
 
@@ -180,27 +174,20 @@ public class V2ObjectMetricStatusFluentImpl<A extends V2ObjectMetricStatusFluent
     return new V2ObjectMetricStatusFluentImpl.MetricNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.MetricNested<A>
-      withNewMetricLike(io.kubernetes.client.openapi.models.V2MetricIdentifier item) {
-    return new io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluentImpl.MetricNestedImpl(
-        item);
+  public V2ObjectMetricStatusFluent.MetricNested<A> withNewMetricLike(V2MetricIdentifier item) {
+    return new V2ObjectMetricStatusFluentImpl.MetricNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.MetricNested<A>
-      editMetric() {
+  public V2ObjectMetricStatusFluent.MetricNested<A> editMetric() {
     return withNewMetricLike(getMetric());
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.MetricNested<A>
-      editOrNewMetric() {
+  public V2ObjectMetricStatusFluent.MetricNested<A> editOrNewMetric() {
     return withNewMetricLike(
-        getMetric() != null
-            ? getMetric()
-            : new io.kubernetes.client.openapi.models.V2MetricIdentifierBuilder().build());
+        getMetric() != null ? getMetric() : new V2MetricIdentifierBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.MetricNested<A>
-      editOrNewMetricLike(io.kubernetes.client.openapi.models.V2MetricIdentifier item) {
+  public V2ObjectMetricStatusFluent.MetricNested<A> editOrNewMetricLike(V2MetricIdentifier item) {
     return withNewMetricLike(getMetric() != null ? getMetric() : item);
   }
 
@@ -241,17 +228,16 @@ public class V2ObjectMetricStatusFluentImpl<A extends V2ObjectMetricStatusFluent
 
   class CurrentNestedImpl<N>
       extends V2MetricValueStatusFluentImpl<V2ObjectMetricStatusFluent.CurrentNested<N>>
-      implements io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.CurrentNested<N>,
-          Nested<N> {
+      implements V2ObjectMetricStatusFluent.CurrentNested<N>, Nested<N> {
     CurrentNestedImpl(V2MetricValueStatus item) {
       this.builder = new V2MetricValueStatusBuilder(this, item);
     }
 
     CurrentNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V2MetricValueStatusBuilder(this);
+      this.builder = new V2MetricValueStatusBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2MetricValueStatusBuilder builder;
+    V2MetricValueStatusBuilder builder;
 
     public N and() {
       return (N) V2ObjectMetricStatusFluentImpl.this.withCurrent(builder.build());
@@ -265,21 +251,16 @@ public class V2ObjectMetricStatusFluentImpl<A extends V2ObjectMetricStatusFluent
   class DescribedObjectNestedImpl<N>
       extends V2CrossVersionObjectReferenceFluentImpl<
           V2ObjectMetricStatusFluent.DescribedObjectNested<N>>
-      implements io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent
-                  .DescribedObjectNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    DescribedObjectNestedImpl(
-        io.kubernetes.client.openapi.models.V2CrossVersionObjectReference item) {
+      implements V2ObjectMetricStatusFluent.DescribedObjectNested<N>, Nested<N> {
+    DescribedObjectNestedImpl(V2CrossVersionObjectReference item) {
       this.builder = new V2CrossVersionObjectReferenceBuilder(this, item);
     }
 
     DescribedObjectNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceBuilder(this);
+      this.builder = new V2CrossVersionObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceBuilder builder;
+    V2CrossVersionObjectReferenceBuilder builder;
 
     public N and() {
       return (N) V2ObjectMetricStatusFluentImpl.this.withDescribedObject(builder.build());
@@ -292,17 +273,16 @@ public class V2ObjectMetricStatusFluentImpl<A extends V2ObjectMetricStatusFluent
 
   class MetricNestedImpl<N>
       extends V2MetricIdentifierFluentImpl<V2ObjectMetricStatusFluent.MetricNested<N>>
-      implements io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent.MetricNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V2ObjectMetricStatusFluent.MetricNested<N>, Nested<N> {
     MetricNestedImpl(V2MetricIdentifier item) {
       this.builder = new V2MetricIdentifierBuilder(this, item);
     }
 
     MetricNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V2MetricIdentifierBuilder(this);
+      this.builder = new V2MetricIdentifierBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2MetricIdentifierBuilder builder;
+    V2MetricIdentifierBuilder builder;
 
     public N and() {
       return (N) V2ObjectMetricStatusFluentImpl.this.withMetric(builder.build());

@@ -26,7 +26,7 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
     implements V1ClusterRoleFluent<A> {
   public V1ClusterRoleFluentImpl() {}
 
-  public V1ClusterRoleFluentImpl(io.kubernetes.client.openapi.models.V1ClusterRole instance) {
+  public V1ClusterRoleFluentImpl(V1ClusterRole instance) {
     this.withAggregationRule(instance.getAggregationRule());
 
     this.withApiVersion(instance.getApiVersion());
@@ -40,7 +40,7 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
 
   private V1AggregationRuleBuilder aggregationRule;
   private String apiVersion;
-  private java.lang.String kind;
+  private String kind;
   private V1ObjectMetaBuilder metadata;
   private ArrayList<V1PolicyRuleBuilder> rules;
 
@@ -54,17 +54,18 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
     return this.aggregationRule != null ? this.aggregationRule.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1AggregationRule buildAggregationRule() {
+  public V1AggregationRule buildAggregationRule() {
     return this.aggregationRule != null ? this.aggregationRule.build() : null;
   }
 
-  public A withAggregationRule(
-      io.kubernetes.client.openapi.models.V1AggregationRule aggregationRule) {
+  public A withAggregationRule(V1AggregationRule aggregationRule) {
     _visitables.get("aggregationRule").remove(this.aggregationRule);
     if (aggregationRule != null) {
-      this.aggregationRule =
-          new io.kubernetes.client.openapi.models.V1AggregationRuleBuilder(aggregationRule);
+      this.aggregationRule = new V1AggregationRuleBuilder(aggregationRule);
       _visitables.get("aggregationRule").add(this.aggregationRule);
+    } else {
+      this.aggregationRule = null;
+      _visitables.get("aggregationRule").remove(this.aggregationRule);
     }
     return (A) this;
   }
@@ -77,52 +78,50 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
     return new V1ClusterRoleFluentImpl.AggregationRuleNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.AggregationRuleNested<A>
-      withNewAggregationRuleLike(io.kubernetes.client.openapi.models.V1AggregationRule item) {
+  public V1ClusterRoleFluent.AggregationRuleNested<A> withNewAggregationRuleLike(
+      V1AggregationRule item) {
     return new V1ClusterRoleFluentImpl.AggregationRuleNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.AggregationRuleNested<A>
-      editAggregationRule() {
+  public V1ClusterRoleFluent.AggregationRuleNested<A> editAggregationRule() {
     return withNewAggregationRuleLike(getAggregationRule());
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.AggregationRuleNested<A>
-      editOrNewAggregationRule() {
+  public V1ClusterRoleFluent.AggregationRuleNested<A> editOrNewAggregationRule() {
     return withNewAggregationRuleLike(
         getAggregationRule() != null
             ? getAggregationRule()
-            : new io.kubernetes.client.openapi.models.V1AggregationRuleBuilder().build());
+            : new V1AggregationRuleBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.AggregationRuleNested<A>
-      editOrNewAggregationRuleLike(io.kubernetes.client.openapi.models.V1AggregationRule item) {
+  public V1ClusterRoleFluent.AggregationRuleNested<A> editOrNewAggregationRuleLike(
+      V1AggregationRule item) {
     return withNewAggregationRuleLike(getAggregationRule() != null ? getAggregationRule() : item);
   }
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -131,25 +130,28 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  @Deprecated
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -157,47 +159,38 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
     return new V1ClusterRoleFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1ClusterRoleFluentImpl.MetadataNestedImpl(item);
+  public V1ClusterRoleFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+    return new V1ClusterRoleFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.MetadataNested<A> editMetadata() {
+  public V1ClusterRoleFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1ClusterRoleFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1ClusterRoleFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public A addToRules(Integer index, io.kubernetes.client.openapi.models.V1PolicyRule item) {
+  public A addToRules(Integer index, V1PolicyRule item) {
     if (this.rules == null) {
-      this.rules = new java.util.ArrayList<V1PolicyRuleBuilder>();
+      this.rules = new ArrayList<V1PolicyRuleBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PolicyRuleBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PolicyRuleBuilder(item);
+    V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
     _visitables.get("rules").add(index >= 0 ? index : _visitables.get("rules").size(), builder);
     this.rules.add(index >= 0 ? index : rules.size(), builder);
     return (A) this;
   }
 
-  public A setToRules(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PolicyRule item) {
+  public A setToRules(Integer index, V1PolicyRule item) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PolicyRuleBuilder>();
+      this.rules = new ArrayList<V1PolicyRuleBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PolicyRuleBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PolicyRuleBuilder(item);
+    V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
     if (index < 0 || index >= _visitables.get("rules").size()) {
       _visitables.get("rules").add(builder);
     } else {
@@ -213,26 +206,22 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
 
   public A addToRules(io.kubernetes.client.openapi.models.V1PolicyRule... items) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PolicyRuleBuilder>();
+      this.rules = new ArrayList<V1PolicyRuleBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PolicyRule item : items) {
-      io.kubernetes.client.openapi.models.V1PolicyRuleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PolicyRuleBuilder(item);
+    for (V1PolicyRule item : items) {
+      V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
       _visitables.get("rules").add(builder);
       this.rules.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToRules(Collection<io.kubernetes.client.openapi.models.V1PolicyRule> items) {
+  public A addAllToRules(Collection<V1PolicyRule> items) {
     if (this.rules == null) {
-      this.rules =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PolicyRuleBuilder>();
+      this.rules = new ArrayList<V1PolicyRuleBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PolicyRule item : items) {
-      io.kubernetes.client.openapi.models.V1PolicyRuleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PolicyRuleBuilder(item);
+    for (V1PolicyRule item : items) {
+      V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
       _visitables.get("rules").add(builder);
       this.rules.add(builder);
     }
@@ -240,9 +229,8 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
   }
 
   public A removeFromRules(io.kubernetes.client.openapi.models.V1PolicyRule... items) {
-    for (io.kubernetes.client.openapi.models.V1PolicyRule item : items) {
-      io.kubernetes.client.openapi.models.V1PolicyRuleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PolicyRuleBuilder(item);
+    for (V1PolicyRule item : items) {
+      V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
       _visitables.get("rules").remove(builder);
       if (this.rules != null) {
         this.rules.remove(builder);
@@ -251,11 +239,9 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeAllFromRules(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PolicyRule> items) {
-    for (io.kubernetes.client.openapi.models.V1PolicyRule item : items) {
-      io.kubernetes.client.openapi.models.V1PolicyRuleBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PolicyRuleBuilder(item);
+  public A removeAllFromRules(Collection<V1PolicyRule> items) {
+    for (V1PolicyRule item : items) {
+      V1PolicyRuleBuilder builder = new V1PolicyRuleBuilder(item);
       _visitables.get("rules").remove(builder);
       if (this.rules != null) {
         this.rules.remove(builder);
@@ -264,13 +250,12 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeMatchingFromRules(
-      Predicate<io.kubernetes.client.openapi.models.V1PolicyRuleBuilder> predicate) {
+  public A removeMatchingFromRules(Predicate<V1PolicyRuleBuilder> predicate) {
     if (rules == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1PolicyRuleBuilder> each = rules.iterator();
+    final Iterator<V1PolicyRuleBuilder> each = rules.iterator();
     final List visitables = _visitables.get("rules");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1PolicyRuleBuilder builder = each.next();
+      V1PolicyRuleBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -284,31 +269,29 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public List<io.kubernetes.client.openapi.models.V1PolicyRule> getRules() {
+  @Deprecated
+  public List<V1PolicyRule> getRules() {
     return rules != null ? build(rules) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PolicyRule> buildRules() {
+  public List<V1PolicyRule> buildRules() {
     return rules != null ? build(rules) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PolicyRule buildRule(java.lang.Integer index) {
+  public V1PolicyRule buildRule(Integer index) {
     return this.rules.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PolicyRule buildFirstRule() {
+  public V1PolicyRule buildFirstRule() {
     return this.rules.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PolicyRule buildLastRule() {
+  public V1PolicyRule buildLastRule() {
     return this.rules.get(rules.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PolicyRule buildMatchingRule(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PolicyRuleBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PolicyRuleBuilder item : rules) {
+  public V1PolicyRule buildMatchingRule(Predicate<V1PolicyRuleBuilder> predicate) {
+    for (V1PolicyRuleBuilder item : rules) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -316,10 +299,8 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
     return null;
   }
 
-  public java.lang.Boolean hasMatchingRule(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PolicyRuleBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PolicyRuleBuilder item : rules) {
+  public Boolean hasMatchingRule(Predicate<V1PolicyRuleBuilder> predicate) {
+    for (V1PolicyRuleBuilder item : rules) {
       if (predicate.test(item)) {
         return true;
       }
@@ -327,13 +308,13 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
     return false;
   }
 
-  public A withRules(java.util.List<io.kubernetes.client.openapi.models.V1PolicyRule> rules) {
+  public A withRules(List<V1PolicyRule> rules) {
     if (this.rules != null) {
       _visitables.get("rules").removeAll(this.rules);
     }
     if (rules != null) {
-      this.rules = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1PolicyRule item : rules) {
+      this.rules = new ArrayList();
+      for (V1PolicyRule item : rules) {
         this.addToRules(item);
       }
     } else {
@@ -347,14 +328,14 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
       this.rules.clear();
     }
     if (rules != null) {
-      for (io.kubernetes.client.openapi.models.V1PolicyRule item : rules) {
+      for (V1PolicyRule item : rules) {
         this.addToRules(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasRules() {
+  public Boolean hasRules() {
     return rules != null && !rules.isEmpty();
   }
 
@@ -362,38 +343,32 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
     return new V1ClusterRoleFluentImpl.RulesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.RulesNested<A> addNewRuleLike(
-      io.kubernetes.client.openapi.models.V1PolicyRule item) {
-    return new io.kubernetes.client.openapi.models.V1ClusterRoleFluentImpl.RulesNestedImpl(
-        -1, item);
+  public V1ClusterRoleFluent.RulesNested<A> addNewRuleLike(V1PolicyRule item) {
+    return new V1ClusterRoleFluentImpl.RulesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.RulesNested<A> setNewRuleLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PolicyRule item) {
-    return new io.kubernetes.client.openapi.models.V1ClusterRoleFluentImpl.RulesNestedImpl(
-        index, item);
+  public V1ClusterRoleFluent.RulesNested<A> setNewRuleLike(Integer index, V1PolicyRule item) {
+    return new V1ClusterRoleFluentImpl.RulesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.RulesNested<A> editRule(
-      java.lang.Integer index) {
+  public V1ClusterRoleFluent.RulesNested<A> editRule(Integer index) {
     if (rules.size() <= index) throw new RuntimeException("Can't edit rules. Index exceeds size.");
     return setNewRuleLike(index, buildRule(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.RulesNested<A> editFirstRule() {
+  public V1ClusterRoleFluent.RulesNested<A> editFirstRule() {
     if (rules.size() == 0) throw new RuntimeException("Can't edit first rules. The list is empty.");
     return setNewRuleLike(0, buildRule(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.RulesNested<A> editLastRule() {
+  public V1ClusterRoleFluent.RulesNested<A> editLastRule() {
     int index = rules.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last rules. The list is empty.");
     return setNewRuleLike(index, buildRule(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ClusterRoleFluent.RulesNested<A> editMatchingRule(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PolicyRuleBuilder>
-          predicate) {
+  public V1ClusterRoleFluent.RulesNested<A> editMatchingRule(
+      Predicate<V1PolicyRuleBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < rules.size(); i++) {
       if (predicate.test(rules.get(i))) {
@@ -425,7 +400,7 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
         aggregationRule, apiVersion, kind, metadata, rules, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (aggregationRule != null) {
@@ -454,17 +429,16 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
 
   class AggregationRuleNestedImpl<N>
       extends V1AggregationRuleFluentImpl<V1ClusterRoleFluent.AggregationRuleNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ClusterRoleFluent.AggregationRuleNested<N>,
-          Nested<N> {
+      implements V1ClusterRoleFluent.AggregationRuleNested<N>, Nested<N> {
     AggregationRuleNestedImpl(V1AggregationRule item) {
       this.builder = new V1AggregationRuleBuilder(this, item);
     }
 
     AggregationRuleNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1AggregationRuleBuilder(this);
+      this.builder = new V1AggregationRuleBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1AggregationRuleBuilder builder;
+    V1AggregationRuleBuilder builder;
 
     public N and() {
       return (N) V1ClusterRoleFluentImpl.this.withAggregationRule(builder.build());
@@ -476,17 +450,16 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
   }
 
   class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ClusterRoleFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ClusterRoleFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1ClusterRoleFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) V1ClusterRoleFluentImpl.this.withMetadata(builder.build());
@@ -498,20 +471,19 @@ public class V1ClusterRoleFluentImpl<A extends V1ClusterRoleFluent<A>> extends B
   }
 
   class RulesNestedImpl<N> extends V1PolicyRuleFluentImpl<V1ClusterRoleFluent.RulesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ClusterRoleFluent.RulesNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    RulesNestedImpl(java.lang.Integer index, V1PolicyRule item) {
+      implements V1ClusterRoleFluent.RulesNested<N>, Nested<N> {
+    RulesNestedImpl(Integer index, V1PolicyRule item) {
       this.index = index;
       this.builder = new V1PolicyRuleBuilder(this, item);
     }
 
     RulesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1PolicyRuleBuilder(this);
+      this.builder = new V1PolicyRuleBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PolicyRuleBuilder builder;
-    java.lang.Integer index;
+    V1PolicyRuleBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1ClusterRoleFluentImpl.this.setToRules(index, builder.build());

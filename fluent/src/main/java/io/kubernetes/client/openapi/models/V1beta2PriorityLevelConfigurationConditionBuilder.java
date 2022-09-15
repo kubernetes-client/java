@@ -19,7 +19,7 @@ public class V1beta2PriorityLevelConfigurationConditionBuilder
         V1beta2PriorityLevelConfigurationConditionBuilder>
     implements VisitableBuilder<
         V1beta2PriorityLevelConfigurationCondition,
-        io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationConditionBuilder> {
+        V1beta2PriorityLevelConfigurationConditionBuilder> {
   public V1beta2PriorityLevelConfigurationConditionBuilder() {
     this(false);
   }
@@ -34,24 +34,20 @@ public class V1beta2PriorityLevelConfigurationConditionBuilder
   }
 
   public V1beta2PriorityLevelConfigurationConditionBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationConditionFluent<?>
-          fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta2PriorityLevelConfigurationConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta2PriorityLevelConfigurationCondition(), validationEnabled);
   }
 
   public V1beta2PriorityLevelConfigurationConditionBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationConditionFluent<?>
-          fluent,
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationCondition instance) {
+      V1beta2PriorityLevelConfigurationConditionFluent<?> fluent,
+      V1beta2PriorityLevelConfigurationCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1beta2PriorityLevelConfigurationConditionBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationConditionFluent<?>
-          fluent,
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2PriorityLevelConfigurationConditionFluent<?> fluent,
+      V1beta2PriorityLevelConfigurationCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -67,13 +63,12 @@ public class V1beta2PriorityLevelConfigurationConditionBuilder
   }
 
   public V1beta2PriorityLevelConfigurationConditionBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationCondition instance) {
+      V1beta2PriorityLevelConfigurationCondition instance) {
     this(instance, false);
   }
 
   public V1beta2PriorityLevelConfigurationConditionBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2PriorityLevelConfigurationCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -88,10 +83,10 @@ public class V1beta2PriorityLevelConfigurationConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta2PriorityLevelConfigurationConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationCondition build() {
+  public V1beta2PriorityLevelConfigurationCondition build() {
     V1beta2PriorityLevelConfigurationCondition buildable =
         new V1beta2PriorityLevelConfigurationCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());

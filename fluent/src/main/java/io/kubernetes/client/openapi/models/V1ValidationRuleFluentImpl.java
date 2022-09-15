@@ -20,20 +20,20 @@ public class V1ValidationRuleFluentImpl<A extends V1ValidationRuleFluent<A>> ext
     implements V1ValidationRuleFluent<A> {
   public V1ValidationRuleFluentImpl() {}
 
-  public V1ValidationRuleFluentImpl(io.kubernetes.client.openapi.models.V1ValidationRule instance) {
+  public V1ValidationRuleFluentImpl(V1ValidationRule instance) {
     this.withMessage(instance.getMessage());
 
     this.withRule(instance.getRule());
   }
 
   private String message;
-  private java.lang.String rule;
+  private String rule;
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
@@ -42,16 +42,16 @@ public class V1ValidationRuleFluentImpl<A extends V1ValidationRuleFluent<A>> ext
     return this.message != null;
   }
 
-  public java.lang.String getRule() {
+  public String getRule() {
     return this.rule;
   }
 
-  public A withRule(java.lang.String rule) {
+  public A withRule(String rule) {
     this.rule = rule;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRule() {
+  public Boolean hasRule() {
     return this.rule != null;
   }
 
@@ -68,7 +68,7 @@ public class V1ValidationRuleFluentImpl<A extends V1ValidationRuleFluent<A>> ext
     return java.util.Objects.hash(message, rule, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (message != null) {

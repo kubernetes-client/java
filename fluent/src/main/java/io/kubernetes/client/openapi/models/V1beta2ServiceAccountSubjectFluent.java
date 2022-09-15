@@ -19,13 +19,13 @@ public interface V1beta2ServiceAccountSubjectFluent<A extends V1beta2ServiceAcco
     extends Fluent<A> {
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
   public Boolean hasName();
 
-  public java.lang.String getNamespace();
+  public String getNamespace();
 
-  public A withNamespace(java.lang.String namespace);
+  public A withNamespace(String namespace);
 
-  public java.lang.Boolean hasNamespace();
+  public Boolean hasNamespace();
 }

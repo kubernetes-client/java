@@ -25,17 +25,15 @@ public interface V1PodDisruptionBudgetStatusFluent<A extends V1PodDisruptionBudg
     extends Fluent<A> {
   public A addToConditions(Integer index, V1Condition item);
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Condition item);
+  public A setToConditions(Integer index, V1Condition item);
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1Condition... items);
 
-  public A addAllToConditions(Collection<io.kubernetes.client.openapi.models.V1Condition> items);
+  public A addAllToConditions(Collection<V1Condition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1Condition... items);
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Condition> items);
+  public A removeAllFromConditions(Collection<V1Condition> items);
 
   public A removeMatchingFromConditions(Predicate<V1ConditionBuilder> predicate);
 
@@ -45,98 +43,86 @@ public interface V1PodDisruptionBudgetStatusFluent<A extends V1PodDisruptionBudg
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1Condition> getConditions();
+  public List<V1Condition> getConditions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1Condition> buildConditions();
+  public List<V1Condition> buildConditions();
 
-  public io.kubernetes.client.openapi.models.V1Condition buildCondition(java.lang.Integer index);
+  public V1Condition buildCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1Condition buildFirstCondition();
+  public V1Condition buildFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1Condition buildLastCondition();
+  public V1Condition buildLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1Condition buildMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-          predicate);
+  public V1Condition buildMatchingCondition(Predicate<V1ConditionBuilder> predicate);
 
-  public Boolean hasMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-          predicate);
+  public Boolean hasMatchingCondition(Predicate<V1ConditionBuilder> predicate);
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1Condition> conditions);
+  public A withConditions(List<V1Condition> conditions);
 
   public A withConditions(io.kubernetes.client.openapi.models.V1Condition... conditions);
 
-  public java.lang.Boolean hasConditions();
+  public Boolean hasConditions();
 
   public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> addNewCondition();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1Condition item);
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> addNewConditionLike(
+      V1Condition item);
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1Condition item);
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1Condition item);
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      editCondition(java.lang.Integer index);
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      editFirstCondition();
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      editLastCondition();
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-              predicate);
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1ConditionBuilder> predicate);
 
-  public java.lang.Integer getCurrentHealthy();
+  public Integer getCurrentHealthy();
 
-  public A withCurrentHealthy(java.lang.Integer currentHealthy);
+  public A withCurrentHealthy(Integer currentHealthy);
 
-  public java.lang.Boolean hasCurrentHealthy();
+  public Boolean hasCurrentHealthy();
 
-  public java.lang.Integer getDesiredHealthy();
+  public Integer getDesiredHealthy();
 
-  public A withDesiredHealthy(java.lang.Integer desiredHealthy);
+  public A withDesiredHealthy(Integer desiredHealthy);
 
-  public java.lang.Boolean hasDesiredHealthy();
+  public Boolean hasDesiredHealthy();
 
   public A addToDisruptedPods(String key, OffsetDateTime value);
 
-  public A addToDisruptedPods(Map<java.lang.String, java.time.OffsetDateTime> map);
+  public A addToDisruptedPods(Map<String, OffsetDateTime> map);
 
-  public A removeFromDisruptedPods(java.lang.String key);
+  public A removeFromDisruptedPods(String key);
 
-  public A removeFromDisruptedPods(java.util.Map<java.lang.String, java.time.OffsetDateTime> map);
+  public A removeFromDisruptedPods(Map<String, OffsetDateTime> map);
 
-  public java.util.Map<java.lang.String, java.time.OffsetDateTime> getDisruptedPods();
+  public Map<String, OffsetDateTime> getDisruptedPods();
 
-  public <K, V> A withDisruptedPods(
-      java.util.Map<java.lang.String, java.time.OffsetDateTime> disruptedPods);
+  public <K, V> A withDisruptedPods(Map<String, OffsetDateTime> disruptedPods);
 
-  public java.lang.Boolean hasDisruptedPods();
+  public Boolean hasDisruptedPods();
 
-  public java.lang.Integer getDisruptionsAllowed();
+  public Integer getDisruptionsAllowed();
 
-  public A withDisruptionsAllowed(java.lang.Integer disruptionsAllowed);
+  public A withDisruptionsAllowed(Integer disruptionsAllowed);
 
-  public java.lang.Boolean hasDisruptionsAllowed();
+  public Boolean hasDisruptionsAllowed();
 
-  public java.lang.Integer getExpectedPods();
+  public Integer getExpectedPods();
 
-  public A withExpectedPods(java.lang.Integer expectedPods);
+  public A withExpectedPods(Integer expectedPods);
 
-  public java.lang.Boolean hasExpectedPods();
+  public Boolean hasExpectedPods();
 
   public Long getObservedGeneration();
 
-  public A withObservedGeneration(java.lang.Long observedGeneration);
+  public A withObservedGeneration(Long observedGeneration);
 
-  public java.lang.Boolean hasObservedGeneration();
+  public Boolean hasObservedGeneration();
 
   public interface ConditionsNested<N>
       extends Nested<N>, V1ConditionFluent<V1PodDisruptionBudgetStatusFluent.ConditionsNested<N>> {

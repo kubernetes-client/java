@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ObjectFieldSelectorBuilder
     extends V1ObjectFieldSelectorFluentImpl<V1ObjectFieldSelectorBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ObjectFieldSelector, V1ObjectFieldSelectorBuilder> {
+    implements VisitableBuilder<V1ObjectFieldSelector, V1ObjectFieldSelectorBuilder> {
   public V1ObjectFieldSelectorBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1ObjectFieldSelectorBuilder
   }
 
   public V1ObjectFieldSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectFieldSelectorFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ObjectFieldSelectorFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ObjectFieldSelector(), validationEnabled);
   }
 
   public V1ObjectFieldSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectFieldSelectorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ObjectFieldSelector instance) {
+      V1ObjectFieldSelectorFluent<?> fluent, V1ObjectFieldSelector instance) {
     this(fluent, instance, false);
   }
 
   public V1ObjectFieldSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectFieldSelectorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ObjectFieldSelector instance,
-      java.lang.Boolean validationEnabled) {
+      V1ObjectFieldSelectorFluent<?> fluent,
+      V1ObjectFieldSelector instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -54,14 +51,11 @@ public class V1ObjectFieldSelectorBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ObjectFieldSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectFieldSelector instance) {
+  public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelector instance) {
     this(instance, false);
   }
 
-  public V1ObjectFieldSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectFieldSelector instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelector instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -70,10 +64,10 @@ public class V1ObjectFieldSelectorBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ObjectFieldSelectorFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ObjectFieldSelectorFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ObjectFieldSelector build() {
+  public V1ObjectFieldSelector build() {
     V1ObjectFieldSelector buildable = new V1ObjectFieldSelector();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setFieldPath(fluent.getFieldPath());

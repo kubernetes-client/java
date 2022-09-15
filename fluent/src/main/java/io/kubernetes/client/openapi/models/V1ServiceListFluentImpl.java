@@ -38,14 +38,14 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
 
   private String apiVersion;
   private ArrayList<V1ServiceBuilder> items;
-  private java.lang.String kind;
+  private String kind;
   private V1ListMetaBuilder metadata;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -54,23 +54,21 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
     return this.apiVersion != null;
   }
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1Service item) {
+  public A addToItems(Integer index, V1Service item) {
     if (this.items == null) {
-      this.items = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServiceBuilder>();
+      this.items = new ArrayList<V1ServiceBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ServiceBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ServiceBuilder(item);
+    V1ServiceBuilder builder = new V1ServiceBuilder(item);
     _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
     this.items.add(index >= 0 ? index : items.size(), builder);
     return (A) this;
   }
 
-  public A setToItems(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Service item) {
+  public A setToItems(Integer index, V1Service item) {
     if (this.items == null) {
-      this.items = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServiceBuilder>();
+      this.items = new ArrayList<V1ServiceBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ServiceBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ServiceBuilder(item);
+    V1ServiceBuilder builder = new V1ServiceBuilder(item);
     if (index < 0 || index >= _visitables.get("items").size()) {
       _visitables.get("items").add(builder);
     } else {
@@ -86,24 +84,22 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
 
   public A addToItems(io.kubernetes.client.openapi.models.V1Service... items) {
     if (this.items == null) {
-      this.items = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServiceBuilder>();
+      this.items = new ArrayList<V1ServiceBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Service item : items) {
-      io.kubernetes.client.openapi.models.V1ServiceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServiceBuilder(item);
+    for (V1Service item : items) {
+      V1ServiceBuilder builder = new V1ServiceBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1Service> items) {
+  public A addAllToItems(Collection<V1Service> items) {
     if (this.items == null) {
-      this.items = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServiceBuilder>();
+      this.items = new ArrayList<V1ServiceBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Service item : items) {
-      io.kubernetes.client.openapi.models.V1ServiceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServiceBuilder(item);
+    for (V1Service item : items) {
+      V1ServiceBuilder builder = new V1ServiceBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
@@ -111,9 +107,8 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
   }
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Service... items) {
-    for (io.kubernetes.client.openapi.models.V1Service item : items) {
-      io.kubernetes.client.openapi.models.V1ServiceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServiceBuilder(item);
+    for (V1Service item : items) {
+      V1ServiceBuilder builder = new V1ServiceBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -122,11 +117,9 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Service> items) {
-    for (io.kubernetes.client.openapi.models.V1Service item : items) {
-      io.kubernetes.client.openapi.models.V1ServiceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServiceBuilder(item);
+  public A removeAllFromItems(Collection<V1Service> items) {
+    for (V1Service item : items) {
+      V1ServiceBuilder builder = new V1ServiceBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -135,13 +128,12 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeMatchingFromItems(
-      Predicate<io.kubernetes.client.openapi.models.V1ServiceBuilder> predicate) {
+  public A removeMatchingFromItems(Predicate<V1ServiceBuilder> predicate) {
     if (items == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ServiceBuilder> each = items.iterator();
+    final Iterator<V1ServiceBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ServiceBuilder builder = each.next();
+      V1ServiceBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -156,30 +148,28 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1Service> getItems() {
+  public List<V1Service> getItems() {
     return items != null ? build(items) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1Service> buildItems() {
+  public List<V1Service> buildItems() {
     return items != null ? build(items) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1Service buildItem(java.lang.Integer index) {
+  public V1Service buildItem(Integer index) {
     return this.items.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Service buildFirstItem() {
+  public V1Service buildFirstItem() {
     return this.items.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Service buildLastItem() {
+  public V1Service buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Service buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServiceBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ServiceBuilder item : items) {
+  public V1Service buildMatchingItem(Predicate<V1ServiceBuilder> predicate) {
+    for (V1ServiceBuilder item : items) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -187,10 +177,8 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
     return null;
   }
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServiceBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ServiceBuilder item : items) {
+  public Boolean hasMatchingItem(Predicate<V1ServiceBuilder> predicate) {
+    for (V1ServiceBuilder item : items) {
       if (predicate.test(item)) {
         return true;
       }
@@ -198,13 +186,13 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
     return false;
   }
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1Service> items) {
+  public A withItems(List<V1Service> items) {
     if (this.items != null) {
       _visitables.get("items").removeAll(this.items);
     }
     if (items != null) {
-      this.items = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1Service item : items) {
+      this.items = new ArrayList();
+      for (V1Service item : items) {
         this.addToItems(item);
       }
     } else {
@@ -218,14 +206,14 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
       this.items.clear();
     }
     if (items != null) {
-      for (io.kubernetes.client.openapi.models.V1Service item : items) {
+      for (V1Service item : items) {
         this.addToItems(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasItems() {
+  public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
 
@@ -233,37 +221,32 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
     return new V1ServiceListFluentImpl.ItemsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1Service item) {
+  public V1ServiceListFluent.ItemsNested<A> addNewItemLike(V1Service item) {
     return new V1ServiceListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> setNewItemLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Service item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceListFluentImpl.ItemsNestedImpl(
-        index, item);
+  public V1ServiceListFluent.ItemsNested<A> setNewItemLike(Integer index, V1Service item) {
+    return new V1ServiceListFluentImpl.ItemsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index) {
+  public V1ServiceListFluent.ItemsNested<A> editItem(Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> editFirstItem() {
+  public V1ServiceListFluent.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> editLastItem() {
+  public V1ServiceListFluent.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> editMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServiceBuilder>
-          predicate) {
+  public V1ServiceListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1ServiceBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < items.size(); i++) {
       if (predicate.test(items.get(i))) {
@@ -275,16 +258,16 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
     return setNewItemLike(index, buildItem(index));
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -293,25 +276,28 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
+  @Deprecated
+  public V1ListMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
+  public V1ListMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
+  public A withMetadata(V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -319,25 +305,20 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
     return new V1ServiceListFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceListFluentImpl.MetadataNestedImpl(item);
+  public V1ServiceListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+    return new V1ServiceListFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.MetadataNested<A> editMetadata() {
+  public V1ServiceListFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1ServiceListFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
+  public V1ServiceListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -357,7 +338,7 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -382,18 +363,18 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
 
   class ItemsNestedImpl<N> extends V1ServiceFluentImpl<V1ServiceListFluent.ItemsNested<N>>
       implements V1ServiceListFluent.ItemsNested<N>, Nested<N> {
-    ItemsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Service item) {
+    ItemsNestedImpl(Integer index, V1Service item) {
       this.index = index;
       this.builder = new V1ServiceBuilder(this, item);
     }
 
     ItemsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ServiceBuilder(this);
+      this.builder = new V1ServiceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ServiceBuilder builder;
-    java.lang.Integer index;
+    V1ServiceBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1ServiceListFluentImpl.this.setToItems(index, builder.build());
@@ -405,17 +386,16 @@ public class V1ServiceListFluentImpl<A extends V1ServiceListFluent<A>> extends B
   }
 
   class MetadataNestedImpl<N> extends V1ListMetaFluentImpl<V1ServiceListFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ServiceListFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1ServiceListFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this);
+      this.builder = new V1ListMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
+    V1ListMetaBuilder builder;
 
     public N and() {
       return (N) V1ServiceListFluentImpl.this.withMetadata(builder.build());

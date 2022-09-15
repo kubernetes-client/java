@@ -38,14 +38,14 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
 
   private String apiVersion;
   private ArrayList<V1PodTemplateBuilder> items;
-  private java.lang.String kind;
+  private String kind;
   private V1ListMetaBuilder metadata;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -54,26 +54,21 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
     return this.apiVersion != null;
   }
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1PodTemplate item) {
+  public A addToItems(Integer index, V1PodTemplate item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodTemplateBuilder>();
+      this.items = new ArrayList<V1PodTemplateBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PodTemplateBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PodTemplateBuilder(item);
+    V1PodTemplateBuilder builder = new V1PodTemplateBuilder(item);
     _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
     this.items.add(index >= 0 ? index : items.size(), builder);
     return (A) this;
   }
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodTemplate item) {
+  public A setToItems(Integer index, V1PodTemplate item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodTemplateBuilder>();
+      this.items = new ArrayList<V1PodTemplateBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PodTemplateBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PodTemplateBuilder(item);
+    V1PodTemplateBuilder builder = new V1PodTemplateBuilder(item);
     if (index < 0 || index >= _visitables.get("items").size()) {
       _visitables.get("items").add(builder);
     } else {
@@ -89,26 +84,22 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
 
   public A addToItems(io.kubernetes.client.openapi.models.V1PodTemplate... items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodTemplateBuilder>();
+      this.items = new ArrayList<V1PodTemplateBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PodTemplate item : items) {
-      io.kubernetes.client.openapi.models.V1PodTemplateBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodTemplateBuilder(item);
+    for (V1PodTemplate item : items) {
+      V1PodTemplateBuilder builder = new V1PodTemplateBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1PodTemplate> items) {
+  public A addAllToItems(Collection<V1PodTemplate> items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodTemplateBuilder>();
+      this.items = new ArrayList<V1PodTemplateBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PodTemplate item : items) {
-      io.kubernetes.client.openapi.models.V1PodTemplateBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodTemplateBuilder(item);
+    for (V1PodTemplate item : items) {
+      V1PodTemplateBuilder builder = new V1PodTemplateBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
@@ -116,9 +107,8 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
   }
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1PodTemplate... items) {
-    for (io.kubernetes.client.openapi.models.V1PodTemplate item : items) {
-      io.kubernetes.client.openapi.models.V1PodTemplateBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodTemplateBuilder(item);
+    for (V1PodTemplate item : items) {
+      V1PodTemplateBuilder builder = new V1PodTemplateBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -127,11 +117,9 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PodTemplate> items) {
-    for (io.kubernetes.client.openapi.models.V1PodTemplate item : items) {
-      io.kubernetes.client.openapi.models.V1PodTemplateBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodTemplateBuilder(item);
+  public A removeAllFromItems(Collection<V1PodTemplate> items) {
+    for (V1PodTemplate item : items) {
+      V1PodTemplateBuilder builder = new V1PodTemplateBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -140,14 +128,12 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
     return (A) this;
   }
 
-  public A removeMatchingFromItems(
-      Predicate<io.kubernetes.client.openapi.models.V1PodTemplateBuilder> predicate) {
+  public A removeMatchingFromItems(Predicate<V1PodTemplateBuilder> predicate) {
     if (items == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1PodTemplateBuilder> each =
-        items.iterator();
+    final Iterator<V1PodTemplateBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1PodTemplateBuilder builder = each.next();
+      V1PodTemplateBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -162,30 +148,28 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1PodTemplate> getItems() {
+  public List<V1PodTemplate> getItems() {
     return items != null ? build(items) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PodTemplate> buildItems() {
+  public List<V1PodTemplate> buildItems() {
     return items != null ? build(items) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplate buildItem(java.lang.Integer index) {
+  public V1PodTemplate buildItem(Integer index) {
     return this.items.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplate buildFirstItem() {
+  public V1PodTemplate buildFirstItem() {
     return this.items.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplate buildLastItem() {
+  public V1PodTemplate buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplate buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodTemplateBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PodTemplateBuilder item : items) {
+  public V1PodTemplate buildMatchingItem(Predicate<V1PodTemplateBuilder> predicate) {
+    for (V1PodTemplateBuilder item : items) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -193,10 +177,8 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
     return null;
   }
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodTemplateBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PodTemplateBuilder item : items) {
+  public Boolean hasMatchingItem(Predicate<V1PodTemplateBuilder> predicate) {
+    for (V1PodTemplateBuilder item : items) {
       if (predicate.test(item)) {
         return true;
       }
@@ -204,13 +186,13 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
     return false;
   }
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1PodTemplate> items) {
+  public A withItems(List<V1PodTemplate> items) {
     if (this.items != null) {
       _visitables.get("items").removeAll(this.items);
     }
     if (items != null) {
-      this.items = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1PodTemplate item : items) {
+      this.items = new ArrayList();
+      for (V1PodTemplate item : items) {
         this.addToItems(item);
       }
     } else {
@@ -224,14 +206,14 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
       this.items.clear();
     }
     if (items != null) {
-      for (io.kubernetes.client.openapi.models.V1PodTemplate item : items) {
+      for (V1PodTemplate item : items) {
         this.addToItems(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasItems() {
+  public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
 
@@ -239,39 +221,32 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
     return new V1PodTemplateListFluentImpl.ItemsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1PodTemplate item) {
+  public V1PodTemplateListFluent.ItemsNested<A> addNewItemLike(V1PodTemplate item) {
     return new V1PodTemplateListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A> setNewItemLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodTemplate item) {
-    return new io.kubernetes.client.openapi.models.V1PodTemplateListFluentImpl.ItemsNestedImpl(
-        index, item);
+  public V1PodTemplateListFluent.ItemsNested<A> setNewItemLike(Integer index, V1PodTemplate item) {
+    return new V1PodTemplateListFluentImpl.ItemsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index) {
+  public V1PodTemplateListFluent.ItemsNested<A> editItem(Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A>
-      editFirstItem() {
+  public V1PodTemplateListFluent.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A> editLastItem() {
+  public V1PodTemplateListFluent.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodTemplateBuilder>
-              predicate) {
+  public V1PodTemplateListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1PodTemplateBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < items.size(); i++) {
       if (predicate.test(items.get(i))) {
@@ -283,16 +258,16 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
     return setNewItemLike(index, buildItem(index));
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -301,25 +276,28 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
+  @Deprecated
+  public V1ListMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
+  public V1ListMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
+  public A withMetadata(V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -327,27 +305,20 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
     return new V1PodTemplateListFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V1PodTemplateListFluentImpl.MetadataNestedImpl(
-        item);
+  public V1PodTemplateListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+    return new V1PodTemplateListFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.MetadataNested<A>
-      editMetadata() {
+  public V1PodTemplateListFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1PodTemplateListFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
+  public V1PodTemplateListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -367,7 +338,7 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -391,21 +362,19 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
   }
 
   class ItemsNestedImpl<N> extends V1PodTemplateFluentImpl<V1PodTemplateListFluent.ItemsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<N>,
-          Nested<N> {
-    ItemsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodTemplate item) {
+      implements V1PodTemplateListFluent.ItemsNested<N>, Nested<N> {
+    ItemsNestedImpl(Integer index, V1PodTemplate item) {
       this.index = index;
       this.builder = new V1PodTemplateBuilder(this, item);
     }
 
     ItemsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1PodTemplateBuilder(this);
+      this.builder = new V1PodTemplateBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PodTemplateBuilder builder;
-    java.lang.Integer index;
+    V1PodTemplateBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1PodTemplateListFluentImpl.this.setToItems(index, builder.build());
@@ -418,17 +387,16 @@ public class V1PodTemplateListFluentImpl<A extends V1PodTemplateListFluent<A>> e
 
   class MetadataNestedImpl<N>
       extends V1ListMetaFluentImpl<V1PodTemplateListFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodTemplateListFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1PodTemplateListFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this);
+      this.builder = new V1ListMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
+    V1ListMetaBuilder builder;
 
     public N and() {
       return (N) V1PodTemplateListFluentImpl.this.withMetadata(builder.build());

@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1CertificateSigningRequestSpecBuilder
     extends V1CertificateSigningRequestSpecFluentImpl<V1CertificateSigningRequestSpecBuilder>
     implements VisitableBuilder<
-        V1CertificateSigningRequestSpec,
-        io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpecBuilder> {
+        V1CertificateSigningRequestSpec, V1CertificateSigningRequestSpecBuilder> {
   public V1CertificateSigningRequestSpecBuilder() {
     this(false);
   }
@@ -27,27 +26,24 @@ public class V1CertificateSigningRequestSpecBuilder
     this(new V1CertificateSigningRequestSpec(), validationEnabled);
   }
 
-  public V1CertificateSigningRequestSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpecFluent<?> fluent) {
+  public V1CertificateSigningRequestSpecBuilder(V1CertificateSigningRequestSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1CertificateSigningRequestSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CertificateSigningRequestSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CertificateSigningRequestSpec(), validationEnabled);
   }
 
   public V1CertificateSigningRequestSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpec instance) {
+      V1CertificateSigningRequestSpecFluent<?> fluent, V1CertificateSigningRequestSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1CertificateSigningRequestSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1CertificateSigningRequestSpecFluent<?> fluent,
+      V1CertificateSigningRequestSpec instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withExpirationSeconds(instance.getExpirationSeconds());
 
@@ -68,14 +64,12 @@ public class V1CertificateSigningRequestSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CertificateSigningRequestSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpec instance) {
+  public V1CertificateSigningRequestSpecBuilder(V1CertificateSigningRequestSpec instance) {
     this(instance, false);
   }
 
   public V1CertificateSigningRequestSpecBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1CertificateSigningRequestSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withExpirationSeconds(instance.getExpirationSeconds());
 
@@ -96,10 +90,10 @@ public class V1CertificateSigningRequestSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CertificateSigningRequestSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestSpec build() {
+  public V1CertificateSigningRequestSpec build() {
     V1CertificateSigningRequestSpec buildable = new V1CertificateSigningRequestSpec();
     buildable.setExpirationSeconds(fluent.getExpirationSeconds());
     buildable.setExtra(fluent.getExtra());

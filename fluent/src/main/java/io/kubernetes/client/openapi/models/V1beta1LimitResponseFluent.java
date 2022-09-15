@@ -27,31 +27,29 @@ public interface V1beta1LimitResponseFluent<A extends V1beta1LimitResponseFluent
   @Deprecated
   public V1beta1QueuingConfiguration getQueuing();
 
-  public io.kubernetes.client.openapi.models.V1beta1QueuingConfiguration buildQueuing();
+  public V1beta1QueuingConfiguration buildQueuing();
 
-  public A withQueuing(io.kubernetes.client.openapi.models.V1beta1QueuingConfiguration queuing);
+  public A withQueuing(V1beta1QueuingConfiguration queuing);
 
   public Boolean hasQueuing();
 
   public V1beta1LimitResponseFluent.QueuingNested<A> withNewQueuing();
 
-  public io.kubernetes.client.openapi.models.V1beta1LimitResponseFluent.QueuingNested<A>
-      withNewQueuingLike(io.kubernetes.client.openapi.models.V1beta1QueuingConfiguration item);
+  public V1beta1LimitResponseFluent.QueuingNested<A> withNewQueuingLike(
+      V1beta1QueuingConfiguration item);
 
-  public io.kubernetes.client.openapi.models.V1beta1LimitResponseFluent.QueuingNested<A>
-      editQueuing();
+  public V1beta1LimitResponseFluent.QueuingNested<A> editQueuing();
 
-  public io.kubernetes.client.openapi.models.V1beta1LimitResponseFluent.QueuingNested<A>
-      editOrNewQueuing();
+  public V1beta1LimitResponseFluent.QueuingNested<A> editOrNewQueuing();
 
-  public io.kubernetes.client.openapi.models.V1beta1LimitResponseFluent.QueuingNested<A>
-      editOrNewQueuingLike(io.kubernetes.client.openapi.models.V1beta1QueuingConfiguration item);
+  public V1beta1LimitResponseFluent.QueuingNested<A> editOrNewQueuingLike(
+      V1beta1QueuingConfiguration item);
 
   public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 
   public interface QueuingNested<N>
       extends Nested<N>,

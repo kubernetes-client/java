@@ -20,15 +20,15 @@ public interface AuthenticationV1TokenRequestFluent<A extends AuthenticationV1To
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -38,81 +38,74 @@ public interface AuthenticationV1TokenRequestFluent<A extends AuthenticationV1To
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public AuthenticationV1TokenRequestFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public AuthenticationV1TokenRequestFluent.MetadataNested<A> withNewMetadataLike(
+      V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.MetadataNested<A>
-      editMetadata();
+  public AuthenticationV1TokenRequestFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public AuthenticationV1TokenRequestFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public AuthenticationV1TokenRequestFluent.MetadataNested<A> editOrNewMetadataLike(
+      V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildSpec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1TokenRequestSpec getSpec();
 
-  public io.kubernetes.client.openapi.models.V1TokenRequestSpec buildSpec();
+  public V1TokenRequestSpec buildSpec();
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1TokenRequestSpec spec);
+  public A withSpec(V1TokenRequestSpec spec);
 
-  public java.lang.Boolean hasSpec();
+  public Boolean hasSpec();
 
   public AuthenticationV1TokenRequestFluent.SpecNested<A> withNewSpec();
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.SpecNested<A>
-      withNewSpecLike(io.kubernetes.client.openapi.models.V1TokenRequestSpec item);
+  public AuthenticationV1TokenRequestFluent.SpecNested<A> withNewSpecLike(V1TokenRequestSpec item);
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.SpecNested<A>
-      editSpec();
+  public AuthenticationV1TokenRequestFluent.SpecNested<A> editSpec();
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.SpecNested<A>
-      editOrNewSpec();
+  public AuthenticationV1TokenRequestFluent.SpecNested<A> editOrNewSpec();
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.SpecNested<A>
-      editOrNewSpecLike(io.kubernetes.client.openapi.models.V1TokenRequestSpec item);
+  public AuthenticationV1TokenRequestFluent.SpecNested<A> editOrNewSpecLike(
+      V1TokenRequestSpec item);
 
   /**
    * This method has been deprecated, please use method buildStatus instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1TokenRequestStatus getStatus();
 
-  public io.kubernetes.client.openapi.models.V1TokenRequestStatus buildStatus();
+  public V1TokenRequestStatus buildStatus();
 
-  public A withStatus(io.kubernetes.client.openapi.models.V1TokenRequestStatus status);
+  public A withStatus(V1TokenRequestStatus status);
 
-  public java.lang.Boolean hasStatus();
+  public Boolean hasStatus();
 
   public AuthenticationV1TokenRequestFluent.StatusNested<A> withNewStatus();
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.StatusNested<A>
-      withNewStatusLike(io.kubernetes.client.openapi.models.V1TokenRequestStatus item);
+  public AuthenticationV1TokenRequestFluent.StatusNested<A> withNewStatusLike(
+      V1TokenRequestStatus item);
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.StatusNested<A>
-      editStatus();
+  public AuthenticationV1TokenRequestFluent.StatusNested<A> editStatus();
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.StatusNested<A>
-      editOrNewStatus();
+  public AuthenticationV1TokenRequestFluent.StatusNested<A> editOrNewStatus();
 
-  public io.kubernetes.client.openapi.models.AuthenticationV1TokenRequestFluent.StatusNested<A>
-      editOrNewStatusLike(io.kubernetes.client.openapi.models.V1TokenRequestStatus item);
+  public AuthenticationV1TokenRequestFluent.StatusNested<A> editOrNewStatusLike(
+      V1TokenRequestStatus item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<AuthenticationV1TokenRequestFluent.MetadataNested<N>> {
@@ -122,7 +115,7 @@ public interface AuthenticationV1TokenRequestFluent<A extends AuthenticationV1To
   }
 
   public interface SpecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1TokenRequestSpecFluent<AuthenticationV1TokenRequestFluent.SpecNested<N>> {
     public N and();
 
@@ -130,7 +123,7 @@ public interface AuthenticationV1TokenRequestFluent<A extends AuthenticationV1To
   }
 
   public interface StatusNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1TokenRequestStatusFluent<AuthenticationV1TokenRequestFluent.StatusNested<N>> {
     public N and();
 

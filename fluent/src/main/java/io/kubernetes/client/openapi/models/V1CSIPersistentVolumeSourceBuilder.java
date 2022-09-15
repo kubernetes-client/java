@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1CSIPersistentVolumeSourceBuilder
     extends V1CSIPersistentVolumeSourceFluentImpl<V1CSIPersistentVolumeSourceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource,
-        io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceBuilder> {
+    implements VisitableBuilder<V1CSIPersistentVolumeSource, V1CSIPersistentVolumeSourceBuilder> {
   public V1CSIPersistentVolumeSourceBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1CSIPersistentVolumeSourceBuilder
   }
 
   public V1CSIPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CSIPersistentVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CSIPersistentVolumeSource(), validationEnabled);
   }
 
   public V1CSIPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource instance) {
+      V1CSIPersistentVolumeSourceFluent<?> fluent, V1CSIPersistentVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1CSIPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1CSIPersistentVolumeSourceFluent<?> fluent,
+      V1CSIPersistentVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withControllerExpandSecretRef(instance.getControllerExpandSecretRef());
 
@@ -55,6 +51,8 @@ public class V1CSIPersistentVolumeSourceBuilder
     fluent.withDriver(instance.getDriver());
 
     fluent.withFsType(instance.getFsType());
+
+    fluent.withNodeExpandSecretRef(instance.getNodeExpandSecretRef());
 
     fluent.withNodePublishSecretRef(instance.getNodePublishSecretRef());
 
@@ -69,14 +67,12 @@ public class V1CSIPersistentVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CSIPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource instance) {
+  public V1CSIPersistentVolumeSourceBuilder(V1CSIPersistentVolumeSource instance) {
     this(instance, false);
   }
 
   public V1CSIPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1CSIPersistentVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withControllerExpandSecretRef(instance.getControllerExpandSecretRef());
 
@@ -85,6 +81,8 @@ public class V1CSIPersistentVolumeSourceBuilder
     this.withDriver(instance.getDriver());
 
     this.withFsType(instance.getFsType());
+
+    this.withNodeExpandSecretRef(instance.getNodeExpandSecretRef());
 
     this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
 
@@ -99,15 +97,16 @@ public class V1CSIPersistentVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CSIPersistentVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CSIPersistentVolumeSource build() {
+  public V1CSIPersistentVolumeSource build() {
     V1CSIPersistentVolumeSource buildable = new V1CSIPersistentVolumeSource();
     buildable.setControllerExpandSecretRef(fluent.getControllerExpandSecretRef());
     buildable.setControllerPublishSecretRef(fluent.getControllerPublishSecretRef());
     buildable.setDriver(fluent.getDriver());
     buildable.setFsType(fluent.getFsType());
+    buildable.setNodeExpandSecretRef(fluent.getNodeExpandSecretRef());
     buildable.setNodePublishSecretRef(fluent.getNodePublishSecretRef());
     buildable.setNodeStageSecretRef(fluent.getNodeStageSecretRef());
     buildable.setReadOnly(fluent.getReadOnly());

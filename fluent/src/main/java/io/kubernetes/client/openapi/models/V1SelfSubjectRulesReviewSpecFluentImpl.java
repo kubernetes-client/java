@@ -20,18 +20,17 @@ public class V1SelfSubjectRulesReviewSpecFluentImpl<A extends V1SelfSubjectRules
     extends BaseFluent<A> implements V1SelfSubjectRulesReviewSpecFluent<A> {
   public V1SelfSubjectRulesReviewSpecFluentImpl() {}
 
-  public V1SelfSubjectRulesReviewSpecFluentImpl(
-      io.kubernetes.client.openapi.models.V1SelfSubjectRulesReviewSpec instance) {
+  public V1SelfSubjectRulesReviewSpecFluentImpl(V1SelfSubjectRulesReviewSpec instance) {
     this.withNamespace(instance.getNamespace());
   }
 
   private String namespace;
 
-  public java.lang.String getNamespace() {
+  public String getNamespace() {
     return this.namespace;
   }
 
-  public A withNamespace(java.lang.String namespace) {
+  public A withNamespace(String namespace) {
     this.namespace = namespace;
     return (A) this;
   }
@@ -53,7 +52,7 @@ public class V1SelfSubjectRulesReviewSpecFluentImpl<A extends V1SelfSubjectRules
     return java.util.Objects.hash(namespace, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (namespace != null) {

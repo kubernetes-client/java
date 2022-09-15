@@ -22,17 +22,15 @@ import java.util.function.Predicate;
 public interface V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> extends Fluent<A> {
   public A addToForZones(Integer index, V1ForZone item);
 
-  public A setToForZones(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ForZone item);
+  public A setToForZones(Integer index, V1ForZone item);
 
   public A addToForZones(io.kubernetes.client.openapi.models.V1ForZone... items);
 
-  public A addAllToForZones(Collection<io.kubernetes.client.openapi.models.V1ForZone> items);
+  public A addAllToForZones(Collection<V1ForZone> items);
 
   public A removeFromForZones(io.kubernetes.client.openapi.models.V1ForZone... items);
 
-  public A removeAllFromForZones(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ForZone> items);
+  public A removeAllFromForZones(Collection<V1ForZone> items);
 
   public A removeMatchingFromForZones(Predicate<V1ForZoneBuilder> predicate);
 
@@ -42,50 +40,40 @@ public interface V1EndpointHintsFluent<A extends V1EndpointHintsFluent<A>> exten
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1ForZone> getForZones();
+  public List<V1ForZone> getForZones();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ForZone> buildForZones();
+  public List<V1ForZone> buildForZones();
 
-  public io.kubernetes.client.openapi.models.V1ForZone buildForZone(java.lang.Integer index);
+  public V1ForZone buildForZone(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ForZone buildFirstForZone();
+  public V1ForZone buildFirstForZone();
 
-  public io.kubernetes.client.openapi.models.V1ForZone buildLastForZone();
+  public V1ForZone buildLastForZone();
 
-  public io.kubernetes.client.openapi.models.V1ForZone buildMatchingForZone(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ForZoneBuilder> predicate);
+  public V1ForZone buildMatchingForZone(Predicate<V1ForZoneBuilder> predicate);
 
-  public Boolean hasMatchingForZone(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ForZoneBuilder> predicate);
+  public Boolean hasMatchingForZone(Predicate<V1ForZoneBuilder> predicate);
 
-  public A withForZones(java.util.List<io.kubernetes.client.openapi.models.V1ForZone> forZones);
+  public A withForZones(List<V1ForZone> forZones);
 
   public A withForZones(io.kubernetes.client.openapi.models.V1ForZone... forZones);
 
-  public java.lang.Boolean hasForZones();
+  public Boolean hasForZones();
 
   public V1EndpointHintsFluent.ForZonesNested<A> addNewForZone();
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A>
-      addNewForZoneLike(io.kubernetes.client.openapi.models.V1ForZone item);
+  public V1EndpointHintsFluent.ForZonesNested<A> addNewForZoneLike(V1ForZone item);
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A>
-      setNewForZoneLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ForZone item);
+  public V1EndpointHintsFluent.ForZonesNested<A> setNewForZoneLike(Integer index, V1ForZone item);
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A> editForZone(
-      java.lang.Integer index);
+  public V1EndpointHintsFluent.ForZonesNested<A> editForZone(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A>
-      editFirstForZone();
+  public V1EndpointHintsFluent.ForZonesNested<A> editFirstForZone();
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A>
-      editLastForZone();
+  public V1EndpointHintsFluent.ForZonesNested<A> editLastForZone();
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A>
-      editMatchingForZone(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ForZoneBuilder>
-              predicate);
+  public V1EndpointHintsFluent.ForZonesNested<A> editMatchingForZone(
+      Predicate<V1ForZoneBuilder> predicate);
 
   public interface ForZonesNested<N>
       extends Nested<N>, V1ForZoneFluent<V1EndpointHintsFluent.ForZonesNested<N>> {

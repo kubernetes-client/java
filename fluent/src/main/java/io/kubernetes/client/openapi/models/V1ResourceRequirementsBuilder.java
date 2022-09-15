@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ResourceRequirementsBuilder
     extends V1ResourceRequirementsFluentImpl<V1ResourceRequirementsBuilder>
-    implements VisitableBuilder<
-        V1ResourceRequirements, io.kubernetes.client.openapi.models.V1ResourceRequirementsBuilder> {
+    implements VisitableBuilder<V1ResourceRequirements, V1ResourceRequirementsBuilder> {
   public V1ResourceRequirementsBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V1ResourceRequirementsBuilder
     this(new V1ResourceRequirements(), validationEnabled);
   }
 
-  public V1ResourceRequirementsBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceRequirementsFluent<?> fluent) {
+  public V1ResourceRequirementsBuilder(V1ResourceRequirementsFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1ResourceRequirementsBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceRequirementsFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ResourceRequirementsFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ResourceRequirements(), validationEnabled);
   }
 
   public V1ResourceRequirementsBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceRequirementsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ResourceRequirements instance) {
+      V1ResourceRequirementsFluent<?> fluent, V1ResourceRequirements instance) {
     this(fluent, instance, false);
   }
 
   public V1ResourceRequirementsBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceRequirementsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ResourceRequirements instance,
-      java.lang.Boolean validationEnabled) {
+      V1ResourceRequirementsFluent<?> fluent,
+      V1ResourceRequirements instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLimits(instance.getLimits());
 
@@ -55,14 +51,11 @@ public class V1ResourceRequirementsBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ResourceRequirementsBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceRequirements instance) {
+  public V1ResourceRequirementsBuilder(V1ResourceRequirements instance) {
     this(instance, false);
   }
 
-  public V1ResourceRequirementsBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceRequirements instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ResourceRequirementsBuilder(V1ResourceRequirements instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLimits(instance.getLimits());
 
@@ -71,10 +64,10 @@ public class V1ResourceRequirementsBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ResourceRequirementsFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ResourceRequirementsFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ResourceRequirements build() {
+  public V1ResourceRequirements build() {
     V1ResourceRequirements buildable = new V1ResourceRequirements();
     buildable.setLimits(fluent.getLimits());
     buildable.setRequests(fluent.getRequests());

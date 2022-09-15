@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PodAntiAffinityBuilder extends V1PodAntiAffinityFluentImpl<V1PodAntiAffinityBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PodAntiAffinity, V1PodAntiAffinityBuilder> {
+    implements VisitableBuilder<V1PodAntiAffinity, V1PodAntiAffinityBuilder> {
   public V1PodAntiAffinityBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1PodAntiAffinityBuilder extends V1PodAntiAffinityFluentImpl<V1PodA
     this(fluent, false);
   }
 
-  public V1PodAntiAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1PodAntiAffinityBuilder(V1PodAntiAffinityFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PodAntiAffinity(), validationEnabled);
   }
 
-  public V1PodAntiAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodAntiAffinity instance) {
+  public V1PodAntiAffinityBuilder(V1PodAntiAffinityFluent<?> fluent, V1PodAntiAffinity instance) {
     this(fluent, instance, false);
   }
 
   public V1PodAntiAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodAntiAffinity instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodAntiAffinityFluent<?> fluent, V1PodAntiAffinity instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withPreferredDuringSchedulingIgnoredDuringExecution(
         instance.getPreferredDuringSchedulingIgnoredDuringExecution());
@@ -55,13 +48,11 @@ public class V1PodAntiAffinityBuilder extends V1PodAntiAffinityFluentImpl<V1PodA
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PodAntiAffinityBuilder(io.kubernetes.client.openapi.models.V1PodAntiAffinity instance) {
+  public V1PodAntiAffinityBuilder(V1PodAntiAffinity instance) {
     this(instance, false);
   }
 
-  public V1PodAntiAffinityBuilder(
-      io.kubernetes.client.openapi.models.V1PodAntiAffinity instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PodAntiAffinityBuilder(V1PodAntiAffinity instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withPreferredDuringSchedulingIgnoredDuringExecution(
         instance.getPreferredDuringSchedulingIgnoredDuringExecution());
@@ -72,10 +63,10 @@ public class V1PodAntiAffinityBuilder extends V1PodAntiAffinityFluentImpl<V1PodA
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PodAntiAffinityFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinity build() {
+  public V1PodAntiAffinity build() {
     V1PodAntiAffinity buildable = new V1PodAntiAffinity();
     buildable.setPreferredDuringSchedulingIgnoredDuringExecution(
         fluent.getPreferredDuringSchedulingIgnoredDuringExecution());

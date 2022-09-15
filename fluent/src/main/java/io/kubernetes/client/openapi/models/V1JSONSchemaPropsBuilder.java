@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsBuilder>
-    implements VisitableBuilder<
-        V1JSONSchemaProps, io.kubernetes.client.openapi.models.V1JSONSchemaPropsBuilder> {
+    implements VisitableBuilder<V1JSONSchemaProps, V1JSONSchemaPropsBuilder> {
   public V1JSONSchemaPropsBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluentImpl<V1JSON
     this(fluent, false);
   }
 
-  public V1JSONSchemaPropsBuilder(
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1JSONSchemaPropsBuilder(V1JSONSchemaPropsFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1JSONSchemaProps(), validationEnabled);
   }
 
-  public V1JSONSchemaPropsBuilder(
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1JSONSchemaProps instance) {
+  public V1JSONSchemaPropsBuilder(V1JSONSchemaPropsFluent<?> fluent, V1JSONSchemaProps instance) {
     this(fluent, instance, false);
   }
 
   public V1JSONSchemaPropsBuilder(
-      io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1JSONSchemaProps instance,
-      java.lang.Boolean validationEnabled) {
+      V1JSONSchemaPropsFluent<?> fluent, V1JSONSchemaProps instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withRef(instance.get$Ref());
 
@@ -123,13 +116,11 @@ public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluentImpl<V1JSON
     this.validationEnabled = validationEnabled;
   }
 
-  public V1JSONSchemaPropsBuilder(io.kubernetes.client.openapi.models.V1JSONSchemaProps instance) {
+  public V1JSONSchemaPropsBuilder(V1JSONSchemaProps instance) {
     this(instance, false);
   }
 
-  public V1JSONSchemaPropsBuilder(
-      io.kubernetes.client.openapi.models.V1JSONSchemaProps instance,
-      java.lang.Boolean validationEnabled) {
+  public V1JSONSchemaPropsBuilder(V1JSONSchemaProps instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withRef(instance.get$Ref());
 
@@ -208,10 +199,10 @@ public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluentImpl<V1JSON
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1JSONSchemaPropsFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1JSONSchemaPropsFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps build() {
+  public V1JSONSchemaProps build() {
     V1JSONSchemaProps buildable = new V1JSONSchemaProps();
     buildable.set$Ref(fluent.getRef());
     buildable.set$Schema(fluent.getSchema());

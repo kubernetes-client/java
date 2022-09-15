@@ -27,53 +27,48 @@ public interface V2beta2PodsMetricSourceFluent<A extends V2beta2PodsMetricSource
   @Deprecated
   public V2beta2MetricIdentifier getMetric();
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricIdentifier buildMetric();
+  public V2beta2MetricIdentifier buildMetric();
 
-  public A withMetric(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier metric);
+  public A withMetric(V2beta2MetricIdentifier metric);
 
   public Boolean hasMetric();
 
   public V2beta2PodsMetricSourceFluent.MetricNested<A> withNewMetric();
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent.MetricNested<A>
-      withNewMetricLike(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier item);
+  public V2beta2PodsMetricSourceFluent.MetricNested<A> withNewMetricLike(
+      V2beta2MetricIdentifier item);
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent.MetricNested<A>
-      editMetric();
+  public V2beta2PodsMetricSourceFluent.MetricNested<A> editMetric();
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent.MetricNested<A>
-      editOrNewMetric();
+  public V2beta2PodsMetricSourceFluent.MetricNested<A> editOrNewMetric();
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent.MetricNested<A>
-      editOrNewMetricLike(io.kubernetes.client.openapi.models.V2beta2MetricIdentifier item);
+  public V2beta2PodsMetricSourceFluent.MetricNested<A> editOrNewMetricLike(
+      V2beta2MetricIdentifier item);
 
   /**
    * This method has been deprecated, please use method buildTarget instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V2beta2MetricTarget getTarget();
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricTarget buildTarget();
+  public V2beta2MetricTarget buildTarget();
 
-  public A withTarget(io.kubernetes.client.openapi.models.V2beta2MetricTarget target);
+  public A withTarget(V2beta2MetricTarget target);
 
-  public java.lang.Boolean hasTarget();
+  public Boolean hasTarget();
 
   public V2beta2PodsMetricSourceFluent.TargetNested<A> withNewTarget();
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent.TargetNested<A>
-      withNewTargetLike(io.kubernetes.client.openapi.models.V2beta2MetricTarget item);
+  public V2beta2PodsMetricSourceFluent.TargetNested<A> withNewTargetLike(V2beta2MetricTarget item);
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent.TargetNested<A>
-      editTarget();
+  public V2beta2PodsMetricSourceFluent.TargetNested<A> editTarget();
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent.TargetNested<A>
-      editOrNewTarget();
+  public V2beta2PodsMetricSourceFluent.TargetNested<A> editOrNewTarget();
 
-  public io.kubernetes.client.openapi.models.V2beta2PodsMetricSourceFluent.TargetNested<A>
-      editOrNewTargetLike(io.kubernetes.client.openapi.models.V2beta2MetricTarget item);
+  public V2beta2PodsMetricSourceFluent.TargetNested<A> editOrNewTargetLike(
+      V2beta2MetricTarget item);
 
   public interface MetricNested<N>
       extends Nested<N>,
@@ -84,8 +79,7 @@ public interface V2beta2PodsMetricSourceFluent<A extends V2beta2PodsMetricSource
   }
 
   public interface TargetNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V2beta2MetricTargetFluent<V2beta2PodsMetricSourceFluent.TargetNested<N>> {
+      extends Nested<N>, V2beta2MetricTargetFluent<V2beta2PodsMetricSourceFluent.TargetNested<N>> {
     public N and();
 
     public N endTarget();

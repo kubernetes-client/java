@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ManagedFieldsEntryBuilder
     extends V1ManagedFieldsEntryFluentImpl<V1ManagedFieldsEntryBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ManagedFieldsEntry,
-        io.kubernetes.client.openapi.models.V1ManagedFieldsEntryBuilder> {
+    implements VisitableBuilder<V1ManagedFieldsEntry, V1ManagedFieldsEntryBuilder> {
   public V1ManagedFieldsEntryBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1ManagedFieldsEntryBuilder
   }
 
   public V1ManagedFieldsEntryBuilder(
-      io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ManagedFieldsEntryFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ManagedFieldsEntry(), validationEnabled);
   }
 
   public V1ManagedFieldsEntryBuilder(
-      io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ManagedFieldsEntry instance) {
+      V1ManagedFieldsEntryFluent<?> fluent, V1ManagedFieldsEntry instance) {
     this(fluent, instance, false);
   }
 
   public V1ManagedFieldsEntryBuilder(
-      io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ManagedFieldsEntry instance,
-      java.lang.Boolean validationEnabled) {
+      V1ManagedFieldsEntryFluent<?> fluent,
+      V1ManagedFieldsEntry instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -65,14 +61,11 @@ public class V1ManagedFieldsEntryBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ManagedFieldsEntryBuilder(
-      io.kubernetes.client.openapi.models.V1ManagedFieldsEntry instance) {
+  public V1ManagedFieldsEntryBuilder(V1ManagedFieldsEntry instance) {
     this(instance, false);
   }
 
-  public V1ManagedFieldsEntryBuilder(
-      io.kubernetes.client.openapi.models.V1ManagedFieldsEntry instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ManagedFieldsEntryBuilder(V1ManagedFieldsEntry instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -91,10 +84,10 @@ public class V1ManagedFieldsEntryBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ManagedFieldsEntryFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ManagedFieldsEntryFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ManagedFieldsEntry build() {
+  public V1ManagedFieldsEntry build() {
     V1ManagedFieldsEntry buildable = new V1ManagedFieldsEntry();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setFieldsType(fluent.getFieldsType());

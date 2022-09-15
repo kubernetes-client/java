@@ -26,8 +26,7 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
     implements V1StatefulSetSpecFluent<A> {
   public V1StatefulSetSpecFluentImpl() {}
 
-  public V1StatefulSetSpecFluentImpl(
-      io.kubernetes.client.openapi.models.V1StatefulSetSpec instance) {
+  public V1StatefulSetSpecFluentImpl(V1StatefulSetSpec instance) {
     this.withMinReadySeconds(instance.getMinReadySeconds());
 
     this.withPersistentVolumeClaimRetentionPolicy(
@@ -54,19 +53,19 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
   private V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder
       persistentVolumeClaimRetentionPolicy;
   private String podManagementPolicy;
-  private java.lang.Integer replicas;
-  private java.lang.Integer revisionHistoryLimit;
+  private Integer replicas;
+  private Integer revisionHistoryLimit;
   private V1LabelSelectorBuilder selector;
-  private java.lang.String serviceName;
+  private String serviceName;
   private V1PodTemplateSpecBuilder template;
   private V1StatefulSetUpdateStrategyBuilder updateStrategy;
   private ArrayList<V1PersistentVolumeClaimBuilder> volumeClaimTemplates;
 
-  public java.lang.Integer getMinReadySeconds() {
+  public Integer getMinReadySeconds() {
     return this.minReadySeconds;
   }
 
-  public A withMinReadySeconds(java.lang.Integer minReadySeconds) {
+  public A withMinReadySeconds(Integer minReadySeconds) {
     this.minReadySeconds = minReadySeconds;
     return (A) this;
   }
@@ -89,7 +88,7 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
         : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
+  public V1StatefulSetPersistentVolumeClaimRetentionPolicy
       buildPersistentVolumeClaimRetentionPolicy() {
     return this.persistentVolumeClaimRetentionPolicy != null
         ? this.persistentVolumeClaimRetentionPolicy.build()
@@ -97,24 +96,27 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
   }
 
   public A withPersistentVolumeClaimRetentionPolicy(
-      io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
-          persistentVolumeClaimRetentionPolicy) {
+      V1StatefulSetPersistentVolumeClaimRetentionPolicy persistentVolumeClaimRetentionPolicy) {
     _visitables
         .get("persistentVolumeClaimRetentionPolicy")
         .remove(this.persistentVolumeClaimRetentionPolicy);
     if (persistentVolumeClaimRetentionPolicy != null) {
       this.persistentVolumeClaimRetentionPolicy =
-          new io.kubernetes.client.openapi.models
-              .V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(
+          new V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(
               persistentVolumeClaimRetentionPolicy);
       _visitables
           .get("persistentVolumeClaimRetentionPolicy")
           .add(this.persistentVolumeClaimRetentionPolicy);
+    } else {
+      this.persistentVolumeClaimRetentionPolicy = null;
+      _visitables
+          .get("persistentVolumeClaimRetentionPolicy")
+          .remove(this.persistentVolumeClaimRetentionPolicy);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPersistentVolumeClaimRetentionPolicy() {
+  public Boolean hasPersistentVolumeClaimRetentionPolicy() {
     return this.persistentVolumeClaimRetentionPolicy != null;
   }
 
@@ -123,83 +125,71 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
     return new V1StatefulSetSpecFluentImpl.PersistentVolumeClaimRetentionPolicyNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent
-              .PersistentVolumeClaimRetentionPolicyNested<
-          A>
+  public V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A>
       withNewPersistentVolumeClaimRetentionPolicyLike(
-          io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
-              item) {
+          V1StatefulSetPersistentVolumeClaimRetentionPolicy item) {
     return new V1StatefulSetSpecFluentImpl.PersistentVolumeClaimRetentionPolicyNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent
-              .PersistentVolumeClaimRetentionPolicyNested<
-          A>
+  public V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A>
       editPersistentVolumeClaimRetentionPolicy() {
     return withNewPersistentVolumeClaimRetentionPolicyLike(
         getPersistentVolumeClaimRetentionPolicy());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent
-              .PersistentVolumeClaimRetentionPolicyNested<
-          A>
+  public V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A>
       editOrNewPersistentVolumeClaimRetentionPolicy() {
     return withNewPersistentVolumeClaimRetentionPolicyLike(
         getPersistentVolumeClaimRetentionPolicy() != null
             ? getPersistentVolumeClaimRetentionPolicy()
-            : new io.kubernetes.client.openapi.models
-                    .V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder()
-                .build());
+            : new V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent
-              .PersistentVolumeClaimRetentionPolicyNested<
-          A>
+  public V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<A>
       editOrNewPersistentVolumeClaimRetentionPolicyLike(
-          io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
-              item) {
+          V1StatefulSetPersistentVolumeClaimRetentionPolicy item) {
     return withNewPersistentVolumeClaimRetentionPolicyLike(
         getPersistentVolumeClaimRetentionPolicy() != null
             ? getPersistentVolumeClaimRetentionPolicy()
             : item);
   }
 
-  public java.lang.String getPodManagementPolicy() {
+  public String getPodManagementPolicy() {
     return this.podManagementPolicy;
   }
 
-  public A withPodManagementPolicy(java.lang.String podManagementPolicy) {
+  public A withPodManagementPolicy(String podManagementPolicy) {
     this.podManagementPolicy = podManagementPolicy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPodManagementPolicy() {
+  public Boolean hasPodManagementPolicy() {
     return this.podManagementPolicy != null;
   }
 
-  public java.lang.Integer getReplicas() {
+  public Integer getReplicas() {
     return this.replicas;
   }
 
-  public A withReplicas(java.lang.Integer replicas) {
+  public A withReplicas(Integer replicas) {
     this.replicas = replicas;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReplicas() {
+  public Boolean hasReplicas() {
     return this.replicas != null;
   }
 
-  public java.lang.Integer getRevisionHistoryLimit() {
+  public Integer getRevisionHistoryLimit() {
     return this.revisionHistoryLimit;
   }
 
-  public A withRevisionHistoryLimit(java.lang.Integer revisionHistoryLimit) {
+  public A withRevisionHistoryLimit(Integer revisionHistoryLimit) {
     this.revisionHistoryLimit = revisionHistoryLimit;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRevisionHistoryLimit() {
+  public Boolean hasRevisionHistoryLimit() {
     return this.revisionHistoryLimit != null;
   }
 
@@ -208,25 +198,28 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getSelector() {
+  @Deprecated
+  public V1LabelSelector getSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector() {
+  public V1LabelSelector buildSelector() {
     return this.selector != null ? this.selector.build() : null;
   }
 
-  public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector) {
+  public A withSelector(V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
     if (selector != null) {
       this.selector = new V1LabelSelectorBuilder(selector);
       _visitables.get("selector").add(this.selector);
+    } else {
+      this.selector = null;
+      _visitables.get("selector").remove(this.selector);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSelector() {
+  public Boolean hasSelector() {
     return this.selector != null;
   }
 
@@ -234,40 +227,33 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
     return new V1StatefulSetSpecFluentImpl.SelectorNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.SelectorNested<A>
-      withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
-    return new io.kubernetes.client.openapi.models.V1StatefulSetSpecFluentImpl.SelectorNestedImpl(
-        item);
+  public V1StatefulSetSpecFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
+    return new V1StatefulSetSpecFluentImpl.SelectorNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.SelectorNested<A>
-      editSelector() {
+  public V1StatefulSetSpecFluent.SelectorNested<A> editSelector() {
     return withNewSelectorLike(getSelector());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.SelectorNested<A>
-      editOrNewSelector() {
+  public V1StatefulSetSpecFluent.SelectorNested<A> editOrNewSelector() {
     return withNewSelectorLike(
-        getSelector() != null
-            ? getSelector()
-            : new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder().build());
+        getSelector() != null ? getSelector() : new V1LabelSelectorBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.SelectorNested<A>
-      editOrNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item) {
+  public V1StatefulSetSpecFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
     return withNewSelectorLike(getSelector() != null ? getSelector() : item);
   }
 
-  public java.lang.String getServiceName() {
+  public String getServiceName() {
     return this.serviceName;
   }
 
-  public A withServiceName(java.lang.String serviceName) {
+  public A withServiceName(String serviceName) {
     this.serviceName = serviceName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasServiceName() {
+  public Boolean hasServiceName() {
     return this.serviceName != null;
   }
 
@@ -276,25 +262,28 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpec getTemplate() {
+  @Deprecated
+  public V1PodTemplateSpec getTemplate() {
     return this.template != null ? this.template.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate() {
+  public V1PodTemplateSpec buildTemplate() {
     return this.template != null ? this.template.build() : null;
   }
 
-  public A withTemplate(io.kubernetes.client.openapi.models.V1PodTemplateSpec template) {
+  public A withTemplate(V1PodTemplateSpec template) {
     _visitables.get("template").remove(this.template);
     if (template != null) {
       this.template = new V1PodTemplateSpecBuilder(template);
       _visitables.get("template").add(this.template);
+    } else {
+      this.template = null;
+      _visitables.get("template").remove(this.template);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasTemplate() {
+  public Boolean hasTemplate() {
     return this.template != null;
   }
 
@@ -302,27 +291,20 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
     return new V1StatefulSetSpecFluentImpl.TemplateNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.TemplateNested<A>
-      withNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item) {
-    return new io.kubernetes.client.openapi.models.V1StatefulSetSpecFluentImpl.TemplateNestedImpl(
-        item);
+  public V1StatefulSetSpecFluent.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
+    return new V1StatefulSetSpecFluentImpl.TemplateNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.TemplateNested<A>
-      editTemplate() {
+  public V1StatefulSetSpecFluent.TemplateNested<A> editTemplate() {
     return withNewTemplateLike(getTemplate());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.TemplateNested<A>
-      editOrNewTemplate() {
+  public V1StatefulSetSpecFluent.TemplateNested<A> editOrNewTemplate() {
     return withNewTemplateLike(
-        getTemplate() != null
-            ? getTemplate()
-            : new io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder().build());
+        getTemplate() != null ? getTemplate() : new V1PodTemplateSpecBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.TemplateNested<A>
-      editOrNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item) {
+  public V1StatefulSetSpecFluent.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
     return withNewTemplateLike(getTemplate() != null ? getTemplate() : item);
   }
 
@@ -331,26 +313,28 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy getUpdateStrategy() {
+  @Deprecated
+  public V1StatefulSetUpdateStrategy getUpdateStrategy() {
     return this.updateStrategy != null ? this.updateStrategy.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy buildUpdateStrategy() {
+  public V1StatefulSetUpdateStrategy buildUpdateStrategy() {
     return this.updateStrategy != null ? this.updateStrategy.build() : null;
   }
 
-  public A withUpdateStrategy(
-      io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy updateStrategy) {
+  public A withUpdateStrategy(V1StatefulSetUpdateStrategy updateStrategy) {
     _visitables.get("updateStrategy").remove(this.updateStrategy);
     if (updateStrategy != null) {
       this.updateStrategy = new V1StatefulSetUpdateStrategyBuilder(updateStrategy);
       _visitables.get("updateStrategy").add(this.updateStrategy);
+    } else {
+      this.updateStrategy = null;
+      _visitables.get("updateStrategy").remove(this.updateStrategy);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasUpdateStrategy() {
+  public Boolean hasUpdateStrategy() {
     return this.updateStrategy != null;
   }
 
@@ -358,39 +342,32 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
     return new V1StatefulSetSpecFluentImpl.UpdateStrategyNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.UpdateStrategyNested<A>
-      withNewUpdateStrategyLike(
-          io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy item) {
-    return new io.kubernetes.client.openapi.models.V1StatefulSetSpecFluentImpl
-        .UpdateStrategyNestedImpl(item);
+  public V1StatefulSetSpecFluent.UpdateStrategyNested<A> withNewUpdateStrategyLike(
+      V1StatefulSetUpdateStrategy item) {
+    return new V1StatefulSetSpecFluentImpl.UpdateStrategyNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.UpdateStrategyNested<A>
-      editUpdateStrategy() {
+  public V1StatefulSetSpecFluent.UpdateStrategyNested<A> editUpdateStrategy() {
     return withNewUpdateStrategyLike(getUpdateStrategy());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.UpdateStrategyNested<A>
-      editOrNewUpdateStrategy() {
+  public V1StatefulSetSpecFluent.UpdateStrategyNested<A> editOrNewUpdateStrategy() {
     return withNewUpdateStrategyLike(
         getUpdateStrategy() != null
             ? getUpdateStrategy()
-            : new io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyBuilder().build());
+            : new V1StatefulSetUpdateStrategyBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.UpdateStrategyNested<A>
-      editOrNewUpdateStrategyLike(
-          io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy item) {
+  public V1StatefulSetSpecFluent.UpdateStrategyNested<A> editOrNewUpdateStrategyLike(
+      V1StatefulSetUpdateStrategy item) {
     return withNewUpdateStrategyLike(getUpdateStrategy() != null ? getUpdateStrategy() : item);
   }
 
-  public A addToVolumeClaimTemplates(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item) {
+  public A addToVolumeClaimTemplates(Integer index, V1PersistentVolumeClaim item) {
     if (this.volumeClaimTemplates == null) {
-      this.volumeClaimTemplates = new java.util.ArrayList<V1PersistentVolumeClaimBuilder>();
+      this.volumeClaimTemplates = new ArrayList<V1PersistentVolumeClaimBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder(item);
+    V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
     _visitables
         .get("volumeClaimTemplates")
         .add(index >= 0 ? index : _visitables.get("volumeClaimTemplates").size(), builder);
@@ -398,15 +375,11 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
     return (A) this;
   }
 
-  public A setToVolumeClaimTemplates(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item) {
+  public A setToVolumeClaimTemplates(Integer index, V1PersistentVolumeClaim item) {
     if (this.volumeClaimTemplates == null) {
-      this.volumeClaimTemplates =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder>();
+      this.volumeClaimTemplates = new ArrayList<V1PersistentVolumeClaimBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder(item);
+    V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
     if (index < 0 || index >= _visitables.get("volumeClaimTemplates").size()) {
       _visitables.get("volumeClaimTemplates").add(builder);
     } else {
@@ -423,29 +396,22 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
   public A addToVolumeClaimTemplates(
       io.kubernetes.client.openapi.models.V1PersistentVolumeClaim... items) {
     if (this.volumeClaimTemplates == null) {
-      this.volumeClaimTemplates =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder>();
+      this.volumeClaimTemplates = new ArrayList<V1PersistentVolumeClaimBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item : items) {
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder(item);
+    for (V1PersistentVolumeClaim item : items) {
+      V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
       _visitables.get("volumeClaimTemplates").add(builder);
       this.volumeClaimTemplates.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToVolumeClaimTemplates(
-      Collection<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim> items) {
+  public A addAllToVolumeClaimTemplates(Collection<V1PersistentVolumeClaim> items) {
     if (this.volumeClaimTemplates == null) {
-      this.volumeClaimTemplates =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder>();
+      this.volumeClaimTemplates = new ArrayList<V1PersistentVolumeClaimBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item : items) {
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder(item);
+    for (V1PersistentVolumeClaim item : items) {
+      V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
       _visitables.get("volumeClaimTemplates").add(builder);
       this.volumeClaimTemplates.add(builder);
     }
@@ -454,9 +420,8 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
 
   public A removeFromVolumeClaimTemplates(
       io.kubernetes.client.openapi.models.V1PersistentVolumeClaim... items) {
-    for (io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item : items) {
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder(item);
+    for (V1PersistentVolumeClaim item : items) {
+      V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
       _visitables.get("volumeClaimTemplates").remove(builder);
       if (this.volumeClaimTemplates != null) {
         this.volumeClaimTemplates.remove(builder);
@@ -465,11 +430,9 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromVolumeClaimTemplates(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim> items) {
-    for (io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item : items) {
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder(item);
+  public A removeAllFromVolumeClaimTemplates(Collection<V1PersistentVolumeClaim> items) {
+    for (V1PersistentVolumeClaim item : items) {
+      V1PersistentVolumeClaimBuilder builder = new V1PersistentVolumeClaimBuilder(item);
       _visitables.get("volumeClaimTemplates").remove(builder);
       if (this.volumeClaimTemplates != null) {
         this.volumeClaimTemplates.remove(builder);
@@ -479,13 +442,12 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
   }
 
   public A removeMatchingFromVolumeClaimTemplates(
-      Predicate<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder> predicate) {
+      Predicate<V1PersistentVolumeClaimBuilder> predicate) {
     if (volumeClaimTemplates == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder> each =
-        volumeClaimTemplates.iterator();
+    final Iterator<V1PersistentVolumeClaimBuilder> each = volumeClaimTemplates.iterator();
     final List visitables = _visitables.get("volumeClaimTemplates");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder builder = each.next();
+      V1PersistentVolumeClaimBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -499,39 +461,30 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim>
-      getVolumeClaimTemplates() {
+  @Deprecated
+  public List<V1PersistentVolumeClaim> getVolumeClaimTemplates() {
     return volumeClaimTemplates != null ? build(volumeClaimTemplates) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim>
-      buildVolumeClaimTemplates() {
+  public List<V1PersistentVolumeClaim> buildVolumeClaimTemplates() {
     return volumeClaimTemplates != null ? build(volumeClaimTemplates) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaim buildVolumeClaimTemplate(
-      java.lang.Integer index) {
+  public V1PersistentVolumeClaim buildVolumeClaimTemplate(Integer index) {
     return this.volumeClaimTemplates.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaim
-      buildFirstVolumeClaimTemplate() {
+  public V1PersistentVolumeClaim buildFirstVolumeClaimTemplate() {
     return this.volumeClaimTemplates.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaim
-      buildLastVolumeClaimTemplate() {
+  public V1PersistentVolumeClaim buildLastVolumeClaimTemplate() {
     return this.volumeClaimTemplates.get(volumeClaimTemplates.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaim
-      buildMatchingVolumeClaimTemplate(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder>
-              predicate) {
-    for (io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder item :
-        volumeClaimTemplates) {
+  public V1PersistentVolumeClaim buildMatchingVolumeClaimTemplate(
+      Predicate<V1PersistentVolumeClaimBuilder> predicate) {
+    for (V1PersistentVolumeClaimBuilder item : volumeClaimTemplates) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -539,12 +492,9 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
     return null;
   }
 
-  public java.lang.Boolean hasMatchingVolumeClaimTemplate(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder item :
-        volumeClaimTemplates) {
+  public Boolean hasMatchingVolumeClaimTemplate(
+      Predicate<V1PersistentVolumeClaimBuilder> predicate) {
+    for (V1PersistentVolumeClaimBuilder item : volumeClaimTemplates) {
       if (predicate.test(item)) {
         return true;
       }
@@ -552,16 +502,13 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
     return false;
   }
 
-  public A withVolumeClaimTemplates(
-      java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolumeClaim>
-          volumeClaimTemplates) {
+  public A withVolumeClaimTemplates(List<V1PersistentVolumeClaim> volumeClaimTemplates) {
     if (this.volumeClaimTemplates != null) {
       _visitables.get("volumeClaimTemplates").removeAll(this.volumeClaimTemplates);
     }
     if (volumeClaimTemplates != null) {
-      this.volumeClaimTemplates = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item :
-          volumeClaimTemplates) {
+      this.volumeClaimTemplates = new ArrayList();
+      for (V1PersistentVolumeClaim item : volumeClaimTemplates) {
         this.addToVolumeClaimTemplates(item);
       }
     } else {
@@ -576,15 +523,14 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
       this.volumeClaimTemplates.clear();
     }
     if (volumeClaimTemplates != null) {
-      for (io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item :
-          volumeClaimTemplates) {
+      for (V1PersistentVolumeClaim item : volumeClaimTemplates) {
         this.addToVolumeClaimTemplates(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasVolumeClaimTemplates() {
+  public Boolean hasVolumeClaimTemplates() {
     return volumeClaimTemplates != null && !volumeClaimTemplates.isEmpty();
   }
 
@@ -592,48 +538,38 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
     return new V1StatefulSetSpecFluentImpl.VolumeClaimTemplatesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A>
-      addNewVolumeClaimTemplateLike(
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item) {
-    return new io.kubernetes.client.openapi.models.V1StatefulSetSpecFluentImpl
-        .VolumeClaimTemplatesNestedImpl(-1, item);
+  public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> addNewVolumeClaimTemplateLike(
+      V1PersistentVolumeClaim item) {
+    return new V1StatefulSetSpecFluentImpl.VolumeClaimTemplatesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A>
-      setNewVolumeClaimTemplateLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item) {
-    return new io.kubernetes.client.openapi.models.V1StatefulSetSpecFluentImpl
-        .VolumeClaimTemplatesNestedImpl(index, item);
+  public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> setNewVolumeClaimTemplateLike(
+      Integer index, V1PersistentVolumeClaim item) {
+    return new V1StatefulSetSpecFluentImpl.VolumeClaimTemplatesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A>
-      editVolumeClaimTemplate(java.lang.Integer index) {
+  public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editVolumeClaimTemplate(
+      Integer index) {
     if (volumeClaimTemplates.size() <= index)
       throw new RuntimeException("Can't edit volumeClaimTemplates. Index exceeds size.");
     return setNewVolumeClaimTemplateLike(index, buildVolumeClaimTemplate(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A>
-      editFirstVolumeClaimTemplate() {
+  public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editFirstVolumeClaimTemplate() {
     if (volumeClaimTemplates.size() == 0)
       throw new RuntimeException("Can't edit first volumeClaimTemplates. The list is empty.");
     return setNewVolumeClaimTemplateLike(0, buildVolumeClaimTemplate(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A>
-      editLastVolumeClaimTemplate() {
+  public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editLastVolumeClaimTemplate() {
     int index = volumeClaimTemplates.size() - 1;
     if (index < 0)
       throw new RuntimeException("Can't edit last volumeClaimTemplates. The list is empty.");
     return setNewVolumeClaimTemplateLike(index, buildVolumeClaimTemplate(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A>
-      editMatchingVolumeClaimTemplate(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder>
-              predicate) {
+  public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editMatchingVolumeClaimTemplate(
+      Predicate<V1PersistentVolumeClaimBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < volumeClaimTemplates.size(); i++) {
       if (predicate.test(volumeClaimTemplates.get(i))) {
@@ -691,7 +627,7 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (minReadySeconds != null) {
@@ -741,24 +677,17 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
   class PersistentVolumeClaimRetentionPolicyNestedImpl<N>
       extends V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
           V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<N>>
-      implements io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent
-                  .PersistentVolumeClaimRetentionPolicyNested<
-              N>,
-          Nested<N> {
+      implements V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<N>, Nested<N> {
     PersistentVolumeClaimRetentionPolicyNestedImpl(
-        io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
-            item) {
+        V1StatefulSetPersistentVolumeClaimRetentionPolicy item) {
       this.builder = new V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(this, item);
     }
 
     PersistentVolumeClaimRetentionPolicyNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models
-              .V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(this);
+      this.builder = new V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder
-        builder;
+    V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder builder;
 
     public N and() {
       return (N)
@@ -773,17 +702,16 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
 
   class SelectorNestedImpl<N>
       extends V1LabelSelectorFluentImpl<V1StatefulSetSpecFluent.SelectorNested<N>>
-      implements io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.SelectorNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1StatefulSetSpecFluent.SelectorNested<N>, Nested<N> {
     SelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
 
     SelectorNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LabelSelectorBuilder(this);
+      this.builder = new V1LabelSelectorBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LabelSelectorBuilder builder;
+    V1LabelSelectorBuilder builder;
 
     public N and() {
       return (N) V1StatefulSetSpecFluentImpl.this.withSelector(builder.build());
@@ -796,17 +724,16 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
 
   class TemplateNestedImpl<N>
       extends V1PodTemplateSpecFluentImpl<V1StatefulSetSpecFluent.TemplateNested<N>>
-      implements io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.TemplateNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1StatefulSetSpecFluent.TemplateNested<N>, Nested<N> {
     TemplateNestedImpl(V1PodTemplateSpec item) {
       this.builder = new V1PodTemplateSpecBuilder(this, item);
     }
 
     TemplateNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder(this);
+      this.builder = new V1PodTemplateSpecBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PodTemplateSpecBuilder builder;
+    V1PodTemplateSpecBuilder builder;
 
     public N and() {
       return (N) V1StatefulSetSpecFluentImpl.this.withTemplate(builder.build());
@@ -819,19 +746,16 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
 
   class UpdateStrategyNestedImpl<N>
       extends V1StatefulSetUpdateStrategyFluentImpl<V1StatefulSetSpecFluent.UpdateStrategyNested<N>>
-      implements io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent.UpdateStrategyNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    UpdateStrategyNestedImpl(io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategy item) {
+      implements V1StatefulSetSpecFluent.UpdateStrategyNested<N>, Nested<N> {
+    UpdateStrategyNestedImpl(V1StatefulSetUpdateStrategy item) {
       this.builder = new V1StatefulSetUpdateStrategyBuilder(this, item);
     }
 
     UpdateStrategyNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyBuilder(this);
+      this.builder = new V1StatefulSetUpdateStrategyBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1StatefulSetUpdateStrategyBuilder builder;
+    V1StatefulSetUpdateStrategyBuilder builder;
 
     public N and() {
       return (N) V1StatefulSetSpecFluentImpl.this.withUpdateStrategy(builder.build());
@@ -845,23 +769,19 @@ public class V1StatefulSetSpecFluentImpl<A extends V1StatefulSetSpecFluent<A>> e
   class VolumeClaimTemplatesNestedImpl<N>
       extends V1PersistentVolumeClaimFluentImpl<
           V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent
-                  .VolumeClaimTemplatesNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    VolumeClaimTemplatesNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1PersistentVolumeClaim item) {
+      implements V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<N>, Nested<N> {
+    VolumeClaimTemplatesNestedImpl(Integer index, V1PersistentVolumeClaim item) {
       this.index = index;
       this.builder = new V1PersistentVolumeClaimBuilder(this, item);
     }
 
     VolumeClaimTemplatesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder(this);
+      this.builder = new V1PersistentVolumeClaimBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PersistentVolumeClaimBuilder builder;
-    java.lang.Integer index;
+    V1PersistentVolumeClaimBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1StatefulSetSpecFluentImpl.this.setToVolumeClaimTemplates(index, builder.build());

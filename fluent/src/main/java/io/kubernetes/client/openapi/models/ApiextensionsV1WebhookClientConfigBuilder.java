@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class ApiextensionsV1WebhookClientConfigBuilder
     extends ApiextensionsV1WebhookClientConfigFluentImpl<ApiextensionsV1WebhookClientConfigBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig,
-        ApiextensionsV1WebhookClientConfigBuilder> {
+        ApiextensionsV1WebhookClientConfig, ApiextensionsV1WebhookClientConfigBuilder> {
   public ApiextensionsV1WebhookClientConfigBuilder() {
     this(false);
   }
@@ -28,26 +27,25 @@ public class ApiextensionsV1WebhookClientConfigBuilder
   }
 
   public ApiextensionsV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent<?> fluent) {
+      ApiextensionsV1WebhookClientConfigFluent<?> fluent) {
     this(fluent, false);
   }
 
   public ApiextensionsV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      ApiextensionsV1WebhookClientConfigFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new ApiextensionsV1WebhookClientConfig(), validationEnabled);
   }
 
   public ApiextensionsV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent<?> fluent,
-      io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig instance) {
+      ApiextensionsV1WebhookClientConfigFluent<?> fluent,
+      ApiextensionsV1WebhookClientConfig instance) {
     this(fluent, instance, false);
   }
 
   public ApiextensionsV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent<?> fluent,
-      io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig instance,
-      java.lang.Boolean validationEnabled) {
+      ApiextensionsV1WebhookClientConfigFluent<?> fluent,
+      ApiextensionsV1WebhookClientConfig instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCaBundle(instance.getCaBundle());
 
@@ -58,14 +56,12 @@ public class ApiextensionsV1WebhookClientConfigBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public ApiextensionsV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig instance) {
+  public ApiextensionsV1WebhookClientConfigBuilder(ApiextensionsV1WebhookClientConfig instance) {
     this(instance, false);
   }
 
   public ApiextensionsV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig instance,
-      java.lang.Boolean validationEnabled) {
+      ApiextensionsV1WebhookClientConfig instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCaBundle(instance.getCaBundle());
 
@@ -76,10 +72,10 @@ public class ApiextensionsV1WebhookClientConfigBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  ApiextensionsV1WebhookClientConfigFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfig build() {
+  public ApiextensionsV1WebhookClientConfig build() {
     ApiextensionsV1WebhookClientConfig buildable = new ApiextensionsV1WebhookClientConfig();
     buildable.setCaBundle(fluent.getCaBundle());
     buildable.setService(fluent.getService());

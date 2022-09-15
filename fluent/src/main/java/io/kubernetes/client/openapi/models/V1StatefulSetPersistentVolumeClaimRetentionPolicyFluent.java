@@ -20,13 +20,13 @@ public interface V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<
     extends Fluent<A> {
   public String getWhenDeleted();
 
-  public A withWhenDeleted(java.lang.String whenDeleted);
+  public A withWhenDeleted(String whenDeleted);
 
   public Boolean hasWhenDeleted();
 
-  public java.lang.String getWhenScaled();
+  public String getWhenScaled();
 
-  public A withWhenScaled(java.lang.String whenScaled);
+  public A withWhenScaled(String whenScaled);
 
-  public java.lang.Boolean hasWhenScaled();
+  public Boolean hasWhenScaled();
 }

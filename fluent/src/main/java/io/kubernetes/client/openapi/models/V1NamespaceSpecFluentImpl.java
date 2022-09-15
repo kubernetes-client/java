@@ -24,23 +24,23 @@ public class V1NamespaceSpecFluentImpl<A extends V1NamespaceSpecFluent<A>> exten
     implements V1NamespaceSpecFluent<A> {
   public V1NamespaceSpecFluentImpl() {}
 
-  public V1NamespaceSpecFluentImpl(io.kubernetes.client.openapi.models.V1NamespaceSpec instance) {
+  public V1NamespaceSpecFluentImpl(V1NamespaceSpec instance) {
     this.withFinalizers(instance.getFinalizers());
   }
 
   private List<String> finalizers;
 
-  public A addToFinalizers(Integer index, java.lang.String item) {
+  public A addToFinalizers(Integer index, String item) {
     if (this.finalizers == null) {
-      this.finalizers = new ArrayList<java.lang.String>();
+      this.finalizers = new ArrayList<String>();
     }
     this.finalizers.add(index, item);
     return (A) this;
   }
 
-  public A setToFinalizers(java.lang.Integer index, java.lang.String item) {
+  public A setToFinalizers(Integer index, String item) {
     if (this.finalizers == null) {
-      this.finalizers = new java.util.ArrayList<java.lang.String>();
+      this.finalizers = new ArrayList<String>();
     }
     this.finalizers.set(index, item);
     return (A) this;
@@ -48,26 +48,26 @@ public class V1NamespaceSpecFluentImpl<A extends V1NamespaceSpecFluent<A>> exten
 
   public A addToFinalizers(java.lang.String... items) {
     if (this.finalizers == null) {
-      this.finalizers = new java.util.ArrayList<java.lang.String>();
+      this.finalizers = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.finalizers.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToFinalizers(Collection<java.lang.String> items) {
+  public A addAllToFinalizers(Collection<String> items) {
     if (this.finalizers == null) {
-      this.finalizers = new java.util.ArrayList<java.lang.String>();
+      this.finalizers = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.finalizers.add(item);
     }
     return (A) this;
   }
 
   public A removeFromFinalizers(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.finalizers != null) {
         this.finalizers.remove(item);
       }
@@ -75,8 +75,8 @@ public class V1NamespaceSpecFluentImpl<A extends V1NamespaceSpecFluent<A>> exten
     return (A) this;
   }
 
-  public A removeAllFromFinalizers(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromFinalizers(Collection<String> items) {
+    for (String item : items) {
       if (this.finalizers != null) {
         this.finalizers.remove(item);
       }
@@ -84,24 +84,24 @@ public class V1NamespaceSpecFluentImpl<A extends V1NamespaceSpecFluent<A>> exten
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getFinalizers() {
+  public List<String> getFinalizers() {
     return this.finalizers;
   }
 
-  public java.lang.String getFinalizer(java.lang.Integer index) {
+  public String getFinalizer(Integer index) {
     return this.finalizers.get(index);
   }
 
-  public java.lang.String getFirstFinalizer() {
+  public String getFirstFinalizer() {
     return this.finalizers.get(0);
   }
 
-  public java.lang.String getLastFinalizer() {
+  public String getLastFinalizer() {
     return this.finalizers.get(finalizers.size() - 1);
   }
 
-  public java.lang.String getMatchingFinalizer(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : finalizers) {
+  public String getMatchingFinalizer(Predicate<String> predicate) {
+    for (String item : finalizers) {
       if (predicate.test(item)) {
         return item;
       }
@@ -109,8 +109,8 @@ public class V1NamespaceSpecFluentImpl<A extends V1NamespaceSpecFluent<A>> exten
     return null;
   }
 
-  public Boolean hasMatchingFinalizer(java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : finalizers) {
+  public Boolean hasMatchingFinalizer(Predicate<String> predicate) {
+    for (String item : finalizers) {
       if (predicate.test(item)) {
         return true;
       }
@@ -118,10 +118,10 @@ public class V1NamespaceSpecFluentImpl<A extends V1NamespaceSpecFluent<A>> exten
     return false;
   }
 
-  public A withFinalizers(java.util.List<java.lang.String> finalizers) {
+  public A withFinalizers(List<String> finalizers) {
     if (finalizers != null) {
-      this.finalizers = new java.util.ArrayList();
-      for (java.lang.String item : finalizers) {
+      this.finalizers = new ArrayList();
+      for (String item : finalizers) {
         this.addToFinalizers(item);
       }
     } else {
@@ -135,14 +135,14 @@ public class V1NamespaceSpecFluentImpl<A extends V1NamespaceSpecFluent<A>> exten
       this.finalizers.clear();
     }
     if (finalizers != null) {
-      for (java.lang.String item : finalizers) {
+      for (String item : finalizers) {
         this.addToFinalizers(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasFinalizers() {
+  public Boolean hasFinalizers() {
     return finalizers != null && !finalizers.isEmpty();
   }
 
@@ -159,7 +159,7 @@ public class V1NamespaceSpecFluentImpl<A extends V1NamespaceSpecFluent<A>> exten
     return java.util.Objects.hash(finalizers, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (finalizers != null && !finalizers.isEmpty()) {

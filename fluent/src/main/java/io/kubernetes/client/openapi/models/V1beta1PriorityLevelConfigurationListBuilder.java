@@ -18,8 +18,7 @@ public class V1beta1PriorityLevelConfigurationListBuilder
     extends V1beta1PriorityLevelConfigurationListFluentImpl<
         V1beta1PriorityLevelConfigurationListBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationList,
-        V1beta1PriorityLevelConfigurationListBuilder> {
+        V1beta1PriorityLevelConfigurationList, V1beta1PriorityLevelConfigurationListBuilder> {
   public V1beta1PriorityLevelConfigurationListBuilder() {
     this(false);
   }
@@ -34,21 +33,20 @@ public class V1beta1PriorityLevelConfigurationListBuilder
   }
 
   public V1beta1PriorityLevelConfigurationListBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1PriorityLevelConfigurationListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1PriorityLevelConfigurationList(), validationEnabled);
   }
 
   public V1beta1PriorityLevelConfigurationListBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationList instance) {
+      V1beta1PriorityLevelConfigurationListFluent<?> fluent,
+      V1beta1PriorityLevelConfigurationList instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1PriorityLevelConfigurationListBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationList instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1PriorityLevelConfigurationListFluent<?> fluent,
+      V1beta1PriorityLevelConfigurationList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -62,13 +60,12 @@ public class V1beta1PriorityLevelConfigurationListBuilder
   }
 
   public V1beta1PriorityLevelConfigurationListBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationList instance) {
+      V1beta1PriorityLevelConfigurationList instance) {
     this(instance, false);
   }
 
   public V1beta1PriorityLevelConfigurationListBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationList instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1PriorityLevelConfigurationList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -81,10 +78,10 @@ public class V1beta1PriorityLevelConfigurationListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1PriorityLevelConfigurationListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationList build() {
+  public V1beta1PriorityLevelConfigurationList build() {
     V1beta1PriorityLevelConfigurationList buildable = new V1beta1PriorityLevelConfigurationList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

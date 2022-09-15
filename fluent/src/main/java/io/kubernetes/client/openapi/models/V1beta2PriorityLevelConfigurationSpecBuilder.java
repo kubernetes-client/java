@@ -18,8 +18,7 @@ public class V1beta2PriorityLevelConfigurationSpecBuilder
     extends V1beta2PriorityLevelConfigurationSpecFluentImpl<
         V1beta2PriorityLevelConfigurationSpecBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationSpec,
-        V1beta2PriorityLevelConfigurationSpecBuilder> {
+        V1beta2PriorityLevelConfigurationSpec, V1beta2PriorityLevelConfigurationSpecBuilder> {
   public V1beta2PriorityLevelConfigurationSpecBuilder() {
     this(false);
   }
@@ -34,21 +33,20 @@ public class V1beta2PriorityLevelConfigurationSpecBuilder
   }
 
   public V1beta2PriorityLevelConfigurationSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta2PriorityLevelConfigurationSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta2PriorityLevelConfigurationSpec(), validationEnabled);
   }
 
   public V1beta2PriorityLevelConfigurationSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationSpec instance) {
+      V1beta2PriorityLevelConfigurationSpecFluent<?> fluent,
+      V1beta2PriorityLevelConfigurationSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1beta2PriorityLevelConfigurationSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2PriorityLevelConfigurationSpecFluent<?> fluent,
+      V1beta2PriorityLevelConfigurationSpec instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLimited(instance.getLimited());
 
@@ -58,13 +56,12 @@ public class V1beta2PriorityLevelConfigurationSpecBuilder
   }
 
   public V1beta2PriorityLevelConfigurationSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationSpec instance) {
+      V1beta2PriorityLevelConfigurationSpec instance) {
     this(instance, false);
   }
 
   public V1beta2PriorityLevelConfigurationSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2PriorityLevelConfigurationSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLimited(instance.getLimited());
 
@@ -73,10 +70,10 @@ public class V1beta2PriorityLevelConfigurationSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta2PriorityLevelConfigurationSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationSpec build() {
+  public V1beta2PriorityLevelConfigurationSpec build() {
     V1beta2PriorityLevelConfigurationSpec buildable = new V1beta2PriorityLevelConfigurationSpec();
     buildable.setLimited(fluent.getLimited());
     buildable.setType(fluent.getType());

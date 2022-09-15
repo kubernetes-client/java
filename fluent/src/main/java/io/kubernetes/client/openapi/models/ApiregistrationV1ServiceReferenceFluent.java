@@ -20,19 +20,19 @@ public interface ApiregistrationV1ServiceReferenceFluent<
     extends Fluent<A> {
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
   public Boolean hasName();
 
-  public java.lang.String getNamespace();
+  public String getNamespace();
 
-  public A withNamespace(java.lang.String namespace);
+  public A withNamespace(String namespace);
 
-  public java.lang.Boolean hasNamespace();
+  public Boolean hasNamespace();
 
   public Integer getPort();
 
-  public A withPort(java.lang.Integer port);
+  public A withPort(Integer port);
 
-  public java.lang.Boolean hasPort();
+  public Boolean hasPort();
 }

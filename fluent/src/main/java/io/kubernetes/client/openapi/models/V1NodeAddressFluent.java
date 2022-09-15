@@ -18,13 +18,13 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1NodeAddressFluent<A extends V1NodeAddressFluent<A>> extends Fluent<A> {
   public String getAddress();
 
-  public A withAddress(java.lang.String address);
+  public A withAddress(String address);
 
   public Boolean hasAddress();
 
-  public java.lang.String getType();
+  public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 }

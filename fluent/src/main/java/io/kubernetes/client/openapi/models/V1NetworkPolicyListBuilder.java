@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NetworkPolicyListBuilder
     extends V1NetworkPolicyListFluentImpl<V1NetworkPolicyListBuilder>
-    implements VisitableBuilder<
-        V1NetworkPolicyList, io.kubernetes.client.openapi.models.V1NetworkPolicyListBuilder> {
+    implements VisitableBuilder<V1NetworkPolicyList, V1NetworkPolicyListBuilder> {
   public V1NetworkPolicyListBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V1NetworkPolicyListBuilder
     this(new V1NetworkPolicyList(), validationEnabled);
   }
 
-  public V1NetworkPolicyListBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyListFluent<?> fluent) {
+  public V1NetworkPolicyListBuilder(V1NetworkPolicyListFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1NetworkPolicyListBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicyListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NetworkPolicyList(), validationEnabled);
   }
 
   public V1NetworkPolicyListBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NetworkPolicyList instance) {
+      V1NetworkPolicyListFluent<?> fluent, V1NetworkPolicyList instance) {
     this(fluent, instance, false);
   }
 
   public V1NetworkPolicyListBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NetworkPolicyList instance,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicyListFluent<?> fluent,
+      V1NetworkPolicyList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,14 +55,11 @@ public class V1NetworkPolicyListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NetworkPolicyListBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyList instance) {
+  public V1NetworkPolicyListBuilder(V1NetworkPolicyList instance) {
     this(instance, false);
   }
 
-  public V1NetworkPolicyListBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NetworkPolicyListBuilder(V1NetworkPolicyList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -79,10 +72,10 @@ public class V1NetworkPolicyListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NetworkPolicyListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NetworkPolicyListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyList build() {
+  public V1NetworkPolicyList build() {
     V1NetworkPolicyList buildable = new V1NetworkPolicyList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

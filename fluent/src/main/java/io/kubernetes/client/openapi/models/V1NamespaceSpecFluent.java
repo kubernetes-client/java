@@ -21,31 +21,31 @@ import java.util.function.Predicate;
 public interface V1NamespaceSpecFluent<A extends V1NamespaceSpecFluent<A>> extends Fluent<A> {
   public A addToFinalizers(Integer index, String item);
 
-  public A setToFinalizers(java.lang.Integer index, java.lang.String item);
+  public A setToFinalizers(Integer index, String item);
 
   public A addToFinalizers(java.lang.String... items);
 
-  public A addAllToFinalizers(Collection<java.lang.String> items);
+  public A addAllToFinalizers(Collection<String> items);
 
   public A removeFromFinalizers(java.lang.String... items);
 
-  public A removeAllFromFinalizers(java.util.Collection<java.lang.String> items);
+  public A removeAllFromFinalizers(Collection<String> items);
 
-  public List<java.lang.String> getFinalizers();
+  public List<String> getFinalizers();
 
-  public java.lang.String getFinalizer(java.lang.Integer index);
+  public String getFinalizer(Integer index);
 
-  public java.lang.String getFirstFinalizer();
+  public String getFirstFinalizer();
 
-  public java.lang.String getLastFinalizer();
+  public String getLastFinalizer();
 
-  public java.lang.String getMatchingFinalizer(Predicate<java.lang.String> predicate);
+  public String getMatchingFinalizer(Predicate<String> predicate);
 
-  public Boolean hasMatchingFinalizer(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingFinalizer(Predicate<String> predicate);
 
-  public A withFinalizers(java.util.List<java.lang.String> finalizers);
+  public A withFinalizers(List<String> finalizers);
 
   public A withFinalizers(java.lang.String... finalizers);
 
-  public java.lang.Boolean hasFinalizers();
+  public Boolean hasFinalizers();
 }

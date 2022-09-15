@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1EnvFromSourceBuilder extends V1EnvFromSourceFluentImpl<V1EnvFromSourceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1EnvFromSource,
-        io.kubernetes.client.openapi.models.V1EnvFromSourceBuilder> {
+    implements VisitableBuilder<V1EnvFromSource, V1EnvFromSourceBuilder> {
   public V1EnvFromSourceBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1EnvFromSourceBuilder extends V1EnvFromSourceFluentImpl<V1EnvFromS
     this(fluent, false);
   }
 
-  public V1EnvFromSourceBuilder(
-      io.kubernetes.client.openapi.models.V1EnvFromSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1EnvFromSourceBuilder(V1EnvFromSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1EnvFromSource(), validationEnabled);
   }
 
-  public V1EnvFromSourceBuilder(
-      io.kubernetes.client.openapi.models.V1EnvFromSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EnvFromSource instance) {
+  public V1EnvFromSourceBuilder(V1EnvFromSourceFluent<?> fluent, V1EnvFromSource instance) {
     this(fluent, instance, false);
   }
 
   public V1EnvFromSourceBuilder(
-      io.kubernetes.client.openapi.models.V1EnvFromSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EnvFromSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1EnvFromSourceFluent<?> fluent, V1EnvFromSource instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withConfigMapRef(instance.getConfigMapRef());
 
@@ -56,13 +48,11 @@ public class V1EnvFromSourceBuilder extends V1EnvFromSourceFluentImpl<V1EnvFromS
     this.validationEnabled = validationEnabled;
   }
 
-  public V1EnvFromSourceBuilder(io.kubernetes.client.openapi.models.V1EnvFromSource instance) {
+  public V1EnvFromSourceBuilder(V1EnvFromSource instance) {
     this(instance, false);
   }
 
-  public V1EnvFromSourceBuilder(
-      io.kubernetes.client.openapi.models.V1EnvFromSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1EnvFromSourceBuilder(V1EnvFromSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withConfigMapRef(instance.getConfigMapRef());
 
@@ -73,10 +63,10 @@ public class V1EnvFromSourceBuilder extends V1EnvFromSourceFluentImpl<V1EnvFromS
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1EnvFromSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1EnvFromSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSource build() {
+  public V1EnvFromSource build() {
     V1EnvFromSource buildable = new V1EnvFromSource();
     buildable.setConfigMapRef(fluent.getConfigMapRef());
     buildable.setPrefix(fluent.getPrefix());

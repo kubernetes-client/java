@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1EvictionBuilder extends V1EvictionFluentImpl<V1EvictionBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1Eviction,
-        io.kubernetes.client.openapi.models.V1EvictionBuilder> {
+    implements VisitableBuilder<V1Eviction, V1EvictionBuilder> {
   public V1EvictionBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1EvictionBuilder extends V1EvictionFluentImpl<V1EvictionBuilder>
     this(fluent, false);
   }
 
-  public V1EvictionBuilder(
-      io.kubernetes.client.openapi.models.V1EvictionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1EvictionBuilder(V1EvictionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Eviction(), validationEnabled);
   }
 
-  public V1EvictionBuilder(
-      io.kubernetes.client.openapi.models.V1EvictionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Eviction instance) {
+  public V1EvictionBuilder(V1EvictionFluent<?> fluent, V1Eviction instance) {
     this(fluent, instance, false);
   }
 
   public V1EvictionBuilder(
-      io.kubernetes.client.openapi.models.V1EvictionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Eviction instance,
-      java.lang.Boolean validationEnabled) {
+      V1EvictionFluent<?> fluent, V1Eviction instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,13 +50,11 @@ public class V1EvictionBuilder extends V1EvictionFluentImpl<V1EvictionBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1EvictionBuilder(io.kubernetes.client.openapi.models.V1Eviction instance) {
+  public V1EvictionBuilder(V1Eviction instance) {
     this(instance, false);
   }
 
-  public V1EvictionBuilder(
-      io.kubernetes.client.openapi.models.V1Eviction instance,
-      java.lang.Boolean validationEnabled) {
+  public V1EvictionBuilder(V1Eviction instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -77,10 +67,10 @@ public class V1EvictionBuilder extends V1EvictionFluentImpl<V1EvictionBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1EvictionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1EvictionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Eviction build() {
+  public V1Eviction build() {
     V1Eviction buildable = new V1Eviction();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setDeleteOptions(fluent.getDeleteOptions());

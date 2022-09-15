@@ -21,7 +21,7 @@ public class V1CSINodeFluentImpl<A extends V1CSINodeFluent<A>> extends BaseFluen
     implements V1CSINodeFluent<A> {
   public V1CSINodeFluentImpl() {}
 
-  public V1CSINodeFluentImpl(io.kubernetes.client.openapi.models.V1CSINode instance) {
+  public V1CSINodeFluentImpl(V1CSINode instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withKind(instance.getKind());
@@ -32,15 +32,15 @@ public class V1CSINodeFluentImpl<A extends V1CSINodeFluent<A>> extends BaseFluen
   }
 
   private String apiVersion;
-  private java.lang.String kind;
+  private String kind;
   private V1ObjectMetaBuilder metadata;
   private V1CSINodeSpecBuilder spec;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -49,16 +49,16 @@ public class V1CSINodeFluentImpl<A extends V1CSINodeFluent<A>> extends BaseFluen
     return this.apiVersion != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -68,24 +68,27 @@ public class V1CSINodeFluentImpl<A extends V1CSINodeFluent<A>> extends BaseFluen
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -93,24 +96,20 @@ public class V1CSINodeFluentImpl<A extends V1CSINodeFluent<A>> extends BaseFluen
     return new V1CSINodeFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CSINodeFluent.MetadataNested<A> withNewMetadataLike(
-      io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1CSINodeFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1CSINodeFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CSINodeFluent.MetadataNested<A> editMetadata() {
+  public V1CSINodeFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1CSINodeFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1CSINodeFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1CSINodeFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1CSINodeFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -119,25 +118,28 @@ public class V1CSINodeFluentImpl<A extends V1CSINodeFluent<A>> extends BaseFluen
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1CSINodeSpec getSpec() {
+  @Deprecated
+  public V1CSINodeSpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CSINodeSpec buildSpec() {
+  public V1CSINodeSpec buildSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1CSINodeSpec spec) {
+  public A withSpec(V1CSINodeSpec spec) {
     _visitables.get("spec").remove(this.spec);
     if (spec != null) {
       this.spec = new V1CSINodeSpecBuilder(spec);
       _visitables.get("spec").add(this.spec);
+    } else {
+      this.spec = null;
+      _visitables.get("spec").remove(this.spec);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSpec() {
+  public Boolean hasSpec() {
     return this.spec != null;
   }
 
@@ -145,24 +147,19 @@ public class V1CSINodeFluentImpl<A extends V1CSINodeFluent<A>> extends BaseFluen
     return new V1CSINodeFluentImpl.SpecNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CSINodeFluent.SpecNested<A> withNewSpecLike(
-      io.kubernetes.client.openapi.models.V1CSINodeSpec item) {
-    return new io.kubernetes.client.openapi.models.V1CSINodeFluentImpl.SpecNestedImpl(item);
+  public V1CSINodeFluent.SpecNested<A> withNewSpecLike(V1CSINodeSpec item) {
+    return new V1CSINodeFluentImpl.SpecNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CSINodeFluent.SpecNested<A> editSpec() {
+  public V1CSINodeFluent.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
 
-  public io.kubernetes.client.openapi.models.V1CSINodeFluent.SpecNested<A> editOrNewSpec() {
-    return withNewSpecLike(
-        getSpec() != null
-            ? getSpec()
-            : new io.kubernetes.client.openapi.models.V1CSINodeSpecBuilder().build());
+  public V1CSINodeFluent.SpecNested<A> editOrNewSpec() {
+    return withNewSpecLike(getSpec() != null ? getSpec() : new V1CSINodeSpecBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1CSINodeFluent.SpecNested<A> editOrNewSpecLike(
-      io.kubernetes.client.openapi.models.V1CSINodeSpec item) {
+  public V1CSINodeFluent.SpecNested<A> editOrNewSpecLike(V1CSINodeSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec() : item);
   }
 
@@ -182,7 +179,7 @@ public class V1CSINodeFluentImpl<A extends V1CSINodeFluent<A>> extends BaseFluen
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -206,16 +203,16 @@ public class V1CSINodeFluentImpl<A extends V1CSINodeFluent<A>> extends BaseFluen
   }
 
   class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1CSINodeFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CSINodeFluent.MetadataNested<N>, Nested<N> {
+      implements V1CSINodeFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) V1CSINodeFluentImpl.this.withMetadata(builder.build());
@@ -227,17 +224,16 @@ public class V1CSINodeFluentImpl<A extends V1CSINodeFluent<A>> extends BaseFluen
   }
 
   class SpecNestedImpl<N> extends V1CSINodeSpecFluentImpl<V1CSINodeFluent.SpecNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CSINodeFluent.SpecNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SpecNestedImpl(io.kubernetes.client.openapi.models.V1CSINodeSpec item) {
+      implements V1CSINodeFluent.SpecNested<N>, Nested<N> {
+    SpecNestedImpl(V1CSINodeSpec item) {
       this.builder = new V1CSINodeSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1CSINodeSpecBuilder(this);
+      this.builder = new V1CSINodeSpecBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1CSINodeSpecBuilder builder;
+    V1CSINodeSpecBuilder builder;
 
     public N and() {
       return (N) V1CSINodeFluentImpl.this.withSpec(builder.build());

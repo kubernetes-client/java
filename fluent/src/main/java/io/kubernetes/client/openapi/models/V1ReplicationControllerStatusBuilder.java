@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1ReplicationControllerStatusBuilder
     extends V1ReplicationControllerStatusFluentImpl<V1ReplicationControllerStatusBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ReplicationControllerStatus,
-        io.kubernetes.client.openapi.models.V1ReplicationControllerStatusBuilder> {
+        V1ReplicationControllerStatus, V1ReplicationControllerStatusBuilder> {
   public V1ReplicationControllerStatusBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V1ReplicationControllerStatusBuilder
   }
 
   public V1ReplicationControllerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ReplicationControllerStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ReplicationControllerStatus(), validationEnabled);
   }
 
   public V1ReplicationControllerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ReplicationControllerStatus instance) {
+      V1ReplicationControllerStatusFluent<?> fluent, V1ReplicationControllerStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1ReplicationControllerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ReplicationControllerStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1ReplicationControllerStatusFluent<?> fluent,
+      V1ReplicationControllerStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAvailableReplicas(instance.getAvailableReplicas());
 
@@ -63,14 +60,12 @@ public class V1ReplicationControllerStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ReplicationControllerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicationControllerStatus instance) {
+  public V1ReplicationControllerStatusBuilder(V1ReplicationControllerStatus instance) {
     this(instance, false);
   }
 
   public V1ReplicationControllerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicationControllerStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1ReplicationControllerStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAvailableReplicas(instance.getAvailableReplicas());
 
@@ -87,10 +82,10 @@ public class V1ReplicationControllerStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ReplicationControllerStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerStatus build() {
+  public V1ReplicationControllerStatus build() {
     V1ReplicationControllerStatus buildable = new V1ReplicationControllerStatus();
     buildable.setAvailableReplicas(fluent.getAvailableReplicas());
     buildable.setConditions(fluent.getConditions());

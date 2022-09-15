@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PodOSBuilder extends V1PodOSFluentImpl<V1PodOSBuilder>
-    implements VisitableBuilder<V1PodOS, io.kubernetes.client.openapi.models.V1PodOSBuilder> {
+    implements VisitableBuilder<V1PodOS, V1PodOSBuilder> {
   public V1PodOSBuilder() {
     this(false);
   }
@@ -28,44 +28,36 @@ public class V1PodOSBuilder extends V1PodOSFluentImpl<V1PodOSBuilder>
     this(fluent, false);
   }
 
-  public V1PodOSBuilder(
-      io.kubernetes.client.openapi.models.V1PodOSFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1PodOSBuilder(V1PodOSFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PodOS(), validationEnabled);
   }
 
-  public V1PodOSBuilder(
-      io.kubernetes.client.openapi.models.V1PodOSFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodOS instance) {
+  public V1PodOSBuilder(V1PodOSFluent<?> fluent, V1PodOS instance) {
     this(fluent, instance, false);
   }
 
-  public V1PodOSBuilder(
-      io.kubernetes.client.openapi.models.V1PodOSFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodOS instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PodOSBuilder(V1PodOSFluent<?> fluent, V1PodOS instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PodOSBuilder(io.kubernetes.client.openapi.models.V1PodOS instance) {
+  public V1PodOSBuilder(V1PodOS instance) {
     this(instance, false);
   }
 
-  public V1PodOSBuilder(
-      io.kubernetes.client.openapi.models.V1PodOS instance, java.lang.Boolean validationEnabled) {
+  public V1PodOSBuilder(V1PodOS instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PodOSFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PodOSFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PodOS build() {
+  public V1PodOS build() {
     V1PodOS buildable = new V1PodOS();
     buildable.setName(fluent.getName());
     return buildable;

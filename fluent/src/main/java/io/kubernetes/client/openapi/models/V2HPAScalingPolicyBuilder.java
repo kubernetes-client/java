@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2HPAScalingPolicyBuilder
     extends V2HPAScalingPolicyFluentImpl<V2HPAScalingPolicyBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2HPAScalingPolicy,
-        io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder> {
+    implements VisitableBuilder<V2HPAScalingPolicy, V2HPAScalingPolicyBuilder> {
   public V2HPAScalingPolicyBuilder() {
     this(false);
   }
@@ -31,22 +29,17 @@ public class V2HPAScalingPolicyBuilder
     this(fluent, false);
   }
 
-  public V2HPAScalingPolicyBuilder(
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicyFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V2HPAScalingPolicyBuilder(V2HPAScalingPolicyFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2HPAScalingPolicy(), validationEnabled);
   }
 
   public V2HPAScalingPolicyBuilder(
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicyFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicy instance) {
+      V2HPAScalingPolicyFluent<?> fluent, V2HPAScalingPolicy instance) {
     this(fluent, instance, false);
   }
 
   public V2HPAScalingPolicyBuilder(
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicyFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicy instance,
-      java.lang.Boolean validationEnabled) {
+      V2HPAScalingPolicyFluent<?> fluent, V2HPAScalingPolicy instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withPeriodSeconds(instance.getPeriodSeconds());
 
@@ -57,14 +50,11 @@ public class V2HPAScalingPolicyBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2HPAScalingPolicyBuilder(
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicy instance) {
+  public V2HPAScalingPolicyBuilder(V2HPAScalingPolicy instance) {
     this(instance, false);
   }
 
-  public V2HPAScalingPolicyBuilder(
-      io.kubernetes.client.openapi.models.V2HPAScalingPolicy instance,
-      java.lang.Boolean validationEnabled) {
+  public V2HPAScalingPolicyBuilder(V2HPAScalingPolicy instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withPeriodSeconds(instance.getPeriodSeconds());
 
@@ -75,10 +65,10 @@ public class V2HPAScalingPolicyBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2HPAScalingPolicyFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2HPAScalingPolicyFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingPolicy build() {
+  public V2HPAScalingPolicy build() {
     V2HPAScalingPolicy buildable = new V2HPAScalingPolicy();
     buildable.setPeriodSeconds(fluent.getPeriodSeconds());
     buildable.setType(fluent.getType());

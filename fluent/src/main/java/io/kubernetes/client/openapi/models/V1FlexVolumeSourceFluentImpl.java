@@ -23,8 +23,7 @@ public class V1FlexVolumeSourceFluentImpl<A extends V1FlexVolumeSourceFluent<A>>
     extends BaseFluent<A> implements V1FlexVolumeSourceFluent<A> {
   public V1FlexVolumeSourceFluentImpl() {}
 
-  public V1FlexVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1FlexVolumeSource instance) {
+  public V1FlexVolumeSourceFluentImpl(V1FlexVolumeSource instance) {
     this.withDriver(instance.getDriver());
 
     this.withFsType(instance.getFsType());
@@ -37,38 +36,38 @@ public class V1FlexVolumeSourceFluentImpl<A extends V1FlexVolumeSourceFluent<A>>
   }
 
   private String driver;
-  private java.lang.String fsType;
-  private Map<java.lang.String, java.lang.String> options;
+  private String fsType;
+  private Map<String, String> options;
   private Boolean readOnly;
   private V1LocalObjectReferenceBuilder secretRef;
 
-  public java.lang.String getDriver() {
+  public String getDriver() {
     return this.driver;
   }
 
-  public A withDriver(java.lang.String driver) {
+  public A withDriver(String driver) {
     this.driver = driver;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDriver() {
+  public Boolean hasDriver() {
     return this.driver != null;
   }
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsType() {
+  public Boolean hasFsType() {
     return this.fsType != null;
   }
 
-  public A addToOptions(java.lang.String key, java.lang.String value) {
+  public A addToOptions(String key, String value) {
     if (this.options == null && key != null && value != null) {
       this.options = new LinkedHashMap();
     }
@@ -78,9 +77,9 @@ public class V1FlexVolumeSourceFluentImpl<A extends V1FlexVolumeSourceFluent<A>>
     return (A) this;
   }
 
-  public A addToOptions(java.util.Map<java.lang.String, java.lang.String> map) {
+  public A addToOptions(Map<String, String> map) {
     if (this.options == null && map != null) {
-      this.options = new java.util.LinkedHashMap();
+      this.options = new LinkedHashMap();
     }
     if (map != null) {
       this.options.putAll(map);
@@ -88,7 +87,7 @@ public class V1FlexVolumeSourceFluentImpl<A extends V1FlexVolumeSourceFluent<A>>
     return (A) this;
   }
 
-  public A removeFromOptions(java.lang.String key) {
+  public A removeFromOptions(String key) {
     if (this.options == null) {
       return (A) this;
     }
@@ -98,7 +97,7 @@ public class V1FlexVolumeSourceFluentImpl<A extends V1FlexVolumeSourceFluent<A>>
     return (A) this;
   }
 
-  public A removeFromOptions(java.util.Map<java.lang.String, java.lang.String> map) {
+  public A removeFromOptions(Map<String, String> map) {
     if (this.options == null) {
       return (A) this;
     }
@@ -112,33 +111,33 @@ public class V1FlexVolumeSourceFluentImpl<A extends V1FlexVolumeSourceFluent<A>>
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, java.lang.String> getOptions() {
+  public Map<String, String> getOptions() {
     return this.options;
   }
 
-  public <K, V> A withOptions(java.util.Map<java.lang.String, java.lang.String> options) {
+  public <K, V> A withOptions(Map<String, String> options) {
     if (options == null) {
       this.options = null;
     } else {
-      this.options = new java.util.LinkedHashMap(options);
+      this.options = new LinkedHashMap(options);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasOptions() {
+  public Boolean hasOptions() {
     return this.options != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
@@ -152,21 +151,23 @@ public class V1FlexVolumeSourceFluentImpl<A extends V1FlexVolumeSourceFluent<A>>
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef() {
+  public V1LocalObjectReference buildSecretRef() {
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
+  public A withSecretRef(V1LocalObjectReference secretRef) {
     _visitables.get("secretRef").remove(this.secretRef);
     if (secretRef != null) {
-      this.secretRef =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(secretRef);
+      this.secretRef = new V1LocalObjectReferenceBuilder(secretRef);
       _visitables.get("secretRef").add(this.secretRef);
+    } else {
+      this.secretRef = null;
+      _visitables.get("secretRef").remove(this.secretRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecretRef() {
+  public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
 
@@ -174,26 +175,22 @@ public class V1FlexVolumeSourceFluentImpl<A extends V1FlexVolumeSourceFluent<A>>
     return new V1FlexVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1FlexVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+  public V1FlexVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1LocalObjectReference item) {
     return new V1FlexVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1FlexVolumeSourceFluent.SecretRefNested<A>
-      editSecretRef() {
+  public V1FlexVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1FlexVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef() {
+  public V1FlexVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(
-        getSecretRef() != null
-            ? getSecretRef()
-            : new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder().build());
+        getSecretRef() != null ? getSecretRef() : new V1LocalObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1FlexVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+  public V1FlexVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1LocalObjectReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef() : item);
   }
 
@@ -214,7 +211,7 @@ public class V1FlexVolumeSourceFluentImpl<A extends V1FlexVolumeSourceFluent<A>>
     return java.util.Objects.hash(driver, fsType, options, readOnly, secretRef, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (driver != null) {
@@ -247,17 +244,16 @@ public class V1FlexVolumeSourceFluentImpl<A extends V1FlexVolumeSourceFluent<A>>
 
   class SecretRefNestedImpl<N>
       extends V1LocalObjectReferenceFluentImpl<V1FlexVolumeSourceFluent.SecretRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1FlexVolumeSourceFluent.SecretRefNested<N>,
-          Nested<N> {
+      implements V1FlexVolumeSourceFluent.SecretRefNested<N>, Nested<N> {
     SecretRefNestedImpl(V1LocalObjectReference item) {
       this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }
 
     SecretRefNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(this);
+      this.builder = new V1LocalObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder;
+    V1LocalObjectReferenceBuilder builder;
 
     public N and() {
       return (N) V1FlexVolumeSourceFluentImpl.this.withSecretRef(builder.build());

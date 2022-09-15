@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ListMetaBuilder extends V1ListMetaFluentImpl<V1ListMetaBuilder>
-    implements VisitableBuilder<V1ListMeta, io.kubernetes.client.openapi.models.V1ListMetaBuilder> {
+    implements VisitableBuilder<V1ListMeta, V1ListMetaBuilder> {
   public V1ListMetaBuilder() {
     this(false);
   }
@@ -24,26 +24,20 @@ public class V1ListMetaBuilder extends V1ListMetaFluentImpl<V1ListMetaBuilder>
     this(new V1ListMeta(), validationEnabled);
   }
 
-  public V1ListMetaBuilder(io.kubernetes.client.openapi.models.V1ListMetaFluent<?> fluent) {
+  public V1ListMetaBuilder(V1ListMetaFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1ListMetaBuilder(
-      io.kubernetes.client.openapi.models.V1ListMetaFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ListMetaBuilder(V1ListMetaFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ListMeta(), validationEnabled);
   }
 
-  public V1ListMetaBuilder(
-      io.kubernetes.client.openapi.models.V1ListMetaFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ListMeta instance) {
+  public V1ListMetaBuilder(V1ListMetaFluent<?> fluent, V1ListMeta instance) {
     this(fluent, instance, false);
   }
 
   public V1ListMetaBuilder(
-      io.kubernetes.client.openapi.models.V1ListMetaFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ListMeta instance,
-      java.lang.Boolean validationEnabled) {
+      V1ListMetaFluent<?> fluent, V1ListMeta instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withContinue(instance.getContinue());
 
@@ -56,13 +50,11 @@ public class V1ListMetaBuilder extends V1ListMetaFluentImpl<V1ListMetaBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ListMetaBuilder(io.kubernetes.client.openapi.models.V1ListMeta instance) {
+  public V1ListMetaBuilder(V1ListMeta instance) {
     this(instance, false);
   }
 
-  public V1ListMetaBuilder(
-      io.kubernetes.client.openapi.models.V1ListMeta instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ListMetaBuilder(V1ListMeta instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withContinue(instance.getContinue());
 
@@ -75,10 +67,10 @@ public class V1ListMetaBuilder extends V1ListMetaFluentImpl<V1ListMetaBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ListMetaFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ListMetaFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ListMeta build() {
+  public V1ListMeta build() {
     V1ListMeta buildable = new V1ListMeta();
     buildable.setContinue(fluent.getContinue());
     buildable.setRemainingItemCount(fluent.getRemainingItemCount());

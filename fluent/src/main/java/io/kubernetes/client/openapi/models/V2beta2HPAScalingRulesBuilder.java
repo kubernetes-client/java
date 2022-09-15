@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2beta2HPAScalingRulesBuilder
     extends V2beta2HPAScalingRulesFluentImpl<V2beta2HPAScalingRulesBuilder>
-    implements VisitableBuilder<
-        V2beta2HPAScalingRules, io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesBuilder> {
+    implements VisitableBuilder<V2beta2HPAScalingRules, V2beta2HPAScalingRulesBuilder> {
   public V2beta2HPAScalingRulesBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V2beta2HPAScalingRulesBuilder
   }
 
   public V2beta2HPAScalingRulesBuilder(
-      io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2beta2HPAScalingRulesFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2beta2HPAScalingRules(), validationEnabled);
   }
 
   public V2beta2HPAScalingRulesBuilder(
-      io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2beta2HPAScalingRules instance) {
+      V2beta2HPAScalingRulesFluent<?> fluent, V2beta2HPAScalingRules instance) {
     this(fluent, instance, false);
   }
 
   public V2beta2HPAScalingRulesBuilder(
-      io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2beta2HPAScalingRules instance,
-      java.lang.Boolean validationEnabled) {
+      V2beta2HPAScalingRulesFluent<?> fluent,
+      V2beta2HPAScalingRules instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withPolicies(instance.getPolicies());
 
@@ -56,14 +53,11 @@ public class V2beta2HPAScalingRulesBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2beta2HPAScalingRulesBuilder(
-      io.kubernetes.client.openapi.models.V2beta2HPAScalingRules instance) {
+  public V2beta2HPAScalingRulesBuilder(V2beta2HPAScalingRules instance) {
     this(instance, false);
   }
 
-  public V2beta2HPAScalingRulesBuilder(
-      io.kubernetes.client.openapi.models.V2beta2HPAScalingRules instance,
-      java.lang.Boolean validationEnabled) {
+  public V2beta2HPAScalingRulesBuilder(V2beta2HPAScalingRules instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withPolicies(instance.getPolicies());
 
@@ -74,10 +68,10 @@ public class V2beta2HPAScalingRulesBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2beta2HPAScalingRulesFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2beta2HPAScalingRules build() {
+  public V2beta2HPAScalingRules build() {
     V2beta2HPAScalingRules buildable = new V2beta2HPAScalingRules();
     buildable.setPolicies(fluent.getPolicies());
     buildable.setSelectPolicy(fluent.getSelectPolicy());

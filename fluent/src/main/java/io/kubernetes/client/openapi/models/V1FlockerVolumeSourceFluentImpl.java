@@ -20,21 +20,20 @@ public class V1FlockerVolumeSourceFluentImpl<A extends V1FlockerVolumeSourceFlue
     extends BaseFluent<A> implements V1FlockerVolumeSourceFluent<A> {
   public V1FlockerVolumeSourceFluentImpl() {}
 
-  public V1FlockerVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1FlockerVolumeSource instance) {
+  public V1FlockerVolumeSourceFluentImpl(V1FlockerVolumeSource instance) {
     this.withDatasetName(instance.getDatasetName());
 
     this.withDatasetUUID(instance.getDatasetUUID());
   }
 
   private String datasetName;
-  private java.lang.String datasetUUID;
+  private String datasetUUID;
 
-  public java.lang.String getDatasetName() {
+  public String getDatasetName() {
     return this.datasetName;
   }
 
-  public A withDatasetName(java.lang.String datasetName) {
+  public A withDatasetName(String datasetName) {
     this.datasetName = datasetName;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1FlockerVolumeSourceFluentImpl<A extends V1FlockerVolumeSourceFlue
     return this.datasetName != null;
   }
 
-  public java.lang.String getDatasetUUID() {
+  public String getDatasetUUID() {
     return this.datasetUUID;
   }
 
-  public A withDatasetUUID(java.lang.String datasetUUID) {
+  public A withDatasetUUID(String datasetUUID) {
     this.datasetUUID = datasetUUID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDatasetUUID() {
+  public Boolean hasDatasetUUID() {
     return this.datasetUUID != null;
   }
 
@@ -71,7 +70,7 @@ public class V1FlockerVolumeSourceFluentImpl<A extends V1FlockerVolumeSourceFlue
     return java.util.Objects.hash(datasetName, datasetUUID, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (datasetName != null) {

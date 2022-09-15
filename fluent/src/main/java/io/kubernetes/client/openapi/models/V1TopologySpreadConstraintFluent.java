@@ -14,6 +14,9 @@ package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
+import java.util.Collection;
+import java.util.List;
+import java.util.function.Predicate;
 
 /** Generated */
 public interface V1TopologySpreadConstraintFluent<A extends V1TopologySpreadConstraintFluent<A>>
@@ -27,49 +30,89 @@ public interface V1TopologySpreadConstraintFluent<A extends V1TopologySpreadCons
   @Deprecated
   public V1LabelSelector getLabelSelector();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildLabelSelector();
+  public V1LabelSelector buildLabelSelector();
 
-  public A withLabelSelector(io.kubernetes.client.openapi.models.V1LabelSelector labelSelector);
+  public A withLabelSelector(V1LabelSelector labelSelector);
 
   public Boolean hasLabelSelector();
 
   public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> withNewLabelSelector();
 
-  public io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent.LabelSelectorNested<A>
-      withNewLabelSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> withNewLabelSelectorLike(
+      V1LabelSelector item);
 
-  public io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent.LabelSelectorNested<A>
-      editLabelSelector();
+  public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> editLabelSelector();
 
-  public io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent.LabelSelectorNested<A>
-      editOrNewLabelSelector();
+  public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> editOrNewLabelSelector();
 
-  public io.kubernetes.client.openapi.models.V1TopologySpreadConstraintFluent.LabelSelectorNested<A>
-      editOrNewLabelSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> editOrNewLabelSelectorLike(
+      V1LabelSelector item);
+
+  public A addToMatchLabelKeys(Integer index, String item);
+
+  public A setToMatchLabelKeys(Integer index, String item);
+
+  public A addToMatchLabelKeys(java.lang.String... items);
+
+  public A addAllToMatchLabelKeys(Collection<String> items);
+
+  public A removeFromMatchLabelKeys(java.lang.String... items);
+
+  public A removeAllFromMatchLabelKeys(Collection<String> items);
+
+  public List<String> getMatchLabelKeys();
+
+  public String getMatchLabelKey(Integer index);
+
+  public String getFirstMatchLabelKey();
+
+  public String getLastMatchLabelKey();
+
+  public String getMatchingMatchLabelKey(Predicate<String> predicate);
+
+  public Boolean hasMatchingMatchLabelKey(Predicate<String> predicate);
+
+  public A withMatchLabelKeys(List<String> matchLabelKeys);
+
+  public A withMatchLabelKeys(java.lang.String... matchLabelKeys);
+
+  public Boolean hasMatchLabelKeys();
 
   public Integer getMaxSkew();
 
-  public A withMaxSkew(java.lang.Integer maxSkew);
+  public A withMaxSkew(Integer maxSkew);
 
-  public java.lang.Boolean hasMaxSkew();
+  public Boolean hasMaxSkew();
 
-  public java.lang.Integer getMinDomains();
+  public Integer getMinDomains();
 
-  public A withMinDomains(java.lang.Integer minDomains);
+  public A withMinDomains(Integer minDomains);
 
-  public java.lang.Boolean hasMinDomains();
+  public Boolean hasMinDomains();
+
+  public String getNodeAffinityPolicy();
+
+  public A withNodeAffinityPolicy(String nodeAffinityPolicy);
+
+  public Boolean hasNodeAffinityPolicy();
+
+  public String getNodeTaintsPolicy();
+
+  public A withNodeTaintsPolicy(String nodeTaintsPolicy);
+
+  public Boolean hasNodeTaintsPolicy();
 
   public String getTopologyKey();
 
-  public A withTopologyKey(java.lang.String topologyKey);
+  public A withTopologyKey(String topologyKey);
 
-  public java.lang.Boolean hasTopologyKey();
+  public Boolean hasTopologyKey();
 
-  public java.lang.String getWhenUnsatisfiable();
+  public String getWhenUnsatisfiable();
 
-  public A withWhenUnsatisfiable(java.lang.String whenUnsatisfiable);
+  public A withWhenUnsatisfiable(String whenUnsatisfiable);
 
-  public java.lang.Boolean hasWhenUnsatisfiable();
+  public Boolean hasWhenUnsatisfiable();
 
   public interface LabelSelectorNested<N>
       extends Nested<N>,

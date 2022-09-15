@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class ApiextensionsV1ServiceReferenceBuilder
     extends ApiextensionsV1ServiceReferenceFluentImpl<ApiextensionsV1ServiceReferenceBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference,
-        io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceBuilder> {
+        ApiextensionsV1ServiceReference, ApiextensionsV1ServiceReferenceBuilder> {
   public ApiextensionsV1ServiceReferenceBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class ApiextensionsV1ServiceReferenceBuilder
   }
 
   public ApiextensionsV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      ApiextensionsV1ServiceReferenceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new ApiextensionsV1ServiceReference(), validationEnabled);
   }
 
   public ApiextensionsV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference instance) {
+      ApiextensionsV1ServiceReferenceFluent<?> fluent, ApiextensionsV1ServiceReference instance) {
     this(fluent, instance, false);
   }
 
   public ApiextensionsV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference instance,
-      java.lang.Boolean validationEnabled) {
+      ApiextensionsV1ServiceReferenceFluent<?> fluent,
+      ApiextensionsV1ServiceReference instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
@@ -59,14 +56,12 @@ public class ApiextensionsV1ServiceReferenceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public ApiextensionsV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference instance) {
+  public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReference instance) {
     this(instance, false);
   }
 
   public ApiextensionsV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference instance,
-      java.lang.Boolean validationEnabled) {
+      ApiextensionsV1ServiceReference instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
@@ -79,10 +74,10 @@ public class ApiextensionsV1ServiceReferenceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReferenceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  ApiextensionsV1ServiceReferenceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference build() {
+  public ApiextensionsV1ServiceReference build() {
     ApiextensionsV1ServiceReference buildable = new ApiextensionsV1ServiceReference();
     buildable.setName(fluent.getName());
     buildable.setNamespace(fluent.getNamespace());

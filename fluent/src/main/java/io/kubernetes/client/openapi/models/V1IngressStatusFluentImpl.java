@@ -21,7 +21,7 @@ public class V1IngressStatusFluentImpl<A extends V1IngressStatusFluent<A>> exten
     implements V1IngressStatusFluent<A> {
   public V1IngressStatusFluentImpl() {}
 
-  public V1IngressStatusFluentImpl(io.kubernetes.client.openapi.models.V1IngressStatus instance) {
+  public V1IngressStatusFluentImpl(V1IngressStatus instance) {
     this.withLoadBalancer(instance.getLoadBalancer());
   }
 
@@ -33,19 +33,22 @@ public class V1IngressStatusFluentImpl<A extends V1IngressStatusFluent<A>> exten
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1LoadBalancerStatus getLoadBalancer() {
+  public V1LoadBalancerStatus getLoadBalancer() {
     return this.loadBalancer != null ? this.loadBalancer.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerStatus buildLoadBalancer() {
+  public V1LoadBalancerStatus buildLoadBalancer() {
     return this.loadBalancer != null ? this.loadBalancer.build() : null;
   }
 
-  public A withLoadBalancer(io.kubernetes.client.openapi.models.V1LoadBalancerStatus loadBalancer) {
+  public A withLoadBalancer(V1LoadBalancerStatus loadBalancer) {
     _visitables.get("loadBalancer").remove(this.loadBalancer);
     if (loadBalancer != null) {
       this.loadBalancer = new V1LoadBalancerStatusBuilder(loadBalancer);
       _visitables.get("loadBalancer").add(this.loadBalancer);
+    } else {
+      this.loadBalancer = null;
+      _visitables.get("loadBalancer").remove(this.loadBalancer);
     }
     return (A) this;
   }
@@ -58,26 +61,22 @@ public class V1IngressStatusFluentImpl<A extends V1IngressStatusFluent<A>> exten
     return new V1IngressStatusFluentImpl.LoadBalancerNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<A>
-      withNewLoadBalancerLike(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item) {
+  public V1IngressStatusFluent.LoadBalancerNested<A> withNewLoadBalancerLike(
+      V1LoadBalancerStatus item) {
     return new V1IngressStatusFluentImpl.LoadBalancerNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<A>
-      editLoadBalancer() {
+  public V1IngressStatusFluent.LoadBalancerNested<A> editLoadBalancer() {
     return withNewLoadBalancerLike(getLoadBalancer());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<A>
-      editOrNewLoadBalancer() {
+  public V1IngressStatusFluent.LoadBalancerNested<A> editOrNewLoadBalancer() {
     return withNewLoadBalancerLike(
-        getLoadBalancer() != null
-            ? getLoadBalancer()
-            : new io.kubernetes.client.openapi.models.V1LoadBalancerStatusBuilder().build());
+        getLoadBalancer() != null ? getLoadBalancer() : new V1LoadBalancerStatusBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<A>
-      editOrNewLoadBalancerLike(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item) {
+  public V1IngressStatusFluent.LoadBalancerNested<A> editOrNewLoadBalancerLike(
+      V1LoadBalancerStatus item) {
     return withNewLoadBalancerLike(getLoadBalancer() != null ? getLoadBalancer() : item);
   }
 
@@ -107,17 +106,16 @@ public class V1IngressStatusFluentImpl<A extends V1IngressStatusFluent<A>> exten
 
   class LoadBalancerNestedImpl<N>
       extends V1LoadBalancerStatusFluentImpl<V1IngressStatusFluent.LoadBalancerNested<N>>
-      implements io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<N>,
-          Nested<N> {
-    LoadBalancerNestedImpl(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item) {
+      implements V1IngressStatusFluent.LoadBalancerNested<N>, Nested<N> {
+    LoadBalancerNestedImpl(V1LoadBalancerStatus item) {
       this.builder = new V1LoadBalancerStatusBuilder(this, item);
     }
 
     LoadBalancerNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LoadBalancerStatusBuilder(this);
+      this.builder = new V1LoadBalancerStatusBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LoadBalancerStatusBuilder builder;
+    V1LoadBalancerStatusBuilder builder;
 
     public N and() {
       return (N) V1IngressStatusFluentImpl.this.withLoadBalancer(builder.build());

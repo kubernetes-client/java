@@ -23,17 +23,15 @@ public interface V1NetworkPolicyStatusFluent<A extends V1NetworkPolicyStatusFlue
     extends Fluent<A> {
   public A addToConditions(Integer index, V1Condition item);
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Condition item);
+  public A setToConditions(Integer index, V1Condition item);
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1Condition... items);
 
-  public A addAllToConditions(Collection<io.kubernetes.client.openapi.models.V1Condition> items);
+  public A addAllToConditions(Collection<V1Condition> items);
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1Condition... items);
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Condition> items);
+  public A removeAllFromConditions(Collection<V1Condition> items);
 
   public A removeMatchingFromConditions(Predicate<V1ConditionBuilder> predicate);
 
@@ -43,53 +41,41 @@ public interface V1NetworkPolicyStatusFluent<A extends V1NetworkPolicyStatusFlue
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1Condition> getConditions();
+  public List<V1Condition> getConditions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1Condition> buildConditions();
+  public List<V1Condition> buildConditions();
 
-  public io.kubernetes.client.openapi.models.V1Condition buildCondition(java.lang.Integer index);
+  public V1Condition buildCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1Condition buildFirstCondition();
+  public V1Condition buildFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1Condition buildLastCondition();
+  public V1Condition buildLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1Condition buildMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-          predicate);
+  public V1Condition buildMatchingCondition(Predicate<V1ConditionBuilder> predicate);
 
-  public Boolean hasMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-          predicate);
+  public Boolean hasMatchingCondition(Predicate<V1ConditionBuilder> predicate);
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1Condition> conditions);
+  public A withConditions(List<V1Condition> conditions);
 
   public A withConditions(io.kubernetes.client.openapi.models.V1Condition... conditions);
 
-  public java.lang.Boolean hasConditions();
+  public Boolean hasConditions();
 
   public V1NetworkPolicyStatusFluent.ConditionsNested<A> addNewCondition();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1Condition item);
+  public V1NetworkPolicyStatusFluent.ConditionsNested<A> addNewConditionLike(V1Condition item);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1Condition item);
+  public V1NetworkPolicyStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1Condition item);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyStatusFluent.ConditionsNested<A>
-      editCondition(java.lang.Integer index);
+  public V1NetworkPolicyStatusFluent.ConditionsNested<A> editCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyStatusFluent.ConditionsNested<A>
-      editFirstCondition();
+  public V1NetworkPolicyStatusFluent.ConditionsNested<A> editFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyStatusFluent.ConditionsNested<A>
-      editLastCondition();
+  public V1NetworkPolicyStatusFluent.ConditionsNested<A> editLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-              predicate);
+  public V1NetworkPolicyStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1ConditionBuilder> predicate);
 
   public interface ConditionsNested<N>
       extends Nested<N>, V1ConditionFluent<V1NetworkPolicyStatusFluent.ConditionsNested<N>> {

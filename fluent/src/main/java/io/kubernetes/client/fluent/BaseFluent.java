@@ -12,17 +12,18 @@ limitations under the License.
 */
 package io.kubernetes.client.fluent;
 
+import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-public class BaseFluent<F extends Fluent<F>>
-    implements io.kubernetes.client.fluent.Fluent<F>, Visitable<F> {
+public class BaseFluent<F extends Fluent<F>> implements Fluent<F>, Visitable<F> {
   public static final String VISIT = "visit";
   public final VisitableMap _visitables = new VisitableMap();
 
@@ -45,34 +46,34 @@ public class BaseFluent<F extends Fluent<F>>
   }
 
   public static <T> List<T> build(
-      java.util.List<? extends io.kubernetes.client.fluent.Builder<? extends T>> list) {
+      List<? extends io.kubernetes.client.fluent.Builder<? extends T>> list) {
     return list == null
         ? null
         : new ArrayList<T>(list.stream().map(Builder::build).collect(Collectors.toList()));
   }
 
   public static <T> Set<T> build(
-      java.util.Set<? extends io.kubernetes.client.fluent.Builder<? extends T>> set) {
+      Set<? extends io.kubernetes.client.fluent.Builder<? extends T>> set) {
     return set == null
         ? null
         : new LinkedHashSet<T>(set.stream().map(Builder::build).collect(Collectors.toSet()));
   }
 
-  public static <T> java.util.List<T> aggregate(java.util.List<? extends T>... lists) {
+  public static <T> List<T> aggregate(List<? extends T>... lists) {
     return new ArrayList(
         Arrays.stream(lists).filter(Objects::nonNull).collect(Collectors.toList()));
   }
 
-  public static <T> java.util.Set<T> aggregate(java.util.Set<? extends T>... sets) {
+  public static <T> Set<T> aggregate(Set<? extends T>... sets) {
     return new LinkedHashSet(
         Arrays.stream(sets).filter(Objects::nonNull).collect(Collectors.toSet()));
   }
 
-  public F accept(Visitor... visitors) {
+  public F accept(io.kubernetes.client.fluent.Visitor... visitors) {
     return accept(Collections.emptyList(), visitors);
   }
 
-  public <V> F accept(Class<V> type, io.kubernetes.client.fluent.Visitor<V> visitor) {
+  public <V> F accept(Class<V> type, Visitor<V> visitor) {
     return accept(
         Collections.emptyList(),
         new Visitor<V>() {
@@ -82,7 +83,7 @@ public class BaseFluent<F extends Fluent<F>>
           }
 
           @Override
-          public void visit(List<Object> path, V element) {
+          public void visit(List<Entry<String, Object>> path, V element) {
             visitor.visit(path, element);
           }
 
@@ -93,7 +94,15 @@ public class BaseFluent<F extends Fluent<F>>
         });
   }
 
-  public F accept(java.util.List<Object> path, io.kubernetes.client.fluent.Visitor... visitors) {
+  public F accept(
+      List<Entry<String, Object>> path, io.kubernetes.client.fluent.Visitor... visitors) {
+    return accept(path, "", visitors);
+  }
+
+  public F accept(
+      List<Entry<String, Object>> path,
+      String currentKey,
+      io.kubernetes.client.fluent.Visitor... visitors) {
     Arrays.stream(visitors)
         .map(v -> VisitorListener.wrap(v))
         .filter(v -> ((Visitor) v).canVisit(path, this))
@@ -103,18 +112,32 @@ public class BaseFluent<F extends Fluent<F>>
               ((Visitor) v).visit(path, this);
             });
 
-    List<Object> copyOfPath = path != null ? new ArrayList(path) : new ArrayList<>();
-    copyOfPath.add(this);
-    List<Object> newPath = Collections.unmodifiableList(copyOfPath);
+    List<Entry<String, Object>> copyOfPath = path != null ? new ArrayList(path) : new ArrayList<>();
+    copyOfPath.add(new AbstractMap.SimpleEntry<String, Object>(currentKey, this));
 
-    for (Visitable visitable : _visitables) {
-      Arrays.stream(visitors)
-          .filter(v -> v.getType() != null && v.getType().isAssignableFrom(visitable.getClass()))
-          .forEach(v -> visitable.accept(newPath, v));
-      Arrays.stream(visitors)
-          .filter(v -> v.getType() == null || !v.getType().isAssignableFrom(visitable.getClass()))
-          .forEach(v -> visitable.accept(newPath, v));
-    }
+    _visitables.forEach(
+        (key, visitables) -> {
+          List<Entry<String, Object>> newPath = Collections.unmodifiableList(copyOfPath);
+          // Copy visitables to avoid ConcurrrentModificationException when Visitors add/remove
+          // Visitables
+          new ArrayList<>(visitables)
+              .forEach(
+                  visitable -> {
+                    Arrays.stream(visitors)
+                        .filter(
+                            v ->
+                                v.getType() != null
+                                    && v.getType().isAssignableFrom(visitable.getClass()))
+                        .forEach(v -> visitable.accept(newPath, key, v));
+
+                    Arrays.stream(visitors)
+                        .filter(
+                            v ->
+                                v.getType() == null
+                                    || !v.getType().isAssignableFrom(visitable.getClass()))
+                        .forEach(v -> visitable.accept(newPath, key, v));
+                  });
+        });
     return (F) this;
   }
 
@@ -125,7 +148,7 @@ public class BaseFluent<F extends Fluent<F>>
     return result;
   }
 
-  public boolean equals(java.lang.Object obj) {
+  public boolean equals(Object obj) {
     if (this == obj) return true;
     if (obj == null) return false;
     if (getClass() != obj.getClass()) return false;

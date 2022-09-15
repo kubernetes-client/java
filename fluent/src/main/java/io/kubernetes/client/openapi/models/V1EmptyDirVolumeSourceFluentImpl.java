@@ -21,8 +21,7 @@ public class V1EmptyDirVolumeSourceFluentImpl<A extends V1EmptyDirVolumeSourceFl
     extends BaseFluent<A> implements V1EmptyDirVolumeSourceFluent<A> {
   public V1EmptyDirVolumeSourceFluentImpl() {}
 
-  public V1EmptyDirVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1EmptyDirVolumeSource instance) {
+  public V1EmptyDirVolumeSourceFluentImpl(V1EmptyDirVolumeSource instance) {
     this.withMedium(instance.getMedium());
 
     this.withSizeLimit(instance.getSizeLimit());
@@ -31,11 +30,11 @@ public class V1EmptyDirVolumeSourceFluentImpl<A extends V1EmptyDirVolumeSourceFl
   private String medium;
   private Quantity sizeLimit;
 
-  public java.lang.String getMedium() {
+  public String getMedium() {
     return this.medium;
   }
 
-  public A withMedium(java.lang.String medium) {
+  public A withMedium(String medium) {
     this.medium = medium;
     return (A) this;
   }
@@ -44,20 +43,20 @@ public class V1EmptyDirVolumeSourceFluentImpl<A extends V1EmptyDirVolumeSourceFl
     return this.medium != null;
   }
 
-  public io.kubernetes.client.custom.Quantity getSizeLimit() {
+  public Quantity getSizeLimit() {
     return this.sizeLimit;
   }
 
-  public A withSizeLimit(io.kubernetes.client.custom.Quantity sizeLimit) {
+  public A withSizeLimit(Quantity sizeLimit) {
     this.sizeLimit = sizeLimit;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSizeLimit() {
+  public Boolean hasSizeLimit() {
     return this.sizeLimit != null;
   }
 
-  public A withNewSizeLimit(java.lang.String value) {
+  public A withNewSizeLimit(String value) {
     return (A) withSizeLimit(new Quantity(value));
   }
 
@@ -75,7 +74,7 @@ public class V1EmptyDirVolumeSourceFluentImpl<A extends V1EmptyDirVolumeSourceFl
     return java.util.Objects.hash(medium, sizeLimit, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (medium != null) {

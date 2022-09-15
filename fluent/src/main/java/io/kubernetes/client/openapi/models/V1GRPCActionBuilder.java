@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1GRPCActionBuilder extends V1GRPCActionFluentImpl<V1GRPCActionBuilder>
-    implements VisitableBuilder<
-        V1GRPCAction, io.kubernetes.client.openapi.models.V1GRPCActionBuilder> {
+    implements VisitableBuilder<V1GRPCAction, V1GRPCActionBuilder> {
   public V1GRPCActionBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1GRPCActionBuilder extends V1GRPCActionFluentImpl<V1GRPCActionBuil
     this(fluent, false);
   }
 
-  public V1GRPCActionBuilder(
-      io.kubernetes.client.openapi.models.V1GRPCActionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1GRPCActionBuilder(V1GRPCActionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1GRPCAction(), validationEnabled);
   }
 
-  public V1GRPCActionBuilder(
-      io.kubernetes.client.openapi.models.V1GRPCActionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1GRPCAction instance) {
+  public V1GRPCActionBuilder(V1GRPCActionFluent<?> fluent, V1GRPCAction instance) {
     this(fluent, instance, false);
   }
 
   public V1GRPCActionBuilder(
-      io.kubernetes.client.openapi.models.V1GRPCActionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1GRPCAction instance,
-      java.lang.Boolean validationEnabled) {
+      V1GRPCActionFluent<?> fluent, V1GRPCAction instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withPort(instance.getPort());
 
@@ -53,13 +46,11 @@ public class V1GRPCActionBuilder extends V1GRPCActionFluentImpl<V1GRPCActionBuil
     this.validationEnabled = validationEnabled;
   }
 
-  public V1GRPCActionBuilder(io.kubernetes.client.openapi.models.V1GRPCAction instance) {
+  public V1GRPCActionBuilder(V1GRPCAction instance) {
     this(instance, false);
   }
 
-  public V1GRPCActionBuilder(
-      io.kubernetes.client.openapi.models.V1GRPCAction instance,
-      java.lang.Boolean validationEnabled) {
+  public V1GRPCActionBuilder(V1GRPCAction instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withPort(instance.getPort());
 
@@ -68,10 +59,10 @@ public class V1GRPCActionBuilder extends V1GRPCActionFluentImpl<V1GRPCActionBuil
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1GRPCActionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1GRPCActionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1GRPCAction build() {
+  public V1GRPCAction build() {
     V1GRPCAction buildable = new V1GRPCAction();
     buildable.setPort(fluent.getPort());
     buildable.setService(fluent.getService());

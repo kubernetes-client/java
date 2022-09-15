@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1WebhookConversionBuilder
     extends V1WebhookConversionFluentImpl<V1WebhookConversionBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1WebhookConversion, V1WebhookConversionBuilder> {
+    implements VisitableBuilder<V1WebhookConversion, V1WebhookConversionBuilder> {
   public V1WebhookConversionBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1WebhookConversionBuilder
   }
 
   public V1WebhookConversionBuilder(
-      io.kubernetes.client.openapi.models.V1WebhookConversionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1WebhookConversionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1WebhookConversion(), validationEnabled);
   }
 
   public V1WebhookConversionBuilder(
-      io.kubernetes.client.openapi.models.V1WebhookConversionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1WebhookConversion instance) {
+      V1WebhookConversionFluent<?> fluent, V1WebhookConversion instance) {
     this(fluent, instance, false);
   }
 
   public V1WebhookConversionBuilder(
-      io.kubernetes.client.openapi.models.V1WebhookConversionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1WebhookConversion instance,
-      java.lang.Boolean validationEnabled) {
+      V1WebhookConversionFluent<?> fluent,
+      V1WebhookConversion instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withClientConfig(instance.getClientConfig());
 
@@ -54,14 +51,11 @@ public class V1WebhookConversionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1WebhookConversionBuilder(
-      io.kubernetes.client.openapi.models.V1WebhookConversion instance) {
+  public V1WebhookConversionBuilder(V1WebhookConversion instance) {
     this(instance, false);
   }
 
-  public V1WebhookConversionBuilder(
-      io.kubernetes.client.openapi.models.V1WebhookConversion instance,
-      java.lang.Boolean validationEnabled) {
+  public V1WebhookConversionBuilder(V1WebhookConversion instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withClientConfig(instance.getClientConfig());
 
@@ -70,10 +64,10 @@ public class V1WebhookConversionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1WebhookConversionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1WebhookConversionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1WebhookConversion build() {
+  public V1WebhookConversion build() {
     V1WebhookConversion buildable = new V1WebhookConversion();
     buildable.setClientConfig(fluent.getClientConfig());
     buildable.setConversionReviewVersions(fluent.getConversionReviewVersions());

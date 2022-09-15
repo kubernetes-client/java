@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1VolumeProjectionBuilder
     extends V1VolumeProjectionFluentImpl<V1VolumeProjectionBuilder>
-    implements VisitableBuilder<
-        V1VolumeProjection, io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder> {
+    implements VisitableBuilder<V1VolumeProjection, V1VolumeProjectionBuilder> {
   public V1VolumeProjectionBuilder() {
     this(false);
   }
@@ -30,22 +29,17 @@ public class V1VolumeProjectionBuilder
     this(fluent, false);
   }
 
-  public V1VolumeProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeProjectionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeProjectionBuilder(V1VolumeProjectionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1VolumeProjection(), validationEnabled);
   }
 
   public V1VolumeProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeProjectionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeProjection instance) {
+      V1VolumeProjectionFluent<?> fluent, V1VolumeProjection instance) {
     this(fluent, instance, false);
   }
 
   public V1VolumeProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeProjectionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeProjection instance,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeProjectionFluent<?> fluent, V1VolumeProjection instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withConfigMap(instance.getConfigMap());
 
@@ -58,14 +52,11 @@ public class V1VolumeProjectionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1VolumeProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeProjection instance) {
+  public V1VolumeProjectionBuilder(V1VolumeProjection instance) {
     this(instance, false);
   }
 
-  public V1VolumeProjectionBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeProjection instance,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeProjectionBuilder(V1VolumeProjection instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withConfigMap(instance.getConfigMap());
 
@@ -78,10 +69,10 @@ public class V1VolumeProjectionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1VolumeProjectionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1VolumeProjectionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjection build() {
+  public V1VolumeProjection build() {
     V1VolumeProjection buildable = new V1VolumeProjection();
     buildable.setConfigMap(fluent.getConfigMap());
     buildable.setDownwardAPI(fluent.getDownwardAPI());

@@ -20,7 +20,7 @@ public class V1VolumeMountFluentImpl<A extends V1VolumeMountFluent<A>> extends B
     implements V1VolumeMountFluent<A> {
   public V1VolumeMountFluentImpl() {}
 
-  public V1VolumeMountFluentImpl(io.kubernetes.client.openapi.models.V1VolumeMount instance) {
+  public V1VolumeMountFluentImpl(V1VolumeMount instance) {
     this.withMountPath(instance.getMountPath());
 
     this.withMountPropagation(instance.getMountPropagation());
@@ -35,87 +35,87 @@ public class V1VolumeMountFluentImpl<A extends V1VolumeMountFluent<A>> extends B
   }
 
   private String mountPath;
-  private java.lang.String mountPropagation;
-  private java.lang.String name;
+  private String mountPropagation;
+  private String name;
   private Boolean readOnly;
-  private java.lang.String subPath;
-  private java.lang.String subPathExpr;
+  private String subPath;
+  private String subPathExpr;
 
-  public java.lang.String getMountPath() {
+  public String getMountPath() {
     return this.mountPath;
   }
 
-  public A withMountPath(java.lang.String mountPath) {
+  public A withMountPath(String mountPath) {
     this.mountPath = mountPath;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMountPath() {
+  public Boolean hasMountPath() {
     return this.mountPath != null;
   }
 
-  public java.lang.String getMountPropagation() {
+  public String getMountPropagation() {
     return this.mountPropagation;
   }
 
-  public A withMountPropagation(java.lang.String mountPropagation) {
+  public A withMountPropagation(String mountPropagation) {
     this.mountPropagation = mountPropagation;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMountPropagation() {
+  public Boolean hasMountPropagation() {
     return this.mountPropagation != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
-  public java.lang.String getSubPath() {
+  public String getSubPath() {
     return this.subPath;
   }
 
-  public A withSubPath(java.lang.String subPath) {
+  public A withSubPath(String subPath) {
     this.subPath = subPath;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSubPath() {
+  public Boolean hasSubPath() {
     return this.subPath != null;
   }
 
-  public java.lang.String getSubPathExpr() {
+  public String getSubPathExpr() {
     return this.subPathExpr;
   }
 
-  public A withSubPathExpr(java.lang.String subPathExpr) {
+  public A withSubPathExpr(String subPathExpr) {
     this.subPathExpr = subPathExpr;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSubPathExpr() {
+  public Boolean hasSubPathExpr() {
     return this.subPathExpr != null;
   }
 
@@ -141,7 +141,7 @@ public class V1VolumeMountFluentImpl<A extends V1VolumeMountFluent<A>> extends B
         mountPath, mountPropagation, name, readOnly, subPath, subPathExpr, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (mountPath != null) {

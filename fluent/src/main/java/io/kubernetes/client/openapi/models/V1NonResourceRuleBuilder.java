@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NonResourceRuleBuilder extends V1NonResourceRuleFluentImpl<V1NonResourceRuleBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1NonResourceRule, V1NonResourceRuleBuilder> {
+    implements VisitableBuilder<V1NonResourceRule, V1NonResourceRuleBuilder> {
   public V1NonResourceRuleBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1NonResourceRuleBuilder extends V1NonResourceRuleFluentImpl<V1NonR
     this(new V1NonResourceRule(), validationEnabled);
   }
 
-  public V1NonResourceRuleBuilder(
-      io.kubernetes.client.openapi.models.V1NonResourceRuleFluent<?> fluent) {
+  public V1NonResourceRuleBuilder(V1NonResourceRuleFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1NonResourceRuleBuilder(
-      io.kubernetes.client.openapi.models.V1NonResourceRuleFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1NonResourceRuleBuilder(V1NonResourceRuleFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NonResourceRule(), validationEnabled);
   }
 
-  public V1NonResourceRuleBuilder(
-      io.kubernetes.client.openapi.models.V1NonResourceRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NonResourceRule instance) {
+  public V1NonResourceRuleBuilder(V1NonResourceRuleFluent<?> fluent, V1NonResourceRule instance) {
     this(fluent, instance, false);
   }
 
   public V1NonResourceRuleBuilder(
-      io.kubernetes.client.openapi.models.V1NonResourceRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NonResourceRule instance,
-      java.lang.Boolean validationEnabled) {
+      V1NonResourceRuleFluent<?> fluent, V1NonResourceRule instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withNonResourceURLs(instance.getNonResourceURLs());
 
@@ -54,13 +46,11 @@ public class V1NonResourceRuleBuilder extends V1NonResourceRuleFluentImpl<V1NonR
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NonResourceRuleBuilder(io.kubernetes.client.openapi.models.V1NonResourceRule instance) {
+  public V1NonResourceRuleBuilder(V1NonResourceRule instance) {
     this(instance, false);
   }
 
-  public V1NonResourceRuleBuilder(
-      io.kubernetes.client.openapi.models.V1NonResourceRule instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NonResourceRuleBuilder(V1NonResourceRule instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withNonResourceURLs(instance.getNonResourceURLs());
 
@@ -69,10 +59,10 @@ public class V1NonResourceRuleBuilder extends V1NonResourceRuleFluentImpl<V1NonR
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NonResourceRuleFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NonResourceRuleFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NonResourceRule build() {
+  public V1NonResourceRule build() {
     V1NonResourceRule buildable = new V1NonResourceRule();
     buildable.setNonResourceURLs(fluent.getNonResourceURLs());
     buildable.setVerbs(fluent.getVerbs());

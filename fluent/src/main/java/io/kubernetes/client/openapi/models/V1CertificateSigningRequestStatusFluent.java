@@ -28,37 +28,31 @@ public interface V1CertificateSigningRequestStatusFluent<
 
   public A addToCertificate(Integer index, Byte item);
 
-  public A setToCertificate(java.lang.Integer index, java.lang.Byte item);
+  public A setToCertificate(Integer index, Byte item);
 
   public A addToCertificate(java.lang.Byte... items);
 
-  public A addAllToCertificate(Collection<java.lang.Byte> items);
+  public A addAllToCertificate(Collection<Byte> items);
 
   public A removeFromCertificate(java.lang.Byte... items);
 
-  public A removeAllFromCertificate(java.util.Collection<java.lang.Byte> items);
+  public A removeAllFromCertificate(Collection<Byte> items);
 
   public Boolean hasCertificate();
 
-  public A addToConditions(java.lang.Integer index, V1CertificateSigningRequestCondition item);
+  public A addToConditions(Integer index, V1CertificateSigningRequestCondition item);
 
-  public A setToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition item);
+  public A setToConditions(Integer index, V1CertificateSigningRequestCondition item);
 
   public A addToConditions(
       io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition... items);
 
-  public A addAllToConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition>
-          items);
+  public A addAllToConditions(Collection<V1CertificateSigningRequestCondition> items);
 
   public A removeFromConditions(
       io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition... items);
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition>
-          items);
+  public A removeAllFromConditions(Collection<V1CertificateSigningRequestCondition> items);
 
   public A removeMatchingFromConditions(
       Predicate<V1CertificateSigningRequestConditionBuilder> predicate);
@@ -69,78 +63,45 @@ public interface V1CertificateSigningRequestStatusFluent<
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition>
-      getConditions();
+  public List<V1CertificateSigningRequestCondition> getConditions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition>
-      buildConditions();
+  public List<V1CertificateSigningRequestCondition> buildConditions();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition buildCondition(
-      java.lang.Integer index);
+  public V1CertificateSigningRequestCondition buildCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition
-      buildFirstCondition();
+  public V1CertificateSigningRequestCondition buildFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition
-      buildLastCondition();
+  public V1CertificateSigningRequestCondition buildLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition
-      buildMatchingCondition(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder>
-              predicate);
+  public V1CertificateSigningRequestCondition buildMatchingCondition(
+      Predicate<V1CertificateSigningRequestConditionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder>
-          predicate);
+  public Boolean hasMatchingCondition(
+      Predicate<V1CertificateSigningRequestConditionBuilder> predicate);
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition>
-          conditions);
+  public A withConditions(List<V1CertificateSigningRequestCondition> conditions);
 
   public A withConditions(
       io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition... conditions);
 
-  public java.lang.Boolean hasConditions();
+  public Boolean hasConditions();
 
   public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> addNewCondition();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
-              .ConditionsNested<
-          A>
-      addNewConditionLike(
-          io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition item);
+  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> addNewConditionLike(
+      V1CertificateSigningRequestCondition item);
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
-              .ConditionsNested<
-          A>
-      setNewConditionLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition item);
+  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1CertificateSigningRequestCondition item);
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
-              .ConditionsNested<
-          A>
-      editCondition(java.lang.Integer index);
+  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> editCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
-              .ConditionsNested<
-          A>
-      editFirstCondition();
+  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> editFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
-              .ConditionsNested<
-          A>
-      editLastCondition();
+  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> editLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestStatusFluent
-              .ConditionsNested<
-          A>
-      editMatchingCondition(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1CertificateSigningRequestConditionBuilder>
-              predicate);
+  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1CertificateSigningRequestConditionBuilder> predicate);
 
   public interface ConditionsNested<N>
       extends Nested<N>,

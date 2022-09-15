@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SubjectAccessReviewStatusBuilder
     extends V1SubjectAccessReviewStatusFluentImpl<V1SubjectAccessReviewStatusBuilder>
-    implements VisitableBuilder<
-        V1SubjectAccessReviewStatus,
-        io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusBuilder> {
+    implements VisitableBuilder<V1SubjectAccessReviewStatus, V1SubjectAccessReviewStatusBuilder> {
   public V1SubjectAccessReviewStatusBuilder() {
     this(false);
   }
@@ -27,27 +25,24 @@ public class V1SubjectAccessReviewStatusBuilder
     this(new V1SubjectAccessReviewStatus(), validationEnabled);
   }
 
-  public V1SubjectAccessReviewStatusBuilder(
-      io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusFluent<?> fluent) {
+  public V1SubjectAccessReviewStatusBuilder(V1SubjectAccessReviewStatusFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1SubjectAccessReviewStatusBuilder(
-      io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1SubjectAccessReviewStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1SubjectAccessReviewStatus(), validationEnabled);
   }
 
   public V1SubjectAccessReviewStatusBuilder(
-      io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus instance) {
+      V1SubjectAccessReviewStatusFluent<?> fluent, V1SubjectAccessReviewStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1SubjectAccessReviewStatusBuilder(
-      io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1SubjectAccessReviewStatusFluent<?> fluent,
+      V1SubjectAccessReviewStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAllowed(instance.getAllowed());
 
@@ -60,14 +55,12 @@ public class V1SubjectAccessReviewStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SubjectAccessReviewStatusBuilder(
-      io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus instance) {
+  public V1SubjectAccessReviewStatusBuilder(V1SubjectAccessReviewStatus instance) {
     this(instance, false);
   }
 
   public V1SubjectAccessReviewStatusBuilder(
-      io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1SubjectAccessReviewStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAllowed(instance.getAllowed());
 
@@ -80,10 +73,10 @@ public class V1SubjectAccessReviewStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SubjectAccessReviewStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus build() {
+  public V1SubjectAccessReviewStatus build() {
     V1SubjectAccessReviewStatus buildable = new V1SubjectAccessReviewStatus();
     buildable.setAllowed(fluent.getAllowed());
     buildable.setDenied(fluent.getDenied());

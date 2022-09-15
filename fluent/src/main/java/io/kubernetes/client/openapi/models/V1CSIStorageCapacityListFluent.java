@@ -23,24 +23,21 @@ public interface V1CSIStorageCapacityListFluent<A extends V1CSIStorageCapacityLi
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1CSIStorageCapacity item);
+  public A addToItems(Integer index, V1CSIStorageCapacity item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1CSIStorageCapacity item);
+  public A setToItems(Integer index, V1CSIStorageCapacity item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1CSIStorageCapacity... items);
 
-  public A addAllToItems(
-      Collection<io.kubernetes.client.openapi.models.V1CSIStorageCapacity> items);
+  public A addAllToItems(Collection<V1CSIStorageCapacity> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1CSIStorageCapacity... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CSIStorageCapacity> items);
+  public A removeAllFromItems(Collection<V1CSIStorageCapacity> items);
 
   public A removeMatchingFromItems(Predicate<V1CSIStorageCapacityBuilder> predicate);
 
@@ -50,89 +47,71 @@ public interface V1CSIStorageCapacityListFluent<A extends V1CSIStorageCapacityLi
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1CSIStorageCapacity> getItems();
+  public List<V1CSIStorageCapacity> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1CSIStorageCapacity> buildItems();
+  public List<V1CSIStorageCapacity> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacity buildItem(
-      java.lang.Integer index);
+  public V1CSIStorageCapacity buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacity buildFirstItem();
+  public V1CSIStorageCapacity buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacity buildLastItem();
+  public V1CSIStorageCapacity buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacity buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder>
-          predicate);
+  public V1CSIStorageCapacity buildMatchingItem(Predicate<V1CSIStorageCapacityBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1CSIStorageCapacityBuilder> predicate);
 
-  public A withItems(
-      java.util.List<io.kubernetes.client.openapi.models.V1CSIStorageCapacity> items);
+  public A withItems(List<V1CSIStorageCapacity> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1CSIStorageCapacity... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1CSIStorageCapacityListFluent.ItemsNested<A> addNewItem();
 
-  public V1CSIStorageCapacityListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1CSIStorageCapacity item);
+  public V1CSIStorageCapacityListFluent.ItemsNested<A> addNewItemLike(V1CSIStorageCapacity item);
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1CSIStorageCapacity item);
+  public V1CSIStorageCapacityListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1CSIStorageCapacity item);
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1CSIStorageCapacityListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A>
-      editFirstItem();
+  public V1CSIStorageCapacityListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A>
-      editLastItem();
+  public V1CSIStorageCapacityListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1CSIStorageCapacityBuilder>
-              predicate);
+  public V1CSIStorageCapacityListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1CSIStorageCapacityBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1CSIStorageCapacityListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1CSIStorageCapacityListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.MetadataNested<A>
-      editMetadata();
+  public V1CSIStorageCapacityListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1CSIStorageCapacityListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CSIStorageCapacityListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1CSIStorageCapacityListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>, V1CSIStorageCapacityFluent<V1CSIStorageCapacityListFluent.ItemsNested<N>> {
@@ -142,8 +121,7 @@ public interface V1CSIStorageCapacityListFluent<A extends V1CSIStorageCapacityLi
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1CSIStorageCapacityListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1CSIStorageCapacityListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

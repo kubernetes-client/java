@@ -23,13 +23,13 @@ public class V1OverheadFluentImpl<A extends V1OverheadFluent<A>> extends BaseFlu
     implements V1OverheadFluent<A> {
   public V1OverheadFluentImpl() {}
 
-  public V1OverheadFluentImpl(io.kubernetes.client.openapi.models.V1Overhead instance) {
+  public V1OverheadFluentImpl(V1Overhead instance) {
     this.withPodFixed(instance.getPodFixed());
   }
 
   private Map<String, Quantity> podFixed;
 
-  public A addToPodFixed(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
+  public A addToPodFixed(String key, Quantity value) {
     if (this.podFixed == null && key != null && value != null) {
       this.podFixed = new LinkedHashMap();
     }
@@ -39,10 +39,9 @@ public class V1OverheadFluentImpl<A extends V1OverheadFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A addToPodFixed(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map) {
+  public A addToPodFixed(Map<String, Quantity> map) {
     if (this.podFixed == null && map != null) {
-      this.podFixed = new java.util.LinkedHashMap();
+      this.podFixed = new LinkedHashMap();
     }
     if (map != null) {
       this.podFixed.putAll(map);
@@ -50,7 +49,7 @@ public class V1OverheadFluentImpl<A extends V1OverheadFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeFromPodFixed(java.lang.String key) {
+  public A removeFromPodFixed(String key) {
     if (this.podFixed == null) {
       return (A) this;
     }
@@ -60,8 +59,7 @@ public class V1OverheadFluentImpl<A extends V1OverheadFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeFromPodFixed(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map) {
+  public A removeFromPodFixed(Map<String, Quantity> map) {
     if (this.podFixed == null) {
       return (A) this;
     }
@@ -75,16 +73,15 @@ public class V1OverheadFluentImpl<A extends V1OverheadFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getPodFixed() {
+  public Map<String, Quantity> getPodFixed() {
     return this.podFixed;
   }
 
-  public <K, V> A withPodFixed(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> podFixed) {
+  public <K, V> A withPodFixed(Map<String, Quantity> podFixed) {
     if (podFixed == null) {
       this.podFixed = null;
     } else {
-      this.podFixed = new java.util.LinkedHashMap(podFixed);
+      this.podFixed = new LinkedHashMap(podFixed);
     }
     return (A) this;
   }
@@ -105,7 +102,7 @@ public class V1OverheadFluentImpl<A extends V1OverheadFluent<A>> extends BaseFlu
     return java.util.Objects.hash(podFixed, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (podFixed != null && !podFixed.isEmpty()) {

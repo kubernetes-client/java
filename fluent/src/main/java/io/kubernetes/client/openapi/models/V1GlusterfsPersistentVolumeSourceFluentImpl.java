@@ -21,8 +21,7 @@ public class V1GlusterfsPersistentVolumeSourceFluentImpl<
     extends BaseFluent<A> implements V1GlusterfsPersistentVolumeSourceFluent<A> {
   public V1GlusterfsPersistentVolumeSourceFluentImpl() {}
 
-  public V1GlusterfsPersistentVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource instance) {
+  public V1GlusterfsPersistentVolumeSourceFluentImpl(V1GlusterfsPersistentVolumeSource instance) {
     this.withEndpoints(instance.getEndpoints());
 
     this.withEndpointsNamespace(instance.getEndpointsNamespace());
@@ -33,59 +32,59 @@ public class V1GlusterfsPersistentVolumeSourceFluentImpl<
   }
 
   private String endpoints;
-  private java.lang.String endpointsNamespace;
-  private java.lang.String path;
+  private String endpointsNamespace;
+  private String path;
   private Boolean readOnly;
 
-  public java.lang.String getEndpoints() {
+  public String getEndpoints() {
     return this.endpoints;
   }
 
-  public A withEndpoints(java.lang.String endpoints) {
+  public A withEndpoints(String endpoints) {
     this.endpoints = endpoints;
     return (A) this;
   }
 
-  public java.lang.Boolean hasEndpoints() {
+  public Boolean hasEndpoints() {
     return this.endpoints != null;
   }
 
-  public java.lang.String getEndpointsNamespace() {
+  public String getEndpointsNamespace() {
     return this.endpointsNamespace;
   }
 
-  public A withEndpointsNamespace(java.lang.String endpointsNamespace) {
+  public A withEndpointsNamespace(String endpointsNamespace) {
     this.endpointsNamespace = endpointsNamespace;
     return (A) this;
   }
 
-  public java.lang.Boolean hasEndpointsNamespace() {
+  public Boolean hasEndpointsNamespace() {
     return this.endpointsNamespace != null;
   }
 
-  public java.lang.String getPath() {
+  public String getPath() {
     return this.path;
   }
 
-  public A withPath(java.lang.String path) {
+  public A withPath(String path) {
     this.path = path;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPath() {
+  public Boolean hasPath() {
     return this.path != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
@@ -108,7 +107,7 @@ public class V1GlusterfsPersistentVolumeSourceFluentImpl<
     return java.util.Objects.hash(endpoints, endpointsNamespace, path, readOnly, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (endpoints != null) {

@@ -20,18 +20,17 @@ public class V1beta2GroupSubjectFluentImpl<A extends V1beta2GroupSubjectFluent<A
     extends BaseFluent<A> implements V1beta2GroupSubjectFluent<A> {
   public V1beta2GroupSubjectFluentImpl() {}
 
-  public V1beta2GroupSubjectFluentImpl(
-      io.kubernetes.client.openapi.models.V1beta2GroupSubject instance) {
+  public V1beta2GroupSubjectFluentImpl(V1beta2GroupSubject instance) {
     this.withName(instance.getName());
   }
 
   private String name;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -52,7 +51,7 @@ public class V1beta2GroupSubjectFluentImpl<A extends V1beta2GroupSubjectFluent<A
     return java.util.Objects.hash(name, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {

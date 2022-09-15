@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NodeSelectorBuilder extends V1NodeSelectorFluentImpl<V1NodeSelectorBuilder>
-    implements VisitableBuilder<
-        V1NodeSelector, io.kubernetes.client.openapi.models.V1NodeSelectorBuilder> {
+    implements VisitableBuilder<V1NodeSelector, V1NodeSelectorBuilder> {
   public V1NodeSelectorBuilder() {
     this(false);
   }
@@ -29,45 +28,37 @@ public class V1NodeSelectorBuilder extends V1NodeSelectorFluentImpl<V1NodeSelect
     this(fluent, false);
   }
 
-  public V1NodeSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSelectorFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1NodeSelectorBuilder(V1NodeSelectorFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NodeSelector(), validationEnabled);
   }
 
-  public V1NodeSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSelectorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeSelector instance) {
+  public V1NodeSelectorBuilder(V1NodeSelectorFluent<?> fluent, V1NodeSelector instance) {
     this(fluent, instance, false);
   }
 
   public V1NodeSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSelectorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeSelector instance,
-      java.lang.Boolean validationEnabled) {
+      V1NodeSelectorFluent<?> fluent, V1NodeSelector instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withNodeSelectorTerms(instance.getNodeSelectorTerms());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NodeSelectorBuilder(io.kubernetes.client.openapi.models.V1NodeSelector instance) {
+  public V1NodeSelectorBuilder(V1NodeSelector instance) {
     this(instance, false);
   }
 
-  public V1NodeSelectorBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSelector instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NodeSelectorBuilder(V1NodeSelector instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withNodeSelectorTerms(instance.getNodeSelectorTerms());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NodeSelectorFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NodeSelectorFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NodeSelector build() {
+  public V1NodeSelector build() {
     V1NodeSelector buildable = new V1NodeSelector();
     buildable.setNodeSelectorTerms(fluent.getNodeSelectorTerms());
     return buildable;

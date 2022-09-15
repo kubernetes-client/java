@@ -26,7 +26,7 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
     implements V1EndpointHintsFluent<A> {
   public V1EndpointHintsFluentImpl() {}
 
-  public V1EndpointHintsFluentImpl(io.kubernetes.client.openapi.models.V1EndpointHints instance) {
+  public V1EndpointHintsFluentImpl(V1EndpointHints instance) {
     this.withForZones(instance.getForZones());
   }
 
@@ -34,11 +34,9 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
 
   public A addToForZones(Integer index, V1ForZone item) {
     if (this.forZones == null) {
-      this.forZones =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ForZoneBuilder>();
+      this.forZones = new ArrayList<V1ForZoneBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ForZoneBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ForZoneBuilder(item);
+    V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
     _visitables
         .get("forZones")
         .add(index >= 0 ? index : _visitables.get("forZones").size(), builder);
@@ -46,14 +44,11 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
     return (A) this;
   }
 
-  public A setToForZones(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ForZone item) {
+  public A setToForZones(Integer index, V1ForZone item) {
     if (this.forZones == null) {
-      this.forZones =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ForZoneBuilder>();
+      this.forZones = new ArrayList<V1ForZoneBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ForZoneBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ForZoneBuilder(item);
+    V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
     if (index < 0 || index >= _visitables.get("forZones").size()) {
       _visitables.get("forZones").add(builder);
     } else {
@@ -69,26 +64,22 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
 
   public A addToForZones(io.kubernetes.client.openapi.models.V1ForZone... items) {
     if (this.forZones == null) {
-      this.forZones =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ForZoneBuilder>();
+      this.forZones = new ArrayList<V1ForZoneBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ForZone item : items) {
-      io.kubernetes.client.openapi.models.V1ForZoneBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ForZoneBuilder(item);
+    for (V1ForZone item : items) {
+      V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
       _visitables.get("forZones").add(builder);
       this.forZones.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToForZones(Collection<io.kubernetes.client.openapi.models.V1ForZone> items) {
+  public A addAllToForZones(Collection<V1ForZone> items) {
     if (this.forZones == null) {
-      this.forZones =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ForZoneBuilder>();
+      this.forZones = new ArrayList<V1ForZoneBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ForZone item : items) {
-      io.kubernetes.client.openapi.models.V1ForZoneBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ForZoneBuilder(item);
+    for (V1ForZone item : items) {
+      V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
       _visitables.get("forZones").add(builder);
       this.forZones.add(builder);
     }
@@ -96,9 +87,8 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
   }
 
   public A removeFromForZones(io.kubernetes.client.openapi.models.V1ForZone... items) {
-    for (io.kubernetes.client.openapi.models.V1ForZone item : items) {
-      io.kubernetes.client.openapi.models.V1ForZoneBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ForZoneBuilder(item);
+    for (V1ForZone item : items) {
+      V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
       _visitables.get("forZones").remove(builder);
       if (this.forZones != null) {
         this.forZones.remove(builder);
@@ -107,11 +97,9 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
     return (A) this;
   }
 
-  public A removeAllFromForZones(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ForZone> items) {
-    for (io.kubernetes.client.openapi.models.V1ForZone item : items) {
-      io.kubernetes.client.openapi.models.V1ForZoneBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ForZoneBuilder(item);
+  public A removeAllFromForZones(Collection<V1ForZone> items) {
+    for (V1ForZone item : items) {
+      V1ForZoneBuilder builder = new V1ForZoneBuilder(item);
       _visitables.get("forZones").remove(builder);
       if (this.forZones != null) {
         this.forZones.remove(builder);
@@ -120,13 +108,12 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
     return (A) this;
   }
 
-  public A removeMatchingFromForZones(
-      Predicate<io.kubernetes.client.openapi.models.V1ForZoneBuilder> predicate) {
+  public A removeMatchingFromForZones(Predicate<V1ForZoneBuilder> predicate) {
     if (forZones == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ForZoneBuilder> each = forZones.iterator();
+    final Iterator<V1ForZoneBuilder> each = forZones.iterator();
     final List visitables = _visitables.get("forZones");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ForZoneBuilder builder = each.next();
+      V1ForZoneBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -141,30 +128,28 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1ForZone> getForZones() {
+  public List<V1ForZone> getForZones() {
     return forZones != null ? build(forZones) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ForZone> buildForZones() {
+  public List<V1ForZone> buildForZones() {
     return forZones != null ? build(forZones) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ForZone buildForZone(java.lang.Integer index) {
+  public V1ForZone buildForZone(Integer index) {
     return this.forZones.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ForZone buildFirstForZone() {
+  public V1ForZone buildFirstForZone() {
     return this.forZones.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ForZone buildLastForZone() {
+  public V1ForZone buildLastForZone() {
     return this.forZones.get(forZones.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ForZone buildMatchingForZone(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ForZoneBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ForZoneBuilder item : forZones) {
+  public V1ForZone buildMatchingForZone(Predicate<V1ForZoneBuilder> predicate) {
+    for (V1ForZoneBuilder item : forZones) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -172,10 +157,8 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
     return null;
   }
 
-  public Boolean hasMatchingForZone(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ForZoneBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ForZoneBuilder item : forZones) {
+  public Boolean hasMatchingForZone(Predicate<V1ForZoneBuilder> predicate) {
+    for (V1ForZoneBuilder item : forZones) {
       if (predicate.test(item)) {
         return true;
       }
@@ -183,13 +166,13 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
     return false;
   }
 
-  public A withForZones(java.util.List<io.kubernetes.client.openapi.models.V1ForZone> forZones) {
+  public A withForZones(List<V1ForZone> forZones) {
     if (this.forZones != null) {
       _visitables.get("forZones").removeAll(this.forZones);
     }
     if (forZones != null) {
-      this.forZones = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1ForZone item : forZones) {
+      this.forZones = new ArrayList();
+      for (V1ForZone item : forZones) {
         this.addToForZones(item);
       }
     } else {
@@ -203,14 +186,14 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
       this.forZones.clear();
     }
     if (forZones != null) {
-      for (io.kubernetes.client.openapi.models.V1ForZone item : forZones) {
+      for (V1ForZone item : forZones) {
         this.addToForZones(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasForZones() {
+  public Boolean hasForZones() {
     return forZones != null && !forZones.isEmpty();
   }
 
@@ -218,43 +201,34 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
     return new V1EndpointHintsFluentImpl.ForZonesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A>
-      addNewForZoneLike(io.kubernetes.client.openapi.models.V1ForZone item) {
+  public V1EndpointHintsFluent.ForZonesNested<A> addNewForZoneLike(V1ForZone item) {
     return new V1EndpointHintsFluentImpl.ForZonesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A>
-      setNewForZoneLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ForZone item) {
-    return new io.kubernetes.client.openapi.models.V1EndpointHintsFluentImpl.ForZonesNestedImpl(
-        index, item);
+  public V1EndpointHintsFluent.ForZonesNested<A> setNewForZoneLike(Integer index, V1ForZone item) {
+    return new V1EndpointHintsFluentImpl.ForZonesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A> editForZone(
-      java.lang.Integer index) {
+  public V1EndpointHintsFluent.ForZonesNested<A> editForZone(Integer index) {
     if (forZones.size() <= index)
       throw new RuntimeException("Can't edit forZones. Index exceeds size.");
     return setNewForZoneLike(index, buildForZone(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A>
-      editFirstForZone() {
+  public V1EndpointHintsFluent.ForZonesNested<A> editFirstForZone() {
     if (forZones.size() == 0)
       throw new RuntimeException("Can't edit first forZones. The list is empty.");
     return setNewForZoneLike(0, buildForZone(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A>
-      editLastForZone() {
+  public V1EndpointHintsFluent.ForZonesNested<A> editLastForZone() {
     int index = forZones.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last forZones. The list is empty.");
     return setNewForZoneLike(index, buildForZone(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<A>
-      editMatchingForZone(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ForZoneBuilder>
-              predicate) {
+  public V1EndpointHintsFluent.ForZonesNested<A> editMatchingForZone(
+      Predicate<V1ForZoneBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < forZones.size(); i++) {
       if (predicate.test(forZones.get(i))) {
@@ -290,20 +264,19 @@ public class V1EndpointHintsFluentImpl<A extends V1EndpointHintsFluent<A>> exten
   }
 
   class ForZonesNestedImpl<N> extends V1ForZoneFluentImpl<V1EndpointHintsFluent.ForZonesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EndpointHintsFluent.ForZonesNested<N>,
-          Nested<N> {
-    ForZonesNestedImpl(java.lang.Integer index, V1ForZone item) {
+      implements V1EndpointHintsFluent.ForZonesNested<N>, Nested<N> {
+    ForZonesNestedImpl(Integer index, V1ForZone item) {
       this.index = index;
       this.builder = new V1ForZoneBuilder(this, item);
     }
 
     ForZonesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ForZoneBuilder(this);
+      this.builder = new V1ForZoneBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ForZoneBuilder builder;
-    java.lang.Integer index;
+    V1ForZoneBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1EndpointHintsFluentImpl.this.setToForZones(index, builder.build());

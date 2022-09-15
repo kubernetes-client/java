@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PersistentVolumeSpecBuilder
     extends V1PersistentVolumeSpecFluentImpl<V1PersistentVolumeSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PersistentVolumeSpec,
-        io.kubernetes.client.openapi.models.V1PersistentVolumeSpecBuilder> {
+    implements VisitableBuilder<V1PersistentVolumeSpec, V1PersistentVolumeSpecBuilder> {
   public V1PersistentVolumeSpecBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1PersistentVolumeSpecBuilder
   }
 
   public V1PersistentVolumeSpecBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1PersistentVolumeSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PersistentVolumeSpec(), validationEnabled);
   }
 
   public V1PersistentVolumeSpecBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpec instance) {
+      V1PersistentVolumeSpecFluent<?> fluent, V1PersistentVolumeSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1PersistentVolumeSpecBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1PersistentVolumeSpecFluent<?> fluent,
+      V1PersistentVolumeSpec instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAccessModes(instance.getAccessModes());
 
@@ -111,14 +107,11 @@ public class V1PersistentVolumeSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PersistentVolumeSpecBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpec instance) {
+  public V1PersistentVolumeSpecBuilder(V1PersistentVolumeSpec instance) {
     this(instance, false);
   }
 
-  public V1PersistentVolumeSpecBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PersistentVolumeSpecBuilder(V1PersistentVolumeSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAccessModes(instance.getAccessModes());
 
@@ -183,10 +176,10 @@ public class V1PersistentVolumeSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PersistentVolumeSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PersistentVolumeSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec build() {
+  public V1PersistentVolumeSpec build() {
     V1PersistentVolumeSpec buildable = new V1PersistentVolumeSpec();
     buildable.setAccessModes(fluent.getAccessModes());
     buildable.setAwsElasticBlockStore(fluent.getAwsElasticBlockStore());

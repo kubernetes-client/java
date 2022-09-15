@@ -20,8 +20,7 @@ public class V1EndpointConditionsFluentImpl<A extends V1EndpointConditionsFluent
     extends BaseFluent<A> implements V1EndpointConditionsFluent<A> {
   public V1EndpointConditionsFluentImpl() {}
 
-  public V1EndpointConditionsFluentImpl(
-      io.kubernetes.client.openapi.models.V1EndpointConditions instance) {
+  public V1EndpointConditionsFluentImpl(V1EndpointConditions instance) {
     this.withReady(instance.getReady());
 
     this.withServing(instance.getServing());
@@ -30,45 +29,45 @@ public class V1EndpointConditionsFluentImpl<A extends V1EndpointConditionsFluent
   }
 
   private Boolean ready;
-  private java.lang.Boolean serving;
-  private java.lang.Boolean terminating;
+  private Boolean serving;
+  private Boolean terminating;
 
-  public java.lang.Boolean getReady() {
+  public Boolean getReady() {
     return this.ready;
   }
 
-  public A withReady(java.lang.Boolean ready) {
+  public A withReady(Boolean ready) {
     this.ready = ready;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReady() {
+  public Boolean hasReady() {
     return this.ready != null;
   }
 
-  public java.lang.Boolean getServing() {
+  public Boolean getServing() {
     return this.serving;
   }
 
-  public A withServing(java.lang.Boolean serving) {
+  public A withServing(Boolean serving) {
     this.serving = serving;
     return (A) this;
   }
 
-  public java.lang.Boolean hasServing() {
+  public Boolean hasServing() {
     return this.serving != null;
   }
 
-  public java.lang.Boolean getTerminating() {
+  public Boolean getTerminating() {
     return this.terminating;
   }
 
-  public A withTerminating(java.lang.Boolean terminating) {
+  public A withTerminating(Boolean terminating) {
     this.terminating = terminating;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTerminating() {
+  public Boolean hasTerminating() {
     return this.terminating != null;
   }
 

@@ -21,83 +21,81 @@ import java.util.function.Predicate;
 public interface V1FCVolumeSourceFluent<A extends V1FCVolumeSourceFluent<A>> extends Fluent<A> {
   public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
   public Boolean hasFsType();
 
   public Integer getLun();
 
-  public A withLun(java.lang.Integer lun);
+  public A withLun(Integer lun);
 
-  public java.lang.Boolean hasLun();
+  public Boolean hasLun();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
-  public A addToTargetWWNs(java.lang.Integer index, java.lang.String item);
+  public A addToTargetWWNs(Integer index, String item);
 
-  public A setToTargetWWNs(java.lang.Integer index, java.lang.String item);
+  public A setToTargetWWNs(Integer index, String item);
 
   public A addToTargetWWNs(java.lang.String... items);
 
-  public A addAllToTargetWWNs(Collection<java.lang.String> items);
+  public A addAllToTargetWWNs(Collection<String> items);
 
   public A removeFromTargetWWNs(java.lang.String... items);
 
-  public A removeAllFromTargetWWNs(java.util.Collection<java.lang.String> items);
+  public A removeAllFromTargetWWNs(Collection<String> items);
 
-  public List<java.lang.String> getTargetWWNs();
+  public List<String> getTargetWWNs();
 
-  public java.lang.String getTargetWWN(java.lang.Integer index);
+  public String getTargetWWN(Integer index);
 
-  public java.lang.String getFirstTargetWWN();
+  public String getFirstTargetWWN();
 
-  public java.lang.String getLastTargetWWN();
+  public String getLastTargetWWN();
 
-  public java.lang.String getMatchingTargetWWN(Predicate<java.lang.String> predicate);
+  public String getMatchingTargetWWN(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingTargetWWN(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingTargetWWN(Predicate<String> predicate);
 
-  public A withTargetWWNs(java.util.List<java.lang.String> targetWWNs);
+  public A withTargetWWNs(List<String> targetWWNs);
 
   public A withTargetWWNs(java.lang.String... targetWWNs);
 
-  public java.lang.Boolean hasTargetWWNs();
+  public Boolean hasTargetWWNs();
 
-  public A addToWwids(java.lang.Integer index, java.lang.String item);
+  public A addToWwids(Integer index, String item);
 
-  public A setToWwids(java.lang.Integer index, java.lang.String item);
+  public A setToWwids(Integer index, String item);
 
   public A addToWwids(java.lang.String... items);
 
-  public A addAllToWwids(java.util.Collection<java.lang.String> items);
+  public A addAllToWwids(Collection<String> items);
 
   public A removeFromWwids(java.lang.String... items);
 
-  public A removeAllFromWwids(java.util.Collection<java.lang.String> items);
+  public A removeAllFromWwids(Collection<String> items);
 
-  public java.util.List<java.lang.String> getWwids();
+  public List<String> getWwids();
 
-  public java.lang.String getWwid(java.lang.Integer index);
+  public String getWwid(Integer index);
 
-  public java.lang.String getFirstWwid();
+  public String getFirstWwid();
 
-  public java.lang.String getLastWwid();
+  public String getLastWwid();
 
-  public java.lang.String getMatchingWwid(java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingWwid(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingWwid(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingWwid(Predicate<String> predicate);
 
-  public A withWwids(java.util.List<java.lang.String> wwids);
+  public A withWwids(List<String> wwids);
 
   public A withWwids(java.lang.String... wwids);
 
-  public java.lang.Boolean hasWwids();
+  public Boolean hasWwids();
 
   public A withReadOnly();
 }

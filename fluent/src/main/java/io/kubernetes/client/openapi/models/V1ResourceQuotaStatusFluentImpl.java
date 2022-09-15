@@ -23,17 +23,16 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     extends BaseFluent<A> implements V1ResourceQuotaStatusFluent<A> {
   public V1ResourceQuotaStatusFluentImpl() {}
 
-  public V1ResourceQuotaStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V1ResourceQuotaStatus instance) {
+  public V1ResourceQuotaStatusFluentImpl(V1ResourceQuotaStatus instance) {
     this.withHard(instance.getHard());
 
     this.withUsed(instance.getUsed());
   }
 
   private Map<String, Quantity> hard;
-  private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> used;
+  private Map<String, Quantity> used;
 
-  public A addToHard(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
+  public A addToHard(String key, Quantity value) {
     if (this.hard == null && key != null && value != null) {
       this.hard = new LinkedHashMap();
     }
@@ -43,9 +42,9 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     return (A) this;
   }
 
-  public A addToHard(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map) {
+  public A addToHard(Map<String, Quantity> map) {
     if (this.hard == null && map != null) {
-      this.hard = new java.util.LinkedHashMap();
+      this.hard = new LinkedHashMap();
     }
     if (map != null) {
       this.hard.putAll(map);
@@ -53,7 +52,7 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     return (A) this;
   }
 
-  public A removeFromHard(java.lang.String key) {
+  public A removeFromHard(String key) {
     if (this.hard == null) {
       return (A) this;
     }
@@ -63,8 +62,7 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     return (A) this;
   }
 
-  public A removeFromHard(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map) {
+  public A removeFromHard(Map<String, Quantity> map) {
     if (this.hard == null) {
       return (A) this;
     }
@@ -78,16 +76,15 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getHard() {
+  public Map<String, Quantity> getHard() {
     return this.hard;
   }
 
-  public <K, V> A withHard(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> hard) {
+  public <K, V> A withHard(Map<String, Quantity> hard) {
     if (hard == null) {
       this.hard = null;
     } else {
-      this.hard = new java.util.LinkedHashMap(hard);
+      this.hard = new LinkedHashMap(hard);
     }
     return (A) this;
   }
@@ -96,9 +93,9 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     return this.hard != null;
   }
 
-  public A addToUsed(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
+  public A addToUsed(String key, Quantity value) {
     if (this.used == null && key != null && value != null) {
-      this.used = new java.util.LinkedHashMap();
+      this.used = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.used.put(key, value);
@@ -106,9 +103,9 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     return (A) this;
   }
 
-  public A addToUsed(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map) {
+  public A addToUsed(Map<String, Quantity> map) {
     if (this.used == null && map != null) {
-      this.used = new java.util.LinkedHashMap();
+      this.used = new LinkedHashMap();
     }
     if (map != null) {
       this.used.putAll(map);
@@ -116,7 +113,7 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     return (A) this;
   }
 
-  public A removeFromUsed(java.lang.String key) {
+  public A removeFromUsed(String key) {
     if (this.used == null) {
       return (A) this;
     }
@@ -126,8 +123,7 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     return (A) this;
   }
 
-  public A removeFromUsed(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map) {
+  public A removeFromUsed(Map<String, Quantity> map) {
     if (this.used == null) {
       return (A) this;
     }
@@ -141,21 +137,20 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getUsed() {
+  public Map<String, Quantity> getUsed() {
     return this.used;
   }
 
-  public <K, V> A withUsed(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> used) {
+  public <K, V> A withUsed(Map<String, Quantity> used) {
     if (used == null) {
       this.used = null;
     } else {
-      this.used = new java.util.LinkedHashMap(used);
+      this.used = new LinkedHashMap(used);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasUsed() {
+  public Boolean hasUsed() {
     return this.used != null;
   }
 
@@ -172,7 +167,7 @@ public class V1ResourceQuotaStatusFluentImpl<A extends V1ResourceQuotaStatusFlue
     return java.util.Objects.hash(hard, used, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (hard != null && !hard.isEmpty()) {

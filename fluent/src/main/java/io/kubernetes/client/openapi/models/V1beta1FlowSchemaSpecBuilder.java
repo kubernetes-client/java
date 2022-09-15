@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1beta1FlowSchemaSpecBuilder
     extends V1beta1FlowSchemaSpecFluentImpl<V1beta1FlowSchemaSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpec,
-        io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecBuilder> {
+    implements VisitableBuilder<V1beta1FlowSchemaSpec, V1beta1FlowSchemaSpecBuilder> {
   public V1beta1FlowSchemaSpecBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1beta1FlowSchemaSpecBuilder
   }
 
   public V1beta1FlowSchemaSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1FlowSchemaSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1FlowSchemaSpec(), validationEnabled);
   }
 
   public V1beta1FlowSchemaSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpec instance) {
+      V1beta1FlowSchemaSpecFluent<?> fluent, V1beta1FlowSchemaSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1FlowSchemaSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1FlowSchemaSpecFluent<?> fluent,
+      V1beta1FlowSchemaSpec instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withDistinguisherMethod(instance.getDistinguisherMethod());
 
@@ -59,14 +55,11 @@ public class V1beta1FlowSchemaSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta1FlowSchemaSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpec instance) {
+  public V1beta1FlowSchemaSpecBuilder(V1beta1FlowSchemaSpec instance) {
     this(instance, false);
   }
 
-  public V1beta1FlowSchemaSpecBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1beta1FlowSchemaSpecBuilder(V1beta1FlowSchemaSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withDistinguisherMethod(instance.getDistinguisherMethod());
 
@@ -79,10 +72,10 @@ public class V1beta1FlowSchemaSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1FlowSchemaSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1FlowSchemaSpec build() {
+  public V1beta1FlowSchemaSpec build() {
     V1beta1FlowSchemaSpec buildable = new V1beta1FlowSchemaSpec();
     buildable.setDistinguisherMethod(fluent.getDistinguisherMethod());
     buildable.setMatchingPrecedence(fluent.getMatchingPrecedence());

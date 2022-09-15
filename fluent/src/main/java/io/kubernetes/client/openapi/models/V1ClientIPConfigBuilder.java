@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ClientIPConfigBuilder extends V1ClientIPConfigFluentImpl<V1ClientIPConfigBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ClientIPConfig, V1ClientIPConfigBuilder> {
+    implements VisitableBuilder<V1ClientIPConfig, V1ClientIPConfigBuilder> {
   public V1ClientIPConfigBuilder() {
     this(false);
   }
@@ -25,50 +24,41 @@ public class V1ClientIPConfigBuilder extends V1ClientIPConfigFluentImpl<V1Client
     this(new V1ClientIPConfig(), validationEnabled);
   }
 
-  public V1ClientIPConfigBuilder(
-      io.kubernetes.client.openapi.models.V1ClientIPConfigFluent<?> fluent) {
+  public V1ClientIPConfigBuilder(V1ClientIPConfigFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1ClientIPConfigBuilder(
-      io.kubernetes.client.openapi.models.V1ClientIPConfigFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ClientIPConfigBuilder(V1ClientIPConfigFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ClientIPConfig(), validationEnabled);
   }
 
-  public V1ClientIPConfigBuilder(
-      io.kubernetes.client.openapi.models.V1ClientIPConfigFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ClientIPConfig instance) {
+  public V1ClientIPConfigBuilder(V1ClientIPConfigFluent<?> fluent, V1ClientIPConfig instance) {
     this(fluent, instance, false);
   }
 
   public V1ClientIPConfigBuilder(
-      io.kubernetes.client.openapi.models.V1ClientIPConfigFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ClientIPConfig instance,
-      java.lang.Boolean validationEnabled) {
+      V1ClientIPConfigFluent<?> fluent, V1ClientIPConfig instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withTimeoutSeconds(instance.getTimeoutSeconds());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ClientIPConfigBuilder(io.kubernetes.client.openapi.models.V1ClientIPConfig instance) {
+  public V1ClientIPConfigBuilder(V1ClientIPConfig instance) {
     this(instance, false);
   }
 
-  public V1ClientIPConfigBuilder(
-      io.kubernetes.client.openapi.models.V1ClientIPConfig instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ClientIPConfigBuilder(V1ClientIPConfig instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withTimeoutSeconds(instance.getTimeoutSeconds());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ClientIPConfigFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ClientIPConfigFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ClientIPConfig build() {
+  public V1ClientIPConfig build() {
     V1ClientIPConfig buildable = new V1ClientIPConfig();
     buildable.setTimeoutSeconds(fluent.getTimeoutSeconds());
     return buildable;

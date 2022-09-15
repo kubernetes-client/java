@@ -23,87 +23,85 @@ public interface V1CustomResourceDefinitionNamesFluent<
     extends Fluent<A> {
   public A addToCategories(Integer index, String item);
 
-  public A setToCategories(java.lang.Integer index, java.lang.String item);
+  public A setToCategories(Integer index, String item);
 
   public A addToCategories(java.lang.String... items);
 
-  public A addAllToCategories(Collection<java.lang.String> items);
+  public A addAllToCategories(Collection<String> items);
 
   public A removeFromCategories(java.lang.String... items);
 
-  public A removeAllFromCategories(java.util.Collection<java.lang.String> items);
+  public A removeAllFromCategories(Collection<String> items);
 
-  public List<java.lang.String> getCategories();
+  public List<String> getCategories();
 
-  public java.lang.String getCategory(java.lang.Integer index);
+  public String getCategory(Integer index);
 
-  public java.lang.String getFirstCategory();
+  public String getFirstCategory();
 
-  public java.lang.String getLastCategory();
+  public String getLastCategory();
 
-  public java.lang.String getMatchingCategory(Predicate<java.lang.String> predicate);
+  public String getMatchingCategory(Predicate<String> predicate);
 
-  public Boolean hasMatchingCategory(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingCategory(Predicate<String> predicate);
 
-  public A withCategories(java.util.List<java.lang.String> categories);
+  public A withCategories(List<String> categories);
 
   public A withCategories(java.lang.String... categories);
 
-  public java.lang.Boolean hasCategories();
+  public Boolean hasCategories();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
-  public java.lang.String getListKind();
+  public String getListKind();
 
-  public A withListKind(java.lang.String listKind);
+  public A withListKind(String listKind);
 
-  public java.lang.Boolean hasListKind();
+  public Boolean hasListKind();
 
-  public java.lang.String getPlural();
+  public String getPlural();
 
-  public A withPlural(java.lang.String plural);
+  public A withPlural(String plural);
 
-  public java.lang.Boolean hasPlural();
+  public Boolean hasPlural();
 
-  public A addToShortNames(java.lang.Integer index, java.lang.String item);
+  public A addToShortNames(Integer index, String item);
 
-  public A setToShortNames(java.lang.Integer index, java.lang.String item);
+  public A setToShortNames(Integer index, String item);
 
   public A addToShortNames(java.lang.String... items);
 
-  public A addAllToShortNames(java.util.Collection<java.lang.String> items);
+  public A addAllToShortNames(Collection<String> items);
 
   public A removeFromShortNames(java.lang.String... items);
 
-  public A removeAllFromShortNames(java.util.Collection<java.lang.String> items);
+  public A removeAllFromShortNames(Collection<String> items);
 
-  public java.util.List<java.lang.String> getShortNames();
+  public List<String> getShortNames();
 
-  public java.lang.String getShortName(java.lang.Integer index);
+  public String getShortName(Integer index);
 
-  public java.lang.String getFirstShortName();
+  public String getFirstShortName();
 
-  public java.lang.String getLastShortName();
+  public String getLastShortName();
 
-  public java.lang.String getMatchingShortName(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingShortName(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingShortName(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingShortName(Predicate<String> predicate);
 
-  public A withShortNames(java.util.List<java.lang.String> shortNames);
+  public A withShortNames(List<String> shortNames);
 
   public A withShortNames(java.lang.String... shortNames);
 
-  public java.lang.Boolean hasShortNames();
+  public Boolean hasShortNames();
 
-  public java.lang.String getSingular();
+  public String getSingular();
 
-  public A withSingular(java.lang.String singular);
+  public A withSingular(String singular);
 
-  public java.lang.Boolean hasSingular();
+  public Boolean hasSingular();
 }

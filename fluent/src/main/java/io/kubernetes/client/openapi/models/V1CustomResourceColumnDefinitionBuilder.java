@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1CustomResourceColumnDefinitionBuilder
     extends V1CustomResourceColumnDefinitionFluentImpl<V1CustomResourceColumnDefinitionBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition,
-        io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionBuilder> {
+        V1CustomResourceColumnDefinition, V1CustomResourceColumnDefinitionBuilder> {
   public V1CustomResourceColumnDefinitionBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V1CustomResourceColumnDefinitionBuilder
   }
 
   public V1CustomResourceColumnDefinitionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceColumnDefinitionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CustomResourceColumnDefinition(), validationEnabled);
   }
 
   public V1CustomResourceColumnDefinitionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition instance) {
+      V1CustomResourceColumnDefinitionFluent<?> fluent, V1CustomResourceColumnDefinition instance) {
     this(fluent, instance, false);
   }
 
   public V1CustomResourceColumnDefinitionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceColumnDefinitionFluent<?> fluent,
+      V1CustomResourceColumnDefinition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withDescription(instance.getDescription());
 
@@ -63,14 +60,12 @@ public class V1CustomResourceColumnDefinitionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CustomResourceColumnDefinitionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition instance) {
+  public V1CustomResourceColumnDefinitionBuilder(V1CustomResourceColumnDefinition instance) {
     this(instance, false);
   }
 
   public V1CustomResourceColumnDefinitionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceColumnDefinition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withDescription(instance.getDescription());
 
@@ -87,10 +82,10 @@ public class V1CustomResourceColumnDefinitionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinitionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CustomResourceColumnDefinitionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition build() {
+  public V1CustomResourceColumnDefinition build() {
     V1CustomResourceColumnDefinition buildable = new V1CustomResourceColumnDefinition();
     buildable.setDescription(fluent.getDescription());
     buildable.setFormat(fluent.getFormat());

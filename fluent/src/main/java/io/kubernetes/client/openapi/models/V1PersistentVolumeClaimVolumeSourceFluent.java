@@ -20,15 +20,15 @@ public interface V1PersistentVolumeClaimVolumeSourceFluent<
     extends Fluent<A> {
   public String getClaimName();
 
-  public A withClaimName(java.lang.String claimName);
+  public A withClaimName(String claimName);
 
   public Boolean hasClaimName();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   public A withReadOnly();
 }

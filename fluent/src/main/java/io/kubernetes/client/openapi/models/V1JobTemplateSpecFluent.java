@@ -26,51 +26,45 @@ public interface V1JobTemplateSpecFluent<A extends V1JobTemplateSpecFluent<A>> e
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
   public Boolean hasMetadata();
 
   public V1JobTemplateSpecFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1JobTemplateSpecFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent.MetadataNested<A>
-      editMetadata();
+  public V1JobTemplateSpecFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1JobTemplateSpecFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1JobTemplateSpecFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildSpec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1JobSpec getSpec();
 
-  public io.kubernetes.client.openapi.models.V1JobSpec buildSpec();
+  public V1JobSpec buildSpec();
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1JobSpec spec);
+  public A withSpec(V1JobSpec spec);
 
-  public java.lang.Boolean hasSpec();
+  public Boolean hasSpec();
 
   public V1JobTemplateSpecFluent.SpecNested<A> withNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent.SpecNested<A> withNewSpecLike(
-      io.kubernetes.client.openapi.models.V1JobSpec item);
+  public V1JobTemplateSpecFluent.SpecNested<A> withNewSpecLike(V1JobSpec item);
 
-  public io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent.SpecNested<A> editSpec();
+  public V1JobTemplateSpecFluent.SpecNested<A> editSpec();
 
-  public io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent.SpecNested<A> editOrNewSpec();
+  public V1JobTemplateSpecFluent.SpecNested<A> editOrNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent.SpecNested<A>
-      editOrNewSpecLike(io.kubernetes.client.openapi.models.V1JobSpec item);
+  public V1JobTemplateSpecFluent.SpecNested<A> editOrNewSpecLike(V1JobSpec item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1JobTemplateSpecFluent.MetadataNested<N>> {
@@ -80,8 +74,7 @@ public interface V1JobTemplateSpecFluent<A extends V1JobTemplateSpecFluent<A>> e
   }
 
   public interface SpecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1JobSpecFluent<V1JobTemplateSpecFluent.SpecNested<N>> {
+      extends Nested<N>, V1JobSpecFluent<V1JobTemplateSpecFluent.SpecNested<N>> {
     public N and();
 
     public N endSpec();

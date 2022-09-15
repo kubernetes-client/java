@@ -20,8 +20,7 @@ public class V1GitRepoVolumeSourceFluentImpl<A extends V1GitRepoVolumeSourceFlue
     extends BaseFluent<A> implements V1GitRepoVolumeSourceFluent<A> {
   public V1GitRepoVolumeSourceFluentImpl() {}
 
-  public V1GitRepoVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1GitRepoVolumeSource instance) {
+  public V1GitRepoVolumeSourceFluentImpl(V1GitRepoVolumeSource instance) {
     this.withDirectory(instance.getDirectory());
 
     this.withRepository(instance.getRepository());
@@ -30,14 +29,14 @@ public class V1GitRepoVolumeSourceFluentImpl<A extends V1GitRepoVolumeSourceFlue
   }
 
   private String directory;
-  private java.lang.String repository;
-  private java.lang.String revision;
+  private String repository;
+  private String revision;
 
-  public java.lang.String getDirectory() {
+  public String getDirectory() {
     return this.directory;
   }
 
-  public A withDirectory(java.lang.String directory) {
+  public A withDirectory(String directory) {
     this.directory = directory;
     return (A) this;
   }
@@ -46,29 +45,29 @@ public class V1GitRepoVolumeSourceFluentImpl<A extends V1GitRepoVolumeSourceFlue
     return this.directory != null;
   }
 
-  public java.lang.String getRepository() {
+  public String getRepository() {
     return this.repository;
   }
 
-  public A withRepository(java.lang.String repository) {
+  public A withRepository(String repository) {
     this.repository = repository;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRepository() {
+  public Boolean hasRepository() {
     return this.repository != null;
   }
 
-  public java.lang.String getRevision() {
+  public String getRevision() {
     return this.revision;
   }
 
-  public A withRevision(java.lang.String revision) {
+  public A withRevision(String revision) {
     this.revision = revision;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRevision() {
+  public Boolean hasRevision() {
     return this.revision != null;
   }
 
@@ -88,7 +87,7 @@ public class V1GitRepoVolumeSourceFluentImpl<A extends V1GitRepoVolumeSourceFlue
     return java.util.Objects.hash(directory, repository, revision, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (directory != null) {

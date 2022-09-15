@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1EndpointConditionsBuilder
     extends V1EndpointConditionsFluentImpl<V1EndpointConditionsBuilder>
-    implements VisitableBuilder<
-        V1EndpointConditions, io.kubernetes.client.openapi.models.V1EndpointConditionsBuilder> {
+    implements VisitableBuilder<V1EndpointConditions, V1EndpointConditionsBuilder> {
   public V1EndpointConditionsBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1EndpointConditionsBuilder
   }
 
   public V1EndpointConditionsBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointConditionsFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1EndpointConditionsFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1EndpointConditions(), validationEnabled);
   }
 
   public V1EndpointConditionsBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointConditionsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EndpointConditions instance) {
+      V1EndpointConditionsFluent<?> fluent, V1EndpointConditions instance) {
     this(fluent, instance, false);
   }
 
   public V1EndpointConditionsBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointConditionsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EndpointConditions instance,
-      java.lang.Boolean validationEnabled) {
+      V1EndpointConditionsFluent<?> fluent,
+      V1EndpointConditions instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withReady(instance.getReady());
 
@@ -56,14 +53,11 @@ public class V1EndpointConditionsBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1EndpointConditionsBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointConditions instance) {
+  public V1EndpointConditionsBuilder(V1EndpointConditions instance) {
     this(instance, false);
   }
 
-  public V1EndpointConditionsBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointConditions instance,
-      java.lang.Boolean validationEnabled) {
+  public V1EndpointConditionsBuilder(V1EndpointConditions instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withReady(instance.getReady());
 
@@ -74,10 +68,10 @@ public class V1EndpointConditionsBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1EndpointConditionsFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1EndpointConditionsFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1EndpointConditions build() {
+  public V1EndpointConditions build() {
     V1EndpointConditions buildable = new V1EndpointConditions();
     buildable.setReady(fluent.getReady());
     buildable.setServing(fluent.getServing());

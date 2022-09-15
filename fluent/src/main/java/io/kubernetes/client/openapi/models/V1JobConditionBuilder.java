@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1JobConditionBuilder extends V1JobConditionFluentImpl<V1JobConditionBuilder>
-    implements VisitableBuilder<
-        V1JobCondition, io.kubernetes.client.openapi.models.V1JobConditionBuilder> {
+    implements VisitableBuilder<V1JobCondition, V1JobConditionBuilder> {
   public V1JobConditionBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1JobConditionBuilder extends V1JobConditionFluentImpl<V1JobConditi
     this(fluent, false);
   }
 
-  public V1JobConditionBuilder(
-      io.kubernetes.client.openapi.models.V1JobConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1JobConditionBuilder(V1JobConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1JobCondition(), validationEnabled);
   }
 
-  public V1JobConditionBuilder(
-      io.kubernetes.client.openapi.models.V1JobConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1JobCondition instance) {
+  public V1JobConditionBuilder(V1JobConditionFluent<?> fluent, V1JobCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1JobConditionBuilder(
-      io.kubernetes.client.openapi.models.V1JobConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1JobCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1JobConditionFluent<?> fluent, V1JobCondition instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastProbeTime(instance.getLastProbeTime());
 
@@ -61,13 +54,11 @@ public class V1JobConditionBuilder extends V1JobConditionFluentImpl<V1JobConditi
     this.validationEnabled = validationEnabled;
   }
 
-  public V1JobConditionBuilder(io.kubernetes.client.openapi.models.V1JobCondition instance) {
+  public V1JobConditionBuilder(V1JobCondition instance) {
     this(instance, false);
   }
 
-  public V1JobConditionBuilder(
-      io.kubernetes.client.openapi.models.V1JobCondition instance,
-      java.lang.Boolean validationEnabled) {
+  public V1JobConditionBuilder(V1JobCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastProbeTime(instance.getLastProbeTime());
 
@@ -84,10 +75,10 @@ public class V1JobConditionBuilder extends V1JobConditionFluentImpl<V1JobConditi
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1JobConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1JobConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1JobCondition build() {
+  public V1JobCondition build() {
     V1JobCondition buildable = new V1JobCondition();
     buildable.setLastProbeTime(fluent.getLastProbeTime());
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());

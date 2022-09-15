@@ -23,23 +23,21 @@ public interface V1PersistentVolumeListFluent<A extends V1PersistentVolumeListFl
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1PersistentVolume item);
+  public A addToItems(Integer index, V1PersistentVolume item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PersistentVolume item);
+  public A setToItems(Integer index, V1PersistentVolume item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1PersistentVolume... items);
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1PersistentVolume> items);
+  public A addAllToItems(Collection<V1PersistentVolume> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1PersistentVolume... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PersistentVolume> items);
+  public A removeAllFromItems(Collection<V1PersistentVolume> items);
 
   public A removeMatchingFromItems(Predicate<V1PersistentVolumeBuilder> predicate);
 
@@ -49,87 +47,71 @@ public interface V1PersistentVolumeListFluent<A extends V1PersistentVolumeListFl
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1PersistentVolume> getItems();
+  public List<V1PersistentVolume> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolume> buildItems();
+  public List<V1PersistentVolume> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolume buildItem(java.lang.Integer index);
+  public V1PersistentVolume buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolume buildFirstItem();
+  public V1PersistentVolume buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolume buildLastItem();
+  public V1PersistentVolume buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolume buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder>
-          predicate);
+  public V1PersistentVolume buildMatchingItem(Predicate<V1PersistentVolumeBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1PersistentVolumeBuilder> predicate);
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1PersistentVolume> items);
+  public A withItems(List<V1PersistentVolume> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1PersistentVolume... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1PersistentVolumeListFluent.ItemsNested<A> addNewItem();
 
-  public V1PersistentVolumeListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1PersistentVolume item);
+  public V1PersistentVolumeListFluent.ItemsNested<A> addNewItemLike(V1PersistentVolume item);
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1PersistentVolume item);
+  public V1PersistentVolumeListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1PersistentVolume item);
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1PersistentVolumeListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A>
-      editFirstItem();
+  public V1PersistentVolumeListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A>
-      editLastItem();
+  public V1PersistentVolumeListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1PersistentVolumeBuilder>
-              predicate);
+  public V1PersistentVolumeListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1PersistentVolumeBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1PersistentVolumeListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1PersistentVolumeListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.MetadataNested<A>
-      editMetadata();
+  public V1PersistentVolumeListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1PersistentVolumeListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1PersistentVolumeListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>, V1PersistentVolumeFluent<V1PersistentVolumeListFluent.ItemsNested<N>> {
@@ -139,8 +121,7 @@ public interface V1PersistentVolumeListFluent<A extends V1PersistentVolumeListFl
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1PersistentVolumeListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1PersistentVolumeListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

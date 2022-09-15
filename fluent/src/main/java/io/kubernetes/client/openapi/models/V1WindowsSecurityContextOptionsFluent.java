@@ -20,27 +20,27 @@ public interface V1WindowsSecurityContextOptionsFluent<
     extends Fluent<A> {
   public String getGmsaCredentialSpec();
 
-  public A withGmsaCredentialSpec(java.lang.String gmsaCredentialSpec);
+  public A withGmsaCredentialSpec(String gmsaCredentialSpec);
 
   public Boolean hasGmsaCredentialSpec();
 
-  public java.lang.String getGmsaCredentialSpecName();
+  public String getGmsaCredentialSpecName();
 
-  public A withGmsaCredentialSpecName(java.lang.String gmsaCredentialSpecName);
+  public A withGmsaCredentialSpecName(String gmsaCredentialSpecName);
 
-  public java.lang.Boolean hasGmsaCredentialSpecName();
+  public Boolean hasGmsaCredentialSpecName();
 
-  public java.lang.Boolean getHostProcess();
+  public Boolean getHostProcess();
 
-  public A withHostProcess(java.lang.Boolean hostProcess);
+  public A withHostProcess(Boolean hostProcess);
 
-  public java.lang.Boolean hasHostProcess();
+  public Boolean hasHostProcess();
 
-  public java.lang.String getRunAsUserName();
+  public String getRunAsUserName();
 
-  public A withRunAsUserName(java.lang.String runAsUserName);
+  public A withRunAsUserName(String runAsUserName);
 
-  public java.lang.Boolean hasRunAsUserName();
+  public Boolean hasRunAsUserName();
 
   public A withHostProcess();
 }

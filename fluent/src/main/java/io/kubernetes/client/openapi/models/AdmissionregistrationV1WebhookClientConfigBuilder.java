@@ -18,7 +18,7 @@ public class AdmissionregistrationV1WebhookClientConfigBuilder
     extends AdmissionregistrationV1WebhookClientConfigFluentImpl<
         AdmissionregistrationV1WebhookClientConfigBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig,
+        AdmissionregistrationV1WebhookClientConfig,
         AdmissionregistrationV1WebhookClientConfigBuilder> {
   public AdmissionregistrationV1WebhookClientConfigBuilder() {
     this(false);
@@ -29,30 +29,25 @@ public class AdmissionregistrationV1WebhookClientConfigBuilder
   }
 
   public AdmissionregistrationV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent<?>
-          fluent) {
+      AdmissionregistrationV1WebhookClientConfigFluent<?> fluent) {
     this(fluent, false);
   }
 
   public AdmissionregistrationV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent<?>
-          fluent,
-      java.lang.Boolean validationEnabled) {
+      AdmissionregistrationV1WebhookClientConfigFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new AdmissionregistrationV1WebhookClientConfig(), validationEnabled);
   }
 
   public AdmissionregistrationV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent<?>
-          fluent,
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig instance) {
+      AdmissionregistrationV1WebhookClientConfigFluent<?> fluent,
+      AdmissionregistrationV1WebhookClientConfig instance) {
     this(fluent, instance, false);
   }
 
   public AdmissionregistrationV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent<?>
-          fluent,
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig instance,
-      java.lang.Boolean validationEnabled) {
+      AdmissionregistrationV1WebhookClientConfigFluent<?> fluent,
+      AdmissionregistrationV1WebhookClientConfig instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCaBundle(instance.getCaBundle());
 
@@ -64,13 +59,12 @@ public class AdmissionregistrationV1WebhookClientConfigBuilder
   }
 
   public AdmissionregistrationV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig instance) {
+      AdmissionregistrationV1WebhookClientConfig instance) {
     this(instance, false);
   }
 
   public AdmissionregistrationV1WebhookClientConfigBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig instance,
-      java.lang.Boolean validationEnabled) {
+      AdmissionregistrationV1WebhookClientConfig instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCaBundle(instance.getCaBundle());
 
@@ -81,10 +75,10 @@ public class AdmissionregistrationV1WebhookClientConfigBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfigFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  AdmissionregistrationV1WebhookClientConfigFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.AdmissionregistrationV1WebhookClientConfig build() {
+  public AdmissionregistrationV1WebhookClientConfig build() {
     AdmissionregistrationV1WebhookClientConfig buildable =
         new AdmissionregistrationV1WebhookClientConfig();
     buildable.setCaBundle(fluent.getCaBundle());

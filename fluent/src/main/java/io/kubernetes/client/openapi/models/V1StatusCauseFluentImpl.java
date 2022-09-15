@@ -20,7 +20,7 @@ public class V1StatusCauseFluentImpl<A extends V1StatusCauseFluent<A>> extends B
     implements V1StatusCauseFluent<A> {
   public V1StatusCauseFluentImpl() {}
 
-  public V1StatusCauseFluentImpl(io.kubernetes.client.openapi.models.V1StatusCause instance) {
+  public V1StatusCauseFluentImpl(V1StatusCause instance) {
     this.withField(instance.getField());
 
     this.withMessage(instance.getMessage());
@@ -29,14 +29,14 @@ public class V1StatusCauseFluentImpl<A extends V1StatusCauseFluent<A>> extends B
   }
 
   private String field;
-  private java.lang.String message;
-  private java.lang.String reason;
+  private String message;
+  private String reason;
 
-  public java.lang.String getField() {
+  public String getField() {
     return this.field;
   }
 
-  public A withField(java.lang.String field) {
+  public A withField(String field) {
     this.field = field;
     return (A) this;
   }
@@ -45,29 +45,29 @@ public class V1StatusCauseFluentImpl<A extends V1StatusCauseFluent<A>> extends B
     return this.field != null;
   }
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMessage() {
+  public Boolean hasMessage() {
     return this.message != null;
   }
 
-  public java.lang.String getReason() {
+  public String getReason() {
     return this.reason;
   }
 
-  public A withReason(java.lang.String reason) {
+  public A withReason(String reason) {
     this.reason = reason;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReason() {
+  public Boolean hasReason() {
     return this.reason != null;
   }
 
@@ -85,7 +85,7 @@ public class V1StatusCauseFluentImpl<A extends V1StatusCauseFluent<A>> extends B
     return java.util.Objects.hash(field, message, reason, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (field != null) {

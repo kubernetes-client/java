@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SelfSubjectAccessReviewBuilder
     extends V1SelfSubjectAccessReviewFluentImpl<V1SelfSubjectAccessReviewBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1SelfSubjectAccessReview,
-        V1SelfSubjectAccessReviewBuilder> {
+    implements VisitableBuilder<V1SelfSubjectAccessReview, V1SelfSubjectAccessReviewBuilder> {
   public V1SelfSubjectAccessReviewBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1SelfSubjectAccessReviewBuilder
   }
 
   public V1SelfSubjectAccessReviewBuilder(
-      io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1SelfSubjectAccessReviewFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1SelfSubjectAccessReview(), validationEnabled);
   }
 
   public V1SelfSubjectAccessReviewBuilder(
-      io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SelfSubjectAccessReview instance) {
+      V1SelfSubjectAccessReviewFluent<?> fluent, V1SelfSubjectAccessReview instance) {
     this(fluent, instance, false);
   }
 
   public V1SelfSubjectAccessReviewBuilder(
-      io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SelfSubjectAccessReview instance,
-      java.lang.Boolean validationEnabled) {
+      V1SelfSubjectAccessReviewFluent<?> fluent,
+      V1SelfSubjectAccessReview instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -61,14 +57,12 @@ public class V1SelfSubjectAccessReviewBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SelfSubjectAccessReviewBuilder(
-      io.kubernetes.client.openapi.models.V1SelfSubjectAccessReview instance) {
+  public V1SelfSubjectAccessReviewBuilder(V1SelfSubjectAccessReview instance) {
     this(instance, false);
   }
 
   public V1SelfSubjectAccessReviewBuilder(
-      io.kubernetes.client.openapi.models.V1SelfSubjectAccessReview instance,
-      java.lang.Boolean validationEnabled) {
+      V1SelfSubjectAccessReview instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -83,10 +77,10 @@ public class V1SelfSubjectAccessReviewBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SelfSubjectAccessReviewFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SelfSubjectAccessReviewFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1SelfSubjectAccessReview build() {
+  public V1SelfSubjectAccessReview build() {
     V1SelfSubjectAccessReview buildable = new V1SelfSubjectAccessReview();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

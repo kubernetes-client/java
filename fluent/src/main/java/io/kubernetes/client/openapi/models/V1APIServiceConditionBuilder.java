@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1APIServiceConditionBuilder
     extends V1APIServiceConditionFluentImpl<V1APIServiceConditionBuilder>
-    implements VisitableBuilder<
-        V1APIServiceCondition, io.kubernetes.client.openapi.models.V1APIServiceConditionBuilder> {
+    implements VisitableBuilder<V1APIServiceCondition, V1APIServiceConditionBuilder> {
   public V1APIServiceConditionBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V1APIServiceConditionBuilder
     this(new V1APIServiceCondition(), validationEnabled);
   }
 
-  public V1APIServiceConditionBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceConditionFluent<?> fluent) {
+  public V1APIServiceConditionBuilder(V1APIServiceConditionFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1APIServiceConditionBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1APIServiceConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1APIServiceCondition(), validationEnabled);
   }
 
   public V1APIServiceConditionBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1APIServiceCondition instance) {
+      V1APIServiceConditionFluent<?> fluent, V1APIServiceCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1APIServiceConditionBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1APIServiceCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1APIServiceConditionFluent<?> fluent,
+      V1APIServiceCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -61,14 +57,11 @@ public class V1APIServiceConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1APIServiceConditionBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceCondition instance) {
+  public V1APIServiceConditionBuilder(V1APIServiceCondition instance) {
     this(instance, false);
   }
 
-  public V1APIServiceConditionBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceCondition instance,
-      java.lang.Boolean validationEnabled) {
+  public V1APIServiceConditionBuilder(V1APIServiceCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -83,10 +76,10 @@ public class V1APIServiceConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1APIServiceConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1APIServiceConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1APIServiceCondition build() {
+  public V1APIServiceCondition build() {
     V1APIServiceCondition buildable = new V1APIServiceCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setMessage(fluent.getMessage());

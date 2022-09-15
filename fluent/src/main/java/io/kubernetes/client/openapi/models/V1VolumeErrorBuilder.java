@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1VolumeErrorBuilder extends V1VolumeErrorFluentImpl<V1VolumeErrorBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1VolumeError, V1VolumeErrorBuilder> {
+    implements VisitableBuilder<V1VolumeError, V1VolumeErrorBuilder> {
   public V1VolumeErrorBuilder() {
     this(false);
   }
@@ -25,26 +24,20 @@ public class V1VolumeErrorBuilder extends V1VolumeErrorFluentImpl<V1VolumeErrorB
     this(new V1VolumeError(), validationEnabled);
   }
 
-  public V1VolumeErrorBuilder(io.kubernetes.client.openapi.models.V1VolumeErrorFluent<?> fluent) {
+  public V1VolumeErrorBuilder(V1VolumeErrorFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1VolumeErrorBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeErrorFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeErrorBuilder(V1VolumeErrorFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1VolumeError(), validationEnabled);
   }
 
-  public V1VolumeErrorBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeErrorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeError instance) {
+  public V1VolumeErrorBuilder(V1VolumeErrorFluent<?> fluent, V1VolumeError instance) {
     this(fluent, instance, false);
   }
 
   public V1VolumeErrorBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeErrorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeError instance,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeErrorFluent<?> fluent, V1VolumeError instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMessage(instance.getMessage());
 
@@ -53,13 +46,11 @@ public class V1VolumeErrorBuilder extends V1VolumeErrorFluentImpl<V1VolumeErrorB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1VolumeErrorBuilder(io.kubernetes.client.openapi.models.V1VolumeError instance) {
+  public V1VolumeErrorBuilder(V1VolumeError instance) {
     this(instance, false);
   }
 
-  public V1VolumeErrorBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeError instance,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeErrorBuilder(V1VolumeError instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMessage(instance.getMessage());
 
@@ -68,10 +59,10 @@ public class V1VolumeErrorBuilder extends V1VolumeErrorFluentImpl<V1VolumeErrorB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1VolumeErrorFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1VolumeErrorFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1VolumeError build() {
+  public V1VolumeError build() {
     V1VolumeError buildable = new V1VolumeError();
     buildable.setMessage(fluent.getMessage());
     buildable.setTime(fluent.getTime());

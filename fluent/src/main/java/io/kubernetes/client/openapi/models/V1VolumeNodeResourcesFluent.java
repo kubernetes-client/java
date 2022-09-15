@@ -19,7 +19,7 @@ public interface V1VolumeNodeResourcesFluent<A extends V1VolumeNodeResourcesFlue
     extends Fluent<A> {
   public Integer getCount();
 
-  public A withCount(java.lang.Integer count);
+  public A withCount(Integer count);
 
   public Boolean hasCount();
 }

@@ -20,15 +20,15 @@ public interface V1EmptyDirVolumeSourceFluent<A extends V1EmptyDirVolumeSourceFl
     extends Fluent<A> {
   public String getMedium();
 
-  public A withMedium(java.lang.String medium);
+  public A withMedium(String medium);
 
   public Boolean hasMedium();
 
   public Quantity getSizeLimit();
 
-  public A withSizeLimit(io.kubernetes.client.custom.Quantity sizeLimit);
+  public A withSizeLimit(Quantity sizeLimit);
 
-  public java.lang.Boolean hasSizeLimit();
+  public Boolean hasSizeLimit();
 
-  public A withNewSizeLimit(java.lang.String value);
+  public A withNewSizeLimit(String value);
 }

@@ -27,31 +27,29 @@ public interface V2beta2ResourceMetricStatusFluent<A extends V2beta2ResourceMetr
   @Deprecated
   public V2beta2MetricValueStatus getCurrent();
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus buildCurrent();
+  public V2beta2MetricValueStatus buildCurrent();
 
-  public A withCurrent(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus current);
+  public A withCurrent(V2beta2MetricValueStatus current);
 
   public Boolean hasCurrent();
 
   public V2beta2ResourceMetricStatusFluent.CurrentNested<A> withNewCurrent();
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatusFluent.CurrentNested<A>
-      withNewCurrentLike(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus item);
+  public V2beta2ResourceMetricStatusFluent.CurrentNested<A> withNewCurrentLike(
+      V2beta2MetricValueStatus item);
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatusFluent.CurrentNested<A>
-      editCurrent();
+  public V2beta2ResourceMetricStatusFluent.CurrentNested<A> editCurrent();
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatusFluent.CurrentNested<A>
-      editOrNewCurrent();
+  public V2beta2ResourceMetricStatusFluent.CurrentNested<A> editOrNewCurrent();
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatusFluent.CurrentNested<A>
-      editOrNewCurrentLike(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus item);
+  public V2beta2ResourceMetricStatusFluent.CurrentNested<A> editOrNewCurrentLike(
+      V2beta2MetricValueStatus item);
 
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
   public interface CurrentNested<N>
       extends Nested<N>,

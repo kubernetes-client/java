@@ -23,7 +23,7 @@ public class V2beta2HorizontalPodAutoscalerBehaviorFluentImpl<
   public V2beta2HorizontalPodAutoscalerBehaviorFluentImpl() {}
 
   public V2beta2HorizontalPodAutoscalerBehaviorFluentImpl(
-      io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehavior instance) {
+      V2beta2HorizontalPodAutoscalerBehavior instance) {
     this.withScaleDown(instance.getScaleDown());
 
     this.withScaleUp(instance.getScaleUp());
@@ -38,20 +38,22 @@ public class V2beta2HorizontalPodAutoscalerBehaviorFluentImpl<
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V2beta2HPAScalingRules getScaleDown() {
+  public V2beta2HPAScalingRules getScaleDown() {
     return this.scaleDown != null ? this.scaleDown.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HPAScalingRules buildScaleDown() {
+  public V2beta2HPAScalingRules buildScaleDown() {
     return this.scaleDown != null ? this.scaleDown.build() : null;
   }
 
-  public A withScaleDown(io.kubernetes.client.openapi.models.V2beta2HPAScalingRules scaleDown) {
+  public A withScaleDown(V2beta2HPAScalingRules scaleDown) {
     _visitables.get("scaleDown").remove(this.scaleDown);
     if (scaleDown != null) {
-      this.scaleDown =
-          new io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesBuilder(scaleDown);
+      this.scaleDown = new V2beta2HPAScalingRulesBuilder(scaleDown);
       _visitables.get("scaleDown").add(this.scaleDown);
+    } else {
+      this.scaleDown = null;
+      _visitables.get("scaleDown").remove(this.scaleDown);
     }
     return (A) this;
   }
@@ -64,34 +66,22 @@ public class V2beta2HorizontalPodAutoscalerBehaviorFluentImpl<
     return new V2beta2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluent
-              .ScaleDownNested<
-          A>
-      withNewScaleDownLike(io.kubernetes.client.openapi.models.V2beta2HPAScalingRules item) {
+  public V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<A> withNewScaleDownLike(
+      V2beta2HPAScalingRules item) {
     return new V2beta2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluent
-              .ScaleDownNested<
-          A>
-      editScaleDown() {
+  public V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<A> editScaleDown() {
     return withNewScaleDownLike(getScaleDown());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluent
-              .ScaleDownNested<
-          A>
-      editOrNewScaleDown() {
+  public V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<A> editOrNewScaleDown() {
     return withNewScaleDownLike(
-        getScaleDown() != null
-            ? getScaleDown()
-            : new io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesBuilder().build());
+        getScaleDown() != null ? getScaleDown() : new V2beta2HPAScalingRulesBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluent
-              .ScaleDownNested<
-          A>
-      editOrNewScaleDownLike(io.kubernetes.client.openapi.models.V2beta2HPAScalingRules item) {
+  public V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<A> editOrNewScaleDownLike(
+      V2beta2HPAScalingRules item) {
     return withNewScaleDownLike(getScaleDown() != null ? getScaleDown() : item);
   }
 
@@ -100,25 +90,28 @@ public class V2beta2HorizontalPodAutoscalerBehaviorFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V2beta2HPAScalingRules getScaleUp() {
+  @Deprecated
+  public V2beta2HPAScalingRules getScaleUp() {
     return this.scaleUp != null ? this.scaleUp.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HPAScalingRules buildScaleUp() {
+  public V2beta2HPAScalingRules buildScaleUp() {
     return this.scaleUp != null ? this.scaleUp.build() : null;
   }
 
-  public A withScaleUp(io.kubernetes.client.openapi.models.V2beta2HPAScalingRules scaleUp) {
+  public A withScaleUp(V2beta2HPAScalingRules scaleUp) {
     _visitables.get("scaleUp").remove(this.scaleUp);
     if (scaleUp != null) {
-      this.scaleUp = new io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesBuilder(scaleUp);
+      this.scaleUp = new V2beta2HPAScalingRulesBuilder(scaleUp);
       _visitables.get("scaleUp").add(this.scaleUp);
+    } else {
+      this.scaleUp = null;
+      _visitables.get("scaleUp").remove(this.scaleUp);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasScaleUp() {
+  public Boolean hasScaleUp() {
     return this.scaleUp != null;
   }
 
@@ -126,35 +119,22 @@ public class V2beta2HorizontalPodAutoscalerBehaviorFluentImpl<
     return new V2beta2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluent
-              .ScaleUpNested<
-          A>
-      withNewScaleUpLike(io.kubernetes.client.openapi.models.V2beta2HPAScalingRules item) {
-    return new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluentImpl
-        .ScaleUpNestedImpl(item);
+  public V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<A> withNewScaleUpLike(
+      V2beta2HPAScalingRules item) {
+    return new V2beta2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluent
-              .ScaleUpNested<
-          A>
-      editScaleUp() {
+  public V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<A> editScaleUp() {
     return withNewScaleUpLike(getScaleUp());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluent
-              .ScaleUpNested<
-          A>
-      editOrNewScaleUp() {
+  public V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<A> editOrNewScaleUp() {
     return withNewScaleUpLike(
-        getScaleUp() != null
-            ? getScaleUp()
-            : new io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesBuilder().build());
+        getScaleUp() != null ? getScaleUp() : new V2beta2HPAScalingRulesBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluent
-              .ScaleUpNested<
-          A>
-      editOrNewScaleUpLike(io.kubernetes.client.openapi.models.V2beta2HPAScalingRules item) {
+  public V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<A> editOrNewScaleUpLike(
+      V2beta2HPAScalingRules item) {
     return withNewScaleUpLike(getScaleUp() != null ? getScaleUp() : item);
   }
 
@@ -191,19 +171,16 @@ public class V2beta2HorizontalPodAutoscalerBehaviorFluentImpl<
   class ScaleDownNestedImpl<N>
       extends V2beta2HPAScalingRulesFluentImpl<
           V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<N>>
-      implements io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluent
-                  .ScaleDownNested<
-              N>,
-          Nested<N> {
+      implements V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<N>, Nested<N> {
     ScaleDownNestedImpl(V2beta2HPAScalingRules item) {
       this.builder = new V2beta2HPAScalingRulesBuilder(this, item);
     }
 
     ScaleDownNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesBuilder(this);
+      this.builder = new V2beta2HPAScalingRulesBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesBuilder builder;
+    V2beta2HPAScalingRulesBuilder builder;
 
     public N and() {
       return (N)
@@ -218,19 +195,16 @@ public class V2beta2HorizontalPodAutoscalerBehaviorFluentImpl<
   class ScaleUpNestedImpl<N>
       extends V2beta2HPAScalingRulesFluentImpl<
           V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<N>>
-      implements io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBehaviorFluent
-                  .ScaleUpNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V2beta2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<N>, Nested<N> {
     ScaleUpNestedImpl(V2beta2HPAScalingRules item) {
       this.builder = new V2beta2HPAScalingRulesBuilder(this, item);
     }
 
     ScaleUpNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesBuilder(this);
+      this.builder = new V2beta2HPAScalingRulesBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2beta2HPAScalingRulesBuilder builder;
+    V2beta2HPAScalingRulesBuilder builder;
 
     public N and() {
       return (N) V2beta2HorizontalPodAutoscalerBehaviorFluentImpl.this.withScaleUp(builder.build());

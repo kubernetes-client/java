@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LifecycleHandlerBuilder
     extends V1LifecycleHandlerFluentImpl<V1LifecycleHandlerBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1LifecycleHandler,
-        io.kubernetes.client.openapi.models.V1LifecycleHandlerBuilder> {
+    implements VisitableBuilder<V1LifecycleHandler, V1LifecycleHandlerBuilder> {
   public V1LifecycleHandlerBuilder() {
     this(false);
   }
@@ -31,22 +29,17 @@ public class V1LifecycleHandlerBuilder
     this(fluent, false);
   }
 
-  public V1LifecycleHandlerBuilder(
-      io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1LifecycleHandlerBuilder(V1LifecycleHandlerFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1LifecycleHandler(), validationEnabled);
   }
 
   public V1LifecycleHandlerBuilder(
-      io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LifecycleHandler instance) {
+      V1LifecycleHandlerFluent<?> fluent, V1LifecycleHandler instance) {
     this(fluent, instance, false);
   }
 
   public V1LifecycleHandlerBuilder(
-      io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LifecycleHandler instance,
-      java.lang.Boolean validationEnabled) {
+      V1LifecycleHandlerFluent<?> fluent, V1LifecycleHandler instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withExec(instance.getExec());
 
@@ -57,14 +50,11 @@ public class V1LifecycleHandlerBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LifecycleHandlerBuilder(
-      io.kubernetes.client.openapi.models.V1LifecycleHandler instance) {
+  public V1LifecycleHandlerBuilder(V1LifecycleHandler instance) {
     this(instance, false);
   }
 
-  public V1LifecycleHandlerBuilder(
-      io.kubernetes.client.openapi.models.V1LifecycleHandler instance,
-      java.lang.Boolean validationEnabled) {
+  public V1LifecycleHandlerBuilder(V1LifecycleHandler instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withExec(instance.getExec());
 
@@ -75,10 +65,10 @@ public class V1LifecycleHandlerBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LifecycleHandlerFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LifecycleHandlerFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1LifecycleHandler build() {
+  public V1LifecycleHandler build() {
     V1LifecycleHandler buildable = new V1LifecycleHandler();
     buildable.setExec(fluent.getExec());
     buildable.setHttpGet(fluent.getHttpGet());

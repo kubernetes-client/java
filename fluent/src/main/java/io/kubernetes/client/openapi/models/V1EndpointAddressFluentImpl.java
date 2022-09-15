@@ -21,8 +21,7 @@ public class V1EndpointAddressFluentImpl<A extends V1EndpointAddressFluent<A>> e
     implements V1EndpointAddressFluent<A> {
   public V1EndpointAddressFluentImpl() {}
 
-  public V1EndpointAddressFluentImpl(
-      io.kubernetes.client.openapi.models.V1EndpointAddress instance) {
+  public V1EndpointAddressFluentImpl(V1EndpointAddress instance) {
     this.withHostname(instance.getHostname());
 
     this.withIp(instance.getIp());
@@ -33,15 +32,15 @@ public class V1EndpointAddressFluentImpl<A extends V1EndpointAddressFluent<A>> e
   }
 
   private String hostname;
-  private java.lang.String ip;
-  private java.lang.String nodeName;
+  private String ip;
+  private String nodeName;
   private V1ObjectReferenceBuilder targetRef;
 
-  public java.lang.String getHostname() {
+  public String getHostname() {
     return this.hostname;
   }
 
-  public A withHostname(java.lang.String hostname) {
+  public A withHostname(String hostname) {
     this.hostname = hostname;
     return (A) this;
   }
@@ -50,29 +49,29 @@ public class V1EndpointAddressFluentImpl<A extends V1EndpointAddressFluent<A>> e
     return this.hostname != null;
   }
 
-  public java.lang.String getIp() {
+  public String getIp() {
     return this.ip;
   }
 
-  public A withIp(java.lang.String ip) {
+  public A withIp(String ip) {
     this.ip = ip;
     return (A) this;
   }
 
-  public java.lang.Boolean hasIp() {
+  public Boolean hasIp() {
     return this.ip != null;
   }
 
-  public java.lang.String getNodeName() {
+  public String getNodeName() {
     return this.nodeName;
   }
 
-  public A withNodeName(java.lang.String nodeName) {
+  public A withNodeName(String nodeName) {
     this.nodeName = nodeName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNodeName() {
+  public Boolean hasNodeName() {
     return this.nodeName != null;
   }
 
@@ -82,24 +81,27 @@ public class V1EndpointAddressFluentImpl<A extends V1EndpointAddressFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectReference getTargetRef() {
+  public V1ObjectReference getTargetRef() {
     return this.targetRef != null ? this.targetRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildTargetRef() {
+  public V1ObjectReference buildTargetRef() {
     return this.targetRef != null ? this.targetRef.build() : null;
   }
 
-  public A withTargetRef(io.kubernetes.client.openapi.models.V1ObjectReference targetRef) {
+  public A withTargetRef(V1ObjectReference targetRef) {
     _visitables.get("targetRef").remove(this.targetRef);
     if (targetRef != null) {
       this.targetRef = new V1ObjectReferenceBuilder(targetRef);
       _visitables.get("targetRef").add(this.targetRef);
+    } else {
+      this.targetRef = null;
+      _visitables.get("targetRef").remove(this.targetRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasTargetRef() {
+  public Boolean hasTargetRef() {
     return this.targetRef != null;
   }
 
@@ -107,26 +109,20 @@ public class V1EndpointAddressFluentImpl<A extends V1EndpointAddressFluent<A>> e
     return new V1EndpointAddressFluentImpl.TargetRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddressFluent.TargetRefNested<A>
-      withNewTargetRefLike(io.kubernetes.client.openapi.models.V1ObjectReference item) {
+  public V1EndpointAddressFluent.TargetRefNested<A> withNewTargetRefLike(V1ObjectReference item) {
     return new V1EndpointAddressFluentImpl.TargetRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddressFluent.TargetRefNested<A>
-      editTargetRef() {
+  public V1EndpointAddressFluent.TargetRefNested<A> editTargetRef() {
     return withNewTargetRefLike(getTargetRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddressFluent.TargetRefNested<A>
-      editOrNewTargetRef() {
+  public V1EndpointAddressFluent.TargetRefNested<A> editOrNewTargetRef() {
     return withNewTargetRefLike(
-        getTargetRef() != null
-            ? getTargetRef()
-            : new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder().build());
+        getTargetRef() != null ? getTargetRef() : new V1ObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddressFluent.TargetRefNested<A>
-      editOrNewTargetRefLike(io.kubernetes.client.openapi.models.V1ObjectReference item) {
+  public V1EndpointAddressFluent.TargetRefNested<A> editOrNewTargetRefLike(V1ObjectReference item) {
     return withNewTargetRefLike(getTargetRef() != null ? getTargetRef() : item);
   }
 
@@ -146,7 +142,7 @@ public class V1EndpointAddressFluentImpl<A extends V1EndpointAddressFluent<A>> e
     return java.util.Objects.hash(hostname, ip, nodeName, targetRef, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (hostname != null) {
@@ -171,17 +167,16 @@ public class V1EndpointAddressFluentImpl<A extends V1EndpointAddressFluent<A>> e
 
   class TargetRefNestedImpl<N>
       extends V1ObjectReferenceFluentImpl<V1EndpointAddressFluent.TargetRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EndpointAddressFluent.TargetRefNested<N>,
-          Nested<N> {
-    TargetRefNestedImpl(io.kubernetes.client.openapi.models.V1ObjectReference item) {
+      implements V1EndpointAddressFluent.TargetRefNested<N>, Nested<N> {
+    TargetRefNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }
 
     TargetRefNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(this);
+      this.builder = new V1ObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder;
+    V1ObjectReferenceBuilder builder;
 
     public N and() {
       return (N) V1EndpointAddressFluentImpl.this.withTargetRef(builder.build());

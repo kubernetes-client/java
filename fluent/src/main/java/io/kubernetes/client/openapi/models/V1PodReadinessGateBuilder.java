@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PodReadinessGateBuilder
     extends V1PodReadinessGateFluentImpl<V1PodReadinessGateBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PodReadinessGate, V1PodReadinessGateBuilder> {
+    implements VisitableBuilder<V1PodReadinessGate, V1PodReadinessGateBuilder> {
   public V1PodReadinessGateBuilder() {
     this(false);
   }
@@ -30,46 +29,38 @@ public class V1PodReadinessGateBuilder
     this(fluent, false);
   }
 
-  public V1PodReadinessGateBuilder(
-      io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1PodReadinessGateBuilder(V1PodReadinessGateFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PodReadinessGate(), validationEnabled);
   }
 
   public V1PodReadinessGateBuilder(
-      io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodReadinessGate instance) {
+      V1PodReadinessGateFluent<?> fluent, V1PodReadinessGate instance) {
     this(fluent, instance, false);
   }
 
   public V1PodReadinessGateBuilder(
-      io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodReadinessGate instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodReadinessGateFluent<?> fluent, V1PodReadinessGate instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withConditionType(instance.getConditionType());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PodReadinessGateBuilder(
-      io.kubernetes.client.openapi.models.V1PodReadinessGate instance) {
+  public V1PodReadinessGateBuilder(V1PodReadinessGate instance) {
     this(instance, false);
   }
 
-  public V1PodReadinessGateBuilder(
-      io.kubernetes.client.openapi.models.V1PodReadinessGate instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PodReadinessGateBuilder(V1PodReadinessGate instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withConditionType(instance.getConditionType());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PodReadinessGateFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PodReadinessGateFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PodReadinessGate build() {
+  public V1PodReadinessGate build() {
     V1PodReadinessGate buildable = new V1PodReadinessGate();
     buildable.setConditionType(fluent.getConditionType());
     return buildable;

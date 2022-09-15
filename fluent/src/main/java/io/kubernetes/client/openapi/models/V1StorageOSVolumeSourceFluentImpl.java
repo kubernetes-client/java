@@ -21,8 +21,7 @@ public class V1StorageOSVolumeSourceFluentImpl<A extends V1StorageOSVolumeSource
     extends BaseFluent<A> implements V1StorageOSVolumeSourceFluent<A> {
   public V1StorageOSVolumeSourceFluentImpl() {}
 
-  public V1StorageOSVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1StorageOSVolumeSource instance) {
+  public V1StorageOSVolumeSourceFluentImpl(V1StorageOSVolumeSource instance) {
     this.withFsType(instance.getFsType());
 
     this.withReadOnly(instance.getReadOnly());
@@ -37,32 +36,32 @@ public class V1StorageOSVolumeSourceFluentImpl<A extends V1StorageOSVolumeSource
   private String fsType;
   private Boolean readOnly;
   private V1LocalObjectReferenceBuilder secretRef;
-  private java.lang.String volumeName;
-  private java.lang.String volumeNamespace;
+  private String volumeName;
+  private String volumeNamespace;
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsType() {
+  public Boolean hasFsType() {
     return this.fsType != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
@@ -76,21 +75,23 @@ public class V1StorageOSVolumeSourceFluentImpl<A extends V1StorageOSVolumeSource
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef() {
+  public V1LocalObjectReference buildSecretRef() {
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef) {
+  public A withSecretRef(V1LocalObjectReference secretRef) {
     _visitables.get("secretRef").remove(this.secretRef);
     if (secretRef != null) {
-      this.secretRef =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(secretRef);
+      this.secretRef = new V1LocalObjectReferenceBuilder(secretRef);
       _visitables.get("secretRef").add(this.secretRef);
+    } else {
+      this.secretRef = null;
+      _visitables.get("secretRef").remove(this.secretRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecretRef() {
+  public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
 
@@ -98,52 +99,48 @@ public class V1StorageOSVolumeSourceFluentImpl<A extends V1StorageOSVolumeSource
     return new V1StorageOSVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1StorageOSVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+  public V1StorageOSVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1LocalObjectReference item) {
     return new V1StorageOSVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StorageOSVolumeSourceFluent.SecretRefNested<A>
-      editSecretRef() {
+  public V1StorageOSVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1StorageOSVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef() {
+  public V1StorageOSVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(
-        getSecretRef() != null
-            ? getSecretRef()
-            : new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder().build());
+        getSecretRef() != null ? getSecretRef() : new V1LocalObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1StorageOSVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+  public V1StorageOSVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1LocalObjectReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef() : item);
   }
 
-  public java.lang.String getVolumeName() {
+  public String getVolumeName() {
     return this.volumeName;
   }
 
-  public A withVolumeName(java.lang.String volumeName) {
+  public A withVolumeName(String volumeName) {
     this.volumeName = volumeName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVolumeName() {
+  public Boolean hasVolumeName() {
     return this.volumeName != null;
   }
 
-  public java.lang.String getVolumeNamespace() {
+  public String getVolumeNamespace() {
     return this.volumeNamespace;
   }
 
-  public A withVolumeNamespace(java.lang.String volumeNamespace) {
+  public A withVolumeNamespace(String volumeNamespace) {
     this.volumeNamespace = volumeNamespace;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVolumeNamespace() {
+  public Boolean hasVolumeNamespace() {
     return this.volumeNamespace != null;
   }
 
@@ -168,7 +165,7 @@ public class V1StorageOSVolumeSourceFluentImpl<A extends V1StorageOSVolumeSource
         fsType, readOnly, secretRef, volumeName, volumeNamespace, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fsType != null) {
@@ -201,18 +198,16 @@ public class V1StorageOSVolumeSourceFluentImpl<A extends V1StorageOSVolumeSource
 
   class SecretRefNestedImpl<N>
       extends V1LocalObjectReferenceFluentImpl<V1StorageOSVolumeSourceFluent.SecretRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1StorageOSVolumeSourceFluent.SecretRefNested<
-              N>,
-          Nested<N> {
+      implements V1StorageOSVolumeSourceFluent.SecretRefNested<N>, Nested<N> {
     SecretRefNestedImpl(V1LocalObjectReference item) {
       this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }
 
     SecretRefNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(this);
+      this.builder = new V1LocalObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder;
+    V1LocalObjectReferenceBuilder builder;
 
     public N and() {
       return (N) V1StorageOSVolumeSourceFluentImpl.this.withSecretRef(builder.build());

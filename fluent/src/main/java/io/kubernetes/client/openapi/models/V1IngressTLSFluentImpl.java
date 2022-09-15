@@ -24,26 +24,26 @@ public class V1IngressTLSFluentImpl<A extends V1IngressTLSFluent<A>> extends Bas
     implements V1IngressTLSFluent<A> {
   public V1IngressTLSFluentImpl() {}
 
-  public V1IngressTLSFluentImpl(io.kubernetes.client.openapi.models.V1IngressTLS instance) {
+  public V1IngressTLSFluentImpl(V1IngressTLS instance) {
     this.withHosts(instance.getHosts());
 
     this.withSecretName(instance.getSecretName());
   }
 
   private List<String> hosts;
-  private java.lang.String secretName;
+  private String secretName;
 
-  public A addToHosts(Integer index, java.lang.String item) {
+  public A addToHosts(Integer index, String item) {
     if (this.hosts == null) {
-      this.hosts = new ArrayList<java.lang.String>();
+      this.hosts = new ArrayList<String>();
     }
     this.hosts.add(index, item);
     return (A) this;
   }
 
-  public A setToHosts(java.lang.Integer index, java.lang.String item) {
+  public A setToHosts(Integer index, String item) {
     if (this.hosts == null) {
-      this.hosts = new java.util.ArrayList<java.lang.String>();
+      this.hosts = new ArrayList<String>();
     }
     this.hosts.set(index, item);
     return (A) this;
@@ -51,26 +51,26 @@ public class V1IngressTLSFluentImpl<A extends V1IngressTLSFluent<A>> extends Bas
 
   public A addToHosts(java.lang.String... items) {
     if (this.hosts == null) {
-      this.hosts = new java.util.ArrayList<java.lang.String>();
+      this.hosts = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.hosts.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToHosts(Collection<java.lang.String> items) {
+  public A addAllToHosts(Collection<String> items) {
     if (this.hosts == null) {
-      this.hosts = new java.util.ArrayList<java.lang.String>();
+      this.hosts = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.hosts.add(item);
     }
     return (A) this;
   }
 
   public A removeFromHosts(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.hosts != null) {
         this.hosts.remove(item);
       }
@@ -78,8 +78,8 @@ public class V1IngressTLSFluentImpl<A extends V1IngressTLSFluent<A>> extends Bas
     return (A) this;
   }
 
-  public A removeAllFromHosts(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromHosts(Collection<String> items) {
+    for (String item : items) {
       if (this.hosts != null) {
         this.hosts.remove(item);
       }
@@ -87,24 +87,24 @@ public class V1IngressTLSFluentImpl<A extends V1IngressTLSFluent<A>> extends Bas
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getHosts() {
+  public List<String> getHosts() {
     return this.hosts;
   }
 
-  public java.lang.String getHost(java.lang.Integer index) {
+  public String getHost(Integer index) {
     return this.hosts.get(index);
   }
 
-  public java.lang.String getFirstHost() {
+  public String getFirstHost() {
     return this.hosts.get(0);
   }
 
-  public java.lang.String getLastHost() {
+  public String getLastHost() {
     return this.hosts.get(hosts.size() - 1);
   }
 
-  public java.lang.String getMatchingHost(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : hosts) {
+  public String getMatchingHost(Predicate<String> predicate) {
+    for (String item : hosts) {
       if (predicate.test(item)) {
         return item;
       }
@@ -112,8 +112,8 @@ public class V1IngressTLSFluentImpl<A extends V1IngressTLSFluent<A>> extends Bas
     return null;
   }
 
-  public Boolean hasMatchingHost(java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : hosts) {
+  public Boolean hasMatchingHost(Predicate<String> predicate) {
+    for (String item : hosts) {
       if (predicate.test(item)) {
         return true;
       }
@@ -121,10 +121,10 @@ public class V1IngressTLSFluentImpl<A extends V1IngressTLSFluent<A>> extends Bas
     return false;
   }
 
-  public A withHosts(java.util.List<java.lang.String> hosts) {
+  public A withHosts(List<String> hosts) {
     if (hosts != null) {
-      this.hosts = new java.util.ArrayList();
-      for (java.lang.String item : hosts) {
+      this.hosts = new ArrayList();
+      for (String item : hosts) {
         this.addToHosts(item);
       }
     } else {
@@ -138,27 +138,27 @@ public class V1IngressTLSFluentImpl<A extends V1IngressTLSFluent<A>> extends Bas
       this.hosts.clear();
     }
     if (hosts != null) {
-      for (java.lang.String item : hosts) {
+      for (String item : hosts) {
         this.addToHosts(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasHosts() {
+  public Boolean hasHosts() {
     return hosts != null && !hosts.isEmpty();
   }
 
-  public java.lang.String getSecretName() {
+  public String getSecretName() {
     return this.secretName;
   }
 
-  public A withSecretName(java.lang.String secretName) {
+  public A withSecretName(String secretName) {
     this.secretName = secretName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecretName() {
+  public Boolean hasSecretName() {
     return this.secretName != null;
   }
 
@@ -176,7 +176,7 @@ public class V1IngressTLSFluentImpl<A extends V1IngressTLSFluent<A>> extends Bas
     return java.util.Objects.hash(hosts, secretName, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (hosts != null && !hosts.isEmpty()) {

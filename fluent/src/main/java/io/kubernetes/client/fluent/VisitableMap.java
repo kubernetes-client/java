@@ -21,23 +21,23 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class VisitableMap extends HashMap<String, List<Visitable<?>>>
-    implements Iterable<io.kubernetes.client.fluent.Visitable<?>> {
-  public java.util.List<io.kubernetes.client.fluent.Visitable<?>> get(Object key) {
+    implements Iterable<Visitable<?>> {
+  public List<Visitable<?>> get(Object key) {
     if (!containsKey(key)) {
       put(String.valueOf(key), new ArrayList());
     }
     return super.get(key);
   }
 
-  public java.util.List<io.kubernetes.client.fluent.Visitable<?>> aggregate() {
+  public List<Visitable<?>> aggregate() {
     return values().stream().flatMap(l -> l.stream()).collect(Collectors.toList());
   }
 
-  public Iterator<io.kubernetes.client.fluent.Visitable<?>> iterator() {
+  public Iterator<Visitable<?>> iterator() {
     return aggregate().iterator();
   }
 
-  public void forEach(Consumer<? super io.kubernetes.client.fluent.Visitable<?>> action) {
+  public void forEach(Consumer<? super Visitable<?>> action) {
     aggregate().forEach(action);
   }
 

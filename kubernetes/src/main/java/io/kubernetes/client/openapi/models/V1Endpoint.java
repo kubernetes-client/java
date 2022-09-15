@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(description = "Endpoint represents a single logical \"backend\" implementing a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1Endpoint {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
 
@@ -210,15 +210,14 @@ public class V1Endpoint {
 
   /**
    * nodeName represents the name of the Node hosting this endpoint. This can be used to determine
-   * endpoints local to a Node. This field can be enabled with the EndpointSliceNodeName feature
-   * gate.
+   * endpoints local to a Node.
    *
    * @return nodeName
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "nodeName represents the name of the Node hosting this endpoint. This can be used to determine endpoints local to a Node. This field can be enabled with the EndpointSliceNodeName feature gate.")
+          "nodeName represents the name of the Node hosting this endpoint. This can be used to determine endpoints local to a Node.")
   public String getNodeName() {
     return nodeName;
   }

@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NodeConfigStatusBuilder
     extends V1NodeConfigStatusFluentImpl<V1NodeConfigStatusBuilder>
-    implements VisitableBuilder<
-        V1NodeConfigStatus, io.kubernetes.client.openapi.models.V1NodeConfigStatusBuilder> {
+    implements VisitableBuilder<V1NodeConfigStatus, V1NodeConfigStatusBuilder> {
   public V1NodeConfigStatusBuilder() {
     this(false);
   }
@@ -30,22 +29,17 @@ public class V1NodeConfigStatusBuilder
     this(fluent, false);
   }
 
-  public V1NodeConfigStatusBuilder(
-      io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1NodeConfigStatusBuilder(V1NodeConfigStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NodeConfigStatus(), validationEnabled);
   }
 
   public V1NodeConfigStatusBuilder(
-      io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeConfigStatus instance) {
+      V1NodeConfigStatusFluent<?> fluent, V1NodeConfigStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1NodeConfigStatusBuilder(
-      io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeConfigStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1NodeConfigStatusFluent<?> fluent, V1NodeConfigStatus instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withActive(instance.getActive());
 
@@ -58,14 +52,11 @@ public class V1NodeConfigStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NodeConfigStatusBuilder(
-      io.kubernetes.client.openapi.models.V1NodeConfigStatus instance) {
+  public V1NodeConfigStatusBuilder(V1NodeConfigStatus instance) {
     this(instance, false);
   }
 
-  public V1NodeConfigStatusBuilder(
-      io.kubernetes.client.openapi.models.V1NodeConfigStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NodeConfigStatusBuilder(V1NodeConfigStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withActive(instance.getActive());
 
@@ -78,10 +69,10 @@ public class V1NodeConfigStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NodeConfigStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatus build() {
+  public V1NodeConfigStatus build() {
     V1NodeConfigStatus buildable = new V1NodeConfigStatus();
     buildable.setActive(fluent.getActive());
     buildable.setAssigned(fluent.getAssigned());

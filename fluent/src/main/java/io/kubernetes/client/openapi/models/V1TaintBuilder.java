@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1TaintBuilder extends V1TaintFluentImpl<V1TaintBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1Taint,
-        io.kubernetes.client.openapi.models.V1TaintBuilder> {
+    implements VisitableBuilder<V1Taint, V1TaintBuilder> {
   public V1TaintBuilder() {
     this(false);
   }
@@ -30,22 +28,15 @@ public class V1TaintBuilder extends V1TaintFluentImpl<V1TaintBuilder>
     this(fluent, false);
   }
 
-  public V1TaintBuilder(
-      io.kubernetes.client.openapi.models.V1TaintFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1TaintBuilder(V1TaintFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Taint(), validationEnabled);
   }
 
-  public V1TaintBuilder(
-      io.kubernetes.client.openapi.models.V1TaintFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Taint instance) {
+  public V1TaintBuilder(V1TaintFluent<?> fluent, V1Taint instance) {
     this(fluent, instance, false);
   }
 
-  public V1TaintBuilder(
-      io.kubernetes.client.openapi.models.V1TaintFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Taint instance,
-      java.lang.Boolean validationEnabled) {
+  public V1TaintBuilder(V1TaintFluent<?> fluent, V1Taint instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withEffect(instance.getEffect());
 
@@ -58,12 +49,11 @@ public class V1TaintBuilder extends V1TaintFluentImpl<V1TaintBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1TaintBuilder(io.kubernetes.client.openapi.models.V1Taint instance) {
+  public V1TaintBuilder(V1Taint instance) {
     this(instance, false);
   }
 
-  public V1TaintBuilder(
-      io.kubernetes.client.openapi.models.V1Taint instance, java.lang.Boolean validationEnabled) {
+  public V1TaintBuilder(V1Taint instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withEffect(instance.getEffect());
 
@@ -76,10 +66,10 @@ public class V1TaintBuilder extends V1TaintFluentImpl<V1TaintBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1TaintFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1TaintFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Taint build() {
+  public V1Taint build() {
     V1Taint buildable = new V1Taint();
     buildable.setEffect(fluent.getEffect());
     buildable.setKey(fluent.getKey());

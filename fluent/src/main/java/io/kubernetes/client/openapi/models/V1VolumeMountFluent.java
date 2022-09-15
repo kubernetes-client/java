@@ -18,39 +18,39 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1VolumeMountFluent<A extends V1VolumeMountFluent<A>> extends Fluent<A> {
   public String getMountPath();
 
-  public A withMountPath(java.lang.String mountPath);
+  public A withMountPath(String mountPath);
 
   public Boolean hasMountPath();
 
-  public java.lang.String getMountPropagation();
+  public String getMountPropagation();
 
-  public A withMountPropagation(java.lang.String mountPropagation);
+  public A withMountPropagation(String mountPropagation);
 
-  public java.lang.Boolean hasMountPropagation();
+  public Boolean hasMountPropagation();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
-  public java.lang.String getSubPath();
+  public String getSubPath();
 
-  public A withSubPath(java.lang.String subPath);
+  public A withSubPath(String subPath);
 
-  public java.lang.Boolean hasSubPath();
+  public Boolean hasSubPath();
 
-  public java.lang.String getSubPathExpr();
+  public String getSubPathExpr();
 
-  public A withSubPathExpr(java.lang.String subPathExpr);
+  public A withSubPathExpr(String subPathExpr);
 
-  public java.lang.Boolean hasSubPathExpr();
+  public Boolean hasSubPathExpr();
 
   public A withReadOnly();
 }

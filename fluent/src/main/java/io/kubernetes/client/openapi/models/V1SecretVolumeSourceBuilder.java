@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SecretVolumeSourceBuilder
     extends V1SecretVolumeSourceFluentImpl<V1SecretVolumeSourceBuilder>
-    implements VisitableBuilder<
-        V1SecretVolumeSource, io.kubernetes.client.openapi.models.V1SecretVolumeSourceBuilder> {
+    implements VisitableBuilder<V1SecretVolumeSource, V1SecretVolumeSourceBuilder> {
   public V1SecretVolumeSourceBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1SecretVolumeSourceBuilder
   }
 
   public V1SecretVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1SecretVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1SecretVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1SecretVolumeSource(), validationEnabled);
   }
 
   public V1SecretVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1SecretVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SecretVolumeSource instance) {
+      V1SecretVolumeSourceFluent<?> fluent, V1SecretVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1SecretVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1SecretVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SecretVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1SecretVolumeSourceFluent<?> fluent,
+      V1SecretVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withDefaultMode(instance.getDefaultMode());
 
@@ -58,14 +55,11 @@ public class V1SecretVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SecretVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1SecretVolumeSource instance) {
+  public V1SecretVolumeSourceBuilder(V1SecretVolumeSource instance) {
     this(instance, false);
   }
 
-  public V1SecretVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1SecretVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1SecretVolumeSourceBuilder(V1SecretVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withDefaultMode(instance.getDefaultMode());
 
@@ -78,10 +72,10 @@ public class V1SecretVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SecretVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SecretVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1SecretVolumeSource build() {
+  public V1SecretVolumeSource build() {
     V1SecretVolumeSource buildable = new V1SecretVolumeSource();
     buildable.setDefaultMode(fluent.getDefaultMode());
     buildable.setItems(fluent.getItems());

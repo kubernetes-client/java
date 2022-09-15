@@ -22,119 +22,108 @@ import java.util.function.Predicate;
 
 /** Generated */
 public interface V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends Fluent<A> {
-  public A addToAnnotations(String key, java.lang.String value);
+  public A addToAnnotations(String key, String value);
 
-  public A addToAnnotations(Map<java.lang.String, java.lang.String> map);
+  public A addToAnnotations(Map<String, String> map);
 
-  public A removeFromAnnotations(java.lang.String key);
+  public A removeFromAnnotations(String key);
 
-  public A removeFromAnnotations(java.util.Map<java.lang.String, java.lang.String> map);
+  public A removeFromAnnotations(Map<String, String> map);
 
-  public java.util.Map<java.lang.String, java.lang.String> getAnnotations();
+  public Map<String, String> getAnnotations();
 
-  public <K, V> A withAnnotations(java.util.Map<java.lang.String, java.lang.String> annotations);
+  public <K, V> A withAnnotations(Map<String, String> annotations);
 
   public Boolean hasAnnotations();
 
-  public java.lang.String getClusterName();
-
-  public A withClusterName(java.lang.String clusterName);
-
-  public java.lang.Boolean hasClusterName();
-
   public OffsetDateTime getCreationTimestamp();
 
-  public A withCreationTimestamp(java.time.OffsetDateTime creationTimestamp);
+  public A withCreationTimestamp(OffsetDateTime creationTimestamp);
 
-  public java.lang.Boolean hasCreationTimestamp();
+  public Boolean hasCreationTimestamp();
 
   public Long getDeletionGracePeriodSeconds();
 
-  public A withDeletionGracePeriodSeconds(java.lang.Long deletionGracePeriodSeconds);
+  public A withDeletionGracePeriodSeconds(Long deletionGracePeriodSeconds);
 
-  public java.lang.Boolean hasDeletionGracePeriodSeconds();
+  public Boolean hasDeletionGracePeriodSeconds();
 
-  public java.time.OffsetDateTime getDeletionTimestamp();
+  public OffsetDateTime getDeletionTimestamp();
 
-  public A withDeletionTimestamp(java.time.OffsetDateTime deletionTimestamp);
+  public A withDeletionTimestamp(OffsetDateTime deletionTimestamp);
 
-  public java.lang.Boolean hasDeletionTimestamp();
+  public Boolean hasDeletionTimestamp();
 
-  public A addToFinalizers(Integer index, java.lang.String item);
+  public A addToFinalizers(Integer index, String item);
 
-  public A setToFinalizers(java.lang.Integer index, java.lang.String item);
+  public A setToFinalizers(Integer index, String item);
 
   public A addToFinalizers(java.lang.String... items);
 
-  public A addAllToFinalizers(Collection<java.lang.String> items);
+  public A addAllToFinalizers(Collection<String> items);
 
   public A removeFromFinalizers(java.lang.String... items);
 
-  public A removeAllFromFinalizers(java.util.Collection<java.lang.String> items);
+  public A removeAllFromFinalizers(Collection<String> items);
 
-  public List<java.lang.String> getFinalizers();
+  public List<String> getFinalizers();
 
-  public java.lang.String getFinalizer(java.lang.Integer index);
+  public String getFinalizer(Integer index);
 
-  public java.lang.String getFirstFinalizer();
+  public String getFirstFinalizer();
 
-  public java.lang.String getLastFinalizer();
+  public String getLastFinalizer();
 
-  public java.lang.String getMatchingFinalizer(Predicate<java.lang.String> predicate);
+  public String getMatchingFinalizer(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingFinalizer(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingFinalizer(Predicate<String> predicate);
 
-  public A withFinalizers(java.util.List<java.lang.String> finalizers);
+  public A withFinalizers(List<String> finalizers);
 
   public A withFinalizers(java.lang.String... finalizers);
 
-  public java.lang.Boolean hasFinalizers();
+  public Boolean hasFinalizers();
 
-  public java.lang.String getGenerateName();
+  public String getGenerateName();
 
-  public A withGenerateName(java.lang.String generateName);
+  public A withGenerateName(String generateName);
 
-  public java.lang.Boolean hasGenerateName();
+  public Boolean hasGenerateName();
 
-  public java.lang.Long getGeneration();
+  public Long getGeneration();
 
-  public A withGeneration(java.lang.Long generation);
+  public A withGeneration(Long generation);
 
-  public java.lang.Boolean hasGeneration();
+  public Boolean hasGeneration();
 
-  public A addToLabels(java.lang.String key, java.lang.String value);
+  public A addToLabels(String key, String value);
 
-  public A addToLabels(java.util.Map<java.lang.String, java.lang.String> map);
+  public A addToLabels(Map<String, String> map);
 
-  public A removeFromLabels(java.lang.String key);
+  public A removeFromLabels(String key);
 
-  public A removeFromLabels(java.util.Map<java.lang.String, java.lang.String> map);
+  public A removeFromLabels(Map<String, String> map);
 
-  public java.util.Map<java.lang.String, java.lang.String> getLabels();
+  public Map<String, String> getLabels();
 
-  public <K, V> A withLabels(java.util.Map<java.lang.String, java.lang.String> labels);
+  public <K, V> A withLabels(Map<String, String> labels);
 
-  public java.lang.Boolean hasLabels();
+  public Boolean hasLabels();
 
-  public A addToManagedFields(java.lang.Integer index, V1ManagedFieldsEntry item);
+  public A addToManagedFields(Integer index, V1ManagedFieldsEntry item);
 
-  public A setToManagedFields(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ManagedFieldsEntry item);
+  public A setToManagedFields(Integer index, V1ManagedFieldsEntry item);
 
   public A addToManagedFields(io.kubernetes.client.openapi.models.V1ManagedFieldsEntry... items);
 
-  public A addAllToManagedFields(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ManagedFieldsEntry> items);
+  public A addAllToManagedFields(Collection<V1ManagedFieldsEntry> items);
 
   public A removeFromManagedFields(
       io.kubernetes.client.openapi.models.V1ManagedFieldsEntry... items);
 
-  public A removeAllFromManagedFields(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ManagedFieldsEntry> items);
+  public A removeAllFromManagedFields(Collection<V1ManagedFieldsEntry> items);
 
-  public A removeMatchingFromManagedFields(
-      java.util.function.Predicate<V1ManagedFieldsEntryBuilder> predicate);
+  public A removeMatchingFromManagedFields(Predicate<V1ManagedFieldsEntryBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildManagedFields instead.
@@ -142,163 +131,132 @@ public interface V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends Flu
    * @return The buildable object.
    */
   @Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ManagedFieldsEntry>
-      getManagedFields();
+  public List<V1ManagedFieldsEntry> getManagedFields();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ManagedFieldsEntry>
-      buildManagedFields();
+  public List<V1ManagedFieldsEntry> buildManagedFields();
 
-  public io.kubernetes.client.openapi.models.V1ManagedFieldsEntry buildManagedField(
-      java.lang.Integer index);
+  public V1ManagedFieldsEntry buildManagedField(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ManagedFieldsEntry buildFirstManagedField();
+  public V1ManagedFieldsEntry buildFirstManagedField();
 
-  public io.kubernetes.client.openapi.models.V1ManagedFieldsEntry buildLastManagedField();
+  public V1ManagedFieldsEntry buildLastManagedField();
 
-  public io.kubernetes.client.openapi.models.V1ManagedFieldsEntry buildMatchingManagedField(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ManagedFieldsEntryBuilder>
-          predicate);
+  public V1ManagedFieldsEntry buildMatchingManagedField(
+      Predicate<V1ManagedFieldsEntryBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingManagedField(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ManagedFieldsEntryBuilder>
-          predicate);
+  public Boolean hasMatchingManagedField(Predicate<V1ManagedFieldsEntryBuilder> predicate);
 
-  public A withManagedFields(
-      java.util.List<io.kubernetes.client.openapi.models.V1ManagedFieldsEntry> managedFields);
+  public A withManagedFields(List<V1ManagedFieldsEntry> managedFields);
 
   public A withManagedFields(
       io.kubernetes.client.openapi.models.V1ManagedFieldsEntry... managedFields);
 
-  public java.lang.Boolean hasManagedFields();
+  public Boolean hasManagedFields();
 
   public V1ObjectMetaFluent.ManagedFieldsNested<A> addNewManagedField();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<A>
-      addNewManagedFieldLike(io.kubernetes.client.openapi.models.V1ManagedFieldsEntry item);
+  public V1ObjectMetaFluent.ManagedFieldsNested<A> addNewManagedFieldLike(
+      V1ManagedFieldsEntry item);
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<A>
-      setNewManagedFieldLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ManagedFieldsEntry item);
+  public V1ObjectMetaFluent.ManagedFieldsNested<A> setNewManagedFieldLike(
+      Integer index, V1ManagedFieldsEntry item);
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<A>
-      editManagedField(java.lang.Integer index);
+  public V1ObjectMetaFluent.ManagedFieldsNested<A> editManagedField(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<A>
-      editFirstManagedField();
+  public V1ObjectMetaFluent.ManagedFieldsNested<A> editFirstManagedField();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<A>
-      editLastManagedField();
+  public V1ObjectMetaFluent.ManagedFieldsNested<A> editLastManagedField();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.ManagedFieldsNested<A>
-      editMatchingManagedField(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ManagedFieldsEntryBuilder>
-              predicate);
+  public V1ObjectMetaFluent.ManagedFieldsNested<A> editMatchingManagedField(
+      Predicate<V1ManagedFieldsEntryBuilder> predicate);
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.String getNamespace();
+  public String getNamespace();
 
-  public A withNamespace(java.lang.String namespace);
+  public A withNamespace(String namespace);
 
-  public java.lang.Boolean hasNamespace();
+  public Boolean hasNamespace();
 
-  public A addToOwnerReferences(java.lang.Integer index, V1OwnerReference item);
+  public A addToOwnerReferences(Integer index, V1OwnerReference item);
 
-  public A setToOwnerReferences(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1OwnerReference item);
+  public A setToOwnerReferences(Integer index, V1OwnerReference item);
 
   public A addToOwnerReferences(io.kubernetes.client.openapi.models.V1OwnerReference... items);
 
-  public A addAllToOwnerReferences(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1OwnerReference> items);
+  public A addAllToOwnerReferences(Collection<V1OwnerReference> items);
 
   public A removeFromOwnerReferences(io.kubernetes.client.openapi.models.V1OwnerReference... items);
 
-  public A removeAllFromOwnerReferences(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1OwnerReference> items);
+  public A removeAllFromOwnerReferences(Collection<V1OwnerReference> items);
 
-  public A removeMatchingFromOwnerReferences(
-      java.util.function.Predicate<V1OwnerReferenceBuilder> predicate);
+  public A removeMatchingFromOwnerReferences(Predicate<V1OwnerReferenceBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildOwnerReferences instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1OwnerReference> getOwnerReferences();
+  @Deprecated
+  public List<V1OwnerReference> getOwnerReferences();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1OwnerReference>
-      buildOwnerReferences();
+  public List<V1OwnerReference> buildOwnerReferences();
 
-  public io.kubernetes.client.openapi.models.V1OwnerReference buildOwnerReference(
-      java.lang.Integer index);
+  public V1OwnerReference buildOwnerReference(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1OwnerReference buildFirstOwnerReference();
+  public V1OwnerReference buildFirstOwnerReference();
 
-  public io.kubernetes.client.openapi.models.V1OwnerReference buildLastOwnerReference();
+  public V1OwnerReference buildLastOwnerReference();
 
-  public io.kubernetes.client.openapi.models.V1OwnerReference buildMatchingOwnerReference(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1OwnerReferenceBuilder>
-          predicate);
+  public V1OwnerReference buildMatchingOwnerReference(Predicate<V1OwnerReferenceBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingOwnerReference(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1OwnerReferenceBuilder>
-          predicate);
+  public Boolean hasMatchingOwnerReference(Predicate<V1OwnerReferenceBuilder> predicate);
 
-  public A withOwnerReferences(
-      java.util.List<io.kubernetes.client.openapi.models.V1OwnerReference> ownerReferences);
+  public A withOwnerReferences(List<V1OwnerReference> ownerReferences);
 
   public A withOwnerReferences(
       io.kubernetes.client.openapi.models.V1OwnerReference... ownerReferences);
 
-  public java.lang.Boolean hasOwnerReferences();
+  public Boolean hasOwnerReferences();
 
   public V1ObjectMetaFluent.OwnerReferencesNested<A> addNewOwnerReference();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.OwnerReferencesNested<A>
-      addNewOwnerReferenceLike(io.kubernetes.client.openapi.models.V1OwnerReference item);
+  public V1ObjectMetaFluent.OwnerReferencesNested<A> addNewOwnerReferenceLike(
+      V1OwnerReference item);
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.OwnerReferencesNested<A>
-      setNewOwnerReferenceLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1OwnerReference item);
+  public V1ObjectMetaFluent.OwnerReferencesNested<A> setNewOwnerReferenceLike(
+      Integer index, V1OwnerReference item);
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.OwnerReferencesNested<A>
-      editOwnerReference(java.lang.Integer index);
+  public V1ObjectMetaFluent.OwnerReferencesNested<A> editOwnerReference(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.OwnerReferencesNested<A>
-      editFirstOwnerReference();
+  public V1ObjectMetaFluent.OwnerReferencesNested<A> editFirstOwnerReference();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.OwnerReferencesNested<A>
-      editLastOwnerReference();
+  public V1ObjectMetaFluent.OwnerReferencesNested<A> editLastOwnerReference();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMetaFluent.OwnerReferencesNested<A>
-      editMatchingOwnerReference(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1OwnerReferenceBuilder>
-              predicate);
+  public V1ObjectMetaFluent.OwnerReferencesNested<A> editMatchingOwnerReference(
+      Predicate<V1OwnerReferenceBuilder> predicate);
 
-  public java.lang.String getResourceVersion();
+  public String getResourceVersion();
 
-  public A withResourceVersion(java.lang.String resourceVersion);
+  public A withResourceVersion(String resourceVersion);
 
-  public java.lang.Boolean hasResourceVersion();
+  public Boolean hasResourceVersion();
 
-  public java.lang.String getSelfLink();
+  public String getSelfLink();
 
-  public A withSelfLink(java.lang.String selfLink);
+  public A withSelfLink(String selfLink);
 
-  public java.lang.Boolean hasSelfLink();
+  public Boolean hasSelfLink();
 
-  public java.lang.String getUid();
+  public String getUid();
 
-  public A withUid(java.lang.String uid);
+  public A withUid(String uid);
 
-  public java.lang.Boolean hasUid();
+  public Boolean hasUid();
 
   public interface ManagedFieldsNested<N>
       extends Nested<N>, V1ManagedFieldsEntryFluent<V1ObjectMetaFluent.ManagedFieldsNested<N>> {
@@ -308,8 +266,7 @@ public interface V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends Flu
   }
 
   public interface OwnerReferencesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1OwnerReferenceFluent<V1ObjectMetaFluent.OwnerReferencesNested<N>> {
+      extends Nested<N>, V1OwnerReferenceFluent<V1ObjectMetaFluent.OwnerReferencesNested<N>> {
     public N and();
 
     public N endOwnerReference();

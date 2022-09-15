@@ -26,86 +26,77 @@ public interface V1NodeConfigStatusFluent<A extends V1NodeConfigStatusFluent<A>>
   @Deprecated
   public V1NodeConfigSource getActive();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigSource buildActive();
+  public V1NodeConfigSource buildActive();
 
-  public A withActive(io.kubernetes.client.openapi.models.V1NodeConfigSource active);
+  public A withActive(V1NodeConfigSource active);
 
   public Boolean hasActive();
 
   public V1NodeConfigStatusFluent.ActiveNested<A> withNewActive();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.ActiveNested<A>
-      withNewActiveLike(io.kubernetes.client.openapi.models.V1NodeConfigSource item);
+  public V1NodeConfigStatusFluent.ActiveNested<A> withNewActiveLike(V1NodeConfigSource item);
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.ActiveNested<A> editActive();
+  public V1NodeConfigStatusFluent.ActiveNested<A> editActive();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.ActiveNested<A>
-      editOrNewActive();
+  public V1NodeConfigStatusFluent.ActiveNested<A> editOrNewActive();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.ActiveNested<A>
-      editOrNewActiveLike(io.kubernetes.client.openapi.models.V1NodeConfigSource item);
+  public V1NodeConfigStatusFluent.ActiveNested<A> editOrNewActiveLike(V1NodeConfigSource item);
 
   /**
    * This method has been deprecated, please use method buildAssigned instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1NodeConfigSource getAssigned();
+  @Deprecated
+  public V1NodeConfigSource getAssigned();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigSource buildAssigned();
+  public V1NodeConfigSource buildAssigned();
 
-  public A withAssigned(io.kubernetes.client.openapi.models.V1NodeConfigSource assigned);
+  public A withAssigned(V1NodeConfigSource assigned);
 
-  public java.lang.Boolean hasAssigned();
+  public Boolean hasAssigned();
 
   public V1NodeConfigStatusFluent.AssignedNested<A> withNewAssigned();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.AssignedNested<A>
-      withNewAssignedLike(io.kubernetes.client.openapi.models.V1NodeConfigSource item);
+  public V1NodeConfigStatusFluent.AssignedNested<A> withNewAssignedLike(V1NodeConfigSource item);
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.AssignedNested<A>
-      editAssigned();
+  public V1NodeConfigStatusFluent.AssignedNested<A> editAssigned();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.AssignedNested<A>
-      editOrNewAssigned();
+  public V1NodeConfigStatusFluent.AssignedNested<A> editOrNewAssigned();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.AssignedNested<A>
-      editOrNewAssignedLike(io.kubernetes.client.openapi.models.V1NodeConfigSource item);
+  public V1NodeConfigStatusFluent.AssignedNested<A> editOrNewAssignedLike(V1NodeConfigSource item);
 
   public String getError();
 
-  public A withError(java.lang.String error);
+  public A withError(String error);
 
-  public java.lang.Boolean hasError();
+  public Boolean hasError();
 
   /**
    * This method has been deprecated, please use method buildLastKnownGood instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1NodeConfigSource getLastKnownGood();
+  @Deprecated
+  public V1NodeConfigSource getLastKnownGood();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigSource buildLastKnownGood();
+  public V1NodeConfigSource buildLastKnownGood();
 
-  public A withLastKnownGood(io.kubernetes.client.openapi.models.V1NodeConfigSource lastKnownGood);
+  public A withLastKnownGood(V1NodeConfigSource lastKnownGood);
 
-  public java.lang.Boolean hasLastKnownGood();
+  public Boolean hasLastKnownGood();
 
   public V1NodeConfigStatusFluent.LastKnownGoodNested<A> withNewLastKnownGood();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.LastKnownGoodNested<A>
-      withNewLastKnownGoodLike(io.kubernetes.client.openapi.models.V1NodeConfigSource item);
+  public V1NodeConfigStatusFluent.LastKnownGoodNested<A> withNewLastKnownGoodLike(
+      V1NodeConfigSource item);
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.LastKnownGoodNested<A>
-      editLastKnownGood();
+  public V1NodeConfigStatusFluent.LastKnownGoodNested<A> editLastKnownGood();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.LastKnownGoodNested<A>
-      editOrNewLastKnownGood();
+  public V1NodeConfigStatusFluent.LastKnownGoodNested<A> editOrNewLastKnownGood();
 
-  public io.kubernetes.client.openapi.models.V1NodeConfigStatusFluent.LastKnownGoodNested<A>
-      editOrNewLastKnownGoodLike(io.kubernetes.client.openapi.models.V1NodeConfigSource item);
+  public V1NodeConfigStatusFluent.LastKnownGoodNested<A> editOrNewLastKnownGoodLike(
+      V1NodeConfigSource item);
 
   public interface ActiveNested<N>
       extends Nested<N>, V1NodeConfigSourceFluent<V1NodeConfigStatusFluent.ActiveNested<N>> {
@@ -115,16 +106,14 @@ public interface V1NodeConfigStatusFluent<A extends V1NodeConfigStatusFluent<A>>
   }
 
   public interface AssignedNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1NodeConfigSourceFluent<V1NodeConfigStatusFluent.AssignedNested<N>> {
+      extends Nested<N>, V1NodeConfigSourceFluent<V1NodeConfigStatusFluent.AssignedNested<N>> {
     public N and();
 
     public N endAssigned();
   }
 
   public interface LastKnownGoodNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1NodeConfigSourceFluent<V1NodeConfigStatusFluent.LastKnownGoodNested<N>> {
+      extends Nested<N>, V1NodeConfigSourceFluent<V1NodeConfigStatusFluent.LastKnownGoodNested<N>> {
     public N and();
 
     public N endLastKnownGood();

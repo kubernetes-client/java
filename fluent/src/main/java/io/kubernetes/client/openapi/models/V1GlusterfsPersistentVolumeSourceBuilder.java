@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1GlusterfsPersistentVolumeSourceBuilder
     extends V1GlusterfsPersistentVolumeSourceFluentImpl<V1GlusterfsPersistentVolumeSourceBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource,
-        io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceBuilder> {
+        V1GlusterfsPersistentVolumeSource, V1GlusterfsPersistentVolumeSourceBuilder> {
   public V1GlusterfsPersistentVolumeSourceBuilder() {
     this(false);
   }
@@ -33,21 +32,20 @@ public class V1GlusterfsPersistentVolumeSourceBuilder
   }
 
   public V1GlusterfsPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1GlusterfsPersistentVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1GlusterfsPersistentVolumeSource(), validationEnabled);
   }
 
   public V1GlusterfsPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource instance) {
+      V1GlusterfsPersistentVolumeSourceFluent<?> fluent,
+      V1GlusterfsPersistentVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1GlusterfsPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1GlusterfsPersistentVolumeSourceFluent<?> fluent,
+      V1GlusterfsPersistentVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withEndpoints(instance.getEndpoints());
 
@@ -60,14 +58,12 @@ public class V1GlusterfsPersistentVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1GlusterfsPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource instance) {
+  public V1GlusterfsPersistentVolumeSourceBuilder(V1GlusterfsPersistentVolumeSource instance) {
     this(instance, false);
   }
 
   public V1GlusterfsPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1GlusterfsPersistentVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withEndpoints(instance.getEndpoints());
 
@@ -80,10 +76,10 @@ public class V1GlusterfsPersistentVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1GlusterfsPersistentVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1GlusterfsPersistentVolumeSource build() {
+  public V1GlusterfsPersistentVolumeSource build() {
     V1GlusterfsPersistentVolumeSource buildable = new V1GlusterfsPersistentVolumeSource();
     buildable.setEndpoints(fluent.getEndpoints());
     buildable.setEndpointsNamespace(fluent.getEndpointsNamespace());

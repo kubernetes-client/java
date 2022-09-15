@@ -18,13 +18,13 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1ScaleStatusFluent<A extends V1ScaleStatusFluent<A>> extends Fluent<A> {
   public Integer getReplicas();
 
-  public A withReplicas(java.lang.Integer replicas);
+  public A withReplicas(Integer replicas);
 
   public Boolean hasReplicas();
 
   public String getSelector();
 
-  public A withSelector(java.lang.String selector);
+  public A withSelector(String selector);
 
-  public java.lang.Boolean hasSelector();
+  public Boolean hasSelector();
 }

@@ -27,82 +27,73 @@ public interface V1NetworkPolicyPeerFluent<A extends V1NetworkPolicyPeerFluent<A
   @Deprecated
   public V1IPBlock getIpBlock();
 
-  public io.kubernetes.client.openapi.models.V1IPBlock buildIpBlock();
+  public V1IPBlock buildIpBlock();
 
-  public A withIpBlock(io.kubernetes.client.openapi.models.V1IPBlock ipBlock);
+  public A withIpBlock(V1IPBlock ipBlock);
 
   public Boolean hasIpBlock();
 
   public V1NetworkPolicyPeerFluent.IpBlockNested<A> withNewIpBlock();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.IpBlockNested<A>
-      withNewIpBlockLike(io.kubernetes.client.openapi.models.V1IPBlock item);
+  public V1NetworkPolicyPeerFluent.IpBlockNested<A> withNewIpBlockLike(V1IPBlock item);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.IpBlockNested<A>
-      editIpBlock();
+  public V1NetworkPolicyPeerFluent.IpBlockNested<A> editIpBlock();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.IpBlockNested<A>
-      editOrNewIpBlock();
+  public V1NetworkPolicyPeerFluent.IpBlockNested<A> editOrNewIpBlock();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.IpBlockNested<A>
-      editOrNewIpBlockLike(io.kubernetes.client.openapi.models.V1IPBlock item);
+  public V1NetworkPolicyPeerFluent.IpBlockNested<A> editOrNewIpBlockLike(V1IPBlock item);
 
   /**
    * This method has been deprecated, please use method buildNamespaceSelector instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1LabelSelector getNamespaceSelector();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildNamespaceSelector();
+  public V1LabelSelector buildNamespaceSelector();
 
-  public A withNamespaceSelector(
-      io.kubernetes.client.openapi.models.V1LabelSelector namespaceSelector);
+  public A withNamespaceSelector(V1LabelSelector namespaceSelector);
 
-  public java.lang.Boolean hasNamespaceSelector();
+  public Boolean hasNamespaceSelector();
 
   public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> withNewNamespaceSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A>
-      withNewNamespaceSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> withNewNamespaceSelectorLike(
+      V1LabelSelector item);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A>
-      editNamespaceSelector();
+  public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> editNamespaceSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A>
-      editOrNewNamespaceSelector();
+  public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A>
-      editOrNewNamespaceSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelectorLike(
+      V1LabelSelector item);
 
   /**
    * This method has been deprecated, please use method buildPodSelector instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getPodSelector();
+  @Deprecated
+  public V1LabelSelector getPodSelector();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildPodSelector();
+  public V1LabelSelector buildPodSelector();
 
-  public A withPodSelector(io.kubernetes.client.openapi.models.V1LabelSelector podSelector);
+  public A withPodSelector(V1LabelSelector podSelector);
 
-  public java.lang.Boolean hasPodSelector();
+  public Boolean hasPodSelector();
 
   public V1NetworkPolicyPeerFluent.PodSelectorNested<A> withNewPodSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.PodSelectorNested<A>
-      withNewPodSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1NetworkPolicyPeerFluent.PodSelectorNested<A> withNewPodSelectorLike(
+      V1LabelSelector item);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.PodSelectorNested<A>
-      editPodSelector();
+  public V1NetworkPolicyPeerFluent.PodSelectorNested<A> editPodSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.PodSelectorNested<A>
-      editOrNewPodSelector();
+  public V1NetworkPolicyPeerFluent.PodSelectorNested<A> editOrNewPodSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyPeerFluent.PodSelectorNested<A>
-      editOrNewPodSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1NetworkPolicyPeerFluent.PodSelectorNested<A> editOrNewPodSelectorLike(
+      V1LabelSelector item);
 
   public interface IpBlockNested<N>
       extends Nested<N>, V1IPBlockFluent<V1NetworkPolicyPeerFluent.IpBlockNested<N>> {
@@ -112,7 +103,7 @@ public interface V1NetworkPolicyPeerFluent<A extends V1NetworkPolicyPeerFluent<A
   }
 
   public interface NamespaceSelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1LabelSelectorFluent<V1NetworkPolicyPeerFluent.NamespaceSelectorNested<N>> {
     public N and();
 
@@ -120,8 +111,7 @@ public interface V1NetworkPolicyPeerFluent<A extends V1NetworkPolicyPeerFluent<A
   }
 
   public interface PodSelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1LabelSelectorFluent<V1NetworkPolicyPeerFluent.PodSelectorNested<N>> {
+      extends Nested<N>, V1LabelSelectorFluent<V1NetworkPolicyPeerFluent.PodSelectorNested<N>> {
     public N and();
 
     public N endPodSelector();

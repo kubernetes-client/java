@@ -26,8 +26,7 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
     extends BaseFluent<A> implements V1LoadBalancerIngressFluent<A> {
   public V1LoadBalancerIngressFluentImpl() {}
 
-  public V1LoadBalancerIngressFluentImpl(
-      io.kubernetes.client.openapi.models.V1LoadBalancerIngress instance) {
+  public V1LoadBalancerIngressFluentImpl(V1LoadBalancerIngress instance) {
     this.withHostname(instance.getHostname());
 
     this.withIp(instance.getIp());
@@ -36,14 +35,14 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
   }
 
   private String hostname;
-  private java.lang.String ip;
+  private String ip;
   private ArrayList<V1PortStatusBuilder> ports;
 
-  public java.lang.String getHostname() {
+  public String getHostname() {
     return this.hostname;
   }
 
-  public A withHostname(java.lang.String hostname) {
+  public A withHostname(String hostname) {
     this.hostname = hostname;
     return (A) this;
   }
@@ -52,39 +51,34 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
     return this.hostname != null;
   }
 
-  public java.lang.String getIp() {
+  public String getIp() {
     return this.ip;
   }
 
-  public A withIp(java.lang.String ip) {
+  public A withIp(String ip) {
     this.ip = ip;
     return (A) this;
   }
 
-  public java.lang.Boolean hasIp() {
+  public Boolean hasIp() {
     return this.ip != null;
   }
 
   public A addToPorts(Integer index, V1PortStatus item) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PortStatusBuilder>();
+      this.ports = new ArrayList<V1PortStatusBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PortStatusBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PortStatusBuilder(item);
+    V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
     _visitables.get("ports").add(index >= 0 ? index : _visitables.get("ports").size(), builder);
     this.ports.add(index >= 0 ? index : ports.size(), builder);
     return (A) this;
   }
 
-  public A setToPorts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PortStatus item) {
+  public A setToPorts(Integer index, V1PortStatus item) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PortStatusBuilder>();
+      this.ports = new ArrayList<V1PortStatusBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PortStatusBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PortStatusBuilder(item);
+    V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
     if (index < 0 || index >= _visitables.get("ports").size()) {
       _visitables.get("ports").add(builder);
     } else {
@@ -100,26 +94,22 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
 
   public A addToPorts(io.kubernetes.client.openapi.models.V1PortStatus... items) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PortStatusBuilder>();
+      this.ports = new ArrayList<V1PortStatusBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PortStatus item : items) {
-      io.kubernetes.client.openapi.models.V1PortStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PortStatusBuilder(item);
+    for (V1PortStatus item : items) {
+      V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
       _visitables.get("ports").add(builder);
       this.ports.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToPorts(Collection<io.kubernetes.client.openapi.models.V1PortStatus> items) {
+  public A addAllToPorts(Collection<V1PortStatus> items) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PortStatusBuilder>();
+      this.ports = new ArrayList<V1PortStatusBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PortStatus item : items) {
-      io.kubernetes.client.openapi.models.V1PortStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PortStatusBuilder(item);
+    for (V1PortStatus item : items) {
+      V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
       _visitables.get("ports").add(builder);
       this.ports.add(builder);
     }
@@ -127,9 +117,8 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
   }
 
   public A removeFromPorts(io.kubernetes.client.openapi.models.V1PortStatus... items) {
-    for (io.kubernetes.client.openapi.models.V1PortStatus item : items) {
-      io.kubernetes.client.openapi.models.V1PortStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PortStatusBuilder(item);
+    for (V1PortStatus item : items) {
+      V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
       _visitables.get("ports").remove(builder);
       if (this.ports != null) {
         this.ports.remove(builder);
@@ -138,11 +127,9 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
     return (A) this;
   }
 
-  public A removeAllFromPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PortStatus> items) {
-    for (io.kubernetes.client.openapi.models.V1PortStatus item : items) {
-      io.kubernetes.client.openapi.models.V1PortStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PortStatusBuilder(item);
+  public A removeAllFromPorts(Collection<V1PortStatus> items) {
+    for (V1PortStatus item : items) {
+      V1PortStatusBuilder builder = new V1PortStatusBuilder(item);
       _visitables.get("ports").remove(builder);
       if (this.ports != null) {
         this.ports.remove(builder);
@@ -151,13 +138,12 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
     return (A) this;
   }
 
-  public A removeMatchingFromPorts(
-      Predicate<io.kubernetes.client.openapi.models.V1PortStatusBuilder> predicate) {
+  public A removeMatchingFromPorts(Predicate<V1PortStatusBuilder> predicate) {
     if (ports == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1PortStatusBuilder> each = ports.iterator();
+    final Iterator<V1PortStatusBuilder> each = ports.iterator();
     final List visitables = _visitables.get("ports");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1PortStatusBuilder builder = each.next();
+      V1PortStatusBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -172,30 +158,28 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1PortStatus> getPorts() {
+  public List<V1PortStatus> getPorts() {
     return ports != null ? build(ports) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PortStatus> buildPorts() {
+  public List<V1PortStatus> buildPorts() {
     return ports != null ? build(ports) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PortStatus buildPort(java.lang.Integer index) {
+  public V1PortStatus buildPort(Integer index) {
     return this.ports.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PortStatus buildFirstPort() {
+  public V1PortStatus buildFirstPort() {
     return this.ports.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PortStatus buildLastPort() {
+  public V1PortStatus buildLastPort() {
     return this.ports.get(ports.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PortStatus buildMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PortStatusBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PortStatusBuilder item : ports) {
+  public V1PortStatus buildMatchingPort(Predicate<V1PortStatusBuilder> predicate) {
+    for (V1PortStatusBuilder item : ports) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -203,10 +187,8 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
     return null;
   }
 
-  public java.lang.Boolean hasMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PortStatusBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PortStatusBuilder item : ports) {
+  public Boolean hasMatchingPort(Predicate<V1PortStatusBuilder> predicate) {
+    for (V1PortStatusBuilder item : ports) {
       if (predicate.test(item)) {
         return true;
       }
@@ -214,13 +196,13 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
     return false;
   }
 
-  public A withPorts(java.util.List<io.kubernetes.client.openapi.models.V1PortStatus> ports) {
+  public A withPorts(List<V1PortStatus> ports) {
     if (this.ports != null) {
       _visitables.get("ports").removeAll(this.ports);
     }
     if (ports != null) {
-      this.ports = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1PortStatus item : ports) {
+      this.ports = new ArrayList();
+      for (V1PortStatus item : ports) {
         this.addToPorts(item);
       }
     } else {
@@ -234,14 +216,14 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
       this.ports.clear();
     }
     if (ports != null) {
-      for (io.kubernetes.client.openapi.models.V1PortStatus item : ports) {
+      for (V1PortStatus item : ports) {
         this.addToPorts(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPorts() {
+  public Boolean hasPorts() {
     return ports != null && !ports.isEmpty();
   }
 
@@ -249,41 +231,33 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
     return new V1LoadBalancerIngressFluentImpl.PortsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<A>
-      addNewPortLike(io.kubernetes.client.openapi.models.V1PortStatus item) {
+  public V1LoadBalancerIngressFluent.PortsNested<A> addNewPortLike(V1PortStatus item) {
     return new V1LoadBalancerIngressFluentImpl.PortsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<A>
-      setNewPortLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1PortStatus item) {
-    return new io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluentImpl.PortsNestedImpl(
-        index, item);
+  public V1LoadBalancerIngressFluent.PortsNested<A> setNewPortLike(
+      Integer index, V1PortStatus item) {
+    return new V1LoadBalancerIngressFluentImpl.PortsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<A> editPort(
-      java.lang.Integer index) {
+  public V1LoadBalancerIngressFluent.PortsNested<A> editPort(Integer index) {
     if (ports.size() <= index) throw new RuntimeException("Can't edit ports. Index exceeds size.");
     return setNewPortLike(index, buildPort(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<A>
-      editFirstPort() {
+  public V1LoadBalancerIngressFluent.PortsNested<A> editFirstPort() {
     if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
     return setNewPortLike(0, buildPort(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<A>
-      editLastPort() {
+  public V1LoadBalancerIngressFluent.PortsNested<A> editLastPort() {
     int index = ports.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last ports. The list is empty.");
     return setNewPortLike(index, buildPort(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<A>
-      editMatchingPort(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PortStatusBuilder>
-              predicate) {
+  public V1LoadBalancerIngressFluent.PortsNested<A> editMatchingPort(
+      Predicate<V1PortStatusBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < ports.size(); i++) {
       if (predicate.test(ports.get(i))) {
@@ -309,7 +283,7 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
     return java.util.Objects.hash(hostname, ip, ports, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (hostname != null) {
@@ -330,21 +304,19 @@ public class V1LoadBalancerIngressFluentImpl<A extends V1LoadBalancerIngressFlue
 
   class PortsNestedImpl<N>
       extends V1PortStatusFluentImpl<V1LoadBalancerIngressFluent.PortsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1LoadBalancerIngressFluent.PortsNested<N>,
-          Nested<N> {
-    PortsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1PortStatus item) {
+      implements V1LoadBalancerIngressFluent.PortsNested<N>, Nested<N> {
+    PortsNestedImpl(Integer index, V1PortStatus item) {
       this.index = index;
       this.builder = new V1PortStatusBuilder(this, item);
     }
 
     PortsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1PortStatusBuilder(this);
+      this.builder = new V1PortStatusBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PortStatusBuilder builder;
-    java.lang.Integer index;
+    V1PortStatusBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1LoadBalancerIngressFluentImpl.this.setToPorts(index, builder.build());

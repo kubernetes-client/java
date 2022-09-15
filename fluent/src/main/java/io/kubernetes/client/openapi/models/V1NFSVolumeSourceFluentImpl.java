@@ -20,8 +20,7 @@ public class V1NFSVolumeSourceFluentImpl<A extends V1NFSVolumeSourceFluent<A>> e
     implements V1NFSVolumeSourceFluent<A> {
   public V1NFSVolumeSourceFluentImpl() {}
 
-  public V1NFSVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1NFSVolumeSource instance) {
+  public V1NFSVolumeSourceFluentImpl(V1NFSVolumeSource instance) {
     this.withPath(instance.getPath());
 
     this.withReadOnly(instance.getReadOnly());
@@ -31,44 +30,44 @@ public class V1NFSVolumeSourceFluentImpl<A extends V1NFSVolumeSourceFluent<A>> e
 
   private String path;
   private Boolean readOnly;
-  private java.lang.String server;
+  private String server;
 
-  public java.lang.String getPath() {
+  public String getPath() {
     return this.path;
   }
 
-  public A withPath(java.lang.String path) {
+  public A withPath(String path) {
     this.path = path;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPath() {
+  public Boolean hasPath() {
     return this.path != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
-  public java.lang.String getServer() {
+  public String getServer() {
     return this.server;
   }
 
-  public A withServer(java.lang.String server) {
+  public A withServer(String server) {
     this.server = server;
     return (A) this;
   }
 
-  public java.lang.Boolean hasServer() {
+  public Boolean hasServer() {
     return this.server != null;
   }
 
@@ -86,7 +85,7 @@ public class V1NFSVolumeSourceFluentImpl<A extends V1NFSVolumeSourceFluent<A>> e
     return java.util.Objects.hash(path, readOnly, server, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (path != null) {

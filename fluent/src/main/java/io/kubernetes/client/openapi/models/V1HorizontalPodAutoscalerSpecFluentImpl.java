@@ -22,8 +22,7 @@ public class V1HorizontalPodAutoscalerSpecFluentImpl<
     extends BaseFluent<A> implements V1HorizontalPodAutoscalerSpecFluent<A> {
   public V1HorizontalPodAutoscalerSpecFluentImpl() {}
 
-  public V1HorizontalPodAutoscalerSpecFluentImpl(
-      io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpec instance) {
+  public V1HorizontalPodAutoscalerSpecFluentImpl(V1HorizontalPodAutoscalerSpec instance) {
     this.withMaxReplicas(instance.getMaxReplicas());
 
     this.withMinReplicas(instance.getMinReplicas());
@@ -34,15 +33,15 @@ public class V1HorizontalPodAutoscalerSpecFluentImpl<
   }
 
   private Integer maxReplicas;
-  private java.lang.Integer minReplicas;
+  private Integer minReplicas;
   private V1CrossVersionObjectReferenceBuilder scaleTargetRef;
-  private java.lang.Integer targetCPUUtilizationPercentage;
+  private Integer targetCPUUtilizationPercentage;
 
-  public java.lang.Integer getMaxReplicas() {
+  public Integer getMaxReplicas() {
     return this.maxReplicas;
   }
 
-  public A withMaxReplicas(java.lang.Integer maxReplicas) {
+  public A withMaxReplicas(Integer maxReplicas) {
     this.maxReplicas = maxReplicas;
     return (A) this;
   }
@@ -51,16 +50,16 @@ public class V1HorizontalPodAutoscalerSpecFluentImpl<
     return this.maxReplicas != null;
   }
 
-  public java.lang.Integer getMinReplicas() {
+  public Integer getMinReplicas() {
     return this.minReplicas;
   }
 
-  public A withMinReplicas(java.lang.Integer minReplicas) {
+  public A withMinReplicas(Integer minReplicas) {
     this.minReplicas = minReplicas;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMinReplicas() {
+  public Boolean hasMinReplicas() {
     return this.minReplicas != null;
   }
 
@@ -70,25 +69,27 @@ public class V1HorizontalPodAutoscalerSpecFluentImpl<
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1CrossVersionObjectReference getScaleTargetRef() {
+  public V1CrossVersionObjectReference getScaleTargetRef() {
     return this.scaleTargetRef != null ? this.scaleTargetRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CrossVersionObjectReference buildScaleTargetRef() {
+  public V1CrossVersionObjectReference buildScaleTargetRef() {
     return this.scaleTargetRef != null ? this.scaleTargetRef.build() : null;
   }
 
-  public A withScaleTargetRef(
-      io.kubernetes.client.openapi.models.V1CrossVersionObjectReference scaleTargetRef) {
+  public A withScaleTargetRef(V1CrossVersionObjectReference scaleTargetRef) {
     _visitables.get("scaleTargetRef").remove(this.scaleTargetRef);
     if (scaleTargetRef != null) {
       this.scaleTargetRef = new V1CrossVersionObjectReferenceBuilder(scaleTargetRef);
       _visitables.get("scaleTargetRef").add(this.scaleTargetRef);
+    } else {
+      this.scaleTargetRef = null;
+      _visitables.get("scaleTargetRef").remove(this.scaleTargetRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasScaleTargetRef() {
+  public Boolean hasScaleTargetRef() {
     return this.scaleTargetRef != null;
   }
 
@@ -96,50 +97,37 @@ public class V1HorizontalPodAutoscalerSpecFluentImpl<
     return new V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent
-              .ScaleTargetRefNested<
-          A>
-      withNewScaleTargetRefLike(
-          io.kubernetes.client.openapi.models.V1CrossVersionObjectReference item) {
+  public V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> withNewScaleTargetRefLike(
+      V1CrossVersionObjectReference item) {
     return new V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent
-              .ScaleTargetRefNested<
-          A>
-      editScaleTargetRef() {
+  public V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> editScaleTargetRef() {
     return withNewScaleTargetRefLike(getScaleTargetRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent
-              .ScaleTargetRefNested<
-          A>
-      editOrNewScaleTargetRef() {
+  public V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> editOrNewScaleTargetRef() {
     return withNewScaleTargetRefLike(
         getScaleTargetRef() != null
             ? getScaleTargetRef()
-            : new io.kubernetes.client.openapi.models.V1CrossVersionObjectReferenceBuilder()
-                .build());
+            : new V1CrossVersionObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent
-              .ScaleTargetRefNested<
-          A>
-      editOrNewScaleTargetRefLike(
-          io.kubernetes.client.openapi.models.V1CrossVersionObjectReference item) {
+  public V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> editOrNewScaleTargetRefLike(
+      V1CrossVersionObjectReference item) {
     return withNewScaleTargetRefLike(getScaleTargetRef() != null ? getScaleTargetRef() : item);
   }
 
-  public java.lang.Integer getTargetCPUUtilizationPercentage() {
+  public Integer getTargetCPUUtilizationPercentage() {
     return this.targetCPUUtilizationPercentage;
   }
 
-  public A withTargetCPUUtilizationPercentage(java.lang.Integer targetCPUUtilizationPercentage) {
+  public A withTargetCPUUtilizationPercentage(Integer targetCPUUtilizationPercentage) {
     this.targetCPUUtilizationPercentage = targetCPUUtilizationPercentage;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTargetCPUUtilizationPercentage() {
+  public Boolean hasTargetCPUUtilizationPercentage() {
     return this.targetCPUUtilizationPercentage != null;
   }
 
@@ -191,21 +179,16 @@ public class V1HorizontalPodAutoscalerSpecFluentImpl<
   class ScaleTargetRefNestedImpl<N>
       extends V1CrossVersionObjectReferenceFluentImpl<
           V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1HorizontalPodAutoscalerSpecFluent
-                  .ScaleTargetRefNested<
-              N>,
-          Nested<N> {
-    ScaleTargetRefNestedImpl(
-        io.kubernetes.client.openapi.models.V1CrossVersionObjectReference item) {
+      implements V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<N>, Nested<N> {
+    ScaleTargetRefNestedImpl(V1CrossVersionObjectReference item) {
       this.builder = new V1CrossVersionObjectReferenceBuilder(this, item);
     }
 
     ScaleTargetRefNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CrossVersionObjectReferenceBuilder(this);
+      this.builder = new V1CrossVersionObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1CrossVersionObjectReferenceBuilder builder;
+    V1CrossVersionObjectReferenceBuilder builder;
 
     public N and() {
       return (N) V1HorizontalPodAutoscalerSpecFluentImpl.this.withScaleTargetRef(builder.build());

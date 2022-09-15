@@ -27,8 +27,7 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     extends BaseFluent<A> implements V1SubjectAccessReviewSpecFluent<A> {
   public V1SubjectAccessReviewSpecFluentImpl() {}
 
-  public V1SubjectAccessReviewSpecFluentImpl(
-      io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpec instance) {
+  public V1SubjectAccessReviewSpecFluentImpl(V1SubjectAccessReviewSpec instance) {
     this.withExtra(instance.getExtra());
 
     this.withGroups(instance.getGroups());
@@ -42,14 +41,14 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     this.withUser(instance.getUser());
   }
 
-  private Map<String, List<java.lang.String>> extra;
-  private java.util.List<java.lang.String> groups;
+  private Map<String, List<String>> extra;
+  private List<String> groups;
   private V1NonResourceAttributesBuilder nonResourceAttributes;
   private V1ResourceAttributesBuilder resourceAttributes;
-  private java.lang.String uid;
-  private java.lang.String user;
+  private String uid;
+  private String user;
 
-  public A addToExtra(java.lang.String key, java.util.List<java.lang.String> value) {
+  public A addToExtra(String key, List<String> value) {
     if (this.extra == null && key != null && value != null) {
       this.extra = new LinkedHashMap();
     }
@@ -59,9 +58,9 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return (A) this;
   }
 
-  public A addToExtra(java.util.Map<java.lang.String, java.util.List<java.lang.String>> map) {
+  public A addToExtra(Map<String, List<String>> map) {
     if (this.extra == null && map != null) {
-      this.extra = new java.util.LinkedHashMap();
+      this.extra = new LinkedHashMap();
     }
     if (map != null) {
       this.extra.putAll(map);
@@ -69,7 +68,7 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return (A) this;
   }
 
-  public A removeFromExtra(java.lang.String key) {
+  public A removeFromExtra(String key) {
     if (this.extra == null) {
       return (A) this;
     }
@@ -79,7 +78,7 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return (A) this;
   }
 
-  public A removeFromExtra(java.util.Map<java.lang.String, java.util.List<java.lang.String>> map) {
+  public A removeFromExtra(Map<String, List<String>> map) {
     if (this.extra == null) {
       return (A) this;
     }
@@ -93,16 +92,15 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, java.util.List<java.lang.String>> getExtra() {
+  public Map<String, List<String>> getExtra() {
     return this.extra;
   }
 
-  public <K, V> A withExtra(
-      java.util.Map<java.lang.String, java.util.List<java.lang.String>> extra) {
+  public <K, V> A withExtra(Map<String, List<String>> extra) {
     if (extra == null) {
       this.extra = null;
     } else {
-      this.extra = new java.util.LinkedHashMap(extra);
+      this.extra = new LinkedHashMap(extra);
     }
     return (A) this;
   }
@@ -111,17 +109,17 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return this.extra != null;
   }
 
-  public A addToGroups(Integer index, java.lang.String item) {
+  public A addToGroups(Integer index, String item) {
     if (this.groups == null) {
-      this.groups = new ArrayList<java.lang.String>();
+      this.groups = new ArrayList<String>();
     }
     this.groups.add(index, item);
     return (A) this;
   }
 
-  public A setToGroups(java.lang.Integer index, java.lang.String item) {
+  public A setToGroups(Integer index, String item) {
     if (this.groups == null) {
-      this.groups = new java.util.ArrayList<java.lang.String>();
+      this.groups = new ArrayList<String>();
     }
     this.groups.set(index, item);
     return (A) this;
@@ -129,26 +127,26 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
 
   public A addToGroups(java.lang.String... items) {
     if (this.groups == null) {
-      this.groups = new java.util.ArrayList<java.lang.String>();
+      this.groups = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.groups.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToGroups(Collection<java.lang.String> items) {
+  public A addAllToGroups(Collection<String> items) {
     if (this.groups == null) {
-      this.groups = new java.util.ArrayList<java.lang.String>();
+      this.groups = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.groups.add(item);
     }
     return (A) this;
   }
 
   public A removeFromGroups(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.groups != null) {
         this.groups.remove(item);
       }
@@ -156,8 +154,8 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return (A) this;
   }
 
-  public A removeAllFromGroups(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromGroups(Collection<String> items) {
+    for (String item : items) {
       if (this.groups != null) {
         this.groups.remove(item);
       }
@@ -165,24 +163,24 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getGroups() {
+  public List<String> getGroups() {
     return this.groups;
   }
 
-  public java.lang.String getGroup(java.lang.Integer index) {
+  public String getGroup(Integer index) {
     return this.groups.get(index);
   }
 
-  public java.lang.String getFirstGroup() {
+  public String getFirstGroup() {
     return this.groups.get(0);
   }
 
-  public java.lang.String getLastGroup() {
+  public String getLastGroup() {
     return this.groups.get(groups.size() - 1);
   }
 
-  public java.lang.String getMatchingGroup(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : groups) {
+  public String getMatchingGroup(Predicate<String> predicate) {
+    for (String item : groups) {
       if (predicate.test(item)) {
         return item;
       }
@@ -190,9 +188,8 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return null;
   }
 
-  public java.lang.Boolean hasMatchingGroup(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : groups) {
+  public Boolean hasMatchingGroup(Predicate<String> predicate) {
+    for (String item : groups) {
       if (predicate.test(item)) {
         return true;
       }
@@ -200,10 +197,10 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return false;
   }
 
-  public A withGroups(java.util.List<java.lang.String> groups) {
+  public A withGroups(List<String> groups) {
     if (groups != null) {
-      this.groups = new java.util.ArrayList();
-      for (java.lang.String item : groups) {
+      this.groups = new ArrayList();
+      for (String item : groups) {
         this.addToGroups(item);
       }
     } else {
@@ -217,14 +214,14 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
       this.groups.clear();
     }
     if (groups != null) {
-      for (java.lang.String item : groups) {
+      for (String item : groups) {
         this.addToGroups(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasGroups() {
+  public Boolean hasGroups() {
     return groups != null && !groups.isEmpty();
   }
 
@@ -234,25 +231,27 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1NonResourceAttributes getNonResourceAttributes() {
+  public V1NonResourceAttributes getNonResourceAttributes() {
     return this.nonResourceAttributes != null ? this.nonResourceAttributes.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1NonResourceAttributes buildNonResourceAttributes() {
+  public V1NonResourceAttributes buildNonResourceAttributes() {
     return this.nonResourceAttributes != null ? this.nonResourceAttributes.build() : null;
   }
 
-  public A withNonResourceAttributes(
-      io.kubernetes.client.openapi.models.V1NonResourceAttributes nonResourceAttributes) {
+  public A withNonResourceAttributes(V1NonResourceAttributes nonResourceAttributes) {
     _visitables.get("nonResourceAttributes").remove(this.nonResourceAttributes);
     if (nonResourceAttributes != null) {
       this.nonResourceAttributes = new V1NonResourceAttributesBuilder(nonResourceAttributes);
       _visitables.get("nonResourceAttributes").add(this.nonResourceAttributes);
+    } else {
+      this.nonResourceAttributes = null;
+      _visitables.get("nonResourceAttributes").remove(this.nonResourceAttributes);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasNonResourceAttributes() {
+  public Boolean hasNonResourceAttributes() {
     return this.nonResourceAttributes != null;
   }
 
@@ -261,36 +260,26 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return new V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-              .NonResourceAttributesNested<
-          A>
-      withNewNonResourceAttributesLike(
-          io.kubernetes.client.openapi.models.V1NonResourceAttributes item) {
+  public V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<A>
+      withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
     return new V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-              .NonResourceAttributesNested<
-          A>
+  public V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<A>
       editNonResourceAttributes() {
     return withNewNonResourceAttributesLike(getNonResourceAttributes());
   }
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-              .NonResourceAttributesNested<
-          A>
+  public V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<A>
       editOrNewNonResourceAttributes() {
     return withNewNonResourceAttributesLike(
         getNonResourceAttributes() != null
             ? getNonResourceAttributes()
-            : new io.kubernetes.client.openapi.models.V1NonResourceAttributesBuilder().build());
+            : new V1NonResourceAttributesBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-              .NonResourceAttributesNested<
-          A>
-      editOrNewNonResourceAttributesLike(
-          io.kubernetes.client.openapi.models.V1NonResourceAttributes item) {
+  public V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<A>
+      editOrNewNonResourceAttributesLike(V1NonResourceAttributes item) {
     return withNewNonResourceAttributesLike(
         getNonResourceAttributes() != null ? getNonResourceAttributes() : item);
   }
@@ -300,26 +289,28 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ResourceAttributes getResourceAttributes() {
+  @Deprecated
+  public V1ResourceAttributes getResourceAttributes() {
     return this.resourceAttributes != null ? this.resourceAttributes.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ResourceAttributes buildResourceAttributes() {
+  public V1ResourceAttributes buildResourceAttributes() {
     return this.resourceAttributes != null ? this.resourceAttributes.build() : null;
   }
 
-  public A withResourceAttributes(
-      io.kubernetes.client.openapi.models.V1ResourceAttributes resourceAttributes) {
+  public A withResourceAttributes(V1ResourceAttributes resourceAttributes) {
     _visitables.get("resourceAttributes").remove(this.resourceAttributes);
     if (resourceAttributes != null) {
       this.resourceAttributes = new V1ResourceAttributesBuilder(resourceAttributes);
       _visitables.get("resourceAttributes").add(this.resourceAttributes);
+    } else {
+      this.resourceAttributes = null;
+      _visitables.get("resourceAttributes").remove(this.resourceAttributes);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasResourceAttributes() {
+  public Boolean hasResourceAttributes() {
     return this.resourceAttributes != null;
   }
 
@@ -327,63 +318,51 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
     return new V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-              .ResourceAttributesNested<
-          A>
-      withNewResourceAttributesLike(io.kubernetes.client.openapi.models.V1ResourceAttributes item) {
-    return new io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluentImpl
-        .ResourceAttributesNestedImpl(item);
+  public V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<A> withNewResourceAttributesLike(
+      V1ResourceAttributes item) {
+    return new V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-              .ResourceAttributesNested<
-          A>
-      editResourceAttributes() {
+  public V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<A> editResourceAttributes() {
     return withNewResourceAttributesLike(getResourceAttributes());
   }
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-              .ResourceAttributesNested<
-          A>
-      editOrNewResourceAttributes() {
+  public V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<A> editOrNewResourceAttributes() {
     return withNewResourceAttributesLike(
         getResourceAttributes() != null
             ? getResourceAttributes()
-            : new io.kubernetes.client.openapi.models.V1ResourceAttributesBuilder().build());
+            : new V1ResourceAttributesBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-              .ResourceAttributesNested<
-          A>
-      editOrNewResourceAttributesLike(
-          io.kubernetes.client.openapi.models.V1ResourceAttributes item) {
+  public V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<A>
+      editOrNewResourceAttributesLike(V1ResourceAttributes item) {
     return withNewResourceAttributesLike(
         getResourceAttributes() != null ? getResourceAttributes() : item);
   }
 
-  public java.lang.String getUid() {
+  public String getUid() {
     return this.uid;
   }
 
-  public A withUid(java.lang.String uid) {
+  public A withUid(String uid) {
     this.uid = uid;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUid() {
+  public Boolean hasUid() {
     return this.uid != null;
   }
 
-  public java.lang.String getUser() {
+  public String getUser() {
     return this.user;
   }
 
-  public A withUser(java.lang.String user) {
+  public A withUser(String user) {
     this.user = user;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUser() {
+  public Boolean hasUser() {
     return this.user != null;
   }
 
@@ -409,7 +388,7 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
         extra, groups, nonResourceAttributes, resourceAttributes, uid, user, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (extra != null && !extra.isEmpty()) {
@@ -443,20 +422,16 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
   class NonResourceAttributesNestedImpl<N>
       extends V1NonResourceAttributesFluentImpl<
           V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-                  .NonResourceAttributesNested<
-              N>,
-          Nested<N> {
-    NonResourceAttributesNestedImpl(
-        io.kubernetes.client.openapi.models.V1NonResourceAttributes item) {
+      implements V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<N>, Nested<N> {
+    NonResourceAttributesNestedImpl(V1NonResourceAttributes item) {
       this.builder = new V1NonResourceAttributesBuilder(this, item);
     }
 
     NonResourceAttributesNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1NonResourceAttributesBuilder(this);
+      this.builder = new V1NonResourceAttributesBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1NonResourceAttributesBuilder builder;
+    V1NonResourceAttributesBuilder builder;
 
     public N and() {
       return (N)
@@ -471,19 +446,16 @@ public class V1SubjectAccessReviewSpecFluentImpl<A extends V1SubjectAccessReview
   class ResourceAttributesNestedImpl<N>
       extends V1ResourceAttributesFluentImpl<
           V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1SubjectAccessReviewSpecFluent
-                  .ResourceAttributesNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ResourceAttributesNestedImpl(io.kubernetes.client.openapi.models.V1ResourceAttributes item) {
+      implements V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<N>, Nested<N> {
+    ResourceAttributesNestedImpl(V1ResourceAttributes item) {
       this.builder = new V1ResourceAttributesBuilder(this, item);
     }
 
     ResourceAttributesNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ResourceAttributesBuilder(this);
+      this.builder = new V1ResourceAttributesBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ResourceAttributesBuilder builder;
+    V1ResourceAttributesBuilder builder;
 
     public N and() {
       return (N) V1SubjectAccessReviewSpecFluentImpl.this.withResourceAttributes(builder.build());

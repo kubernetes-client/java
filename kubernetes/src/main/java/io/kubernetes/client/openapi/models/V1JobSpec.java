@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "JobSpec describes how the job execution will look like.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1JobSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
 
@@ -52,6 +52,11 @@ public class V1JobSpec {
 
   @SerializedName(SERIALIZED_NAME_PARALLELISM)
   private Integer parallelism;
+
+  public static final String SERIALIZED_NAME_POD_FAILURE_POLICY = "podFailurePolicy";
+
+  @SerializedName(SERIALIZED_NAME_POD_FAILURE_POLICY)
+  private V1PodFailurePolicy podFailurePolicy;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
 
@@ -239,6 +244,27 @@ public class V1JobSpec {
     this.parallelism = parallelism;
   }
 
+  public V1JobSpec podFailurePolicy(V1PodFailurePolicy podFailurePolicy) {
+
+    this.podFailurePolicy = podFailurePolicy;
+    return this;
+  }
+
+  /**
+   * Get podFailurePolicy
+   *
+   * @return podFailurePolicy
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1PodFailurePolicy getPodFailurePolicy() {
+    return podFailurePolicy;
+  }
+
+  public void setPodFailurePolicy(V1PodFailurePolicy podFailurePolicy) {
+    this.podFailurePolicy = podFailurePolicy;
+  }
+
   public V1JobSpec selector(V1LabelSelector selector) {
 
     this.selector = selector;
@@ -351,6 +377,7 @@ public class V1JobSpec {
         && Objects.equals(this.completions, v1JobSpec.completions)
         && Objects.equals(this.manualSelector, v1JobSpec.manualSelector)
         && Objects.equals(this.parallelism, v1JobSpec.parallelism)
+        && Objects.equals(this.podFailurePolicy, v1JobSpec.podFailurePolicy)
         && Objects.equals(this.selector, v1JobSpec.selector)
         && Objects.equals(this.suspend, v1JobSpec.suspend)
         && Objects.equals(this.template, v1JobSpec.template)
@@ -366,6 +393,7 @@ public class V1JobSpec {
         completions,
         manualSelector,
         parallelism,
+        podFailurePolicy,
         selector,
         suspend,
         template,
@@ -384,6 +412,7 @@ public class V1JobSpec {
     sb.append("    completions: ").append(toIndentedString(completions)).append("\n");
     sb.append("    manualSelector: ").append(toIndentedString(manualSelector)).append("\n");
     sb.append("    parallelism: ").append(toIndentedString(parallelism)).append("\n");
+    sb.append("    podFailurePolicy: ").append(toIndentedString(podFailurePolicy)).append("\n");
     sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    suspend: ").append(toIndentedString(suspend)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");

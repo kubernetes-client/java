@@ -23,7 +23,7 @@ public class V1CertificateSigningRequestConditionFluentImpl<
   public V1CertificateSigningRequestConditionFluentImpl() {}
 
   public V1CertificateSigningRequestConditionFluentImpl(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition instance) {
+      V1CertificateSigningRequestCondition instance) {
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
     this.withLastUpdateTime(instance.getLastUpdateTime());
@@ -38,17 +38,17 @@ public class V1CertificateSigningRequestConditionFluentImpl<
   }
 
   private OffsetDateTime lastTransitionTime;
-  private java.time.OffsetDateTime lastUpdateTime;
+  private OffsetDateTime lastUpdateTime;
   private String message;
-  private java.lang.String reason;
-  private java.lang.String status;
-  private java.lang.String type;
+  private String reason;
+  private String status;
+  private String type;
 
-  public java.time.OffsetDateTime getLastTransitionTime() {
+  public OffsetDateTime getLastTransitionTime() {
     return this.lastTransitionTime;
   }
 
-  public A withLastTransitionTime(java.time.OffsetDateTime lastTransitionTime) {
+  public A withLastTransitionTime(OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
     return (A) this;
   }
@@ -57,68 +57,68 @@ public class V1CertificateSigningRequestConditionFluentImpl<
     return this.lastTransitionTime != null;
   }
 
-  public java.time.OffsetDateTime getLastUpdateTime() {
+  public OffsetDateTime getLastUpdateTime() {
     return this.lastUpdateTime;
   }
 
-  public A withLastUpdateTime(java.time.OffsetDateTime lastUpdateTime) {
+  public A withLastUpdateTime(OffsetDateTime lastUpdateTime) {
     this.lastUpdateTime = lastUpdateTime;
     return (A) this;
   }
 
-  public java.lang.Boolean hasLastUpdateTime() {
+  public Boolean hasLastUpdateTime() {
     return this.lastUpdateTime != null;
   }
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMessage() {
+  public Boolean hasMessage() {
     return this.message != null;
   }
 
-  public java.lang.String getReason() {
+  public String getReason() {
     return this.reason;
   }
 
-  public A withReason(java.lang.String reason) {
+  public A withReason(String reason) {
     this.reason = reason;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReason() {
+  public Boolean hasReason() {
     return this.reason != null;
   }
 
-  public java.lang.String getStatus() {
+  public String getStatus() {
     return this.status;
   }
 
-  public A withStatus(java.lang.String status) {
+  public A withStatus(String status) {
     this.status = status;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStatus() {
+  public Boolean hasStatus() {
     return this.status != null;
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
@@ -145,7 +145,7 @@ public class V1CertificateSigningRequestConditionFluentImpl<
         lastTransitionTime, lastUpdateTime, message, reason, status, type, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (lastTransitionTime != null) {

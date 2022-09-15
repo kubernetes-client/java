@@ -21,7 +21,7 @@ public class V1NodeConditionFluentImpl<A extends V1NodeConditionFluent<A>> exten
     implements V1NodeConditionFluent<A> {
   public V1NodeConditionFluentImpl() {}
 
-  public V1NodeConditionFluentImpl(io.kubernetes.client.openapi.models.V1NodeCondition instance) {
+  public V1NodeConditionFluentImpl(V1NodeCondition instance) {
     this.withLastHeartbeatTime(instance.getLastHeartbeatTime());
 
     this.withLastTransitionTime(instance.getLastTransitionTime());
@@ -36,17 +36,17 @@ public class V1NodeConditionFluentImpl<A extends V1NodeConditionFluent<A>> exten
   }
 
   private OffsetDateTime lastHeartbeatTime;
-  private java.time.OffsetDateTime lastTransitionTime;
+  private OffsetDateTime lastTransitionTime;
   private String message;
-  private java.lang.String reason;
-  private java.lang.String status;
-  private java.lang.String type;
+  private String reason;
+  private String status;
+  private String type;
 
-  public java.time.OffsetDateTime getLastHeartbeatTime() {
+  public OffsetDateTime getLastHeartbeatTime() {
     return this.lastHeartbeatTime;
   }
 
-  public A withLastHeartbeatTime(java.time.OffsetDateTime lastHeartbeatTime) {
+  public A withLastHeartbeatTime(OffsetDateTime lastHeartbeatTime) {
     this.lastHeartbeatTime = lastHeartbeatTime;
     return (A) this;
   }
@@ -55,68 +55,68 @@ public class V1NodeConditionFluentImpl<A extends V1NodeConditionFluent<A>> exten
     return this.lastHeartbeatTime != null;
   }
 
-  public java.time.OffsetDateTime getLastTransitionTime() {
+  public OffsetDateTime getLastTransitionTime() {
     return this.lastTransitionTime;
   }
 
-  public A withLastTransitionTime(java.time.OffsetDateTime lastTransitionTime) {
+  public A withLastTransitionTime(OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
     return (A) this;
   }
 
-  public java.lang.Boolean hasLastTransitionTime() {
+  public Boolean hasLastTransitionTime() {
     return this.lastTransitionTime != null;
   }
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMessage() {
+  public Boolean hasMessage() {
     return this.message != null;
   }
 
-  public java.lang.String getReason() {
+  public String getReason() {
     return this.reason;
   }
 
-  public A withReason(java.lang.String reason) {
+  public A withReason(String reason) {
     this.reason = reason;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReason() {
+  public Boolean hasReason() {
     return this.reason != null;
   }
 
-  public java.lang.String getStatus() {
+  public String getStatus() {
     return this.status;
   }
 
-  public A withStatus(java.lang.String status) {
+  public A withStatus(String status) {
     this.status = status;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStatus() {
+  public Boolean hasStatus() {
     return this.status != null;
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
@@ -142,7 +142,7 @@ public class V1NodeConditionFluentImpl<A extends V1NodeConditionFluent<A>> exten
         lastHeartbeatTime, lastTransitionTime, message, reason, status, type, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (lastHeartbeatTime != null) {

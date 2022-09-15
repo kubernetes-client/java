@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PodAffinityTermBuilder extends V1PodAffinityTermFluentImpl<V1PodAffinityTermBuilder>
-    implements VisitableBuilder<
-        V1PodAffinityTerm, io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder> {
+    implements VisitableBuilder<V1PodAffinityTerm, V1PodAffinityTermBuilder> {
   public V1PodAffinityTermBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1PodAffinityTermBuilder extends V1PodAffinityTermFluentImpl<V1PodA
     this(new V1PodAffinityTerm(), validationEnabled);
   }
 
-  public V1PodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1PodAffinityTermFluent<?> fluent) {
+  public V1PodAffinityTermBuilder(V1PodAffinityTermFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1PodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1PodAffinityTermFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1PodAffinityTermBuilder(V1PodAffinityTermFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PodAffinityTerm(), validationEnabled);
   }
 
-  public V1PodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1PodAffinityTermFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodAffinityTerm instance) {
+  public V1PodAffinityTermBuilder(V1PodAffinityTermFluent<?> fluent, V1PodAffinityTerm instance) {
     this(fluent, instance, false);
   }
 
   public V1PodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1PodAffinityTermFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodAffinityTerm instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodAffinityTermFluent<?> fluent, V1PodAffinityTerm instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLabelSelector(instance.getLabelSelector());
 
@@ -58,13 +50,11 @@ public class V1PodAffinityTermBuilder extends V1PodAffinityTermFluentImpl<V1PodA
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PodAffinityTermBuilder(io.kubernetes.client.openapi.models.V1PodAffinityTerm instance) {
+  public V1PodAffinityTermBuilder(V1PodAffinityTerm instance) {
     this(instance, false);
   }
 
-  public V1PodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1PodAffinityTerm instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PodAffinityTermBuilder(V1PodAffinityTerm instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLabelSelector(instance.getLabelSelector());
 
@@ -77,10 +67,10 @@ public class V1PodAffinityTermBuilder extends V1PodAffinityTermFluentImpl<V1PodA
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PodAffinityTermFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PodAffinityTermFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTerm build() {
+  public V1PodAffinityTerm build() {
     V1PodAffinityTerm buildable = new V1PodAffinityTerm();
     buildable.setLabelSelector(fluent.getLabelSelector());
     buildable.setNamespaceSelector(fluent.getNamespaceSelector());

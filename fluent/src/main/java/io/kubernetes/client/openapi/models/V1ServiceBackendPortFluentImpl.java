@@ -20,8 +20,7 @@ public class V1ServiceBackendPortFluentImpl<A extends V1ServiceBackendPortFluent
     extends BaseFluent<A> implements V1ServiceBackendPortFluent<A> {
   public V1ServiceBackendPortFluentImpl() {}
 
-  public V1ServiceBackendPortFluentImpl(
-      io.kubernetes.client.openapi.models.V1ServiceBackendPort instance) {
+  public V1ServiceBackendPortFluentImpl(V1ServiceBackendPort instance) {
     this.withName(instance.getName());
 
     this.withNumber(instance.getNumber());
@@ -30,11 +29,11 @@ public class V1ServiceBackendPortFluentImpl<A extends V1ServiceBackendPortFluent
   private String name;
   private Integer number;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1ServiceBackendPortFluentImpl<A extends V1ServiceBackendPortFluent
     return this.name != null;
   }
 
-  public java.lang.Integer getNumber() {
+  public Integer getNumber() {
     return this.number;
   }
 
-  public A withNumber(java.lang.Integer number) {
+  public A withNumber(Integer number) {
     this.number = number;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNumber() {
+  public Boolean hasNumber() {
     return this.number != null;
   }
 
@@ -69,7 +68,7 @@ public class V1ServiceBackendPortFluentImpl<A extends V1ServiceBackendPortFluent
     return java.util.Objects.hash(name, number, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {

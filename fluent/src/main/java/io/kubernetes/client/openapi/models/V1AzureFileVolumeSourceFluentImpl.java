@@ -20,8 +20,7 @@ public class V1AzureFileVolumeSourceFluentImpl<A extends V1AzureFileVolumeSource
     extends BaseFluent<A> implements V1AzureFileVolumeSourceFluent<A> {
   public V1AzureFileVolumeSourceFluentImpl() {}
 
-  public V1AzureFileVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1AzureFileVolumeSource instance) {
+  public V1AzureFileVolumeSourceFluentImpl(V1AzureFileVolumeSource instance) {
     this.withReadOnly(instance.getReadOnly());
 
     this.withSecretName(instance.getSecretName());
@@ -31,44 +30,44 @@ public class V1AzureFileVolumeSourceFluentImpl<A extends V1AzureFileVolumeSource
 
   private Boolean readOnly;
   private String secretName;
-  private java.lang.String shareName;
+  private String shareName;
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
-  public java.lang.String getSecretName() {
+  public String getSecretName() {
     return this.secretName;
   }
 
-  public A withSecretName(java.lang.String secretName) {
+  public A withSecretName(String secretName) {
     this.secretName = secretName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecretName() {
+  public Boolean hasSecretName() {
     return this.secretName != null;
   }
 
-  public java.lang.String getShareName() {
+  public String getShareName() {
     return this.shareName;
   }
 
-  public A withShareName(java.lang.String shareName) {
+  public A withShareName(String shareName) {
     this.shareName = shareName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasShareName() {
+  public Boolean hasShareName() {
     return this.shareName != null;
   }
 
@@ -88,7 +87,7 @@ public class V1AzureFileVolumeSourceFluentImpl<A extends V1AzureFileVolumeSource
     return java.util.Objects.hash(readOnly, secretName, shareName, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (readOnly != null) {

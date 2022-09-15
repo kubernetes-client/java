@@ -23,25 +23,21 @@ public interface V1alpha1StorageVersionListFluent<A extends V1alpha1StorageVersi
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public A addToItems(
-      Integer index, io.kubernetes.client.openapi.models.V1alpha1StorageVersion item);
+  public A addToItems(Integer index, V1alpha1StorageVersion item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1alpha1StorageVersion item);
+  public A setToItems(Integer index, V1alpha1StorageVersion item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1alpha1StorageVersion... items);
 
-  public A addAllToItems(
-      Collection<io.kubernetes.client.openapi.models.V1alpha1StorageVersion> items);
+  public A addAllToItems(Collection<V1alpha1StorageVersion> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1alpha1StorageVersion... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1alpha1StorageVersion> items);
+  public A removeAllFromItems(Collection<V1alpha1StorageVersion> items);
 
   public A removeMatchingFromItems(Predicate<V1alpha1StorageVersionBuilder> predicate);
 
@@ -51,91 +47,73 @@ public interface V1alpha1StorageVersionListFluent<A extends V1alpha1StorageVersi
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1alpha1StorageVersion> getItems();
+  public List<V1alpha1StorageVersion> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1alpha1StorageVersion> buildItems();
+  public List<V1alpha1StorageVersion> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersion buildItem(
-      java.lang.Integer index);
+  public V1alpha1StorageVersion buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersion buildFirstItem();
+  public V1alpha1StorageVersion buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersion buildLastItem();
+  public V1alpha1StorageVersion buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersion buildMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1alpha1StorageVersionBuilder>
-          predicate);
+  public V1alpha1StorageVersion buildMatchingItem(
+      Predicate<V1alpha1StorageVersionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1alpha1StorageVersionBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1alpha1StorageVersionBuilder> predicate);
 
-  public A withItems(
-      java.util.List<io.kubernetes.client.openapi.models.V1alpha1StorageVersion> items);
+  public A withItems(List<V1alpha1StorageVersion> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1alpha1StorageVersion... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1alpha1StorageVersionListFluent.ItemsNested<A> addNewItem();
 
   public V1alpha1StorageVersionListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersion item);
+      V1alpha1StorageVersion item);
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1alpha1StorageVersion item);
+  public V1alpha1StorageVersionListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1alpha1StorageVersion item);
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionListFluent.ItemsNested<A>
-      editItem(java.lang.Integer index);
+  public V1alpha1StorageVersionListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionListFluent.ItemsNested<A>
-      editFirstItem();
+  public V1alpha1StorageVersionListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionListFluent.ItemsNested<A>
-      editLastItem();
+  public V1alpha1StorageVersionListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1alpha1StorageVersionBuilder>
-              predicate);
+  public V1alpha1StorageVersionListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1alpha1StorageVersionBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1alpha1StorageVersionListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1alpha1StorageVersionListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionListFluent.MetadataNested<A>
-      editMetadata();
+  public V1alpha1StorageVersionListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1alpha1StorageVersionListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1alpha1StorageVersionListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>,
@@ -146,8 +124,7 @@ public interface V1alpha1StorageVersionListFluent<A extends V1alpha1StorageVersi
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1alpha1StorageVersionListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1alpha1StorageVersionListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

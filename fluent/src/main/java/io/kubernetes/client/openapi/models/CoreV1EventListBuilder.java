@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class CoreV1EventListBuilder extends CoreV1EventListFluentImpl<CoreV1EventListBuilder>
-    implements VisitableBuilder<
-        CoreV1EventList, io.kubernetes.client.openapi.models.CoreV1EventListBuilder> {
+    implements VisitableBuilder<CoreV1EventList, CoreV1EventListBuilder> {
   public CoreV1EventListBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class CoreV1EventListBuilder extends CoreV1EventListFluentImpl<CoreV1Even
     this(new CoreV1EventList(), validationEnabled);
   }
 
-  public CoreV1EventListBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EventListFluent<?> fluent) {
+  public CoreV1EventListBuilder(CoreV1EventListFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public CoreV1EventListBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EventListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public CoreV1EventListBuilder(CoreV1EventListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new CoreV1EventList(), validationEnabled);
   }
 
-  public CoreV1EventListBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EventListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.CoreV1EventList instance) {
+  public CoreV1EventListBuilder(CoreV1EventListFluent<?> fluent, CoreV1EventList instance) {
     this(fluent, instance, false);
   }
 
   public CoreV1EventListBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EventListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.CoreV1EventList instance,
-      java.lang.Boolean validationEnabled) {
+      CoreV1EventListFluent<?> fluent, CoreV1EventList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,13 +50,11 @@ public class CoreV1EventListBuilder extends CoreV1EventListFluentImpl<CoreV1Even
     this.validationEnabled = validationEnabled;
   }
 
-  public CoreV1EventListBuilder(io.kubernetes.client.openapi.models.CoreV1EventList instance) {
+  public CoreV1EventListBuilder(CoreV1EventList instance) {
     this(instance, false);
   }
 
-  public CoreV1EventListBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EventList instance,
-      java.lang.Boolean validationEnabled) {
+  public CoreV1EventListBuilder(CoreV1EventList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -77,10 +67,10 @@ public class CoreV1EventListBuilder extends CoreV1EventListFluentImpl<CoreV1Even
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.CoreV1EventListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  CoreV1EventListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.CoreV1EventList build() {
+  public CoreV1EventList build() {
     CoreV1EventList buildable = new CoreV1EventList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

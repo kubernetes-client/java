@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1StatefulSetListBuilder extends V1StatefulSetListFluentImpl<V1StatefulSetListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1StatefulSetList,
-        io.kubernetes.client.openapi.models.V1StatefulSetListBuilder> {
+    implements VisitableBuilder<V1StatefulSetList, V1StatefulSetListBuilder> {
   public V1StatefulSetListBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1StatefulSetListBuilder extends V1StatefulSetListFluentImpl<V1Stat
     this(fluent, false);
   }
 
-  public V1StatefulSetListBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1StatefulSetListBuilder(V1StatefulSetListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1StatefulSetList(), validationEnabled);
   }
 
-  public V1StatefulSetListBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StatefulSetList instance) {
+  public V1StatefulSetListBuilder(V1StatefulSetListFluent<?> fluent, V1StatefulSetList instance) {
     this(fluent, instance, false);
   }
 
   public V1StatefulSetListBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StatefulSetList instance,
-      java.lang.Boolean validationEnabled) {
+      V1StatefulSetListFluent<?> fluent, V1StatefulSetList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,13 +50,11 @@ public class V1StatefulSetListBuilder extends V1StatefulSetListFluentImpl<V1Stat
     this.validationEnabled = validationEnabled;
   }
 
-  public V1StatefulSetListBuilder(io.kubernetes.client.openapi.models.V1StatefulSetList instance) {
+  public V1StatefulSetListBuilder(V1StatefulSetList instance) {
     this(instance, false);
   }
 
-  public V1StatefulSetListBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1StatefulSetListBuilder(V1StatefulSetList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -77,10 +67,10 @@ public class V1StatefulSetListBuilder extends V1StatefulSetListFluentImpl<V1Stat
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1StatefulSetListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1StatefulSetListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetList build() {
+  public V1StatefulSetList build() {
     V1StatefulSetList buildable = new V1StatefulSetList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

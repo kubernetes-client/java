@@ -26,7 +26,7 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     implements V1APIGroupFluent<A> {
   public V1APIGroupFluentImpl() {}
 
-  public V1APIGroupFluentImpl(io.kubernetes.client.openapi.models.V1APIGroup instance) {
+  public V1APIGroupFluentImpl(V1APIGroup instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withKind(instance.getKind());
@@ -41,17 +41,17 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
   }
 
   private String apiVersion;
-  private java.lang.String kind;
-  private java.lang.String name;
+  private String kind;
+  private String name;
   private V1GroupVersionForDiscoveryBuilder preferredVersion;
   private ArrayList<V1ServerAddressByClientCIDRBuilder> serverAddressByClientCIDRs;
-  private java.util.ArrayList<V1GroupVersionForDiscoveryBuilder> versions;
+  private ArrayList<V1GroupVersionForDiscoveryBuilder> versions;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -60,29 +60,29 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return this.apiVersion != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
@@ -92,27 +92,27 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery getPreferredVersion() {
+  public V1GroupVersionForDiscovery getPreferredVersion() {
     return this.preferredVersion != null ? this.preferredVersion.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildPreferredVersion() {
+  public V1GroupVersionForDiscovery buildPreferredVersion() {
     return this.preferredVersion != null ? this.preferredVersion.build() : null;
   }
 
-  public A withPreferredVersion(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery preferredVersion) {
+  public A withPreferredVersion(V1GroupVersionForDiscovery preferredVersion) {
     _visitables.get("preferredVersion").remove(this.preferredVersion);
     if (preferredVersion != null) {
-      this.preferredVersion =
-          new io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder(
-              preferredVersion);
+      this.preferredVersion = new V1GroupVersionForDiscoveryBuilder(preferredVersion);
       _visitables.get("preferredVersion").add(this.preferredVersion);
+    } else {
+      this.preferredVersion = null;
+      _visitables.get("preferredVersion").remove(this.preferredVersion);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPreferredVersion() {
+  public Boolean hasPreferredVersion() {
     return this.preferredVersion != null;
   }
 
@@ -120,40 +120,33 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return new V1APIGroupFluentImpl.PreferredVersionNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.PreferredVersionNested<A>
-      withNewPreferredVersionLike(
-          io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item) {
+  public V1APIGroupFluent.PreferredVersionNested<A> withNewPreferredVersionLike(
+      V1GroupVersionForDiscovery item) {
     return new V1APIGroupFluentImpl.PreferredVersionNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.PreferredVersionNested<A>
-      editPreferredVersion() {
+  public V1APIGroupFluent.PreferredVersionNested<A> editPreferredVersion() {
     return withNewPreferredVersionLike(getPreferredVersion());
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.PreferredVersionNested<A>
-      editOrNewPreferredVersion() {
+  public V1APIGroupFluent.PreferredVersionNested<A> editOrNewPreferredVersion() {
     return withNewPreferredVersionLike(
         getPreferredVersion() != null
             ? getPreferredVersion()
-            : new io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder().build());
+            : new V1GroupVersionForDiscoveryBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.PreferredVersionNested<A>
-      editOrNewPreferredVersionLike(
-          io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item) {
+  public V1APIGroupFluent.PreferredVersionNested<A> editOrNewPreferredVersionLike(
+      V1GroupVersionForDiscovery item) {
     return withNewPreferredVersionLike(
         getPreferredVersion() != null ? getPreferredVersion() : item);
   }
 
   public A addToServerAddressByClientCIDRs(Integer index, V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>();
+      this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder(item);
+    V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
     _visitables
         .get("serverAddressByClientCIDRs")
         .add(index >= 0 ? index : _visitables.get("serverAddressByClientCIDRs").size(), builder);
@@ -162,16 +155,11 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A setToServerAddressByClientCIDRs(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item) {
+  public A setToServerAddressByClientCIDRs(Integer index, V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>();
+      this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder(item);
+    V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
     if (index < 0 || index >= _visitables.get("serverAddressByClientCIDRs").size()) {
       _visitables.get("serverAddressByClientCIDRs").add(builder);
     } else {
@@ -188,29 +176,22 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
   public A addToServerAddressByClientCIDRs(
       io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>();
+      this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item : items) {
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder(item);
+    for (V1ServerAddressByClientCIDR item : items) {
+      V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
       _visitables.get("serverAddressByClientCIDRs").add(builder);
       this.serverAddressByClientCIDRs.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToServerAddressByClientCIDRs(
-      Collection<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> items) {
+  public A addAllToServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items) {
     if (this.serverAddressByClientCIDRs == null) {
-      this.serverAddressByClientCIDRs =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>();
+      this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item : items) {
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder(item);
+    for (V1ServerAddressByClientCIDR item : items) {
+      V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
       _visitables.get("serverAddressByClientCIDRs").add(builder);
       this.serverAddressByClientCIDRs.add(builder);
     }
@@ -219,9 +200,8 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
 
   public A removeFromServerAddressByClientCIDRs(
       io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items) {
-    for (io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item : items) {
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder(item);
+    for (V1ServerAddressByClientCIDR item : items) {
+      V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
       _visitables.get("serverAddressByClientCIDRs").remove(builder);
       if (this.serverAddressByClientCIDRs != null) {
         this.serverAddressByClientCIDRs.remove(builder);
@@ -230,11 +210,9 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeAllFromServerAddressByClientCIDRs(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> items) {
-    for (io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item : items) {
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder(item);
+  public A removeAllFromServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items) {
+    for (V1ServerAddressByClientCIDR item : items) {
+      V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
       _visitables.get("serverAddressByClientCIDRs").remove(builder);
       if (this.serverAddressByClientCIDRs != null) {
         this.serverAddressByClientCIDRs.remove(builder);
@@ -244,13 +222,12 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
   }
 
   public A removeMatchingFromServerAddressByClientCIDRs(
-      Predicate<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder> predicate) {
+      Predicate<V1ServerAddressByClientCIDRBuilder> predicate) {
     if (serverAddressByClientCIDRs == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder> each =
-        serverAddressByClientCIDRs.iterator();
+    final Iterator<V1ServerAddressByClientCIDRBuilder> each = serverAddressByClientCIDRs.iterator();
     final List visitables = _visitables.get("serverAddressByClientCIDRs");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder builder = each.next();
+      V1ServerAddressByClientCIDRBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -264,39 +241,30 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR>
-      getServerAddressByClientCIDRs() {
+  @Deprecated
+  public List<V1ServerAddressByClientCIDR> getServerAddressByClientCIDRs() {
     return serverAddressByClientCIDRs != null ? build(serverAddressByClientCIDRs) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR>
-      buildServerAddressByClientCIDRs() {
+  public List<V1ServerAddressByClientCIDR> buildServerAddressByClientCIDRs() {
     return serverAddressByClientCIDRs != null ? build(serverAddressByClientCIDRs) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR
-      buildServerAddressByClientCIDR(java.lang.Integer index) {
+  public V1ServerAddressByClientCIDR buildServerAddressByClientCIDR(Integer index) {
     return this.serverAddressByClientCIDRs.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR
-      buildFirstServerAddressByClientCIDR() {
+  public V1ServerAddressByClientCIDR buildFirstServerAddressByClientCIDR() {
     return this.serverAddressByClientCIDRs.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR
-      buildLastServerAddressByClientCIDR() {
+  public V1ServerAddressByClientCIDR buildLastServerAddressByClientCIDR() {
     return this.serverAddressByClientCIDRs.get(serverAddressByClientCIDRs.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR
-      buildMatchingServerAddressByClientCIDR(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>
-              predicate) {
-    for (io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder item :
-        serverAddressByClientCIDRs) {
+  public V1ServerAddressByClientCIDR buildMatchingServerAddressByClientCIDR(
+      Predicate<V1ServerAddressByClientCIDRBuilder> predicate) {
+    for (V1ServerAddressByClientCIDRBuilder item : serverAddressByClientCIDRs) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -304,12 +272,9 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return null;
   }
 
-  public java.lang.Boolean hasMatchingServerAddressByClientCIDR(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder item :
-        serverAddressByClientCIDRs) {
+  public Boolean hasMatchingServerAddressByClientCIDR(
+      Predicate<V1ServerAddressByClientCIDRBuilder> predicate) {
+    for (V1ServerAddressByClientCIDRBuilder item : serverAddressByClientCIDRs) {
       if (predicate.test(item)) {
         return true;
       }
@@ -318,15 +283,13 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
   }
 
   public A withServerAddressByClientCIDRs(
-      java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR>
-          serverAddressByClientCIDRs) {
+      List<V1ServerAddressByClientCIDR> serverAddressByClientCIDRs) {
     if (this.serverAddressByClientCIDRs != null) {
       _visitables.get("serverAddressByClientCIDRs").removeAll(this.serverAddressByClientCIDRs);
     }
     if (serverAddressByClientCIDRs != null) {
-      this.serverAddressByClientCIDRs = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item :
-          serverAddressByClientCIDRs) {
+      this.serverAddressByClientCIDRs = new ArrayList();
+      for (V1ServerAddressByClientCIDR item : serverAddressByClientCIDRs) {
         this.addToServerAddressByClientCIDRs(item);
       }
     } else {
@@ -342,15 +305,14 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
       this.serverAddressByClientCIDRs.clear();
     }
     if (serverAddressByClientCIDRs != null) {
-      for (io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item :
-          serverAddressByClientCIDRs) {
+      for (V1ServerAddressByClientCIDR item : serverAddressByClientCIDRs) {
         this.addToServerAddressByClientCIDRs(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasServerAddressByClientCIDRs() {
+  public Boolean hasServerAddressByClientCIDRs() {
     return serverAddressByClientCIDRs != null && !serverAddressByClientCIDRs.isEmpty();
   }
 
@@ -358,48 +320,38 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return new V1APIGroupFluentImpl.ServerAddressByClientCIDRsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      addNewServerAddressByClientCIDRLike(
-          io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item) {
-    return new io.kubernetes.client.openapi.models.V1APIGroupFluentImpl
-        .ServerAddressByClientCIDRsNestedImpl(-1, item);
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDRLike(
+      V1ServerAddressByClientCIDR item) {
+    return new V1APIGroupFluentImpl.ServerAddressByClientCIDRsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      setNewServerAddressByClientCIDRLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item) {
-    return new io.kubernetes.client.openapi.models.V1APIGroupFluentImpl
-        .ServerAddressByClientCIDRsNestedImpl(index, item);
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> setNewServerAddressByClientCIDRLike(
+      Integer index, V1ServerAddressByClientCIDR item) {
+    return new V1APIGroupFluentImpl.ServerAddressByClientCIDRsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      editServerAddressByClientCIDR(java.lang.Integer index) {
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editServerAddressByClientCIDR(
+      Integer index) {
     if (serverAddressByClientCIDRs.size() <= index)
       throw new RuntimeException("Can't edit serverAddressByClientCIDRs. Index exceeds size.");
     return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      editFirstServerAddressByClientCIDR() {
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editFirstServerAddressByClientCIDR() {
     if (serverAddressByClientCIDRs.size() == 0)
       throw new RuntimeException("Can't edit first serverAddressByClientCIDRs. The list is empty.");
     return setNewServerAddressByClientCIDRLike(0, buildServerAddressByClientCIDR(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      editLastServerAddressByClientCIDR() {
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editLastServerAddressByClientCIDR() {
     int index = serverAddressByClientCIDRs.size() - 1;
     if (index < 0)
       throw new RuntimeException("Can't edit last serverAddressByClientCIDRs. The list is empty.");
     return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      editMatchingServerAddressByClientCIDR(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>
-              predicate) {
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editMatchingServerAddressByClientCIDR(
+      Predicate<V1ServerAddressByClientCIDRBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < serverAddressByClientCIDRs.size(); i++) {
       if (predicate.test(serverAddressByClientCIDRs.get(i))) {
@@ -412,16 +364,11 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
   }
 
-  public A addToVersions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item) {
+  public A addToVersions(Integer index, V1GroupVersionForDiscovery item) {
     if (this.versions == null) {
-      this.versions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>();
+      this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder builder =
-        new io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder(item);
+    V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
     _visitables
         .get("versions")
         .add(index >= 0 ? index : _visitables.get("versions").size(), builder);
@@ -429,16 +376,11 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A setToVersions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item) {
+  public A setToVersions(Integer index, V1GroupVersionForDiscovery item) {
     if (this.versions == null) {
-      this.versions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>();
+      this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder builder =
-        new io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder(item);
+    V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
     if (index < 0 || index >= _visitables.get("versions").size()) {
       _visitables.get("versions").add(builder);
     } else {
@@ -454,29 +396,22 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
 
   public A addToVersions(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... items) {
     if (this.versions == null) {
-      this.versions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>();
+      this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item : items) {
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder builder =
-          new io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder(item);
+    for (V1GroupVersionForDiscovery item : items) {
+      V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
       _visitables.get("versions").add(builder);
       this.versions.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToVersions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery> items) {
+  public A addAllToVersions(Collection<V1GroupVersionForDiscovery> items) {
     if (this.versions == null) {
-      this.versions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>();
+      this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item : items) {
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder builder =
-          new io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder(item);
+    for (V1GroupVersionForDiscovery item : items) {
+      V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
       _visitables.get("versions").add(builder);
       this.versions.add(builder);
     }
@@ -485,9 +420,8 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
 
   public A removeFromVersions(
       io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... items) {
-    for (io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item : items) {
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder builder =
-          new io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder(item);
+    for (V1GroupVersionForDiscovery item : items) {
+      V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
       _visitables.get("versions").remove(builder);
       if (this.versions != null) {
         this.versions.remove(builder);
@@ -496,11 +430,9 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeAllFromVersions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery> items) {
-    for (io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item : items) {
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder builder =
-          new io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder(item);
+  public A removeAllFromVersions(Collection<V1GroupVersionForDiscovery> items) {
+    for (V1GroupVersionForDiscovery item : items) {
+      V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
       _visitables.get("versions").remove(builder);
       if (this.versions != null) {
         this.versions.remove(builder);
@@ -509,16 +441,12 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeMatchingFromVersions(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>
-          predicate) {
+  public A removeMatchingFromVersions(Predicate<V1GroupVersionForDiscoveryBuilder> predicate) {
     if (versions == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder> each =
-        versions.iterator();
+    final Iterator<V1GroupVersionForDiscoveryBuilder> each = versions.iterator();
     final List visitables = _visitables.get("versions");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder builder = each.next();
+      V1GroupVersionForDiscoveryBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -532,35 +460,30 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery>
-      getVersions() {
+  @Deprecated
+  public List<V1GroupVersionForDiscovery> getVersions() {
     return versions != null ? build(versions) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery>
-      buildVersions() {
+  public List<V1GroupVersionForDiscovery> buildVersions() {
     return versions != null ? build(versions) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildVersion(
-      java.lang.Integer index) {
+  public V1GroupVersionForDiscovery buildVersion(Integer index) {
     return this.versions.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildFirstVersion() {
+  public V1GroupVersionForDiscovery buildFirstVersion() {
     return this.versions.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildLastVersion() {
+  public V1GroupVersionForDiscovery buildLastVersion() {
     return this.versions.get(versions.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildMatchingVersion(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder item : versions) {
+  public V1GroupVersionForDiscovery buildMatchingVersion(
+      Predicate<V1GroupVersionForDiscoveryBuilder> predicate) {
+    for (V1GroupVersionForDiscoveryBuilder item : versions) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -568,11 +491,8 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return null;
   }
 
-  public java.lang.Boolean hasMatchingVersion(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder item : versions) {
+  public Boolean hasMatchingVersion(Predicate<V1GroupVersionForDiscoveryBuilder> predicate) {
+    for (V1GroupVersionForDiscoveryBuilder item : versions) {
       if (predicate.test(item)) {
         return true;
       }
@@ -580,14 +500,13 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return false;
   }
 
-  public A withVersions(
-      java.util.List<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery> versions) {
+  public A withVersions(List<V1GroupVersionForDiscovery> versions) {
     if (this.versions != null) {
       _visitables.get("versions").removeAll(this.versions);
     }
     if (versions != null) {
-      this.versions = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item : versions) {
+      this.versions = new ArrayList();
+      for (V1GroupVersionForDiscovery item : versions) {
         this.addToVersions(item);
       }
     } else {
@@ -602,14 +521,14 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
       this.versions.clear();
     }
     if (versions != null) {
-      for (io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item : versions) {
+      for (V1GroupVersionForDiscovery item : versions) {
         this.addToVersions(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasVersions() {
+  public Boolean hasVersions() {
     return versions != null && !versions.isEmpty();
   }
 
@@ -617,42 +536,35 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
     return new V1APIGroupFluentImpl.VersionsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> addNewVersionLike(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item) {
-    return new io.kubernetes.client.openapi.models.V1APIGroupFluentImpl.VersionsNestedImpl(
-        -1, item);
+  public V1APIGroupFluent.VersionsNested<A> addNewVersionLike(V1GroupVersionForDiscovery item) {
+    return new V1APIGroupFluentImpl.VersionsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> setNewVersionLike(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item) {
-    return new io.kubernetes.client.openapi.models.V1APIGroupFluentImpl.VersionsNestedImpl(
-        index, item);
+  public V1APIGroupFluent.VersionsNested<A> setNewVersionLike(
+      Integer index, V1GroupVersionForDiscovery item) {
+    return new V1APIGroupFluentImpl.VersionsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> editVersion(
-      java.lang.Integer index) {
+  public V1APIGroupFluent.VersionsNested<A> editVersion(Integer index) {
     if (versions.size() <= index)
       throw new RuntimeException("Can't edit versions. Index exceeds size.");
     return setNewVersionLike(index, buildVersion(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> editFirstVersion() {
+  public V1APIGroupFluent.VersionsNested<A> editFirstVersion() {
     if (versions.size() == 0)
       throw new RuntimeException("Can't edit first versions. The list is empty.");
     return setNewVersionLike(0, buildVersion(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> editLastVersion() {
+  public V1APIGroupFluent.VersionsNested<A> editLastVersion() {
     int index = versions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last versions. The list is empty.");
     return setNewVersionLike(index, buildVersion(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> editMatchingVersion(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>
-          predicate) {
+  public V1APIGroupFluent.VersionsNested<A> editMatchingVersion(
+      Predicate<V1GroupVersionForDiscoveryBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < versions.size(); i++) {
       if (predicate.test(versions.get(i))) {
@@ -693,7 +605,7 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -726,19 +638,16 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
 
   class PreferredVersionNestedImpl<N>
       extends V1GroupVersionForDiscoveryFluentImpl<V1APIGroupFluent.PreferredVersionNested<N>>
-      implements io.kubernetes.client.openapi.models.V1APIGroupFluent.PreferredVersionNested<N>,
-          Nested<N> {
-    PreferredVersionNestedImpl(
-        io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item) {
+      implements V1APIGroupFluent.PreferredVersionNested<N>, Nested<N> {
+    PreferredVersionNestedImpl(V1GroupVersionForDiscovery item) {
       this.builder = new V1GroupVersionForDiscoveryBuilder(this, item);
     }
 
     PreferredVersionNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder(this);
+      this.builder = new V1GroupVersionForDiscoveryBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder builder;
+    V1GroupVersionForDiscoveryBuilder builder;
 
     public N and() {
       return (N) V1APIGroupFluentImpl.this.withPreferredVersion(builder.build());
@@ -752,24 +661,19 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
   class ServerAddressByClientCIDRsNestedImpl<N>
       extends V1ServerAddressByClientCIDRFluentImpl<
           V1APIGroupFluent.ServerAddressByClientCIDRsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1APIGroupFluent
-                  .ServerAddressByClientCIDRsNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ServerAddressByClientCIDRsNestedImpl(
-        java.lang.Integer index, V1ServerAddressByClientCIDR item) {
+      implements V1APIGroupFluent.ServerAddressByClientCIDRsNested<N>, Nested<N> {
+    ServerAddressByClientCIDRsNestedImpl(Integer index, V1ServerAddressByClientCIDR item) {
       this.index = index;
       this.builder = new V1ServerAddressByClientCIDRBuilder(this, item);
     }
 
     ServerAddressByClientCIDRsNestedImpl() {
       this.index = -1;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder(this);
+      this.builder = new V1ServerAddressByClientCIDRBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder builder;
-    java.lang.Integer index;
+    V1ServerAddressByClientCIDRBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1APIGroupFluentImpl.this.setToServerAddressByClientCIDRs(index, builder.build());
@@ -782,23 +686,19 @@ public class V1APIGroupFluentImpl<A extends V1APIGroupFluent<A>> extends BaseFlu
 
   class VersionsNestedImpl<N>
       extends V1GroupVersionForDiscoveryFluentImpl<V1APIGroupFluent.VersionsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    VersionsNestedImpl(
-        java.lang.Integer index,
-        io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item) {
+      implements V1APIGroupFluent.VersionsNested<N>, Nested<N> {
+    VersionsNestedImpl(Integer index, V1GroupVersionForDiscovery item) {
       this.index = index;
       this.builder = new V1GroupVersionForDiscoveryBuilder(this, item);
     }
 
     VersionsNestedImpl() {
       this.index = -1;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder(this);
+      this.builder = new V1GroupVersionForDiscoveryBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder builder;
-    java.lang.Integer index;
+    V1GroupVersionForDiscoveryBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1APIGroupFluentImpl.this.setToVersions(index, builder.build());

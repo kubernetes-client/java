@@ -19,21 +19,21 @@ public interface V1SecretKeySelectorFluent<A extends V1SecretKeySelectorFluent<A
     extends Fluent<A> {
   public String getKey();
 
-  public A withKey(java.lang.String key);
+  public A withKey(String key);
 
   public Boolean hasKey();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.Boolean getOptional();
+  public Boolean getOptional();
 
-  public A withOptional(java.lang.Boolean optional);
+  public A withOptional(Boolean optional);
 
-  public java.lang.Boolean hasOptional();
+  public Boolean hasOptional();
 
   public A withOptional();
 }

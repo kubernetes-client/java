@@ -21,8 +21,7 @@ public class V1VolumeAttachmentSourceFluentImpl<A extends V1VolumeAttachmentSour
     extends BaseFluent<A> implements V1VolumeAttachmentSourceFluent<A> {
   public V1VolumeAttachmentSourceFluentImpl() {}
 
-  public V1VolumeAttachmentSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentSource instance) {
+  public V1VolumeAttachmentSourceFluentImpl(V1VolumeAttachmentSource instance) {
     this.withInlineVolumeSpec(instance.getInlineVolumeSpec());
 
     this.withPersistentVolumeName(instance.getPersistentVolumeName());
@@ -41,17 +40,18 @@ public class V1VolumeAttachmentSourceFluentImpl<A extends V1VolumeAttachmentSour
     return this.inlineVolumeSpec != null ? this.inlineVolumeSpec.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeSpec buildInlineVolumeSpec() {
+  public V1PersistentVolumeSpec buildInlineVolumeSpec() {
     return this.inlineVolumeSpec != null ? this.inlineVolumeSpec.build() : null;
   }
 
-  public A withInlineVolumeSpec(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeSpec inlineVolumeSpec) {
+  public A withInlineVolumeSpec(V1PersistentVolumeSpec inlineVolumeSpec) {
     _visitables.get("inlineVolumeSpec").remove(this.inlineVolumeSpec);
     if (inlineVolumeSpec != null) {
-      this.inlineVolumeSpec =
-          new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecBuilder(inlineVolumeSpec);
+      this.inlineVolumeSpec = new V1PersistentVolumeSpecBuilder(inlineVolumeSpec);
       _visitables.get("inlineVolumeSpec").add(this.inlineVolumeSpec);
+    } else {
+      this.inlineVolumeSpec = null;
+      _visitables.get("inlineVolumeSpec").remove(this.inlineVolumeSpec);
     }
     return (A) this;
   }
@@ -64,45 +64,38 @@ public class V1VolumeAttachmentSourceFluentImpl<A extends V1VolumeAttachmentSour
     return new V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<
-          A>
-      withNewInlineVolumeSpecLike(io.kubernetes.client.openapi.models.V1PersistentVolumeSpec item) {
+  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> withNewInlineVolumeSpecLike(
+      V1PersistentVolumeSpec item) {
     return new V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<
-          A>
-      editInlineVolumeSpec() {
+  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> editInlineVolumeSpec() {
     return withNewInlineVolumeSpecLike(getInlineVolumeSpec());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<
-          A>
-      editOrNewInlineVolumeSpec() {
+  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> editOrNewInlineVolumeSpec() {
     return withNewInlineVolumeSpecLike(
         getInlineVolumeSpec() != null
             ? getInlineVolumeSpec()
-            : new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecBuilder().build());
+            : new V1PersistentVolumeSpecBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<
-          A>
-      editOrNewInlineVolumeSpecLike(
-          io.kubernetes.client.openapi.models.V1PersistentVolumeSpec item) {
+  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> editOrNewInlineVolumeSpecLike(
+      V1PersistentVolumeSpec item) {
     return withNewInlineVolumeSpecLike(
         getInlineVolumeSpec() != null ? getInlineVolumeSpec() : item);
   }
 
-  public java.lang.String getPersistentVolumeName() {
+  public String getPersistentVolumeName() {
     return this.persistentVolumeName;
   }
 
-  public A withPersistentVolumeName(java.lang.String persistentVolumeName) {
+  public A withPersistentVolumeName(String persistentVolumeName) {
     this.persistentVolumeName = persistentVolumeName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPersistentVolumeName() {
+  public Boolean hasPersistentVolumeName() {
     return this.persistentVolumeName != null;
   }
 
@@ -123,7 +116,7 @@ public class V1VolumeAttachmentSourceFluentImpl<A extends V1VolumeAttachmentSour
     return java.util.Objects.hash(inlineVolumeSpec, persistentVolumeName, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (inlineVolumeSpec != null) {
@@ -141,19 +134,16 @@ public class V1VolumeAttachmentSourceFluentImpl<A extends V1VolumeAttachmentSour
   class InlineVolumeSpecNestedImpl<N>
       extends V1PersistentVolumeSpecFluentImpl<
           V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<N>>
-      implements io.kubernetes.client.openapi.models.V1VolumeAttachmentSourceFluent
-                  .InlineVolumeSpecNested<
-              N>,
-          Nested<N> {
-    InlineVolumeSpecNestedImpl(io.kubernetes.client.openapi.models.V1PersistentVolumeSpec item) {
+      implements V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<N>, Nested<N> {
+    InlineVolumeSpecNestedImpl(V1PersistentVolumeSpec item) {
       this.builder = new V1PersistentVolumeSpecBuilder(this, item);
     }
 
     InlineVolumeSpecNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1PersistentVolumeSpecBuilder(this);
+      this.builder = new V1PersistentVolumeSpecBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PersistentVolumeSpecBuilder builder;
+    V1PersistentVolumeSpecBuilder builder;
 
     public N and() {
       return (N) V1VolumeAttachmentSourceFluentImpl.this.withInlineVolumeSpec(builder.build());

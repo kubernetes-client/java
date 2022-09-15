@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ScaleSpecBuilder extends V1ScaleSpecFluentImpl<V1ScaleSpecBuilder>
-    implements VisitableBuilder<
-        V1ScaleSpec, io.kubernetes.client.openapi.models.V1ScaleSpecBuilder> {
+    implements VisitableBuilder<V1ScaleSpec, V1ScaleSpecBuilder> {
   public V1ScaleSpecBuilder() {
     this(false);
   }
@@ -25,49 +24,41 @@ public class V1ScaleSpecBuilder extends V1ScaleSpecFluentImpl<V1ScaleSpecBuilder
     this(new V1ScaleSpec(), validationEnabled);
   }
 
-  public V1ScaleSpecBuilder(io.kubernetes.client.openapi.models.V1ScaleSpecFluent<?> fluent) {
+  public V1ScaleSpecBuilder(V1ScaleSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1ScaleSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ScaleSpecBuilder(V1ScaleSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ScaleSpec(), validationEnabled);
   }
 
-  public V1ScaleSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ScaleSpec instance) {
+  public V1ScaleSpecBuilder(V1ScaleSpecFluent<?> fluent, V1ScaleSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1ScaleSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ScaleSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1ScaleSpecFluent<?> fluent, V1ScaleSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withReplicas(instance.getReplicas());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ScaleSpecBuilder(io.kubernetes.client.openapi.models.V1ScaleSpec instance) {
+  public V1ScaleSpecBuilder(V1ScaleSpec instance) {
     this(instance, false);
   }
 
-  public V1ScaleSpecBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ScaleSpecBuilder(V1ScaleSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withReplicas(instance.getReplicas());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ScaleSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ScaleSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ScaleSpec build() {
+  public V1ScaleSpec build() {
     V1ScaleSpec buildable = new V1ScaleSpec();
     buildable.setReplicas(fluent.getReplicas());
     return buildable;

@@ -20,13 +20,13 @@ public interface V1PhotonPersistentDiskVolumeSourceFluent<
     extends Fluent<A> {
   public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
   public Boolean hasFsType();
 
-  public java.lang.String getPdID();
+  public String getPdID();
 
-  public A withPdID(java.lang.String pdID);
+  public A withPdID(String pdID);
 
-  public java.lang.Boolean hasPdID();
+  public Boolean hasPdID();
 }

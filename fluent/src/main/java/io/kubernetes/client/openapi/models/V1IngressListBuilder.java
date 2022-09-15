@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1IngressListBuilder extends V1IngressListFluentImpl<V1IngressListBuilder>
-    implements VisitableBuilder<
-        V1IngressList, io.kubernetes.client.openapi.models.V1IngressListBuilder> {
+    implements VisitableBuilder<V1IngressList, V1IngressListBuilder> {
   public V1IngressListBuilder() {
     this(false);
   }
@@ -25,26 +24,20 @@ public class V1IngressListBuilder extends V1IngressListFluentImpl<V1IngressListB
     this(new V1IngressList(), validationEnabled);
   }
 
-  public V1IngressListBuilder(io.kubernetes.client.openapi.models.V1IngressListFluent<?> fluent) {
+  public V1IngressListBuilder(V1IngressListFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1IngressListBuilder(
-      io.kubernetes.client.openapi.models.V1IngressListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1IngressListBuilder(V1IngressListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1IngressList(), validationEnabled);
   }
 
-  public V1IngressListBuilder(
-      io.kubernetes.client.openapi.models.V1IngressListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1IngressList instance) {
+  public V1IngressListBuilder(V1IngressListFluent<?> fluent, V1IngressList instance) {
     this(fluent, instance, false);
   }
 
   public V1IngressListBuilder(
-      io.kubernetes.client.openapi.models.V1IngressListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1IngressList instance,
-      java.lang.Boolean validationEnabled) {
+      V1IngressListFluent<?> fluent, V1IngressList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -57,13 +50,11 @@ public class V1IngressListBuilder extends V1IngressListFluentImpl<V1IngressListB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1IngressListBuilder(io.kubernetes.client.openapi.models.V1IngressList instance) {
+  public V1IngressListBuilder(V1IngressList instance) {
     this(instance, false);
   }
 
-  public V1IngressListBuilder(
-      io.kubernetes.client.openapi.models.V1IngressList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1IngressListBuilder(V1IngressList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -76,10 +67,10 @@ public class V1IngressListBuilder extends V1IngressListFluentImpl<V1IngressListB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1IngressListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1IngressListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1IngressList build() {
+  public V1IngressList build() {
     V1IngressList buildable = new V1IngressList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

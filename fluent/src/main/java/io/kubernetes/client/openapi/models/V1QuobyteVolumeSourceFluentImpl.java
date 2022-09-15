@@ -20,8 +20,7 @@ public class V1QuobyteVolumeSourceFluentImpl<A extends V1QuobyteVolumeSourceFlue
     extends BaseFluent<A> implements V1QuobyteVolumeSourceFluent<A> {
   public V1QuobyteVolumeSourceFluentImpl() {}
 
-  public V1QuobyteVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1QuobyteVolumeSource instance) {
+  public V1QuobyteVolumeSourceFluentImpl(V1QuobyteVolumeSource instance) {
     this.withGroup(instance.getGroup());
 
     this.withReadOnly(instance.getReadOnly());
@@ -37,86 +36,86 @@ public class V1QuobyteVolumeSourceFluentImpl<A extends V1QuobyteVolumeSourceFlue
 
   private String group;
   private Boolean readOnly;
-  private java.lang.String registry;
-  private java.lang.String tenant;
-  private java.lang.String user;
-  private java.lang.String volume;
+  private String registry;
+  private String tenant;
+  private String user;
+  private String volume;
 
-  public java.lang.String getGroup() {
+  public String getGroup() {
     return this.group;
   }
 
-  public A withGroup(java.lang.String group) {
+  public A withGroup(String group) {
     this.group = group;
     return (A) this;
   }
 
-  public java.lang.Boolean hasGroup() {
+  public Boolean hasGroup() {
     return this.group != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
-  public java.lang.String getRegistry() {
+  public String getRegistry() {
     return this.registry;
   }
 
-  public A withRegistry(java.lang.String registry) {
+  public A withRegistry(String registry) {
     this.registry = registry;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRegistry() {
+  public Boolean hasRegistry() {
     return this.registry != null;
   }
 
-  public java.lang.String getTenant() {
+  public String getTenant() {
     return this.tenant;
   }
 
-  public A withTenant(java.lang.String tenant) {
+  public A withTenant(String tenant) {
     this.tenant = tenant;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTenant() {
+  public Boolean hasTenant() {
     return this.tenant != null;
   }
 
-  public java.lang.String getUser() {
+  public String getUser() {
     return this.user;
   }
 
-  public A withUser(java.lang.String user) {
+  public A withUser(String user) {
     this.user = user;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUser() {
+  public Boolean hasUser() {
     return this.user != null;
   }
 
-  public java.lang.String getVolume() {
+  public String getVolume() {
     return this.volume;
   }
 
-  public A withVolume(java.lang.String volume) {
+  public A withVolume(String volume) {
     this.volume = volume;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVolume() {
+  public Boolean hasVolume() {
     return this.volume != null;
   }
 
@@ -138,7 +137,7 @@ public class V1QuobyteVolumeSourceFluentImpl<A extends V1QuobyteVolumeSourceFlue
         group, readOnly, registry, tenant, user, volume, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (group != null) {

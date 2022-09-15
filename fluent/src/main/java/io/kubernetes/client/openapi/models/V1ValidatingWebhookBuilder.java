@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ValidatingWebhookBuilder
     extends V1ValidatingWebhookFluentImpl<V1ValidatingWebhookBuilder>
-    implements VisitableBuilder<
-        V1ValidatingWebhook, io.kubernetes.client.openapi.models.V1ValidatingWebhookBuilder> {
+    implements VisitableBuilder<V1ValidatingWebhook, V1ValidatingWebhookBuilder> {
   public V1ValidatingWebhookBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1ValidatingWebhookBuilder
   }
 
   public V1ValidatingWebhookBuilder(
-      io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ValidatingWebhookFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ValidatingWebhook(), validationEnabled);
   }
 
   public V1ValidatingWebhookBuilder(
-      io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ValidatingWebhook instance) {
+      V1ValidatingWebhookFluent<?> fluent, V1ValidatingWebhook instance) {
     this(fluent, instance, false);
   }
 
   public V1ValidatingWebhookBuilder(
-      io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ValidatingWebhook instance,
-      java.lang.Boolean validationEnabled) {
+      V1ValidatingWebhookFluent<?> fluent,
+      V1ValidatingWebhook instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAdmissionReviewVersions(instance.getAdmissionReviewVersions());
 
@@ -70,14 +67,11 @@ public class V1ValidatingWebhookBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ValidatingWebhookBuilder(
-      io.kubernetes.client.openapi.models.V1ValidatingWebhook instance) {
+  public V1ValidatingWebhookBuilder(V1ValidatingWebhook instance) {
     this(instance, false);
   }
 
-  public V1ValidatingWebhookBuilder(
-      io.kubernetes.client.openapi.models.V1ValidatingWebhook instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ValidatingWebhookBuilder(V1ValidatingWebhook instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAdmissionReviewVersions(instance.getAdmissionReviewVersions());
 
@@ -102,10 +96,10 @@ public class V1ValidatingWebhookBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ValidatingWebhookFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ValidatingWebhookFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ValidatingWebhook build() {
+  public V1ValidatingWebhook build() {
     V1ValidatingWebhook buildable = new V1ValidatingWebhook();
     buildable.setAdmissionReviewVersions(fluent.getAdmissionReviewVersions());
     buildable.setClientConfig(fluent.getClientConfig());

@@ -20,8 +20,7 @@ public class StorageV1TokenRequestFluentImpl<A extends StorageV1TokenRequestFlue
     extends BaseFluent<A> implements StorageV1TokenRequestFluent<A> {
   public StorageV1TokenRequestFluentImpl() {}
 
-  public StorageV1TokenRequestFluentImpl(
-      io.kubernetes.client.openapi.models.StorageV1TokenRequest instance) {
+  public StorageV1TokenRequestFluentImpl(StorageV1TokenRequest instance) {
     this.withAudience(instance.getAudience());
 
     this.withExpirationSeconds(instance.getExpirationSeconds());
@@ -30,11 +29,11 @@ public class StorageV1TokenRequestFluentImpl<A extends StorageV1TokenRequestFlue
   private String audience;
   private Long expirationSeconds;
 
-  public java.lang.String getAudience() {
+  public String getAudience() {
     return this.audience;
   }
 
-  public A withAudience(java.lang.String audience) {
+  public A withAudience(String audience) {
     this.audience = audience;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class StorageV1TokenRequestFluentImpl<A extends StorageV1TokenRequestFlue
     return this.audience != null;
   }
 
-  public java.lang.Long getExpirationSeconds() {
+  public Long getExpirationSeconds() {
     return this.expirationSeconds;
   }
 
-  public A withExpirationSeconds(java.lang.Long expirationSeconds) {
+  public A withExpirationSeconds(Long expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExpirationSeconds() {
+  public Boolean hasExpirationSeconds() {
     return this.expirationSeconds != null;
   }
 
@@ -71,7 +70,7 @@ public class StorageV1TokenRequestFluentImpl<A extends StorageV1TokenRequestFlue
     return java.util.Objects.hash(audience, expirationSeconds, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (audience != null) {

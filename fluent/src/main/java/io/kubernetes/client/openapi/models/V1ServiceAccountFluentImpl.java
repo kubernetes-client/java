@@ -26,7 +26,7 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     implements V1ServiceAccountFluent<A> {
   public V1ServiceAccountFluentImpl() {}
 
-  public V1ServiceAccountFluentImpl(io.kubernetes.client.openapi.models.V1ServiceAccount instance) {
+  public V1ServiceAccountFluentImpl(V1ServiceAccount instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withAutomountServiceAccountToken(instance.getAutomountServiceAccountToken());
@@ -43,44 +43,41 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
   private String apiVersion;
   private Boolean automountServiceAccountToken;
   private ArrayList<V1LocalObjectReferenceBuilder> imagePullSecrets;
-  private java.lang.String kind;
+  private String kind;
   private V1ObjectMetaBuilder metadata;
-  private java.util.ArrayList<V1ObjectReferenceBuilder> secrets;
+  private ArrayList<V1ObjectReferenceBuilder> secrets;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
 
-  public java.lang.Boolean getAutomountServiceAccountToken() {
+  public Boolean getAutomountServiceAccountToken() {
     return this.automountServiceAccountToken;
   }
 
-  public A withAutomountServiceAccountToken(java.lang.Boolean automountServiceAccountToken) {
+  public A withAutomountServiceAccountToken(Boolean automountServiceAccountToken) {
     this.automountServiceAccountToken = automountServiceAccountToken;
     return (A) this;
   }
 
-  public java.lang.Boolean hasAutomountServiceAccountToken() {
+  public Boolean hasAutomountServiceAccountToken() {
     return this.automountServiceAccountToken != null;
   }
 
   public A addToImagePullSecrets(Integer index, V1LocalObjectReference item) {
     if (this.imagePullSecrets == null) {
-      this.imagePullSecrets =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>();
+      this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder =
-        new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(item);
+    V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
     _visitables
         .get("imagePullSecrets")
         .add(index >= 0 ? index : _visitables.get("imagePullSecrets").size(), builder);
@@ -88,15 +85,11 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return (A) this;
   }
 
-  public A setToImagePullSecrets(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+  public A setToImagePullSecrets(Integer index, V1LocalObjectReference item) {
     if (this.imagePullSecrets == null) {
-      this.imagePullSecrets =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>();
+      this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder =
-        new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(item);
+    V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
     if (index < 0 || index >= _visitables.get("imagePullSecrets").size()) {
       _visitables.get("imagePullSecrets").add(builder);
     } else {
@@ -113,29 +106,22 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
   public A addToImagePullSecrets(
       io.kubernetes.client.openapi.models.V1LocalObjectReference... items) {
     if (this.imagePullSecrets == null) {
-      this.imagePullSecrets =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>();
+      this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1LocalObjectReference item : items) {
-      io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(item);
+    for (V1LocalObjectReference item : items) {
+      V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
       _visitables.get("imagePullSecrets").add(builder);
       this.imagePullSecrets.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToImagePullSecrets(
-      Collection<io.kubernetes.client.openapi.models.V1LocalObjectReference> items) {
+  public A addAllToImagePullSecrets(Collection<V1LocalObjectReference> items) {
     if (this.imagePullSecrets == null) {
-      this.imagePullSecrets =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>();
+      this.imagePullSecrets = new ArrayList<V1LocalObjectReferenceBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1LocalObjectReference item : items) {
-      io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(item);
+    for (V1LocalObjectReference item : items) {
+      V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
       _visitables.get("imagePullSecrets").add(builder);
       this.imagePullSecrets.add(builder);
     }
@@ -144,9 +130,8 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
 
   public A removeFromImagePullSecrets(
       io.kubernetes.client.openapi.models.V1LocalObjectReference... items) {
-    for (io.kubernetes.client.openapi.models.V1LocalObjectReference item : items) {
-      io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(item);
+    for (V1LocalObjectReference item : items) {
+      V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
       _visitables.get("imagePullSecrets").remove(builder);
       if (this.imagePullSecrets != null) {
         this.imagePullSecrets.remove(builder);
@@ -155,11 +140,9 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return (A) this;
   }
 
-  public A removeAllFromImagePullSecrets(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1LocalObjectReference> items) {
-    for (io.kubernetes.client.openapi.models.V1LocalObjectReference item : items) {
-      io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(item);
+  public A removeAllFromImagePullSecrets(Collection<V1LocalObjectReference> items) {
+    for (V1LocalObjectReference item : items) {
+      V1LocalObjectReferenceBuilder builder = new V1LocalObjectReferenceBuilder(item);
       _visitables.get("imagePullSecrets").remove(builder);
       if (this.imagePullSecrets != null) {
         this.imagePullSecrets.remove(builder);
@@ -168,14 +151,12 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return (A) this;
   }
 
-  public A removeMatchingFromImagePullSecrets(
-      Predicate<io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder> predicate) {
+  public A removeMatchingFromImagePullSecrets(Predicate<V1LocalObjectReferenceBuilder> predicate) {
     if (imagePullSecrets == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder> each =
-        imagePullSecrets.iterator();
+    final Iterator<V1LocalObjectReferenceBuilder> each = imagePullSecrets.iterator();
     final List visitables = _visitables.get("imagePullSecrets");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder = each.next();
+      V1LocalObjectReferenceBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -190,34 +171,29 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1LocalObjectReference> getImagePullSecrets() {
+  public List<V1LocalObjectReference> getImagePullSecrets() {
     return imagePullSecrets != null ? build(imagePullSecrets) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1LocalObjectReference>
-      buildImagePullSecrets() {
+  public List<V1LocalObjectReference> buildImagePullSecrets() {
     return imagePullSecrets != null ? build(imagePullSecrets) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildImagePullSecret(
-      java.lang.Integer index) {
+  public V1LocalObjectReference buildImagePullSecret(Integer index) {
     return this.imagePullSecrets.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildFirstImagePullSecret() {
+  public V1LocalObjectReference buildFirstImagePullSecret() {
     return this.imagePullSecrets.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildLastImagePullSecret() {
+  public V1LocalObjectReference buildLastImagePullSecret() {
     return this.imagePullSecrets.get(imagePullSecrets.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildMatchingImagePullSecret(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder item :
-        imagePullSecrets) {
+  public V1LocalObjectReference buildMatchingImagePullSecret(
+      Predicate<V1LocalObjectReferenceBuilder> predicate) {
+    for (V1LocalObjectReferenceBuilder item : imagePullSecrets) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -225,12 +201,8 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return null;
   }
 
-  public java.lang.Boolean hasMatchingImagePullSecret(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder item :
-        imagePullSecrets) {
+  public Boolean hasMatchingImagePullSecret(Predicate<V1LocalObjectReferenceBuilder> predicate) {
+    for (V1LocalObjectReferenceBuilder item : imagePullSecrets) {
       if (predicate.test(item)) {
         return true;
       }
@@ -238,14 +210,13 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return false;
   }
 
-  public A withImagePullSecrets(
-      java.util.List<io.kubernetes.client.openapi.models.V1LocalObjectReference> imagePullSecrets) {
+  public A withImagePullSecrets(List<V1LocalObjectReference> imagePullSecrets) {
     if (this.imagePullSecrets != null) {
       _visitables.get("imagePullSecrets").removeAll(this.imagePullSecrets);
     }
     if (imagePullSecrets != null) {
-      this.imagePullSecrets = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1LocalObjectReference item : imagePullSecrets) {
+      this.imagePullSecrets = new ArrayList();
+      for (V1LocalObjectReference item : imagePullSecrets) {
         this.addToImagePullSecrets(item);
       }
     } else {
@@ -260,14 +231,14 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
       this.imagePullSecrets.clear();
     }
     if (imagePullSecrets != null) {
-      for (io.kubernetes.client.openapi.models.V1LocalObjectReference item : imagePullSecrets) {
+      for (V1LocalObjectReference item : imagePullSecrets) {
         this.addToImagePullSecrets(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasImagePullSecrets() {
+  public Boolean hasImagePullSecrets() {
     return imagePullSecrets != null && !imagePullSecrets.isEmpty();
   }
 
@@ -275,46 +246,37 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return new V1ServiceAccountFluentImpl.ImagePullSecretsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      addNewImagePullSecretLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> addNewImagePullSecretLike(
+      V1LocalObjectReference item) {
     return new V1ServiceAccountFluentImpl.ImagePullSecretsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      setNewImagePullSecretLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1LocalObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceAccountFluentImpl
-        .ImagePullSecretsNestedImpl(index, item);
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> setNewImagePullSecretLike(
+      Integer index, V1LocalObjectReference item) {
+    return new V1ServiceAccountFluentImpl.ImagePullSecretsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      editImagePullSecret(java.lang.Integer index) {
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> editImagePullSecret(Integer index) {
     if (imagePullSecrets.size() <= index)
       throw new RuntimeException("Can't edit imagePullSecrets. Index exceeds size.");
     return setNewImagePullSecretLike(index, buildImagePullSecret(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      editFirstImagePullSecret() {
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> editFirstImagePullSecret() {
     if (imagePullSecrets.size() == 0)
       throw new RuntimeException("Can't edit first imagePullSecrets. The list is empty.");
     return setNewImagePullSecretLike(0, buildImagePullSecret(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      editLastImagePullSecret() {
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> editLastImagePullSecret() {
     int index = imagePullSecrets.size() - 1;
     if (index < 0)
       throw new RuntimeException("Can't edit last imagePullSecrets. The list is empty.");
     return setNewImagePullSecretLike(index, buildImagePullSecret(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      editMatchingImagePullSecret(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>
-              predicate) {
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> editMatchingImagePullSecret(
+      Predicate<V1LocalObjectReferenceBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < imagePullSecrets.size(); i++) {
       if (predicate.test(imagePullSecrets.get(i))) {
@@ -327,16 +289,16 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return setNewImagePullSecretLike(index, buildImagePullSecret(index));
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -345,25 +307,28 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  @Deprecated
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -371,50 +336,38 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return new V1ServiceAccountFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceAccountFluentImpl.MetadataNestedImpl(
-        item);
+  public V1ServiceAccountFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+    return new V1ServiceAccountFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<A>
-      editMetadata() {
+  public V1ServiceAccountFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1ServiceAccountFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1ServiceAccountFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public A addToSecrets(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item) {
+  public A addToSecrets(Integer index, V1ObjectReference item) {
     if (this.secrets == null) {
-      this.secrets = new java.util.ArrayList<V1ObjectReferenceBuilder>();
+      this.secrets = new ArrayList<V1ObjectReferenceBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(item);
+    V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
     _visitables.get("secrets").add(index >= 0 ? index : _visitables.get("secrets").size(), builder);
     this.secrets.add(index >= 0 ? index : secrets.size(), builder);
     return (A) this;
   }
 
-  public A setToSecrets(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item) {
+  public A setToSecrets(Integer index, V1ObjectReference item) {
     if (this.secrets == null) {
-      this.secrets =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>();
+      this.secrets = new ArrayList<V1ObjectReferenceBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(item);
+    V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
     if (index < 0 || index >= _visitables.get("secrets").size()) {
       _visitables.get("secrets").add(builder);
     } else {
@@ -430,27 +383,22 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
 
   public A addToSecrets(io.kubernetes.client.openapi.models.V1ObjectReference... items) {
     if (this.secrets == null) {
-      this.secrets =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>();
+      this.secrets = new ArrayList<V1ObjectReferenceBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ObjectReference item : items) {
-      io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(item);
+    for (V1ObjectReference item : items) {
+      V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
       _visitables.get("secrets").add(builder);
       this.secrets.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToSecrets(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ObjectReference> items) {
+  public A addAllToSecrets(Collection<V1ObjectReference> items) {
     if (this.secrets == null) {
-      this.secrets =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>();
+      this.secrets = new ArrayList<V1ObjectReferenceBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ObjectReference item : items) {
-      io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(item);
+    for (V1ObjectReference item : items) {
+      V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
       _visitables.get("secrets").add(builder);
       this.secrets.add(builder);
     }
@@ -458,9 +406,8 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
   }
 
   public A removeFromSecrets(io.kubernetes.client.openapi.models.V1ObjectReference... items) {
-    for (io.kubernetes.client.openapi.models.V1ObjectReference item : items) {
-      io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(item);
+    for (V1ObjectReference item : items) {
+      V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
       _visitables.get("secrets").remove(builder);
       if (this.secrets != null) {
         this.secrets.remove(builder);
@@ -469,11 +416,9 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return (A) this;
   }
 
-  public A removeAllFromSecrets(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ObjectReference> items) {
-    for (io.kubernetes.client.openapi.models.V1ObjectReference item : items) {
-      io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(item);
+  public A removeAllFromSecrets(Collection<V1ObjectReference> items) {
+    for (V1ObjectReference item : items) {
+      V1ObjectReferenceBuilder builder = new V1ObjectReferenceBuilder(item);
       _visitables.get("secrets").remove(builder);
       if (this.secrets != null) {
         this.secrets.remove(builder);
@@ -482,15 +427,12 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return (A) this;
   }
 
-  public A removeMatchingFromSecrets(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
-          predicate) {
+  public A removeMatchingFromSecrets(Predicate<V1ObjectReferenceBuilder> predicate) {
     if (secrets == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder> each =
-        secrets.iterator();
+    final Iterator<V1ObjectReferenceBuilder> each = secrets.iterator();
     final List visitables = _visitables.get("secrets");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder = each.next();
+      V1ObjectReferenceBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -504,32 +446,29 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> getSecrets() {
+  @Deprecated
+  public List<V1ObjectReference> getSecrets() {
     return secrets != null ? build(secrets) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> buildSecrets() {
+  public List<V1ObjectReference> buildSecrets() {
     return secrets != null ? build(secrets) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildSecret(
-      java.lang.Integer index) {
+  public V1ObjectReference buildSecret(Integer index) {
     return this.secrets.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildFirstSecret() {
+  public V1ObjectReference buildFirstSecret() {
     return this.secrets.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildLastSecret() {
+  public V1ObjectReference buildLastSecret() {
     return this.secrets.get(secrets.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildMatchingSecret(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder item : secrets) {
+  public V1ObjectReference buildMatchingSecret(Predicate<V1ObjectReferenceBuilder> predicate) {
+    for (V1ObjectReferenceBuilder item : secrets) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -537,10 +476,8 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return null;
   }
 
-  public java.lang.Boolean hasMatchingSecret(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder item : secrets) {
+  public Boolean hasMatchingSecret(Predicate<V1ObjectReferenceBuilder> predicate) {
+    for (V1ObjectReferenceBuilder item : secrets) {
       if (predicate.test(item)) {
         return true;
       }
@@ -548,14 +485,13 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return false;
   }
 
-  public A withSecrets(
-      java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> secrets) {
+  public A withSecrets(List<V1ObjectReference> secrets) {
     if (this.secrets != null) {
       _visitables.get("secrets").removeAll(this.secrets);
     }
     if (secrets != null) {
-      this.secrets = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1ObjectReference item : secrets) {
+      this.secrets = new ArrayList();
+      for (V1ObjectReference item : secrets) {
         this.addToSecrets(item);
       }
     } else {
@@ -569,14 +505,14 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
       this.secrets.clear();
     }
     if (secrets != null) {
-      for (io.kubernetes.client.openapi.models.V1ObjectReference item : secrets) {
+      for (V1ObjectReference item : secrets) {
         this.addToSecrets(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecrets() {
+  public Boolean hasSecrets() {
     return secrets != null && !secrets.isEmpty();
   }
 
@@ -584,44 +520,35 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
     return new V1ServiceAccountFluentImpl.SecretsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      addNewSecretLike(io.kubernetes.client.openapi.models.V1ObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceAccountFluentImpl.SecretsNestedImpl(
-        -1, item);
+  public V1ServiceAccountFluent.SecretsNested<A> addNewSecretLike(V1ObjectReference item) {
+    return new V1ServiceAccountFluentImpl.SecretsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      setNewSecretLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceAccountFluentImpl.SecretsNestedImpl(
-        index, item);
+  public V1ServiceAccountFluent.SecretsNested<A> setNewSecretLike(
+      Integer index, V1ObjectReference item) {
+    return new V1ServiceAccountFluentImpl.SecretsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A> editSecret(
-      java.lang.Integer index) {
+  public V1ServiceAccountFluent.SecretsNested<A> editSecret(Integer index) {
     if (secrets.size() <= index)
       throw new RuntimeException("Can't edit secrets. Index exceeds size.");
     return setNewSecretLike(index, buildSecret(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      editFirstSecret() {
+  public V1ServiceAccountFluent.SecretsNested<A> editFirstSecret() {
     if (secrets.size() == 0)
       throw new RuntimeException("Can't edit first secrets. The list is empty.");
     return setNewSecretLike(0, buildSecret(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      editLastSecret() {
+  public V1ServiceAccountFluent.SecretsNested<A> editLastSecret() {
     int index = secrets.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last secrets. The list is empty.");
     return setNewSecretLike(index, buildSecret(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      editMatchingSecret(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
-              predicate) {
+  public V1ServiceAccountFluent.SecretsNested<A> editMatchingSecret(
+      Predicate<V1ObjectReferenceBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < secrets.size(); i++) {
       if (predicate.test(secrets.get(i))) {
@@ -662,7 +589,7 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -699,21 +626,19 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
 
   class ImagePullSecretsNestedImpl<N>
       extends V1LocalObjectReferenceFluentImpl<V1ServiceAccountFluent.ImagePullSecretsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<
-              N>,
-          Nested<N> {
-    ImagePullSecretsNestedImpl(java.lang.Integer index, V1LocalObjectReference item) {
+      implements V1ServiceAccountFluent.ImagePullSecretsNested<N>, Nested<N> {
+    ImagePullSecretsNestedImpl(Integer index, V1LocalObjectReference item) {
       this.index = index;
       this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }
 
     ImagePullSecretsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder(this);
+      this.builder = new V1LocalObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder builder;
-    java.lang.Integer index;
+    V1LocalObjectReferenceBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1ServiceAccountFluentImpl.this.setToImagePullSecrets(index, builder.build());
@@ -726,17 +651,16 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
 
   class MetadataNestedImpl<N>
       extends V1ObjectMetaFluentImpl<V1ServiceAccountFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1ServiceAccountFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) V1ServiceAccountFluentImpl.this.withMetadata(builder.build());
@@ -749,21 +673,19 @@ public class V1ServiceAccountFluentImpl<A extends V1ServiceAccountFluent<A>> ext
 
   class SecretsNestedImpl<N>
       extends V1ObjectReferenceFluentImpl<V1ServiceAccountFluent.SecretsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SecretsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item) {
+      implements V1ServiceAccountFluent.SecretsNested<N>, Nested<N> {
+    SecretsNestedImpl(Integer index, V1ObjectReference item) {
       this.index = index;
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }
 
     SecretsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(this);
+      this.builder = new V1ObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder;
-    java.lang.Integer index;
+    V1ObjectReferenceBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1ServiceAccountFluentImpl.this.setToSecrets(index, builder.build());

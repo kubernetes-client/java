@@ -19,7 +19,7 @@ public interface V1SelfSubjectRulesReviewSpecFluent<A extends V1SelfSubjectRules
     extends Fluent<A> {
   public String getNamespace();
 
-  public A withNamespace(java.lang.String namespace);
+  public A withNamespace(String namespace);
 
   public Boolean hasNamespace();
 }

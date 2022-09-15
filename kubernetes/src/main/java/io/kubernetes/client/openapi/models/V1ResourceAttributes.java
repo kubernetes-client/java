@@ -26,7 +26,7 @@ import java.util.Objects;
         "ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1ResourceAttributes {
   public static final String SERIALIZED_NAME_GROUP = "group";
 

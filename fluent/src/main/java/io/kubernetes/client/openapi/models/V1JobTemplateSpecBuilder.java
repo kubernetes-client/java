@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1JobTemplateSpecBuilder extends V1JobTemplateSpecFluentImpl<V1JobTemplateSpecBuilder>
-    implements VisitableBuilder<
-        V1JobTemplateSpec, io.kubernetes.client.openapi.models.V1JobTemplateSpecBuilder> {
+    implements VisitableBuilder<V1JobTemplateSpec, V1JobTemplateSpecBuilder> {
   public V1JobTemplateSpecBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1JobTemplateSpecBuilder extends V1JobTemplateSpecFluentImpl<V1JobT
     this(fluent, false);
   }
 
-  public V1JobTemplateSpecBuilder(
-      io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1JobTemplateSpecBuilder(V1JobTemplateSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1JobTemplateSpec(), validationEnabled);
   }
 
-  public V1JobTemplateSpecBuilder(
-      io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1JobTemplateSpec instance) {
+  public V1JobTemplateSpecBuilder(V1JobTemplateSpecFluent<?> fluent, V1JobTemplateSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1JobTemplateSpecBuilder(
-      io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1JobTemplateSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1JobTemplateSpecFluent<?> fluent, V1JobTemplateSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMetadata(instance.getMetadata());
 
@@ -53,13 +46,11 @@ public class V1JobTemplateSpecBuilder extends V1JobTemplateSpecFluentImpl<V1JobT
     this.validationEnabled = validationEnabled;
   }
 
-  public V1JobTemplateSpecBuilder(io.kubernetes.client.openapi.models.V1JobTemplateSpec instance) {
+  public V1JobTemplateSpecBuilder(V1JobTemplateSpec instance) {
     this(instance, false);
   }
 
-  public V1JobTemplateSpecBuilder(
-      io.kubernetes.client.openapi.models.V1JobTemplateSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1JobTemplateSpecBuilder(V1JobTemplateSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMetadata(instance.getMetadata());
 
@@ -68,10 +59,10 @@ public class V1JobTemplateSpecBuilder extends V1JobTemplateSpecFluentImpl<V1JobT
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1JobTemplateSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1JobTemplateSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1JobTemplateSpec build() {
+  public V1JobTemplateSpec build() {
     V1JobTemplateSpec buildable = new V1JobTemplateSpec();
     buildable.setMetadata(fluent.getMetadata());
     buildable.setSpec(fluent.getSpec());

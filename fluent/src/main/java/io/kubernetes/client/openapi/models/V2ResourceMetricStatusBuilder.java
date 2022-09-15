@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2ResourceMetricStatusBuilder
     extends V2ResourceMetricStatusFluentImpl<V2ResourceMetricStatusBuilder>
-    implements VisitableBuilder<
-        V2ResourceMetricStatus, io.kubernetes.client.openapi.models.V2ResourceMetricStatusBuilder> {
+    implements VisitableBuilder<V2ResourceMetricStatus, V2ResourceMetricStatusBuilder> {
   public V2ResourceMetricStatusBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V2ResourceMetricStatusBuilder
     this(new V2ResourceMetricStatus(), validationEnabled);
   }
 
-  public V2ResourceMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ResourceMetricStatusFluent<?> fluent) {
+  public V2ResourceMetricStatusBuilder(V2ResourceMetricStatusFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V2ResourceMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ResourceMetricStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2ResourceMetricStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2ResourceMetricStatus(), validationEnabled);
   }
 
   public V2ResourceMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ResourceMetricStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2ResourceMetricStatus instance) {
+      V2ResourceMetricStatusFluent<?> fluent, V2ResourceMetricStatus instance) {
     this(fluent, instance, false);
   }
 
   public V2ResourceMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ResourceMetricStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2ResourceMetricStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V2ResourceMetricStatusFluent<?> fluent,
+      V2ResourceMetricStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCurrent(instance.getCurrent());
 
@@ -55,14 +51,11 @@ public class V2ResourceMetricStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2ResourceMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ResourceMetricStatus instance) {
+  public V2ResourceMetricStatusBuilder(V2ResourceMetricStatus instance) {
     this(instance, false);
   }
 
-  public V2ResourceMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ResourceMetricStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V2ResourceMetricStatusBuilder(V2ResourceMetricStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCurrent(instance.getCurrent());
 
@@ -71,10 +64,10 @@ public class V2ResourceMetricStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2ResourceMetricStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2ResourceMetricStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2ResourceMetricStatus build() {
+  public V2ResourceMetricStatus build() {
     V2ResourceMetricStatus buildable = new V2ResourceMetricStatus();
     buildable.setCurrent(fluent.getCurrent());
     buildable.setName(fluent.getName());

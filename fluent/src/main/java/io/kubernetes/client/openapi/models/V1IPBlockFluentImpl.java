@@ -24,20 +24,20 @@ public class V1IPBlockFluentImpl<A extends V1IPBlockFluent<A>> extends BaseFluen
     implements V1IPBlockFluent<A> {
   public V1IPBlockFluentImpl() {}
 
-  public V1IPBlockFluentImpl(io.kubernetes.client.openapi.models.V1IPBlock instance) {
+  public V1IPBlockFluentImpl(V1IPBlock instance) {
     this.withCidr(instance.getCidr());
 
     this.withExcept(instance.getExcept());
   }
 
   private String cidr;
-  private List<java.lang.String> except;
+  private List<String> except;
 
-  public java.lang.String getCidr() {
+  public String getCidr() {
     return this.cidr;
   }
 
-  public A withCidr(java.lang.String cidr) {
+  public A withCidr(String cidr) {
     this.cidr = cidr;
     return (A) this;
   }
@@ -46,17 +46,17 @@ public class V1IPBlockFluentImpl<A extends V1IPBlockFluent<A>> extends BaseFluen
     return this.cidr != null;
   }
 
-  public A addToExcept(Integer index, java.lang.String item) {
+  public A addToExcept(Integer index, String item) {
     if (this.except == null) {
-      this.except = new ArrayList<java.lang.String>();
+      this.except = new ArrayList<String>();
     }
     this.except.add(index, item);
     return (A) this;
   }
 
-  public A setToExcept(java.lang.Integer index, java.lang.String item) {
+  public A setToExcept(Integer index, String item) {
     if (this.except == null) {
-      this.except = new java.util.ArrayList<java.lang.String>();
+      this.except = new ArrayList<String>();
     }
     this.except.set(index, item);
     return (A) this;
@@ -64,26 +64,26 @@ public class V1IPBlockFluentImpl<A extends V1IPBlockFluent<A>> extends BaseFluen
 
   public A addToExcept(java.lang.String... items) {
     if (this.except == null) {
-      this.except = new java.util.ArrayList<java.lang.String>();
+      this.except = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.except.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToExcept(Collection<java.lang.String> items) {
+  public A addAllToExcept(Collection<String> items) {
     if (this.except == null) {
-      this.except = new java.util.ArrayList<java.lang.String>();
+      this.except = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.except.add(item);
     }
     return (A) this;
   }
 
   public A removeFromExcept(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.except != null) {
         this.except.remove(item);
       }
@@ -91,8 +91,8 @@ public class V1IPBlockFluentImpl<A extends V1IPBlockFluent<A>> extends BaseFluen
     return (A) this;
   }
 
-  public A removeAllFromExcept(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromExcept(Collection<String> items) {
+    for (String item : items) {
       if (this.except != null) {
         this.except.remove(item);
       }
@@ -100,24 +100,24 @@ public class V1IPBlockFluentImpl<A extends V1IPBlockFluent<A>> extends BaseFluen
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getExcept() {
+  public List<String> getExcept() {
     return this.except;
   }
 
-  public java.lang.String getExcept(java.lang.Integer index) {
+  public String getExcept(Integer index) {
     return this.except.get(index);
   }
 
-  public java.lang.String getFirstExcept() {
+  public String getFirstExcept() {
     return this.except.get(0);
   }
 
-  public java.lang.String getLastExcept() {
+  public String getLastExcept() {
     return this.except.get(except.size() - 1);
   }
 
-  public java.lang.String getMatchingExcept(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : except) {
+  public String getMatchingExcept(Predicate<String> predicate) {
+    for (String item : except) {
       if (predicate.test(item)) {
         return item;
       }
@@ -125,9 +125,8 @@ public class V1IPBlockFluentImpl<A extends V1IPBlockFluent<A>> extends BaseFluen
     return null;
   }
 
-  public java.lang.Boolean hasMatchingExcept(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : except) {
+  public Boolean hasMatchingExcept(Predicate<String> predicate) {
+    for (String item : except) {
       if (predicate.test(item)) {
         return true;
       }
@@ -135,10 +134,10 @@ public class V1IPBlockFluentImpl<A extends V1IPBlockFluent<A>> extends BaseFluen
     return false;
   }
 
-  public A withExcept(java.util.List<java.lang.String> except) {
+  public A withExcept(List<String> except) {
     if (except != null) {
-      this.except = new java.util.ArrayList();
-      for (java.lang.String item : except) {
+      this.except = new ArrayList();
+      for (String item : except) {
         this.addToExcept(item);
       }
     } else {
@@ -152,14 +151,14 @@ public class V1IPBlockFluentImpl<A extends V1IPBlockFluent<A>> extends BaseFluen
       this.except.clear();
     }
     if (except != null) {
-      for (java.lang.String item : except) {
+      for (String item : except) {
         this.addToExcept(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasExcept() {
+  public Boolean hasExcept() {
     return except != null && !except.isEmpty();
   }
 
@@ -176,7 +175,7 @@ public class V1IPBlockFluentImpl<A extends V1IPBlockFluent<A>> extends BaseFluen
     return java.util.Objects.hash(cidr, except, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (cidr != null) {

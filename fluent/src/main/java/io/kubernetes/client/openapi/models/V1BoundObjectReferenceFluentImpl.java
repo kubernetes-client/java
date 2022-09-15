@@ -20,8 +20,7 @@ public class V1BoundObjectReferenceFluentImpl<A extends V1BoundObjectReferenceFl
     extends BaseFluent<A> implements V1BoundObjectReferenceFluent<A> {
   public V1BoundObjectReferenceFluentImpl() {}
 
-  public V1BoundObjectReferenceFluentImpl(
-      io.kubernetes.client.openapi.models.V1BoundObjectReference instance) {
+  public V1BoundObjectReferenceFluentImpl(V1BoundObjectReference instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withKind(instance.getKind());
@@ -32,15 +31,15 @@ public class V1BoundObjectReferenceFluentImpl<A extends V1BoundObjectReferenceFl
   }
 
   private String apiVersion;
-  private java.lang.String kind;
-  private java.lang.String name;
-  private java.lang.String uid;
+  private String kind;
+  private String name;
+  private String uid;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -49,42 +48,42 @@ public class V1BoundObjectReferenceFluentImpl<A extends V1BoundObjectReferenceFl
     return this.apiVersion != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.String getUid() {
+  public String getUid() {
     return this.uid;
   }
 
-  public A withUid(java.lang.String uid) {
+  public A withUid(String uid) {
     this.uid = uid;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUid() {
+  public Boolean hasUid() {
     return this.uid != null;
   }
 
@@ -104,7 +103,7 @@ public class V1BoundObjectReferenceFluentImpl<A extends V1BoundObjectReferenceFl
     return java.util.Objects.hash(apiVersion, kind, name, uid, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {

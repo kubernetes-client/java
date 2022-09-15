@@ -20,7 +20,7 @@ public class V1SELinuxOptionsFluentImpl<A extends V1SELinuxOptionsFluent<A>> ext
     implements V1SELinuxOptionsFluent<A> {
   public V1SELinuxOptionsFluentImpl() {}
 
-  public V1SELinuxOptionsFluentImpl(io.kubernetes.client.openapi.models.V1SELinuxOptions instance) {
+  public V1SELinuxOptionsFluentImpl(V1SELinuxOptions instance) {
     this.withLevel(instance.getLevel());
 
     this.withRole(instance.getRole());
@@ -31,15 +31,15 @@ public class V1SELinuxOptionsFluentImpl<A extends V1SELinuxOptionsFluent<A>> ext
   }
 
   private String level;
-  private java.lang.String role;
-  private java.lang.String type;
-  private java.lang.String user;
+  private String role;
+  private String type;
+  private String user;
 
-  public java.lang.String getLevel() {
+  public String getLevel() {
     return this.level;
   }
 
-  public A withLevel(java.lang.String level) {
+  public A withLevel(String level) {
     this.level = level;
     return (A) this;
   }
@@ -48,42 +48,42 @@ public class V1SELinuxOptionsFluentImpl<A extends V1SELinuxOptionsFluent<A>> ext
     return this.level != null;
   }
 
-  public java.lang.String getRole() {
+  public String getRole() {
     return this.role;
   }
 
-  public A withRole(java.lang.String role) {
+  public A withRole(String role) {
     this.role = role;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRole() {
+  public Boolean hasRole() {
     return this.role != null;
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
-  public java.lang.String getUser() {
+  public String getUser() {
     return this.user;
   }
 
-  public A withUser(java.lang.String user) {
+  public A withUser(String user) {
     this.user = user;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUser() {
+  public Boolean hasUser() {
     return this.user != null;
   }
 
@@ -102,7 +102,7 @@ public class V1SELinuxOptionsFluentImpl<A extends V1SELinuxOptionsFluent<A>> ext
     return java.util.Objects.hash(level, role, type, user, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (level != null) {

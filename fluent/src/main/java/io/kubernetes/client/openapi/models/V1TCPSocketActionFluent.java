@@ -19,17 +19,17 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1TCPSocketActionFluent<A extends V1TCPSocketActionFluent<A>> extends Fluent<A> {
   public String getHost();
 
-  public A withHost(java.lang.String host);
+  public A withHost(String host);
 
   public Boolean hasHost();
 
   public IntOrString getPort();
 
-  public A withPort(io.kubernetes.client.custom.IntOrString port);
+  public A withPort(IntOrString port);
 
-  public java.lang.Boolean hasPort();
+  public Boolean hasPort();
 
   public A withNewPort(int value);
 
-  public A withNewPort(java.lang.String value);
+  public A withNewPort(String value);
 }

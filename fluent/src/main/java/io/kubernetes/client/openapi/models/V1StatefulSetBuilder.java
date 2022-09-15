@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1StatefulSetBuilder extends V1StatefulSetFluentImpl<V1StatefulSetBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1StatefulSet, V1StatefulSetBuilder> {
+    implements VisitableBuilder<V1StatefulSet, V1StatefulSetBuilder> {
   public V1StatefulSetBuilder() {
     this(false);
   }
@@ -25,26 +24,20 @@ public class V1StatefulSetBuilder extends V1StatefulSetFluentImpl<V1StatefulSetB
     this(new V1StatefulSet(), validationEnabled);
   }
 
-  public V1StatefulSetBuilder(io.kubernetes.client.openapi.models.V1StatefulSetFluent<?> fluent) {
+  public V1StatefulSetBuilder(V1StatefulSetFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1StatefulSetBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1StatefulSetBuilder(V1StatefulSetFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1StatefulSet(), validationEnabled);
   }
 
-  public V1StatefulSetBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StatefulSet instance) {
+  public V1StatefulSetBuilder(V1StatefulSetFluent<?> fluent, V1StatefulSet instance) {
     this(fluent, instance, false);
   }
 
   public V1StatefulSetBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StatefulSet instance,
-      java.lang.Boolean validationEnabled) {
+      V1StatefulSetFluent<?> fluent, V1StatefulSet instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,13 +52,11 @@ public class V1StatefulSetBuilder extends V1StatefulSetFluentImpl<V1StatefulSetB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1StatefulSetBuilder(io.kubernetes.client.openapi.models.V1StatefulSet instance) {
+  public V1StatefulSetBuilder(V1StatefulSet instance) {
     this(instance, false);
   }
 
-  public V1StatefulSetBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSet instance,
-      java.lang.Boolean validationEnabled) {
+  public V1StatefulSetBuilder(V1StatefulSet instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -80,10 +71,10 @@ public class V1StatefulSetBuilder extends V1StatefulSetFluentImpl<V1StatefulSetB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1StatefulSetFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1StatefulSetFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1StatefulSet build() {
+  public V1StatefulSet build() {
     V1StatefulSet buildable = new V1StatefulSet();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

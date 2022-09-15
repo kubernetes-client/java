@@ -19,43 +19,43 @@ public interface V1ResourceAttributesFluent<A extends V1ResourceAttributesFluent
     extends Fluent<A> {
   public String getGroup();
 
-  public A withGroup(java.lang.String group);
+  public A withGroup(String group);
 
   public Boolean hasGroup();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.String getNamespace();
+  public String getNamespace();
 
-  public A withNamespace(java.lang.String namespace);
+  public A withNamespace(String namespace);
 
-  public java.lang.Boolean hasNamespace();
+  public Boolean hasNamespace();
 
-  public java.lang.String getResource();
+  public String getResource();
 
-  public A withResource(java.lang.String resource);
+  public A withResource(String resource);
 
-  public java.lang.Boolean hasResource();
+  public Boolean hasResource();
 
-  public java.lang.String getSubresource();
+  public String getSubresource();
 
-  public A withSubresource(java.lang.String subresource);
+  public A withSubresource(String subresource);
 
-  public java.lang.Boolean hasSubresource();
+  public Boolean hasSubresource();
 
-  public java.lang.String getVerb();
+  public String getVerb();
 
-  public A withVerb(java.lang.String verb);
+  public A withVerb(String verb);
 
-  public java.lang.Boolean hasVerb();
+  public Boolean hasVerb();
 
-  public java.lang.String getVersion();
+  public String getVersion();
 
-  public A withVersion(java.lang.String version);
+  public A withVersion(String version);
 
-  public java.lang.Boolean hasVersion();
+  public Boolean hasVersion();
 }

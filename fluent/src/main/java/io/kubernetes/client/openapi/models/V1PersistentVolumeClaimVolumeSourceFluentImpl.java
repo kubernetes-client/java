@@ -22,7 +22,7 @@ public class V1PersistentVolumeClaimVolumeSourceFluentImpl<
   public V1PersistentVolumeClaimVolumeSourceFluentImpl() {}
 
   public V1PersistentVolumeClaimVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimVolumeSource instance) {
+      V1PersistentVolumeClaimVolumeSource instance) {
     this.withClaimName(instance.getClaimName());
 
     this.withReadOnly(instance.getReadOnly());
@@ -31,29 +31,29 @@ public class V1PersistentVolumeClaimVolumeSourceFluentImpl<
   private String claimName;
   private Boolean readOnly;
 
-  public java.lang.String getClaimName() {
+  public String getClaimName() {
     return this.claimName;
   }
 
-  public A withClaimName(java.lang.String claimName) {
+  public A withClaimName(String claimName) {
     this.claimName = claimName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasClaimName() {
+  public Boolean hasClaimName() {
     return this.claimName != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
@@ -72,7 +72,7 @@ public class V1PersistentVolumeClaimVolumeSourceFluentImpl<
     return java.util.Objects.hash(claimName, readOnly, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (claimName != null) {

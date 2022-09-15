@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2MetricValueStatusBuilder
     extends V2MetricValueStatusFluentImpl<V2MetricValueStatusBuilder>
-    implements VisitableBuilder<
-        V2MetricValueStatus, io.kubernetes.client.openapi.models.V2MetricValueStatusBuilder> {
+    implements VisitableBuilder<V2MetricValueStatus, V2MetricValueStatusBuilder> {
   public V2MetricValueStatusBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V2MetricValueStatusBuilder
     this(new V2MetricValueStatus(), validationEnabled);
   }
 
-  public V2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<?> fluent) {
+  public V2MetricValueStatusBuilder(V2MetricValueStatusFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2MetricValueStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2MetricValueStatus(), validationEnabled);
   }
 
   public V2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2MetricValueStatus instance) {
+      V2MetricValueStatusFluent<?> fluent, V2MetricValueStatus instance) {
     this(fluent, instance, false);
   }
 
   public V2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2MetricValueStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V2MetricValueStatusFluent<?> fluent,
+      V2MetricValueStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAverageUtilization(instance.getAverageUtilization());
 
@@ -57,14 +53,11 @@ public class V2MetricValueStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2MetricValueStatus instance) {
+  public V2MetricValueStatusBuilder(V2MetricValueStatus instance) {
     this(instance, false);
   }
 
-  public V2MetricValueStatusBuilder(
-      io.kubernetes.client.openapi.models.V2MetricValueStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V2MetricValueStatusBuilder(V2MetricValueStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAverageUtilization(instance.getAverageUtilization());
 
@@ -75,10 +68,10 @@ public class V2MetricValueStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2MetricValueStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2MetricValueStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2MetricValueStatus build() {
+  public V2MetricValueStatus build() {
     V2MetricValueStatus buildable = new V2MetricValueStatus();
     buildable.setAverageUtilization(fluent.getAverageUtilization());
     buildable.setAverageValue(fluent.getAverageValue());
