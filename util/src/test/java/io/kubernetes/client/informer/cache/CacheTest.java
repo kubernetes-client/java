@@ -121,17 +121,17 @@ public class CacheTest {
     V1Pod pod = ((V1Pod) this.obj);
     List indexedObjectList = cache.byIndex(mockIndexName, this.index);
     assertEquals(0, indexedObjectList.size());
-    assertEquals(null, pod.getMetadata().getClusterName());
+    assertEquals(null, pod.getMetadata().getResourceVersion());
 
     cache.add(this.obj);
 
     // replace cached object w/ null value
     String newClusterName = "test_cluster";
-    pod.getMetadata().setClusterName(newClusterName);
+    pod.getMetadata().setResourceVersion(newClusterName);
     cache.update(this.obj);
 
     assertEquals(1, cache.list().size());
-    assertEquals(newClusterName, pod.getMetadata().getClusterName());
+    assertEquals(newClusterName, pod.getMetadata().getResourceVersion());
   }
 
   @Test
@@ -162,7 +162,6 @@ public class CacheTest {
     Cache<V1Pod> podCache = new Cache<>();
 
     String nodeIndex = "node-index";
-    String clusterIndex = "cluster-index";
 
     Map<String, Function<V1Pod, List<String>>> indexers = new HashMap<>();
 
@@ -172,17 +171,11 @@ public class CacheTest {
           return Arrays.asList(pod.getSpec().getNodeName());
         });
 
-    indexers.put(
-        clusterIndex,
-        (V1Pod pod) -> {
-          return Arrays.asList(pod.getMetadata().getClusterName());
-        });
-
     podCache.addIndexers(indexers);
 
     V1Pod testPod =
         new V1Pod()
-            .metadata(new V1ObjectMeta().namespace("ns").name("n").clusterName("cluster1"))
+            .metadata(new V1ObjectMeta().namespace("ns").name("n"))
             .spec(new V1PodSpec().nodeName("node1"));
 
     podCache.add(testPod);
@@ -193,7 +186,5 @@ public class CacheTest {
     List<V1Pod> nodeNameIndexedPods = podCache.byIndex(nodeIndex, "node1");
     assertEquals(1, nodeNameIndexedPods.size());
 
-    List<V1Pod> clusterNameIndexedPods = podCache.byIndex(clusterIndex, "cluster1");
-    assertEquals(1, clusterNameIndexedPods.size());
   }
 }

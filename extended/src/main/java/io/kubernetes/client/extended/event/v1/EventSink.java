@@ -10,19 +10,19 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-package io.kubernetes.client.extended.event.v1beta1;
+package io.kubernetes.client.extended.event.v1;
 
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.CoreV1Event;
-import io.kubernetes.client.openapi.models.V1beta1Event;
+import io.kubernetes.client.openapi.models.EventsV1Event;
 
-// placeholder interface for event v1beta1 api
+// placeholder interface for event v1 api
 public interface EventSink {
 
-  CoreV1Event create(V1beta1Event event) throws ApiException;
+  CoreV1Event create(EventsV1Event event) throws ApiException;
 
-  CoreV1Event update(V1beta1Event event) throws ApiException;
+  CoreV1Event update(EventsV1Event event) throws ApiException;
 
-  CoreV1Event patch(V1beta1Event event, V1Patch patch) throws ApiException;
+  CoreV1Event patch(EventsV1Event event, V1Patch patch) throws ApiException;
 }
