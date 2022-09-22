@@ -209,6 +209,13 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   }
 
   private class WebSocketOutputStream extends OutputStream {
+
+    private static final long WEB_SOCKET_MAX_QUEUE_SIZE = 16L * 1024 * 1024;
+
+    private static final int WEB_SOCKET_MAX_QUEUE_SIZE_MAX_ATTEMPTS = 15;
+
+    private static final int WEB_SOCKET_MAX_QUEUE_SIZE_WAIT_MILLISECONDS = 1000;
+
     private final byte stream;
 
     public WebSocketOutputStream(int stream) {
@@ -265,10 +272,25 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
         int bufferSize = Math.min(remaining, 15 * 1024 * 1024);
         byte[] buffer = new byte[bufferSize + 1];
         buffer[0] = stream;
+
         System.arraycopy(b, offset + bytesWritten, buffer, 1, bufferSize);
-        if (!WebSocketStreamHandler.this.socket.send(ByteString.of(buffer))) {
+        ByteString byteString = ByteString.of(buffer);
+
+        int attempts = 0;
+        while (WebSocketStreamHandler.this.socket.queueSize() + byteString.size() > WEB_SOCKET_MAX_QUEUE_SIZE
+            && attempts < WEB_SOCKET_MAX_QUEUE_SIZE_MAX_ATTEMPTS) {
+          try {
+            Thread.sleep(WEB_SOCKET_MAX_QUEUE_SIZE_WAIT_MILLISECONDS);
+            attempts ++;
+          } catch (InterruptedException e) {
+            throw new IOException("Error waiting web socket queue", e);
+          }
+        }
+
+        if (!WebSocketStreamHandler.this.socket.send(byteString)) {
           throw new IOException("WebSocket has closed.");
         }
+
         bytesWritten += bufferSize;
         remaining -= bufferSize;
       }
