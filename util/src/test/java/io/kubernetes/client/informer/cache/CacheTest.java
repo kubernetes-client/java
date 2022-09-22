@@ -185,6 +185,5 @@ public class CacheTest {
 
     List<V1Pod> nodeNameIndexedPods = podCache.byIndex(nodeIndex, "node1");
     assertEquals(1, nodeNameIndexedPods.size());
-
   }
 }

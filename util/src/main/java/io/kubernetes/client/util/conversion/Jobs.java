@@ -12,12 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.util.conversion;
 
+import io.kubernetes.client.openapi.models.V1CronJob;
+import io.kubernetes.client.openapi.models.V1CronJobSpec;
 import io.kubernetes.client.openapi.models.V1Job;
 import io.kubernetes.client.openapi.models.V1JobSpec;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1OwnerReference;
-import io.kubernetes.client.openapi.models.V1CronJob;
-import io.kubernetes.client.openapi.models.V1CronJobSpec;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
