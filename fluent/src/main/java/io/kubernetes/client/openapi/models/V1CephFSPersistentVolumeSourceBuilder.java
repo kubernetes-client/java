@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1CephFSPersistentVolumeSourceBuilder
     extends V1CephFSPersistentVolumeSourceFluentImpl<V1CephFSPersistentVolumeSourceBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource,
-        io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceBuilder> {
+        V1CephFSPersistentVolumeSource, V1CephFSPersistentVolumeSourceBuilder> {
   public V1CephFSPersistentVolumeSourceBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V1CephFSPersistentVolumeSourceBuilder
   }
 
   public V1CephFSPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CephFSPersistentVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CephFSPersistentVolumeSource(), validationEnabled);
   }
 
   public V1CephFSPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource instance) {
+      V1CephFSPersistentVolumeSourceFluent<?> fluent, V1CephFSPersistentVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1CephFSPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1CephFSPersistentVolumeSourceFluent<?> fluent,
+      V1CephFSPersistentVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMonitors(instance.getMonitors());
 
@@ -63,14 +60,12 @@ public class V1CephFSPersistentVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CephFSPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource instance) {
+  public V1CephFSPersistentVolumeSourceBuilder(V1CephFSPersistentVolumeSource instance) {
     this(instance, false);
   }
 
   public V1CephFSPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1CephFSPersistentVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMonitors(instance.getMonitors());
 
@@ -87,10 +82,10 @@ public class V1CephFSPersistentVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CephFSPersistentVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource build() {
+  public V1CephFSPersistentVolumeSource build() {
     V1CephFSPersistentVolumeSource buildable = new V1CephFSPersistentVolumeSource();
     buildable.setMonitors(fluent.getMonitors());
     buildable.setPath(fluent.getPath());

@@ -19,39 +19,39 @@ public interface V1AzureDiskVolumeSourceFluent<A extends V1AzureDiskVolumeSource
     extends Fluent<A> {
   public String getCachingMode();
 
-  public A withCachingMode(java.lang.String cachingMode);
+  public A withCachingMode(String cachingMode);
 
   public Boolean hasCachingMode();
 
-  public java.lang.String getDiskName();
+  public String getDiskName();
 
-  public A withDiskName(java.lang.String diskName);
+  public A withDiskName(String diskName);
 
-  public java.lang.Boolean hasDiskName();
+  public Boolean hasDiskName();
 
-  public java.lang.String getDiskURI();
+  public String getDiskURI();
 
-  public A withDiskURI(java.lang.String diskURI);
+  public A withDiskURI(String diskURI);
 
-  public java.lang.Boolean hasDiskURI();
+  public Boolean hasDiskURI();
 
-  public java.lang.String getFsType();
+  public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
-  public java.lang.Boolean hasFsType();
+  public Boolean hasFsType();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   public A withReadOnly();
 }

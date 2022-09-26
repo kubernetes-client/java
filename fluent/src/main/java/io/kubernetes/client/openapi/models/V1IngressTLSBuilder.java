@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1IngressTLSBuilder extends V1IngressTLSFluentImpl<V1IngressTLSBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1IngressTLS, V1IngressTLSBuilder> {
+    implements VisitableBuilder<V1IngressTLS, V1IngressTLSBuilder> {
   public V1IngressTLSBuilder() {
     this(false);
   }
@@ -25,26 +24,20 @@ public class V1IngressTLSBuilder extends V1IngressTLSFluentImpl<V1IngressTLSBuil
     this(new V1IngressTLS(), validationEnabled);
   }
 
-  public V1IngressTLSBuilder(io.kubernetes.client.openapi.models.V1IngressTLSFluent<?> fluent) {
+  public V1IngressTLSBuilder(V1IngressTLSFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1IngressTLSBuilder(
-      io.kubernetes.client.openapi.models.V1IngressTLSFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1IngressTLSBuilder(V1IngressTLSFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1IngressTLS(), validationEnabled);
   }
 
-  public V1IngressTLSBuilder(
-      io.kubernetes.client.openapi.models.V1IngressTLSFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1IngressTLS instance) {
+  public V1IngressTLSBuilder(V1IngressTLSFluent<?> fluent, V1IngressTLS instance) {
     this(fluent, instance, false);
   }
 
   public V1IngressTLSBuilder(
-      io.kubernetes.client.openapi.models.V1IngressTLSFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1IngressTLS instance,
-      java.lang.Boolean validationEnabled) {
+      V1IngressTLSFluent<?> fluent, V1IngressTLS instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withHosts(instance.getHosts());
 
@@ -53,13 +46,11 @@ public class V1IngressTLSBuilder extends V1IngressTLSFluentImpl<V1IngressTLSBuil
     this.validationEnabled = validationEnabled;
   }
 
-  public V1IngressTLSBuilder(io.kubernetes.client.openapi.models.V1IngressTLS instance) {
+  public V1IngressTLSBuilder(V1IngressTLS instance) {
     this(instance, false);
   }
 
-  public V1IngressTLSBuilder(
-      io.kubernetes.client.openapi.models.V1IngressTLS instance,
-      java.lang.Boolean validationEnabled) {
+  public V1IngressTLSBuilder(V1IngressTLS instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withHosts(instance.getHosts());
 
@@ -68,10 +59,10 @@ public class V1IngressTLSBuilder extends V1IngressTLSFluentImpl<V1IngressTLSBuil
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1IngressTLSFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1IngressTLSFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1IngressTLS build() {
+  public V1IngressTLS build() {
     V1IngressTLS buildable = new V1IngressTLS();
     buildable.setHosts(fluent.getHosts());
     buildable.setSecretName(fluent.getSecretName());

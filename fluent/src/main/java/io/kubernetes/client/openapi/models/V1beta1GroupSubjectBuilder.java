@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1beta1GroupSubjectBuilder
     extends V1beta1GroupSubjectFluentImpl<V1beta1GroupSubjectBuilder>
-    implements VisitableBuilder<
-        V1beta1GroupSubject, io.kubernetes.client.openapi.models.V1beta1GroupSubjectBuilder> {
+    implements VisitableBuilder<V1beta1GroupSubject, V1beta1GroupSubjectBuilder> {
   public V1beta1GroupSubjectBuilder() {
     this(false);
   }
@@ -31,45 +30,40 @@ public class V1beta1GroupSubjectBuilder
   }
 
   public V1beta1GroupSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1GroupSubjectFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1GroupSubjectFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1GroupSubject(), validationEnabled);
   }
 
   public V1beta1GroupSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1GroupSubjectFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1GroupSubject instance) {
+      V1beta1GroupSubjectFluent<?> fluent, V1beta1GroupSubject instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1GroupSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1GroupSubjectFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1GroupSubject instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1GroupSubjectFluent<?> fluent,
+      V1beta1GroupSubject instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta1GroupSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1GroupSubject instance) {
+  public V1beta1GroupSubjectBuilder(V1beta1GroupSubject instance) {
     this(instance, false);
   }
 
-  public V1beta1GroupSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1GroupSubject instance,
-      java.lang.Boolean validationEnabled) {
+  public V1beta1GroupSubjectBuilder(V1beta1GroupSubject instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1GroupSubjectFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1GroupSubjectFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1GroupSubject build() {
+  public V1beta1GroupSubject build() {
     V1beta1GroupSubject buildable = new V1beta1GroupSubject();
     buildable.setName(fluent.getName());
     return buildable;

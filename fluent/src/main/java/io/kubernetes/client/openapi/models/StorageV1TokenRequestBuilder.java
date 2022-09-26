@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class StorageV1TokenRequestBuilder
     extends StorageV1TokenRequestFluentImpl<StorageV1TokenRequestBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.StorageV1TokenRequest,
-        io.kubernetes.client.openapi.models.StorageV1TokenRequestBuilder> {
+    implements VisitableBuilder<StorageV1TokenRequest, StorageV1TokenRequestBuilder> {
   public StorageV1TokenRequestBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class StorageV1TokenRequestBuilder
   }
 
   public StorageV1TokenRequestBuilder(
-      io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      StorageV1TokenRequestFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new StorageV1TokenRequest(), validationEnabled);
   }
 
   public StorageV1TokenRequestBuilder(
-      io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<?> fluent,
-      io.kubernetes.client.openapi.models.StorageV1TokenRequest instance) {
+      StorageV1TokenRequestFluent<?> fluent, StorageV1TokenRequest instance) {
     this(fluent, instance, false);
   }
 
   public StorageV1TokenRequestBuilder(
-      io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<?> fluent,
-      io.kubernetes.client.openapi.models.StorageV1TokenRequest instance,
-      java.lang.Boolean validationEnabled) {
+      StorageV1TokenRequestFluent<?> fluent,
+      StorageV1TokenRequest instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAudience(instance.getAudience());
 
@@ -55,14 +51,11 @@ public class StorageV1TokenRequestBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public StorageV1TokenRequestBuilder(
-      io.kubernetes.client.openapi.models.StorageV1TokenRequest instance) {
+  public StorageV1TokenRequestBuilder(StorageV1TokenRequest instance) {
     this(instance, false);
   }
 
-  public StorageV1TokenRequestBuilder(
-      io.kubernetes.client.openapi.models.StorageV1TokenRequest instance,
-      java.lang.Boolean validationEnabled) {
+  public StorageV1TokenRequestBuilder(StorageV1TokenRequest instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAudience(instance.getAudience());
 
@@ -71,10 +64,10 @@ public class StorageV1TokenRequestBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.StorageV1TokenRequestFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  StorageV1TokenRequestFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.StorageV1TokenRequest build() {
+  public StorageV1TokenRequest build() {
     StorageV1TokenRequest buildable = new StorageV1TokenRequest();
     buildable.setAudience(fluent.getAudience());
     buildable.setExpirationSeconds(fluent.getExpirationSeconds());

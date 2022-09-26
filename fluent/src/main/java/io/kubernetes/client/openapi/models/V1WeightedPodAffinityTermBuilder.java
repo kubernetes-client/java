@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1WeightedPodAffinityTermBuilder
     extends V1WeightedPodAffinityTermFluentImpl<V1WeightedPodAffinityTermBuilder>
-    implements VisitableBuilder<
-        V1WeightedPodAffinityTerm,
-        io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder> {
+    implements VisitableBuilder<V1WeightedPodAffinityTerm, V1WeightedPodAffinityTermBuilder> {
   public V1WeightedPodAffinityTermBuilder() {
     this(false);
   }
@@ -27,27 +25,24 @@ public class V1WeightedPodAffinityTermBuilder
     this(new V1WeightedPodAffinityTerm(), validationEnabled);
   }
 
-  public V1WeightedPodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent<?> fluent) {
+  public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTermFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1WeightedPodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1WeightedPodAffinityTermFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1WeightedPodAffinityTerm(), validationEnabled);
   }
 
   public V1WeightedPodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm instance) {
+      V1WeightedPodAffinityTermFluent<?> fluent, V1WeightedPodAffinityTerm instance) {
     this(fluent, instance, false);
   }
 
   public V1WeightedPodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm instance,
-      java.lang.Boolean validationEnabled) {
+      V1WeightedPodAffinityTermFluent<?> fluent,
+      V1WeightedPodAffinityTerm instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withPodAffinityTerm(instance.getPodAffinityTerm());
 
@@ -56,14 +51,12 @@ public class V1WeightedPodAffinityTermBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1WeightedPodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm instance) {
+  public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTerm instance) {
     this(instance, false);
   }
 
   public V1WeightedPodAffinityTermBuilder(
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm instance,
-      java.lang.Boolean validationEnabled) {
+      V1WeightedPodAffinityTerm instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withPodAffinityTerm(instance.getPodAffinityTerm());
 
@@ -72,10 +65,10 @@ public class V1WeightedPodAffinityTermBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1WeightedPodAffinityTermFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm build() {
+  public V1WeightedPodAffinityTerm build() {
     V1WeightedPodAffinityTerm buildable = new V1WeightedPodAffinityTerm();
     buildable.setPodAffinityTerm(fluent.getPodAffinityTerm());
     buildable.setWeight(fluent.getWeight());

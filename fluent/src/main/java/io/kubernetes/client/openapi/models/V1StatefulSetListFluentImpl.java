@@ -38,14 +38,14 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
 
   private String apiVersion;
   private ArrayList<V1StatefulSetBuilder> items;
-  private java.lang.String kind;
+  private String kind;
   private V1ListMetaBuilder metadata;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -54,26 +54,21 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
     return this.apiVersion != null;
   }
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1StatefulSet item) {
+  public A addToItems(Integer index, V1StatefulSet item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1StatefulSetBuilder>();
+      this.items = new ArrayList<V1StatefulSetBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1StatefulSetBuilder builder =
-        new io.kubernetes.client.openapi.models.V1StatefulSetBuilder(item);
+    V1StatefulSetBuilder builder = new V1StatefulSetBuilder(item);
     _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
     this.items.add(index >= 0 ? index : items.size(), builder);
     return (A) this;
   }
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatefulSet item) {
+  public A setToItems(Integer index, V1StatefulSet item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1StatefulSetBuilder>();
+      this.items = new ArrayList<V1StatefulSetBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1StatefulSetBuilder builder =
-        new io.kubernetes.client.openapi.models.V1StatefulSetBuilder(item);
+    V1StatefulSetBuilder builder = new V1StatefulSetBuilder(item);
     if (index < 0 || index >= _visitables.get("items").size()) {
       _visitables.get("items").add(builder);
     } else {
@@ -89,26 +84,22 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
 
   public A addToItems(io.kubernetes.client.openapi.models.V1StatefulSet... items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1StatefulSetBuilder>();
+      this.items = new ArrayList<V1StatefulSetBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1StatefulSet item : items) {
-      io.kubernetes.client.openapi.models.V1StatefulSetBuilder builder =
-          new io.kubernetes.client.openapi.models.V1StatefulSetBuilder(item);
+    for (V1StatefulSet item : items) {
+      V1StatefulSetBuilder builder = new V1StatefulSetBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1StatefulSet> items) {
+  public A addAllToItems(Collection<V1StatefulSet> items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1StatefulSetBuilder>();
+      this.items = new ArrayList<V1StatefulSetBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1StatefulSet item : items) {
-      io.kubernetes.client.openapi.models.V1StatefulSetBuilder builder =
-          new io.kubernetes.client.openapi.models.V1StatefulSetBuilder(item);
+    for (V1StatefulSet item : items) {
+      V1StatefulSetBuilder builder = new V1StatefulSetBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
@@ -116,9 +107,8 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
   }
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1StatefulSet... items) {
-    for (io.kubernetes.client.openapi.models.V1StatefulSet item : items) {
-      io.kubernetes.client.openapi.models.V1StatefulSetBuilder builder =
-          new io.kubernetes.client.openapi.models.V1StatefulSetBuilder(item);
+    for (V1StatefulSet item : items) {
+      V1StatefulSetBuilder builder = new V1StatefulSetBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -127,11 +117,9 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
     return (A) this;
   }
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1StatefulSet> items) {
-    for (io.kubernetes.client.openapi.models.V1StatefulSet item : items) {
-      io.kubernetes.client.openapi.models.V1StatefulSetBuilder builder =
-          new io.kubernetes.client.openapi.models.V1StatefulSetBuilder(item);
+  public A removeAllFromItems(Collection<V1StatefulSet> items) {
+    for (V1StatefulSet item : items) {
+      V1StatefulSetBuilder builder = new V1StatefulSetBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -140,14 +128,12 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
     return (A) this;
   }
 
-  public A removeMatchingFromItems(
-      Predicate<io.kubernetes.client.openapi.models.V1StatefulSetBuilder> predicate) {
+  public A removeMatchingFromItems(Predicate<V1StatefulSetBuilder> predicate) {
     if (items == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1StatefulSetBuilder> each =
-        items.iterator();
+    final Iterator<V1StatefulSetBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1StatefulSetBuilder builder = each.next();
+      V1StatefulSetBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -162,30 +148,28 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1StatefulSet> getItems() {
+  public List<V1StatefulSet> getItems() {
     return items != null ? build(items) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1StatefulSet> buildItems() {
+  public List<V1StatefulSet> buildItems() {
     return items != null ? build(items) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSet buildItem(java.lang.Integer index) {
+  public V1StatefulSet buildItem(Integer index) {
     return this.items.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSet buildFirstItem() {
+  public V1StatefulSet buildFirstItem() {
     return this.items.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSet buildLastItem() {
+  public V1StatefulSet buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSet buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatefulSetBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1StatefulSetBuilder item : items) {
+  public V1StatefulSet buildMatchingItem(Predicate<V1StatefulSetBuilder> predicate) {
+    for (V1StatefulSetBuilder item : items) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -193,10 +177,8 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
     return null;
   }
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatefulSetBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1StatefulSetBuilder item : items) {
+  public Boolean hasMatchingItem(Predicate<V1StatefulSetBuilder> predicate) {
+    for (V1StatefulSetBuilder item : items) {
       if (predicate.test(item)) {
         return true;
       }
@@ -204,13 +186,13 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
     return false;
   }
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1StatefulSet> items) {
+  public A withItems(List<V1StatefulSet> items) {
     if (this.items != null) {
       _visitables.get("items").removeAll(this.items);
     }
     if (items != null) {
-      this.items = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1StatefulSet item : items) {
+      this.items = new ArrayList();
+      for (V1StatefulSet item : items) {
         this.addToItems(item);
       }
     } else {
@@ -224,14 +206,14 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
       this.items.clear();
     }
     if (items != null) {
-      for (io.kubernetes.client.openapi.models.V1StatefulSet item : items) {
+      for (V1StatefulSet item : items) {
         this.addToItems(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasItems() {
+  public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
 
@@ -239,39 +221,32 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
     return new V1StatefulSetListFluentImpl.ItemsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1StatefulSet item) {
+  public V1StatefulSetListFluent.ItemsNested<A> addNewItemLike(V1StatefulSet item) {
     return new V1StatefulSetListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A> setNewItemLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatefulSet item) {
-    return new io.kubernetes.client.openapi.models.V1StatefulSetListFluentImpl.ItemsNestedImpl(
-        index, item);
+  public V1StatefulSetListFluent.ItemsNested<A> setNewItemLike(Integer index, V1StatefulSet item) {
+    return new V1StatefulSetListFluentImpl.ItemsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index) {
+  public V1StatefulSetListFluent.ItemsNested<A> editItem(Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A>
-      editFirstItem() {
+  public V1StatefulSetListFluent.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A> editLastItem() {
+  public V1StatefulSetListFluent.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1StatefulSetBuilder>
-              predicate) {
+  public V1StatefulSetListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1StatefulSetBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < items.size(); i++) {
       if (predicate.test(items.get(i))) {
@@ -283,16 +258,16 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
     return setNewItemLike(index, buildItem(index));
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -301,25 +276,28 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
+  @Deprecated
+  public V1ListMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
+  public V1ListMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
+  public A withMetadata(V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -327,27 +305,20 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
     return new V1StatefulSetListFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V1StatefulSetListFluentImpl.MetadataNestedImpl(
-        item);
+  public V1StatefulSetListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+    return new V1StatefulSetListFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.MetadataNested<A>
-      editMetadata() {
+  public V1StatefulSetListFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1StatefulSetListFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
+  public V1StatefulSetListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -367,7 +338,7 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -391,21 +362,19 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
   }
 
   class ItemsNestedImpl<N> extends V1StatefulSetFluentImpl<V1StatefulSetListFluent.ItemsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1StatefulSetListFluent.ItemsNested<N>,
-          Nested<N> {
-    ItemsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatefulSet item) {
+      implements V1StatefulSetListFluent.ItemsNested<N>, Nested<N> {
+    ItemsNestedImpl(Integer index, V1StatefulSet item) {
       this.index = index;
       this.builder = new V1StatefulSetBuilder(this, item);
     }
 
     ItemsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1StatefulSetBuilder(this);
+      this.builder = new V1StatefulSetBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1StatefulSetBuilder builder;
-    java.lang.Integer index;
+    V1StatefulSetBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1StatefulSetListFluentImpl.this.setToItems(index, builder.build());
@@ -418,17 +387,16 @@ public class V1StatefulSetListFluentImpl<A extends V1StatefulSetListFluent<A>> e
 
   class MetadataNestedImpl<N>
       extends V1ListMetaFluentImpl<V1StatefulSetListFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1StatefulSetListFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1StatefulSetListFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this);
+      this.builder = new V1ListMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
+    V1ListMetaBuilder builder;
 
     public N and() {
       return (N) V1StatefulSetListFluentImpl.this.withMetadata(builder.build());

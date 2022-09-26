@@ -26,36 +26,33 @@ public interface V1HTTPIngressPathFluent<A extends V1HTTPIngressPathFluent<A>> e
   @Deprecated
   public V1IngressBackend getBackend();
 
-  public io.kubernetes.client.openapi.models.V1IngressBackend buildBackend();
+  public V1IngressBackend buildBackend();
 
-  public A withBackend(io.kubernetes.client.openapi.models.V1IngressBackend backend);
+  public A withBackend(V1IngressBackend backend);
 
   public Boolean hasBackend();
 
   public V1HTTPIngressPathFluent.BackendNested<A> withNewBackend();
 
-  public io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent.BackendNested<A>
-      withNewBackendLike(io.kubernetes.client.openapi.models.V1IngressBackend item);
+  public V1HTTPIngressPathFluent.BackendNested<A> withNewBackendLike(V1IngressBackend item);
 
-  public io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent.BackendNested<A> editBackend();
+  public V1HTTPIngressPathFluent.BackendNested<A> editBackend();
 
-  public io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent.BackendNested<A>
-      editOrNewBackend();
+  public V1HTTPIngressPathFluent.BackendNested<A> editOrNewBackend();
 
-  public io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent.BackendNested<A>
-      editOrNewBackendLike(io.kubernetes.client.openapi.models.V1IngressBackend item);
+  public V1HTTPIngressPathFluent.BackendNested<A> editOrNewBackendLike(V1IngressBackend item);
 
   public String getPath();
 
-  public A withPath(java.lang.String path);
+  public A withPath(String path);
 
-  public java.lang.Boolean hasPath();
+  public Boolean hasPath();
 
-  public java.lang.String getPathType();
+  public String getPathType();
 
-  public A withPathType(java.lang.String pathType);
+  public A withPathType(String pathType);
 
-  public java.lang.Boolean hasPathType();
+  public Boolean hasPathType();
 
   public interface BackendNested<N>
       extends Nested<N>, V1IngressBackendFluent<V1HTTPIngressPathFluent.BackendNested<N>> {

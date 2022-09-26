@@ -20,17 +20,17 @@ public class V1ScaleSpecFluentImpl<A extends V1ScaleSpecFluent<A>> extends BaseF
     implements V1ScaleSpecFluent<A> {
   public V1ScaleSpecFluentImpl() {}
 
-  public V1ScaleSpecFluentImpl(io.kubernetes.client.openapi.models.V1ScaleSpec instance) {
+  public V1ScaleSpecFluentImpl(V1ScaleSpec instance) {
     this.withReplicas(instance.getReplicas());
   }
 
   private Integer replicas;
 
-  public java.lang.Integer getReplicas() {
+  public Integer getReplicas() {
     return this.replicas;
   }
 
-  public A withReplicas(java.lang.Integer replicas) {
+  public A withReplicas(Integer replicas) {
     this.replicas = replicas;
     return (A) this;
   }

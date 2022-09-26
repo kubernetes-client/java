@@ -19,13 +19,13 @@ public interface V1PodDNSConfigOptionFluent<A extends V1PodDNSConfigOptionFluent
     extends Fluent<A> {
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
   public Boolean hasName();
 
-  public java.lang.String getValue();
+  public String getValue();
 
-  public A withValue(java.lang.String value);
+  public A withValue(String value);
 
-  public java.lang.Boolean hasValue();
+  public Boolean hasValue();
 }

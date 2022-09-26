@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1VolumeBuilder extends V1VolumeFluentImpl<V1VolumeBuilder>
-    implements VisitableBuilder<V1Volume, io.kubernetes.client.openapi.models.V1VolumeBuilder> {
+    implements VisitableBuilder<V1Volume, V1VolumeBuilder> {
   public V1VolumeBuilder() {
     this(false);
   }
@@ -24,26 +24,19 @@ public class V1VolumeBuilder extends V1VolumeFluentImpl<V1VolumeBuilder>
     this(new V1Volume(), validationEnabled);
   }
 
-  public V1VolumeBuilder(io.kubernetes.client.openapi.models.V1VolumeFluent<?> fluent) {
+  public V1VolumeBuilder(V1VolumeFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1VolumeBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeBuilder(V1VolumeFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Volume(), validationEnabled);
   }
 
-  public V1VolumeBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Volume instance) {
+  public V1VolumeBuilder(V1VolumeFluent<?> fluent, V1Volume instance) {
     this(fluent, instance, false);
   }
 
-  public V1VolumeBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Volume instance,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeBuilder(V1VolumeFluent<?> fluent, V1Volume instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
 
@@ -108,12 +101,11 @@ public class V1VolumeBuilder extends V1VolumeFluentImpl<V1VolumeBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1VolumeBuilder(io.kubernetes.client.openapi.models.V1Volume instance) {
+  public V1VolumeBuilder(V1Volume instance) {
     this(instance, false);
   }
 
-  public V1VolumeBuilder(
-      io.kubernetes.client.openapi.models.V1Volume instance, java.lang.Boolean validationEnabled) {
+  public V1VolumeBuilder(V1Volume instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
 
@@ -178,10 +170,10 @@ public class V1VolumeBuilder extends V1VolumeFluentImpl<V1VolumeBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1VolumeFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1VolumeFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Volume build() {
+  public V1Volume build() {
     V1Volume buildable = new V1Volume();
     buildable.setAwsElasticBlockStore(fluent.getAwsElasticBlockStore());
     buildable.setAzureDisk(fluent.getAzureDisk());

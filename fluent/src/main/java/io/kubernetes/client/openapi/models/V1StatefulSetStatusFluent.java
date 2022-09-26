@@ -23,31 +23,28 @@ public interface V1StatefulSetStatusFluent<A extends V1StatefulSetStatusFluent<A
     extends Fluent<A> {
   public Integer getAvailableReplicas();
 
-  public A withAvailableReplicas(java.lang.Integer availableReplicas);
+  public A withAvailableReplicas(Integer availableReplicas);
 
   public Boolean hasAvailableReplicas();
 
-  public java.lang.Integer getCollisionCount();
+  public Integer getCollisionCount();
 
-  public A withCollisionCount(java.lang.Integer collisionCount);
+  public A withCollisionCount(Integer collisionCount);
 
-  public java.lang.Boolean hasCollisionCount();
+  public Boolean hasCollisionCount();
 
-  public A addToConditions(java.lang.Integer index, V1StatefulSetCondition item);
+  public A addToConditions(Integer index, V1StatefulSetCondition item);
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatefulSetCondition item);
+  public A setToConditions(Integer index, V1StatefulSetCondition item);
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1StatefulSetCondition... items);
 
-  public A addAllToConditions(
-      Collection<io.kubernetes.client.openapi.models.V1StatefulSetCondition> items);
+  public A addAllToConditions(Collection<V1StatefulSetCondition> items);
 
   public A removeFromConditions(
       io.kubernetes.client.openapi.models.V1StatefulSetCondition... items);
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1StatefulSetCondition> items);
+  public A removeAllFromConditions(Collection<V1StatefulSetCondition> items);
 
   public A removeMatchingFromConditions(Predicate<V1StatefulSetConditionBuilder> predicate);
 
@@ -57,100 +54,85 @@ public interface V1StatefulSetStatusFluent<A extends V1StatefulSetStatusFluent<A
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1StatefulSetCondition> getConditions();
+  public List<V1StatefulSetCondition> getConditions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1StatefulSetCondition>
-      buildConditions();
+  public List<V1StatefulSetCondition> buildConditions();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetCondition buildCondition(
-      java.lang.Integer index);
+  public V1StatefulSetCondition buildCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetCondition buildFirstCondition();
+  public V1StatefulSetCondition buildFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetCondition buildLastCondition();
+  public V1StatefulSetCondition buildLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetCondition buildMatchingCondition(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1StatefulSetConditionBuilder>
-          predicate);
+  public V1StatefulSetCondition buildMatchingCondition(
+      Predicate<V1StatefulSetConditionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingCondition(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1StatefulSetConditionBuilder>
-          predicate);
+  public Boolean hasMatchingCondition(Predicate<V1StatefulSetConditionBuilder> predicate);
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1StatefulSetCondition> conditions);
+  public A withConditions(List<V1StatefulSetCondition> conditions);
 
   public A withConditions(io.kubernetes.client.openapi.models.V1StatefulSetCondition... conditions);
 
-  public java.lang.Boolean hasConditions();
+  public Boolean hasConditions();
 
   public V1StatefulSetStatusFluent.ConditionsNested<A> addNewCondition();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1StatefulSetCondition item);
+  public V1StatefulSetStatusFluent.ConditionsNested<A> addNewConditionLike(
+      V1StatefulSetCondition item);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1StatefulSetCondition item);
+  public V1StatefulSetStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1StatefulSetCondition item);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent.ConditionsNested<A>
-      editCondition(java.lang.Integer index);
+  public V1StatefulSetStatusFluent.ConditionsNested<A> editCondition(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent.ConditionsNested<A>
-      editFirstCondition();
+  public V1StatefulSetStatusFluent.ConditionsNested<A> editFirstCondition();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent.ConditionsNested<A>
-      editLastCondition();
+  public V1StatefulSetStatusFluent.ConditionsNested<A> editLastCondition();
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1StatefulSetConditionBuilder>
-              predicate);
+  public V1StatefulSetStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1StatefulSetConditionBuilder> predicate);
 
-  public java.lang.Integer getCurrentReplicas();
+  public Integer getCurrentReplicas();
 
-  public A withCurrentReplicas(java.lang.Integer currentReplicas);
+  public A withCurrentReplicas(Integer currentReplicas);
 
-  public java.lang.Boolean hasCurrentReplicas();
+  public Boolean hasCurrentReplicas();
 
   public String getCurrentRevision();
 
-  public A withCurrentRevision(java.lang.String currentRevision);
+  public A withCurrentRevision(String currentRevision);
 
-  public java.lang.Boolean hasCurrentRevision();
+  public Boolean hasCurrentRevision();
 
   public Long getObservedGeneration();
 
-  public A withObservedGeneration(java.lang.Long observedGeneration);
+  public A withObservedGeneration(Long observedGeneration);
 
-  public java.lang.Boolean hasObservedGeneration();
+  public Boolean hasObservedGeneration();
 
-  public java.lang.Integer getReadyReplicas();
+  public Integer getReadyReplicas();
 
-  public A withReadyReplicas(java.lang.Integer readyReplicas);
+  public A withReadyReplicas(Integer readyReplicas);
 
-  public java.lang.Boolean hasReadyReplicas();
+  public Boolean hasReadyReplicas();
 
-  public java.lang.Integer getReplicas();
+  public Integer getReplicas();
 
-  public A withReplicas(java.lang.Integer replicas);
+  public A withReplicas(Integer replicas);
 
-  public java.lang.Boolean hasReplicas();
+  public Boolean hasReplicas();
 
-  public java.lang.String getUpdateRevision();
+  public String getUpdateRevision();
 
-  public A withUpdateRevision(java.lang.String updateRevision);
+  public A withUpdateRevision(String updateRevision);
 
-  public java.lang.Boolean hasUpdateRevision();
+  public Boolean hasUpdateRevision();
 
-  public java.lang.Integer getUpdatedReplicas();
+  public Integer getUpdatedReplicas();
 
-  public A withUpdatedReplicas(java.lang.Integer updatedReplicas);
+  public A withUpdatedReplicas(Integer updatedReplicas);
 
-  public java.lang.Boolean hasUpdatedReplicas();
+  public Boolean hasUpdatedReplicas();
 
   public interface ConditionsNested<N>
       extends Nested<N>,

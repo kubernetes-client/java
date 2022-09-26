@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DaemonSetBuilder extends V1DaemonSetFluentImpl<V1DaemonSetBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DaemonSet,
-        io.kubernetes.client.openapi.models.V1DaemonSetBuilder> {
+    implements VisitableBuilder<V1DaemonSet, V1DaemonSetBuilder> {
   public V1DaemonSetBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1DaemonSetBuilder extends V1DaemonSetFluentImpl<V1DaemonSetBuilder
     this(fluent, false);
   }
 
-  public V1DaemonSetBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1DaemonSetBuilder(V1DaemonSetFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DaemonSet(), validationEnabled);
   }
 
-  public V1DaemonSetBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DaemonSet instance) {
+  public V1DaemonSetBuilder(V1DaemonSetFluent<?> fluent, V1DaemonSet instance) {
     this(fluent, instance, false);
   }
 
   public V1DaemonSetBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DaemonSet instance,
-      java.lang.Boolean validationEnabled) {
+      V1DaemonSetFluent<?> fluent, V1DaemonSet instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -60,13 +52,11 @@ public class V1DaemonSetBuilder extends V1DaemonSetFluentImpl<V1DaemonSetBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DaemonSetBuilder(io.kubernetes.client.openapi.models.V1DaemonSet instance) {
+  public V1DaemonSetBuilder(V1DaemonSet instance) {
     this(instance, false);
   }
 
-  public V1DaemonSetBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSet instance,
-      java.lang.Boolean validationEnabled) {
+  public V1DaemonSetBuilder(V1DaemonSet instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -81,10 +71,10 @@ public class V1DaemonSetBuilder extends V1DaemonSetFluentImpl<V1DaemonSetBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DaemonSetFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DaemonSetFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DaemonSet build() {
+  public V1DaemonSet build() {
     V1DaemonSet buildable = new V1DaemonSet();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

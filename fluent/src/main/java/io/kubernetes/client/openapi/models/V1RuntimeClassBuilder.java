@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1RuntimeClassBuilder extends V1RuntimeClassFluentImpl<V1RuntimeClassBuilder>
-    implements VisitableBuilder<
-        V1RuntimeClass, io.kubernetes.client.openapi.models.V1RuntimeClassBuilder> {
+    implements VisitableBuilder<V1RuntimeClass, V1RuntimeClassBuilder> {
   public V1RuntimeClassBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1RuntimeClassBuilder extends V1RuntimeClassFluentImpl<V1RuntimeCla
     this(fluent, false);
   }
 
-  public V1RuntimeClassBuilder(
-      io.kubernetes.client.openapi.models.V1RuntimeClassFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1RuntimeClassBuilder(V1RuntimeClassFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1RuntimeClass(), validationEnabled);
   }
 
-  public V1RuntimeClassBuilder(
-      io.kubernetes.client.openapi.models.V1RuntimeClassFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RuntimeClass instance) {
+  public V1RuntimeClassBuilder(V1RuntimeClassFluent<?> fluent, V1RuntimeClass instance) {
     this(fluent, instance, false);
   }
 
   public V1RuntimeClassBuilder(
-      io.kubernetes.client.openapi.models.V1RuntimeClassFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RuntimeClass instance,
-      java.lang.Boolean validationEnabled) {
+      V1RuntimeClassFluent<?> fluent, V1RuntimeClass instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -61,13 +54,11 @@ public class V1RuntimeClassBuilder extends V1RuntimeClassFluentImpl<V1RuntimeCla
     this.validationEnabled = validationEnabled;
   }
 
-  public V1RuntimeClassBuilder(io.kubernetes.client.openapi.models.V1RuntimeClass instance) {
+  public V1RuntimeClassBuilder(V1RuntimeClass instance) {
     this(instance, false);
   }
 
-  public V1RuntimeClassBuilder(
-      io.kubernetes.client.openapi.models.V1RuntimeClass instance,
-      java.lang.Boolean validationEnabled) {
+  public V1RuntimeClassBuilder(V1RuntimeClass instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -84,10 +75,10 @@ public class V1RuntimeClassBuilder extends V1RuntimeClassFluentImpl<V1RuntimeCla
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1RuntimeClassFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1RuntimeClassFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1RuntimeClass build() {
+  public V1RuntimeClass build() {
     V1RuntimeClass buildable = new V1RuntimeClass();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setHandler(fluent.getHandler());

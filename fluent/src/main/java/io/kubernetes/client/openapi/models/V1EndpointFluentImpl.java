@@ -27,7 +27,7 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     implements V1EndpointFluent<A> {
   public V1EndpointFluentImpl() {}
 
-  public V1EndpointFluentImpl(io.kubernetes.client.openapi.models.V1Endpoint instance) {
+  public V1EndpointFluentImpl(V1Endpoint instance) {
     this.withAddresses(instance.getAddresses());
 
     this.withConditions(instance.getConditions());
@@ -47,24 +47,24 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
 
   private List<String> addresses;
   private V1EndpointConditionsBuilder conditions;
-  private Map<java.lang.String, java.lang.String> deprecatedTopology;
+  private Map<String, String> deprecatedTopology;
   private V1EndpointHintsBuilder hints;
-  private java.lang.String hostname;
-  private java.lang.String nodeName;
+  private String hostname;
+  private String nodeName;
   private V1ObjectReferenceBuilder targetRef;
-  private java.lang.String zone;
+  private String zone;
 
-  public A addToAddresses(Integer index, java.lang.String item) {
+  public A addToAddresses(Integer index, String item) {
     if (this.addresses == null) {
-      this.addresses = new ArrayList<java.lang.String>();
+      this.addresses = new ArrayList<String>();
     }
     this.addresses.add(index, item);
     return (A) this;
   }
 
-  public A setToAddresses(java.lang.Integer index, java.lang.String item) {
+  public A setToAddresses(Integer index, String item) {
     if (this.addresses == null) {
-      this.addresses = new java.util.ArrayList<java.lang.String>();
+      this.addresses = new ArrayList<String>();
     }
     this.addresses.set(index, item);
     return (A) this;
@@ -72,26 +72,26 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
 
   public A addToAddresses(java.lang.String... items) {
     if (this.addresses == null) {
-      this.addresses = new java.util.ArrayList<java.lang.String>();
+      this.addresses = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.addresses.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToAddresses(Collection<java.lang.String> items) {
+  public A addAllToAddresses(Collection<String> items) {
     if (this.addresses == null) {
-      this.addresses = new java.util.ArrayList<java.lang.String>();
+      this.addresses = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.addresses.add(item);
     }
     return (A) this;
   }
 
   public A removeFromAddresses(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.addresses != null) {
         this.addresses.remove(item);
       }
@@ -99,8 +99,8 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeAllFromAddresses(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromAddresses(Collection<String> items) {
+    for (String item : items) {
       if (this.addresses != null) {
         this.addresses.remove(item);
       }
@@ -108,24 +108,24 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getAddresses() {
+  public List<String> getAddresses() {
     return this.addresses;
   }
 
-  public java.lang.String getAddress(java.lang.Integer index) {
+  public String getAddress(Integer index) {
     return this.addresses.get(index);
   }
 
-  public java.lang.String getFirstAddress() {
+  public String getFirstAddress() {
     return this.addresses.get(0);
   }
 
-  public java.lang.String getLastAddress() {
+  public String getLastAddress() {
     return this.addresses.get(addresses.size() - 1);
   }
 
-  public java.lang.String getMatchingAddress(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : addresses) {
+  public String getMatchingAddress(Predicate<String> predicate) {
+    for (String item : addresses) {
       if (predicate.test(item)) {
         return item;
       }
@@ -133,8 +133,8 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return null;
   }
 
-  public Boolean hasMatchingAddress(java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : addresses) {
+  public Boolean hasMatchingAddress(Predicate<String> predicate) {
+    for (String item : addresses) {
       if (predicate.test(item)) {
         return true;
       }
@@ -142,10 +142,10 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return false;
   }
 
-  public A withAddresses(java.util.List<java.lang.String> addresses) {
+  public A withAddresses(List<String> addresses) {
     if (addresses != null) {
-      this.addresses = new java.util.ArrayList();
-      for (java.lang.String item : addresses) {
+      this.addresses = new ArrayList();
+      for (String item : addresses) {
         this.addToAddresses(item);
       }
     } else {
@@ -159,14 +159,14 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
       this.addresses.clear();
     }
     if (addresses != null) {
-      for (java.lang.String item : addresses) {
+      for (String item : addresses) {
         this.addToAddresses(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAddresses() {
+  public Boolean hasAddresses() {
     return addresses != null && !addresses.isEmpty();
   }
 
@@ -176,24 +176,27 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1EndpointConditions getConditions() {
+  public V1EndpointConditions getConditions() {
     return this.conditions != null ? this.conditions.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointConditions buildConditions() {
+  public V1EndpointConditions buildConditions() {
     return this.conditions != null ? this.conditions.build() : null;
   }
 
-  public A withConditions(io.kubernetes.client.openapi.models.V1EndpointConditions conditions) {
+  public A withConditions(V1EndpointConditions conditions) {
     _visitables.get("conditions").remove(this.conditions);
     if (conditions != null) {
       this.conditions = new V1EndpointConditionsBuilder(conditions);
       _visitables.get("conditions").add(this.conditions);
+    } else {
+      this.conditions = null;
+      _visitables.get("conditions").remove(this.conditions);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasConditions() {
+  public Boolean hasConditions() {
     return this.conditions != null;
   }
 
@@ -201,29 +204,24 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return new V1EndpointFluentImpl.ConditionsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.ConditionsNested<A>
-      withNewConditionsLike(io.kubernetes.client.openapi.models.V1EndpointConditions item) {
+  public V1EndpointFluent.ConditionsNested<A> withNewConditionsLike(V1EndpointConditions item) {
     return new V1EndpointFluentImpl.ConditionsNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.ConditionsNested<A> editConditions() {
+  public V1EndpointFluent.ConditionsNested<A> editConditions() {
     return withNewConditionsLike(getConditions());
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.ConditionsNested<A>
-      editOrNewConditions() {
+  public V1EndpointFluent.ConditionsNested<A> editOrNewConditions() {
     return withNewConditionsLike(
-        getConditions() != null
-            ? getConditions()
-            : new io.kubernetes.client.openapi.models.V1EndpointConditionsBuilder().build());
+        getConditions() != null ? getConditions() : new V1EndpointConditionsBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.ConditionsNested<A>
-      editOrNewConditionsLike(io.kubernetes.client.openapi.models.V1EndpointConditions item) {
+  public V1EndpointFluent.ConditionsNested<A> editOrNewConditionsLike(V1EndpointConditions item) {
     return withNewConditionsLike(getConditions() != null ? getConditions() : item);
   }
 
-  public A addToDeprecatedTopology(java.lang.String key, java.lang.String value) {
+  public A addToDeprecatedTopology(String key, String value) {
     if (this.deprecatedTopology == null && key != null && value != null) {
       this.deprecatedTopology = new LinkedHashMap();
     }
@@ -233,9 +231,9 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A addToDeprecatedTopology(java.util.Map<java.lang.String, java.lang.String> map) {
+  public A addToDeprecatedTopology(Map<String, String> map) {
     if (this.deprecatedTopology == null && map != null) {
-      this.deprecatedTopology = new java.util.LinkedHashMap();
+      this.deprecatedTopology = new LinkedHashMap();
     }
     if (map != null) {
       this.deprecatedTopology.putAll(map);
@@ -243,7 +241,7 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeFromDeprecatedTopology(java.lang.String key) {
+  public A removeFromDeprecatedTopology(String key) {
     if (this.deprecatedTopology == null) {
       return (A) this;
     }
@@ -253,7 +251,7 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public A removeFromDeprecatedTopology(java.util.Map<java.lang.String, java.lang.String> map) {
+  public A removeFromDeprecatedTopology(Map<String, String> map) {
     if (this.deprecatedTopology == null) {
       return (A) this;
     }
@@ -267,21 +265,20 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, java.lang.String> getDeprecatedTopology() {
+  public Map<String, String> getDeprecatedTopology() {
     return this.deprecatedTopology;
   }
 
-  public <K, V> A withDeprecatedTopology(
-      java.util.Map<java.lang.String, java.lang.String> deprecatedTopology) {
+  public <K, V> A withDeprecatedTopology(Map<String, String> deprecatedTopology) {
     if (deprecatedTopology == null) {
       this.deprecatedTopology = null;
     } else {
-      this.deprecatedTopology = new java.util.LinkedHashMap(deprecatedTopology);
+      this.deprecatedTopology = new LinkedHashMap(deprecatedTopology);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDeprecatedTopology() {
+  public Boolean hasDeprecatedTopology() {
     return this.deprecatedTopology != null;
   }
 
@@ -290,25 +287,28 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1EndpointHints getHints() {
+  @Deprecated
+  public V1EndpointHints getHints() {
     return this.hints != null ? this.hints.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointHints buildHints() {
+  public V1EndpointHints buildHints() {
     return this.hints != null ? this.hints.build() : null;
   }
 
-  public A withHints(io.kubernetes.client.openapi.models.V1EndpointHints hints) {
+  public A withHints(V1EndpointHints hints) {
     _visitables.get("hints").remove(this.hints);
     if (hints != null) {
       this.hints = new V1EndpointHintsBuilder(hints);
       _visitables.get("hints").add(this.hints);
+    } else {
+      this.hints = null;
+      _visitables.get("hints").remove(this.hints);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasHints() {
+  public Boolean hasHints() {
     return this.hints != null;
   }
 
@@ -316,50 +316,45 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return new V1EndpointFluentImpl.HintsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.HintsNested<A> withNewHintsLike(
-      io.kubernetes.client.openapi.models.V1EndpointHints item) {
-    return new io.kubernetes.client.openapi.models.V1EndpointFluentImpl.HintsNestedImpl(item);
+  public V1EndpointFluent.HintsNested<A> withNewHintsLike(V1EndpointHints item) {
+    return new V1EndpointFluentImpl.HintsNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.HintsNested<A> editHints() {
+  public V1EndpointFluent.HintsNested<A> editHints() {
     return withNewHintsLike(getHints());
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.HintsNested<A> editOrNewHints() {
-    return withNewHintsLike(
-        getHints() != null
-            ? getHints()
-            : new io.kubernetes.client.openapi.models.V1EndpointHintsBuilder().build());
+  public V1EndpointFluent.HintsNested<A> editOrNewHints() {
+    return withNewHintsLike(getHints() != null ? getHints() : new V1EndpointHintsBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.HintsNested<A> editOrNewHintsLike(
-      io.kubernetes.client.openapi.models.V1EndpointHints item) {
+  public V1EndpointFluent.HintsNested<A> editOrNewHintsLike(V1EndpointHints item) {
     return withNewHintsLike(getHints() != null ? getHints() : item);
   }
 
-  public java.lang.String getHostname() {
+  public String getHostname() {
     return this.hostname;
   }
 
-  public A withHostname(java.lang.String hostname) {
+  public A withHostname(String hostname) {
     this.hostname = hostname;
     return (A) this;
   }
 
-  public java.lang.Boolean hasHostname() {
+  public Boolean hasHostname() {
     return this.hostname != null;
   }
 
-  public java.lang.String getNodeName() {
+  public String getNodeName() {
     return this.nodeName;
   }
 
-  public A withNodeName(java.lang.String nodeName) {
+  public A withNodeName(String nodeName) {
     this.nodeName = nodeName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNodeName() {
+  public Boolean hasNodeName() {
     return this.nodeName != null;
   }
 
@@ -368,25 +363,28 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectReference getTargetRef() {
+  @Deprecated
+  public V1ObjectReference getTargetRef() {
     return this.targetRef != null ? this.targetRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildTargetRef() {
+  public V1ObjectReference buildTargetRef() {
     return this.targetRef != null ? this.targetRef.build() : null;
   }
 
-  public A withTargetRef(io.kubernetes.client.openapi.models.V1ObjectReference targetRef) {
+  public A withTargetRef(V1ObjectReference targetRef) {
     _visitables.get("targetRef").remove(this.targetRef);
     if (targetRef != null) {
       this.targetRef = new V1ObjectReferenceBuilder(targetRef);
       _visitables.get("targetRef").add(this.targetRef);
+    } else {
+      this.targetRef = null;
+      _visitables.get("targetRef").remove(this.targetRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasTargetRef() {
+  public Boolean hasTargetRef() {
     return this.targetRef != null;
   }
 
@@ -394,38 +392,33 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
     return new V1EndpointFluentImpl.TargetRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.TargetRefNested<A>
-      withNewTargetRefLike(io.kubernetes.client.openapi.models.V1ObjectReference item) {
-    return new io.kubernetes.client.openapi.models.V1EndpointFluentImpl.TargetRefNestedImpl(item);
+  public V1EndpointFluent.TargetRefNested<A> withNewTargetRefLike(V1ObjectReference item) {
+    return new V1EndpointFluentImpl.TargetRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.TargetRefNested<A> editTargetRef() {
+  public V1EndpointFluent.TargetRefNested<A> editTargetRef() {
     return withNewTargetRefLike(getTargetRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.TargetRefNested<A>
-      editOrNewTargetRef() {
+  public V1EndpointFluent.TargetRefNested<A> editOrNewTargetRef() {
     return withNewTargetRefLike(
-        getTargetRef() != null
-            ? getTargetRef()
-            : new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder().build());
+        getTargetRef() != null ? getTargetRef() : new V1ObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointFluent.TargetRefNested<A>
-      editOrNewTargetRefLike(io.kubernetes.client.openapi.models.V1ObjectReference item) {
+  public V1EndpointFluent.TargetRefNested<A> editOrNewTargetRefLike(V1ObjectReference item) {
     return withNewTargetRefLike(getTargetRef() != null ? getTargetRef() : item);
   }
 
-  public java.lang.String getZone() {
+  public String getZone() {
     return this.zone;
   }
 
-  public A withZone(java.lang.String zone) {
+  public A withZone(String zone) {
     this.zone = zone;
     return (A) this;
   }
 
-  public java.lang.Boolean hasZone() {
+  public Boolean hasZone() {
     return this.zone != null;
   }
 
@@ -462,7 +455,7 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (addresses != null && !addresses.isEmpty()) {
@@ -503,17 +496,16 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
 
   class ConditionsNestedImpl<N>
       extends V1EndpointConditionsFluentImpl<V1EndpointFluent.ConditionsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EndpointFluent.ConditionsNested<N>,
-          Nested<N> {
+      implements V1EndpointFluent.ConditionsNested<N>, Nested<N> {
     ConditionsNestedImpl(V1EndpointConditions item) {
       this.builder = new V1EndpointConditionsBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1EndpointConditionsBuilder(this);
+      this.builder = new V1EndpointConditionsBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1EndpointConditionsBuilder builder;
+    V1EndpointConditionsBuilder builder;
 
     public N and() {
       return (N) V1EndpointFluentImpl.this.withConditions(builder.build());
@@ -525,17 +517,16 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
   }
 
   class HintsNestedImpl<N> extends V1EndpointHintsFluentImpl<V1EndpointFluent.HintsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EndpointFluent.HintsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    HintsNestedImpl(io.kubernetes.client.openapi.models.V1EndpointHints item) {
+      implements V1EndpointFluent.HintsNested<N>, Nested<N> {
+    HintsNestedImpl(V1EndpointHints item) {
       this.builder = new V1EndpointHintsBuilder(this, item);
     }
 
     HintsNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1EndpointHintsBuilder(this);
+      this.builder = new V1EndpointHintsBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1EndpointHintsBuilder builder;
+    V1EndpointHintsBuilder builder;
 
     public N and() {
       return (N) V1EndpointFluentImpl.this.withHints(builder.build());
@@ -548,17 +539,16 @@ public class V1EndpointFluentImpl<A extends V1EndpointFluent<A>> extends BaseFlu
 
   class TargetRefNestedImpl<N>
       extends V1ObjectReferenceFluentImpl<V1EndpointFluent.TargetRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EndpointFluent.TargetRefNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    TargetRefNestedImpl(io.kubernetes.client.openapi.models.V1ObjectReference item) {
+      implements V1EndpointFluent.TargetRefNested<N>, Nested<N> {
+    TargetRefNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }
 
     TargetRefNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(this);
+      this.builder = new V1ObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder;
+    V1ObjectReferenceBuilder builder;
 
     public N and() {
       return (N) V1EndpointFluentImpl.this.withTargetRef(builder.build());

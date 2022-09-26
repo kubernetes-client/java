@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "TokenRequestSpec contains client provided parameters of a token request.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1TokenRequestSpec {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
 
@@ -52,7 +52,7 @@ public class V1TokenRequestSpec {
   }
 
   /**
-   * Audiences are the intendend audiences of the token. A recipient of a token must identitfy
+   * Audiences are the intendend audiences of the token. A recipient of a token must identify
    * themself with an identifier in the list of audiences of the token, and otherwise should reject
    * the token. A token issued for multiple audiences may be used to authenticate against any of the
    * audiences listed but implies a high degree of trust between the target audiences.
@@ -62,7 +62,7 @@ public class V1TokenRequestSpec {
   @ApiModelProperty(
       required = true,
       value =
-          "Audiences are the intendend audiences of the token. A recipient of a token must identitfy themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.")
+          "Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.")
   public List<String> getAudiences() {
     return audiences;
   }

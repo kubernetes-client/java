@@ -22,18 +22,15 @@ import java.util.function.Predicate;
 public interface V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> extends Fluent<A> {
   public A addToPolicies(Integer index, V2HPAScalingPolicy item);
 
-  public A setToPolicies(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V2HPAScalingPolicy item);
+  public A setToPolicies(Integer index, V2HPAScalingPolicy item);
 
   public A addToPolicies(io.kubernetes.client.openapi.models.V2HPAScalingPolicy... items);
 
-  public A addAllToPolicies(
-      Collection<io.kubernetes.client.openapi.models.V2HPAScalingPolicy> items);
+  public A addAllToPolicies(Collection<V2HPAScalingPolicy> items);
 
   public A removeFromPolicies(io.kubernetes.client.openapi.models.V2HPAScalingPolicy... items);
 
-  public A removeAllFromPolicies(
-      java.util.Collection<io.kubernetes.client.openapi.models.V2HPAScalingPolicy> items);
+  public A removeAllFromPolicies(Collection<V2HPAScalingPolicy> items);
 
   public A removeMatchingFromPolicies(Predicate<V2HPAScalingPolicyBuilder> predicate);
 
@@ -43,67 +40,53 @@ public interface V2HPAScalingRulesFluent<A extends V2HPAScalingRulesFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V2HPAScalingPolicy> getPolicies();
+  public List<V2HPAScalingPolicy> getPolicies();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V2HPAScalingPolicy> buildPolicies();
+  public List<V2HPAScalingPolicy> buildPolicies();
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingPolicy buildPolicy(
-      java.lang.Integer index);
+  public V2HPAScalingPolicy buildPolicy(Integer index);
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingPolicy buildFirstPolicy();
+  public V2HPAScalingPolicy buildFirstPolicy();
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingPolicy buildLastPolicy();
+  public V2HPAScalingPolicy buildLastPolicy();
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingPolicy buildMatchingPolicy(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder>
-          predicate);
+  public V2HPAScalingPolicy buildMatchingPolicy(Predicate<V2HPAScalingPolicyBuilder> predicate);
 
-  public Boolean hasMatchingPolicy(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder>
-          predicate);
+  public Boolean hasMatchingPolicy(Predicate<V2HPAScalingPolicyBuilder> predicate);
 
-  public A withPolicies(
-      java.util.List<io.kubernetes.client.openapi.models.V2HPAScalingPolicy> policies);
+  public A withPolicies(List<V2HPAScalingPolicy> policies);
 
   public A withPolicies(io.kubernetes.client.openapi.models.V2HPAScalingPolicy... policies);
 
-  public java.lang.Boolean hasPolicies();
+  public Boolean hasPolicies();
 
   public V2HPAScalingRulesFluent.PoliciesNested<A> addNewPolicy();
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
-      addNewPolicyLike(io.kubernetes.client.openapi.models.V2HPAScalingPolicy item);
+  public V2HPAScalingRulesFluent.PoliciesNested<A> addNewPolicyLike(V2HPAScalingPolicy item);
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
-      setNewPolicyLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V2HPAScalingPolicy item);
+  public V2HPAScalingRulesFluent.PoliciesNested<A> setNewPolicyLike(
+      Integer index, V2HPAScalingPolicy item);
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A> editPolicy(
-      java.lang.Integer index);
+  public V2HPAScalingRulesFluent.PoliciesNested<A> editPolicy(Integer index);
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
-      editFirstPolicy();
+  public V2HPAScalingRulesFluent.PoliciesNested<A> editFirstPolicy();
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
-      editLastPolicy();
+  public V2HPAScalingRulesFluent.PoliciesNested<A> editLastPolicy();
 
-  public io.kubernetes.client.openapi.models.V2HPAScalingRulesFluent.PoliciesNested<A>
-      editMatchingPolicy(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V2HPAScalingPolicyBuilder>
-              predicate);
+  public V2HPAScalingRulesFluent.PoliciesNested<A> editMatchingPolicy(
+      Predicate<V2HPAScalingPolicyBuilder> predicate);
 
   public String getSelectPolicy();
 
-  public A withSelectPolicy(java.lang.String selectPolicy);
+  public A withSelectPolicy(String selectPolicy);
 
-  public java.lang.Boolean hasSelectPolicy();
+  public Boolean hasSelectPolicy();
 
-  public java.lang.Integer getStabilizationWindowSeconds();
+  public Integer getStabilizationWindowSeconds();
 
-  public A withStabilizationWindowSeconds(java.lang.Integer stabilizationWindowSeconds);
+  public A withStabilizationWindowSeconds(Integer stabilizationWindowSeconds);
 
-  public java.lang.Boolean hasStabilizationWindowSeconds();
+  public Boolean hasStabilizationWindowSeconds();
 
   public interface PoliciesNested<N>
       extends Nested<N>, V2HPAScalingPolicyFluent<V2HPAScalingRulesFluent.PoliciesNested<N>> {

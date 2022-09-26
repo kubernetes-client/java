@@ -20,15 +20,15 @@ public interface V1PodDisruptionBudgetFluent<A extends V1PodDisruptionBudgetFlue
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -38,80 +38,72 @@ public interface V1PodDisruptionBudgetFluent<A extends V1PodDisruptionBudgetFlue
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1PodDisruptionBudgetFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1PodDisruptionBudgetFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.MetadataNested<A>
-      editMetadata();
+  public V1PodDisruptionBudgetFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1PodDisruptionBudgetFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1PodDisruptionBudgetFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildSpec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1PodDisruptionBudgetSpec getSpec();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec buildSpec();
+  public V1PodDisruptionBudgetSpec buildSpec();
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec spec);
+  public A withSpec(V1PodDisruptionBudgetSpec spec);
 
-  public java.lang.Boolean hasSpec();
+  public Boolean hasSpec();
 
   public V1PodDisruptionBudgetFluent.SpecNested<A> withNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.SpecNested<A>
-      withNewSpecLike(io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec item);
+  public V1PodDisruptionBudgetFluent.SpecNested<A> withNewSpecLike(V1PodDisruptionBudgetSpec item);
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.SpecNested<A> editSpec();
+  public V1PodDisruptionBudgetFluent.SpecNested<A> editSpec();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.SpecNested<A>
-      editOrNewSpec();
+  public V1PodDisruptionBudgetFluent.SpecNested<A> editOrNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.SpecNested<A>
-      editOrNewSpecLike(io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec item);
+  public V1PodDisruptionBudgetFluent.SpecNested<A> editOrNewSpecLike(
+      V1PodDisruptionBudgetSpec item);
 
   /**
    * This method has been deprecated, please use method buildStatus instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1PodDisruptionBudgetStatus getStatus();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatus buildStatus();
+  public V1PodDisruptionBudgetStatus buildStatus();
 
-  public A withStatus(io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatus status);
+  public A withStatus(V1PodDisruptionBudgetStatus status);
 
-  public java.lang.Boolean hasStatus();
+  public Boolean hasStatus();
 
   public V1PodDisruptionBudgetFluent.StatusNested<A> withNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.StatusNested<A>
-      withNewStatusLike(io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatus item);
+  public V1PodDisruptionBudgetFluent.StatusNested<A> withNewStatusLike(
+      V1PodDisruptionBudgetStatus item);
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.StatusNested<A>
-      editStatus();
+  public V1PodDisruptionBudgetFluent.StatusNested<A> editStatus();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.StatusNested<A>
-      editOrNewStatus();
+  public V1PodDisruptionBudgetFluent.StatusNested<A> editOrNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetFluent.StatusNested<A>
-      editOrNewStatusLike(io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatus item);
+  public V1PodDisruptionBudgetFluent.StatusNested<A> editOrNewStatusLike(
+      V1PodDisruptionBudgetStatus item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1PodDisruptionBudgetFluent.MetadataNested<N>> {
@@ -121,7 +113,7 @@ public interface V1PodDisruptionBudgetFluent<A extends V1PodDisruptionBudgetFlue
   }
 
   public interface SpecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1PodDisruptionBudgetSpecFluent<V1PodDisruptionBudgetFluent.SpecNested<N>> {
     public N and();
 
@@ -129,7 +121,7 @@ public interface V1PodDisruptionBudgetFluent<A extends V1PodDisruptionBudgetFlue
   }
 
   public interface StatusNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1PodDisruptionBudgetStatusFluent<V1PodDisruptionBudgetFluent.StatusNested<N>> {
     public N and();
 

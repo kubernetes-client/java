@@ -26,7 +26,7 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
     implements V1NodeSelectorFluent<A> {
   public V1NodeSelectorFluentImpl() {}
 
-  public V1NodeSelectorFluentImpl(io.kubernetes.client.openapi.models.V1NodeSelector instance) {
+  public V1NodeSelectorFluentImpl(V1NodeSelector instance) {
     this.withNodeSelectorTerms(instance.getNodeSelectorTerms());
   }
 
@@ -34,11 +34,9 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
 
   public A addToNodeSelectorTerms(Integer index, V1NodeSelectorTerm item) {
     if (this.nodeSelectorTerms == null) {
-      this.nodeSelectorTerms =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder>();
+      this.nodeSelectorTerms = new ArrayList<V1NodeSelectorTermBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder builder =
-        new io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder(item);
+    V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
     _visitables
         .get("nodeSelectorTerms")
         .add(index >= 0 ? index : _visitables.get("nodeSelectorTerms").size(), builder);
@@ -46,14 +44,11 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
     return (A) this;
   }
 
-  public A setToNodeSelectorTerms(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeSelectorTerm item) {
+  public A setToNodeSelectorTerms(Integer index, V1NodeSelectorTerm item) {
     if (this.nodeSelectorTerms == null) {
-      this.nodeSelectorTerms =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder>();
+      this.nodeSelectorTerms = new ArrayList<V1NodeSelectorTermBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder builder =
-        new io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder(item);
+    V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
     if (index < 0 || index >= _visitables.get("nodeSelectorTerms").size()) {
       _visitables.get("nodeSelectorTerms").add(builder);
     } else {
@@ -69,27 +64,22 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
 
   public A addToNodeSelectorTerms(io.kubernetes.client.openapi.models.V1NodeSelectorTerm... items) {
     if (this.nodeSelectorTerms == null) {
-      this.nodeSelectorTerms =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder>();
+      this.nodeSelectorTerms = new ArrayList<V1NodeSelectorTermBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1NodeSelectorTerm item : items) {
-      io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder(item);
+    for (V1NodeSelectorTerm item : items) {
+      V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
       _visitables.get("nodeSelectorTerms").add(builder);
       this.nodeSelectorTerms.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToNodeSelectorTerms(
-      Collection<io.kubernetes.client.openapi.models.V1NodeSelectorTerm> items) {
+  public A addAllToNodeSelectorTerms(Collection<V1NodeSelectorTerm> items) {
     if (this.nodeSelectorTerms == null) {
-      this.nodeSelectorTerms =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder>();
+      this.nodeSelectorTerms = new ArrayList<V1NodeSelectorTermBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1NodeSelectorTerm item : items) {
-      io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder(item);
+    for (V1NodeSelectorTerm item : items) {
+      V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
       _visitables.get("nodeSelectorTerms").add(builder);
       this.nodeSelectorTerms.add(builder);
     }
@@ -98,9 +88,8 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
 
   public A removeFromNodeSelectorTerms(
       io.kubernetes.client.openapi.models.V1NodeSelectorTerm... items) {
-    for (io.kubernetes.client.openapi.models.V1NodeSelectorTerm item : items) {
-      io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder(item);
+    for (V1NodeSelectorTerm item : items) {
+      V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
       _visitables.get("nodeSelectorTerms").remove(builder);
       if (this.nodeSelectorTerms != null) {
         this.nodeSelectorTerms.remove(builder);
@@ -109,11 +98,9 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
     return (A) this;
   }
 
-  public A removeAllFromNodeSelectorTerms(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NodeSelectorTerm> items) {
-    for (io.kubernetes.client.openapi.models.V1NodeSelectorTerm item : items) {
-      io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder(item);
+  public A removeAllFromNodeSelectorTerms(Collection<V1NodeSelectorTerm> items) {
+    for (V1NodeSelectorTerm item : items) {
+      V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
       _visitables.get("nodeSelectorTerms").remove(builder);
       if (this.nodeSelectorTerms != null) {
         this.nodeSelectorTerms.remove(builder);
@@ -122,14 +109,12 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
     return (A) this;
   }
 
-  public A removeMatchingFromNodeSelectorTerms(
-      Predicate<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder> predicate) {
+  public A removeMatchingFromNodeSelectorTerms(Predicate<V1NodeSelectorTermBuilder> predicate) {
     if (nodeSelectorTerms == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder> each =
-        nodeSelectorTerms.iterator();
+    final Iterator<V1NodeSelectorTermBuilder> each = nodeSelectorTerms.iterator();
     final List visitables = _visitables.get("nodeSelectorTerms");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder builder = each.next();
+      V1NodeSelectorTermBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -144,32 +129,29 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1NodeSelectorTerm> getNodeSelectorTerms() {
+  public List<V1NodeSelectorTerm> getNodeSelectorTerms() {
     return nodeSelectorTerms != null ? build(nodeSelectorTerms) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorTerm>
-      buildNodeSelectorTerms() {
+  public List<V1NodeSelectorTerm> buildNodeSelectorTerms() {
     return nodeSelectorTerms != null ? build(nodeSelectorTerms) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTerm buildNodeSelectorTerm(
-      java.lang.Integer index) {
+  public V1NodeSelectorTerm buildNodeSelectorTerm(Integer index) {
     return this.nodeSelectorTerms.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTerm buildFirstNodeSelectorTerm() {
+  public V1NodeSelectorTerm buildFirstNodeSelectorTerm() {
     return this.nodeSelectorTerms.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTerm buildLastNodeSelectorTerm() {
+  public V1NodeSelectorTerm buildLastNodeSelectorTerm() {
     return this.nodeSelectorTerms.get(nodeSelectorTerms.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTerm buildMatchingNodeSelectorTerm(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder item : nodeSelectorTerms) {
+  public V1NodeSelectorTerm buildMatchingNodeSelectorTerm(
+      Predicate<V1NodeSelectorTermBuilder> predicate) {
+    for (V1NodeSelectorTermBuilder item : nodeSelectorTerms) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -177,10 +159,8 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
     return null;
   }
 
-  public Boolean hasMatchingNodeSelectorTerm(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder item : nodeSelectorTerms) {
+  public Boolean hasMatchingNodeSelectorTerm(Predicate<V1NodeSelectorTermBuilder> predicate) {
+    for (V1NodeSelectorTermBuilder item : nodeSelectorTerms) {
       if (predicate.test(item)) {
         return true;
       }
@@ -188,14 +168,13 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
     return false;
   }
 
-  public A withNodeSelectorTerms(
-      java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorTerm> nodeSelectorTerms) {
+  public A withNodeSelectorTerms(List<V1NodeSelectorTerm> nodeSelectorTerms) {
     if (this.nodeSelectorTerms != null) {
       _visitables.get("nodeSelectorTerms").removeAll(this.nodeSelectorTerms);
     }
     if (nodeSelectorTerms != null) {
-      this.nodeSelectorTerms = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1NodeSelectorTerm item : nodeSelectorTerms) {
+      this.nodeSelectorTerms = new ArrayList();
+      for (V1NodeSelectorTerm item : nodeSelectorTerms) {
         this.addToNodeSelectorTerms(item);
       }
     } else {
@@ -210,14 +189,14 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
       this.nodeSelectorTerms.clear();
     }
     if (nodeSelectorTerms != null) {
-      for (io.kubernetes.client.openapi.models.V1NodeSelectorTerm item : nodeSelectorTerms) {
+      for (V1NodeSelectorTerm item : nodeSelectorTerms) {
         this.addToNodeSelectorTerms(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasNodeSelectorTerms() {
+  public Boolean hasNodeSelectorTerms() {
     return nodeSelectorTerms != null && !nodeSelectorTerms.isEmpty();
   }
 
@@ -225,45 +204,37 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
     return new V1NodeSelectorFluentImpl.NodeSelectorTermsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<A>
-      addNewNodeSelectorTermLike(io.kubernetes.client.openapi.models.V1NodeSelectorTerm item) {
+  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> addNewNodeSelectorTermLike(
+      V1NodeSelectorTerm item) {
     return new V1NodeSelectorFluentImpl.NodeSelectorTermsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<A>
-      setNewNodeSelectorTermLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeSelectorTerm item) {
-    return new io.kubernetes.client.openapi.models.V1NodeSelectorFluentImpl
-        .NodeSelectorTermsNestedImpl(index, item);
+  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> setNewNodeSelectorTermLike(
+      Integer index, V1NodeSelectorTerm item) {
+    return new V1NodeSelectorFluentImpl.NodeSelectorTermsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<A>
-      editNodeSelectorTerm(java.lang.Integer index) {
+  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editNodeSelectorTerm(Integer index) {
     if (nodeSelectorTerms.size() <= index)
       throw new RuntimeException("Can't edit nodeSelectorTerms. Index exceeds size.");
     return setNewNodeSelectorTermLike(index, buildNodeSelectorTerm(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<A>
-      editFirstNodeSelectorTerm() {
+  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editFirstNodeSelectorTerm() {
     if (nodeSelectorTerms.size() == 0)
       throw new RuntimeException("Can't edit first nodeSelectorTerms. The list is empty.");
     return setNewNodeSelectorTermLike(0, buildNodeSelectorTerm(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<A>
-      editLastNodeSelectorTerm() {
+  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editLastNodeSelectorTerm() {
     int index = nodeSelectorTerms.size() - 1;
     if (index < 0)
       throw new RuntimeException("Can't edit last nodeSelectorTerms. The list is empty.");
     return setNewNodeSelectorTermLike(index, buildNodeSelectorTerm(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<A>
-      editMatchingNodeSelectorTerm(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder>
-              predicate) {
+  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editMatchingNodeSelectorTerm(
+      Predicate<V1NodeSelectorTermBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < nodeSelectorTerms.size(); i++) {
       if (predicate.test(nodeSelectorTerms.get(i))) {
@@ -303,22 +274,19 @@ public class V1NodeSelectorFluentImpl<A extends V1NodeSelectorFluent<A>> extends
 
   class NodeSelectorTermsNestedImpl<N>
       extends V1NodeSelectorTermFluentImpl<V1NodeSelectorFluent.NodeSelectorTermsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1NodeSelectorFluent.NodeSelectorTermsNested<
-              N>,
-          Nested<N> {
-    NodeSelectorTermsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeSelectorTerm item) {
+      implements V1NodeSelectorFluent.NodeSelectorTermsNested<N>, Nested<N> {
+    NodeSelectorTermsNestedImpl(Integer index, V1NodeSelectorTerm item) {
       this.index = index;
       this.builder = new V1NodeSelectorTermBuilder(this, item);
     }
 
     NodeSelectorTermsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder(this);
+      this.builder = new V1NodeSelectorTermBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1NodeSelectorTermBuilder builder;
-    java.lang.Integer index;
+    V1NodeSelectorTermBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1NodeSelectorFluentImpl.this.setToNodeSelectorTerms(index, builder.build());

@@ -20,27 +20,27 @@ public interface V1GCEPersistentDiskVolumeSourceFluent<
     extends Fluent<A> {
   public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
   public Boolean hasFsType();
 
   public Integer getPartition();
 
-  public A withPartition(java.lang.Integer partition);
+  public A withPartition(Integer partition);
 
-  public java.lang.Boolean hasPartition();
+  public Boolean hasPartition();
 
-  public java.lang.String getPdName();
+  public String getPdName();
 
-  public A withPdName(java.lang.String pdName);
+  public A withPdName(String pdName);
 
-  public java.lang.Boolean hasPdName();
+  public Boolean hasPdName();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   public A withReadOnly();
 }

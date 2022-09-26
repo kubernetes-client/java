@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LocalSubjectAccessReviewBuilder
     extends V1LocalSubjectAccessReviewFluentImpl<V1LocalSubjectAccessReviewBuilder>
-    implements VisitableBuilder<
-        V1LocalSubjectAccessReview,
-        io.kubernetes.client.openapi.models.V1LocalSubjectAccessReviewBuilder> {
+    implements VisitableBuilder<V1LocalSubjectAccessReview, V1LocalSubjectAccessReviewBuilder> {
   public V1LocalSubjectAccessReviewBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1LocalSubjectAccessReviewBuilder
   }
 
   public V1LocalSubjectAccessReviewBuilder(
-      io.kubernetes.client.openapi.models.V1LocalSubjectAccessReviewFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1LocalSubjectAccessReviewFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1LocalSubjectAccessReview(), validationEnabled);
   }
 
   public V1LocalSubjectAccessReviewBuilder(
-      io.kubernetes.client.openapi.models.V1LocalSubjectAccessReviewFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LocalSubjectAccessReview instance) {
+      V1LocalSubjectAccessReviewFluent<?> fluent, V1LocalSubjectAccessReview instance) {
     this(fluent, instance, false);
   }
 
   public V1LocalSubjectAccessReviewBuilder(
-      io.kubernetes.client.openapi.models.V1LocalSubjectAccessReviewFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LocalSubjectAccessReview instance,
-      java.lang.Boolean validationEnabled) {
+      V1LocalSubjectAccessReviewFluent<?> fluent,
+      V1LocalSubjectAccessReview instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -61,14 +57,12 @@ public class V1LocalSubjectAccessReviewBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LocalSubjectAccessReviewBuilder(
-      io.kubernetes.client.openapi.models.V1LocalSubjectAccessReview instance) {
+  public V1LocalSubjectAccessReviewBuilder(V1LocalSubjectAccessReview instance) {
     this(instance, false);
   }
 
   public V1LocalSubjectAccessReviewBuilder(
-      io.kubernetes.client.openapi.models.V1LocalSubjectAccessReview instance,
-      java.lang.Boolean validationEnabled) {
+      V1LocalSubjectAccessReview instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -83,10 +77,10 @@ public class V1LocalSubjectAccessReviewBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LocalSubjectAccessReviewFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LocalSubjectAccessReviewFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1LocalSubjectAccessReview build() {
+  public V1LocalSubjectAccessReview build() {
     V1LocalSubjectAccessReview buildable = new V1LocalSubjectAccessReview();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

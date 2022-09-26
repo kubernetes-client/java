@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1StorageClassListBuilder
     extends V1StorageClassListFluentImpl<V1StorageClassListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1StorageClassList,
-        io.kubernetes.client.openapi.models.V1StorageClassListBuilder> {
+    implements VisitableBuilder<V1StorageClassList, V1StorageClassListBuilder> {
   public V1StorageClassListBuilder() {
     this(false);
   }
@@ -31,22 +29,17 @@ public class V1StorageClassListBuilder
     this(fluent, false);
   }
 
-  public V1StorageClassListBuilder(
-      io.kubernetes.client.openapi.models.V1StorageClassListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1StorageClassListBuilder(V1StorageClassListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1StorageClassList(), validationEnabled);
   }
 
   public V1StorageClassListBuilder(
-      io.kubernetes.client.openapi.models.V1StorageClassListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StorageClassList instance) {
+      V1StorageClassListFluent<?> fluent, V1StorageClassList instance) {
     this(fluent, instance, false);
   }
 
   public V1StorageClassListBuilder(
-      io.kubernetes.client.openapi.models.V1StorageClassListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StorageClassList instance,
-      java.lang.Boolean validationEnabled) {
+      V1StorageClassListFluent<?> fluent, V1StorageClassList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,14 +52,11 @@ public class V1StorageClassListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1StorageClassListBuilder(
-      io.kubernetes.client.openapi.models.V1StorageClassList instance) {
+  public V1StorageClassListBuilder(V1StorageClassList instance) {
     this(instance, false);
   }
 
-  public V1StorageClassListBuilder(
-      io.kubernetes.client.openapi.models.V1StorageClassList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1StorageClassListBuilder(V1StorageClassList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -79,10 +69,10 @@ public class V1StorageClassListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1StorageClassListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1StorageClassListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1StorageClassList build() {
+  public V1StorageClassList build() {
     V1StorageClassList buildable = new V1StorageClassList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

@@ -22,8 +22,7 @@ public class V1RollingUpdateStatefulSetStrategyFluentImpl<
     extends BaseFluent<A> implements V1RollingUpdateStatefulSetStrategyFluent<A> {
   public V1RollingUpdateStatefulSetStrategyFluentImpl() {}
 
-  public V1RollingUpdateStatefulSetStrategyFluentImpl(
-      io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy instance) {
+  public V1RollingUpdateStatefulSetStrategyFluentImpl(V1RollingUpdateStatefulSetStrategy instance) {
     this.withMaxUnavailable(instance.getMaxUnavailable());
 
     this.withPartition(instance.getPartition());
@@ -32,11 +31,11 @@ public class V1RollingUpdateStatefulSetStrategyFluentImpl<
   private IntOrString maxUnavailable;
   private Integer partition;
 
-  public io.kubernetes.client.custom.IntOrString getMaxUnavailable() {
+  public IntOrString getMaxUnavailable() {
     return this.maxUnavailable;
   }
 
-  public A withMaxUnavailable(io.kubernetes.client.custom.IntOrString maxUnavailable) {
+  public A withMaxUnavailable(IntOrString maxUnavailable) {
     this.maxUnavailable = maxUnavailable;
     return (A) this;
   }
@@ -53,16 +52,16 @@ public class V1RollingUpdateStatefulSetStrategyFluentImpl<
     return (A) withMaxUnavailable(new IntOrString(value));
   }
 
-  public java.lang.Integer getPartition() {
+  public Integer getPartition() {
     return this.partition;
   }
 
-  public A withPartition(java.lang.Integer partition) {
+  public A withPartition(Integer partition) {
     this.partition = partition;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPartition() {
+  public Boolean hasPartition() {
     return this.partition != null;
   }
 
@@ -83,7 +82,7 @@ public class V1RollingUpdateStatefulSetStrategyFluentImpl<
     return java.util.Objects.hash(maxUnavailable, partition, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (maxUnavailable != null) {

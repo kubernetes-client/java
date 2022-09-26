@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NodeSelectorRequirementBuilder
     extends V1NodeSelectorRequirementFluentImpl<V1NodeSelectorRequirementBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1NodeSelectorRequirement,
-        V1NodeSelectorRequirementBuilder> {
+    implements VisitableBuilder<V1NodeSelectorRequirement, V1NodeSelectorRequirementBuilder> {
   public V1NodeSelectorRequirementBuilder() {
     this(false);
   }
@@ -27,27 +25,24 @@ public class V1NodeSelectorRequirementBuilder
     this(new V1NodeSelectorRequirement(), validationEnabled);
   }
 
-  public V1NodeSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSelectorRequirementFluent<?> fluent) {
+  public V1NodeSelectorRequirementBuilder(V1NodeSelectorRequirementFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1NodeSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSelectorRequirementFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1NodeSelectorRequirementFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NodeSelectorRequirement(), validationEnabled);
   }
 
   public V1NodeSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSelectorRequirementFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeSelectorRequirement instance) {
+      V1NodeSelectorRequirementFluent<?> fluent, V1NodeSelectorRequirement instance) {
     this(fluent, instance, false);
   }
 
   public V1NodeSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSelectorRequirementFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeSelectorRequirement instance,
-      java.lang.Boolean validationEnabled) {
+      V1NodeSelectorRequirementFluent<?> fluent,
+      V1NodeSelectorRequirement instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withKey(instance.getKey());
 
@@ -58,14 +53,12 @@ public class V1NodeSelectorRequirementBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NodeSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSelectorRequirement instance) {
+  public V1NodeSelectorRequirementBuilder(V1NodeSelectorRequirement instance) {
     this(instance, false);
   }
 
   public V1NodeSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSelectorRequirement instance,
-      java.lang.Boolean validationEnabled) {
+      V1NodeSelectorRequirement instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withKey(instance.getKey());
 
@@ -76,10 +69,10 @@ public class V1NodeSelectorRequirementBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NodeSelectorRequirementFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NodeSelectorRequirementFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement build() {
+  public V1NodeSelectorRequirement build() {
     V1NodeSelectorRequirement buildable = new V1NodeSelectorRequirement();
     buildable.setKey(fluent.getKey());
     buildable.setOperator(fluent.getOperator());

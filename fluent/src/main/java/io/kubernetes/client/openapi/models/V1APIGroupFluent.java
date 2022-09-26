@@ -22,21 +22,21 @@ import java.util.function.Predicate;
 public interface V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
   /**
    * This method has been deprecated, please use method buildPreferredVersion instead.
@@ -46,46 +46,37 @@ public interface V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends Fluent<
   @Deprecated
   public V1GroupVersionForDiscovery getPreferredVersion();
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildPreferredVersion();
+  public V1GroupVersionForDiscovery buildPreferredVersion();
 
-  public A withPreferredVersion(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery preferredVersion);
+  public A withPreferredVersion(V1GroupVersionForDiscovery preferredVersion);
 
-  public java.lang.Boolean hasPreferredVersion();
+  public Boolean hasPreferredVersion();
 
   public V1APIGroupFluent.PreferredVersionNested<A> withNewPreferredVersion();
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.PreferredVersionNested<A>
-      withNewPreferredVersionLike(
-          io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item);
+  public V1APIGroupFluent.PreferredVersionNested<A> withNewPreferredVersionLike(
+      V1GroupVersionForDiscovery item);
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.PreferredVersionNested<A>
-      editPreferredVersion();
+  public V1APIGroupFluent.PreferredVersionNested<A> editPreferredVersion();
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.PreferredVersionNested<A>
-      editOrNewPreferredVersion();
+  public V1APIGroupFluent.PreferredVersionNested<A> editOrNewPreferredVersion();
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.PreferredVersionNested<A>
-      editOrNewPreferredVersionLike(
-          io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item);
+  public V1APIGroupFluent.PreferredVersionNested<A> editOrNewPreferredVersionLike(
+      V1GroupVersionForDiscovery item);
 
   public A addToServerAddressByClientCIDRs(Integer index, V1ServerAddressByClientCIDR item);
 
-  public A setToServerAddressByClientCIDRs(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item);
+  public A setToServerAddressByClientCIDRs(Integer index, V1ServerAddressByClientCIDR item);
 
   public A addToServerAddressByClientCIDRs(
       io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items);
 
-  public A addAllToServerAddressByClientCIDRs(
-      Collection<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> items);
+  public A addAllToServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items);
 
   public A removeFromServerAddressByClientCIDRs(
       io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items);
 
-  public A removeAllFromServerAddressByClientCIDRs(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR> items);
+  public A removeAllFromServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items);
 
   public A removeMatchingFromServerAddressByClientCIDRs(
       Predicate<V1ServerAddressByClientCIDRBuilder> predicate);
@@ -95,144 +86,107 @@ public interface V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends Fluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR>
-      getServerAddressByClientCIDRs();
+  @Deprecated
+  public List<V1ServerAddressByClientCIDR> getServerAddressByClientCIDRs();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR>
-      buildServerAddressByClientCIDRs();
+  public List<V1ServerAddressByClientCIDR> buildServerAddressByClientCIDRs();
 
-  public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR
-      buildServerAddressByClientCIDR(java.lang.Integer index);
+  public V1ServerAddressByClientCIDR buildServerAddressByClientCIDR(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR
-      buildFirstServerAddressByClientCIDR();
+  public V1ServerAddressByClientCIDR buildFirstServerAddressByClientCIDR();
 
-  public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR
-      buildLastServerAddressByClientCIDR();
+  public V1ServerAddressByClientCIDR buildLastServerAddressByClientCIDR();
 
-  public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR
-      buildMatchingServerAddressByClientCIDR(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>
-              predicate);
+  public V1ServerAddressByClientCIDR buildMatchingServerAddressByClientCIDR(
+      Predicate<V1ServerAddressByClientCIDRBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingServerAddressByClientCIDR(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>
-          predicate);
+  public Boolean hasMatchingServerAddressByClientCIDR(
+      Predicate<V1ServerAddressByClientCIDRBuilder> predicate);
 
   public A withServerAddressByClientCIDRs(
-      java.util.List<io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR>
-          serverAddressByClientCIDRs);
+      List<V1ServerAddressByClientCIDR> serverAddressByClientCIDRs);
 
   public A withServerAddressByClientCIDRs(
       io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR...
           serverAddressByClientCIDRs);
 
-  public java.lang.Boolean hasServerAddressByClientCIDRs();
+  public Boolean hasServerAddressByClientCIDRs();
 
   public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDR();
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      addNewServerAddressByClientCIDRLike(
-          io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item);
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDRLike(
+      V1ServerAddressByClientCIDR item);
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      setNewServerAddressByClientCIDRLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR item);
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> setNewServerAddressByClientCIDRLike(
+      Integer index, V1ServerAddressByClientCIDR item);
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      editServerAddressByClientCIDR(java.lang.Integer index);
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editServerAddressByClientCIDR(
+      Integer index);
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      editFirstServerAddressByClientCIDR();
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editFirstServerAddressByClientCIDR();
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      editLastServerAddressByClientCIDR();
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editLastServerAddressByClientCIDR();
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.ServerAddressByClientCIDRsNested<A>
-      editMatchingServerAddressByClientCIDR(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder>
-              predicate);
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editMatchingServerAddressByClientCIDR(
+      Predicate<V1ServerAddressByClientCIDRBuilder> predicate);
 
-  public A addToVersions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item);
+  public A addToVersions(Integer index, V1GroupVersionForDiscovery item);
 
-  public A setToVersions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item);
+  public A setToVersions(Integer index, V1GroupVersionForDiscovery item);
 
   public A addToVersions(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... items);
 
-  public A addAllToVersions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery> items);
+  public A addAllToVersions(Collection<V1GroupVersionForDiscovery> items);
 
   public A removeFromVersions(
       io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... items);
 
-  public A removeAllFromVersions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery> items);
+  public A removeAllFromVersions(Collection<V1GroupVersionForDiscovery> items);
 
-  public A removeMatchingFromVersions(
-      java.util.function.Predicate<V1GroupVersionForDiscoveryBuilder> predicate);
+  public A removeMatchingFromVersions(Predicate<V1GroupVersionForDiscoveryBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildVersions instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery>
-      getVersions();
+  @Deprecated
+  public List<V1GroupVersionForDiscovery> getVersions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery>
-      buildVersions();
+  public List<V1GroupVersionForDiscovery> buildVersions();
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildVersion(
-      java.lang.Integer index);
+  public V1GroupVersionForDiscovery buildVersion(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildFirstVersion();
+  public V1GroupVersionForDiscovery buildFirstVersion();
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildLastVersion();
+  public V1GroupVersionForDiscovery buildLastVersion();
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery buildMatchingVersion(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>
-          predicate);
+  public V1GroupVersionForDiscovery buildMatchingVersion(
+      Predicate<V1GroupVersionForDiscoveryBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingVersion(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>
-          predicate);
+  public Boolean hasMatchingVersion(Predicate<V1GroupVersionForDiscoveryBuilder> predicate);
 
-  public A withVersions(
-      java.util.List<io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery> versions);
+  public A withVersions(List<V1GroupVersionForDiscovery> versions);
 
   public A withVersions(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... versions);
 
-  public java.lang.Boolean hasVersions();
+  public Boolean hasVersions();
 
   public V1APIGroupFluent.VersionsNested<A> addNewVersion();
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> addNewVersionLike(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item);
+  public V1APIGroupFluent.VersionsNested<A> addNewVersionLike(V1GroupVersionForDiscovery item);
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> setNewVersionLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery item);
+  public V1APIGroupFluent.VersionsNested<A> setNewVersionLike(
+      Integer index, V1GroupVersionForDiscovery item);
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> editVersion(
-      java.lang.Integer index);
+  public V1APIGroupFluent.VersionsNested<A> editVersion(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> editFirstVersion();
+  public V1APIGroupFluent.VersionsNested<A> editFirstVersion();
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> editLastVersion();
+  public V1APIGroupFluent.VersionsNested<A> editLastVersion();
 
-  public io.kubernetes.client.openapi.models.V1APIGroupFluent.VersionsNested<A> editMatchingVersion(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder>
-          predicate);
+  public V1APIGroupFluent.VersionsNested<A> editMatchingVersion(
+      Predicate<V1GroupVersionForDiscoveryBuilder> predicate);
 
   public interface PreferredVersionNested<N>
       extends Nested<N>,
@@ -243,7 +197,7 @@ public interface V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends Fluent<
   }
 
   public interface ServerAddressByClientCIDRsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1ServerAddressByClientCIDRFluent<V1APIGroupFluent.ServerAddressByClientCIDRsNested<N>> {
     public N and();
 
@@ -251,8 +205,7 @@ public interface V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends Fluent<
   }
 
   public interface VersionsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1GroupVersionForDiscoveryFluent<V1APIGroupFluent.VersionsNested<N>> {
+      extends Nested<N>, V1GroupVersionForDiscoveryFluent<V1APIGroupFluent.VersionsNested<N>> {
     public N and();
 
     public N endVersion();

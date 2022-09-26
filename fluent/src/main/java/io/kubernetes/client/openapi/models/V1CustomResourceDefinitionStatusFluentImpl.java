@@ -27,8 +27,7 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     extends BaseFluent<A> implements V1CustomResourceDefinitionStatusFluent<A> {
   public V1CustomResourceDefinitionStatusFluentImpl() {}
 
-  public V1CustomResourceDefinitionStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus instance) {
+  public V1CustomResourceDefinitionStatusFluentImpl(V1CustomResourceDefinitionStatus instance) {
     this.withAcceptedNames(instance.getAcceptedNames());
 
     this.withConditions(instance.getConditions());
@@ -46,20 +45,22 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames getAcceptedNames() {
+  public V1CustomResourceDefinitionNames getAcceptedNames() {
     return this.acceptedNames != null ? this.acceptedNames.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames buildAcceptedNames() {
+  public V1CustomResourceDefinitionNames buildAcceptedNames() {
     return this.acceptedNames != null ? this.acceptedNames.build() : null;
   }
 
-  public A withAcceptedNames(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames acceptedNames) {
+  public A withAcceptedNames(V1CustomResourceDefinitionNames acceptedNames) {
     _visitables.get("acceptedNames").remove(this.acceptedNames);
     if (acceptedNames != null) {
       this.acceptedNames = new V1CustomResourceDefinitionNamesBuilder(acceptedNames);
       _visitables.get("acceptedNames").add(this.acceptedNames);
+    } else {
+      this.acceptedNames = null;
+      _visitables.get("acceptedNames").remove(this.acceptedNames);
     }
     return (A) this;
   }
@@ -72,47 +73,33 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return new V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .AcceptedNamesNested<
-          A>
-      withNewAcceptedNamesLike(
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames item) {
+  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> withNewAcceptedNamesLike(
+      V1CustomResourceDefinitionNames item) {
     return new V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .AcceptedNamesNested<
-          A>
-      editAcceptedNames() {
+  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> editAcceptedNames() {
     return withNewAcceptedNamesLike(getAcceptedNames());
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .AcceptedNamesNested<
-          A>
-      editOrNewAcceptedNames() {
+  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> editOrNewAcceptedNames() {
     return withNewAcceptedNamesLike(
         getAcceptedNames() != null
             ? getAcceptedNames()
-            : new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesBuilder()
-                .build());
+            : new V1CustomResourceDefinitionNamesBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .AcceptedNamesNested<
-          A>
-      editOrNewAcceptedNamesLike(
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames item) {
+  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> editOrNewAcceptedNamesLike(
+      V1CustomResourceDefinitionNames item) {
     return withNewAcceptedNamesLike(getAcceptedNames() != null ? getAcceptedNames() : item);
   }
 
-  public A addToConditions(
-      Integer index, io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item) {
+  public A addToConditions(Integer index, V1CustomResourceDefinitionCondition item) {
     if (this.conditions == null) {
-      this.conditions = new java.util.ArrayList<V1CustomResourceDefinitionConditionBuilder>();
+      this.conditions = new ArrayList<V1CustomResourceDefinitionConditionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder(item);
+    V1CustomResourceDefinitionConditionBuilder builder =
+        new V1CustomResourceDefinitionConditionBuilder(item);
     _visitables
         .get("conditions")
         .add(index >= 0 ? index : _visitables.get("conditions").size(), builder);
@@ -120,16 +107,12 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return (A) this;
   }
 
-  public A setToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item) {
+  public A setToConditions(Integer index, V1CustomResourceDefinitionCondition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>();
+      this.conditions = new ArrayList<V1CustomResourceDefinitionConditionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder(item);
+    V1CustomResourceDefinitionConditionBuilder builder =
+        new V1CustomResourceDefinitionConditionBuilder(item);
     if (index < 0 || index >= _visitables.get("conditions").size()) {
       _visitables.get("conditions").add(builder);
     } else {
@@ -146,29 +129,24 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
   public A addToConditions(
       io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition... items) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>();
+      this.conditions = new ArrayList<V1CustomResourceDefinitionConditionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item : items) {
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder(item);
+    for (V1CustomResourceDefinitionCondition item : items) {
+      V1CustomResourceDefinitionConditionBuilder builder =
+          new V1CustomResourceDefinitionConditionBuilder(item);
       _visitables.get("conditions").add(builder);
       this.conditions.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToConditions(
-      Collection<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition> items) {
+  public A addAllToConditions(Collection<V1CustomResourceDefinitionCondition> items) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>();
+      this.conditions = new ArrayList<V1CustomResourceDefinitionConditionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item : items) {
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder(item);
+    for (V1CustomResourceDefinitionCondition item : items) {
+      V1CustomResourceDefinitionConditionBuilder builder =
+          new V1CustomResourceDefinitionConditionBuilder(item);
       _visitables.get("conditions").add(builder);
       this.conditions.add(builder);
     }
@@ -177,9 +155,9 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
 
   public A removeFromConditions(
       io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition... items) {
-    for (io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item : items) {
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder(item);
+    for (V1CustomResourceDefinitionCondition item : items) {
+      V1CustomResourceDefinitionConditionBuilder builder =
+          new V1CustomResourceDefinitionConditionBuilder(item);
       _visitables.get("conditions").remove(builder);
       if (this.conditions != null) {
         this.conditions.remove(builder);
@@ -188,12 +166,10 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return (A) this;
   }
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition>
-          items) {
-    for (io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item : items) {
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder(item);
+  public A removeAllFromConditions(Collection<V1CustomResourceDefinitionCondition> items) {
+    for (V1CustomResourceDefinitionCondition item : items) {
+      V1CustomResourceDefinitionConditionBuilder builder =
+          new V1CustomResourceDefinitionConditionBuilder(item);
       _visitables.get("conditions").remove(builder);
       if (this.conditions != null) {
         this.conditions.remove(builder);
@@ -203,15 +179,12 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
   }
 
   public A removeMatchingFromConditions(
-      Predicate<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
-          predicate) {
+      Predicate<V1CustomResourceDefinitionConditionBuilder> predicate) {
     if (conditions == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
-        each = conditions.iterator();
+    final Iterator<V1CustomResourceDefinitionConditionBuilder> each = conditions.iterator();
     final List visitables = _visitables.get("conditions");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder builder =
-          each.next();
+      V1CustomResourceDefinitionConditionBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -225,39 +198,30 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition>
-      getConditions() {
+  @Deprecated
+  public List<V1CustomResourceDefinitionCondition> getConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition>
-      buildConditions() {
+  public List<V1CustomResourceDefinitionCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition buildCondition(
-      java.lang.Integer index) {
+  public V1CustomResourceDefinitionCondition buildCondition(Integer index) {
     return this.conditions.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition
-      buildFirstCondition() {
+  public V1CustomResourceDefinitionCondition buildFirstCondition() {
     return this.conditions.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition
-      buildLastCondition() {
+  public V1CustomResourceDefinitionCondition buildLastCondition() {
     return this.conditions.get(conditions.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition
-      buildMatchingCondition(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
-              predicate) {
-    for (io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder item :
-        conditions) {
+  public V1CustomResourceDefinitionCondition buildMatchingCondition(
+      Predicate<V1CustomResourceDefinitionConditionBuilder> predicate) {
+    for (V1CustomResourceDefinitionConditionBuilder item : conditions) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -265,12 +229,9 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingCondition(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder item :
-        conditions) {
+  public Boolean hasMatchingCondition(
+      Predicate<V1CustomResourceDefinitionConditionBuilder> predicate) {
+    for (V1CustomResourceDefinitionConditionBuilder item : conditions) {
       if (predicate.test(item)) {
         return true;
       }
@@ -278,16 +239,13 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return false;
   }
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition>
-          conditions) {
+  public A withConditions(List<V1CustomResourceDefinitionCondition> conditions) {
     if (this.conditions != null) {
       _visitables.get("conditions").removeAll(this.conditions);
     }
     if (conditions != null) {
-      this.conditions = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item :
-          conditions) {
+      this.conditions = new ArrayList();
+      for (V1CustomResourceDefinitionCondition item : conditions) {
         this.addToConditions(item);
       }
     } else {
@@ -302,15 +260,14 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
       this.conditions.clear();
     }
     if (conditions != null) {
-      for (io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item :
-          conditions) {
+      for (V1CustomResourceDefinitionCondition item : conditions) {
         this.addToConditions(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasConditions() {
+  public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
 
@@ -318,59 +275,36 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return new V1CustomResourceDefinitionStatusFluentImpl.ConditionsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .ConditionsNested<
-          A>
-      addNewConditionLike(
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item) {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluentImpl
-        .ConditionsNestedImpl(-1, item);
+  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> addNewConditionLike(
+      V1CustomResourceDefinitionCondition item) {
+    return new V1CustomResourceDefinitionStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .ConditionsNested<
-          A>
-      setNewConditionLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition item) {
-    return new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluentImpl
-        .ConditionsNestedImpl(index, item);
+  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1CustomResourceDefinitionCondition item) {
+    return new V1CustomResourceDefinitionStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .ConditionsNested<
-          A>
-      editCondition(java.lang.Integer index) {
+  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> editCondition(Integer index) {
     if (conditions.size() <= index)
       throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .ConditionsNested<
-          A>
-      editFirstCondition() {
+  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0)
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .ConditionsNested<
-          A>
-      editLastCondition() {
+  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-              .ConditionsNested<
-          A>
-      editMatchingCondition(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder>
-              predicate) {
+  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1CustomResourceDefinitionConditionBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < conditions.size(); i++) {
       if (predicate.test(conditions.get(i))) {
@@ -382,17 +316,17 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public A addToStoredVersions(java.lang.Integer index, java.lang.String item) {
+  public A addToStoredVersions(Integer index, String item) {
     if (this.storedVersions == null) {
-      this.storedVersions = new java.util.ArrayList<java.lang.String>();
+      this.storedVersions = new ArrayList<String>();
     }
     this.storedVersions.add(index, item);
     return (A) this;
   }
 
-  public A setToStoredVersions(java.lang.Integer index, java.lang.String item) {
+  public A setToStoredVersions(Integer index, String item) {
     if (this.storedVersions == null) {
-      this.storedVersions = new java.util.ArrayList<java.lang.String>();
+      this.storedVersions = new ArrayList<String>();
     }
     this.storedVersions.set(index, item);
     return (A) this;
@@ -400,26 +334,26 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
 
   public A addToStoredVersions(java.lang.String... items) {
     if (this.storedVersions == null) {
-      this.storedVersions = new java.util.ArrayList<java.lang.String>();
+      this.storedVersions = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.storedVersions.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToStoredVersions(java.util.Collection<java.lang.String> items) {
+  public A addAllToStoredVersions(Collection<String> items) {
     if (this.storedVersions == null) {
-      this.storedVersions = new java.util.ArrayList<java.lang.String>();
+      this.storedVersions = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.storedVersions.add(item);
     }
     return (A) this;
   }
 
   public A removeFromStoredVersions(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.storedVersions != null) {
         this.storedVersions.remove(item);
       }
@@ -427,8 +361,8 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return (A) this;
   }
 
-  public A removeAllFromStoredVersions(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromStoredVersions(Collection<String> items) {
+    for (String item : items) {
       if (this.storedVersions != null) {
         this.storedVersions.remove(item);
       }
@@ -436,25 +370,24 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getStoredVersions() {
+  public List<String> getStoredVersions() {
     return this.storedVersions;
   }
 
-  public java.lang.String getStoredVersion(java.lang.Integer index) {
+  public String getStoredVersion(Integer index) {
     return this.storedVersions.get(index);
   }
 
-  public java.lang.String getFirstStoredVersion() {
+  public String getFirstStoredVersion() {
     return this.storedVersions.get(0);
   }
 
-  public java.lang.String getLastStoredVersion() {
+  public String getLastStoredVersion() {
     return this.storedVersions.get(storedVersions.size() - 1);
   }
 
-  public java.lang.String getMatchingStoredVersion(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : storedVersions) {
+  public String getMatchingStoredVersion(Predicate<String> predicate) {
+    for (String item : storedVersions) {
       if (predicate.test(item)) {
         return item;
       }
@@ -462,9 +395,8 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingStoredVersion(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : storedVersions) {
+  public Boolean hasMatchingStoredVersion(Predicate<String> predicate) {
+    for (String item : storedVersions) {
       if (predicate.test(item)) {
         return true;
       }
@@ -472,10 +404,10 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return false;
   }
 
-  public A withStoredVersions(java.util.List<java.lang.String> storedVersions) {
+  public A withStoredVersions(List<String> storedVersions) {
     if (storedVersions != null) {
-      this.storedVersions = new java.util.ArrayList();
-      for (java.lang.String item : storedVersions) {
+      this.storedVersions = new ArrayList();
+      for (String item : storedVersions) {
         this.addToStoredVersions(item);
       }
     } else {
@@ -489,14 +421,14 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
       this.storedVersions.clear();
     }
     if (storedVersions != null) {
-      for (java.lang.String item : storedVersions) {
+      for (String item : storedVersions) {
         this.addToStoredVersions(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasStoredVersions() {
+  public Boolean hasStoredVersions() {
     return storedVersions != null && !storedVersions.isEmpty();
   }
 
@@ -520,7 +452,7 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
     return java.util.Objects.hash(acceptedNames, conditions, storedVersions, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (acceptedNames != null) {
@@ -542,21 +474,16 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
   class AcceptedNamesNestedImpl<N>
       extends V1CustomResourceDefinitionNamesFluentImpl<
           V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-                  .AcceptedNamesNested<
-              N>,
-          Nested<N> {
-    AcceptedNamesNestedImpl(
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNames item) {
+      implements V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<N>, Nested<N> {
+    AcceptedNamesNestedImpl(V1CustomResourceDefinitionNames item) {
       this.builder = new V1CustomResourceDefinitionNamesBuilder(this, item);
     }
 
     AcceptedNamesNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesBuilder(this);
+      this.builder = new V1CustomResourceDefinitionNamesBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1CustomResourceDefinitionNamesBuilder builder;
+    V1CustomResourceDefinitionNamesBuilder builder;
 
     public N and() {
       return (N) V1CustomResourceDefinitionStatusFluentImpl.this.withAcceptedNames(builder.build());
@@ -570,23 +497,19 @@ public class V1CustomResourceDefinitionStatusFluentImpl<
   class ConditionsNestedImpl<N>
       extends V1CustomResourceDefinitionConditionFluentImpl<
           V1CustomResourceDefinitionStatusFluent.ConditionsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent
-                  .ConditionsNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ConditionsNestedImpl(java.lang.Integer index, V1CustomResourceDefinitionCondition item) {
+      implements V1CustomResourceDefinitionStatusFluent.ConditionsNested<N>, Nested<N> {
+    ConditionsNestedImpl(Integer index, V1CustomResourceDefinitionCondition item) {
       this.index = index;
       this.builder = new V1CustomResourceDefinitionConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
       this.index = -1;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder(this);
+      this.builder = new V1CustomResourceDefinitionConditionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1CustomResourceDefinitionConditionBuilder builder;
-    java.lang.Integer index;
+    V1CustomResourceDefinitionConditionBuilder builder;
+    Integer index;
 
     public N and() {
       return (N)

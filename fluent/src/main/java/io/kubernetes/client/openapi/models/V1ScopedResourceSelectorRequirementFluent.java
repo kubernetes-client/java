@@ -23,44 +23,43 @@ public interface V1ScopedResourceSelectorRequirementFluent<
     extends Fluent<A> {
   public String getOperator();
 
-  public A withOperator(java.lang.String operator);
+  public A withOperator(String operator);
 
   public Boolean hasOperator();
 
-  public java.lang.String getScopeName();
+  public String getScopeName();
 
-  public A withScopeName(java.lang.String scopeName);
+  public A withScopeName(String scopeName);
 
-  public java.lang.Boolean hasScopeName();
+  public Boolean hasScopeName();
 
-  public A addToValues(Integer index, java.lang.String item);
+  public A addToValues(Integer index, String item);
 
-  public A setToValues(java.lang.Integer index, java.lang.String item);
+  public A setToValues(Integer index, String item);
 
   public A addToValues(java.lang.String... items);
 
-  public A addAllToValues(Collection<java.lang.String> items);
+  public A addAllToValues(Collection<String> items);
 
   public A removeFromValues(java.lang.String... items);
 
-  public A removeAllFromValues(java.util.Collection<java.lang.String> items);
+  public A removeAllFromValues(Collection<String> items);
 
-  public List<java.lang.String> getValues();
+  public List<String> getValues();
 
-  public java.lang.String getValue(java.lang.Integer index);
+  public String getValue(Integer index);
 
-  public java.lang.String getFirstValue();
+  public String getFirstValue();
 
-  public java.lang.String getLastValue();
+  public String getLastValue();
 
-  public java.lang.String getMatchingValue(Predicate<java.lang.String> predicate);
+  public String getMatchingValue(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingValue(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingValue(Predicate<String> predicate);
 
-  public A withValues(java.util.List<java.lang.String> values);
+  public A withValues(List<String> values);
 
   public A withValues(java.lang.String... values);
 
-  public java.lang.Boolean hasValues();
+  public Boolean hasValues();
 }

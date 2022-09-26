@@ -18,61 +18,61 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1NodeSystemInfoFluent<A extends V1NodeSystemInfoFluent<A>> extends Fluent<A> {
   public String getArchitecture();
 
-  public A withArchitecture(java.lang.String architecture);
+  public A withArchitecture(String architecture);
 
   public Boolean hasArchitecture();
 
-  public java.lang.String getBootID();
+  public String getBootID();
 
-  public A withBootID(java.lang.String bootID);
+  public A withBootID(String bootID);
 
-  public java.lang.Boolean hasBootID();
+  public Boolean hasBootID();
 
-  public java.lang.String getContainerRuntimeVersion();
+  public String getContainerRuntimeVersion();
 
-  public A withContainerRuntimeVersion(java.lang.String containerRuntimeVersion);
+  public A withContainerRuntimeVersion(String containerRuntimeVersion);
 
-  public java.lang.Boolean hasContainerRuntimeVersion();
+  public Boolean hasContainerRuntimeVersion();
 
-  public java.lang.String getKernelVersion();
+  public String getKernelVersion();
 
-  public A withKernelVersion(java.lang.String kernelVersion);
+  public A withKernelVersion(String kernelVersion);
 
-  public java.lang.Boolean hasKernelVersion();
+  public Boolean hasKernelVersion();
 
-  public java.lang.String getKubeProxyVersion();
+  public String getKubeProxyVersion();
 
-  public A withKubeProxyVersion(java.lang.String kubeProxyVersion);
+  public A withKubeProxyVersion(String kubeProxyVersion);
 
-  public java.lang.Boolean hasKubeProxyVersion();
+  public Boolean hasKubeProxyVersion();
 
-  public java.lang.String getKubeletVersion();
+  public String getKubeletVersion();
 
-  public A withKubeletVersion(java.lang.String kubeletVersion);
+  public A withKubeletVersion(String kubeletVersion);
 
-  public java.lang.Boolean hasKubeletVersion();
+  public Boolean hasKubeletVersion();
 
-  public java.lang.String getMachineID();
+  public String getMachineID();
 
-  public A withMachineID(java.lang.String machineID);
+  public A withMachineID(String machineID);
 
-  public java.lang.Boolean hasMachineID();
+  public Boolean hasMachineID();
 
-  public java.lang.String getOperatingSystem();
+  public String getOperatingSystem();
 
-  public A withOperatingSystem(java.lang.String operatingSystem);
+  public A withOperatingSystem(String operatingSystem);
 
-  public java.lang.Boolean hasOperatingSystem();
+  public Boolean hasOperatingSystem();
 
-  public java.lang.String getOsImage();
+  public String getOsImage();
 
-  public A withOsImage(java.lang.String osImage);
+  public A withOsImage(String osImage);
 
-  public java.lang.Boolean hasOsImage();
+  public Boolean hasOsImage();
 
-  public java.lang.String getSystemUUID();
+  public String getSystemUUID();
 
-  public A withSystemUUID(java.lang.String systemUUID);
+  public A withSystemUUID(String systemUUID);
 
-  public java.lang.Boolean hasSystemUUID();
+  public Boolean hasSystemUUID();
 }

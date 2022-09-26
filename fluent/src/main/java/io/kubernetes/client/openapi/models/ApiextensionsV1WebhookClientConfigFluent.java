@@ -26,15 +26,15 @@ public interface ApiextensionsV1WebhookClientConfigFluent<
 
   public A addToCaBundle(Integer index, Byte item);
 
-  public A setToCaBundle(java.lang.Integer index, java.lang.Byte item);
+  public A setToCaBundle(Integer index, Byte item);
 
   public A addToCaBundle(java.lang.Byte... items);
 
-  public A addAllToCaBundle(Collection<java.lang.Byte> items);
+  public A addAllToCaBundle(Collection<Byte> items);
 
   public A removeFromCaBundle(java.lang.Byte... items);
 
-  public A removeAllFromCaBundle(java.util.Collection<java.lang.Byte> items);
+  public A removeAllFromCaBundle(Collection<Byte> items);
 
   public Boolean hasCaBundle();
 
@@ -46,36 +46,29 @@ public interface ApiextensionsV1WebhookClientConfigFluent<
   @Deprecated
   public ApiextensionsV1ServiceReference getService();
 
-  public io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference buildService();
+  public ApiextensionsV1ServiceReference buildService();
 
-  public A withService(io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference service);
+  public A withService(ApiextensionsV1ServiceReference service);
 
-  public java.lang.Boolean hasService();
+  public Boolean hasService();
 
   public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> withNewService();
 
-  public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent.ServiceNested<
-          A>
-      withNewServiceLike(io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference item);
+  public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> withNewServiceLike(
+      ApiextensionsV1ServiceReference item);
 
-  public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent.ServiceNested<
-          A>
-      editService();
+  public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> editService();
 
-  public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent.ServiceNested<
-          A>
-      editOrNewService();
+  public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> editOrNewService();
 
-  public io.kubernetes.client.openapi.models.ApiextensionsV1WebhookClientConfigFluent.ServiceNested<
-          A>
-      editOrNewServiceLike(
-          io.kubernetes.client.openapi.models.ApiextensionsV1ServiceReference item);
+  public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> editOrNewServiceLike(
+      ApiextensionsV1ServiceReference item);
 
   public String getUrl();
 
-  public A withUrl(java.lang.String url);
+  public A withUrl(String url);
 
-  public java.lang.Boolean hasUrl();
+  public Boolean hasUrl();
 
   public interface ServiceNested<N>
       extends Nested<N>,

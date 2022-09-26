@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1RollingUpdateStatefulSetStrategyBuilder
     extends V1RollingUpdateStatefulSetStrategyFluentImpl<V1RollingUpdateStatefulSetStrategyBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy,
-        V1RollingUpdateStatefulSetStrategyBuilder> {
+        V1RollingUpdateStatefulSetStrategy, V1RollingUpdateStatefulSetStrategyBuilder> {
   public V1RollingUpdateStatefulSetStrategyBuilder() {
     this(false);
   }
@@ -33,21 +32,20 @@ public class V1RollingUpdateStatefulSetStrategyBuilder
   }
 
   public V1RollingUpdateStatefulSetStrategyBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1RollingUpdateStatefulSetStrategyFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1RollingUpdateStatefulSetStrategy(), validationEnabled);
   }
 
   public V1RollingUpdateStatefulSetStrategyBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy instance) {
+      V1RollingUpdateStatefulSetStrategyFluent<?> fluent,
+      V1RollingUpdateStatefulSetStrategy instance) {
     this(fluent, instance, false);
   }
 
   public V1RollingUpdateStatefulSetStrategyBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy instance,
-      java.lang.Boolean validationEnabled) {
+      V1RollingUpdateStatefulSetStrategyFluent<?> fluent,
+      V1RollingUpdateStatefulSetStrategy instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMaxUnavailable(instance.getMaxUnavailable());
 
@@ -56,14 +54,12 @@ public class V1RollingUpdateStatefulSetStrategyBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1RollingUpdateStatefulSetStrategyBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy instance) {
+  public V1RollingUpdateStatefulSetStrategyBuilder(V1RollingUpdateStatefulSetStrategy instance) {
     this(instance, false);
   }
 
   public V1RollingUpdateStatefulSetStrategyBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy instance,
-      java.lang.Boolean validationEnabled) {
+      V1RollingUpdateStatefulSetStrategy instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMaxUnavailable(instance.getMaxUnavailable());
 
@@ -72,10 +68,10 @@ public class V1RollingUpdateStatefulSetStrategyBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategyFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1RollingUpdateStatefulSetStrategyFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1RollingUpdateStatefulSetStrategy build() {
+  public V1RollingUpdateStatefulSetStrategy build() {
     V1RollingUpdateStatefulSetStrategy buildable = new V1RollingUpdateStatefulSetStrategy();
     buildable.setMaxUnavailable(fluent.getMaxUnavailable());
     buildable.setPartition(fluent.getPartition());

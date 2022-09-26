@@ -20,8 +20,7 @@ public class V1AzureDiskVolumeSourceFluentImpl<A extends V1AzureDiskVolumeSource
     extends BaseFluent<A> implements V1AzureDiskVolumeSourceFluent<A> {
   public V1AzureDiskVolumeSourceFluentImpl() {}
 
-  public V1AzureDiskVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource instance) {
+  public V1AzureDiskVolumeSourceFluentImpl(V1AzureDiskVolumeSource instance) {
     this.withCachingMode(instance.getCachingMode());
 
     this.withDiskName(instance.getDiskName());
@@ -36,87 +35,87 @@ public class V1AzureDiskVolumeSourceFluentImpl<A extends V1AzureDiskVolumeSource
   }
 
   private String cachingMode;
-  private java.lang.String diskName;
-  private java.lang.String diskURI;
-  private java.lang.String fsType;
-  private java.lang.String kind;
+  private String diskName;
+  private String diskURI;
+  private String fsType;
+  private String kind;
   private Boolean readOnly;
 
-  public java.lang.String getCachingMode() {
+  public String getCachingMode() {
     return this.cachingMode;
   }
 
-  public A withCachingMode(java.lang.String cachingMode) {
+  public A withCachingMode(String cachingMode) {
     this.cachingMode = cachingMode;
     return (A) this;
   }
 
-  public java.lang.Boolean hasCachingMode() {
+  public Boolean hasCachingMode() {
     return this.cachingMode != null;
   }
 
-  public java.lang.String getDiskName() {
+  public String getDiskName() {
     return this.diskName;
   }
 
-  public A withDiskName(java.lang.String diskName) {
+  public A withDiskName(String diskName) {
     this.diskName = diskName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDiskName() {
+  public Boolean hasDiskName() {
     return this.diskName != null;
   }
 
-  public java.lang.String getDiskURI() {
+  public String getDiskURI() {
     return this.diskURI;
   }
 
-  public A withDiskURI(java.lang.String diskURI) {
+  public A withDiskURI(String diskURI) {
     this.diskURI = diskURI;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDiskURI() {
+  public Boolean hasDiskURI() {
     return this.diskURI != null;
   }
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsType() {
+  public Boolean hasFsType() {
     return this.fsType != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
@@ -139,7 +138,7 @@ public class V1AzureDiskVolumeSourceFluentImpl<A extends V1AzureDiskVolumeSource
         cachingMode, diskName, diskURI, fsType, kind, readOnly, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (cachingMode != null) {

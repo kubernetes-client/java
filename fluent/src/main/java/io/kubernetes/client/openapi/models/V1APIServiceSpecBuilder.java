@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1APIServiceSpecBuilder extends V1APIServiceSpecFluentImpl<V1APIServiceSpecBuilder>
-    implements VisitableBuilder<
-        V1APIServiceSpec, io.kubernetes.client.openapi.models.V1APIServiceSpecBuilder> {
+    implements VisitableBuilder<V1APIServiceSpec, V1APIServiceSpecBuilder> {
   public V1APIServiceSpecBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1APIServiceSpecBuilder extends V1APIServiceSpecFluentImpl<V1APISer
     this(fluent, false);
   }
 
-  public V1APIServiceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1APIServiceSpecBuilder(V1APIServiceSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1APIServiceSpec(), validationEnabled);
   }
 
-  public V1APIServiceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1APIServiceSpec instance) {
+  public V1APIServiceSpecBuilder(V1APIServiceSpecFluent<?> fluent, V1APIServiceSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1APIServiceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1APIServiceSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1APIServiceSpecFluent<?> fluent, V1APIServiceSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCaBundle(instance.getCaBundle());
 
@@ -63,13 +56,11 @@ public class V1APIServiceSpecBuilder extends V1APIServiceSpecFluentImpl<V1APISer
     this.validationEnabled = validationEnabled;
   }
 
-  public V1APIServiceSpecBuilder(io.kubernetes.client.openapi.models.V1APIServiceSpec instance) {
+  public V1APIServiceSpecBuilder(V1APIServiceSpec instance) {
     this(instance, false);
   }
 
-  public V1APIServiceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1APIServiceSpecBuilder(V1APIServiceSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCaBundle(instance.getCaBundle());
 
@@ -88,10 +79,10 @@ public class V1APIServiceSpecBuilder extends V1APIServiceSpecFluentImpl<V1APISer
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1APIServiceSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1APIServiceSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpec build() {
+  public V1APIServiceSpec build() {
     V1APIServiceSpec buildable = new V1APIServiceSpec();
     buildable.setCaBundle(fluent.getCaBundle());
     buildable.setGroup(fluent.getGroup());

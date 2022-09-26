@@ -20,17 +20,17 @@ public class V1ClientIPConfigFluentImpl<A extends V1ClientIPConfigFluent<A>> ext
     implements V1ClientIPConfigFluent<A> {
   public V1ClientIPConfigFluentImpl() {}
 
-  public V1ClientIPConfigFluentImpl(io.kubernetes.client.openapi.models.V1ClientIPConfig instance) {
+  public V1ClientIPConfigFluentImpl(V1ClientIPConfig instance) {
     this.withTimeoutSeconds(instance.getTimeoutSeconds());
   }
 
   private Integer timeoutSeconds;
 
-  public java.lang.Integer getTimeoutSeconds() {
+  public Integer getTimeoutSeconds() {
     return this.timeoutSeconds;
   }
 
-  public A withTimeoutSeconds(java.lang.Integer timeoutSeconds) {
+  public A withTimeoutSeconds(Integer timeoutSeconds) {
     this.timeoutSeconds = timeoutSeconds;
     return (A) this;
   }

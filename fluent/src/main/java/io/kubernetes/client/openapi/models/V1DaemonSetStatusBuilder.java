@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DaemonSetStatusBuilder extends V1DaemonSetStatusFluentImpl<V1DaemonSetStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DaemonSetStatus,
-        io.kubernetes.client.openapi.models.V1DaemonSetStatusBuilder> {
+    implements VisitableBuilder<V1DaemonSetStatus, V1DaemonSetStatusBuilder> {
   public V1DaemonSetStatusBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1DaemonSetStatusBuilder extends V1DaemonSetStatusFluentImpl<V1Daem
     this(fluent, false);
   }
 
-  public V1DaemonSetStatusBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1DaemonSetStatusBuilder(V1DaemonSetStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DaemonSetStatus(), validationEnabled);
   }
 
-  public V1DaemonSetStatusBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DaemonSetStatus instance) {
+  public V1DaemonSetStatusBuilder(V1DaemonSetStatusFluent<?> fluent, V1DaemonSetStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1DaemonSetStatusBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DaemonSetStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1DaemonSetStatusFluent<?> fluent, V1DaemonSetStatus instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCollisionCount(instance.getCollisionCount());
 
@@ -70,13 +62,11 @@ public class V1DaemonSetStatusBuilder extends V1DaemonSetStatusFluentImpl<V1Daem
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DaemonSetStatusBuilder(io.kubernetes.client.openapi.models.V1DaemonSetStatus instance) {
+  public V1DaemonSetStatusBuilder(V1DaemonSetStatus instance) {
     this(instance, false);
   }
 
-  public V1DaemonSetStatusBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V1DaemonSetStatusBuilder(V1DaemonSetStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCollisionCount(instance.getCollisionCount());
 
@@ -101,10 +91,10 @@ public class V1DaemonSetStatusBuilder extends V1DaemonSetStatusFluentImpl<V1Daem
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DaemonSetStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DaemonSetStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetStatus build() {
+  public V1DaemonSetStatus build() {
     V1DaemonSetStatus buildable = new V1DaemonSetStatus();
     buildable.setCollisionCount(fluent.getCollisionCount());
     buildable.setConditions(fluent.getConditions());

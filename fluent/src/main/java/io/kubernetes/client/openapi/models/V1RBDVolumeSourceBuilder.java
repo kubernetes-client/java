@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1RBDVolumeSourceBuilder extends V1RBDVolumeSourceFluentImpl<V1RBDVolumeSourceBuilder>
-    implements VisitableBuilder<
-        V1RBDVolumeSource, io.kubernetes.client.openapi.models.V1RBDVolumeSourceBuilder> {
+    implements VisitableBuilder<V1RBDVolumeSource, V1RBDVolumeSourceBuilder> {
   public V1RBDVolumeSourceBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1RBDVolumeSourceBuilder extends V1RBDVolumeSourceFluentImpl<V1RBDV
     this(new V1RBDVolumeSource(), validationEnabled);
   }
 
-  public V1RBDVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent<?> fluent) {
+  public V1RBDVolumeSourceBuilder(V1RBDVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1RBDVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1RBDVolumeSourceBuilder(V1RBDVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1RBDVolumeSource(), validationEnabled);
   }
 
-  public V1RBDVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RBDVolumeSource instance) {
+  public V1RBDVolumeSourceBuilder(V1RBDVolumeSourceFluent<?> fluent, V1RBDVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1RBDVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RBDVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1RBDVolumeSourceFluent<?> fluent, V1RBDVolumeSource instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFsType(instance.getFsType());
 
@@ -66,13 +58,11 @@ public class V1RBDVolumeSourceBuilder extends V1RBDVolumeSourceFluentImpl<V1RBDV
     this.validationEnabled = validationEnabled;
   }
 
-  public V1RBDVolumeSourceBuilder(io.kubernetes.client.openapi.models.V1RBDVolumeSource instance) {
+  public V1RBDVolumeSourceBuilder(V1RBDVolumeSource instance) {
     this(instance, false);
   }
 
-  public V1RBDVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1RBDVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1RBDVolumeSourceBuilder(V1RBDVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFsType(instance.getFsType());
 
@@ -93,10 +83,10 @@ public class V1RBDVolumeSourceBuilder extends V1RBDVolumeSourceFluentImpl<V1RBDV
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1RBDVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1RBDVolumeSource build() {
+  public V1RBDVolumeSource build() {
     V1RBDVolumeSource buildable = new V1RBDVolumeSource();
     buildable.setFsType(fluent.getFsType());
     buildable.setImage(fluent.getImage());

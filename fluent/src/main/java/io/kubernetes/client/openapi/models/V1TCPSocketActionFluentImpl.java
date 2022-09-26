@@ -21,8 +21,7 @@ public class V1TCPSocketActionFluentImpl<A extends V1TCPSocketActionFluent<A>> e
     implements V1TCPSocketActionFluent<A> {
   public V1TCPSocketActionFluentImpl() {}
 
-  public V1TCPSocketActionFluentImpl(
-      io.kubernetes.client.openapi.models.V1TCPSocketAction instance) {
+  public V1TCPSocketActionFluentImpl(V1TCPSocketAction instance) {
     this.withHost(instance.getHost());
 
     this.withPort(instance.getPort());
@@ -31,11 +30,11 @@ public class V1TCPSocketActionFluentImpl<A extends V1TCPSocketActionFluent<A>> e
   private String host;
   private IntOrString port;
 
-  public java.lang.String getHost() {
+  public String getHost() {
     return this.host;
   }
 
-  public A withHost(java.lang.String host) {
+  public A withHost(String host) {
     this.host = host;
     return (A) this;
   }
@@ -44,16 +43,16 @@ public class V1TCPSocketActionFluentImpl<A extends V1TCPSocketActionFluent<A>> e
     return this.host != null;
   }
 
-  public io.kubernetes.client.custom.IntOrString getPort() {
+  public IntOrString getPort() {
     return this.port;
   }
 
-  public A withPort(io.kubernetes.client.custom.IntOrString port) {
+  public A withPort(IntOrString port) {
     this.port = port;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPort() {
+  public Boolean hasPort() {
     return this.port != null;
   }
 
@@ -61,7 +60,7 @@ public class V1TCPSocketActionFluentImpl<A extends V1TCPSocketActionFluent<A>> e
     return (A) withPort(new IntOrString(value));
   }
 
-  public A withNewPort(java.lang.String value) {
+  public A withNewPort(String value) {
     return (A) withPort(new IntOrString(value));
   }
 
@@ -78,7 +77,7 @@ public class V1TCPSocketActionFluentImpl<A extends V1TCPSocketActionFluent<A>> e
     return java.util.Objects.hash(host, port, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (host != null) {

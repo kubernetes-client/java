@@ -19,7 +19,7 @@ public interface V1beta1GroupSubjectFluent<A extends V1beta1GroupSubjectFluent<A
     extends Fluent<A> {
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
   public Boolean hasName();
 }

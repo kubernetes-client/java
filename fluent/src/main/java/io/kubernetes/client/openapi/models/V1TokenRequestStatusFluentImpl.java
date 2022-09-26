@@ -21,8 +21,7 @@ public class V1TokenRequestStatusFluentImpl<A extends V1TokenRequestStatusFluent
     extends BaseFluent<A> implements V1TokenRequestStatusFluent<A> {
   public V1TokenRequestStatusFluentImpl() {}
 
-  public V1TokenRequestStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V1TokenRequestStatus instance) {
+  public V1TokenRequestStatusFluentImpl(V1TokenRequestStatus instance) {
     this.withExpirationTimestamp(instance.getExpirationTimestamp());
 
     this.withToken(instance.getToken());
@@ -31,11 +30,11 @@ public class V1TokenRequestStatusFluentImpl<A extends V1TokenRequestStatusFluent
   private OffsetDateTime expirationTimestamp;
   private String token;
 
-  public java.time.OffsetDateTime getExpirationTimestamp() {
+  public OffsetDateTime getExpirationTimestamp() {
     return this.expirationTimestamp;
   }
 
-  public A withExpirationTimestamp(java.time.OffsetDateTime expirationTimestamp) {
+  public A withExpirationTimestamp(OffsetDateTime expirationTimestamp) {
     this.expirationTimestamp = expirationTimestamp;
     return (A) this;
   }
@@ -44,16 +43,16 @@ public class V1TokenRequestStatusFluentImpl<A extends V1TokenRequestStatusFluent
     return this.expirationTimestamp != null;
   }
 
-  public java.lang.String getToken() {
+  public String getToken() {
     return this.token;
   }
 
-  public A withToken(java.lang.String token) {
+  public A withToken(String token) {
     this.token = token;
     return (A) this;
   }
 
-  public java.lang.Boolean hasToken() {
+  public Boolean hasToken() {
     return this.token != null;
   }
 
@@ -72,7 +71,7 @@ public class V1TokenRequestStatusFluentImpl<A extends V1TokenRequestStatusFluent
     return java.util.Objects.hash(expirationTimestamp, token, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (expirationTimestamp != null) {

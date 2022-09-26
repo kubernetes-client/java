@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1AzureDiskVolumeSourceBuilder
     extends V1AzureDiskVolumeSourceFluentImpl<V1AzureDiskVolumeSourceBuilder>
-    implements VisitableBuilder<
-        V1AzureDiskVolumeSource,
-        io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceBuilder> {
+    implements VisitableBuilder<V1AzureDiskVolumeSource, V1AzureDiskVolumeSourceBuilder> {
   public V1AzureDiskVolumeSourceBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1AzureDiskVolumeSourceBuilder
   }
 
   public V1AzureDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1AzureDiskVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1AzureDiskVolumeSource(), validationEnabled);
   }
 
   public V1AzureDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource instance) {
+      V1AzureDiskVolumeSourceFluent<?> fluent, V1AzureDiskVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1AzureDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1AzureDiskVolumeSourceFluent<?> fluent,
+      V1AzureDiskVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCachingMode(instance.getCachingMode());
 
@@ -63,14 +59,12 @@ public class V1AzureDiskVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1AzureDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource instance) {
+  public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSource instance) {
     this(instance, false);
   }
 
   public V1AzureDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1AzureDiskVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCachingMode(instance.getCachingMode());
 
@@ -87,10 +81,10 @@ public class V1AzureDiskVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1AzureDiskVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1AzureDiskVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1AzureDiskVolumeSource build() {
+  public V1AzureDiskVolumeSource build() {
     V1AzureDiskVolumeSource buildable = new V1AzureDiskVolumeSource();
     buildable.setCachingMode(fluent.getCachingMode());
     buildable.setDiskName(fluent.getDiskName());

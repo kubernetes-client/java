@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1CapabilitiesBuilder extends V1CapabilitiesFluentImpl<V1CapabilitiesBuilder>
-    implements VisitableBuilder<
-        V1Capabilities, io.kubernetes.client.openapi.models.V1CapabilitiesBuilder> {
+    implements VisitableBuilder<V1Capabilities, V1CapabilitiesBuilder> {
   public V1CapabilitiesBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1CapabilitiesBuilder extends V1CapabilitiesFluentImpl<V1Capabiliti
     this(fluent, false);
   }
 
-  public V1CapabilitiesBuilder(
-      io.kubernetes.client.openapi.models.V1CapabilitiesFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1CapabilitiesBuilder(V1CapabilitiesFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Capabilities(), validationEnabled);
   }
 
-  public V1CapabilitiesBuilder(
-      io.kubernetes.client.openapi.models.V1CapabilitiesFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Capabilities instance) {
+  public V1CapabilitiesBuilder(V1CapabilitiesFluent<?> fluent, V1Capabilities instance) {
     this(fluent, instance, false);
   }
 
   public V1CapabilitiesBuilder(
-      io.kubernetes.client.openapi.models.V1CapabilitiesFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Capabilities instance,
-      java.lang.Boolean validationEnabled) {
+      V1CapabilitiesFluent<?> fluent, V1Capabilities instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAdd(instance.getAdd());
 
@@ -53,13 +46,11 @@ public class V1CapabilitiesBuilder extends V1CapabilitiesFluentImpl<V1Capabiliti
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CapabilitiesBuilder(io.kubernetes.client.openapi.models.V1Capabilities instance) {
+  public V1CapabilitiesBuilder(V1Capabilities instance) {
     this(instance, false);
   }
 
-  public V1CapabilitiesBuilder(
-      io.kubernetes.client.openapi.models.V1Capabilities instance,
-      java.lang.Boolean validationEnabled) {
+  public V1CapabilitiesBuilder(V1Capabilities instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAdd(instance.getAdd());
 
@@ -68,10 +59,10 @@ public class V1CapabilitiesBuilder extends V1CapabilitiesFluentImpl<V1Capabiliti
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CapabilitiesFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CapabilitiesFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Capabilities build() {
+  public V1Capabilities build() {
     V1Capabilities buildable = new V1Capabilities();
     buildable.setAdd(fluent.getAdd());
     buildable.setDrop(fluent.getDrop());

@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ReplicaSetConditionBuilder
     extends V1ReplicaSetConditionFluentImpl<V1ReplicaSetConditionBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ReplicaSetCondition,
-        io.kubernetes.client.openapi.models.V1ReplicaSetConditionBuilder> {
+    implements VisitableBuilder<V1ReplicaSetCondition, V1ReplicaSetConditionBuilder> {
   public V1ReplicaSetConditionBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1ReplicaSetConditionBuilder
   }
 
   public V1ReplicaSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ReplicaSetConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ReplicaSetCondition(), validationEnabled);
   }
 
   public V1ReplicaSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ReplicaSetCondition instance) {
+      V1ReplicaSetConditionFluent<?> fluent, V1ReplicaSetCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1ReplicaSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ReplicaSetCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1ReplicaSetConditionFluent<?> fluent,
+      V1ReplicaSetCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -61,14 +57,11 @@ public class V1ReplicaSetConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ReplicaSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetCondition instance) {
+  public V1ReplicaSetConditionBuilder(V1ReplicaSetCondition instance) {
     this(instance, false);
   }
 
-  public V1ReplicaSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicaSetCondition instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ReplicaSetConditionBuilder(V1ReplicaSetCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -83,10 +76,10 @@ public class V1ReplicaSetConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ReplicaSetConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ReplicaSetConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ReplicaSetCondition build() {
+  public V1ReplicaSetCondition build() {
     V1ReplicaSetCondition buildable = new V1ReplicaSetCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setMessage(fluent.getMessage());

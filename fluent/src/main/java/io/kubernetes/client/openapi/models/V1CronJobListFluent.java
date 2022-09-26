@@ -22,22 +22,21 @@ import java.util.function.Predicate;
 public interface V1CronJobListFluent<A extends V1CronJobListFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1CronJob item);
+  public A addToItems(Integer index, V1CronJob item);
 
-  public A setToItems(java.lang.Integer index, io.kubernetes.client.openapi.models.V1CronJob item);
+  public A setToItems(Integer index, V1CronJob item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1CronJob... items);
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1CronJob> items);
+  public A addAllToItems(Collection<V1CronJob> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1CronJob... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CronJob> items);
+  public A removeAllFromItems(Collection<V1CronJob> items);
 
   public A removeMatchingFromItems(Predicate<V1CronJobBuilder> predicate);
 
@@ -47,78 +46,69 @@ public interface V1CronJobListFluent<A extends V1CronJobListFluent<A>> extends F
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1CronJob> getItems();
+  public List<V1CronJob> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1CronJob> buildItems();
+  public List<V1CronJob> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1CronJob buildItem(java.lang.Integer index);
+  public V1CronJob buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1CronJob buildFirstItem();
+  public V1CronJob buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1CronJob buildLastItem();
+  public V1CronJob buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1CronJob buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1CronJobBuilder> predicate);
+  public V1CronJob buildMatchingItem(Predicate<V1CronJobBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1CronJobBuilder> predicate);
+  public Boolean hasMatchingItem(Predicate<V1CronJobBuilder> predicate);
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1CronJob> items);
+  public A withItems(List<V1CronJob> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1CronJob... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1CronJobListFluent.ItemsNested<A> addNewItem();
 
-  public V1CronJobListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1CronJob item);
+  public V1CronJobListFluent.ItemsNested<A> addNewItemLike(V1CronJob item);
 
-  public io.kubernetes.client.openapi.models.V1CronJobListFluent.ItemsNested<A> setNewItemLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1CronJob item);
+  public V1CronJobListFluent.ItemsNested<A> setNewItemLike(Integer index, V1CronJob item);
 
-  public io.kubernetes.client.openapi.models.V1CronJobListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1CronJobListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1CronJobListFluent.ItemsNested<A> editFirstItem();
+  public V1CronJobListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1CronJobListFluent.ItemsNested<A> editLastItem();
+  public V1CronJobListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1CronJobListFluent.ItemsNested<A> editMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1CronJobBuilder> predicate);
+  public V1CronJobListFluent.ItemsNested<A> editMatchingItem(Predicate<V1CronJobBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1CronJobListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CronJobListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1CronJobListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1CronJobListFluent.MetadataNested<A> editMetadata();
+  public V1CronJobListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CronJobListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1CronJobListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CronJobListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1CronJobListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>, V1CronJobFluent<V1CronJobListFluent.ItemsNested<N>> {
@@ -128,8 +118,7 @@ public interface V1CronJobListFluent<A extends V1CronJobListFluent<A>> extends F
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1CronJobListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1CronJobListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

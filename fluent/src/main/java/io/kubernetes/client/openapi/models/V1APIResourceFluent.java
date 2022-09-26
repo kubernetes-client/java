@@ -21,138 +21,135 @@ import java.util.function.Predicate;
 public interface V1APIResourceFluent<A extends V1APIResourceFluent<A>> extends Fluent<A> {
   public A addToCategories(Integer index, String item);
 
-  public A setToCategories(java.lang.Integer index, java.lang.String item);
+  public A setToCategories(Integer index, String item);
 
   public A addToCategories(java.lang.String... items);
 
-  public A addAllToCategories(Collection<java.lang.String> items);
+  public A addAllToCategories(Collection<String> items);
 
   public A removeFromCategories(java.lang.String... items);
 
-  public A removeAllFromCategories(java.util.Collection<java.lang.String> items);
+  public A removeAllFromCategories(Collection<String> items);
 
-  public List<java.lang.String> getCategories();
+  public List<String> getCategories();
 
-  public java.lang.String getCategory(java.lang.Integer index);
+  public String getCategory(Integer index);
 
-  public java.lang.String getFirstCategory();
+  public String getFirstCategory();
 
-  public java.lang.String getLastCategory();
+  public String getLastCategory();
 
-  public java.lang.String getMatchingCategory(Predicate<java.lang.String> predicate);
+  public String getMatchingCategory(Predicate<String> predicate);
 
-  public Boolean hasMatchingCategory(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingCategory(Predicate<String> predicate);
 
-  public A withCategories(java.util.List<java.lang.String> categories);
+  public A withCategories(List<String> categories);
 
   public A withCategories(java.lang.String... categories);
 
-  public java.lang.Boolean hasCategories();
+  public Boolean hasCategories();
 
-  public java.lang.String getGroup();
+  public String getGroup();
 
-  public A withGroup(java.lang.String group);
+  public A withGroup(String group);
 
-  public java.lang.Boolean hasGroup();
+  public Boolean hasGroup();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.Boolean getNamespaced();
+  public Boolean getNamespaced();
 
-  public A withNamespaced(java.lang.Boolean namespaced);
+  public A withNamespaced(Boolean namespaced);
 
-  public java.lang.Boolean hasNamespaced();
+  public Boolean hasNamespaced();
 
-  public A addToShortNames(java.lang.Integer index, java.lang.String item);
+  public A addToShortNames(Integer index, String item);
 
-  public A setToShortNames(java.lang.Integer index, java.lang.String item);
+  public A setToShortNames(Integer index, String item);
 
   public A addToShortNames(java.lang.String... items);
 
-  public A addAllToShortNames(java.util.Collection<java.lang.String> items);
+  public A addAllToShortNames(Collection<String> items);
 
   public A removeFromShortNames(java.lang.String... items);
 
-  public A removeAllFromShortNames(java.util.Collection<java.lang.String> items);
+  public A removeAllFromShortNames(Collection<String> items);
 
-  public java.util.List<java.lang.String> getShortNames();
+  public List<String> getShortNames();
 
-  public java.lang.String getShortName(java.lang.Integer index);
+  public String getShortName(Integer index);
 
-  public java.lang.String getFirstShortName();
+  public String getFirstShortName();
 
-  public java.lang.String getLastShortName();
+  public String getLastShortName();
 
-  public java.lang.String getMatchingShortName(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingShortName(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingShortName(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingShortName(Predicate<String> predicate);
 
-  public A withShortNames(java.util.List<java.lang.String> shortNames);
+  public A withShortNames(List<String> shortNames);
 
   public A withShortNames(java.lang.String... shortNames);
 
-  public java.lang.Boolean hasShortNames();
+  public Boolean hasShortNames();
 
-  public java.lang.String getSingularName();
+  public String getSingularName();
 
-  public A withSingularName(java.lang.String singularName);
+  public A withSingularName(String singularName);
 
-  public java.lang.Boolean hasSingularName();
+  public Boolean hasSingularName();
 
-  public java.lang.String getStorageVersionHash();
+  public String getStorageVersionHash();
 
-  public A withStorageVersionHash(java.lang.String storageVersionHash);
+  public A withStorageVersionHash(String storageVersionHash);
 
-  public java.lang.Boolean hasStorageVersionHash();
+  public Boolean hasStorageVersionHash();
 
-  public A addToVerbs(java.lang.Integer index, java.lang.String item);
+  public A addToVerbs(Integer index, String item);
 
-  public A setToVerbs(java.lang.Integer index, java.lang.String item);
+  public A setToVerbs(Integer index, String item);
 
   public A addToVerbs(java.lang.String... items);
 
-  public A addAllToVerbs(java.util.Collection<java.lang.String> items);
+  public A addAllToVerbs(Collection<String> items);
 
   public A removeFromVerbs(java.lang.String... items);
 
-  public A removeAllFromVerbs(java.util.Collection<java.lang.String> items);
+  public A removeAllFromVerbs(Collection<String> items);
 
-  public java.util.List<java.lang.String> getVerbs();
+  public List<String> getVerbs();
 
-  public java.lang.String getVerb(java.lang.Integer index);
+  public String getVerb(Integer index);
 
-  public java.lang.String getFirstVerb();
+  public String getFirstVerb();
 
-  public java.lang.String getLastVerb();
+  public String getLastVerb();
 
-  public java.lang.String getMatchingVerb(java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingVerb(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingVerb(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingVerb(Predicate<String> predicate);
 
-  public A withVerbs(java.util.List<java.lang.String> verbs);
+  public A withVerbs(List<String> verbs);
 
   public A withVerbs(java.lang.String... verbs);
 
-  public java.lang.Boolean hasVerbs();
+  public Boolean hasVerbs();
 
-  public java.lang.String getVersion();
+  public String getVersion();
 
-  public A withVersion(java.lang.String version);
+  public A withVersion(String version);
 
-  public java.lang.Boolean hasVersion();
+  public Boolean hasVersion();
 
   public A withNamespaced();
 }

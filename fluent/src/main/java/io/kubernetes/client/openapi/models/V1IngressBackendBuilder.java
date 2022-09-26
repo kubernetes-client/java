@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1IngressBackendBuilder extends V1IngressBackendFluentImpl<V1IngressBackendBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1IngressBackend, V1IngressBackendBuilder> {
+    implements VisitableBuilder<V1IngressBackend, V1IngressBackendBuilder> {
   public V1IngressBackendBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1IngressBackendBuilder extends V1IngressBackendFluentImpl<V1Ingres
     this(fluent, false);
   }
 
-  public V1IngressBackendBuilder(
-      io.kubernetes.client.openapi.models.V1IngressBackendFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1IngressBackendBuilder(V1IngressBackendFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1IngressBackend(), validationEnabled);
   }
 
-  public V1IngressBackendBuilder(
-      io.kubernetes.client.openapi.models.V1IngressBackendFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1IngressBackend instance) {
+  public V1IngressBackendBuilder(V1IngressBackendFluent<?> fluent, V1IngressBackend instance) {
     this(fluent, instance, false);
   }
 
   public V1IngressBackendBuilder(
-      io.kubernetes.client.openapi.models.V1IngressBackendFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1IngressBackend instance,
-      java.lang.Boolean validationEnabled) {
+      V1IngressBackendFluent<?> fluent, V1IngressBackend instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withResource(instance.getResource());
 
@@ -53,13 +46,11 @@ public class V1IngressBackendBuilder extends V1IngressBackendFluentImpl<V1Ingres
     this.validationEnabled = validationEnabled;
   }
 
-  public V1IngressBackendBuilder(io.kubernetes.client.openapi.models.V1IngressBackend instance) {
+  public V1IngressBackendBuilder(V1IngressBackend instance) {
     this(instance, false);
   }
 
-  public V1IngressBackendBuilder(
-      io.kubernetes.client.openapi.models.V1IngressBackend instance,
-      java.lang.Boolean validationEnabled) {
+  public V1IngressBackendBuilder(V1IngressBackend instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withResource(instance.getResource());
 
@@ -68,10 +59,10 @@ public class V1IngressBackendBuilder extends V1IngressBackendFluentImpl<V1Ingres
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1IngressBackendFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1IngressBackendFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1IngressBackend build() {
+  public V1IngressBackend build() {
     V1IngressBackend buildable = new V1IngressBackend();
     buildable.setResource(fluent.getResource());
     buildable.setService(fluent.getService());

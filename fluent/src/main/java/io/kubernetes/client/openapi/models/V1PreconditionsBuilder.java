@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PreconditionsBuilder extends V1PreconditionsFluentImpl<V1PreconditionsBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1Preconditions,
-        io.kubernetes.client.openapi.models.V1PreconditionsBuilder> {
+    implements VisitableBuilder<V1Preconditions, V1PreconditionsBuilder> {
   public V1PreconditionsBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1PreconditionsBuilder extends V1PreconditionsFluentImpl<V1Precondi
     this(fluent, false);
   }
 
-  public V1PreconditionsBuilder(
-      io.kubernetes.client.openapi.models.V1PreconditionsFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1PreconditionsBuilder(V1PreconditionsFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Preconditions(), validationEnabled);
   }
 
-  public V1PreconditionsBuilder(
-      io.kubernetes.client.openapi.models.V1PreconditionsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Preconditions instance) {
+  public V1PreconditionsBuilder(V1PreconditionsFluent<?> fluent, V1Preconditions instance) {
     this(fluent, instance, false);
   }
 
   public V1PreconditionsBuilder(
-      io.kubernetes.client.openapi.models.V1PreconditionsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Preconditions instance,
-      java.lang.Boolean validationEnabled) {
+      V1PreconditionsFluent<?> fluent, V1Preconditions instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withResourceVersion(instance.getResourceVersion());
 
@@ -54,13 +46,11 @@ public class V1PreconditionsBuilder extends V1PreconditionsFluentImpl<V1Precondi
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PreconditionsBuilder(io.kubernetes.client.openapi.models.V1Preconditions instance) {
+  public V1PreconditionsBuilder(V1Preconditions instance) {
     this(instance, false);
   }
 
-  public V1PreconditionsBuilder(
-      io.kubernetes.client.openapi.models.V1Preconditions instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PreconditionsBuilder(V1Preconditions instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withResourceVersion(instance.getResourceVersion());
 
@@ -69,10 +59,10 @@ public class V1PreconditionsBuilder extends V1PreconditionsFluentImpl<V1Precondi
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PreconditionsFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PreconditionsFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Preconditions build() {
+  public V1Preconditions build() {
     V1Preconditions buildable = new V1Preconditions();
     buildable.setResourceVersion(fluent.getResourceVersion());
     buildable.setUid(fluent.getUid());

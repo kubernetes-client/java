@@ -19,33 +19,33 @@ import io.kubernetes.client.fluent.Nested;
 public interface V1DeploymentSpecFluent<A extends V1DeploymentSpecFluent<A>> extends Fluent<A> {
   public Integer getMinReadySeconds();
 
-  public A withMinReadySeconds(java.lang.Integer minReadySeconds);
+  public A withMinReadySeconds(Integer minReadySeconds);
 
   public Boolean hasMinReadySeconds();
 
-  public java.lang.Boolean getPaused();
+  public Boolean getPaused();
 
-  public A withPaused(java.lang.Boolean paused);
+  public A withPaused(Boolean paused);
 
-  public java.lang.Boolean hasPaused();
+  public Boolean hasPaused();
 
-  public java.lang.Integer getProgressDeadlineSeconds();
+  public Integer getProgressDeadlineSeconds();
 
-  public A withProgressDeadlineSeconds(java.lang.Integer progressDeadlineSeconds);
+  public A withProgressDeadlineSeconds(Integer progressDeadlineSeconds);
 
-  public java.lang.Boolean hasProgressDeadlineSeconds();
+  public Boolean hasProgressDeadlineSeconds();
 
-  public java.lang.Integer getReplicas();
+  public Integer getReplicas();
 
-  public A withReplicas(java.lang.Integer replicas);
+  public A withReplicas(Integer replicas);
 
-  public java.lang.Boolean hasReplicas();
+  public Boolean hasReplicas();
 
-  public java.lang.Integer getRevisionHistoryLimit();
+  public Integer getRevisionHistoryLimit();
 
-  public A withRevisionHistoryLimit(java.lang.Integer revisionHistoryLimit);
+  public A withRevisionHistoryLimit(Integer revisionHistoryLimit);
 
-  public java.lang.Boolean hasRevisionHistoryLimit();
+  public Boolean hasRevisionHistoryLimit();
 
   /**
    * This method has been deprecated, please use method buildSelector instead.
@@ -55,81 +55,69 @@ public interface V1DeploymentSpecFluent<A extends V1DeploymentSpecFluent<A>> ext
   @Deprecated
   public V1LabelSelector getSelector();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector();
+  public V1LabelSelector buildSelector();
 
-  public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector);
+  public A withSelector(V1LabelSelector selector);
 
-  public java.lang.Boolean hasSelector();
+  public Boolean hasSelector();
 
   public V1DeploymentSpecFluent.SelectorNested<A> withNewSelector();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.SelectorNested<A>
-      withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1DeploymentSpecFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item);
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.SelectorNested<A>
-      editSelector();
+  public V1DeploymentSpecFluent.SelectorNested<A> editSelector();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.SelectorNested<A>
-      editOrNewSelector();
+  public V1DeploymentSpecFluent.SelectorNested<A> editOrNewSelector();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.SelectorNested<A>
-      editOrNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1DeploymentSpecFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item);
 
   /**
    * This method has been deprecated, please use method buildStrategy instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1DeploymentStrategy getStrategy();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentStrategy buildStrategy();
+  public V1DeploymentStrategy buildStrategy();
 
-  public A withStrategy(io.kubernetes.client.openapi.models.V1DeploymentStrategy strategy);
+  public A withStrategy(V1DeploymentStrategy strategy);
 
-  public java.lang.Boolean hasStrategy();
+  public Boolean hasStrategy();
 
   public V1DeploymentSpecFluent.StrategyNested<A> withNewStrategy();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.StrategyNested<A>
-      withNewStrategyLike(io.kubernetes.client.openapi.models.V1DeploymentStrategy item);
+  public V1DeploymentSpecFluent.StrategyNested<A> withNewStrategyLike(V1DeploymentStrategy item);
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.StrategyNested<A>
-      editStrategy();
+  public V1DeploymentSpecFluent.StrategyNested<A> editStrategy();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.StrategyNested<A>
-      editOrNewStrategy();
+  public V1DeploymentSpecFluent.StrategyNested<A> editOrNewStrategy();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.StrategyNested<A>
-      editOrNewStrategyLike(io.kubernetes.client.openapi.models.V1DeploymentStrategy item);
+  public V1DeploymentSpecFluent.StrategyNested<A> editOrNewStrategyLike(V1DeploymentStrategy item);
 
   /**
    * This method has been deprecated, please use method buildTemplate instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1PodTemplateSpec getTemplate();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate();
+  public V1PodTemplateSpec buildTemplate();
 
-  public A withTemplate(io.kubernetes.client.openapi.models.V1PodTemplateSpec template);
+  public A withTemplate(V1PodTemplateSpec template);
 
-  public java.lang.Boolean hasTemplate();
+  public Boolean hasTemplate();
 
   public V1DeploymentSpecFluent.TemplateNested<A> withNewTemplate();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.TemplateNested<A>
-      withNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
+  public V1DeploymentSpecFluent.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item);
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.TemplateNested<A>
-      editTemplate();
+  public V1DeploymentSpecFluent.TemplateNested<A> editTemplate();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.TemplateNested<A>
-      editOrNewTemplate();
+  public V1DeploymentSpecFluent.TemplateNested<A> editOrNewTemplate();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpecFluent.TemplateNested<A>
-      editOrNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
+  public V1DeploymentSpecFluent.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item);
 
   public A withPaused();
 
@@ -141,16 +129,14 @@ public interface V1DeploymentSpecFluent<A extends V1DeploymentSpecFluent<A>> ext
   }
 
   public interface StrategyNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1DeploymentStrategyFluent<V1DeploymentSpecFluent.StrategyNested<N>> {
+      extends Nested<N>, V1DeploymentStrategyFluent<V1DeploymentSpecFluent.StrategyNested<N>> {
     public N and();
 
     public N endStrategy();
   }
 
   public interface TemplateNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1PodTemplateSpecFluent<V1DeploymentSpecFluent.TemplateNested<N>> {
+      extends Nested<N>, V1PodTemplateSpecFluent<V1DeploymentSpecFluent.TemplateNested<N>> {
     public N and();
 
     public N endTemplate();

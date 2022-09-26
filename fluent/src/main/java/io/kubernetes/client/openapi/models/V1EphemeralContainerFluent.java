@@ -23,80 +23,77 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
     extends Fluent<A> {
   public A addToArgs(Integer index, String item);
 
-  public A setToArgs(java.lang.Integer index, java.lang.String item);
+  public A setToArgs(Integer index, String item);
 
   public A addToArgs(java.lang.String... items);
 
-  public A addAllToArgs(Collection<java.lang.String> items);
+  public A addAllToArgs(Collection<String> items);
 
   public A removeFromArgs(java.lang.String... items);
 
-  public A removeAllFromArgs(java.util.Collection<java.lang.String> items);
+  public A removeAllFromArgs(Collection<String> items);
 
-  public List<java.lang.String> getArgs();
+  public List<String> getArgs();
 
-  public java.lang.String getArg(java.lang.Integer index);
+  public String getArg(Integer index);
 
-  public java.lang.String getFirstArg();
+  public String getFirstArg();
 
-  public java.lang.String getLastArg();
+  public String getLastArg();
 
-  public java.lang.String getMatchingArg(Predicate<java.lang.String> predicate);
+  public String getMatchingArg(Predicate<String> predicate);
 
-  public Boolean hasMatchingArg(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingArg(Predicate<String> predicate);
 
-  public A withArgs(java.util.List<java.lang.String> args);
+  public A withArgs(List<String> args);
 
   public A withArgs(java.lang.String... args);
 
-  public java.lang.Boolean hasArgs();
+  public Boolean hasArgs();
 
-  public A addToCommand(java.lang.Integer index, java.lang.String item);
+  public A addToCommand(Integer index, String item);
 
-  public A setToCommand(java.lang.Integer index, java.lang.String item);
+  public A setToCommand(Integer index, String item);
 
   public A addToCommand(java.lang.String... items);
 
-  public A addAllToCommand(java.util.Collection<java.lang.String> items);
+  public A addAllToCommand(Collection<String> items);
 
   public A removeFromCommand(java.lang.String... items);
 
-  public A removeAllFromCommand(java.util.Collection<java.lang.String> items);
+  public A removeAllFromCommand(Collection<String> items);
 
-  public java.util.List<java.lang.String> getCommand();
+  public List<String> getCommand();
 
-  public java.lang.String getCommand(java.lang.Integer index);
+  public String getCommand(Integer index);
 
-  public java.lang.String getFirstCommand();
+  public String getFirstCommand();
 
-  public java.lang.String getLastCommand();
+  public String getLastCommand();
 
-  public java.lang.String getMatchingCommand(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingCommand(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingCommand(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingCommand(Predicate<String> predicate);
 
-  public A withCommand(java.util.List<java.lang.String> command);
+  public A withCommand(List<String> command);
 
   public A withCommand(java.lang.String... command);
 
-  public java.lang.Boolean hasCommand();
+  public Boolean hasCommand();
 
-  public A addToEnv(java.lang.Integer index, V1EnvVar item);
+  public A addToEnv(Integer index, V1EnvVar item);
 
-  public A setToEnv(java.lang.Integer index, io.kubernetes.client.openapi.models.V1EnvVar item);
+  public A setToEnv(Integer index, V1EnvVar item);
 
   public A addToEnv(io.kubernetes.client.openapi.models.V1EnvVar... items);
 
-  public A addAllToEnv(java.util.Collection<io.kubernetes.client.openapi.models.V1EnvVar> items);
+  public A addAllToEnv(Collection<V1EnvVar> items);
 
   public A removeFromEnv(io.kubernetes.client.openapi.models.V1EnvVar... items);
 
-  public A removeAllFromEnv(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1EnvVar> items);
+  public A removeAllFromEnv(Collection<V1EnvVar> items);
 
-  public A removeMatchingFromEnv(java.util.function.Predicate<V1EnvVarBuilder> predicate);
+  public A removeMatchingFromEnv(Predicate<V1EnvVarBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildEnv instead.
@@ -104,563 +101,474 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
    * @return The buildable object.
    */
   @Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1EnvVar> getEnv();
+  public List<V1EnvVar> getEnv();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1EnvVar> buildEnv();
+  public List<V1EnvVar> buildEnv();
 
-  public io.kubernetes.client.openapi.models.V1EnvVar buildEnv(java.lang.Integer index);
+  public V1EnvVar buildEnv(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1EnvVar buildFirstEnv();
+  public V1EnvVar buildFirstEnv();
 
-  public io.kubernetes.client.openapi.models.V1EnvVar buildLastEnv();
+  public V1EnvVar buildLastEnv();
 
-  public io.kubernetes.client.openapi.models.V1EnvVar buildMatchingEnv(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EnvVarBuilder> predicate);
+  public V1EnvVar buildMatchingEnv(Predicate<V1EnvVarBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingEnv(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EnvVarBuilder> predicate);
+  public Boolean hasMatchingEnv(Predicate<V1EnvVarBuilder> predicate);
 
-  public A withEnv(java.util.List<io.kubernetes.client.openapi.models.V1EnvVar> env);
+  public A withEnv(List<V1EnvVar> env);
 
   public A withEnv(io.kubernetes.client.openapi.models.V1EnvVar... env);
 
-  public java.lang.Boolean hasEnv();
+  public Boolean hasEnv();
 
   public V1EphemeralContainerFluent.EnvNested<A> addNewEnv();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<A> addNewEnvLike(
-      io.kubernetes.client.openapi.models.V1EnvVar item);
+  public V1EphemeralContainerFluent.EnvNested<A> addNewEnvLike(V1EnvVar item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<A> setNewEnvLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EnvVar item);
+  public V1EphemeralContainerFluent.EnvNested<A> setNewEnvLike(Integer index, V1EnvVar item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<A> editEnv(
-      java.lang.Integer index);
+  public V1EphemeralContainerFluent.EnvNested<A> editEnv(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<A> editFirstEnv();
+  public V1EphemeralContainerFluent.EnvNested<A> editFirstEnv();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<A> editLastEnv();
+  public V1EphemeralContainerFluent.EnvNested<A> editLastEnv();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvNested<A>
-      editMatchingEnv(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EnvVarBuilder>
-              predicate);
+  public V1EphemeralContainerFluent.EnvNested<A> editMatchingEnv(
+      Predicate<V1EnvVarBuilder> predicate);
 
-  public A addToEnvFrom(java.lang.Integer index, V1EnvFromSource item);
+  public A addToEnvFrom(Integer index, V1EnvFromSource item);
 
-  public A setToEnvFrom(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EnvFromSource item);
+  public A setToEnvFrom(Integer index, V1EnvFromSource item);
 
   public A addToEnvFrom(io.kubernetes.client.openapi.models.V1EnvFromSource... items);
 
-  public A addAllToEnvFrom(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1EnvFromSource> items);
+  public A addAllToEnvFrom(Collection<V1EnvFromSource> items);
 
   public A removeFromEnvFrom(io.kubernetes.client.openapi.models.V1EnvFromSource... items);
 
-  public A removeAllFromEnvFrom(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1EnvFromSource> items);
+  public A removeAllFromEnvFrom(Collection<V1EnvFromSource> items);
 
-  public A removeMatchingFromEnvFrom(
-      java.util.function.Predicate<V1EnvFromSourceBuilder> predicate);
+  public A removeMatchingFromEnvFrom(Predicate<V1EnvFromSourceBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildEnvFrom instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1EnvFromSource> getEnvFrom();
+  @Deprecated
+  public List<V1EnvFromSource> getEnvFrom();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1EnvFromSource> buildEnvFrom();
+  public List<V1EnvFromSource> buildEnvFrom();
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSource buildEnvFrom(java.lang.Integer index);
+  public V1EnvFromSource buildEnvFrom(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSource buildFirstEnvFrom();
+  public V1EnvFromSource buildFirstEnvFrom();
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSource buildLastEnvFrom();
+  public V1EnvFromSource buildLastEnvFrom();
 
-  public io.kubernetes.client.openapi.models.V1EnvFromSource buildMatchingEnvFrom(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EnvFromSourceBuilder>
-          predicate);
+  public V1EnvFromSource buildMatchingEnvFrom(Predicate<V1EnvFromSourceBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingEnvFrom(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EnvFromSourceBuilder>
-          predicate);
+  public Boolean hasMatchingEnvFrom(Predicate<V1EnvFromSourceBuilder> predicate);
 
-  public A withEnvFrom(java.util.List<io.kubernetes.client.openapi.models.V1EnvFromSource> envFrom);
+  public A withEnvFrom(List<V1EnvFromSource> envFrom);
 
   public A withEnvFrom(io.kubernetes.client.openapi.models.V1EnvFromSource... envFrom);
 
-  public java.lang.Boolean hasEnvFrom();
+  public Boolean hasEnvFrom();
 
   public V1EphemeralContainerFluent.EnvFromNested<A> addNewEnvFrom();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvFromNested<A>
-      addNewEnvFromLike(io.kubernetes.client.openapi.models.V1EnvFromSource item);
+  public V1EphemeralContainerFluent.EnvFromNested<A> addNewEnvFromLike(V1EnvFromSource item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvFromNested<A>
-      setNewEnvFromLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1EnvFromSource item);
+  public V1EphemeralContainerFluent.EnvFromNested<A> setNewEnvFromLike(
+      Integer index, V1EnvFromSource item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvFromNested<A>
-      editEnvFrom(java.lang.Integer index);
+  public V1EphemeralContainerFluent.EnvFromNested<A> editEnvFrom(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvFromNested<A>
-      editFirstEnvFrom();
+  public V1EphemeralContainerFluent.EnvFromNested<A> editFirstEnvFrom();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvFromNested<A>
-      editLastEnvFrom();
+  public V1EphemeralContainerFluent.EnvFromNested<A> editLastEnvFrom();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.EnvFromNested<A>
-      editMatchingEnvFrom(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EnvFromSourceBuilder>
-              predicate);
+  public V1EphemeralContainerFluent.EnvFromNested<A> editMatchingEnvFrom(
+      Predicate<V1EnvFromSourceBuilder> predicate);
 
-  public java.lang.String getImage();
+  public String getImage();
 
-  public A withImage(java.lang.String image);
+  public A withImage(String image);
 
-  public java.lang.Boolean hasImage();
+  public Boolean hasImage();
 
-  public java.lang.String getImagePullPolicy();
+  public String getImagePullPolicy();
 
-  public A withImagePullPolicy(java.lang.String imagePullPolicy);
+  public A withImagePullPolicy(String imagePullPolicy);
 
-  public java.lang.Boolean hasImagePullPolicy();
+  public Boolean hasImagePullPolicy();
 
   /**
    * This method has been deprecated, please use method buildLifecycle instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1Lifecycle getLifecycle();
 
-  public io.kubernetes.client.openapi.models.V1Lifecycle buildLifecycle();
+  public V1Lifecycle buildLifecycle();
 
-  public A withLifecycle(io.kubernetes.client.openapi.models.V1Lifecycle lifecycle);
+  public A withLifecycle(V1Lifecycle lifecycle);
 
-  public java.lang.Boolean hasLifecycle();
+  public Boolean hasLifecycle();
 
   public V1EphemeralContainerFluent.LifecycleNested<A> withNewLifecycle();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LifecycleNested<A>
-      withNewLifecycleLike(io.kubernetes.client.openapi.models.V1Lifecycle item);
+  public V1EphemeralContainerFluent.LifecycleNested<A> withNewLifecycleLike(V1Lifecycle item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LifecycleNested<A>
-      editLifecycle();
+  public V1EphemeralContainerFluent.LifecycleNested<A> editLifecycle();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LifecycleNested<A>
-      editOrNewLifecycle();
+  public V1EphemeralContainerFluent.LifecycleNested<A> editOrNewLifecycle();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LifecycleNested<A>
-      editOrNewLifecycleLike(io.kubernetes.client.openapi.models.V1Lifecycle item);
+  public V1EphemeralContainerFluent.LifecycleNested<A> editOrNewLifecycleLike(V1Lifecycle item);
 
   /**
    * This method has been deprecated, please use method buildLivenessProbe instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1Probe getLivenessProbe();
 
-  public io.kubernetes.client.openapi.models.V1Probe buildLivenessProbe();
+  public V1Probe buildLivenessProbe();
 
-  public A withLivenessProbe(io.kubernetes.client.openapi.models.V1Probe livenessProbe);
+  public A withLivenessProbe(V1Probe livenessProbe);
 
-  public java.lang.Boolean hasLivenessProbe();
+  public Boolean hasLivenessProbe();
 
   public V1EphemeralContainerFluent.LivenessProbeNested<A> withNewLivenessProbe();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LivenessProbeNested<A>
-      withNewLivenessProbeLike(io.kubernetes.client.openapi.models.V1Probe item);
+  public V1EphemeralContainerFluent.LivenessProbeNested<A> withNewLivenessProbeLike(V1Probe item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LivenessProbeNested<A>
-      editLivenessProbe();
+  public V1EphemeralContainerFluent.LivenessProbeNested<A> editLivenessProbe();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LivenessProbeNested<A>
-      editOrNewLivenessProbe();
+  public V1EphemeralContainerFluent.LivenessProbeNested<A> editOrNewLivenessProbe();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.LivenessProbeNested<A>
-      editOrNewLivenessProbeLike(io.kubernetes.client.openapi.models.V1Probe item);
+  public V1EphemeralContainerFluent.LivenessProbeNested<A> editOrNewLivenessProbeLike(V1Probe item);
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public A addToPorts(java.lang.Integer index, V1ContainerPort item);
+  public A addToPorts(Integer index, V1ContainerPort item);
 
-  public A setToPorts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerPort item);
+  public A setToPorts(Integer index, V1ContainerPort item);
 
   public A addToPorts(io.kubernetes.client.openapi.models.V1ContainerPort... items);
 
-  public A addAllToPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ContainerPort> items);
+  public A addAllToPorts(Collection<V1ContainerPort> items);
 
   public A removeFromPorts(io.kubernetes.client.openapi.models.V1ContainerPort... items);
 
-  public A removeAllFromPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ContainerPort> items);
+  public A removeAllFromPorts(Collection<V1ContainerPort> items);
 
-  public A removeMatchingFromPorts(java.util.function.Predicate<V1ContainerPortBuilder> predicate);
+  public A removeMatchingFromPorts(Predicate<V1ContainerPortBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildPorts instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ContainerPort> getPorts();
+  @Deprecated
+  public List<V1ContainerPort> getPorts();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ContainerPort> buildPorts();
+  public List<V1ContainerPort> buildPorts();
 
-  public io.kubernetes.client.openapi.models.V1ContainerPort buildPort(java.lang.Integer index);
+  public V1ContainerPort buildPort(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ContainerPort buildFirstPort();
+  public V1ContainerPort buildFirstPort();
 
-  public io.kubernetes.client.openapi.models.V1ContainerPort buildLastPort();
+  public V1ContainerPort buildLastPort();
 
-  public io.kubernetes.client.openapi.models.V1ContainerPort buildMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerPortBuilder>
-          predicate);
+  public V1ContainerPort buildMatchingPort(Predicate<V1ContainerPortBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerPortBuilder>
-          predicate);
+  public Boolean hasMatchingPort(Predicate<V1ContainerPortBuilder> predicate);
 
-  public A withPorts(java.util.List<io.kubernetes.client.openapi.models.V1ContainerPort> ports);
+  public A withPorts(List<V1ContainerPort> ports);
 
   public A withPorts(io.kubernetes.client.openapi.models.V1ContainerPort... ports);
 
-  public java.lang.Boolean hasPorts();
+  public Boolean hasPorts();
 
   public V1EphemeralContainerFluent.PortsNested<A> addNewPort();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.PortsNested<A>
-      addNewPortLike(io.kubernetes.client.openapi.models.V1ContainerPort item);
+  public V1EphemeralContainerFluent.PortsNested<A> addNewPortLike(V1ContainerPort item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.PortsNested<A>
-      setNewPortLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerPort item);
+  public V1EphemeralContainerFluent.PortsNested<A> setNewPortLike(
+      Integer index, V1ContainerPort item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.PortsNested<A> editPort(
-      java.lang.Integer index);
+  public V1EphemeralContainerFluent.PortsNested<A> editPort(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.PortsNested<A>
-      editFirstPort();
+  public V1EphemeralContainerFluent.PortsNested<A> editFirstPort();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.PortsNested<A>
-      editLastPort();
+  public V1EphemeralContainerFluent.PortsNested<A> editLastPort();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.PortsNested<A>
-      editMatchingPort(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerPortBuilder>
-              predicate);
+  public V1EphemeralContainerFluent.PortsNested<A> editMatchingPort(
+      Predicate<V1ContainerPortBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildReadinessProbe instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1Probe getReadinessProbe();
+  @Deprecated
+  public V1Probe getReadinessProbe();
 
-  public io.kubernetes.client.openapi.models.V1Probe buildReadinessProbe();
+  public V1Probe buildReadinessProbe();
 
-  public A withReadinessProbe(io.kubernetes.client.openapi.models.V1Probe readinessProbe);
+  public A withReadinessProbe(V1Probe readinessProbe);
 
-  public java.lang.Boolean hasReadinessProbe();
+  public Boolean hasReadinessProbe();
 
   public V1EphemeralContainerFluent.ReadinessProbeNested<A> withNewReadinessProbe();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ReadinessProbeNested<A>
-      withNewReadinessProbeLike(io.kubernetes.client.openapi.models.V1Probe item);
+  public V1EphemeralContainerFluent.ReadinessProbeNested<A> withNewReadinessProbeLike(V1Probe item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ReadinessProbeNested<A>
-      editReadinessProbe();
+  public V1EphemeralContainerFluent.ReadinessProbeNested<A> editReadinessProbe();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ReadinessProbeNested<A>
-      editOrNewReadinessProbe();
+  public V1EphemeralContainerFluent.ReadinessProbeNested<A> editOrNewReadinessProbe();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ReadinessProbeNested<A>
-      editOrNewReadinessProbeLike(io.kubernetes.client.openapi.models.V1Probe item);
+  public V1EphemeralContainerFluent.ReadinessProbeNested<A> editOrNewReadinessProbeLike(
+      V1Probe item);
 
   /**
    * This method has been deprecated, please use method buildResources instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ResourceRequirements getResources();
 
-  public io.kubernetes.client.openapi.models.V1ResourceRequirements buildResources();
+  public V1ResourceRequirements buildResources();
 
-  public A withResources(io.kubernetes.client.openapi.models.V1ResourceRequirements resources);
+  public A withResources(V1ResourceRequirements resources);
 
-  public java.lang.Boolean hasResources();
+  public Boolean hasResources();
 
   public V1EphemeralContainerFluent.ResourcesNested<A> withNewResources();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ResourcesNested<A>
-      withNewResourcesLike(io.kubernetes.client.openapi.models.V1ResourceRequirements item);
+  public V1EphemeralContainerFluent.ResourcesNested<A> withNewResourcesLike(
+      V1ResourceRequirements item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ResourcesNested<A>
-      editResources();
+  public V1EphemeralContainerFluent.ResourcesNested<A> editResources();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ResourcesNested<A>
-      editOrNewResources();
+  public V1EphemeralContainerFluent.ResourcesNested<A> editOrNewResources();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.ResourcesNested<A>
-      editOrNewResourcesLike(io.kubernetes.client.openapi.models.V1ResourceRequirements item);
+  public V1EphemeralContainerFluent.ResourcesNested<A> editOrNewResourcesLike(
+      V1ResourceRequirements item);
 
   /**
    * This method has been deprecated, please use method buildSecurityContext instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1SecurityContext getSecurityContext();
 
-  public io.kubernetes.client.openapi.models.V1SecurityContext buildSecurityContext();
+  public V1SecurityContext buildSecurityContext();
 
-  public A withSecurityContext(
-      io.kubernetes.client.openapi.models.V1SecurityContext securityContext);
+  public A withSecurityContext(V1SecurityContext securityContext);
 
-  public java.lang.Boolean hasSecurityContext();
+  public Boolean hasSecurityContext();
 
   public V1EphemeralContainerFluent.SecurityContextNested<A> withNewSecurityContext();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.SecurityContextNested<A>
-      withNewSecurityContextLike(io.kubernetes.client.openapi.models.V1SecurityContext item);
+  public V1EphemeralContainerFluent.SecurityContextNested<A> withNewSecurityContextLike(
+      V1SecurityContext item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.SecurityContextNested<A>
-      editSecurityContext();
+  public V1EphemeralContainerFluent.SecurityContextNested<A> editSecurityContext();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.SecurityContextNested<A>
-      editOrNewSecurityContext();
+  public V1EphemeralContainerFluent.SecurityContextNested<A> editOrNewSecurityContext();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.SecurityContextNested<A>
-      editOrNewSecurityContextLike(io.kubernetes.client.openapi.models.V1SecurityContext item);
+  public V1EphemeralContainerFluent.SecurityContextNested<A> editOrNewSecurityContextLike(
+      V1SecurityContext item);
 
   /**
    * This method has been deprecated, please use method buildStartupProbe instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1Probe getStartupProbe();
+  @Deprecated
+  public V1Probe getStartupProbe();
 
-  public io.kubernetes.client.openapi.models.V1Probe buildStartupProbe();
+  public V1Probe buildStartupProbe();
 
-  public A withStartupProbe(io.kubernetes.client.openapi.models.V1Probe startupProbe);
+  public A withStartupProbe(V1Probe startupProbe);
 
-  public java.lang.Boolean hasStartupProbe();
+  public Boolean hasStartupProbe();
 
   public V1EphemeralContainerFluent.StartupProbeNested<A> withNewStartupProbe();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.StartupProbeNested<A>
-      withNewStartupProbeLike(io.kubernetes.client.openapi.models.V1Probe item);
+  public V1EphemeralContainerFluent.StartupProbeNested<A> withNewStartupProbeLike(V1Probe item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.StartupProbeNested<A>
-      editStartupProbe();
+  public V1EphemeralContainerFluent.StartupProbeNested<A> editStartupProbe();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.StartupProbeNested<A>
-      editOrNewStartupProbe();
+  public V1EphemeralContainerFluent.StartupProbeNested<A> editOrNewStartupProbe();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.StartupProbeNested<A>
-      editOrNewStartupProbeLike(io.kubernetes.client.openapi.models.V1Probe item);
+  public V1EphemeralContainerFluent.StartupProbeNested<A> editOrNewStartupProbeLike(V1Probe item);
 
-  public java.lang.Boolean getStdin();
+  public Boolean getStdin();
 
-  public A withStdin(java.lang.Boolean stdin);
+  public A withStdin(Boolean stdin);
 
-  public java.lang.Boolean hasStdin();
+  public Boolean hasStdin();
 
-  public java.lang.Boolean getStdinOnce();
+  public Boolean getStdinOnce();
 
-  public A withStdinOnce(java.lang.Boolean stdinOnce);
+  public A withStdinOnce(Boolean stdinOnce);
 
-  public java.lang.Boolean hasStdinOnce();
+  public Boolean hasStdinOnce();
 
-  public java.lang.String getTargetContainerName();
+  public String getTargetContainerName();
 
-  public A withTargetContainerName(java.lang.String targetContainerName);
+  public A withTargetContainerName(String targetContainerName);
 
-  public java.lang.Boolean hasTargetContainerName();
+  public Boolean hasTargetContainerName();
 
-  public java.lang.String getTerminationMessagePath();
+  public String getTerminationMessagePath();
 
-  public A withTerminationMessagePath(java.lang.String terminationMessagePath);
+  public A withTerminationMessagePath(String terminationMessagePath);
 
-  public java.lang.Boolean hasTerminationMessagePath();
+  public Boolean hasTerminationMessagePath();
 
-  public java.lang.String getTerminationMessagePolicy();
+  public String getTerminationMessagePolicy();
 
-  public A withTerminationMessagePolicy(java.lang.String terminationMessagePolicy);
+  public A withTerminationMessagePolicy(String terminationMessagePolicy);
 
-  public java.lang.Boolean hasTerminationMessagePolicy();
+  public Boolean hasTerminationMessagePolicy();
 
-  public java.lang.Boolean getTty();
+  public Boolean getTty();
 
-  public A withTty(java.lang.Boolean tty);
+  public A withTty(Boolean tty);
 
-  public java.lang.Boolean hasTty();
+  public Boolean hasTty();
 
-  public A addToVolumeDevices(java.lang.Integer index, V1VolumeDevice item);
+  public A addToVolumeDevices(Integer index, V1VolumeDevice item);
 
-  public A setToVolumeDevices(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeDevice item);
+  public A setToVolumeDevices(Integer index, V1VolumeDevice item);
 
   public A addToVolumeDevices(io.kubernetes.client.openapi.models.V1VolumeDevice... items);
 
-  public A addAllToVolumeDevices(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1VolumeDevice> items);
+  public A addAllToVolumeDevices(Collection<V1VolumeDevice> items);
 
   public A removeFromVolumeDevices(io.kubernetes.client.openapi.models.V1VolumeDevice... items);
 
-  public A removeAllFromVolumeDevices(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1VolumeDevice> items);
+  public A removeAllFromVolumeDevices(Collection<V1VolumeDevice> items);
 
-  public A removeMatchingFromVolumeDevices(
-      java.util.function.Predicate<V1VolumeDeviceBuilder> predicate);
+  public A removeMatchingFromVolumeDevices(Predicate<V1VolumeDeviceBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildVolumeDevices instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1VolumeDevice> getVolumeDevices();
+  @Deprecated
+  public List<V1VolumeDevice> getVolumeDevices();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1VolumeDevice> buildVolumeDevices();
+  public List<V1VolumeDevice> buildVolumeDevices();
 
-  public io.kubernetes.client.openapi.models.V1VolumeDevice buildVolumeDevice(
-      java.lang.Integer index);
+  public V1VolumeDevice buildVolumeDevice(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1VolumeDevice buildFirstVolumeDevice();
+  public V1VolumeDevice buildFirstVolumeDevice();
 
-  public io.kubernetes.client.openapi.models.V1VolumeDevice buildLastVolumeDevice();
+  public V1VolumeDevice buildLastVolumeDevice();
 
-  public io.kubernetes.client.openapi.models.V1VolumeDevice buildMatchingVolumeDevice(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeDeviceBuilder>
-          predicate);
+  public V1VolumeDevice buildMatchingVolumeDevice(Predicate<V1VolumeDeviceBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingVolumeDevice(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeDeviceBuilder>
-          predicate);
+  public Boolean hasMatchingVolumeDevice(Predicate<V1VolumeDeviceBuilder> predicate);
 
-  public A withVolumeDevices(
-      java.util.List<io.kubernetes.client.openapi.models.V1VolumeDevice> volumeDevices);
+  public A withVolumeDevices(List<V1VolumeDevice> volumeDevices);
 
   public A withVolumeDevices(io.kubernetes.client.openapi.models.V1VolumeDevice... volumeDevices);
 
-  public java.lang.Boolean hasVolumeDevices();
+  public Boolean hasVolumeDevices();
 
   public V1EphemeralContainerFluent.VolumeDevicesNested<A> addNewVolumeDevice();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeDevicesNested<A>
-      addNewVolumeDeviceLike(io.kubernetes.client.openapi.models.V1VolumeDevice item);
+  public V1EphemeralContainerFluent.VolumeDevicesNested<A> addNewVolumeDeviceLike(
+      V1VolumeDevice item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeDevicesNested<A>
-      setNewVolumeDeviceLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeDevice item);
+  public V1EphemeralContainerFluent.VolumeDevicesNested<A> setNewVolumeDeviceLike(
+      Integer index, V1VolumeDevice item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeDevicesNested<A>
-      editVolumeDevice(java.lang.Integer index);
+  public V1EphemeralContainerFluent.VolumeDevicesNested<A> editVolumeDevice(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeDevicesNested<A>
-      editFirstVolumeDevice();
+  public V1EphemeralContainerFluent.VolumeDevicesNested<A> editFirstVolumeDevice();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeDevicesNested<A>
-      editLastVolumeDevice();
+  public V1EphemeralContainerFluent.VolumeDevicesNested<A> editLastVolumeDevice();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeDevicesNested<A>
-      editMatchingVolumeDevice(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeDeviceBuilder>
-              predicate);
+  public V1EphemeralContainerFluent.VolumeDevicesNested<A> editMatchingVolumeDevice(
+      Predicate<V1VolumeDeviceBuilder> predicate);
 
-  public A addToVolumeMounts(java.lang.Integer index, V1VolumeMount item);
+  public A addToVolumeMounts(Integer index, V1VolumeMount item);
 
-  public A setToVolumeMounts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeMount item);
+  public A setToVolumeMounts(Integer index, V1VolumeMount item);
 
   public A addToVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMount... items);
 
-  public A addAllToVolumeMounts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1VolumeMount> items);
+  public A addAllToVolumeMounts(Collection<V1VolumeMount> items);
 
   public A removeFromVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMount... items);
 
-  public A removeAllFromVolumeMounts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1VolumeMount> items);
+  public A removeAllFromVolumeMounts(Collection<V1VolumeMount> items);
 
-  public A removeMatchingFromVolumeMounts(
-      java.util.function.Predicate<V1VolumeMountBuilder> predicate);
+  public A removeMatchingFromVolumeMounts(Predicate<V1VolumeMountBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildVolumeMounts instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1VolumeMount> getVolumeMounts();
+  @Deprecated
+  public List<V1VolumeMount> getVolumeMounts();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1VolumeMount> buildVolumeMounts();
+  public List<V1VolumeMount> buildVolumeMounts();
 
-  public io.kubernetes.client.openapi.models.V1VolumeMount buildVolumeMount(
-      java.lang.Integer index);
+  public V1VolumeMount buildVolumeMount(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1VolumeMount buildFirstVolumeMount();
+  public V1VolumeMount buildFirstVolumeMount();
 
-  public io.kubernetes.client.openapi.models.V1VolumeMount buildLastVolumeMount();
+  public V1VolumeMount buildLastVolumeMount();
 
-  public io.kubernetes.client.openapi.models.V1VolumeMount buildMatchingVolumeMount(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeMountBuilder>
-          predicate);
+  public V1VolumeMount buildMatchingVolumeMount(Predicate<V1VolumeMountBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingVolumeMount(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeMountBuilder>
-          predicate);
+  public Boolean hasMatchingVolumeMount(Predicate<V1VolumeMountBuilder> predicate);
 
-  public A withVolumeMounts(
-      java.util.List<io.kubernetes.client.openapi.models.V1VolumeMount> volumeMounts);
+  public A withVolumeMounts(List<V1VolumeMount> volumeMounts);
 
   public A withVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMount... volumeMounts);
 
-  public java.lang.Boolean hasVolumeMounts();
+  public Boolean hasVolumeMounts();
 
   public V1EphemeralContainerFluent.VolumeMountsNested<A> addNewVolumeMount();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeMountsNested<A>
-      addNewVolumeMountLike(io.kubernetes.client.openapi.models.V1VolumeMount item);
+  public V1EphemeralContainerFluent.VolumeMountsNested<A> addNewVolumeMountLike(V1VolumeMount item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeMountsNested<A>
-      setNewVolumeMountLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeMount item);
+  public V1EphemeralContainerFluent.VolumeMountsNested<A> setNewVolumeMountLike(
+      Integer index, V1VolumeMount item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeMountsNested<A>
-      editVolumeMount(java.lang.Integer index);
+  public V1EphemeralContainerFluent.VolumeMountsNested<A> editVolumeMount(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeMountsNested<A>
-      editFirstVolumeMount();
+  public V1EphemeralContainerFluent.VolumeMountsNested<A> editFirstVolumeMount();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeMountsNested<A>
-      editLastVolumeMount();
+  public V1EphemeralContainerFluent.VolumeMountsNested<A> editLastVolumeMount();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainerFluent.VolumeMountsNested<A>
-      editMatchingVolumeMount(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeMountBuilder>
-              predicate);
+  public V1EphemeralContainerFluent.VolumeMountsNested<A> editMatchingVolumeMount(
+      Predicate<V1VolumeMountBuilder> predicate);
 
-  public java.lang.String getWorkingDir();
+  public String getWorkingDir();
 
-  public A withWorkingDir(java.lang.String workingDir);
+  public A withWorkingDir(String workingDir);
 
-  public java.lang.Boolean hasWorkingDir();
+  public Boolean hasWorkingDir();
 
   public A withStdin();
 
@@ -676,47 +584,42 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   }
 
   public interface EnvFromNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1EnvFromSourceFluent<V1EphemeralContainerFluent.EnvFromNested<N>> {
+      extends Nested<N>, V1EnvFromSourceFluent<V1EphemeralContainerFluent.EnvFromNested<N>> {
     public N and();
 
     public N endEnvFrom();
   }
 
   public interface LifecycleNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1LifecycleFluent<V1EphemeralContainerFluent.LifecycleNested<N>> {
+      extends Nested<N>, V1LifecycleFluent<V1EphemeralContainerFluent.LifecycleNested<N>> {
     public N and();
 
     public N endLifecycle();
   }
 
   public interface LivenessProbeNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ProbeFluent<V1EphemeralContainerFluent.LivenessProbeNested<N>> {
+      extends Nested<N>, V1ProbeFluent<V1EphemeralContainerFluent.LivenessProbeNested<N>> {
     public N and();
 
     public N endLivenessProbe();
   }
 
   public interface PortsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ContainerPortFluent<V1EphemeralContainerFluent.PortsNested<N>> {
+      extends Nested<N>, V1ContainerPortFluent<V1EphemeralContainerFluent.PortsNested<N>> {
     public N and();
 
     public N endPort();
   }
 
   public interface ReadinessProbeNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ProbeFluent<V1EphemeralContainerFluent.ReadinessProbeNested<N>> {
+      extends Nested<N>, V1ProbeFluent<V1EphemeralContainerFluent.ReadinessProbeNested<N>> {
     public N and();
 
     public N endReadinessProbe();
   }
 
   public interface ResourcesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1ResourceRequirementsFluent<V1EphemeralContainerFluent.ResourcesNested<N>> {
     public N and();
 
@@ -724,7 +627,7 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   }
 
   public interface SecurityContextNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1SecurityContextFluent<V1EphemeralContainerFluent.SecurityContextNested<N>> {
     public N and();
 
@@ -732,24 +635,21 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   }
 
   public interface StartupProbeNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ProbeFluent<V1EphemeralContainerFluent.StartupProbeNested<N>> {
+      extends Nested<N>, V1ProbeFluent<V1EphemeralContainerFluent.StartupProbeNested<N>> {
     public N and();
 
     public N endStartupProbe();
   }
 
   public interface VolumeDevicesNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1VolumeDeviceFluent<V1EphemeralContainerFluent.VolumeDevicesNested<N>> {
+      extends Nested<N>, V1VolumeDeviceFluent<V1EphemeralContainerFluent.VolumeDevicesNested<N>> {
     public N and();
 
     public N endVolumeDevice();
   }
 
   public interface VolumeMountsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1VolumeMountFluent<V1EphemeralContainerFluent.VolumeMountsNested<N>> {
+      extends Nested<N>, V1VolumeMountFluent<V1EphemeralContainerFluent.VolumeMountsNested<N>> {
     public N and();
 
     public N endVolumeMount();

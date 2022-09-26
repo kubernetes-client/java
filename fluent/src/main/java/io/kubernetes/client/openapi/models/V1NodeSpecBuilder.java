@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NodeSpecBuilder extends V1NodeSpecFluentImpl<V1NodeSpecBuilder>
-    implements VisitableBuilder<io.kubernetes.client.openapi.models.V1NodeSpec, V1NodeSpecBuilder> {
+    implements VisitableBuilder<V1NodeSpec, V1NodeSpecBuilder> {
   public V1NodeSpecBuilder() {
     this(false);
   }
@@ -28,22 +28,16 @@ public class V1NodeSpecBuilder extends V1NodeSpecFluentImpl<V1NodeSpecBuilder>
     this(fluent, false);
   }
 
-  public V1NodeSpecBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1NodeSpecBuilder(V1NodeSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NodeSpec(), validationEnabled);
   }
 
-  public V1NodeSpecBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeSpec instance) {
+  public V1NodeSpecBuilder(V1NodeSpecFluent<?> fluent, V1NodeSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1NodeSpecBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NodeSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1NodeSpecFluent<?> fluent, V1NodeSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withConfigSource(instance.getConfigSource());
 
@@ -62,13 +56,11 @@ public class V1NodeSpecBuilder extends V1NodeSpecFluentImpl<V1NodeSpecBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NodeSpecBuilder(io.kubernetes.client.openapi.models.V1NodeSpec instance) {
+  public V1NodeSpecBuilder(V1NodeSpec instance) {
     this(instance, false);
   }
 
-  public V1NodeSpecBuilder(
-      io.kubernetes.client.openapi.models.V1NodeSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NodeSpecBuilder(V1NodeSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withConfigSource(instance.getConfigSource());
 
@@ -87,10 +79,10 @@ public class V1NodeSpecBuilder extends V1NodeSpecFluentImpl<V1NodeSpecBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NodeSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NodeSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NodeSpec build() {
+  public V1NodeSpec build() {
     V1NodeSpec buildable = new V1NodeSpec();
     buildable.setConfigSource(fluent.getConfigSource());
     buildable.setExternalID(fluent.getExternalID());

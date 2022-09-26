@@ -21,7 +21,7 @@ public class V1VolumeErrorFluentImpl<A extends V1VolumeErrorFluent<A>> extends B
     implements V1VolumeErrorFluent<A> {
   public V1VolumeErrorFluentImpl() {}
 
-  public V1VolumeErrorFluentImpl(io.kubernetes.client.openapi.models.V1VolumeError instance) {
+  public V1VolumeErrorFluentImpl(V1VolumeError instance) {
     this.withMessage(instance.getMessage());
 
     this.withTime(instance.getTime());
@@ -30,11 +30,11 @@ public class V1VolumeErrorFluentImpl<A extends V1VolumeErrorFluent<A>> extends B
   private String message;
   private OffsetDateTime time;
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
@@ -43,16 +43,16 @@ public class V1VolumeErrorFluentImpl<A extends V1VolumeErrorFluent<A>> extends B
     return this.message != null;
   }
 
-  public java.time.OffsetDateTime getTime() {
+  public OffsetDateTime getTime() {
     return this.time;
   }
 
-  public A withTime(java.time.OffsetDateTime time) {
+  public A withTime(OffsetDateTime time) {
     this.time = time;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTime() {
+  public Boolean hasTime() {
     return this.time != null;
   }
 
@@ -69,7 +69,7 @@ public class V1VolumeErrorFluentImpl<A extends V1VolumeErrorFluent<A>> extends B
     return java.util.Objects.hash(message, time, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (message != null) {

@@ -20,18 +20,17 @@ public class V1LocalObjectReferenceFluentImpl<A extends V1LocalObjectReferenceFl
     extends BaseFluent<A> implements V1LocalObjectReferenceFluent<A> {
   public V1LocalObjectReferenceFluentImpl() {}
 
-  public V1LocalObjectReferenceFluentImpl(
-      io.kubernetes.client.openapi.models.V1LocalObjectReference instance) {
+  public V1LocalObjectReferenceFluentImpl(V1LocalObjectReference instance) {
     this.withName(instance.getName());
   }
 
   private String name;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -52,7 +51,7 @@ public class V1LocalObjectReferenceFluentImpl<A extends V1LocalObjectReferenceFl
     return java.util.Objects.hash(name, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {

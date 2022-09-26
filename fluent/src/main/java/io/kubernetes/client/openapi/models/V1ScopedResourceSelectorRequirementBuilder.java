@@ -18,8 +18,7 @@ public class V1ScopedResourceSelectorRequirementBuilder
     extends V1ScopedResourceSelectorRequirementFluentImpl<
         V1ScopedResourceSelectorRequirementBuilder>
     implements VisitableBuilder<
-        V1ScopedResourceSelectorRequirement,
-        io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementBuilder> {
+        V1ScopedResourceSelectorRequirement, V1ScopedResourceSelectorRequirementBuilder> {
   public V1ScopedResourceSelectorRequirementBuilder() {
     this(false);
   }
@@ -29,26 +28,25 @@ public class V1ScopedResourceSelectorRequirementBuilder
   }
 
   public V1ScopedResourceSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementFluent<?> fluent) {
+      V1ScopedResourceSelectorRequirementFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1ScopedResourceSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ScopedResourceSelectorRequirementFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ScopedResourceSelectorRequirement(), validationEnabled);
   }
 
   public V1ScopedResourceSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement instance) {
+      V1ScopedResourceSelectorRequirementFluent<?> fluent,
+      V1ScopedResourceSelectorRequirement instance) {
     this(fluent, instance, false);
   }
 
   public V1ScopedResourceSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement instance,
-      java.lang.Boolean validationEnabled) {
+      V1ScopedResourceSelectorRequirementFluent<?> fluent,
+      V1ScopedResourceSelectorRequirement instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withOperator(instance.getOperator());
 
@@ -59,14 +57,12 @@ public class V1ScopedResourceSelectorRequirementBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ScopedResourceSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement instance) {
+  public V1ScopedResourceSelectorRequirementBuilder(V1ScopedResourceSelectorRequirement instance) {
     this(instance, false);
   }
 
   public V1ScopedResourceSelectorRequirementBuilder(
-      io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement instance,
-      java.lang.Boolean validationEnabled) {
+      V1ScopedResourceSelectorRequirement instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withOperator(instance.getOperator());
 
@@ -77,10 +73,10 @@ public class V1ScopedResourceSelectorRequirementBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirementFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ScopedResourceSelectorRequirementFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ScopedResourceSelectorRequirement build() {
+  public V1ScopedResourceSelectorRequirement build() {
     V1ScopedResourceSelectorRequirement buildable = new V1ScopedResourceSelectorRequirement();
     buildable.setOperator(fluent.getOperator());
     buildable.setScopeName(fluent.getScopeName());

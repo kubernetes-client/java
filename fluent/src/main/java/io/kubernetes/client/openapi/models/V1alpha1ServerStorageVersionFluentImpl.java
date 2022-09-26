@@ -24,8 +24,7 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStor
     extends BaseFluent<A> implements V1alpha1ServerStorageVersionFluent<A> {
   public V1alpha1ServerStorageVersionFluentImpl() {}
 
-  public V1alpha1ServerStorageVersionFluentImpl(
-      io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion instance) {
+  public V1alpha1ServerStorageVersionFluentImpl(V1alpha1ServerStorageVersion instance) {
     this.withApiServerID(instance.getApiServerID());
 
     this.withDecodableVersions(instance.getDecodableVersions());
@@ -34,14 +33,14 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStor
   }
 
   private String apiServerID;
-  private List<java.lang.String> decodableVersions;
-  private java.lang.String encodingVersion;
+  private List<String> decodableVersions;
+  private String encodingVersion;
 
-  public java.lang.String getApiServerID() {
+  public String getApiServerID() {
     return this.apiServerID;
   }
 
-  public A withApiServerID(java.lang.String apiServerID) {
+  public A withApiServerID(String apiServerID) {
     this.apiServerID = apiServerID;
     return (A) this;
   }
@@ -50,17 +49,17 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStor
     return this.apiServerID != null;
   }
 
-  public A addToDecodableVersions(Integer index, java.lang.String item) {
+  public A addToDecodableVersions(Integer index, String item) {
     if (this.decodableVersions == null) {
-      this.decodableVersions = new ArrayList<java.lang.String>();
+      this.decodableVersions = new ArrayList<String>();
     }
     this.decodableVersions.add(index, item);
     return (A) this;
   }
 
-  public A setToDecodableVersions(java.lang.Integer index, java.lang.String item) {
+  public A setToDecodableVersions(Integer index, String item) {
     if (this.decodableVersions == null) {
-      this.decodableVersions = new java.util.ArrayList<java.lang.String>();
+      this.decodableVersions = new ArrayList<String>();
     }
     this.decodableVersions.set(index, item);
     return (A) this;
@@ -68,26 +67,26 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStor
 
   public A addToDecodableVersions(java.lang.String... items) {
     if (this.decodableVersions == null) {
-      this.decodableVersions = new java.util.ArrayList<java.lang.String>();
+      this.decodableVersions = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.decodableVersions.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToDecodableVersions(Collection<java.lang.String> items) {
+  public A addAllToDecodableVersions(Collection<String> items) {
     if (this.decodableVersions == null) {
-      this.decodableVersions = new java.util.ArrayList<java.lang.String>();
+      this.decodableVersions = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.decodableVersions.add(item);
     }
     return (A) this;
   }
 
   public A removeFromDecodableVersions(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.decodableVersions != null) {
         this.decodableVersions.remove(item);
       }
@@ -95,8 +94,8 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStor
     return (A) this;
   }
 
-  public A removeAllFromDecodableVersions(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromDecodableVersions(Collection<String> items) {
+    for (String item : items) {
       if (this.decodableVersions != null) {
         this.decodableVersions.remove(item);
       }
@@ -104,24 +103,24 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStor
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getDecodableVersions() {
+  public List<String> getDecodableVersions() {
     return this.decodableVersions;
   }
 
-  public java.lang.String getDecodableVersion(java.lang.Integer index) {
+  public String getDecodableVersion(Integer index) {
     return this.decodableVersions.get(index);
   }
 
-  public java.lang.String getFirstDecodableVersion() {
+  public String getFirstDecodableVersion() {
     return this.decodableVersions.get(0);
   }
 
-  public java.lang.String getLastDecodableVersion() {
+  public String getLastDecodableVersion() {
     return this.decodableVersions.get(decodableVersions.size() - 1);
   }
 
-  public java.lang.String getMatchingDecodableVersion(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : decodableVersions) {
+  public String getMatchingDecodableVersion(Predicate<String> predicate) {
+    for (String item : decodableVersions) {
       if (predicate.test(item)) {
         return item;
       }
@@ -129,9 +128,8 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStor
     return null;
   }
 
-  public java.lang.Boolean hasMatchingDecodableVersion(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : decodableVersions) {
+  public Boolean hasMatchingDecodableVersion(Predicate<String> predicate) {
+    for (String item : decodableVersions) {
       if (predicate.test(item)) {
         return true;
       }
@@ -139,10 +137,10 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStor
     return false;
   }
 
-  public A withDecodableVersions(java.util.List<java.lang.String> decodableVersions) {
+  public A withDecodableVersions(List<String> decodableVersions) {
     if (decodableVersions != null) {
-      this.decodableVersions = new java.util.ArrayList();
-      for (java.lang.String item : decodableVersions) {
+      this.decodableVersions = new ArrayList();
+      for (String item : decodableVersions) {
         this.addToDecodableVersions(item);
       }
     } else {
@@ -156,27 +154,27 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStor
       this.decodableVersions.clear();
     }
     if (decodableVersions != null) {
-      for (java.lang.String item : decodableVersions) {
+      for (String item : decodableVersions) {
         this.addToDecodableVersions(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDecodableVersions() {
+  public Boolean hasDecodableVersions() {
     return decodableVersions != null && !decodableVersions.isEmpty();
   }
 
-  public java.lang.String getEncodingVersion() {
+  public String getEncodingVersion() {
     return this.encodingVersion;
   }
 
-  public A withEncodingVersion(java.lang.String encodingVersion) {
+  public A withEncodingVersion(String encodingVersion) {
     this.encodingVersion = encodingVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasEncodingVersion() {
+  public Boolean hasEncodingVersion() {
     return this.encodingVersion != null;
   }
 
@@ -200,7 +198,7 @@ public class V1alpha1ServerStorageVersionFluentImpl<A extends V1alpha1ServerStor
         apiServerID, decodableVersions, encodingVersion, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiServerID != null) {

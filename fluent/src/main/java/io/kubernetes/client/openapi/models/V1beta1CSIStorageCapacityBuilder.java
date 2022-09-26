@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1beta1CSIStorageCapacityBuilder
     extends V1beta1CSIStorageCapacityFluentImpl<V1beta1CSIStorageCapacityBuilder>
-    implements VisitableBuilder<
-        V1beta1CSIStorageCapacity,
-        io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacityBuilder> {
+    implements VisitableBuilder<V1beta1CSIStorageCapacity, V1beta1CSIStorageCapacityBuilder> {
   public V1beta1CSIStorageCapacityBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1beta1CSIStorageCapacityBuilder
   }
 
   public V1beta1CSIStorageCapacityBuilder(
-      io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacityFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1CSIStorageCapacityFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1CSIStorageCapacity(), validationEnabled);
   }
 
   public V1beta1CSIStorageCapacityBuilder(
-      io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacity instance) {
+      V1beta1CSIStorageCapacityFluent<?> fluent, V1beta1CSIStorageCapacity instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1CSIStorageCapacityBuilder(
-      io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacityFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacity instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1CSIStorageCapacityFluent<?> fluent,
+      V1beta1CSIStorageCapacity instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -65,14 +61,12 @@ public class V1beta1CSIStorageCapacityBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta1CSIStorageCapacityBuilder(
-      io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacity instance) {
+  public V1beta1CSIStorageCapacityBuilder(V1beta1CSIStorageCapacity instance) {
     this(instance, false);
   }
 
   public V1beta1CSIStorageCapacityBuilder(
-      io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacity instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1CSIStorageCapacity instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -91,10 +85,10 @@ public class V1beta1CSIStorageCapacityBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacityFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1CSIStorageCapacityFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1CSIStorageCapacity build() {
+  public V1beta1CSIStorageCapacity build() {
     V1beta1CSIStorageCapacity buildable = new V1beta1CSIStorageCapacity();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setCapacity(fluent.getCapacity());

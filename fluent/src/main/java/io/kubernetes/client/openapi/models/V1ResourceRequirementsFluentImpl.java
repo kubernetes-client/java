@@ -23,17 +23,16 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     extends BaseFluent<A> implements V1ResourceRequirementsFluent<A> {
   public V1ResourceRequirementsFluentImpl() {}
 
-  public V1ResourceRequirementsFluentImpl(
-      io.kubernetes.client.openapi.models.V1ResourceRequirements instance) {
+  public V1ResourceRequirementsFluentImpl(V1ResourceRequirements instance) {
     this.withLimits(instance.getLimits());
 
     this.withRequests(instance.getRequests());
   }
 
   private Map<String, Quantity> limits;
-  private java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> requests;
+  private Map<String, Quantity> requests;
 
-  public A addToLimits(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
+  public A addToLimits(String key, Quantity value) {
     if (this.limits == null && key != null && value != null) {
       this.limits = new LinkedHashMap();
     }
@@ -43,9 +42,9 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     return (A) this;
   }
 
-  public A addToLimits(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map) {
+  public A addToLimits(Map<String, Quantity> map) {
     if (this.limits == null && map != null) {
-      this.limits = new java.util.LinkedHashMap();
+      this.limits = new LinkedHashMap();
     }
     if (map != null) {
       this.limits.putAll(map);
@@ -53,7 +52,7 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     return (A) this;
   }
 
-  public A removeFromLimits(java.lang.String key) {
+  public A removeFromLimits(String key) {
     if (this.limits == null) {
       return (A) this;
     }
@@ -63,8 +62,7 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     return (A) this;
   }
 
-  public A removeFromLimits(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map) {
+  public A removeFromLimits(Map<String, Quantity> map) {
     if (this.limits == null) {
       return (A) this;
     }
@@ -78,16 +76,15 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getLimits() {
+  public Map<String, Quantity> getLimits() {
     return this.limits;
   }
 
-  public <K, V> A withLimits(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> limits) {
+  public <K, V> A withLimits(Map<String, Quantity> limits) {
     if (limits == null) {
       this.limits = null;
     } else {
-      this.limits = new java.util.LinkedHashMap(limits);
+      this.limits = new LinkedHashMap(limits);
     }
     return (A) this;
   }
@@ -96,9 +93,9 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     return this.limits != null;
   }
 
-  public A addToRequests(java.lang.String key, io.kubernetes.client.custom.Quantity value) {
+  public A addToRequests(String key, Quantity value) {
     if (this.requests == null && key != null && value != null) {
-      this.requests = new java.util.LinkedHashMap();
+      this.requests = new LinkedHashMap();
     }
     if (key != null && value != null) {
       this.requests.put(key, value);
@@ -106,10 +103,9 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     return (A) this;
   }
 
-  public A addToRequests(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map) {
+  public A addToRequests(Map<String, Quantity> map) {
     if (this.requests == null && map != null) {
-      this.requests = new java.util.LinkedHashMap();
+      this.requests = new LinkedHashMap();
     }
     if (map != null) {
       this.requests.putAll(map);
@@ -117,7 +113,7 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     return (A) this;
   }
 
-  public A removeFromRequests(java.lang.String key) {
+  public A removeFromRequests(String key) {
     if (this.requests == null) {
       return (A) this;
     }
@@ -127,8 +123,7 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     return (A) this;
   }
 
-  public A removeFromRequests(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map) {
+  public A removeFromRequests(Map<String, Quantity> map) {
     if (this.requests == null) {
       return (A) this;
     }
@@ -142,21 +137,20 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getRequests() {
+  public Map<String, Quantity> getRequests() {
     return this.requests;
   }
 
-  public <K, V> A withRequests(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> requests) {
+  public <K, V> A withRequests(Map<String, Quantity> requests) {
     if (requests == null) {
       this.requests = null;
     } else {
-      this.requests = new java.util.LinkedHashMap(requests);
+      this.requests = new LinkedHashMap(requests);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasRequests() {
+  public Boolean hasRequests() {
     return this.requests != null;
   }
 
@@ -173,7 +167,7 @@ public class V1ResourceRequirementsFluentImpl<A extends V1ResourceRequirementsFl
     return java.util.Objects.hash(limits, requests, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (limits != null && !limits.isEmpty()) {

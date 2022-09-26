@@ -20,15 +20,15 @@ public interface V1CinderVolumeSourceFluent<A extends V1CinderVolumeSourceFluent
     extends Fluent<A> {
   public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
   public Boolean hasFsType();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
@@ -38,31 +38,29 @@ public interface V1CinderVolumeSourceFluent<A extends V1CinderVolumeSourceFluent
   @Deprecated
   public V1LocalObjectReference getSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef();
+  public V1LocalObjectReference buildSecretRef();
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef);
+  public A withSecretRef(V1LocalObjectReference secretRef);
 
-  public java.lang.Boolean hasSecretRef();
+  public Boolean hasSecretRef();
 
   public V1CinderVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public V1CinderVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1LocalObjectReference item);
 
-  public io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<A>
-      editSecretRef();
+  public V1CinderVolumeSourceFluent.SecretRefNested<A> editSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef();
+  public V1CinderVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1CinderVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public V1CinderVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1LocalObjectReference item);
 
-  public java.lang.String getVolumeID();
+  public String getVolumeID();
 
-  public A withVolumeID(java.lang.String volumeID);
+  public A withVolumeID(String volumeID);
 
-  public java.lang.Boolean hasVolumeID();
+  public Boolean hasVolumeID();
 
   public A withReadOnly();
 

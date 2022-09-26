@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1EphemeralContainerBuilder
     extends V1EphemeralContainerFluentImpl<V1EphemeralContainerBuilder>
-    implements VisitableBuilder<
-        V1EphemeralContainer, io.kubernetes.client.openapi.models.V1EphemeralContainerBuilder> {
+    implements VisitableBuilder<V1EphemeralContainer, V1EphemeralContainerBuilder> {
   public V1EphemeralContainerBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1EphemeralContainerBuilder
   }
 
   public V1EphemeralContainerBuilder(
-      io.kubernetes.client.openapi.models.V1EphemeralContainerFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1EphemeralContainerFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1EphemeralContainer(), validationEnabled);
   }
 
   public V1EphemeralContainerBuilder(
-      io.kubernetes.client.openapi.models.V1EphemeralContainerFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EphemeralContainer instance) {
+      V1EphemeralContainerFluent<?> fluent, V1EphemeralContainer instance) {
     this(fluent, instance, false);
   }
 
   public V1EphemeralContainerBuilder(
-      io.kubernetes.client.openapi.models.V1EphemeralContainerFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EphemeralContainer instance,
-      java.lang.Boolean validationEnabled) {
+      V1EphemeralContainerFluent<?> fluent,
+      V1EphemeralContainer instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withArgs(instance.getArgs());
 
@@ -96,14 +93,11 @@ public class V1EphemeralContainerBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1EphemeralContainerBuilder(
-      io.kubernetes.client.openapi.models.V1EphemeralContainer instance) {
+  public V1EphemeralContainerBuilder(V1EphemeralContainer instance) {
     this(instance, false);
   }
 
-  public V1EphemeralContainerBuilder(
-      io.kubernetes.client.openapi.models.V1EphemeralContainer instance,
-      java.lang.Boolean validationEnabled) {
+  public V1EphemeralContainerBuilder(V1EphemeralContainer instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withArgs(instance.getArgs());
 
@@ -154,10 +148,10 @@ public class V1EphemeralContainerBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1EphemeralContainerFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1EphemeralContainerFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1EphemeralContainer build() {
+  public V1EphemeralContainer build() {
     V1EphemeralContainer buildable = new V1EphemeralContainer();
     buildable.setArgs(fluent.getArgs());
     buildable.setCommand(fluent.getCommand());

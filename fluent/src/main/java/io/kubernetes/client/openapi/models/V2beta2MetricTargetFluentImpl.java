@@ -21,8 +21,7 @@ public class V2beta2MetricTargetFluentImpl<A extends V2beta2MetricTargetFluent<A
     extends BaseFluent<A> implements V2beta2MetricTargetFluent<A> {
   public V2beta2MetricTargetFluentImpl() {}
 
-  public V2beta2MetricTargetFluentImpl(
-      io.kubernetes.client.openapi.models.V2beta2MetricTarget instance) {
+  public V2beta2MetricTargetFluentImpl(V2beta2MetricTarget instance) {
     this.withAverageUtilization(instance.getAverageUtilization());
 
     this.withAverageValue(instance.getAverageValue());
@@ -35,13 +34,13 @@ public class V2beta2MetricTargetFluentImpl<A extends V2beta2MetricTargetFluent<A
   private Integer averageUtilization;
   private Quantity averageValue;
   private String type;
-  private io.kubernetes.client.custom.Quantity value;
+  private Quantity value;
 
-  public java.lang.Integer getAverageUtilization() {
+  public Integer getAverageUtilization() {
     return this.averageUtilization;
   }
 
-  public A withAverageUtilization(java.lang.Integer averageUtilization) {
+  public A withAverageUtilization(Integer averageUtilization) {
     this.averageUtilization = averageUtilization;
     return (A) this;
   }
@@ -50,50 +49,50 @@ public class V2beta2MetricTargetFluentImpl<A extends V2beta2MetricTargetFluent<A
     return this.averageUtilization != null;
   }
 
-  public io.kubernetes.client.custom.Quantity getAverageValue() {
+  public Quantity getAverageValue() {
     return this.averageValue;
   }
 
-  public A withAverageValue(io.kubernetes.client.custom.Quantity averageValue) {
+  public A withAverageValue(Quantity averageValue) {
     this.averageValue = averageValue;
     return (A) this;
   }
 
-  public java.lang.Boolean hasAverageValue() {
+  public Boolean hasAverageValue() {
     return this.averageValue != null;
   }
 
-  public A withNewAverageValue(java.lang.String value) {
+  public A withNewAverageValue(String value) {
     return (A) withAverageValue(new Quantity(value));
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
-  public io.kubernetes.client.custom.Quantity getValue() {
+  public Quantity getValue() {
     return this.value;
   }
 
-  public A withValue(io.kubernetes.client.custom.Quantity value) {
+  public A withValue(Quantity value) {
     this.value = value;
     return (A) this;
   }
 
-  public java.lang.Boolean hasValue() {
+  public Boolean hasValue() {
     return this.value != null;
   }
 
-  public A withNewValue(java.lang.String value) {
+  public A withNewValue(String value) {
     return (A) withValue(new Quantity(value));
   }
 
@@ -115,7 +114,7 @@ public class V2beta2MetricTargetFluentImpl<A extends V2beta2MetricTargetFluent<A
     return java.util.Objects.hash(averageUtilization, averageValue, type, value, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (averageUtilization != null) {

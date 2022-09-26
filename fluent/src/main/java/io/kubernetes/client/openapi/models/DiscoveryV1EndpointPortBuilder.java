@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class DiscoveryV1EndpointPortBuilder
     extends DiscoveryV1EndpointPortFluentImpl<DiscoveryV1EndpointPortBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort,
-        DiscoveryV1EndpointPortBuilder> {
+    implements VisitableBuilder<DiscoveryV1EndpointPort, DiscoveryV1EndpointPortBuilder> {
   public DiscoveryV1EndpointPortBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class DiscoveryV1EndpointPortBuilder
   }
 
   public DiscoveryV1EndpointPortBuilder(
-      io.kubernetes.client.openapi.models.DiscoveryV1EndpointPortFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      DiscoveryV1EndpointPortFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new DiscoveryV1EndpointPort(), validationEnabled);
   }
 
   public DiscoveryV1EndpointPortBuilder(
-      io.kubernetes.client.openapi.models.DiscoveryV1EndpointPortFluent<?> fluent,
-      io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort instance) {
+      DiscoveryV1EndpointPortFluent<?> fluent, DiscoveryV1EndpointPort instance) {
     this(fluent, instance, false);
   }
 
   public DiscoveryV1EndpointPortBuilder(
-      io.kubernetes.client.openapi.models.DiscoveryV1EndpointPortFluent<?> fluent,
-      io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort instance,
-      java.lang.Boolean validationEnabled) {
+      DiscoveryV1EndpointPortFluent<?> fluent,
+      DiscoveryV1EndpointPort instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAppProtocol(instance.getAppProtocol());
 
@@ -59,14 +55,12 @@ public class DiscoveryV1EndpointPortBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public DiscoveryV1EndpointPortBuilder(
-      io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort instance) {
+  public DiscoveryV1EndpointPortBuilder(DiscoveryV1EndpointPort instance) {
     this(instance, false);
   }
 
   public DiscoveryV1EndpointPortBuilder(
-      io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort instance,
-      java.lang.Boolean validationEnabled) {
+      DiscoveryV1EndpointPort instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAppProtocol(instance.getAppProtocol());
 
@@ -79,10 +73,10 @@ public class DiscoveryV1EndpointPortBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.DiscoveryV1EndpointPortFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  DiscoveryV1EndpointPortFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort build() {
+  public DiscoveryV1EndpointPort build() {
     DiscoveryV1EndpointPort buildable = new DiscoveryV1EndpointPort();
     buildable.setAppProtocol(fluent.getAppProtocol());
     buildable.setName(fluent.getName());

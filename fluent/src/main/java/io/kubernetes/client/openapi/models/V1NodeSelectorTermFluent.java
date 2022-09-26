@@ -22,20 +22,17 @@ import java.util.function.Predicate;
 public interface V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> extends Fluent<A> {
   public A addToMatchExpressions(Integer index, V1NodeSelectorRequirement item);
 
-  public A setToMatchExpressions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
+  public A setToMatchExpressions(Integer index, V1NodeSelectorRequirement item);
 
   public A addToMatchExpressions(
       io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items);
 
-  public A addAllToMatchExpressions(
-      Collection<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> items);
+  public A addAllToMatchExpressions(Collection<V1NodeSelectorRequirement> items);
 
   public A removeFromMatchExpressions(
       io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items);
 
-  public A removeAllFromMatchExpressions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> items);
+  public A removeAllFromMatchExpressions(Collection<V1NodeSelectorRequirement> items);
 
   public A removeMatchingFromMatchExpressions(
       Predicate<V1NodeSelectorRequirementBuilder> predicate);
@@ -46,145 +43,104 @@ public interface V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>>
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> getMatchExpressions();
+  public List<V1NodeSelectorRequirement> getMatchExpressions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement>
-      buildMatchExpressions();
+  public List<V1NodeSelectorRequirement> buildMatchExpressions();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement buildMatchExpression(
-      java.lang.Integer index);
+  public V1NodeSelectorRequirement buildMatchExpression(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement buildFirstMatchExpression();
+  public V1NodeSelectorRequirement buildFirstMatchExpression();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement buildLastMatchExpression();
+  public V1NodeSelectorRequirement buildLastMatchExpression();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement buildMatchingMatchExpression(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>
-          predicate);
+  public V1NodeSelectorRequirement buildMatchingMatchExpression(
+      Predicate<V1NodeSelectorRequirementBuilder> predicate);
 
-  public Boolean hasMatchingMatchExpression(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>
-          predicate);
+  public Boolean hasMatchingMatchExpression(Predicate<V1NodeSelectorRequirementBuilder> predicate);
 
-  public A withMatchExpressions(
-      java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement>
-          matchExpressions);
+  public A withMatchExpressions(List<V1NodeSelectorRequirement> matchExpressions);
 
   public A withMatchExpressions(
       io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... matchExpressions);
 
-  public java.lang.Boolean hasMatchExpressions();
+  public Boolean hasMatchExpressions();
 
   public V1NodeSelectorTermFluent.MatchExpressionsNested<A> addNewMatchExpression();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchExpressionsNested<A>
-      addNewMatchExpressionLike(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
+  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> addNewMatchExpressionLike(
+      V1NodeSelectorRequirement item);
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchExpressionsNested<A>
-      setNewMatchExpressionLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
+  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> setNewMatchExpressionLike(
+      Integer index, V1NodeSelectorRequirement item);
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchExpressionsNested<A>
-      editMatchExpression(java.lang.Integer index);
+  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> editMatchExpression(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchExpressionsNested<A>
-      editFirstMatchExpression();
+  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> editFirstMatchExpression();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchExpressionsNested<A>
-      editLastMatchExpression();
+  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> editLastMatchExpression();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchExpressionsNested<A>
-      editMatchingMatchExpression(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>
-              predicate);
+  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> editMatchingMatchExpression(
+      Predicate<V1NodeSelectorRequirementBuilder> predicate);
 
-  public A addToMatchFields(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
+  public A addToMatchFields(Integer index, V1NodeSelectorRequirement item);
 
-  public A setToMatchFields(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
+  public A setToMatchFields(Integer index, V1NodeSelectorRequirement item);
 
   public A addToMatchFields(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items);
 
-  public A addAllToMatchFields(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> items);
+  public A addAllToMatchFields(Collection<V1NodeSelectorRequirement> items);
 
   public A removeFromMatchFields(
       io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items);
 
-  public A removeAllFromMatchFields(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> items);
+  public A removeAllFromMatchFields(Collection<V1NodeSelectorRequirement> items);
 
-  public A removeMatchingFromMatchFields(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>
-          predicate);
+  public A removeMatchingFromMatchFields(Predicate<V1NodeSelectorRequirementBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildMatchFields instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement>
-      getMatchFields();
+  @Deprecated
+  public List<V1NodeSelectorRequirement> getMatchFields();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement>
-      buildMatchFields();
+  public List<V1NodeSelectorRequirement> buildMatchFields();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement buildMatchField(
-      java.lang.Integer index);
+  public V1NodeSelectorRequirement buildMatchField(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement buildFirstMatchField();
+  public V1NodeSelectorRequirement buildFirstMatchField();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement buildLastMatchField();
+  public V1NodeSelectorRequirement buildLastMatchField();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorRequirement buildMatchingMatchField(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>
-          predicate);
+  public V1NodeSelectorRequirement buildMatchingMatchField(
+      Predicate<V1NodeSelectorRequirementBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingMatchField(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>
-          predicate);
+  public Boolean hasMatchingMatchField(Predicate<V1NodeSelectorRequirementBuilder> predicate);
 
-  public A withMatchFields(
-      java.util.List<io.kubernetes.client.openapi.models.V1NodeSelectorRequirement> matchFields);
+  public A withMatchFields(List<V1NodeSelectorRequirement> matchFields);
 
   public A withMatchFields(
       io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... matchFields);
 
-  public java.lang.Boolean hasMatchFields();
+  public Boolean hasMatchFields();
 
   public V1NodeSelectorTermFluent.MatchFieldsNested<A> addNewMatchField();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchFieldsNested<A>
-      addNewMatchFieldLike(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
+  public V1NodeSelectorTermFluent.MatchFieldsNested<A> addNewMatchFieldLike(
+      V1NodeSelectorRequirement item);
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchFieldsNested<A>
-      setNewMatchFieldLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1NodeSelectorRequirement item);
+  public V1NodeSelectorTermFluent.MatchFieldsNested<A> setNewMatchFieldLike(
+      Integer index, V1NodeSelectorRequirement item);
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchFieldsNested<A>
-      editMatchField(java.lang.Integer index);
+  public V1NodeSelectorTermFluent.MatchFieldsNested<A> editMatchField(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchFieldsNested<A>
-      editFirstMatchField();
+  public V1NodeSelectorTermFluent.MatchFieldsNested<A> editFirstMatchField();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchFieldsNested<A>
-      editLastMatchField();
+  public V1NodeSelectorTermFluent.MatchFieldsNested<A> editLastMatchField();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTermFluent.MatchFieldsNested<A>
-      editMatchingMatchField(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1NodeSelectorRequirementBuilder>
-              predicate);
+  public V1NodeSelectorTermFluent.MatchFieldsNested<A> editMatchingMatchField(
+      Predicate<V1NodeSelectorRequirementBuilder> predicate);
 
   public interface MatchExpressionsNested<N>
       extends Nested<N>,
@@ -195,7 +151,7 @@ public interface V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>>
   }
 
   public interface MatchFieldsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1NodeSelectorRequirementFluent<V1NodeSelectorTermFluent.MatchFieldsNested<N>> {
     public N and();
 

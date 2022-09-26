@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1OwnerReferenceBuilder extends V1OwnerReferenceFluentImpl<V1OwnerReferenceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1OwnerReference,
-        io.kubernetes.client.openapi.models.V1OwnerReferenceBuilder> {
+    implements VisitableBuilder<V1OwnerReference, V1OwnerReferenceBuilder> {
   public V1OwnerReferenceBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1OwnerReferenceBuilder extends V1OwnerReferenceFluentImpl<V1OwnerR
     this(fluent, false);
   }
 
-  public V1OwnerReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1OwnerReferenceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1OwnerReferenceBuilder(V1OwnerReferenceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1OwnerReference(), validationEnabled);
   }
 
-  public V1OwnerReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1OwnerReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1OwnerReference instance) {
+  public V1OwnerReferenceBuilder(V1OwnerReferenceFluent<?> fluent, V1OwnerReference instance) {
     this(fluent, instance, false);
   }
 
   public V1OwnerReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1OwnerReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1OwnerReference instance,
-      java.lang.Boolean validationEnabled) {
+      V1OwnerReferenceFluent<?> fluent, V1OwnerReference instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -62,13 +54,11 @@ public class V1OwnerReferenceBuilder extends V1OwnerReferenceFluentImpl<V1OwnerR
     this.validationEnabled = validationEnabled;
   }
 
-  public V1OwnerReferenceBuilder(io.kubernetes.client.openapi.models.V1OwnerReference instance) {
+  public V1OwnerReferenceBuilder(V1OwnerReference instance) {
     this(instance, false);
   }
 
-  public V1OwnerReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1OwnerReference instance,
-      java.lang.Boolean validationEnabled) {
+  public V1OwnerReferenceBuilder(V1OwnerReference instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -85,10 +75,10 @@ public class V1OwnerReferenceBuilder extends V1OwnerReferenceFluentImpl<V1OwnerR
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1OwnerReferenceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1OwnerReferenceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1OwnerReference build() {
+  public V1OwnerReference build() {
     V1OwnerReference buildable = new V1OwnerReference();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setBlockOwnerDeletion(fluent.getBlockOwnerDeletion());

@@ -19,25 +19,25 @@ public interface V1BoundObjectReferenceFluent<A extends V1BoundObjectReferenceFl
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.String getUid();
+  public String getUid();
 
-  public A withUid(java.lang.String uid);
+  public A withUid(String uid);
 
-  public java.lang.Boolean hasUid();
+  public Boolean hasUid();
 }

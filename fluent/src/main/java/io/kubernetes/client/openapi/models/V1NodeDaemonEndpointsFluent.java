@@ -27,26 +27,23 @@ public interface V1NodeDaemonEndpointsFluent<A extends V1NodeDaemonEndpointsFlue
   @Deprecated
   public V1DaemonEndpoint getKubeletEndpoint();
 
-  public io.kubernetes.client.openapi.models.V1DaemonEndpoint buildKubeletEndpoint();
+  public V1DaemonEndpoint buildKubeletEndpoint();
 
-  public A withKubeletEndpoint(
-      io.kubernetes.client.openapi.models.V1DaemonEndpoint kubeletEndpoint);
+  public A withKubeletEndpoint(V1DaemonEndpoint kubeletEndpoint);
 
   public Boolean hasKubeletEndpoint();
 
   public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> withNewKubeletEndpoint();
 
-  public io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A>
-      withNewKubeletEndpointLike(io.kubernetes.client.openapi.models.V1DaemonEndpoint item);
+  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> withNewKubeletEndpointLike(
+      V1DaemonEndpoint item);
 
-  public io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A>
-      editKubeletEndpoint();
+  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> editKubeletEndpoint();
 
-  public io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A>
-      editOrNewKubeletEndpoint();
+  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> editOrNewKubeletEndpoint();
 
-  public io.kubernetes.client.openapi.models.V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A>
-      editOrNewKubeletEndpointLike(io.kubernetes.client.openapi.models.V1DaemonEndpoint item);
+  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> editOrNewKubeletEndpointLike(
+      V1DaemonEndpoint item);
 
   public interface KubeletEndpointNested<N>
       extends Nested<N>,

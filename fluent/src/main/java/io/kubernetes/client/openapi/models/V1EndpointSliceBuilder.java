@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1EndpointSliceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1EndpointSlice,
-        io.kubernetes.client.openapi.models.V1EndpointSliceBuilder> {
+    implements VisitableBuilder<V1EndpointSlice, V1EndpointSliceBuilder> {
   public V1EndpointSliceBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1Endpoint
     this(fluent, false);
   }
 
-  public V1EndpointSliceBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointSliceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1EndpointSliceBuilder(V1EndpointSliceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1EndpointSlice(), validationEnabled);
   }
 
-  public V1EndpointSliceBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointSliceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EndpointSlice instance) {
+  public V1EndpointSliceBuilder(V1EndpointSliceFluent<?> fluent, V1EndpointSlice instance) {
     this(fluent, instance, false);
   }
 
   public V1EndpointSliceBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointSliceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EndpointSlice instance,
-      java.lang.Boolean validationEnabled) {
+      V1EndpointSliceFluent<?> fluent, V1EndpointSlice instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAddressType(instance.getAddressType());
 
@@ -62,13 +54,11 @@ public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1Endpoint
     this.validationEnabled = validationEnabled;
   }
 
-  public V1EndpointSliceBuilder(io.kubernetes.client.openapi.models.V1EndpointSlice instance) {
+  public V1EndpointSliceBuilder(V1EndpointSlice instance) {
     this(instance, false);
   }
 
-  public V1EndpointSliceBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointSlice instance,
-      java.lang.Boolean validationEnabled) {
+  public V1EndpointSliceBuilder(V1EndpointSlice instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAddressType(instance.getAddressType());
 
@@ -85,10 +75,10 @@ public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1Endpoint
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1EndpointSliceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1EndpointSliceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1EndpointSlice build() {
+  public V1EndpointSlice build() {
     V1EndpointSlice buildable = new V1EndpointSlice();
     buildable.setAddressType(fluent.getAddressType());
     buildable.setApiVersion(fluent.getApiVersion());

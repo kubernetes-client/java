@@ -22,22 +22,21 @@ import java.util.function.Predicate;
 public interface V1ServiceListFluent<A extends V1ServiceListFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1Service item);
+  public A addToItems(Integer index, V1Service item);
 
-  public A setToItems(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Service item);
+  public A setToItems(Integer index, V1Service item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1Service... items);
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1Service> items);
+  public A addAllToItems(Collection<V1Service> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Service... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Service> items);
+  public A removeAllFromItems(Collection<V1Service> items);
 
   public A removeMatchingFromItems(Predicate<V1ServiceBuilder> predicate);
 
@@ -47,78 +46,69 @@ public interface V1ServiceListFluent<A extends V1ServiceListFluent<A>> extends F
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1Service> getItems();
+  public List<V1Service> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1Service> buildItems();
+  public List<V1Service> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1Service buildItem(java.lang.Integer index);
+  public V1Service buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1Service buildFirstItem();
+  public V1Service buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1Service buildLastItem();
+  public V1Service buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1Service buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServiceBuilder> predicate);
+  public V1Service buildMatchingItem(Predicate<V1ServiceBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServiceBuilder> predicate);
+  public Boolean hasMatchingItem(Predicate<V1ServiceBuilder> predicate);
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1Service> items);
+  public A withItems(List<V1Service> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1Service... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1ServiceListFluent.ItemsNested<A> addNewItem();
 
-  public V1ServiceListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1Service item);
+  public V1ServiceListFluent.ItemsNested<A> addNewItemLike(V1Service item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> setNewItemLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Service item);
+  public V1ServiceListFluent.ItemsNested<A> setNewItemLike(Integer index, V1Service item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1ServiceListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> editFirstItem();
+  public V1ServiceListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> editLastItem();
+  public V1ServiceListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.ItemsNested<A> editMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServiceBuilder> predicate);
+  public V1ServiceListFluent.ItemsNested<A> editMatchingItem(Predicate<V1ServiceBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1ServiceListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1ServiceListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.MetadataNested<A> editMetadata();
+  public V1ServiceListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1ServiceListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ServiceListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1ServiceListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>, V1ServiceFluent<V1ServiceListFluent.ItemsNested<N>> {
@@ -128,8 +118,7 @@ public interface V1ServiceListFluent<A extends V1ServiceListFluent<A>> extends F
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1ServiceListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1ServiceListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

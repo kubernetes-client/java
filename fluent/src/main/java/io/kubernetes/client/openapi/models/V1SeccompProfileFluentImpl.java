@@ -20,20 +20,20 @@ public class V1SeccompProfileFluentImpl<A extends V1SeccompProfileFluent<A>> ext
     implements V1SeccompProfileFluent<A> {
   public V1SeccompProfileFluentImpl() {}
 
-  public V1SeccompProfileFluentImpl(io.kubernetes.client.openapi.models.V1SeccompProfile instance) {
+  public V1SeccompProfileFluentImpl(V1SeccompProfile instance) {
     this.withLocalhostProfile(instance.getLocalhostProfile());
 
     this.withType(instance.getType());
   }
 
   private String localhostProfile;
-  private java.lang.String type;
+  private String type;
 
-  public java.lang.String getLocalhostProfile() {
+  public String getLocalhostProfile() {
     return this.localhostProfile;
   }
 
-  public A withLocalhostProfile(java.lang.String localhostProfile) {
+  public A withLocalhostProfile(String localhostProfile) {
     this.localhostProfile = localhostProfile;
     return (A) this;
   }
@@ -42,16 +42,16 @@ public class V1SeccompProfileFluentImpl<A extends V1SeccompProfileFluent<A>> ext
     return this.localhostProfile != null;
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
@@ -70,7 +70,7 @@ public class V1SeccompProfileFluentImpl<A extends V1SeccompProfileFluent<A>> ext
     return java.util.Objects.hash(localhostProfile, type, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (localhostProfile != null) {

@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1StorageClassBuilder extends V1StorageClassFluentImpl<V1StorageClassBuilder>
-    implements VisitableBuilder<
-        V1StorageClass, io.kubernetes.client.openapi.models.V1StorageClassBuilder> {
+    implements VisitableBuilder<V1StorageClass, V1StorageClassBuilder> {
   public V1StorageClassBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1StorageClassBuilder extends V1StorageClassFluentImpl<V1StorageCla
     this(fluent, false);
   }
 
-  public V1StorageClassBuilder(
-      io.kubernetes.client.openapi.models.V1StorageClassFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1StorageClassBuilder(V1StorageClassFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1StorageClass(), validationEnabled);
   }
 
-  public V1StorageClassBuilder(
-      io.kubernetes.client.openapi.models.V1StorageClassFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StorageClass instance) {
+  public V1StorageClassBuilder(V1StorageClassFluent<?> fluent, V1StorageClass instance) {
     this(fluent, instance, false);
   }
 
   public V1StorageClassBuilder(
-      io.kubernetes.client.openapi.models.V1StorageClassFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StorageClass instance,
-      java.lang.Boolean validationEnabled) {
+      V1StorageClassFluent<?> fluent, V1StorageClass instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAllowVolumeExpansion(instance.getAllowVolumeExpansion());
 
@@ -69,13 +62,11 @@ public class V1StorageClassBuilder extends V1StorageClassFluentImpl<V1StorageCla
     this.validationEnabled = validationEnabled;
   }
 
-  public V1StorageClassBuilder(io.kubernetes.client.openapi.models.V1StorageClass instance) {
+  public V1StorageClassBuilder(V1StorageClass instance) {
     this(instance, false);
   }
 
-  public V1StorageClassBuilder(
-      io.kubernetes.client.openapi.models.V1StorageClass instance,
-      java.lang.Boolean validationEnabled) {
+  public V1StorageClassBuilder(V1StorageClass instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAllowVolumeExpansion(instance.getAllowVolumeExpansion());
 
@@ -100,10 +91,10 @@ public class V1StorageClassBuilder extends V1StorageClassFluentImpl<V1StorageCla
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1StorageClassFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1StorageClassFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1StorageClass build() {
+  public V1StorageClass build() {
     V1StorageClass buildable = new V1StorageClass();
     buildable.setAllowVolumeExpansion(fluent.getAllowVolumeExpansion());
     buildable.setAllowedTopologies(fluent.getAllowedTopologies());

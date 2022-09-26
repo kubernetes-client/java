@@ -21,7 +21,7 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
     implements V1IngressFluent<A> {
   public V1IngressFluentImpl() {}
 
-  public V1IngressFluentImpl(io.kubernetes.client.openapi.models.V1Ingress instance) {
+  public V1IngressFluentImpl(V1Ingress instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withKind(instance.getKind());
@@ -34,16 +34,16 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
   }
 
   private String apiVersion;
-  private java.lang.String kind;
+  private String kind;
   private V1ObjectMetaBuilder metadata;
   private V1IngressSpecBuilder spec;
   private V1IngressStatusBuilder status;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -52,16 +52,16 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
     return this.apiVersion != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -71,24 +71,27 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -96,24 +99,20 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
     return new V1IngressFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.MetadataNested<A> withNewMetadataLike(
-      io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1IngressFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1IngressFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.MetadataNested<A> editMetadata() {
+  public V1IngressFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1IngressFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1IngressFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -122,25 +121,28 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1IngressSpec getSpec() {
+  @Deprecated
+  public V1IngressSpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressSpec buildSpec() {
+  public V1IngressSpec buildSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1IngressSpec spec) {
+  public A withSpec(V1IngressSpec spec) {
     _visitables.get("spec").remove(this.spec);
     if (spec != null) {
       this.spec = new V1IngressSpecBuilder(spec);
       _visitables.get("spec").add(this.spec);
+    } else {
+      this.spec = null;
+      _visitables.get("spec").remove(this.spec);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSpec() {
+  public Boolean hasSpec() {
     return this.spec != null;
   }
 
@@ -148,24 +150,19 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
     return new V1IngressFluentImpl.SpecNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.SpecNested<A> withNewSpecLike(
-      io.kubernetes.client.openapi.models.V1IngressSpec item) {
-    return new io.kubernetes.client.openapi.models.V1IngressFluentImpl.SpecNestedImpl(item);
+  public V1IngressFluent.SpecNested<A> withNewSpecLike(V1IngressSpec item) {
+    return new V1IngressFluentImpl.SpecNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.SpecNested<A> editSpec() {
+  public V1IngressFluent.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.SpecNested<A> editOrNewSpec() {
-    return withNewSpecLike(
-        getSpec() != null
-            ? getSpec()
-            : new io.kubernetes.client.openapi.models.V1IngressSpecBuilder().build());
+  public V1IngressFluent.SpecNested<A> editOrNewSpec() {
+    return withNewSpecLike(getSpec() != null ? getSpec() : new V1IngressSpecBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.SpecNested<A> editOrNewSpecLike(
-      io.kubernetes.client.openapi.models.V1IngressSpec item) {
+  public V1IngressFluent.SpecNested<A> editOrNewSpecLike(V1IngressSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec() : item);
   }
 
@@ -174,25 +171,28 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1IngressStatus getStatus() {
+  @Deprecated
+  public V1IngressStatus getStatus() {
     return this.status != null ? this.status.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressStatus buildStatus() {
+  public V1IngressStatus buildStatus() {
     return this.status != null ? this.status.build() : null;
   }
 
-  public A withStatus(io.kubernetes.client.openapi.models.V1IngressStatus status) {
+  public A withStatus(V1IngressStatus status) {
     _visitables.get("status").remove(this.status);
     if (status != null) {
       this.status = new V1IngressStatusBuilder(status);
       _visitables.get("status").add(this.status);
+    } else {
+      this.status = null;
+      _visitables.get("status").remove(this.status);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasStatus() {
+  public Boolean hasStatus() {
     return this.status != null;
   }
 
@@ -200,24 +200,20 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
     return new V1IngressFluentImpl.StatusNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.StatusNested<A> withNewStatusLike(
-      io.kubernetes.client.openapi.models.V1IngressStatus item) {
-    return new io.kubernetes.client.openapi.models.V1IngressFluentImpl.StatusNestedImpl(item);
+  public V1IngressFluent.StatusNested<A> withNewStatusLike(V1IngressStatus item) {
+    return new V1IngressFluentImpl.StatusNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.StatusNested<A> editStatus() {
+  public V1IngressFluent.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.StatusNested<A> editOrNewStatus() {
+  public V1IngressFluent.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(
-        getStatus() != null
-            ? getStatus()
-            : new io.kubernetes.client.openapi.models.V1IngressStatusBuilder().build());
+        getStatus() != null ? getStatus() : new V1IngressStatusBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressFluent.StatusNested<A> editOrNewStatusLike(
-      io.kubernetes.client.openapi.models.V1IngressStatus item) {
+  public V1IngressFluent.StatusNested<A> editOrNewStatusLike(V1IngressStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus() : item);
   }
 
@@ -238,7 +234,7 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, status, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -266,16 +262,16 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
   }
 
   class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1IngressFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1IngressFluent.MetadataNested<N>, Nested<N> {
+      implements V1IngressFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) V1IngressFluentImpl.this.withMetadata(builder.build());
@@ -287,17 +283,16 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
   }
 
   class SpecNestedImpl<N> extends V1IngressSpecFluentImpl<V1IngressFluent.SpecNested<N>>
-      implements io.kubernetes.client.openapi.models.V1IngressFluent.SpecNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SpecNestedImpl(io.kubernetes.client.openapi.models.V1IngressSpec item) {
+      implements V1IngressFluent.SpecNested<N>, Nested<N> {
+    SpecNestedImpl(V1IngressSpec item) {
       this.builder = new V1IngressSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1IngressSpecBuilder(this);
+      this.builder = new V1IngressSpecBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1IngressSpecBuilder builder;
+    V1IngressSpecBuilder builder;
 
     public N and() {
       return (N) V1IngressFluentImpl.this.withSpec(builder.build());
@@ -309,17 +304,16 @@ public class V1IngressFluentImpl<A extends V1IngressFluent<A>> extends BaseFluen
   }
 
   class StatusNestedImpl<N> extends V1IngressStatusFluentImpl<V1IngressFluent.StatusNested<N>>
-      implements io.kubernetes.client.openapi.models.V1IngressFluent.StatusNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    StatusNestedImpl(io.kubernetes.client.openapi.models.V1IngressStatus item) {
+      implements V1IngressFluent.StatusNested<N>, Nested<N> {
+    StatusNestedImpl(V1IngressStatus item) {
       this.builder = new V1IngressStatusBuilder(this, item);
     }
 
     StatusNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1IngressStatusBuilder(this);
+      this.builder = new V1IngressStatusBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1IngressStatusBuilder builder;
+    V1IngressStatusBuilder builder;
 
     public N and() {
       return (N) V1IngressFluentImpl.this.withStatus(builder.build());

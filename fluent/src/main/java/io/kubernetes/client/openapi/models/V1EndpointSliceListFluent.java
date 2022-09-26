@@ -23,23 +23,21 @@ public interface V1EndpointSliceListFluent<A extends V1EndpointSliceListFluent<A
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1EndpointSlice item);
+  public A addToItems(Integer index, V1EndpointSlice item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointSlice item);
+  public A setToItems(Integer index, V1EndpointSlice item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1EndpointSlice... items);
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1EndpointSlice> items);
+  public A addAllToItems(Collection<V1EndpointSlice> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1EndpointSlice... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1EndpointSlice> items);
+  public A removeAllFromItems(Collection<V1EndpointSlice> items);
 
   public A removeMatchingFromItems(Predicate<V1EndpointSliceBuilder> predicate);
 
@@ -49,86 +47,71 @@ public interface V1EndpointSliceListFluent<A extends V1EndpointSliceListFluent<A
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1EndpointSlice> getItems();
+  public List<V1EndpointSlice> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1EndpointSlice> buildItems();
+  public List<V1EndpointSlice> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSlice buildItem(java.lang.Integer index);
+  public V1EndpointSlice buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1EndpointSlice buildFirstItem();
+  public V1EndpointSlice buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSlice buildLastItem();
+  public V1EndpointSlice buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSlice buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointSliceBuilder>
-          predicate);
+  public V1EndpointSlice buildMatchingItem(Predicate<V1EndpointSliceBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointSliceBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1EndpointSliceBuilder> predicate);
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1EndpointSlice> items);
+  public A withItems(List<V1EndpointSlice> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1EndpointSlice... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1EndpointSliceListFluent.ItemsNested<A> addNewItem();
 
-  public V1EndpointSliceListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1EndpointSlice item);
+  public V1EndpointSliceListFluent.ItemsNested<A> addNewItemLike(V1EndpointSlice item);
 
-  public io.kubernetes.client.openapi.models.V1EndpointSliceListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointSlice item);
+  public V1EndpointSliceListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1EndpointSlice item);
 
-  public io.kubernetes.client.openapi.models.V1EndpointSliceListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1EndpointSliceListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1EndpointSliceListFluent.ItemsNested<A>
-      editFirstItem();
+  public V1EndpointSliceListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSliceListFluent.ItemsNested<A>
-      editLastItem();
+  public V1EndpointSliceListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSliceListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointSliceBuilder>
-              predicate);
+  public V1EndpointSliceListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1EndpointSliceBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1EndpointSliceListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSliceListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1EndpointSliceListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1EndpointSliceListFluent.MetadataNested<A>
-      editMetadata();
+  public V1EndpointSliceListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSliceListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1EndpointSliceListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1EndpointSliceListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1EndpointSliceListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>, V1EndpointSliceFluent<V1EndpointSliceListFluent.ItemsNested<N>> {
@@ -138,8 +121,7 @@ public interface V1EndpointSliceListFluent<A extends V1EndpointSliceListFluent<A
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1EndpointSliceListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1EndpointSliceListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

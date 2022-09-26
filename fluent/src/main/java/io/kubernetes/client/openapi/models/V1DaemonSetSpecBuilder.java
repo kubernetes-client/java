@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DaemonSetSpecBuilder extends V1DaemonSetSpecFluentImpl<V1DaemonSetSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DaemonSetSpec, V1DaemonSetSpecBuilder> {
+    implements VisitableBuilder<V1DaemonSetSpec, V1DaemonSetSpecBuilder> {
   public V1DaemonSetSpecBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1DaemonSetSpecBuilder extends V1DaemonSetSpecFluentImpl<V1DaemonSe
     this(fluent, false);
   }
 
-  public V1DaemonSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1DaemonSetSpecBuilder(V1DaemonSetSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DaemonSetSpec(), validationEnabled);
   }
 
-  public V1DaemonSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DaemonSetSpec instance) {
+  public V1DaemonSetSpecBuilder(V1DaemonSetSpecFluent<?> fluent, V1DaemonSetSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1DaemonSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DaemonSetSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1DaemonSetSpecFluent<?> fluent, V1DaemonSetSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMinReadySeconds(instance.getMinReadySeconds());
 
@@ -59,13 +52,11 @@ public class V1DaemonSetSpecBuilder extends V1DaemonSetSpecFluentImpl<V1DaemonSe
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DaemonSetSpecBuilder(io.kubernetes.client.openapi.models.V1DaemonSetSpec instance) {
+  public V1DaemonSetSpecBuilder(V1DaemonSetSpec instance) {
     this(instance, false);
   }
 
-  public V1DaemonSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1DaemonSetSpecBuilder(V1DaemonSetSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMinReadySeconds(instance.getMinReadySeconds());
 
@@ -80,10 +71,10 @@ public class V1DaemonSetSpecBuilder extends V1DaemonSetSpecFluentImpl<V1DaemonSe
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DaemonSetSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DaemonSetSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetSpec build() {
+  public V1DaemonSetSpec build() {
     V1DaemonSetSpec buildable = new V1DaemonSetSpec();
     buildable.setMinReadySeconds(fluent.getMinReadySeconds());
     buildable.setRevisionHistoryLimit(fluent.getRevisionHistoryLimit());

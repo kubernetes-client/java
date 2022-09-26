@@ -21,31 +21,31 @@ public interface V1HorizontalPodAutoscalerStatusFluent<
     extends Fluent<A> {
   public Integer getCurrentCPUUtilizationPercentage();
 
-  public A withCurrentCPUUtilizationPercentage(java.lang.Integer currentCPUUtilizationPercentage);
+  public A withCurrentCPUUtilizationPercentage(Integer currentCPUUtilizationPercentage);
 
   public Boolean hasCurrentCPUUtilizationPercentage();
 
-  public java.lang.Integer getCurrentReplicas();
+  public Integer getCurrentReplicas();
 
-  public A withCurrentReplicas(java.lang.Integer currentReplicas);
+  public A withCurrentReplicas(Integer currentReplicas);
 
-  public java.lang.Boolean hasCurrentReplicas();
+  public Boolean hasCurrentReplicas();
 
-  public java.lang.Integer getDesiredReplicas();
+  public Integer getDesiredReplicas();
 
-  public A withDesiredReplicas(java.lang.Integer desiredReplicas);
+  public A withDesiredReplicas(Integer desiredReplicas);
 
-  public java.lang.Boolean hasDesiredReplicas();
+  public Boolean hasDesiredReplicas();
 
   public OffsetDateTime getLastScaleTime();
 
-  public A withLastScaleTime(java.time.OffsetDateTime lastScaleTime);
+  public A withLastScaleTime(OffsetDateTime lastScaleTime);
 
-  public java.lang.Boolean hasLastScaleTime();
+  public Boolean hasLastScaleTime();
 
   public Long getObservedGeneration();
 
-  public A withObservedGeneration(java.lang.Long observedGeneration);
+  public A withObservedGeneration(Long observedGeneration);
 
-  public java.lang.Boolean hasObservedGeneration();
+  public Boolean hasObservedGeneration();
 }

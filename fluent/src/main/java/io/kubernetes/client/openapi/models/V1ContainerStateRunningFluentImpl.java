@@ -21,18 +21,17 @@ public class V1ContainerStateRunningFluentImpl<A extends V1ContainerStateRunning
     extends BaseFluent<A> implements V1ContainerStateRunningFluent<A> {
   public V1ContainerStateRunningFluentImpl() {}
 
-  public V1ContainerStateRunningFluentImpl(
-      io.kubernetes.client.openapi.models.V1ContainerStateRunning instance) {
+  public V1ContainerStateRunningFluentImpl(V1ContainerStateRunning instance) {
     this.withStartedAt(instance.getStartedAt());
   }
 
   private OffsetDateTime startedAt;
 
-  public java.time.OffsetDateTime getStartedAt() {
+  public OffsetDateTime getStartedAt() {
     return this.startedAt;
   }
 
-  public A withStartedAt(java.time.OffsetDateTime startedAt) {
+  public A withStartedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
     return (A) this;
   }

@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1RollingUpdateDaemonSetBuilder
     extends V1RollingUpdateDaemonSetFluentImpl<V1RollingUpdateDaemonSetBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet,
-        V1RollingUpdateDaemonSetBuilder> {
+    implements VisitableBuilder<V1RollingUpdateDaemonSet, V1RollingUpdateDaemonSetBuilder> {
   public V1RollingUpdateDaemonSetBuilder() {
     this(false);
   }
@@ -27,27 +25,24 @@ public class V1RollingUpdateDaemonSetBuilder
     this(new V1RollingUpdateDaemonSet(), validationEnabled);
   }
 
-  public V1RollingUpdateDaemonSetBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetFluent<?> fluent) {
+  public V1RollingUpdateDaemonSetBuilder(V1RollingUpdateDaemonSetFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1RollingUpdateDaemonSetBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1RollingUpdateDaemonSetFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1RollingUpdateDaemonSet(), validationEnabled);
   }
 
   public V1RollingUpdateDaemonSetBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet instance) {
+      V1RollingUpdateDaemonSetFluent<?> fluent, V1RollingUpdateDaemonSet instance) {
     this(fluent, instance, false);
   }
 
   public V1RollingUpdateDaemonSetBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet instance,
-      java.lang.Boolean validationEnabled) {
+      V1RollingUpdateDaemonSetFluent<?> fluent,
+      V1RollingUpdateDaemonSet instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMaxSurge(instance.getMaxSurge());
 
@@ -56,14 +51,12 @@ public class V1RollingUpdateDaemonSetBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1RollingUpdateDaemonSetBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet instance) {
+  public V1RollingUpdateDaemonSetBuilder(V1RollingUpdateDaemonSet instance) {
     this(instance, false);
   }
 
   public V1RollingUpdateDaemonSetBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet instance,
-      java.lang.Boolean validationEnabled) {
+      V1RollingUpdateDaemonSet instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMaxSurge(instance.getMaxSurge());
 
@@ -72,10 +65,10 @@ public class V1RollingUpdateDaemonSetBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1RollingUpdateDaemonSetFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet build() {
+  public V1RollingUpdateDaemonSet build() {
     V1RollingUpdateDaemonSet buildable = new V1RollingUpdateDaemonSet();
     buildable.setMaxSurge(fluent.getMaxSurge());
     buildable.setMaxUnavailable(fluent.getMaxUnavailable());

@@ -18,13 +18,13 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1SeccompProfileFluent<A extends V1SeccompProfileFluent<A>> extends Fluent<A> {
   public String getLocalhostProfile();
 
-  public A withLocalhostProfile(java.lang.String localhostProfile);
+  public A withLocalhostProfile(String localhostProfile);
 
   public Boolean hasLocalhostProfile();
 
-  public java.lang.String getType();
+  public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 }

@@ -20,21 +20,20 @@ public class V1ServerAddressByClientCIDRFluentImpl<A extends V1ServerAddressByCl
     extends BaseFluent<A> implements V1ServerAddressByClientCIDRFluent<A> {
   public V1ServerAddressByClientCIDRFluentImpl() {}
 
-  public V1ServerAddressByClientCIDRFluentImpl(
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR instance) {
+  public V1ServerAddressByClientCIDRFluentImpl(V1ServerAddressByClientCIDR instance) {
     this.withClientCIDR(instance.getClientCIDR());
 
     this.withServerAddress(instance.getServerAddress());
   }
 
   private String clientCIDR;
-  private java.lang.String serverAddress;
+  private String serverAddress;
 
-  public java.lang.String getClientCIDR() {
+  public String getClientCIDR() {
     return this.clientCIDR;
   }
 
-  public A withClientCIDR(java.lang.String clientCIDR) {
+  public A withClientCIDR(String clientCIDR) {
     this.clientCIDR = clientCIDR;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1ServerAddressByClientCIDRFluentImpl<A extends V1ServerAddressByCl
     return this.clientCIDR != null;
   }
 
-  public java.lang.String getServerAddress() {
+  public String getServerAddress() {
     return this.serverAddress;
   }
 
-  public A withServerAddress(java.lang.String serverAddress) {
+  public A withServerAddress(String serverAddress) {
     this.serverAddress = serverAddress;
     return (A) this;
   }
 
-  public java.lang.Boolean hasServerAddress() {
+  public Boolean hasServerAddress() {
     return this.serverAddress != null;
   }
 
@@ -72,7 +71,7 @@ public class V1ServerAddressByClientCIDRFluentImpl<A extends V1ServerAddressByCl
     return java.util.Objects.hash(clientCIDR, serverAddress, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (clientCIDR != null) {

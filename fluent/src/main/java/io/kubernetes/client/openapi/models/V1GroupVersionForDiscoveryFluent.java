@@ -19,13 +19,13 @@ public interface V1GroupVersionForDiscoveryFluent<A extends V1GroupVersionForDis
     extends Fluent<A> {
   public String getGroupVersion();
 
-  public A withGroupVersion(java.lang.String groupVersion);
+  public A withGroupVersion(String groupVersion);
 
   public Boolean hasGroupVersion();
 
-  public java.lang.String getVersion();
+  public String getVersion();
 
-  public A withVersion(java.lang.String version);
+  public A withVersion(String version);
 
-  public java.lang.Boolean hasVersion();
+  public Boolean hasVersion();
 }

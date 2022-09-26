@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SeccompProfileBuilder extends V1SeccompProfileFluentImpl<V1SeccompProfileBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1SeccompProfile,
-        io.kubernetes.client.openapi.models.V1SeccompProfileBuilder> {
+    implements VisitableBuilder<V1SeccompProfile, V1SeccompProfileBuilder> {
   public V1SeccompProfileBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1SeccompProfileBuilder extends V1SeccompProfileFluentImpl<V1Seccom
     this(fluent, false);
   }
 
-  public V1SeccompProfileBuilder(
-      io.kubernetes.client.openapi.models.V1SeccompProfileFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1SeccompProfileBuilder(V1SeccompProfileFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1SeccompProfile(), validationEnabled);
   }
 
-  public V1SeccompProfileBuilder(
-      io.kubernetes.client.openapi.models.V1SeccompProfileFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SeccompProfile instance) {
+  public V1SeccompProfileBuilder(V1SeccompProfileFluent<?> fluent, V1SeccompProfile instance) {
     this(fluent, instance, false);
   }
 
   public V1SeccompProfileBuilder(
-      io.kubernetes.client.openapi.models.V1SeccompProfileFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SeccompProfile instance,
-      java.lang.Boolean validationEnabled) {
+      V1SeccompProfileFluent<?> fluent, V1SeccompProfile instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLocalhostProfile(instance.getLocalhostProfile());
 
@@ -54,13 +46,11 @@ public class V1SeccompProfileBuilder extends V1SeccompProfileFluentImpl<V1Seccom
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SeccompProfileBuilder(io.kubernetes.client.openapi.models.V1SeccompProfile instance) {
+  public V1SeccompProfileBuilder(V1SeccompProfile instance) {
     this(instance, false);
   }
 
-  public V1SeccompProfileBuilder(
-      io.kubernetes.client.openapi.models.V1SeccompProfile instance,
-      java.lang.Boolean validationEnabled) {
+  public V1SeccompProfileBuilder(V1SeccompProfile instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLocalhostProfile(instance.getLocalhostProfile());
 
@@ -69,10 +59,10 @@ public class V1SeccompProfileBuilder extends V1SeccompProfileFluentImpl<V1Seccom
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SeccompProfileFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SeccompProfileFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1SeccompProfile build() {
+  public V1SeccompProfile build() {
     V1SeccompProfile buildable = new V1SeccompProfile();
     buildable.setLocalhostProfile(fluent.getLocalhostProfile());
     buildable.setType(fluent.getType());

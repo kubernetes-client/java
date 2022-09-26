@@ -20,21 +20,20 @@ public class V1LocalVolumeSourceFluentImpl<A extends V1LocalVolumeSourceFluent<A
     extends BaseFluent<A> implements V1LocalVolumeSourceFluent<A> {
   public V1LocalVolumeSourceFluentImpl() {}
 
-  public V1LocalVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1LocalVolumeSource instance) {
+  public V1LocalVolumeSourceFluentImpl(V1LocalVolumeSource instance) {
     this.withFsType(instance.getFsType());
 
     this.withPath(instance.getPath());
   }
 
   private String fsType;
-  private java.lang.String path;
+  private String path;
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1LocalVolumeSourceFluentImpl<A extends V1LocalVolumeSourceFluent<A
     return this.fsType != null;
   }
 
-  public java.lang.String getPath() {
+  public String getPath() {
     return this.path;
   }
 
-  public A withPath(java.lang.String path) {
+  public A withPath(String path) {
     this.path = path;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPath() {
+  public Boolean hasPath() {
     return this.path != null;
   }
 
@@ -69,7 +68,7 @@ public class V1LocalVolumeSourceFluentImpl<A extends V1LocalVolumeSourceFluent<A
     return java.util.Objects.hash(fsType, path, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fsType != null) {

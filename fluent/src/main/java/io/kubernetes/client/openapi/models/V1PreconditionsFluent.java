@@ -18,13 +18,13 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1PreconditionsFluent<A extends V1PreconditionsFluent<A>> extends Fluent<A> {
   public String getResourceVersion();
 
-  public A withResourceVersion(java.lang.String resourceVersion);
+  public A withResourceVersion(String resourceVersion);
 
   public Boolean hasResourceVersion();
 
-  public java.lang.String getUid();
+  public String getUid();
 
-  public A withUid(java.lang.String uid);
+  public A withUid(String uid);
 
-  public java.lang.Boolean hasUid();
+  public Boolean hasUid();
 }

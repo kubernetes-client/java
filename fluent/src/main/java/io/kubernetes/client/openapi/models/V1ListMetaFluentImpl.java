@@ -20,7 +20,7 @@ public class V1ListMetaFluentImpl<A extends V1ListMetaFluent<A>> extends BaseFlu
     implements V1ListMetaFluent<A> {
   public V1ListMetaFluentImpl() {}
 
-  public V1ListMetaFluentImpl(io.kubernetes.client.openapi.models.V1ListMeta instance) {
+  public V1ListMetaFluentImpl(V1ListMeta instance) {
     this.withContinue(instance.getContinue());
 
     this.withRemainingItemCount(instance.getRemainingItemCount());
@@ -32,14 +32,14 @@ public class V1ListMetaFluentImpl<A extends V1ListMetaFluent<A>> extends BaseFlu
 
   private String _continue;
   private Long remainingItemCount;
-  private java.lang.String resourceVersion;
-  private java.lang.String selfLink;
+  private String resourceVersion;
+  private String selfLink;
 
-  public java.lang.String getContinue() {
+  public String getContinue() {
     return this._continue;
   }
 
-  public A withContinue(java.lang.String _continue) {
+  public A withContinue(String _continue) {
     this._continue = _continue;
     return (A) this;
   }
@@ -48,42 +48,42 @@ public class V1ListMetaFluentImpl<A extends V1ListMetaFluent<A>> extends BaseFlu
     return this._continue != null;
   }
 
-  public java.lang.Long getRemainingItemCount() {
+  public Long getRemainingItemCount() {
     return this.remainingItemCount;
   }
 
-  public A withRemainingItemCount(java.lang.Long remainingItemCount) {
+  public A withRemainingItemCount(Long remainingItemCount) {
     this.remainingItemCount = remainingItemCount;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRemainingItemCount() {
+  public Boolean hasRemainingItemCount() {
     return this.remainingItemCount != null;
   }
 
-  public java.lang.String getResourceVersion() {
+  public String getResourceVersion() {
     return this.resourceVersion;
   }
 
-  public A withResourceVersion(java.lang.String resourceVersion) {
+  public A withResourceVersion(String resourceVersion) {
     this.resourceVersion = resourceVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasResourceVersion() {
+  public Boolean hasResourceVersion() {
     return this.resourceVersion != null;
   }
 
-  public java.lang.String getSelfLink() {
+  public String getSelfLink() {
     return this.selfLink;
   }
 
-  public A withSelfLink(java.lang.String selfLink) {
+  public A withSelfLink(String selfLink) {
     this.selfLink = selfLink;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSelfLink() {
+  public Boolean hasSelfLink() {
     return this.selfLink != null;
   }
 
@@ -108,7 +108,7 @@ public class V1ListMetaFluentImpl<A extends V1ListMetaFluent<A>> extends BaseFlu
         _continue, remainingItemCount, resourceVersion, selfLink, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (_continue != null) {

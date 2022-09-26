@@ -18,7 +18,7 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1DaemonEndpointFluent<A extends V1DaemonEndpointFluent<A>> extends Fluent<A> {
   public Integer getPort();
 
-  public A withPort(java.lang.Integer port);
+  public A withPort(Integer port);
 
   public Boolean hasPort();
 }

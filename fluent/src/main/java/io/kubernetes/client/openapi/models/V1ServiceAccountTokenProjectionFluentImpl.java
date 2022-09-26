@@ -21,8 +21,7 @@ public class V1ServiceAccountTokenProjectionFluentImpl<
     extends BaseFluent<A> implements V1ServiceAccountTokenProjectionFluent<A> {
   public V1ServiceAccountTokenProjectionFluentImpl() {}
 
-  public V1ServiceAccountTokenProjectionFluentImpl(
-      io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection instance) {
+  public V1ServiceAccountTokenProjectionFluentImpl(V1ServiceAccountTokenProjection instance) {
     this.withAudience(instance.getAudience());
 
     this.withExpirationSeconds(instance.getExpirationSeconds());
@@ -32,13 +31,13 @@ public class V1ServiceAccountTokenProjectionFluentImpl<
 
   private String audience;
   private Long expirationSeconds;
-  private java.lang.String path;
+  private String path;
 
-  public java.lang.String getAudience() {
+  public String getAudience() {
     return this.audience;
   }
 
-  public A withAudience(java.lang.String audience) {
+  public A withAudience(String audience) {
     this.audience = audience;
     return (A) this;
   }
@@ -47,29 +46,29 @@ public class V1ServiceAccountTokenProjectionFluentImpl<
     return this.audience != null;
   }
 
-  public java.lang.Long getExpirationSeconds() {
+  public Long getExpirationSeconds() {
     return this.expirationSeconds;
   }
 
-  public A withExpirationSeconds(java.lang.Long expirationSeconds) {
+  public A withExpirationSeconds(Long expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExpirationSeconds() {
+  public Boolean hasExpirationSeconds() {
     return this.expirationSeconds != null;
   }
 
-  public java.lang.String getPath() {
+  public String getPath() {
     return this.path;
   }
 
-  public A withPath(java.lang.String path) {
+  public A withPath(String path) {
     this.path = path;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPath() {
+  public Boolean hasPath() {
     return this.path != null;
   }
 
@@ -89,7 +88,7 @@ public class V1ServiceAccountTokenProjectionFluentImpl<
     return java.util.Objects.hash(audience, expirationSeconds, path, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (audience != null) {

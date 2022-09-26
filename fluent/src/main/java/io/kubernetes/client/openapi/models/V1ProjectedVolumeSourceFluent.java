@@ -23,24 +23,21 @@ public interface V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSource
     extends Fluent<A> {
   public Integer getDefaultMode();
 
-  public A withDefaultMode(java.lang.Integer defaultMode);
+  public A withDefaultMode(Integer defaultMode);
 
   public Boolean hasDefaultMode();
 
-  public A addToSources(java.lang.Integer index, V1VolumeProjection item);
+  public A addToSources(Integer index, V1VolumeProjection item);
 
-  public A setToSources(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeProjection item);
+  public A setToSources(Integer index, V1VolumeProjection item);
 
   public A addToSources(io.kubernetes.client.openapi.models.V1VolumeProjection... items);
 
-  public A addAllToSources(
-      Collection<io.kubernetes.client.openapi.models.V1VolumeProjection> items);
+  public A addAllToSources(Collection<V1VolumeProjection> items);
 
   public A removeFromSources(io.kubernetes.client.openapi.models.V1VolumeProjection... items);
 
-  public A removeAllFromSources(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1VolumeProjection> items);
+  public A removeAllFromSources(Collection<V1VolumeProjection> items);
 
   public A removeMatchingFromSources(Predicate<V1VolumeProjectionBuilder> predicate);
 
@@ -50,55 +47,41 @@ public interface V1ProjectedVolumeSourceFluent<A extends V1ProjectedVolumeSource
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1VolumeProjection> getSources();
+  public List<V1VolumeProjection> getSources();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1VolumeProjection> buildSources();
+  public List<V1VolumeProjection> buildSources();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjection buildSource(
-      java.lang.Integer index);
+  public V1VolumeProjection buildSource(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjection buildFirstSource();
+  public V1VolumeProjection buildFirstSource();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjection buildLastSource();
+  public V1VolumeProjection buildLastSource();
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjection buildMatchingSource(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder>
-          predicate);
+  public V1VolumeProjection buildMatchingSource(Predicate<V1VolumeProjectionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingSource(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder>
-          predicate);
+  public Boolean hasMatchingSource(Predicate<V1VolumeProjectionBuilder> predicate);
 
-  public A withSources(
-      java.util.List<io.kubernetes.client.openapi.models.V1VolumeProjection> sources);
+  public A withSources(List<V1VolumeProjection> sources);
 
   public A withSources(io.kubernetes.client.openapi.models.V1VolumeProjection... sources);
 
-  public java.lang.Boolean hasSources();
+  public Boolean hasSources();
 
   public V1ProjectedVolumeSourceFluent.SourcesNested<A> addNewSource();
 
-  public io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<A>
-      addNewSourceLike(io.kubernetes.client.openapi.models.V1VolumeProjection item);
+  public V1ProjectedVolumeSourceFluent.SourcesNested<A> addNewSourceLike(V1VolumeProjection item);
 
-  public io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<A>
-      setNewSourceLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeProjection item);
+  public V1ProjectedVolumeSourceFluent.SourcesNested<A> setNewSourceLike(
+      Integer index, V1VolumeProjection item);
 
-  public io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<A>
-      editSource(java.lang.Integer index);
+  public V1ProjectedVolumeSourceFluent.SourcesNested<A> editSource(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<A>
-      editFirstSource();
+  public V1ProjectedVolumeSourceFluent.SourcesNested<A> editFirstSource();
 
-  public io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<A>
-      editLastSource();
+  public V1ProjectedVolumeSourceFluent.SourcesNested<A> editLastSource();
 
-  public io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent.SourcesNested<A>
-      editMatchingSource(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1VolumeProjectionBuilder>
-              predicate);
+  public V1ProjectedVolumeSourceFluent.SourcesNested<A> editMatchingSource(
+      Predicate<V1VolumeProjectionBuilder> predicate);
 
   public interface SourcesNested<N>
       extends Nested<N>, V1VolumeProjectionFluent<V1ProjectedVolumeSourceFluent.SourcesNested<N>> {

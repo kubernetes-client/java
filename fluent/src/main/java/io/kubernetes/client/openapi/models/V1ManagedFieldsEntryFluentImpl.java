@@ -21,8 +21,7 @@ public class V1ManagedFieldsEntryFluentImpl<A extends V1ManagedFieldsEntryFluent
     extends BaseFluent<A> implements V1ManagedFieldsEntryFluent<A> {
   public V1ManagedFieldsEntryFluentImpl() {}
 
-  public V1ManagedFieldsEntryFluentImpl(
-      io.kubernetes.client.openapi.models.V1ManagedFieldsEntry instance) {
+  public V1ManagedFieldsEntryFluentImpl(V1ManagedFieldsEntry instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withFieldsType(instance.getFieldsType());
@@ -39,18 +38,18 @@ public class V1ManagedFieldsEntryFluentImpl<A extends V1ManagedFieldsEntryFluent
   }
 
   private String apiVersion;
-  private java.lang.String fieldsType;
+  private String fieldsType;
   private Object fieldsV1;
-  private java.lang.String manager;
-  private java.lang.String operation;
-  private java.lang.String subresource;
+  private String manager;
+  private String operation;
+  private String subresource;
   private OffsetDateTime time;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -59,85 +58,85 @@ public class V1ManagedFieldsEntryFluentImpl<A extends V1ManagedFieldsEntryFluent
     return this.apiVersion != null;
   }
 
-  public java.lang.String getFieldsType() {
+  public String getFieldsType() {
     return this.fieldsType;
   }
 
-  public A withFieldsType(java.lang.String fieldsType) {
+  public A withFieldsType(String fieldsType) {
     this.fieldsType = fieldsType;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFieldsType() {
+  public Boolean hasFieldsType() {
     return this.fieldsType != null;
   }
 
-  public java.lang.Object getFieldsV1() {
+  public Object getFieldsV1() {
     return this.fieldsV1;
   }
 
-  public A withFieldsV1(java.lang.Object fieldsV1) {
+  public A withFieldsV1(Object fieldsV1) {
     this.fieldsV1 = fieldsV1;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFieldsV1() {
+  public Boolean hasFieldsV1() {
     return this.fieldsV1 != null;
   }
 
-  public java.lang.String getManager() {
+  public String getManager() {
     return this.manager;
   }
 
-  public A withManager(java.lang.String manager) {
+  public A withManager(String manager) {
     this.manager = manager;
     return (A) this;
   }
 
-  public java.lang.Boolean hasManager() {
+  public Boolean hasManager() {
     return this.manager != null;
   }
 
-  public java.lang.String getOperation() {
+  public String getOperation() {
     return this.operation;
   }
 
-  public A withOperation(java.lang.String operation) {
+  public A withOperation(String operation) {
     this.operation = operation;
     return (A) this;
   }
 
-  public java.lang.Boolean hasOperation() {
+  public Boolean hasOperation() {
     return this.operation != null;
   }
 
-  public java.lang.String getSubresource() {
+  public String getSubresource() {
     return this.subresource;
   }
 
-  public A withSubresource(java.lang.String subresource) {
+  public A withSubresource(String subresource) {
     this.subresource = subresource;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSubresource() {
+  public Boolean hasSubresource() {
     return this.subresource != null;
   }
 
-  public java.time.OffsetDateTime getTime() {
+  public OffsetDateTime getTime() {
     return this.time;
   }
 
-  public A withTime(java.time.OffsetDateTime time) {
+  public A withTime(OffsetDateTime time) {
     this.time = time;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTime() {
+  public Boolean hasTime() {
     return this.time != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ManagedFieldsEntryFluentImpl that = (V1ManagedFieldsEntryFluentImpl) o;
@@ -160,7 +159,7 @@ public class V1ManagedFieldsEntryFluentImpl<A extends V1ManagedFieldsEntryFluent
         apiVersion, fieldsType, fieldsV1, manager, operation, subresource, time, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {

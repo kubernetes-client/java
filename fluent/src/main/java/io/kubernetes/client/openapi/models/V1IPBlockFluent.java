@@ -21,38 +21,37 @@ import java.util.function.Predicate;
 public interface V1IPBlockFluent<A extends V1IPBlockFluent<A>> extends Fluent<A> {
   public String getCidr();
 
-  public A withCidr(java.lang.String cidr);
+  public A withCidr(String cidr);
 
   public Boolean hasCidr();
 
-  public A addToExcept(Integer index, java.lang.String item);
+  public A addToExcept(Integer index, String item);
 
-  public A setToExcept(java.lang.Integer index, java.lang.String item);
+  public A setToExcept(Integer index, String item);
 
   public A addToExcept(java.lang.String... items);
 
-  public A addAllToExcept(Collection<java.lang.String> items);
+  public A addAllToExcept(Collection<String> items);
 
   public A removeFromExcept(java.lang.String... items);
 
-  public A removeAllFromExcept(java.util.Collection<java.lang.String> items);
+  public A removeAllFromExcept(Collection<String> items);
 
-  public List<java.lang.String> getExcept();
+  public List<String> getExcept();
 
-  public java.lang.String getExcept(java.lang.Integer index);
+  public String getExcept(Integer index);
 
-  public java.lang.String getFirstExcept();
+  public String getFirstExcept();
 
-  public java.lang.String getLastExcept();
+  public String getLastExcept();
 
-  public java.lang.String getMatchingExcept(Predicate<java.lang.String> predicate);
+  public String getMatchingExcept(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingExcept(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingExcept(Predicate<String> predicate);
 
-  public A withExcept(java.util.List<java.lang.String> except);
+  public A withExcept(List<String> except);
 
   public A withExcept(java.lang.String... except);
 
-  public java.lang.Boolean hasExcept();
+  public Boolean hasExcept();
 }

@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1beta1FlowSchemaConditionBuilder
     extends V1beta1FlowSchemaConditionFluentImpl<V1beta1FlowSchemaConditionBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition,
-        io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionBuilder> {
+    implements VisitableBuilder<V1beta1FlowSchemaCondition, V1beta1FlowSchemaConditionBuilder> {
   public V1beta1FlowSchemaConditionBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1beta1FlowSchemaConditionBuilder
   }
 
   public V1beta1FlowSchemaConditionBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1FlowSchemaConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1FlowSchemaCondition(), validationEnabled);
   }
 
   public V1beta1FlowSchemaConditionBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition instance) {
+      V1beta1FlowSchemaConditionFluent<?> fluent, V1beta1FlowSchemaCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1FlowSchemaConditionBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1FlowSchemaConditionFluent<?> fluent,
+      V1beta1FlowSchemaCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -61,14 +57,12 @@ public class V1beta1FlowSchemaConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta1FlowSchemaConditionBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition instance) {
+  public V1beta1FlowSchemaConditionBuilder(V1beta1FlowSchemaCondition instance) {
     this(instance, false);
   }
 
   public V1beta1FlowSchemaConditionBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1FlowSchemaCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -83,10 +77,10 @@ public class V1beta1FlowSchemaConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1FlowSchemaConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1FlowSchemaConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1FlowSchemaCondition build() {
+  public V1beta1FlowSchemaCondition build() {
     V1beta1FlowSchemaCondition buildable = new V1beta1FlowSchemaCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setMessage(fluent.getMessage());

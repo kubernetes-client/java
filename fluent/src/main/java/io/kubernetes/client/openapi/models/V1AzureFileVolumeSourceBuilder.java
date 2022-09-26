@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1AzureFileVolumeSourceBuilder
     extends V1AzureFileVolumeSourceFluentImpl<V1AzureFileVolumeSourceBuilder>
-    implements VisitableBuilder<
-        V1AzureFileVolumeSource,
-        io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceBuilder> {
+    implements VisitableBuilder<V1AzureFileVolumeSource, V1AzureFileVolumeSourceBuilder> {
   public V1AzureFileVolumeSourceBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1AzureFileVolumeSourceBuilder
   }
 
   public V1AzureFileVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1AzureFileVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1AzureFileVolumeSource(), validationEnabled);
   }
 
   public V1AzureFileVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1AzureFileVolumeSource instance) {
+      V1AzureFileVolumeSourceFluent<?> fluent, V1AzureFileVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1AzureFileVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1AzureFileVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1AzureFileVolumeSourceFluent<?> fluent,
+      V1AzureFileVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withReadOnly(instance.getReadOnly());
 
@@ -57,14 +53,12 @@ public class V1AzureFileVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1AzureFileVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFileVolumeSource instance) {
+  public V1AzureFileVolumeSourceBuilder(V1AzureFileVolumeSource instance) {
     this(instance, false);
   }
 
   public V1AzureFileVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AzureFileVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1AzureFileVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withReadOnly(instance.getReadOnly());
 
@@ -75,10 +69,10 @@ public class V1AzureFileVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1AzureFileVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1AzureFileVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1AzureFileVolumeSource build() {
+  public V1AzureFileVolumeSource build() {
     V1AzureFileVolumeSource buildable = new V1AzureFileVolumeSource();
     buildable.setReadOnly(fluent.getReadOnly());
     buildable.setSecretName(fluent.getSecretName());

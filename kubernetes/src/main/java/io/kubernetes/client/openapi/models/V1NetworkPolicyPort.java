@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(description = "NetworkPolicyPort describes a port to allow traffic on")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1NetworkPolicyPort {
   public static final String SERIALIZED_NAME_END_PORT = "endPort";
 
@@ -48,16 +48,14 @@ public class V1NetworkPolicyPort {
   /**
    * If set, indicates that the range of ports from port to endPort, inclusive, should be allowed by
    * the policy. This field cannot be defined if the port field is not defined or if the port field
-   * is defined as a named (string) port. The endPort must be equal or greater than port. This
-   * feature is in Beta state and is enabled by default. It can be disabled using the Feature Gate
-   * \&quot;NetworkPolicyEndPort\&quot;.
+   * is defined as a named (string) port. The endPort must be equal or greater than port.
    *
    * @return endPort
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "If set, indicates that the range of ports from port to endPort, inclusive, should be allowed by the policy. This field cannot be defined if the port field is not defined or if the port field is defined as a named (string) port. The endPort must be equal or greater than port. This feature is in Beta state and is enabled by default. It can be disabled using the Feature Gate \"NetworkPolicyEndPort\".")
+          "If set, indicates that the range of ports from port to endPort, inclusive, should be allowed by the policy. This field cannot be defined if the port field is not defined or if the port field is defined as a named (string) port. The endPort must be equal or greater than port.")
   public Integer getEndPort() {
     return endPort;
   }

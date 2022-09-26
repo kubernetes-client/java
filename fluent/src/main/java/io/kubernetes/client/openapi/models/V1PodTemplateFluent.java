@@ -19,15 +19,15 @@ import io.kubernetes.client.fluent.Nested;
 public interface V1PodTemplateFluent<A extends V1PodTemplateFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -37,51 +37,45 @@ public interface V1PodTemplateFluent<A extends V1PodTemplateFluent<A>> extends F
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1PodTemplateFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1PodTemplateFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateFluent.MetadataNested<A> editMetadata();
+  public V1PodTemplateFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1PodTemplateFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1PodTemplateFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildTemplate instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1PodTemplateSpec getTemplate();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpec buildTemplate();
+  public V1PodTemplateSpec buildTemplate();
 
-  public A withTemplate(io.kubernetes.client.openapi.models.V1PodTemplateSpec template);
+  public A withTemplate(V1PodTemplateSpec template);
 
-  public java.lang.Boolean hasTemplate();
+  public Boolean hasTemplate();
 
   public V1PodTemplateFluent.TemplateNested<A> withNewTemplate();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateFluent.TemplateNested<A>
-      withNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
+  public V1PodTemplateFluent.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item);
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateFluent.TemplateNested<A> editTemplate();
+  public V1PodTemplateFluent.TemplateNested<A> editTemplate();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateFluent.TemplateNested<A>
-      editOrNewTemplate();
+  public V1PodTemplateFluent.TemplateNested<A> editOrNewTemplate();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateFluent.TemplateNested<A>
-      editOrNewTemplateLike(io.kubernetes.client.openapi.models.V1PodTemplateSpec item);
+  public V1PodTemplateFluent.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1PodTemplateFluent.MetadataNested<N>> {
@@ -91,8 +85,7 @@ public interface V1PodTemplateFluent<A extends V1PodTemplateFluent<A>> extends F
   }
 
   public interface TemplateNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1PodTemplateSpecFluent<V1PodTemplateFluent.TemplateNested<N>> {
+      extends Nested<N>, V1PodTemplateSpecFluent<V1PodTemplateFluent.TemplateNested<N>> {
     public N and();
 
     public N endTemplate();

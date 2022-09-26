@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1APIServiceStatusBuilder
     extends V1APIServiceStatusFluentImpl<V1APIServiceStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1APIServiceStatus,
-        io.kubernetes.client.openapi.models.V1APIServiceStatusBuilder> {
+    implements VisitableBuilder<V1APIServiceStatus, V1APIServiceStatusBuilder> {
   public V1APIServiceStatusBuilder() {
     this(false);
   }
@@ -31,46 +29,38 @@ public class V1APIServiceStatusBuilder
     this(fluent, false);
   }
 
-  public V1APIServiceStatusBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1APIServiceStatusBuilder(V1APIServiceStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1APIServiceStatus(), validationEnabled);
   }
 
   public V1APIServiceStatusBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1APIServiceStatus instance) {
+      V1APIServiceStatusFluent<?> fluent, V1APIServiceStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1APIServiceStatusBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1APIServiceStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1APIServiceStatusFluent<?> fluent, V1APIServiceStatus instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withConditions(instance.getConditions());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1APIServiceStatusBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceStatus instance) {
+  public V1APIServiceStatusBuilder(V1APIServiceStatus instance) {
     this(instance, false);
   }
 
-  public V1APIServiceStatusBuilder(
-      io.kubernetes.client.openapi.models.V1APIServiceStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V1APIServiceStatusBuilder(V1APIServiceStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withConditions(instance.getConditions());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1APIServiceStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1APIServiceStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1APIServiceStatus build() {
+  public V1APIServiceStatus build() {
     V1APIServiceStatus buildable = new V1APIServiceStatus();
     buildable.setConditions(fluent.getConditions());
     return buildable;

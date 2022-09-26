@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PreferredSchedulingTermBuilder
     extends V1PreferredSchedulingTermFluentImpl<V1PreferredSchedulingTermBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm,
-        io.kubernetes.client.openapi.models.V1PreferredSchedulingTermBuilder> {
+    implements VisitableBuilder<V1PreferredSchedulingTerm, V1PreferredSchedulingTermBuilder> {
   public V1PreferredSchedulingTermBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1PreferredSchedulingTermBuilder
   }
 
   public V1PreferredSchedulingTermBuilder(
-      io.kubernetes.client.openapi.models.V1PreferredSchedulingTermFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1PreferredSchedulingTermFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PreferredSchedulingTerm(), validationEnabled);
   }
 
   public V1PreferredSchedulingTermBuilder(
-      io.kubernetes.client.openapi.models.V1PreferredSchedulingTermFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm instance) {
+      V1PreferredSchedulingTermFluent<?> fluent, V1PreferredSchedulingTerm instance) {
     this(fluent, instance, false);
   }
 
   public V1PreferredSchedulingTermBuilder(
-      io.kubernetes.client.openapi.models.V1PreferredSchedulingTermFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm instance,
-      java.lang.Boolean validationEnabled) {
+      V1PreferredSchedulingTermFluent<?> fluent,
+      V1PreferredSchedulingTerm instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withPreference(instance.getPreference());
 
@@ -55,14 +51,12 @@ public class V1PreferredSchedulingTermBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PreferredSchedulingTermBuilder(
-      io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm instance) {
+  public V1PreferredSchedulingTermBuilder(V1PreferredSchedulingTerm instance) {
     this(instance, false);
   }
 
   public V1PreferredSchedulingTermBuilder(
-      io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm instance,
-      java.lang.Boolean validationEnabled) {
+      V1PreferredSchedulingTerm instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withPreference(instance.getPreference());
 
@@ -71,10 +65,10 @@ public class V1PreferredSchedulingTermBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PreferredSchedulingTermFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PreferredSchedulingTermFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm build() {
+  public V1PreferredSchedulingTerm build() {
     V1PreferredSchedulingTerm buildable = new V1PreferredSchedulingTerm();
     buildable.setPreference(fluent.getPreference());
     buildable.setWeight(fluent.getWeight());

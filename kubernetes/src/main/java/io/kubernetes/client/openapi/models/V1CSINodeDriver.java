@@ -25,7 +25,7 @@ import java.util.Objects;
         "CSINodeDriver holds information about the specification of one CSI driver installed on a node")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1CSINodeDriver {
   public static final String SERIALIZED_NAME_ALLOCATABLE = "allocatable";
 

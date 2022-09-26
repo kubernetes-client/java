@@ -20,20 +20,20 @@ public class V1NodeAddressFluentImpl<A extends V1NodeAddressFluent<A>> extends B
     implements V1NodeAddressFluent<A> {
   public V1NodeAddressFluentImpl() {}
 
-  public V1NodeAddressFluentImpl(io.kubernetes.client.openapi.models.V1NodeAddress instance) {
+  public V1NodeAddressFluentImpl(V1NodeAddress instance) {
     this.withAddress(instance.getAddress());
 
     this.withType(instance.getType());
   }
 
   private String address;
-  private java.lang.String type;
+  private String type;
 
-  public java.lang.String getAddress() {
+  public String getAddress() {
     return this.address;
   }
 
-  public A withAddress(java.lang.String address) {
+  public A withAddress(String address) {
     this.address = address;
     return (A) this;
   }
@@ -42,16 +42,16 @@ public class V1NodeAddressFluentImpl<A extends V1NodeAddressFluent<A>> extends B
     return this.address != null;
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
@@ -68,7 +68,7 @@ public class V1NodeAddressFluentImpl<A extends V1NodeAddressFluent<A>> extends B
     return java.util.Objects.hash(address, type, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (address != null) {

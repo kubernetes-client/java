@@ -18,25 +18,25 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1ListMetaFluent<A extends V1ListMetaFluent<A>> extends Fluent<A> {
   public String getContinue();
 
-  public A withContinue(java.lang.String _continue);
+  public A withContinue(String _continue);
 
   public Boolean hasContinue();
 
   public Long getRemainingItemCount();
 
-  public A withRemainingItemCount(java.lang.Long remainingItemCount);
+  public A withRemainingItemCount(Long remainingItemCount);
 
-  public java.lang.Boolean hasRemainingItemCount();
+  public Boolean hasRemainingItemCount();
 
-  public java.lang.String getResourceVersion();
+  public String getResourceVersion();
 
-  public A withResourceVersion(java.lang.String resourceVersion);
+  public A withResourceVersion(String resourceVersion);
 
-  public java.lang.Boolean hasResourceVersion();
+  public Boolean hasResourceVersion();
 
-  public java.lang.String getSelfLink();
+  public String getSelfLink();
 
-  public A withSelfLink(java.lang.String selfLink);
+  public A withSelfLink(String selfLink);
 
-  public java.lang.Boolean hasSelfLink();
+  public Boolean hasSelfLink();
 }

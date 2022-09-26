@@ -21,7 +21,7 @@ public class V1StatusFluentImpl<A extends V1StatusFluent<A>> extends BaseFluent<
     implements V1StatusFluent<A> {
   public V1StatusFluentImpl() {}
 
-  public V1StatusFluentImpl(io.kubernetes.client.openapi.models.V1Status instance) {
+  public V1StatusFluentImpl(V1Status instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withCode(instance.getCode());
@@ -42,17 +42,17 @@ public class V1StatusFluentImpl<A extends V1StatusFluent<A>> extends BaseFluent<
   private String apiVersion;
   private Integer code;
   private V1StatusDetailsBuilder details;
-  private java.lang.String kind;
-  private java.lang.String message;
+  private String kind;
+  private String message;
   private V1ListMetaBuilder metadata;
-  private java.lang.String reason;
-  private java.lang.String status;
+  private String reason;
+  private String status;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -61,16 +61,16 @@ public class V1StatusFluentImpl<A extends V1StatusFluent<A>> extends BaseFluent<
     return this.apiVersion != null;
   }
 
-  public java.lang.Integer getCode() {
+  public Integer getCode() {
     return this.code;
   }
 
-  public A withCode(java.lang.Integer code) {
+  public A withCode(Integer code) {
     this.code = code;
     return (A) this;
   }
 
-  public java.lang.Boolean hasCode() {
+  public Boolean hasCode() {
     return this.code != null;
   }
 
@@ -80,24 +80,27 @@ public class V1StatusFluentImpl<A extends V1StatusFluent<A>> extends BaseFluent<
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1StatusDetails getDetails() {
+  public V1StatusDetails getDetails() {
     return this.details != null ? this.details.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1StatusDetails buildDetails() {
+  public V1StatusDetails buildDetails() {
     return this.details != null ? this.details.build() : null;
   }
 
-  public A withDetails(io.kubernetes.client.openapi.models.V1StatusDetails details) {
+  public A withDetails(V1StatusDetails details) {
     _visitables.get("details").remove(this.details);
     if (details != null) {
       this.details = new V1StatusDetailsBuilder(details);
       _visitables.get("details").add(this.details);
+    } else {
+      this.details = null;
+      _visitables.get("details").remove(this.details);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDetails() {
+  public Boolean hasDetails() {
     return this.details != null;
   }
 
@@ -105,50 +108,46 @@ public class V1StatusFluentImpl<A extends V1StatusFluent<A>> extends BaseFluent<
     return new V1StatusFluentImpl.DetailsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatusFluent.DetailsNested<A> withNewDetailsLike(
-      io.kubernetes.client.openapi.models.V1StatusDetails item) {
+  public V1StatusFluent.DetailsNested<A> withNewDetailsLike(V1StatusDetails item) {
     return new V1StatusFluentImpl.DetailsNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatusFluent.DetailsNested<A> editDetails() {
+  public V1StatusFluent.DetailsNested<A> editDetails() {
     return withNewDetailsLike(getDetails());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatusFluent.DetailsNested<A> editOrNewDetails() {
+  public V1StatusFluent.DetailsNested<A> editOrNewDetails() {
     return withNewDetailsLike(
-        getDetails() != null
-            ? getDetails()
-            : new io.kubernetes.client.openapi.models.V1StatusDetailsBuilder().build());
+        getDetails() != null ? getDetails() : new V1StatusDetailsBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatusFluent.DetailsNested<A> editOrNewDetailsLike(
-      io.kubernetes.client.openapi.models.V1StatusDetails item) {
+  public V1StatusFluent.DetailsNested<A> editOrNewDetailsLike(V1StatusDetails item) {
     return withNewDetailsLike(getDetails() != null ? getDetails() : item);
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMessage() {
+  public Boolean hasMessage() {
     return this.message != null;
   }
 
@@ -157,25 +156,28 @@ public class V1StatusFluentImpl<A extends V1StatusFluent<A>> extends BaseFluent<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
+  @Deprecated
+  public V1ListMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
+  public V1ListMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
+  public A withMetadata(V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -183,50 +185,46 @@ public class V1StatusFluentImpl<A extends V1StatusFluent<A>> extends BaseFluent<
     return new V1StatusFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1StatusFluent.MetadataNested<A> withNewMetadataLike(
-      io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V1StatusFluentImpl.MetadataNestedImpl(item);
+  public V1StatusFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+    return new V1StatusFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1StatusFluent.MetadataNested<A> editMetadata() {
+  public V1StatusFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatusFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1StatusFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1StatusFluent.MetadataNested<A> editOrNewMetadataLike(
-      io.kubernetes.client.openapi.models.V1ListMeta item) {
+  public V1StatusFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public java.lang.String getReason() {
+  public String getReason() {
     return this.reason;
   }
 
-  public A withReason(java.lang.String reason) {
+  public A withReason(String reason) {
     this.reason = reason;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReason() {
+  public Boolean hasReason() {
     return this.reason != null;
   }
 
-  public java.lang.String getStatus() {
+  public String getStatus() {
     return this.status;
   }
 
-  public A withStatus(java.lang.String status) {
+  public A withStatus(String status) {
     this.status = status;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStatus() {
+  public Boolean hasStatus() {
     return this.status != null;
   }
 
@@ -251,7 +249,7 @@ public class V1StatusFluentImpl<A extends V1StatusFluent<A>> extends BaseFluent<
         apiVersion, code, details, kind, message, metadata, reason, status, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -291,16 +289,16 @@ public class V1StatusFluentImpl<A extends V1StatusFluent<A>> extends BaseFluent<
   }
 
   class DetailsNestedImpl<N> extends V1StatusDetailsFluentImpl<V1StatusFluent.DetailsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1StatusFluent.DetailsNested<N>, Nested<N> {
-    DetailsNestedImpl(io.kubernetes.client.openapi.models.V1StatusDetails item) {
+      implements V1StatusFluent.DetailsNested<N>, Nested<N> {
+    DetailsNestedImpl(V1StatusDetails item) {
       this.builder = new V1StatusDetailsBuilder(this, item);
     }
 
     DetailsNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1StatusDetailsBuilder(this);
+      this.builder = new V1StatusDetailsBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1StatusDetailsBuilder builder;
+    V1StatusDetailsBuilder builder;
 
     public N and() {
       return (N) V1StatusFluentImpl.this.withDetails(builder.build());
@@ -312,17 +310,16 @@ public class V1StatusFluentImpl<A extends V1StatusFluent<A>> extends BaseFluent<
   }
 
   class MetadataNestedImpl<N> extends V1ListMetaFluentImpl<V1StatusFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1StatusFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1StatusFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this);
+      this.builder = new V1ListMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
+    V1ListMetaBuilder builder;
 
     public N and() {
       return (N) V1StatusFluentImpl.this.withMetadata(builder.build());

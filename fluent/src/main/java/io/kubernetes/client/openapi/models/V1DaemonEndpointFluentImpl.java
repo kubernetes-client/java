@@ -20,17 +20,17 @@ public class V1DaemonEndpointFluentImpl<A extends V1DaemonEndpointFluent<A>> ext
     implements V1DaemonEndpointFluent<A> {
   public V1DaemonEndpointFluentImpl() {}
 
-  public V1DaemonEndpointFluentImpl(io.kubernetes.client.openapi.models.V1DaemonEndpoint instance) {
+  public V1DaemonEndpointFluentImpl(V1DaemonEndpoint instance) {
     this.withPort(instance.getPort());
   }
 
   private Integer port;
 
-  public java.lang.Integer getPort() {
+  public Integer getPort() {
     return this.port;
   }
 
-  public A withPort(java.lang.Integer port) {
+  public A withPort(Integer port) {
     this.port = port;
     return (A) this;
   }

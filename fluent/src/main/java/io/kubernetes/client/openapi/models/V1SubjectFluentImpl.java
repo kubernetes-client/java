@@ -20,7 +20,7 @@ public class V1SubjectFluentImpl<A extends V1SubjectFluent<A>> extends BaseFluen
     implements V1SubjectFluent<A> {
   public V1SubjectFluentImpl() {}
 
-  public V1SubjectFluentImpl(io.kubernetes.client.openapi.models.V1Subject instance) {
+  public V1SubjectFluentImpl(V1Subject instance) {
     this.withApiGroup(instance.getApiGroup());
 
     this.withKind(instance.getKind());
@@ -31,15 +31,15 @@ public class V1SubjectFluentImpl<A extends V1SubjectFluent<A>> extends BaseFluen
   }
 
   private String apiGroup;
-  private java.lang.String kind;
-  private java.lang.String name;
-  private java.lang.String namespace;
+  private String kind;
+  private String name;
+  private String namespace;
 
-  public java.lang.String getApiGroup() {
+  public String getApiGroup() {
     return this.apiGroup;
   }
 
-  public A withApiGroup(java.lang.String apiGroup) {
+  public A withApiGroup(String apiGroup) {
     this.apiGroup = apiGroup;
     return (A) this;
   }
@@ -48,42 +48,42 @@ public class V1SubjectFluentImpl<A extends V1SubjectFluent<A>> extends BaseFluen
     return this.apiGroup != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.String getNamespace() {
+  public String getNamespace() {
     return this.namespace;
   }
 
-  public A withNamespace(java.lang.String namespace) {
+  public A withNamespace(String namespace) {
     this.namespace = namespace;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNamespace() {
+  public Boolean hasNamespace() {
     return this.namespace != null;
   }
 
@@ -103,7 +103,7 @@ public class V1SubjectFluentImpl<A extends V1SubjectFluent<A>> extends BaseFluen
     return java.util.Objects.hash(apiGroup, kind, name, namespace, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiGroup != null) {

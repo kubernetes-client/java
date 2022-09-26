@@ -20,7 +20,7 @@ public interface V1RollingUpdateDeploymentFluent<A extends V1RollingUpdateDeploy
     extends Fluent<A> {
   public IntOrString getMaxSurge();
 
-  public A withMaxSurge(io.kubernetes.client.custom.IntOrString maxSurge);
+  public A withMaxSurge(IntOrString maxSurge);
 
   public Boolean hasMaxSurge();
 
@@ -28,13 +28,13 @@ public interface V1RollingUpdateDeploymentFluent<A extends V1RollingUpdateDeploy
 
   public A withNewMaxSurge(String value);
 
-  public io.kubernetes.client.custom.IntOrString getMaxUnavailable();
+  public IntOrString getMaxUnavailable();
 
-  public A withMaxUnavailable(io.kubernetes.client.custom.IntOrString maxUnavailable);
+  public A withMaxUnavailable(IntOrString maxUnavailable);
 
-  public java.lang.Boolean hasMaxUnavailable();
+  public Boolean hasMaxUnavailable();
 
   public A withNewMaxUnavailable(int value);
 
-  public A withNewMaxUnavailable(java.lang.String value);
+  public A withNewMaxUnavailable(String value);
 }

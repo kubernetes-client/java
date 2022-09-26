@@ -26,8 +26,7 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     extends BaseFluent<A> implements V1PodSecurityContextFluent<A> {
   public V1PodSecurityContextFluentImpl() {}
 
-  public V1PodSecurityContextFluentImpl(
-      io.kubernetes.client.openapi.models.V1PodSecurityContext instance) {
+  public V1PodSecurityContextFluentImpl(V1PodSecurityContext instance) {
     this.withFsGroup(instance.getFsGroup());
 
     this.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
@@ -51,77 +50,77 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
 
   private Long fsGroup;
   private String fsGroupChangePolicy;
-  private java.lang.Long runAsGroup;
+  private Long runAsGroup;
   private Boolean runAsNonRoot;
-  private java.lang.Long runAsUser;
+  private Long runAsUser;
   private V1SELinuxOptionsBuilder seLinuxOptions;
   private V1SeccompProfileBuilder seccompProfile;
-  private List<java.lang.Long> supplementalGroups;
+  private List<Long> supplementalGroups;
   private ArrayList<V1SysctlBuilder> sysctls;
   private V1WindowsSecurityContextOptionsBuilder windowsOptions;
 
-  public java.lang.Long getFsGroup() {
+  public Long getFsGroup() {
     return this.fsGroup;
   }
 
-  public A withFsGroup(java.lang.Long fsGroup) {
+  public A withFsGroup(Long fsGroup) {
     this.fsGroup = fsGroup;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsGroup() {
+  public Boolean hasFsGroup() {
     return this.fsGroup != null;
   }
 
-  public java.lang.String getFsGroupChangePolicy() {
+  public String getFsGroupChangePolicy() {
     return this.fsGroupChangePolicy;
   }
 
-  public A withFsGroupChangePolicy(java.lang.String fsGroupChangePolicy) {
+  public A withFsGroupChangePolicy(String fsGroupChangePolicy) {
     this.fsGroupChangePolicy = fsGroupChangePolicy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsGroupChangePolicy() {
+  public Boolean hasFsGroupChangePolicy() {
     return this.fsGroupChangePolicy != null;
   }
 
-  public java.lang.Long getRunAsGroup() {
+  public Long getRunAsGroup() {
     return this.runAsGroup;
   }
 
-  public A withRunAsGroup(java.lang.Long runAsGroup) {
+  public A withRunAsGroup(Long runAsGroup) {
     this.runAsGroup = runAsGroup;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRunAsGroup() {
+  public Boolean hasRunAsGroup() {
     return this.runAsGroup != null;
   }
 
-  public java.lang.Boolean getRunAsNonRoot() {
+  public Boolean getRunAsNonRoot() {
     return this.runAsNonRoot;
   }
 
-  public A withRunAsNonRoot(java.lang.Boolean runAsNonRoot) {
+  public A withRunAsNonRoot(Boolean runAsNonRoot) {
     this.runAsNonRoot = runAsNonRoot;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRunAsNonRoot() {
+  public Boolean hasRunAsNonRoot() {
     return this.runAsNonRoot != null;
   }
 
-  public java.lang.Long getRunAsUser() {
+  public Long getRunAsUser() {
     return this.runAsUser;
   }
 
-  public A withRunAsUser(java.lang.Long runAsUser) {
+  public A withRunAsUser(Long runAsUser) {
     this.runAsUser = runAsUser;
     return (A) this;
   }
 
-  public java.lang.Boolean hasRunAsUser() {
+  public Boolean hasRunAsUser() {
     return this.runAsUser != null;
   }
 
@@ -135,21 +134,23 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return this.seLinuxOptions != null ? this.seLinuxOptions.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1SELinuxOptions buildSeLinuxOptions() {
+  public V1SELinuxOptions buildSeLinuxOptions() {
     return this.seLinuxOptions != null ? this.seLinuxOptions.build() : null;
   }
 
-  public A withSeLinuxOptions(io.kubernetes.client.openapi.models.V1SELinuxOptions seLinuxOptions) {
+  public A withSeLinuxOptions(V1SELinuxOptions seLinuxOptions) {
     _visitables.get("seLinuxOptions").remove(this.seLinuxOptions);
     if (seLinuxOptions != null) {
-      this.seLinuxOptions =
-          new io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder(seLinuxOptions);
+      this.seLinuxOptions = new V1SELinuxOptionsBuilder(seLinuxOptions);
       _visitables.get("seLinuxOptions").add(this.seLinuxOptions);
+    } else {
+      this.seLinuxOptions = null;
+      _visitables.get("seLinuxOptions").remove(this.seLinuxOptions);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSeLinuxOptions() {
+  public Boolean hasSeLinuxOptions() {
     return this.seLinuxOptions != null;
   }
 
@@ -157,26 +158,22 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return new V1PodSecurityContextFluentImpl.SeLinuxOptionsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeLinuxOptionsNested<A>
-      withNewSeLinuxOptionsLike(io.kubernetes.client.openapi.models.V1SELinuxOptions item) {
+  public V1PodSecurityContextFluent.SeLinuxOptionsNested<A> withNewSeLinuxOptionsLike(
+      V1SELinuxOptions item) {
     return new V1PodSecurityContextFluentImpl.SeLinuxOptionsNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeLinuxOptionsNested<A>
-      editSeLinuxOptions() {
+  public V1PodSecurityContextFluent.SeLinuxOptionsNested<A> editSeLinuxOptions() {
     return withNewSeLinuxOptionsLike(getSeLinuxOptions());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeLinuxOptionsNested<A>
-      editOrNewSeLinuxOptions() {
+  public V1PodSecurityContextFluent.SeLinuxOptionsNested<A> editOrNewSeLinuxOptions() {
     return withNewSeLinuxOptionsLike(
-        getSeLinuxOptions() != null
-            ? getSeLinuxOptions()
-            : new io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder().build());
+        getSeLinuxOptions() != null ? getSeLinuxOptions() : new V1SELinuxOptionsBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeLinuxOptionsNested<A>
-      editOrNewSeLinuxOptionsLike(io.kubernetes.client.openapi.models.V1SELinuxOptions item) {
+  public V1PodSecurityContextFluent.SeLinuxOptionsNested<A> editOrNewSeLinuxOptionsLike(
+      V1SELinuxOptions item) {
     return withNewSeLinuxOptionsLike(getSeLinuxOptions() != null ? getSeLinuxOptions() : item);
   }
 
@@ -185,25 +182,28 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SeccompProfile getSeccompProfile() {
+  @Deprecated
+  public V1SeccompProfile getSeccompProfile() {
     return this.seccompProfile != null ? this.seccompProfile.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1SeccompProfile buildSeccompProfile() {
+  public V1SeccompProfile buildSeccompProfile() {
     return this.seccompProfile != null ? this.seccompProfile.build() : null;
   }
 
-  public A withSeccompProfile(io.kubernetes.client.openapi.models.V1SeccompProfile seccompProfile) {
+  public A withSeccompProfile(V1SeccompProfile seccompProfile) {
     _visitables.get("seccompProfile").remove(this.seccompProfile);
     if (seccompProfile != null) {
       this.seccompProfile = new V1SeccompProfileBuilder(seccompProfile);
       _visitables.get("seccompProfile").add(this.seccompProfile);
+    } else {
+      this.seccompProfile = null;
+      _visitables.get("seccompProfile").remove(this.seccompProfile);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSeccompProfile() {
+  public Boolean hasSeccompProfile() {
     return this.seccompProfile != null;
   }
 
@@ -211,41 +211,36 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return new V1PodSecurityContextFluentImpl.SeccompProfileNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeccompProfileNested<A>
-      withNewSeccompProfileLike(io.kubernetes.client.openapi.models.V1SeccompProfile item) {
-    return new io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl
-        .SeccompProfileNestedImpl(item);
+  public V1PodSecurityContextFluent.SeccompProfileNested<A> withNewSeccompProfileLike(
+      V1SeccompProfile item) {
+    return new V1PodSecurityContextFluentImpl.SeccompProfileNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeccompProfileNested<A>
-      editSeccompProfile() {
+  public V1PodSecurityContextFluent.SeccompProfileNested<A> editSeccompProfile() {
     return withNewSeccompProfileLike(getSeccompProfile());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeccompProfileNested<A>
-      editOrNewSeccompProfile() {
+  public V1PodSecurityContextFluent.SeccompProfileNested<A> editOrNewSeccompProfile() {
     return withNewSeccompProfileLike(
-        getSeccompProfile() != null
-            ? getSeccompProfile()
-            : new io.kubernetes.client.openapi.models.V1SeccompProfileBuilder().build());
+        getSeccompProfile() != null ? getSeccompProfile() : new V1SeccompProfileBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SeccompProfileNested<A>
-      editOrNewSeccompProfileLike(io.kubernetes.client.openapi.models.V1SeccompProfile item) {
+  public V1PodSecurityContextFluent.SeccompProfileNested<A> editOrNewSeccompProfileLike(
+      V1SeccompProfile item) {
     return withNewSeccompProfileLike(getSeccompProfile() != null ? getSeccompProfile() : item);
   }
 
-  public A addToSupplementalGroups(Integer index, java.lang.Long item) {
+  public A addToSupplementalGroups(Integer index, Long item) {
     if (this.supplementalGroups == null) {
-      this.supplementalGroups = new java.util.ArrayList<java.lang.Long>();
+      this.supplementalGroups = new ArrayList<Long>();
     }
     this.supplementalGroups.add(index, item);
     return (A) this;
   }
 
-  public A setToSupplementalGroups(java.lang.Integer index, java.lang.Long item) {
+  public A setToSupplementalGroups(Integer index, Long item) {
     if (this.supplementalGroups == null) {
-      this.supplementalGroups = new java.util.ArrayList<java.lang.Long>();
+      this.supplementalGroups = new ArrayList<Long>();
     }
     this.supplementalGroups.set(index, item);
     return (A) this;
@@ -253,26 +248,26 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
 
   public A addToSupplementalGroups(java.lang.Long... items) {
     if (this.supplementalGroups == null) {
-      this.supplementalGroups = new java.util.ArrayList<java.lang.Long>();
+      this.supplementalGroups = new ArrayList<Long>();
     }
-    for (java.lang.Long item : items) {
+    for (Long item : items) {
       this.supplementalGroups.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToSupplementalGroups(Collection<java.lang.Long> items) {
+  public A addAllToSupplementalGroups(Collection<Long> items) {
     if (this.supplementalGroups == null) {
-      this.supplementalGroups = new java.util.ArrayList<java.lang.Long>();
+      this.supplementalGroups = new ArrayList<Long>();
     }
-    for (java.lang.Long item : items) {
+    for (Long item : items) {
       this.supplementalGroups.add(item);
     }
     return (A) this;
   }
 
   public A removeFromSupplementalGroups(java.lang.Long... items) {
-    for (java.lang.Long item : items) {
+    for (Long item : items) {
       if (this.supplementalGroups != null) {
         this.supplementalGroups.remove(item);
       }
@@ -280,8 +275,8 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return (A) this;
   }
 
-  public A removeAllFromSupplementalGroups(java.util.Collection<java.lang.Long> items) {
-    for (java.lang.Long item : items) {
+  public A removeAllFromSupplementalGroups(Collection<Long> items) {
+    for (Long item : items) {
       if (this.supplementalGroups != null) {
         this.supplementalGroups.remove(item);
       }
@@ -289,24 +284,24 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return (A) this;
   }
 
-  public java.util.List<java.lang.Long> getSupplementalGroups() {
+  public List<Long> getSupplementalGroups() {
     return this.supplementalGroups;
   }
 
-  public java.lang.Long getSupplementalGroup(java.lang.Integer index) {
+  public Long getSupplementalGroup(Integer index) {
     return this.supplementalGroups.get(index);
   }
 
-  public java.lang.Long getFirstSupplementalGroup() {
+  public Long getFirstSupplementalGroup() {
     return this.supplementalGroups.get(0);
   }
 
-  public java.lang.Long getLastSupplementalGroup() {
+  public Long getLastSupplementalGroup() {
     return this.supplementalGroups.get(supplementalGroups.size() - 1);
   }
 
-  public java.lang.Long getMatchingSupplementalGroup(Predicate<java.lang.Long> predicate) {
-    for (java.lang.Long item : supplementalGroups) {
+  public Long getMatchingSupplementalGroup(Predicate<Long> predicate) {
+    for (Long item : supplementalGroups) {
       if (predicate.test(item)) {
         return item;
       }
@@ -314,9 +309,8 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return null;
   }
 
-  public java.lang.Boolean hasMatchingSupplementalGroup(
-      java.util.function.Predicate<java.lang.Long> predicate) {
-    for (java.lang.Long item : supplementalGroups) {
+  public Boolean hasMatchingSupplementalGroup(Predicate<Long> predicate) {
+    for (Long item : supplementalGroups) {
       if (predicate.test(item)) {
         return true;
       }
@@ -324,10 +318,10 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return false;
   }
 
-  public A withSupplementalGroups(java.util.List<java.lang.Long> supplementalGroups) {
+  public A withSupplementalGroups(List<Long> supplementalGroups) {
     if (supplementalGroups != null) {
-      this.supplementalGroups = new java.util.ArrayList();
-      for (java.lang.Long item : supplementalGroups) {
+      this.supplementalGroups = new ArrayList();
+      for (Long item : supplementalGroups) {
         this.addToSupplementalGroups(item);
       }
     } else {
@@ -341,35 +335,32 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
       this.supplementalGroups.clear();
     }
     if (supplementalGroups != null) {
-      for (java.lang.Long item : supplementalGroups) {
+      for (Long item : supplementalGroups) {
         this.addToSupplementalGroups(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSupplementalGroups() {
+  public Boolean hasSupplementalGroups() {
     return supplementalGroups != null && !supplementalGroups.isEmpty();
   }
 
-  public A addToSysctls(java.lang.Integer index, V1Sysctl item) {
+  public A addToSysctls(Integer index, V1Sysctl item) {
     if (this.sysctls == null) {
-      this.sysctls = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1SysctlBuilder>();
+      this.sysctls = new ArrayList<V1SysctlBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1SysctlBuilder builder =
-        new io.kubernetes.client.openapi.models.V1SysctlBuilder(item);
+    V1SysctlBuilder builder = new V1SysctlBuilder(item);
     _visitables.get("sysctls").add(index >= 0 ? index : _visitables.get("sysctls").size(), builder);
     this.sysctls.add(index >= 0 ? index : sysctls.size(), builder);
     return (A) this;
   }
 
-  public A setToSysctls(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Sysctl item) {
+  public A setToSysctls(Integer index, V1Sysctl item) {
     if (this.sysctls == null) {
-      this.sysctls = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1SysctlBuilder>();
+      this.sysctls = new ArrayList<V1SysctlBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1SysctlBuilder builder =
-        new io.kubernetes.client.openapi.models.V1SysctlBuilder(item);
+    V1SysctlBuilder builder = new V1SysctlBuilder(item);
     if (index < 0 || index >= _visitables.get("sysctls").size()) {
       _visitables.get("sysctls").add(builder);
     } else {
@@ -385,25 +376,22 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
 
   public A addToSysctls(io.kubernetes.client.openapi.models.V1Sysctl... items) {
     if (this.sysctls == null) {
-      this.sysctls = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1SysctlBuilder>();
+      this.sysctls = new ArrayList<V1SysctlBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Sysctl item : items) {
-      io.kubernetes.client.openapi.models.V1SysctlBuilder builder =
-          new io.kubernetes.client.openapi.models.V1SysctlBuilder(item);
+    for (V1Sysctl item : items) {
+      V1SysctlBuilder builder = new V1SysctlBuilder(item);
       _visitables.get("sysctls").add(builder);
       this.sysctls.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToSysctls(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Sysctl> items) {
+  public A addAllToSysctls(Collection<V1Sysctl> items) {
     if (this.sysctls == null) {
-      this.sysctls = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1SysctlBuilder>();
+      this.sysctls = new ArrayList<V1SysctlBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Sysctl item : items) {
-      io.kubernetes.client.openapi.models.V1SysctlBuilder builder =
-          new io.kubernetes.client.openapi.models.V1SysctlBuilder(item);
+    for (V1Sysctl item : items) {
+      V1SysctlBuilder builder = new V1SysctlBuilder(item);
       _visitables.get("sysctls").add(builder);
       this.sysctls.add(builder);
     }
@@ -411,9 +399,8 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
   }
 
   public A removeFromSysctls(io.kubernetes.client.openapi.models.V1Sysctl... items) {
-    for (io.kubernetes.client.openapi.models.V1Sysctl item : items) {
-      io.kubernetes.client.openapi.models.V1SysctlBuilder builder =
-          new io.kubernetes.client.openapi.models.V1SysctlBuilder(item);
+    for (V1Sysctl item : items) {
+      V1SysctlBuilder builder = new V1SysctlBuilder(item);
       _visitables.get("sysctls").remove(builder);
       if (this.sysctls != null) {
         this.sysctls.remove(builder);
@@ -422,11 +409,9 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return (A) this;
   }
 
-  public A removeAllFromSysctls(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Sysctl> items) {
-    for (io.kubernetes.client.openapi.models.V1Sysctl item : items) {
-      io.kubernetes.client.openapi.models.V1SysctlBuilder builder =
-          new io.kubernetes.client.openapi.models.V1SysctlBuilder(item);
+  public A removeAllFromSysctls(Collection<V1Sysctl> items) {
+    for (V1Sysctl item : items) {
+      V1SysctlBuilder builder = new V1SysctlBuilder(item);
       _visitables.get("sysctls").remove(builder);
       if (this.sysctls != null) {
         this.sysctls.remove(builder);
@@ -435,13 +420,12 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return (A) this;
   }
 
-  public A removeMatchingFromSysctls(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1SysctlBuilder> predicate) {
+  public A removeMatchingFromSysctls(Predicate<V1SysctlBuilder> predicate) {
     if (sysctls == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1SysctlBuilder> each = sysctls.iterator();
+    final Iterator<V1SysctlBuilder> each = sysctls.iterator();
     final List visitables = _visitables.get("sysctls");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1SysctlBuilder builder = each.next();
+      V1SysctlBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -455,30 +439,29 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1Sysctl> getSysctls() {
+  @Deprecated
+  public List<V1Sysctl> getSysctls() {
     return sysctls != null ? build(sysctls) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1Sysctl> buildSysctls() {
+  public List<V1Sysctl> buildSysctls() {
     return sysctls != null ? build(sysctls) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1Sysctl buildSysctl(java.lang.Integer index) {
+  public V1Sysctl buildSysctl(Integer index) {
     return this.sysctls.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Sysctl buildFirstSysctl() {
+  public V1Sysctl buildFirstSysctl() {
     return this.sysctls.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Sysctl buildLastSysctl() {
+  public V1Sysctl buildLastSysctl() {
     return this.sysctls.get(sysctls.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Sysctl buildMatchingSysctl(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1SysctlBuilder> predicate) {
-    for (io.kubernetes.client.openapi.models.V1SysctlBuilder item : sysctls) {
+  public V1Sysctl buildMatchingSysctl(Predicate<V1SysctlBuilder> predicate) {
+    for (V1SysctlBuilder item : sysctls) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -486,9 +469,8 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return null;
   }
 
-  public java.lang.Boolean hasMatchingSysctl(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1SysctlBuilder> predicate) {
-    for (io.kubernetes.client.openapi.models.V1SysctlBuilder item : sysctls) {
+  public Boolean hasMatchingSysctl(Predicate<V1SysctlBuilder> predicate) {
+    for (V1SysctlBuilder item : sysctls) {
       if (predicate.test(item)) {
         return true;
       }
@@ -496,13 +478,13 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return false;
   }
 
-  public A withSysctls(java.util.List<io.kubernetes.client.openapi.models.V1Sysctl> sysctls) {
+  public A withSysctls(List<V1Sysctl> sysctls) {
     if (this.sysctls != null) {
       _visitables.get("sysctls").removeAll(this.sysctls);
     }
     if (sysctls != null) {
-      this.sysctls = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1Sysctl item : sysctls) {
+      this.sysctls = new ArrayList();
+      for (V1Sysctl item : sysctls) {
         this.addToSysctls(item);
       }
     } else {
@@ -516,14 +498,14 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
       this.sysctls.clear();
     }
     if (sysctls != null) {
-      for (io.kubernetes.client.openapi.models.V1Sysctl item : sysctls) {
+      for (V1Sysctl item : sysctls) {
         this.addToSysctls(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSysctls() {
+  public Boolean hasSysctls() {
     return sysctls != null && !sysctls.isEmpty();
   }
 
@@ -531,43 +513,35 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return new V1PodSecurityContextFluentImpl.SysctlsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<A>
-      addNewSysctlLike(io.kubernetes.client.openapi.models.V1Sysctl item) {
-    return new io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl.SysctlsNestedImpl(
-        -1, item);
+  public V1PodSecurityContextFluent.SysctlsNested<A> addNewSysctlLike(V1Sysctl item) {
+    return new V1PodSecurityContextFluentImpl.SysctlsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<A>
-      setNewSysctlLike(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Sysctl item) {
-    return new io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl.SysctlsNestedImpl(
-        index, item);
+  public V1PodSecurityContextFluent.SysctlsNested<A> setNewSysctlLike(
+      Integer index, V1Sysctl item) {
+    return new V1PodSecurityContextFluentImpl.SysctlsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<A> editSysctl(
-      java.lang.Integer index) {
+  public V1PodSecurityContextFluent.SysctlsNested<A> editSysctl(Integer index) {
     if (sysctls.size() <= index)
       throw new RuntimeException("Can't edit sysctls. Index exceeds size.");
     return setNewSysctlLike(index, buildSysctl(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<A>
-      editFirstSysctl() {
+  public V1PodSecurityContextFluent.SysctlsNested<A> editFirstSysctl() {
     if (sysctls.size() == 0)
       throw new RuntimeException("Can't edit first sysctls. The list is empty.");
     return setNewSysctlLike(0, buildSysctl(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<A>
-      editLastSysctl() {
+  public V1PodSecurityContextFluent.SysctlsNested<A> editLastSysctl() {
     int index = sysctls.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last sysctls. The list is empty.");
     return setNewSysctlLike(index, buildSysctl(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<A>
-      editMatchingSysctl(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1SysctlBuilder>
-              predicate) {
+  public V1PodSecurityContextFluent.SysctlsNested<A> editMatchingSysctl(
+      Predicate<V1SysctlBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < sysctls.size(); i++) {
       if (predicate.test(sysctls.get(i))) {
@@ -584,28 +558,28 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1WindowsSecurityContextOptions getWindowsOptions() {
     return this.windowsOptions != null ? this.windowsOptions.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions buildWindowsOptions() {
+  public V1WindowsSecurityContextOptions buildWindowsOptions() {
     return this.windowsOptions != null ? this.windowsOptions.build() : null;
   }
 
-  public A withWindowsOptions(
-      io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions windowsOptions) {
+  public A withWindowsOptions(V1WindowsSecurityContextOptions windowsOptions) {
     _visitables.get("windowsOptions").remove(this.windowsOptions);
     if (windowsOptions != null) {
-      this.windowsOptions =
-          new io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsBuilder(
-              windowsOptions);
+      this.windowsOptions = new V1WindowsSecurityContextOptionsBuilder(windowsOptions);
       _visitables.get("windowsOptions").add(this.windowsOptions);
+    } else {
+      this.windowsOptions = null;
+      _visitables.get("windowsOptions").remove(this.windowsOptions);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasWindowsOptions() {
+  public Boolean hasWindowsOptions() {
     return this.windowsOptions != null;
   }
 
@@ -613,30 +587,24 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
     return new V1PodSecurityContextFluentImpl.WindowsOptionsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.WindowsOptionsNested<A>
-      withNewWindowsOptionsLike(
-          io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions item) {
-    return new io.kubernetes.client.openapi.models.V1PodSecurityContextFluentImpl
-        .WindowsOptionsNestedImpl(item);
+  public V1PodSecurityContextFluent.WindowsOptionsNested<A> withNewWindowsOptionsLike(
+      V1WindowsSecurityContextOptions item) {
+    return new V1PodSecurityContextFluentImpl.WindowsOptionsNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.WindowsOptionsNested<A>
-      editWindowsOptions() {
+  public V1PodSecurityContextFluent.WindowsOptionsNested<A> editWindowsOptions() {
     return withNewWindowsOptionsLike(getWindowsOptions());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.WindowsOptionsNested<A>
-      editOrNewWindowsOptions() {
+  public V1PodSecurityContextFluent.WindowsOptionsNested<A> editOrNewWindowsOptions() {
     return withNewWindowsOptionsLike(
         getWindowsOptions() != null
             ? getWindowsOptions()
-            : new io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsBuilder()
-                .build());
+            : new V1WindowsSecurityContextOptionsBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.WindowsOptionsNested<A>
-      editOrNewWindowsOptionsLike(
-          io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions item) {
+  public V1PodSecurityContextFluent.WindowsOptionsNested<A> editOrNewWindowsOptionsLike(
+      V1WindowsSecurityContextOptions item) {
     return withNewWindowsOptionsLike(getWindowsOptions() != null ? getWindowsOptions() : item);
   }
 
@@ -685,7 +653,7 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fsGroup != null) {
@@ -738,19 +706,16 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
 
   class SeLinuxOptionsNestedImpl<N>
       extends V1SELinuxOptionsFluentImpl<V1PodSecurityContextFluent.SeLinuxOptionsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodSecurityContextFluent
-                  .SeLinuxOptionsNested<
-              N>,
-          Nested<N> {
-    SeLinuxOptionsNestedImpl(io.kubernetes.client.openapi.models.V1SELinuxOptions item) {
+      implements V1PodSecurityContextFluent.SeLinuxOptionsNested<N>, Nested<N> {
+    SeLinuxOptionsNestedImpl(V1SELinuxOptions item) {
       this.builder = new V1SELinuxOptionsBuilder(this, item);
     }
 
     SeLinuxOptionsNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder(this);
+      this.builder = new V1SELinuxOptionsBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder builder;
+    V1SELinuxOptionsBuilder builder;
 
     public N and() {
       return (N) V1PodSecurityContextFluentImpl.this.withSeLinuxOptions(builder.build());
@@ -763,19 +728,16 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
 
   class SeccompProfileNestedImpl<N>
       extends V1SeccompProfileFluentImpl<V1PodSecurityContextFluent.SeccompProfileNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodSecurityContextFluent
-                  .SeccompProfileNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SeccompProfileNestedImpl(io.kubernetes.client.openapi.models.V1SeccompProfile item) {
+      implements V1PodSecurityContextFluent.SeccompProfileNested<N>, Nested<N> {
+    SeccompProfileNestedImpl(V1SeccompProfile item) {
       this.builder = new V1SeccompProfileBuilder(this, item);
     }
 
     SeccompProfileNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1SeccompProfileBuilder(this);
+      this.builder = new V1SeccompProfileBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1SeccompProfileBuilder builder;
+    V1SeccompProfileBuilder builder;
 
     public N and() {
       return (N) V1PodSecurityContextFluentImpl.this.withSeccompProfile(builder.build());
@@ -787,20 +749,19 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
   }
 
   class SysctlsNestedImpl<N> extends V1SysctlFluentImpl<V1PodSecurityContextFluent.SysctlsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodSecurityContextFluent.SysctlsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SysctlsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1Sysctl item) {
+      implements V1PodSecurityContextFluent.SysctlsNested<N>, Nested<N> {
+    SysctlsNestedImpl(Integer index, V1Sysctl item) {
       this.index = index;
       this.builder = new V1SysctlBuilder(this, item);
     }
 
     SysctlsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1SysctlBuilder(this);
+      this.builder = new V1SysctlBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1SysctlBuilder builder;
-    java.lang.Integer index;
+    V1SysctlBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1PodSecurityContextFluentImpl.this.setToSysctls(index, builder.build());
@@ -814,20 +775,16 @@ public class V1PodSecurityContextFluentImpl<A extends V1PodSecurityContextFluent
   class WindowsOptionsNestedImpl<N>
       extends V1WindowsSecurityContextOptionsFluentImpl<
           V1PodSecurityContextFluent.WindowsOptionsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodSecurityContextFluent
-                  .WindowsOptionsNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1PodSecurityContextFluent.WindowsOptionsNested<N>, Nested<N> {
     WindowsOptionsNestedImpl(V1WindowsSecurityContextOptions item) {
       this.builder = new V1WindowsSecurityContextOptionsBuilder(this, item);
     }
 
     WindowsOptionsNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsBuilder(this);
+      this.builder = new V1WindowsSecurityContextOptionsBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptionsBuilder builder;
+    V1WindowsSecurityContextOptionsBuilder builder;
 
     public N and() {
       return (N) V1PodSecurityContextFluentImpl.this.withWindowsOptions(builder.build());

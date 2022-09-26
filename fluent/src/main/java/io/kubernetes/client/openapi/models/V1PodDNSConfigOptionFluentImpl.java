@@ -20,21 +20,20 @@ public class V1PodDNSConfigOptionFluentImpl<A extends V1PodDNSConfigOptionFluent
     extends BaseFluent<A> implements V1PodDNSConfigOptionFluent<A> {
   public V1PodDNSConfigOptionFluentImpl() {}
 
-  public V1PodDNSConfigOptionFluentImpl(
-      io.kubernetes.client.openapi.models.V1PodDNSConfigOption instance) {
+  public V1PodDNSConfigOptionFluentImpl(V1PodDNSConfigOption instance) {
     this.withName(instance.getName());
 
     this.withValue(instance.getValue());
   }
 
   private String name;
-  private java.lang.String value;
+  private String value;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1PodDNSConfigOptionFluentImpl<A extends V1PodDNSConfigOptionFluent
     return this.name != null;
   }
 
-  public java.lang.String getValue() {
+  public String getValue() {
     return this.value;
   }
 
-  public A withValue(java.lang.String value) {
+  public A withValue(String value) {
     this.value = value;
     return (A) this;
   }
 
-  public java.lang.Boolean hasValue() {
+  public Boolean hasValue() {
     return this.value != null;
   }
 
@@ -69,7 +68,7 @@ public class V1PodDNSConfigOptionFluentImpl<A extends V1PodDNSConfigOptionFluent
     return java.util.Objects.hash(name, value, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {

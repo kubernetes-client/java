@@ -18,9 +18,8 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder
     extends V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl<
         V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy,
-        io.kubernetes.client.openapi.models
-            .V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder> {
+        V1StatefulSetPersistentVolumeClaimRetentionPolicy,
+        V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder> {
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder() {
     this(false);
   }
@@ -35,26 +34,21 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder
   }
 
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?>
-          fluent,
-      java.lang.Boolean validationEnabled) {
+      V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?> fluent,
+      Boolean validationEnabled) {
     this(fluent, new V1StatefulSetPersistentVolumeClaimRetentionPolicy(), validationEnabled);
   }
 
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?>
-          fluent,
-      io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
-          instance) {
+      V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?> fluent,
+      V1StatefulSetPersistentVolumeClaimRetentionPolicy instance) {
     this(fluent, instance, false);
   }
 
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?>
-          fluent,
-      io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
-          instance,
-      java.lang.Boolean validationEnabled) {
+      V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?> fluent,
+      V1StatefulSetPersistentVolumeClaimRetentionPolicy instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withWhenDeleted(instance.getWhenDeleted());
 
@@ -64,15 +58,12 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder
   }
 
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
-          instance) {
+      V1StatefulSetPersistentVolumeClaimRetentionPolicy instance) {
     this(instance, false);
   }
 
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
-          instance,
-      java.lang.Boolean validationEnabled) {
+      V1StatefulSetPersistentVolumeClaimRetentionPolicy instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withWhenDeleted(instance.getWhenDeleted());
 
@@ -81,12 +72,10 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?>
-      fluent;
-  java.lang.Boolean validationEnabled;
+  V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetPersistentVolumeClaimRetentionPolicy
-      build() {
+  public V1StatefulSetPersistentVolumeClaimRetentionPolicy build() {
     V1StatefulSetPersistentVolumeClaimRetentionPolicy buildable =
         new V1StatefulSetPersistentVolumeClaimRetentionPolicy();
     buildable.setWhenDeleted(fluent.getWhenDeleted());

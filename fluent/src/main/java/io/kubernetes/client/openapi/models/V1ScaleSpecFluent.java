@@ -18,7 +18,7 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1ScaleSpecFluent<A extends V1ScaleSpecFluent<A>> extends Fluent<A> {
   public Integer getReplicas();
 
-  public A withReplicas(java.lang.Integer replicas);
+  public A withReplicas(Integer replicas);
 
   public Boolean hasReplicas();
 }

@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1UserInfoBuilder extends V1UserInfoFluentImpl<V1UserInfoBuilder>
-    implements VisitableBuilder<V1UserInfo, io.kubernetes.client.openapi.models.V1UserInfoBuilder> {
+    implements VisitableBuilder<V1UserInfo, V1UserInfoBuilder> {
   public V1UserInfoBuilder() {
     this(false);
   }
@@ -28,22 +28,16 @@ public class V1UserInfoBuilder extends V1UserInfoFluentImpl<V1UserInfoBuilder>
     this(fluent, false);
   }
 
-  public V1UserInfoBuilder(
-      io.kubernetes.client.openapi.models.V1UserInfoFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1UserInfoBuilder(V1UserInfoFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1UserInfo(), validationEnabled);
   }
 
-  public V1UserInfoBuilder(
-      io.kubernetes.client.openapi.models.V1UserInfoFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1UserInfo instance) {
+  public V1UserInfoBuilder(V1UserInfoFluent<?> fluent, V1UserInfo instance) {
     this(fluent, instance, false);
   }
 
   public V1UserInfoBuilder(
-      io.kubernetes.client.openapi.models.V1UserInfoFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1UserInfo instance,
-      java.lang.Boolean validationEnabled) {
+      V1UserInfoFluent<?> fluent, V1UserInfo instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withExtra(instance.getExtra());
 
@@ -56,13 +50,11 @@ public class V1UserInfoBuilder extends V1UserInfoFluentImpl<V1UserInfoBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1UserInfoBuilder(io.kubernetes.client.openapi.models.V1UserInfo instance) {
+  public V1UserInfoBuilder(V1UserInfo instance) {
     this(instance, false);
   }
 
-  public V1UserInfoBuilder(
-      io.kubernetes.client.openapi.models.V1UserInfo instance,
-      java.lang.Boolean validationEnabled) {
+  public V1UserInfoBuilder(V1UserInfo instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withExtra(instance.getExtra());
 
@@ -75,10 +67,10 @@ public class V1UserInfoBuilder extends V1UserInfoFluentImpl<V1UserInfoBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1UserInfoFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1UserInfoFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1UserInfo build() {
+  public V1UserInfo build() {
     V1UserInfo buildable = new V1UserInfo();
     buildable.setExtra(fluent.getExtra());
     buildable.setGroups(fluent.getGroups());

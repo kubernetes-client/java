@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1beta2QueuingConfigurationBuilder
     extends V1beta2QueuingConfigurationFluentImpl<V1beta2QueuingConfigurationBuilder>
-    implements VisitableBuilder<
-        V1beta2QueuingConfiguration,
-        io.kubernetes.client.openapi.models.V1beta2QueuingConfigurationBuilder> {
+    implements VisitableBuilder<V1beta2QueuingConfiguration, V1beta2QueuingConfigurationBuilder> {
   public V1beta2QueuingConfigurationBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1beta2QueuingConfigurationBuilder
   }
 
   public V1beta2QueuingConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta2QueuingConfigurationFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta2QueuingConfigurationFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta2QueuingConfiguration(), validationEnabled);
   }
 
   public V1beta2QueuingConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta2QueuingConfigurationFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta2QueuingConfiguration instance) {
+      V1beta2QueuingConfigurationFluent<?> fluent, V1beta2QueuingConfiguration instance) {
     this(fluent, instance, false);
   }
 
   public V1beta2QueuingConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta2QueuingConfigurationFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta2QueuingConfiguration instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2QueuingConfigurationFluent<?> fluent,
+      V1beta2QueuingConfiguration instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withHandSize(instance.getHandSize());
 
@@ -57,14 +53,12 @@ public class V1beta2QueuingConfigurationBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta2QueuingConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta2QueuingConfiguration instance) {
+  public V1beta2QueuingConfigurationBuilder(V1beta2QueuingConfiguration instance) {
     this(instance, false);
   }
 
   public V1beta2QueuingConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta2QueuingConfiguration instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2QueuingConfiguration instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withHandSize(instance.getHandSize());
 
@@ -75,10 +69,10 @@ public class V1beta2QueuingConfigurationBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta2QueuingConfigurationFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta2QueuingConfigurationFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta2QueuingConfiguration build() {
+  public V1beta2QueuingConfiguration build() {
     V1beta2QueuingConfiguration buildable = new V1beta2QueuingConfiguration();
     buildable.setHandSize(fluent.getHandSize());
     buildable.setQueueLengthLimit(fluent.getQueueLengthLimit());

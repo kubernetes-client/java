@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LimitRangeListBuilder extends V1LimitRangeListFluentImpl<V1LimitRangeListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1LimitRangeList,
-        io.kubernetes.client.openapi.models.V1LimitRangeListBuilder> {
+    implements VisitableBuilder<V1LimitRangeList, V1LimitRangeListBuilder> {
   public V1LimitRangeListBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1LimitRangeListBuilder extends V1LimitRangeListFluentImpl<V1LimitR
     this(fluent, false);
   }
 
-  public V1LimitRangeListBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1LimitRangeListBuilder(V1LimitRangeListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1LimitRangeList(), validationEnabled);
   }
 
-  public V1LimitRangeListBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LimitRangeList instance) {
+  public V1LimitRangeListBuilder(V1LimitRangeListFluent<?> fluent, V1LimitRangeList instance) {
     this(fluent, instance, false);
   }
 
   public V1LimitRangeListBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LimitRangeList instance,
-      java.lang.Boolean validationEnabled) {
+      V1LimitRangeListFluent<?> fluent, V1LimitRangeList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,13 +50,11 @@ public class V1LimitRangeListBuilder extends V1LimitRangeListFluentImpl<V1LimitR
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LimitRangeListBuilder(io.kubernetes.client.openapi.models.V1LimitRangeList instance) {
+  public V1LimitRangeListBuilder(V1LimitRangeList instance) {
     this(instance, false);
   }
 
-  public V1LimitRangeListBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1LimitRangeListBuilder(V1LimitRangeList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -77,10 +67,10 @@ public class V1LimitRangeListBuilder extends V1LimitRangeListFluentImpl<V1LimitR
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LimitRangeListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LimitRangeListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeList build() {
+  public V1LimitRangeList build() {
     V1LimitRangeList buildable = new V1LimitRangeList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

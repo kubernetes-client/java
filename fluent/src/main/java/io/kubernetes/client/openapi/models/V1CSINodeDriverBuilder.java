@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1CSINodeDriverBuilder extends V1CSINodeDriverFluentImpl<V1CSINodeDriverBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CSINodeDriver, V1CSINodeDriverBuilder> {
+    implements VisitableBuilder<V1CSINodeDriver, V1CSINodeDriverBuilder> {
   public V1CSINodeDriverBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1CSINodeDriverBuilder extends V1CSINodeDriverFluentImpl<V1CSINodeD
     this(new V1CSINodeDriver(), validationEnabled);
   }
 
-  public V1CSINodeDriverBuilder(
-      io.kubernetes.client.openapi.models.V1CSINodeDriverFluent<?> fluent) {
+  public V1CSINodeDriverBuilder(V1CSINodeDriverFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1CSINodeDriverBuilder(
-      io.kubernetes.client.openapi.models.V1CSINodeDriverFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1CSINodeDriverBuilder(V1CSINodeDriverFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CSINodeDriver(), validationEnabled);
   }
 
-  public V1CSINodeDriverBuilder(
-      io.kubernetes.client.openapi.models.V1CSINodeDriverFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSINodeDriver instance) {
+  public V1CSINodeDriverBuilder(V1CSINodeDriverFluent<?> fluent, V1CSINodeDriver instance) {
     this(fluent, instance, false);
   }
 
   public V1CSINodeDriverBuilder(
-      io.kubernetes.client.openapi.models.V1CSINodeDriverFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSINodeDriver instance,
-      java.lang.Boolean validationEnabled) {
+      V1CSINodeDriverFluent<?> fluent, V1CSINodeDriver instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAllocatable(instance.getAllocatable());
 
@@ -58,13 +50,11 @@ public class V1CSINodeDriverBuilder extends V1CSINodeDriverFluentImpl<V1CSINodeD
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CSINodeDriverBuilder(io.kubernetes.client.openapi.models.V1CSINodeDriver instance) {
+  public V1CSINodeDriverBuilder(V1CSINodeDriver instance) {
     this(instance, false);
   }
 
-  public V1CSINodeDriverBuilder(
-      io.kubernetes.client.openapi.models.V1CSINodeDriver instance,
-      java.lang.Boolean validationEnabled) {
+  public V1CSINodeDriverBuilder(V1CSINodeDriver instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAllocatable(instance.getAllocatable());
 
@@ -77,10 +67,10 @@ public class V1CSINodeDriverBuilder extends V1CSINodeDriverFluentImpl<V1CSINodeD
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CSINodeDriverFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CSINodeDriverFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CSINodeDriver build() {
+  public V1CSINodeDriver build() {
     V1CSINodeDriver buildable = new V1CSINodeDriver();
     buildable.setAllocatable(fluent.getAllocatable());
     buildable.setName(fluent.getName());

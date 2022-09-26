@@ -24,26 +24,26 @@ public class V1HostAliasFluentImpl<A extends V1HostAliasFluent<A>> extends BaseF
     implements V1HostAliasFluent<A> {
   public V1HostAliasFluentImpl() {}
 
-  public V1HostAliasFluentImpl(io.kubernetes.client.openapi.models.V1HostAlias instance) {
+  public V1HostAliasFluentImpl(V1HostAlias instance) {
     this.withHostnames(instance.getHostnames());
 
     this.withIp(instance.getIp());
   }
 
   private List<String> hostnames;
-  private java.lang.String ip;
+  private String ip;
 
-  public A addToHostnames(Integer index, java.lang.String item) {
+  public A addToHostnames(Integer index, String item) {
     if (this.hostnames == null) {
-      this.hostnames = new ArrayList<java.lang.String>();
+      this.hostnames = new ArrayList<String>();
     }
     this.hostnames.add(index, item);
     return (A) this;
   }
 
-  public A setToHostnames(java.lang.Integer index, java.lang.String item) {
+  public A setToHostnames(Integer index, String item) {
     if (this.hostnames == null) {
-      this.hostnames = new java.util.ArrayList<java.lang.String>();
+      this.hostnames = new ArrayList<String>();
     }
     this.hostnames.set(index, item);
     return (A) this;
@@ -51,26 +51,26 @@ public class V1HostAliasFluentImpl<A extends V1HostAliasFluent<A>> extends BaseF
 
   public A addToHostnames(java.lang.String... items) {
     if (this.hostnames == null) {
-      this.hostnames = new java.util.ArrayList<java.lang.String>();
+      this.hostnames = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.hostnames.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToHostnames(Collection<java.lang.String> items) {
+  public A addAllToHostnames(Collection<String> items) {
     if (this.hostnames == null) {
-      this.hostnames = new java.util.ArrayList<java.lang.String>();
+      this.hostnames = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.hostnames.add(item);
     }
     return (A) this;
   }
 
   public A removeFromHostnames(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.hostnames != null) {
         this.hostnames.remove(item);
       }
@@ -78,8 +78,8 @@ public class V1HostAliasFluentImpl<A extends V1HostAliasFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeAllFromHostnames(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromHostnames(Collection<String> items) {
+    for (String item : items) {
       if (this.hostnames != null) {
         this.hostnames.remove(item);
       }
@@ -87,24 +87,24 @@ public class V1HostAliasFluentImpl<A extends V1HostAliasFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getHostnames() {
+  public List<String> getHostnames() {
     return this.hostnames;
   }
 
-  public java.lang.String getHostname(java.lang.Integer index) {
+  public String getHostname(Integer index) {
     return this.hostnames.get(index);
   }
 
-  public java.lang.String getFirstHostname() {
+  public String getFirstHostname() {
     return this.hostnames.get(0);
   }
 
-  public java.lang.String getLastHostname() {
+  public String getLastHostname() {
     return this.hostnames.get(hostnames.size() - 1);
   }
 
-  public java.lang.String getMatchingHostname(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : hostnames) {
+  public String getMatchingHostname(Predicate<String> predicate) {
+    for (String item : hostnames) {
       if (predicate.test(item)) {
         return item;
       }
@@ -112,8 +112,8 @@ public class V1HostAliasFluentImpl<A extends V1HostAliasFluent<A>> extends BaseF
     return null;
   }
 
-  public Boolean hasMatchingHostname(java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : hostnames) {
+  public Boolean hasMatchingHostname(Predicate<String> predicate) {
+    for (String item : hostnames) {
       if (predicate.test(item)) {
         return true;
       }
@@ -121,10 +121,10 @@ public class V1HostAliasFluentImpl<A extends V1HostAliasFluent<A>> extends BaseF
     return false;
   }
 
-  public A withHostnames(java.util.List<java.lang.String> hostnames) {
+  public A withHostnames(List<String> hostnames) {
     if (hostnames != null) {
-      this.hostnames = new java.util.ArrayList();
-      for (java.lang.String item : hostnames) {
+      this.hostnames = new ArrayList();
+      for (String item : hostnames) {
         this.addToHostnames(item);
       }
     } else {
@@ -138,27 +138,27 @@ public class V1HostAliasFluentImpl<A extends V1HostAliasFluent<A>> extends BaseF
       this.hostnames.clear();
     }
     if (hostnames != null) {
-      for (java.lang.String item : hostnames) {
+      for (String item : hostnames) {
         this.addToHostnames(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasHostnames() {
+  public Boolean hasHostnames() {
     return hostnames != null && !hostnames.isEmpty();
   }
 
-  public java.lang.String getIp() {
+  public String getIp() {
     return this.ip;
   }
 
-  public A withIp(java.lang.String ip) {
+  public A withIp(String ip) {
     this.ip = ip;
     return (A) this;
   }
 
-  public java.lang.Boolean hasIp() {
+  public Boolean hasIp() {
     return this.ip != null;
   }
 
@@ -176,7 +176,7 @@ public class V1HostAliasFluentImpl<A extends V1HostAliasFluent<A>> extends BaseF
     return java.util.Objects.hash(hostnames, ip, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (hostnames != null && !hostnames.isEmpty()) {

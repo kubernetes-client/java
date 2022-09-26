@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1EnvVarBuilder extends V1EnvVarFluentImpl<V1EnvVarBuilder>
-    implements VisitableBuilder<V1EnvVar, io.kubernetes.client.openapi.models.V1EnvVarBuilder> {
+    implements VisitableBuilder<V1EnvVar, V1EnvVarBuilder> {
   public V1EnvVarBuilder() {
     this(false);
   }
@@ -28,22 +28,15 @@ public class V1EnvVarBuilder extends V1EnvVarFluentImpl<V1EnvVarBuilder>
     this(fluent, false);
   }
 
-  public V1EnvVarBuilder(
-      io.kubernetes.client.openapi.models.V1EnvVarFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1EnvVarBuilder(V1EnvVarFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1EnvVar(), validationEnabled);
   }
 
-  public V1EnvVarBuilder(
-      io.kubernetes.client.openapi.models.V1EnvVarFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EnvVar instance) {
+  public V1EnvVarBuilder(V1EnvVarFluent<?> fluent, V1EnvVar instance) {
     this(fluent, instance, false);
   }
 
-  public V1EnvVarBuilder(
-      io.kubernetes.client.openapi.models.V1EnvVarFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EnvVar instance,
-      java.lang.Boolean validationEnabled) {
+  public V1EnvVarBuilder(V1EnvVarFluent<?> fluent, V1EnvVar instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
@@ -54,12 +47,11 @@ public class V1EnvVarBuilder extends V1EnvVarFluentImpl<V1EnvVarBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1EnvVarBuilder(io.kubernetes.client.openapi.models.V1EnvVar instance) {
+  public V1EnvVarBuilder(V1EnvVar instance) {
     this(instance, false);
   }
 
-  public V1EnvVarBuilder(
-      io.kubernetes.client.openapi.models.V1EnvVar instance, java.lang.Boolean validationEnabled) {
+  public V1EnvVarBuilder(V1EnvVar instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
@@ -70,10 +62,10 @@ public class V1EnvVarBuilder extends V1EnvVarFluentImpl<V1EnvVarBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1EnvVarFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1EnvVarFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1EnvVar build() {
+  public V1EnvVar build() {
     V1EnvVar buildable = new V1EnvVar();
     buildable.setName(fluent.getName());
     buildable.setValue(fluent.getValue());

@@ -24,26 +24,26 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
     implements V1CapabilitiesFluent<A> {
   public V1CapabilitiesFluentImpl() {}
 
-  public V1CapabilitiesFluentImpl(io.kubernetes.client.openapi.models.V1Capabilities instance) {
+  public V1CapabilitiesFluentImpl(V1Capabilities instance) {
     this.withAdd(instance.getAdd());
 
     this.withDrop(instance.getDrop());
   }
 
   private List<String> add;
-  private java.util.List<java.lang.String> drop;
+  private List<String> drop;
 
-  public A addToAdd(Integer index, java.lang.String item) {
+  public A addToAdd(Integer index, String item) {
     if (this.add == null) {
-      this.add = new ArrayList<java.lang.String>();
+      this.add = new ArrayList<String>();
     }
     this.add.add(index, item);
     return (A) this;
   }
 
-  public A setToAdd(java.lang.Integer index, java.lang.String item) {
+  public A setToAdd(Integer index, String item) {
     if (this.add == null) {
-      this.add = new java.util.ArrayList<java.lang.String>();
+      this.add = new ArrayList<String>();
     }
     this.add.set(index, item);
     return (A) this;
@@ -51,26 +51,26 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
 
   public A addToAdd(java.lang.String... items) {
     if (this.add == null) {
-      this.add = new java.util.ArrayList<java.lang.String>();
+      this.add = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.add.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToAdd(Collection<java.lang.String> items) {
+  public A addAllToAdd(Collection<String> items) {
     if (this.add == null) {
-      this.add = new java.util.ArrayList<java.lang.String>();
+      this.add = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.add.add(item);
     }
     return (A) this;
   }
 
   public A removeFromAdd(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.add != null) {
         this.add.remove(item);
       }
@@ -78,8 +78,8 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
     return (A) this;
   }
 
-  public A removeAllFromAdd(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromAdd(Collection<String> items) {
+    for (String item : items) {
       if (this.add != null) {
         this.add.remove(item);
       }
@@ -87,24 +87,24 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getAdd() {
+  public List<String> getAdd() {
     return this.add;
   }
 
-  public java.lang.String getAdd(java.lang.Integer index) {
+  public String getAdd(Integer index) {
     return this.add.get(index);
   }
 
-  public java.lang.String getFirstAdd() {
+  public String getFirstAdd() {
     return this.add.get(0);
   }
 
-  public java.lang.String getLastAdd() {
+  public String getLastAdd() {
     return this.add.get(add.size() - 1);
   }
 
-  public java.lang.String getMatchingAdd(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : add) {
+  public String getMatchingAdd(Predicate<String> predicate) {
+    for (String item : add) {
       if (predicate.test(item)) {
         return item;
       }
@@ -112,8 +112,8 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
     return null;
   }
 
-  public Boolean hasMatchingAdd(java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : add) {
+  public Boolean hasMatchingAdd(Predicate<String> predicate) {
+    for (String item : add) {
       if (predicate.test(item)) {
         return true;
       }
@@ -121,10 +121,10 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
     return false;
   }
 
-  public A withAdd(java.util.List<java.lang.String> add) {
+  public A withAdd(List<String> add) {
     if (add != null) {
-      this.add = new java.util.ArrayList();
-      for (java.lang.String item : add) {
+      this.add = new ArrayList();
+      for (String item : add) {
         this.addToAdd(item);
       }
     } else {
@@ -138,28 +138,28 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
       this.add.clear();
     }
     if (add != null) {
-      for (java.lang.String item : add) {
+      for (String item : add) {
         this.addToAdd(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAdd() {
+  public Boolean hasAdd() {
     return add != null && !add.isEmpty();
   }
 
-  public A addToDrop(java.lang.Integer index, java.lang.String item) {
+  public A addToDrop(Integer index, String item) {
     if (this.drop == null) {
-      this.drop = new java.util.ArrayList<java.lang.String>();
+      this.drop = new ArrayList<String>();
     }
     this.drop.add(index, item);
     return (A) this;
   }
 
-  public A setToDrop(java.lang.Integer index, java.lang.String item) {
+  public A setToDrop(Integer index, String item) {
     if (this.drop == null) {
-      this.drop = new java.util.ArrayList<java.lang.String>();
+      this.drop = new ArrayList<String>();
     }
     this.drop.set(index, item);
     return (A) this;
@@ -167,26 +167,26 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
 
   public A addToDrop(java.lang.String... items) {
     if (this.drop == null) {
-      this.drop = new java.util.ArrayList<java.lang.String>();
+      this.drop = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.drop.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToDrop(java.util.Collection<java.lang.String> items) {
+  public A addAllToDrop(Collection<String> items) {
     if (this.drop == null) {
-      this.drop = new java.util.ArrayList<java.lang.String>();
+      this.drop = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.drop.add(item);
     }
     return (A) this;
   }
 
   public A removeFromDrop(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.drop != null) {
         this.drop.remove(item);
       }
@@ -194,8 +194,8 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
     return (A) this;
   }
 
-  public A removeAllFromDrop(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromDrop(Collection<String> items) {
+    for (String item : items) {
       if (this.drop != null) {
         this.drop.remove(item);
       }
@@ -203,25 +203,24 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getDrop() {
+  public List<String> getDrop() {
     return this.drop;
   }
 
-  public java.lang.String getDrop(java.lang.Integer index) {
+  public String getDrop(Integer index) {
     return this.drop.get(index);
   }
 
-  public java.lang.String getFirstDrop() {
+  public String getFirstDrop() {
     return this.drop.get(0);
   }
 
-  public java.lang.String getLastDrop() {
+  public String getLastDrop() {
     return this.drop.get(drop.size() - 1);
   }
 
-  public java.lang.String getMatchingDrop(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : drop) {
+  public String getMatchingDrop(Predicate<String> predicate) {
+    for (String item : drop) {
       if (predicate.test(item)) {
         return item;
       }
@@ -229,9 +228,8 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
     return null;
   }
 
-  public java.lang.Boolean hasMatchingDrop(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : drop) {
+  public Boolean hasMatchingDrop(Predicate<String> predicate) {
+    for (String item : drop) {
       if (predicate.test(item)) {
         return true;
       }
@@ -239,10 +237,10 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
     return false;
   }
 
-  public A withDrop(java.util.List<java.lang.String> drop) {
+  public A withDrop(List<String> drop) {
     if (drop != null) {
-      this.drop = new java.util.ArrayList();
-      for (java.lang.String item : drop) {
+      this.drop = new ArrayList();
+      for (String item : drop) {
         this.addToDrop(item);
       }
     } else {
@@ -256,14 +254,14 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
       this.drop.clear();
     }
     if (drop != null) {
-      for (java.lang.String item : drop) {
+      for (String item : drop) {
         this.addToDrop(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDrop() {
+  public Boolean hasDrop() {
     return drop != null && !drop.isEmpty();
   }
 
@@ -280,7 +278,7 @@ public class V1CapabilitiesFluentImpl<A extends V1CapabilitiesFluent<A>> extends
     return java.util.Objects.hash(add, drop, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (add != null && !add.isEmpty()) {

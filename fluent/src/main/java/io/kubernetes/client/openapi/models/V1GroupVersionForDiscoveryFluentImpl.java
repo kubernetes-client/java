@@ -20,21 +20,20 @@ public class V1GroupVersionForDiscoveryFluentImpl<A extends V1GroupVersionForDis
     extends BaseFluent<A> implements V1GroupVersionForDiscoveryFluent<A> {
   public V1GroupVersionForDiscoveryFluentImpl() {}
 
-  public V1GroupVersionForDiscoveryFluentImpl(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery instance) {
+  public V1GroupVersionForDiscoveryFluentImpl(V1GroupVersionForDiscovery instance) {
     this.withGroupVersion(instance.getGroupVersion());
 
     this.withVersion(instance.getVersion());
   }
 
   private String groupVersion;
-  private java.lang.String version;
+  private String version;
 
-  public java.lang.String getGroupVersion() {
+  public String getGroupVersion() {
     return this.groupVersion;
   }
 
-  public A withGroupVersion(java.lang.String groupVersion) {
+  public A withGroupVersion(String groupVersion) {
     this.groupVersion = groupVersion;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1GroupVersionForDiscoveryFluentImpl<A extends V1GroupVersionForDis
     return this.groupVersion != null;
   }
 
-  public java.lang.String getVersion() {
+  public String getVersion() {
     return this.version;
   }
 
-  public A withVersion(java.lang.String version) {
+  public A withVersion(String version) {
     this.version = version;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVersion() {
+  public Boolean hasVersion() {
     return this.version != null;
   }
 
@@ -70,7 +69,7 @@ public class V1GroupVersionForDiscoveryFluentImpl<A extends V1GroupVersionForDis
     return java.util.Objects.hash(groupVersion, version, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (groupVersion != null) {

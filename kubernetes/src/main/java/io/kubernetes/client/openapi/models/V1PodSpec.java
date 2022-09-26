@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(description = "PodSpec is a description of a pod.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1PodSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
 
@@ -88,6 +88,11 @@ public class V1PodSpec {
 
   @SerializedName(SERIALIZED_NAME_HOST_P_I_D)
   private Boolean hostPID;
+
+  public static final String SERIALIZED_NAME_HOST_USERS = "hostUsers";
+
+  @SerializedName(SERIALIZED_NAME_HOST_USERS)
+  private Boolean hostUsers;
 
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
 
@@ -401,16 +406,14 @@ public class V1PodSpec {
    * List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing
    * pod to perform user-initiated actions such as debugging. This list cannot be specified when
    * creating a pod, and it cannot be modified by updating the pod spec. In order to add an
-   * ephemeral container to an existing pod, use the pod&#39;s ephemeralcontainers subresource. This
-   * field is beta-level and available on clusters that haven&#39;t disabled the EphemeralContainers
-   * feature gate.
+   * ephemeral container to an existing pod, use the pod&#39;s ephemeralcontainers subresource.
    *
    * @return ephemeralContainers
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod's ephemeralcontainers subresource. This field is beta-level and available on clusters that haven't disabled the EphemeralContainers feature gate.")
+          "List of ephemeral containers run in this pod. Ephemeral containers may be run in an existing pod to perform user-initiated actions such as debugging. This list cannot be specified when creating a pod, and it cannot be modified by updating the pod spec. In order to add an ephemeral container to an existing pod, use the pod's ephemeralcontainers subresource.")
   public List<V1EphemeralContainer> getEphemeralContainers() {
     return ephemeralContainers;
   }
@@ -515,6 +518,35 @@ public class V1PodSpec {
 
   public void setHostPID(Boolean hostPID) {
     this.hostPID = hostPID;
+  }
+
+  public V1PodSpec hostUsers(Boolean hostUsers) {
+
+    this.hostUsers = hostUsers;
+    return this;
+  }
+
+  /**
+   * Use the host&#39;s user namespace. Optional: Default to true. If set to true or not present,
+   * the pod will be run in the host user namespace, useful for when the pod needs a feature only
+   * available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When
+   * set to false, a new userns is created for the pod. Setting false is useful for mitigating
+   * container breakout vulnerabilities even allowing users to run their containers as root without
+   * actually having root privileges on the host. This field is alpha-level and is only honored by
+   * servers that enable the UserNamespacesSupport feature.
+   *
+   * @return hostUsers
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(
+      value =
+          "Use the host's user namespace. Optional: Default to true. If set to true or not present, the pod will be run in the host user namespace, useful for when the pod needs a feature only available to the host user namespace, such as loading a kernel module with CAP_SYS_MODULE. When set to false, a new userns is created for the pod. Setting false is useful for mitigating container breakout vulnerabilities even allowing users to run their containers as root without actually having root privileges on the host. This field is alpha-level and is only honored by servers that enable the UserNamespacesSupport feature.")
+  public Boolean getHostUsers() {
+    return hostUsers;
+  }
+
+  public void setHostUsers(Boolean hostUsers) {
+    this.hostUsers = hostUsers;
   }
 
   public V1PodSpec hostname(String hostname) {
@@ -1214,6 +1246,7 @@ public class V1PodSpec {
         && Objects.equals(this.hostIPC, v1PodSpec.hostIPC)
         && Objects.equals(this.hostNetwork, v1PodSpec.hostNetwork)
         && Objects.equals(this.hostPID, v1PodSpec.hostPID)
+        && Objects.equals(this.hostUsers, v1PodSpec.hostUsers)
         && Objects.equals(this.hostname, v1PodSpec.hostname)
         && Objects.equals(this.imagePullSecrets, v1PodSpec.imagePullSecrets)
         && Objects.equals(this.initContainers, v1PodSpec.initContainers)
@@ -1256,6 +1289,7 @@ public class V1PodSpec {
         hostIPC,
         hostNetwork,
         hostPID,
+        hostUsers,
         hostname,
         imagePullSecrets,
         initContainers,
@@ -1304,6 +1338,7 @@ public class V1PodSpec {
     sb.append("    hostIPC: ").append(toIndentedString(hostIPC)).append("\n");
     sb.append("    hostNetwork: ").append(toIndentedString(hostNetwork)).append("\n");
     sb.append("    hostPID: ").append(toIndentedString(hostPID)).append("\n");
+    sb.append("    hostUsers: ").append(toIndentedString(hostUsers)).append("\n");
     sb.append("    hostname: ").append(toIndentedString(hostname)).append("\n");
     sb.append("    imagePullSecrets: ").append(toIndentedString(imagePullSecrets)).append("\n");
     sb.append("    initContainers: ").append(toIndentedString(initContainers)).append("\n");

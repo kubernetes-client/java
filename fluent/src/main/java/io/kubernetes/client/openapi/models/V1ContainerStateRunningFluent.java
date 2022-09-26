@@ -20,7 +20,7 @@ public interface V1ContainerStateRunningFluent<A extends V1ContainerStateRunning
     extends Fluent<A> {
   public OffsetDateTime getStartedAt();
 
-  public A withStartedAt(java.time.OffsetDateTime startedAt);
+  public A withStartedAt(OffsetDateTime startedAt);
 
   public Boolean hasStartedAt();
 }

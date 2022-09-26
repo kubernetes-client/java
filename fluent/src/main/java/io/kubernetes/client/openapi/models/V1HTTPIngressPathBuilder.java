@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1HTTPIngressPathBuilder extends V1HTTPIngressPathFluentImpl<V1HTTPIngressPathBuilder>
-    implements VisitableBuilder<
-        V1HTTPIngressPath, io.kubernetes.client.openapi.models.V1HTTPIngressPathBuilder> {
+    implements VisitableBuilder<V1HTTPIngressPath, V1HTTPIngressPathBuilder> {
   public V1HTTPIngressPathBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1HTTPIngressPathBuilder extends V1HTTPIngressPathFluentImpl<V1HTTP
     this(new V1HTTPIngressPath(), validationEnabled);
   }
 
-  public V1HTTPIngressPathBuilder(
-      io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent<?> fluent) {
+  public V1HTTPIngressPathBuilder(V1HTTPIngressPathFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1HTTPIngressPathBuilder(
-      io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1HTTPIngressPathBuilder(V1HTTPIngressPathFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1HTTPIngressPath(), validationEnabled);
   }
 
-  public V1HTTPIngressPathBuilder(
-      io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1HTTPIngressPath instance) {
+  public V1HTTPIngressPathBuilder(V1HTTPIngressPathFluent<?> fluent, V1HTTPIngressPath instance) {
     this(fluent, instance, false);
   }
 
   public V1HTTPIngressPathBuilder(
-      io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1HTTPIngressPath instance,
-      java.lang.Boolean validationEnabled) {
+      V1HTTPIngressPathFluent<?> fluent, V1HTTPIngressPath instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withBackend(instance.getBackend());
 
@@ -56,13 +48,11 @@ public class V1HTTPIngressPathBuilder extends V1HTTPIngressPathFluentImpl<V1HTTP
     this.validationEnabled = validationEnabled;
   }
 
-  public V1HTTPIngressPathBuilder(io.kubernetes.client.openapi.models.V1HTTPIngressPath instance) {
+  public V1HTTPIngressPathBuilder(V1HTTPIngressPath instance) {
     this(instance, false);
   }
 
-  public V1HTTPIngressPathBuilder(
-      io.kubernetes.client.openapi.models.V1HTTPIngressPath instance,
-      java.lang.Boolean validationEnabled) {
+  public V1HTTPIngressPathBuilder(V1HTTPIngressPath instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withBackend(instance.getBackend());
 
@@ -73,10 +63,10 @@ public class V1HTTPIngressPathBuilder extends V1HTTPIngressPathFluentImpl<V1HTTP
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1HTTPIngressPathFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1HTTPIngressPathFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1HTTPIngressPath build() {
+  public V1HTTPIngressPath build() {
     V1HTTPIngressPath buildable = new V1HTTPIngressPath();
     buildable.setBackend(fluent.getBackend());
     buildable.setPath(fluent.getPath());

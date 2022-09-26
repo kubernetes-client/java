@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1EndpointSubsetBuilder extends V1EndpointSubsetFluentImpl<V1EndpointSubsetBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1EndpointSubset, V1EndpointSubsetBuilder> {
+    implements VisitableBuilder<V1EndpointSubset, V1EndpointSubsetBuilder> {
   public V1EndpointSubsetBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1EndpointSubsetBuilder extends V1EndpointSubsetFluentImpl<V1Endpoi
     this(new V1EndpointSubset(), validationEnabled);
   }
 
-  public V1EndpointSubsetBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointSubsetFluent<?> fluent) {
+  public V1EndpointSubsetBuilder(V1EndpointSubsetFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1EndpointSubsetBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointSubsetFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1EndpointSubsetBuilder(V1EndpointSubsetFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1EndpointSubset(), validationEnabled);
   }
 
-  public V1EndpointSubsetBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointSubsetFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EndpointSubset instance) {
+  public V1EndpointSubsetBuilder(V1EndpointSubsetFluent<?> fluent, V1EndpointSubset instance) {
     this(fluent, instance, false);
   }
 
   public V1EndpointSubsetBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointSubsetFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EndpointSubset instance,
-      java.lang.Boolean validationEnabled) {
+      V1EndpointSubsetFluent<?> fluent, V1EndpointSubset instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAddresses(instance.getAddresses());
 
@@ -56,13 +48,11 @@ public class V1EndpointSubsetBuilder extends V1EndpointSubsetFluentImpl<V1Endpoi
     this.validationEnabled = validationEnabled;
   }
 
-  public V1EndpointSubsetBuilder(io.kubernetes.client.openapi.models.V1EndpointSubset instance) {
+  public V1EndpointSubsetBuilder(V1EndpointSubset instance) {
     this(instance, false);
   }
 
-  public V1EndpointSubsetBuilder(
-      io.kubernetes.client.openapi.models.V1EndpointSubset instance,
-      java.lang.Boolean validationEnabled) {
+  public V1EndpointSubsetBuilder(V1EndpointSubset instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAddresses(instance.getAddresses());
 
@@ -73,10 +63,10 @@ public class V1EndpointSubsetBuilder extends V1EndpointSubsetFluentImpl<V1Endpoi
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1EndpointSubsetFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1EndpointSubsetFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubset build() {
+  public V1EndpointSubset build() {
     V1EndpointSubset buildable = new V1EndpointSubset();
     buildable.setAddresses(fluent.getAddresses());
     buildable.setNotReadyAddresses(fluent.getNotReadyAddresses());

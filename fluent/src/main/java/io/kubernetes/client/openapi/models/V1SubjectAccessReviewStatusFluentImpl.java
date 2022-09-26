@@ -20,8 +20,7 @@ public class V1SubjectAccessReviewStatusFluentImpl<A extends V1SubjectAccessRevi
     extends BaseFluent<A> implements V1SubjectAccessReviewStatusFluent<A> {
   public V1SubjectAccessReviewStatusFluentImpl() {}
 
-  public V1SubjectAccessReviewStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V1SubjectAccessReviewStatus instance) {
+  public V1SubjectAccessReviewStatusFluentImpl(V1SubjectAccessReviewStatus instance) {
     this.withAllowed(instance.getAllowed());
 
     this.withDenied(instance.getDenied());
@@ -32,59 +31,59 @@ public class V1SubjectAccessReviewStatusFluentImpl<A extends V1SubjectAccessRevi
   }
 
   private Boolean allowed;
-  private java.lang.Boolean denied;
+  private Boolean denied;
   private String evaluationError;
-  private java.lang.String reason;
+  private String reason;
 
-  public java.lang.Boolean getAllowed() {
+  public Boolean getAllowed() {
     return this.allowed;
   }
 
-  public A withAllowed(java.lang.Boolean allowed) {
+  public A withAllowed(Boolean allowed) {
     this.allowed = allowed;
     return (A) this;
   }
 
-  public java.lang.Boolean hasAllowed() {
+  public Boolean hasAllowed() {
     return this.allowed != null;
   }
 
-  public java.lang.Boolean getDenied() {
+  public Boolean getDenied() {
     return this.denied;
   }
 
-  public A withDenied(java.lang.Boolean denied) {
+  public A withDenied(Boolean denied) {
     this.denied = denied;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDenied() {
+  public Boolean hasDenied() {
     return this.denied != null;
   }
 
-  public java.lang.String getEvaluationError() {
+  public String getEvaluationError() {
     return this.evaluationError;
   }
 
-  public A withEvaluationError(java.lang.String evaluationError) {
+  public A withEvaluationError(String evaluationError) {
     this.evaluationError = evaluationError;
     return (A) this;
   }
 
-  public java.lang.Boolean hasEvaluationError() {
+  public Boolean hasEvaluationError() {
     return this.evaluationError != null;
   }
 
-  public java.lang.String getReason() {
+  public String getReason() {
     return this.reason;
   }
 
-  public A withReason(java.lang.String reason) {
+  public A withReason(String reason) {
     this.reason = reason;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReason() {
+  public Boolean hasReason() {
     return this.reason != null;
   }
 
@@ -105,7 +104,7 @@ public class V1SubjectAccessReviewStatusFluentImpl<A extends V1SubjectAccessRevi
     return java.util.Objects.hash(allowed, denied, evaluationError, reason, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (allowed != null) {

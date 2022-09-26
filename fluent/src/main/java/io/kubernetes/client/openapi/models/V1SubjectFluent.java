@@ -18,25 +18,25 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1SubjectFluent<A extends V1SubjectFluent<A>> extends Fluent<A> {
   public String getApiGroup();
 
-  public A withApiGroup(java.lang.String apiGroup);
+  public A withApiGroup(String apiGroup);
 
   public Boolean hasApiGroup();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.String getNamespace();
+  public String getNamespace();
 
-  public A withNamespace(java.lang.String namespace);
+  public A withNamespace(String namespace);
 
-  public java.lang.Boolean hasNamespace();
+  public Boolean hasNamespace();
 }

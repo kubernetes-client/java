@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1APIGroupListBuilder extends V1APIGroupListFluentImpl<V1APIGroupListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1APIGroupList,
-        io.kubernetes.client.openapi.models.V1APIGroupListBuilder> {
+    implements VisitableBuilder<V1APIGroupList, V1APIGroupListBuilder> {
   public V1APIGroupListBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1APIGroupListBuilder extends V1APIGroupListFluentImpl<V1APIGroupLi
     this(fluent, false);
   }
 
-  public V1APIGroupListBuilder(
-      io.kubernetes.client.openapi.models.V1APIGroupListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1APIGroupListBuilder(V1APIGroupListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1APIGroupList(), validationEnabled);
   }
 
-  public V1APIGroupListBuilder(
-      io.kubernetes.client.openapi.models.V1APIGroupListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1APIGroupList instance) {
+  public V1APIGroupListBuilder(V1APIGroupListFluent<?> fluent, V1APIGroupList instance) {
     this(fluent, instance, false);
   }
 
   public V1APIGroupListBuilder(
-      io.kubernetes.client.openapi.models.V1APIGroupListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1APIGroupList instance,
-      java.lang.Boolean validationEnabled) {
+      V1APIGroupListFluent<?> fluent, V1APIGroupList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -56,13 +48,11 @@ public class V1APIGroupListBuilder extends V1APIGroupListFluentImpl<V1APIGroupLi
     this.validationEnabled = validationEnabled;
   }
 
-  public V1APIGroupListBuilder(io.kubernetes.client.openapi.models.V1APIGroupList instance) {
+  public V1APIGroupListBuilder(V1APIGroupList instance) {
     this(instance, false);
   }
 
-  public V1APIGroupListBuilder(
-      io.kubernetes.client.openapi.models.V1APIGroupList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1APIGroupListBuilder(V1APIGroupList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -73,10 +63,10 @@ public class V1APIGroupListBuilder extends V1APIGroupListFluentImpl<V1APIGroupLi
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1APIGroupListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1APIGroupListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1APIGroupList build() {
+  public V1APIGroupList build() {
     V1APIGroupList buildable = new V1APIGroupList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setGroups(fluent.getGroups());

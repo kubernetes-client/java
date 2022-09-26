@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ObjectMetaBuilder extends V1ObjectMetaFluentImpl<V1ObjectMetaBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ObjectMeta, V1ObjectMetaBuilder> {
+    implements VisitableBuilder<V1ObjectMeta, V1ObjectMetaBuilder> {
   public V1ObjectMetaBuilder() {
     this(false);
   }
@@ -25,30 +24,22 @@ public class V1ObjectMetaBuilder extends V1ObjectMetaFluentImpl<V1ObjectMetaBuil
     this(new V1ObjectMeta(), validationEnabled);
   }
 
-  public V1ObjectMetaBuilder(io.kubernetes.client.openapi.models.V1ObjectMetaFluent<?> fluent) {
+  public V1ObjectMetaBuilder(V1ObjectMetaFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1ObjectMetaBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectMetaFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ObjectMetaBuilder(V1ObjectMetaFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ObjectMeta(), validationEnabled);
   }
 
-  public V1ObjectMetaBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectMetaFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ObjectMeta instance) {
+  public V1ObjectMetaBuilder(V1ObjectMetaFluent<?> fluent, V1ObjectMeta instance) {
     this(fluent, instance, false);
   }
 
   public V1ObjectMetaBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectMetaFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ObjectMeta instance,
-      java.lang.Boolean validationEnabled) {
+      V1ObjectMetaFluent<?> fluent, V1ObjectMeta instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAnnotations(instance.getAnnotations());
-
-    fluent.withClusterName(instance.getClusterName());
 
     fluent.withCreationTimestamp(instance.getCreationTimestamp());
 
@@ -81,17 +72,13 @@ public class V1ObjectMetaBuilder extends V1ObjectMetaFluentImpl<V1ObjectMetaBuil
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ObjectMetaBuilder(io.kubernetes.client.openapi.models.V1ObjectMeta instance) {
+  public V1ObjectMetaBuilder(V1ObjectMeta instance) {
     this(instance, false);
   }
 
-  public V1ObjectMetaBuilder(
-      io.kubernetes.client.openapi.models.V1ObjectMeta instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ObjectMetaBuilder(V1ObjectMeta instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAnnotations(instance.getAnnotations());
-
-    this.withClusterName(instance.getClusterName());
 
     this.withCreationTimestamp(instance.getCreationTimestamp());
 
@@ -124,13 +111,12 @@ public class V1ObjectMetaBuilder extends V1ObjectMetaFluentImpl<V1ObjectMetaBuil
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ObjectMetaFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ObjectMetaFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta build() {
+  public V1ObjectMeta build() {
     V1ObjectMeta buildable = new V1ObjectMeta();
     buildable.setAnnotations(fluent.getAnnotations());
-    buildable.setClusterName(fluent.getClusterName());
     buildable.setCreationTimestamp(fluent.getCreationTimestamp());
     buildable.setDeletionGracePeriodSeconds(fluent.getDeletionGracePeriodSeconds());
     buildable.setDeletionTimestamp(fluent.getDeletionTimestamp());

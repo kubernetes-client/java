@@ -19,13 +19,13 @@ public interface V1FlockerVolumeSourceFluent<A extends V1FlockerVolumeSourceFlue
     extends Fluent<A> {
   public String getDatasetName();
 
-  public A withDatasetName(java.lang.String datasetName);
+  public A withDatasetName(String datasetName);
 
   public Boolean hasDatasetName();
 
-  public java.lang.String getDatasetUUID();
+  public String getDatasetUUID();
 
-  public A withDatasetUUID(java.lang.String datasetUUID);
+  public A withDatasetUUID(String datasetUUID);
 
-  public java.lang.Boolean hasDatasetUUID();
+  public Boolean hasDatasetUUID();
 }

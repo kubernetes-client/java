@@ -23,22 +23,17 @@ public interface V1TopologySelectorTermFluent<A extends V1TopologySelectorTermFl
     extends Fluent<A> {
   public A addToMatchLabelExpressions(Integer index, V1TopologySelectorLabelRequirement item);
 
-  public A setToMatchLabelExpressions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement item);
+  public A setToMatchLabelExpressions(Integer index, V1TopologySelectorLabelRequirement item);
 
   public A addToMatchLabelExpressions(
       io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement... items);
 
-  public A addAllToMatchLabelExpressions(
-      Collection<io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement> items);
+  public A addAllToMatchLabelExpressions(Collection<V1TopologySelectorLabelRequirement> items);
 
   public A removeFromMatchLabelExpressions(
       io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement... items);
 
-  public A removeAllFromMatchLabelExpressions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement>
-          items);
+  public A removeAllFromMatchLabelExpressions(Collection<V1TopologySelectorLabelRequirement> items);
 
   public A removeMatchingFromMatchLabelExpressions(
       Predicate<V1TopologySelectorLabelRequirementBuilder> predicate);
@@ -49,79 +44,50 @@ public interface V1TopologySelectorTermFluent<A extends V1TopologySelectorTermFl
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement>
-      getMatchLabelExpressions();
+  public List<V1TopologySelectorLabelRequirement> getMatchLabelExpressions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement>
-      buildMatchLabelExpressions();
+  public List<V1TopologySelectorLabelRequirement> buildMatchLabelExpressions();
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement
-      buildMatchLabelExpression(java.lang.Integer index);
+  public V1TopologySelectorLabelRequirement buildMatchLabelExpression(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement
-      buildFirstMatchLabelExpression();
+  public V1TopologySelectorLabelRequirement buildFirstMatchLabelExpression();
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement
-      buildLastMatchLabelExpression();
+  public V1TopologySelectorLabelRequirement buildLastMatchLabelExpression();
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement
-      buildMatchingMatchLabelExpression(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirementBuilder>
-              predicate);
+  public V1TopologySelectorLabelRequirement buildMatchingMatchLabelExpression(
+      Predicate<V1TopologySelectorLabelRequirementBuilder> predicate);
 
   public Boolean hasMatchingMatchLabelExpression(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirementBuilder>
-          predicate);
+      Predicate<V1TopologySelectorLabelRequirementBuilder> predicate);
 
   public A withMatchLabelExpressions(
-      java.util.List<io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement>
-          matchLabelExpressions);
+      List<V1TopologySelectorLabelRequirement> matchLabelExpressions);
 
   public A withMatchLabelExpressions(
       io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement...
           matchLabelExpressions);
 
-  public java.lang.Boolean hasMatchLabelExpressions();
+  public Boolean hasMatchLabelExpressions();
 
   public V1TopologySelectorTermFluent.MatchLabelExpressionsNested<A> addNewMatchLabelExpression();
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent
-              .MatchLabelExpressionsNested<
-          A>
-      addNewMatchLabelExpressionLike(
-          io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement item);
+  public V1TopologySelectorTermFluent.MatchLabelExpressionsNested<A> addNewMatchLabelExpressionLike(
+      V1TopologySelectorLabelRequirement item);
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent
-              .MatchLabelExpressionsNested<
-          A>
-      setNewMatchLabelExpressionLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirement item);
+  public V1TopologySelectorTermFluent.MatchLabelExpressionsNested<A> setNewMatchLabelExpressionLike(
+      Integer index, V1TopologySelectorLabelRequirement item);
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent
-              .MatchLabelExpressionsNested<
-          A>
-      editMatchLabelExpression(java.lang.Integer index);
+  public V1TopologySelectorTermFluent.MatchLabelExpressionsNested<A> editMatchLabelExpression(
+      Integer index);
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent
-              .MatchLabelExpressionsNested<
-          A>
+  public V1TopologySelectorTermFluent.MatchLabelExpressionsNested<A>
       editFirstMatchLabelExpression();
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent
-              .MatchLabelExpressionsNested<
-          A>
-      editLastMatchLabelExpression();
+  public V1TopologySelectorTermFluent.MatchLabelExpressionsNested<A> editLastMatchLabelExpression();
 
-  public io.kubernetes.client.openapi.models.V1TopologySelectorTermFluent
-              .MatchLabelExpressionsNested<
-          A>
+  public V1TopologySelectorTermFluent.MatchLabelExpressionsNested<A>
       editMatchingMatchLabelExpression(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1TopologySelectorLabelRequirementBuilder>
-              predicate);
+          Predicate<V1TopologySelectorLabelRequirementBuilder> predicate);
 
   public interface MatchLabelExpressionsNested<N>
       extends Nested<N>,

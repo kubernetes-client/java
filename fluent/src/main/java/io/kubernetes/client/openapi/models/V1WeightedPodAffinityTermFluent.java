@@ -27,36 +27,29 @@ public interface V1WeightedPodAffinityTermFluent<A extends V1WeightedPodAffinity
   @Deprecated
   public V1PodAffinityTerm getPodAffinityTerm();
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTerm buildPodAffinityTerm();
+  public V1PodAffinityTerm buildPodAffinityTerm();
 
-  public A withPodAffinityTerm(
-      io.kubernetes.client.openapi.models.V1PodAffinityTerm podAffinityTerm);
+  public A withPodAffinityTerm(V1PodAffinityTerm podAffinityTerm);
 
   public Boolean hasPodAffinityTerm();
 
   public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> withNewPodAffinityTerm();
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent.PodAffinityTermNested<
-          A>
-      withNewPodAffinityTermLike(io.kubernetes.client.openapi.models.V1PodAffinityTerm item);
+  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> withNewPodAffinityTermLike(
+      V1PodAffinityTerm item);
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent.PodAffinityTermNested<
-          A>
-      editPodAffinityTerm();
+  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> editPodAffinityTerm();
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent.PodAffinityTermNested<
-          A>
-      editOrNewPodAffinityTerm();
+  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> editOrNewPodAffinityTerm();
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermFluent.PodAffinityTermNested<
-          A>
-      editOrNewPodAffinityTermLike(io.kubernetes.client.openapi.models.V1PodAffinityTerm item);
+  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> editOrNewPodAffinityTermLike(
+      V1PodAffinityTerm item);
 
   public Integer getWeight();
 
-  public A withWeight(java.lang.Integer weight);
+  public A withWeight(Integer weight);
 
-  public java.lang.Boolean hasWeight();
+  public Boolean hasWeight();
 
   public interface PodAffinityTermNested<N>
       extends Nested<N>,

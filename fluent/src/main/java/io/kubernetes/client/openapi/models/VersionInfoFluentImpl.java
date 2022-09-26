@@ -20,7 +20,7 @@ public class VersionInfoFluentImpl<A extends VersionInfoFluent<A>> extends BaseF
     implements VersionInfoFluent<A> {
   public VersionInfoFluentImpl() {}
 
-  public VersionInfoFluentImpl(io.kubernetes.client.openapi.models.VersionInfo instance) {
+  public VersionInfoFluentImpl(VersionInfo instance) {
     this.withBuildDate(instance.getBuildDate());
 
     this.withCompiler(instance.getCompiler());
@@ -41,20 +41,20 @@ public class VersionInfoFluentImpl<A extends VersionInfoFluent<A>> extends BaseF
   }
 
   private String buildDate;
-  private java.lang.String compiler;
-  private java.lang.String gitCommit;
-  private java.lang.String gitTreeState;
-  private java.lang.String gitVersion;
-  private java.lang.String goVersion;
-  private java.lang.String major;
-  private java.lang.String minor;
-  private java.lang.String platform;
+  private String compiler;
+  private String gitCommit;
+  private String gitTreeState;
+  private String gitVersion;
+  private String goVersion;
+  private String major;
+  private String minor;
+  private String platform;
 
-  public java.lang.String getBuildDate() {
+  public String getBuildDate() {
     return this.buildDate;
   }
 
-  public A withBuildDate(java.lang.String buildDate) {
+  public A withBuildDate(String buildDate) {
     this.buildDate = buildDate;
     return (A) this;
   }
@@ -63,107 +63,107 @@ public class VersionInfoFluentImpl<A extends VersionInfoFluent<A>> extends BaseF
     return this.buildDate != null;
   }
 
-  public java.lang.String getCompiler() {
+  public String getCompiler() {
     return this.compiler;
   }
 
-  public A withCompiler(java.lang.String compiler) {
+  public A withCompiler(String compiler) {
     this.compiler = compiler;
     return (A) this;
   }
 
-  public java.lang.Boolean hasCompiler() {
+  public Boolean hasCompiler() {
     return this.compiler != null;
   }
 
-  public java.lang.String getGitCommit() {
+  public String getGitCommit() {
     return this.gitCommit;
   }
 
-  public A withGitCommit(java.lang.String gitCommit) {
+  public A withGitCommit(String gitCommit) {
     this.gitCommit = gitCommit;
     return (A) this;
   }
 
-  public java.lang.Boolean hasGitCommit() {
+  public Boolean hasGitCommit() {
     return this.gitCommit != null;
   }
 
-  public java.lang.String getGitTreeState() {
+  public String getGitTreeState() {
     return this.gitTreeState;
   }
 
-  public A withGitTreeState(java.lang.String gitTreeState) {
+  public A withGitTreeState(String gitTreeState) {
     this.gitTreeState = gitTreeState;
     return (A) this;
   }
 
-  public java.lang.Boolean hasGitTreeState() {
+  public Boolean hasGitTreeState() {
     return this.gitTreeState != null;
   }
 
-  public java.lang.String getGitVersion() {
+  public String getGitVersion() {
     return this.gitVersion;
   }
 
-  public A withGitVersion(java.lang.String gitVersion) {
+  public A withGitVersion(String gitVersion) {
     this.gitVersion = gitVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasGitVersion() {
+  public Boolean hasGitVersion() {
     return this.gitVersion != null;
   }
 
-  public java.lang.String getGoVersion() {
+  public String getGoVersion() {
     return this.goVersion;
   }
 
-  public A withGoVersion(java.lang.String goVersion) {
+  public A withGoVersion(String goVersion) {
     this.goVersion = goVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasGoVersion() {
+  public Boolean hasGoVersion() {
     return this.goVersion != null;
   }
 
-  public java.lang.String getMajor() {
+  public String getMajor() {
     return this.major;
   }
 
-  public A withMajor(java.lang.String major) {
+  public A withMajor(String major) {
     this.major = major;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMajor() {
+  public Boolean hasMajor() {
     return this.major != null;
   }
 
-  public java.lang.String getMinor() {
+  public String getMinor() {
     return this.minor;
   }
 
-  public A withMinor(java.lang.String minor) {
+  public A withMinor(String minor) {
     this.minor = minor;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMinor() {
+  public Boolean hasMinor() {
     return this.minor != null;
   }
 
-  public java.lang.String getPlatform() {
+  public String getPlatform() {
     return this.platform;
   }
 
-  public A withPlatform(java.lang.String platform) {
+  public A withPlatform(String platform) {
     this.platform = platform;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPlatform() {
+  public Boolean hasPlatform() {
     return this.platform != null;
   }
 
@@ -202,7 +202,7 @@ public class VersionInfoFluentImpl<A extends VersionInfoFluent<A>> extends BaseF
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (buildDate != null) {

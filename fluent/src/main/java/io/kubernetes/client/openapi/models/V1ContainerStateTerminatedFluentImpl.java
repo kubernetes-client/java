@@ -21,8 +21,7 @@ public class V1ContainerStateTerminatedFluentImpl<A extends V1ContainerStateTerm
     extends BaseFluent<A> implements V1ContainerStateTerminatedFluent<A> {
   public V1ContainerStateTerminatedFluentImpl() {}
 
-  public V1ContainerStateTerminatedFluentImpl(
-      io.kubernetes.client.openapi.models.V1ContainerStateTerminated instance) {
+  public V1ContainerStateTerminatedFluentImpl(V1ContainerStateTerminated instance) {
     this.withContainerID(instance.getContainerID());
 
     this.withExitCode(instance.getExitCode());
@@ -41,16 +40,16 @@ public class V1ContainerStateTerminatedFluentImpl<A extends V1ContainerStateTerm
   private String containerID;
   private Integer exitCode;
   private OffsetDateTime finishedAt;
-  private java.lang.String message;
-  private java.lang.String reason;
-  private java.lang.Integer signal;
-  private java.time.OffsetDateTime startedAt;
+  private String message;
+  private String reason;
+  private Integer signal;
+  private OffsetDateTime startedAt;
 
-  public java.lang.String getContainerID() {
+  public String getContainerID() {
     return this.containerID;
   }
 
-  public A withContainerID(java.lang.String containerID) {
+  public A withContainerID(String containerID) {
     this.containerID = containerID;
     return (A) this;
   }
@@ -59,81 +58,81 @@ public class V1ContainerStateTerminatedFluentImpl<A extends V1ContainerStateTerm
     return this.containerID != null;
   }
 
-  public java.lang.Integer getExitCode() {
+  public Integer getExitCode() {
     return this.exitCode;
   }
 
-  public A withExitCode(java.lang.Integer exitCode) {
+  public A withExitCode(Integer exitCode) {
     this.exitCode = exitCode;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExitCode() {
+  public Boolean hasExitCode() {
     return this.exitCode != null;
   }
 
-  public java.time.OffsetDateTime getFinishedAt() {
+  public OffsetDateTime getFinishedAt() {
     return this.finishedAt;
   }
 
-  public A withFinishedAt(java.time.OffsetDateTime finishedAt) {
+  public A withFinishedAt(OffsetDateTime finishedAt) {
     this.finishedAt = finishedAt;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFinishedAt() {
+  public Boolean hasFinishedAt() {
     return this.finishedAt != null;
   }
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMessage() {
+  public Boolean hasMessage() {
     return this.message != null;
   }
 
-  public java.lang.String getReason() {
+  public String getReason() {
     return this.reason;
   }
 
-  public A withReason(java.lang.String reason) {
+  public A withReason(String reason) {
     this.reason = reason;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReason() {
+  public Boolean hasReason() {
     return this.reason != null;
   }
 
-  public java.lang.Integer getSignal() {
+  public Integer getSignal() {
     return this.signal;
   }
 
-  public A withSignal(java.lang.Integer signal) {
+  public A withSignal(Integer signal) {
     this.signal = signal;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSignal() {
+  public Boolean hasSignal() {
     return this.signal != null;
   }
 
-  public java.time.OffsetDateTime getStartedAt() {
+  public OffsetDateTime getStartedAt() {
     return this.startedAt;
   }
 
-  public A withStartedAt(java.time.OffsetDateTime startedAt) {
+  public A withStartedAt(OffsetDateTime startedAt) {
     this.startedAt = startedAt;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStartedAt() {
+  public Boolean hasStartedAt() {
     return this.startedAt != null;
   }
 
@@ -159,7 +158,7 @@ public class V1ContainerStateTerminatedFluentImpl<A extends V1ContainerStateTerm
         containerID, exitCode, finishedAt, message, reason, signal, startedAt, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (containerID != null) {

@@ -20,18 +20,17 @@ public class V1VolumeNodeResourcesFluentImpl<A extends V1VolumeNodeResourcesFlue
     extends BaseFluent<A> implements V1VolumeNodeResourcesFluent<A> {
   public V1VolumeNodeResourcesFluentImpl() {}
 
-  public V1VolumeNodeResourcesFluentImpl(
-      io.kubernetes.client.openapi.models.V1VolumeNodeResources instance) {
+  public V1VolumeNodeResourcesFluentImpl(V1VolumeNodeResources instance) {
     this.withCount(instance.getCount());
   }
 
   private Integer count;
 
-  public java.lang.Integer getCount() {
+  public Integer getCount() {
     return this.count;
   }
 
-  public A withCount(java.lang.Integer count) {
+  public A withCount(Integer count) {
     this.count = count;
     return (A) this;
   }

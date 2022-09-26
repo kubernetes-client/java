@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIVolumeSourceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CSIVolumeSource,
-        io.kubernetes.client.openapi.models.V1CSIVolumeSourceBuilder> {
+    implements VisitableBuilder<V1CSIVolumeSource, V1CSIVolumeSourceBuilder> {
   public V1CSIVolumeSourceBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIV
     this(fluent, false);
   }
 
-  public V1CSIVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CSIVolumeSource(), validationEnabled);
   }
 
-  public V1CSIVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSIVolumeSource instance) {
+  public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent, V1CSIVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1CSIVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSIVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1CSIVolumeSourceFluent<?> fluent, V1CSIVolumeSource instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withDriver(instance.getDriver());
 
@@ -60,13 +52,11 @@ public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIV
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CSIVolumeSourceBuilder(io.kubernetes.client.openapi.models.V1CSIVolumeSource instance) {
+  public V1CSIVolumeSourceBuilder(V1CSIVolumeSource instance) {
     this(instance, false);
   }
 
-  public V1CSIVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1CSIVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1CSIVolumeSourceBuilder(V1CSIVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withDriver(instance.getDriver());
 
@@ -81,10 +71,10 @@ public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIV
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CSIVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CSIVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CSIVolumeSource build() {
+  public V1CSIVolumeSource build() {
     V1CSIVolumeSource buildable = new V1CSIVolumeSource();
     buildable.setDriver(fluent.getDriver());
     buildable.setFsType(fluent.getFsType());

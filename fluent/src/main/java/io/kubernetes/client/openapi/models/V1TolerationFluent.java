@@ -18,31 +18,31 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1TolerationFluent<A extends V1TolerationFluent<A>> extends Fluent<A> {
   public String getEffect();
 
-  public A withEffect(java.lang.String effect);
+  public A withEffect(String effect);
 
   public Boolean hasEffect();
 
-  public java.lang.String getKey();
+  public String getKey();
 
-  public A withKey(java.lang.String key);
+  public A withKey(String key);
 
-  public java.lang.Boolean hasKey();
+  public Boolean hasKey();
 
-  public java.lang.String getOperator();
+  public String getOperator();
 
-  public A withOperator(java.lang.String operator);
+  public A withOperator(String operator);
 
-  public java.lang.Boolean hasOperator();
+  public Boolean hasOperator();
 
   public Long getTolerationSeconds();
 
-  public A withTolerationSeconds(java.lang.Long tolerationSeconds);
+  public A withTolerationSeconds(Long tolerationSeconds);
 
-  public java.lang.Boolean hasTolerationSeconds();
+  public Boolean hasTolerationSeconds();
 
-  public java.lang.String getValue();
+  public String getValue();
 
-  public A withValue(java.lang.String value);
+  public A withValue(String value);
 
-  public java.lang.Boolean hasValue();
+  public Boolean hasValue();
 }

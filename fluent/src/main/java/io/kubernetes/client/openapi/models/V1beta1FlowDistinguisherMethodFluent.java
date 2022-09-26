@@ -20,7 +20,7 @@ public interface V1beta1FlowDistinguisherMethodFluent<
     extends Fluent<A> {
   public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
   public Boolean hasType();
 }

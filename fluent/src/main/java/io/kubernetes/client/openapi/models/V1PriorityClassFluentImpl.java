@@ -21,7 +21,7 @@ public class V1PriorityClassFluentImpl<A extends V1PriorityClassFluent<A>> exten
     implements V1PriorityClassFluent<A> {
   public V1PriorityClassFluentImpl() {}
 
-  public V1PriorityClassFluentImpl(io.kubernetes.client.openapi.models.V1PriorityClass instance) {
+  public V1PriorityClassFluentImpl(V1PriorityClass instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withDescription(instance.getDescription());
@@ -38,62 +38,62 @@ public class V1PriorityClassFluentImpl<A extends V1PriorityClassFluent<A>> exten
   }
 
   private String apiVersion;
-  private java.lang.String description;
+  private String description;
   private Boolean globalDefault;
-  private java.lang.String kind;
+  private String kind;
   private V1ObjectMetaBuilder metadata;
-  private java.lang.String preemptionPolicy;
+  private String preemptionPolicy;
   private Integer value;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
 
-  public java.lang.String getDescription() {
+  public String getDescription() {
     return this.description;
   }
 
-  public A withDescription(java.lang.String description) {
+  public A withDescription(String description) {
     this.description = description;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDescription() {
+  public Boolean hasDescription() {
     return this.description != null;
   }
 
-  public java.lang.Boolean getGlobalDefault() {
+  public Boolean getGlobalDefault() {
     return this.globalDefault;
   }
 
-  public A withGlobalDefault(java.lang.Boolean globalDefault) {
+  public A withGlobalDefault(Boolean globalDefault) {
     this.globalDefault = globalDefault;
     return (A) this;
   }
 
-  public java.lang.Boolean hasGlobalDefault() {
+  public Boolean hasGlobalDefault() {
     return this.globalDefault != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -103,24 +103,27 @@ public class V1PriorityClassFluentImpl<A extends V1PriorityClassFluent<A>> exten
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -128,52 +131,46 @@ public class V1PriorityClassFluentImpl<A extends V1PriorityClassFluent<A>> exten
     return new V1PriorityClassFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PriorityClassFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1PriorityClassFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1PriorityClassFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PriorityClassFluent.MetadataNested<A>
-      editMetadata() {
+  public V1PriorityClassFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1PriorityClassFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1PriorityClassFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1PriorityClassFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1PriorityClassFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public java.lang.String getPreemptionPolicy() {
+  public String getPreemptionPolicy() {
     return this.preemptionPolicy;
   }
 
-  public A withPreemptionPolicy(java.lang.String preemptionPolicy) {
+  public A withPreemptionPolicy(String preemptionPolicy) {
     this.preemptionPolicy = preemptionPolicy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPreemptionPolicy() {
+  public Boolean hasPreemptionPolicy() {
     return this.preemptionPolicy != null;
   }
 
-  public java.lang.Integer getValue() {
+  public Integer getValue() {
     return this.value;
   }
 
-  public A withValue(java.lang.Integer value) {
+  public A withValue(Integer value) {
     this.value = value;
     return (A) this;
   }
 
-  public java.lang.Boolean hasValue() {
+  public Boolean hasValue() {
     return this.value != null;
   }
 
@@ -209,7 +206,7 @@ public class V1PriorityClassFluentImpl<A extends V1PriorityClassFluent<A>> exten
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -250,17 +247,16 @@ public class V1PriorityClassFluentImpl<A extends V1PriorityClassFluent<A>> exten
 
   class MetadataNestedImpl<N>
       extends V1ObjectMetaFluentImpl<V1PriorityClassFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PriorityClassFluent.MetadataNested<N>,
-          Nested<N> {
+      implements V1PriorityClassFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) V1PriorityClassFluentImpl.this.withMetadata(builder.build());

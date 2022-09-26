@@ -21,7 +21,7 @@ public class V1LimitRangeFluentImpl<A extends V1LimitRangeFluent<A>> extends Bas
     implements V1LimitRangeFluent<A> {
   public V1LimitRangeFluentImpl() {}
 
-  public V1LimitRangeFluentImpl(io.kubernetes.client.openapi.models.V1LimitRange instance) {
+  public V1LimitRangeFluentImpl(V1LimitRange instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withKind(instance.getKind());
@@ -32,15 +32,15 @@ public class V1LimitRangeFluentImpl<A extends V1LimitRangeFluent<A>> extends Bas
   }
 
   private String apiVersion;
-  private java.lang.String kind;
+  private String kind;
   private V1ObjectMetaBuilder metadata;
   private V1LimitRangeSpecBuilder spec;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -49,16 +49,16 @@ public class V1LimitRangeFluentImpl<A extends V1LimitRangeFluent<A>> extends Bas
     return this.apiVersion != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -68,24 +68,27 @@ public class V1LimitRangeFluentImpl<A extends V1LimitRangeFluent<A>> extends Bas
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -93,25 +96,20 @@ public class V1LimitRangeFluentImpl<A extends V1LimitRangeFluent<A>> extends Bas
     return new V1LimitRangeFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1LimitRangeFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1LimitRangeFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeFluent.MetadataNested<A> editMetadata() {
+  public V1LimitRangeFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1LimitRangeFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1LimitRangeFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -120,25 +118,28 @@ public class V1LimitRangeFluentImpl<A extends V1LimitRangeFluent<A>> extends Bas
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LimitRangeSpec getSpec() {
+  @Deprecated
+  public V1LimitRangeSpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeSpec buildSpec() {
+  public V1LimitRangeSpec buildSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1LimitRangeSpec spec) {
+  public A withSpec(V1LimitRangeSpec spec) {
     _visitables.get("spec").remove(this.spec);
     if (spec != null) {
       this.spec = new V1LimitRangeSpecBuilder(spec);
       _visitables.get("spec").add(this.spec);
+    } else {
+      this.spec = null;
+      _visitables.get("spec").remove(this.spec);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSpec() {
+  public Boolean hasSpec() {
     return this.spec != null;
   }
 
@@ -146,24 +147,19 @@ public class V1LimitRangeFluentImpl<A extends V1LimitRangeFluent<A>> extends Bas
     return new V1LimitRangeFluentImpl.SpecNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeFluent.SpecNested<A> withNewSpecLike(
-      io.kubernetes.client.openapi.models.V1LimitRangeSpec item) {
-    return new io.kubernetes.client.openapi.models.V1LimitRangeFluentImpl.SpecNestedImpl(item);
+  public V1LimitRangeFluent.SpecNested<A> withNewSpecLike(V1LimitRangeSpec item) {
+    return new V1LimitRangeFluentImpl.SpecNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeFluent.SpecNested<A> editSpec() {
+  public V1LimitRangeFluent.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeFluent.SpecNested<A> editOrNewSpec() {
-    return withNewSpecLike(
-        getSpec() != null
-            ? getSpec()
-            : new io.kubernetes.client.openapi.models.V1LimitRangeSpecBuilder().build());
+  public V1LimitRangeFluent.SpecNested<A> editOrNewSpec() {
+    return withNewSpecLike(getSpec() != null ? getSpec() : new V1LimitRangeSpecBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1LimitRangeFluent.SpecNested<A> editOrNewSpecLike(
-      io.kubernetes.client.openapi.models.V1LimitRangeSpec item) {
+  public V1LimitRangeFluent.SpecNested<A> editOrNewSpecLike(V1LimitRangeSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec() : item);
   }
 
@@ -183,7 +179,7 @@ public class V1LimitRangeFluentImpl<A extends V1LimitRangeFluent<A>> extends Bas
     return java.util.Objects.hash(apiVersion, kind, metadata, spec, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -207,17 +203,16 @@ public class V1LimitRangeFluentImpl<A extends V1LimitRangeFluent<A>> extends Bas
   }
 
   class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1LimitRangeFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1LimitRangeFluent.MetadataNested<N>,
-          Nested<N> {
+      implements V1LimitRangeFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) V1LimitRangeFluentImpl.this.withMetadata(builder.build());
@@ -229,17 +224,16 @@ public class V1LimitRangeFluentImpl<A extends V1LimitRangeFluent<A>> extends Bas
   }
 
   class SpecNestedImpl<N> extends V1LimitRangeSpecFluentImpl<V1LimitRangeFluent.SpecNested<N>>
-      implements io.kubernetes.client.openapi.models.V1LimitRangeFluent.SpecNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SpecNestedImpl(io.kubernetes.client.openapi.models.V1LimitRangeSpec item) {
+      implements V1LimitRangeFluent.SpecNested<N>, Nested<N> {
+    SpecNestedImpl(V1LimitRangeSpec item) {
       this.builder = new V1LimitRangeSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LimitRangeSpecBuilder(this);
+      this.builder = new V1LimitRangeSpecBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LimitRangeSpecBuilder builder;
+    V1LimitRangeSpecBuilder builder;
 
     public N and() {
       return (N) V1LimitRangeFluentImpl.this.withSpec(builder.build());

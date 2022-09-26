@@ -21,8 +21,7 @@ public class V1IngressServiceBackendFluentImpl<A extends V1IngressServiceBackend
     extends BaseFluent<A> implements V1IngressServiceBackendFluent<A> {
   public V1IngressServiceBackendFluentImpl() {}
 
-  public V1IngressServiceBackendFluentImpl(
-      io.kubernetes.client.openapi.models.V1IngressServiceBackend instance) {
+  public V1IngressServiceBackendFluentImpl(V1IngressServiceBackend instance) {
     this.withName(instance.getName());
 
     this.withPort(instance.getPort());
@@ -31,11 +30,11 @@ public class V1IngressServiceBackendFluentImpl<A extends V1IngressServiceBackend
   private String name;
   private V1ServiceBackendPortBuilder port;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -50,24 +49,27 @@ public class V1IngressServiceBackendFluentImpl<A extends V1IngressServiceBackend
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ServiceBackendPort getPort() {
+  public V1ServiceBackendPort getPort() {
     return this.port != null ? this.port.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceBackendPort buildPort() {
+  public V1ServiceBackendPort buildPort() {
     return this.port != null ? this.port.build() : null;
   }
 
-  public A withPort(io.kubernetes.client.openapi.models.V1ServiceBackendPort port) {
+  public A withPort(V1ServiceBackendPort port) {
     _visitables.get("port").remove(this.port);
     if (port != null) {
       this.port = new V1ServiceBackendPortBuilder(port);
       _visitables.get("port").add(this.port);
+    } else {
+      this.port = null;
+      _visitables.get("port").remove(this.port);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPort() {
+  public Boolean hasPort() {
     return this.port != null;
   }
 
@@ -75,26 +77,20 @@ public class V1IngressServiceBackendFluentImpl<A extends V1IngressServiceBackend
     return new V1IngressServiceBackendFluentImpl.PortNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressServiceBackendFluent.PortNested<A>
-      withNewPortLike(io.kubernetes.client.openapi.models.V1ServiceBackendPort item) {
+  public V1IngressServiceBackendFluent.PortNested<A> withNewPortLike(V1ServiceBackendPort item) {
     return new V1IngressServiceBackendFluentImpl.PortNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressServiceBackendFluent.PortNested<A>
-      editPort() {
+  public V1IngressServiceBackendFluent.PortNested<A> editPort() {
     return withNewPortLike(getPort());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressServiceBackendFluent.PortNested<A>
-      editOrNewPort() {
+  public V1IngressServiceBackendFluent.PortNested<A> editOrNewPort() {
     return withNewPortLike(
-        getPort() != null
-            ? getPort()
-            : new io.kubernetes.client.openapi.models.V1ServiceBackendPortBuilder().build());
+        getPort() != null ? getPort() : new V1ServiceBackendPortBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1IngressServiceBackendFluent.PortNested<A>
-      editOrNewPortLike(io.kubernetes.client.openapi.models.V1ServiceBackendPort item) {
+  public V1IngressServiceBackendFluent.PortNested<A> editOrNewPortLike(V1ServiceBackendPort item) {
     return withNewPortLike(getPort() != null ? getPort() : item);
   }
 
@@ -111,7 +107,7 @@ public class V1IngressServiceBackendFluentImpl<A extends V1IngressServiceBackend
     return java.util.Objects.hash(name, port, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {
@@ -128,17 +124,16 @@ public class V1IngressServiceBackendFluentImpl<A extends V1IngressServiceBackend
 
   class PortNestedImpl<N>
       extends V1ServiceBackendPortFluentImpl<V1IngressServiceBackendFluent.PortNested<N>>
-      implements io.kubernetes.client.openapi.models.V1IngressServiceBackendFluent.PortNested<N>,
-          Nested<N> {
-    PortNestedImpl(io.kubernetes.client.openapi.models.V1ServiceBackendPort item) {
+      implements V1IngressServiceBackendFluent.PortNested<N>, Nested<N> {
+    PortNestedImpl(V1ServiceBackendPort item) {
       this.builder = new V1ServiceBackendPortBuilder(this, item);
     }
 
     PortNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ServiceBackendPortBuilder(this);
+      this.builder = new V1ServiceBackendPortBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ServiceBackendPortBuilder builder;
+    V1ServiceBackendPortBuilder builder;
 
     public N and() {
       return (N) V1IngressServiceBackendFluentImpl.this.withPort(builder.build());

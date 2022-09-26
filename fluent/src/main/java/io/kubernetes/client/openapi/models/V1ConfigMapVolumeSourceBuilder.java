@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ConfigMapVolumeSourceBuilder
     extends V1ConfigMapVolumeSourceFluentImpl<V1ConfigMapVolumeSourceBuilder>
-    implements VisitableBuilder<
-        V1ConfigMapVolumeSource,
-        io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceBuilder> {
+    implements VisitableBuilder<V1ConfigMapVolumeSource, V1ConfigMapVolumeSourceBuilder> {
   public V1ConfigMapVolumeSourceBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1ConfigMapVolumeSourceBuilder
   }
 
   public V1ConfigMapVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ConfigMapVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ConfigMapVolumeSource(), validationEnabled);
   }
 
   public V1ConfigMapVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ConfigMapVolumeSource instance) {
+      V1ConfigMapVolumeSourceFluent<?> fluent, V1ConfigMapVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1ConfigMapVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ConfigMapVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1ConfigMapVolumeSourceFluent<?> fluent,
+      V1ConfigMapVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withDefaultMode(instance.getDefaultMode());
 
@@ -59,14 +55,12 @@ public class V1ConfigMapVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ConfigMapVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapVolumeSource instance) {
+  public V1ConfigMapVolumeSourceBuilder(V1ConfigMapVolumeSource instance) {
     this(instance, false);
   }
 
   public V1ConfigMapVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ConfigMapVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1ConfigMapVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withDefaultMode(instance.getDefaultMode());
 
@@ -79,10 +73,10 @@ public class V1ConfigMapVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ConfigMapVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapVolumeSource build() {
+  public V1ConfigMapVolumeSource build() {
     V1ConfigMapVolumeSource buildable = new V1ConfigMapVolumeSource();
     buildable.setDefaultMode(fluent.getDefaultMode());
     buildable.setItems(fluent.getItems());

@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ServerAddressByClientCIDRBuilder
     extends V1ServerAddressByClientCIDRFluentImpl<V1ServerAddressByClientCIDRBuilder>
-    implements VisitableBuilder<
-        V1ServerAddressByClientCIDR,
-        io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRBuilder> {
+    implements VisitableBuilder<V1ServerAddressByClientCIDR, V1ServerAddressByClientCIDRBuilder> {
   public V1ServerAddressByClientCIDRBuilder() {
     this(false);
   }
@@ -27,27 +25,24 @@ public class V1ServerAddressByClientCIDRBuilder
     this(new V1ServerAddressByClientCIDR(), validationEnabled);
   }
 
-  public V1ServerAddressByClientCIDRBuilder(
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<?> fluent) {
+  public V1ServerAddressByClientCIDRBuilder(V1ServerAddressByClientCIDRFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1ServerAddressByClientCIDRBuilder(
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ServerAddressByClientCIDRFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ServerAddressByClientCIDR(), validationEnabled);
   }
 
   public V1ServerAddressByClientCIDRBuilder(
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR instance) {
+      V1ServerAddressByClientCIDRFluent<?> fluent, V1ServerAddressByClientCIDR instance) {
     this(fluent, instance, false);
   }
 
   public V1ServerAddressByClientCIDRBuilder(
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR instance,
-      java.lang.Boolean validationEnabled) {
+      V1ServerAddressByClientCIDRFluent<?> fluent,
+      V1ServerAddressByClientCIDR instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withClientCIDR(instance.getClientCIDR());
 
@@ -56,14 +51,12 @@ public class V1ServerAddressByClientCIDRBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ServerAddressByClientCIDRBuilder(
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR instance) {
+  public V1ServerAddressByClientCIDRBuilder(V1ServerAddressByClientCIDR instance) {
     this(instance, false);
   }
 
   public V1ServerAddressByClientCIDRBuilder(
-      io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR instance,
-      java.lang.Boolean validationEnabled) {
+      V1ServerAddressByClientCIDR instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withClientCIDR(instance.getClientCIDR());
 
@@ -72,10 +65,10 @@ public class V1ServerAddressByClientCIDRBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDRFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ServerAddressByClientCIDRFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR build() {
+  public V1ServerAddressByClientCIDR build() {
     V1ServerAddressByClientCIDR buildable = new V1ServerAddressByClientCIDR();
     buildable.setClientCIDR(fluent.getClientCIDR());
     buildable.setServerAddress(fluent.getServerAddress());

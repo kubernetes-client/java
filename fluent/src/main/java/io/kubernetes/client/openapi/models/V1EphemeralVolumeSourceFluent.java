@@ -27,37 +27,23 @@ public interface V1EphemeralVolumeSourceFluent<A extends V1EphemeralVolumeSource
   @Deprecated
   public V1PersistentVolumeClaimTemplate getVolumeClaimTemplate();
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate
-      buildVolumeClaimTemplate();
+  public V1PersistentVolumeClaimTemplate buildVolumeClaimTemplate();
 
-  public A withVolumeClaimTemplate(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate volumeClaimTemplate);
+  public A withVolumeClaimTemplate(V1PersistentVolumeClaimTemplate volumeClaimTemplate);
 
   public Boolean hasVolumeClaimTemplate();
 
   public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A> withNewVolumeClaimTemplate();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent
-              .VolumeClaimTemplateNested<
-          A>
-      withNewVolumeClaimTemplateLike(
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate item);
+  public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A> withNewVolumeClaimTemplateLike(
+      V1PersistentVolumeClaimTemplate item);
 
-  public io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent
-              .VolumeClaimTemplateNested<
-          A>
-      editVolumeClaimTemplate();
+  public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A> editVolumeClaimTemplate();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent
-              .VolumeClaimTemplateNested<
-          A>
-      editOrNewVolumeClaimTemplate();
+  public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A> editOrNewVolumeClaimTemplate();
 
-  public io.kubernetes.client.openapi.models.V1EphemeralVolumeSourceFluent
-              .VolumeClaimTemplateNested<
-          A>
-      editOrNewVolumeClaimTemplateLike(
-          io.kubernetes.client.openapi.models.V1PersistentVolumeClaimTemplate item);
+  public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A>
+      editOrNewVolumeClaimTemplateLike(V1PersistentVolumeClaimTemplate item);
 
   public interface VolumeClaimTemplateNested<N>
       extends Nested<N>,

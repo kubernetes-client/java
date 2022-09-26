@@ -21,21 +21,20 @@ public class V1RollingUpdateDeploymentFluentImpl<A extends V1RollingUpdateDeploy
     extends BaseFluent<A> implements V1RollingUpdateDeploymentFluent<A> {
   public V1RollingUpdateDeploymentFluentImpl() {}
 
-  public V1RollingUpdateDeploymentFluentImpl(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDeployment instance) {
+  public V1RollingUpdateDeploymentFluentImpl(V1RollingUpdateDeployment instance) {
     this.withMaxSurge(instance.getMaxSurge());
 
     this.withMaxUnavailable(instance.getMaxUnavailable());
   }
 
   private IntOrString maxSurge;
-  private io.kubernetes.client.custom.IntOrString maxUnavailable;
+  private IntOrString maxUnavailable;
 
-  public io.kubernetes.client.custom.IntOrString getMaxSurge() {
+  public IntOrString getMaxSurge() {
     return this.maxSurge;
   }
 
-  public A withMaxSurge(io.kubernetes.client.custom.IntOrString maxSurge) {
+  public A withMaxSurge(IntOrString maxSurge) {
     this.maxSurge = maxSurge;
     return (A) this;
   }
@@ -52,16 +51,16 @@ public class V1RollingUpdateDeploymentFluentImpl<A extends V1RollingUpdateDeploy
     return (A) withMaxSurge(new IntOrString(value));
   }
 
-  public io.kubernetes.client.custom.IntOrString getMaxUnavailable() {
+  public IntOrString getMaxUnavailable() {
     return this.maxUnavailable;
   }
 
-  public A withMaxUnavailable(io.kubernetes.client.custom.IntOrString maxUnavailable) {
+  public A withMaxUnavailable(IntOrString maxUnavailable) {
     this.maxUnavailable = maxUnavailable;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMaxUnavailable() {
+  public Boolean hasMaxUnavailable() {
     return this.maxUnavailable != null;
   }
 
@@ -69,7 +68,7 @@ public class V1RollingUpdateDeploymentFluentImpl<A extends V1RollingUpdateDeploy
     return (A) withMaxUnavailable(new IntOrString(value));
   }
 
-  public A withNewMaxUnavailable(java.lang.String value) {
+  public A withNewMaxUnavailable(String value) {
     return (A) withMaxUnavailable(new IntOrString(value));
   }
 
@@ -88,7 +87,7 @@ public class V1RollingUpdateDeploymentFluentImpl<A extends V1RollingUpdateDeploy
     return java.util.Objects.hash(maxSurge, maxUnavailable, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (maxSurge != null) {

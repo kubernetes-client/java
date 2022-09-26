@@ -27,8 +27,7 @@ public class V1ReplicationControllerStatusFluentImpl<
     extends BaseFluent<A> implements V1ReplicationControllerStatusFluent<A> {
   public V1ReplicationControllerStatusFluentImpl() {}
 
-  public V1ReplicationControllerStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V1ReplicationControllerStatus instance) {
+  public V1ReplicationControllerStatusFluentImpl(V1ReplicationControllerStatus instance) {
     this.withAvailableReplicas(instance.getAvailableReplicas());
 
     this.withConditions(instance.getConditions());
@@ -44,16 +43,16 @@ public class V1ReplicationControllerStatusFluentImpl<
 
   private Integer availableReplicas;
   private ArrayList<V1ReplicationControllerConditionBuilder> conditions;
-  private java.lang.Integer fullyLabeledReplicas;
+  private Integer fullyLabeledReplicas;
   private Long observedGeneration;
-  private java.lang.Integer readyReplicas;
-  private java.lang.Integer replicas;
+  private Integer readyReplicas;
+  private Integer replicas;
 
-  public java.lang.Integer getAvailableReplicas() {
+  public Integer getAvailableReplicas() {
     return this.availableReplicas;
   }
 
-  public A withAvailableReplicas(java.lang.Integer availableReplicas) {
+  public A withAvailableReplicas(Integer availableReplicas) {
     this.availableReplicas = availableReplicas;
     return (A) this;
   }
@@ -62,14 +61,12 @@ public class V1ReplicationControllerStatusFluentImpl<
     return this.availableReplicas != null;
   }
 
-  public A addToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item) {
+  public A addToConditions(Integer index, V1ReplicationControllerCondition item) {
     if (this.conditions == null) {
-      this.conditions = new java.util.ArrayList<V1ReplicationControllerConditionBuilder>();
+      this.conditions = new ArrayList<V1ReplicationControllerConditionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder(item);
+    V1ReplicationControllerConditionBuilder builder =
+        new V1ReplicationControllerConditionBuilder(item);
     _visitables
         .get("conditions")
         .add(index >= 0 ? index : _visitables.get("conditions").size(), builder);
@@ -77,16 +74,12 @@ public class V1ReplicationControllerStatusFluentImpl<
     return (A) this;
   }
 
-  public A setToConditions(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item) {
+  public A setToConditions(Integer index, V1ReplicationControllerCondition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder>();
+      this.conditions = new ArrayList<V1ReplicationControllerConditionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder(item);
+    V1ReplicationControllerConditionBuilder builder =
+        new V1ReplicationControllerConditionBuilder(item);
     if (index < 0 || index >= _visitables.get("conditions").size()) {
       _visitables.get("conditions").add(builder);
     } else {
@@ -103,29 +96,24 @@ public class V1ReplicationControllerStatusFluentImpl<
   public A addToConditions(
       io.kubernetes.client.openapi.models.V1ReplicationControllerCondition... items) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder>();
+      this.conditions = new ArrayList<V1ReplicationControllerConditionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item : items) {
-      io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder(item);
+    for (V1ReplicationControllerCondition item : items) {
+      V1ReplicationControllerConditionBuilder builder =
+          new V1ReplicationControllerConditionBuilder(item);
       _visitables.get("conditions").add(builder);
       this.conditions.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToConditions(
-      Collection<io.kubernetes.client.openapi.models.V1ReplicationControllerCondition> items) {
+  public A addAllToConditions(Collection<V1ReplicationControllerCondition> items) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder>();
+      this.conditions = new ArrayList<V1ReplicationControllerConditionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item : items) {
-      io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder(item);
+    for (V1ReplicationControllerCondition item : items) {
+      V1ReplicationControllerConditionBuilder builder =
+          new V1ReplicationControllerConditionBuilder(item);
       _visitables.get("conditions").add(builder);
       this.conditions.add(builder);
     }
@@ -134,9 +122,9 @@ public class V1ReplicationControllerStatusFluentImpl<
 
   public A removeFromConditions(
       io.kubernetes.client.openapi.models.V1ReplicationControllerCondition... items) {
-    for (io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item : items) {
-      io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder(item);
+    for (V1ReplicationControllerCondition item : items) {
+      V1ReplicationControllerConditionBuilder builder =
+          new V1ReplicationControllerConditionBuilder(item);
       _visitables.get("conditions").remove(builder);
       if (this.conditions != null) {
         this.conditions.remove(builder);
@@ -145,12 +133,10 @@ public class V1ReplicationControllerStatusFluentImpl<
     return (A) this;
   }
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ReplicationControllerCondition>
-          items) {
-    for (io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item : items) {
-      io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder(item);
+  public A removeAllFromConditions(Collection<V1ReplicationControllerCondition> items) {
+    for (V1ReplicationControllerCondition item : items) {
+      V1ReplicationControllerConditionBuilder builder =
+          new V1ReplicationControllerConditionBuilder(item);
       _visitables.get("conditions").remove(builder);
       if (this.conditions != null) {
         this.conditions.remove(builder);
@@ -160,15 +146,12 @@ public class V1ReplicationControllerStatusFluentImpl<
   }
 
   public A removeMatchingFromConditions(
-      Predicate<io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder>
-          predicate) {
+      Predicate<V1ReplicationControllerConditionBuilder> predicate) {
     if (conditions == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder>
-        each = conditions.iterator();
+    final Iterator<V1ReplicationControllerConditionBuilder> each = conditions.iterator();
     final List visitables = _visitables.get("conditions");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder builder =
-          each.next();
+      V1ReplicationControllerConditionBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -183,37 +166,29 @@ public class V1ReplicationControllerStatusFluentImpl<
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1ReplicationControllerCondition>
-      getConditions() {
+  public List<V1ReplicationControllerCondition> getConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ReplicationControllerCondition>
-      buildConditions() {
+  public List<V1ReplicationControllerCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerCondition buildCondition(
-      java.lang.Integer index) {
+  public V1ReplicationControllerCondition buildCondition(Integer index) {
     return this.conditions.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerCondition
-      buildFirstCondition() {
+  public V1ReplicationControllerCondition buildFirstCondition() {
     return this.conditions.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerCondition buildLastCondition() {
+  public V1ReplicationControllerCondition buildLastCondition() {
     return this.conditions.get(conditions.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerCondition
-      buildMatchingCondition(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder>
-              predicate) {
-    for (io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder item :
-        conditions) {
+  public V1ReplicationControllerCondition buildMatchingCondition(
+      Predicate<V1ReplicationControllerConditionBuilder> predicate) {
+    for (V1ReplicationControllerConditionBuilder item : conditions) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -221,12 +196,9 @@ public class V1ReplicationControllerStatusFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingCondition(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder item :
-        conditions) {
+  public Boolean hasMatchingCondition(
+      Predicate<V1ReplicationControllerConditionBuilder> predicate) {
+    for (V1ReplicationControllerConditionBuilder item : conditions) {
       if (predicate.test(item)) {
         return true;
       }
@@ -234,15 +206,13 @@ public class V1ReplicationControllerStatusFluentImpl<
     return false;
   }
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1ReplicationControllerCondition>
-          conditions) {
+  public A withConditions(List<V1ReplicationControllerCondition> conditions) {
     if (this.conditions != null) {
       _visitables.get("conditions").removeAll(this.conditions);
     }
     if (conditions != null) {
-      this.conditions = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item : conditions) {
+      this.conditions = new ArrayList();
+      for (V1ReplicationControllerCondition item : conditions) {
         this.addToConditions(item);
       }
     } else {
@@ -257,14 +227,14 @@ public class V1ReplicationControllerStatusFluentImpl<
       this.conditions.clear();
     }
     if (conditions != null) {
-      for (io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item : conditions) {
+      for (V1ReplicationControllerCondition item : conditions) {
         this.addToConditions(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasConditions() {
+  public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
 
@@ -272,46 +242,36 @@ public class V1ReplicationControllerStatusFluentImpl<
     return new V1ReplicationControllerStatusFluentImpl.ConditionsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent.ConditionsNested<A>
-      addNewConditionLike(
-          io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item) {
+  public V1ReplicationControllerStatusFluent.ConditionsNested<A> addNewConditionLike(
+      V1ReplicationControllerCondition item) {
     return new V1ReplicationControllerStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item) {
-    return new io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluentImpl
-        .ConditionsNestedImpl(index, item);
+  public V1ReplicationControllerStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1ReplicationControllerCondition item) {
+    return new V1ReplicationControllerStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent.ConditionsNested<A>
-      editCondition(java.lang.Integer index) {
+  public V1ReplicationControllerStatusFluent.ConditionsNested<A> editCondition(Integer index) {
     if (conditions.size() <= index)
       throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent.ConditionsNested<A>
-      editFirstCondition() {
+  public V1ReplicationControllerStatusFluent.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0)
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent.ConditionsNested<A>
-      editLastCondition() {
+  public V1ReplicationControllerStatusFluent.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder>
-              predicate) {
+  public V1ReplicationControllerStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1ReplicationControllerConditionBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < conditions.size(); i++) {
       if (predicate.test(conditions.get(i))) {
@@ -323,55 +283,55 @@ public class V1ReplicationControllerStatusFluentImpl<
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public java.lang.Integer getFullyLabeledReplicas() {
+  public Integer getFullyLabeledReplicas() {
     return this.fullyLabeledReplicas;
   }
 
-  public A withFullyLabeledReplicas(java.lang.Integer fullyLabeledReplicas) {
+  public A withFullyLabeledReplicas(Integer fullyLabeledReplicas) {
     this.fullyLabeledReplicas = fullyLabeledReplicas;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFullyLabeledReplicas() {
+  public Boolean hasFullyLabeledReplicas() {
     return this.fullyLabeledReplicas != null;
   }
 
-  public java.lang.Long getObservedGeneration() {
+  public Long getObservedGeneration() {
     return this.observedGeneration;
   }
 
-  public A withObservedGeneration(java.lang.Long observedGeneration) {
+  public A withObservedGeneration(Long observedGeneration) {
     this.observedGeneration = observedGeneration;
     return (A) this;
   }
 
-  public java.lang.Boolean hasObservedGeneration() {
+  public Boolean hasObservedGeneration() {
     return this.observedGeneration != null;
   }
 
-  public java.lang.Integer getReadyReplicas() {
+  public Integer getReadyReplicas() {
     return this.readyReplicas;
   }
 
-  public A withReadyReplicas(java.lang.Integer readyReplicas) {
+  public A withReadyReplicas(Integer readyReplicas) {
     this.readyReplicas = readyReplicas;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadyReplicas() {
+  public Boolean hasReadyReplicas() {
     return this.readyReplicas != null;
   }
 
-  public java.lang.Integer getReplicas() {
+  public Integer getReplicas() {
     return this.replicas;
   }
 
-  public A withReplicas(java.lang.Integer replicas) {
+  public A withReplicas(Integer replicas) {
     this.replicas = replicas;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReplicas() {
+  public Boolean hasReplicas() {
     return this.replicas != null;
   }
 
@@ -442,25 +402,19 @@ public class V1ReplicationControllerStatusFluentImpl<
   class ConditionsNestedImpl<N>
       extends V1ReplicationControllerConditionFluentImpl<
           V1ReplicationControllerStatusFluent.ConditionsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ReplicationControllerStatusFluent
-                  .ConditionsNested<
-              N>,
-          Nested<N> {
-    ConditionsNestedImpl(
-        java.lang.Integer index,
-        io.kubernetes.client.openapi.models.V1ReplicationControllerCondition item) {
+      implements V1ReplicationControllerStatusFluent.ConditionsNested<N>, Nested<N> {
+    ConditionsNestedImpl(Integer index, V1ReplicationControllerCondition item) {
       this.index = index;
       this.builder = new V1ReplicationControllerConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
       this.index = -1;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder(this);
+      this.builder = new V1ReplicationControllerConditionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ReplicationControllerConditionBuilder builder;
-    java.lang.Integer index;
+    V1ReplicationControllerConditionBuilder builder;
+    Integer index;
 
     public N and() {
       return (N)

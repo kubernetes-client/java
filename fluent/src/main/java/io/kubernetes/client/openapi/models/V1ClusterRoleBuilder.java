@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ClusterRoleBuilder extends V1ClusterRoleFluentImpl<V1ClusterRoleBuilder>
-    implements VisitableBuilder<
-        V1ClusterRole, io.kubernetes.client.openapi.models.V1ClusterRoleBuilder> {
+    implements VisitableBuilder<V1ClusterRole, V1ClusterRoleBuilder> {
   public V1ClusterRoleBuilder() {
     this(false);
   }
@@ -25,26 +24,20 @@ public class V1ClusterRoleBuilder extends V1ClusterRoleFluentImpl<V1ClusterRoleB
     this(new V1ClusterRole(), validationEnabled);
   }
 
-  public V1ClusterRoleBuilder(io.kubernetes.client.openapi.models.V1ClusterRoleFluent<?> fluent) {
+  public V1ClusterRoleBuilder(V1ClusterRoleFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1ClusterRoleBuilder(
-      io.kubernetes.client.openapi.models.V1ClusterRoleFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ClusterRoleBuilder(V1ClusterRoleFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ClusterRole(), validationEnabled);
   }
 
-  public V1ClusterRoleBuilder(
-      io.kubernetes.client.openapi.models.V1ClusterRoleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ClusterRole instance) {
+  public V1ClusterRoleBuilder(V1ClusterRoleFluent<?> fluent, V1ClusterRole instance) {
     this(fluent, instance, false);
   }
 
   public V1ClusterRoleBuilder(
-      io.kubernetes.client.openapi.models.V1ClusterRoleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ClusterRole instance,
-      java.lang.Boolean validationEnabled) {
+      V1ClusterRoleFluent<?> fluent, V1ClusterRole instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAggregationRule(instance.getAggregationRule());
 
@@ -59,13 +52,11 @@ public class V1ClusterRoleBuilder extends V1ClusterRoleFluentImpl<V1ClusterRoleB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ClusterRoleBuilder(io.kubernetes.client.openapi.models.V1ClusterRole instance) {
+  public V1ClusterRoleBuilder(V1ClusterRole instance) {
     this(instance, false);
   }
 
-  public V1ClusterRoleBuilder(
-      io.kubernetes.client.openapi.models.V1ClusterRole instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ClusterRoleBuilder(V1ClusterRole instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAggregationRule(instance.getAggregationRule());
 
@@ -80,10 +71,10 @@ public class V1ClusterRoleBuilder extends V1ClusterRoleFluentImpl<V1ClusterRoleB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ClusterRoleFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ClusterRoleFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ClusterRole build() {
+  public V1ClusterRole build() {
     V1ClusterRole buildable = new V1ClusterRole();
     buildable.setAggregationRule(fluent.getAggregationRule());
     buildable.setApiVersion(fluent.getApiVersion());

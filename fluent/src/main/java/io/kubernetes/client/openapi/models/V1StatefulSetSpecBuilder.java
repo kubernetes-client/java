@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1StatefulSetSpecBuilder extends V1StatefulSetSpecFluentImpl<V1StatefulSetSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1StatefulSetSpec, V1StatefulSetSpecBuilder> {
+    implements VisitableBuilder<V1StatefulSetSpec, V1StatefulSetSpecBuilder> {
   public V1StatefulSetSpecBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1StatefulSetSpecBuilder extends V1StatefulSetSpecFluentImpl<V1Stat
     this(new V1StatefulSetSpec(), validationEnabled);
   }
 
-  public V1StatefulSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent<?> fluent) {
+  public V1StatefulSetSpecBuilder(V1StatefulSetSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1StatefulSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1StatefulSetSpecBuilder(V1StatefulSetSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1StatefulSetSpec(), validationEnabled);
   }
 
-  public V1StatefulSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StatefulSetSpec instance) {
+  public V1StatefulSetSpecBuilder(V1StatefulSetSpecFluent<?> fluent, V1StatefulSetSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1StatefulSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1StatefulSetSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1StatefulSetSpecFluent<?> fluent, V1StatefulSetSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMinReadySeconds(instance.getMinReadySeconds());
 
@@ -71,13 +63,11 @@ public class V1StatefulSetSpecBuilder extends V1StatefulSetSpecFluentImpl<V1Stat
     this.validationEnabled = validationEnabled;
   }
 
-  public V1StatefulSetSpecBuilder(io.kubernetes.client.openapi.models.V1StatefulSetSpec instance) {
+  public V1StatefulSetSpecBuilder(V1StatefulSetSpec instance) {
     this(instance, false);
   }
 
-  public V1StatefulSetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1StatefulSetSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1StatefulSetSpecBuilder(V1StatefulSetSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMinReadySeconds(instance.getMinReadySeconds());
 
@@ -103,10 +93,10 @@ public class V1StatefulSetSpecBuilder extends V1StatefulSetSpecFluentImpl<V1Stat
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1StatefulSetSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1StatefulSetSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1StatefulSetSpec build() {
+  public V1StatefulSetSpec build() {
     V1StatefulSetSpec buildable = new V1StatefulSetSpec();
     buildable.setMinReadySeconds(fluent.getMinReadySeconds());
     buildable.setPersistentVolumeClaimRetentionPolicy(

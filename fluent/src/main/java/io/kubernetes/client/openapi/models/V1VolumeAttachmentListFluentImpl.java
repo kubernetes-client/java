@@ -26,8 +26,7 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
     extends BaseFluent<A> implements V1VolumeAttachmentListFluent<A> {
   public V1VolumeAttachmentListFluentImpl() {}
 
-  public V1VolumeAttachmentListFluentImpl(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentList instance) {
+  public V1VolumeAttachmentListFluentImpl(V1VolumeAttachmentList instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withItems(instance.getItems());
@@ -39,14 +38,14 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
 
   private String apiVersion;
   private ArrayList<V1VolumeAttachmentBuilder> items;
-  private java.lang.String kind;
+  private String kind;
   private V1ListMetaBuilder metadata;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -55,26 +54,21 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
     return this.apiVersion != null;
   }
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1VolumeAttachment item) {
+  public A addToItems(Integer index, V1VolumeAttachment item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder>();
+      this.items = new ArrayList<V1VolumeAttachmentBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder builder =
-        new io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder(item);
+    V1VolumeAttachmentBuilder builder = new V1VolumeAttachmentBuilder(item);
     _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
     this.items.add(index >= 0 ? index : items.size(), builder);
     return (A) this;
   }
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeAttachment item) {
+  public A setToItems(Integer index, V1VolumeAttachment item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder>();
+      this.items = new ArrayList<V1VolumeAttachmentBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder builder =
-        new io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder(item);
+    V1VolumeAttachmentBuilder builder = new V1VolumeAttachmentBuilder(item);
     if (index < 0 || index >= _visitables.get("items").size()) {
       _visitables.get("items").add(builder);
     } else {
@@ -90,26 +84,22 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
 
   public A addToItems(io.kubernetes.client.openapi.models.V1VolumeAttachment... items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder>();
+      this.items = new ArrayList<V1VolumeAttachmentBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1VolumeAttachment item : items) {
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder builder =
-          new io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder(item);
+    for (V1VolumeAttachment item : items) {
+      V1VolumeAttachmentBuilder builder = new V1VolumeAttachmentBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1VolumeAttachment> items) {
+  public A addAllToItems(Collection<V1VolumeAttachment> items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder>();
+      this.items = new ArrayList<V1VolumeAttachmentBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1VolumeAttachment item : items) {
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder builder =
-          new io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder(item);
+    for (V1VolumeAttachment item : items) {
+      V1VolumeAttachmentBuilder builder = new V1VolumeAttachmentBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
@@ -117,9 +107,8 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
   }
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1VolumeAttachment... items) {
-    for (io.kubernetes.client.openapi.models.V1VolumeAttachment item : items) {
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder builder =
-          new io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder(item);
+    for (V1VolumeAttachment item : items) {
+      V1VolumeAttachmentBuilder builder = new V1VolumeAttachmentBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -128,11 +117,9 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
     return (A) this;
   }
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1VolumeAttachment> items) {
-    for (io.kubernetes.client.openapi.models.V1VolumeAttachment item : items) {
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder builder =
-          new io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder(item);
+  public A removeAllFromItems(Collection<V1VolumeAttachment> items) {
+    for (V1VolumeAttachment item : items) {
+      V1VolumeAttachmentBuilder builder = new V1VolumeAttachmentBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -141,14 +128,12 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
     return (A) this;
   }
 
-  public A removeMatchingFromItems(
-      Predicate<io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder> predicate) {
+  public A removeMatchingFromItems(Predicate<V1VolumeAttachmentBuilder> predicate) {
     if (items == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder> each =
-        items.iterator();
+    final Iterator<V1VolumeAttachmentBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder builder = each.next();
+      V1VolumeAttachmentBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -163,30 +148,28 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1VolumeAttachment> getItems() {
+  public List<V1VolumeAttachment> getItems() {
     return items != null ? build(items) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1VolumeAttachment> buildItems() {
+  public List<V1VolumeAttachment> buildItems() {
     return items != null ? build(items) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachment buildItem(java.lang.Integer index) {
+  public V1VolumeAttachment buildItem(Integer index) {
     return this.items.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachment buildFirstItem() {
+  public V1VolumeAttachment buildFirstItem() {
     return this.items.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachment buildLastItem() {
+  public V1VolumeAttachment buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachment buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder item : items) {
+  public V1VolumeAttachment buildMatchingItem(Predicate<V1VolumeAttachmentBuilder> predicate) {
+    for (V1VolumeAttachmentBuilder item : items) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -194,10 +177,8 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
     return null;
   }
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder item : items) {
+  public Boolean hasMatchingItem(Predicate<V1VolumeAttachmentBuilder> predicate) {
+    for (V1VolumeAttachmentBuilder item : items) {
       if (predicate.test(item)) {
         return true;
       }
@@ -205,13 +186,13 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
     return false;
   }
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1VolumeAttachment> items) {
+  public A withItems(List<V1VolumeAttachment> items) {
     if (this.items != null) {
       _visitables.get("items").removeAll(this.items);
     }
     if (items != null) {
-      this.items = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1VolumeAttachment item : items) {
+      this.items = new ArrayList();
+      for (V1VolumeAttachment item : items) {
         this.addToItems(item);
       }
     } else {
@@ -225,14 +206,14 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
       this.items.clear();
     }
     if (items != null) {
-      for (io.kubernetes.client.openapi.models.V1VolumeAttachment item : items) {
+      for (V1VolumeAttachment item : items) {
         this.addToItems(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasItems() {
+  public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
 
@@ -240,42 +221,33 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
     return new V1VolumeAttachmentListFluentImpl.ItemsNestedImpl();
   }
 
-  public V1VolumeAttachmentListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1VolumeAttachment item) {
+  public V1VolumeAttachmentListFluent.ItemsNested<A> addNewItemLike(V1VolumeAttachment item) {
     return new V1VolumeAttachmentListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeAttachment item) {
-    return new io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluentImpl.ItemsNestedImpl(
-        index, item);
+  public V1VolumeAttachmentListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1VolumeAttachment item) {
+    return new V1VolumeAttachmentListFluentImpl.ItemsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index) {
+  public V1VolumeAttachmentListFluent.ItemsNested<A> editItem(Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.ItemsNested<A>
-      editFirstItem() {
+  public V1VolumeAttachmentListFluent.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.ItemsNested<A>
-      editLastItem() {
+  public V1VolumeAttachmentListFluent.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder>
-              predicate) {
+  public V1VolumeAttachmentListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1VolumeAttachmentBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < items.size(); i++) {
       if (predicate.test(items.get(i))) {
@@ -287,16 +259,16 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
     return setNewItemLike(index, buildItem(index));
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -305,25 +277,28 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
+  @Deprecated
+  public V1ListMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
+  public V1ListMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
+  public A withMetadata(V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -331,27 +306,20 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
     return new V1VolumeAttachmentListFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluentImpl
-        .MetadataNestedImpl(item);
+  public V1VolumeAttachmentListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+    return new V1VolumeAttachmentListFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.MetadataNested<A>
-      editMetadata() {
+  public V1VolumeAttachmentListFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1VolumeAttachmentListFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
+  public V1VolumeAttachmentListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -371,7 +339,7 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -396,21 +364,19 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
 
   class ItemsNestedImpl<N>
       extends V1VolumeAttachmentFluentImpl<V1VolumeAttachmentListFluent.ItemsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.ItemsNested<N>,
-          Nested<N> {
-    ItemsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1VolumeAttachment item) {
+      implements V1VolumeAttachmentListFluent.ItemsNested<N>, Nested<N> {
+    ItemsNestedImpl(Integer index, V1VolumeAttachment item) {
       this.index = index;
       this.builder = new V1VolumeAttachmentBuilder(this, item);
     }
 
     ItemsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder(this);
+      this.builder = new V1VolumeAttachmentBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1VolumeAttachmentBuilder builder;
-    java.lang.Integer index;
+    V1VolumeAttachmentBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1VolumeAttachmentListFluentImpl.this.setToItems(index, builder.build());
@@ -423,17 +389,16 @@ public class V1VolumeAttachmentListFluentImpl<A extends V1VolumeAttachmentListFl
 
   class MetadataNestedImpl<N>
       extends V1ListMetaFluentImpl<V1VolumeAttachmentListFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1VolumeAttachmentListFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1VolumeAttachmentListFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this);
+      this.builder = new V1ListMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
+    V1ListMetaBuilder builder;
 
     public N and() {
       return (N) V1VolumeAttachmentListFluentImpl.this.withMetadata(builder.build());

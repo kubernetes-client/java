@@ -15,20 +15,19 @@ package io.kubernetes.client.fluent;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map.Entry;
 
 public final class VisitorWiretap<T> implements Visitor<T> {
-  private VisitorWiretap(
-      io.kubernetes.client.fluent.Visitor<T> delegate, Collection<VisitorListener> listeners) {
+  private VisitorWiretap(Visitor<T> delegate, Collection<VisitorListener> listeners) {
     this.delegate = delegate;
     this.listeners = listeners;
   }
 
-  private final java.util.Collection<io.kubernetes.client.fluent.VisitorListener> listeners;
-  private final io.kubernetes.client.fluent.Visitor<T> delegate;
+  private final Collection<VisitorListener> listeners;
+  private final Visitor<T> delegate;
 
   public static <T> VisitorWiretap<T> create(
-      io.kubernetes.client.fluent.Visitor<T> visitor,
-      java.util.Collection<io.kubernetes.client.fluent.VisitorListener> listeners) {
+      Visitor<T> visitor, Collection<VisitorListener> listeners) {
     if (visitor instanceof VisitorWiretap) {
       return (VisitorWiretap<T>) visitor;
     }
@@ -49,13 +48,13 @@ public final class VisitorWiretap<T> implements Visitor<T> {
     return delegate.order();
   }
 
-  public void visit(List<Object> path, T target) {
+  public void visit(List<Entry<String, Object>> path, T target) {
     listeners.forEach(l -> l.beforeVisit(delegate, path, target));
     delegate.visit(path, target);
     listeners.forEach(l -> l.afterVisit(delegate, path, target));
   }
 
-  public <F> Boolean canVisit(java.util.List<java.lang.Object> path, F target) {
+  public <F> Boolean canVisit(List<Entry<String, Object>> path, F target) {
     boolean canVisit = delegate.canVisit(path, target);
     listeners.forEach(l -> l.onCheck(delegate, canVisit, target));
     return canVisit;

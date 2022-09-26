@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class ApiregistrationV1ServiceReferenceBuilder
     extends ApiregistrationV1ServiceReferenceFluentImpl<ApiregistrationV1ServiceReferenceBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference,
-        io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceBuilder> {
+        ApiregistrationV1ServiceReference, ApiregistrationV1ServiceReferenceBuilder> {
   public ApiregistrationV1ServiceReferenceBuilder() {
     this(false);
   }
@@ -33,21 +32,20 @@ public class ApiregistrationV1ServiceReferenceBuilder
   }
 
   public ApiregistrationV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      ApiregistrationV1ServiceReferenceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new ApiregistrationV1ServiceReference(), validationEnabled);
   }
 
   public ApiregistrationV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference instance) {
+      ApiregistrationV1ServiceReferenceFluent<?> fluent,
+      ApiregistrationV1ServiceReference instance) {
     this(fluent, instance, false);
   }
 
   public ApiregistrationV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference instance,
-      java.lang.Boolean validationEnabled) {
+      ApiregistrationV1ServiceReferenceFluent<?> fluent,
+      ApiregistrationV1ServiceReference instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
@@ -58,14 +56,12 @@ public class ApiregistrationV1ServiceReferenceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public ApiregistrationV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference instance) {
+  public ApiregistrationV1ServiceReferenceBuilder(ApiregistrationV1ServiceReference instance) {
     this(instance, false);
   }
 
   public ApiregistrationV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference instance,
-      java.lang.Boolean validationEnabled) {
+      ApiregistrationV1ServiceReference instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
@@ -76,10 +72,10 @@ public class ApiregistrationV1ServiceReferenceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  ApiregistrationV1ServiceReferenceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference build() {
+  public ApiregistrationV1ServiceReference build() {
     ApiregistrationV1ServiceReference buildable = new ApiregistrationV1ServiceReference();
     buildable.setName(fluent.getName());
     buildable.setNamespace(fluent.getNamespace());

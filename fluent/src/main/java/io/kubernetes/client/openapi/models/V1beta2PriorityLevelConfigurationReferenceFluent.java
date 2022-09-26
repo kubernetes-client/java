@@ -20,7 +20,7 @@ public interface V1beta2PriorityLevelConfigurationReferenceFluent<
     extends Fluent<A> {
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
   public Boolean hasName();
 }

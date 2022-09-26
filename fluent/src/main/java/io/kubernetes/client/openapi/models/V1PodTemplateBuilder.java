@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PodTemplateBuilder extends V1PodTemplateFluentImpl<V1PodTemplateBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PodTemplate,
-        io.kubernetes.client.openapi.models.V1PodTemplateBuilder> {
+    implements VisitableBuilder<V1PodTemplate, V1PodTemplateBuilder> {
   public V1PodTemplateBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1PodTemplateBuilder extends V1PodTemplateFluentImpl<V1PodTemplateB
     this(fluent, false);
   }
 
-  public V1PodTemplateBuilder(
-      io.kubernetes.client.openapi.models.V1PodTemplateFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1PodTemplateBuilder(V1PodTemplateFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PodTemplate(), validationEnabled);
   }
 
-  public V1PodTemplateBuilder(
-      io.kubernetes.client.openapi.models.V1PodTemplateFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodTemplate instance) {
+  public V1PodTemplateBuilder(V1PodTemplateFluent<?> fluent, V1PodTemplate instance) {
     this(fluent, instance, false);
   }
 
   public V1PodTemplateBuilder(
-      io.kubernetes.client.openapi.models.V1PodTemplateFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodTemplate instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodTemplateFluent<?> fluent, V1PodTemplate instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,13 +50,11 @@ public class V1PodTemplateBuilder extends V1PodTemplateFluentImpl<V1PodTemplateB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PodTemplateBuilder(io.kubernetes.client.openapi.models.V1PodTemplate instance) {
+  public V1PodTemplateBuilder(V1PodTemplate instance) {
     this(instance, false);
   }
 
-  public V1PodTemplateBuilder(
-      io.kubernetes.client.openapi.models.V1PodTemplate instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PodTemplateBuilder(V1PodTemplate instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -77,10 +67,10 @@ public class V1PodTemplateBuilder extends V1PodTemplateFluentImpl<V1PodTemplateB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PodTemplateFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PodTemplateFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PodTemplate build() {
+  public V1PodTemplate build() {
     V1PodTemplate buildable = new V1PodTemplate();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

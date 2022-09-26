@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1beta2NonResourcePolicyRuleBuilder
     extends V1beta2NonResourcePolicyRuleFluentImpl<V1beta2NonResourcePolicyRuleBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule,
-        io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleBuilder> {
+    implements VisitableBuilder<V1beta2NonResourcePolicyRule, V1beta2NonResourcePolicyRuleBuilder> {
   public V1beta2NonResourcePolicyRuleBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1beta2NonResourcePolicyRuleBuilder
   }
 
   public V1beta2NonResourcePolicyRuleBuilder(
-      io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta2NonResourcePolicyRuleFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta2NonResourcePolicyRule(), validationEnabled);
   }
 
   public V1beta2NonResourcePolicyRuleBuilder(
-      io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule instance) {
+      V1beta2NonResourcePolicyRuleFluent<?> fluent, V1beta2NonResourcePolicyRule instance) {
     this(fluent, instance, false);
   }
 
   public V1beta2NonResourcePolicyRuleBuilder(
-      io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2NonResourcePolicyRuleFluent<?> fluent,
+      V1beta2NonResourcePolicyRule instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withNonResourceURLs(instance.getNonResourceURLs());
 
@@ -55,14 +51,12 @@ public class V1beta2NonResourcePolicyRuleBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta2NonResourcePolicyRuleBuilder(
-      io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule instance) {
+  public V1beta2NonResourcePolicyRuleBuilder(V1beta2NonResourcePolicyRule instance) {
     this(instance, false);
   }
 
   public V1beta2NonResourcePolicyRuleBuilder(
-      io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2NonResourcePolicyRule instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withNonResourceURLs(instance.getNonResourceURLs());
 
@@ -71,10 +65,10 @@ public class V1beta2NonResourcePolicyRuleBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRuleFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta2NonResourcePolicyRuleFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule build() {
+  public V1beta2NonResourcePolicyRule build() {
     V1beta2NonResourcePolicyRule buildable = new V1beta2NonResourcePolicyRule();
     buildable.setNonResourceURLs(fluent.getNonResourceURLs());
     buildable.setVerbs(fluent.getVerbs());

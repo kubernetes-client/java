@@ -19,13 +19,13 @@ public interface V1ServerAddressByClientCIDRFluent<A extends V1ServerAddressByCl
     extends Fluent<A> {
   public String getClientCIDR();
 
-  public A withClientCIDR(java.lang.String clientCIDR);
+  public A withClientCIDR(String clientCIDR);
 
   public Boolean hasClientCIDR();
 
-  public java.lang.String getServerAddress();
+  public String getServerAddress();
 
-  public A withServerAddress(java.lang.String serverAddress);
+  public A withServerAddress(String serverAddress);
 
-  public java.lang.Boolean hasServerAddress();
+  public Boolean hasServerAddress();
 }

@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1JobBuilder extends V1JobFluentImpl<V1JobBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1Job,
-        io.kubernetes.client.openapi.models.V1JobBuilder> {
+    implements VisitableBuilder<V1Job, V1JobBuilder> {
   public V1JobBuilder() {
     this(false);
   }
@@ -30,22 +28,15 @@ public class V1JobBuilder extends V1JobFluentImpl<V1JobBuilder>
     this(fluent, false);
   }
 
-  public V1JobBuilder(
-      io.kubernetes.client.openapi.models.V1JobFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1JobBuilder(V1JobFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Job(), validationEnabled);
   }
 
-  public V1JobBuilder(
-      io.kubernetes.client.openapi.models.V1JobFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Job instance) {
+  public V1JobBuilder(V1JobFluent<?> fluent, V1Job instance) {
     this(fluent, instance, false);
   }
 
-  public V1JobBuilder(
-      io.kubernetes.client.openapi.models.V1JobFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Job instance,
-      java.lang.Boolean validationEnabled) {
+  public V1JobBuilder(V1JobFluent<?> fluent, V1Job instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -60,12 +51,11 @@ public class V1JobBuilder extends V1JobFluentImpl<V1JobBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1JobBuilder(io.kubernetes.client.openapi.models.V1Job instance) {
+  public V1JobBuilder(V1Job instance) {
     this(instance, false);
   }
 
-  public V1JobBuilder(
-      io.kubernetes.client.openapi.models.V1Job instance, java.lang.Boolean validationEnabled) {
+  public V1JobBuilder(V1Job instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -80,10 +70,10 @@ public class V1JobBuilder extends V1JobFluentImpl<V1JobBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1JobFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1JobFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Job build() {
+  public V1Job build() {
     V1Job buildable = new V1Job();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

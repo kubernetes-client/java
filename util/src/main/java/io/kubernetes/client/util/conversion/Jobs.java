@@ -12,12 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.util.conversion;
 
+import io.kubernetes.client.openapi.models.V1CronJob;
+import io.kubernetes.client.openapi.models.V1CronJobSpec;
 import io.kubernetes.client.openapi.models.V1Job;
 import io.kubernetes.client.openapi.models.V1JobSpec;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1OwnerReference;
-import io.kubernetes.client.openapi.models.V1beta1CronJob;
-import io.kubernetes.client.openapi.models.V1beta1CronJobSpec;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,13 +32,13 @@ public class Jobs {
    * @param jobName cronJob name
    * @return V1Job object
    */
-  public static V1Job cronJobToJob(V1beta1CronJob cronJob, String jobName) {
+  public static V1Job cronJobToJob(V1CronJob cronJob, String jobName) {
 
     Map<String, String> annotations = new HashMap<>();
     Map<String, String> labels = new HashMap<>();
     V1JobSpec jobSpec = null;
 
-    V1beta1CronJobSpec cronJobSpec = cronJob.getSpec();
+    V1CronJobSpec cronJobSpec = cronJob.getSpec();
 
     if (cronJobSpec != null && cronJobSpec.getJobTemplate() != null) {
       V1ObjectMeta metadata = cronJobSpec.getJobTemplate().getMetadata();

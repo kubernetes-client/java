@@ -26,8 +26,7 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
     implements V1PodAntiAffinityFluent<A> {
   public V1PodAntiAffinityFluentImpl() {}
 
-  public V1PodAntiAffinityFluentImpl(
-      io.kubernetes.client.openapi.models.V1PodAntiAffinity instance) {
+  public V1PodAntiAffinityFluentImpl(V1PodAntiAffinity instance) {
     this.withPreferredDuringSchedulingIgnoredDuringExecution(
         instance.getPreferredDuringSchedulingIgnoredDuringExecution());
 
@@ -37,18 +36,15 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
 
   private ArrayList<V1WeightedPodAffinityTermBuilder>
       preferredDuringSchedulingIgnoredDuringExecution;
-  private java.util.ArrayList<V1PodAffinityTermBuilder>
-      requiredDuringSchedulingIgnoredDuringExecution;
+  private ArrayList<V1PodAffinityTermBuilder> requiredDuringSchedulingIgnoredDuringExecution;
 
   public A addToPreferredDuringSchedulingIgnoredDuringExecution(
       Integer index, V1WeightedPodAffinityTerm item) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
       this.preferredDuringSchedulingIgnoredDuringExecution =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder>();
+          new ArrayList<V1WeightedPodAffinityTermBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder builder =
-        new io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder(item);
+    V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
     _visitables
         .get("preferredDuringSchedulingIgnoredDuringExecution")
         .add(
@@ -62,14 +58,12 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A setToPreferredDuringSchedulingIgnoredDuringExecution(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm item) {
+      Integer index, V1WeightedPodAffinityTerm item) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
       this.preferredDuringSchedulingIgnoredDuringExecution =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder>();
+          new ArrayList<V1WeightedPodAffinityTermBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder builder =
-        new io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder(item);
+    V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
     if (index < 0
         || index >= _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").size()) {
       _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
@@ -88,12 +82,10 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
       io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm... items) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
       this.preferredDuringSchedulingIgnoredDuringExecution =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder>();
+          new ArrayList<V1WeightedPodAffinityTermBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm item : items) {
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder(item);
+    for (V1WeightedPodAffinityTerm item : items) {
+      V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
       _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
       this.preferredDuringSchedulingIgnoredDuringExecution.add(builder);
     }
@@ -101,15 +93,13 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A addAllToPreferredDuringSchedulingIgnoredDuringExecution(
-      Collection<io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm> items) {
+      Collection<V1WeightedPodAffinityTerm> items) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution == null) {
       this.preferredDuringSchedulingIgnoredDuringExecution =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder>();
+          new ArrayList<V1WeightedPodAffinityTermBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm item : items) {
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder(item);
+    for (V1WeightedPodAffinityTerm item : items) {
+      V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
       _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").add(builder);
       this.preferredDuringSchedulingIgnoredDuringExecution.add(builder);
     }
@@ -118,9 +108,8 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
 
   public A removeFromPreferredDuringSchedulingIgnoredDuringExecution(
       io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm... items) {
-    for (io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm item : items) {
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder(item);
+    for (V1WeightedPodAffinityTerm item : items) {
+      V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
       _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").remove(builder);
       if (this.preferredDuringSchedulingIgnoredDuringExecution != null) {
         this.preferredDuringSchedulingIgnoredDuringExecution.remove(builder);
@@ -130,10 +119,9 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A removeAllFromPreferredDuringSchedulingIgnoredDuringExecution(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm> items) {
-    for (io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm item : items) {
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder(item);
+      Collection<V1WeightedPodAffinityTerm> items) {
+    for (V1WeightedPodAffinityTerm item : items) {
+      V1WeightedPodAffinityTermBuilder builder = new V1WeightedPodAffinityTermBuilder(item);
       _visitables.get("preferredDuringSchedulingIgnoredDuringExecution").remove(builder);
       if (this.preferredDuringSchedulingIgnoredDuringExecution != null) {
         this.preferredDuringSchedulingIgnoredDuringExecution.remove(builder);
@@ -143,13 +131,13 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A removeMatchingFromPreferredDuringSchedulingIgnoredDuringExecution(
-      Predicate<io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder> predicate) {
+      Predicate<V1WeightedPodAffinityTermBuilder> predicate) {
     if (preferredDuringSchedulingIgnoredDuringExecution == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder> each =
+    final Iterator<V1WeightedPodAffinityTermBuilder> each =
         preferredDuringSchedulingIgnoredDuringExecution.iterator();
     final List visitables = _visitables.get("preferredDuringSchedulingIgnoredDuringExecution");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder builder = each.next();
+      V1WeightedPodAffinityTermBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -165,44 +153,36 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm>
-      getPreferredDuringSchedulingIgnoredDuringExecution() {
+  public List<V1WeightedPodAffinityTerm> getPreferredDuringSchedulingIgnoredDuringExecution() {
     return preferredDuringSchedulingIgnoredDuringExecution != null
         ? build(preferredDuringSchedulingIgnoredDuringExecution)
         : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm>
-      buildPreferredDuringSchedulingIgnoredDuringExecution() {
+  public List<V1WeightedPodAffinityTerm> buildPreferredDuringSchedulingIgnoredDuringExecution() {
     return preferredDuringSchedulingIgnoredDuringExecution != null
         ? build(preferredDuringSchedulingIgnoredDuringExecution)
         : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm
-      buildPreferredDuringSchedulingIgnoredDuringExecution(java.lang.Integer index) {
+  public V1WeightedPodAffinityTerm buildPreferredDuringSchedulingIgnoredDuringExecution(
+      Integer index) {
     return this.preferredDuringSchedulingIgnoredDuringExecution.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm
-      buildFirstPreferredDuringSchedulingIgnoredDuringExecution() {
+  public V1WeightedPodAffinityTerm buildFirstPreferredDuringSchedulingIgnoredDuringExecution() {
     return this.preferredDuringSchedulingIgnoredDuringExecution.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm
-      buildLastPreferredDuringSchedulingIgnoredDuringExecution() {
+  public V1WeightedPodAffinityTerm buildLastPreferredDuringSchedulingIgnoredDuringExecution() {
     return this.preferredDuringSchedulingIgnoredDuringExecution
         .get(preferredDuringSchedulingIgnoredDuringExecution.size() - 1)
         .build();
   }
 
-  public io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm
-      buildMatchingPreferredDuringSchedulingIgnoredDuringExecution(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder>
-              predicate) {
-    for (io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder item :
-        preferredDuringSchedulingIgnoredDuringExecution) {
+  public V1WeightedPodAffinityTerm buildMatchingPreferredDuringSchedulingIgnoredDuringExecution(
+      Predicate<V1WeightedPodAffinityTermBuilder> predicate) {
+    for (V1WeightedPodAffinityTermBuilder item : preferredDuringSchedulingIgnoredDuringExecution) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -211,11 +191,8 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public Boolean hasMatchingPreferredDuringSchedulingIgnoredDuringExecution(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder item :
-        preferredDuringSchedulingIgnoredDuringExecution) {
+      Predicate<V1WeightedPodAffinityTermBuilder> predicate) {
+    for (V1WeightedPodAffinityTermBuilder item : preferredDuringSchedulingIgnoredDuringExecution) {
       if (predicate.test(item)) {
         return true;
       }
@@ -224,17 +201,15 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A withPreferredDuringSchedulingIgnoredDuringExecution(
-      java.util.List<io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm>
-          preferredDuringSchedulingIgnoredDuringExecution) {
+      List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution) {
     if (this.preferredDuringSchedulingIgnoredDuringExecution != null) {
       _visitables
           .get("preferredDuringSchedulingIgnoredDuringExecution")
           .removeAll(this.preferredDuringSchedulingIgnoredDuringExecution);
     }
     if (preferredDuringSchedulingIgnoredDuringExecution != null) {
-      this.preferredDuringSchedulingIgnoredDuringExecution = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm item :
-          preferredDuringSchedulingIgnoredDuringExecution) {
+      this.preferredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+      for (V1WeightedPodAffinityTerm item : preferredDuringSchedulingIgnoredDuringExecution) {
         this.addToPreferredDuringSchedulingIgnoredDuringExecution(item);
       }
     } else {
@@ -250,15 +225,14 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
       this.preferredDuringSchedulingIgnoredDuringExecution.clear();
     }
     if (preferredDuringSchedulingIgnoredDuringExecution != null) {
-      for (io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm item :
-          preferredDuringSchedulingIgnoredDuringExecution) {
+      for (V1WeightedPodAffinityTerm item : preferredDuringSchedulingIgnoredDuringExecution) {
         this.addToPreferredDuringSchedulingIgnoredDuringExecution(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPreferredDuringSchedulingIgnoredDuringExecution() {
+  public Boolean hasPreferredDuringSchedulingIgnoredDuringExecution() {
     return preferredDuringSchedulingIgnoredDuringExecution != null
         && !preferredDuringSchedulingIgnoredDuringExecution.isEmpty();
   }
@@ -269,29 +243,21 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
         .PreferredDuringSchedulingIgnoredDuringExecutionNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .PreferredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
-      addNewPreferredDuringSchedulingIgnoredDuringExecutionLike(
-          io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm item) {
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
+      addNewPreferredDuringSchedulingIgnoredDuringExecutionLike(V1WeightedPodAffinityTerm item) {
     return new V1PodAntiAffinityFluentImpl
         .PreferredDuringSchedulingIgnoredDuringExecutionNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .PreferredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
       setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm item) {
-    return new io.kubernetes.client.openapi.models.V1PodAntiAffinityFluentImpl
+          Integer index, V1WeightedPodAffinityTerm item) {
+    return new V1PodAntiAffinityFluentImpl
         .PreferredDuringSchedulingIgnoredDuringExecutionNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .PreferredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
-      editPreferredDuringSchedulingIgnoredDuringExecution(java.lang.Integer index) {
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
+      editPreferredDuringSchedulingIgnoredDuringExecution(Integer index) {
     if (preferredDuringSchedulingIgnoredDuringExecution.size() <= index)
       throw new RuntimeException(
           "Can't edit preferredDuringSchedulingIgnoredDuringExecution. Index exceeds size.");
@@ -299,9 +265,7 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
         index, buildPreferredDuringSchedulingIgnoredDuringExecution(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .PreferredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
       editFirstPreferredDuringSchedulingIgnoredDuringExecution() {
     if (preferredDuringSchedulingIgnoredDuringExecution.size() == 0)
       throw new RuntimeException(
@@ -310,9 +274,7 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
         0, buildPreferredDuringSchedulingIgnoredDuringExecution(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .PreferredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
       editLastPreferredDuringSchedulingIgnoredDuringExecution() {
     int index = preferredDuringSchedulingIgnoredDuringExecution.size() - 1;
     if (index < 0)
@@ -322,13 +284,9 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
         index, buildPreferredDuringSchedulingIgnoredDuringExecution(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .PreferredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
       editMatchingPreferredDuringSchedulingIgnoredDuringExecution(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder>
-              predicate) {
+          Predicate<V1WeightedPodAffinityTermBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < preferredDuringSchedulingIgnoredDuringExecution.size(); i++) {
       if (predicate.test(preferredDuringSchedulingIgnoredDuringExecution.get(i))) {
@@ -344,13 +302,12 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A addToRequiredDuringSchedulingIgnoredDuringExecution(
-      java.lang.Integer index, V1PodAffinityTerm item) {
+      Integer index, V1PodAffinityTerm item) {
     if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {
       this.requiredDuringSchedulingIgnoredDuringExecution =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder>();
+          new ArrayList<V1PodAffinityTermBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder(item);
+    V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
     _visitables
         .get("requiredDuringSchedulingIgnoredDuringExecution")
         .add(
@@ -364,13 +321,12 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A setToRequiredDuringSchedulingIgnoredDuringExecution(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodAffinityTerm item) {
+      Integer index, V1PodAffinityTerm item) {
     if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {
       this.requiredDuringSchedulingIgnoredDuringExecution =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder>();
+          new ArrayList<V1PodAffinityTermBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder(item);
+    V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
     if (index < 0
         || index >= _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").size()) {
       _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
@@ -389,11 +345,10 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
       io.kubernetes.client.openapi.models.V1PodAffinityTerm... items) {
     if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {
       this.requiredDuringSchedulingIgnoredDuringExecution =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder>();
+          new ArrayList<V1PodAffinityTermBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PodAffinityTerm item : items) {
-      io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder(item);
+    for (V1PodAffinityTerm item : items) {
+      V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
       _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
       this.requiredDuringSchedulingIgnoredDuringExecution.add(builder);
     }
@@ -401,14 +356,13 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A addAllToRequiredDuringSchedulingIgnoredDuringExecution(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PodAffinityTerm> items) {
+      Collection<V1PodAffinityTerm> items) {
     if (this.requiredDuringSchedulingIgnoredDuringExecution == null) {
       this.requiredDuringSchedulingIgnoredDuringExecution =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder>();
+          new ArrayList<V1PodAffinityTermBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PodAffinityTerm item : items) {
-      io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder(item);
+    for (V1PodAffinityTerm item : items) {
+      V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
       _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").add(builder);
       this.requiredDuringSchedulingIgnoredDuringExecution.add(builder);
     }
@@ -417,9 +371,8 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
 
   public A removeFromRequiredDuringSchedulingIgnoredDuringExecution(
       io.kubernetes.client.openapi.models.V1PodAffinityTerm... items) {
-    for (io.kubernetes.client.openapi.models.V1PodAffinityTerm item : items) {
-      io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder(item);
+    for (V1PodAffinityTerm item : items) {
+      V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
       _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").remove(builder);
       if (this.requiredDuringSchedulingIgnoredDuringExecution != null) {
         this.requiredDuringSchedulingIgnoredDuringExecution.remove(builder);
@@ -429,10 +382,9 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A removeAllFromRequiredDuringSchedulingIgnoredDuringExecution(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PodAffinityTerm> items) {
-    for (io.kubernetes.client.openapi.models.V1PodAffinityTerm item : items) {
-      io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder(item);
+      Collection<V1PodAffinityTerm> items) {
+    for (V1PodAffinityTerm item : items) {
+      V1PodAffinityTermBuilder builder = new V1PodAffinityTermBuilder(item);
       _visitables.get("requiredDuringSchedulingIgnoredDuringExecution").remove(builder);
       if (this.requiredDuringSchedulingIgnoredDuringExecution != null) {
         this.requiredDuringSchedulingIgnoredDuringExecution.remove(builder);
@@ -442,14 +394,13 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A removeMatchingFromRequiredDuringSchedulingIgnoredDuringExecution(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder>
-          predicate) {
+      Predicate<V1PodAffinityTermBuilder> predicate) {
     if (requiredDuringSchedulingIgnoredDuringExecution == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder> each =
+    final Iterator<V1PodAffinityTermBuilder> each =
         requiredDuringSchedulingIgnoredDuringExecution.iterator();
     final List visitables = _visitables.get("requiredDuringSchedulingIgnoredDuringExecution");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder builder = each.next();
+      V1PodAffinityTermBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -464,44 +415,36 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1PodAffinityTerm>
-      getRequiredDuringSchedulingIgnoredDuringExecution() {
+  @Deprecated
+  public List<V1PodAffinityTerm> getRequiredDuringSchedulingIgnoredDuringExecution() {
     return requiredDuringSchedulingIgnoredDuringExecution != null
         ? build(requiredDuringSchedulingIgnoredDuringExecution)
         : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PodAffinityTerm>
-      buildRequiredDuringSchedulingIgnoredDuringExecution() {
+  public List<V1PodAffinityTerm> buildRequiredDuringSchedulingIgnoredDuringExecution() {
     return requiredDuringSchedulingIgnoredDuringExecution != null
         ? build(requiredDuringSchedulingIgnoredDuringExecution)
         : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTerm
-      buildRequiredDuringSchedulingIgnoredDuringExecution(java.lang.Integer index) {
+  public V1PodAffinityTerm buildRequiredDuringSchedulingIgnoredDuringExecution(Integer index) {
     return this.requiredDuringSchedulingIgnoredDuringExecution.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTerm
-      buildFirstRequiredDuringSchedulingIgnoredDuringExecution() {
+  public V1PodAffinityTerm buildFirstRequiredDuringSchedulingIgnoredDuringExecution() {
     return this.requiredDuringSchedulingIgnoredDuringExecution.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTerm
-      buildLastRequiredDuringSchedulingIgnoredDuringExecution() {
+  public V1PodAffinityTerm buildLastRequiredDuringSchedulingIgnoredDuringExecution() {
     return this.requiredDuringSchedulingIgnoredDuringExecution
         .get(requiredDuringSchedulingIgnoredDuringExecution.size() - 1)
         .build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTerm
-      buildMatchingRequiredDuringSchedulingIgnoredDuringExecution(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder>
-              predicate) {
-    for (io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder item :
-        requiredDuringSchedulingIgnoredDuringExecution) {
+  public V1PodAffinityTerm buildMatchingRequiredDuringSchedulingIgnoredDuringExecution(
+      Predicate<V1PodAffinityTermBuilder> predicate) {
+    for (V1PodAffinityTermBuilder item : requiredDuringSchedulingIgnoredDuringExecution) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -509,11 +452,9 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
     return null;
   }
 
-  public java.lang.Boolean hasMatchingRequiredDuringSchedulingIgnoredDuringExecution(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder item :
-        requiredDuringSchedulingIgnoredDuringExecution) {
+  public Boolean hasMatchingRequiredDuringSchedulingIgnoredDuringExecution(
+      Predicate<V1PodAffinityTermBuilder> predicate) {
+    for (V1PodAffinityTermBuilder item : requiredDuringSchedulingIgnoredDuringExecution) {
       if (predicate.test(item)) {
         return true;
       }
@@ -522,17 +463,15 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   }
 
   public A withRequiredDuringSchedulingIgnoredDuringExecution(
-      java.util.List<io.kubernetes.client.openapi.models.V1PodAffinityTerm>
-          requiredDuringSchedulingIgnoredDuringExecution) {
+      List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution) {
     if (this.requiredDuringSchedulingIgnoredDuringExecution != null) {
       _visitables
           .get("requiredDuringSchedulingIgnoredDuringExecution")
           .removeAll(this.requiredDuringSchedulingIgnoredDuringExecution);
     }
     if (requiredDuringSchedulingIgnoredDuringExecution != null) {
-      this.requiredDuringSchedulingIgnoredDuringExecution = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1PodAffinityTerm item :
-          requiredDuringSchedulingIgnoredDuringExecution) {
+      this.requiredDuringSchedulingIgnoredDuringExecution = new ArrayList();
+      for (V1PodAffinityTerm item : requiredDuringSchedulingIgnoredDuringExecution) {
         this.addToRequiredDuringSchedulingIgnoredDuringExecution(item);
       }
     } else {
@@ -548,15 +487,14 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
       this.requiredDuringSchedulingIgnoredDuringExecution.clear();
     }
     if (requiredDuringSchedulingIgnoredDuringExecution != null) {
-      for (io.kubernetes.client.openapi.models.V1PodAffinityTerm item :
-          requiredDuringSchedulingIgnoredDuringExecution) {
+      for (V1PodAffinityTerm item : requiredDuringSchedulingIgnoredDuringExecution) {
         this.addToRequiredDuringSchedulingIgnoredDuringExecution(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasRequiredDuringSchedulingIgnoredDuringExecution() {
+  public Boolean hasRequiredDuringSchedulingIgnoredDuringExecution() {
     return requiredDuringSchedulingIgnoredDuringExecution != null
         && !requiredDuringSchedulingIgnoredDuringExecution.isEmpty();
   }
@@ -567,28 +505,21 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
         .RequiredDuringSchedulingIgnoredDuringExecutionNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .RequiredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
-      addNewRequiredDuringSchedulingIgnoredDuringExecutionLike(
-          io.kubernetes.client.openapi.models.V1PodAffinityTerm item) {
-    return new io.kubernetes.client.openapi.models.V1PodAntiAffinityFluentImpl
-        .RequiredDuringSchedulingIgnoredDuringExecutionNestedImpl(-1, item);
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
+      addNewRequiredDuringSchedulingIgnoredDuringExecutionLike(V1PodAffinityTerm item) {
+    return new V1PodAntiAffinityFluentImpl.RequiredDuringSchedulingIgnoredDuringExecutionNestedImpl(
+        -1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .RequiredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
       setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodAffinityTerm item) {
-    return new io.kubernetes.client.openapi.models.V1PodAntiAffinityFluentImpl
-        .RequiredDuringSchedulingIgnoredDuringExecutionNestedImpl(index, item);
+          Integer index, V1PodAffinityTerm item) {
+    return new V1PodAntiAffinityFluentImpl.RequiredDuringSchedulingIgnoredDuringExecutionNestedImpl(
+        index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .RequiredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
-      editRequiredDuringSchedulingIgnoredDuringExecution(java.lang.Integer index) {
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
+      editRequiredDuringSchedulingIgnoredDuringExecution(Integer index) {
     if (requiredDuringSchedulingIgnoredDuringExecution.size() <= index)
       throw new RuntimeException(
           "Can't edit requiredDuringSchedulingIgnoredDuringExecution. Index exceeds size.");
@@ -596,9 +527,7 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
         index, buildRequiredDuringSchedulingIgnoredDuringExecution(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .RequiredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
       editFirstRequiredDuringSchedulingIgnoredDuringExecution() {
     if (requiredDuringSchedulingIgnoredDuringExecution.size() == 0)
       throw new RuntimeException(
@@ -607,9 +536,7 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
         0, buildRequiredDuringSchedulingIgnoredDuringExecution(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .RequiredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
       editLastRequiredDuringSchedulingIgnoredDuringExecution() {
     int index = requiredDuringSchedulingIgnoredDuringExecution.size() - 1;
     if (index < 0)
@@ -619,12 +546,9 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
         index, buildRequiredDuringSchedulingIgnoredDuringExecution(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-              .RequiredDuringSchedulingIgnoredDuringExecutionNested<
-          A>
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
       editMatchingRequiredDuringSchedulingIgnoredDuringExecution(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder>
-              predicate) {
+          Predicate<V1PodAffinityTermBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < requiredDuringSchedulingIgnoredDuringExecution.size(); i++) {
       if (predicate.test(requiredDuringSchedulingIgnoredDuringExecution.get(i))) {
@@ -681,23 +605,21 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   class PreferredDuringSchedulingIgnoredDuringExecutionNestedImpl<N>
       extends V1WeightedPodAffinityTermFluentImpl<
           V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-                  .PreferredDuringSchedulingIgnoredDuringExecutionNested<
-              N>,
+      implements V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<N>,
           Nested<N> {
     PreferredDuringSchedulingIgnoredDuringExecutionNestedImpl(
-        java.lang.Integer index, V1WeightedPodAffinityTerm item) {
+        Integer index, V1WeightedPodAffinityTerm item) {
       this.index = index;
       this.builder = new V1WeightedPodAffinityTermBuilder(this, item);
     }
 
     PreferredDuringSchedulingIgnoredDuringExecutionNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder(this);
+      this.builder = new V1WeightedPodAffinityTermBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1WeightedPodAffinityTermBuilder builder;
-    java.lang.Integer index;
+    V1WeightedPodAffinityTermBuilder builder;
+    Integer index;
 
     public N and() {
       return (N)
@@ -713,23 +635,21 @@ public class V1PodAntiAffinityFluentImpl<A extends V1PodAntiAffinityFluent<A>> e
   class RequiredDuringSchedulingIgnoredDuringExecutionNestedImpl<N>
       extends V1PodAffinityTermFluentImpl<
           V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodAntiAffinityFluent
-                  .RequiredDuringSchedulingIgnoredDuringExecutionNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<N>,
+          Nested<N> {
     RequiredDuringSchedulingIgnoredDuringExecutionNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodAffinityTerm item) {
+        Integer index, V1PodAffinityTerm item) {
       this.index = index;
       this.builder = new V1PodAffinityTermBuilder(this, item);
     }
 
     RequiredDuringSchedulingIgnoredDuringExecutionNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder(this);
+      this.builder = new V1PodAffinityTermBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PodAffinityTermBuilder builder;
-    java.lang.Integer index;
+    V1PodAffinityTermBuilder builder;
+    Integer index;
 
     public N and() {
       return (N)

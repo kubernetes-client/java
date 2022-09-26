@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1RoleRefBuilder extends V1RoleRefFluentImpl<V1RoleRefBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1RoleRef,
-        io.kubernetes.client.openapi.models.V1RoleRefBuilder> {
+    implements VisitableBuilder<V1RoleRef, V1RoleRefBuilder> {
   public V1RoleRefBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1RoleRefBuilder extends V1RoleRefFluentImpl<V1RoleRefBuilder>
     this(fluent, false);
   }
 
-  public V1RoleRefBuilder(
-      io.kubernetes.client.openapi.models.V1RoleRefFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1RoleRefBuilder(V1RoleRefFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1RoleRef(), validationEnabled);
   }
 
-  public V1RoleRefBuilder(
-      io.kubernetes.client.openapi.models.V1RoleRefFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RoleRef instance) {
+  public V1RoleRefBuilder(V1RoleRefFluent<?> fluent, V1RoleRef instance) {
     this(fluent, instance, false);
   }
 
   public V1RoleRefBuilder(
-      io.kubernetes.client.openapi.models.V1RoleRefFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RoleRef instance,
-      java.lang.Boolean validationEnabled) {
+      V1RoleRefFluent<?> fluent, V1RoleRef instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiGroup(instance.getApiGroup());
 
@@ -56,12 +48,11 @@ public class V1RoleRefBuilder extends V1RoleRefFluentImpl<V1RoleRefBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1RoleRefBuilder(io.kubernetes.client.openapi.models.V1RoleRef instance) {
+  public V1RoleRefBuilder(V1RoleRef instance) {
     this(instance, false);
   }
 
-  public V1RoleRefBuilder(
-      io.kubernetes.client.openapi.models.V1RoleRef instance, java.lang.Boolean validationEnabled) {
+  public V1RoleRefBuilder(V1RoleRef instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiGroup(instance.getApiGroup());
 
@@ -72,10 +63,10 @@ public class V1RoleRefBuilder extends V1RoleRefFluentImpl<V1RoleRefBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1RoleRefFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1RoleRefFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1RoleRef build() {
+  public V1RoleRef build() {
     V1RoleRef buildable = new V1RoleRef();
     buildable.setApiGroup(fluent.getApiGroup());
     buildable.setKind(fluent.getKind());

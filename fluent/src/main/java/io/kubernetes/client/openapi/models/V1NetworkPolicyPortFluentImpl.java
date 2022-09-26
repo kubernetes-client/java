@@ -21,8 +21,7 @@ public class V1NetworkPolicyPortFluentImpl<A extends V1NetworkPolicyPortFluent<A
     extends BaseFluent<A> implements V1NetworkPolicyPortFluent<A> {
   public V1NetworkPolicyPortFluentImpl() {}
 
-  public V1NetworkPolicyPortFluentImpl(
-      io.kubernetes.client.openapi.models.V1NetworkPolicyPort instance) {
+  public V1NetworkPolicyPortFluentImpl(V1NetworkPolicyPort instance) {
     this.withEndPort(instance.getEndPort());
 
     this.withPort(instance.getPort());
@@ -34,11 +33,11 @@ public class V1NetworkPolicyPortFluentImpl<A extends V1NetworkPolicyPortFluent<A
   private IntOrString port;
   private String protocol;
 
-  public java.lang.Integer getEndPort() {
+  public Integer getEndPort() {
     return this.endPort;
   }
 
-  public A withEndPort(java.lang.Integer endPort) {
+  public A withEndPort(Integer endPort) {
     this.endPort = endPort;
     return (A) this;
   }
@@ -47,16 +46,16 @@ public class V1NetworkPolicyPortFluentImpl<A extends V1NetworkPolicyPortFluent<A
     return this.endPort != null;
   }
 
-  public io.kubernetes.client.custom.IntOrString getPort() {
+  public IntOrString getPort() {
     return this.port;
   }
 
-  public A withPort(io.kubernetes.client.custom.IntOrString port) {
+  public A withPort(IntOrString port) {
     this.port = port;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPort() {
+  public Boolean hasPort() {
     return this.port != null;
   }
 
@@ -64,20 +63,20 @@ public class V1NetworkPolicyPortFluentImpl<A extends V1NetworkPolicyPortFluent<A
     return (A) withPort(new IntOrString(value));
   }
 
-  public A withNewPort(java.lang.String value) {
+  public A withNewPort(String value) {
     return (A) withPort(new IntOrString(value));
   }
 
-  public java.lang.String getProtocol() {
+  public String getProtocol() {
     return this.protocol;
   }
 
-  public A withProtocol(java.lang.String protocol) {
+  public A withProtocol(String protocol) {
     this.protocol = protocol;
     return (A) this;
   }
 
-  public java.lang.Boolean hasProtocol() {
+  public Boolean hasProtocol() {
     return this.protocol != null;
   }
 
@@ -95,7 +94,7 @@ public class V1NetworkPolicyPortFluentImpl<A extends V1NetworkPolicyPortFluent<A
     return java.util.Objects.hash(endPort, port, protocol, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (endPort != null) {

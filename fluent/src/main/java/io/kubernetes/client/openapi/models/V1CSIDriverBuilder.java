@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1CSIDriverBuilder extends V1CSIDriverFluentImpl<V1CSIDriverBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CSIDriver,
-        io.kubernetes.client.openapi.models.V1CSIDriverBuilder> {
+    implements VisitableBuilder<V1CSIDriver, V1CSIDriverBuilder> {
   public V1CSIDriverBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1CSIDriverBuilder extends V1CSIDriverFluentImpl<V1CSIDriverBuilder
     this(fluent, false);
   }
 
-  public V1CSIDriverBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1CSIDriverBuilder(V1CSIDriverFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CSIDriver(), validationEnabled);
   }
 
-  public V1CSIDriverBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSIDriver instance) {
+  public V1CSIDriverBuilder(V1CSIDriverFluent<?> fluent, V1CSIDriver instance) {
     this(fluent, instance, false);
   }
 
   public V1CSIDriverBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriverFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CSIDriver instance,
-      java.lang.Boolean validationEnabled) {
+      V1CSIDriverFluent<?> fluent, V1CSIDriver instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,13 +50,11 @@ public class V1CSIDriverBuilder extends V1CSIDriverFluentImpl<V1CSIDriverBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CSIDriverBuilder(io.kubernetes.client.openapi.models.V1CSIDriver instance) {
+  public V1CSIDriverBuilder(V1CSIDriver instance) {
     this(instance, false);
   }
 
-  public V1CSIDriverBuilder(
-      io.kubernetes.client.openapi.models.V1CSIDriver instance,
-      java.lang.Boolean validationEnabled) {
+  public V1CSIDriverBuilder(V1CSIDriver instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -77,10 +67,10 @@ public class V1CSIDriverBuilder extends V1CSIDriverFluentImpl<V1CSIDriverBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CSIDriverFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CSIDriverFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CSIDriver build() {
+  public V1CSIDriver build() {
     V1CSIDriver buildable = new V1CSIDriver();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

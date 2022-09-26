@@ -21,8 +21,7 @@ public class EventsV1EventSeriesFluentImpl<A extends EventsV1EventSeriesFluent<A
     extends BaseFluent<A> implements EventsV1EventSeriesFluent<A> {
   public EventsV1EventSeriesFluentImpl() {}
 
-  public EventsV1EventSeriesFluentImpl(
-      io.kubernetes.client.openapi.models.EventsV1EventSeries instance) {
+  public EventsV1EventSeriesFluentImpl(EventsV1EventSeries instance) {
     this.withCount(instance.getCount());
 
     this.withLastObservedTime(instance.getLastObservedTime());
@@ -31,11 +30,11 @@ public class EventsV1EventSeriesFluentImpl<A extends EventsV1EventSeriesFluent<A
   private Integer count;
   private OffsetDateTime lastObservedTime;
 
-  public java.lang.Integer getCount() {
+  public Integer getCount() {
     return this.count;
   }
 
-  public A withCount(java.lang.Integer count) {
+  public A withCount(Integer count) {
     this.count = count;
     return (A) this;
   }
@@ -44,16 +43,16 @@ public class EventsV1EventSeriesFluentImpl<A extends EventsV1EventSeriesFluent<A
     return this.count != null;
   }
 
-  public java.time.OffsetDateTime getLastObservedTime() {
+  public OffsetDateTime getLastObservedTime() {
     return this.lastObservedTime;
   }
 
-  public A withLastObservedTime(java.time.OffsetDateTime lastObservedTime) {
+  public A withLastObservedTime(OffsetDateTime lastObservedTime) {
     this.lastObservedTime = lastObservedTime;
     return (A) this;
   }
 
-  public java.lang.Boolean hasLastObservedTime() {
+  public Boolean hasLastObservedTime() {
     return this.lastObservedTime != null;
   }
 

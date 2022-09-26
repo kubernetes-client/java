@@ -19,15 +19,15 @@ import io.kubernetes.client.fluent.Nested;
 public interface V1CSIDriverFluent<A extends V1CSIDriverFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -37,50 +37,45 @@ public interface V1CSIDriverFluent<A extends V1CSIDriverFluent<A>> extends Fluen
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1CSIDriverFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1CSIDriverFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverFluent.MetadataNested<A> editMetadata();
+  public V1CSIDriverFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1CSIDriverFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1CSIDriverFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildSpec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1CSIDriverSpec getSpec();
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverSpec buildSpec();
+  public V1CSIDriverSpec buildSpec();
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1CSIDriverSpec spec);
+  public A withSpec(V1CSIDriverSpec spec);
 
-  public java.lang.Boolean hasSpec();
+  public Boolean hasSpec();
 
   public V1CSIDriverFluent.SpecNested<A> withNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverFluent.SpecNested<A> withNewSpecLike(
-      io.kubernetes.client.openapi.models.V1CSIDriverSpec item);
+  public V1CSIDriverFluent.SpecNested<A> withNewSpecLike(V1CSIDriverSpec item);
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverFluent.SpecNested<A> editSpec();
+  public V1CSIDriverFluent.SpecNested<A> editSpec();
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverFluent.SpecNested<A> editOrNewSpec();
+  public V1CSIDriverFluent.SpecNested<A> editOrNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1CSIDriverFluent.SpecNested<A> editOrNewSpecLike(
-      io.kubernetes.client.openapi.models.V1CSIDriverSpec item);
+  public V1CSIDriverFluent.SpecNested<A> editOrNewSpecLike(V1CSIDriverSpec item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1CSIDriverFluent.MetadataNested<N>> {
@@ -90,8 +85,7 @@ public interface V1CSIDriverFluent<A extends V1CSIDriverFluent<A>> extends Fluen
   }
 
   public interface SpecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1CSIDriverSpecFluent<V1CSIDriverFluent.SpecNested<N>> {
+      extends Nested<N>, V1CSIDriverSpecFluent<V1CSIDriverFluent.SpecNested<N>> {
     public N and();
 
     public N endSpec();

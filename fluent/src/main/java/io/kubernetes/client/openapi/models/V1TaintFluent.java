@@ -19,25 +19,25 @@ import java.time.OffsetDateTime;
 public interface V1TaintFluent<A extends V1TaintFluent<A>> extends Fluent<A> {
   public String getEffect();
 
-  public A withEffect(java.lang.String effect);
+  public A withEffect(String effect);
 
   public Boolean hasEffect();
 
-  public java.lang.String getKey();
+  public String getKey();
 
-  public A withKey(java.lang.String key);
+  public A withKey(String key);
 
-  public java.lang.Boolean hasKey();
+  public Boolean hasKey();
 
   public OffsetDateTime getTimeAdded();
 
-  public A withTimeAdded(java.time.OffsetDateTime timeAdded);
+  public A withTimeAdded(OffsetDateTime timeAdded);
 
-  public java.lang.Boolean hasTimeAdded();
+  public Boolean hasTimeAdded();
 
-  public java.lang.String getValue();
+  public String getValue();
 
-  public A withValue(java.lang.String value);
+  public A withValue(String value);
 
-  public java.lang.Boolean hasValue();
+  public Boolean hasValue();
 }

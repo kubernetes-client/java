@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ValidationRuleBuilder extends V1ValidationRuleFluentImpl<V1ValidationRuleBuilder>
-    implements VisitableBuilder<
-        V1ValidationRule, io.kubernetes.client.openapi.models.V1ValidationRuleBuilder> {
+    implements VisitableBuilder<V1ValidationRule, V1ValidationRuleBuilder> {
   public V1ValidationRuleBuilder() {
     this(false);
   }
@@ -25,27 +24,20 @@ public class V1ValidationRuleBuilder extends V1ValidationRuleFluentImpl<V1Valida
     this(new V1ValidationRule(), validationEnabled);
   }
 
-  public V1ValidationRuleBuilder(
-      io.kubernetes.client.openapi.models.V1ValidationRuleFluent<?> fluent) {
+  public V1ValidationRuleBuilder(V1ValidationRuleFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1ValidationRuleBuilder(
-      io.kubernetes.client.openapi.models.V1ValidationRuleFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ValidationRuleBuilder(V1ValidationRuleFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ValidationRule(), validationEnabled);
   }
 
-  public V1ValidationRuleBuilder(
-      io.kubernetes.client.openapi.models.V1ValidationRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ValidationRule instance) {
+  public V1ValidationRuleBuilder(V1ValidationRuleFluent<?> fluent, V1ValidationRule instance) {
     this(fluent, instance, false);
   }
 
   public V1ValidationRuleBuilder(
-      io.kubernetes.client.openapi.models.V1ValidationRuleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ValidationRule instance,
-      java.lang.Boolean validationEnabled) {
+      V1ValidationRuleFluent<?> fluent, V1ValidationRule instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMessage(instance.getMessage());
 
@@ -54,13 +46,11 @@ public class V1ValidationRuleBuilder extends V1ValidationRuleFluentImpl<V1Valida
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ValidationRuleBuilder(io.kubernetes.client.openapi.models.V1ValidationRule instance) {
+  public V1ValidationRuleBuilder(V1ValidationRule instance) {
     this(instance, false);
   }
 
-  public V1ValidationRuleBuilder(
-      io.kubernetes.client.openapi.models.V1ValidationRule instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ValidationRuleBuilder(V1ValidationRule instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMessage(instance.getMessage());
 
@@ -69,10 +59,10 @@ public class V1ValidationRuleBuilder extends V1ValidationRuleFluentImpl<V1Valida
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ValidationRuleFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ValidationRuleFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ValidationRule build() {
+  public V1ValidationRule build() {
     V1ValidationRule buildable = new V1ValidationRule();
     buildable.setMessage(fluent.getMessage());
     buildable.setRule(fluent.getRule());

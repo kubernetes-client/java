@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ProjectedVolumeSourceBuilder
     extends V1ProjectedVolumeSourceFluentImpl<V1ProjectedVolumeSourceBuilder>
-    implements VisitableBuilder<
-        V1ProjectedVolumeSource,
-        io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceBuilder> {
+    implements VisitableBuilder<V1ProjectedVolumeSource, V1ProjectedVolumeSourceBuilder> {
   public V1ProjectedVolumeSourceBuilder() {
     this(false);
   }
@@ -27,27 +25,24 @@ public class V1ProjectedVolumeSourceBuilder
     this(new V1ProjectedVolumeSource(), validationEnabled);
   }
 
-  public V1ProjectedVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent<?> fluent) {
+  public V1ProjectedVolumeSourceBuilder(V1ProjectedVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1ProjectedVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ProjectedVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ProjectedVolumeSource(), validationEnabled);
   }
 
   public V1ProjectedVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ProjectedVolumeSource instance) {
+      V1ProjectedVolumeSourceFluent<?> fluent, V1ProjectedVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1ProjectedVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ProjectedVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1ProjectedVolumeSourceFluent<?> fluent,
+      V1ProjectedVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withDefaultMode(instance.getDefaultMode());
 
@@ -56,14 +51,12 @@ public class V1ProjectedVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ProjectedVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ProjectedVolumeSource instance) {
+  public V1ProjectedVolumeSourceBuilder(V1ProjectedVolumeSource instance) {
     this(instance, false);
   }
 
   public V1ProjectedVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ProjectedVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1ProjectedVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withDefaultMode(instance.getDefaultMode());
 
@@ -72,10 +65,10 @@ public class V1ProjectedVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ProjectedVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ProjectedVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ProjectedVolumeSource build() {
+  public V1ProjectedVolumeSource build() {
     V1ProjectedVolumeSource buildable = new V1ProjectedVolumeSource();
     buildable.setDefaultMode(fluent.getDefaultMode());
     buildable.setSources(fluent.getSources());

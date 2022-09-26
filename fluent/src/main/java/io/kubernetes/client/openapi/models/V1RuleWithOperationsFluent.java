@@ -22,133 +22,127 @@ public interface V1RuleWithOperationsFluent<A extends V1RuleWithOperationsFluent
     extends Fluent<A> {
   public A addToApiGroups(Integer index, String item);
 
-  public A setToApiGroups(java.lang.Integer index, java.lang.String item);
+  public A setToApiGroups(Integer index, String item);
 
   public A addToApiGroups(java.lang.String... items);
 
-  public A addAllToApiGroups(Collection<java.lang.String> items);
+  public A addAllToApiGroups(Collection<String> items);
 
   public A removeFromApiGroups(java.lang.String... items);
 
-  public A removeAllFromApiGroups(java.util.Collection<java.lang.String> items);
+  public A removeAllFromApiGroups(Collection<String> items);
 
-  public List<java.lang.String> getApiGroups();
+  public List<String> getApiGroups();
 
-  public java.lang.String getApiGroup(java.lang.Integer index);
+  public String getApiGroup(Integer index);
 
-  public java.lang.String getFirstApiGroup();
+  public String getFirstApiGroup();
 
-  public java.lang.String getLastApiGroup();
+  public String getLastApiGroup();
 
-  public java.lang.String getMatchingApiGroup(Predicate<java.lang.String> predicate);
+  public String getMatchingApiGroup(Predicate<String> predicate);
 
-  public Boolean hasMatchingApiGroup(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingApiGroup(Predicate<String> predicate);
 
-  public A withApiGroups(java.util.List<java.lang.String> apiGroups);
+  public A withApiGroups(List<String> apiGroups);
 
   public A withApiGroups(java.lang.String... apiGroups);
 
-  public java.lang.Boolean hasApiGroups();
+  public Boolean hasApiGroups();
 
-  public A addToApiVersions(java.lang.Integer index, java.lang.String item);
+  public A addToApiVersions(Integer index, String item);
 
-  public A setToApiVersions(java.lang.Integer index, java.lang.String item);
+  public A setToApiVersions(Integer index, String item);
 
   public A addToApiVersions(java.lang.String... items);
 
-  public A addAllToApiVersions(java.util.Collection<java.lang.String> items);
+  public A addAllToApiVersions(Collection<String> items);
 
   public A removeFromApiVersions(java.lang.String... items);
 
-  public A removeAllFromApiVersions(java.util.Collection<java.lang.String> items);
+  public A removeAllFromApiVersions(Collection<String> items);
 
-  public java.util.List<java.lang.String> getApiVersions();
+  public List<String> getApiVersions();
 
-  public java.lang.String getApiVersion(java.lang.Integer index);
+  public String getApiVersion(Integer index);
 
-  public java.lang.String getFirstApiVersion();
+  public String getFirstApiVersion();
 
-  public java.lang.String getLastApiVersion();
+  public String getLastApiVersion();
 
-  public java.lang.String getMatchingApiVersion(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingApiVersion(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingApiVersion(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingApiVersion(Predicate<String> predicate);
 
-  public A withApiVersions(java.util.List<java.lang.String> apiVersions);
+  public A withApiVersions(List<String> apiVersions);
 
   public A withApiVersions(java.lang.String... apiVersions);
 
-  public java.lang.Boolean hasApiVersions();
+  public Boolean hasApiVersions();
 
-  public A addToOperations(java.lang.Integer index, java.lang.String item);
+  public A addToOperations(Integer index, String item);
 
-  public A setToOperations(java.lang.Integer index, java.lang.String item);
+  public A setToOperations(Integer index, String item);
 
   public A addToOperations(java.lang.String... items);
 
-  public A addAllToOperations(java.util.Collection<java.lang.String> items);
+  public A addAllToOperations(Collection<String> items);
 
   public A removeFromOperations(java.lang.String... items);
 
-  public A removeAllFromOperations(java.util.Collection<java.lang.String> items);
+  public A removeAllFromOperations(Collection<String> items);
 
-  public java.util.List<java.lang.String> getOperations();
+  public List<String> getOperations();
 
-  public java.lang.String getOperation(java.lang.Integer index);
+  public String getOperation(Integer index);
 
-  public java.lang.String getFirstOperation();
+  public String getFirstOperation();
 
-  public java.lang.String getLastOperation();
+  public String getLastOperation();
 
-  public java.lang.String getMatchingOperation(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingOperation(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingOperation(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingOperation(Predicate<String> predicate);
 
-  public A withOperations(java.util.List<java.lang.String> operations);
+  public A withOperations(List<String> operations);
 
   public A withOperations(java.lang.String... operations);
 
-  public java.lang.Boolean hasOperations();
+  public Boolean hasOperations();
 
-  public A addToResources(java.lang.Integer index, java.lang.String item);
+  public A addToResources(Integer index, String item);
 
-  public A setToResources(java.lang.Integer index, java.lang.String item);
+  public A setToResources(Integer index, String item);
 
   public A addToResources(java.lang.String... items);
 
-  public A addAllToResources(java.util.Collection<java.lang.String> items);
+  public A addAllToResources(Collection<String> items);
 
   public A removeFromResources(java.lang.String... items);
 
-  public A removeAllFromResources(java.util.Collection<java.lang.String> items);
+  public A removeAllFromResources(Collection<String> items);
 
-  public java.util.List<java.lang.String> getResources();
+  public List<String> getResources();
 
-  public java.lang.String getResource(java.lang.Integer index);
+  public String getResource(Integer index);
 
-  public java.lang.String getFirstResource();
+  public String getFirstResource();
 
-  public java.lang.String getLastResource();
+  public String getLastResource();
 
-  public java.lang.String getMatchingResource(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingResource(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingResource(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingResource(Predicate<String> predicate);
 
-  public A withResources(java.util.List<java.lang.String> resources);
+  public A withResources(List<String> resources);
 
   public A withResources(java.lang.String... resources);
 
-  public java.lang.Boolean hasResources();
+  public Boolean hasResources();
 
-  public java.lang.String getScope();
+  public String getScope();
 
-  public A withScope(java.lang.String scope);
+  public A withScope(String scope);
 
-  public java.lang.Boolean hasScope();
+  public Boolean hasScope();
 }

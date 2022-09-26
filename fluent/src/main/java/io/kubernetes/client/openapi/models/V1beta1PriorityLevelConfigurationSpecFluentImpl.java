@@ -23,7 +23,7 @@ public class V1beta1PriorityLevelConfigurationSpecFluentImpl<
   public V1beta1PriorityLevelConfigurationSpecFluentImpl() {}
 
   public V1beta1PriorityLevelConfigurationSpecFluentImpl(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpec instance) {
+      V1beta1PriorityLevelConfigurationSpec instance) {
     this.withLimited(instance.getLimited());
 
     this.withType(instance.getType());
@@ -38,21 +38,22 @@ public class V1beta1PriorityLevelConfigurationSpecFluentImpl<
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration getLimited() {
+  public V1beta1LimitedPriorityLevelConfiguration getLimited() {
     return this.limited != null ? this.limited.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration
-      buildLimited() {
+  public V1beta1LimitedPriorityLevelConfiguration buildLimited() {
     return this.limited != null ? this.limited.build() : null;
   }
 
-  public A withLimited(
-      io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration limited) {
+  public A withLimited(V1beta1LimitedPriorityLevelConfiguration limited) {
     _visitables.get("limited").remove(this.limited);
     if (limited != null) {
       this.limited = new V1beta1LimitedPriorityLevelConfigurationBuilder(limited);
       _visitables.get("limited").add(this.limited);
+    } else {
+      this.limited = null;
+      _visitables.get("limited").remove(this.limited);
     }
     return (A) this;
   }
@@ -65,51 +66,37 @@ public class V1beta1PriorityLevelConfigurationSpecFluentImpl<
     return new V1beta1PriorityLevelConfigurationSpecFluentImpl.LimitedNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-              .LimitedNested<
-          A>
-      withNewLimitedLike(
-          io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration item) {
+  public V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<A> withNewLimitedLike(
+      V1beta1LimitedPriorityLevelConfiguration item) {
     return new V1beta1PriorityLevelConfigurationSpecFluentImpl.LimitedNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-              .LimitedNested<
-          A>
-      editLimited() {
+  public V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<A> editLimited() {
     return withNewLimitedLike(getLimited());
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-              .LimitedNested<
-          A>
-      editOrNewLimited() {
+  public V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<A> editOrNewLimited() {
     return withNewLimitedLike(
         getLimited() != null
             ? getLimited()
-            : new io.kubernetes.client.openapi.models
-                    .V1beta1LimitedPriorityLevelConfigurationBuilder()
-                .build());
+            : new V1beta1LimitedPriorityLevelConfigurationBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-              .LimitedNested<
-          A>
-      editOrNewLimitedLike(
-          io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration item) {
+  public V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<A> editOrNewLimitedLike(
+      V1beta1LimitedPriorityLevelConfiguration item) {
     return withNewLimitedLike(getLimited() != null ? getLimited() : item);
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
@@ -127,7 +114,7 @@ public class V1beta1PriorityLevelConfigurationSpecFluentImpl<
     return java.util.Objects.hash(limited, type, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (limited != null) {
@@ -145,22 +132,16 @@ public class V1beta1PriorityLevelConfigurationSpecFluentImpl<
   class LimitedNestedImpl<N>
       extends V1beta1LimitedPriorityLevelConfigurationFluentImpl<
           V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<N>>
-      implements io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationSpecFluent
-                  .LimitedNested<
-              N>,
-          Nested<N> {
-    LimitedNestedImpl(
-        io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration item) {
+      implements V1beta1PriorityLevelConfigurationSpecFluent.LimitedNested<N>, Nested<N> {
+    LimitedNestedImpl(V1beta1LimitedPriorityLevelConfiguration item) {
       this.builder = new V1beta1LimitedPriorityLevelConfigurationBuilder(this, item);
     }
 
     LimitedNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationBuilder(
-              this);
+      this.builder = new V1beta1LimitedPriorityLevelConfigurationBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationBuilder builder;
+    V1beta1LimitedPriorityLevelConfigurationBuilder builder;
 
     public N and() {
       return (N) V1beta1PriorityLevelConfigurationSpecFluentImpl.this.withLimited(builder.build());

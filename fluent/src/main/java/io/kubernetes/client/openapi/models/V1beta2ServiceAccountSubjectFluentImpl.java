@@ -20,21 +20,20 @@ public class V1beta2ServiceAccountSubjectFluentImpl<A extends V1beta2ServiceAcco
     extends BaseFluent<A> implements V1beta2ServiceAccountSubjectFluent<A> {
   public V1beta2ServiceAccountSubjectFluentImpl() {}
 
-  public V1beta2ServiceAccountSubjectFluentImpl(
-      io.kubernetes.client.openapi.models.V1beta2ServiceAccountSubject instance) {
+  public V1beta2ServiceAccountSubjectFluentImpl(V1beta2ServiceAccountSubject instance) {
     this.withName(instance.getName());
 
     this.withNamespace(instance.getNamespace());
   }
 
   private String name;
-  private java.lang.String namespace;
+  private String namespace;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1beta2ServiceAccountSubjectFluentImpl<A extends V1beta2ServiceAcco
     return this.name != null;
   }
 
-  public java.lang.String getNamespace() {
+  public String getNamespace() {
     return this.namespace;
   }
 
-  public A withNamespace(java.lang.String namespace) {
+  public A withNamespace(String namespace) {
     this.namespace = namespace;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNamespace() {
+  public Boolean hasNamespace() {
     return this.namespace != null;
   }
 
@@ -70,7 +69,7 @@ public class V1beta2ServiceAccountSubjectFluentImpl<A extends V1beta2ServiceAcco
     return java.util.Objects.hash(name, namespace, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {

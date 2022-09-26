@@ -24,7 +24,7 @@ public class V1ContainerImageFluentImpl<A extends V1ContainerImageFluent<A>> ext
     implements V1ContainerImageFluent<A> {
   public V1ContainerImageFluentImpl() {}
 
-  public V1ContainerImageFluentImpl(io.kubernetes.client.openapi.models.V1ContainerImage instance) {
+  public V1ContainerImageFluentImpl(V1ContainerImage instance) {
     this.withNames(instance.getNames());
 
     this.withSizeBytes(instance.getSizeBytes());
@@ -33,17 +33,17 @@ public class V1ContainerImageFluentImpl<A extends V1ContainerImageFluent<A>> ext
   private List<String> names;
   private Long sizeBytes;
 
-  public A addToNames(Integer index, java.lang.String item) {
+  public A addToNames(Integer index, String item) {
     if (this.names == null) {
-      this.names = new ArrayList<java.lang.String>();
+      this.names = new ArrayList<String>();
     }
     this.names.add(index, item);
     return (A) this;
   }
 
-  public A setToNames(java.lang.Integer index, java.lang.String item) {
+  public A setToNames(Integer index, String item) {
     if (this.names == null) {
-      this.names = new java.util.ArrayList<java.lang.String>();
+      this.names = new ArrayList<String>();
     }
     this.names.set(index, item);
     return (A) this;
@@ -51,26 +51,26 @@ public class V1ContainerImageFluentImpl<A extends V1ContainerImageFluent<A>> ext
 
   public A addToNames(java.lang.String... items) {
     if (this.names == null) {
-      this.names = new java.util.ArrayList<java.lang.String>();
+      this.names = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.names.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToNames(Collection<java.lang.String> items) {
+  public A addAllToNames(Collection<String> items) {
     if (this.names == null) {
-      this.names = new java.util.ArrayList<java.lang.String>();
+      this.names = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.names.add(item);
     }
     return (A) this;
   }
 
   public A removeFromNames(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.names != null) {
         this.names.remove(item);
       }
@@ -78,8 +78,8 @@ public class V1ContainerImageFluentImpl<A extends V1ContainerImageFluent<A>> ext
     return (A) this;
   }
 
-  public A removeAllFromNames(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromNames(Collection<String> items) {
+    for (String item : items) {
       if (this.names != null) {
         this.names.remove(item);
       }
@@ -87,24 +87,24 @@ public class V1ContainerImageFluentImpl<A extends V1ContainerImageFluent<A>> ext
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getNames() {
+  public List<String> getNames() {
     return this.names;
   }
 
-  public java.lang.String getName(java.lang.Integer index) {
+  public String getName(Integer index) {
     return this.names.get(index);
   }
 
-  public java.lang.String getFirstName() {
+  public String getFirstName() {
     return this.names.get(0);
   }
 
-  public java.lang.String getLastName() {
+  public String getLastName() {
     return this.names.get(names.size() - 1);
   }
 
-  public java.lang.String getMatchingName(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : names) {
+  public String getMatchingName(Predicate<String> predicate) {
+    for (String item : names) {
       if (predicate.test(item)) {
         return item;
       }
@@ -112,8 +112,8 @@ public class V1ContainerImageFluentImpl<A extends V1ContainerImageFluent<A>> ext
     return null;
   }
 
-  public Boolean hasMatchingName(java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : names) {
+  public Boolean hasMatchingName(Predicate<String> predicate) {
+    for (String item : names) {
       if (predicate.test(item)) {
         return true;
       }
@@ -121,10 +121,10 @@ public class V1ContainerImageFluentImpl<A extends V1ContainerImageFluent<A>> ext
     return false;
   }
 
-  public A withNames(java.util.List<java.lang.String> names) {
+  public A withNames(List<String> names) {
     if (names != null) {
-      this.names = new java.util.ArrayList();
-      for (java.lang.String item : names) {
+      this.names = new ArrayList();
+      for (String item : names) {
         this.addToNames(item);
       }
     } else {
@@ -138,27 +138,27 @@ public class V1ContainerImageFluentImpl<A extends V1ContainerImageFluent<A>> ext
       this.names.clear();
     }
     if (names != null) {
-      for (java.lang.String item : names) {
+      for (String item : names) {
         this.addToNames(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasNames() {
+  public Boolean hasNames() {
     return names != null && !names.isEmpty();
   }
 
-  public java.lang.Long getSizeBytes() {
+  public Long getSizeBytes() {
     return this.sizeBytes;
   }
 
-  public A withSizeBytes(java.lang.Long sizeBytes) {
+  public A withSizeBytes(Long sizeBytes) {
     this.sizeBytes = sizeBytes;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSizeBytes() {
+  public Boolean hasSizeBytes() {
     return this.sizeBytes != null;
   }
 
@@ -176,7 +176,7 @@ public class V1ContainerImageFluentImpl<A extends V1ContainerImageFluent<A>> ext
     return java.util.Objects.hash(names, sizeBytes, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (names != null && !names.isEmpty()) {

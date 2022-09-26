@@ -23,18 +23,15 @@ public interface V1NetworkPolicySpecFluent<A extends V1NetworkPolicySpecFluent<A
     extends Fluent<A> {
   public A addToEgress(Integer index, V1NetworkPolicyEgressRule item);
 
-  public A setToEgress(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule item);
+  public A setToEgress(Integer index, V1NetworkPolicyEgressRule item);
 
   public A addToEgress(io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule... items);
 
-  public A addAllToEgress(
-      Collection<io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule> items);
+  public A addAllToEgress(Collection<V1NetworkPolicyEgressRule> items);
 
   public A removeFromEgress(io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule... items);
 
-  public A removeAllFromEgress(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule> items);
+  public A removeAllFromEgress(Collection<V1NetworkPolicyEgressRule> items);
 
   public A removeMatchingFromEgress(Predicate<V1NetworkPolicyEgressRuleBuilder> predicate);
 
@@ -44,199 +41,157 @@ public interface V1NetworkPolicySpecFluent<A extends V1NetworkPolicySpecFluent<A
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule> getEgress();
+  public List<V1NetworkPolicyEgressRule> getEgress();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule>
-      buildEgress();
+  public List<V1NetworkPolicyEgressRule> buildEgress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule buildEgress(
-      java.lang.Integer index);
+  public V1NetworkPolicyEgressRule buildEgress(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule buildFirstEgress();
+  public V1NetworkPolicyEgressRule buildFirstEgress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule buildLastEgress();
+  public V1NetworkPolicyEgressRule buildLastEgress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule buildMatchingEgress(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleBuilder>
-          predicate);
+  public V1NetworkPolicyEgressRule buildMatchingEgress(
+      Predicate<V1NetworkPolicyEgressRuleBuilder> predicate);
 
-  public Boolean hasMatchingEgress(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleBuilder>
-          predicate);
+  public Boolean hasMatchingEgress(Predicate<V1NetworkPolicyEgressRuleBuilder> predicate);
 
-  public A withEgress(
-      java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule> egress);
+  public A withEgress(List<V1NetworkPolicyEgressRule> egress);
 
   public A withEgress(io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule... egress);
 
-  public java.lang.Boolean hasEgress();
+  public Boolean hasEgress();
 
   public V1NetworkPolicySpecFluent.EgressNested<A> addNewEgress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.EgressNested<A>
-      addNewEgressLike(io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule item);
+  public V1NetworkPolicySpecFluent.EgressNested<A> addNewEgressLike(V1NetworkPolicyEgressRule item);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.EgressNested<A>
-      setNewEgressLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule item);
+  public V1NetworkPolicySpecFluent.EgressNested<A> setNewEgressLike(
+      Integer index, V1NetworkPolicyEgressRule item);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.EgressNested<A> editEgress(
-      java.lang.Integer index);
+  public V1NetworkPolicySpecFluent.EgressNested<A> editEgress(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.EgressNested<A>
-      editFirstEgress();
+  public V1NetworkPolicySpecFluent.EgressNested<A> editFirstEgress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.EgressNested<A>
-      editLastEgress();
+  public V1NetworkPolicySpecFluent.EgressNested<A> editLastEgress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.EgressNested<A>
-      editMatchingEgress(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRuleBuilder>
-              predicate);
+  public V1NetworkPolicySpecFluent.EgressNested<A> editMatchingEgress(
+      Predicate<V1NetworkPolicyEgressRuleBuilder> predicate);
 
-  public A addToIngress(java.lang.Integer index, V1NetworkPolicyIngressRule item);
+  public A addToIngress(Integer index, V1NetworkPolicyIngressRule item);
 
-  public A setToIngress(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule item);
+  public A setToIngress(Integer index, V1NetworkPolicyIngressRule item);
 
   public A addToIngress(io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule... items);
 
-  public A addAllToIngress(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule> items);
+  public A addAllToIngress(Collection<V1NetworkPolicyIngressRule> items);
 
   public A removeFromIngress(
       io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule... items);
 
-  public A removeAllFromIngress(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule> items);
+  public A removeAllFromIngress(Collection<V1NetworkPolicyIngressRule> items);
 
-  public A removeMatchingFromIngress(
-      java.util.function.Predicate<V1NetworkPolicyIngressRuleBuilder> predicate);
+  public A removeMatchingFromIngress(Predicate<V1NetworkPolicyIngressRuleBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildIngress instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule>
-      getIngress();
+  @Deprecated
+  public List<V1NetworkPolicyIngressRule> getIngress();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule>
-      buildIngress();
+  public List<V1NetworkPolicyIngressRule> buildIngress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule buildIngress(
-      java.lang.Integer index);
+  public V1NetworkPolicyIngressRule buildIngress(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule buildFirstIngress();
+  public V1NetworkPolicyIngressRule buildFirstIngress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule buildLastIngress();
+  public V1NetworkPolicyIngressRule buildLastIngress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule buildMatchingIngress(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleBuilder>
-          predicate);
+  public V1NetworkPolicyIngressRule buildMatchingIngress(
+      Predicate<V1NetworkPolicyIngressRuleBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingIngress(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleBuilder>
-          predicate);
+  public Boolean hasMatchingIngress(Predicate<V1NetworkPolicyIngressRuleBuilder> predicate);
 
-  public A withIngress(
-      java.util.List<io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule> ingress);
+  public A withIngress(List<V1NetworkPolicyIngressRule> ingress);
 
   public A withIngress(io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule... ingress);
 
-  public java.lang.Boolean hasIngress();
+  public Boolean hasIngress();
 
   public V1NetworkPolicySpecFluent.IngressNested<A> addNewIngress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.IngressNested<A>
-      addNewIngressLike(io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule item);
+  public V1NetworkPolicySpecFluent.IngressNested<A> addNewIngressLike(
+      V1NetworkPolicyIngressRule item);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.IngressNested<A>
-      setNewIngressLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule item);
+  public V1NetworkPolicySpecFluent.IngressNested<A> setNewIngressLike(
+      Integer index, V1NetworkPolicyIngressRule item);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.IngressNested<A> editIngress(
-      java.lang.Integer index);
+  public V1NetworkPolicySpecFluent.IngressNested<A> editIngress(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.IngressNested<A>
-      editFirstIngress();
+  public V1NetworkPolicySpecFluent.IngressNested<A> editFirstIngress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.IngressNested<A>
-      editLastIngress();
+  public V1NetworkPolicySpecFluent.IngressNested<A> editLastIngress();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.IngressNested<A>
-      editMatchingIngress(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRuleBuilder>
-              predicate);
+  public V1NetworkPolicySpecFluent.IngressNested<A> editMatchingIngress(
+      Predicate<V1NetworkPolicyIngressRuleBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildPodSelector instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1LabelSelector getPodSelector();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildPodSelector();
+  public V1LabelSelector buildPodSelector();
 
-  public A withPodSelector(io.kubernetes.client.openapi.models.V1LabelSelector podSelector);
+  public A withPodSelector(V1LabelSelector podSelector);
 
-  public java.lang.Boolean hasPodSelector();
+  public Boolean hasPodSelector();
 
   public V1NetworkPolicySpecFluent.PodSelectorNested<A> withNewPodSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.PodSelectorNested<A>
-      withNewPodSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1NetworkPolicySpecFluent.PodSelectorNested<A> withNewPodSelectorLike(
+      V1LabelSelector item);
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.PodSelectorNested<A>
-      editPodSelector();
+  public V1NetworkPolicySpecFluent.PodSelectorNested<A> editPodSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.PodSelectorNested<A>
-      editOrNewPodSelector();
+  public V1NetworkPolicySpecFluent.PodSelectorNested<A> editOrNewPodSelector();
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent.PodSelectorNested<A>
-      editOrNewPodSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1NetworkPolicySpecFluent.PodSelectorNested<A> editOrNewPodSelectorLike(
+      V1LabelSelector item);
 
-  public A addToPolicyTypes(java.lang.Integer index, String item);
+  public A addToPolicyTypes(Integer index, String item);
 
-  public A setToPolicyTypes(java.lang.Integer index, java.lang.String item);
+  public A setToPolicyTypes(Integer index, String item);
 
   public A addToPolicyTypes(java.lang.String... items);
 
-  public A addAllToPolicyTypes(java.util.Collection<java.lang.String> items);
+  public A addAllToPolicyTypes(Collection<String> items);
 
   public A removeFromPolicyTypes(java.lang.String... items);
 
-  public A removeAllFromPolicyTypes(java.util.Collection<java.lang.String> items);
+  public A removeAllFromPolicyTypes(Collection<String> items);
 
-  public java.util.List<java.lang.String> getPolicyTypes();
+  public List<String> getPolicyTypes();
 
-  public java.lang.String getPolicyType(java.lang.Integer index);
+  public String getPolicyType(Integer index);
 
-  public java.lang.String getFirstPolicyType();
+  public String getFirstPolicyType();
 
-  public java.lang.String getLastPolicyType();
+  public String getLastPolicyType();
 
-  public java.lang.String getMatchingPolicyType(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingPolicyType(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingPolicyType(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingPolicyType(Predicate<String> predicate);
 
-  public A withPolicyTypes(java.util.List<java.lang.String> policyTypes);
+  public A withPolicyTypes(List<String> policyTypes);
 
   public A withPolicyTypes(java.lang.String... policyTypes);
 
-  public java.lang.Boolean hasPolicyTypes();
+  public Boolean hasPolicyTypes();
 
   public interface EgressNested<N>
       extends Nested<N>,
@@ -247,7 +202,7 @@ public interface V1NetworkPolicySpecFluent<A extends V1NetworkPolicySpecFluent<A
   }
 
   public interface IngressNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1NetworkPolicyIngressRuleFluent<V1NetworkPolicySpecFluent.IngressNested<N>> {
     public N and();
 
@@ -255,8 +210,7 @@ public interface V1NetworkPolicySpecFluent<A extends V1NetworkPolicySpecFluent<A
   }
 
   public interface PodSelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1LabelSelectorFluent<V1NetworkPolicySpecFluent.PodSelectorNested<N>> {
+      extends Nested<N>, V1LabelSelectorFluent<V1NetworkPolicySpecFluent.PodSelectorNested<N>> {
     public N and();
 
     public N endPodSelector();

@@ -19,21 +19,21 @@ public interface V1PortworxVolumeSourceFluent<A extends V1PortworxVolumeSourceFl
     extends Fluent<A> {
   public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
   public Boolean hasFsType();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
-  public java.lang.String getVolumeID();
+  public String getVolumeID();
 
-  public A withVolumeID(java.lang.String volumeID);
+  public A withVolumeID(String volumeID);
 
-  public java.lang.Boolean hasVolumeID();
+  public Boolean hasVolumeID();
 
   public A withReadOnly();
 }

@@ -26,7 +26,7 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
     implements V1EndpointsFluent<A> {
   public V1EndpointsFluentImpl() {}
 
-  public V1EndpointsFluentImpl(io.kubernetes.client.openapi.models.V1Endpoints instance) {
+  public V1EndpointsFluentImpl(V1Endpoints instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withKind(instance.getKind());
@@ -37,15 +37,15 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
   }
 
   private String apiVersion;
-  private java.lang.String kind;
+  private String kind;
   private V1ObjectMetaBuilder metadata;
   private ArrayList<V1EndpointSubsetBuilder> subsets;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -54,16 +54,16 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
     return this.apiVersion != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -73,24 +73,27 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -98,48 +101,38 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
     return new V1EndpointsFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1EndpointsFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1EndpointsFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.MetadataNested<A> editMetadata() {
+  public V1EndpointsFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1EndpointsFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1EndpointsFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
   public A addToSubsets(Integer index, V1EndpointSubset item) {
     if (this.subsets == null) {
-      this.subsets =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder>();
+      this.subsets = new ArrayList<V1EndpointSubsetBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder builder =
-        new io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder(item);
+    V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
     _visitables.get("subsets").add(index >= 0 ? index : _visitables.get("subsets").size(), builder);
     this.subsets.add(index >= 0 ? index : subsets.size(), builder);
     return (A) this;
   }
 
-  public A setToSubsets(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointSubset item) {
+  public A setToSubsets(Integer index, V1EndpointSubset item) {
     if (this.subsets == null) {
-      this.subsets =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder>();
+      this.subsets = new ArrayList<V1EndpointSubsetBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder builder =
-        new io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder(item);
+    V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
     if (index < 0 || index >= _visitables.get("subsets").size()) {
       _visitables.get("subsets").add(builder);
     } else {
@@ -155,26 +148,22 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
 
   public A addToSubsets(io.kubernetes.client.openapi.models.V1EndpointSubset... items) {
     if (this.subsets == null) {
-      this.subsets =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder>();
+      this.subsets = new ArrayList<V1EndpointSubsetBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1EndpointSubset item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder(item);
+    for (V1EndpointSubset item : items) {
+      V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
       _visitables.get("subsets").add(builder);
       this.subsets.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToSubsets(Collection<io.kubernetes.client.openapi.models.V1EndpointSubset> items) {
+  public A addAllToSubsets(Collection<V1EndpointSubset> items) {
     if (this.subsets == null) {
-      this.subsets =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder>();
+      this.subsets = new ArrayList<V1EndpointSubsetBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1EndpointSubset item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder(item);
+    for (V1EndpointSubset item : items) {
+      V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
       _visitables.get("subsets").add(builder);
       this.subsets.add(builder);
     }
@@ -182,9 +171,8 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
   }
 
   public A removeFromSubsets(io.kubernetes.client.openapi.models.V1EndpointSubset... items) {
-    for (io.kubernetes.client.openapi.models.V1EndpointSubset item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder(item);
+    for (V1EndpointSubset item : items) {
+      V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
       _visitables.get("subsets").remove(builder);
       if (this.subsets != null) {
         this.subsets.remove(builder);
@@ -193,11 +181,9 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeAllFromSubsets(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1EndpointSubset> items) {
-    for (io.kubernetes.client.openapi.models.V1EndpointSubset item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder(item);
+  public A removeAllFromSubsets(Collection<V1EndpointSubset> items) {
+    for (V1EndpointSubset item : items) {
+      V1EndpointSubsetBuilder builder = new V1EndpointSubsetBuilder(item);
       _visitables.get("subsets").remove(builder);
       if (this.subsets != null) {
         this.subsets.remove(builder);
@@ -206,14 +192,12 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeMatchingFromSubsets(
-      Predicate<io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder> predicate) {
+  public A removeMatchingFromSubsets(Predicate<V1EndpointSubsetBuilder> predicate) {
     if (subsets == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder> each =
-        subsets.iterator();
+    final Iterator<V1EndpointSubsetBuilder> each = subsets.iterator();
     final List visitables = _visitables.get("subsets");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder builder = each.next();
+      V1EndpointSubsetBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -227,31 +211,29 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public List<io.kubernetes.client.openapi.models.V1EndpointSubset> getSubsets() {
+  @Deprecated
+  public List<V1EndpointSubset> getSubsets() {
     return subsets != null ? build(subsets) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1EndpointSubset> buildSubsets() {
+  public List<V1EndpointSubset> buildSubsets() {
     return subsets != null ? build(subsets) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubset buildSubset(java.lang.Integer index) {
+  public V1EndpointSubset buildSubset(Integer index) {
     return this.subsets.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubset buildFirstSubset() {
+  public V1EndpointSubset buildFirstSubset() {
     return this.subsets.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubset buildLastSubset() {
+  public V1EndpointSubset buildLastSubset() {
     return this.subsets.get(subsets.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubset buildMatchingSubset(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder item : subsets) {
+  public V1EndpointSubset buildMatchingSubset(Predicate<V1EndpointSubsetBuilder> predicate) {
+    for (V1EndpointSubsetBuilder item : subsets) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -259,10 +241,8 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
     return null;
   }
 
-  public java.lang.Boolean hasMatchingSubset(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder item : subsets) {
+  public Boolean hasMatchingSubset(Predicate<V1EndpointSubsetBuilder> predicate) {
+    for (V1EndpointSubsetBuilder item : subsets) {
       if (predicate.test(item)) {
         return true;
       }
@@ -270,14 +250,13 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
     return false;
   }
 
-  public A withSubsets(
-      java.util.List<io.kubernetes.client.openapi.models.V1EndpointSubset> subsets) {
+  public A withSubsets(List<V1EndpointSubset> subsets) {
     if (this.subsets != null) {
       _visitables.get("subsets").removeAll(this.subsets);
     }
     if (subsets != null) {
-      this.subsets = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1EndpointSubset item : subsets) {
+      this.subsets = new ArrayList();
+      for (V1EndpointSubset item : subsets) {
         this.addToSubsets(item);
       }
     } else {
@@ -291,14 +270,14 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
       this.subsets.clear();
     }
     if (subsets != null) {
-      for (io.kubernetes.client.openapi.models.V1EndpointSubset item : subsets) {
+      for (V1EndpointSubset item : subsets) {
         this.addToSubsets(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSubsets() {
+  public Boolean hasSubsets() {
     return subsets != null && !subsets.isEmpty();
   }
 
@@ -306,40 +285,34 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
     return new V1EndpointsFluentImpl.SubsetsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<A> addNewSubsetLike(
-      io.kubernetes.client.openapi.models.V1EndpointSubset item) {
-    return new io.kubernetes.client.openapi.models.V1EndpointsFluentImpl.SubsetsNestedImpl(
-        -1, item);
+  public V1EndpointsFluent.SubsetsNested<A> addNewSubsetLike(V1EndpointSubset item) {
+    return new V1EndpointsFluentImpl.SubsetsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<A> setNewSubsetLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointSubset item) {
-    return new io.kubernetes.client.openapi.models.V1EndpointsFluentImpl.SubsetsNestedImpl(
-        index, item);
+  public V1EndpointsFluent.SubsetsNested<A> setNewSubsetLike(Integer index, V1EndpointSubset item) {
+    return new V1EndpointsFluentImpl.SubsetsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<A> editSubset(
-      java.lang.Integer index) {
+  public V1EndpointsFluent.SubsetsNested<A> editSubset(Integer index) {
     if (subsets.size() <= index)
       throw new RuntimeException("Can't edit subsets. Index exceeds size.");
     return setNewSubsetLike(index, buildSubset(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<A> editFirstSubset() {
+  public V1EndpointsFluent.SubsetsNested<A> editFirstSubset() {
     if (subsets.size() == 0)
       throw new RuntimeException("Can't edit first subsets. The list is empty.");
     return setNewSubsetLike(0, buildSubset(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<A> editLastSubset() {
+  public V1EndpointsFluent.SubsetsNested<A> editLastSubset() {
     int index = subsets.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last subsets. The list is empty.");
     return setNewSubsetLike(index, buildSubset(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<A> editMatchingSubset(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder>
-          predicate) {
+  public V1EndpointsFluent.SubsetsNested<A> editMatchingSubset(
+      Predicate<V1EndpointSubsetBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < subsets.size(); i++) {
       if (predicate.test(subsets.get(i))) {
@@ -367,7 +340,7 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
     return java.util.Objects.hash(apiVersion, kind, metadata, subsets, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -391,17 +364,16 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
   }
 
   class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1EndpointsFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EndpointsFluent.MetadataNested<N>,
-          Nested<N> {
+      implements V1EndpointsFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) V1EndpointsFluentImpl.this.withMetadata(builder.build());
@@ -413,21 +385,19 @@ public class V1EndpointsFluentImpl<A extends V1EndpointsFluent<A>> extends BaseF
   }
 
   class SubsetsNestedImpl<N> extends V1EndpointSubsetFluentImpl<V1EndpointsFluent.SubsetsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EndpointsFluent.SubsetsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SubsetsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointSubset item) {
+      implements V1EndpointsFluent.SubsetsNested<N>, Nested<N> {
+    SubsetsNestedImpl(Integer index, V1EndpointSubset item) {
       this.index = index;
       this.builder = new V1EndpointSubsetBuilder(this, item);
     }
 
     SubsetsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder(this);
+      this.builder = new V1EndpointSubsetBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1EndpointSubsetBuilder builder;
-    java.lang.Integer index;
+    V1EndpointSubsetBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1EndpointsFluentImpl.this.setToSubsets(index, builder.build());

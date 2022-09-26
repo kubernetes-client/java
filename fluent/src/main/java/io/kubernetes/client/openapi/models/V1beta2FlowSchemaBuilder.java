@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1beta2FlowSchemaBuilder extends V1beta2FlowSchemaFluentImpl<V1beta2FlowSchemaBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta2FlowSchema,
-        io.kubernetes.client.openapi.models.V1beta2FlowSchemaBuilder> {
+    implements VisitableBuilder<V1beta2FlowSchema, V1beta2FlowSchemaBuilder> {
   public V1beta2FlowSchemaBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1beta2FlowSchemaBuilder extends V1beta2FlowSchemaFluentImpl<V1beta
     this(fluent, false);
   }
 
-  public V1beta2FlowSchemaBuilder(
-      io.kubernetes.client.openapi.models.V1beta2FlowSchemaFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1beta2FlowSchemaBuilder(V1beta2FlowSchemaFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta2FlowSchema(), validationEnabled);
   }
 
-  public V1beta2FlowSchemaBuilder(
-      io.kubernetes.client.openapi.models.V1beta2FlowSchemaFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta2FlowSchema instance) {
+  public V1beta2FlowSchemaBuilder(V1beta2FlowSchemaFluent<?> fluent, V1beta2FlowSchema instance) {
     this(fluent, instance, false);
   }
 
   public V1beta2FlowSchemaBuilder(
-      io.kubernetes.client.openapi.models.V1beta2FlowSchemaFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta2FlowSchema instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta2FlowSchemaFluent<?> fluent, V1beta2FlowSchema instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -60,13 +52,11 @@ public class V1beta2FlowSchemaBuilder extends V1beta2FlowSchemaFluentImpl<V1beta
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta2FlowSchemaBuilder(io.kubernetes.client.openapi.models.V1beta2FlowSchema instance) {
+  public V1beta2FlowSchemaBuilder(V1beta2FlowSchema instance) {
     this(instance, false);
   }
 
-  public V1beta2FlowSchemaBuilder(
-      io.kubernetes.client.openapi.models.V1beta2FlowSchema instance,
-      java.lang.Boolean validationEnabled) {
+  public V1beta2FlowSchemaBuilder(V1beta2FlowSchema instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -81,10 +71,10 @@ public class V1beta2FlowSchemaBuilder extends V1beta2FlowSchemaFluentImpl<V1beta
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta2FlowSchemaFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta2FlowSchemaFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta2FlowSchema build() {
+  public V1beta2FlowSchema build() {
     V1beta2FlowSchema buildable = new V1beta2FlowSchema();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

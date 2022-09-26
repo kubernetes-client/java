@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LimitRangeBuilder extends V1LimitRangeFluentImpl<V1LimitRangeBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1LimitRange,
-        io.kubernetes.client.openapi.models.V1LimitRangeBuilder> {
+    implements VisitableBuilder<V1LimitRange, V1LimitRangeBuilder> {
   public V1LimitRangeBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1LimitRangeBuilder extends V1LimitRangeFluentImpl<V1LimitRangeBuil
     this(fluent, false);
   }
 
-  public V1LimitRangeBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1LimitRangeBuilder(V1LimitRangeFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1LimitRange(), validationEnabled);
   }
 
-  public V1LimitRangeBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LimitRange instance) {
+  public V1LimitRangeBuilder(V1LimitRangeFluent<?> fluent, V1LimitRange instance) {
     this(fluent, instance, false);
   }
 
   public V1LimitRangeBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRangeFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LimitRange instance,
-      java.lang.Boolean validationEnabled) {
+      V1LimitRangeFluent<?> fluent, V1LimitRange instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,13 +50,11 @@ public class V1LimitRangeBuilder extends V1LimitRangeFluentImpl<V1LimitRangeBuil
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LimitRangeBuilder(io.kubernetes.client.openapi.models.V1LimitRange instance) {
+  public V1LimitRangeBuilder(V1LimitRange instance) {
     this(instance, false);
   }
 
-  public V1LimitRangeBuilder(
-      io.kubernetes.client.openapi.models.V1LimitRange instance,
-      java.lang.Boolean validationEnabled) {
+  public V1LimitRangeBuilder(V1LimitRange instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -77,10 +67,10 @@ public class V1LimitRangeBuilder extends V1LimitRangeFluentImpl<V1LimitRangeBuil
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LimitRangeFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LimitRangeFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1LimitRange build() {
+  public V1LimitRange build() {
     V1LimitRange buildable = new V1LimitRange();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

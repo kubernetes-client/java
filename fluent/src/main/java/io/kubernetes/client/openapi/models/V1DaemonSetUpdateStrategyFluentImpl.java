@@ -21,8 +21,7 @@ public class V1DaemonSetUpdateStrategyFluentImpl<A extends V1DaemonSetUpdateStra
     extends BaseFluent<A> implements V1DaemonSetUpdateStrategyFluent<A> {
   public V1DaemonSetUpdateStrategyFluentImpl() {}
 
-  public V1DaemonSetUpdateStrategyFluentImpl(
-      io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategy instance) {
+  public V1DaemonSetUpdateStrategyFluentImpl(V1DaemonSetUpdateStrategy instance) {
     this.withRollingUpdate(instance.getRollingUpdate());
 
     this.withType(instance.getType());
@@ -37,20 +36,22 @@ public class V1DaemonSetUpdateStrategyFluentImpl<A extends V1DaemonSetUpdateStra
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet getRollingUpdate() {
+  public V1RollingUpdateDaemonSet getRollingUpdate() {
     return this.rollingUpdate != null ? this.rollingUpdate.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet buildRollingUpdate() {
+  public V1RollingUpdateDaemonSet buildRollingUpdate() {
     return this.rollingUpdate != null ? this.rollingUpdate.build() : null;
   }
 
-  public A withRollingUpdate(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet rollingUpdate) {
+  public A withRollingUpdate(V1RollingUpdateDaemonSet rollingUpdate) {
     _visitables.get("rollingUpdate").remove(this.rollingUpdate);
     if (rollingUpdate != null) {
       this.rollingUpdate = new V1RollingUpdateDaemonSetBuilder(rollingUpdate);
       _visitables.get("rollingUpdate").add(this.rollingUpdate);
+    } else {
+      this.rollingUpdate = null;
+      _visitables.get("rollingUpdate").remove(this.rollingUpdate);
     }
     return (A) this;
   }
@@ -63,40 +64,37 @@ public class V1DaemonSetUpdateStrategyFluentImpl<A extends V1DaemonSetUpdateStra
     return new V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A>
-      withNewRollingUpdateLike(io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet item) {
+  public V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A> withNewRollingUpdateLike(
+      V1RollingUpdateDaemonSet item) {
     return new V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A>
-      editRollingUpdate() {
+  public V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A> editRollingUpdate() {
     return withNewRollingUpdateLike(getRollingUpdate());
   }
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A>
-      editOrNewRollingUpdate() {
+  public V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdate() {
     return withNewRollingUpdateLike(
         getRollingUpdate() != null
             ? getRollingUpdate()
-            : new io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetBuilder().build());
+            : new V1RollingUpdateDaemonSetBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A>
-      editOrNewRollingUpdateLike(
-          io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSet item) {
+  public V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdateLike(
+      V1RollingUpdateDaemonSet item) {
     return withNewRollingUpdateLike(getRollingUpdate() != null ? getRollingUpdate() : item);
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
@@ -115,7 +113,7 @@ public class V1DaemonSetUpdateStrategyFluentImpl<A extends V1DaemonSetUpdateStra
     return java.util.Objects.hash(rollingUpdate, type, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (rollingUpdate != null) {
@@ -133,19 +131,16 @@ public class V1DaemonSetUpdateStrategyFluentImpl<A extends V1DaemonSetUpdateStra
   class RollingUpdateNestedImpl<N>
       extends V1RollingUpdateDaemonSetFluentImpl<
           V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<N>>
-      implements io.kubernetes.client.openapi.models.V1DaemonSetUpdateStrategyFluent
-                  .RollingUpdateNested<
-              N>,
-          Nested<N> {
+      implements V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<N>, Nested<N> {
     RollingUpdateNestedImpl(V1RollingUpdateDaemonSet item) {
       this.builder = new V1RollingUpdateDaemonSetBuilder(this, item);
     }
 
     RollingUpdateNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetBuilder(this);
+      this.builder = new V1RollingUpdateDaemonSetBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1RollingUpdateDaemonSetBuilder builder;
+    V1RollingUpdateDaemonSetBuilder builder;
 
     public N and() {
       return (N) V1DaemonSetUpdateStrategyFluentImpl.this.withRollingUpdate(builder.build());

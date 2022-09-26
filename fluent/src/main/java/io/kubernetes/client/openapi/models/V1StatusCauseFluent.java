@@ -18,19 +18,19 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1StatusCauseFluent<A extends V1StatusCauseFluent<A>> extends Fluent<A> {
   public String getField();
 
-  public A withField(java.lang.String field);
+  public A withField(String field);
 
   public Boolean hasField();
 
-  public java.lang.String getMessage();
+  public String getMessage();
 
-  public A withMessage(java.lang.String message);
+  public A withMessage(String message);
 
-  public java.lang.Boolean hasMessage();
+  public Boolean hasMessage();
 
-  public java.lang.String getReason();
+  public String getReason();
 
-  public A withReason(java.lang.String reason);
+  public A withReason(String reason);
 
-  public java.lang.Boolean hasReason();
+  public Boolean hasReason();
 }

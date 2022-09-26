@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ReplicationControllerBuilder
     extends V1ReplicationControllerFluentImpl<V1ReplicationControllerBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ReplicationController,
-        V1ReplicationControllerBuilder> {
+    implements VisitableBuilder<V1ReplicationController, V1ReplicationControllerBuilder> {
   public V1ReplicationControllerBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1ReplicationControllerBuilder
   }
 
   public V1ReplicationControllerBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicationControllerFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ReplicationControllerFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ReplicationController(), validationEnabled);
   }
 
   public V1ReplicationControllerBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicationControllerFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ReplicationController instance) {
+      V1ReplicationControllerFluent<?> fluent, V1ReplicationController instance) {
     this(fluent, instance, false);
   }
 
   public V1ReplicationControllerBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicationControllerFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ReplicationController instance,
-      java.lang.Boolean validationEnabled) {
+      V1ReplicationControllerFluent<?> fluent,
+      V1ReplicationController instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -61,14 +57,12 @@ public class V1ReplicationControllerBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ReplicationControllerBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicationController instance) {
+  public V1ReplicationControllerBuilder(V1ReplicationController instance) {
     this(instance, false);
   }
 
   public V1ReplicationControllerBuilder(
-      io.kubernetes.client.openapi.models.V1ReplicationController instance,
-      java.lang.Boolean validationEnabled) {
+      V1ReplicationController instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -83,10 +77,10 @@ public class V1ReplicationControllerBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ReplicationControllerFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ReplicationControllerFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ReplicationController build() {
+  public V1ReplicationController build() {
     V1ReplicationController buildable = new V1ReplicationController();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

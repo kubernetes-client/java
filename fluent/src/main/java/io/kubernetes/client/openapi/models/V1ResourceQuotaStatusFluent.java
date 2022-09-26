@@ -21,33 +21,29 @@ public interface V1ResourceQuotaStatusFluent<A extends V1ResourceQuotaStatusFlue
     extends Fluent<A> {
   public A addToHard(String key, Quantity value);
 
-  public A addToHard(Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A addToHard(Map<String, Quantity> map);
 
-  public A removeFromHard(java.lang.String key);
+  public A removeFromHard(String key);
 
-  public A removeFromHard(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A removeFromHard(Map<String, Quantity> map);
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getHard();
+  public Map<String, Quantity> getHard();
 
-  public <K, V> A withHard(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> hard);
+  public <K, V> A withHard(Map<String, Quantity> hard);
 
   public Boolean hasHard();
 
-  public A addToUsed(java.lang.String key, io.kubernetes.client.custom.Quantity value);
+  public A addToUsed(String key, Quantity value);
 
-  public A addToUsed(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A addToUsed(Map<String, Quantity> map);
 
-  public A removeFromUsed(java.lang.String key);
+  public A removeFromUsed(String key);
 
-  public A removeFromUsed(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A removeFromUsed(Map<String, Quantity> map);
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getUsed();
+  public Map<String, Quantity> getUsed();
 
-  public <K, V> A withUsed(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> used);
+  public <K, V> A withUsed(Map<String, Quantity> used);
 
-  public java.lang.Boolean hasUsed();
+  public Boolean hasUsed();
 }

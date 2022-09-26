@@ -22,19 +22,16 @@ import java.util.function.Predicate;
 public interface V1AggregationRuleFluent<A extends V1AggregationRuleFluent<A>> extends Fluent<A> {
   public A addToClusterRoleSelectors(Integer index, V1LabelSelector item);
 
-  public A setToClusterRoleSelectors(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public A setToClusterRoleSelectors(Integer index, V1LabelSelector item);
 
   public A addToClusterRoleSelectors(io.kubernetes.client.openapi.models.V1LabelSelector... items);
 
-  public A addAllToClusterRoleSelectors(
-      Collection<io.kubernetes.client.openapi.models.V1LabelSelector> items);
+  public A addAllToClusterRoleSelectors(Collection<V1LabelSelector> items);
 
   public A removeFromClusterRoleSelectors(
       io.kubernetes.client.openapi.models.V1LabelSelector... items);
 
-  public A removeAllFromClusterRoleSelectors(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1LabelSelector> items);
+  public A removeAllFromClusterRoleSelectors(Collection<V1LabelSelector> items);
 
   public A removeMatchingFromClusterRoleSelectors(Predicate<V1LabelSelectorBuilder> predicate);
 
@@ -44,56 +41,45 @@ public interface V1AggregationRuleFluent<A extends V1AggregationRuleFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1LabelSelector> getClusterRoleSelectors();
+  public List<V1LabelSelector> getClusterRoleSelectors();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1LabelSelector>
-      buildClusterRoleSelectors();
+  public List<V1LabelSelector> buildClusterRoleSelectors();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildClusterRoleSelector(
-      java.lang.Integer index);
+  public V1LabelSelector buildClusterRoleSelector(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildFirstClusterRoleSelector();
+  public V1LabelSelector buildFirstClusterRoleSelector();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildLastClusterRoleSelector();
+  public V1LabelSelector buildLastClusterRoleSelector();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildMatchingClusterRoleSelector(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1LabelSelectorBuilder>
-          predicate);
+  public V1LabelSelector buildMatchingClusterRoleSelector(
+      Predicate<V1LabelSelectorBuilder> predicate);
 
-  public Boolean hasMatchingClusterRoleSelector(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1LabelSelectorBuilder>
-          predicate);
+  public Boolean hasMatchingClusterRoleSelector(Predicate<V1LabelSelectorBuilder> predicate);
 
-  public A withClusterRoleSelectors(
-      java.util.List<io.kubernetes.client.openapi.models.V1LabelSelector> clusterRoleSelectors);
+  public A withClusterRoleSelectors(List<V1LabelSelector> clusterRoleSelectors);
 
   public A withClusterRoleSelectors(
       io.kubernetes.client.openapi.models.V1LabelSelector... clusterRoleSelectors);
 
-  public java.lang.Boolean hasClusterRoleSelectors();
+  public Boolean hasClusterRoleSelectors();
 
   public V1AggregationRuleFluent.ClusterRoleSelectorsNested<A> addNewClusterRoleSelector();
 
-  public io.kubernetes.client.openapi.models.V1AggregationRuleFluent.ClusterRoleSelectorsNested<A>
-      addNewClusterRoleSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1AggregationRuleFluent.ClusterRoleSelectorsNested<A> addNewClusterRoleSelectorLike(
+      V1LabelSelector item);
 
-  public io.kubernetes.client.openapi.models.V1AggregationRuleFluent.ClusterRoleSelectorsNested<A>
-      setNewClusterRoleSelectorLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1AggregationRuleFluent.ClusterRoleSelectorsNested<A> setNewClusterRoleSelectorLike(
+      Integer index, V1LabelSelector item);
 
-  public io.kubernetes.client.openapi.models.V1AggregationRuleFluent.ClusterRoleSelectorsNested<A>
-      editClusterRoleSelector(java.lang.Integer index);
+  public V1AggregationRuleFluent.ClusterRoleSelectorsNested<A> editClusterRoleSelector(
+      Integer index);
 
-  public io.kubernetes.client.openapi.models.V1AggregationRuleFluent.ClusterRoleSelectorsNested<A>
-      editFirstClusterRoleSelector();
+  public V1AggregationRuleFluent.ClusterRoleSelectorsNested<A> editFirstClusterRoleSelector();
 
-  public io.kubernetes.client.openapi.models.V1AggregationRuleFluent.ClusterRoleSelectorsNested<A>
-      editLastClusterRoleSelector();
+  public V1AggregationRuleFluent.ClusterRoleSelectorsNested<A> editLastClusterRoleSelector();
 
-  public io.kubernetes.client.openapi.models.V1AggregationRuleFluent.ClusterRoleSelectorsNested<A>
-      editMatchingClusterRoleSelector(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1LabelSelectorBuilder>
-              predicate);
+  public V1AggregationRuleFluent.ClusterRoleSelectorsNested<A> editMatchingClusterRoleSelector(
+      Predicate<V1LabelSelectorBuilder> predicate);
 
   public interface ClusterRoleSelectorsNested<N>
       extends Nested<N>,

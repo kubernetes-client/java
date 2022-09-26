@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1RoleBindingListBuilder extends V1RoleBindingListFluentImpl<V1RoleBindingListBuilder>
-    implements VisitableBuilder<
-        V1RoleBindingList, io.kubernetes.client.openapi.models.V1RoleBindingListBuilder> {
+    implements VisitableBuilder<V1RoleBindingList, V1RoleBindingListBuilder> {
   public V1RoleBindingListBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1RoleBindingListBuilder extends V1RoleBindingListFluentImpl<V1Role
     this(fluent, false);
   }
 
-  public V1RoleBindingListBuilder(
-      io.kubernetes.client.openapi.models.V1RoleBindingListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1RoleBindingListBuilder(V1RoleBindingListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1RoleBindingList(), validationEnabled);
   }
 
-  public V1RoleBindingListBuilder(
-      io.kubernetes.client.openapi.models.V1RoleBindingListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RoleBindingList instance) {
+  public V1RoleBindingListBuilder(V1RoleBindingListFluent<?> fluent, V1RoleBindingList instance) {
     this(fluent, instance, false);
   }
 
   public V1RoleBindingListBuilder(
-      io.kubernetes.client.openapi.models.V1RoleBindingListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RoleBindingList instance,
-      java.lang.Boolean validationEnabled) {
+      V1RoleBindingListFluent<?> fluent, V1RoleBindingList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -57,13 +50,11 @@ public class V1RoleBindingListBuilder extends V1RoleBindingListFluentImpl<V1Role
     this.validationEnabled = validationEnabled;
   }
 
-  public V1RoleBindingListBuilder(io.kubernetes.client.openapi.models.V1RoleBindingList instance) {
+  public V1RoleBindingListBuilder(V1RoleBindingList instance) {
     this(instance, false);
   }
 
-  public V1RoleBindingListBuilder(
-      io.kubernetes.client.openapi.models.V1RoleBindingList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1RoleBindingListBuilder(V1RoleBindingList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -76,10 +67,10 @@ public class V1RoleBindingListBuilder extends V1RoleBindingListFluentImpl<V1Role
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1RoleBindingListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1RoleBindingListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1RoleBindingList build() {
+  public V1RoleBindingList build() {
     V1RoleBindingList buildable = new V1RoleBindingList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

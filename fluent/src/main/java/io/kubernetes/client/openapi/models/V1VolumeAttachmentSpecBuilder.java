@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1VolumeAttachmentSpecBuilder
     extends V1VolumeAttachmentSpecFluentImpl<V1VolumeAttachmentSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1VolumeAttachmentSpec, V1VolumeAttachmentSpecBuilder> {
+    implements VisitableBuilder<V1VolumeAttachmentSpec, V1VolumeAttachmentSpecBuilder> {
   public V1VolumeAttachmentSpecBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V1VolumeAttachmentSpecBuilder
     this(new V1VolumeAttachmentSpec(), validationEnabled);
   }
 
-  public V1VolumeAttachmentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentSpecFluent<?> fluent) {
+  public V1VolumeAttachmentSpecBuilder(V1VolumeAttachmentSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1VolumeAttachmentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeAttachmentSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1VolumeAttachmentSpec(), validationEnabled);
   }
 
   public V1VolumeAttachmentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentSpec instance) {
+      V1VolumeAttachmentSpecFluent<?> fluent, V1VolumeAttachmentSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1VolumeAttachmentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1VolumeAttachmentSpecFluent<?> fluent,
+      V1VolumeAttachmentSpec instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAttacher(instance.getAttacher());
 
@@ -57,14 +53,11 @@ public class V1VolumeAttachmentSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1VolumeAttachmentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentSpec instance) {
+  public V1VolumeAttachmentSpecBuilder(V1VolumeAttachmentSpec instance) {
     this(instance, false);
   }
 
-  public V1VolumeAttachmentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1VolumeAttachmentSpecBuilder(V1VolumeAttachmentSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAttacher(instance.getAttacher());
 
@@ -75,10 +68,10 @@ public class V1VolumeAttachmentSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1VolumeAttachmentSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1VolumeAttachmentSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentSpec build() {
+  public V1VolumeAttachmentSpec build() {
     V1VolumeAttachmentSpec buildable = new V1VolumeAttachmentSpec();
     buildable.setAttacher(fluent.getAttacher());
     buildable.setNodeName(fluent.getNodeName());

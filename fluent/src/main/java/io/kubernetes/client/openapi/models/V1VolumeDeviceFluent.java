@@ -18,13 +18,13 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1VolumeDeviceFluent<A extends V1VolumeDeviceFluent<A>> extends Fluent<A> {
   public String getDevicePath();
 
-  public A withDevicePath(java.lang.String devicePath);
+  public A withDevicePath(String devicePath);
 
   public Boolean hasDevicePath();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 }

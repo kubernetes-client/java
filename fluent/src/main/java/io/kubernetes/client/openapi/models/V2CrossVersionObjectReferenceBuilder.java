@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V2CrossVersionObjectReferenceBuilder
     extends V2CrossVersionObjectReferenceFluentImpl<V2CrossVersionObjectReferenceBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2CrossVersionObjectReference,
-        io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceBuilder> {
+        V2CrossVersionObjectReference, V2CrossVersionObjectReferenceBuilder> {
   public V2CrossVersionObjectReferenceBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V2CrossVersionObjectReferenceBuilder
   }
 
   public V2CrossVersionObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2CrossVersionObjectReferenceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2CrossVersionObjectReference(), validationEnabled);
   }
 
   public V2CrossVersionObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2CrossVersionObjectReference instance) {
+      V2CrossVersionObjectReferenceFluent<?> fluent, V2CrossVersionObjectReference instance) {
     this(fluent, instance, false);
   }
 
   public V2CrossVersionObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2CrossVersionObjectReference instance,
-      java.lang.Boolean validationEnabled) {
+      V2CrossVersionObjectReferenceFluent<?> fluent,
+      V2CrossVersionObjectReference instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -57,14 +54,12 @@ public class V2CrossVersionObjectReferenceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2CrossVersionObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V2CrossVersionObjectReference instance) {
+  public V2CrossVersionObjectReferenceBuilder(V2CrossVersionObjectReference instance) {
     this(instance, false);
   }
 
   public V2CrossVersionObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V2CrossVersionObjectReference instance,
-      java.lang.Boolean validationEnabled) {
+      V2CrossVersionObjectReference instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -75,10 +70,10 @@ public class V2CrossVersionObjectReferenceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2CrossVersionObjectReferenceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2CrossVersionObjectReferenceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2CrossVersionObjectReference build() {
+  public V2CrossVersionObjectReference build() {
     V2CrossVersionObjectReference buildable = new V2CrossVersionObjectReference();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

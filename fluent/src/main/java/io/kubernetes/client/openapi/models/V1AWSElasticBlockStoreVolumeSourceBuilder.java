@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1AWSElasticBlockStoreVolumeSourceBuilder
     extends V1AWSElasticBlockStoreVolumeSourceFluentImpl<V1AWSElasticBlockStoreVolumeSourceBuilder>
     implements VisitableBuilder<
-        V1AWSElasticBlockStoreVolumeSource,
-        io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceBuilder> {
+        V1AWSElasticBlockStoreVolumeSource, V1AWSElasticBlockStoreVolumeSourceBuilder> {
   public V1AWSElasticBlockStoreVolumeSourceBuilder() {
     this(false);
   }
@@ -28,26 +27,25 @@ public class V1AWSElasticBlockStoreVolumeSourceBuilder
   }
 
   public V1AWSElasticBlockStoreVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent) {
+      V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1AWSElasticBlockStoreVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1AWSElasticBlockStoreVolumeSource(), validationEnabled);
   }
 
   public V1AWSElasticBlockStoreVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource instance) {
+      V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent,
+      V1AWSElasticBlockStoreVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1AWSElasticBlockStoreVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent,
+      V1AWSElasticBlockStoreVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFsType(instance.getFsType());
 
@@ -60,14 +58,12 @@ public class V1AWSElasticBlockStoreVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1AWSElasticBlockStoreVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource instance) {
+  public V1AWSElasticBlockStoreVolumeSourceBuilder(V1AWSElasticBlockStoreVolumeSource instance) {
     this(instance, false);
   }
 
   public V1AWSElasticBlockStoreVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1AWSElasticBlockStoreVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFsType(instance.getFsType());
 
@@ -80,10 +76,10 @@ public class V1AWSElasticBlockStoreVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1AWSElasticBlockStoreVolumeSource build() {
+  public V1AWSElasticBlockStoreVolumeSource build() {
     V1AWSElasticBlockStoreVolumeSource buildable = new V1AWSElasticBlockStoreVolumeSource();
     buildable.setFsType(fluent.getFsType());
     buildable.setPartition(fluent.getPartition());

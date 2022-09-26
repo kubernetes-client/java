@@ -22,23 +22,21 @@ import java.util.function.Predicate;
 public interface V1PodTemplateListFluent<A extends V1PodTemplateListFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public A addToItems(Integer index, io.kubernetes.client.openapi.models.V1PodTemplate item);
+  public A addToItems(Integer index, V1PodTemplate item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodTemplate item);
+  public A setToItems(Integer index, V1PodTemplate item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1PodTemplate... items);
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1PodTemplate> items);
+  public A addAllToItems(Collection<V1PodTemplate> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1PodTemplate... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PodTemplate> items);
+  public A removeAllFromItems(Collection<V1PodTemplate> items);
 
   public A removeMatchingFromItems(Predicate<V1PodTemplateBuilder> predicate);
 
@@ -48,83 +46,70 @@ public interface V1PodTemplateListFluent<A extends V1PodTemplateListFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1PodTemplate> getItems();
+  public List<V1PodTemplate> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PodTemplate> buildItems();
+  public List<V1PodTemplate> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplate buildItem(java.lang.Integer index);
+  public V1PodTemplate buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1PodTemplate buildFirstItem();
+  public V1PodTemplate buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplate buildLastItem();
+  public V1PodTemplate buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplate buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodTemplateBuilder>
-          predicate);
+  public V1PodTemplate buildMatchingItem(Predicate<V1PodTemplateBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodTemplateBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1PodTemplateBuilder> predicate);
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1PodTemplate> items);
+  public A withItems(List<V1PodTemplate> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1PodTemplate... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1PodTemplateListFluent.ItemsNested<A> addNewItem();
 
-  public V1PodTemplateListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1PodTemplate item);
+  public V1PodTemplateListFluent.ItemsNested<A> addNewItemLike(V1PodTemplate item);
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A> setNewItemLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodTemplate item);
+  public V1PodTemplateListFluent.ItemsNested<A> setNewItemLike(Integer index, V1PodTemplate item);
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1PodTemplateListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A> editFirstItem();
+  public V1PodTemplateListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A> editLastItem();
+  public V1PodTemplateListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodTemplateBuilder>
-              predicate);
+  public V1PodTemplateListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1PodTemplateBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1PodTemplateListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1PodTemplateListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.MetadataNested<A>
-      editMetadata();
+  public V1PodTemplateListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1PodTemplateListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1PodTemplateListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>, V1PodTemplateFluent<V1PodTemplateListFluent.ItemsNested<N>> {
@@ -134,8 +119,7 @@ public interface V1PodTemplateListFluent<A extends V1PodTemplateListFluent<A>> e
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1PodTemplateListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1PodTemplateListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

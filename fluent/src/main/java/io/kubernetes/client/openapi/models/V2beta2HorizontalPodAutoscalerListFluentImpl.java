@@ -39,14 +39,14 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
 
   private String apiVersion;
   private ArrayList<V2beta2HorizontalPodAutoscalerBuilder> items;
-  private java.lang.String kind;
+  private String kind;
   private V1ListMetaBuilder metadata;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -55,30 +55,21 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
     return this.apiVersion != null;
   }
 
-  public A addToItems(
-      Integer index, io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item) {
+  public A addToItems(Integer index, V2beta2HorizontalPodAutoscaler item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder>();
+      this.items = new ArrayList<V2beta2HorizontalPodAutoscalerBuilder>();
     }
-    io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder builder =
-        new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder(item);
+    V2beta2HorizontalPodAutoscalerBuilder builder = new V2beta2HorizontalPodAutoscalerBuilder(item);
     _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
     this.items.add(index >= 0 ? index : items.size(), builder);
     return (A) this;
   }
 
-  public A setToItems(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item) {
+  public A setToItems(Integer index, V2beta2HorizontalPodAutoscaler item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder>();
+      this.items = new ArrayList<V2beta2HorizontalPodAutoscalerBuilder>();
     }
-    io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder builder =
-        new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder(item);
+    V2beta2HorizontalPodAutoscalerBuilder builder = new V2beta2HorizontalPodAutoscalerBuilder(item);
     if (index < 0 || index >= _visitables.get("items").size()) {
       _visitables.get("items").add(builder);
     } else {
@@ -94,29 +85,24 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
 
   public A addToItems(io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler... items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder>();
+      this.items = new ArrayList<V2beta2HorizontalPodAutoscalerBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item : items) {
-      io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder builder =
-          new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder(item);
+    for (V2beta2HorizontalPodAutoscaler item : items) {
+      V2beta2HorizontalPodAutoscalerBuilder builder =
+          new V2beta2HorizontalPodAutoscalerBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToItems(
-      Collection<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler> items) {
+  public A addAllToItems(Collection<V2beta2HorizontalPodAutoscaler> items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder>();
+      this.items = new ArrayList<V2beta2HorizontalPodAutoscalerBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item : items) {
-      io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder builder =
-          new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder(item);
+    for (V2beta2HorizontalPodAutoscaler item : items) {
+      V2beta2HorizontalPodAutoscalerBuilder builder =
+          new V2beta2HorizontalPodAutoscalerBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
@@ -125,9 +111,9 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
 
   public A removeFromItems(
       io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler... items) {
-    for (io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item : items) {
-      io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder builder =
-          new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder(item);
+    for (V2beta2HorizontalPodAutoscaler item : items) {
+      V2beta2HorizontalPodAutoscalerBuilder builder =
+          new V2beta2HorizontalPodAutoscalerBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -136,12 +122,10 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
     return (A) this;
   }
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler>
-          items) {
-    for (io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item : items) {
-      io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder builder =
-          new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder(item);
+  public A removeAllFromItems(Collection<V2beta2HorizontalPodAutoscaler> items) {
+    for (V2beta2HorizontalPodAutoscaler item : items) {
+      V2beta2HorizontalPodAutoscalerBuilder builder =
+          new V2beta2HorizontalPodAutoscalerBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -150,16 +134,12 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
     return (A) this;
   }
 
-  public A removeMatchingFromItems(
-      Predicate<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder>
-          predicate) {
+  public A removeMatchingFromItems(Predicate<V2beta2HorizontalPodAutoscalerBuilder> predicate) {
     if (items == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder> each =
-        items.iterator();
+    final Iterator<V2beta2HorizontalPodAutoscalerBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder builder =
-          each.next();
+      V2beta2HorizontalPodAutoscalerBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -174,33 +154,29 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler> getItems() {
+  public List<V2beta2HorizontalPodAutoscaler> getItems() {
     return items != null ? build(items) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler>
-      buildItems() {
+  public List<V2beta2HorizontalPodAutoscaler> buildItems() {
     return items != null ? build(items) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler buildItem(
-      java.lang.Integer index) {
+  public V2beta2HorizontalPodAutoscaler buildItem(Integer index) {
     return this.items.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler buildFirstItem() {
+  public V2beta2HorizontalPodAutoscaler buildFirstItem() {
     return this.items.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler buildLastItem() {
+  public V2beta2HorizontalPodAutoscaler buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler buildMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder item : items) {
+  public V2beta2HorizontalPodAutoscaler buildMatchingItem(
+      Predicate<V2beta2HorizontalPodAutoscalerBuilder> predicate) {
+    for (V2beta2HorizontalPodAutoscalerBuilder item : items) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -208,11 +184,8 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder item : items) {
+  public Boolean hasMatchingItem(Predicate<V2beta2HorizontalPodAutoscalerBuilder> predicate) {
+    for (V2beta2HorizontalPodAutoscalerBuilder item : items) {
       if (predicate.test(item)) {
         return true;
       }
@@ -220,14 +193,13 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
     return false;
   }
 
-  public A withItems(
-      java.util.List<io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler> items) {
+  public A withItems(List<V2beta2HorizontalPodAutoscaler> items) {
     if (this.items != null) {
       _visitables.get("items").removeAll(this.items);
     }
     if (items != null) {
-      this.items = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item : items) {
+      this.items = new ArrayList();
+      for (V2beta2HorizontalPodAutoscaler item : items) {
         this.addToItems(item);
       }
     } else {
@@ -241,14 +213,14 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
       this.items.clear();
     }
     if (items != null) {
-      for (io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item : items) {
+      for (V2beta2HorizontalPodAutoscaler item : items) {
         this.addToItems(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasItems() {
+  public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
 
@@ -256,43 +228,34 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
     return new V2beta2HorizontalPodAutoscalerListFluentImpl.ItemsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A>
-      addNewItemLike(io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item) {
+  public V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A> addNewItemLike(
+      V2beta2HorizontalPodAutoscaler item) {
     return new V2beta2HorizontalPodAutoscalerListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item) {
-    return new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluentImpl
-        .ItemsNestedImpl(index, item);
+  public V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V2beta2HorizontalPodAutoscaler item) {
+    return new V2beta2HorizontalPodAutoscalerListFluentImpl.ItemsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A>
-      editItem(java.lang.Integer index) {
+  public V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A> editItem(Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A>
-      editFirstItem() {
+  public V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A>
-      editLastItem() {
+  public V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder>
-              predicate) {
+  public V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V2beta2HorizontalPodAutoscalerBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < items.size(); i++) {
       if (predicate.test(items.get(i))) {
@@ -304,16 +267,16 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
     return setNewItemLike(index, buildItem(index));
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -322,25 +285,28 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
+  @Deprecated
+  public V1ListMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
+  public V1ListMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
+  public A withMetadata(V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -348,35 +314,22 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
     return new V2beta2HorizontalPodAutoscalerListFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent
-              .MetadataNested<
-          A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluentImpl
-        .MetadataNestedImpl(item);
+  public V2beta2HorizontalPodAutoscalerListFluent.MetadataNested<A> withNewMetadataLike(
+      V1ListMeta item) {
+    return new V2beta2HorizontalPodAutoscalerListFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent
-              .MetadataNested<
-          A>
-      editMetadata() {
+  public V2beta2HorizontalPodAutoscalerListFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent
-              .MetadataNested<
-          A>
-      editOrNewMetadata() {
+  public V2beta2HorizontalPodAutoscalerListFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent
-              .MetadataNested<
-          A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
+  public V2beta2HorizontalPodAutoscalerListFluent.MetadataNested<A> editOrNewMetadataLike(
+      V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -397,7 +350,7 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -423,25 +376,19 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
   class ItemsNestedImpl<N>
       extends V2beta2HorizontalPodAutoscalerFluentImpl<
           V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<N>>
-      implements io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent
-                  .ItemsNested<
-              N>,
-          Nested<N> {
-    ItemsNestedImpl(
-        java.lang.Integer index,
-        io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscaler item) {
+      implements V2beta2HorizontalPodAutoscalerListFluent.ItemsNested<N>, Nested<N> {
+    ItemsNestedImpl(Integer index, V2beta2HorizontalPodAutoscaler item) {
       this.index = index;
       this.builder = new V2beta2HorizontalPodAutoscalerBuilder(this, item);
     }
 
     ItemsNestedImpl() {
       this.index = -1;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder(this);
+      this.builder = new V2beta2HorizontalPodAutoscalerBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerBuilder builder;
-    java.lang.Integer index;
+    V2beta2HorizontalPodAutoscalerBuilder builder;
+    Integer index;
 
     public N and() {
       return (N)
@@ -455,19 +402,16 @@ public class V2beta2HorizontalPodAutoscalerListFluentImpl<
 
   class MetadataNestedImpl<N>
       extends V1ListMetaFluentImpl<V2beta2HorizontalPodAutoscalerListFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerListFluent
-                  .MetadataNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V2beta2HorizontalPodAutoscalerListFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this);
+      this.builder = new V1ListMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
+    V1ListMetaBuilder builder;
 
     public N and() {
       return (N) V2beta2HorizontalPodAutoscalerListFluentImpl.this.withMetadata(builder.build());

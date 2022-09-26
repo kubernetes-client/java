@@ -22,58 +22,57 @@ import java.util.function.Predicate;
 public interface V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public A addToDryRun(Integer index, java.lang.String item);
+  public A addToDryRun(Integer index, String item);
 
-  public A setToDryRun(java.lang.Integer index, java.lang.String item);
+  public A setToDryRun(Integer index, String item);
 
   public A addToDryRun(java.lang.String... items);
 
-  public A addAllToDryRun(Collection<java.lang.String> items);
+  public A addAllToDryRun(Collection<String> items);
 
   public A removeFromDryRun(java.lang.String... items);
 
-  public A removeAllFromDryRun(java.util.Collection<java.lang.String> items);
+  public A removeAllFromDryRun(Collection<String> items);
 
-  public List<java.lang.String> getDryRun();
+  public List<String> getDryRun();
 
-  public java.lang.String getDryRun(java.lang.Integer index);
+  public String getDryRun(Integer index);
 
-  public java.lang.String getFirstDryRun();
+  public String getFirstDryRun();
 
-  public java.lang.String getLastDryRun();
+  public String getLastDryRun();
 
-  public java.lang.String getMatchingDryRun(Predicate<java.lang.String> predicate);
+  public String getMatchingDryRun(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingDryRun(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingDryRun(Predicate<String> predicate);
 
-  public A withDryRun(java.util.List<java.lang.String> dryRun);
+  public A withDryRun(List<String> dryRun);
 
   public A withDryRun(java.lang.String... dryRun);
 
-  public java.lang.Boolean hasDryRun();
+  public Boolean hasDryRun();
 
   public Long getGracePeriodSeconds();
 
-  public A withGracePeriodSeconds(java.lang.Long gracePeriodSeconds);
+  public A withGracePeriodSeconds(Long gracePeriodSeconds);
 
-  public java.lang.Boolean hasGracePeriodSeconds();
+  public Boolean hasGracePeriodSeconds();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
-  public java.lang.Boolean getOrphanDependents();
+  public Boolean getOrphanDependents();
 
-  public A withOrphanDependents(java.lang.Boolean orphanDependents);
+  public A withOrphanDependents(Boolean orphanDependents);
 
-  public java.lang.Boolean hasOrphanDependents();
+  public Boolean hasOrphanDependents();
 
   /**
    * This method has been deprecated, please use method buildPreconditions instead.
@@ -83,31 +82,29 @@ public interface V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> exten
   @Deprecated
   public V1Preconditions getPreconditions();
 
-  public io.kubernetes.client.openapi.models.V1Preconditions buildPreconditions();
+  public V1Preconditions buildPreconditions();
 
-  public A withPreconditions(io.kubernetes.client.openapi.models.V1Preconditions preconditions);
+  public A withPreconditions(V1Preconditions preconditions);
 
-  public java.lang.Boolean hasPreconditions();
+  public Boolean hasPreconditions();
 
   public V1DeleteOptionsFluent.PreconditionsNested<A> withNewPreconditions();
 
-  public io.kubernetes.client.openapi.models.V1DeleteOptionsFluent.PreconditionsNested<A>
-      withNewPreconditionsLike(io.kubernetes.client.openapi.models.V1Preconditions item);
+  public V1DeleteOptionsFluent.PreconditionsNested<A> withNewPreconditionsLike(
+      V1Preconditions item);
 
-  public io.kubernetes.client.openapi.models.V1DeleteOptionsFluent.PreconditionsNested<A>
-      editPreconditions();
+  public V1DeleteOptionsFluent.PreconditionsNested<A> editPreconditions();
 
-  public io.kubernetes.client.openapi.models.V1DeleteOptionsFluent.PreconditionsNested<A>
-      editOrNewPreconditions();
+  public V1DeleteOptionsFluent.PreconditionsNested<A> editOrNewPreconditions();
 
-  public io.kubernetes.client.openapi.models.V1DeleteOptionsFluent.PreconditionsNested<A>
-      editOrNewPreconditionsLike(io.kubernetes.client.openapi.models.V1Preconditions item);
+  public V1DeleteOptionsFluent.PreconditionsNested<A> editOrNewPreconditionsLike(
+      V1Preconditions item);
 
-  public java.lang.String getPropagationPolicy();
+  public String getPropagationPolicy();
 
-  public A withPropagationPolicy(java.lang.String propagationPolicy);
+  public A withPropagationPolicy(String propagationPolicy);
 
-  public java.lang.Boolean hasPropagationPolicy();
+  public Boolean hasPropagationPolicy();
 
   public A withOrphanDependents();
 

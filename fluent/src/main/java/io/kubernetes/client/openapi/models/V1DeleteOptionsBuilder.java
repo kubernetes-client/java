@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DeleteOptionsBuilder extends V1DeleteOptionsFluentImpl<V1DeleteOptionsBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DeleteOptions,
-        io.kubernetes.client.openapi.models.V1DeleteOptionsBuilder> {
+    implements VisitableBuilder<V1DeleteOptions, V1DeleteOptionsBuilder> {
   public V1DeleteOptionsBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1DeleteOptionsBuilder extends V1DeleteOptionsFluentImpl<V1DeleteOp
     this(fluent, false);
   }
 
-  public V1DeleteOptionsBuilder(
-      io.kubernetes.client.openapi.models.V1DeleteOptionsFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1DeleteOptionsBuilder(V1DeleteOptionsFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DeleteOptions(), validationEnabled);
   }
 
-  public V1DeleteOptionsBuilder(
-      io.kubernetes.client.openapi.models.V1DeleteOptionsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DeleteOptions instance) {
+  public V1DeleteOptionsBuilder(V1DeleteOptionsFluent<?> fluent, V1DeleteOptions instance) {
     this(fluent, instance, false);
   }
 
   public V1DeleteOptionsBuilder(
-      io.kubernetes.client.openapi.models.V1DeleteOptionsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DeleteOptions instance,
-      java.lang.Boolean validationEnabled) {
+      V1DeleteOptionsFluent<?> fluent, V1DeleteOptions instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -64,13 +56,11 @@ public class V1DeleteOptionsBuilder extends V1DeleteOptionsFluentImpl<V1DeleteOp
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DeleteOptionsBuilder(io.kubernetes.client.openapi.models.V1DeleteOptions instance) {
+  public V1DeleteOptionsBuilder(V1DeleteOptions instance) {
     this(instance, false);
   }
 
-  public V1DeleteOptionsBuilder(
-      io.kubernetes.client.openapi.models.V1DeleteOptions instance,
-      java.lang.Boolean validationEnabled) {
+  public V1DeleteOptionsBuilder(V1DeleteOptions instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -89,10 +79,10 @@ public class V1DeleteOptionsBuilder extends V1DeleteOptionsFluentImpl<V1DeleteOp
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DeleteOptionsFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DeleteOptionsFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DeleteOptions build() {
+  public V1DeleteOptions build() {
     V1DeleteOptions buildable = new V1DeleteOptions();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setDryRun(fluent.getDryRun());

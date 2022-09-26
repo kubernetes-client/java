@@ -20,18 +20,17 @@ public class V1PodReadinessGateFluentImpl<A extends V1PodReadinessGateFluent<A>>
     extends BaseFluent<A> implements V1PodReadinessGateFluent<A> {
   public V1PodReadinessGateFluentImpl() {}
 
-  public V1PodReadinessGateFluentImpl(
-      io.kubernetes.client.openapi.models.V1PodReadinessGate instance) {
+  public V1PodReadinessGateFluentImpl(V1PodReadinessGate instance) {
     this.withConditionType(instance.getConditionType());
   }
 
   private String conditionType;
 
-  public java.lang.String getConditionType() {
+  public String getConditionType() {
     return this.conditionType;
   }
 
-  public A withConditionType(java.lang.String conditionType) {
+  public A withConditionType(String conditionType) {
     this.conditionType = conditionType;
     return (A) this;
   }
@@ -54,7 +53,7 @@ public class V1PodReadinessGateFluentImpl<A extends V1PodReadinessGateFluent<A>>
     return java.util.Objects.hash(conditionType, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (conditionType != null) {

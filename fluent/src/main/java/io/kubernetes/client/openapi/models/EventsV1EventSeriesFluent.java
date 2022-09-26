@@ -20,13 +20,13 @@ public interface EventsV1EventSeriesFluent<A extends EventsV1EventSeriesFluent<A
     extends Fluent<A> {
   public Integer getCount();
 
-  public A withCount(java.lang.Integer count);
+  public A withCount(Integer count);
 
   public Boolean hasCount();
 
   public OffsetDateTime getLastObservedTime();
 
-  public A withLastObservedTime(java.time.OffsetDateTime lastObservedTime);
+  public A withLastObservedTime(OffsetDateTime lastObservedTime);
 
-  public java.lang.Boolean hasLastObservedTime();
+  public Boolean hasLastObservedTime();
 }

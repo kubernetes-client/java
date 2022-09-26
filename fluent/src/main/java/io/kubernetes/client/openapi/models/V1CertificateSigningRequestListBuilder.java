@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1CertificateSigningRequestListBuilder
     extends V1CertificateSigningRequestListFluentImpl<V1CertificateSigningRequestListBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CertificateSigningRequestList,
-        io.kubernetes.client.openapi.models.V1CertificateSigningRequestListBuilder> {
+        V1CertificateSigningRequestList, V1CertificateSigningRequestListBuilder> {
   public V1CertificateSigningRequestListBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V1CertificateSigningRequestListBuilder
   }
 
   public V1CertificateSigningRequestListBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CertificateSigningRequestListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CertificateSigningRequestList(), validationEnabled);
   }
 
   public V1CertificateSigningRequestListBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestList instance) {
+      V1CertificateSigningRequestListFluent<?> fluent, V1CertificateSigningRequestList instance) {
     this(fluent, instance, false);
   }
 
   public V1CertificateSigningRequestListBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestList instance,
-      java.lang.Boolean validationEnabled) {
+      V1CertificateSigningRequestListFluent<?> fluent,
+      V1CertificateSigningRequestList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,14 +56,12 @@ public class V1CertificateSigningRequestListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CertificateSigningRequestListBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestList instance) {
+  public V1CertificateSigningRequestListBuilder(V1CertificateSigningRequestList instance) {
     this(instance, false);
   }
 
   public V1CertificateSigningRequestListBuilder(
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequestList instance,
-      java.lang.Boolean validationEnabled) {
+      V1CertificateSigningRequestList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -79,10 +74,10 @@ public class V1CertificateSigningRequestListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CertificateSigningRequestListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestList build() {
+  public V1CertificateSigningRequestList build() {
     V1CertificateSigningRequestList buildable = new V1CertificateSigningRequestList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

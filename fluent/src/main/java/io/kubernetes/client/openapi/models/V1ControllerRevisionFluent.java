@@ -20,21 +20,21 @@ public interface V1ControllerRevisionFluent<A extends V1ControllerRevisionFluent
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
   public Object getData();
 
-  public A withData(java.lang.Object data);
+  public A withData(Object data);
 
-  public java.lang.Boolean hasData();
+  public Boolean hasData();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -44,31 +44,27 @@ public interface V1ControllerRevisionFluent<A extends V1ControllerRevisionFluent
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1ControllerRevisionFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1ControllerRevisionFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionFluent.MetadataNested<A>
-      editMetadata();
+  public V1ControllerRevisionFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1ControllerRevisionFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1ControllerRevisionFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   public Long getRevision();
 
-  public A withRevision(java.lang.Long revision);
+  public A withRevision(Long revision);
 
-  public java.lang.Boolean hasRevision();
+  public Boolean hasRevision();
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1ControllerRevisionFluent.MetadataNested<N>> {

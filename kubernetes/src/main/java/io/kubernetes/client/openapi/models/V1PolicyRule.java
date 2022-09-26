@@ -28,7 +28,7 @@ import java.util.Objects;
         "PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1PolicyRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
 
@@ -72,14 +72,15 @@ public class V1PolicyRule {
   /**
    * APIGroups is the name of the APIGroup that contains the resources. If multiple API groups are
    * specified, any action requested against one of the enumerated resources in any API group will
-   * be allowed.
+   * be allowed. \&quot;\&quot; represents the core API group and \&quot;*\&quot; represents all API
+   * groups.
    *
    * @return apiGroups
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.")
+          "APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed. \"\" represents the core API group and \"*\" represents all API groups.")
   public List<String> getApiGroups() {
     return apiGroups;
   }

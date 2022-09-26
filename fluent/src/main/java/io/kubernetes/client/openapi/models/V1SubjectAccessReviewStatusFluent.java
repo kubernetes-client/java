@@ -19,27 +19,27 @@ public interface V1SubjectAccessReviewStatusFluent<A extends V1SubjectAccessRevi
     extends Fluent<A> {
   public Boolean getAllowed();
 
-  public A withAllowed(java.lang.Boolean allowed);
+  public A withAllowed(Boolean allowed);
 
-  public java.lang.Boolean hasAllowed();
+  public Boolean hasAllowed();
 
-  public java.lang.Boolean getDenied();
+  public Boolean getDenied();
 
-  public A withDenied(java.lang.Boolean denied);
+  public A withDenied(Boolean denied);
 
-  public java.lang.Boolean hasDenied();
+  public Boolean hasDenied();
 
   public String getEvaluationError();
 
-  public A withEvaluationError(java.lang.String evaluationError);
+  public A withEvaluationError(String evaluationError);
 
-  public java.lang.Boolean hasEvaluationError();
+  public Boolean hasEvaluationError();
 
-  public java.lang.String getReason();
+  public String getReason();
 
-  public A withReason(java.lang.String reason);
+  public A withReason(String reason);
 
-  public java.lang.Boolean hasReason();
+  public Boolean hasReason();
 
   public A withAllowed();
 

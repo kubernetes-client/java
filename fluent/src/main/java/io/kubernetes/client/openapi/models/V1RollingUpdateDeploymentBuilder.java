@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1RollingUpdateDeploymentBuilder
     extends V1RollingUpdateDeploymentFluentImpl<V1RollingUpdateDeploymentBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1RollingUpdateDeployment,
-        io.kubernetes.client.openapi.models.V1RollingUpdateDeploymentBuilder> {
+    implements VisitableBuilder<V1RollingUpdateDeployment, V1RollingUpdateDeploymentBuilder> {
   public V1RollingUpdateDeploymentBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1RollingUpdateDeploymentBuilder
   }
 
   public V1RollingUpdateDeploymentBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDeploymentFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1RollingUpdateDeploymentFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1RollingUpdateDeployment(), validationEnabled);
   }
 
   public V1RollingUpdateDeploymentBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDeploymentFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RollingUpdateDeployment instance) {
+      V1RollingUpdateDeploymentFluent<?> fluent, V1RollingUpdateDeployment instance) {
     this(fluent, instance, false);
   }
 
   public V1RollingUpdateDeploymentBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDeploymentFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RollingUpdateDeployment instance,
-      java.lang.Boolean validationEnabled) {
+      V1RollingUpdateDeploymentFluent<?> fluent,
+      V1RollingUpdateDeployment instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMaxSurge(instance.getMaxSurge());
 
@@ -55,14 +51,12 @@ public class V1RollingUpdateDeploymentBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1RollingUpdateDeploymentBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDeployment instance) {
+  public V1RollingUpdateDeploymentBuilder(V1RollingUpdateDeployment instance) {
     this(instance, false);
   }
 
   public V1RollingUpdateDeploymentBuilder(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDeployment instance,
-      java.lang.Boolean validationEnabled) {
+      V1RollingUpdateDeployment instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMaxSurge(instance.getMaxSurge());
 
@@ -71,10 +65,10 @@ public class V1RollingUpdateDeploymentBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1RollingUpdateDeploymentFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1RollingUpdateDeploymentFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1RollingUpdateDeployment build() {
+  public V1RollingUpdateDeployment build() {
     V1RollingUpdateDeployment buildable = new V1RollingUpdateDeployment();
     buildable.setMaxSurge(fluent.getMaxSurge());
     buildable.setMaxUnavailable(fluent.getMaxUnavailable());

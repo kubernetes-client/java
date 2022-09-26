@@ -19,15 +19,15 @@ import io.kubernetes.client.fluent.Nested;
 public interface V1BindingFluent<A extends V1BindingFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -37,49 +37,45 @@ public interface V1BindingFluent<A extends V1BindingFluent<A>> extends Fluent<A>
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1BindingFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<A> withNewMetadataLike(
-      io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1BindingFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<A> editMetadata();
+  public V1BindingFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<A> editOrNewMetadata();
+  public V1BindingFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1BindingFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildTarget instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ObjectReference getTarget();
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildTarget();
+  public V1ObjectReference buildTarget();
 
-  public A withTarget(io.kubernetes.client.openapi.models.V1ObjectReference target);
+  public A withTarget(V1ObjectReference target);
 
-  public java.lang.Boolean hasTarget();
+  public Boolean hasTarget();
 
   public V1BindingFluent.TargetNested<A> withNewTarget();
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<A> withNewTargetLike(
-      io.kubernetes.client.openapi.models.V1ObjectReference item);
+  public V1BindingFluent.TargetNested<A> withNewTargetLike(V1ObjectReference item);
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<A> editTarget();
+  public V1BindingFluent.TargetNested<A> editTarget();
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<A> editOrNewTarget();
+  public V1BindingFluent.TargetNested<A> editOrNewTarget();
 
-  public io.kubernetes.client.openapi.models.V1BindingFluent.TargetNested<A> editOrNewTargetLike(
-      io.kubernetes.client.openapi.models.V1ObjectReference item);
+  public V1BindingFluent.TargetNested<A> editOrNewTargetLike(V1ObjectReference item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1BindingFluent.MetadataNested<N>> {
@@ -89,8 +85,7 @@ public interface V1BindingFluent<A extends V1BindingFluent<A>> extends Fluent<A>
   }
 
   public interface TargetNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ObjectReferenceFluent<V1BindingFluent.TargetNested<N>> {
+      extends Nested<N>, V1ObjectReferenceFluent<V1BindingFluent.TargetNested<N>> {
     public N and();
 
     public N endTarget();

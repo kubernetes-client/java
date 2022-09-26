@@ -21,15 +21,15 @@ public interface V2beta2HorizontalPodAutoscalerFluent<
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -39,85 +39,75 @@ public interface V2beta2HorizontalPodAutoscalerFluent<
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V2beta2HorizontalPodAutoscalerFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V2beta2HorizontalPodAutoscalerFluent.MetadataNested<A> withNewMetadataLike(
+      V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.MetadataNested<A>
-      editMetadata();
+  public V2beta2HorizontalPodAutoscalerFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V2beta2HorizontalPodAutoscalerFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V2beta2HorizontalPodAutoscalerFluent.MetadataNested<A> editOrNewMetadataLike(
+      V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildSpec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V2beta2HorizontalPodAutoscalerSpec getSpec();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerSpec buildSpec();
+  public V2beta2HorizontalPodAutoscalerSpec buildSpec();
 
-  public A withSpec(io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerSpec spec);
+  public A withSpec(V2beta2HorizontalPodAutoscalerSpec spec);
 
-  public java.lang.Boolean hasSpec();
+  public Boolean hasSpec();
 
   public V2beta2HorizontalPodAutoscalerFluent.SpecNested<A> withNewSpec();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.SpecNested<A>
-      withNewSpecLike(io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerSpec item);
+  public V2beta2HorizontalPodAutoscalerFluent.SpecNested<A> withNewSpecLike(
+      V2beta2HorizontalPodAutoscalerSpec item);
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.SpecNested<A>
-      editSpec();
+  public V2beta2HorizontalPodAutoscalerFluent.SpecNested<A> editSpec();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.SpecNested<A>
-      editOrNewSpec();
+  public V2beta2HorizontalPodAutoscalerFluent.SpecNested<A> editOrNewSpec();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.SpecNested<A>
-      editOrNewSpecLike(
-          io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerSpec item);
+  public V2beta2HorizontalPodAutoscalerFluent.SpecNested<A> editOrNewSpecLike(
+      V2beta2HorizontalPodAutoscalerSpec item);
 
   /**
    * This method has been deprecated, please use method buildStatus instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V2beta2HorizontalPodAutoscalerStatus getStatus();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatus buildStatus();
+  public V2beta2HorizontalPodAutoscalerStatus buildStatus();
 
-  public A withStatus(
-      io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatus status);
+  public A withStatus(V2beta2HorizontalPodAutoscalerStatus status);
 
-  public java.lang.Boolean hasStatus();
+  public Boolean hasStatus();
 
   public V2beta2HorizontalPodAutoscalerFluent.StatusNested<A> withNewStatus();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.StatusNested<A>
-      withNewStatusLike(
-          io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatus item);
+  public V2beta2HorizontalPodAutoscalerFluent.StatusNested<A> withNewStatusLike(
+      V2beta2HorizontalPodAutoscalerStatus item);
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.StatusNested<A>
-      editStatus();
+  public V2beta2HorizontalPodAutoscalerFluent.StatusNested<A> editStatus();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.StatusNested<A>
-      editOrNewStatus();
+  public V2beta2HorizontalPodAutoscalerFluent.StatusNested<A> editOrNewStatus();
 
-  public io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerFluent.StatusNested<A>
-      editOrNewStatusLike(
-          io.kubernetes.client.openapi.models.V2beta2HorizontalPodAutoscalerStatus item);
+  public V2beta2HorizontalPodAutoscalerFluent.StatusNested<A> editOrNewStatusLike(
+      V2beta2HorizontalPodAutoscalerStatus item);
 
   public interface MetadataNested<N>
       extends Nested<N>,
@@ -128,7 +118,7 @@ public interface V2beta2HorizontalPodAutoscalerFluent<
   }
 
   public interface SpecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V2beta2HorizontalPodAutoscalerSpecFluent<
               V2beta2HorizontalPodAutoscalerFluent.SpecNested<N>> {
     public N and();
@@ -137,7 +127,7 @@ public interface V2beta2HorizontalPodAutoscalerFluent<
   }
 
   public interface StatusNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V2beta2HorizontalPodAutoscalerStatusFluent<
               V2beta2HorizontalPodAutoscalerFluent.StatusNested<N>> {
     public N and();

@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ServiceBackendPortBuilder
     extends V1ServiceBackendPortFluentImpl<V1ServiceBackendPortBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ServiceBackendPort, V1ServiceBackendPortBuilder> {
+    implements VisitableBuilder<V1ServiceBackendPort, V1ServiceBackendPortBuilder> {
   public V1ServiceBackendPortBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V1ServiceBackendPortBuilder
     this(new V1ServiceBackendPort(), validationEnabled);
   }
 
-  public V1ServiceBackendPortBuilder(
-      io.kubernetes.client.openapi.models.V1ServiceBackendPortFluent<?> fluent) {
+  public V1ServiceBackendPortBuilder(V1ServiceBackendPortFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1ServiceBackendPortBuilder(
-      io.kubernetes.client.openapi.models.V1ServiceBackendPortFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ServiceBackendPortFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ServiceBackendPort(), validationEnabled);
   }
 
   public V1ServiceBackendPortBuilder(
-      io.kubernetes.client.openapi.models.V1ServiceBackendPortFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ServiceBackendPort instance) {
+      V1ServiceBackendPortFluent<?> fluent, V1ServiceBackendPort instance) {
     this(fluent, instance, false);
   }
 
   public V1ServiceBackendPortBuilder(
-      io.kubernetes.client.openapi.models.V1ServiceBackendPortFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ServiceBackendPort instance,
-      java.lang.Boolean validationEnabled) {
+      V1ServiceBackendPortFluent<?> fluent,
+      V1ServiceBackendPort instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
@@ -55,14 +51,11 @@ public class V1ServiceBackendPortBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ServiceBackendPortBuilder(
-      io.kubernetes.client.openapi.models.V1ServiceBackendPort instance) {
+  public V1ServiceBackendPortBuilder(V1ServiceBackendPort instance) {
     this(instance, false);
   }
 
-  public V1ServiceBackendPortBuilder(
-      io.kubernetes.client.openapi.models.V1ServiceBackendPort instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ServiceBackendPortBuilder(V1ServiceBackendPort instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
@@ -71,10 +64,10 @@ public class V1ServiceBackendPortBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ServiceBackendPortFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ServiceBackendPortFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ServiceBackendPort build() {
+  public V1ServiceBackendPort build() {
     V1ServiceBackendPort buildable = new V1ServiceBackendPort();
     buildable.setName(fluent.getName());
     buildable.setNumber(fluent.getNumber());

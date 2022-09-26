@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1JobStatusBuilder extends V1JobStatusFluentImpl<V1JobStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1JobStatus,
-        io.kubernetes.client.openapi.models.V1JobStatusBuilder> {
+    implements VisitableBuilder<V1JobStatus, V1JobStatusBuilder> {
   public V1JobStatusBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1JobStatusBuilder extends V1JobStatusFluentImpl<V1JobStatusBuilder
     this(fluent, false);
   }
 
-  public V1JobStatusBuilder(
-      io.kubernetes.client.openapi.models.V1JobStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1JobStatusBuilder(V1JobStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1JobStatus(), validationEnabled);
   }
 
-  public V1JobStatusBuilder(
-      io.kubernetes.client.openapi.models.V1JobStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1JobStatus instance) {
+  public V1JobStatusBuilder(V1JobStatusFluent<?> fluent, V1JobStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1JobStatusBuilder(
-      io.kubernetes.client.openapi.models.V1JobStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1JobStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1JobStatusFluent<?> fluent, V1JobStatus instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withActive(instance.getActive());
 
@@ -68,13 +60,11 @@ public class V1JobStatusBuilder extends V1JobStatusFluentImpl<V1JobStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1JobStatusBuilder(io.kubernetes.client.openapi.models.V1JobStatus instance) {
+  public V1JobStatusBuilder(V1JobStatus instance) {
     this(instance, false);
   }
 
-  public V1JobStatusBuilder(
-      io.kubernetes.client.openapi.models.V1JobStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V1JobStatusBuilder(V1JobStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withActive(instance.getActive());
 
@@ -97,10 +87,10 @@ public class V1JobStatusBuilder extends V1JobStatusFluentImpl<V1JobStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1JobStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1JobStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1JobStatus build() {
+  public V1JobStatus build() {
     V1JobStatus buildable = new V1JobStatus();
     buildable.setActive(fluent.getActive());
     buildable.setCompletedIndexes(fluent.getCompletedIndexes());

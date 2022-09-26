@@ -20,7 +20,7 @@ public class V1ContainerPortFluentImpl<A extends V1ContainerPortFluent<A>> exten
     implements V1ContainerPortFluent<A> {
   public V1ContainerPortFluentImpl() {}
 
-  public V1ContainerPortFluentImpl(io.kubernetes.client.openapi.models.V1ContainerPort instance) {
+  public V1ContainerPortFluentImpl(V1ContainerPort instance) {
     this.withContainerPort(instance.getContainerPort());
 
     this.withHostIP(instance.getHostIP());
@@ -34,15 +34,15 @@ public class V1ContainerPortFluentImpl<A extends V1ContainerPortFluent<A>> exten
 
   private Integer containerPort;
   private String hostIP;
-  private java.lang.Integer hostPort;
-  private java.lang.String name;
-  private java.lang.String protocol;
+  private Integer hostPort;
+  private String name;
+  private String protocol;
 
-  public java.lang.Integer getContainerPort() {
+  public Integer getContainerPort() {
     return this.containerPort;
   }
 
-  public A withContainerPort(java.lang.Integer containerPort) {
+  public A withContainerPort(Integer containerPort) {
     this.containerPort = containerPort;
     return (A) this;
   }
@@ -51,55 +51,55 @@ public class V1ContainerPortFluentImpl<A extends V1ContainerPortFluent<A>> exten
     return this.containerPort != null;
   }
 
-  public java.lang.String getHostIP() {
+  public String getHostIP() {
     return this.hostIP;
   }
 
-  public A withHostIP(java.lang.String hostIP) {
+  public A withHostIP(String hostIP) {
     this.hostIP = hostIP;
     return (A) this;
   }
 
-  public java.lang.Boolean hasHostIP() {
+  public Boolean hasHostIP() {
     return this.hostIP != null;
   }
 
-  public java.lang.Integer getHostPort() {
+  public Integer getHostPort() {
     return this.hostPort;
   }
 
-  public A withHostPort(java.lang.Integer hostPort) {
+  public A withHostPort(Integer hostPort) {
     this.hostPort = hostPort;
     return (A) this;
   }
 
-  public java.lang.Boolean hasHostPort() {
+  public Boolean hasHostPort() {
     return this.hostPort != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.String getProtocol() {
+  public String getProtocol() {
     return this.protocol;
   }
 
-  public A withProtocol(java.lang.String protocol) {
+  public A withProtocol(String protocol) {
     this.protocol = protocol;
     return (A) this;
   }
 
-  public java.lang.Boolean hasProtocol() {
+  public Boolean hasProtocol() {
     return this.protocol != null;
   }
 
@@ -122,7 +122,7 @@ public class V1ContainerPortFluentImpl<A extends V1ContainerPortFluent<A>> exten
         containerPort, hostIP, hostPort, name, protocol, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (containerPort != null) {

@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1TokenReviewBuilder extends V1TokenReviewFluentImpl<V1TokenReviewBuilder>
-    implements VisitableBuilder<
-        V1TokenReview, io.kubernetes.client.openapi.models.V1TokenReviewBuilder> {
+    implements VisitableBuilder<V1TokenReview, V1TokenReviewBuilder> {
   public V1TokenReviewBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1TokenReviewBuilder extends V1TokenReviewFluentImpl<V1TokenReviewB
     this(fluent, false);
   }
 
-  public V1TokenReviewBuilder(
-      io.kubernetes.client.openapi.models.V1TokenReviewFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1TokenReviewBuilder(V1TokenReviewFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1TokenReview(), validationEnabled);
   }
 
-  public V1TokenReviewBuilder(
-      io.kubernetes.client.openapi.models.V1TokenReviewFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1TokenReview instance) {
+  public V1TokenReviewBuilder(V1TokenReviewFluent<?> fluent, V1TokenReview instance) {
     this(fluent, instance, false);
   }
 
   public V1TokenReviewBuilder(
-      io.kubernetes.client.openapi.models.V1TokenReviewFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1TokenReview instance,
-      java.lang.Boolean validationEnabled) {
+      V1TokenReviewFluent<?> fluent, V1TokenReview instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,13 +52,11 @@ public class V1TokenReviewBuilder extends V1TokenReviewFluentImpl<V1TokenReviewB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1TokenReviewBuilder(io.kubernetes.client.openapi.models.V1TokenReview instance) {
+  public V1TokenReviewBuilder(V1TokenReview instance) {
     this(instance, false);
   }
 
-  public V1TokenReviewBuilder(
-      io.kubernetes.client.openapi.models.V1TokenReview instance,
-      java.lang.Boolean validationEnabled) {
+  public V1TokenReviewBuilder(V1TokenReview instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -80,10 +71,10 @@ public class V1TokenReviewBuilder extends V1TokenReviewFluentImpl<V1TokenReviewB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1TokenReviewFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1TokenReviewFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1TokenReview build() {
+  public V1TokenReview build() {
     V1TokenReview buildable = new V1TokenReview();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

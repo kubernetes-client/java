@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NamespaceSpecBuilder extends V1NamespaceSpecFluentImpl<V1NamespaceSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1NamespaceSpec, V1NamespaceSpecBuilder> {
+    implements VisitableBuilder<V1NamespaceSpec, V1NamespaceSpecBuilder> {
   public V1NamespaceSpecBuilder() {
     this(false);
   }
@@ -25,50 +24,41 @@ public class V1NamespaceSpecBuilder extends V1NamespaceSpecFluentImpl<V1Namespac
     this(new V1NamespaceSpec(), validationEnabled);
   }
 
-  public V1NamespaceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1NamespaceSpecFluent<?> fluent) {
+  public V1NamespaceSpecBuilder(V1NamespaceSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1NamespaceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1NamespaceSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1NamespaceSpecBuilder(V1NamespaceSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NamespaceSpec(), validationEnabled);
   }
 
-  public V1NamespaceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1NamespaceSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NamespaceSpec instance) {
+  public V1NamespaceSpecBuilder(V1NamespaceSpecFluent<?> fluent, V1NamespaceSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1NamespaceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1NamespaceSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NamespaceSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1NamespaceSpecFluent<?> fluent, V1NamespaceSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFinalizers(instance.getFinalizers());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NamespaceSpecBuilder(io.kubernetes.client.openapi.models.V1NamespaceSpec instance) {
+  public V1NamespaceSpecBuilder(V1NamespaceSpec instance) {
     this(instance, false);
   }
 
-  public V1NamespaceSpecBuilder(
-      io.kubernetes.client.openapi.models.V1NamespaceSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NamespaceSpecBuilder(V1NamespaceSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFinalizers(instance.getFinalizers());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NamespaceSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NamespaceSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NamespaceSpec build() {
+  public V1NamespaceSpec build() {
     V1NamespaceSpec buildable = new V1NamespaceSpec();
     buildable.setFinalizers(fluent.getFinalizers());
     return buildable;

@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1EventSourceBuilder extends V1EventSourceFluentImpl<V1EventSourceBuilder>
-    implements VisitableBuilder<
-        V1EventSource, io.kubernetes.client.openapi.models.V1EventSourceBuilder> {
+    implements VisitableBuilder<V1EventSource, V1EventSourceBuilder> {
   public V1EventSourceBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1EventSourceBuilder extends V1EventSourceFluentImpl<V1EventSourceB
     this(fluent, false);
   }
 
-  public V1EventSourceBuilder(
-      io.kubernetes.client.openapi.models.V1EventSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1EventSourceBuilder(V1EventSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1EventSource(), validationEnabled);
   }
 
-  public V1EventSourceBuilder(
-      io.kubernetes.client.openapi.models.V1EventSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EventSource instance) {
+  public V1EventSourceBuilder(V1EventSourceFluent<?> fluent, V1EventSource instance) {
     this(fluent, instance, false);
   }
 
   public V1EventSourceBuilder(
-      io.kubernetes.client.openapi.models.V1EventSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1EventSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1EventSourceFluent<?> fluent, V1EventSource instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withComponent(instance.getComponent());
 
@@ -53,13 +46,11 @@ public class V1EventSourceBuilder extends V1EventSourceFluentImpl<V1EventSourceB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1EventSourceBuilder(io.kubernetes.client.openapi.models.V1EventSource instance) {
+  public V1EventSourceBuilder(V1EventSource instance) {
     this(instance, false);
   }
 
-  public V1EventSourceBuilder(
-      io.kubernetes.client.openapi.models.V1EventSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1EventSourceBuilder(V1EventSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withComponent(instance.getComponent());
 
@@ -68,10 +59,10 @@ public class V1EventSourceBuilder extends V1EventSourceFluentImpl<V1EventSourceB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1EventSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1EventSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1EventSource build() {
+  public V1EventSource build() {
     V1EventSource buildable = new V1EventSource();
     buildable.setComponent(fluent.getComponent());
     buildable.setHost(fluent.getHost());

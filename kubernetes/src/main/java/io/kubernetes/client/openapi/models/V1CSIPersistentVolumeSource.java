@@ -25,7 +25,7 @@ import java.util.Objects;
         "Represents storage that is managed by an external CSI volume driver (Beta feature)")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1CSIPersistentVolumeSource {
   public static final String SERIALIZED_NAME_CONTROLLER_EXPAND_SECRET_REF =
       "controllerExpandSecretRef";
@@ -48,6 +48,11 @@ public class V1CSIPersistentVolumeSource {
 
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
   private String fsType;
+
+  public static final String SERIALIZED_NAME_NODE_EXPAND_SECRET_REF = "nodeExpandSecretRef";
+
+  @SerializedName(SERIALIZED_NAME_NODE_EXPAND_SECRET_REF)
+  private V1SecretReference nodeExpandSecretRef;
 
   public static final String SERIALIZED_NAME_NODE_PUBLISH_SECRET_REF = "nodePublishSecretRef";
 
@@ -162,6 +167,27 @@ public class V1CSIPersistentVolumeSource {
 
   public void setFsType(String fsType) {
     this.fsType = fsType;
+  }
+
+  public V1CSIPersistentVolumeSource nodeExpandSecretRef(V1SecretReference nodeExpandSecretRef) {
+
+    this.nodeExpandSecretRef = nodeExpandSecretRef;
+    return this;
+  }
+
+  /**
+   * Get nodeExpandSecretRef
+   *
+   * @return nodeExpandSecretRef
+   */
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+  public V1SecretReference getNodeExpandSecretRef() {
+    return nodeExpandSecretRef;
+  }
+
+  public void setNodeExpandSecretRef(V1SecretReference nodeExpandSecretRef) {
+    this.nodeExpandSecretRef = nodeExpandSecretRef;
   }
 
   public V1CSIPersistentVolumeSource nodePublishSecretRef(V1SecretReference nodePublishSecretRef) {
@@ -298,6 +324,7 @@ public class V1CSIPersistentVolumeSource {
             this.controllerPublishSecretRef, v1CSIPersistentVolumeSource.controllerPublishSecretRef)
         && Objects.equals(this.driver, v1CSIPersistentVolumeSource.driver)
         && Objects.equals(this.fsType, v1CSIPersistentVolumeSource.fsType)
+        && Objects.equals(this.nodeExpandSecretRef, v1CSIPersistentVolumeSource.nodeExpandSecretRef)
         && Objects.equals(
             this.nodePublishSecretRef, v1CSIPersistentVolumeSource.nodePublishSecretRef)
         && Objects.equals(this.nodeStageSecretRef, v1CSIPersistentVolumeSource.nodeStageSecretRef)
@@ -313,6 +340,7 @@ public class V1CSIPersistentVolumeSource {
         controllerPublishSecretRef,
         driver,
         fsType,
+        nodeExpandSecretRef,
         nodePublishSecretRef,
         nodeStageSecretRef,
         readOnly,
@@ -332,6 +360,9 @@ public class V1CSIPersistentVolumeSource {
         .append("\n");
     sb.append("    driver: ").append(toIndentedString(driver)).append("\n");
     sb.append("    fsType: ").append(toIndentedString(fsType)).append("\n");
+    sb.append("    nodeExpandSecretRef: ")
+        .append(toIndentedString(nodeExpandSecretRef))
+        .append("\n");
     sb.append("    nodePublishSecretRef: ")
         .append(toIndentedString(nodePublishSecretRef))
         .append("\n");

@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1CustomResourceDefinitionVersionBuilder
     extends V1CustomResourceDefinitionVersionFluentImpl<V1CustomResourceDefinitionVersionBuilder>
     implements VisitableBuilder<
-        V1CustomResourceDefinitionVersion,
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionBuilder> {
+        V1CustomResourceDefinitionVersion, V1CustomResourceDefinitionVersionBuilder> {
   public V1CustomResourceDefinitionVersionBuilder() {
     this(false);
   }
@@ -33,21 +32,20 @@ public class V1CustomResourceDefinitionVersionBuilder
   }
 
   public V1CustomResourceDefinitionVersionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionVersionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CustomResourceDefinitionVersion(), validationEnabled);
   }
 
   public V1CustomResourceDefinitionVersionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion instance) {
+      V1CustomResourceDefinitionVersionFluent<?> fluent,
+      V1CustomResourceDefinitionVersion instance) {
     this(fluent, instance, false);
   }
 
   public V1CustomResourceDefinitionVersionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionVersionFluent<?> fluent,
+      V1CustomResourceDefinitionVersion instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
 
@@ -68,14 +66,12 @@ public class V1CustomResourceDefinitionVersionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CustomResourceDefinitionVersionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion instance) {
+  public V1CustomResourceDefinitionVersionBuilder(V1CustomResourceDefinitionVersion instance) {
     this(instance, false);
   }
 
   public V1CustomResourceDefinitionVersionBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionVersion instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
 
@@ -96,10 +92,10 @@ public class V1CustomResourceDefinitionVersionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CustomResourceDefinitionVersionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion build() {
+  public V1CustomResourceDefinitionVersion build() {
     V1CustomResourceDefinitionVersion buildable = new V1CustomResourceDefinitionVersion();
     buildable.setAdditionalPrinterColumns(fluent.getAdditionalPrinterColumns());
     buildable.setDeprecated(fluent.getDeprecated());

@@ -29,91 +29,85 @@ public interface V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> e
   @Deprecated
   public V1LabelSelector getLabelSelector();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildLabelSelector();
+  public V1LabelSelector buildLabelSelector();
 
-  public A withLabelSelector(io.kubernetes.client.openapi.models.V1LabelSelector labelSelector);
+  public A withLabelSelector(V1LabelSelector labelSelector);
 
   public Boolean hasLabelSelector();
 
   public V1PodAffinityTermFluent.LabelSelectorNested<A> withNewLabelSelector();
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTermFluent.LabelSelectorNested<A>
-      withNewLabelSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1PodAffinityTermFluent.LabelSelectorNested<A> withNewLabelSelectorLike(
+      V1LabelSelector item);
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTermFluent.LabelSelectorNested<A>
-      editLabelSelector();
+  public V1PodAffinityTermFluent.LabelSelectorNested<A> editLabelSelector();
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTermFluent.LabelSelectorNested<A>
-      editOrNewLabelSelector();
+  public V1PodAffinityTermFluent.LabelSelectorNested<A> editOrNewLabelSelector();
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTermFluent.LabelSelectorNested<A>
-      editOrNewLabelSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1PodAffinityTermFluent.LabelSelectorNested<A> editOrNewLabelSelectorLike(
+      V1LabelSelector item);
 
   /**
    * This method has been deprecated, please use method buildNamespaceSelector instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LabelSelector getNamespaceSelector();
+  @Deprecated
+  public V1LabelSelector getNamespaceSelector();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildNamespaceSelector();
+  public V1LabelSelector buildNamespaceSelector();
 
-  public A withNamespaceSelector(
-      io.kubernetes.client.openapi.models.V1LabelSelector namespaceSelector);
+  public A withNamespaceSelector(V1LabelSelector namespaceSelector);
 
-  public java.lang.Boolean hasNamespaceSelector();
+  public Boolean hasNamespaceSelector();
 
   public V1PodAffinityTermFluent.NamespaceSelectorNested<A> withNewNamespaceSelector();
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTermFluent.NamespaceSelectorNested<A>
-      withNewNamespaceSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1PodAffinityTermFluent.NamespaceSelectorNested<A> withNewNamespaceSelectorLike(
+      V1LabelSelector item);
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTermFluent.NamespaceSelectorNested<A>
-      editNamespaceSelector();
+  public V1PodAffinityTermFluent.NamespaceSelectorNested<A> editNamespaceSelector();
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTermFluent.NamespaceSelectorNested<A>
-      editOrNewNamespaceSelector();
+  public V1PodAffinityTermFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelector();
 
-  public io.kubernetes.client.openapi.models.V1PodAffinityTermFluent.NamespaceSelectorNested<A>
-      editOrNewNamespaceSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V1PodAffinityTermFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelectorLike(
+      V1LabelSelector item);
 
   public A addToNamespaces(Integer index, String item);
 
-  public A setToNamespaces(java.lang.Integer index, java.lang.String item);
+  public A setToNamespaces(Integer index, String item);
 
   public A addToNamespaces(java.lang.String... items);
 
-  public A addAllToNamespaces(Collection<java.lang.String> items);
+  public A addAllToNamespaces(Collection<String> items);
 
   public A removeFromNamespaces(java.lang.String... items);
 
-  public A removeAllFromNamespaces(java.util.Collection<java.lang.String> items);
+  public A removeAllFromNamespaces(Collection<String> items);
 
-  public List<java.lang.String> getNamespaces();
+  public List<String> getNamespaces();
 
-  public java.lang.String getNamespace(java.lang.Integer index);
+  public String getNamespace(Integer index);
 
-  public java.lang.String getFirstNamespace();
+  public String getFirstNamespace();
 
-  public java.lang.String getLastNamespace();
+  public String getLastNamespace();
 
-  public java.lang.String getMatchingNamespace(Predicate<java.lang.String> predicate);
+  public String getMatchingNamespace(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingNamespace(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingNamespace(Predicate<String> predicate);
 
-  public A withNamespaces(java.util.List<java.lang.String> namespaces);
+  public A withNamespaces(List<String> namespaces);
 
   public A withNamespaces(java.lang.String... namespaces);
 
-  public java.lang.Boolean hasNamespaces();
+  public Boolean hasNamespaces();
 
-  public java.lang.String getTopologyKey();
+  public String getTopologyKey();
 
-  public A withTopologyKey(java.lang.String topologyKey);
+  public A withTopologyKey(String topologyKey);
 
-  public java.lang.Boolean hasTopologyKey();
+  public Boolean hasTopologyKey();
 
   public interface LabelSelectorNested<N>
       extends Nested<N>, V1LabelSelectorFluent<V1PodAffinityTermFluent.LabelSelectorNested<N>> {
@@ -123,8 +117,7 @@ public interface V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> e
   }
 
   public interface NamespaceSelectorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1LabelSelectorFluent<V1PodAffinityTermFluent.NamespaceSelectorNested<N>> {
+      extends Nested<N>, V1LabelSelectorFluent<V1PodAffinityTermFluent.NamespaceSelectorNested<N>> {
     public N and();
 
     public N endNamespaceSelector();

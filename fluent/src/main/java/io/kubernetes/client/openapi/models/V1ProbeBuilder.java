@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ProbeBuilder extends V1ProbeFluentImpl<V1ProbeBuilder>
-    implements VisitableBuilder<io.kubernetes.client.openapi.models.V1Probe, V1ProbeBuilder> {
+    implements VisitableBuilder<V1Probe, V1ProbeBuilder> {
   public V1ProbeBuilder() {
     this(false);
   }
@@ -24,26 +24,19 @@ public class V1ProbeBuilder extends V1ProbeFluentImpl<V1ProbeBuilder>
     this(new V1Probe(), validationEnabled);
   }
 
-  public V1ProbeBuilder(io.kubernetes.client.openapi.models.V1ProbeFluent<?> fluent) {
+  public V1ProbeBuilder(V1ProbeFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1ProbeBuilder(
-      io.kubernetes.client.openapi.models.V1ProbeFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ProbeBuilder(V1ProbeFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Probe(), validationEnabled);
   }
 
-  public V1ProbeBuilder(
-      io.kubernetes.client.openapi.models.V1ProbeFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Probe instance) {
+  public V1ProbeBuilder(V1ProbeFluent<?> fluent, V1Probe instance) {
     this(fluent, instance, false);
   }
 
-  public V1ProbeBuilder(
-      io.kubernetes.client.openapi.models.V1ProbeFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Probe instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ProbeBuilder(V1ProbeFluent<?> fluent, V1Probe instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withExec(instance.getExec());
 
@@ -68,12 +61,11 @@ public class V1ProbeBuilder extends V1ProbeFluentImpl<V1ProbeBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ProbeBuilder(io.kubernetes.client.openapi.models.V1Probe instance) {
+  public V1ProbeBuilder(V1Probe instance) {
     this(instance, false);
   }
 
-  public V1ProbeBuilder(
-      io.kubernetes.client.openapi.models.V1Probe instance, java.lang.Boolean validationEnabled) {
+  public V1ProbeBuilder(V1Probe instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withExec(instance.getExec());
 
@@ -98,10 +90,10 @@ public class V1ProbeBuilder extends V1ProbeFluentImpl<V1ProbeBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ProbeFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ProbeFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Probe build() {
+  public V1Probe build() {
     V1Probe buildable = new V1Probe();
     buildable.setExec(fluent.getExec());
     buildable.setFailureThreshold(fluent.getFailureThreshold());

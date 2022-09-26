@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ServicePortBuilder extends V1ServicePortFluentImpl<V1ServicePortBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ServicePort,
-        io.kubernetes.client.openapi.models.V1ServicePortBuilder> {
+    implements VisitableBuilder<V1ServicePort, V1ServicePortBuilder> {
   public V1ServicePortBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1ServicePortBuilder extends V1ServicePortFluentImpl<V1ServicePortB
     this(fluent, false);
   }
 
-  public V1ServicePortBuilder(
-      io.kubernetes.client.openapi.models.V1ServicePortFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ServicePortBuilder(V1ServicePortFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ServicePort(), validationEnabled);
   }
 
-  public V1ServicePortBuilder(
-      io.kubernetes.client.openapi.models.V1ServicePortFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ServicePort instance) {
+  public V1ServicePortBuilder(V1ServicePortFluent<?> fluent, V1ServicePort instance) {
     this(fluent, instance, false);
   }
 
   public V1ServicePortBuilder(
-      io.kubernetes.client.openapi.models.V1ServicePortFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ServicePort instance,
-      java.lang.Boolean validationEnabled) {
+      V1ServicePortFluent<?> fluent, V1ServicePort instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAppProtocol(instance.getAppProtocol());
 
@@ -62,13 +54,11 @@ public class V1ServicePortBuilder extends V1ServicePortFluentImpl<V1ServicePortB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ServicePortBuilder(io.kubernetes.client.openapi.models.V1ServicePort instance) {
+  public V1ServicePortBuilder(V1ServicePort instance) {
     this(instance, false);
   }
 
-  public V1ServicePortBuilder(
-      io.kubernetes.client.openapi.models.V1ServicePort instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ServicePortBuilder(V1ServicePort instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAppProtocol(instance.getAppProtocol());
 
@@ -85,10 +75,10 @@ public class V1ServicePortBuilder extends V1ServicePortFluentImpl<V1ServicePortB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ServicePortFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ServicePortFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ServicePort build() {
+  public V1ServicePort build() {
     V1ServicePort buildable = new V1ServicePort();
     buildable.setAppProtocol(fluent.getAppProtocol());
     buildable.setName(fluent.getName());

@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1JobSpecBuilder extends V1JobSpecFluentImpl<V1JobSpecBuilder>
-    implements VisitableBuilder<io.kubernetes.client.openapi.models.V1JobSpec, V1JobSpecBuilder> {
+    implements VisitableBuilder<V1JobSpec, V1JobSpecBuilder> {
   public V1JobSpecBuilder() {
     this(false);
   }
@@ -24,26 +24,20 @@ public class V1JobSpecBuilder extends V1JobSpecFluentImpl<V1JobSpecBuilder>
     this(new V1JobSpec(), validationEnabled);
   }
 
-  public V1JobSpecBuilder(io.kubernetes.client.openapi.models.V1JobSpecFluent<?> fluent) {
+  public V1JobSpecBuilder(V1JobSpecFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1JobSpecBuilder(
-      io.kubernetes.client.openapi.models.V1JobSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1JobSpecBuilder(V1JobSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1JobSpec(), validationEnabled);
   }
 
-  public V1JobSpecBuilder(
-      io.kubernetes.client.openapi.models.V1JobSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1JobSpec instance) {
+  public V1JobSpecBuilder(V1JobSpecFluent<?> fluent, V1JobSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1JobSpecBuilder(
-      io.kubernetes.client.openapi.models.V1JobSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1JobSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1JobSpecFluent<?> fluent, V1JobSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
 
@@ -57,6 +51,8 @@ public class V1JobSpecBuilder extends V1JobSpecFluentImpl<V1JobSpecBuilder>
 
     fluent.withParallelism(instance.getParallelism());
 
+    fluent.withPodFailurePolicy(instance.getPodFailurePolicy());
+
     fluent.withSelector(instance.getSelector());
 
     fluent.withSuspend(instance.getSuspend());
@@ -68,12 +64,11 @@ public class V1JobSpecBuilder extends V1JobSpecFluentImpl<V1JobSpecBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1JobSpecBuilder(io.kubernetes.client.openapi.models.V1JobSpec instance) {
+  public V1JobSpecBuilder(V1JobSpec instance) {
     this(instance, false);
   }
 
-  public V1JobSpecBuilder(
-      io.kubernetes.client.openapi.models.V1JobSpec instance, java.lang.Boolean validationEnabled) {
+  public V1JobSpecBuilder(V1JobSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
 
@@ -87,6 +82,8 @@ public class V1JobSpecBuilder extends V1JobSpecFluentImpl<V1JobSpecBuilder>
 
     this.withParallelism(instance.getParallelism());
 
+    this.withPodFailurePolicy(instance.getPodFailurePolicy());
+
     this.withSelector(instance.getSelector());
 
     this.withSuspend(instance.getSuspend());
@@ -98,10 +95,10 @@ public class V1JobSpecBuilder extends V1JobSpecFluentImpl<V1JobSpecBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1JobSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1JobSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1JobSpec build() {
+  public V1JobSpec build() {
     V1JobSpec buildable = new V1JobSpec();
     buildable.setActiveDeadlineSeconds(fluent.getActiveDeadlineSeconds());
     buildable.setBackoffLimit(fluent.getBackoffLimit());
@@ -109,6 +106,7 @@ public class V1JobSpecBuilder extends V1JobSpecFluentImpl<V1JobSpecBuilder>
     buildable.setCompletions(fluent.getCompletions());
     buildable.setManualSelector(fluent.getManualSelector());
     buildable.setParallelism(fluent.getParallelism());
+    buildable.setPodFailurePolicy(fluent.getPodFailurePolicy());
     buildable.setSelector(fluent.getSelector());
     buildable.setSuspend(fluent.getSuspend());
     buildable.setTemplate(fluent.getTemplate());

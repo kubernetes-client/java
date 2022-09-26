@@ -20,25 +20,25 @@ public interface V1VsphereVirtualDiskVolumeSourceFluent<
     extends Fluent<A> {
   public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
   public Boolean hasFsType();
 
-  public java.lang.String getStoragePolicyID();
+  public String getStoragePolicyID();
 
-  public A withStoragePolicyID(java.lang.String storagePolicyID);
+  public A withStoragePolicyID(String storagePolicyID);
 
-  public java.lang.Boolean hasStoragePolicyID();
+  public Boolean hasStoragePolicyID();
 
-  public java.lang.String getStoragePolicyName();
+  public String getStoragePolicyName();
 
-  public A withStoragePolicyName(java.lang.String storagePolicyName);
+  public A withStoragePolicyName(String storagePolicyName);
 
-  public java.lang.Boolean hasStoragePolicyName();
+  public Boolean hasStoragePolicyName();
 
-  public java.lang.String getVolumePath();
+  public String getVolumePath();
 
-  public A withVolumePath(java.lang.String volumePath);
+  public A withVolumePath(String volumePath);
 
-  public java.lang.Boolean hasVolumePath();
+  public Boolean hasVolumePath();
 }

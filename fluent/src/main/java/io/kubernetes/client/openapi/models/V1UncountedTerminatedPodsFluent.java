@@ -22,63 +22,61 @@ public interface V1UncountedTerminatedPodsFluent<A extends V1UncountedTerminated
     extends Fluent<A> {
   public A addToFailed(Integer index, String item);
 
-  public A setToFailed(java.lang.Integer index, java.lang.String item);
+  public A setToFailed(Integer index, String item);
 
   public A addToFailed(java.lang.String... items);
 
-  public A addAllToFailed(Collection<java.lang.String> items);
+  public A addAllToFailed(Collection<String> items);
 
   public A removeFromFailed(java.lang.String... items);
 
-  public A removeAllFromFailed(java.util.Collection<java.lang.String> items);
+  public A removeAllFromFailed(Collection<String> items);
 
-  public List<java.lang.String> getFailed();
+  public List<String> getFailed();
 
-  public java.lang.String getFailed(java.lang.Integer index);
+  public String getFailed(Integer index);
 
-  public java.lang.String getFirstFailed();
+  public String getFirstFailed();
 
-  public java.lang.String getLastFailed();
+  public String getLastFailed();
 
-  public java.lang.String getMatchingFailed(Predicate<java.lang.String> predicate);
+  public String getMatchingFailed(Predicate<String> predicate);
 
-  public Boolean hasMatchingFailed(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingFailed(Predicate<String> predicate);
 
-  public A withFailed(java.util.List<java.lang.String> failed);
+  public A withFailed(List<String> failed);
 
   public A withFailed(java.lang.String... failed);
 
-  public java.lang.Boolean hasFailed();
+  public Boolean hasFailed();
 
-  public A addToSucceeded(java.lang.Integer index, java.lang.String item);
+  public A addToSucceeded(Integer index, String item);
 
-  public A setToSucceeded(java.lang.Integer index, java.lang.String item);
+  public A setToSucceeded(Integer index, String item);
 
   public A addToSucceeded(java.lang.String... items);
 
-  public A addAllToSucceeded(java.util.Collection<java.lang.String> items);
+  public A addAllToSucceeded(Collection<String> items);
 
   public A removeFromSucceeded(java.lang.String... items);
 
-  public A removeAllFromSucceeded(java.util.Collection<java.lang.String> items);
+  public A removeAllFromSucceeded(Collection<String> items);
 
-  public java.util.List<java.lang.String> getSucceeded();
+  public List<String> getSucceeded();
 
-  public java.lang.String getSucceeded(java.lang.Integer index);
+  public String getSucceeded(Integer index);
 
-  public java.lang.String getFirstSucceeded();
+  public String getFirstSucceeded();
 
-  public java.lang.String getLastSucceeded();
+  public String getLastSucceeded();
 
-  public java.lang.String getMatchingSucceeded(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingSucceeded(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingSucceeded(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingSucceeded(Predicate<String> predicate);
 
-  public A withSucceeded(java.util.List<java.lang.String> succeeded);
+  public A withSucceeded(List<String> succeeded);
 
   public A withSucceeded(java.lang.String... succeeded);
 
-  public java.lang.Boolean hasSucceeded();
+  public Boolean hasSucceeded();
 }

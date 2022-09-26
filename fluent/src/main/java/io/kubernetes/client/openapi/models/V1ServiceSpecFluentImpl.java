@@ -28,7 +28,7 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     implements V1ServiceSpecFluent<A> {
   public V1ServiceSpecFluentImpl() {}
 
-  public V1ServiceSpecFluentImpl(io.kubernetes.client.openapi.models.V1ServiceSpec instance) {
+  public V1ServiceSpecFluentImpl(V1ServiceSpec instance) {
     this.withAllocateLoadBalancerNodePorts(instance.getAllocateLoadBalancerNodePorts());
 
     this.withClusterIP(instance.getClusterIP());
@@ -70,61 +70,61 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
 
   private Boolean allocateLoadBalancerNodePorts;
   private String clusterIP;
-  private List<java.lang.String> clusterIPs;
-  private java.util.List<java.lang.String> externalIPs;
-  private java.lang.String externalName;
-  private java.lang.String externalTrafficPolicy;
+  private List<String> clusterIPs;
+  private List<String> externalIPs;
+  private String externalName;
+  private String externalTrafficPolicy;
   private Integer healthCheckNodePort;
-  private java.lang.String internalTrafficPolicy;
-  private java.util.List<java.lang.String> ipFamilies;
-  private java.lang.String ipFamilyPolicy;
-  private java.lang.String loadBalancerClass;
-  private java.lang.String loadBalancerIP;
-  private java.util.List<java.lang.String> loadBalancerSourceRanges;
+  private String internalTrafficPolicy;
+  private List<String> ipFamilies;
+  private String ipFamilyPolicy;
+  private String loadBalancerClass;
+  private String loadBalancerIP;
+  private List<String> loadBalancerSourceRanges;
   private ArrayList<V1ServicePortBuilder> ports;
-  private java.lang.Boolean publishNotReadyAddresses;
-  private Map<java.lang.String, java.lang.String> selector;
-  private java.lang.String sessionAffinity;
+  private Boolean publishNotReadyAddresses;
+  private Map<String, String> selector;
+  private String sessionAffinity;
   private V1SessionAffinityConfigBuilder sessionAffinityConfig;
-  private java.lang.String type;
+  private String type;
 
-  public java.lang.Boolean getAllocateLoadBalancerNodePorts() {
+  public Boolean getAllocateLoadBalancerNodePorts() {
     return this.allocateLoadBalancerNodePorts;
   }
 
-  public A withAllocateLoadBalancerNodePorts(java.lang.Boolean allocateLoadBalancerNodePorts) {
+  public A withAllocateLoadBalancerNodePorts(Boolean allocateLoadBalancerNodePorts) {
     this.allocateLoadBalancerNodePorts = allocateLoadBalancerNodePorts;
     return (A) this;
   }
 
-  public java.lang.Boolean hasAllocateLoadBalancerNodePorts() {
+  public Boolean hasAllocateLoadBalancerNodePorts() {
     return this.allocateLoadBalancerNodePorts != null;
   }
 
-  public java.lang.String getClusterIP() {
+  public String getClusterIP() {
     return this.clusterIP;
   }
 
-  public A withClusterIP(java.lang.String clusterIP) {
+  public A withClusterIP(String clusterIP) {
     this.clusterIP = clusterIP;
     return (A) this;
   }
 
-  public java.lang.Boolean hasClusterIP() {
+  public Boolean hasClusterIP() {
     return this.clusterIP != null;
   }
 
-  public A addToClusterIPs(java.lang.Integer index, java.lang.String item) {
+  public A addToClusterIPs(Integer index, String item) {
     if (this.clusterIPs == null) {
-      this.clusterIPs = new java.util.ArrayList<java.lang.String>();
+      this.clusterIPs = new ArrayList<String>();
     }
     this.clusterIPs.add(index, item);
     return (A) this;
   }
 
-  public A setToClusterIPs(java.lang.Integer index, java.lang.String item) {
+  public A setToClusterIPs(Integer index, String item) {
     if (this.clusterIPs == null) {
-      this.clusterIPs = new java.util.ArrayList<java.lang.String>();
+      this.clusterIPs = new ArrayList<String>();
     }
     this.clusterIPs.set(index, item);
     return (A) this;
@@ -132,26 +132,26 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
 
   public A addToClusterIPs(java.lang.String... items) {
     if (this.clusterIPs == null) {
-      this.clusterIPs = new java.util.ArrayList<java.lang.String>();
+      this.clusterIPs = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.clusterIPs.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToClusterIPs(Collection<java.lang.String> items) {
+  public A addAllToClusterIPs(Collection<String> items) {
     if (this.clusterIPs == null) {
-      this.clusterIPs = new java.util.ArrayList<java.lang.String>();
+      this.clusterIPs = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.clusterIPs.add(item);
     }
     return (A) this;
   }
 
   public A removeFromClusterIPs(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.clusterIPs != null) {
         this.clusterIPs.remove(item);
       }
@@ -159,8 +159,8 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeAllFromClusterIPs(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromClusterIPs(Collection<String> items) {
+    for (String item : items) {
       if (this.clusterIPs != null) {
         this.clusterIPs.remove(item);
       }
@@ -168,24 +168,24 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getClusterIPs() {
+  public List<String> getClusterIPs() {
     return this.clusterIPs;
   }
 
-  public java.lang.String getClusterIP(java.lang.Integer index) {
+  public String getClusterIP(Integer index) {
     return this.clusterIPs.get(index);
   }
 
-  public java.lang.String getFirstClusterIP() {
+  public String getFirstClusterIP() {
     return this.clusterIPs.get(0);
   }
 
-  public java.lang.String getLastClusterIP() {
+  public String getLastClusterIP() {
     return this.clusterIPs.get(clusterIPs.size() - 1);
   }
 
-  public java.lang.String getMatchingClusterIP(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : clusterIPs) {
+  public String getMatchingClusterIP(Predicate<String> predicate) {
+    for (String item : clusterIPs) {
       if (predicate.test(item)) {
         return item;
       }
@@ -193,9 +193,8 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return null;
   }
 
-  public java.lang.Boolean hasMatchingClusterIP(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : clusterIPs) {
+  public Boolean hasMatchingClusterIP(Predicate<String> predicate) {
+    for (String item : clusterIPs) {
       if (predicate.test(item)) {
         return true;
       }
@@ -203,10 +202,10 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return false;
   }
 
-  public A withClusterIPs(java.util.List<java.lang.String> clusterIPs) {
+  public A withClusterIPs(List<String> clusterIPs) {
     if (clusterIPs != null) {
-      this.clusterIPs = new java.util.ArrayList();
-      for (java.lang.String item : clusterIPs) {
+      this.clusterIPs = new ArrayList();
+      for (String item : clusterIPs) {
         this.addToClusterIPs(item);
       }
     } else {
@@ -220,28 +219,28 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
       this.clusterIPs.clear();
     }
     if (clusterIPs != null) {
-      for (java.lang.String item : clusterIPs) {
+      for (String item : clusterIPs) {
         this.addToClusterIPs(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasClusterIPs() {
+  public Boolean hasClusterIPs() {
     return clusterIPs != null && !clusterIPs.isEmpty();
   }
 
-  public A addToExternalIPs(java.lang.Integer index, java.lang.String item) {
+  public A addToExternalIPs(Integer index, String item) {
     if (this.externalIPs == null) {
-      this.externalIPs = new java.util.ArrayList<java.lang.String>();
+      this.externalIPs = new ArrayList<String>();
     }
     this.externalIPs.add(index, item);
     return (A) this;
   }
 
-  public A setToExternalIPs(java.lang.Integer index, java.lang.String item) {
+  public A setToExternalIPs(Integer index, String item) {
     if (this.externalIPs == null) {
-      this.externalIPs = new java.util.ArrayList<java.lang.String>();
+      this.externalIPs = new ArrayList<String>();
     }
     this.externalIPs.set(index, item);
     return (A) this;
@@ -249,26 +248,26 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
 
   public A addToExternalIPs(java.lang.String... items) {
     if (this.externalIPs == null) {
-      this.externalIPs = new java.util.ArrayList<java.lang.String>();
+      this.externalIPs = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.externalIPs.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToExternalIPs(java.util.Collection<java.lang.String> items) {
+  public A addAllToExternalIPs(Collection<String> items) {
     if (this.externalIPs == null) {
-      this.externalIPs = new java.util.ArrayList<java.lang.String>();
+      this.externalIPs = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.externalIPs.add(item);
     }
     return (A) this;
   }
 
   public A removeFromExternalIPs(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.externalIPs != null) {
         this.externalIPs.remove(item);
       }
@@ -276,8 +275,8 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeAllFromExternalIPs(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromExternalIPs(Collection<String> items) {
+    for (String item : items) {
       if (this.externalIPs != null) {
         this.externalIPs.remove(item);
       }
@@ -285,25 +284,24 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getExternalIPs() {
+  public List<String> getExternalIPs() {
     return this.externalIPs;
   }
 
-  public java.lang.String getExternalIP(java.lang.Integer index) {
+  public String getExternalIP(Integer index) {
     return this.externalIPs.get(index);
   }
 
-  public java.lang.String getFirstExternalIP() {
+  public String getFirstExternalIP() {
     return this.externalIPs.get(0);
   }
 
-  public java.lang.String getLastExternalIP() {
+  public String getLastExternalIP() {
     return this.externalIPs.get(externalIPs.size() - 1);
   }
 
-  public java.lang.String getMatchingExternalIP(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : externalIPs) {
+  public String getMatchingExternalIP(Predicate<String> predicate) {
+    for (String item : externalIPs) {
       if (predicate.test(item)) {
         return item;
       }
@@ -311,9 +309,8 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return null;
   }
 
-  public java.lang.Boolean hasMatchingExternalIP(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : externalIPs) {
+  public Boolean hasMatchingExternalIP(Predicate<String> predicate) {
+    for (String item : externalIPs) {
       if (predicate.test(item)) {
         return true;
       }
@@ -321,10 +318,10 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return false;
   }
 
-  public A withExternalIPs(java.util.List<java.lang.String> externalIPs) {
+  public A withExternalIPs(List<String> externalIPs) {
     if (externalIPs != null) {
-      this.externalIPs = new java.util.ArrayList();
-      for (java.lang.String item : externalIPs) {
+      this.externalIPs = new ArrayList();
+      for (String item : externalIPs) {
         this.addToExternalIPs(item);
       }
     } else {
@@ -338,80 +335,80 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
       this.externalIPs.clear();
     }
     if (externalIPs != null) {
-      for (java.lang.String item : externalIPs) {
+      for (String item : externalIPs) {
         this.addToExternalIPs(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasExternalIPs() {
+  public Boolean hasExternalIPs() {
     return externalIPs != null && !externalIPs.isEmpty();
   }
 
-  public java.lang.String getExternalName() {
+  public String getExternalName() {
     return this.externalName;
   }
 
-  public A withExternalName(java.lang.String externalName) {
+  public A withExternalName(String externalName) {
     this.externalName = externalName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExternalName() {
+  public Boolean hasExternalName() {
     return this.externalName != null;
   }
 
-  public java.lang.String getExternalTrafficPolicy() {
+  public String getExternalTrafficPolicy() {
     return this.externalTrafficPolicy;
   }
 
-  public A withExternalTrafficPolicy(java.lang.String externalTrafficPolicy) {
+  public A withExternalTrafficPolicy(String externalTrafficPolicy) {
     this.externalTrafficPolicy = externalTrafficPolicy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExternalTrafficPolicy() {
+  public Boolean hasExternalTrafficPolicy() {
     return this.externalTrafficPolicy != null;
   }
 
-  public java.lang.Integer getHealthCheckNodePort() {
+  public Integer getHealthCheckNodePort() {
     return this.healthCheckNodePort;
   }
 
-  public A withHealthCheckNodePort(java.lang.Integer healthCheckNodePort) {
+  public A withHealthCheckNodePort(Integer healthCheckNodePort) {
     this.healthCheckNodePort = healthCheckNodePort;
     return (A) this;
   }
 
-  public java.lang.Boolean hasHealthCheckNodePort() {
+  public Boolean hasHealthCheckNodePort() {
     return this.healthCheckNodePort != null;
   }
 
-  public java.lang.String getInternalTrafficPolicy() {
+  public String getInternalTrafficPolicy() {
     return this.internalTrafficPolicy;
   }
 
-  public A withInternalTrafficPolicy(java.lang.String internalTrafficPolicy) {
+  public A withInternalTrafficPolicy(String internalTrafficPolicy) {
     this.internalTrafficPolicy = internalTrafficPolicy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasInternalTrafficPolicy() {
+  public Boolean hasInternalTrafficPolicy() {
     return this.internalTrafficPolicy != null;
   }
 
-  public A addToIpFamilies(java.lang.Integer index, java.lang.String item) {
+  public A addToIpFamilies(Integer index, String item) {
     if (this.ipFamilies == null) {
-      this.ipFamilies = new java.util.ArrayList<java.lang.String>();
+      this.ipFamilies = new ArrayList<String>();
     }
     this.ipFamilies.add(index, item);
     return (A) this;
   }
 
-  public A setToIpFamilies(java.lang.Integer index, java.lang.String item) {
+  public A setToIpFamilies(Integer index, String item) {
     if (this.ipFamilies == null) {
-      this.ipFamilies = new java.util.ArrayList<java.lang.String>();
+      this.ipFamilies = new ArrayList<String>();
     }
     this.ipFamilies.set(index, item);
     return (A) this;
@@ -419,26 +416,26 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
 
   public A addToIpFamilies(java.lang.String... items) {
     if (this.ipFamilies == null) {
-      this.ipFamilies = new java.util.ArrayList<java.lang.String>();
+      this.ipFamilies = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.ipFamilies.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToIpFamilies(java.util.Collection<java.lang.String> items) {
+  public A addAllToIpFamilies(Collection<String> items) {
     if (this.ipFamilies == null) {
-      this.ipFamilies = new java.util.ArrayList<java.lang.String>();
+      this.ipFamilies = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.ipFamilies.add(item);
     }
     return (A) this;
   }
 
   public A removeFromIpFamilies(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.ipFamilies != null) {
         this.ipFamilies.remove(item);
       }
@@ -446,8 +443,8 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeAllFromIpFamilies(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromIpFamilies(Collection<String> items) {
+    for (String item : items) {
       if (this.ipFamilies != null) {
         this.ipFamilies.remove(item);
       }
@@ -455,25 +452,24 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getIpFamilies() {
+  public List<String> getIpFamilies() {
     return this.ipFamilies;
   }
 
-  public java.lang.String getIpFamily(java.lang.Integer index) {
+  public String getIpFamily(Integer index) {
     return this.ipFamilies.get(index);
   }
 
-  public java.lang.String getFirstIpFamily() {
+  public String getFirstIpFamily() {
     return this.ipFamilies.get(0);
   }
 
-  public java.lang.String getLastIpFamily() {
+  public String getLastIpFamily() {
     return this.ipFamilies.get(ipFamilies.size() - 1);
   }
 
-  public java.lang.String getMatchingIpFamily(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : ipFamilies) {
+  public String getMatchingIpFamily(Predicate<String> predicate) {
+    for (String item : ipFamilies) {
       if (predicate.test(item)) {
         return item;
       }
@@ -481,9 +477,8 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return null;
   }
 
-  public java.lang.Boolean hasMatchingIpFamily(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : ipFamilies) {
+  public Boolean hasMatchingIpFamily(Predicate<String> predicate) {
+    for (String item : ipFamilies) {
       if (predicate.test(item)) {
         return true;
       }
@@ -491,10 +486,10 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return false;
   }
 
-  public A withIpFamilies(java.util.List<java.lang.String> ipFamilies) {
+  public A withIpFamilies(List<String> ipFamilies) {
     if (ipFamilies != null) {
-      this.ipFamilies = new java.util.ArrayList();
-      for (java.lang.String item : ipFamilies) {
+      this.ipFamilies = new ArrayList();
+      for (String item : ipFamilies) {
         this.addToIpFamilies(item);
       }
     } else {
@@ -508,67 +503,67 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
       this.ipFamilies.clear();
     }
     if (ipFamilies != null) {
-      for (java.lang.String item : ipFamilies) {
+      for (String item : ipFamilies) {
         this.addToIpFamilies(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasIpFamilies() {
+  public Boolean hasIpFamilies() {
     return ipFamilies != null && !ipFamilies.isEmpty();
   }
 
-  public java.lang.String getIpFamilyPolicy() {
+  public String getIpFamilyPolicy() {
     return this.ipFamilyPolicy;
   }
 
-  public A withIpFamilyPolicy(java.lang.String ipFamilyPolicy) {
+  public A withIpFamilyPolicy(String ipFamilyPolicy) {
     this.ipFamilyPolicy = ipFamilyPolicy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasIpFamilyPolicy() {
+  public Boolean hasIpFamilyPolicy() {
     return this.ipFamilyPolicy != null;
   }
 
-  public java.lang.String getLoadBalancerClass() {
+  public String getLoadBalancerClass() {
     return this.loadBalancerClass;
   }
 
-  public A withLoadBalancerClass(java.lang.String loadBalancerClass) {
+  public A withLoadBalancerClass(String loadBalancerClass) {
     this.loadBalancerClass = loadBalancerClass;
     return (A) this;
   }
 
-  public java.lang.Boolean hasLoadBalancerClass() {
+  public Boolean hasLoadBalancerClass() {
     return this.loadBalancerClass != null;
   }
 
-  public java.lang.String getLoadBalancerIP() {
+  public String getLoadBalancerIP() {
     return this.loadBalancerIP;
   }
 
-  public A withLoadBalancerIP(java.lang.String loadBalancerIP) {
+  public A withLoadBalancerIP(String loadBalancerIP) {
     this.loadBalancerIP = loadBalancerIP;
     return (A) this;
   }
 
-  public java.lang.Boolean hasLoadBalancerIP() {
+  public Boolean hasLoadBalancerIP() {
     return this.loadBalancerIP != null;
   }
 
-  public A addToLoadBalancerSourceRanges(java.lang.Integer index, java.lang.String item) {
+  public A addToLoadBalancerSourceRanges(Integer index, String item) {
     if (this.loadBalancerSourceRanges == null) {
-      this.loadBalancerSourceRanges = new java.util.ArrayList<java.lang.String>();
+      this.loadBalancerSourceRanges = new ArrayList<String>();
     }
     this.loadBalancerSourceRanges.add(index, item);
     return (A) this;
   }
 
-  public A setToLoadBalancerSourceRanges(java.lang.Integer index, java.lang.String item) {
+  public A setToLoadBalancerSourceRanges(Integer index, String item) {
     if (this.loadBalancerSourceRanges == null) {
-      this.loadBalancerSourceRanges = new java.util.ArrayList<java.lang.String>();
+      this.loadBalancerSourceRanges = new ArrayList<String>();
     }
     this.loadBalancerSourceRanges.set(index, item);
     return (A) this;
@@ -576,26 +571,26 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
 
   public A addToLoadBalancerSourceRanges(java.lang.String... items) {
     if (this.loadBalancerSourceRanges == null) {
-      this.loadBalancerSourceRanges = new java.util.ArrayList<java.lang.String>();
+      this.loadBalancerSourceRanges = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.loadBalancerSourceRanges.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToLoadBalancerSourceRanges(java.util.Collection<java.lang.String> items) {
+  public A addAllToLoadBalancerSourceRanges(Collection<String> items) {
     if (this.loadBalancerSourceRanges == null) {
-      this.loadBalancerSourceRanges = new java.util.ArrayList<java.lang.String>();
+      this.loadBalancerSourceRanges = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.loadBalancerSourceRanges.add(item);
     }
     return (A) this;
   }
 
   public A removeFromLoadBalancerSourceRanges(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.loadBalancerSourceRanges != null) {
         this.loadBalancerSourceRanges.remove(item);
       }
@@ -603,8 +598,8 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeAllFromLoadBalancerSourceRanges(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromLoadBalancerSourceRanges(Collection<String> items) {
+    for (String item : items) {
       if (this.loadBalancerSourceRanges != null) {
         this.loadBalancerSourceRanges.remove(item);
       }
@@ -612,25 +607,24 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getLoadBalancerSourceRanges() {
+  public List<String> getLoadBalancerSourceRanges() {
     return this.loadBalancerSourceRanges;
   }
 
-  public java.lang.String getLoadBalancerSourceRange(java.lang.Integer index) {
+  public String getLoadBalancerSourceRange(Integer index) {
     return this.loadBalancerSourceRanges.get(index);
   }
 
-  public java.lang.String getFirstLoadBalancerSourceRange() {
+  public String getFirstLoadBalancerSourceRange() {
     return this.loadBalancerSourceRanges.get(0);
   }
 
-  public java.lang.String getLastLoadBalancerSourceRange() {
+  public String getLastLoadBalancerSourceRange() {
     return this.loadBalancerSourceRanges.get(loadBalancerSourceRanges.size() - 1);
   }
 
-  public java.lang.String getMatchingLoadBalancerSourceRange(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : loadBalancerSourceRanges) {
+  public String getMatchingLoadBalancerSourceRange(Predicate<String> predicate) {
+    for (String item : loadBalancerSourceRanges) {
       if (predicate.test(item)) {
         return item;
       }
@@ -638,9 +632,8 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return null;
   }
 
-  public java.lang.Boolean hasMatchingLoadBalancerSourceRange(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : loadBalancerSourceRanges) {
+  public Boolean hasMatchingLoadBalancerSourceRange(Predicate<String> predicate) {
+    for (String item : loadBalancerSourceRanges) {
       if (predicate.test(item)) {
         return true;
       }
@@ -648,10 +641,10 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return false;
   }
 
-  public A withLoadBalancerSourceRanges(java.util.List<java.lang.String> loadBalancerSourceRanges) {
+  public A withLoadBalancerSourceRanges(List<String> loadBalancerSourceRanges) {
     if (loadBalancerSourceRanges != null) {
-      this.loadBalancerSourceRanges = new java.util.ArrayList();
-      for (java.lang.String item : loadBalancerSourceRanges) {
+      this.loadBalancerSourceRanges = new ArrayList();
+      for (String item : loadBalancerSourceRanges) {
         this.addToLoadBalancerSourceRanges(item);
       }
     } else {
@@ -665,37 +658,32 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
       this.loadBalancerSourceRanges.clear();
     }
     if (loadBalancerSourceRanges != null) {
-      for (java.lang.String item : loadBalancerSourceRanges) {
+      for (String item : loadBalancerSourceRanges) {
         this.addToLoadBalancerSourceRanges(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasLoadBalancerSourceRanges() {
+  public Boolean hasLoadBalancerSourceRanges() {
     return loadBalancerSourceRanges != null && !loadBalancerSourceRanges.isEmpty();
   }
 
-  public A addToPorts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ServicePort item) {
+  public A addToPorts(Integer index, V1ServicePort item) {
     if (this.ports == null) {
-      this.ports = new java.util.ArrayList<V1ServicePortBuilder>();
+      this.ports = new ArrayList<V1ServicePortBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ServicePortBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ServicePortBuilder(item);
+    V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
     _visitables.get("ports").add(index >= 0 ? index : _visitables.get("ports").size(), builder);
     this.ports.add(index >= 0 ? index : ports.size(), builder);
     return (A) this;
   }
 
-  public A setToPorts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ServicePort item) {
+  public A setToPorts(Integer index, V1ServicePort item) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServicePortBuilder>();
+      this.ports = new ArrayList<V1ServicePortBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ServicePortBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ServicePortBuilder(item);
+    V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
     if (index < 0 || index >= _visitables.get("ports").size()) {
       _visitables.get("ports").add(builder);
     } else {
@@ -711,27 +699,22 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
 
   public A addToPorts(io.kubernetes.client.openapi.models.V1ServicePort... items) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServicePortBuilder>();
+      this.ports = new ArrayList<V1ServicePortBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ServicePort item : items) {
-      io.kubernetes.client.openapi.models.V1ServicePortBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServicePortBuilder(item);
+    for (V1ServicePort item : items) {
+      V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
       _visitables.get("ports").add(builder);
       this.ports.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ServicePort> items) {
+  public A addAllToPorts(Collection<V1ServicePort> items) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ServicePortBuilder>();
+      this.ports = new ArrayList<V1ServicePortBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ServicePort item : items) {
-      io.kubernetes.client.openapi.models.V1ServicePortBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServicePortBuilder(item);
+    for (V1ServicePort item : items) {
+      V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
       _visitables.get("ports").add(builder);
       this.ports.add(builder);
     }
@@ -739,9 +722,8 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
   }
 
   public A removeFromPorts(io.kubernetes.client.openapi.models.V1ServicePort... items) {
-    for (io.kubernetes.client.openapi.models.V1ServicePort item : items) {
-      io.kubernetes.client.openapi.models.V1ServicePortBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServicePortBuilder(item);
+    for (V1ServicePort item : items) {
+      V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
       _visitables.get("ports").remove(builder);
       if (this.ports != null) {
         this.ports.remove(builder);
@@ -750,11 +732,9 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeAllFromPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ServicePort> items) {
-    for (io.kubernetes.client.openapi.models.V1ServicePort item : items) {
-      io.kubernetes.client.openapi.models.V1ServicePortBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ServicePortBuilder(item);
+  public A removeAllFromPorts(Collection<V1ServicePort> items) {
+    for (V1ServicePort item : items) {
+      V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
       _visitables.get("ports").remove(builder);
       if (this.ports != null) {
         this.ports.remove(builder);
@@ -763,15 +743,12 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeMatchingFromPorts(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServicePortBuilder>
-          predicate) {
+  public A removeMatchingFromPorts(Predicate<V1ServicePortBuilder> predicate) {
     if (ports == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ServicePortBuilder> each =
-        ports.iterator();
+    final Iterator<V1ServicePortBuilder> each = ports.iterator();
     final List visitables = _visitables.get("ports");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ServicePortBuilder builder = each.next();
+      V1ServicePortBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -786,30 +763,28 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
    * @return The buildable object.
    */
   @Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ServicePort> getPorts() {
+  public List<V1ServicePort> getPorts() {
     return ports != null ? build(ports) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ServicePort> buildPorts() {
+  public List<V1ServicePort> buildPorts() {
     return ports != null ? build(ports) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ServicePort buildPort(java.lang.Integer index) {
+  public V1ServicePort buildPort(Integer index) {
     return this.ports.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServicePort buildFirstPort() {
+  public V1ServicePort buildFirstPort() {
     return this.ports.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServicePort buildLastPort() {
+  public V1ServicePort buildLastPort() {
     return this.ports.get(ports.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServicePort buildMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServicePortBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ServicePortBuilder item : ports) {
+  public V1ServicePort buildMatchingPort(Predicate<V1ServicePortBuilder> predicate) {
+    for (V1ServicePortBuilder item : ports) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -817,10 +792,8 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return null;
   }
 
-  public java.lang.Boolean hasMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServicePortBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ServicePortBuilder item : ports) {
+  public Boolean hasMatchingPort(Predicate<V1ServicePortBuilder> predicate) {
+    for (V1ServicePortBuilder item : ports) {
       if (predicate.test(item)) {
         return true;
       }
@@ -828,13 +801,13 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return false;
   }
 
-  public A withPorts(java.util.List<io.kubernetes.client.openapi.models.V1ServicePort> ports) {
+  public A withPorts(List<V1ServicePort> ports) {
     if (this.ports != null) {
       _visitables.get("ports").removeAll(this.ports);
     }
     if (ports != null) {
-      this.ports = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1ServicePort item : ports) {
+      this.ports = new ArrayList();
+      for (V1ServicePort item : ports) {
         this.addToPorts(item);
       }
     } else {
@@ -848,14 +821,14 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
       this.ports.clear();
     }
     if (ports != null) {
-      for (io.kubernetes.client.openapi.models.V1ServicePort item : ports) {
+      for (V1ServicePort item : ports) {
         this.addToPorts(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPorts() {
+  public Boolean hasPorts() {
     return ports != null && !ports.isEmpty();
   }
 
@@ -863,37 +836,32 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return new V1ServiceSpecFluentImpl.PortsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> addNewPortLike(
-      io.kubernetes.client.openapi.models.V1ServicePort item) {
+  public V1ServiceSpecFluent.PortsNested<A> addNewPortLike(V1ServicePort item) {
     return new V1ServiceSpecFluentImpl.PortsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> setNewPortLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ServicePort item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceSpecFluentImpl.PortsNestedImpl(
-        index, item);
+  public V1ServiceSpecFluent.PortsNested<A> setNewPortLike(Integer index, V1ServicePort item) {
+    return new V1ServiceSpecFluentImpl.PortsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> editPort(
-      java.lang.Integer index) {
+  public V1ServiceSpecFluent.PortsNested<A> editPort(Integer index) {
     if (ports.size() <= index) throw new RuntimeException("Can't edit ports. Index exceeds size.");
     return setNewPortLike(index, buildPort(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> editFirstPort() {
+  public V1ServiceSpecFluent.PortsNested<A> editFirstPort() {
     if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
     return setNewPortLike(0, buildPort(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> editLastPort() {
+  public V1ServiceSpecFluent.PortsNested<A> editLastPort() {
     int index = ports.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last ports. The list is empty.");
     return setNewPortLike(index, buildPort(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<A> editMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ServicePortBuilder>
-          predicate) {
+  public V1ServiceSpecFluent.PortsNested<A> editMatchingPort(
+      Predicate<V1ServicePortBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < ports.size(); i++) {
       if (predicate.test(ports.get(i))) {
@@ -905,20 +873,20 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return setNewPortLike(index, buildPort(index));
   }
 
-  public java.lang.Boolean getPublishNotReadyAddresses() {
+  public Boolean getPublishNotReadyAddresses() {
     return this.publishNotReadyAddresses;
   }
 
-  public A withPublishNotReadyAddresses(java.lang.Boolean publishNotReadyAddresses) {
+  public A withPublishNotReadyAddresses(Boolean publishNotReadyAddresses) {
     this.publishNotReadyAddresses = publishNotReadyAddresses;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPublishNotReadyAddresses() {
+  public Boolean hasPublishNotReadyAddresses() {
     return this.publishNotReadyAddresses != null;
   }
 
-  public A addToSelector(java.lang.String key, java.lang.String value) {
+  public A addToSelector(String key, String value) {
     if (this.selector == null && key != null && value != null) {
       this.selector = new LinkedHashMap();
     }
@@ -928,9 +896,9 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A addToSelector(java.util.Map<java.lang.String, java.lang.String> map) {
+  public A addToSelector(Map<String, String> map) {
     if (this.selector == null && map != null) {
-      this.selector = new java.util.LinkedHashMap();
+      this.selector = new LinkedHashMap();
     }
     if (map != null) {
       this.selector.putAll(map);
@@ -938,7 +906,7 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeFromSelector(java.lang.String key) {
+  public A removeFromSelector(String key) {
     if (this.selector == null) {
       return (A) this;
     }
@@ -948,7 +916,7 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public A removeFromSelector(java.util.Map<java.lang.String, java.lang.String> map) {
+  public A removeFromSelector(Map<String, String> map) {
     if (this.selector == null) {
       return (A) this;
     }
@@ -962,33 +930,33 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, java.lang.String> getSelector() {
+  public Map<String, String> getSelector() {
     return this.selector;
   }
 
-  public <K, V> A withSelector(java.util.Map<java.lang.String, java.lang.String> selector) {
+  public <K, V> A withSelector(Map<String, String> selector) {
     if (selector == null) {
       this.selector = null;
     } else {
-      this.selector = new java.util.LinkedHashMap(selector);
+      this.selector = new LinkedHashMap(selector);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSelector() {
+  public Boolean hasSelector() {
     return this.selector != null;
   }
 
-  public java.lang.String getSessionAffinity() {
+  public String getSessionAffinity() {
     return this.sessionAffinity;
   }
 
-  public A withSessionAffinity(java.lang.String sessionAffinity) {
+  public A withSessionAffinity(String sessionAffinity) {
     this.sessionAffinity = sessionAffinity;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSessionAffinity() {
+  public Boolean hasSessionAffinity() {
     return this.sessionAffinity != null;
   }
 
@@ -997,26 +965,28 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SessionAffinityConfig getSessionAffinityConfig() {
+  @Deprecated
+  public V1SessionAffinityConfig getSessionAffinityConfig() {
     return this.sessionAffinityConfig != null ? this.sessionAffinityConfig.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1SessionAffinityConfig buildSessionAffinityConfig() {
+  public V1SessionAffinityConfig buildSessionAffinityConfig() {
     return this.sessionAffinityConfig != null ? this.sessionAffinityConfig.build() : null;
   }
 
-  public A withSessionAffinityConfig(
-      io.kubernetes.client.openapi.models.V1SessionAffinityConfig sessionAffinityConfig) {
+  public A withSessionAffinityConfig(V1SessionAffinityConfig sessionAffinityConfig) {
     _visitables.get("sessionAffinityConfig").remove(this.sessionAffinityConfig);
     if (sessionAffinityConfig != null) {
       this.sessionAffinityConfig = new V1SessionAffinityConfigBuilder(sessionAffinityConfig);
       _visitables.get("sessionAffinityConfig").add(this.sessionAffinityConfig);
+    } else {
+      this.sessionAffinityConfig = null;
+      _visitables.get("sessionAffinityConfig").remove(this.sessionAffinityConfig);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSessionAffinityConfig() {
+  public Boolean hasSessionAffinityConfig() {
     return this.sessionAffinityConfig != null;
   }
 
@@ -1024,43 +994,38 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
     return new V1ServiceSpecFluentImpl.SessionAffinityConfigNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<A>
-      withNewSessionAffinityConfigLike(
-          io.kubernetes.client.openapi.models.V1SessionAffinityConfig item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceSpecFluentImpl
-        .SessionAffinityConfigNestedImpl(item);
+  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> withNewSessionAffinityConfigLike(
+      V1SessionAffinityConfig item) {
+    return new V1ServiceSpecFluentImpl.SessionAffinityConfigNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<A>
-      editSessionAffinityConfig() {
+  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> editSessionAffinityConfig() {
     return withNewSessionAffinityConfigLike(getSessionAffinityConfig());
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<A>
-      editOrNewSessionAffinityConfig() {
+  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> editOrNewSessionAffinityConfig() {
     return withNewSessionAffinityConfigLike(
         getSessionAffinityConfig() != null
             ? getSessionAffinityConfig()
-            : new io.kubernetes.client.openapi.models.V1SessionAffinityConfigBuilder().build());
+            : new V1SessionAffinityConfigBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceSpecFluent.SessionAffinityConfigNested<A>
-      editOrNewSessionAffinityConfigLike(
-          io.kubernetes.client.openapi.models.V1SessionAffinityConfig item) {
+  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> editOrNewSessionAffinityConfigLike(
+      V1SessionAffinityConfig item) {
     return withNewSessionAffinityConfigLike(
         getSessionAffinityConfig() != null ? getSessionAffinityConfig() : item);
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
@@ -1141,7 +1106,7 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (allocateLoadBalancerNodePorts != null) {
@@ -1233,20 +1198,19 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
   }
 
   class PortsNestedImpl<N> extends V1ServicePortFluentImpl<V1ServiceSpecFluent.PortsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ServiceSpecFluent.PortsNested<N>, Nested<N> {
-    PortsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.V1ServicePort item) {
+      implements V1ServiceSpecFluent.PortsNested<N>, Nested<N> {
+    PortsNestedImpl(Integer index, V1ServicePort item) {
       this.index = index;
       this.builder = new V1ServicePortBuilder(this, item);
     }
 
     PortsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ServicePortBuilder(this);
+      this.builder = new V1ServicePortBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ServicePortBuilder builder;
-    java.lang.Integer index;
+    V1ServicePortBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1ServiceSpecFluentImpl.this.setToPorts(index, builder.build());
@@ -1259,19 +1223,16 @@ public class V1ServiceSpecFluentImpl<A extends V1ServiceSpecFluent<A>> extends B
 
   class SessionAffinityConfigNestedImpl<N>
       extends V1SessionAffinityConfigFluentImpl<V1ServiceSpecFluent.SessionAffinityConfigNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ServiceSpecFluent
-                  .SessionAffinityConfigNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1ServiceSpecFluent.SessionAffinityConfigNested<N>, Nested<N> {
     SessionAffinityConfigNestedImpl(V1SessionAffinityConfig item) {
       this.builder = new V1SessionAffinityConfigBuilder(this, item);
     }
 
     SessionAffinityConfigNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1SessionAffinityConfigBuilder(this);
+      this.builder = new V1SessionAffinityConfigBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1SessionAffinityConfigBuilder builder;
+    V1SessionAffinityConfigBuilder builder;
 
     public N and() {
       return (N) V1ServiceSpecFluentImpl.this.withSessionAffinityConfig(builder.build());

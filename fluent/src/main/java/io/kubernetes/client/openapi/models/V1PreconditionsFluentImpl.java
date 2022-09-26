@@ -20,20 +20,20 @@ public class V1PreconditionsFluentImpl<A extends V1PreconditionsFluent<A>> exten
     implements V1PreconditionsFluent<A> {
   public V1PreconditionsFluentImpl() {}
 
-  public V1PreconditionsFluentImpl(io.kubernetes.client.openapi.models.V1Preconditions instance) {
+  public V1PreconditionsFluentImpl(V1Preconditions instance) {
     this.withResourceVersion(instance.getResourceVersion());
 
     this.withUid(instance.getUid());
   }
 
   private String resourceVersion;
-  private java.lang.String uid;
+  private String uid;
 
-  public java.lang.String getResourceVersion() {
+  public String getResourceVersion() {
     return this.resourceVersion;
   }
 
-  public A withResourceVersion(java.lang.String resourceVersion) {
+  public A withResourceVersion(String resourceVersion) {
     this.resourceVersion = resourceVersion;
     return (A) this;
   }
@@ -42,16 +42,16 @@ public class V1PreconditionsFluentImpl<A extends V1PreconditionsFluent<A>> exten
     return this.resourceVersion != null;
   }
 
-  public java.lang.String getUid() {
+  public String getUid() {
     return this.uid;
   }
 
-  public A withUid(java.lang.String uid) {
+  public A withUid(String uid) {
     this.uid = uid;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUid() {
+  public Boolean hasUid() {
     return this.uid != null;
   }
 
@@ -70,7 +70,7 @@ public class V1PreconditionsFluentImpl<A extends V1PreconditionsFluent<A>> exten
     return java.util.Objects.hash(resourceVersion, uid, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (resourceVersion != null) {

@@ -24,26 +24,22 @@ public interface V1CertificateSigningRequestListFluent<
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
   public A addToItems(Integer index, V1CertificateSigningRequest item);
 
-  public A setToItems(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1CertificateSigningRequest item);
+  public A setToItems(Integer index, V1CertificateSigningRequest item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1CertificateSigningRequest... items);
 
-  public A addAllToItems(
-      Collection<io.kubernetes.client.openapi.models.V1CertificateSigningRequest> items);
+  public A addAllToItems(Collection<V1CertificateSigningRequest> items);
 
   public A removeFromItems(
       io.kubernetes.client.openapi.models.V1CertificateSigningRequest... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1CertificateSigningRequest> items);
+  public A removeAllFromItems(Collection<V1CertificateSigningRequest> items);
 
   public A removeMatchingFromItems(Predicate<V1CertificateSigningRequestBuilder> predicate);
 
@@ -53,93 +49,75 @@ public interface V1CertificateSigningRequestListFluent<
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1CertificateSigningRequest> getItems();
+  public List<V1CertificateSigningRequest> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1CertificateSigningRequest>
-      buildItems();
+  public List<V1CertificateSigningRequest> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequest buildItem(
-      java.lang.Integer index);
+  public V1CertificateSigningRequest buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequest buildFirstItem();
+  public V1CertificateSigningRequest buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequest buildLastItem();
+  public V1CertificateSigningRequest buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequest buildMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CertificateSigningRequestBuilder>
-          predicate);
+  public V1CertificateSigningRequest buildMatchingItem(
+      Predicate<V1CertificateSigningRequestBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1CertificateSigningRequestBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1CertificateSigningRequestBuilder> predicate);
 
-  public A withItems(
-      java.util.List<io.kubernetes.client.openapi.models.V1CertificateSigningRequest> items);
+  public A withItems(List<V1CertificateSigningRequest> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1CertificateSigningRequest... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1CertificateSigningRequestListFluent.ItemsNested<A> addNewItem();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent.ItemsNested<A>
-      addNewItemLike(io.kubernetes.client.openapi.models.V1CertificateSigningRequest item);
+  public V1CertificateSigningRequestListFluent.ItemsNested<A> addNewItemLike(
+      V1CertificateSigningRequest item);
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1CertificateSigningRequest item);
+  public V1CertificateSigningRequestListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1CertificateSigningRequest item);
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent.ItemsNested<A>
-      editItem(java.lang.Integer index);
+  public V1CertificateSigningRequestListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent.ItemsNested<A>
-      editFirstItem();
+  public V1CertificateSigningRequestListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent.ItemsNested<A>
-      editLastItem();
+  public V1CertificateSigningRequestListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1CertificateSigningRequestBuilder>
-              predicate);
+  public V1CertificateSigningRequestListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1CertificateSigningRequestBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1CertificateSigningRequestListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1CertificateSigningRequestListFluent.MetadataNested<A> withNewMetadataLike(
+      V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent.MetadataNested<A>
-      editMetadata();
+  public V1CertificateSigningRequestListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1CertificateSigningRequestListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CertificateSigningRequestListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1CertificateSigningRequestListFluent.MetadataNested<A> editOrNewMetadataLike(
+      V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>,
@@ -150,8 +128,7 @@ public interface V1CertificateSigningRequestListFluent<
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1CertificateSigningRequestListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1CertificateSigningRequestListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

@@ -27,33 +27,29 @@ public interface V1DeploymentStrategyFluent<A extends V1DeploymentStrategyFluent
   @Deprecated
   public V1RollingUpdateDeployment getRollingUpdate();
 
-  public io.kubernetes.client.openapi.models.V1RollingUpdateDeployment buildRollingUpdate();
+  public V1RollingUpdateDeployment buildRollingUpdate();
 
-  public A withRollingUpdate(
-      io.kubernetes.client.openapi.models.V1RollingUpdateDeployment rollingUpdate);
+  public A withRollingUpdate(V1RollingUpdateDeployment rollingUpdate);
 
   public Boolean hasRollingUpdate();
 
   public V1DeploymentStrategyFluent.RollingUpdateNested<A> withNewRollingUpdate();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent.RollingUpdateNested<A>
-      withNewRollingUpdateLike(io.kubernetes.client.openapi.models.V1RollingUpdateDeployment item);
+  public V1DeploymentStrategyFluent.RollingUpdateNested<A> withNewRollingUpdateLike(
+      V1RollingUpdateDeployment item);
 
-  public io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent.RollingUpdateNested<A>
-      editRollingUpdate();
+  public V1DeploymentStrategyFluent.RollingUpdateNested<A> editRollingUpdate();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent.RollingUpdateNested<A>
-      editOrNewRollingUpdate();
+  public V1DeploymentStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdate();
 
-  public io.kubernetes.client.openapi.models.V1DeploymentStrategyFluent.RollingUpdateNested<A>
-      editOrNewRollingUpdateLike(
-          io.kubernetes.client.openapi.models.V1RollingUpdateDeployment item);
+  public V1DeploymentStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdateLike(
+      V1RollingUpdateDeployment item);
 
   public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 
   public interface RollingUpdateNested<N>
       extends Nested<N>,

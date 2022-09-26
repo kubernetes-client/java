@@ -20,27 +20,27 @@ public interface V1GlusterfsPersistentVolumeSourceFluent<
     extends Fluent<A> {
   public String getEndpoints();
 
-  public A withEndpoints(java.lang.String endpoints);
+  public A withEndpoints(String endpoints);
 
   public Boolean hasEndpoints();
 
-  public java.lang.String getEndpointsNamespace();
+  public String getEndpointsNamespace();
 
-  public A withEndpointsNamespace(java.lang.String endpointsNamespace);
+  public A withEndpointsNamespace(String endpointsNamespace);
 
-  public java.lang.Boolean hasEndpointsNamespace();
+  public Boolean hasEndpointsNamespace();
 
-  public java.lang.String getPath();
+  public String getPath();
 
-  public A withPath(java.lang.String path);
+  public A withPath(String path);
 
-  public java.lang.Boolean hasPath();
+  public Boolean hasPath();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   public A withReadOnly();
 }

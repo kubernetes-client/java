@@ -27,7 +27,7 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     implements V1PodStatusFluent<A> {
   public V1PodStatusFluentImpl() {}
 
-  public V1PodStatusFluentImpl(io.kubernetes.client.openapi.models.V1PodStatus instance) {
+  public V1PodStatusFluentImpl(V1PodStatus instance) {
     this.withConditions(instance.getConditions());
 
     this.withContainerStatuses(instance.getContainerStatuses());
@@ -56,27 +56,24 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
   }
 
   private ArrayList<V1PodConditionBuilder> conditions;
-  private java.util.ArrayList<V1ContainerStatusBuilder> containerStatuses;
-  private java.util.ArrayList<V1ContainerStatusBuilder> ephemeralContainerStatuses;
+  private ArrayList<V1ContainerStatusBuilder> containerStatuses;
+  private ArrayList<V1ContainerStatusBuilder> ephemeralContainerStatuses;
   private String hostIP;
-  private java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-      initContainerStatuses;
-  private java.lang.String message;
-  private java.lang.String nominatedNodeName;
-  private java.lang.String phase;
-  private java.lang.String podIP;
-  private java.util.ArrayList<V1PodIPBuilder> podIPs;
-  private java.lang.String qosClass;
-  private java.lang.String reason;
+  private ArrayList<V1ContainerStatusBuilder> initContainerStatuses;
+  private String message;
+  private String nominatedNodeName;
+  private String phase;
+  private String podIP;
+  private ArrayList<V1PodIPBuilder> podIPs;
+  private String qosClass;
+  private String reason;
   private OffsetDateTime startTime;
 
   public A addToConditions(Integer index, V1PodCondition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodConditionBuilder>();
+      this.conditions = new ArrayList<V1PodConditionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PodConditionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PodConditionBuilder(item);
+    V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
     _visitables
         .get("conditions")
         .add(index >= 0 ? index : _visitables.get("conditions").size(), builder);
@@ -84,14 +81,11 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodCondition item) {
+  public A setToConditions(Integer index, V1PodCondition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodConditionBuilder>();
+      this.conditions = new ArrayList<V1PodConditionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PodConditionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PodConditionBuilder(item);
+    V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
     if (index < 0 || index >= _visitables.get("conditions").size()) {
       _visitables.get("conditions").add(builder);
     } else {
@@ -107,27 +101,22 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1PodCondition... items) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodConditionBuilder>();
+      this.conditions = new ArrayList<V1PodConditionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PodCondition item : items) {
-      io.kubernetes.client.openapi.models.V1PodConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodConditionBuilder(item);
+    for (V1PodCondition item : items) {
+      V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
       _visitables.get("conditions").add(builder);
       this.conditions.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToConditions(
-      Collection<io.kubernetes.client.openapi.models.V1PodCondition> items) {
+  public A addAllToConditions(Collection<V1PodCondition> items) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodConditionBuilder>();
+      this.conditions = new ArrayList<V1PodConditionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PodCondition item : items) {
-      io.kubernetes.client.openapi.models.V1PodConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodConditionBuilder(item);
+    for (V1PodCondition item : items) {
+      V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
       _visitables.get("conditions").add(builder);
       this.conditions.add(builder);
     }
@@ -135,9 +124,8 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
   }
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1PodCondition... items) {
-    for (io.kubernetes.client.openapi.models.V1PodCondition item : items) {
-      io.kubernetes.client.openapi.models.V1PodConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodConditionBuilder(item);
+    for (V1PodCondition item : items) {
+      V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
       _visitables.get("conditions").remove(builder);
       if (this.conditions != null) {
         this.conditions.remove(builder);
@@ -146,11 +134,9 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PodCondition> items) {
-    for (io.kubernetes.client.openapi.models.V1PodCondition item : items) {
-      io.kubernetes.client.openapi.models.V1PodConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodConditionBuilder(item);
+  public A removeAllFromConditions(Collection<V1PodCondition> items) {
+    for (V1PodCondition item : items) {
+      V1PodConditionBuilder builder = new V1PodConditionBuilder(item);
       _visitables.get("conditions").remove(builder);
       if (this.conditions != null) {
         this.conditions.remove(builder);
@@ -159,14 +145,12 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeMatchingFromConditions(
-      Predicate<io.kubernetes.client.openapi.models.V1PodConditionBuilder> predicate) {
+  public A removeMatchingFromConditions(Predicate<V1PodConditionBuilder> predicate) {
     if (conditions == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1PodConditionBuilder> each =
-        conditions.iterator();
+    final Iterator<V1PodConditionBuilder> each = conditions.iterator();
     final List visitables = _visitables.get("conditions");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1PodConditionBuilder builder = each.next();
+      V1PodConditionBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -181,31 +165,28 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1PodCondition> getConditions() {
+  public List<V1PodCondition> getConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PodCondition> buildConditions() {
+  public List<V1PodCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodCondition buildCondition(
-      java.lang.Integer index) {
+  public V1PodCondition buildCondition(Integer index) {
     return this.conditions.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodCondition buildFirstCondition() {
+  public V1PodCondition buildFirstCondition() {
     return this.conditions.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodCondition buildLastCondition() {
+  public V1PodCondition buildLastCondition() {
     return this.conditions.get(conditions.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodCondition buildMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodConditionBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PodConditionBuilder item : conditions) {
+  public V1PodCondition buildMatchingCondition(Predicate<V1PodConditionBuilder> predicate) {
+    for (V1PodConditionBuilder item : conditions) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -213,10 +194,8 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return null;
   }
 
-  public Boolean hasMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodConditionBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1PodConditionBuilder item : conditions) {
+  public Boolean hasMatchingCondition(Predicate<V1PodConditionBuilder> predicate) {
+    for (V1PodConditionBuilder item : conditions) {
       if (predicate.test(item)) {
         return true;
       }
@@ -224,14 +203,13 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return false;
   }
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1PodCondition> conditions) {
+  public A withConditions(List<V1PodCondition> conditions) {
     if (this.conditions != null) {
       _visitables.get("conditions").removeAll(this.conditions);
     }
     if (conditions != null) {
-      this.conditions = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1PodCondition item : conditions) {
+      this.conditions = new ArrayList();
+      for (V1PodCondition item : conditions) {
         this.addToConditions(item);
       }
     } else {
@@ -245,14 +223,14 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
       this.conditions.clear();
     }
     if (conditions != null) {
-      for (io.kubernetes.client.openapi.models.V1PodCondition item : conditions) {
+      for (V1PodCondition item : conditions) {
         this.addToConditions(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasConditions() {
+  public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
 
@@ -260,43 +238,35 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return new V1PodStatusFluentImpl.ConditionsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1PodCondition item) {
+  public V1PodStatusFluent.ConditionsNested<A> addNewConditionLike(V1PodCondition item) {
     return new V1PodStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodCondition item) {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl.ConditionsNestedImpl(
-        index, item);
+  public V1PodStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1PodCondition item) {
+    return new V1PodStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<A> editCondition(
-      java.lang.Integer index) {
+  public V1PodStatusFluent.ConditionsNested<A> editCondition(Integer index) {
     if (conditions.size() <= index)
       throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<A>
-      editFirstCondition() {
+  public V1PodStatusFluent.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0)
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<A>
-      editLastCondition() {
+  public V1PodStatusFluent.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodConditionBuilder>
-              predicate) {
+  public V1PodStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1PodConditionBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < conditions.size(); i++) {
       if (predicate.test(conditions.get(i))) {
@@ -308,14 +278,11 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public A addToContainerStatuses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
+  public A addToContainerStatuses(Integer index, V1ContainerStatus item) {
     if (this.containerStatuses == null) {
-      this.containerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.containerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
     _visitables
         .get("containerStatuses")
         .add(index >= 0 ? index : _visitables.get("containerStatuses").size(), builder);
@@ -323,14 +290,11 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A setToContainerStatuses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
+  public A setToContainerStatuses(Integer index, V1ContainerStatus item) {
     if (this.containerStatuses == null) {
-      this.containerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.containerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
     if (index < 0 || index >= _visitables.get("containerStatuses").size()) {
       _visitables.get("containerStatuses").add(builder);
     } else {
@@ -346,27 +310,22 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   public A addToContainerStatuses(io.kubernetes.client.openapi.models.V1ContainerStatus... items) {
     if (this.containerStatuses == null) {
-      this.containerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.containerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("containerStatuses").add(builder);
       this.containerStatuses.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToContainerStatuses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ContainerStatus> items) {
+  public A addAllToContainerStatuses(Collection<V1ContainerStatus> items) {
     if (this.containerStatuses == null) {
-      this.containerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.containerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("containerStatuses").add(builder);
       this.containerStatuses.add(builder);
     }
@@ -375,9 +334,8 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   public A removeFromContainerStatuses(
       io.kubernetes.client.openapi.models.V1ContainerStatus... items) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("containerStatuses").remove(builder);
       if (this.containerStatuses != null) {
         this.containerStatuses.remove(builder);
@@ -386,11 +344,9 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeAllFromContainerStatuses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ContainerStatus> items) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+  public A removeAllFromContainerStatuses(Collection<V1ContainerStatus> items) {
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("containerStatuses").remove(builder);
       if (this.containerStatuses != null) {
         this.containerStatuses.remove(builder);
@@ -399,15 +355,12 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeMatchingFromContainerStatuses(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-          predicate) {
+  public A removeMatchingFromContainerStatuses(Predicate<V1ContainerStatusBuilder> predicate) {
     if (containerStatuses == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder> each =
-        containerStatuses.iterator();
+    final Iterator<V1ContainerStatusBuilder> each = containerStatuses.iterator();
     final List visitables = _visitables.get("containerStatuses");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder = each.next();
+      V1ContainerStatusBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -421,34 +374,30 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ContainerStatus>
-      getContainerStatuses() {
+  @Deprecated
+  public List<V1ContainerStatus> getContainerStatuses() {
     return containerStatuses != null ? build(containerStatuses) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ContainerStatus>
-      buildContainerStatuses() {
+  public List<V1ContainerStatus> buildContainerStatuses() {
     return containerStatuses != null ? build(containerStatuses) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus buildContainerStatus(
-      java.lang.Integer index) {
+  public V1ContainerStatus buildContainerStatus(Integer index) {
     return this.containerStatuses.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus buildFirstContainerStatus() {
+  public V1ContainerStatus buildFirstContainerStatus() {
     return this.containerStatuses.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus buildLastContainerStatus() {
+  public V1ContainerStatus buildLastContainerStatus() {
     return this.containerStatuses.get(containerStatuses.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus buildMatchingContainerStatus(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatusBuilder item : containerStatuses) {
+  public V1ContainerStatus buildMatchingContainerStatus(
+      Predicate<V1ContainerStatusBuilder> predicate) {
+    for (V1ContainerStatusBuilder item : containerStatuses) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -456,10 +405,8 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return null;
   }
 
-  public java.lang.Boolean hasMatchingContainerStatus(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatusBuilder item : containerStatuses) {
+  public Boolean hasMatchingContainerStatus(Predicate<V1ContainerStatusBuilder> predicate) {
+    for (V1ContainerStatusBuilder item : containerStatuses) {
       if (predicate.test(item)) {
         return true;
       }
@@ -467,14 +414,13 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return false;
   }
 
-  public A withContainerStatuses(
-      java.util.List<io.kubernetes.client.openapi.models.V1ContainerStatus> containerStatuses) {
+  public A withContainerStatuses(List<V1ContainerStatus> containerStatuses) {
     if (this.containerStatuses != null) {
       _visitables.get("containerStatuses").removeAll(this.containerStatuses);
     }
     if (containerStatuses != null) {
-      this.containerStatuses = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1ContainerStatus item : containerStatuses) {
+      this.containerStatuses = new ArrayList();
+      for (V1ContainerStatus item : containerStatuses) {
         this.addToContainerStatuses(item);
       }
     } else {
@@ -489,14 +435,14 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
       this.containerStatuses.clear();
     }
     if (containerStatuses != null) {
-      for (io.kubernetes.client.openapi.models.V1ContainerStatus item : containerStatuses) {
+      for (V1ContainerStatus item : containerStatuses) {
         this.addToContainerStatuses(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasContainerStatuses() {
+  public Boolean hasContainerStatuses() {
     return containerStatuses != null && !containerStatuses.isEmpty();
   }
 
@@ -504,45 +450,37 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return new V1PodStatusFluentImpl.ContainerStatusesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<A>
-      addNewContainerStatusLike(io.kubernetes.client.openapi.models.V1ContainerStatus item) {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl
-        .ContainerStatusesNestedImpl(-1, item);
+  public V1PodStatusFluent.ContainerStatusesNested<A> addNewContainerStatusLike(
+      V1ContainerStatus item) {
+    return new V1PodStatusFluentImpl.ContainerStatusesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<A>
-      setNewContainerStatusLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl
-        .ContainerStatusesNestedImpl(index, item);
+  public V1PodStatusFluent.ContainerStatusesNested<A> setNewContainerStatusLike(
+      Integer index, V1ContainerStatus item) {
+    return new V1PodStatusFluentImpl.ContainerStatusesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<A>
-      editContainerStatus(java.lang.Integer index) {
+  public V1PodStatusFluent.ContainerStatusesNested<A> editContainerStatus(Integer index) {
     if (containerStatuses.size() <= index)
       throw new RuntimeException("Can't edit containerStatuses. Index exceeds size.");
     return setNewContainerStatusLike(index, buildContainerStatus(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<A>
-      editFirstContainerStatus() {
+  public V1PodStatusFluent.ContainerStatusesNested<A> editFirstContainerStatus() {
     if (containerStatuses.size() == 0)
       throw new RuntimeException("Can't edit first containerStatuses. The list is empty.");
     return setNewContainerStatusLike(0, buildContainerStatus(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<A>
-      editLastContainerStatus() {
+  public V1PodStatusFluent.ContainerStatusesNested<A> editLastContainerStatus() {
     int index = containerStatuses.size() - 1;
     if (index < 0)
       throw new RuntimeException("Can't edit last containerStatuses. The list is empty.");
     return setNewContainerStatusLike(index, buildContainerStatus(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<A>
-      editMatchingContainerStatus(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-              predicate) {
+  public V1PodStatusFluent.ContainerStatusesNested<A> editMatchingContainerStatus(
+      Predicate<V1ContainerStatusBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < containerStatuses.size(); i++) {
       if (predicate.test(containerStatuses.get(i))) {
@@ -555,14 +493,11 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return setNewContainerStatusLike(index, buildContainerStatus(index));
   }
 
-  public A addToEphemeralContainerStatuses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
+  public A addToEphemeralContainerStatuses(Integer index, V1ContainerStatus item) {
     if (this.ephemeralContainerStatuses == null) {
-      this.ephemeralContainerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.ephemeralContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
     _visitables
         .get("ephemeralContainerStatuses")
         .add(index >= 0 ? index : _visitables.get("ephemeralContainerStatuses").size(), builder);
@@ -571,14 +506,11 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A setToEphemeralContainerStatuses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
+  public A setToEphemeralContainerStatuses(Integer index, V1ContainerStatus item) {
     if (this.ephemeralContainerStatuses == null) {
-      this.ephemeralContainerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.ephemeralContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
     if (index < 0 || index >= _visitables.get("ephemeralContainerStatuses").size()) {
       _visitables.get("ephemeralContainerStatuses").add(builder);
     } else {
@@ -595,27 +527,22 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
   public A addToEphemeralContainerStatuses(
       io.kubernetes.client.openapi.models.V1ContainerStatus... items) {
     if (this.ephemeralContainerStatuses == null) {
-      this.ephemeralContainerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.ephemeralContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("ephemeralContainerStatuses").add(builder);
       this.ephemeralContainerStatuses.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToEphemeralContainerStatuses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ContainerStatus> items) {
+  public A addAllToEphemeralContainerStatuses(Collection<V1ContainerStatus> items) {
     if (this.ephemeralContainerStatuses == null) {
-      this.ephemeralContainerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.ephemeralContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("ephemeralContainerStatuses").add(builder);
       this.ephemeralContainerStatuses.add(builder);
     }
@@ -624,9 +551,8 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   public A removeFromEphemeralContainerStatuses(
       io.kubernetes.client.openapi.models.V1ContainerStatus... items) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("ephemeralContainerStatuses").remove(builder);
       if (this.ephemeralContainerStatuses != null) {
         this.ephemeralContainerStatuses.remove(builder);
@@ -635,11 +561,9 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeAllFromEphemeralContainerStatuses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ContainerStatus> items) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+  public A removeAllFromEphemeralContainerStatuses(Collection<V1ContainerStatus> items) {
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("ephemeralContainerStatuses").remove(builder);
       if (this.ephemeralContainerStatuses != null) {
         this.ephemeralContainerStatuses.remove(builder);
@@ -649,14 +573,12 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
   }
 
   public A removeMatchingFromEphemeralContainerStatuses(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-          predicate) {
+      Predicate<V1ContainerStatusBuilder> predicate) {
     if (ephemeralContainerStatuses == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder> each =
-        ephemeralContainerStatuses.iterator();
+    final Iterator<V1ContainerStatusBuilder> each = ephemeralContainerStatuses.iterator();
     final List visitables = _visitables.get("ephemeralContainerStatuses");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder = each.next();
+      V1ContainerStatusBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -670,37 +592,30 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ContainerStatus>
-      getEphemeralContainerStatuses() {
+  @Deprecated
+  public List<V1ContainerStatus> getEphemeralContainerStatuses() {
     return ephemeralContainerStatuses != null ? build(ephemeralContainerStatuses) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ContainerStatus>
-      buildEphemeralContainerStatuses() {
+  public List<V1ContainerStatus> buildEphemeralContainerStatuses() {
     return ephemeralContainerStatuses != null ? build(ephemeralContainerStatuses) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus buildEphemeralContainerStatus(
-      java.lang.Integer index) {
+  public V1ContainerStatus buildEphemeralContainerStatus(Integer index) {
     return this.ephemeralContainerStatuses.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus
-      buildFirstEphemeralContainerStatus() {
+  public V1ContainerStatus buildFirstEphemeralContainerStatus() {
     return this.ephemeralContainerStatuses.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus buildLastEphemeralContainerStatus() {
+  public V1ContainerStatus buildLastEphemeralContainerStatus() {
     return this.ephemeralContainerStatuses.get(ephemeralContainerStatuses.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus
-      buildMatchingEphemeralContainerStatus(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-              predicate) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatusBuilder item :
-        ephemeralContainerStatuses) {
+  public V1ContainerStatus buildMatchingEphemeralContainerStatus(
+      Predicate<V1ContainerStatusBuilder> predicate) {
+    for (V1ContainerStatusBuilder item : ephemeralContainerStatuses) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -708,11 +623,9 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return null;
   }
 
-  public java.lang.Boolean hasMatchingEphemeralContainerStatus(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatusBuilder item :
-        ephemeralContainerStatuses) {
+  public Boolean hasMatchingEphemeralContainerStatus(
+      Predicate<V1ContainerStatusBuilder> predicate) {
+    for (V1ContainerStatusBuilder item : ephemeralContainerStatuses) {
       if (predicate.test(item)) {
         return true;
       }
@@ -720,16 +633,13 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return false;
   }
 
-  public A withEphemeralContainerStatuses(
-      java.util.List<io.kubernetes.client.openapi.models.V1ContainerStatus>
-          ephemeralContainerStatuses) {
+  public A withEphemeralContainerStatuses(List<V1ContainerStatus> ephemeralContainerStatuses) {
     if (this.ephemeralContainerStatuses != null) {
       _visitables.get("ephemeralContainerStatuses").removeAll(this.ephemeralContainerStatuses);
     }
     if (ephemeralContainerStatuses != null) {
-      this.ephemeralContainerStatuses = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1ContainerStatus item :
-          ephemeralContainerStatuses) {
+      this.ephemeralContainerStatuses = new ArrayList();
+      for (V1ContainerStatus item : ephemeralContainerStatuses) {
         this.addToEphemeralContainerStatuses(item);
       }
     } else {
@@ -744,15 +654,14 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
       this.ephemeralContainerStatuses.clear();
     }
     if (ephemeralContainerStatuses != null) {
-      for (io.kubernetes.client.openapi.models.V1ContainerStatus item :
-          ephemeralContainerStatuses) {
+      for (V1ContainerStatus item : ephemeralContainerStatuses) {
         this.addToEphemeralContainerStatuses(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasEphemeralContainerStatuses() {
+  public Boolean hasEphemeralContainerStatuses() {
     return ephemeralContainerStatuses != null && !ephemeralContainerStatuses.isEmpty();
   }
 
@@ -760,46 +669,38 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return new V1PodStatusFluentImpl.EphemeralContainerStatusesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.EphemeralContainerStatusesNested<A>
-      addNewEphemeralContainerStatusLike(
-          io.kubernetes.client.openapi.models.V1ContainerStatus item) {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl
-        .EphemeralContainerStatusesNestedImpl(-1, item);
+  public V1PodStatusFluent.EphemeralContainerStatusesNested<A> addNewEphemeralContainerStatusLike(
+      V1ContainerStatus item) {
+    return new V1PodStatusFluentImpl.EphemeralContainerStatusesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.EphemeralContainerStatusesNested<A>
-      setNewEphemeralContainerStatusLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl
-        .EphemeralContainerStatusesNestedImpl(index, item);
+  public V1PodStatusFluent.EphemeralContainerStatusesNested<A> setNewEphemeralContainerStatusLike(
+      Integer index, V1ContainerStatus item) {
+    return new V1PodStatusFluentImpl.EphemeralContainerStatusesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.EphemeralContainerStatusesNested<A>
-      editEphemeralContainerStatus(java.lang.Integer index) {
+  public V1PodStatusFluent.EphemeralContainerStatusesNested<A> editEphemeralContainerStatus(
+      Integer index) {
     if (ephemeralContainerStatuses.size() <= index)
       throw new RuntimeException("Can't edit ephemeralContainerStatuses. Index exceeds size.");
     return setNewEphemeralContainerStatusLike(index, buildEphemeralContainerStatus(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.EphemeralContainerStatusesNested<A>
-      editFirstEphemeralContainerStatus() {
+  public V1PodStatusFluent.EphemeralContainerStatusesNested<A> editFirstEphemeralContainerStatus() {
     if (ephemeralContainerStatuses.size() == 0)
       throw new RuntimeException("Can't edit first ephemeralContainerStatuses. The list is empty.");
     return setNewEphemeralContainerStatusLike(0, buildEphemeralContainerStatus(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.EphemeralContainerStatusesNested<A>
-      editLastEphemeralContainerStatus() {
+  public V1PodStatusFluent.EphemeralContainerStatusesNested<A> editLastEphemeralContainerStatus() {
     int index = ephemeralContainerStatuses.size() - 1;
     if (index < 0)
       throw new RuntimeException("Can't edit last ephemeralContainerStatuses. The list is empty.");
     return setNewEphemeralContainerStatusLike(index, buildEphemeralContainerStatus(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.EphemeralContainerStatusesNested<A>
-      editMatchingEphemeralContainerStatus(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-              predicate) {
+  public V1PodStatusFluent.EphemeralContainerStatusesNested<A> editMatchingEphemeralContainerStatus(
+      Predicate<V1ContainerStatusBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < ephemeralContainerStatuses.size(); i++) {
       if (predicate.test(ephemeralContainerStatuses.get(i))) {
@@ -812,27 +713,24 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return setNewEphemeralContainerStatusLike(index, buildEphemeralContainerStatus(index));
   }
 
-  public java.lang.String getHostIP() {
+  public String getHostIP() {
     return this.hostIP;
   }
 
-  public A withHostIP(java.lang.String hostIP) {
+  public A withHostIP(String hostIP) {
     this.hostIP = hostIP;
     return (A) this;
   }
 
-  public java.lang.Boolean hasHostIP() {
+  public Boolean hasHostIP() {
     return this.hostIP != null;
   }
 
-  public A addToInitContainerStatuses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
+  public A addToInitContainerStatuses(Integer index, V1ContainerStatus item) {
     if (this.initContainerStatuses == null) {
-      this.initContainerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.initContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
     _visitables
         .get("initContainerStatuses")
         .add(index >= 0 ? index : _visitables.get("initContainerStatuses").size(), builder);
@@ -840,14 +738,11 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A setToInitContainerStatuses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
+  public A setToInitContainerStatuses(Integer index, V1ContainerStatus item) {
     if (this.initContainerStatuses == null) {
-      this.initContainerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.initContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
     if (index < 0 || index >= _visitables.get("initContainerStatuses").size()) {
       _visitables.get("initContainerStatuses").add(builder);
     } else {
@@ -864,27 +759,22 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
   public A addToInitContainerStatuses(
       io.kubernetes.client.openapi.models.V1ContainerStatus... items) {
     if (this.initContainerStatuses == null) {
-      this.initContainerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.initContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("initContainerStatuses").add(builder);
       this.initContainerStatuses.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToInitContainerStatuses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ContainerStatus> items) {
+  public A addAllToInitContainerStatuses(Collection<V1ContainerStatus> items) {
     if (this.initContainerStatuses == null) {
-      this.initContainerStatuses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>();
+      this.initContainerStatuses = new ArrayList<V1ContainerStatusBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("initContainerStatuses").add(builder);
       this.initContainerStatuses.add(builder);
     }
@@ -893,9 +783,8 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   public A removeFromInitContainerStatuses(
       io.kubernetes.client.openapi.models.V1ContainerStatus... items) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("initContainerStatuses").remove(builder);
       if (this.initContainerStatuses != null) {
         this.initContainerStatuses.remove(builder);
@@ -904,11 +793,9 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeAllFromInitContainerStatuses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ContainerStatus> items) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatus item : items) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(item);
+  public A removeAllFromInitContainerStatuses(Collection<V1ContainerStatus> items) {
+    for (V1ContainerStatus item : items) {
+      V1ContainerStatusBuilder builder = new V1ContainerStatusBuilder(item);
       _visitables.get("initContainerStatuses").remove(builder);
       if (this.initContainerStatuses != null) {
         this.initContainerStatuses.remove(builder);
@@ -917,15 +804,12 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeMatchingFromInitContainerStatuses(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-          predicate) {
+  public A removeMatchingFromInitContainerStatuses(Predicate<V1ContainerStatusBuilder> predicate) {
     if (initContainerStatuses == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder> each =
-        initContainerStatuses.iterator();
+    final Iterator<V1ContainerStatusBuilder> each = initContainerStatuses.iterator();
     final List visitables = _visitables.get("initContainerStatuses");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder = each.next();
+      V1ContainerStatusBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -939,35 +823,30 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ContainerStatus>
-      getInitContainerStatuses() {
+  @Deprecated
+  public List<V1ContainerStatus> getInitContainerStatuses() {
     return initContainerStatuses != null ? build(initContainerStatuses) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ContainerStatus>
-      buildInitContainerStatuses() {
+  public List<V1ContainerStatus> buildInitContainerStatuses() {
     return initContainerStatuses != null ? build(initContainerStatuses) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus buildInitContainerStatus(
-      java.lang.Integer index) {
+  public V1ContainerStatus buildInitContainerStatus(Integer index) {
     return this.initContainerStatuses.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus buildFirstInitContainerStatus() {
+  public V1ContainerStatus buildFirstInitContainerStatus() {
     return this.initContainerStatuses.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus buildLastInitContainerStatus() {
+  public V1ContainerStatus buildLastInitContainerStatus() {
     return this.initContainerStatuses.get(initContainerStatuses.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus buildMatchingInitContainerStatus(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatusBuilder item :
-        initContainerStatuses) {
+  public V1ContainerStatus buildMatchingInitContainerStatus(
+      Predicate<V1ContainerStatusBuilder> predicate) {
+    for (V1ContainerStatusBuilder item : initContainerStatuses) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -975,11 +854,8 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return null;
   }
 
-  public java.lang.Boolean hasMatchingInitContainerStatus(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ContainerStatusBuilder item :
-        initContainerStatuses) {
+  public Boolean hasMatchingInitContainerStatus(Predicate<V1ContainerStatusBuilder> predicate) {
+    for (V1ContainerStatusBuilder item : initContainerStatuses) {
       if (predicate.test(item)) {
         return true;
       }
@@ -987,14 +863,13 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return false;
   }
 
-  public A withInitContainerStatuses(
-      java.util.List<io.kubernetes.client.openapi.models.V1ContainerStatus> initContainerStatuses) {
+  public A withInitContainerStatuses(List<V1ContainerStatus> initContainerStatuses) {
     if (this.initContainerStatuses != null) {
       _visitables.get("initContainerStatuses").removeAll(this.initContainerStatuses);
     }
     if (initContainerStatuses != null) {
-      this.initContainerStatuses = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1ContainerStatus item : initContainerStatuses) {
+      this.initContainerStatuses = new ArrayList();
+      for (V1ContainerStatus item : initContainerStatuses) {
         this.addToInitContainerStatuses(item);
       }
     } else {
@@ -1009,14 +884,14 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
       this.initContainerStatuses.clear();
     }
     if (initContainerStatuses != null) {
-      for (io.kubernetes.client.openapi.models.V1ContainerStatus item : initContainerStatuses) {
+      for (V1ContainerStatus item : initContainerStatuses) {
         this.addToInitContainerStatuses(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasInitContainerStatuses() {
+  public Boolean hasInitContainerStatuses() {
     return initContainerStatuses != null && !initContainerStatuses.isEmpty();
   }
 
@@ -1024,45 +899,37 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return new V1PodStatusFluentImpl.InitContainerStatusesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<A>
-      addNewInitContainerStatusLike(io.kubernetes.client.openapi.models.V1ContainerStatus item) {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl
-        .InitContainerStatusesNestedImpl(-1, item);
+  public V1PodStatusFluent.InitContainerStatusesNested<A> addNewInitContainerStatusLike(
+      V1ContainerStatus item) {
+    return new V1PodStatusFluentImpl.InitContainerStatusesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<A>
-      setNewInitContainerStatusLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ContainerStatus item) {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl
-        .InitContainerStatusesNestedImpl(index, item);
+  public V1PodStatusFluent.InitContainerStatusesNested<A> setNewInitContainerStatusLike(
+      Integer index, V1ContainerStatus item) {
+    return new V1PodStatusFluentImpl.InitContainerStatusesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<A>
-      editInitContainerStatus(java.lang.Integer index) {
+  public V1PodStatusFluent.InitContainerStatusesNested<A> editInitContainerStatus(Integer index) {
     if (initContainerStatuses.size() <= index)
       throw new RuntimeException("Can't edit initContainerStatuses. Index exceeds size.");
     return setNewInitContainerStatusLike(index, buildInitContainerStatus(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<A>
-      editFirstInitContainerStatus() {
+  public V1PodStatusFluent.InitContainerStatusesNested<A> editFirstInitContainerStatus() {
     if (initContainerStatuses.size() == 0)
       throw new RuntimeException("Can't edit first initContainerStatuses. The list is empty.");
     return setNewInitContainerStatusLike(0, buildInitContainerStatus(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<A>
-      editLastInitContainerStatus() {
+  public V1PodStatusFluent.InitContainerStatusesNested<A> editLastInitContainerStatus() {
     int index = initContainerStatuses.size() - 1;
     if (index < 0)
       throw new RuntimeException("Can't edit last initContainerStatuses. The list is empty.");
     return setNewInitContainerStatusLike(index, buildInitContainerStatus(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<A>
-      editMatchingInitContainerStatus(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ContainerStatusBuilder>
-              predicate) {
+  public V1PodStatusFluent.InitContainerStatusesNested<A> editMatchingInitContainerStatus(
+      Predicate<V1ContainerStatusBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < initContainerStatuses.size(); i++) {
       if (predicate.test(initContainerStatuses.get(i))) {
@@ -1075,75 +942,73 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return setNewInitContainerStatusLike(index, buildInitContainerStatus(index));
   }
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMessage() {
+  public Boolean hasMessage() {
     return this.message != null;
   }
 
-  public java.lang.String getNominatedNodeName() {
+  public String getNominatedNodeName() {
     return this.nominatedNodeName;
   }
 
-  public A withNominatedNodeName(java.lang.String nominatedNodeName) {
+  public A withNominatedNodeName(String nominatedNodeName) {
     this.nominatedNodeName = nominatedNodeName;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNominatedNodeName() {
+  public Boolean hasNominatedNodeName() {
     return this.nominatedNodeName != null;
   }
 
-  public java.lang.String getPhase() {
+  public String getPhase() {
     return this.phase;
   }
 
-  public A withPhase(java.lang.String phase) {
+  public A withPhase(String phase) {
     this.phase = phase;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPhase() {
+  public Boolean hasPhase() {
     return this.phase != null;
   }
 
-  public java.lang.String getPodIP() {
+  public String getPodIP() {
     return this.podIP;
   }
 
-  public A withPodIP(java.lang.String podIP) {
+  public A withPodIP(String podIP) {
     this.podIP = podIP;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPodIP() {
+  public Boolean hasPodIP() {
     return this.podIP != null;
   }
 
-  public A addToPodIPs(java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodIP item) {
+  public A addToPodIPs(Integer index, V1PodIP item) {
     if (this.podIPs == null) {
-      this.podIPs = new java.util.ArrayList<V1PodIPBuilder>();
+      this.podIPs = new ArrayList<V1PodIPBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PodIPBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PodIPBuilder(item);
+    V1PodIPBuilder builder = new V1PodIPBuilder(item);
     _visitables.get("podIPs").add(index >= 0 ? index : _visitables.get("podIPs").size(), builder);
     this.podIPs.add(index >= 0 ? index : podIPs.size(), builder);
     return (A) this;
   }
 
-  public A setToPodIPs(java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodIP item) {
+  public A setToPodIPs(Integer index, V1PodIP item) {
     if (this.podIPs == null) {
-      this.podIPs = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodIPBuilder>();
+      this.podIPs = new ArrayList<V1PodIPBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1PodIPBuilder builder =
-        new io.kubernetes.client.openapi.models.V1PodIPBuilder(item);
+    V1PodIPBuilder builder = new V1PodIPBuilder(item);
     if (index < 0 || index >= _visitables.get("podIPs").size()) {
       _visitables.get("podIPs").add(builder);
     } else {
@@ -1159,24 +1024,22 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   public A addToPodIPs(io.kubernetes.client.openapi.models.V1PodIP... items) {
     if (this.podIPs == null) {
-      this.podIPs = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodIPBuilder>();
+      this.podIPs = new ArrayList<V1PodIPBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PodIP item : items) {
-      io.kubernetes.client.openapi.models.V1PodIPBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodIPBuilder(item);
+    for (V1PodIP item : items) {
+      V1PodIPBuilder builder = new V1PodIPBuilder(item);
       _visitables.get("podIPs").add(builder);
       this.podIPs.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToPodIPs(java.util.Collection<io.kubernetes.client.openapi.models.V1PodIP> items) {
+  public A addAllToPodIPs(Collection<V1PodIP> items) {
     if (this.podIPs == null) {
-      this.podIPs = new java.util.ArrayList<io.kubernetes.client.openapi.models.V1PodIPBuilder>();
+      this.podIPs = new ArrayList<V1PodIPBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1PodIP item : items) {
-      io.kubernetes.client.openapi.models.V1PodIPBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodIPBuilder(item);
+    for (V1PodIP item : items) {
+      V1PodIPBuilder builder = new V1PodIPBuilder(item);
       _visitables.get("podIPs").add(builder);
       this.podIPs.add(builder);
     }
@@ -1184,9 +1047,8 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
   }
 
   public A removeFromPodIPs(io.kubernetes.client.openapi.models.V1PodIP... items) {
-    for (io.kubernetes.client.openapi.models.V1PodIP item : items) {
-      io.kubernetes.client.openapi.models.V1PodIPBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodIPBuilder(item);
+    for (V1PodIP item : items) {
+      V1PodIPBuilder builder = new V1PodIPBuilder(item);
       _visitables.get("podIPs").remove(builder);
       if (this.podIPs != null) {
         this.podIPs.remove(builder);
@@ -1195,11 +1057,9 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeAllFromPodIPs(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1PodIP> items) {
-    for (io.kubernetes.client.openapi.models.V1PodIP item : items) {
-      io.kubernetes.client.openapi.models.V1PodIPBuilder builder =
-          new io.kubernetes.client.openapi.models.V1PodIPBuilder(item);
+  public A removeAllFromPodIPs(Collection<V1PodIP> items) {
+    for (V1PodIP item : items) {
+      V1PodIPBuilder builder = new V1PodIPBuilder(item);
       _visitables.get("podIPs").remove(builder);
       if (this.podIPs != null) {
         this.podIPs.remove(builder);
@@ -1208,13 +1068,12 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return (A) this;
   }
 
-  public A removeMatchingFromPodIPs(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodIPBuilder> predicate) {
+  public A removeMatchingFromPodIPs(Predicate<V1PodIPBuilder> predicate) {
     if (podIPs == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1PodIPBuilder> each = podIPs.iterator();
+    final Iterator<V1PodIPBuilder> each = podIPs.iterator();
     final List visitables = _visitables.get("podIPs");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1PodIPBuilder builder = each.next();
+      V1PodIPBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -1228,30 +1087,29 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1PodIP> getPodIPs() {
+  @Deprecated
+  public List<V1PodIP> getPodIPs() {
     return podIPs != null ? build(podIPs) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1PodIP> buildPodIPs() {
+  public List<V1PodIP> buildPodIPs() {
     return podIPs != null ? build(podIPs) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodIP buildPodIP(java.lang.Integer index) {
+  public V1PodIP buildPodIP(Integer index) {
     return this.podIPs.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodIP buildFirstPodIP() {
+  public V1PodIP buildFirstPodIP() {
     return this.podIPs.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodIP buildLastPodIP() {
+  public V1PodIP buildLastPodIP() {
     return this.podIPs.get(podIPs.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodIP buildMatchingPodIP(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodIPBuilder> predicate) {
-    for (io.kubernetes.client.openapi.models.V1PodIPBuilder item : podIPs) {
+  public V1PodIP buildMatchingPodIP(Predicate<V1PodIPBuilder> predicate) {
+    for (V1PodIPBuilder item : podIPs) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -1259,9 +1117,8 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return null;
   }
 
-  public java.lang.Boolean hasMatchingPodIP(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodIPBuilder> predicate) {
-    for (io.kubernetes.client.openapi.models.V1PodIPBuilder item : podIPs) {
+  public Boolean hasMatchingPodIP(Predicate<V1PodIPBuilder> predicate) {
+    for (V1PodIPBuilder item : podIPs) {
       if (predicate.test(item)) {
         return true;
       }
@@ -1269,13 +1126,13 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return false;
   }
 
-  public A withPodIPs(java.util.List<io.kubernetes.client.openapi.models.V1PodIP> podIPs) {
+  public A withPodIPs(List<V1PodIP> podIPs) {
     if (this.podIPs != null) {
       _visitables.get("podIPs").removeAll(this.podIPs);
     }
     if (podIPs != null) {
-      this.podIPs = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1PodIP item : podIPs) {
+      this.podIPs = new ArrayList();
+      for (V1PodIP item : podIPs) {
         this.addToPodIPs(item);
       }
     } else {
@@ -1289,14 +1146,14 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
       this.podIPs.clear();
     }
     if (podIPs != null) {
-      for (io.kubernetes.client.openapi.models.V1PodIP item : podIPs) {
+      for (V1PodIP item : podIPs) {
         this.addToPodIPs(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPodIPs() {
+  public Boolean hasPodIPs() {
     return podIPs != null && !podIPs.isEmpty();
   }
 
@@ -1304,38 +1161,33 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return new V1PodStatusFluentImpl.PodIPsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<A> addNewPodIPLike(
-      io.kubernetes.client.openapi.models.V1PodIP item) {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl.PodIPsNestedImpl(-1, item);
+  public V1PodStatusFluent.PodIPsNested<A> addNewPodIPLike(V1PodIP item) {
+    return new V1PodStatusFluentImpl.PodIPsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<A> setNewPodIPLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodIP item) {
-    return new io.kubernetes.client.openapi.models.V1PodStatusFluentImpl.PodIPsNestedImpl(
-        index, item);
+  public V1PodStatusFluent.PodIPsNested<A> setNewPodIPLike(Integer index, V1PodIP item) {
+    return new V1PodStatusFluentImpl.PodIPsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<A> editPodIP(
-      java.lang.Integer index) {
+  public V1PodStatusFluent.PodIPsNested<A> editPodIP(Integer index) {
     if (podIPs.size() <= index)
       throw new RuntimeException("Can't edit podIPs. Index exceeds size.");
     return setNewPodIPLike(index, buildPodIP(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<A> editFirstPodIP() {
+  public V1PodStatusFluent.PodIPsNested<A> editFirstPodIP() {
     if (podIPs.size() == 0)
       throw new RuntimeException("Can't edit first podIPs. The list is empty.");
     return setNewPodIPLike(0, buildPodIP(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<A> editLastPodIP() {
+  public V1PodStatusFluent.PodIPsNested<A> editLastPodIP() {
     int index = podIPs.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last podIPs. The list is empty.");
     return setNewPodIPLike(index, buildPodIP(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<A> editMatchingPodIP(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1PodIPBuilder> predicate) {
+  public V1PodStatusFluent.PodIPsNested<A> editMatchingPodIP(Predicate<V1PodIPBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < podIPs.size(); i++) {
       if (predicate.test(podIPs.get(i))) {
@@ -1347,42 +1199,42 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
     return setNewPodIPLike(index, buildPodIP(index));
   }
 
-  public java.lang.String getQosClass() {
+  public String getQosClass() {
     return this.qosClass;
   }
 
-  public A withQosClass(java.lang.String qosClass) {
+  public A withQosClass(String qosClass) {
     this.qosClass = qosClass;
     return (A) this;
   }
 
-  public java.lang.Boolean hasQosClass() {
+  public Boolean hasQosClass() {
     return this.qosClass != null;
   }
 
-  public java.lang.String getReason() {
+  public String getReason() {
     return this.reason;
   }
 
-  public A withReason(java.lang.String reason) {
+  public A withReason(String reason) {
     this.reason = reason;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReason() {
+  public Boolean hasReason() {
     return this.reason != null;
   }
 
-  public java.time.OffsetDateTime getStartTime() {
+  public OffsetDateTime getStartTime() {
     return this.startTime;
   }
 
-  public A withStartTime(java.time.OffsetDateTime startTime) {
+  public A withStartTime(OffsetDateTime startTime) {
     this.startTime = startTime;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStartTime() {
+  public Boolean hasStartTime() {
     return this.startTime != null;
   }
 
@@ -1434,7 +1286,7 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (conditions != null && !conditions.isEmpty()) {
@@ -1495,20 +1347,19 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   class ConditionsNestedImpl<N>
       extends V1PodConditionFluentImpl<V1PodStatusFluent.ConditionsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodStatusFluent.ConditionsNested<N>,
-          Nested<N> {
-    ConditionsNestedImpl(java.lang.Integer index, V1PodCondition item) {
+      implements V1PodStatusFluent.ConditionsNested<N>, Nested<N> {
+    ConditionsNestedImpl(Integer index, V1PodCondition item) {
       this.index = index;
       this.builder = new V1PodConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1PodConditionBuilder(this);
+      this.builder = new V1PodConditionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PodConditionBuilder builder;
-    java.lang.Integer index;
+    V1PodConditionBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1PodStatusFluentImpl.this.setToConditions(index, builder.build());
@@ -1521,20 +1372,19 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   class ContainerStatusesNestedImpl<N>
       extends V1ContainerStatusFluentImpl<V1PodStatusFluent.ContainerStatusesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodStatusFluent.ContainerStatusesNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ContainerStatusesNestedImpl(java.lang.Integer index, V1ContainerStatus item) {
+      implements V1PodStatusFluent.ContainerStatusesNested<N>, Nested<N> {
+    ContainerStatusesNestedImpl(Integer index, V1ContainerStatus item) {
       this.index = index;
       this.builder = new V1ContainerStatusBuilder(this, item);
     }
 
     ContainerStatusesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(this);
+      this.builder = new V1ContainerStatusBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder;
-    java.lang.Integer index;
+    V1ContainerStatusBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1PodStatusFluentImpl.this.setToContainerStatuses(index, builder.build());
@@ -1547,22 +1397,19 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   class EphemeralContainerStatusesNestedImpl<N>
       extends V1ContainerStatusFluentImpl<V1PodStatusFluent.EphemeralContainerStatusesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodStatusFluent
-                  .EphemeralContainerStatusesNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    EphemeralContainerStatusesNestedImpl(java.lang.Integer index, V1ContainerStatus item) {
+      implements V1PodStatusFluent.EphemeralContainerStatusesNested<N>, Nested<N> {
+    EphemeralContainerStatusesNestedImpl(Integer index, V1ContainerStatus item) {
       this.index = index;
       this.builder = new V1ContainerStatusBuilder(this, item);
     }
 
     EphemeralContainerStatusesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(this);
+      this.builder = new V1ContainerStatusBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder;
-    java.lang.Integer index;
+    V1ContainerStatusBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1PodStatusFluentImpl.this.setToEphemeralContainerStatuses(index, builder.build());
@@ -1575,21 +1422,19 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
 
   class InitContainerStatusesNestedImpl<N>
       extends V1ContainerStatusFluentImpl<V1PodStatusFluent.InitContainerStatusesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodStatusFluent.InitContainerStatusesNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    InitContainerStatusesNestedImpl(java.lang.Integer index, V1ContainerStatus item) {
+      implements V1PodStatusFluent.InitContainerStatusesNested<N>, Nested<N> {
+    InitContainerStatusesNestedImpl(Integer index, V1ContainerStatus item) {
       this.index = index;
       this.builder = new V1ContainerStatusBuilder(this, item);
     }
 
     InitContainerStatusesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ContainerStatusBuilder(this);
+      this.builder = new V1ContainerStatusBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ContainerStatusBuilder builder;
-    java.lang.Integer index;
+    V1ContainerStatusBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1PodStatusFluentImpl.this.setToInitContainerStatuses(index, builder.build());
@@ -1601,20 +1446,19 @@ public class V1PodStatusFluentImpl<A extends V1PodStatusFluent<A>> extends BaseF
   }
 
   class PodIPsNestedImpl<N> extends V1PodIPFluentImpl<V1PodStatusFluent.PodIPsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodStatusFluent.PodIPsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    PodIPsNestedImpl(java.lang.Integer index, io.kubernetes.client.openapi.models.V1PodIP item) {
+      implements V1PodStatusFluent.PodIPsNested<N>, Nested<N> {
+    PodIPsNestedImpl(Integer index, V1PodIP item) {
       this.index = index;
       this.builder = new V1PodIPBuilder(this, item);
     }
 
     PodIPsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1PodIPBuilder(this);
+      this.builder = new V1PodIPBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PodIPBuilder builder;
-    java.lang.Integer index;
+    V1PodIPBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1PodStatusFluentImpl.this.setToPodIPs(index, builder.build());

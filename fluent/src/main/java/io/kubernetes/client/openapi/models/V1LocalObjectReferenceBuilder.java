@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LocalObjectReferenceBuilder
     extends V1LocalObjectReferenceFluentImpl<V1LocalObjectReferenceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1LocalObjectReference, V1LocalObjectReferenceBuilder> {
+    implements VisitableBuilder<V1LocalObjectReference, V1LocalObjectReferenceBuilder> {
   public V1LocalObjectReferenceBuilder() {
     this(false);
   }
@@ -31,45 +30,40 @@ public class V1LocalObjectReferenceBuilder
   }
 
   public V1LocalObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1LocalObjectReferenceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1LocalObjectReference(), validationEnabled);
   }
 
   public V1LocalObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LocalObjectReference instance) {
+      V1LocalObjectReferenceFluent<?> fluent, V1LocalObjectReference instance) {
     this(fluent, instance, false);
   }
 
   public V1LocalObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LocalObjectReference instance,
-      java.lang.Boolean validationEnabled) {
+      V1LocalObjectReferenceFluent<?> fluent,
+      V1LocalObjectReference instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LocalObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1LocalObjectReference instance) {
+  public V1LocalObjectReferenceBuilder(V1LocalObjectReference instance) {
     this(instance, false);
   }
 
-  public V1LocalObjectReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1LocalObjectReference instance,
-      java.lang.Boolean validationEnabled) {
+  public V1LocalObjectReferenceBuilder(V1LocalObjectReference instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LocalObjectReferenceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LocalObjectReferenceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference build() {
+  public V1LocalObjectReference build() {
     V1LocalObjectReference buildable = new V1LocalObjectReference();
     buildable.setName(fluent.getName());
     return buildable;

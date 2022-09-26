@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DeploymentSpecBuilder extends V1DeploymentSpecFluentImpl<V1DeploymentSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DeploymentSpec, V1DeploymentSpecBuilder> {
+    implements VisitableBuilder<V1DeploymentSpec, V1DeploymentSpecBuilder> {
   public V1DeploymentSpecBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1DeploymentSpecBuilder extends V1DeploymentSpecFluentImpl<V1Deploy
     this(fluent, false);
   }
 
-  public V1DeploymentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1DeploymentSpecBuilder(V1DeploymentSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DeploymentSpec(), validationEnabled);
   }
 
-  public V1DeploymentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DeploymentSpec instance) {
+  public V1DeploymentSpecBuilder(V1DeploymentSpecFluent<?> fluent, V1DeploymentSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1DeploymentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DeploymentSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1DeploymentSpecFluent<?> fluent, V1DeploymentSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMinReadySeconds(instance.getMinReadySeconds());
 
@@ -65,13 +58,11 @@ public class V1DeploymentSpecBuilder extends V1DeploymentSpecFluentImpl<V1Deploy
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DeploymentSpecBuilder(io.kubernetes.client.openapi.models.V1DeploymentSpec instance) {
+  public V1DeploymentSpecBuilder(V1DeploymentSpec instance) {
     this(instance, false);
   }
 
-  public V1DeploymentSpecBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1DeploymentSpecBuilder(V1DeploymentSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMinReadySeconds(instance.getMinReadySeconds());
 
@@ -92,10 +83,10 @@ public class V1DeploymentSpecBuilder extends V1DeploymentSpecFluentImpl<V1Deploy
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DeploymentSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DeploymentSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DeploymentSpec build() {
+  public V1DeploymentSpec build() {
     V1DeploymentSpec buildable = new V1DeploymentSpec();
     buildable.setMinReadySeconds(fluent.getMinReadySeconds());
     buildable.setPaused(fluent.getPaused());

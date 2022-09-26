@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(description = "IngressSpec describes the Ingress the user wishes to exist.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1IngressSpec {
   public static final String SERIALIZED_NAME_DEFAULT_BACKEND = "defaultBackend";
 
@@ -73,21 +73,21 @@ public class V1IngressSpec {
   }
 
   /**
-   * IngressClassName is the name of the IngressClass cluster resource. The associated IngressClass
-   * defines which controller will implement the resource. This replaces the deprecated
-   * &#x60;kubernetes.io/ingress.class&#x60; annotation. For backwards compatibility, when that
-   * annotation is set, it must be given precedence over this field. The controller may emit a
-   * warning if the field and annotation have different values. Implementations of this API should
-   * ignore Ingresses without a class specified. An IngressClass resource may be marked as default,
-   * which can be used to set a default value for this field. For more information, refer to the
-   * IngressClass documentation.
+   * IngressClassName is the name of an IngressClass cluster resource. Ingress controller
+   * implementations use this field to know whether they should be serving this Ingress resource, by
+   * a transitive connection (controller -&gt; IngressClass -&gt; Ingress resource). Although the
+   * &#x60;kubernetes.io/ingress.class&#x60; annotation (simple constant name) was never formally
+   * defined, it was widely supported by Ingress controllers to create a direct binding between
+   * Ingress controller and Ingress resources. Newly created Ingress resources should prefer using
+   * the field. However, even though the annotation is officially deprecated, for backwards
+   * compatibility reasons, ingress controllers should still honor that annotation if present.
    *
    * @return ingressClassName
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "IngressClassName is the name of the IngressClass cluster resource. The associated IngressClass defines which controller will implement the resource. This replaces the deprecated `kubernetes.io/ingress.class` annotation. For backwards compatibility, when that annotation is set, it must be given precedence over this field. The controller may emit a warning if the field and annotation have different values. Implementations of this API should ignore Ingresses without a class specified. An IngressClass resource may be marked as default, which can be used to set a default value for this field. For more information, refer to the IngressClass documentation.")
+          "IngressClassName is the name of an IngressClass cluster resource. Ingress controller implementations use this field to know whether they should be serving this Ingress resource, by a transitive connection (controller -> IngressClass -> Ingress resource). Although the `kubernetes.io/ingress.class` annotation (simple constant name) was never formally defined, it was widely supported by Ingress controllers to create a direct binding between Ingress controller and Ingress resources. Newly created Ingress resources should prefer using the field. However, even though the annotation is officially deprecated, for backwards compatibility reasons, ingress controllers should still honor that annotation if present.")
   public String getIngressClassName() {
     return ingressClassName;
   }

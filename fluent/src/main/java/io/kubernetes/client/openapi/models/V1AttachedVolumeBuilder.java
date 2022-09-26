@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1AttachedVolumeBuilder extends V1AttachedVolumeFluentImpl<V1AttachedVolumeBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1AttachedVolume, V1AttachedVolumeBuilder> {
+    implements VisitableBuilder<V1AttachedVolume, V1AttachedVolumeBuilder> {
   public V1AttachedVolumeBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1AttachedVolumeBuilder extends V1AttachedVolumeFluentImpl<V1Attach
     this(fluent, false);
   }
 
-  public V1AttachedVolumeBuilder(
-      io.kubernetes.client.openapi.models.V1AttachedVolumeFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1AttachedVolumeBuilder(V1AttachedVolumeFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1AttachedVolume(), validationEnabled);
   }
 
-  public V1AttachedVolumeBuilder(
-      io.kubernetes.client.openapi.models.V1AttachedVolumeFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1AttachedVolume instance) {
+  public V1AttachedVolumeBuilder(V1AttachedVolumeFluent<?> fluent, V1AttachedVolume instance) {
     this(fluent, instance, false);
   }
 
   public V1AttachedVolumeBuilder(
-      io.kubernetes.client.openapi.models.V1AttachedVolumeFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1AttachedVolume instance,
-      java.lang.Boolean validationEnabled) {
+      V1AttachedVolumeFluent<?> fluent, V1AttachedVolume instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withDevicePath(instance.getDevicePath());
 
@@ -53,13 +46,11 @@ public class V1AttachedVolumeBuilder extends V1AttachedVolumeFluentImpl<V1Attach
     this.validationEnabled = validationEnabled;
   }
 
-  public V1AttachedVolumeBuilder(io.kubernetes.client.openapi.models.V1AttachedVolume instance) {
+  public V1AttachedVolumeBuilder(V1AttachedVolume instance) {
     this(instance, false);
   }
 
-  public V1AttachedVolumeBuilder(
-      io.kubernetes.client.openapi.models.V1AttachedVolume instance,
-      java.lang.Boolean validationEnabled) {
+  public V1AttachedVolumeBuilder(V1AttachedVolume instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withDevicePath(instance.getDevicePath());
 
@@ -68,10 +59,10 @@ public class V1AttachedVolumeBuilder extends V1AttachedVolumeFluentImpl<V1Attach
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1AttachedVolumeFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1AttachedVolumeFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1AttachedVolume build() {
+  public V1AttachedVolume build() {
     V1AttachedVolume buildable = new V1AttachedVolume();
     buildable.setDevicePath(fluent.getDevicePath());
     buildable.setName(fluent.getName());

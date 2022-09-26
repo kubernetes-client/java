@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1beta1ServiceAccountSubjectBuilder
     extends V1beta1ServiceAccountSubjectFluentImpl<V1beta1ServiceAccountSubjectBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject,
-        V1beta1ServiceAccountSubjectBuilder> {
+    implements VisitableBuilder<V1beta1ServiceAccountSubject, V1beta1ServiceAccountSubjectBuilder> {
   public V1beta1ServiceAccountSubjectBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1beta1ServiceAccountSubjectBuilder
   }
 
   public V1beta1ServiceAccountSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubjectFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1ServiceAccountSubjectFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1ServiceAccountSubject(), validationEnabled);
   }
 
   public V1beta1ServiceAccountSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubjectFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject instance) {
+      V1beta1ServiceAccountSubjectFluent<?> fluent, V1beta1ServiceAccountSubject instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1ServiceAccountSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubjectFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1ServiceAccountSubjectFluent<?> fluent,
+      V1beta1ServiceAccountSubject instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
@@ -55,14 +51,12 @@ public class V1beta1ServiceAccountSubjectBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta1ServiceAccountSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject instance) {
+  public V1beta1ServiceAccountSubjectBuilder(V1beta1ServiceAccountSubject instance) {
     this(instance, false);
   }
 
   public V1beta1ServiceAccountSubjectBuilder(
-      io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1ServiceAccountSubject instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
@@ -71,10 +65,10 @@ public class V1beta1ServiceAccountSubjectBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubjectFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1ServiceAccountSubjectFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1ServiceAccountSubject build() {
+  public V1beta1ServiceAccountSubject build() {
     V1beta1ServiceAccountSubject buildable = new V1beta1ServiceAccountSubject();
     buildable.setName(fluent.getName());
     buildable.setNamespace(fluent.getNamespace());

@@ -21,8 +21,7 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
     extends BaseFluent<A> implements V1VolumeProjectionFluent<A> {
   public V1VolumeProjectionFluentImpl() {}
 
-  public V1VolumeProjectionFluentImpl(
-      io.kubernetes.client.openapi.models.V1VolumeProjection instance) {
+  public V1VolumeProjectionFluentImpl(V1VolumeProjection instance) {
     this.withConfigMap(instance.getConfigMap());
 
     this.withDownwardAPI(instance.getDownwardAPI());
@@ -47,16 +46,18 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
     return this.configMap != null ? this.configMap.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapProjection buildConfigMap() {
+  public V1ConfigMapProjection buildConfigMap() {
     return this.configMap != null ? this.configMap.build() : null;
   }
 
-  public A withConfigMap(io.kubernetes.client.openapi.models.V1ConfigMapProjection configMap) {
+  public A withConfigMap(V1ConfigMapProjection configMap) {
     _visitables.get("configMap").remove(this.configMap);
     if (configMap != null) {
-      this.configMap =
-          new io.kubernetes.client.openapi.models.V1ConfigMapProjectionBuilder(configMap);
+      this.configMap = new V1ConfigMapProjectionBuilder(configMap);
       _visitables.get("configMap").add(this.configMap);
+    } else {
+      this.configMap = null;
+      _visitables.get("configMap").remove(this.configMap);
     }
     return (A) this;
   }
@@ -69,26 +70,22 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
     return new V1VolumeProjectionFluentImpl.ConfigMapNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ConfigMapNested<A>
-      withNewConfigMapLike(io.kubernetes.client.openapi.models.V1ConfigMapProjection item) {
+  public V1VolumeProjectionFluent.ConfigMapNested<A> withNewConfigMapLike(
+      V1ConfigMapProjection item) {
     return new V1VolumeProjectionFluentImpl.ConfigMapNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ConfigMapNested<A>
-      editConfigMap() {
+  public V1VolumeProjectionFluent.ConfigMapNested<A> editConfigMap() {
     return withNewConfigMapLike(getConfigMap());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ConfigMapNested<A>
-      editOrNewConfigMap() {
+  public V1VolumeProjectionFluent.ConfigMapNested<A> editOrNewConfigMap() {
     return withNewConfigMapLike(
-        getConfigMap() != null
-            ? getConfigMap()
-            : new io.kubernetes.client.openapi.models.V1ConfigMapProjectionBuilder().build());
+        getConfigMap() != null ? getConfigMap() : new V1ConfigMapProjectionBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ConfigMapNested<A>
-      editOrNewConfigMapLike(io.kubernetes.client.openapi.models.V1ConfigMapProjection item) {
+  public V1VolumeProjectionFluent.ConfigMapNested<A> editOrNewConfigMapLike(
+      V1ConfigMapProjection item) {
     return withNewConfigMapLike(getConfigMap() != null ? getConfigMap() : item);
   }
 
@@ -97,27 +94,28 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1DownwardAPIProjection getDownwardAPI() {
     return this.downwardAPI != null ? this.downwardAPI.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1DownwardAPIProjection buildDownwardAPI() {
+  public V1DownwardAPIProjection buildDownwardAPI() {
     return this.downwardAPI != null ? this.downwardAPI.build() : null;
   }
 
-  public A withDownwardAPI(
-      io.kubernetes.client.openapi.models.V1DownwardAPIProjection downwardAPI) {
+  public A withDownwardAPI(V1DownwardAPIProjection downwardAPI) {
     _visitables.get("downwardAPI").remove(this.downwardAPI);
     if (downwardAPI != null) {
-      this.downwardAPI =
-          new io.kubernetes.client.openapi.models.V1DownwardAPIProjectionBuilder(downwardAPI);
+      this.downwardAPI = new V1DownwardAPIProjectionBuilder(downwardAPI);
       _visitables.get("downwardAPI").add(this.downwardAPI);
+    } else {
+      this.downwardAPI = null;
+      _visitables.get("downwardAPI").remove(this.downwardAPI);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDownwardAPI() {
+  public Boolean hasDownwardAPI() {
     return this.downwardAPI != null;
   }
 
@@ -125,27 +123,22 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
     return new V1VolumeProjectionFluentImpl.DownwardAPINestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.DownwardAPINested<A>
-      withNewDownwardAPILike(io.kubernetes.client.openapi.models.V1DownwardAPIProjection item) {
-    return new io.kubernetes.client.openapi.models.V1VolumeProjectionFluentImpl
-        .DownwardAPINestedImpl(item);
+  public V1VolumeProjectionFluent.DownwardAPINested<A> withNewDownwardAPILike(
+      V1DownwardAPIProjection item) {
+    return new V1VolumeProjectionFluentImpl.DownwardAPINestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.DownwardAPINested<A>
-      editDownwardAPI() {
+  public V1VolumeProjectionFluent.DownwardAPINested<A> editDownwardAPI() {
     return withNewDownwardAPILike(getDownwardAPI());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.DownwardAPINested<A>
-      editOrNewDownwardAPI() {
+  public V1VolumeProjectionFluent.DownwardAPINested<A> editOrNewDownwardAPI() {
     return withNewDownwardAPILike(
-        getDownwardAPI() != null
-            ? getDownwardAPI()
-            : new io.kubernetes.client.openapi.models.V1DownwardAPIProjectionBuilder().build());
+        getDownwardAPI() != null ? getDownwardAPI() : new V1DownwardAPIProjectionBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.DownwardAPINested<A>
-      editOrNewDownwardAPILike(io.kubernetes.client.openapi.models.V1DownwardAPIProjection item) {
+  public V1VolumeProjectionFluent.DownwardAPINested<A> editOrNewDownwardAPILike(
+      V1DownwardAPIProjection item) {
     return withNewDownwardAPILike(getDownwardAPI() != null ? getDownwardAPI() : item);
   }
 
@@ -154,25 +147,28 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1SecretProjection getSecret() {
+  @Deprecated
+  public V1SecretProjection getSecret() {
     return this.secret != null ? this.secret.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1SecretProjection buildSecret() {
+  public V1SecretProjection buildSecret() {
     return this.secret != null ? this.secret.build() : null;
   }
 
-  public A withSecret(io.kubernetes.client.openapi.models.V1SecretProjection secret) {
+  public A withSecret(V1SecretProjection secret) {
     _visitables.get("secret").remove(this.secret);
     if (secret != null) {
       this.secret = new V1SecretProjectionBuilder(secret);
       _visitables.get("secret").add(this.secret);
+    } else {
+      this.secret = null;
+      _visitables.get("secret").remove(this.secret);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecret() {
+  public Boolean hasSecret() {
     return this.secret != null;
   }
 
@@ -180,26 +176,20 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
     return new V1VolumeProjectionFluentImpl.SecretNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.SecretNested<A>
-      withNewSecretLike(io.kubernetes.client.openapi.models.V1SecretProjection item) {
-    return new io.kubernetes.client.openapi.models.V1VolumeProjectionFluentImpl.SecretNestedImpl(
-        item);
+  public V1VolumeProjectionFluent.SecretNested<A> withNewSecretLike(V1SecretProjection item) {
+    return new V1VolumeProjectionFluentImpl.SecretNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.SecretNested<A> editSecret() {
+  public V1VolumeProjectionFluent.SecretNested<A> editSecret() {
     return withNewSecretLike(getSecret());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.SecretNested<A>
-      editOrNewSecret() {
+  public V1VolumeProjectionFluent.SecretNested<A> editOrNewSecret() {
     return withNewSecretLike(
-        getSecret() != null
-            ? getSecret()
-            : new io.kubernetes.client.openapi.models.V1SecretProjectionBuilder().build());
+        getSecret() != null ? getSecret() : new V1SecretProjectionBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.SecretNested<A>
-      editOrNewSecretLike(io.kubernetes.client.openapi.models.V1SecretProjection item) {
+  public V1VolumeProjectionFluent.SecretNested<A> editOrNewSecretLike(V1SecretProjection item) {
     return withNewSecretLike(getSecret() != null ? getSecret() : item);
   }
 
@@ -208,29 +198,28 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ServiceAccountTokenProjection getServiceAccountToken() {
     return this.serviceAccountToken != null ? this.serviceAccountToken.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection
-      buildServiceAccountToken() {
+  public V1ServiceAccountTokenProjection buildServiceAccountToken() {
     return this.serviceAccountToken != null ? this.serviceAccountToken.build() : null;
   }
 
-  public A withServiceAccountToken(
-      io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection serviceAccountToken) {
+  public A withServiceAccountToken(V1ServiceAccountTokenProjection serviceAccountToken) {
     _visitables.get("serviceAccountToken").remove(this.serviceAccountToken);
     if (serviceAccountToken != null) {
-      this.serviceAccountToken =
-          new io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjectionBuilder(
-              serviceAccountToken);
+      this.serviceAccountToken = new V1ServiceAccountTokenProjectionBuilder(serviceAccountToken);
       _visitables.get("serviceAccountToken").add(this.serviceAccountToken);
+    } else {
+      this.serviceAccountToken = null;
+      _visitables.get("serviceAccountToken").remove(this.serviceAccountToken);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasServiceAccountToken() {
+  public Boolean hasServiceAccountToken() {
     return this.serviceAccountToken != null;
   }
 
@@ -238,30 +227,24 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
     return new V1VolumeProjectionFluentImpl.ServiceAccountTokenNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ServiceAccountTokenNested<A>
-      withNewServiceAccountTokenLike(
-          io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection item) {
-    return new io.kubernetes.client.openapi.models.V1VolumeProjectionFluentImpl
-        .ServiceAccountTokenNestedImpl(item);
+  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> withNewServiceAccountTokenLike(
+      V1ServiceAccountTokenProjection item) {
+    return new V1VolumeProjectionFluentImpl.ServiceAccountTokenNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ServiceAccountTokenNested<A>
-      editServiceAccountToken() {
+  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> editServiceAccountToken() {
     return withNewServiceAccountTokenLike(getServiceAccountToken());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ServiceAccountTokenNested<A>
-      editOrNewServiceAccountToken() {
+  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> editOrNewServiceAccountToken() {
     return withNewServiceAccountTokenLike(
         getServiceAccountToken() != null
             ? getServiceAccountToken()
-            : new io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjectionBuilder()
-                .build());
+            : new V1ServiceAccountTokenProjectionBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ServiceAccountTokenNested<A>
-      editOrNewServiceAccountTokenLike(
-          io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection item) {
+  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> editOrNewServiceAccountTokenLike(
+      V1ServiceAccountTokenProjection item) {
     return withNewServiceAccountTokenLike(
         getServiceAccountToken() != null ? getServiceAccountToken() : item);
   }
@@ -311,17 +294,16 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
 
   class ConfigMapNestedImpl<N>
       extends V1ConfigMapProjectionFluentImpl<V1VolumeProjectionFluent.ConfigMapNested<N>>
-      implements io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.ConfigMapNested<N>,
-          Nested<N> {
+      implements V1VolumeProjectionFluent.ConfigMapNested<N>, Nested<N> {
     ConfigMapNestedImpl(V1ConfigMapProjection item) {
       this.builder = new V1ConfigMapProjectionBuilder(this, item);
     }
 
     ConfigMapNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ConfigMapProjectionBuilder(this);
+      this.builder = new V1ConfigMapProjectionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ConfigMapProjectionBuilder builder;
+    V1ConfigMapProjectionBuilder builder;
 
     public N and() {
       return (N) V1VolumeProjectionFluentImpl.this.withConfigMap(builder.build());
@@ -334,17 +316,16 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
 
   class DownwardAPINestedImpl<N>
       extends V1DownwardAPIProjectionFluentImpl<V1VolumeProjectionFluent.DownwardAPINested<N>>
-      implements io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.DownwardAPINested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1VolumeProjectionFluent.DownwardAPINested<N>, Nested<N> {
     DownwardAPINestedImpl(V1DownwardAPIProjection item) {
       this.builder = new V1DownwardAPIProjectionBuilder(this, item);
     }
 
     DownwardAPINestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1DownwardAPIProjectionBuilder(this);
+      this.builder = new V1DownwardAPIProjectionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1DownwardAPIProjectionBuilder builder;
+    V1DownwardAPIProjectionBuilder builder;
 
     public N and() {
       return (N) V1VolumeProjectionFluentImpl.this.withDownwardAPI(builder.build());
@@ -357,17 +338,16 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
 
   class SecretNestedImpl<N>
       extends V1SecretProjectionFluentImpl<V1VolumeProjectionFluent.SecretNested<N>>
-      implements io.kubernetes.client.openapi.models.V1VolumeProjectionFluent.SecretNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SecretNestedImpl(io.kubernetes.client.openapi.models.V1SecretProjection item) {
+      implements V1VolumeProjectionFluent.SecretNested<N>, Nested<N> {
+    SecretNestedImpl(V1SecretProjection item) {
       this.builder = new V1SecretProjectionBuilder(this, item);
     }
 
     SecretNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1SecretProjectionBuilder(this);
+      this.builder = new V1SecretProjectionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1SecretProjectionBuilder builder;
+    V1SecretProjectionBuilder builder;
 
     public N and() {
       return (N) V1VolumeProjectionFluentImpl.this.withSecret(builder.build());
@@ -381,21 +361,16 @@ public class V1VolumeProjectionFluentImpl<A extends V1VolumeProjectionFluent<A>>
   class ServiceAccountTokenNestedImpl<N>
       extends V1ServiceAccountTokenProjectionFluentImpl<
           V1VolumeProjectionFluent.ServiceAccountTokenNested<N>>
-      implements io.kubernetes.client.openapi.models.V1VolumeProjectionFluent
-                  .ServiceAccountTokenNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    ServiceAccountTokenNestedImpl(
-        io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection item) {
+      implements V1VolumeProjectionFluent.ServiceAccountTokenNested<N>, Nested<N> {
+    ServiceAccountTokenNestedImpl(V1ServiceAccountTokenProjection item) {
       this.builder = new V1ServiceAccountTokenProjectionBuilder(this, item);
     }
 
     ServiceAccountTokenNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjectionBuilder(this);
+      this.builder = new V1ServiceAccountTokenProjectionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjectionBuilder builder;
+    V1ServiceAccountTokenProjectionBuilder builder;
 
     public N and() {
       return (N) V1VolumeProjectionFluentImpl.this.withServiceAccountToken(builder.build());

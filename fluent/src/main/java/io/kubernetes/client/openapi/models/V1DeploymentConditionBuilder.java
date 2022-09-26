@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DeploymentConditionBuilder
     extends V1DeploymentConditionFluentImpl<V1DeploymentConditionBuilder>
-    implements VisitableBuilder<
-        V1DeploymentCondition, io.kubernetes.client.openapi.models.V1DeploymentConditionBuilder> {
+    implements VisitableBuilder<V1DeploymentCondition, V1DeploymentConditionBuilder> {
   public V1DeploymentConditionBuilder() {
     this(false);
   }
@@ -26,27 +25,24 @@ public class V1DeploymentConditionBuilder
     this(new V1DeploymentCondition(), validationEnabled);
   }
 
-  public V1DeploymentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentConditionFluent<?> fluent) {
+  public V1DeploymentConditionBuilder(V1DeploymentConditionFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1DeploymentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1DeploymentConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DeploymentCondition(), validationEnabled);
   }
 
   public V1DeploymentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DeploymentCondition instance) {
+      V1DeploymentConditionFluent<?> fluent, V1DeploymentCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1DeploymentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DeploymentCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1DeploymentConditionFluent<?> fluent,
+      V1DeploymentCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -63,14 +59,11 @@ public class V1DeploymentConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DeploymentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentCondition instance) {
+  public V1DeploymentConditionBuilder(V1DeploymentCondition instance) {
     this(instance, false);
   }
 
-  public V1DeploymentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentCondition instance,
-      java.lang.Boolean validationEnabled) {
+  public V1DeploymentConditionBuilder(V1DeploymentCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -87,10 +80,10 @@ public class V1DeploymentConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DeploymentConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DeploymentConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DeploymentCondition build() {
+  public V1DeploymentCondition build() {
     V1DeploymentCondition buildable = new V1DeploymentCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setLastUpdateTime(fluent.getLastUpdateTime());

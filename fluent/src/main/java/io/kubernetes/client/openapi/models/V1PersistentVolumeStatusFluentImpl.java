@@ -20,8 +20,7 @@ public class V1PersistentVolumeStatusFluentImpl<A extends V1PersistentVolumeStat
     extends BaseFluent<A> implements V1PersistentVolumeStatusFluent<A> {
   public V1PersistentVolumeStatusFluentImpl() {}
 
-  public V1PersistentVolumeStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeStatus instance) {
+  public V1PersistentVolumeStatusFluentImpl(V1PersistentVolumeStatus instance) {
     this.withMessage(instance.getMessage());
 
     this.withPhase(instance.getPhase());
@@ -30,14 +29,14 @@ public class V1PersistentVolumeStatusFluentImpl<A extends V1PersistentVolumeStat
   }
 
   private String message;
-  private java.lang.String phase;
-  private java.lang.String reason;
+  private String phase;
+  private String reason;
 
-  public java.lang.String getMessage() {
+  public String getMessage() {
     return this.message;
   }
 
-  public A withMessage(java.lang.String message) {
+  public A withMessage(String message) {
     this.message = message;
     return (A) this;
   }
@@ -46,29 +45,29 @@ public class V1PersistentVolumeStatusFluentImpl<A extends V1PersistentVolumeStat
     return this.message != null;
   }
 
-  public java.lang.String getPhase() {
+  public String getPhase() {
     return this.phase;
   }
 
-  public A withPhase(java.lang.String phase) {
+  public A withPhase(String phase) {
     this.phase = phase;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPhase() {
+  public Boolean hasPhase() {
     return this.phase != null;
   }
 
-  public java.lang.String getReason() {
+  public String getReason() {
     return this.reason;
   }
 
-  public A withReason(java.lang.String reason) {
+  public A withReason(String reason) {
     this.reason = reason;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReason() {
+  public Boolean hasReason() {
     return this.reason != null;
   }
 
@@ -86,7 +85,7 @@ public class V1PersistentVolumeStatusFluentImpl<A extends V1PersistentVolumeStat
     return java.util.Objects.hash(message, phase, reason, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (message != null) {

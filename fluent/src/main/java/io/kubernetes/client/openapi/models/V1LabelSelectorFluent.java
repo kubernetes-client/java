@@ -23,20 +23,17 @@ import java.util.function.Predicate;
 public interface V1LabelSelectorFluent<A extends V1LabelSelectorFluent<A>> extends Fluent<A> {
   public A addToMatchExpressions(Integer index, V1LabelSelectorRequirement item);
 
-  public A setToMatchExpressions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1LabelSelectorRequirement item);
+  public A setToMatchExpressions(Integer index, V1LabelSelectorRequirement item);
 
   public A addToMatchExpressions(
       io.kubernetes.client.openapi.models.V1LabelSelectorRequirement... items);
 
-  public A addAllToMatchExpressions(
-      Collection<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement> items);
+  public A addAllToMatchExpressions(Collection<V1LabelSelectorRequirement> items);
 
   public A removeFromMatchExpressions(
       io.kubernetes.client.openapi.models.V1LabelSelectorRequirement... items);
 
-  public A removeAllFromMatchExpressions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement> items);
+  public A removeAllFromMatchExpressions(Collection<V1LabelSelectorRequirement> items);
 
   public A removeMatchingFromMatchExpressions(
       Predicate<V1LabelSelectorRequirementBuilder> predicate);
@@ -47,77 +44,58 @@ public interface V1LabelSelectorFluent<A extends V1LabelSelectorFluent<A>> exten
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement> getMatchExpressions();
+  public List<V1LabelSelectorRequirement> getMatchExpressions();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement>
-      buildMatchExpressions();
+  public List<V1LabelSelectorRequirement> buildMatchExpressions();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorRequirement buildMatchExpression(
-      java.lang.Integer index);
+  public V1LabelSelectorRequirement buildMatchExpression(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorRequirement buildFirstMatchExpression();
+  public V1LabelSelectorRequirement buildFirstMatchExpression();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorRequirement buildLastMatchExpression();
+  public V1LabelSelectorRequirement buildLastMatchExpression();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorRequirement
-      buildMatchingMatchExpression(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder>
-              predicate);
+  public V1LabelSelectorRequirement buildMatchingMatchExpression(
+      Predicate<V1LabelSelectorRequirementBuilder> predicate);
 
-  public Boolean hasMatchingMatchExpression(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder>
-          predicate);
+  public Boolean hasMatchingMatchExpression(Predicate<V1LabelSelectorRequirementBuilder> predicate);
 
-  public A withMatchExpressions(
-      java.util.List<io.kubernetes.client.openapi.models.V1LabelSelectorRequirement>
-          matchExpressions);
+  public A withMatchExpressions(List<V1LabelSelectorRequirement> matchExpressions);
 
   public A withMatchExpressions(
       io.kubernetes.client.openapi.models.V1LabelSelectorRequirement... matchExpressions);
 
-  public java.lang.Boolean hasMatchExpressions();
+  public Boolean hasMatchExpressions();
 
   public V1LabelSelectorFluent.MatchExpressionsNested<A> addNewMatchExpression();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorFluent.MatchExpressionsNested<A>
-      addNewMatchExpressionLike(
-          io.kubernetes.client.openapi.models.V1LabelSelectorRequirement item);
+  public V1LabelSelectorFluent.MatchExpressionsNested<A> addNewMatchExpressionLike(
+      V1LabelSelectorRequirement item);
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorFluent.MatchExpressionsNested<A>
-      setNewMatchExpressionLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1LabelSelectorRequirement item);
+  public V1LabelSelectorFluent.MatchExpressionsNested<A> setNewMatchExpressionLike(
+      Integer index, V1LabelSelectorRequirement item);
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorFluent.MatchExpressionsNested<A>
-      editMatchExpression(java.lang.Integer index);
+  public V1LabelSelectorFluent.MatchExpressionsNested<A> editMatchExpression(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorFluent.MatchExpressionsNested<A>
-      editFirstMatchExpression();
+  public V1LabelSelectorFluent.MatchExpressionsNested<A> editFirstMatchExpression();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorFluent.MatchExpressionsNested<A>
-      editLastMatchExpression();
+  public V1LabelSelectorFluent.MatchExpressionsNested<A> editLastMatchExpression();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelectorFluent.MatchExpressionsNested<A>
-      editMatchingMatchExpression(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1LabelSelectorRequirementBuilder>
-              predicate);
+  public V1LabelSelectorFluent.MatchExpressionsNested<A> editMatchingMatchExpression(
+      Predicate<V1LabelSelectorRequirementBuilder> predicate);
 
-  public A addToMatchLabels(String key, java.lang.String value);
+  public A addToMatchLabels(String key, String value);
 
-  public A addToMatchLabels(Map<java.lang.String, java.lang.String> map);
+  public A addToMatchLabels(Map<String, String> map);
 
-  public A removeFromMatchLabels(java.lang.String key);
+  public A removeFromMatchLabels(String key);
 
-  public A removeFromMatchLabels(java.util.Map<java.lang.String, java.lang.String> map);
+  public A removeFromMatchLabels(Map<String, String> map);
 
-  public java.util.Map<java.lang.String, java.lang.String> getMatchLabels();
+  public Map<String, String> getMatchLabels();
 
-  public <K, V> A withMatchLabels(java.util.Map<java.lang.String, java.lang.String> matchLabels);
+  public <K, V> A withMatchLabels(Map<String, String> matchLabels);
 
-  public java.lang.Boolean hasMatchLabels();
+  public Boolean hasMatchLabels();
 
   public interface MatchExpressionsNested<N>
       extends Nested<N>,

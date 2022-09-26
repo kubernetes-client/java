@@ -26,7 +26,7 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
     implements V1ServiceStatusFluent<A> {
   public V1ServiceStatusFluentImpl() {}
 
-  public V1ServiceStatusFluentImpl(io.kubernetes.client.openapi.models.V1ServiceStatus instance) {
+  public V1ServiceStatusFluentImpl(V1ServiceStatus instance) {
     this.withConditions(instance.getConditions());
 
     this.withLoadBalancer(instance.getLoadBalancer());
@@ -37,11 +37,9 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
 
   public A addToConditions(Integer index, V1Condition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder>();
+      this.conditions = new ArrayList<V1ConditionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+    V1ConditionBuilder builder = new V1ConditionBuilder(item);
     _visitables
         .get("conditions")
         .add(index >= 0 ? index : _visitables.get("conditions").size(), builder);
@@ -49,14 +47,11 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
     return (A) this;
   }
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Condition item) {
+  public A setToConditions(Integer index, V1Condition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder>();
+      this.conditions = new ArrayList<V1ConditionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+    V1ConditionBuilder builder = new V1ConditionBuilder(item);
     if (index < 0 || index >= _visitables.get("conditions").size()) {
       _visitables.get("conditions").add(builder);
     } else {
@@ -72,26 +67,22 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1Condition... items) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder>();
+      this.conditions = new ArrayList<V1ConditionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Condition item : items) {
-      io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+    for (V1Condition item : items) {
+      V1ConditionBuilder builder = new V1ConditionBuilder(item);
       _visitables.get("conditions").add(builder);
       this.conditions.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToConditions(Collection<io.kubernetes.client.openapi.models.V1Condition> items) {
+  public A addAllToConditions(Collection<V1Condition> items) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder>();
+      this.conditions = new ArrayList<V1ConditionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Condition item : items) {
-      io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+    for (V1Condition item : items) {
+      V1ConditionBuilder builder = new V1ConditionBuilder(item);
       _visitables.get("conditions").add(builder);
       this.conditions.add(builder);
     }
@@ -99,9 +90,8 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
   }
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1Condition... items) {
-    for (io.kubernetes.client.openapi.models.V1Condition item : items) {
-      io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+    for (V1Condition item : items) {
+      V1ConditionBuilder builder = new V1ConditionBuilder(item);
       _visitables.get("conditions").remove(builder);
       if (this.conditions != null) {
         this.conditions.remove(builder);
@@ -110,11 +100,9 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
     return (A) this;
   }
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Condition> items) {
-    for (io.kubernetes.client.openapi.models.V1Condition item : items) {
-      io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+  public A removeAllFromConditions(Collection<V1Condition> items) {
+    for (V1Condition item : items) {
+      V1ConditionBuilder builder = new V1ConditionBuilder(item);
       _visitables.get("conditions").remove(builder);
       if (this.conditions != null) {
         this.conditions.remove(builder);
@@ -123,14 +111,12 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
     return (A) this;
   }
 
-  public A removeMatchingFromConditions(
-      Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder> predicate) {
+  public A removeMatchingFromConditions(Predicate<V1ConditionBuilder> predicate) {
     if (conditions == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ConditionBuilder> each =
-        conditions.iterator();
+    final Iterator<V1ConditionBuilder> each = conditions.iterator();
     final List visitables = _visitables.get("conditions");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ConditionBuilder builder = each.next();
+      V1ConditionBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -145,30 +131,28 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1Condition> getConditions() {
+  public List<V1Condition> getConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1Condition> buildConditions() {
+  public List<V1Condition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1Condition buildCondition(java.lang.Integer index) {
+  public V1Condition buildCondition(Integer index) {
     return this.conditions.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Condition buildFirstCondition() {
+  public V1Condition buildFirstCondition() {
     return this.conditions.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Condition buildLastCondition() {
+  public V1Condition buildLastCondition() {
     return this.conditions.get(conditions.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Condition buildMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ConditionBuilder item : conditions) {
+  public V1Condition buildMatchingCondition(Predicate<V1ConditionBuilder> predicate) {
+    for (V1ConditionBuilder item : conditions) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -176,10 +160,8 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
     return null;
   }
 
-  public Boolean hasMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ConditionBuilder item : conditions) {
+  public Boolean hasMatchingCondition(Predicate<V1ConditionBuilder> predicate) {
+    for (V1ConditionBuilder item : conditions) {
       if (predicate.test(item)) {
         return true;
       }
@@ -187,14 +169,13 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
     return false;
   }
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1Condition> conditions) {
+  public A withConditions(List<V1Condition> conditions) {
     if (this.conditions != null) {
       _visitables.get("conditions").removeAll(this.conditions);
     }
     if (conditions != null) {
-      this.conditions = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1Condition item : conditions) {
+      this.conditions = new ArrayList();
+      for (V1Condition item : conditions) {
         this.addToConditions(item);
       }
     } else {
@@ -208,14 +189,14 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
       this.conditions.clear();
     }
     if (conditions != null) {
-      for (io.kubernetes.client.openapi.models.V1Condition item : conditions) {
+      for (V1Condition item : conditions) {
         this.addToConditions(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasConditions() {
+  public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
 
@@ -223,43 +204,35 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
     return new V1ServiceStatusFluentImpl.ConditionsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1Condition item) {
+  public V1ServiceStatusFluent.ConditionsNested<A> addNewConditionLike(V1Condition item) {
     return new V1ServiceStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1Condition item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceStatusFluentImpl.ConditionsNestedImpl(
-        index, item);
+  public V1ServiceStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1Condition item) {
+    return new V1ServiceStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<A>
-      editCondition(java.lang.Integer index) {
+  public V1ServiceStatusFluent.ConditionsNested<A> editCondition(Integer index) {
     if (conditions.size() <= index)
       throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<A>
-      editFirstCondition() {
+  public V1ServiceStatusFluent.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0)
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<A>
-      editLastCondition() {
+  public V1ServiceStatusFluent.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-              predicate) {
+  public V1ServiceStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1ConditionBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < conditions.size(); i++) {
       if (predicate.test(conditions.get(i))) {
@@ -276,25 +249,28 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1LoadBalancerStatus getLoadBalancer() {
+  @Deprecated
+  public V1LoadBalancerStatus getLoadBalancer() {
     return this.loadBalancer != null ? this.loadBalancer.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerStatus buildLoadBalancer() {
+  public V1LoadBalancerStatus buildLoadBalancer() {
     return this.loadBalancer != null ? this.loadBalancer.build() : null;
   }
 
-  public A withLoadBalancer(io.kubernetes.client.openapi.models.V1LoadBalancerStatus loadBalancer) {
+  public A withLoadBalancer(V1LoadBalancerStatus loadBalancer) {
     _visitables.get("loadBalancer").remove(this.loadBalancer);
     if (loadBalancer != null) {
       this.loadBalancer = new V1LoadBalancerStatusBuilder(loadBalancer);
       _visitables.get("loadBalancer").add(this.loadBalancer);
+    } else {
+      this.loadBalancer = null;
+      _visitables.get("loadBalancer").remove(this.loadBalancer);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasLoadBalancer() {
+  public Boolean hasLoadBalancer() {
     return this.loadBalancer != null;
   }
 
@@ -302,27 +278,22 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
     return new V1ServiceStatusFluentImpl.LoadBalancerNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.LoadBalancerNested<A>
-      withNewLoadBalancerLike(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item) {
-    return new io.kubernetes.client.openapi.models.V1ServiceStatusFluentImpl.LoadBalancerNestedImpl(
-        item);
+  public V1ServiceStatusFluent.LoadBalancerNested<A> withNewLoadBalancerLike(
+      V1LoadBalancerStatus item) {
+    return new V1ServiceStatusFluentImpl.LoadBalancerNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.LoadBalancerNested<A>
-      editLoadBalancer() {
+  public V1ServiceStatusFluent.LoadBalancerNested<A> editLoadBalancer() {
     return withNewLoadBalancerLike(getLoadBalancer());
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.LoadBalancerNested<A>
-      editOrNewLoadBalancer() {
+  public V1ServiceStatusFluent.LoadBalancerNested<A> editOrNewLoadBalancer() {
     return withNewLoadBalancerLike(
-        getLoadBalancer() != null
-            ? getLoadBalancer()
-            : new io.kubernetes.client.openapi.models.V1LoadBalancerStatusBuilder().build());
+        getLoadBalancer() != null ? getLoadBalancer() : new V1LoadBalancerStatusBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1ServiceStatusFluent.LoadBalancerNested<A>
-      editOrNewLoadBalancerLike(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item) {
+  public V1ServiceStatusFluent.LoadBalancerNested<A> editOrNewLoadBalancerLike(
+      V1LoadBalancerStatus item) {
     return withNewLoadBalancerLike(getLoadBalancer() != null ? getLoadBalancer() : item);
   }
 
@@ -358,20 +329,19 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
 
   class ConditionsNestedImpl<N>
       extends V1ConditionFluentImpl<V1ServiceStatusFluent.ConditionsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ServiceStatusFluent.ConditionsNested<N>,
-          Nested<N> {
-    ConditionsNestedImpl(java.lang.Integer index, V1Condition item) {
+      implements V1ServiceStatusFluent.ConditionsNested<N>, Nested<N> {
+    ConditionsNestedImpl(Integer index, V1Condition item) {
       this.index = index;
       this.builder = new V1ConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ConditionBuilder(this);
+      this.builder = new V1ConditionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ConditionBuilder builder;
-    java.lang.Integer index;
+    V1ConditionBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1ServiceStatusFluentImpl.this.setToConditions(index, builder.build());
@@ -384,17 +354,16 @@ public class V1ServiceStatusFluentImpl<A extends V1ServiceStatusFluent<A>> exten
 
   class LoadBalancerNestedImpl<N>
       extends V1LoadBalancerStatusFluentImpl<V1ServiceStatusFluent.LoadBalancerNested<N>>
-      implements io.kubernetes.client.openapi.models.V1ServiceStatusFluent.LoadBalancerNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    LoadBalancerNestedImpl(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item) {
+      implements V1ServiceStatusFluent.LoadBalancerNested<N>, Nested<N> {
+    LoadBalancerNestedImpl(V1LoadBalancerStatus item) {
       this.builder = new V1LoadBalancerStatusBuilder(this, item);
     }
 
     LoadBalancerNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1LoadBalancerStatusBuilder(this);
+      this.builder = new V1LoadBalancerStatusBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1LoadBalancerStatusBuilder builder;
+    V1LoadBalancerStatusBuilder builder;
 
     public N and() {
       return (N) V1ServiceStatusFluentImpl.this.withLoadBalancer(builder.build());

@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PersistentVolumeStatusBuilder
     extends V1PersistentVolumeStatusFluentImpl<V1PersistentVolumeStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PersistentVolumeStatus,
-        io.kubernetes.client.openapi.models.V1PersistentVolumeStatusBuilder> {
+    implements VisitableBuilder<V1PersistentVolumeStatus, V1PersistentVolumeStatusBuilder> {
   public V1PersistentVolumeStatusBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1PersistentVolumeStatusBuilder
   }
 
   public V1PersistentVolumeStatusBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1PersistentVolumeStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PersistentVolumeStatus(), validationEnabled);
   }
 
   public V1PersistentVolumeStatusBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PersistentVolumeStatus instance) {
+      V1PersistentVolumeStatusFluent<?> fluent, V1PersistentVolumeStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1PersistentVolumeStatusBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PersistentVolumeStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1PersistentVolumeStatusFluent<?> fluent,
+      V1PersistentVolumeStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMessage(instance.getMessage());
 
@@ -57,14 +53,12 @@ public class V1PersistentVolumeStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PersistentVolumeStatusBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeStatus instance) {
+  public V1PersistentVolumeStatusBuilder(V1PersistentVolumeStatus instance) {
     this(instance, false);
   }
 
   public V1PersistentVolumeStatusBuilder(
-      io.kubernetes.client.openapi.models.V1PersistentVolumeStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1PersistentVolumeStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMessage(instance.getMessage());
 
@@ -75,10 +69,10 @@ public class V1PersistentVolumeStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PersistentVolumeStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PersistentVolumeStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PersistentVolumeStatus build() {
+  public V1PersistentVolumeStatus build() {
     V1PersistentVolumeStatus buildable = new V1PersistentVolumeStatus();
     buildable.setMessage(fluent.getMessage());
     buildable.setPhase(fluent.getPhase());

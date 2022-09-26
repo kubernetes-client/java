@@ -29,8 +29,7 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     extends BaseFluent<A> implements V1PodDisruptionBudgetStatusFluent<A> {
   public V1PodDisruptionBudgetStatusFluentImpl() {}
 
-  public V1PodDisruptionBudgetStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatus instance) {
+  public V1PodDisruptionBudgetStatusFluentImpl(V1PodDisruptionBudgetStatus instance) {
     this.withConditions(instance.getConditions());
 
     this.withCurrentHealthy(instance.getCurrentHealthy());
@@ -48,19 +47,17 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
 
   private ArrayList<V1ConditionBuilder> conditions;
   private Integer currentHealthy;
-  private java.lang.Integer desiredHealthy;
+  private Integer desiredHealthy;
   private Map<String, OffsetDateTime> disruptedPods;
-  private java.lang.Integer disruptionsAllowed;
-  private java.lang.Integer expectedPods;
+  private Integer disruptionsAllowed;
+  private Integer expectedPods;
   private Long observedGeneration;
 
-  public A addToConditions(java.lang.Integer index, V1Condition item) {
+  public A addToConditions(Integer index, V1Condition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder>();
+      this.conditions = new ArrayList<V1ConditionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+    V1ConditionBuilder builder = new V1ConditionBuilder(item);
     _visitables
         .get("conditions")
         .add(index >= 0 ? index : _visitables.get("conditions").size(), builder);
@@ -68,14 +65,11 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return (A) this;
   }
 
-  public A setToConditions(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1Condition item) {
+  public A setToConditions(Integer index, V1Condition item) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder>();
+      this.conditions = new ArrayList<V1ConditionBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-        new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+    V1ConditionBuilder builder = new V1ConditionBuilder(item);
     if (index < 0 || index >= _visitables.get("conditions").size()) {
       _visitables.get("conditions").add(builder);
     } else {
@@ -91,26 +85,22 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
 
   public A addToConditions(io.kubernetes.client.openapi.models.V1Condition... items) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder>();
+      this.conditions = new ArrayList<V1ConditionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Condition item : items) {
-      io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+    for (V1Condition item : items) {
+      V1ConditionBuilder builder = new V1ConditionBuilder(item);
       _visitables.get("conditions").add(builder);
       this.conditions.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToConditions(Collection<io.kubernetes.client.openapi.models.V1Condition> items) {
+  public A addAllToConditions(Collection<V1Condition> items) {
     if (this.conditions == null) {
-      this.conditions =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1ConditionBuilder>();
+      this.conditions = new ArrayList<V1ConditionBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1Condition item : items) {
-      io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+    for (V1Condition item : items) {
+      V1ConditionBuilder builder = new V1ConditionBuilder(item);
       _visitables.get("conditions").add(builder);
       this.conditions.add(builder);
     }
@@ -118,9 +108,8 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
   }
 
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1Condition... items) {
-    for (io.kubernetes.client.openapi.models.V1Condition item : items) {
-      io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+    for (V1Condition item : items) {
+      V1ConditionBuilder builder = new V1ConditionBuilder(item);
       _visitables.get("conditions").remove(builder);
       if (this.conditions != null) {
         this.conditions.remove(builder);
@@ -129,11 +118,9 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return (A) this;
   }
 
-  public A removeAllFromConditions(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1Condition> items) {
-    for (io.kubernetes.client.openapi.models.V1Condition item : items) {
-      io.kubernetes.client.openapi.models.V1ConditionBuilder builder =
-          new io.kubernetes.client.openapi.models.V1ConditionBuilder(item);
+  public A removeAllFromConditions(Collection<V1Condition> items) {
+    for (V1Condition item : items) {
+      V1ConditionBuilder builder = new V1ConditionBuilder(item);
       _visitables.get("conditions").remove(builder);
       if (this.conditions != null) {
         this.conditions.remove(builder);
@@ -142,14 +129,12 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return (A) this;
   }
 
-  public A removeMatchingFromConditions(
-      Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder> predicate) {
+  public A removeMatchingFromConditions(Predicate<V1ConditionBuilder> predicate) {
     if (conditions == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1ConditionBuilder> each =
-        conditions.iterator();
+    final Iterator<V1ConditionBuilder> each = conditions.iterator();
     final List visitables = _visitables.get("conditions");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1ConditionBuilder builder = each.next();
+      V1ConditionBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -164,30 +149,28 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1Condition> getConditions() {
+  public List<V1Condition> getConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1Condition> buildConditions() {
+  public List<V1Condition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1Condition buildCondition(java.lang.Integer index) {
+  public V1Condition buildCondition(Integer index) {
     return this.conditions.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Condition buildFirstCondition() {
+  public V1Condition buildFirstCondition() {
     return this.conditions.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Condition buildLastCondition() {
+  public V1Condition buildLastCondition() {
     return this.conditions.get(conditions.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1Condition buildMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ConditionBuilder item : conditions) {
+  public V1Condition buildMatchingCondition(Predicate<V1ConditionBuilder> predicate) {
+    for (V1ConditionBuilder item : conditions) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -195,10 +178,8 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return null;
   }
 
-  public Boolean hasMatchingCondition(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1ConditionBuilder item : conditions) {
+  public Boolean hasMatchingCondition(Predicate<V1ConditionBuilder> predicate) {
+    for (V1ConditionBuilder item : conditions) {
       if (predicate.test(item)) {
         return true;
       }
@@ -206,14 +187,13 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return false;
   }
 
-  public A withConditions(
-      java.util.List<io.kubernetes.client.openapi.models.V1Condition> conditions) {
+  public A withConditions(List<V1Condition> conditions) {
     if (this.conditions != null) {
       _visitables.get("conditions").removeAll(this.conditions);
     }
     if (conditions != null) {
-      this.conditions = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1Condition item : conditions) {
+      this.conditions = new ArrayList();
+      for (V1Condition item : conditions) {
         this.addToConditions(item);
       }
     } else {
@@ -227,14 +207,14 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
       this.conditions.clear();
     }
     if (conditions != null) {
-      for (io.kubernetes.client.openapi.models.V1Condition item : conditions) {
+      for (V1Condition item : conditions) {
         this.addToConditions(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasConditions() {
+  public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
 
@@ -242,43 +222,36 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return new V1PodDisruptionBudgetStatusFluentImpl.ConditionsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      addNewConditionLike(io.kubernetes.client.openapi.models.V1Condition item) {
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> addNewConditionLike(
+      V1Condition item) {
     return new V1PodDisruptionBudgetStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      setNewConditionLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1Condition item) {
-    return new io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluentImpl
-        .ConditionsNestedImpl(index, item);
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> setNewConditionLike(
+      Integer index, V1Condition item) {
+    return new V1PodDisruptionBudgetStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      editCondition(java.lang.Integer index) {
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editCondition(Integer index) {
     if (conditions.size() <= index)
       throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      editFirstCondition() {
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0)
       throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      editLastCondition() {
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent.ConditionsNested<A>
-      editMatchingCondition(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ConditionBuilder>
-              predicate) {
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editMatchingCondition(
+      Predicate<V1ConditionBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < conditions.size(); i++) {
       if (predicate.test(conditions.get(i))) {
@@ -290,33 +263,33 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return setNewConditionLike(index, buildCondition(index));
   }
 
-  public java.lang.Integer getCurrentHealthy() {
+  public Integer getCurrentHealthy() {
     return this.currentHealthy;
   }
 
-  public A withCurrentHealthy(java.lang.Integer currentHealthy) {
+  public A withCurrentHealthy(Integer currentHealthy) {
     this.currentHealthy = currentHealthy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasCurrentHealthy() {
+  public Boolean hasCurrentHealthy() {
     return this.currentHealthy != null;
   }
 
-  public java.lang.Integer getDesiredHealthy() {
+  public Integer getDesiredHealthy() {
     return this.desiredHealthy;
   }
 
-  public A withDesiredHealthy(java.lang.Integer desiredHealthy) {
+  public A withDesiredHealthy(Integer desiredHealthy) {
     this.desiredHealthy = desiredHealthy;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDesiredHealthy() {
+  public Boolean hasDesiredHealthy() {
     return this.desiredHealthy != null;
   }
 
-  public A addToDisruptedPods(java.lang.String key, java.time.OffsetDateTime value) {
+  public A addToDisruptedPods(String key, OffsetDateTime value) {
     if (this.disruptedPods == null && key != null && value != null) {
       this.disruptedPods = new LinkedHashMap();
     }
@@ -326,9 +299,9 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return (A) this;
   }
 
-  public A addToDisruptedPods(java.util.Map<java.lang.String, java.time.OffsetDateTime> map) {
+  public A addToDisruptedPods(Map<String, OffsetDateTime> map) {
     if (this.disruptedPods == null && map != null) {
-      this.disruptedPods = new java.util.LinkedHashMap();
+      this.disruptedPods = new LinkedHashMap();
     }
     if (map != null) {
       this.disruptedPods.putAll(map);
@@ -336,7 +309,7 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return (A) this;
   }
 
-  public A removeFromDisruptedPods(java.lang.String key) {
+  public A removeFromDisruptedPods(String key) {
     if (this.disruptedPods == null) {
       return (A) this;
     }
@@ -346,7 +319,7 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return (A) this;
   }
 
-  public A removeFromDisruptedPods(java.util.Map<java.lang.String, java.time.OffsetDateTime> map) {
+  public A removeFromDisruptedPods(Map<String, OffsetDateTime> map) {
     if (this.disruptedPods == null) {
       return (A) this;
     }
@@ -360,60 +333,59 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, java.time.OffsetDateTime> getDisruptedPods() {
+  public Map<String, OffsetDateTime> getDisruptedPods() {
     return this.disruptedPods;
   }
 
-  public <K, V> A withDisruptedPods(
-      java.util.Map<java.lang.String, java.time.OffsetDateTime> disruptedPods) {
+  public <K, V> A withDisruptedPods(Map<String, OffsetDateTime> disruptedPods) {
     if (disruptedPods == null) {
       this.disruptedPods = null;
     } else {
-      this.disruptedPods = new java.util.LinkedHashMap(disruptedPods);
+      this.disruptedPods = new LinkedHashMap(disruptedPods);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDisruptedPods() {
+  public Boolean hasDisruptedPods() {
     return this.disruptedPods != null;
   }
 
-  public java.lang.Integer getDisruptionsAllowed() {
+  public Integer getDisruptionsAllowed() {
     return this.disruptionsAllowed;
   }
 
-  public A withDisruptionsAllowed(java.lang.Integer disruptionsAllowed) {
+  public A withDisruptionsAllowed(Integer disruptionsAllowed) {
     this.disruptionsAllowed = disruptionsAllowed;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDisruptionsAllowed() {
+  public Boolean hasDisruptionsAllowed() {
     return this.disruptionsAllowed != null;
   }
 
-  public java.lang.Integer getExpectedPods() {
+  public Integer getExpectedPods() {
     return this.expectedPods;
   }
 
-  public A withExpectedPods(java.lang.Integer expectedPods) {
+  public A withExpectedPods(Integer expectedPods) {
     this.expectedPods = expectedPods;
     return (A) this;
   }
 
-  public java.lang.Boolean hasExpectedPods() {
+  public Boolean hasExpectedPods() {
     return this.expectedPods != null;
   }
 
-  public java.lang.Long getObservedGeneration() {
+  public Long getObservedGeneration() {
     return this.observedGeneration;
   }
 
-  public A withObservedGeneration(java.lang.Long observedGeneration) {
+  public A withObservedGeneration(Long observedGeneration) {
     this.observedGeneration = observedGeneration;
     return (A) this;
   }
 
-  public java.lang.Boolean hasObservedGeneration() {
+  public Boolean hasObservedGeneration() {
     return this.observedGeneration != null;
   }
 
@@ -455,7 +427,7 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (conditions != null && !conditions.isEmpty()) {
@@ -492,22 +464,19 @@ public class V1PodDisruptionBudgetStatusFluentImpl<A extends V1PodDisruptionBudg
 
   class ConditionsNestedImpl<N>
       extends V1ConditionFluentImpl<V1PodDisruptionBudgetStatusFluent.ConditionsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodDisruptionBudgetStatusFluent
-                  .ConditionsNested<
-              N>,
-          Nested<N> {
-    ConditionsNestedImpl(java.lang.Integer index, V1Condition item) {
+      implements V1PodDisruptionBudgetStatusFluent.ConditionsNested<N>, Nested<N> {
+    ConditionsNestedImpl(Integer index, V1Condition item) {
       this.index = index;
       this.builder = new V1ConditionBuilder(this, item);
     }
 
     ConditionsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1ConditionBuilder(this);
+      this.builder = new V1ConditionBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ConditionBuilder builder;
-    java.lang.Integer index;
+    V1ConditionBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1PodDisruptionBudgetStatusFluentImpl.this.setToConditions(index, builder.build());

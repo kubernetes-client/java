@@ -20,7 +20,7 @@ public class V1KeyToPathFluentImpl<A extends V1KeyToPathFluent<A>> extends BaseF
     implements V1KeyToPathFluent<A> {
   public V1KeyToPathFluentImpl() {}
 
-  public V1KeyToPathFluentImpl(io.kubernetes.client.openapi.models.V1KeyToPath instance) {
+  public V1KeyToPathFluentImpl(V1KeyToPath instance) {
     this.withKey(instance.getKey());
 
     this.withMode(instance.getMode());
@@ -30,13 +30,13 @@ public class V1KeyToPathFluentImpl<A extends V1KeyToPathFluent<A>> extends BaseF
 
   private String key;
   private Integer mode;
-  private java.lang.String path;
+  private String path;
 
-  public java.lang.String getKey() {
+  public String getKey() {
     return this.key;
   }
 
-  public A withKey(java.lang.String key) {
+  public A withKey(String key) {
     this.key = key;
     return (A) this;
   }
@@ -45,29 +45,29 @@ public class V1KeyToPathFluentImpl<A extends V1KeyToPathFluent<A>> extends BaseF
     return this.key != null;
   }
 
-  public java.lang.Integer getMode() {
+  public Integer getMode() {
     return this.mode;
   }
 
-  public A withMode(java.lang.Integer mode) {
+  public A withMode(Integer mode) {
     this.mode = mode;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMode() {
+  public Boolean hasMode() {
     return this.mode != null;
   }
 
-  public java.lang.String getPath() {
+  public String getPath() {
     return this.path;
   }
 
-  public A withPath(java.lang.String path) {
+  public A withPath(String path) {
     this.path = path;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPath() {
+  public Boolean hasPath() {
     return this.path != null;
   }
 
@@ -85,7 +85,7 @@ public class V1KeyToPathFluentImpl<A extends V1KeyToPathFluent<A>> extends BaseF
     return java.util.Objects.hash(key, mode, path, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (key != null) {

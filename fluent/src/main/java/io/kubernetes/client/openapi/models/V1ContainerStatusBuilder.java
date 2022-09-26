@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ContainerStatusBuilder extends V1ContainerStatusFluentImpl<V1ContainerStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ContainerStatus, V1ContainerStatusBuilder> {
+    implements VisitableBuilder<V1ContainerStatus, V1ContainerStatusBuilder> {
   public V1ContainerStatusBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1ContainerStatusBuilder extends V1ContainerStatusFluentImpl<V1Cont
     this(fluent, false);
   }
 
-  public V1ContainerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ContainerStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ContainerStatusBuilder(V1ContainerStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ContainerStatus(), validationEnabled);
   }
 
-  public V1ContainerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ContainerStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ContainerStatus instance) {
+  public V1ContainerStatusBuilder(V1ContainerStatusFluent<?> fluent, V1ContainerStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1ContainerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ContainerStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ContainerStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1ContainerStatusFluent<?> fluent, V1ContainerStatus instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withContainerID(instance.getContainerID());
 
@@ -67,13 +60,11 @@ public class V1ContainerStatusBuilder extends V1ContainerStatusFluentImpl<V1Cont
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ContainerStatusBuilder(io.kubernetes.client.openapi.models.V1ContainerStatus instance) {
+  public V1ContainerStatusBuilder(V1ContainerStatus instance) {
     this(instance, false);
   }
 
-  public V1ContainerStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ContainerStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ContainerStatusBuilder(V1ContainerStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withContainerID(instance.getContainerID());
 
@@ -96,10 +87,10 @@ public class V1ContainerStatusBuilder extends V1ContainerStatusFluentImpl<V1Cont
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ContainerStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ContainerStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ContainerStatus build() {
+  public V1ContainerStatus build() {
     V1ContainerStatus buildable = new V1ContainerStatus();
     buildable.setContainerID(fluent.getContainerID());
     buildable.setImage(fluent.getImage());

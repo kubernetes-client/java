@@ -18,21 +18,21 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1NFSVolumeSourceFluent<A extends V1NFSVolumeSourceFluent<A>> extends Fluent<A> {
   public String getPath();
 
-  public A withPath(java.lang.String path);
+  public A withPath(String path);
 
   public Boolean hasPath();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
-  public java.lang.String getServer();
+  public String getServer();
 
-  public A withServer(java.lang.String server);
+  public A withServer(String server);
 
-  public java.lang.Boolean hasServer();
+  public Boolean hasServer();
 
   public A withReadOnly();
 }

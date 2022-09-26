@@ -21,33 +21,29 @@ public interface V1ResourceRequirementsFluent<A extends V1ResourceRequirementsFl
     extends Fluent<A> {
   public A addToLimits(String key, Quantity value);
 
-  public A addToLimits(Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A addToLimits(Map<String, Quantity> map);
 
-  public A removeFromLimits(java.lang.String key);
+  public A removeFromLimits(String key);
 
-  public A removeFromLimits(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A removeFromLimits(Map<String, Quantity> map);
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getLimits();
+  public Map<String, Quantity> getLimits();
 
-  public <K, V> A withLimits(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> limits);
+  public <K, V> A withLimits(Map<String, Quantity> limits);
 
   public Boolean hasLimits();
 
-  public A addToRequests(java.lang.String key, io.kubernetes.client.custom.Quantity value);
+  public A addToRequests(String key, Quantity value);
 
-  public A addToRequests(java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A addToRequests(Map<String, Quantity> map);
 
-  public A removeFromRequests(java.lang.String key);
+  public A removeFromRequests(String key);
 
-  public A removeFromRequests(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A removeFromRequests(Map<String, Quantity> map);
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getRequests();
+  public Map<String, Quantity> getRequests();
 
-  public <K, V> A withRequests(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> requests);
+  public <K, V> A withRequests(Map<String, Quantity> requests);
 
-  public java.lang.Boolean hasRequests();
+  public Boolean hasRequests();
 }

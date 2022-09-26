@@ -23,23 +23,21 @@ public interface V1ConfigMapVolumeSourceFluent<A extends V1ConfigMapVolumeSource
     extends Fluent<A> {
   public Integer getDefaultMode();
 
-  public A withDefaultMode(java.lang.Integer defaultMode);
+  public A withDefaultMode(Integer defaultMode);
 
   public Boolean hasDefaultMode();
 
-  public A addToItems(java.lang.Integer index, V1KeyToPath item);
+  public A addToItems(Integer index, V1KeyToPath item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1KeyToPath item);
+  public A setToItems(Integer index, V1KeyToPath item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1KeyToPath... items);
 
-  public A addAllToItems(Collection<io.kubernetes.client.openapi.models.V1KeyToPath> items);
+  public A addAllToItems(Collection<V1KeyToPath> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1KeyToPath... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1KeyToPath> items);
+  public A removeAllFromItems(Collection<V1KeyToPath> items);
 
   public A removeMatchingFromItems(Predicate<V1KeyToPathBuilder> predicate);
 
@@ -49,63 +47,53 @@ public interface V1ConfigMapVolumeSourceFluent<A extends V1ConfigMapVolumeSource
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1KeyToPath> getItems();
+  public List<V1KeyToPath> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1KeyToPath> buildItems();
+  public List<V1KeyToPath> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1KeyToPath buildItem(java.lang.Integer index);
+  public V1KeyToPath buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1KeyToPath buildFirstItem();
+  public V1KeyToPath buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1KeyToPath buildLastItem();
+  public V1KeyToPath buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1KeyToPath buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1KeyToPathBuilder>
-          predicate);
+  public V1KeyToPath buildMatchingItem(Predicate<V1KeyToPathBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1KeyToPathBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1KeyToPathBuilder> predicate);
 
-  public A withItems(java.util.List<io.kubernetes.client.openapi.models.V1KeyToPath> items);
+  public A withItems(List<V1KeyToPath> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1KeyToPath... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1ConfigMapVolumeSourceFluent.ItemsNested<A> addNewItem();
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceFluent.ItemsNested<A>
-      addNewItemLike(io.kubernetes.client.openapi.models.V1KeyToPath item);
+  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> addNewItemLike(V1KeyToPath item);
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceFluent.ItemsNested<A>
-      setNewItemLike(java.lang.Integer index, io.kubernetes.client.openapi.models.V1KeyToPath item);
+  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1KeyToPath item);
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceFluent.ItemsNested<A>
-      editFirstItem();
+  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceFluent.ItemsNested<A>
-      editLastItem();
+  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1ConfigMapVolumeSourceFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1KeyToPathBuilder>
-              predicate);
+  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1KeyToPathBuilder> predicate);
 
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.Boolean getOptional();
+  public Boolean getOptional();
 
-  public A withOptional(java.lang.Boolean optional);
+  public A withOptional(Boolean optional);
 
-  public java.lang.Boolean hasOptional();
+  public Boolean hasOptional();
 
   public A withOptional();
 

@@ -18,8 +18,7 @@ public class V1beta1LimitedPriorityLevelConfigurationBuilder
     extends V1beta1LimitedPriorityLevelConfigurationFluentImpl<
         V1beta1LimitedPriorityLevelConfigurationBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration,
-        io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationBuilder> {
+        V1beta1LimitedPriorityLevelConfiguration, V1beta1LimitedPriorityLevelConfigurationBuilder> {
   public V1beta1LimitedPriorityLevelConfigurationBuilder() {
     this(false);
   }
@@ -34,21 +33,20 @@ public class V1beta1LimitedPriorityLevelConfigurationBuilder
   }
 
   public V1beta1LimitedPriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1LimitedPriorityLevelConfigurationFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1LimitedPriorityLevelConfiguration(), validationEnabled);
   }
 
   public V1beta1LimitedPriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration instance) {
+      V1beta1LimitedPriorityLevelConfigurationFluent<?> fluent,
+      V1beta1LimitedPriorityLevelConfiguration instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1LimitedPriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1LimitedPriorityLevelConfigurationFluent<?> fluent,
+      V1beta1LimitedPriorityLevelConfiguration instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAssuredConcurrencyShares(instance.getAssuredConcurrencyShares());
 
@@ -58,13 +56,12 @@ public class V1beta1LimitedPriorityLevelConfigurationBuilder
   }
 
   public V1beta1LimitedPriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration instance) {
+      V1beta1LimitedPriorityLevelConfiguration instance) {
     this(instance, false);
   }
 
   public V1beta1LimitedPriorityLevelConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1LimitedPriorityLevelConfiguration instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAssuredConcurrencyShares(instance.getAssuredConcurrencyShares());
 
@@ -73,10 +70,10 @@ public class V1beta1LimitedPriorityLevelConfigurationBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfigurationFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1LimitedPriorityLevelConfigurationFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1LimitedPriorityLevelConfiguration build() {
+  public V1beta1LimitedPriorityLevelConfiguration build() {
     V1beta1LimitedPriorityLevelConfiguration buildable =
         new V1beta1LimitedPriorityLevelConfiguration();
     buildable.setAssuredConcurrencyShares(fluent.getAssuredConcurrencyShares());

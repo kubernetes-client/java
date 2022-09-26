@@ -20,15 +20,15 @@ public interface V1CustomResourceDefinitionFluent<A extends V1CustomResourceDefi
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -38,82 +38,74 @@ public interface V1CustomResourceDefinitionFluent<A extends V1CustomResourceDefi
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1CustomResourceDefinitionFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1CustomResourceDefinitionFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.MetadataNested<A>
-      editMetadata();
+  public V1CustomResourceDefinitionFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1CustomResourceDefinitionFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1CustomResourceDefinitionFluent.MetadataNested<A> editOrNewMetadataLike(
+      V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildSpec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1CustomResourceDefinitionSpec getSpec();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpec buildSpec();
+  public V1CustomResourceDefinitionSpec buildSpec();
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpec spec);
+  public A withSpec(V1CustomResourceDefinitionSpec spec);
 
-  public java.lang.Boolean hasSpec();
+  public Boolean hasSpec();
 
   public V1CustomResourceDefinitionFluent.SpecNested<A> withNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.SpecNested<A>
-      withNewSpecLike(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpec item);
+  public V1CustomResourceDefinitionFluent.SpecNested<A> withNewSpecLike(
+      V1CustomResourceDefinitionSpec item);
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.SpecNested<A>
-      editSpec();
+  public V1CustomResourceDefinitionFluent.SpecNested<A> editSpec();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.SpecNested<A>
-      editOrNewSpec();
+  public V1CustomResourceDefinitionFluent.SpecNested<A> editOrNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.SpecNested<A>
-      editOrNewSpecLike(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionSpec item);
+  public V1CustomResourceDefinitionFluent.SpecNested<A> editOrNewSpecLike(
+      V1CustomResourceDefinitionSpec item);
 
   /**
    * This method has been deprecated, please use method buildStatus instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1CustomResourceDefinitionStatus getStatus();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus buildStatus();
+  public V1CustomResourceDefinitionStatus buildStatus();
 
-  public A withStatus(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus status);
+  public A withStatus(V1CustomResourceDefinitionStatus status);
 
-  public java.lang.Boolean hasStatus();
+  public Boolean hasStatus();
 
   public V1CustomResourceDefinitionFluent.StatusNested<A> withNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.StatusNested<A>
-      withNewStatusLike(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus item);
+  public V1CustomResourceDefinitionFluent.StatusNested<A> withNewStatusLike(
+      V1CustomResourceDefinitionStatus item);
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.StatusNested<A>
-      editStatus();
+  public V1CustomResourceDefinitionFluent.StatusNested<A> editStatus();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.StatusNested<A>
-      editOrNewStatus();
+  public V1CustomResourceDefinitionFluent.StatusNested<A> editOrNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionFluent.StatusNested<A>
-      editOrNewStatusLike(
-          io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus item);
+  public V1CustomResourceDefinitionFluent.StatusNested<A> editOrNewStatusLike(
+      V1CustomResourceDefinitionStatus item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1CustomResourceDefinitionFluent.MetadataNested<N>> {
@@ -123,7 +115,7 @@ public interface V1CustomResourceDefinitionFluent<A extends V1CustomResourceDefi
   }
 
   public interface SpecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1CustomResourceDefinitionSpecFluent<V1CustomResourceDefinitionFluent.SpecNested<N>> {
     public N and();
 
@@ -131,7 +123,7 @@ public interface V1CustomResourceDefinitionFluent<A extends V1CustomResourceDefi
   }
 
   public interface StatusNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1CustomResourceDefinitionStatusFluent<V1CustomResourceDefinitionFluent.StatusNested<N>> {
     public N and();
 

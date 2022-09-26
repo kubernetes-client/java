@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1RuleWithOperationsBuilder
     extends V1RuleWithOperationsFluentImpl<V1RuleWithOperationsBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1RuleWithOperations,
-        io.kubernetes.client.openapi.models.V1RuleWithOperationsBuilder> {
+    implements VisitableBuilder<V1RuleWithOperations, V1RuleWithOperationsBuilder> {
   public V1RuleWithOperationsBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1RuleWithOperationsBuilder
   }
 
   public V1RuleWithOperationsBuilder(
-      io.kubernetes.client.openapi.models.V1RuleWithOperationsFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1RuleWithOperationsFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1RuleWithOperations(), validationEnabled);
   }
 
   public V1RuleWithOperationsBuilder(
-      io.kubernetes.client.openapi.models.V1RuleWithOperationsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RuleWithOperations instance) {
+      V1RuleWithOperationsFluent<?> fluent, V1RuleWithOperations instance) {
     this(fluent, instance, false);
   }
 
   public V1RuleWithOperationsBuilder(
-      io.kubernetes.client.openapi.models.V1RuleWithOperationsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1RuleWithOperations instance,
-      java.lang.Boolean validationEnabled) {
+      V1RuleWithOperationsFluent<?> fluent,
+      V1RuleWithOperations instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiGroups(instance.getApiGroups());
 
@@ -61,14 +57,11 @@ public class V1RuleWithOperationsBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1RuleWithOperationsBuilder(
-      io.kubernetes.client.openapi.models.V1RuleWithOperations instance) {
+  public V1RuleWithOperationsBuilder(V1RuleWithOperations instance) {
     this(instance, false);
   }
 
-  public V1RuleWithOperationsBuilder(
-      io.kubernetes.client.openapi.models.V1RuleWithOperations instance,
-      java.lang.Boolean validationEnabled) {
+  public V1RuleWithOperationsBuilder(V1RuleWithOperations instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiGroups(instance.getApiGroups());
 
@@ -83,10 +76,10 @@ public class V1RuleWithOperationsBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1RuleWithOperationsFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1RuleWithOperationsFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1RuleWithOperations build() {
+  public V1RuleWithOperations build() {
     V1RuleWithOperations buildable = new V1RuleWithOperations();
     buildable.setApiGroups(fluent.getApiGroups());
     buildable.setApiVersions(fluent.getApiVersions());

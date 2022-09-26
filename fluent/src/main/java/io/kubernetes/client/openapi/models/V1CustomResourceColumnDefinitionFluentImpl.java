@@ -21,8 +21,7 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
     extends BaseFluent<A> implements V1CustomResourceColumnDefinitionFluent<A> {
   public V1CustomResourceColumnDefinitionFluentImpl() {}
 
-  public V1CustomResourceColumnDefinitionFluentImpl(
-      io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition instance) {
+  public V1CustomResourceColumnDefinitionFluentImpl(V1CustomResourceColumnDefinition instance) {
     this.withDescription(instance.getDescription());
 
     this.withFormat(instance.getFormat());
@@ -37,17 +36,17 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
   }
 
   private String description;
-  private java.lang.String format;
-  private java.lang.String jsonPath;
-  private java.lang.String name;
+  private String format;
+  private String jsonPath;
+  private String name;
   private Integer priority;
-  private java.lang.String type;
+  private String type;
 
-  public java.lang.String getDescription() {
+  public String getDescription() {
     return this.description;
   }
 
-  public A withDescription(java.lang.String description) {
+  public A withDescription(String description) {
     this.description = description;
     return (A) this;
   }
@@ -56,68 +55,68 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
     return this.description != null;
   }
 
-  public java.lang.String getFormat() {
+  public String getFormat() {
     return this.format;
   }
 
-  public A withFormat(java.lang.String format) {
+  public A withFormat(String format) {
     this.format = format;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFormat() {
+  public Boolean hasFormat() {
     return this.format != null;
   }
 
-  public java.lang.String getJsonPath() {
+  public String getJsonPath() {
     return this.jsonPath;
   }
 
-  public A withJsonPath(java.lang.String jsonPath) {
+  public A withJsonPath(String jsonPath) {
     this.jsonPath = jsonPath;
     return (A) this;
   }
 
-  public java.lang.Boolean hasJsonPath() {
+  public Boolean hasJsonPath() {
     return this.jsonPath != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.Integer getPriority() {
+  public Integer getPriority() {
     return this.priority;
   }
 
-  public A withPriority(java.lang.Integer priority) {
+  public A withPriority(Integer priority) {
     this.priority = priority;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPriority() {
+  public Boolean hasPriority() {
     return this.priority != null;
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
@@ -141,7 +140,7 @@ public class V1CustomResourceColumnDefinitionFluentImpl<
         description, format, jsonPath, name, priority, type, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (description != null) {

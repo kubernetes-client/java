@@ -24,7 +24,7 @@ import java.util.Objects;
     description = "MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1MutatingWebhookConfigurationList
     implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";

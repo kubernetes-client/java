@@ -24,7 +24,7 @@ public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> ext
     implements V1APIServiceSpecFluent<A> {
   public V1APIServiceSpecFluentImpl() {}
 
-  public V1APIServiceSpecFluentImpl(io.kubernetes.client.openapi.models.V1APIServiceSpec instance) {
+  public V1APIServiceSpecFluentImpl(V1APIServiceSpec instance) {
     this.withCaBundle(instance.getCaBundle());
 
     this.withGroup(instance.getGroup());
@@ -45,8 +45,8 @@ public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> ext
   private Integer groupPriorityMinimum;
   private Boolean insecureSkipTLSVerify;
   private ApiregistrationV1ServiceReferenceBuilder service;
-  private java.lang.String version;
-  private java.lang.Integer versionPriority;
+  private String version;
+  private Integer versionPriority;
 
   public A withCaBundle(byte... caBundle) {
     if (this.caBundle != null) {
@@ -74,17 +74,17 @@ public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> ext
     return result;
   }
 
-  public A addToCaBundle(java.lang.Integer index, java.lang.Byte item) {
+  public A addToCaBundle(Integer index, Byte item) {
     if (this.caBundle == null) {
-      this.caBundle = new ArrayList<java.lang.Byte>();
+      this.caBundle = new ArrayList<Byte>();
     }
     this.caBundle.add(index, item);
     return (A) this;
   }
 
-  public A setToCaBundle(java.lang.Integer index, java.lang.Byte item) {
+  public A setToCaBundle(Integer index, Byte item) {
     if (this.caBundle == null) {
-      this.caBundle = new java.util.ArrayList<java.lang.Byte>();
+      this.caBundle = new ArrayList<Byte>();
     }
     this.caBundle.set(index, item);
     return (A) this;
@@ -92,26 +92,26 @@ public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> ext
 
   public A addToCaBundle(java.lang.Byte... items) {
     if (this.caBundle == null) {
-      this.caBundle = new java.util.ArrayList<java.lang.Byte>();
+      this.caBundle = new ArrayList<Byte>();
     }
-    for (java.lang.Byte item : items) {
+    for (Byte item : items) {
       this.caBundle.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToCaBundle(Collection<java.lang.Byte> items) {
+  public A addAllToCaBundle(Collection<Byte> items) {
     if (this.caBundle == null) {
-      this.caBundle = new java.util.ArrayList<java.lang.Byte>();
+      this.caBundle = new ArrayList<Byte>();
     }
-    for (java.lang.Byte item : items) {
+    for (Byte item : items) {
       this.caBundle.add(item);
     }
     return (A) this;
   }
 
   public A removeFromCaBundle(java.lang.Byte... items) {
-    for (java.lang.Byte item : items) {
+    for (Byte item : items) {
       if (this.caBundle != null) {
         this.caBundle.remove(item);
       }
@@ -119,8 +119,8 @@ public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> ext
     return (A) this;
   }
 
-  public A removeAllFromCaBundle(java.util.Collection<java.lang.Byte> items) {
-    for (java.lang.Byte item : items) {
+  public A removeAllFromCaBundle(Collection<Byte> items) {
+    for (Byte item : items) {
       if (this.caBundle != null) {
         this.caBundle.remove(item);
       }
@@ -128,46 +128,46 @@ public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> ext
     return (A) this;
   }
 
-  public java.lang.Boolean hasCaBundle() {
+  public Boolean hasCaBundle() {
     return caBundle != null && !caBundle.isEmpty();
   }
 
-  public java.lang.String getGroup() {
+  public String getGroup() {
     return this.group;
   }
 
-  public A withGroup(java.lang.String group) {
+  public A withGroup(String group) {
     this.group = group;
     return (A) this;
   }
 
-  public java.lang.Boolean hasGroup() {
+  public Boolean hasGroup() {
     return this.group != null;
   }
 
-  public java.lang.Integer getGroupPriorityMinimum() {
+  public Integer getGroupPriorityMinimum() {
     return this.groupPriorityMinimum;
   }
 
-  public A withGroupPriorityMinimum(java.lang.Integer groupPriorityMinimum) {
+  public A withGroupPriorityMinimum(Integer groupPriorityMinimum) {
     this.groupPriorityMinimum = groupPriorityMinimum;
     return (A) this;
   }
 
-  public java.lang.Boolean hasGroupPriorityMinimum() {
+  public Boolean hasGroupPriorityMinimum() {
     return this.groupPriorityMinimum != null;
   }
 
-  public java.lang.Boolean getInsecureSkipTLSVerify() {
+  public Boolean getInsecureSkipTLSVerify() {
     return this.insecureSkipTLSVerify;
   }
 
-  public A withInsecureSkipTLSVerify(java.lang.Boolean insecureSkipTLSVerify) {
+  public A withInsecureSkipTLSVerify(Boolean insecureSkipTLSVerify) {
     this.insecureSkipTLSVerify = insecureSkipTLSVerify;
     return (A) this;
   }
 
-  public java.lang.Boolean hasInsecureSkipTLSVerify() {
+  public Boolean hasInsecureSkipTLSVerify() {
     return this.insecureSkipTLSVerify != null;
   }
 
@@ -181,22 +181,23 @@ public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> ext
     return this.service != null ? this.service.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference buildService() {
+  public ApiregistrationV1ServiceReference buildService() {
     return this.service != null ? this.service.build() : null;
   }
 
-  public A withService(
-      io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference service) {
+  public A withService(ApiregistrationV1ServiceReference service) {
     _visitables.get("service").remove(this.service);
     if (service != null) {
-      this.service =
-          new io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceBuilder(service);
+      this.service = new ApiregistrationV1ServiceReferenceBuilder(service);
       _visitables.get("service").add(this.service);
+    } else {
+      this.service = null;
+      _visitables.get("service").remove(this.service);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasService() {
+  public Boolean hasService() {
     return this.service != null;
   }
 
@@ -204,54 +205,50 @@ public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> ext
     return new V1APIServiceSpecFluentImpl.ServiceNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A>
-      withNewServiceLike(
-          io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference item) {
+  public V1APIServiceSpecFluent.ServiceNested<A> withNewServiceLike(
+      ApiregistrationV1ServiceReference item) {
     return new V1APIServiceSpecFluentImpl.ServiceNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A> editService() {
+  public V1APIServiceSpecFluent.ServiceNested<A> editService() {
     return withNewServiceLike(getService());
   }
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A>
-      editOrNewService() {
+  public V1APIServiceSpecFluent.ServiceNested<A> editOrNewService() {
     return withNewServiceLike(
         getService() != null
             ? getService()
-            : new io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceBuilder()
-                .build());
+            : new ApiregistrationV1ServiceReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A>
-      editOrNewServiceLike(
-          io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference item) {
+  public V1APIServiceSpecFluent.ServiceNested<A> editOrNewServiceLike(
+      ApiregistrationV1ServiceReference item) {
     return withNewServiceLike(getService() != null ? getService() : item);
   }
 
-  public java.lang.String getVersion() {
+  public String getVersion() {
     return this.version;
   }
 
-  public A withVersion(java.lang.String version) {
+  public A withVersion(String version) {
     this.version = version;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVersion() {
+  public Boolean hasVersion() {
     return this.version != null;
   }
 
-  public java.lang.Integer getVersionPriority() {
+  public Integer getVersionPriority() {
     return this.versionPriority;
   }
 
-  public A withVersionPriority(java.lang.Integer versionPriority) {
+  public A withVersionPriority(Integer versionPriority) {
     this.versionPriority = versionPriority;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVersionPriority() {
+  public Boolean hasVersionPriority() {
     return this.versionPriority != null;
   }
 
@@ -287,7 +284,7 @@ public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> ext
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (caBundle != null && !caBundle.isEmpty()) {
@@ -328,18 +325,16 @@ public class V1APIServiceSpecFluentImpl<A extends V1APIServiceSpecFluent<A>> ext
 
   class ServiceNestedImpl<N>
       extends ApiregistrationV1ServiceReferenceFluentImpl<V1APIServiceSpecFluent.ServiceNested<N>>
-      implements io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<N>,
-          Nested<N> {
-    ServiceNestedImpl(io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference item) {
+      implements V1APIServiceSpecFluent.ServiceNested<N>, Nested<N> {
+    ServiceNestedImpl(ApiregistrationV1ServiceReference item) {
       this.builder = new ApiregistrationV1ServiceReferenceBuilder(this, item);
     }
 
     ServiceNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceBuilder(this);
+      this.builder = new ApiregistrationV1ServiceReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReferenceBuilder builder;
+    ApiregistrationV1ServiceReferenceBuilder builder;
 
     public N and() {
       return (N) V1APIServiceSpecFluentImpl.this.withService(builder.build());

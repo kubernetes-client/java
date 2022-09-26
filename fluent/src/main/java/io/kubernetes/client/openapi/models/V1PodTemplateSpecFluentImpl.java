@@ -21,8 +21,7 @@ public class V1PodTemplateSpecFluentImpl<A extends V1PodTemplateSpecFluent<A>> e
     implements V1PodTemplateSpecFluent<A> {
   public V1PodTemplateSpecFluentImpl() {}
 
-  public V1PodTemplateSpecFluentImpl(
-      io.kubernetes.client.openapi.models.V1PodTemplateSpec instance) {
+  public V1PodTemplateSpecFluentImpl(V1PodTemplateSpec instance) {
     this.withMetadata(instance.getMetadata());
 
     this.withSpec(instance.getSpec());
@@ -37,19 +36,22 @@ public class V1PodTemplateSpecFluentImpl<A extends V1PodTemplateSpecFluent<A>> e
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
@@ -62,26 +64,20 @@ public class V1PodTemplateSpecFluentImpl<A extends V1PodTemplateSpecFluent<A>> e
     return new V1PodTemplateSpecFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1PodTemplateSpecFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1PodTemplateSpecFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent.MetadataNested<A>
-      editMetadata() {
+  public V1PodTemplateSpecFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public V1PodTemplateSpecFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public V1PodTemplateSpecFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -90,25 +86,28 @@ public class V1PodTemplateSpecFluentImpl<A extends V1PodTemplateSpecFluent<A>> e
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1PodSpec getSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1PodSpec buildSpec() {
+  public V1PodSpec buildSpec() {
     return this.spec != null ? this.spec.build() : null;
   }
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1PodSpec spec) {
+  public A withSpec(V1PodSpec spec) {
     _visitables.get("spec").remove(this.spec);
     if (spec != null) {
-      this.spec = new io.kubernetes.client.openapi.models.V1PodSpecBuilder(spec);
+      this.spec = new V1PodSpecBuilder(spec);
       _visitables.get("spec").add(this.spec);
+    } else {
+      this.spec = null;
+      _visitables.get("spec").remove(this.spec);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSpec() {
+  public Boolean hasSpec() {
     return this.spec != null;
   }
 
@@ -116,24 +115,19 @@ public class V1PodTemplateSpecFluentImpl<A extends V1PodTemplateSpecFluent<A>> e
     return new V1PodTemplateSpecFluentImpl.SpecNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent.SpecNested<A> withNewSpecLike(
-      io.kubernetes.client.openapi.models.V1PodSpec item) {
-    return new io.kubernetes.client.openapi.models.V1PodTemplateSpecFluentImpl.SpecNestedImpl(item);
+  public V1PodTemplateSpecFluent.SpecNested<A> withNewSpecLike(V1PodSpec item) {
+    return new V1PodTemplateSpecFluentImpl.SpecNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent.SpecNested<A> editSpec() {
+  public V1PodTemplateSpecFluent.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent.SpecNested<A> editOrNewSpec() {
-    return withNewSpecLike(
-        getSpec() != null
-            ? getSpec()
-            : new io.kubernetes.client.openapi.models.V1PodSpecBuilder().build());
+  public V1PodTemplateSpecFluent.SpecNested<A> editOrNewSpec() {
+    return withNewSpecLike(getSpec() != null ? getSpec() : new V1PodSpecBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent.SpecNested<A>
-      editOrNewSpecLike(io.kubernetes.client.openapi.models.V1PodSpec item) {
+  public V1PodTemplateSpecFluent.SpecNested<A> editOrNewSpecLike(V1PodSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec() : item);
   }
 
@@ -167,17 +161,16 @@ public class V1PodTemplateSpecFluentImpl<A extends V1PodTemplateSpecFluent<A>> e
 
   class MetadataNestedImpl<N>
       extends V1ObjectMetaFluentImpl<V1PodTemplateSpecFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent.MetadataNested<N>,
-          Nested<N> {
+      implements V1PodTemplateSpecFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) V1PodTemplateSpecFluentImpl.this.withMetadata(builder.build());
@@ -189,17 +182,16 @@ public class V1PodTemplateSpecFluentImpl<A extends V1PodTemplateSpecFluent<A>> e
   }
 
   class SpecNestedImpl<N> extends V1PodSpecFluentImpl<V1PodTemplateSpecFluent.SpecNested<N>>
-      implements io.kubernetes.client.openapi.models.V1PodTemplateSpecFluent.SpecNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1PodTemplateSpecFluent.SpecNested<N>, Nested<N> {
     SpecNestedImpl(V1PodSpec item) {
       this.builder = new V1PodSpecBuilder(this, item);
     }
 
     SpecNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1PodSpecBuilder(this);
+      this.builder = new V1PodSpecBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1PodSpecBuilder builder;
+    V1PodSpecBuilder builder;
 
     public N and() {
       return (N) V1PodTemplateSpecFluentImpl.this.withSpec(builder.build());

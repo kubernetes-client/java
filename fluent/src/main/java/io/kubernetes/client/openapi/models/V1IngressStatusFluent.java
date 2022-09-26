@@ -26,25 +26,23 @@ public interface V1IngressStatusFluent<A extends V1IngressStatusFluent<A>> exten
   @Deprecated
   public V1LoadBalancerStatus getLoadBalancer();
 
-  public io.kubernetes.client.openapi.models.V1LoadBalancerStatus buildLoadBalancer();
+  public V1LoadBalancerStatus buildLoadBalancer();
 
-  public A withLoadBalancer(io.kubernetes.client.openapi.models.V1LoadBalancerStatus loadBalancer);
+  public A withLoadBalancer(V1LoadBalancerStatus loadBalancer);
 
   public Boolean hasLoadBalancer();
 
   public V1IngressStatusFluent.LoadBalancerNested<A> withNewLoadBalancer();
 
-  public io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<A>
-      withNewLoadBalancerLike(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item);
+  public V1IngressStatusFluent.LoadBalancerNested<A> withNewLoadBalancerLike(
+      V1LoadBalancerStatus item);
 
-  public io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<A>
-      editLoadBalancer();
+  public V1IngressStatusFluent.LoadBalancerNested<A> editLoadBalancer();
 
-  public io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<A>
-      editOrNewLoadBalancer();
+  public V1IngressStatusFluent.LoadBalancerNested<A> editOrNewLoadBalancer();
 
-  public io.kubernetes.client.openapi.models.V1IngressStatusFluent.LoadBalancerNested<A>
-      editOrNewLoadBalancerLike(io.kubernetes.client.openapi.models.V1LoadBalancerStatus item);
+  public V1IngressStatusFluent.LoadBalancerNested<A> editOrNewLoadBalancerLike(
+      V1LoadBalancerStatus item);
 
   public interface LoadBalancerNested<N>
       extends Nested<N>, V1LoadBalancerStatusFluent<V1IngressStatusFluent.LoadBalancerNested<N>> {

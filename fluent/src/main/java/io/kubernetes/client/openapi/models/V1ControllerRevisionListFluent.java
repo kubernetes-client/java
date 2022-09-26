@@ -23,24 +23,21 @@ public interface V1ControllerRevisionListFluent<A extends V1ControllerRevisionLi
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
   public A addToItems(Integer index, V1ControllerRevision item);
 
-  public A setToItems(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ControllerRevision item);
+  public A setToItems(Integer index, V1ControllerRevision item);
 
   public A addToItems(io.kubernetes.client.openapi.models.V1ControllerRevision... items);
 
-  public A addAllToItems(
-      Collection<io.kubernetes.client.openapi.models.V1ControllerRevision> items);
+  public A addAllToItems(Collection<V1ControllerRevision> items);
 
   public A removeFromItems(io.kubernetes.client.openapi.models.V1ControllerRevision... items);
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ControllerRevision> items);
+  public A removeAllFromItems(Collection<V1ControllerRevision> items);
 
   public A removeMatchingFromItems(Predicate<V1ControllerRevisionBuilder> predicate);
 
@@ -50,89 +47,71 @@ public interface V1ControllerRevisionListFluent<A extends V1ControllerRevisionLi
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1ControllerRevision> getItems();
+  public List<V1ControllerRevision> getItems();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ControllerRevision> buildItems();
+  public List<V1ControllerRevision> buildItems();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevision buildItem(
-      java.lang.Integer index);
+  public V1ControllerRevision buildItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevision buildFirstItem();
+  public V1ControllerRevision buildFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevision buildLastItem();
+  public V1ControllerRevision buildLastItem();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevision buildMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ControllerRevisionBuilder>
-          predicate);
+  public V1ControllerRevision buildMatchingItem(Predicate<V1ControllerRevisionBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ControllerRevisionBuilder>
-          predicate);
+  public Boolean hasMatchingItem(Predicate<V1ControllerRevisionBuilder> predicate);
 
-  public A withItems(
-      java.util.List<io.kubernetes.client.openapi.models.V1ControllerRevision> items);
+  public A withItems(List<V1ControllerRevision> items);
 
   public A withItems(io.kubernetes.client.openapi.models.V1ControllerRevision... items);
 
-  public java.lang.Boolean hasItems();
+  public Boolean hasItems();
 
   public V1ControllerRevisionListFluent.ItemsNested<A> addNewItem();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent.ItemsNested<A>
-      addNewItemLike(io.kubernetes.client.openapi.models.V1ControllerRevision item);
+  public V1ControllerRevisionListFluent.ItemsNested<A> addNewItemLike(V1ControllerRevision item);
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent.ItemsNested<A>
-      setNewItemLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ControllerRevision item);
+  public V1ControllerRevisionListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1ControllerRevision item);
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent.ItemsNested<A> editItem(
-      java.lang.Integer index);
+  public V1ControllerRevisionListFluent.ItemsNested<A> editItem(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent.ItemsNested<A>
-      editFirstItem();
+  public V1ControllerRevisionListFluent.ItemsNested<A> editFirstItem();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent.ItemsNested<A>
-      editLastItem();
+  public V1ControllerRevisionListFluent.ItemsNested<A> editLastItem();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent.ItemsNested<A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1ControllerRevisionBuilder>
-              predicate);
+  public V1ControllerRevisionListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1ControllerRevisionBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ListMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata();
+  public V1ListMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata);
+  public A withMetadata(V1ListMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1ControllerRevisionListFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1ControllerRevisionListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item);
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent.MetadataNested<A>
-      editMetadata();
+  public V1ControllerRevisionListFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1ControllerRevisionListFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item);
+  public V1ControllerRevisionListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item);
 
   public interface ItemsNested<N>
       extends Nested<N>, V1ControllerRevisionFluent<V1ControllerRevisionListFluent.ItemsNested<N>> {
@@ -142,8 +121,7 @@ public interface V1ControllerRevisionListFluent<A extends V1ControllerRevisionLi
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ListMetaFluent<V1ControllerRevisionListFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ListMetaFluent<V1ControllerRevisionListFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();

@@ -21,7 +21,7 @@ public class V1ServicePortFluentImpl<A extends V1ServicePortFluent<A>> extends B
     implements V1ServicePortFluent<A> {
   public V1ServicePortFluentImpl() {}
 
-  public V1ServicePortFluentImpl(io.kubernetes.client.openapi.models.V1ServicePort instance) {
+  public V1ServicePortFluentImpl(V1ServicePort instance) {
     this.withAppProtocol(instance.getAppProtocol());
 
     this.withName(instance.getName());
@@ -36,17 +36,17 @@ public class V1ServicePortFluentImpl<A extends V1ServicePortFluent<A>> extends B
   }
 
   private String appProtocol;
-  private java.lang.String name;
+  private String name;
   private Integer nodePort;
-  private java.lang.Integer port;
-  private java.lang.String protocol;
+  private Integer port;
+  private String protocol;
   private IntOrString targetPort;
 
-  public java.lang.String getAppProtocol() {
+  public String getAppProtocol() {
     return this.appProtocol;
   }
 
-  public A withAppProtocol(java.lang.String appProtocol) {
+  public A withAppProtocol(String appProtocol) {
     this.appProtocol = appProtocol;
     return (A) this;
   }
@@ -55,68 +55,68 @@ public class V1ServicePortFluentImpl<A extends V1ServicePortFluent<A>> extends B
     return this.appProtocol != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.Integer getNodePort() {
+  public Integer getNodePort() {
     return this.nodePort;
   }
 
-  public A withNodePort(java.lang.Integer nodePort) {
+  public A withNodePort(Integer nodePort) {
     this.nodePort = nodePort;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNodePort() {
+  public Boolean hasNodePort() {
     return this.nodePort != null;
   }
 
-  public java.lang.Integer getPort() {
+  public Integer getPort() {
     return this.port;
   }
 
-  public A withPort(java.lang.Integer port) {
+  public A withPort(Integer port) {
     this.port = port;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPort() {
+  public Boolean hasPort() {
     return this.port != null;
   }
 
-  public java.lang.String getProtocol() {
+  public String getProtocol() {
     return this.protocol;
   }
 
-  public A withProtocol(java.lang.String protocol) {
+  public A withProtocol(String protocol) {
     this.protocol = protocol;
     return (A) this;
   }
 
-  public java.lang.Boolean hasProtocol() {
+  public Boolean hasProtocol() {
     return this.protocol != null;
   }
 
-  public io.kubernetes.client.custom.IntOrString getTargetPort() {
+  public IntOrString getTargetPort() {
     return this.targetPort;
   }
 
-  public A withTargetPort(io.kubernetes.client.custom.IntOrString targetPort) {
+  public A withTargetPort(IntOrString targetPort) {
     this.targetPort = targetPort;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTargetPort() {
+  public Boolean hasTargetPort() {
     return this.targetPort != null;
   }
 
@@ -124,7 +124,7 @@ public class V1ServicePortFluentImpl<A extends V1ServicePortFluent<A>> extends B
     return (A) withTargetPort(new IntOrString(value));
   }
 
-  public A withNewTargetPort(java.lang.String value) {
+  public A withNewTargetPort(String value) {
     return (A) withTargetPort(new IntOrString(value));
   }
 
@@ -148,7 +148,7 @@ public class V1ServicePortFluentImpl<A extends V1ServicePortFluent<A>> extends B
         appProtocol, name, nodePort, port, protocol, targetPort, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (appProtocol != null) {

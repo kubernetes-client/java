@@ -20,7 +20,7 @@ public class V1GRPCActionFluentImpl<A extends V1GRPCActionFluent<A>> extends Bas
     implements V1GRPCActionFluent<A> {
   public V1GRPCActionFluentImpl() {}
 
-  public V1GRPCActionFluentImpl(io.kubernetes.client.openapi.models.V1GRPCAction instance) {
+  public V1GRPCActionFluentImpl(V1GRPCAction instance) {
     this.withPort(instance.getPort());
 
     this.withService(instance.getService());
@@ -29,11 +29,11 @@ public class V1GRPCActionFluentImpl<A extends V1GRPCActionFluent<A>> extends Bas
   private Integer port;
   private String service;
 
-  public java.lang.Integer getPort() {
+  public Integer getPort() {
     return this.port;
   }
 
-  public A withPort(java.lang.Integer port) {
+  public A withPort(Integer port) {
     this.port = port;
     return (A) this;
   }
@@ -42,16 +42,16 @@ public class V1GRPCActionFluentImpl<A extends V1GRPCActionFluent<A>> extends Bas
     return this.port != null;
   }
 
-  public java.lang.String getService() {
+  public String getService() {
     return this.service;
   }
 
-  public A withService(java.lang.String service) {
+  public A withService(String service) {
     this.service = service;
     return (A) this;
   }
 
-  public java.lang.Boolean hasService() {
+  public Boolean hasService() {
     return this.service != null;
   }
 
@@ -68,7 +68,7 @@ public class V1GRPCActionFluentImpl<A extends V1GRPCActionFluent<A>> extends Bas
     return java.util.Objects.hash(port, service, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (port != null) {

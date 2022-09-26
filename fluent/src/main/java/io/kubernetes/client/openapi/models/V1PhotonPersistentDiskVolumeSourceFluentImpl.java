@@ -21,21 +21,20 @@ public class V1PhotonPersistentDiskVolumeSourceFluentImpl<
     extends BaseFluent<A> implements V1PhotonPersistentDiskVolumeSourceFluent<A> {
   public V1PhotonPersistentDiskVolumeSourceFluentImpl() {}
 
-  public V1PhotonPersistentDiskVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource instance) {
+  public V1PhotonPersistentDiskVolumeSourceFluentImpl(V1PhotonPersistentDiskVolumeSource instance) {
     this.withFsType(instance.getFsType());
 
     this.withPdID(instance.getPdID());
   }
 
   private String fsType;
-  private java.lang.String pdID;
+  private String pdID;
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
@@ -44,16 +43,16 @@ public class V1PhotonPersistentDiskVolumeSourceFluentImpl<
     return this.fsType != null;
   }
 
-  public java.lang.String getPdID() {
+  public String getPdID() {
     return this.pdID;
   }
 
-  public A withPdID(java.lang.String pdID) {
+  public A withPdID(String pdID) {
     this.pdID = pdID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPdID() {
+  public Boolean hasPdID() {
     return this.pdID != null;
   }
 
@@ -71,7 +70,7 @@ public class V1PhotonPersistentDiskVolumeSourceFluentImpl<
     return java.util.Objects.hash(fsType, pdID, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fsType != null) {

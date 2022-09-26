@@ -20,8 +20,7 @@ public class V1ObjectReferenceFluentImpl<A extends V1ObjectReferenceFluent<A>> e
     implements V1ObjectReferenceFluent<A> {
   public V1ObjectReferenceFluentImpl() {}
 
-  public V1ObjectReferenceFluentImpl(
-      io.kubernetes.client.openapi.models.V1ObjectReference instance) {
+  public V1ObjectReferenceFluentImpl(V1ObjectReference instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withFieldPath(instance.getFieldPath());
@@ -38,18 +37,18 @@ public class V1ObjectReferenceFluentImpl<A extends V1ObjectReferenceFluent<A>> e
   }
 
   private String apiVersion;
-  private java.lang.String fieldPath;
-  private java.lang.String kind;
-  private java.lang.String name;
-  private java.lang.String namespace;
-  private java.lang.String resourceVersion;
-  private java.lang.String uid;
+  private String fieldPath;
+  private String kind;
+  private String name;
+  private String namespace;
+  private String resourceVersion;
+  private String uid;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -58,81 +57,81 @@ public class V1ObjectReferenceFluentImpl<A extends V1ObjectReferenceFluent<A>> e
     return this.apiVersion != null;
   }
 
-  public java.lang.String getFieldPath() {
+  public String getFieldPath() {
     return this.fieldPath;
   }
 
-  public A withFieldPath(java.lang.String fieldPath) {
+  public A withFieldPath(String fieldPath) {
     this.fieldPath = fieldPath;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFieldPath() {
+  public Boolean hasFieldPath() {
     return this.fieldPath != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.String getNamespace() {
+  public String getNamespace() {
     return this.namespace;
   }
 
-  public A withNamespace(java.lang.String namespace) {
+  public A withNamespace(String namespace) {
     this.namespace = namespace;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNamespace() {
+  public Boolean hasNamespace() {
     return this.namespace != null;
   }
 
-  public java.lang.String getResourceVersion() {
+  public String getResourceVersion() {
     return this.resourceVersion;
   }
 
-  public A withResourceVersion(java.lang.String resourceVersion) {
+  public A withResourceVersion(String resourceVersion) {
     this.resourceVersion = resourceVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasResourceVersion() {
+  public Boolean hasResourceVersion() {
     return this.resourceVersion != null;
   }
 
-  public java.lang.String getUid() {
+  public String getUid() {
     return this.uid;
   }
 
-  public A withUid(java.lang.String uid) {
+  public A withUid(String uid) {
     this.uid = uid;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUid() {
+  public Boolean hasUid() {
     return this.uid != null;
   }
 
@@ -160,7 +159,7 @@ public class V1ObjectReferenceFluentImpl<A extends V1ObjectReferenceFluent<A>> e
         apiVersion, fieldPath, kind, name, namespace, resourceVersion, uid, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {

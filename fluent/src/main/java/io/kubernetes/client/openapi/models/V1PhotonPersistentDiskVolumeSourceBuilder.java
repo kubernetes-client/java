@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1PhotonPersistentDiskVolumeSourceBuilder
     extends V1PhotonPersistentDiskVolumeSourceFluentImpl<V1PhotonPersistentDiskVolumeSourceBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource,
-        io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceBuilder> {
+        V1PhotonPersistentDiskVolumeSource, V1PhotonPersistentDiskVolumeSourceBuilder> {
   public V1PhotonPersistentDiskVolumeSourceBuilder() {
     this(false);
   }
@@ -33,21 +32,20 @@ public class V1PhotonPersistentDiskVolumeSourceBuilder
   }
 
   public V1PhotonPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1PhotonPersistentDiskVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PhotonPersistentDiskVolumeSource(), validationEnabled);
   }
 
   public V1PhotonPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource instance) {
+      V1PhotonPersistentDiskVolumeSourceFluent<?> fluent,
+      V1PhotonPersistentDiskVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1PhotonPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1PhotonPersistentDiskVolumeSourceFluent<?> fluent,
+      V1PhotonPersistentDiskVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFsType(instance.getFsType());
 
@@ -56,14 +54,12 @@ public class V1PhotonPersistentDiskVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PhotonPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource instance) {
+  public V1PhotonPersistentDiskVolumeSourceBuilder(V1PhotonPersistentDiskVolumeSource instance) {
     this(instance, false);
   }
 
   public V1PhotonPersistentDiskVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1PhotonPersistentDiskVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFsType(instance.getFsType());
 
@@ -72,10 +68,10 @@ public class V1PhotonPersistentDiskVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PhotonPersistentDiskVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PhotonPersistentDiskVolumeSource build() {
+  public V1PhotonPersistentDiskVolumeSource build() {
     V1PhotonPersistentDiskVolumeSource buildable = new V1PhotonPersistentDiskVolumeSource();
     buildable.setFsType(fluent.getFsType());
     buildable.setPdID(fluent.getPdID());

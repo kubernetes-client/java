@@ -21,8 +21,7 @@ public class V1CustomResourceSubresourcesFluentImpl<A extends V1CustomResourceSu
     extends BaseFluent<A> implements V1CustomResourceSubresourcesFluent<A> {
   public V1CustomResourceSubresourcesFluentImpl() {}
 
-  public V1CustomResourceSubresourcesFluentImpl(
-      io.kubernetes.client.openapi.models.V1CustomResourceSubresources instance) {
+  public V1CustomResourceSubresourcesFluentImpl(V1CustomResourceSubresources instance) {
     this.withScale(instance.getScale());
 
     this.withStatus(instance.getStatus());
@@ -41,16 +40,18 @@ public class V1CustomResourceSubresourcesFluentImpl<A extends V1CustomResourceSu
     return this.scale != null ? this.scale.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale buildScale() {
+  public V1CustomResourceSubresourceScale buildScale() {
     return this.scale != null ? this.scale.build() : null;
   }
 
-  public A withScale(io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale scale) {
+  public A withScale(V1CustomResourceSubresourceScale scale) {
     _visitables.get("scale").remove(this.scale);
     if (scale != null) {
-      this.scale =
-          new io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleBuilder(scale);
+      this.scale = new V1CustomResourceSubresourceScaleBuilder(scale);
       _visitables.get("scale").add(this.scale);
+    } else {
+      this.scale = null;
+      _visitables.get("scale").remove(this.scale);
     }
     return (A) this;
   }
@@ -63,45 +64,39 @@ public class V1CustomResourceSubresourcesFluentImpl<A extends V1CustomResourceSu
     return new V1CustomResourceSubresourcesFluentImpl.ScaleNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<A>
-      withNewScaleLike(io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale item) {
+  public V1CustomResourceSubresourcesFluent.ScaleNested<A> withNewScaleLike(
+      V1CustomResourceSubresourceScale item) {
     return new V1CustomResourceSubresourcesFluentImpl.ScaleNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<A>
-      editScale() {
+  public V1CustomResourceSubresourcesFluent.ScaleNested<A> editScale() {
     return withNewScaleLike(getScale());
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<A>
-      editOrNewScale() {
+  public V1CustomResourceSubresourcesFluent.ScaleNested<A> editOrNewScale() {
     return withNewScaleLike(
-        getScale() != null
-            ? getScale()
-            : new io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleBuilder()
-                .build());
+        getScale() != null ? getScale() : new V1CustomResourceSubresourceScaleBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<A>
-      editOrNewScaleLike(
-          io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale item) {
+  public V1CustomResourceSubresourcesFluent.ScaleNested<A> editOrNewScaleLike(
+      V1CustomResourceSubresourceScale item) {
     return withNewScaleLike(getScale() != null ? getScale() : item);
   }
 
-  public java.lang.Object getStatus() {
+  public Object getStatus() {
     return this.status;
   }
 
-  public A withStatus(java.lang.Object status) {
+  public A withStatus(Object status) {
     this.status = status;
     return (A) this;
   }
 
-  public java.lang.Boolean hasStatus() {
+  public Boolean hasStatus() {
     return this.status != null;
   }
 
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1CustomResourceSubresourcesFluentImpl that = (V1CustomResourceSubresourcesFluentImpl) o;
@@ -132,19 +127,16 @@ public class V1CustomResourceSubresourcesFluentImpl<A extends V1CustomResourceSu
   class ScaleNestedImpl<N>
       extends V1CustomResourceSubresourceScaleFluentImpl<
           V1CustomResourceSubresourcesFluent.ScaleNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CustomResourceSubresourcesFluent.ScaleNested<
-              N>,
-          Nested<N> {
+      implements V1CustomResourceSubresourcesFluent.ScaleNested<N>, Nested<N> {
     ScaleNestedImpl(V1CustomResourceSubresourceScale item) {
       this.builder = new V1CustomResourceSubresourceScaleBuilder(this, item);
     }
 
     ScaleNestedImpl() {
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleBuilder(this);
+      this.builder = new V1CustomResourceSubresourceScaleBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleBuilder builder;
+    V1CustomResourceSubresourceScaleBuilder builder;
 
     public N and() {
       return (N) V1CustomResourceSubresourcesFluentImpl.this.withScale(builder.build());

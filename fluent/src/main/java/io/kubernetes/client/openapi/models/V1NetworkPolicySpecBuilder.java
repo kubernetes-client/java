@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1NetworkPolicySpecBuilder
     extends V1NetworkPolicySpecFluentImpl<V1NetworkPolicySpecBuilder>
-    implements VisitableBuilder<
-        V1NetworkPolicySpec, io.kubernetes.client.openapi.models.V1NetworkPolicySpecBuilder> {
+    implements VisitableBuilder<V1NetworkPolicySpec, V1NetworkPolicySpecBuilder> {
   public V1NetworkPolicySpecBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1NetworkPolicySpecBuilder
   }
 
   public V1NetworkPolicySpecBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicySpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1NetworkPolicySpec(), validationEnabled);
   }
 
   public V1NetworkPolicySpecBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NetworkPolicySpec instance) {
+      V1NetworkPolicySpecFluent<?> fluent, V1NetworkPolicySpec instance) {
     this(fluent, instance, false);
   }
 
   public V1NetworkPolicySpecBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1NetworkPolicySpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1NetworkPolicySpecFluent<?> fluent,
+      V1NetworkPolicySpec instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withEgress(instance.getEgress());
 
@@ -58,14 +55,11 @@ public class V1NetworkPolicySpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1NetworkPolicySpecBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicySpec instance) {
+  public V1NetworkPolicySpecBuilder(V1NetworkPolicySpec instance) {
     this(instance, false);
   }
 
-  public V1NetworkPolicySpecBuilder(
-      io.kubernetes.client.openapi.models.V1NetworkPolicySpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1NetworkPolicySpecBuilder(V1NetworkPolicySpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withEgress(instance.getEgress());
 
@@ -78,10 +72,10 @@ public class V1NetworkPolicySpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1NetworkPolicySpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1NetworkPolicySpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1NetworkPolicySpec build() {
+  public V1NetworkPolicySpec build() {
     V1NetworkPolicySpec buildable = new V1NetworkPolicySpec();
     buildable.setEgress(fluent.getEgress());
     buildable.setIngress(fluent.getIngress());

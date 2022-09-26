@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ComponentConditionBuilder
     extends V1ComponentConditionFluentImpl<V1ComponentConditionBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ComponentCondition, V1ComponentConditionBuilder> {
+    implements VisitableBuilder<V1ComponentCondition, V1ComponentConditionBuilder> {
   public V1ComponentConditionBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1ComponentConditionBuilder
   }
 
   public V1ComponentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1ComponentConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ComponentConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ComponentCondition(), validationEnabled);
   }
 
   public V1ComponentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1ComponentConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ComponentCondition instance) {
+      V1ComponentConditionFluent<?> fluent, V1ComponentCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1ComponentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1ComponentConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ComponentCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1ComponentConditionFluent<?> fluent,
+      V1ComponentCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withError(instance.getError());
 
@@ -58,14 +55,11 @@ public class V1ComponentConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ComponentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1ComponentCondition instance) {
+  public V1ComponentConditionBuilder(V1ComponentCondition instance) {
     this(instance, false);
   }
 
-  public V1ComponentConditionBuilder(
-      io.kubernetes.client.openapi.models.V1ComponentCondition instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ComponentConditionBuilder(V1ComponentCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withError(instance.getError());
 
@@ -78,10 +72,10 @@ public class V1ComponentConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ComponentConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ComponentConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ComponentCondition build() {
+  public V1ComponentCondition build() {
     V1ComponentCondition buildable = new V1ComponentCondition();
     buildable.setError(fluent.getError());
     buildable.setMessage(fluent.getMessage());

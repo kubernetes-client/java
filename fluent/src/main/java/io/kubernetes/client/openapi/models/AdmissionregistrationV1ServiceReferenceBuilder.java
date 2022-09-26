@@ -18,8 +18,7 @@ public class AdmissionregistrationV1ServiceReferenceBuilder
     extends AdmissionregistrationV1ServiceReferenceFluentImpl<
         AdmissionregistrationV1ServiceReferenceBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference,
-        AdmissionregistrationV1ServiceReferenceBuilder> {
+        AdmissionregistrationV1ServiceReference, AdmissionregistrationV1ServiceReferenceBuilder> {
   public AdmissionregistrationV1ServiceReferenceBuilder() {
     this(false);
   }
@@ -34,21 +33,20 @@ public class AdmissionregistrationV1ServiceReferenceBuilder
   }
 
   public AdmissionregistrationV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReferenceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      AdmissionregistrationV1ServiceReferenceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new AdmissionregistrationV1ServiceReference(), validationEnabled);
   }
 
   public AdmissionregistrationV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference instance) {
+      AdmissionregistrationV1ServiceReferenceFluent<?> fluent,
+      AdmissionregistrationV1ServiceReference instance) {
     this(fluent, instance, false);
   }
 
   public AdmissionregistrationV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReferenceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference instance,
-      java.lang.Boolean validationEnabled) {
+      AdmissionregistrationV1ServiceReferenceFluent<?> fluent,
+      AdmissionregistrationV1ServiceReference instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
@@ -62,13 +60,12 @@ public class AdmissionregistrationV1ServiceReferenceBuilder
   }
 
   public AdmissionregistrationV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference instance) {
+      AdmissionregistrationV1ServiceReference instance) {
     this(instance, false);
   }
 
   public AdmissionregistrationV1ServiceReferenceBuilder(
-      io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference instance,
-      java.lang.Boolean validationEnabled) {
+      AdmissionregistrationV1ServiceReference instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
@@ -81,10 +78,10 @@ public class AdmissionregistrationV1ServiceReferenceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReferenceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  AdmissionregistrationV1ServiceReferenceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.AdmissionregistrationV1ServiceReference build() {
+  public AdmissionregistrationV1ServiceReference build() {
     AdmissionregistrationV1ServiceReference buildable =
         new AdmissionregistrationV1ServiceReference();
     buildable.setName(fluent.getName());

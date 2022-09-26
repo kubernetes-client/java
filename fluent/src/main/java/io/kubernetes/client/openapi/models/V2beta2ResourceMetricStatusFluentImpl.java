@@ -21,8 +21,7 @@ public class V2beta2ResourceMetricStatusFluentImpl<A extends V2beta2ResourceMetr
     extends BaseFluent<A> implements V2beta2ResourceMetricStatusFluent<A> {
   public V2beta2ResourceMetricStatusFluentImpl() {}
 
-  public V2beta2ResourceMetricStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatus instance) {
+  public V2beta2ResourceMetricStatusFluentImpl(V2beta2ResourceMetricStatus instance) {
     this.withCurrent(instance.getCurrent());
 
     this.withName(instance.getName());
@@ -41,16 +40,18 @@ public class V2beta2ResourceMetricStatusFluentImpl<A extends V2beta2ResourceMetr
     return this.current != null ? this.current.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricValueStatus buildCurrent() {
+  public V2beta2MetricValueStatus buildCurrent() {
     return this.current != null ? this.current.build() : null;
   }
 
-  public A withCurrent(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus current) {
+  public A withCurrent(V2beta2MetricValueStatus current) {
     _visitables.get("current").remove(this.current);
     if (current != null) {
-      this.current =
-          new io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder(current);
+      this.current = new V2beta2MetricValueStatusBuilder(current);
       _visitables.get("current").add(this.current);
+    } else {
+      this.current = null;
+      _visitables.get("current").remove(this.current);
     }
     return (A) this;
   }
@@ -63,39 +64,35 @@ public class V2beta2ResourceMetricStatusFluentImpl<A extends V2beta2ResourceMetr
     return new V2beta2ResourceMetricStatusFluentImpl.CurrentNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatusFluent.CurrentNested<A>
-      withNewCurrentLike(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus item) {
+  public V2beta2ResourceMetricStatusFluent.CurrentNested<A> withNewCurrentLike(
+      V2beta2MetricValueStatus item) {
     return new V2beta2ResourceMetricStatusFluentImpl.CurrentNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatusFluent.CurrentNested<A>
-      editCurrent() {
+  public V2beta2ResourceMetricStatusFluent.CurrentNested<A> editCurrent() {
     return withNewCurrentLike(getCurrent());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatusFluent.CurrentNested<A>
-      editOrNewCurrent() {
+  public V2beta2ResourceMetricStatusFluent.CurrentNested<A> editOrNewCurrent() {
     return withNewCurrentLike(
-        getCurrent() != null
-            ? getCurrent()
-            : new io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder().build());
+        getCurrent() != null ? getCurrent() : new V2beta2MetricValueStatusBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatusFluent.CurrentNested<A>
-      editOrNewCurrentLike(io.kubernetes.client.openapi.models.V2beta2MetricValueStatus item) {
+  public V2beta2ResourceMetricStatusFluent.CurrentNested<A> editOrNewCurrentLike(
+      V2beta2MetricValueStatus item) {
     return withNewCurrentLike(getCurrent() != null ? getCurrent() : item);
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
@@ -112,7 +109,7 @@ public class V2beta2ResourceMetricStatusFluentImpl<A extends V2beta2ResourceMetr
     return java.util.Objects.hash(current, name, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (current != null) {
@@ -129,19 +126,16 @@ public class V2beta2ResourceMetricStatusFluentImpl<A extends V2beta2ResourceMetr
 
   class CurrentNestedImpl<N>
       extends V2beta2MetricValueStatusFluentImpl<V2beta2ResourceMetricStatusFluent.CurrentNested<N>>
-      implements io.kubernetes.client.openapi.models.V2beta2ResourceMetricStatusFluent
-                  .CurrentNested<
-              N>,
-          Nested<N> {
+      implements V2beta2ResourceMetricStatusFluent.CurrentNested<N>, Nested<N> {
     CurrentNestedImpl(V2beta2MetricValueStatus item) {
       this.builder = new V2beta2MetricValueStatusBuilder(this, item);
     }
 
     CurrentNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder(this);
+      this.builder = new V2beta2MetricValueStatusBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2beta2MetricValueStatusBuilder builder;
+    V2beta2MetricValueStatusBuilder builder;
 
     public N and() {
       return (N) V2beta2ResourceMetricStatusFluentImpl.this.withCurrent(builder.build());

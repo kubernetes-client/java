@@ -20,7 +20,7 @@ public class V1TolerationFluentImpl<A extends V1TolerationFluent<A>> extends Bas
     implements V1TolerationFluent<A> {
   public V1TolerationFluentImpl() {}
 
-  public V1TolerationFluentImpl(io.kubernetes.client.openapi.models.V1Toleration instance) {
+  public V1TolerationFluentImpl(V1Toleration instance) {
     this.withEffect(instance.getEffect());
 
     this.withKey(instance.getKey());
@@ -33,16 +33,16 @@ public class V1TolerationFluentImpl<A extends V1TolerationFluent<A>> extends Bas
   }
 
   private String effect;
-  private java.lang.String key;
-  private java.lang.String operator;
+  private String key;
+  private String operator;
   private Long tolerationSeconds;
-  private java.lang.String value;
+  private String value;
 
-  public java.lang.String getEffect() {
+  public String getEffect() {
     return this.effect;
   }
 
-  public A withEffect(java.lang.String effect) {
+  public A withEffect(String effect) {
     this.effect = effect;
     return (A) this;
   }
@@ -51,55 +51,55 @@ public class V1TolerationFluentImpl<A extends V1TolerationFluent<A>> extends Bas
     return this.effect != null;
   }
 
-  public java.lang.String getKey() {
+  public String getKey() {
     return this.key;
   }
 
-  public A withKey(java.lang.String key) {
+  public A withKey(String key) {
     this.key = key;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKey() {
+  public Boolean hasKey() {
     return this.key != null;
   }
 
-  public java.lang.String getOperator() {
+  public String getOperator() {
     return this.operator;
   }
 
-  public A withOperator(java.lang.String operator) {
+  public A withOperator(String operator) {
     this.operator = operator;
     return (A) this;
   }
 
-  public java.lang.Boolean hasOperator() {
+  public Boolean hasOperator() {
     return this.operator != null;
   }
 
-  public java.lang.Long getTolerationSeconds() {
+  public Long getTolerationSeconds() {
     return this.tolerationSeconds;
   }
 
-  public A withTolerationSeconds(java.lang.Long tolerationSeconds) {
+  public A withTolerationSeconds(Long tolerationSeconds) {
     this.tolerationSeconds = tolerationSeconds;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTolerationSeconds() {
+  public Boolean hasTolerationSeconds() {
     return this.tolerationSeconds != null;
   }
 
-  public java.lang.String getValue() {
+  public String getValue() {
     return this.value;
   }
 
-  public A withValue(java.lang.String value) {
+  public A withValue(String value) {
     this.value = value;
     return (A) this;
   }
 
-  public java.lang.Boolean hasValue() {
+  public Boolean hasValue() {
     return this.value != null;
   }
 
@@ -122,7 +122,7 @@ public class V1TolerationFluentImpl<A extends V1TolerationFluent<A>> extends Bas
         effect, key, operator, tolerationSeconds, value, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (effect != null) {

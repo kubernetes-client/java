@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class VersionInfoBuilder extends VersionInfoFluentImpl<VersionInfoBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.VersionInfo,
-        io.kubernetes.client.openapi.models.VersionInfoBuilder> {
+    implements VisitableBuilder<VersionInfo, VersionInfoBuilder> {
   public VersionInfoBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class VersionInfoBuilder extends VersionInfoFluentImpl<VersionInfoBuilder
     this(fluent, false);
   }
 
-  public VersionInfoBuilder(
-      io.kubernetes.client.openapi.models.VersionInfoFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public VersionInfoBuilder(VersionInfoFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new VersionInfo(), validationEnabled);
   }
 
-  public VersionInfoBuilder(
-      io.kubernetes.client.openapi.models.VersionInfoFluent<?> fluent,
-      io.kubernetes.client.openapi.models.VersionInfo instance) {
+  public VersionInfoBuilder(VersionInfoFluent<?> fluent, VersionInfo instance) {
     this(fluent, instance, false);
   }
 
   public VersionInfoBuilder(
-      io.kubernetes.client.openapi.models.VersionInfoFluent<?> fluent,
-      io.kubernetes.client.openapi.models.VersionInfo instance,
-      java.lang.Boolean validationEnabled) {
+      VersionInfoFluent<?> fluent, VersionInfo instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withBuildDate(instance.getBuildDate());
 
@@ -68,13 +60,11 @@ public class VersionInfoBuilder extends VersionInfoFluentImpl<VersionInfoBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public VersionInfoBuilder(io.kubernetes.client.openapi.models.VersionInfo instance) {
+  public VersionInfoBuilder(VersionInfo instance) {
     this(instance, false);
   }
 
-  public VersionInfoBuilder(
-      io.kubernetes.client.openapi.models.VersionInfo instance,
-      java.lang.Boolean validationEnabled) {
+  public VersionInfoBuilder(VersionInfo instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withBuildDate(instance.getBuildDate());
 
@@ -97,10 +87,10 @@ public class VersionInfoBuilder extends VersionInfoFluentImpl<VersionInfoBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.VersionInfoFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  VersionInfoFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.VersionInfo build() {
+  public VersionInfo build() {
     VersionInfo buildable = new VersionInfo();
     buildable.setBuildDate(fluent.getBuildDate());
     buildable.setCompiler(fluent.getCompiler());

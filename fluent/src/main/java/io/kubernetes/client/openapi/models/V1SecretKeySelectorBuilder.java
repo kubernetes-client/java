@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SecretKeySelectorBuilder
     extends V1SecretKeySelectorFluentImpl<V1SecretKeySelectorBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1SecretKeySelector,
-        io.kubernetes.client.openapi.models.V1SecretKeySelectorBuilder> {
+    implements VisitableBuilder<V1SecretKeySelector, V1SecretKeySelectorBuilder> {
   public V1SecretKeySelectorBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1SecretKeySelectorBuilder
   }
 
   public V1SecretKeySelectorBuilder(
-      io.kubernetes.client.openapi.models.V1SecretKeySelectorFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1SecretKeySelectorFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1SecretKeySelector(), validationEnabled);
   }
 
   public V1SecretKeySelectorBuilder(
-      io.kubernetes.client.openapi.models.V1SecretKeySelectorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SecretKeySelector instance) {
+      V1SecretKeySelectorFluent<?> fluent, V1SecretKeySelector instance) {
     this(fluent, instance, false);
   }
 
   public V1SecretKeySelectorBuilder(
-      io.kubernetes.client.openapi.models.V1SecretKeySelectorFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SecretKeySelector instance,
-      java.lang.Boolean validationEnabled) {
+      V1SecretKeySelectorFluent<?> fluent,
+      V1SecretKeySelector instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withKey(instance.getKey());
 
@@ -57,14 +53,11 @@ public class V1SecretKeySelectorBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SecretKeySelectorBuilder(
-      io.kubernetes.client.openapi.models.V1SecretKeySelector instance) {
+  public V1SecretKeySelectorBuilder(V1SecretKeySelector instance) {
     this(instance, false);
   }
 
-  public V1SecretKeySelectorBuilder(
-      io.kubernetes.client.openapi.models.V1SecretKeySelector instance,
-      java.lang.Boolean validationEnabled) {
+  public V1SecretKeySelectorBuilder(V1SecretKeySelector instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withKey(instance.getKey());
 
@@ -75,10 +68,10 @@ public class V1SecretKeySelectorBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SecretKeySelectorFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SecretKeySelectorFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1SecretKeySelector build() {
+  public V1SecretKeySelector build() {
     V1SecretKeySelector buildable = new V1SecretKeySelector();
     buildable.setKey(fluent.getKey());
     buildable.setName(fluent.getName());

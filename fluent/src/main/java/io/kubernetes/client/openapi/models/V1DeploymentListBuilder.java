@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DeploymentListBuilder extends V1DeploymentListFluentImpl<V1DeploymentListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DeploymentList,
-        io.kubernetes.client.openapi.models.V1DeploymentListBuilder> {
+    implements VisitableBuilder<V1DeploymentList, V1DeploymentListBuilder> {
   public V1DeploymentListBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1DeploymentListBuilder extends V1DeploymentListFluentImpl<V1Deploy
     this(fluent, false);
   }
 
-  public V1DeploymentListBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1DeploymentListBuilder(V1DeploymentListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DeploymentList(), validationEnabled);
   }
 
-  public V1DeploymentListBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DeploymentList instance) {
+  public V1DeploymentListBuilder(V1DeploymentListFluent<?> fluent, V1DeploymentList instance) {
     this(fluent, instance, false);
   }
 
   public V1DeploymentListBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DeploymentList instance,
-      java.lang.Boolean validationEnabled) {
+      V1DeploymentListFluent<?> fluent, V1DeploymentList instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -58,13 +50,11 @@ public class V1DeploymentListBuilder extends V1DeploymentListFluentImpl<V1Deploy
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DeploymentListBuilder(io.kubernetes.client.openapi.models.V1DeploymentList instance) {
+  public V1DeploymentListBuilder(V1DeploymentList instance) {
     this(instance, false);
   }
 
-  public V1DeploymentListBuilder(
-      io.kubernetes.client.openapi.models.V1DeploymentList instance,
-      java.lang.Boolean validationEnabled) {
+  public V1DeploymentListBuilder(V1DeploymentList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -77,10 +67,10 @@ public class V1DeploymentListBuilder extends V1DeploymentListFluentImpl<V1Deploy
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DeploymentListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DeploymentListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DeploymentList build() {
+  public V1DeploymentList build() {
     V1DeploymentList buildable = new V1DeploymentList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class CoreV1EndpointPortBuilder
     extends CoreV1EndpointPortFluentImpl<CoreV1EndpointPortBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.CoreV1EndpointPort,
-        io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder> {
+    implements VisitableBuilder<CoreV1EndpointPort, CoreV1EndpointPortBuilder> {
   public CoreV1EndpointPortBuilder() {
     this(false);
   }
@@ -31,22 +29,17 @@ public class CoreV1EndpointPortBuilder
     this(fluent, false);
   }
 
-  public CoreV1EndpointPortBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EndpointPortFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public CoreV1EndpointPortBuilder(CoreV1EndpointPortFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new CoreV1EndpointPort(), validationEnabled);
   }
 
   public CoreV1EndpointPortBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EndpointPortFluent<?> fluent,
-      io.kubernetes.client.openapi.models.CoreV1EndpointPort instance) {
+      CoreV1EndpointPortFluent<?> fluent, CoreV1EndpointPort instance) {
     this(fluent, instance, false);
   }
 
   public CoreV1EndpointPortBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EndpointPortFluent<?> fluent,
-      io.kubernetes.client.openapi.models.CoreV1EndpointPort instance,
-      java.lang.Boolean validationEnabled) {
+      CoreV1EndpointPortFluent<?> fluent, CoreV1EndpointPort instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAppProtocol(instance.getAppProtocol());
 
@@ -59,14 +52,11 @@ public class CoreV1EndpointPortBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public CoreV1EndpointPortBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EndpointPort instance) {
+  public CoreV1EndpointPortBuilder(CoreV1EndpointPort instance) {
     this(instance, false);
   }
 
-  public CoreV1EndpointPortBuilder(
-      io.kubernetes.client.openapi.models.CoreV1EndpointPort instance,
-      java.lang.Boolean validationEnabled) {
+  public CoreV1EndpointPortBuilder(CoreV1EndpointPort instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAppProtocol(instance.getAppProtocol());
 
@@ -79,10 +69,10 @@ public class CoreV1EndpointPortBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.CoreV1EndpointPortFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  CoreV1EndpointPortFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.CoreV1EndpointPort build() {
+  public CoreV1EndpointPort build() {
     CoreV1EndpointPort buildable = new CoreV1EndpointPort();
     buildable.setAppProtocol(fluent.getAppProtocol());
     buildable.setName(fluent.getName());

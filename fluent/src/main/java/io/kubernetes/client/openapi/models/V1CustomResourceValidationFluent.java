@@ -27,30 +27,23 @@ public interface V1CustomResourceValidationFluent<A extends V1CustomResourceVali
   @Deprecated
   public V1JSONSchemaProps getOpenAPIV3Schema();
 
-  public io.kubernetes.client.openapi.models.V1JSONSchemaProps buildOpenAPIV3Schema();
+  public V1JSONSchemaProps buildOpenAPIV3Schema();
 
-  public A withOpenAPIV3Schema(
-      io.kubernetes.client.openapi.models.V1JSONSchemaProps openAPIV3Schema);
+  public A withOpenAPIV3Schema(V1JSONSchemaProps openAPIV3Schema);
 
   public Boolean hasOpenAPIV3Schema();
 
   public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> withNewOpenAPIV3Schema();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<
-          A>
-      withNewOpenAPIV3SchemaLike(io.kubernetes.client.openapi.models.V1JSONSchemaProps item);
+  public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> withNewOpenAPIV3SchemaLike(
+      V1JSONSchemaProps item);
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<
-          A>
-      editOpenAPIV3Schema();
+  public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> editOpenAPIV3Schema();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<
-          A>
-      editOrNewOpenAPIV3Schema();
+  public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> editOrNewOpenAPIV3Schema();
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<
-          A>
-      editOrNewOpenAPIV3SchemaLike(io.kubernetes.client.openapi.models.V1JSONSchemaProps item);
+  public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> editOrNewOpenAPIV3SchemaLike(
+      V1JSONSchemaProps item);
 
   public interface OpenAPIV3SchemaNested<N>
       extends Nested<N>,

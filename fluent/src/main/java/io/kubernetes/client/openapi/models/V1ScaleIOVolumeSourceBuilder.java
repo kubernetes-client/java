@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ScaleIOVolumeSourceBuilder
     extends V1ScaleIOVolumeSourceFluentImpl<V1ScaleIOVolumeSourceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ScaleIOVolumeSource, V1ScaleIOVolumeSourceBuilder> {
+    implements VisitableBuilder<V1ScaleIOVolumeSource, V1ScaleIOVolumeSourceBuilder> {
   public V1ScaleIOVolumeSourceBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1ScaleIOVolumeSourceBuilder
   }
 
   public V1ScaleIOVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleIOVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ScaleIOVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ScaleIOVolumeSource(), validationEnabled);
   }
 
   public V1ScaleIOVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleIOVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ScaleIOVolumeSource instance) {
+      V1ScaleIOVolumeSourceFluent<?> fluent, V1ScaleIOVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1ScaleIOVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleIOVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ScaleIOVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1ScaleIOVolumeSourceFluent<?> fluent,
+      V1ScaleIOVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFsType(instance.getFsType());
 
@@ -70,14 +67,11 @@ public class V1ScaleIOVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ScaleIOVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleIOVolumeSource instance) {
+  public V1ScaleIOVolumeSourceBuilder(V1ScaleIOVolumeSource instance) {
     this(instance, false);
   }
 
-  public V1ScaleIOVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleIOVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ScaleIOVolumeSourceBuilder(V1ScaleIOVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFsType(instance.getFsType());
 
@@ -102,10 +96,10 @@ public class V1ScaleIOVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ScaleIOVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ScaleIOVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ScaleIOVolumeSource build() {
+  public V1ScaleIOVolumeSource build() {
     V1ScaleIOVolumeSource buildable = new V1ScaleIOVolumeSource();
     buildable.setFsType(fluent.getFsType());
     buildable.setGateway(fluent.getGateway());

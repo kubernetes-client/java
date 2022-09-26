@@ -20,8 +20,7 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<A extends V1ConfigMapNodeConf
     extends BaseFluent<A> implements V1ConfigMapNodeConfigSourceFluent<A> {
   public V1ConfigMapNodeConfigSourceFluentImpl() {}
 
-  public V1ConfigMapNodeConfigSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1ConfigMapNodeConfigSource instance) {
+  public V1ConfigMapNodeConfigSourceFluentImpl(V1ConfigMapNodeConfigSource instance) {
     this.withKubeletConfigKey(instance.getKubeletConfigKey());
 
     this.withName(instance.getName());
@@ -34,16 +33,16 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<A extends V1ConfigMapNodeConf
   }
 
   private String kubeletConfigKey;
-  private java.lang.String name;
-  private java.lang.String namespace;
-  private java.lang.String resourceVersion;
-  private java.lang.String uid;
+  private String name;
+  private String namespace;
+  private String resourceVersion;
+  private String uid;
 
-  public java.lang.String getKubeletConfigKey() {
+  public String getKubeletConfigKey() {
     return this.kubeletConfigKey;
   }
 
-  public A withKubeletConfigKey(java.lang.String kubeletConfigKey) {
+  public A withKubeletConfigKey(String kubeletConfigKey) {
     this.kubeletConfigKey = kubeletConfigKey;
     return (A) this;
   }
@@ -52,55 +51,55 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<A extends V1ConfigMapNodeConf
     return this.kubeletConfigKey != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.String getNamespace() {
+  public String getNamespace() {
     return this.namespace;
   }
 
-  public A withNamespace(java.lang.String namespace) {
+  public A withNamespace(String namespace) {
     this.namespace = namespace;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNamespace() {
+  public Boolean hasNamespace() {
     return this.namespace != null;
   }
 
-  public java.lang.String getResourceVersion() {
+  public String getResourceVersion() {
     return this.resourceVersion;
   }
 
-  public A withResourceVersion(java.lang.String resourceVersion) {
+  public A withResourceVersion(String resourceVersion) {
     this.resourceVersion = resourceVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasResourceVersion() {
+  public Boolean hasResourceVersion() {
     return this.resourceVersion != null;
   }
 
-  public java.lang.String getUid() {
+  public String getUid() {
     return this.uid;
   }
 
-  public A withUid(java.lang.String uid) {
+  public A withUid(String uid) {
     this.uid = uid;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUid() {
+  public Boolean hasUid() {
     return this.uid != null;
   }
 
@@ -126,7 +125,7 @@ public class V1ConfigMapNodeConfigSourceFluentImpl<A extends V1ConfigMapNodeConf
         kubeletConfigKey, name, namespace, resourceVersion, uid, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (kubeletConfigKey != null) {

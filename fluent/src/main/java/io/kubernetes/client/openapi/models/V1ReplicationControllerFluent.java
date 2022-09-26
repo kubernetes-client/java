@@ -20,15 +20,15 @@ public interface V1ReplicationControllerFluent<A extends V1ReplicationController
     extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -38,80 +38,73 @@ public interface V1ReplicationControllerFluent<A extends V1ReplicationController
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1ReplicationControllerFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1ReplicationControllerFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.MetadataNested<A>
-      editMetadata();
+  public V1ReplicationControllerFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1ReplicationControllerFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1ReplicationControllerFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
   /**
    * This method has been deprecated, please use method buildSpec instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ReplicationControllerSpec getSpec();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerSpec buildSpec();
+  public V1ReplicationControllerSpec buildSpec();
 
-  public A withSpec(io.kubernetes.client.openapi.models.V1ReplicationControllerSpec spec);
+  public A withSpec(V1ReplicationControllerSpec spec);
 
-  public java.lang.Boolean hasSpec();
+  public Boolean hasSpec();
 
   public V1ReplicationControllerFluent.SpecNested<A> withNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.SpecNested<A>
-      withNewSpecLike(io.kubernetes.client.openapi.models.V1ReplicationControllerSpec item);
+  public V1ReplicationControllerFluent.SpecNested<A> withNewSpecLike(
+      V1ReplicationControllerSpec item);
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.SpecNested<A> editSpec();
+  public V1ReplicationControllerFluent.SpecNested<A> editSpec();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.SpecNested<A>
-      editOrNewSpec();
+  public V1ReplicationControllerFluent.SpecNested<A> editOrNewSpec();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.SpecNested<A>
-      editOrNewSpecLike(io.kubernetes.client.openapi.models.V1ReplicationControllerSpec item);
+  public V1ReplicationControllerFluent.SpecNested<A> editOrNewSpecLike(
+      V1ReplicationControllerSpec item);
 
   /**
    * This method has been deprecated, please use method buildStatus instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ReplicationControllerStatus getStatus();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerStatus buildStatus();
+  public V1ReplicationControllerStatus buildStatus();
 
-  public A withStatus(io.kubernetes.client.openapi.models.V1ReplicationControllerStatus status);
+  public A withStatus(V1ReplicationControllerStatus status);
 
-  public java.lang.Boolean hasStatus();
+  public Boolean hasStatus();
 
   public V1ReplicationControllerFluent.StatusNested<A> withNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.StatusNested<A>
-      withNewStatusLike(io.kubernetes.client.openapi.models.V1ReplicationControllerStatus item);
+  public V1ReplicationControllerFluent.StatusNested<A> withNewStatusLike(
+      V1ReplicationControllerStatus item);
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.StatusNested<A>
-      editStatus();
+  public V1ReplicationControllerFluent.StatusNested<A> editStatus();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.StatusNested<A>
-      editOrNewStatus();
+  public V1ReplicationControllerFluent.StatusNested<A> editOrNewStatus();
 
-  public io.kubernetes.client.openapi.models.V1ReplicationControllerFluent.StatusNested<A>
-      editOrNewStatusLike(io.kubernetes.client.openapi.models.V1ReplicationControllerStatus item);
+  public V1ReplicationControllerFluent.StatusNested<A> editOrNewStatusLike(
+      V1ReplicationControllerStatus item);
 
   public interface MetadataNested<N>
       extends Nested<N>, V1ObjectMetaFluent<V1ReplicationControllerFluent.MetadataNested<N>> {
@@ -121,7 +114,7 @@ public interface V1ReplicationControllerFluent<A extends V1ReplicationController
   }
 
   public interface SpecNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1ReplicationControllerSpecFluent<V1ReplicationControllerFluent.SpecNested<N>> {
     public N and();
 
@@ -129,7 +122,7 @@ public interface V1ReplicationControllerFluent<A extends V1ReplicationController
   }
 
   public interface StatusNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
+      extends Nested<N>,
           V1ReplicationControllerStatusFluent<V1ReplicationControllerFluent.StatusNested<N>> {
     public N and();
 

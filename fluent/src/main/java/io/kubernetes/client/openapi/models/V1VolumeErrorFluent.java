@@ -19,13 +19,13 @@ import java.time.OffsetDateTime;
 public interface V1VolumeErrorFluent<A extends V1VolumeErrorFluent<A>> extends Fluent<A> {
   public String getMessage();
 
-  public A withMessage(java.lang.String message);
+  public A withMessage(String message);
 
   public Boolean hasMessage();
 
   public OffsetDateTime getTime();
 
-  public A withTime(java.time.OffsetDateTime time);
+  public A withTime(OffsetDateTime time);
 
-  public java.lang.Boolean hasTime();
+  public Boolean hasTime();
 }

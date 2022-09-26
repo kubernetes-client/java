@@ -24,8 +24,7 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     extends BaseFluent<A> implements V1beta1ResourcePolicyRuleFluent<A> {
   public V1beta1ResourcePolicyRuleFluentImpl() {}
 
-  public V1beta1ResourcePolicyRuleFluentImpl(
-      io.kubernetes.client.openapi.models.V1beta1ResourcePolicyRule instance) {
+  public V1beta1ResourcePolicyRuleFluentImpl(V1beta1ResourcePolicyRule instance) {
     this.withApiGroups(instance.getApiGroups());
 
     this.withClusterScope(instance.getClusterScope());
@@ -39,21 +38,21 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
 
   private List<String> apiGroups;
   private Boolean clusterScope;
-  private java.util.List<java.lang.String> namespaces;
-  private java.util.List<java.lang.String> resources;
-  private java.util.List<java.lang.String> verbs;
+  private List<String> namespaces;
+  private List<String> resources;
+  private List<String> verbs;
 
-  public A addToApiGroups(Integer index, java.lang.String item) {
+  public A addToApiGroups(Integer index, String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<String>();
     }
     this.apiGroups.add(index, item);
     return (A) this;
   }
 
-  public A setToApiGroups(java.lang.Integer index, java.lang.String item) {
+  public A setToApiGroups(Integer index, String item) {
     if (this.apiGroups == null) {
-      this.apiGroups = new java.util.ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<String>();
     }
     this.apiGroups.set(index, item);
     return (A) this;
@@ -61,26 +60,26 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
 
   public A addToApiGroups(java.lang.String... items) {
     if (this.apiGroups == null) {
-      this.apiGroups = new java.util.ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.apiGroups.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToApiGroups(Collection<java.lang.String> items) {
+  public A addAllToApiGroups(Collection<String> items) {
     if (this.apiGroups == null) {
-      this.apiGroups = new java.util.ArrayList<java.lang.String>();
+      this.apiGroups = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.apiGroups.add(item);
     }
     return (A) this;
   }
 
   public A removeFromApiGroups(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.apiGroups != null) {
         this.apiGroups.remove(item);
       }
@@ -88,8 +87,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return (A) this;
   }
 
-  public A removeAllFromApiGroups(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromApiGroups(Collection<String> items) {
+    for (String item : items) {
       if (this.apiGroups != null) {
         this.apiGroups.remove(item);
       }
@@ -97,24 +96,24 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getApiGroups() {
+  public List<String> getApiGroups() {
     return this.apiGroups;
   }
 
-  public java.lang.String getApiGroup(java.lang.Integer index) {
+  public String getApiGroup(Integer index) {
     return this.apiGroups.get(index);
   }
 
-  public java.lang.String getFirstApiGroup() {
+  public String getFirstApiGroup() {
     return this.apiGroups.get(0);
   }
 
-  public java.lang.String getLastApiGroup() {
+  public String getLastApiGroup() {
     return this.apiGroups.get(apiGroups.size() - 1);
   }
 
-  public java.lang.String getMatchingApiGroup(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : apiGroups) {
+  public String getMatchingApiGroup(Predicate<String> predicate) {
+    for (String item : apiGroups) {
       if (predicate.test(item)) {
         return item;
       }
@@ -122,9 +121,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return null;
   }
 
-  public java.lang.Boolean hasMatchingApiGroup(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : apiGroups) {
+  public Boolean hasMatchingApiGroup(Predicate<String> predicate) {
+    for (String item : apiGroups) {
       if (predicate.test(item)) {
         return true;
       }
@@ -132,10 +130,10 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return false;
   }
 
-  public A withApiGroups(java.util.List<java.lang.String> apiGroups) {
+  public A withApiGroups(List<String> apiGroups) {
     if (apiGroups != null) {
-      this.apiGroups = new java.util.ArrayList();
-      for (java.lang.String item : apiGroups) {
+      this.apiGroups = new ArrayList();
+      for (String item : apiGroups) {
         this.addToApiGroups(item);
       }
     } else {
@@ -149,41 +147,41 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
       this.apiGroups.clear();
     }
     if (apiGroups != null) {
-      for (java.lang.String item : apiGroups) {
+      for (String item : apiGroups) {
         this.addToApiGroups(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiGroups() {
+  public Boolean hasApiGroups() {
     return apiGroups != null && !apiGroups.isEmpty();
   }
 
-  public java.lang.Boolean getClusterScope() {
+  public Boolean getClusterScope() {
     return this.clusterScope;
   }
 
-  public A withClusterScope(java.lang.Boolean clusterScope) {
+  public A withClusterScope(Boolean clusterScope) {
     this.clusterScope = clusterScope;
     return (A) this;
   }
 
-  public java.lang.Boolean hasClusterScope() {
+  public Boolean hasClusterScope() {
     return this.clusterScope != null;
   }
 
-  public A addToNamespaces(java.lang.Integer index, java.lang.String item) {
+  public A addToNamespaces(Integer index, String item) {
     if (this.namespaces == null) {
-      this.namespaces = new java.util.ArrayList<java.lang.String>();
+      this.namespaces = new ArrayList<String>();
     }
     this.namespaces.add(index, item);
     return (A) this;
   }
 
-  public A setToNamespaces(java.lang.Integer index, java.lang.String item) {
+  public A setToNamespaces(Integer index, String item) {
     if (this.namespaces == null) {
-      this.namespaces = new java.util.ArrayList<java.lang.String>();
+      this.namespaces = new ArrayList<String>();
     }
     this.namespaces.set(index, item);
     return (A) this;
@@ -191,26 +189,26 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
 
   public A addToNamespaces(java.lang.String... items) {
     if (this.namespaces == null) {
-      this.namespaces = new java.util.ArrayList<java.lang.String>();
+      this.namespaces = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.namespaces.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToNamespaces(java.util.Collection<java.lang.String> items) {
+  public A addAllToNamespaces(Collection<String> items) {
     if (this.namespaces == null) {
-      this.namespaces = new java.util.ArrayList<java.lang.String>();
+      this.namespaces = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.namespaces.add(item);
     }
     return (A) this;
   }
 
   public A removeFromNamespaces(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.namespaces != null) {
         this.namespaces.remove(item);
       }
@@ -218,8 +216,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return (A) this;
   }
 
-  public A removeAllFromNamespaces(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromNamespaces(Collection<String> items) {
+    for (String item : items) {
       if (this.namespaces != null) {
         this.namespaces.remove(item);
       }
@@ -227,25 +225,24 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getNamespaces() {
+  public List<String> getNamespaces() {
     return this.namespaces;
   }
 
-  public java.lang.String getNamespace(java.lang.Integer index) {
+  public String getNamespace(Integer index) {
     return this.namespaces.get(index);
   }
 
-  public java.lang.String getFirstNamespace() {
+  public String getFirstNamespace() {
     return this.namespaces.get(0);
   }
 
-  public java.lang.String getLastNamespace() {
+  public String getLastNamespace() {
     return this.namespaces.get(namespaces.size() - 1);
   }
 
-  public java.lang.String getMatchingNamespace(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : namespaces) {
+  public String getMatchingNamespace(Predicate<String> predicate) {
+    for (String item : namespaces) {
       if (predicate.test(item)) {
         return item;
       }
@@ -253,9 +250,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return null;
   }
 
-  public java.lang.Boolean hasMatchingNamespace(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : namespaces) {
+  public Boolean hasMatchingNamespace(Predicate<String> predicate) {
+    for (String item : namespaces) {
       if (predicate.test(item)) {
         return true;
       }
@@ -263,10 +259,10 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return false;
   }
 
-  public A withNamespaces(java.util.List<java.lang.String> namespaces) {
+  public A withNamespaces(List<String> namespaces) {
     if (namespaces != null) {
-      this.namespaces = new java.util.ArrayList();
-      for (java.lang.String item : namespaces) {
+      this.namespaces = new ArrayList();
+      for (String item : namespaces) {
         this.addToNamespaces(item);
       }
     } else {
@@ -280,28 +276,28 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
       this.namespaces.clear();
     }
     if (namespaces != null) {
-      for (java.lang.String item : namespaces) {
+      for (String item : namespaces) {
         this.addToNamespaces(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasNamespaces() {
+  public Boolean hasNamespaces() {
     return namespaces != null && !namespaces.isEmpty();
   }
 
-  public A addToResources(java.lang.Integer index, java.lang.String item) {
+  public A addToResources(Integer index, String item) {
     if (this.resources == null) {
-      this.resources = new java.util.ArrayList<java.lang.String>();
+      this.resources = new ArrayList<String>();
     }
     this.resources.add(index, item);
     return (A) this;
   }
 
-  public A setToResources(java.lang.Integer index, java.lang.String item) {
+  public A setToResources(Integer index, String item) {
     if (this.resources == null) {
-      this.resources = new java.util.ArrayList<java.lang.String>();
+      this.resources = new ArrayList<String>();
     }
     this.resources.set(index, item);
     return (A) this;
@@ -309,26 +305,26 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
 
   public A addToResources(java.lang.String... items) {
     if (this.resources == null) {
-      this.resources = new java.util.ArrayList<java.lang.String>();
+      this.resources = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.resources.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToResources(java.util.Collection<java.lang.String> items) {
+  public A addAllToResources(Collection<String> items) {
     if (this.resources == null) {
-      this.resources = new java.util.ArrayList<java.lang.String>();
+      this.resources = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.resources.add(item);
     }
     return (A) this;
   }
 
   public A removeFromResources(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.resources != null) {
         this.resources.remove(item);
       }
@@ -336,8 +332,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return (A) this;
   }
 
-  public A removeAllFromResources(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromResources(Collection<String> items) {
+    for (String item : items) {
       if (this.resources != null) {
         this.resources.remove(item);
       }
@@ -345,25 +341,24 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getResources() {
+  public List<String> getResources() {
     return this.resources;
   }
 
-  public java.lang.String getResource(java.lang.Integer index) {
+  public String getResource(Integer index) {
     return this.resources.get(index);
   }
 
-  public java.lang.String getFirstResource() {
+  public String getFirstResource() {
     return this.resources.get(0);
   }
 
-  public java.lang.String getLastResource() {
+  public String getLastResource() {
     return this.resources.get(resources.size() - 1);
   }
 
-  public java.lang.String getMatchingResource(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : resources) {
+  public String getMatchingResource(Predicate<String> predicate) {
+    for (String item : resources) {
       if (predicate.test(item)) {
         return item;
       }
@@ -371,9 +366,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return null;
   }
 
-  public java.lang.Boolean hasMatchingResource(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : resources) {
+  public Boolean hasMatchingResource(Predicate<String> predicate) {
+    for (String item : resources) {
       if (predicate.test(item)) {
         return true;
       }
@@ -381,10 +375,10 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return false;
   }
 
-  public A withResources(java.util.List<java.lang.String> resources) {
+  public A withResources(List<String> resources) {
     if (resources != null) {
-      this.resources = new java.util.ArrayList();
-      for (java.lang.String item : resources) {
+      this.resources = new ArrayList();
+      for (String item : resources) {
         this.addToResources(item);
       }
     } else {
@@ -398,28 +392,28 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
       this.resources.clear();
     }
     if (resources != null) {
-      for (java.lang.String item : resources) {
+      for (String item : resources) {
         this.addToResources(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasResources() {
+  public Boolean hasResources() {
     return resources != null && !resources.isEmpty();
   }
 
-  public A addToVerbs(java.lang.Integer index, java.lang.String item) {
+  public A addToVerbs(Integer index, String item) {
     if (this.verbs == null) {
-      this.verbs = new java.util.ArrayList<java.lang.String>();
+      this.verbs = new ArrayList<String>();
     }
     this.verbs.add(index, item);
     return (A) this;
   }
 
-  public A setToVerbs(java.lang.Integer index, java.lang.String item) {
+  public A setToVerbs(Integer index, String item) {
     if (this.verbs == null) {
-      this.verbs = new java.util.ArrayList<java.lang.String>();
+      this.verbs = new ArrayList<String>();
     }
     this.verbs.set(index, item);
     return (A) this;
@@ -427,26 +421,26 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
 
   public A addToVerbs(java.lang.String... items) {
     if (this.verbs == null) {
-      this.verbs = new java.util.ArrayList<java.lang.String>();
+      this.verbs = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.verbs.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToVerbs(java.util.Collection<java.lang.String> items) {
+  public A addAllToVerbs(Collection<String> items) {
     if (this.verbs == null) {
-      this.verbs = new java.util.ArrayList<java.lang.String>();
+      this.verbs = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.verbs.add(item);
     }
     return (A) this;
   }
 
   public A removeFromVerbs(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.verbs != null) {
         this.verbs.remove(item);
       }
@@ -454,8 +448,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return (A) this;
   }
 
-  public A removeAllFromVerbs(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromVerbs(Collection<String> items) {
+    for (String item : items) {
       if (this.verbs != null) {
         this.verbs.remove(item);
       }
@@ -463,25 +457,24 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getVerbs() {
+  public List<String> getVerbs() {
     return this.verbs;
   }
 
-  public java.lang.String getVerb(java.lang.Integer index) {
+  public String getVerb(Integer index) {
     return this.verbs.get(index);
   }
 
-  public java.lang.String getFirstVerb() {
+  public String getFirstVerb() {
     return this.verbs.get(0);
   }
 
-  public java.lang.String getLastVerb() {
+  public String getLastVerb() {
     return this.verbs.get(verbs.size() - 1);
   }
 
-  public java.lang.String getMatchingVerb(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : verbs) {
+  public String getMatchingVerb(Predicate<String> predicate) {
+    for (String item : verbs) {
       if (predicate.test(item)) {
         return item;
       }
@@ -489,9 +482,8 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return null;
   }
 
-  public java.lang.Boolean hasMatchingVerb(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : verbs) {
+  public Boolean hasMatchingVerb(Predicate<String> predicate) {
+    for (String item : verbs) {
       if (predicate.test(item)) {
         return true;
       }
@@ -499,10 +491,10 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
     return false;
   }
 
-  public A withVerbs(java.util.List<java.lang.String> verbs) {
+  public A withVerbs(List<String> verbs) {
     if (verbs != null) {
-      this.verbs = new java.util.ArrayList();
-      for (java.lang.String item : verbs) {
+      this.verbs = new ArrayList();
+      for (String item : verbs) {
         this.addToVerbs(item);
       }
     } else {
@@ -516,14 +508,14 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
       this.verbs.clear();
     }
     if (verbs != null) {
-      for (java.lang.String item : verbs) {
+      for (String item : verbs) {
         this.addToVerbs(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasVerbs() {
+  public Boolean hasVerbs() {
     return verbs != null && !verbs.isEmpty();
   }
 
@@ -548,7 +540,7 @@ public class V1beta1ResourcePolicyRuleFluentImpl<A extends V1beta1ResourcePolicy
         apiGroups, clusterScope, namespaces, resources, verbs, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiGroups != null && !apiGroups.isEmpty()) {

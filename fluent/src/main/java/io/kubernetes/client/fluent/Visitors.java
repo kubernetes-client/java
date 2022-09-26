@@ -29,13 +29,12 @@ public final class Visitors {
     // Utility Class
   }
 
-  public static <T> Visitor<T> newVisitor(
-      Class<T> type, io.kubernetes.client.fluent.Visitor<T> visitor) {
+  public static <T> Visitor<T> newVisitor(Class<T> type, Visitor<T> visitor) {
     return new DelegatingVisitor<T>(type, visitor);
   }
 
-  protected static <T> List<java.lang.Class> getTypeArguments(
-      java.lang.Class<T> baseClass, java.lang.Class<? extends T> childClass) {
+  protected static <T> List<Class> getTypeArguments(
+      Class<T> baseClass, Class<? extends T> childClass) {
     Map<Type, Type> resolvedTypes = new LinkedHashMap<Type, Type>();
     Type type = childClass;
     // start walking up the inheritance hierarchy until we hit baseClass
@@ -100,7 +99,7 @@ public final class Visitors {
         : type.getTypeName();
   }
 
-  private static java.lang.Class<?> getClass(java.lang.reflect.Type type) {
+  private static Class<?> getClass(Type type) {
     if (type instanceof Class) {
       return (Class) type;
     } else if (type instanceof ParameterizedType) {
@@ -118,8 +117,8 @@ public final class Visitors {
     }
   }
 
-  private static <T> Optional<java.lang.reflect.Type> getMatchingInterface(
-      java.lang.Class<?> targetInterface, java.lang.reflect.Type... candidates) {
+  private static <T> Optional<Type> getMatchingInterface(
+      Class<?> targetInterface, java.lang.reflect.Type... candidates) {
     if (candidates == null || candidates.length == 0) {
       return Optional.empty();
     }

@@ -20,8 +20,7 @@ public class V1ResourceAttributesFluentImpl<A extends V1ResourceAttributesFluent
     extends BaseFluent<A> implements V1ResourceAttributesFluent<A> {
   public V1ResourceAttributesFluentImpl() {}
 
-  public V1ResourceAttributesFluentImpl(
-      io.kubernetes.client.openapi.models.V1ResourceAttributes instance) {
+  public V1ResourceAttributesFluentImpl(V1ResourceAttributes instance) {
     this.withGroup(instance.getGroup());
 
     this.withName(instance.getName());
@@ -38,18 +37,18 @@ public class V1ResourceAttributesFluentImpl<A extends V1ResourceAttributesFluent
   }
 
   private String group;
-  private java.lang.String name;
-  private java.lang.String namespace;
-  private java.lang.String resource;
-  private java.lang.String subresource;
-  private java.lang.String verb;
-  private java.lang.String version;
+  private String name;
+  private String namespace;
+  private String resource;
+  private String subresource;
+  private String verb;
+  private String version;
 
-  public java.lang.String getGroup() {
+  public String getGroup() {
     return this.group;
   }
 
-  public A withGroup(java.lang.String group) {
+  public A withGroup(String group) {
     this.group = group;
     return (A) this;
   }
@@ -58,81 +57,81 @@ public class V1ResourceAttributesFluentImpl<A extends V1ResourceAttributesFluent
     return this.group != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
-  public java.lang.String getNamespace() {
+  public String getNamespace() {
     return this.namespace;
   }
 
-  public A withNamespace(java.lang.String namespace) {
+  public A withNamespace(String namespace) {
     this.namespace = namespace;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNamespace() {
+  public Boolean hasNamespace() {
     return this.namespace != null;
   }
 
-  public java.lang.String getResource() {
+  public String getResource() {
     return this.resource;
   }
 
-  public A withResource(java.lang.String resource) {
+  public A withResource(String resource) {
     this.resource = resource;
     return (A) this;
   }
 
-  public java.lang.Boolean hasResource() {
+  public Boolean hasResource() {
     return this.resource != null;
   }
 
-  public java.lang.String getSubresource() {
+  public String getSubresource() {
     return this.subresource;
   }
 
-  public A withSubresource(java.lang.String subresource) {
+  public A withSubresource(String subresource) {
     this.subresource = subresource;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSubresource() {
+  public Boolean hasSubresource() {
     return this.subresource != null;
   }
 
-  public java.lang.String getVerb() {
+  public String getVerb() {
     return this.verb;
   }
 
-  public A withVerb(java.lang.String verb) {
+  public A withVerb(String verb) {
     this.verb = verb;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVerb() {
+  public Boolean hasVerb() {
     return this.verb != null;
   }
 
-  public java.lang.String getVersion() {
+  public String getVersion() {
     return this.version;
   }
 
-  public A withVersion(java.lang.String version) {
+  public A withVersion(String version) {
     this.version = version;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVersion() {
+  public Boolean hasVersion() {
     return this.version != null;
   }
 
@@ -157,7 +156,7 @@ public class V1ResourceAttributesFluentImpl<A extends V1ResourceAttributesFluent
         group, name, namespace, resource, subresource, verb, version, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (group != null) {

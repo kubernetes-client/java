@@ -18,31 +18,31 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1ContainerPortFluent<A extends V1ContainerPortFluent<A>> extends Fluent<A> {
   public Integer getContainerPort();
 
-  public A withContainerPort(java.lang.Integer containerPort);
+  public A withContainerPort(Integer containerPort);
 
   public Boolean hasContainerPort();
 
   public String getHostIP();
 
-  public A withHostIP(java.lang.String hostIP);
+  public A withHostIP(String hostIP);
 
-  public java.lang.Boolean hasHostIP();
+  public Boolean hasHostIP();
 
-  public java.lang.Integer getHostPort();
+  public Integer getHostPort();
 
-  public A withHostPort(java.lang.Integer hostPort);
+  public A withHostPort(Integer hostPort);
 
-  public java.lang.Boolean hasHostPort();
+  public Boolean hasHostPort();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.String getProtocol();
+  public String getProtocol();
 
-  public A withProtocol(java.lang.String protocol);
+  public A withProtocol(String protocol);
 
-  public java.lang.Boolean hasProtocol();
+  public Boolean hasProtocol();
 }

@@ -26,7 +26,7 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     implements V1EndpointSubsetFluent<A> {
   public V1EndpointSubsetFluentImpl() {}
 
-  public V1EndpointSubsetFluentImpl(io.kubernetes.client.openapi.models.V1EndpointSubset instance) {
+  public V1EndpointSubsetFluentImpl(V1EndpointSubset instance) {
     this.withAddresses(instance.getAddresses());
 
     this.withNotReadyAddresses(instance.getNotReadyAddresses());
@@ -35,17 +35,14 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
   }
 
   private ArrayList<V1EndpointAddressBuilder> addresses;
-  private java.util.ArrayList<V1EndpointAddressBuilder> notReadyAddresses;
-  private java.util.ArrayList<CoreV1EndpointPortBuilder> ports;
+  private ArrayList<V1EndpointAddressBuilder> notReadyAddresses;
+  private ArrayList<CoreV1EndpointPortBuilder> ports;
 
-  public A addToAddresses(
-      Integer index, io.kubernetes.client.openapi.models.V1EndpointAddress item) {
+  public A addToAddresses(Integer index, V1EndpointAddress item) {
     if (this.addresses == null) {
-      this.addresses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>();
+      this.addresses = new ArrayList<V1EndpointAddressBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-        new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+    V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
     _visitables
         .get("addresses")
         .add(index >= 0 ? index : _visitables.get("addresses").size(), builder);
@@ -53,14 +50,11 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return (A) this;
   }
 
-  public A setToAddresses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointAddress item) {
+  public A setToAddresses(Integer index, V1EndpointAddress item) {
     if (this.addresses == null) {
-      this.addresses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>();
+      this.addresses = new ArrayList<V1EndpointAddressBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-        new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+    V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
     if (index < 0 || index >= _visitables.get("addresses").size()) {
       _visitables.get("addresses").add(builder);
     } else {
@@ -76,27 +70,22 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
 
   public A addToAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items) {
     if (this.addresses == null) {
-      this.addresses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>();
+      this.addresses = new ArrayList<V1EndpointAddressBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1EndpointAddress item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+    for (V1EndpointAddress item : items) {
+      V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
       _visitables.get("addresses").add(builder);
       this.addresses.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToAddresses(
-      Collection<io.kubernetes.client.openapi.models.V1EndpointAddress> items) {
+  public A addAllToAddresses(Collection<V1EndpointAddress> items) {
     if (this.addresses == null) {
-      this.addresses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>();
+      this.addresses = new ArrayList<V1EndpointAddressBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1EndpointAddress item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+    for (V1EndpointAddress item : items) {
+      V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
       _visitables.get("addresses").add(builder);
       this.addresses.add(builder);
     }
@@ -104,9 +93,8 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
   }
 
   public A removeFromAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items) {
-    for (io.kubernetes.client.openapi.models.V1EndpointAddress item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+    for (V1EndpointAddress item : items) {
+      V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
       _visitables.get("addresses").remove(builder);
       if (this.addresses != null) {
         this.addresses.remove(builder);
@@ -115,11 +103,9 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return (A) this;
   }
 
-  public A removeAllFromAddresses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1EndpointAddress> items) {
-    for (io.kubernetes.client.openapi.models.V1EndpointAddress item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+  public A removeAllFromAddresses(Collection<V1EndpointAddress> items) {
+    for (V1EndpointAddress item : items) {
+      V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
       _visitables.get("addresses").remove(builder);
       if (this.addresses != null) {
         this.addresses.remove(builder);
@@ -128,14 +114,12 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return (A) this;
   }
 
-  public A removeMatchingFromAddresses(
-      Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder> predicate) {
+  public A removeMatchingFromAddresses(Predicate<V1EndpointAddressBuilder> predicate) {
     if (addresses == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder> each =
-        addresses.iterator();
+    final Iterator<V1EndpointAddressBuilder> each = addresses.iterator();
     final List visitables = _visitables.get("addresses");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder = each.next();
+      V1EndpointAddressBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -150,31 +134,28 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1EndpointAddress> getAddresses() {
+  public List<V1EndpointAddress> getAddresses() {
     return addresses != null ? build(addresses) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress> buildAddresses() {
+  public List<V1EndpointAddress> buildAddresses() {
     return addresses != null ? build(addresses) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddress buildAddress(
-      java.lang.Integer index) {
+  public V1EndpointAddress buildAddress(Integer index) {
     return this.addresses.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddress buildFirstAddress() {
+  public V1EndpointAddress buildFirstAddress() {
     return this.addresses.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddress buildLastAddress() {
+  public V1EndpointAddress buildLastAddress() {
     return this.addresses.get(addresses.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddress buildMatchingAddress(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1EndpointAddressBuilder item : addresses) {
+  public V1EndpointAddress buildMatchingAddress(Predicate<V1EndpointAddressBuilder> predicate) {
+    for (V1EndpointAddressBuilder item : addresses) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -182,10 +163,8 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return null;
   }
 
-  public Boolean hasMatchingAddress(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1EndpointAddressBuilder item : addresses) {
+  public Boolean hasMatchingAddress(Predicate<V1EndpointAddressBuilder> predicate) {
+    for (V1EndpointAddressBuilder item : addresses) {
       if (predicate.test(item)) {
         return true;
       }
@@ -193,14 +172,13 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return false;
   }
 
-  public A withAddresses(
-      java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress> addresses) {
+  public A withAddresses(List<V1EndpointAddress> addresses) {
     if (this.addresses != null) {
       _visitables.get("addresses").removeAll(this.addresses);
     }
     if (addresses != null) {
-      this.addresses = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1EndpointAddress item : addresses) {
+      this.addresses = new ArrayList();
+      for (V1EndpointAddress item : addresses) {
         this.addToAddresses(item);
       }
     } else {
@@ -214,14 +192,14 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
       this.addresses.clear();
     }
     if (addresses != null) {
-      for (io.kubernetes.client.openapi.models.V1EndpointAddress item : addresses) {
+      for (V1EndpointAddress item : addresses) {
         this.addToAddresses(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAddresses() {
+  public Boolean hasAddresses() {
     return addresses != null && !addresses.isEmpty();
   }
 
@@ -229,43 +207,35 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return new V1EndpointSubsetFluentImpl.AddressesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<A>
-      addNewAddressLike(io.kubernetes.client.openapi.models.V1EndpointAddress item) {
+  public V1EndpointSubsetFluent.AddressesNested<A> addNewAddressLike(V1EndpointAddress item) {
     return new V1EndpointSubsetFluentImpl.AddressesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<A>
-      setNewAddressLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointAddress item) {
-    return new io.kubernetes.client.openapi.models.V1EndpointSubsetFluentImpl.AddressesNestedImpl(
-        index, item);
+  public V1EndpointSubsetFluent.AddressesNested<A> setNewAddressLike(
+      Integer index, V1EndpointAddress item) {
+    return new V1EndpointSubsetFluentImpl.AddressesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<A> editAddress(
-      java.lang.Integer index) {
+  public V1EndpointSubsetFluent.AddressesNested<A> editAddress(Integer index) {
     if (addresses.size() <= index)
       throw new RuntimeException("Can't edit addresses. Index exceeds size.");
     return setNewAddressLike(index, buildAddress(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<A>
-      editFirstAddress() {
+  public V1EndpointSubsetFluent.AddressesNested<A> editFirstAddress() {
     if (addresses.size() == 0)
       throw new RuntimeException("Can't edit first addresses. The list is empty.");
     return setNewAddressLike(0, buildAddress(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<A>
-      editLastAddress() {
+  public V1EndpointSubsetFluent.AddressesNested<A> editLastAddress() {
     int index = addresses.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last addresses. The list is empty.");
     return setNewAddressLike(index, buildAddress(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<A>
-      editMatchingAddress(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
-              predicate) {
+  public V1EndpointSubsetFluent.AddressesNested<A> editMatchingAddress(
+      Predicate<V1EndpointAddressBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < addresses.size(); i++) {
       if (predicate.test(addresses.get(i))) {
@@ -277,14 +247,11 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return setNewAddressLike(index, buildAddress(index));
   }
 
-  public A addToNotReadyAddresses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointAddress item) {
+  public A addToNotReadyAddresses(Integer index, V1EndpointAddress item) {
     if (this.notReadyAddresses == null) {
-      this.notReadyAddresses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>();
+      this.notReadyAddresses = new ArrayList<V1EndpointAddressBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-        new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+    V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
     _visitables
         .get("notReadyAddresses")
         .add(index >= 0 ? index : _visitables.get("notReadyAddresses").size(), builder);
@@ -292,14 +259,11 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return (A) this;
   }
 
-  public A setToNotReadyAddresses(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointAddress item) {
+  public A setToNotReadyAddresses(Integer index, V1EndpointAddress item) {
     if (this.notReadyAddresses == null) {
-      this.notReadyAddresses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>();
+      this.notReadyAddresses = new ArrayList<V1EndpointAddressBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-        new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+    V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
     if (index < 0 || index >= _visitables.get("notReadyAddresses").size()) {
       _visitables.get("notReadyAddresses").add(builder);
     } else {
@@ -315,27 +279,22 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
 
   public A addToNotReadyAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items) {
     if (this.notReadyAddresses == null) {
-      this.notReadyAddresses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>();
+      this.notReadyAddresses = new ArrayList<V1EndpointAddressBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1EndpointAddress item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+    for (V1EndpointAddress item : items) {
+      V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
       _visitables.get("notReadyAddresses").add(builder);
       this.notReadyAddresses.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToNotReadyAddresses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1EndpointAddress> items) {
+  public A addAllToNotReadyAddresses(Collection<V1EndpointAddress> items) {
     if (this.notReadyAddresses == null) {
-      this.notReadyAddresses =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>();
+      this.notReadyAddresses = new ArrayList<V1EndpointAddressBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1EndpointAddress item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+    for (V1EndpointAddress item : items) {
+      V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
       _visitables.get("notReadyAddresses").add(builder);
       this.notReadyAddresses.add(builder);
     }
@@ -344,9 +303,8 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
 
   public A removeFromNotReadyAddresses(
       io.kubernetes.client.openapi.models.V1EndpointAddress... items) {
-    for (io.kubernetes.client.openapi.models.V1EndpointAddress item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+    for (V1EndpointAddress item : items) {
+      V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
       _visitables.get("notReadyAddresses").remove(builder);
       if (this.notReadyAddresses != null) {
         this.notReadyAddresses.remove(builder);
@@ -355,11 +313,9 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return (A) this;
   }
 
-  public A removeAllFromNotReadyAddresses(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1EndpointAddress> items) {
-    for (io.kubernetes.client.openapi.models.V1EndpointAddress item : items) {
-      io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder =
-          new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(item);
+  public A removeAllFromNotReadyAddresses(Collection<V1EndpointAddress> items) {
+    for (V1EndpointAddress item : items) {
+      V1EndpointAddressBuilder builder = new V1EndpointAddressBuilder(item);
       _visitables.get("notReadyAddresses").remove(builder);
       if (this.notReadyAddresses != null) {
         this.notReadyAddresses.remove(builder);
@@ -368,15 +324,12 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return (A) this;
   }
 
-  public A removeMatchingFromNotReadyAddresses(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
-          predicate) {
+  public A removeMatchingFromNotReadyAddresses(Predicate<V1EndpointAddressBuilder> predicate) {
     if (notReadyAddresses == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder> each =
-        notReadyAddresses.iterator();
+    final Iterator<V1EndpointAddressBuilder> each = notReadyAddresses.iterator();
     final List visitables = _visitables.get("notReadyAddresses");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder = each.next();
+      V1EndpointAddressBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -390,34 +343,30 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress>
-      getNotReadyAddresses() {
+  @Deprecated
+  public List<V1EndpointAddress> getNotReadyAddresses() {
     return notReadyAddresses != null ? build(notReadyAddresses) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress>
-      buildNotReadyAddresses() {
+  public List<V1EndpointAddress> buildNotReadyAddresses() {
     return notReadyAddresses != null ? build(notReadyAddresses) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddress buildNotReadyAddress(
-      java.lang.Integer index) {
+  public V1EndpointAddress buildNotReadyAddress(Integer index) {
     return this.notReadyAddresses.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddress buildFirstNotReadyAddress() {
+  public V1EndpointAddress buildFirstNotReadyAddress() {
     return this.notReadyAddresses.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddress buildLastNotReadyAddress() {
+  public V1EndpointAddress buildLastNotReadyAddress() {
     return this.notReadyAddresses.get(notReadyAddresses.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointAddress buildMatchingNotReadyAddress(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1EndpointAddressBuilder item : notReadyAddresses) {
+  public V1EndpointAddress buildMatchingNotReadyAddress(
+      Predicate<V1EndpointAddressBuilder> predicate) {
+    for (V1EndpointAddressBuilder item : notReadyAddresses) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -425,10 +374,8 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return null;
   }
 
-  public java.lang.Boolean hasMatchingNotReadyAddress(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1EndpointAddressBuilder item : notReadyAddresses) {
+  public Boolean hasMatchingNotReadyAddress(Predicate<V1EndpointAddressBuilder> predicate) {
+    for (V1EndpointAddressBuilder item : notReadyAddresses) {
       if (predicate.test(item)) {
         return true;
       }
@@ -436,14 +383,13 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return false;
   }
 
-  public A withNotReadyAddresses(
-      java.util.List<io.kubernetes.client.openapi.models.V1EndpointAddress> notReadyAddresses) {
+  public A withNotReadyAddresses(List<V1EndpointAddress> notReadyAddresses) {
     if (this.notReadyAddresses != null) {
       _visitables.get("notReadyAddresses").removeAll(this.notReadyAddresses);
     }
     if (notReadyAddresses != null) {
-      this.notReadyAddresses = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1EndpointAddress item : notReadyAddresses) {
+      this.notReadyAddresses = new ArrayList();
+      for (V1EndpointAddress item : notReadyAddresses) {
         this.addToNotReadyAddresses(item);
       }
     } else {
@@ -458,14 +404,14 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
       this.notReadyAddresses.clear();
     }
     if (notReadyAddresses != null) {
-      for (io.kubernetes.client.openapi.models.V1EndpointAddress item : notReadyAddresses) {
+      for (V1EndpointAddress item : notReadyAddresses) {
         this.addToNotReadyAddresses(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasNotReadyAddresses() {
+  public Boolean hasNotReadyAddresses() {
     return notReadyAddresses != null && !notReadyAddresses.isEmpty();
   }
 
@@ -473,45 +419,37 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return new V1EndpointSubsetFluentImpl.NotReadyAddressesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<A>
-      addNewNotReadyAddressLike(io.kubernetes.client.openapi.models.V1EndpointAddress item) {
-    return new io.kubernetes.client.openapi.models.V1EndpointSubsetFluentImpl
-        .NotReadyAddressesNestedImpl(-1, item);
+  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> addNewNotReadyAddressLike(
+      V1EndpointAddress item) {
+    return new V1EndpointSubsetFluentImpl.NotReadyAddressesNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<A>
-      setNewNotReadyAddressLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1EndpointAddress item) {
-    return new io.kubernetes.client.openapi.models.V1EndpointSubsetFluentImpl
-        .NotReadyAddressesNestedImpl(index, item);
+  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> setNewNotReadyAddressLike(
+      Integer index, V1EndpointAddress item) {
+    return new V1EndpointSubsetFluentImpl.NotReadyAddressesNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<A>
-      editNotReadyAddress(java.lang.Integer index) {
+  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> editNotReadyAddress(Integer index) {
     if (notReadyAddresses.size() <= index)
       throw new RuntimeException("Can't edit notReadyAddresses. Index exceeds size.");
     return setNewNotReadyAddressLike(index, buildNotReadyAddress(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<A>
-      editFirstNotReadyAddress() {
+  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> editFirstNotReadyAddress() {
     if (notReadyAddresses.size() == 0)
       throw new RuntimeException("Can't edit first notReadyAddresses. The list is empty.");
     return setNewNotReadyAddressLike(0, buildNotReadyAddress(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<A>
-      editLastNotReadyAddress() {
+  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> editLastNotReadyAddress() {
     int index = notReadyAddresses.size() - 1;
     if (index < 0)
       throw new RuntimeException("Can't edit last notReadyAddresses. The list is empty.");
     return setNewNotReadyAddressLike(index, buildNotReadyAddress(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<A>
-      editMatchingNotReadyAddress(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1EndpointAddressBuilder>
-              predicate) {
+  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> editMatchingNotReadyAddress(
+      Predicate<V1EndpointAddressBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < notReadyAddresses.size(); i++) {
       if (predicate.test(notReadyAddresses.get(i))) {
@@ -524,26 +462,21 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return setNewNotReadyAddressLike(index, buildNotReadyAddress(index));
   }
 
-  public A addToPorts(java.lang.Integer index, CoreV1EndpointPort item) {
+  public A addToPorts(Integer index, CoreV1EndpointPort item) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder>();
+      this.ports = new ArrayList<CoreV1EndpointPortBuilder>();
     }
-    io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder builder =
-        new io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder(item);
+    CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
     _visitables.get("ports").add(index >= 0 ? index : _visitables.get("ports").size(), builder);
     this.ports.add(index >= 0 ? index : ports.size(), builder);
     return (A) this;
   }
 
-  public A setToPorts(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.CoreV1EndpointPort item) {
+  public A setToPorts(Integer index, CoreV1EndpointPort item) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder>();
+      this.ports = new ArrayList<CoreV1EndpointPortBuilder>();
     }
-    io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder builder =
-        new io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder(item);
+    CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
     if (index < 0 || index >= _visitables.get("ports").size()) {
       _visitables.get("ports").add(builder);
     } else {
@@ -559,27 +492,22 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
 
   public A addToPorts(io.kubernetes.client.openapi.models.CoreV1EndpointPort... items) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder>();
+      this.ports = new ArrayList<CoreV1EndpointPortBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.CoreV1EndpointPort item : items) {
-      io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder builder =
-          new io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder(item);
+    for (CoreV1EndpointPort item : items) {
+      CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
       _visitables.get("ports").add(builder);
       this.ports.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.CoreV1EndpointPort> items) {
+  public A addAllToPorts(Collection<CoreV1EndpointPort> items) {
     if (this.ports == null) {
-      this.ports =
-          new java.util.ArrayList<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder>();
+      this.ports = new ArrayList<CoreV1EndpointPortBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.CoreV1EndpointPort item : items) {
-      io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder builder =
-          new io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder(item);
+    for (CoreV1EndpointPort item : items) {
+      CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
       _visitables.get("ports").add(builder);
       this.ports.add(builder);
     }
@@ -587,9 +515,8 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
   }
 
   public A removeFromPorts(io.kubernetes.client.openapi.models.CoreV1EndpointPort... items) {
-    for (io.kubernetes.client.openapi.models.CoreV1EndpointPort item : items) {
-      io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder builder =
-          new io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder(item);
+    for (CoreV1EndpointPort item : items) {
+      CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
       _visitables.get("ports").remove(builder);
       if (this.ports != null) {
         this.ports.remove(builder);
@@ -598,11 +525,9 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return (A) this;
   }
 
-  public A removeAllFromPorts(
-      java.util.Collection<io.kubernetes.client.openapi.models.CoreV1EndpointPort> items) {
-    for (io.kubernetes.client.openapi.models.CoreV1EndpointPort item : items) {
-      io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder builder =
-          new io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder(item);
+  public A removeAllFromPorts(Collection<CoreV1EndpointPort> items) {
+    for (CoreV1EndpointPort item : items) {
+      CoreV1EndpointPortBuilder builder = new CoreV1EndpointPortBuilder(item);
       _visitables.get("ports").remove(builder);
       if (this.ports != null) {
         this.ports.remove(builder);
@@ -611,15 +536,12 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return (A) this;
   }
 
-  public A removeMatchingFromPorts(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder>
-          predicate) {
+  public A removeMatchingFromPorts(Predicate<CoreV1EndpointPortBuilder> predicate) {
     if (ports == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder> each =
-        ports.iterator();
+    final Iterator<CoreV1EndpointPortBuilder> each = ports.iterator();
     final List visitables = _visitables.get("ports");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder builder = each.next();
+      CoreV1EndpointPortBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -633,31 +555,29 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.CoreV1EndpointPort> getPorts() {
+  @Deprecated
+  public List<CoreV1EndpointPort> getPorts() {
     return ports != null ? build(ports) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.CoreV1EndpointPort> buildPorts() {
+  public List<CoreV1EndpointPort> buildPorts() {
     return ports != null ? build(ports) : null;
   }
 
-  public io.kubernetes.client.openapi.models.CoreV1EndpointPort buildPort(java.lang.Integer index) {
+  public CoreV1EndpointPort buildPort(Integer index) {
     return this.ports.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.CoreV1EndpointPort buildFirstPort() {
+  public CoreV1EndpointPort buildFirstPort() {
     return this.ports.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.CoreV1EndpointPort buildLastPort() {
+  public CoreV1EndpointPort buildLastPort() {
     return this.ports.get(ports.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.CoreV1EndpointPort buildMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder item : ports) {
+  public CoreV1EndpointPort buildMatchingPort(Predicate<CoreV1EndpointPortBuilder> predicate) {
+    for (CoreV1EndpointPortBuilder item : ports) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -665,10 +585,8 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return null;
   }
 
-  public java.lang.Boolean hasMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder item : ports) {
+  public Boolean hasMatchingPort(Predicate<CoreV1EndpointPortBuilder> predicate) {
+    for (CoreV1EndpointPortBuilder item : ports) {
       if (predicate.test(item)) {
         return true;
       }
@@ -676,13 +594,13 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return false;
   }
 
-  public A withPorts(java.util.List<io.kubernetes.client.openapi.models.CoreV1EndpointPort> ports) {
+  public A withPorts(List<CoreV1EndpointPort> ports) {
     if (this.ports != null) {
       _visitables.get("ports").removeAll(this.ports);
     }
     if (ports != null) {
-      this.ports = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.CoreV1EndpointPort item : ports) {
+      this.ports = new ArrayList();
+      for (CoreV1EndpointPort item : ports) {
         this.addToPorts(item);
       }
     } else {
@@ -696,14 +614,14 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
       this.ports.clear();
     }
     if (ports != null) {
-      for (io.kubernetes.client.openapi.models.CoreV1EndpointPort item : ports) {
+      for (CoreV1EndpointPort item : ports) {
         this.addToPorts(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasPorts() {
+  public Boolean hasPorts() {
     return ports != null && !ports.isEmpty();
   }
 
@@ -711,38 +629,33 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
     return new V1EndpointSubsetFluentImpl.PortsNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<A> addNewPortLike(
-      io.kubernetes.client.openapi.models.CoreV1EndpointPort item) {
-    return new io.kubernetes.client.openapi.models.V1EndpointSubsetFluentImpl.PortsNestedImpl(
-        -1, item);
+  public V1EndpointSubsetFluent.PortsNested<A> addNewPortLike(CoreV1EndpointPort item) {
+    return new V1EndpointSubsetFluentImpl.PortsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<A> setNewPortLike(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.CoreV1EndpointPort item) {
-    return new io.kubernetes.client.openapi.models.V1EndpointSubsetFluentImpl.PortsNestedImpl(
-        index, item);
+  public V1EndpointSubsetFluent.PortsNested<A> setNewPortLike(
+      Integer index, CoreV1EndpointPort item) {
+    return new V1EndpointSubsetFluentImpl.PortsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<A> editPort(
-      java.lang.Integer index) {
+  public V1EndpointSubsetFluent.PortsNested<A> editPort(Integer index) {
     if (ports.size() <= index) throw new RuntimeException("Can't edit ports. Index exceeds size.");
     return setNewPortLike(index, buildPort(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<A> editFirstPort() {
+  public V1EndpointSubsetFluent.PortsNested<A> editFirstPort() {
     if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
     return setNewPortLike(0, buildPort(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<A> editLastPort() {
+  public V1EndpointSubsetFluent.PortsNested<A> editLastPort() {
     int index = ports.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last ports. The list is empty.");
     return setNewPortLike(index, buildPort(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<A> editMatchingPort(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder>
-          predicate) {
+  public V1EndpointSubsetFluent.PortsNested<A> editMatchingPort(
+      Predicate<CoreV1EndpointPortBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < ports.size(); i++) {
       if (predicate.test(ports.get(i))) {
@@ -792,20 +705,19 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
 
   class AddressesNestedImpl<N>
       extends V1EndpointAddressFluentImpl<V1EndpointSubsetFluent.AddressesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.AddressesNested<N>,
-          Nested<N> {
-    AddressesNestedImpl(java.lang.Integer index, V1EndpointAddress item) {
+      implements V1EndpointSubsetFluent.AddressesNested<N>, Nested<N> {
+    AddressesNestedImpl(Integer index, V1EndpointAddress item) {
       this.index = index;
       this.builder = new V1EndpointAddressBuilder(this, item);
     }
 
     AddressesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(this);
+      this.builder = new V1EndpointAddressBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder;
-    java.lang.Integer index;
+    V1EndpointAddressBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1EndpointSubsetFluentImpl.this.setToAddresses(index, builder.build());
@@ -818,21 +730,19 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
 
   class NotReadyAddressesNestedImpl<N>
       extends V1EndpointAddressFluentImpl<V1EndpointSubsetFluent.NotReadyAddressesNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.NotReadyAddressesNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    NotReadyAddressesNestedImpl(java.lang.Integer index, V1EndpointAddress item) {
+      implements V1EndpointSubsetFluent.NotReadyAddressesNested<N>, Nested<N> {
+    NotReadyAddressesNestedImpl(Integer index, V1EndpointAddress item) {
       this.index = index;
       this.builder = new V1EndpointAddressBuilder(this, item);
     }
 
     NotReadyAddressesNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.V1EndpointAddressBuilder(this);
+      this.builder = new V1EndpointAddressBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1EndpointAddressBuilder builder;
-    java.lang.Integer index;
+    V1EndpointAddressBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1EndpointSubsetFluentImpl.this.setToNotReadyAddresses(index, builder.build());
@@ -845,21 +755,19 @@ public class V1EndpointSubsetFluentImpl<A extends V1EndpointSubsetFluent<A>> ext
 
   class PortsNestedImpl<N>
       extends CoreV1EndpointPortFluentImpl<V1EndpointSubsetFluent.PortsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1EndpointSubsetFluent.PortsNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    PortsNestedImpl(
-        java.lang.Integer index, io.kubernetes.client.openapi.models.CoreV1EndpointPort item) {
+      implements V1EndpointSubsetFluent.PortsNested<N>, Nested<N> {
+    PortsNestedImpl(Integer index, CoreV1EndpointPort item) {
       this.index = index;
       this.builder = new CoreV1EndpointPortBuilder(this, item);
     }
 
     PortsNestedImpl() {
       this.index = -1;
-      this.builder = new io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder(this);
+      this.builder = new CoreV1EndpointPortBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.CoreV1EndpointPortBuilder builder;
-    java.lang.Integer index;
+    CoreV1EndpointPortBuilder builder;
+    Integer index;
 
     public N and() {
       return (N) V1EndpointSubsetFluentImpl.this.setToPorts(index, builder.build());

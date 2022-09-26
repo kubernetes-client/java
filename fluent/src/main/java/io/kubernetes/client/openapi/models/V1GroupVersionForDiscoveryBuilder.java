@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1GroupVersionForDiscoveryBuilder
     extends V1GroupVersionForDiscoveryFluentImpl<V1GroupVersionForDiscoveryBuilder>
-    implements VisitableBuilder<
-        V1GroupVersionForDiscovery,
-        io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryBuilder> {
+    implements VisitableBuilder<V1GroupVersionForDiscovery, V1GroupVersionForDiscoveryBuilder> {
   public V1GroupVersionForDiscoveryBuilder() {
     this(false);
   }
@@ -27,27 +25,24 @@ public class V1GroupVersionForDiscoveryBuilder
     this(new V1GroupVersionForDiscovery(), validationEnabled);
   }
 
-  public V1GroupVersionForDiscoveryBuilder(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryFluent<?> fluent) {
+  public V1GroupVersionForDiscoveryBuilder(V1GroupVersionForDiscoveryFluent<?> fluent) {
     this(fluent, false);
   }
 
   public V1GroupVersionForDiscoveryBuilder(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1GroupVersionForDiscoveryFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1GroupVersionForDiscovery(), validationEnabled);
   }
 
   public V1GroupVersionForDiscoveryBuilder(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery instance) {
+      V1GroupVersionForDiscoveryFluent<?> fluent, V1GroupVersionForDiscovery instance) {
     this(fluent, instance, false);
   }
 
   public V1GroupVersionForDiscoveryBuilder(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery instance,
-      java.lang.Boolean validationEnabled) {
+      V1GroupVersionForDiscoveryFluent<?> fluent,
+      V1GroupVersionForDiscovery instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withGroupVersion(instance.getGroupVersion());
 
@@ -56,14 +51,12 @@ public class V1GroupVersionForDiscoveryBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1GroupVersionForDiscoveryBuilder(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery instance) {
+  public V1GroupVersionForDiscoveryBuilder(V1GroupVersionForDiscovery instance) {
     this(instance, false);
   }
 
   public V1GroupVersionForDiscoveryBuilder(
-      io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery instance,
-      java.lang.Boolean validationEnabled) {
+      V1GroupVersionForDiscovery instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withGroupVersion(instance.getGroupVersion());
 
@@ -72,10 +65,10 @@ public class V1GroupVersionForDiscoveryBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1GroupVersionForDiscoveryFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1GroupVersionForDiscoveryFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery build() {
+  public V1GroupVersionForDiscovery build() {
     V1GroupVersionForDiscovery buildable = new V1GroupVersionForDiscovery();
     buildable.setGroupVersion(fluent.getGroupVersion());
     buildable.setVersion(fluent.getVersion());

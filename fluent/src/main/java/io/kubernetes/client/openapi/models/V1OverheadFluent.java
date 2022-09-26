@@ -20,17 +20,15 @@ import java.util.Map;
 public interface V1OverheadFluent<A extends V1OverheadFluent<A>> extends Fluent<A> {
   public A addToPodFixed(String key, Quantity value);
 
-  public A addToPodFixed(Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A addToPodFixed(Map<String, Quantity> map);
 
-  public A removeFromPodFixed(java.lang.String key);
+  public A removeFromPodFixed(String key);
 
-  public A removeFromPodFixed(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> map);
+  public A removeFromPodFixed(Map<String, Quantity> map);
 
-  public java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> getPodFixed();
+  public Map<String, Quantity> getPodFixed();
 
-  public <K, V> A withPodFixed(
-      java.util.Map<java.lang.String, io.kubernetes.client.custom.Quantity> podFixed);
+  public <K, V> A withPodFixed(Map<String, Quantity> podFixed);
 
   public Boolean hasPodFixed();
 }

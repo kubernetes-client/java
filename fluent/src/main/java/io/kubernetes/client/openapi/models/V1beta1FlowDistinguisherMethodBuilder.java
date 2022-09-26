@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1beta1FlowDistinguisherMethodBuilder
     extends V1beta1FlowDistinguisherMethodFluentImpl<V1beta1FlowDistinguisherMethodBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod,
-        io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethodBuilder> {
+        V1beta1FlowDistinguisherMethod, V1beta1FlowDistinguisherMethodBuilder> {
   public V1beta1FlowDistinguisherMethodBuilder() {
     this(false);
   }
@@ -32,45 +31,41 @@ public class V1beta1FlowDistinguisherMethodBuilder
   }
 
   public V1beta1FlowDistinguisherMethodBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethodFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1FlowDistinguisherMethodFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1FlowDistinguisherMethod(), validationEnabled);
   }
 
   public V1beta1FlowDistinguisherMethodBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethodFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod instance) {
+      V1beta1FlowDistinguisherMethodFluent<?> fluent, V1beta1FlowDistinguisherMethod instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1FlowDistinguisherMethodBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethodFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1FlowDistinguisherMethodFluent<?> fluent,
+      V1beta1FlowDistinguisherMethod instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withType(instance.getType());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1beta1FlowDistinguisherMethodBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod instance) {
+  public V1beta1FlowDistinguisherMethodBuilder(V1beta1FlowDistinguisherMethod instance) {
     this(instance, false);
   }
 
   public V1beta1FlowDistinguisherMethodBuilder(
-      io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1FlowDistinguisherMethod instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withType(instance.getType());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethodFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1FlowDistinguisherMethodFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1FlowDistinguisherMethod build() {
+  public V1beta1FlowDistinguisherMethod build() {
     V1beta1FlowDistinguisherMethod buildable = new V1beta1FlowDistinguisherMethod();
     buildable.setType(fluent.getType());
     return buildable;

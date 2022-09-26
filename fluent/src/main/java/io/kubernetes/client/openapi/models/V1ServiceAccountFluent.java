@@ -22,32 +22,29 @@ import java.util.function.Predicate;
 public interface V1ServiceAccountFluent<A extends V1ServiceAccountFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public java.lang.Boolean getAutomountServiceAccountToken();
+  public Boolean getAutomountServiceAccountToken();
 
-  public A withAutomountServiceAccountToken(java.lang.Boolean automountServiceAccountToken);
+  public A withAutomountServiceAccountToken(Boolean automountServiceAccountToken);
 
-  public java.lang.Boolean hasAutomountServiceAccountToken();
+  public Boolean hasAutomountServiceAccountToken();
 
   public A addToImagePullSecrets(Integer index, V1LocalObjectReference item);
 
-  public A setToImagePullSecrets(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public A setToImagePullSecrets(Integer index, V1LocalObjectReference item);
 
   public A addToImagePullSecrets(
       io.kubernetes.client.openapi.models.V1LocalObjectReference... items);
 
-  public A addAllToImagePullSecrets(
-      Collection<io.kubernetes.client.openapi.models.V1LocalObjectReference> items);
+  public A addAllToImagePullSecrets(Collection<V1LocalObjectReference> items);
 
   public A removeFromImagePullSecrets(
       io.kubernetes.client.openapi.models.V1LocalObjectReference... items);
 
-  public A removeAllFromImagePullSecrets(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1LocalObjectReference> items);
+  public A removeAllFromImagePullSecrets(Collection<V1LocalObjectReference> items);
 
   public A removeMatchingFromImagePullSecrets(Predicate<V1LocalObjectReferenceBuilder> predicate);
 
@@ -57,165 +54,130 @@ public interface V1ServiceAccountFluent<A extends V1ServiceAccountFluent<A>> ext
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1LocalObjectReference> getImagePullSecrets();
+  public List<V1LocalObjectReference> getImagePullSecrets();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1LocalObjectReference>
-      buildImagePullSecrets();
+  public List<V1LocalObjectReference> buildImagePullSecrets();
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildImagePullSecret(
-      java.lang.Integer index);
+  public V1LocalObjectReference buildImagePullSecret(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildFirstImagePullSecret();
+  public V1LocalObjectReference buildFirstImagePullSecret();
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildLastImagePullSecret();
+  public V1LocalObjectReference buildLastImagePullSecret();
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildMatchingImagePullSecret(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>
-          predicate);
+  public V1LocalObjectReference buildMatchingImagePullSecret(
+      Predicate<V1LocalObjectReferenceBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingImagePullSecret(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>
-          predicate);
+  public Boolean hasMatchingImagePullSecret(Predicate<V1LocalObjectReferenceBuilder> predicate);
 
-  public A withImagePullSecrets(
-      java.util.List<io.kubernetes.client.openapi.models.V1LocalObjectReference> imagePullSecrets);
+  public A withImagePullSecrets(List<V1LocalObjectReference> imagePullSecrets);
 
   public A withImagePullSecrets(
       io.kubernetes.client.openapi.models.V1LocalObjectReference... imagePullSecrets);
 
-  public java.lang.Boolean hasImagePullSecrets();
+  public Boolean hasImagePullSecrets();
 
   public V1ServiceAccountFluent.ImagePullSecretsNested<A> addNewImagePullSecret();
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      addNewImagePullSecretLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> addNewImagePullSecretLike(
+      V1LocalObjectReference item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      setNewImagePullSecretLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> setNewImagePullSecretLike(
+      Integer index, V1LocalObjectReference item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      editImagePullSecret(java.lang.Integer index);
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> editImagePullSecret(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      editFirstImagePullSecret();
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> editFirstImagePullSecret();
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      editLastImagePullSecret();
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> editLastImagePullSecret();
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.ImagePullSecretsNested<A>
-      editMatchingImagePullSecret(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1LocalObjectReferenceBuilder>
-              predicate);
+  public V1ServiceAccountFluent.ImagePullSecretsNested<A> editMatchingImagePullSecret(
+      Predicate<V1LocalObjectReferenceBuilder> predicate);
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
+  @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1ServiceAccountFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1ServiceAccountFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<A>
-      editMetadata();
+  public V1ServiceAccountFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<A>
-      editOrNewMetadata();
+  public V1ServiceAccountFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1ServiceAccountFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
-  public A addToSecrets(java.lang.Integer index, V1ObjectReference item);
+  public A addToSecrets(Integer index, V1ObjectReference item);
 
-  public A setToSecrets(
-      java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item);
+  public A setToSecrets(Integer index, V1ObjectReference item);
 
   public A addToSecrets(io.kubernetes.client.openapi.models.V1ObjectReference... items);
 
-  public A addAllToSecrets(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ObjectReference> items);
+  public A addAllToSecrets(Collection<V1ObjectReference> items);
 
   public A removeFromSecrets(io.kubernetes.client.openapi.models.V1ObjectReference... items);
 
-  public A removeAllFromSecrets(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1ObjectReference> items);
+  public A removeAllFromSecrets(Collection<V1ObjectReference> items);
 
-  public A removeMatchingFromSecrets(
-      java.util.function.Predicate<V1ObjectReferenceBuilder> predicate);
+  public A removeMatchingFromSecrets(Predicate<V1ObjectReferenceBuilder> predicate);
 
   /**
    * This method has been deprecated, please use method buildSecrets instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> getSecrets();
+  @Deprecated
+  public List<V1ObjectReference> getSecrets();
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> buildSecrets();
+  public List<V1ObjectReference> buildSecrets();
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildSecret(java.lang.Integer index);
+  public V1ObjectReference buildSecret(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildFirstSecret();
+  public V1ObjectReference buildFirstSecret();
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildLastSecret();
+  public V1ObjectReference buildLastSecret();
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildMatchingSecret(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
-          predicate);
+  public V1ObjectReference buildMatchingSecret(Predicate<V1ObjectReferenceBuilder> predicate);
 
-  public java.lang.Boolean hasMatchingSecret(
-      java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
-          predicate);
+  public Boolean hasMatchingSecret(Predicate<V1ObjectReferenceBuilder> predicate);
 
-  public A withSecrets(
-      java.util.List<io.kubernetes.client.openapi.models.V1ObjectReference> secrets);
+  public A withSecrets(List<V1ObjectReference> secrets);
 
   public A withSecrets(io.kubernetes.client.openapi.models.V1ObjectReference... secrets);
 
-  public java.lang.Boolean hasSecrets();
+  public Boolean hasSecrets();
 
   public V1ServiceAccountFluent.SecretsNested<A> addNewSecret();
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      addNewSecretLike(io.kubernetes.client.openapi.models.V1ObjectReference item);
+  public V1ServiceAccountFluent.SecretsNested<A> addNewSecretLike(V1ObjectReference item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      setNewSecretLike(
-          java.lang.Integer index, io.kubernetes.client.openapi.models.V1ObjectReference item);
+  public V1ServiceAccountFluent.SecretsNested<A> setNewSecretLike(
+      Integer index, V1ObjectReference item);
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A> editSecret(
-      java.lang.Integer index);
+  public V1ServiceAccountFluent.SecretsNested<A> editSecret(Integer index);
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      editFirstSecret();
+  public V1ServiceAccountFluent.SecretsNested<A> editFirstSecret();
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      editLastSecret();
+  public V1ServiceAccountFluent.SecretsNested<A> editLastSecret();
 
-  public io.kubernetes.client.openapi.models.V1ServiceAccountFluent.SecretsNested<A>
-      editMatchingSecret(
-          java.util.function.Predicate<io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder>
-              predicate);
+  public V1ServiceAccountFluent.SecretsNested<A> editMatchingSecret(
+      Predicate<V1ObjectReferenceBuilder> predicate);
 
   public A withAutomountServiceAccountToken();
 
@@ -228,16 +190,14 @@ public interface V1ServiceAccountFluent<A extends V1ServiceAccountFluent<A>> ext
   }
 
   public interface MetadataNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ObjectMetaFluent<V1ServiceAccountFluent.MetadataNested<N>> {
+      extends Nested<N>, V1ObjectMetaFluent<V1ServiceAccountFluent.MetadataNested<N>> {
     public N and();
 
     public N endMetadata();
   }
 
   public interface SecretsNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1ObjectReferenceFluent<V1ServiceAccountFluent.SecretsNested<N>> {
+      extends Nested<N>, V1ObjectReferenceFluent<V1ServiceAccountFluent.SecretsNested<N>> {
     public N and();
 
     public N endSecret();

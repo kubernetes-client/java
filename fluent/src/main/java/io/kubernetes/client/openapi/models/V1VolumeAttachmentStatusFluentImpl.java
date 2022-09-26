@@ -23,8 +23,7 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
     extends BaseFluent<A> implements V1VolumeAttachmentStatusFluent<A> {
   public V1VolumeAttachmentStatusFluentImpl() {}
 
-  public V1VolumeAttachmentStatusFluentImpl(
-      io.kubernetes.client.openapi.models.V1VolumeAttachmentStatus instance) {
+  public V1VolumeAttachmentStatusFluentImpl(V1VolumeAttachmentStatus instance) {
     this.withAttachError(instance.getAttachError());
 
     this.withAttached(instance.getAttached());
@@ -36,7 +35,7 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
 
   private V1VolumeErrorBuilder attachError;
   private Boolean attached;
-  private Map<String, java.lang.String> attachmentMetadata;
+  private Map<String, String> attachmentMetadata;
   private V1VolumeErrorBuilder detachError;
 
   /**
@@ -45,24 +44,27 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
    * @return The buildable object.
    */
   @Deprecated
-  public io.kubernetes.client.openapi.models.V1VolumeError getAttachError() {
+  public V1VolumeError getAttachError() {
     return this.attachError != null ? this.attachError.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeError buildAttachError() {
+  public V1VolumeError buildAttachError() {
     return this.attachError != null ? this.attachError.build() : null;
   }
 
-  public A withAttachError(io.kubernetes.client.openapi.models.V1VolumeError attachError) {
+  public A withAttachError(V1VolumeError attachError) {
     _visitables.get("attachError").remove(this.attachError);
     if (attachError != null) {
-      this.attachError = new io.kubernetes.client.openapi.models.V1VolumeErrorBuilder(attachError);
+      this.attachError = new V1VolumeErrorBuilder(attachError);
       _visitables.get("attachError").add(this.attachError);
+    } else {
+      this.attachError = null;
+      _visitables.get("attachError").remove(this.attachError);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAttachError() {
+  public Boolean hasAttachError() {
     return this.attachError != null;
   }
 
@@ -70,43 +72,39 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
     return new V1VolumeAttachmentStatusFluentImpl.AttachErrorNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.AttachErrorNested<A>
-      withNewAttachErrorLike(io.kubernetes.client.openapi.models.V1VolumeError item) {
+  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> withNewAttachErrorLike(
+      V1VolumeError item) {
     return new V1VolumeAttachmentStatusFluentImpl.AttachErrorNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.AttachErrorNested<A>
-      editAttachError() {
+  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> editAttachError() {
     return withNewAttachErrorLike(getAttachError());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.AttachErrorNested<A>
-      editOrNewAttachError() {
+  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> editOrNewAttachError() {
     return withNewAttachErrorLike(
-        getAttachError() != null
-            ? getAttachError()
-            : new io.kubernetes.client.openapi.models.V1VolumeErrorBuilder().build());
+        getAttachError() != null ? getAttachError() : new V1VolumeErrorBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.AttachErrorNested<A>
-      editOrNewAttachErrorLike(io.kubernetes.client.openapi.models.V1VolumeError item) {
+  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> editOrNewAttachErrorLike(
+      V1VolumeError item) {
     return withNewAttachErrorLike(getAttachError() != null ? getAttachError() : item);
   }
 
-  public java.lang.Boolean getAttached() {
+  public Boolean getAttached() {
     return this.attached;
   }
 
-  public A withAttached(java.lang.Boolean attached) {
+  public A withAttached(Boolean attached) {
     this.attached = attached;
     return (A) this;
   }
 
-  public java.lang.Boolean hasAttached() {
+  public Boolean hasAttached() {
     return this.attached != null;
   }
 
-  public A addToAttachmentMetadata(java.lang.String key, java.lang.String value) {
+  public A addToAttachmentMetadata(String key, String value) {
     if (this.attachmentMetadata == null && key != null && value != null) {
       this.attachmentMetadata = new LinkedHashMap();
     }
@@ -116,9 +114,9 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
     return (A) this;
   }
 
-  public A addToAttachmentMetadata(java.util.Map<java.lang.String, java.lang.String> map) {
+  public A addToAttachmentMetadata(Map<String, String> map) {
     if (this.attachmentMetadata == null && map != null) {
-      this.attachmentMetadata = new java.util.LinkedHashMap();
+      this.attachmentMetadata = new LinkedHashMap();
     }
     if (map != null) {
       this.attachmentMetadata.putAll(map);
@@ -126,7 +124,7 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
     return (A) this;
   }
 
-  public A removeFromAttachmentMetadata(java.lang.String key) {
+  public A removeFromAttachmentMetadata(String key) {
     if (this.attachmentMetadata == null) {
       return (A) this;
     }
@@ -136,7 +134,7 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
     return (A) this;
   }
 
-  public A removeFromAttachmentMetadata(java.util.Map<java.lang.String, java.lang.String> map) {
+  public A removeFromAttachmentMetadata(Map<String, String> map) {
     if (this.attachmentMetadata == null) {
       return (A) this;
     }
@@ -150,21 +148,20 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
     return (A) this;
   }
 
-  public java.util.Map<java.lang.String, java.lang.String> getAttachmentMetadata() {
+  public Map<String, String> getAttachmentMetadata() {
     return this.attachmentMetadata;
   }
 
-  public <K, V> A withAttachmentMetadata(
-      java.util.Map<java.lang.String, java.lang.String> attachmentMetadata) {
+  public <K, V> A withAttachmentMetadata(Map<String, String> attachmentMetadata) {
     if (attachmentMetadata == null) {
       this.attachmentMetadata = null;
     } else {
-      this.attachmentMetadata = new java.util.LinkedHashMap(attachmentMetadata);
+      this.attachmentMetadata = new LinkedHashMap(attachmentMetadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasAttachmentMetadata() {
+  public Boolean hasAttachmentMetadata() {
     return this.attachmentMetadata != null;
   }
 
@@ -173,25 +170,28 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1VolumeError getDetachError() {
+  @Deprecated
+  public V1VolumeError getDetachError() {
     return this.detachError != null ? this.detachError.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeError buildDetachError() {
+  public V1VolumeError buildDetachError() {
     return this.detachError != null ? this.detachError.build() : null;
   }
 
-  public A withDetachError(io.kubernetes.client.openapi.models.V1VolumeError detachError) {
+  public A withDetachError(V1VolumeError detachError) {
     _visitables.get("detachError").remove(this.detachError);
     if (detachError != null) {
-      this.detachError = new io.kubernetes.client.openapi.models.V1VolumeErrorBuilder(detachError);
+      this.detachError = new V1VolumeErrorBuilder(detachError);
       _visitables.get("detachError").add(this.detachError);
+    } else {
+      this.detachError = null;
+      _visitables.get("detachError").remove(this.detachError);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDetachError() {
+  public Boolean hasDetachError() {
     return this.detachError != null;
   }
 
@@ -199,27 +199,22 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
     return new V1VolumeAttachmentStatusFluentImpl.DetachErrorNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.DetachErrorNested<A>
-      withNewDetachErrorLike(io.kubernetes.client.openapi.models.V1VolumeError item) {
-    return new io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluentImpl
-        .DetachErrorNestedImpl(item);
+  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> withNewDetachErrorLike(
+      V1VolumeError item) {
+    return new V1VolumeAttachmentStatusFluentImpl.DetachErrorNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.DetachErrorNested<A>
-      editDetachError() {
+  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> editDetachError() {
     return withNewDetachErrorLike(getDetachError());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.DetachErrorNested<A>
-      editOrNewDetachError() {
+  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> editOrNewDetachError() {
     return withNewDetachErrorLike(
-        getDetachError() != null
-            ? getDetachError()
-            : new io.kubernetes.client.openapi.models.V1VolumeErrorBuilder().build());
+        getDetachError() != null ? getDetachError() : new V1VolumeErrorBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.DetachErrorNested<A>
-      editOrNewDetachErrorLike(io.kubernetes.client.openapi.models.V1VolumeError item) {
+  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> editOrNewDetachErrorLike(
+      V1VolumeError item) {
     return withNewDetachErrorLike(getDetachError() != null ? getDetachError() : item);
   }
 
@@ -243,7 +238,7 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
         attachError, attached, attachmentMetadata, detachError, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (attachError != null) {
@@ -272,19 +267,16 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
 
   class AttachErrorNestedImpl<N>
       extends V1VolumeErrorFluentImpl<V1VolumeAttachmentStatusFluent.AttachErrorNested<N>>
-      implements io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent
-                  .AttachErrorNested<
-              N>,
-          Nested<N> {
+      implements V1VolumeAttachmentStatusFluent.AttachErrorNested<N>, Nested<N> {
     AttachErrorNestedImpl(V1VolumeError item) {
       this.builder = new V1VolumeErrorBuilder(this, item);
     }
 
     AttachErrorNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1VolumeErrorBuilder(this);
+      this.builder = new V1VolumeErrorBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1VolumeErrorBuilder builder;
+    V1VolumeErrorBuilder builder;
 
     public N and() {
       return (N) V1VolumeAttachmentStatusFluentImpl.this.withAttachError(builder.build());
@@ -297,19 +289,16 @@ public class V1VolumeAttachmentStatusFluentImpl<A extends V1VolumeAttachmentStat
 
   class DetachErrorNestedImpl<N>
       extends V1VolumeErrorFluentImpl<V1VolumeAttachmentStatusFluent.DetachErrorNested<N>>
-      implements io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent
-                  .DetachErrorNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1VolumeAttachmentStatusFluent.DetachErrorNested<N>, Nested<N> {
     DetachErrorNestedImpl(V1VolumeError item) {
       this.builder = new V1VolumeErrorBuilder(this, item);
     }
 
     DetachErrorNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1VolumeErrorBuilder(this);
+      this.builder = new V1VolumeErrorBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1VolumeErrorBuilder builder;
+    V1VolumeErrorBuilder builder;
 
     public N and() {
       return (N) V1VolumeAttachmentStatusFluentImpl.this.withDetachError(builder.build());

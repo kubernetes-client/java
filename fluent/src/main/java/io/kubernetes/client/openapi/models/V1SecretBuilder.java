@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SecretBuilder extends V1SecretFluentImpl<V1SecretBuilder>
-    implements VisitableBuilder<V1Secret, io.kubernetes.client.openapi.models.V1SecretBuilder> {
+    implements VisitableBuilder<V1Secret, V1SecretBuilder> {
   public V1SecretBuilder() {
     this(false);
   }
@@ -28,22 +28,15 @@ public class V1SecretBuilder extends V1SecretFluentImpl<V1SecretBuilder>
     this(fluent, false);
   }
 
-  public V1SecretBuilder(
-      io.kubernetes.client.openapi.models.V1SecretFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1SecretBuilder(V1SecretFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Secret(), validationEnabled);
   }
 
-  public V1SecretBuilder(
-      io.kubernetes.client.openapi.models.V1SecretFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Secret instance) {
+  public V1SecretBuilder(V1SecretFluent<?> fluent, V1Secret instance) {
     this(fluent, instance, false);
   }
 
-  public V1SecretBuilder(
-      io.kubernetes.client.openapi.models.V1SecretFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Secret instance,
-      java.lang.Boolean validationEnabled) {
+  public V1SecretBuilder(V1SecretFluent<?> fluent, V1Secret instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -62,12 +55,11 @@ public class V1SecretBuilder extends V1SecretFluentImpl<V1SecretBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SecretBuilder(io.kubernetes.client.openapi.models.V1Secret instance) {
+  public V1SecretBuilder(V1Secret instance) {
     this(instance, false);
   }
 
-  public V1SecretBuilder(
-      io.kubernetes.client.openapi.models.V1Secret instance, java.lang.Boolean validationEnabled) {
+  public V1SecretBuilder(V1Secret instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -86,10 +78,10 @@ public class V1SecretBuilder extends V1SecretFluentImpl<V1SecretBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SecretFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SecretFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Secret build() {
+  public V1Secret build() {
     V1Secret buildable = new V1Secret();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setData(fluent.getData());

@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.fluent;
 
 import java.util.List;
+import java.util.Map.Entry;
 
 public class PathAwareTypedVisitor<V, P> extends TypedVisitor<V> {
   PathAwareTypedVisitor() {
@@ -26,19 +27,19 @@ public class PathAwareTypedVisitor<V, P> extends TypedVisitor<V> {
   }
 
   private final Class<V> type;
-  private final java.lang.Class<P> parentType;
+  private final Class<P> parentType;
 
   public void visit(V element) {}
 
-  public void visit(List<Object> path, V element) {
+  public void visit(List<Entry<String, Object>> path, V element) {
     visit(element);
   }
 
-  public P getParent(java.util.List<java.lang.Object> path) {
+  public P getParent(List<Entry<String, Object>> path) {
     return path.size() - 1 >= 0 ? (P) path.get(path.size() - 1) : null;
   }
 
-  public java.lang.Class<P> getParentType() {
+  public Class<P> getParentType() {
     return parentType;
   }
 }

@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ForZoneBuilder extends V1ForZoneFluentImpl<V1ForZoneBuilder>
-    implements VisitableBuilder<V1ForZone, io.kubernetes.client.openapi.models.V1ForZoneBuilder> {
+    implements VisitableBuilder<V1ForZone, V1ForZoneBuilder> {
   public V1ForZoneBuilder() {
     this(false);
   }
@@ -28,44 +28,37 @@ public class V1ForZoneBuilder extends V1ForZoneFluentImpl<V1ForZoneBuilder>
     this(fluent, false);
   }
 
-  public V1ForZoneBuilder(
-      io.kubernetes.client.openapi.models.V1ForZoneFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ForZoneBuilder(V1ForZoneFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ForZone(), validationEnabled);
   }
 
-  public V1ForZoneBuilder(
-      io.kubernetes.client.openapi.models.V1ForZoneFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ForZone instance) {
+  public V1ForZoneBuilder(V1ForZoneFluent<?> fluent, V1ForZone instance) {
     this(fluent, instance, false);
   }
 
   public V1ForZoneBuilder(
-      io.kubernetes.client.openapi.models.V1ForZoneFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ForZone instance,
-      java.lang.Boolean validationEnabled) {
+      V1ForZoneFluent<?> fluent, V1ForZone instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ForZoneBuilder(io.kubernetes.client.openapi.models.V1ForZone instance) {
+  public V1ForZoneBuilder(V1ForZone instance) {
     this(instance, false);
   }
 
-  public V1ForZoneBuilder(
-      io.kubernetes.client.openapi.models.V1ForZone instance, java.lang.Boolean validationEnabled) {
+  public V1ForZoneBuilder(V1ForZone instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ForZoneFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ForZoneFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ForZone build() {
+  public V1ForZone build() {
     V1ForZone buildable = new V1ForZone();
     buildable.setName(fluent.getName());
     return buildable;

@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ScaleStatusBuilder extends V1ScaleStatusFluentImpl<V1ScaleStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ScaleStatus, V1ScaleStatusBuilder> {
+    implements VisitableBuilder<V1ScaleStatus, V1ScaleStatusBuilder> {
   public V1ScaleStatusBuilder() {
     this(false);
   }
@@ -25,26 +24,20 @@ public class V1ScaleStatusBuilder extends V1ScaleStatusFluentImpl<V1ScaleStatusB
     this(new V1ScaleStatus(), validationEnabled);
   }
 
-  public V1ScaleStatusBuilder(io.kubernetes.client.openapi.models.V1ScaleStatusFluent<?> fluent) {
+  public V1ScaleStatusBuilder(V1ScaleStatusFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1ScaleStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ScaleStatusBuilder(V1ScaleStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ScaleStatus(), validationEnabled);
   }
 
-  public V1ScaleStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ScaleStatus instance) {
+  public V1ScaleStatusBuilder(V1ScaleStatusFluent<?> fluent, V1ScaleStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1ScaleStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ScaleStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1ScaleStatusFluent<?> fluent, V1ScaleStatus instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withReplicas(instance.getReplicas());
 
@@ -53,13 +46,11 @@ public class V1ScaleStatusBuilder extends V1ScaleStatusFluentImpl<V1ScaleStatusB
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ScaleStatusBuilder(io.kubernetes.client.openapi.models.V1ScaleStatus instance) {
+  public V1ScaleStatusBuilder(V1ScaleStatus instance) {
     this(instance, false);
   }
 
-  public V1ScaleStatusBuilder(
-      io.kubernetes.client.openapi.models.V1ScaleStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ScaleStatusBuilder(V1ScaleStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withReplicas(instance.getReplicas());
 
@@ -68,10 +59,10 @@ public class V1ScaleStatusBuilder extends V1ScaleStatusFluentImpl<V1ScaleStatusB
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ScaleStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ScaleStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ScaleStatus build() {
+  public V1ScaleStatus build() {
     V1ScaleStatus buildable = new V1ScaleStatus();
     buildable.setReplicas(fluent.getReplicas());
     buildable.setSelector(fluent.getSelector());

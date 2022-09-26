@@ -20,19 +20,19 @@ public interface V1CustomResourceSubresourceScaleFluent<
     extends Fluent<A> {
   public String getLabelSelectorPath();
 
-  public A withLabelSelectorPath(java.lang.String labelSelectorPath);
+  public A withLabelSelectorPath(String labelSelectorPath);
 
   public Boolean hasLabelSelectorPath();
 
-  public java.lang.String getSpecReplicasPath();
+  public String getSpecReplicasPath();
 
-  public A withSpecReplicasPath(java.lang.String specReplicasPath);
+  public A withSpecReplicasPath(String specReplicasPath);
 
-  public java.lang.Boolean hasSpecReplicasPath();
+  public Boolean hasSpecReplicasPath();
 
-  public java.lang.String getStatusReplicasPath();
+  public String getStatusReplicasPath();
 
-  public A withStatusReplicasPath(java.lang.String statusReplicasPath);
+  public A withStatusReplicasPath(String statusReplicasPath);
 
-  public java.lang.Boolean hasStatusReplicasPath();
+  public Boolean hasStatusReplicasPath();
 }

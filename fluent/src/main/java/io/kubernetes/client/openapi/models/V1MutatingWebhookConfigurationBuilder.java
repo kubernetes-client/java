@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1MutatingWebhookConfigurationBuilder
     extends V1MutatingWebhookConfigurationFluentImpl<V1MutatingWebhookConfigurationBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1MutatingWebhookConfiguration,
-        io.kubernetes.client.openapi.models.V1MutatingWebhookConfigurationBuilder> {
+        V1MutatingWebhookConfiguration, V1MutatingWebhookConfigurationBuilder> {
   public V1MutatingWebhookConfigurationBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V1MutatingWebhookConfigurationBuilder
   }
 
   public V1MutatingWebhookConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1MutatingWebhookConfigurationFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1MutatingWebhookConfigurationFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1MutatingWebhookConfiguration(), validationEnabled);
   }
 
   public V1MutatingWebhookConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1MutatingWebhookConfigurationFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1MutatingWebhookConfiguration instance) {
+      V1MutatingWebhookConfigurationFluent<?> fluent, V1MutatingWebhookConfiguration instance) {
     this(fluent, instance, false);
   }
 
   public V1MutatingWebhookConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1MutatingWebhookConfigurationFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1MutatingWebhookConfiguration instance,
-      java.lang.Boolean validationEnabled) {
+      V1MutatingWebhookConfigurationFluent<?> fluent,
+      V1MutatingWebhookConfiguration instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,14 +56,12 @@ public class V1MutatingWebhookConfigurationBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1MutatingWebhookConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1MutatingWebhookConfiguration instance) {
+  public V1MutatingWebhookConfigurationBuilder(V1MutatingWebhookConfiguration instance) {
     this(instance, false);
   }
 
   public V1MutatingWebhookConfigurationBuilder(
-      io.kubernetes.client.openapi.models.V1MutatingWebhookConfiguration instance,
-      java.lang.Boolean validationEnabled) {
+      V1MutatingWebhookConfiguration instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -79,10 +74,10 @@ public class V1MutatingWebhookConfigurationBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1MutatingWebhookConfigurationFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1MutatingWebhookConfigurationFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1MutatingWebhookConfiguration build() {
+  public V1MutatingWebhookConfiguration build() {
     V1MutatingWebhookConfiguration buildable = new V1MutatingWebhookConfiguration();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

@@ -21,8 +21,7 @@ public class V1ResourceFieldSelectorFluentImpl<A extends V1ResourceFieldSelector
     extends BaseFluent<A> implements V1ResourceFieldSelectorFluent<A> {
   public V1ResourceFieldSelectorFluentImpl() {}
 
-  public V1ResourceFieldSelectorFluentImpl(
-      io.kubernetes.client.openapi.models.V1ResourceFieldSelector instance) {
+  public V1ResourceFieldSelectorFluentImpl(V1ResourceFieldSelector instance) {
     this.withContainerName(instance.getContainerName());
 
     this.withDivisor(instance.getDivisor());
@@ -32,13 +31,13 @@ public class V1ResourceFieldSelectorFluentImpl<A extends V1ResourceFieldSelector
 
   private String containerName;
   private Quantity divisor;
-  private java.lang.String resource;
+  private String resource;
 
-  public java.lang.String getContainerName() {
+  public String getContainerName() {
     return this.containerName;
   }
 
-  public A withContainerName(java.lang.String containerName) {
+  public A withContainerName(String containerName) {
     this.containerName = containerName;
     return (A) this;
   }
@@ -47,33 +46,33 @@ public class V1ResourceFieldSelectorFluentImpl<A extends V1ResourceFieldSelector
     return this.containerName != null;
   }
 
-  public io.kubernetes.client.custom.Quantity getDivisor() {
+  public Quantity getDivisor() {
     return this.divisor;
   }
 
-  public A withDivisor(io.kubernetes.client.custom.Quantity divisor) {
+  public A withDivisor(Quantity divisor) {
     this.divisor = divisor;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDivisor() {
+  public Boolean hasDivisor() {
     return this.divisor != null;
   }
 
-  public A withNewDivisor(java.lang.String value) {
+  public A withNewDivisor(String value) {
     return (A) withDivisor(new Quantity(value));
   }
 
-  public java.lang.String getResource() {
+  public String getResource() {
     return this.resource;
   }
 
-  public A withResource(java.lang.String resource) {
+  public A withResource(String resource) {
     this.resource = resource;
     return (A) this;
   }
 
-  public java.lang.Boolean hasResource() {
+  public Boolean hasResource() {
     return this.resource != null;
   }
 
@@ -93,7 +92,7 @@ public class V1ResourceFieldSelectorFluentImpl<A extends V1ResourceFieldSelector
     return java.util.Objects.hash(containerName, divisor, resource, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (containerName != null) {

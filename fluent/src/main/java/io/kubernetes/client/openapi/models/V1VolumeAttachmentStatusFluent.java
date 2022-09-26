@@ -28,74 +28,69 @@ public interface V1VolumeAttachmentStatusFluent<A extends V1VolumeAttachmentStat
   @Deprecated
   public V1VolumeError getAttachError();
 
-  public io.kubernetes.client.openapi.models.V1VolumeError buildAttachError();
+  public V1VolumeError buildAttachError();
 
-  public A withAttachError(io.kubernetes.client.openapi.models.V1VolumeError attachError);
+  public A withAttachError(V1VolumeError attachError);
 
   public Boolean hasAttachError();
 
   public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> withNewAttachError();
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.AttachErrorNested<A>
-      withNewAttachErrorLike(io.kubernetes.client.openapi.models.V1VolumeError item);
+  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> withNewAttachErrorLike(
+      V1VolumeError item);
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.AttachErrorNested<A>
-      editAttachError();
+  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> editAttachError();
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.AttachErrorNested<A>
-      editOrNewAttachError();
+  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> editOrNewAttachError();
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.AttachErrorNested<A>
-      editOrNewAttachErrorLike(io.kubernetes.client.openapi.models.V1VolumeError item);
+  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> editOrNewAttachErrorLike(
+      V1VolumeError item);
 
-  public java.lang.Boolean getAttached();
+  public Boolean getAttached();
 
-  public A withAttached(java.lang.Boolean attached);
+  public A withAttached(Boolean attached);
 
-  public java.lang.Boolean hasAttached();
+  public Boolean hasAttached();
 
-  public A addToAttachmentMetadata(String key, java.lang.String value);
+  public A addToAttachmentMetadata(String key, String value);
 
-  public A addToAttachmentMetadata(Map<java.lang.String, java.lang.String> map);
+  public A addToAttachmentMetadata(Map<String, String> map);
 
-  public A removeFromAttachmentMetadata(java.lang.String key);
+  public A removeFromAttachmentMetadata(String key);
 
-  public A removeFromAttachmentMetadata(java.util.Map<java.lang.String, java.lang.String> map);
+  public A removeFromAttachmentMetadata(Map<String, String> map);
 
-  public java.util.Map<java.lang.String, java.lang.String> getAttachmentMetadata();
+  public Map<String, String> getAttachmentMetadata();
 
-  public <K, V> A withAttachmentMetadata(
-      java.util.Map<java.lang.String, java.lang.String> attachmentMetadata);
+  public <K, V> A withAttachmentMetadata(Map<String, String> attachmentMetadata);
 
-  public java.lang.Boolean hasAttachmentMetadata();
+  public Boolean hasAttachmentMetadata();
 
   /**
    * This method has been deprecated, please use method buildDetachError instead.
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1VolumeError getDetachError();
+  @Deprecated
+  public V1VolumeError getDetachError();
 
-  public io.kubernetes.client.openapi.models.V1VolumeError buildDetachError();
+  public V1VolumeError buildDetachError();
 
-  public A withDetachError(io.kubernetes.client.openapi.models.V1VolumeError detachError);
+  public A withDetachError(V1VolumeError detachError);
 
-  public java.lang.Boolean hasDetachError();
+  public Boolean hasDetachError();
 
   public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> withNewDetachError();
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.DetachErrorNested<A>
-      withNewDetachErrorLike(io.kubernetes.client.openapi.models.V1VolumeError item);
+  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> withNewDetachErrorLike(
+      V1VolumeError item);
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.DetachErrorNested<A>
-      editDetachError();
+  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> editDetachError();
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.DetachErrorNested<A>
-      editOrNewDetachError();
+  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> editOrNewDetachError();
 
-  public io.kubernetes.client.openapi.models.V1VolumeAttachmentStatusFluent.DetachErrorNested<A>
-      editOrNewDetachErrorLike(io.kubernetes.client.openapi.models.V1VolumeError item);
+  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> editOrNewDetachErrorLike(
+      V1VolumeError item);
 
   public A withAttached();
 
@@ -107,8 +102,7 @@ public interface V1VolumeAttachmentStatusFluent<A extends V1VolumeAttachmentStat
   }
 
   public interface DetachErrorNested<N>
-      extends io.kubernetes.client.fluent.Nested<N>,
-          V1VolumeErrorFluent<V1VolumeAttachmentStatusFluent.DetachErrorNested<N>> {
+      extends Nested<N>, V1VolumeErrorFluent<V1VolumeAttachmentStatusFluent.DetachErrorNested<N>> {
     public N and();
 
     public N endDetachError();

@@ -19,31 +19,31 @@ public interface V1ConfigMapNodeConfigSourceFluent<A extends V1ConfigMapNodeConf
     extends Fluent<A> {
   public String getKubeletConfigKey();
 
-  public A withKubeletConfigKey(java.lang.String kubeletConfigKey);
+  public A withKubeletConfigKey(String kubeletConfigKey);
 
   public Boolean hasKubeletConfigKey();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.String getNamespace();
+  public String getNamespace();
 
-  public A withNamespace(java.lang.String namespace);
+  public A withNamespace(String namespace);
 
-  public java.lang.Boolean hasNamespace();
+  public Boolean hasNamespace();
 
-  public java.lang.String getResourceVersion();
+  public String getResourceVersion();
 
-  public A withResourceVersion(java.lang.String resourceVersion);
+  public A withResourceVersion(String resourceVersion);
 
-  public java.lang.Boolean hasResourceVersion();
+  public Boolean hasResourceVersion();
 
-  public java.lang.String getUid();
+  public String getUid();
 
-  public A withUid(java.lang.String uid);
+  public A withUid(String uid);
 
-  public java.lang.Boolean hasUid();
+  public Boolean hasUid();
 }

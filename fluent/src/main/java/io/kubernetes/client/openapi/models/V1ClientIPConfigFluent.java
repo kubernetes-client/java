@@ -18,7 +18,7 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1ClientIPConfigFluent<A extends V1ClientIPConfigFluent<A>> extends Fluent<A> {
   public Integer getTimeoutSeconds();
 
-  public A withTimeoutSeconds(java.lang.Integer timeoutSeconds);
+  public A withTimeoutSeconds(Integer timeoutSeconds);
 
   public Boolean hasTimeoutSeconds();
 }

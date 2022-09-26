@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2beta2ExternalMetricStatusBuilder
     extends V2beta2ExternalMetricStatusFluentImpl<V2beta2ExternalMetricStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2beta2ExternalMetricStatus,
-        V2beta2ExternalMetricStatusBuilder> {
+    implements VisitableBuilder<V2beta2ExternalMetricStatus, V2beta2ExternalMetricStatusBuilder> {
   public V2beta2ExternalMetricStatusBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V2beta2ExternalMetricStatusBuilder
   }
 
   public V2beta2ExternalMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2beta2ExternalMetricStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2beta2ExternalMetricStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2beta2ExternalMetricStatus(), validationEnabled);
   }
 
   public V2beta2ExternalMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2beta2ExternalMetricStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2beta2ExternalMetricStatus instance) {
+      V2beta2ExternalMetricStatusFluent<?> fluent, V2beta2ExternalMetricStatus instance) {
     this(fluent, instance, false);
   }
 
   public V2beta2ExternalMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2beta2ExternalMetricStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2beta2ExternalMetricStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V2beta2ExternalMetricStatusFluent<?> fluent,
+      V2beta2ExternalMetricStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCurrent(instance.getCurrent());
 
@@ -55,14 +51,12 @@ public class V2beta2ExternalMetricStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2beta2ExternalMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2beta2ExternalMetricStatus instance) {
+  public V2beta2ExternalMetricStatusBuilder(V2beta2ExternalMetricStatus instance) {
     this(instance, false);
   }
 
   public V2beta2ExternalMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2beta2ExternalMetricStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V2beta2ExternalMetricStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCurrent(instance.getCurrent());
 
@@ -71,10 +65,10 @@ public class V2beta2ExternalMetricStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2beta2ExternalMetricStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2beta2ExternalMetricStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2beta2ExternalMetricStatus build() {
+  public V2beta2ExternalMetricStatus build() {
     V2beta2ExternalMetricStatus buildable = new V2beta2ExternalMetricStatus();
     buildable.setCurrent(fluent.getCurrent());
     buildable.setMetric(fluent.getMetric());

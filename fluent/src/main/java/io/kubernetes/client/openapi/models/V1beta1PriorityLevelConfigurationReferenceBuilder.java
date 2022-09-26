@@ -19,7 +19,7 @@ public class V1beta1PriorityLevelConfigurationReferenceBuilder
         V1beta1PriorityLevelConfigurationReferenceBuilder>
     implements VisitableBuilder<
         V1beta1PriorityLevelConfigurationReference,
-        io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReferenceBuilder> {
+        V1beta1PriorityLevelConfigurationReferenceBuilder> {
   public V1beta1PriorityLevelConfigurationReferenceBuilder() {
     this(false);
   }
@@ -34,24 +34,20 @@ public class V1beta1PriorityLevelConfigurationReferenceBuilder
   }
 
   public V1beta1PriorityLevelConfigurationReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReferenceFluent<?>
-          fluent,
-      java.lang.Boolean validationEnabled) {
+      V1beta1PriorityLevelConfigurationReferenceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1beta1PriorityLevelConfigurationReference(), validationEnabled);
   }
 
   public V1beta1PriorityLevelConfigurationReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReferenceFluent<?>
-          fluent,
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReference instance) {
+      V1beta1PriorityLevelConfigurationReferenceFluent<?> fluent,
+      V1beta1PriorityLevelConfigurationReference instance) {
     this(fluent, instance, false);
   }
 
   public V1beta1PriorityLevelConfigurationReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReferenceFluent<?>
-          fluent,
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReference instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1PriorityLevelConfigurationReferenceFluent<?> fluent,
+      V1beta1PriorityLevelConfigurationReference instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
@@ -59,23 +55,22 @@ public class V1beta1PriorityLevelConfigurationReferenceBuilder
   }
 
   public V1beta1PriorityLevelConfigurationReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReference instance) {
+      V1beta1PriorityLevelConfigurationReference instance) {
     this(instance, false);
   }
 
   public V1beta1PriorityLevelConfigurationReferenceBuilder(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReference instance,
-      java.lang.Boolean validationEnabled) {
+      V1beta1PriorityLevelConfigurationReference instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReferenceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1beta1PriorityLevelConfigurationReferenceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationReference build() {
+  public V1beta1PriorityLevelConfigurationReference build() {
     V1beta1PriorityLevelConfigurationReference buildable =
         new V1beta1PriorityLevelConfigurationReference();
     buildable.setName(fluent.getName());

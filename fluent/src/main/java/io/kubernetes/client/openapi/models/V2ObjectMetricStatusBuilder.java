@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V2ObjectMetricStatusBuilder
     extends V2ObjectMetricStatusFluentImpl<V2ObjectMetricStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V2ObjectMetricStatus,
-        io.kubernetes.client.openapi.models.V2ObjectMetricStatusBuilder> {
+    implements VisitableBuilder<V2ObjectMetricStatus, V2ObjectMetricStatusBuilder> {
   public V2ObjectMetricStatusBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V2ObjectMetricStatusBuilder
   }
 
   public V2ObjectMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V2ObjectMetricStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V2ObjectMetricStatus(), validationEnabled);
   }
 
   public V2ObjectMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2ObjectMetricStatus instance) {
+      V2ObjectMetricStatusFluent<?> fluent, V2ObjectMetricStatus instance) {
     this(fluent, instance, false);
   }
 
   public V2ObjectMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V2ObjectMetricStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V2ObjectMetricStatusFluent<?> fluent,
+      V2ObjectMetricStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCurrent(instance.getCurrent());
 
@@ -57,14 +53,11 @@ public class V2ObjectMetricStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V2ObjectMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ObjectMetricStatus instance) {
+  public V2ObjectMetricStatusBuilder(V2ObjectMetricStatus instance) {
     this(instance, false);
   }
 
-  public V2ObjectMetricStatusBuilder(
-      io.kubernetes.client.openapi.models.V2ObjectMetricStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V2ObjectMetricStatusBuilder(V2ObjectMetricStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCurrent(instance.getCurrent());
 
@@ -75,10 +68,10 @@ public class V2ObjectMetricStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V2ObjectMetricStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V2ObjectMetricStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V2ObjectMetricStatus build() {
+  public V2ObjectMetricStatus build() {
     V2ObjectMetricStatus buildable = new V2ObjectMetricStatus();
     buildable.setCurrent(fluent.getCurrent());
     buildable.setDescribedObject(fluent.getDescribedObject());

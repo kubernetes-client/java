@@ -20,21 +20,20 @@ public class V1ObjectFieldSelectorFluentImpl<A extends V1ObjectFieldSelectorFlue
     extends BaseFluent<A> implements V1ObjectFieldSelectorFluent<A> {
   public V1ObjectFieldSelectorFluentImpl() {}
 
-  public V1ObjectFieldSelectorFluentImpl(
-      io.kubernetes.client.openapi.models.V1ObjectFieldSelector instance) {
+  public V1ObjectFieldSelectorFluentImpl(V1ObjectFieldSelector instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withFieldPath(instance.getFieldPath());
   }
 
   private String apiVersion;
-  private java.lang.String fieldPath;
+  private String fieldPath;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -43,16 +42,16 @@ public class V1ObjectFieldSelectorFluentImpl<A extends V1ObjectFieldSelectorFlue
     return this.apiVersion != null;
   }
 
-  public java.lang.String getFieldPath() {
+  public String getFieldPath() {
     return this.fieldPath;
   }
 
-  public A withFieldPath(java.lang.String fieldPath) {
+  public A withFieldPath(String fieldPath) {
     this.fieldPath = fieldPath;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFieldPath() {
+  public Boolean hasFieldPath() {
     return this.fieldPath != null;
   }
 
@@ -71,7 +70,7 @@ public class V1ObjectFieldSelectorFluentImpl<A extends V1ObjectFieldSelectorFlue
     return java.util.Objects.hash(apiVersion, fieldPath, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {

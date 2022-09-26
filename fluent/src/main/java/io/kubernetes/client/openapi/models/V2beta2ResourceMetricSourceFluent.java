@@ -20,7 +20,7 @@ public interface V2beta2ResourceMetricSourceFluent<A extends V2beta2ResourceMetr
     extends Fluent<A> {
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
   public Boolean hasName();
 
@@ -32,25 +32,23 @@ public interface V2beta2ResourceMetricSourceFluent<A extends V2beta2ResourceMetr
   @Deprecated
   public V2beta2MetricTarget getTarget();
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricTarget buildTarget();
+  public V2beta2MetricTarget buildTarget();
 
-  public A withTarget(io.kubernetes.client.openapi.models.V2beta2MetricTarget target);
+  public A withTarget(V2beta2MetricTarget target);
 
-  public java.lang.Boolean hasTarget();
+  public Boolean hasTarget();
 
   public V2beta2ResourceMetricSourceFluent.TargetNested<A> withNewTarget();
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricSourceFluent.TargetNested<A>
-      withNewTargetLike(io.kubernetes.client.openapi.models.V2beta2MetricTarget item);
+  public V2beta2ResourceMetricSourceFluent.TargetNested<A> withNewTargetLike(
+      V2beta2MetricTarget item);
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricSourceFluent.TargetNested<A>
-      editTarget();
+  public V2beta2ResourceMetricSourceFluent.TargetNested<A> editTarget();
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricSourceFluent.TargetNested<A>
-      editOrNewTarget();
+  public V2beta2ResourceMetricSourceFluent.TargetNested<A> editOrNewTarget();
 
-  public io.kubernetes.client.openapi.models.V2beta2ResourceMetricSourceFluent.TargetNested<A>
-      editOrNewTargetLike(io.kubernetes.client.openapi.models.V2beta2MetricTarget item);
+  public V2beta2ResourceMetricSourceFluent.TargetNested<A> editOrNewTargetLike(
+      V2beta2MetricTarget item);
 
   public interface TargetNested<N>
       extends Nested<N>,

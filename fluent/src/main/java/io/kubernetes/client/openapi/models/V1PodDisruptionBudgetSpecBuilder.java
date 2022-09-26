@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PodDisruptionBudgetSpecBuilder
     extends V1PodDisruptionBudgetSpecFluentImpl<V1PodDisruptionBudgetSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec,
-        io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecBuilder> {
+    implements VisitableBuilder<V1PodDisruptionBudgetSpec, V1PodDisruptionBudgetSpecBuilder> {
   public V1PodDisruptionBudgetSpecBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1PodDisruptionBudgetSpecBuilder
   }
 
   public V1PodDisruptionBudgetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1PodDisruptionBudgetSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PodDisruptionBudgetSpec(), validationEnabled);
   }
 
   public V1PodDisruptionBudgetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec instance) {
+      V1PodDisruptionBudgetSpecFluent<?> fluent, V1PodDisruptionBudgetSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1PodDisruptionBudgetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodDisruptionBudgetSpecFluent<?> fluent,
+      V1PodDisruptionBudgetSpec instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withMaxUnavailable(instance.getMaxUnavailable());
 
@@ -57,14 +53,12 @@ public class V1PodDisruptionBudgetSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PodDisruptionBudgetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec instance) {
+  public V1PodDisruptionBudgetSpecBuilder(V1PodDisruptionBudgetSpec instance) {
     this(instance, false);
   }
 
   public V1PodDisruptionBudgetSpecBuilder(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodDisruptionBudgetSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withMaxUnavailable(instance.getMaxUnavailable());
 
@@ -75,10 +69,10 @@ public class V1PodDisruptionBudgetSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PodDisruptionBudgetSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetSpec build() {
+  public V1PodDisruptionBudgetSpec build() {
     V1PodDisruptionBudgetSpec buildable = new V1PodDisruptionBudgetSpec();
     buildable.setMaxUnavailable(fluent.getMaxUnavailable());
     buildable.setMinAvailable(fluent.getMinAvailable());

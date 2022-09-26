@@ -16,8 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1GitRepoVolumeSourceBuilder
     extends V1GitRepoVolumeSourceFluentImpl<V1GitRepoVolumeSourceBuilder>
-    implements VisitableBuilder<
-        V1GitRepoVolumeSource, io.kubernetes.client.openapi.models.V1GitRepoVolumeSourceBuilder> {
+    implements VisitableBuilder<V1GitRepoVolumeSource, V1GitRepoVolumeSourceBuilder> {
   public V1GitRepoVolumeSourceBuilder() {
     this(false);
   }
@@ -31,21 +30,19 @@ public class V1GitRepoVolumeSourceBuilder
   }
 
   public V1GitRepoVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GitRepoVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1GitRepoVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1GitRepoVolumeSource(), validationEnabled);
   }
 
   public V1GitRepoVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GitRepoVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1GitRepoVolumeSource instance) {
+      V1GitRepoVolumeSourceFluent<?> fluent, V1GitRepoVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1GitRepoVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GitRepoVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1GitRepoVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1GitRepoVolumeSourceFluent<?> fluent,
+      V1GitRepoVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withDirectory(instance.getDirectory());
 
@@ -56,14 +53,11 @@ public class V1GitRepoVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1GitRepoVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GitRepoVolumeSource instance) {
+  public V1GitRepoVolumeSourceBuilder(V1GitRepoVolumeSource instance) {
     this(instance, false);
   }
 
-  public V1GitRepoVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1GitRepoVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1GitRepoVolumeSourceBuilder(V1GitRepoVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withDirectory(instance.getDirectory());
 
@@ -74,10 +68,10 @@ public class V1GitRepoVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1GitRepoVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1GitRepoVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1GitRepoVolumeSource build() {
+  public V1GitRepoVolumeSource build() {
     V1GitRepoVolumeSource buildable = new V1GitRepoVolumeSource();
     buildable.setDirectory(fluent.getDirectory());
     buildable.setRepository(fluent.getRepository());

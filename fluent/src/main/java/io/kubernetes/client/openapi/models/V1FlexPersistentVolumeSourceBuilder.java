@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1FlexPersistentVolumeSourceBuilder
     extends V1FlexPersistentVolumeSourceFluentImpl<V1FlexPersistentVolumeSourceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource,
-        V1FlexPersistentVolumeSourceBuilder> {
+    implements VisitableBuilder<V1FlexPersistentVolumeSource, V1FlexPersistentVolumeSourceBuilder> {
   public V1FlexPersistentVolumeSourceBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1FlexPersistentVolumeSourceBuilder
   }
 
   public V1FlexPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1FlexPersistentVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1FlexPersistentVolumeSource(), validationEnabled);
   }
 
   public V1FlexPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource instance) {
+      V1FlexPersistentVolumeSourceFluent<?> fluent, V1FlexPersistentVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1FlexPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1FlexPersistentVolumeSourceFluent<?> fluent,
+      V1FlexPersistentVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withDriver(instance.getDriver());
 
@@ -61,14 +57,12 @@ public class V1FlexPersistentVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1FlexPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource instance) {
+  public V1FlexPersistentVolumeSourceBuilder(V1FlexPersistentVolumeSource instance) {
     this(instance, false);
   }
 
   public V1FlexPersistentVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1FlexPersistentVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withDriver(instance.getDriver());
 
@@ -83,10 +77,10 @@ public class V1FlexPersistentVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1FlexPersistentVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1FlexPersistentVolumeSource build() {
+  public V1FlexPersistentVolumeSource build() {
     V1FlexPersistentVolumeSource buildable = new V1FlexPersistentVolumeSource();
     buildable.setDriver(fluent.getDriver());
     buildable.setFsType(fluent.getFsType());

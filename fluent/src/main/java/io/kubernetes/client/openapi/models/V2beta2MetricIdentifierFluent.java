@@ -20,7 +20,7 @@ public interface V2beta2MetricIdentifierFluent<A extends V2beta2MetricIdentifier
     extends Fluent<A> {
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
   public Boolean hasName();
 
@@ -32,25 +32,22 @@ public interface V2beta2MetricIdentifierFluent<A extends V2beta2MetricIdentifier
   @Deprecated
   public V1LabelSelector getSelector();
 
-  public io.kubernetes.client.openapi.models.V1LabelSelector buildSelector();
+  public V1LabelSelector buildSelector();
 
-  public A withSelector(io.kubernetes.client.openapi.models.V1LabelSelector selector);
+  public A withSelector(V1LabelSelector selector);
 
-  public java.lang.Boolean hasSelector();
+  public Boolean hasSelector();
 
   public V2beta2MetricIdentifierFluent.SelectorNested<A> withNewSelector();
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricIdentifierFluent.SelectorNested<A>
-      withNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V2beta2MetricIdentifierFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item);
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricIdentifierFluent.SelectorNested<A>
-      editSelector();
+  public V2beta2MetricIdentifierFluent.SelectorNested<A> editSelector();
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricIdentifierFluent.SelectorNested<A>
-      editOrNewSelector();
+  public V2beta2MetricIdentifierFluent.SelectorNested<A> editOrNewSelector();
 
-  public io.kubernetes.client.openapi.models.V2beta2MetricIdentifierFluent.SelectorNested<A>
-      editOrNewSelectorLike(io.kubernetes.client.openapi.models.V1LabelSelector item);
+  public V2beta2MetricIdentifierFluent.SelectorNested<A> editOrNewSelectorLike(
+      V1LabelSelector item);
 
   public interface SelectorNested<N>
       extends Nested<N>, V1LabelSelectorFluent<V2beta2MetricIdentifierFluent.SelectorNested<N>> {

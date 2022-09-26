@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1IngressStatusBuilder extends V1IngressStatusFluentImpl<V1IngressStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1IngressStatus,
-        io.kubernetes.client.openapi.models.V1IngressStatusBuilder> {
+    implements VisitableBuilder<V1IngressStatus, V1IngressStatusBuilder> {
   public V1IngressStatusBuilder() {
     this(false);
   }
@@ -30,45 +28,37 @@ public class V1IngressStatusBuilder extends V1IngressStatusFluentImpl<V1IngressS
     this(fluent, false);
   }
 
-  public V1IngressStatusBuilder(
-      io.kubernetes.client.openapi.models.V1IngressStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1IngressStatusBuilder(V1IngressStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1IngressStatus(), validationEnabled);
   }
 
-  public V1IngressStatusBuilder(
-      io.kubernetes.client.openapi.models.V1IngressStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1IngressStatus instance) {
+  public V1IngressStatusBuilder(V1IngressStatusFluent<?> fluent, V1IngressStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1IngressStatusBuilder(
-      io.kubernetes.client.openapi.models.V1IngressStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1IngressStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1IngressStatusFluent<?> fluent, V1IngressStatus instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLoadBalancer(instance.getLoadBalancer());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1IngressStatusBuilder(io.kubernetes.client.openapi.models.V1IngressStatus instance) {
+  public V1IngressStatusBuilder(V1IngressStatus instance) {
     this(instance, false);
   }
 
-  public V1IngressStatusBuilder(
-      io.kubernetes.client.openapi.models.V1IngressStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V1IngressStatusBuilder(V1IngressStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLoadBalancer(instance.getLoadBalancer());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1IngressStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1IngressStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1IngressStatus build() {
+  public V1IngressStatus build() {
     V1IngressStatus buildable = new V1IngressStatus();
     buildable.setLoadBalancer(fluent.getLoadBalancer());
     return buildable;

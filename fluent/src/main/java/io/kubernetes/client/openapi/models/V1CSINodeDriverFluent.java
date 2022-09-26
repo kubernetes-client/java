@@ -29,68 +29,65 @@ public interface V1CSINodeDriverFluent<A extends V1CSINodeDriverFluent<A>> exten
   @Deprecated
   public V1VolumeNodeResources getAllocatable();
 
-  public io.kubernetes.client.openapi.models.V1VolumeNodeResources buildAllocatable();
+  public V1VolumeNodeResources buildAllocatable();
 
-  public A withAllocatable(io.kubernetes.client.openapi.models.V1VolumeNodeResources allocatable);
+  public A withAllocatable(V1VolumeNodeResources allocatable);
 
   public Boolean hasAllocatable();
 
   public V1CSINodeDriverFluent.AllocatableNested<A> withNewAllocatable();
 
-  public io.kubernetes.client.openapi.models.V1CSINodeDriverFluent.AllocatableNested<A>
-      withNewAllocatableLike(io.kubernetes.client.openapi.models.V1VolumeNodeResources item);
+  public V1CSINodeDriverFluent.AllocatableNested<A> withNewAllocatableLike(
+      V1VolumeNodeResources item);
 
-  public io.kubernetes.client.openapi.models.V1CSINodeDriverFluent.AllocatableNested<A>
-      editAllocatable();
+  public V1CSINodeDriverFluent.AllocatableNested<A> editAllocatable();
 
-  public io.kubernetes.client.openapi.models.V1CSINodeDriverFluent.AllocatableNested<A>
-      editOrNewAllocatable();
+  public V1CSINodeDriverFluent.AllocatableNested<A> editOrNewAllocatable();
 
-  public io.kubernetes.client.openapi.models.V1CSINodeDriverFluent.AllocatableNested<A>
-      editOrNewAllocatableLike(io.kubernetes.client.openapi.models.V1VolumeNodeResources item);
+  public V1CSINodeDriverFluent.AllocatableNested<A> editOrNewAllocatableLike(
+      V1VolumeNodeResources item);
 
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
-  public java.lang.String getNodeID();
+  public String getNodeID();
 
-  public A withNodeID(java.lang.String nodeID);
+  public A withNodeID(String nodeID);
 
-  public java.lang.Boolean hasNodeID();
+  public Boolean hasNodeID();
 
-  public A addToTopologyKeys(Integer index, java.lang.String item);
+  public A addToTopologyKeys(Integer index, String item);
 
-  public A setToTopologyKeys(java.lang.Integer index, java.lang.String item);
+  public A setToTopologyKeys(Integer index, String item);
 
   public A addToTopologyKeys(java.lang.String... items);
 
-  public A addAllToTopologyKeys(Collection<java.lang.String> items);
+  public A addAllToTopologyKeys(Collection<String> items);
 
   public A removeFromTopologyKeys(java.lang.String... items);
 
-  public A removeAllFromTopologyKeys(java.util.Collection<java.lang.String> items);
+  public A removeAllFromTopologyKeys(Collection<String> items);
 
-  public List<java.lang.String> getTopologyKeys();
+  public List<String> getTopologyKeys();
 
-  public java.lang.String getTopologyKey(java.lang.Integer index);
+  public String getTopologyKey(Integer index);
 
-  public java.lang.String getFirstTopologyKey();
+  public String getFirstTopologyKey();
 
-  public java.lang.String getLastTopologyKey();
+  public String getLastTopologyKey();
 
-  public java.lang.String getMatchingTopologyKey(Predicate<java.lang.String> predicate);
+  public String getMatchingTopologyKey(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingTopologyKey(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingTopologyKey(Predicate<String> predicate);
 
-  public A withTopologyKeys(java.util.List<java.lang.String> topologyKeys);
+  public A withTopologyKeys(List<String> topologyKeys);
 
   public A withTopologyKeys(java.lang.String... topologyKeys);
 
-  public java.lang.Boolean hasTopologyKeys();
+  public Boolean hasTopologyKeys();
 
   public interface AllocatableNested<N>
       extends Nested<N>, V1VolumeNodeResourcesFluent<V1CSINodeDriverFluent.AllocatableNested<N>> {

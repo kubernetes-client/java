@@ -26,8 +26,7 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
     extends BaseFluent<A> implements V1CephFSPersistentVolumeSourceFluent<A> {
   public V1CephFSPersistentVolumeSourceFluentImpl() {}
 
-  public V1CephFSPersistentVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSource instance) {
+  public V1CephFSPersistentVolumeSourceFluentImpl(V1CephFSPersistentVolumeSource instance) {
     this.withMonitors(instance.getMonitors());
 
     this.withPath(instance.getPath());
@@ -42,23 +41,23 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
   }
 
   private List<String> monitors;
-  private java.lang.String path;
+  private String path;
   private Boolean readOnly;
-  private java.lang.String secretFile;
+  private String secretFile;
   private V1SecretReferenceBuilder secretRef;
-  private java.lang.String user;
+  private String user;
 
-  public A addToMonitors(Integer index, java.lang.String item) {
+  public A addToMonitors(Integer index, String item) {
     if (this.monitors == null) {
-      this.monitors = new ArrayList<java.lang.String>();
+      this.monitors = new ArrayList<String>();
     }
     this.monitors.add(index, item);
     return (A) this;
   }
 
-  public A setToMonitors(java.lang.Integer index, java.lang.String item) {
+  public A setToMonitors(Integer index, String item) {
     if (this.monitors == null) {
-      this.monitors = new java.util.ArrayList<java.lang.String>();
+      this.monitors = new ArrayList<String>();
     }
     this.monitors.set(index, item);
     return (A) this;
@@ -66,26 +65,26 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
 
   public A addToMonitors(java.lang.String... items) {
     if (this.monitors == null) {
-      this.monitors = new java.util.ArrayList<java.lang.String>();
+      this.monitors = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.monitors.add(item);
     }
     return (A) this;
   }
 
-  public A addAllToMonitors(Collection<java.lang.String> items) {
+  public A addAllToMonitors(Collection<String> items) {
     if (this.monitors == null) {
-      this.monitors = new java.util.ArrayList<java.lang.String>();
+      this.monitors = new ArrayList<String>();
     }
-    for (java.lang.String item : items) {
+    for (String item : items) {
       this.monitors.add(item);
     }
     return (A) this;
   }
 
   public A removeFromMonitors(java.lang.String... items) {
-    for (java.lang.String item : items) {
+    for (String item : items) {
       if (this.monitors != null) {
         this.monitors.remove(item);
       }
@@ -93,8 +92,8 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
     return (A) this;
   }
 
-  public A removeAllFromMonitors(java.util.Collection<java.lang.String> items) {
-    for (java.lang.String item : items) {
+  public A removeAllFromMonitors(Collection<String> items) {
+    for (String item : items) {
       if (this.monitors != null) {
         this.monitors.remove(item);
       }
@@ -102,24 +101,24 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
     return (A) this;
   }
 
-  public java.util.List<java.lang.String> getMonitors() {
+  public List<String> getMonitors() {
     return this.monitors;
   }
 
-  public java.lang.String getMonitor(java.lang.Integer index) {
+  public String getMonitor(Integer index) {
     return this.monitors.get(index);
   }
 
-  public java.lang.String getFirstMonitor() {
+  public String getFirstMonitor() {
     return this.monitors.get(0);
   }
 
-  public java.lang.String getLastMonitor() {
+  public String getLastMonitor() {
     return this.monitors.get(monitors.size() - 1);
   }
 
-  public java.lang.String getMatchingMonitor(Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : monitors) {
+  public String getMatchingMonitor(Predicate<String> predicate) {
+    for (String item : monitors) {
       if (predicate.test(item)) {
         return item;
       }
@@ -127,9 +126,8 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingMonitor(
-      java.util.function.Predicate<java.lang.String> predicate) {
-    for (java.lang.String item : monitors) {
+  public Boolean hasMatchingMonitor(Predicate<String> predicate) {
+    for (String item : monitors) {
       if (predicate.test(item)) {
         return true;
       }
@@ -137,10 +135,10 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
     return false;
   }
 
-  public A withMonitors(java.util.List<java.lang.String> monitors) {
+  public A withMonitors(List<String> monitors) {
     if (monitors != null) {
-      this.monitors = new java.util.ArrayList();
-      for (java.lang.String item : monitors) {
+      this.monitors = new ArrayList();
+      for (String item : monitors) {
         this.addToMonitors(item);
       }
     } else {
@@ -154,53 +152,53 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
       this.monitors.clear();
     }
     if (monitors != null) {
-      for (java.lang.String item : monitors) {
+      for (String item : monitors) {
         this.addToMonitors(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMonitors() {
+  public Boolean hasMonitors() {
     return monitors != null && !monitors.isEmpty();
   }
 
-  public java.lang.String getPath() {
+  public String getPath() {
     return this.path;
   }
 
-  public A withPath(java.lang.String path) {
+  public A withPath(String path) {
     this.path = path;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPath() {
+  public Boolean hasPath() {
     return this.path != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
-  public java.lang.String getSecretFile() {
+  public String getSecretFile() {
     return this.secretFile;
   }
 
-  public A withSecretFile(java.lang.String secretFile) {
+  public A withSecretFile(String secretFile) {
     this.secretFile = secretFile;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecretFile() {
+  public Boolean hasSecretFile() {
     return this.secretFile != null;
   }
 
@@ -214,20 +212,23 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1SecretReference buildSecretRef() {
+  public V1SecretReference buildSecretRef() {
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1SecretReference secretRef) {
+  public A withSecretRef(V1SecretReference secretRef) {
     _visitables.get("secretRef").remove(this.secretRef);
     if (secretRef != null) {
-      this.secretRef = new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder(secretRef);
+      this.secretRef = new V1SecretReferenceBuilder(secretRef);
       _visitables.get("secretRef").add(this.secretRef);
+    } else {
+      this.secretRef = null;
+      _visitables.get("secretRef").remove(this.secretRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecretRef() {
+  public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
 
@@ -235,39 +236,35 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
     return new V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item) {
+  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1SecretReference item) {
     return new V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A>
-      editSecretRef() {
+  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef() {
+  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(
-        getSecretRef() != null
-            ? getSecretRef()
-            : new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder().build());
+        getSecretRef() != null ? getSecretRef() : new V1SecretReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item) {
+  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1SecretReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef() : item);
   }
 
-  public java.lang.String getUser() {
+  public String getUser() {
     return this.user;
   }
 
-  public A withUser(java.lang.String user) {
+  public A withUser(String user) {
     this.user = user;
     return (A) this;
   }
 
-  public java.lang.Boolean hasUser() {
+  public Boolean hasUser() {
     return this.user != null;
   }
 
@@ -291,7 +288,7 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
         monitors, path, readOnly, secretFile, secretRef, user, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (monitors != null && !monitors.isEmpty()) {
@@ -328,19 +325,16 @@ public class V1CephFSPersistentVolumeSourceFluentImpl<
 
   class SecretRefNestedImpl<N>
       extends V1SecretReferenceFluentImpl<V1CephFSPersistentVolumeSourceFluent.SecretRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CephFSPersistentVolumeSourceFluent
-                  .SecretRefNested<
-              N>,
-          Nested<N> {
+      implements V1CephFSPersistentVolumeSourceFluent.SecretRefNested<N>, Nested<N> {
     SecretRefNestedImpl(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }
 
     SecretRefNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder(this);
+      this.builder = new V1SecretReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1SecretReferenceBuilder builder;
+    V1SecretReferenceBuilder builder;
 
     public N and() {
       return (N) V1CephFSPersistentVolumeSourceFluentImpl.this.withSecretRef(builder.build());

@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ControllerRevisionListBuilder
     extends V1ControllerRevisionListFluentImpl<V1ControllerRevisionListBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ControllerRevisionList,
-        io.kubernetes.client.openapi.models.V1ControllerRevisionListBuilder> {
+    implements VisitableBuilder<V1ControllerRevisionList, V1ControllerRevisionListBuilder> {
   public V1ControllerRevisionListBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1ControllerRevisionListBuilder
   }
 
   public V1ControllerRevisionListBuilder(
-      io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ControllerRevisionListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ControllerRevisionList(), validationEnabled);
   }
 
   public V1ControllerRevisionListBuilder(
-      io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ControllerRevisionList instance) {
+      V1ControllerRevisionListFluent<?> fluent, V1ControllerRevisionList instance) {
     this(fluent, instance, false);
   }
 
   public V1ControllerRevisionListBuilder(
-      io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ControllerRevisionList instance,
-      java.lang.Boolean validationEnabled) {
+      V1ControllerRevisionListFluent<?> fluent,
+      V1ControllerRevisionList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,14 +55,12 @@ public class V1ControllerRevisionListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ControllerRevisionListBuilder(
-      io.kubernetes.client.openapi.models.V1ControllerRevisionList instance) {
+  public V1ControllerRevisionListBuilder(V1ControllerRevisionList instance) {
     this(instance, false);
   }
 
   public V1ControllerRevisionListBuilder(
-      io.kubernetes.client.openapi.models.V1ControllerRevisionList instance,
-      java.lang.Boolean validationEnabled) {
+      V1ControllerRevisionList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -79,10 +73,10 @@ public class V1ControllerRevisionListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ControllerRevisionListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ControllerRevisionListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ControllerRevisionList build() {
+  public V1ControllerRevisionList build() {
     V1ControllerRevisionList buildable = new V1ControllerRevisionList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

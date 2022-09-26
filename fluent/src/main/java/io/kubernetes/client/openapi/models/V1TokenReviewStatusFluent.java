@@ -23,45 +23,45 @@ public interface V1TokenReviewStatusFluent<A extends V1TokenReviewStatusFluent<A
     extends Fluent<A> {
   public A addToAudiences(Integer index, String item);
 
-  public A setToAudiences(java.lang.Integer index, java.lang.String item);
+  public A setToAudiences(Integer index, String item);
 
   public A addToAudiences(java.lang.String... items);
 
-  public A addAllToAudiences(Collection<java.lang.String> items);
+  public A addAllToAudiences(Collection<String> items);
 
   public A removeFromAudiences(java.lang.String... items);
 
-  public A removeAllFromAudiences(java.util.Collection<java.lang.String> items);
+  public A removeAllFromAudiences(Collection<String> items);
 
-  public List<java.lang.String> getAudiences();
+  public List<String> getAudiences();
 
-  public java.lang.String getAudience(java.lang.Integer index);
+  public String getAudience(Integer index);
 
-  public java.lang.String getFirstAudience();
+  public String getFirstAudience();
 
-  public java.lang.String getLastAudience();
+  public String getLastAudience();
 
-  public java.lang.String getMatchingAudience(Predicate<java.lang.String> predicate);
+  public String getMatchingAudience(Predicate<String> predicate);
 
-  public Boolean hasMatchingAudience(java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingAudience(Predicate<String> predicate);
 
-  public A withAudiences(java.util.List<java.lang.String> audiences);
+  public A withAudiences(List<String> audiences);
 
   public A withAudiences(java.lang.String... audiences);
 
-  public java.lang.Boolean hasAudiences();
+  public Boolean hasAudiences();
 
-  public java.lang.Boolean getAuthenticated();
+  public Boolean getAuthenticated();
 
-  public A withAuthenticated(java.lang.Boolean authenticated);
+  public A withAuthenticated(Boolean authenticated);
 
-  public java.lang.Boolean hasAuthenticated();
+  public Boolean hasAuthenticated();
 
-  public java.lang.String getError();
+  public String getError();
 
-  public A withError(java.lang.String error);
+  public A withError(String error);
 
-  public java.lang.Boolean hasError();
+  public Boolean hasError();
 
   /**
    * This method has been deprecated, please use method buildUser instead.
@@ -71,24 +71,21 @@ public interface V1TokenReviewStatusFluent<A extends V1TokenReviewStatusFluent<A
   @Deprecated
   public V1UserInfo getUser();
 
-  public io.kubernetes.client.openapi.models.V1UserInfo buildUser();
+  public V1UserInfo buildUser();
 
-  public A withUser(io.kubernetes.client.openapi.models.V1UserInfo user);
+  public A withUser(V1UserInfo user);
 
-  public java.lang.Boolean hasUser();
+  public Boolean hasUser();
 
   public V1TokenReviewStatusFluent.UserNested<A> withNewUser();
 
-  public io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent.UserNested<A>
-      withNewUserLike(io.kubernetes.client.openapi.models.V1UserInfo item);
+  public V1TokenReviewStatusFluent.UserNested<A> withNewUserLike(V1UserInfo item);
 
-  public io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent.UserNested<A> editUser();
+  public V1TokenReviewStatusFluent.UserNested<A> editUser();
 
-  public io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent.UserNested<A>
-      editOrNewUser();
+  public V1TokenReviewStatusFluent.UserNested<A> editOrNewUser();
 
-  public io.kubernetes.client.openapi.models.V1TokenReviewStatusFluent.UserNested<A>
-      editOrNewUserLike(io.kubernetes.client.openapi.models.V1UserInfo item);
+  public V1TokenReviewStatusFluent.UserNested<A> editOrNewUserLike(V1UserInfo item);
 
   public A withAuthenticated();
 

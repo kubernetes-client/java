@@ -18,13 +18,13 @@ import io.kubernetes.client.fluent.Fluent;
 public interface V1WatchEventFluent<A extends V1WatchEventFluent<A>> extends Fluent<A> {
   public Object getObject();
 
-  public A withObject(java.lang.Object _object);
+  public A withObject(Object _object);
 
   public Boolean hasObject();
 
   public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 }

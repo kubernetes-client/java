@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1CustomResourceSubresourceScaleBuilder
     extends V1CustomResourceSubresourceScaleFluentImpl<V1CustomResourceSubresourceScaleBuilder>
     implements VisitableBuilder<
-        V1CustomResourceSubresourceScale,
-        io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleBuilder> {
+        V1CustomResourceSubresourceScale, V1CustomResourceSubresourceScaleBuilder> {
   public V1CustomResourceSubresourceScaleBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V1CustomResourceSubresourceScaleBuilder
   }
 
   public V1CustomResourceSubresourceScaleBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceSubresourceScaleFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CustomResourceSubresourceScale(), validationEnabled);
   }
 
   public V1CustomResourceSubresourceScaleBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale instance) {
+      V1CustomResourceSubresourceScaleFluent<?> fluent, V1CustomResourceSubresourceScale instance) {
     this(fluent, instance, false);
   }
 
   public V1CustomResourceSubresourceScaleBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceSubresourceScaleFluent<?> fluent,
+      V1CustomResourceSubresourceScale instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLabelSelectorPath(instance.getLabelSelectorPath());
 
@@ -57,14 +54,12 @@ public class V1CustomResourceSubresourceScaleBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CustomResourceSubresourceScaleBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale instance) {
+  public V1CustomResourceSubresourceScaleBuilder(V1CustomResourceSubresourceScale instance) {
     this(instance, false);
   }
 
   public V1CustomResourceSubresourceScaleBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceSubresourceScale instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLabelSelectorPath(instance.getLabelSelectorPath());
 
@@ -75,10 +70,10 @@ public class V1CustomResourceSubresourceScaleBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScaleFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CustomResourceSubresourceScaleFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceSubresourceScale build() {
+  public V1CustomResourceSubresourceScale build() {
     V1CustomResourceSubresourceScale buildable = new V1CustomResourceSubresourceScale();
     buildable.setLabelSelectorPath(fluent.getLabelSelectorPath());
     buildable.setSpecReplicasPath(fluent.getSpecReplicasPath());

@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DaemonEndpointBuilder extends V1DaemonEndpointFluentImpl<V1DaemonEndpointBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DaemonEndpoint,
-        io.kubernetes.client.openapi.models.V1DaemonEndpointBuilder> {
+    implements VisitableBuilder<V1DaemonEndpoint, V1DaemonEndpointBuilder> {
   public V1DaemonEndpointBuilder() {
     this(false);
   }
@@ -30,45 +28,37 @@ public class V1DaemonEndpointBuilder extends V1DaemonEndpointFluentImpl<V1Daemon
     this(fluent, false);
   }
 
-  public V1DaemonEndpointBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonEndpointFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1DaemonEndpointBuilder(V1DaemonEndpointFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DaemonEndpoint(), validationEnabled);
   }
 
-  public V1DaemonEndpointBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonEndpointFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DaemonEndpoint instance) {
+  public V1DaemonEndpointBuilder(V1DaemonEndpointFluent<?> fluent, V1DaemonEndpoint instance) {
     this(fluent, instance, false);
   }
 
   public V1DaemonEndpointBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonEndpointFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DaemonEndpoint instance,
-      java.lang.Boolean validationEnabled) {
+      V1DaemonEndpointFluent<?> fluent, V1DaemonEndpoint instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withPort(instance.getPort());
 
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DaemonEndpointBuilder(io.kubernetes.client.openapi.models.V1DaemonEndpoint instance) {
+  public V1DaemonEndpointBuilder(V1DaemonEndpoint instance) {
     this(instance, false);
   }
 
-  public V1DaemonEndpointBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonEndpoint instance,
-      java.lang.Boolean validationEnabled) {
+  public V1DaemonEndpointBuilder(V1DaemonEndpoint instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withPort(instance.getPort());
 
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DaemonEndpointFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DaemonEndpointFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DaemonEndpoint build() {
+  public V1DaemonEndpoint build() {
     V1DaemonEndpoint buildable = new V1DaemonEndpoint();
     buildable.setPort(fluent.getPort());
     return buildable;

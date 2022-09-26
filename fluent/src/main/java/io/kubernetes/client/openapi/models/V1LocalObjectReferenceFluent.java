@@ -19,7 +19,7 @@ public interface V1LocalObjectReferenceFluent<A extends V1LocalObjectReferenceFl
     extends Fluent<A> {
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
   public Boolean hasName();
 }

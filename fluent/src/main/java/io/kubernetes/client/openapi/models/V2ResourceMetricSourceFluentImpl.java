@@ -21,8 +21,7 @@ public class V2ResourceMetricSourceFluentImpl<A extends V2ResourceMetricSourceFl
     extends BaseFluent<A> implements V2ResourceMetricSourceFluent<A> {
   public V2ResourceMetricSourceFluentImpl() {}
 
-  public V2ResourceMetricSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V2ResourceMetricSource instance) {
+  public V2ResourceMetricSourceFluentImpl(V2ResourceMetricSource instance) {
     this.withName(instance.getName());
 
     this.withTarget(instance.getTarget());
@@ -31,11 +30,11 @@ public class V2ResourceMetricSourceFluentImpl<A extends V2ResourceMetricSourceFl
   private String name;
   private V2MetricTargetBuilder target;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -54,20 +53,23 @@ public class V2ResourceMetricSourceFluentImpl<A extends V2ResourceMetricSourceFl
     return this.target != null ? this.target.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V2MetricTarget buildTarget() {
+  public V2MetricTarget buildTarget() {
     return this.target != null ? this.target.build() : null;
   }
 
-  public A withTarget(io.kubernetes.client.openapi.models.V2MetricTarget target) {
+  public A withTarget(V2MetricTarget target) {
     _visitables.get("target").remove(this.target);
     if (target != null) {
-      this.target = new io.kubernetes.client.openapi.models.V2MetricTargetBuilder(target);
+      this.target = new V2MetricTargetBuilder(target);
       _visitables.get("target").add(this.target);
+    } else {
+      this.target = null;
+      _visitables.get("target").remove(this.target);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasTarget() {
+  public Boolean hasTarget() {
     return this.target != null;
   }
 
@@ -75,26 +77,20 @@ public class V2ResourceMetricSourceFluentImpl<A extends V2ResourceMetricSourceFl
     return new V2ResourceMetricSourceFluentImpl.TargetNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V2ResourceMetricSourceFluent.TargetNested<A>
-      withNewTargetLike(io.kubernetes.client.openapi.models.V2MetricTarget item) {
+  public V2ResourceMetricSourceFluent.TargetNested<A> withNewTargetLike(V2MetricTarget item) {
     return new V2ResourceMetricSourceFluentImpl.TargetNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V2ResourceMetricSourceFluent.TargetNested<A>
-      editTarget() {
+  public V2ResourceMetricSourceFluent.TargetNested<A> editTarget() {
     return withNewTargetLike(getTarget());
   }
 
-  public io.kubernetes.client.openapi.models.V2ResourceMetricSourceFluent.TargetNested<A>
-      editOrNewTarget() {
+  public V2ResourceMetricSourceFluent.TargetNested<A> editOrNewTarget() {
     return withNewTargetLike(
-        getTarget() != null
-            ? getTarget()
-            : new io.kubernetes.client.openapi.models.V2MetricTargetBuilder().build());
+        getTarget() != null ? getTarget() : new V2MetricTargetBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V2ResourceMetricSourceFluent.TargetNested<A>
-      editOrNewTargetLike(io.kubernetes.client.openapi.models.V2MetricTarget item) {
+  public V2ResourceMetricSourceFluent.TargetNested<A> editOrNewTargetLike(V2MetricTarget item) {
     return withNewTargetLike(getTarget() != null ? getTarget() : item);
   }
 
@@ -111,7 +107,7 @@ public class V2ResourceMetricSourceFluentImpl<A extends V2ResourceMetricSourceFl
     return java.util.Objects.hash(name, target, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {
@@ -128,17 +124,16 @@ public class V2ResourceMetricSourceFluentImpl<A extends V2ResourceMetricSourceFl
 
   class TargetNestedImpl<N>
       extends V2MetricTargetFluentImpl<V2ResourceMetricSourceFluent.TargetNested<N>>
-      implements io.kubernetes.client.openapi.models.V2ResourceMetricSourceFluent.TargetNested<N>,
-          Nested<N> {
-    TargetNestedImpl(io.kubernetes.client.openapi.models.V2MetricTarget item) {
+      implements V2ResourceMetricSourceFluent.TargetNested<N>, Nested<N> {
+    TargetNestedImpl(V2MetricTarget item) {
       this.builder = new V2MetricTargetBuilder(this, item);
     }
 
     TargetNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V2MetricTargetBuilder(this);
+      this.builder = new V2MetricTargetBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V2MetricTargetBuilder builder;
+    V2MetricTargetBuilder builder;
 
     public N and() {
       return (N) V2ResourceMetricSourceFluentImpl.this.withTarget(builder.build());

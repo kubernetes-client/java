@@ -22,7 +22,7 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
     implements EventsV1EventFluent<A> {
   public EventsV1EventFluentImpl() {}
 
-  public EventsV1EventFluentImpl(io.kubernetes.client.openapi.models.EventsV1Event instance) {
+  public EventsV1EventFluentImpl(EventsV1Event instance) {
     this.withAction(instance.getAction());
 
     this.withApiVersion(instance.getApiVersion());
@@ -59,28 +59,28 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
   }
 
   private String action;
-  private java.lang.String apiVersion;
+  private String apiVersion;
   private Integer deprecatedCount;
   private OffsetDateTime deprecatedFirstTimestamp;
-  private java.time.OffsetDateTime deprecatedLastTimestamp;
+  private OffsetDateTime deprecatedLastTimestamp;
   private V1EventSourceBuilder deprecatedSource;
-  private java.time.OffsetDateTime eventTime;
-  private java.lang.String kind;
+  private OffsetDateTime eventTime;
+  private String kind;
   private V1ObjectMetaBuilder metadata;
-  private java.lang.String note;
-  private java.lang.String reason;
+  private String note;
+  private String reason;
   private V1ObjectReferenceBuilder regarding;
   private V1ObjectReferenceBuilder related;
-  private java.lang.String reportingController;
-  private java.lang.String reportingInstance;
+  private String reportingController;
+  private String reportingInstance;
   private EventsV1EventSeriesBuilder series;
-  private java.lang.String type;
+  private String type;
 
-  public java.lang.String getAction() {
+  public String getAction() {
     return this.action;
   }
 
-  public A withAction(java.lang.String action) {
+  public A withAction(String action) {
     this.action = action;
     return (A) this;
   }
@@ -89,55 +89,55 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
     return this.action != null;
   }
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasApiVersion() {
+  public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
 
-  public java.lang.Integer getDeprecatedCount() {
+  public Integer getDeprecatedCount() {
     return this.deprecatedCount;
   }
 
-  public A withDeprecatedCount(java.lang.Integer deprecatedCount) {
+  public A withDeprecatedCount(Integer deprecatedCount) {
     this.deprecatedCount = deprecatedCount;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDeprecatedCount() {
+  public Boolean hasDeprecatedCount() {
     return this.deprecatedCount != null;
   }
 
-  public java.time.OffsetDateTime getDeprecatedFirstTimestamp() {
+  public OffsetDateTime getDeprecatedFirstTimestamp() {
     return this.deprecatedFirstTimestamp;
   }
 
-  public A withDeprecatedFirstTimestamp(java.time.OffsetDateTime deprecatedFirstTimestamp) {
+  public A withDeprecatedFirstTimestamp(OffsetDateTime deprecatedFirstTimestamp) {
     this.deprecatedFirstTimestamp = deprecatedFirstTimestamp;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDeprecatedFirstTimestamp() {
+  public Boolean hasDeprecatedFirstTimestamp() {
     return this.deprecatedFirstTimestamp != null;
   }
 
-  public java.time.OffsetDateTime getDeprecatedLastTimestamp() {
+  public OffsetDateTime getDeprecatedLastTimestamp() {
     return this.deprecatedLastTimestamp;
   }
 
-  public A withDeprecatedLastTimestamp(java.time.OffsetDateTime deprecatedLastTimestamp) {
+  public A withDeprecatedLastTimestamp(OffsetDateTime deprecatedLastTimestamp) {
     this.deprecatedLastTimestamp = deprecatedLastTimestamp;
     return (A) this;
   }
 
-  public java.lang.Boolean hasDeprecatedLastTimestamp() {
+  public Boolean hasDeprecatedLastTimestamp() {
     return this.deprecatedLastTimestamp != null;
   }
 
@@ -151,22 +151,23 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
     return this.deprecatedSource != null ? this.deprecatedSource.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1EventSource buildDeprecatedSource() {
+  public V1EventSource buildDeprecatedSource() {
     return this.deprecatedSource != null ? this.deprecatedSource.build() : null;
   }
 
-  public A withDeprecatedSource(
-      io.kubernetes.client.openapi.models.V1EventSource deprecatedSource) {
+  public A withDeprecatedSource(V1EventSource deprecatedSource) {
     _visitables.get("deprecatedSource").remove(this.deprecatedSource);
     if (deprecatedSource != null) {
-      this.deprecatedSource =
-          new io.kubernetes.client.openapi.models.V1EventSourceBuilder(deprecatedSource);
+      this.deprecatedSource = new V1EventSourceBuilder(deprecatedSource);
       _visitables.get("deprecatedSource").add(this.deprecatedSource);
+    } else {
+      this.deprecatedSource = null;
+      _visitables.get("deprecatedSource").remove(this.deprecatedSource);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasDeprecatedSource() {
+  public Boolean hasDeprecatedSource() {
     return this.deprecatedSource != null;
   }
 
@@ -174,53 +175,49 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
     return new EventsV1EventFluentImpl.DeprecatedSourceNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.DeprecatedSourceNested<A>
-      withNewDeprecatedSourceLike(io.kubernetes.client.openapi.models.V1EventSource item) {
+  public EventsV1EventFluent.DeprecatedSourceNested<A> withNewDeprecatedSourceLike(
+      V1EventSource item) {
     return new EventsV1EventFluentImpl.DeprecatedSourceNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.DeprecatedSourceNested<A>
-      editDeprecatedSource() {
+  public EventsV1EventFluent.DeprecatedSourceNested<A> editDeprecatedSource() {
     return withNewDeprecatedSourceLike(getDeprecatedSource());
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.DeprecatedSourceNested<A>
-      editOrNewDeprecatedSource() {
+  public EventsV1EventFluent.DeprecatedSourceNested<A> editOrNewDeprecatedSource() {
     return withNewDeprecatedSourceLike(
-        getDeprecatedSource() != null
-            ? getDeprecatedSource()
-            : new io.kubernetes.client.openapi.models.V1EventSourceBuilder().build());
+        getDeprecatedSource() != null ? getDeprecatedSource() : new V1EventSourceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.DeprecatedSourceNested<A>
-      editOrNewDeprecatedSourceLike(io.kubernetes.client.openapi.models.V1EventSource item) {
+  public EventsV1EventFluent.DeprecatedSourceNested<A> editOrNewDeprecatedSourceLike(
+      V1EventSource item) {
     return withNewDeprecatedSourceLike(
         getDeprecatedSource() != null ? getDeprecatedSource() : item);
   }
 
-  public java.time.OffsetDateTime getEventTime() {
+  public OffsetDateTime getEventTime() {
     return this.eventTime;
   }
 
-  public A withEventTime(java.time.OffsetDateTime eventTime) {
+  public A withEventTime(OffsetDateTime eventTime) {
     this.eventTime = eventTime;
     return (A) this;
   }
 
-  public java.lang.Boolean hasEventTime() {
+  public Boolean hasEventTime() {
     return this.eventTime != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -229,25 +226,28 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectMeta getMetadata() {
+  @Deprecated
+  public V1ObjectMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata() {
+  public V1ObjectMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata) {
+  public A withMetadata(V1ObjectMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ObjectMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -255,51 +255,46 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
     return new EventsV1EventFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.MetadataNested<A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
-    return new io.kubernetes.client.openapi.models.EventsV1EventFluentImpl.MetadataNestedImpl(item);
+  public EventsV1EventFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+    return new EventsV1EventFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.MetadataNested<A> editMetadata() {
+  public EventsV1EventFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.MetadataNested<A>
-      editOrNewMetadata() {
+  public EventsV1EventFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ObjectMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.MetadataNested<A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ObjectMeta item) {
+  public EventsV1EventFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
-  public java.lang.String getNote() {
+  public String getNote() {
     return this.note;
   }
 
-  public A withNote(java.lang.String note) {
+  public A withNote(String note) {
     this.note = note;
     return (A) this;
   }
 
-  public java.lang.Boolean hasNote() {
+  public Boolean hasNote() {
     return this.note != null;
   }
 
-  public java.lang.String getReason() {
+  public String getReason() {
     return this.reason;
   }
 
-  public A withReason(java.lang.String reason) {
+  public A withReason(String reason) {
     this.reason = reason;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReason() {
+  public Boolean hasReason() {
     return this.reason != null;
   }
 
@@ -308,25 +303,28 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectReference getRegarding() {
+  @Deprecated
+  public V1ObjectReference getRegarding() {
     return this.regarding != null ? this.regarding.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildRegarding() {
+  public V1ObjectReference buildRegarding() {
     return this.regarding != null ? this.regarding.build() : null;
   }
 
-  public A withRegarding(io.kubernetes.client.openapi.models.V1ObjectReference regarding) {
+  public A withRegarding(V1ObjectReference regarding) {
     _visitables.get("regarding").remove(this.regarding);
     if (regarding != null) {
-      this.regarding = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(regarding);
+      this.regarding = new V1ObjectReferenceBuilder(regarding);
       _visitables.get("regarding").add(this.regarding);
+    } else {
+      this.regarding = null;
+      _visitables.get("regarding").remove(this.regarding);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasRegarding() {
+  public Boolean hasRegarding() {
     return this.regarding != null;
   }
 
@@ -334,27 +332,20 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
     return new EventsV1EventFluentImpl.RegardingNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.RegardingNested<A>
-      withNewRegardingLike(io.kubernetes.client.openapi.models.V1ObjectReference item) {
-    return new io.kubernetes.client.openapi.models.EventsV1EventFluentImpl.RegardingNestedImpl(
-        item);
+  public EventsV1EventFluent.RegardingNested<A> withNewRegardingLike(V1ObjectReference item) {
+    return new EventsV1EventFluentImpl.RegardingNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.RegardingNested<A>
-      editRegarding() {
+  public EventsV1EventFluent.RegardingNested<A> editRegarding() {
     return withNewRegardingLike(getRegarding());
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.RegardingNested<A>
-      editOrNewRegarding() {
+  public EventsV1EventFluent.RegardingNested<A> editOrNewRegarding() {
     return withNewRegardingLike(
-        getRegarding() != null
-            ? getRegarding()
-            : new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder().build());
+        getRegarding() != null ? getRegarding() : new V1ObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.RegardingNested<A>
-      editOrNewRegardingLike(io.kubernetes.client.openapi.models.V1ObjectReference item) {
+  public EventsV1EventFluent.RegardingNested<A> editOrNewRegardingLike(V1ObjectReference item) {
     return withNewRegardingLike(getRegarding() != null ? getRegarding() : item);
   }
 
@@ -363,25 +354,28 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ObjectReference getRelated() {
+  @Deprecated
+  public V1ObjectReference getRelated() {
     return this.related != null ? this.related.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ObjectReference buildRelated() {
+  public V1ObjectReference buildRelated() {
     return this.related != null ? this.related.build() : null;
   }
 
-  public A withRelated(io.kubernetes.client.openapi.models.V1ObjectReference related) {
+  public A withRelated(V1ObjectReference related) {
     _visitables.get("related").remove(this.related);
     if (related != null) {
-      this.related = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(related);
+      this.related = new V1ObjectReferenceBuilder(related);
       _visitables.get("related").add(this.related);
+    } else {
+      this.related = null;
+      _visitables.get("related").remove(this.related);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasRelated() {
+  public Boolean hasRelated() {
     return this.related != null;
   }
 
@@ -389,51 +383,46 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
     return new EventsV1EventFluentImpl.RelatedNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.RelatedNested<A>
-      withNewRelatedLike(io.kubernetes.client.openapi.models.V1ObjectReference item) {
-    return new io.kubernetes.client.openapi.models.EventsV1EventFluentImpl.RelatedNestedImpl(item);
+  public EventsV1EventFluent.RelatedNested<A> withNewRelatedLike(V1ObjectReference item) {
+    return new EventsV1EventFluentImpl.RelatedNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.RelatedNested<A> editRelated() {
+  public EventsV1EventFluent.RelatedNested<A> editRelated() {
     return withNewRelatedLike(getRelated());
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.RelatedNested<A>
-      editOrNewRelated() {
+  public EventsV1EventFluent.RelatedNested<A> editOrNewRelated() {
     return withNewRelatedLike(
-        getRelated() != null
-            ? getRelated()
-            : new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder().build());
+        getRelated() != null ? getRelated() : new V1ObjectReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.RelatedNested<A>
-      editOrNewRelatedLike(io.kubernetes.client.openapi.models.V1ObjectReference item) {
+  public EventsV1EventFluent.RelatedNested<A> editOrNewRelatedLike(V1ObjectReference item) {
     return withNewRelatedLike(getRelated() != null ? getRelated() : item);
   }
 
-  public java.lang.String getReportingController() {
+  public String getReportingController() {
     return this.reportingController;
   }
 
-  public A withReportingController(java.lang.String reportingController) {
+  public A withReportingController(String reportingController) {
     this.reportingController = reportingController;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReportingController() {
+  public Boolean hasReportingController() {
     return this.reportingController != null;
   }
 
-  public java.lang.String getReportingInstance() {
+  public String getReportingInstance() {
     return this.reportingInstance;
   }
 
-  public A withReportingInstance(java.lang.String reportingInstance) {
+  public A withReportingInstance(String reportingInstance) {
     this.reportingInstance = reportingInstance;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReportingInstance() {
+  public Boolean hasReportingInstance() {
     return this.reportingInstance != null;
   }
 
@@ -442,25 +431,28 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.EventsV1EventSeries getSeries() {
+  @Deprecated
+  public EventsV1EventSeries getSeries() {
     return this.series != null ? this.series.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventSeries buildSeries() {
+  public EventsV1EventSeries buildSeries() {
     return this.series != null ? this.series.build() : null;
   }
 
-  public A withSeries(io.kubernetes.client.openapi.models.EventsV1EventSeries series) {
+  public A withSeries(EventsV1EventSeries series) {
     _visitables.get("series").remove(this.series);
     if (series != null) {
       this.series = new EventsV1EventSeriesBuilder(series);
       _visitables.get("series").add(this.series);
+    } else {
+      this.series = null;
+      _visitables.get("series").remove(this.series);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSeries() {
+  public Boolean hasSeries() {
     return this.series != null;
   }
 
@@ -468,37 +460,33 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
     return new EventsV1EventFluentImpl.SeriesNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.SeriesNested<A> withNewSeriesLike(
-      io.kubernetes.client.openapi.models.EventsV1EventSeries item) {
-    return new io.kubernetes.client.openapi.models.EventsV1EventFluentImpl.SeriesNestedImpl(item);
+  public EventsV1EventFluent.SeriesNested<A> withNewSeriesLike(EventsV1EventSeries item) {
+    return new EventsV1EventFluentImpl.SeriesNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.SeriesNested<A> editSeries() {
+  public EventsV1EventFluent.SeriesNested<A> editSeries() {
     return withNewSeriesLike(getSeries());
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.SeriesNested<A> editOrNewSeries() {
+  public EventsV1EventFluent.SeriesNested<A> editOrNewSeries() {
     return withNewSeriesLike(
-        getSeries() != null
-            ? getSeries()
-            : new io.kubernetes.client.openapi.models.EventsV1EventSeriesBuilder().build());
+        getSeries() != null ? getSeries() : new EventsV1EventSeriesBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.EventsV1EventFluent.SeriesNested<A>
-      editOrNewSeriesLike(io.kubernetes.client.openapi.models.EventsV1EventSeries item) {
+  public EventsV1EventFluent.SeriesNested<A> editOrNewSeriesLike(EventsV1EventSeries item) {
     return withNewSeriesLike(getSeries() != null ? getSeries() : item);
   }
 
-  public java.lang.String getType() {
+  public String getType() {
     return this.type;
   }
 
-  public A withType(java.lang.String type) {
+  public A withType(String type) {
     this.type = type;
     return (A) this;
   }
 
-  public java.lang.Boolean hasType() {
+  public Boolean hasType() {
     return this.type != null;
   }
 
@@ -563,7 +551,7 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (action != null) {
@@ -640,17 +628,16 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
 
   class DeprecatedSourceNestedImpl<N>
       extends V1EventSourceFluentImpl<EventsV1EventFluent.DeprecatedSourceNested<N>>
-      implements io.kubernetes.client.openapi.models.EventsV1EventFluent.DeprecatedSourceNested<N>,
-          Nested<N> {
+      implements EventsV1EventFluent.DeprecatedSourceNested<N>, Nested<N> {
     DeprecatedSourceNestedImpl(V1EventSource item) {
       this.builder = new V1EventSourceBuilder(this, item);
     }
 
     DeprecatedSourceNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1EventSourceBuilder(this);
+      this.builder = new V1EventSourceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1EventSourceBuilder builder;
+    V1EventSourceBuilder builder;
 
     public N and() {
       return (N) EventsV1EventFluentImpl.this.withDeprecatedSource(builder.build());
@@ -662,17 +649,16 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
   }
 
   class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<EventsV1EventFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.EventsV1EventFluent.MetadataNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements EventsV1EventFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectMetaBuilder(this);
+      this.builder = new V1ObjectMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectMetaBuilder builder;
+    V1ObjectMetaBuilder builder;
 
     public N and() {
       return (N) EventsV1EventFluentImpl.this.withMetadata(builder.build());
@@ -685,17 +671,16 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
 
   class RegardingNestedImpl<N>
       extends V1ObjectReferenceFluentImpl<EventsV1EventFluent.RegardingNested<N>>
-      implements io.kubernetes.client.openapi.models.EventsV1EventFluent.RegardingNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    RegardingNestedImpl(io.kubernetes.client.openapi.models.V1ObjectReference item) {
+      implements EventsV1EventFluent.RegardingNested<N>, Nested<N> {
+    RegardingNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }
 
     RegardingNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(this);
+      this.builder = new V1ObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder;
+    V1ObjectReferenceBuilder builder;
 
     public N and() {
       return (N) EventsV1EventFluentImpl.this.withRegarding(builder.build());
@@ -708,17 +693,16 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
 
   class RelatedNestedImpl<N>
       extends V1ObjectReferenceFluentImpl<EventsV1EventFluent.RelatedNested<N>>
-      implements io.kubernetes.client.openapi.models.EventsV1EventFluent.RelatedNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    RelatedNestedImpl(io.kubernetes.client.openapi.models.V1ObjectReference item) {
+      implements EventsV1EventFluent.RelatedNested<N>, Nested<N> {
+    RelatedNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }
 
     RelatedNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder(this);
+      this.builder = new V1ObjectReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder builder;
+    V1ObjectReferenceBuilder builder;
 
     public N and() {
       return (N) EventsV1EventFluentImpl.this.withRelated(builder.build());
@@ -731,17 +715,16 @@ public class EventsV1EventFluentImpl<A extends EventsV1EventFluent<A>> extends B
 
   class SeriesNestedImpl<N>
       extends EventsV1EventSeriesFluentImpl<EventsV1EventFluent.SeriesNested<N>>
-      implements io.kubernetes.client.openapi.models.EventsV1EventFluent.SeriesNested<N>,
-          io.kubernetes.client.fluent.Nested<N> {
-    SeriesNestedImpl(io.kubernetes.client.openapi.models.EventsV1EventSeries item) {
+      implements EventsV1EventFluent.SeriesNested<N>, Nested<N> {
+    SeriesNestedImpl(EventsV1EventSeries item) {
       this.builder = new EventsV1EventSeriesBuilder(this, item);
     }
 
     SeriesNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.EventsV1EventSeriesBuilder(this);
+      this.builder = new EventsV1EventSeriesBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.EventsV1EventSeriesBuilder builder;
+    EventsV1EventSeriesBuilder builder;
 
     public N and() {
       return (N) EventsV1EventFluentImpl.this.withSeries(builder.build());

@@ -15,8 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ResourceQuotaBuilder extends V1ResourceQuotaFluentImpl<V1ResourceQuotaBuilder>
-    implements VisitableBuilder<
-        V1ResourceQuota, io.kubernetes.client.openapi.models.V1ResourceQuotaBuilder> {
+    implements VisitableBuilder<V1ResourceQuota, V1ResourceQuotaBuilder> {
   public V1ResourceQuotaBuilder() {
     this(false);
   }
@@ -29,22 +28,16 @@ public class V1ResourceQuotaBuilder extends V1ResourceQuotaFluentImpl<V1Resource
     this(fluent, false);
   }
 
-  public V1ResourceQuotaBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceQuotaFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1ResourceQuotaBuilder(V1ResourceQuotaFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ResourceQuota(), validationEnabled);
   }
 
-  public V1ResourceQuotaBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceQuotaFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ResourceQuota instance) {
+  public V1ResourceQuotaBuilder(V1ResourceQuotaFluent<?> fluent, V1ResourceQuota instance) {
     this(fluent, instance, false);
   }
 
   public V1ResourceQuotaBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceQuotaFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ResourceQuota instance,
-      java.lang.Boolean validationEnabled) {
+      V1ResourceQuotaFluent<?> fluent, V1ResourceQuota instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,13 +52,11 @@ public class V1ResourceQuotaBuilder extends V1ResourceQuotaFluentImpl<V1Resource
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ResourceQuotaBuilder(io.kubernetes.client.openapi.models.V1ResourceQuota instance) {
+  public V1ResourceQuotaBuilder(V1ResourceQuota instance) {
     this(instance, false);
   }
 
-  public V1ResourceQuotaBuilder(
-      io.kubernetes.client.openapi.models.V1ResourceQuota instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ResourceQuotaBuilder(V1ResourceQuota instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -80,10 +71,10 @@ public class V1ResourceQuotaBuilder extends V1ResourceQuotaFluentImpl<V1Resource
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ResourceQuotaFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ResourceQuotaFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ResourceQuota build() {
+  public V1ResourceQuota build() {
     V1ResourceQuota buildable = new V1ResourceQuota();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());

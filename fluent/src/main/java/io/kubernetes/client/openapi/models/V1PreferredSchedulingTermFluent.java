@@ -27,31 +27,29 @@ public interface V1PreferredSchedulingTermFluent<A extends V1PreferredScheduling
   @Deprecated
   public V1NodeSelectorTerm getPreference();
 
-  public io.kubernetes.client.openapi.models.V1NodeSelectorTerm buildPreference();
+  public V1NodeSelectorTerm buildPreference();
 
-  public A withPreference(io.kubernetes.client.openapi.models.V1NodeSelectorTerm preference);
+  public A withPreference(V1NodeSelectorTerm preference);
 
   public Boolean hasPreference();
 
   public V1PreferredSchedulingTermFluent.PreferenceNested<A> withNewPreference();
 
-  public io.kubernetes.client.openapi.models.V1PreferredSchedulingTermFluent.PreferenceNested<A>
-      withNewPreferenceLike(io.kubernetes.client.openapi.models.V1NodeSelectorTerm item);
+  public V1PreferredSchedulingTermFluent.PreferenceNested<A> withNewPreferenceLike(
+      V1NodeSelectorTerm item);
 
-  public io.kubernetes.client.openapi.models.V1PreferredSchedulingTermFluent.PreferenceNested<A>
-      editPreference();
+  public V1PreferredSchedulingTermFluent.PreferenceNested<A> editPreference();
 
-  public io.kubernetes.client.openapi.models.V1PreferredSchedulingTermFluent.PreferenceNested<A>
-      editOrNewPreference();
+  public V1PreferredSchedulingTermFluent.PreferenceNested<A> editOrNewPreference();
 
-  public io.kubernetes.client.openapi.models.V1PreferredSchedulingTermFluent.PreferenceNested<A>
-      editOrNewPreferenceLike(io.kubernetes.client.openapi.models.V1NodeSelectorTerm item);
+  public V1PreferredSchedulingTermFluent.PreferenceNested<A> editOrNewPreferenceLike(
+      V1NodeSelectorTerm item);
 
   public Integer getWeight();
 
-  public A withWeight(java.lang.Integer weight);
+  public A withWeight(Integer weight);
 
-  public java.lang.Boolean hasWeight();
+  public Boolean hasWeight();
 
   public interface PreferenceNested<N>
       extends Nested<N>,

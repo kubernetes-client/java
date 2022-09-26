@@ -23,82 +23,81 @@ public interface V1ISCSIVolumeSourceFluent<A extends V1ISCSIVolumeSourceFluent<A
     extends Fluent<A> {
   public Boolean getChapAuthDiscovery();
 
-  public A withChapAuthDiscovery(java.lang.Boolean chapAuthDiscovery);
+  public A withChapAuthDiscovery(Boolean chapAuthDiscovery);
 
-  public java.lang.Boolean hasChapAuthDiscovery();
+  public Boolean hasChapAuthDiscovery();
 
-  public java.lang.Boolean getChapAuthSession();
+  public Boolean getChapAuthSession();
 
-  public A withChapAuthSession(java.lang.Boolean chapAuthSession);
+  public A withChapAuthSession(Boolean chapAuthSession);
 
-  public java.lang.Boolean hasChapAuthSession();
+  public Boolean hasChapAuthSession();
 
   public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
-  public java.lang.Boolean hasFsType();
+  public Boolean hasFsType();
 
-  public java.lang.String getInitiatorName();
+  public String getInitiatorName();
 
-  public A withInitiatorName(java.lang.String initiatorName);
+  public A withInitiatorName(String initiatorName);
 
-  public java.lang.Boolean hasInitiatorName();
+  public Boolean hasInitiatorName();
 
-  public java.lang.String getIqn();
+  public String getIqn();
 
-  public A withIqn(java.lang.String iqn);
+  public A withIqn(String iqn);
 
-  public java.lang.Boolean hasIqn();
+  public Boolean hasIqn();
 
-  public java.lang.String getIscsiInterface();
+  public String getIscsiInterface();
 
-  public A withIscsiInterface(java.lang.String iscsiInterface);
+  public A withIscsiInterface(String iscsiInterface);
 
-  public java.lang.Boolean hasIscsiInterface();
+  public Boolean hasIscsiInterface();
 
   public Integer getLun();
 
-  public A withLun(java.lang.Integer lun);
+  public A withLun(Integer lun);
 
-  public java.lang.Boolean hasLun();
+  public Boolean hasLun();
 
-  public A addToPortals(java.lang.Integer index, java.lang.String item);
+  public A addToPortals(Integer index, String item);
 
-  public A setToPortals(java.lang.Integer index, java.lang.String item);
+  public A setToPortals(Integer index, String item);
 
   public A addToPortals(java.lang.String... items);
 
-  public A addAllToPortals(Collection<java.lang.String> items);
+  public A addAllToPortals(Collection<String> items);
 
   public A removeFromPortals(java.lang.String... items);
 
-  public A removeAllFromPortals(java.util.Collection<java.lang.String> items);
+  public A removeAllFromPortals(Collection<String> items);
 
-  public List<java.lang.String> getPortals();
+  public List<String> getPortals();
 
-  public java.lang.String getPortal(java.lang.Integer index);
+  public String getPortal(Integer index);
 
-  public java.lang.String getFirstPortal();
+  public String getFirstPortal();
 
-  public java.lang.String getLastPortal();
+  public String getLastPortal();
 
-  public java.lang.String getMatchingPortal(Predicate<java.lang.String> predicate);
+  public String getMatchingPortal(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingPortal(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingPortal(Predicate<String> predicate);
 
-  public A withPortals(java.util.List<java.lang.String> portals);
+  public A withPortals(List<String> portals);
 
   public A withPortals(java.lang.String... portals);
 
-  public java.lang.Boolean hasPortals();
+  public Boolean hasPortals();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
@@ -108,31 +107,29 @@ public interface V1ISCSIVolumeSourceFluent<A extends V1ISCSIVolumeSourceFluent<A
   @Deprecated
   public V1LocalObjectReference getSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef();
+  public V1LocalObjectReference buildSecretRef();
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef);
+  public A withSecretRef(V1LocalObjectReference secretRef);
 
-  public java.lang.Boolean hasSecretRef();
+  public Boolean hasSecretRef();
 
   public V1ISCSIVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public V1ISCSIVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1LocalObjectReference item);
 
-  public io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent.SecretRefNested<A>
-      editSecretRef();
+  public V1ISCSIVolumeSourceFluent.SecretRefNested<A> editSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef();
+  public V1ISCSIVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public V1ISCSIVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1LocalObjectReference item);
 
-  public java.lang.String getTargetPortal();
+  public String getTargetPortal();
 
-  public A withTargetPortal(java.lang.String targetPortal);
+  public A withTargetPortal(String targetPortal);
 
-  public java.lang.Boolean hasTargetPortal();
+  public Boolean hasTargetPortal();
 
   public A withChapAuthDiscovery();
 

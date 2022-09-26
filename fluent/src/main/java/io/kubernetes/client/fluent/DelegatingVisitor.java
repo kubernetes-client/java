@@ -13,18 +13,19 @@ limitations under the License.
 package io.kubernetes.client.fluent;
 
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.function.Predicate;
 
 public class DelegatingVisitor<T> implements Visitor<T> {
-  DelegatingVisitor(Class<T> type, io.kubernetes.client.fluent.Visitor<T> delegate) {
+  DelegatingVisitor(Class<T> type, Visitor<T> delegate) {
     this.type = type;
     this.delegate = delegate;
   }
 
-  private final java.lang.Class<T> type;
-  private final io.kubernetes.client.fluent.Visitor<T> delegate;
+  private final Class<T> type;
+  private final Visitor<T> delegate;
 
-  public java.lang.Class<T> getType() {
+  public Class<T> getType() {
     return type;
   }
 
@@ -36,11 +37,11 @@ public class DelegatingVisitor<T> implements Visitor<T> {
     return delegate.order();
   }
 
-  public void visit(List<Object> path, T target) {
+  public void visit(List<Entry<String, Object>> path, T target) {
     delegate.visit(path, target);
   }
 
-  public <F> Predicate<java.util.List<java.lang.Object>> getRequirement() {
+  public <F> Predicate<List<Entry<String, Object>>> getRequirement() {
     return delegate.getRequirement();
   }
 }

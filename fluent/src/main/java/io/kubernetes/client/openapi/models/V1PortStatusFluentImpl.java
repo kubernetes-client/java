@@ -20,7 +20,7 @@ public class V1PortStatusFluentImpl<A extends V1PortStatusFluent<A>> extends Bas
     implements V1PortStatusFluent<A> {
   public V1PortStatusFluentImpl() {}
 
-  public V1PortStatusFluentImpl(io.kubernetes.client.openapi.models.V1PortStatus instance) {
+  public V1PortStatusFluentImpl(V1PortStatus instance) {
     this.withError(instance.getError());
 
     this.withPort(instance.getPort());
@@ -30,13 +30,13 @@ public class V1PortStatusFluentImpl<A extends V1PortStatusFluent<A>> extends Bas
 
   private String error;
   private Integer port;
-  private java.lang.String protocol;
+  private String protocol;
 
-  public java.lang.String getError() {
+  public String getError() {
     return this.error;
   }
 
-  public A withError(java.lang.String error) {
+  public A withError(String error) {
     this.error = error;
     return (A) this;
   }
@@ -45,29 +45,29 @@ public class V1PortStatusFluentImpl<A extends V1PortStatusFluent<A>> extends Bas
     return this.error != null;
   }
 
-  public java.lang.Integer getPort() {
+  public Integer getPort() {
     return this.port;
   }
 
-  public A withPort(java.lang.Integer port) {
+  public A withPort(Integer port) {
     this.port = port;
     return (A) this;
   }
 
-  public java.lang.Boolean hasPort() {
+  public Boolean hasPort() {
     return this.port != null;
   }
 
-  public java.lang.String getProtocol() {
+  public String getProtocol() {
     return this.protocol;
   }
 
-  public A withProtocol(java.lang.String protocol) {
+  public A withProtocol(String protocol) {
     this.protocol = protocol;
     return (A) this;
   }
 
-  public java.lang.Boolean hasProtocol() {
+  public Boolean hasProtocol() {
     return this.protocol != null;
   }
 
@@ -85,7 +85,7 @@ public class V1PortStatusFluentImpl<A extends V1PortStatusFluent<A>> extends Bas
     return java.util.Objects.hash(error, port, protocol, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (error != null) {

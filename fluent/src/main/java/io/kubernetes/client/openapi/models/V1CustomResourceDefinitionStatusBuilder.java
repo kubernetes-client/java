@@ -17,8 +17,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 public class V1CustomResourceDefinitionStatusBuilder
     extends V1CustomResourceDefinitionStatusFluentImpl<V1CustomResourceDefinitionStatusBuilder>
     implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus,
-        io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusBuilder> {
+        V1CustomResourceDefinitionStatus, V1CustomResourceDefinitionStatusBuilder> {
   public V1CustomResourceDefinitionStatusBuilder() {
     this(false);
   }
@@ -32,21 +31,19 @@ public class V1CustomResourceDefinitionStatusBuilder
   }
 
   public V1CustomResourceDefinitionStatusBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1CustomResourceDefinitionStatus(), validationEnabled);
   }
 
   public V1CustomResourceDefinitionStatusBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus instance) {
+      V1CustomResourceDefinitionStatusFluent<?> fluent, V1CustomResourceDefinitionStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1CustomResourceDefinitionStatusBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionStatusFluent<?> fluent,
+      V1CustomResourceDefinitionStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAcceptedNames(instance.getAcceptedNames());
 
@@ -57,14 +54,12 @@ public class V1CustomResourceDefinitionStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1CustomResourceDefinitionStatusBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus instance) {
+  public V1CustomResourceDefinitionStatusBuilder(V1CustomResourceDefinitionStatus instance) {
     this(instance, false);
   }
 
   public V1CustomResourceDefinitionStatusBuilder(
-      io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1CustomResourceDefinitionStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAcceptedNames(instance.getAcceptedNames());
 
@@ -75,10 +70,10 @@ public class V1CustomResourceDefinitionStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1CustomResourceDefinitionStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1CustomResourceDefinitionStatus build() {
+  public V1CustomResourceDefinitionStatus build() {
     V1CustomResourceDefinitionStatus buildable = new V1CustomResourceDefinitionStatus();
     buildable.setAcceptedNames(fluent.getAcceptedNames());
     buildable.setConditions(fluent.getConditions());

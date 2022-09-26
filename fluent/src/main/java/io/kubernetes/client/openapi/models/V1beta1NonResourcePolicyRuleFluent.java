@@ -22,63 +22,61 @@ public interface V1beta1NonResourcePolicyRuleFluent<A extends V1beta1NonResource
     extends Fluent<A> {
   public A addToNonResourceURLs(Integer index, String item);
 
-  public A setToNonResourceURLs(java.lang.Integer index, java.lang.String item);
+  public A setToNonResourceURLs(Integer index, String item);
 
   public A addToNonResourceURLs(java.lang.String... items);
 
-  public A addAllToNonResourceURLs(Collection<java.lang.String> items);
+  public A addAllToNonResourceURLs(Collection<String> items);
 
   public A removeFromNonResourceURLs(java.lang.String... items);
 
-  public A removeAllFromNonResourceURLs(java.util.Collection<java.lang.String> items);
+  public A removeAllFromNonResourceURLs(Collection<String> items);
 
-  public List<java.lang.String> getNonResourceURLs();
+  public List<String> getNonResourceURLs();
 
-  public java.lang.String getNonResourceURL(java.lang.Integer index);
+  public String getNonResourceURL(Integer index);
 
-  public java.lang.String getFirstNonResourceURL();
+  public String getFirstNonResourceURL();
 
-  public java.lang.String getLastNonResourceURL();
+  public String getLastNonResourceURL();
 
-  public java.lang.String getMatchingNonResourceURL(Predicate<java.lang.String> predicate);
+  public String getMatchingNonResourceURL(Predicate<String> predicate);
 
-  public Boolean hasMatchingNonResourceURL(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingNonResourceURL(Predicate<String> predicate);
 
-  public A withNonResourceURLs(java.util.List<java.lang.String> nonResourceURLs);
+  public A withNonResourceURLs(List<String> nonResourceURLs);
 
   public A withNonResourceURLs(java.lang.String... nonResourceURLs);
 
-  public java.lang.Boolean hasNonResourceURLs();
+  public Boolean hasNonResourceURLs();
 
-  public A addToVerbs(java.lang.Integer index, java.lang.String item);
+  public A addToVerbs(Integer index, String item);
 
-  public A setToVerbs(java.lang.Integer index, java.lang.String item);
+  public A setToVerbs(Integer index, String item);
 
   public A addToVerbs(java.lang.String... items);
 
-  public A addAllToVerbs(java.util.Collection<java.lang.String> items);
+  public A addAllToVerbs(Collection<String> items);
 
   public A removeFromVerbs(java.lang.String... items);
 
-  public A removeAllFromVerbs(java.util.Collection<java.lang.String> items);
+  public A removeAllFromVerbs(Collection<String> items);
 
-  public java.util.List<java.lang.String> getVerbs();
+  public List<String> getVerbs();
 
-  public java.lang.String getVerb(java.lang.Integer index);
+  public String getVerb(Integer index);
 
-  public java.lang.String getFirstVerb();
+  public String getFirstVerb();
 
-  public java.lang.String getLastVerb();
+  public String getLastVerb();
 
-  public java.lang.String getMatchingVerb(java.util.function.Predicate<java.lang.String> predicate);
+  public String getMatchingVerb(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingVerb(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingVerb(Predicate<String> predicate);
 
-  public A withVerbs(java.util.List<java.lang.String> verbs);
+  public A withVerbs(List<String> verbs);
 
   public A withVerbs(java.lang.String... verbs);
 
-  public java.lang.Boolean hasVerbs();
+  public Boolean hasVerbs();
 }

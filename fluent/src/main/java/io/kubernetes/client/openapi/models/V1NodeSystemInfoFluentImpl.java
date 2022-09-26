@@ -20,7 +20,7 @@ public class V1NodeSystemInfoFluentImpl<A extends V1NodeSystemInfoFluent<A>> ext
     implements V1NodeSystemInfoFluent<A> {
   public V1NodeSystemInfoFluentImpl() {}
 
-  public V1NodeSystemInfoFluentImpl(io.kubernetes.client.openapi.models.V1NodeSystemInfo instance) {
+  public V1NodeSystemInfoFluentImpl(V1NodeSystemInfo instance) {
     this.withArchitecture(instance.getArchitecture());
 
     this.withBootID(instance.getBootID());
@@ -43,21 +43,21 @@ public class V1NodeSystemInfoFluentImpl<A extends V1NodeSystemInfoFluent<A>> ext
   }
 
   private String architecture;
-  private java.lang.String bootID;
-  private java.lang.String containerRuntimeVersion;
-  private java.lang.String kernelVersion;
-  private java.lang.String kubeProxyVersion;
-  private java.lang.String kubeletVersion;
-  private java.lang.String machineID;
-  private java.lang.String operatingSystem;
-  private java.lang.String osImage;
-  private java.lang.String systemUUID;
+  private String bootID;
+  private String containerRuntimeVersion;
+  private String kernelVersion;
+  private String kubeProxyVersion;
+  private String kubeletVersion;
+  private String machineID;
+  private String operatingSystem;
+  private String osImage;
+  private String systemUUID;
 
-  public java.lang.String getArchitecture() {
+  public String getArchitecture() {
     return this.architecture;
   }
 
-  public A withArchitecture(java.lang.String architecture) {
+  public A withArchitecture(String architecture) {
     this.architecture = architecture;
     return (A) this;
   }
@@ -66,120 +66,120 @@ public class V1NodeSystemInfoFluentImpl<A extends V1NodeSystemInfoFluent<A>> ext
     return this.architecture != null;
   }
 
-  public java.lang.String getBootID() {
+  public String getBootID() {
     return this.bootID;
   }
 
-  public A withBootID(java.lang.String bootID) {
+  public A withBootID(String bootID) {
     this.bootID = bootID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasBootID() {
+  public Boolean hasBootID() {
     return this.bootID != null;
   }
 
-  public java.lang.String getContainerRuntimeVersion() {
+  public String getContainerRuntimeVersion() {
     return this.containerRuntimeVersion;
   }
 
-  public A withContainerRuntimeVersion(java.lang.String containerRuntimeVersion) {
+  public A withContainerRuntimeVersion(String containerRuntimeVersion) {
     this.containerRuntimeVersion = containerRuntimeVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasContainerRuntimeVersion() {
+  public Boolean hasContainerRuntimeVersion() {
     return this.containerRuntimeVersion != null;
   }
 
-  public java.lang.String getKernelVersion() {
+  public String getKernelVersion() {
     return this.kernelVersion;
   }
 
-  public A withKernelVersion(java.lang.String kernelVersion) {
+  public A withKernelVersion(String kernelVersion) {
     this.kernelVersion = kernelVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKernelVersion() {
+  public Boolean hasKernelVersion() {
     return this.kernelVersion != null;
   }
 
-  public java.lang.String getKubeProxyVersion() {
+  public String getKubeProxyVersion() {
     return this.kubeProxyVersion;
   }
 
-  public A withKubeProxyVersion(java.lang.String kubeProxyVersion) {
+  public A withKubeProxyVersion(String kubeProxyVersion) {
     this.kubeProxyVersion = kubeProxyVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKubeProxyVersion() {
+  public Boolean hasKubeProxyVersion() {
     return this.kubeProxyVersion != null;
   }
 
-  public java.lang.String getKubeletVersion() {
+  public String getKubeletVersion() {
     return this.kubeletVersion;
   }
 
-  public A withKubeletVersion(java.lang.String kubeletVersion) {
+  public A withKubeletVersion(String kubeletVersion) {
     this.kubeletVersion = kubeletVersion;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKubeletVersion() {
+  public Boolean hasKubeletVersion() {
     return this.kubeletVersion != null;
   }
 
-  public java.lang.String getMachineID() {
+  public String getMachineID() {
     return this.machineID;
   }
 
-  public A withMachineID(java.lang.String machineID) {
+  public A withMachineID(String machineID) {
     this.machineID = machineID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasMachineID() {
+  public Boolean hasMachineID() {
     return this.machineID != null;
   }
 
-  public java.lang.String getOperatingSystem() {
+  public String getOperatingSystem() {
     return this.operatingSystem;
   }
 
-  public A withOperatingSystem(java.lang.String operatingSystem) {
+  public A withOperatingSystem(String operatingSystem) {
     this.operatingSystem = operatingSystem;
     return (A) this;
   }
 
-  public java.lang.Boolean hasOperatingSystem() {
+  public Boolean hasOperatingSystem() {
     return this.operatingSystem != null;
   }
 
-  public java.lang.String getOsImage() {
+  public String getOsImage() {
     return this.osImage;
   }
 
-  public A withOsImage(java.lang.String osImage) {
+  public A withOsImage(String osImage) {
     this.osImage = osImage;
     return (A) this;
   }
 
-  public java.lang.Boolean hasOsImage() {
+  public Boolean hasOsImage() {
     return this.osImage != null;
   }
 
-  public java.lang.String getSystemUUID() {
+  public String getSystemUUID() {
     return this.systemUUID;
   }
 
-  public A withSystemUUID(java.lang.String systemUUID) {
+  public A withSystemUUID(String systemUUID) {
     this.systemUUID = systemUUID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasSystemUUID() {
+  public Boolean hasSystemUUID() {
     return this.systemUUID != null;
   }
 
@@ -228,7 +228,7 @@ public class V1NodeSystemInfoFluentImpl<A extends V1NodeSystemInfoFluent<A>> ext
         super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (architecture != null) {

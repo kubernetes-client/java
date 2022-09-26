@@ -19,13 +19,13 @@ public interface V1ServiceBackendPortFluent<A extends V1ServiceBackendPortFluent
     extends Fluent<A> {
   public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
   public Boolean hasName();
 
   public Integer getNumber();
 
-  public A withNumber(java.lang.Integer number);
+  public A withNumber(Integer number);
 
-  public java.lang.Boolean hasNumber();
+  public Boolean hasNumber();
 }

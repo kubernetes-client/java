@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1ISCSIVolumeSourceBuilder
     extends V1ISCSIVolumeSourceFluentImpl<V1ISCSIVolumeSourceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1ISCSIVolumeSource,
-        io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceBuilder> {
+    implements VisitableBuilder<V1ISCSIVolumeSource, V1ISCSIVolumeSourceBuilder> {
   public V1ISCSIVolumeSourceBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1ISCSIVolumeSourceBuilder
   }
 
   public V1ISCSIVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1ISCSIVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1ISCSIVolumeSource(), validationEnabled);
   }
 
   public V1ISCSIVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ISCSIVolumeSource instance) {
+      V1ISCSIVolumeSourceFluent<?> fluent, V1ISCSIVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1ISCSIVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1ISCSIVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1ISCSIVolumeSourceFluent<?> fluent,
+      V1ISCSIVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withChapAuthDiscovery(instance.getChapAuthDiscovery());
 
@@ -73,14 +69,11 @@ public class V1ISCSIVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1ISCSIVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ISCSIVolumeSource instance) {
+  public V1ISCSIVolumeSourceBuilder(V1ISCSIVolumeSource instance) {
     this(instance, false);
   }
 
-  public V1ISCSIVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1ISCSIVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1ISCSIVolumeSourceBuilder(V1ISCSIVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withChapAuthDiscovery(instance.getChapAuthDiscovery());
 
@@ -107,10 +100,10 @@ public class V1ISCSIVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1ISCSIVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1ISCSIVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1ISCSIVolumeSource build() {
+  public V1ISCSIVolumeSource build() {
     V1ISCSIVolumeSource buildable = new V1ISCSIVolumeSource();
     buildable.setChapAuthDiscovery(fluent.getChapAuthDiscovery());
     buildable.setChapAuthSession(fluent.getChapAuthSession());

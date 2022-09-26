@@ -24,35 +24,35 @@ public interface V1APIServiceSpecFluent<A extends V1APIServiceSpecFluent<A>> ext
 
   public A addToCaBundle(Integer index, Byte item);
 
-  public A setToCaBundle(java.lang.Integer index, java.lang.Byte item);
+  public A setToCaBundle(Integer index, Byte item);
 
   public A addToCaBundle(java.lang.Byte... items);
 
-  public A addAllToCaBundle(Collection<java.lang.Byte> items);
+  public A addAllToCaBundle(Collection<Byte> items);
 
   public A removeFromCaBundle(java.lang.Byte... items);
 
-  public A removeAllFromCaBundle(java.util.Collection<java.lang.Byte> items);
+  public A removeAllFromCaBundle(Collection<Byte> items);
 
   public Boolean hasCaBundle();
 
   public String getGroup();
 
-  public A withGroup(java.lang.String group);
+  public A withGroup(String group);
 
-  public java.lang.Boolean hasGroup();
+  public Boolean hasGroup();
 
-  public java.lang.Integer getGroupPriorityMinimum();
+  public Integer getGroupPriorityMinimum();
 
-  public A withGroupPriorityMinimum(java.lang.Integer groupPriorityMinimum);
+  public A withGroupPriorityMinimum(Integer groupPriorityMinimum);
 
-  public java.lang.Boolean hasGroupPriorityMinimum();
+  public Boolean hasGroupPriorityMinimum();
 
-  public java.lang.Boolean getInsecureSkipTLSVerify();
+  public Boolean getInsecureSkipTLSVerify();
 
-  public A withInsecureSkipTLSVerify(java.lang.Boolean insecureSkipTLSVerify);
+  public A withInsecureSkipTLSVerify(Boolean insecureSkipTLSVerify);
 
-  public java.lang.Boolean hasInsecureSkipTLSVerify();
+  public Boolean hasInsecureSkipTLSVerify();
 
   /**
    * This method has been deprecated, please use method buildService instead.
@@ -62,39 +62,35 @@ public interface V1APIServiceSpecFluent<A extends V1APIServiceSpecFluent<A>> ext
   @Deprecated
   public ApiregistrationV1ServiceReference getService();
 
-  public io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference buildService();
+  public ApiregistrationV1ServiceReference buildService();
 
-  public A withService(
-      io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference service);
+  public A withService(ApiregistrationV1ServiceReference service);
 
-  public java.lang.Boolean hasService();
+  public Boolean hasService();
 
   public V1APIServiceSpecFluent.ServiceNested<A> withNewService();
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A>
-      withNewServiceLike(
-          io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference item);
+  public V1APIServiceSpecFluent.ServiceNested<A> withNewServiceLike(
+      ApiregistrationV1ServiceReference item);
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A> editService();
+  public V1APIServiceSpecFluent.ServiceNested<A> editService();
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A>
-      editOrNewService();
+  public V1APIServiceSpecFluent.ServiceNested<A> editOrNewService();
 
-  public io.kubernetes.client.openapi.models.V1APIServiceSpecFluent.ServiceNested<A>
-      editOrNewServiceLike(
-          io.kubernetes.client.openapi.models.ApiregistrationV1ServiceReference item);
+  public V1APIServiceSpecFluent.ServiceNested<A> editOrNewServiceLike(
+      ApiregistrationV1ServiceReference item);
 
-  public java.lang.String getVersion();
+  public String getVersion();
 
-  public A withVersion(java.lang.String version);
+  public A withVersion(String version);
 
-  public java.lang.Boolean hasVersion();
+  public Boolean hasVersion();
 
-  public java.lang.Integer getVersionPriority();
+  public Integer getVersionPriority();
 
-  public A withVersionPriority(java.lang.Integer versionPriority);
+  public A withVersionPriority(Integer versionPriority);
 
-  public java.lang.Boolean hasVersionPriority();
+  public Boolean hasVersionPriority();
 
   public A withInsecureSkipTLSVerify();
 

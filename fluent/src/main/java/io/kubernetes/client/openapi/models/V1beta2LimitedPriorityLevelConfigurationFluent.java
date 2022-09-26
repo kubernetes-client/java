@@ -21,7 +21,7 @@ public interface V1beta2LimitedPriorityLevelConfigurationFluent<
     extends Fluent<A> {
   public Integer getAssuredConcurrencyShares();
 
-  public A withAssuredConcurrencyShares(java.lang.Integer assuredConcurrencyShares);
+  public A withAssuredConcurrencyShares(Integer assuredConcurrencyShares);
 
   public Boolean hasAssuredConcurrencyShares();
 
@@ -33,35 +33,25 @@ public interface V1beta2LimitedPriorityLevelConfigurationFluent<
   @Deprecated
   public V1beta2LimitResponse getLimitResponse();
 
-  public io.kubernetes.client.openapi.models.V1beta2LimitResponse buildLimitResponse();
+  public V1beta2LimitResponse buildLimitResponse();
 
-  public A withLimitResponse(
-      io.kubernetes.client.openapi.models.V1beta2LimitResponse limitResponse);
+  public A withLimitResponse(V1beta2LimitResponse limitResponse);
 
-  public java.lang.Boolean hasLimitResponse();
+  public Boolean hasLimitResponse();
 
   public V1beta2LimitedPriorityLevelConfigurationFluent.LimitResponseNested<A>
       withNewLimitResponse();
 
-  public io.kubernetes.client.openapi.models.V1beta2LimitedPriorityLevelConfigurationFluent
-              .LimitResponseNested<
-          A>
-      withNewLimitResponseLike(io.kubernetes.client.openapi.models.V1beta2LimitResponse item);
+  public V1beta2LimitedPriorityLevelConfigurationFluent.LimitResponseNested<A>
+      withNewLimitResponseLike(V1beta2LimitResponse item);
 
-  public io.kubernetes.client.openapi.models.V1beta2LimitedPriorityLevelConfigurationFluent
-              .LimitResponseNested<
-          A>
-      editLimitResponse();
+  public V1beta2LimitedPriorityLevelConfigurationFluent.LimitResponseNested<A> editLimitResponse();
 
-  public io.kubernetes.client.openapi.models.V1beta2LimitedPriorityLevelConfigurationFluent
-              .LimitResponseNested<
-          A>
+  public V1beta2LimitedPriorityLevelConfigurationFluent.LimitResponseNested<A>
       editOrNewLimitResponse();
 
-  public io.kubernetes.client.openapi.models.V1beta2LimitedPriorityLevelConfigurationFluent
-              .LimitResponseNested<
-          A>
-      editOrNewLimitResponseLike(io.kubernetes.client.openapi.models.V1beta2LimitResponse item);
+  public V1beta2LimitedPriorityLevelConfigurationFluent.LimitResponseNested<A>
+      editOrNewLimitResponseLike(V1beta2LimitResponse item);
 
   public interface LimitResponseNested<N>
       extends Nested<N>,

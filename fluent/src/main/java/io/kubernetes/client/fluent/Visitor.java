@@ -14,6 +14,7 @@ package io.kubernetes.client.fluent;
 
 import java.lang.reflect.Method;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.function.Predicate;
 
 @FunctionalInterface
@@ -32,11 +33,11 @@ public interface Visitor<T> {
     return 0;
   }
 
-  default void visit(List<Object> path, T element) {
+  default void visit(List<Entry<String, Object>> path, T element) {
     visit(element);
   }
 
-  default <F> Boolean canVisit(java.util.List<java.lang.Object> path, F target) {
+  default <F> Boolean canVisit(List<Entry<String, Object>> path, F target) {
     if (target == null) {
       return false;
     }
@@ -56,7 +57,7 @@ public interface Visitor<T> {
     }
   }
 
-  default <F> java.lang.Boolean hasVisitMethodMatching(F target) {
+  default <F> Boolean hasVisitMethodMatching(F target) {
     for (Method method : getClass().getMethods()) {
       if (!method.getName().equals("visit") || method.getParameterTypes().length != 1) {
         continue;
@@ -71,24 +72,27 @@ public interface Visitor<T> {
     return false;
   }
 
-  default <T> Predicate<java.util.List<java.lang.Object>> getRequirement() {
+  default <T> Predicate<List<Entry<String, Object>>> getRequirement() {
     return p -> true;
   }
 
-  default <I> java.util.function.Predicate<java.util.List<java.lang.Object>> hasItem(
-      java.lang.Class<I> type, java.util.function.Predicate<I> predicate) {
-    Predicate<List<Object>> result =
-        l -> l.stream().filter(i -> type.isInstance(i)).map(i -> type.cast(i)).anyMatch(predicate);
+  default <I> Predicate<List<Entry<String, Object>>> hasItem(
+      Class<I> type, Predicate<I> predicate) {
+    Predicate<List<Entry<String, Object>>> result =
+        l ->
+            l.stream()
+                .map(Entry::getValue)
+                .filter(i -> type.isInstance(i))
+                .map(i -> type.cast(i))
+                .anyMatch(predicate);
     return result;
   }
 
-  default <P> Visitor<T> addRequirement(
-      java.lang.Class<P> type, java.util.function.Predicate<P> predicate) {
+  default <P> Visitor<T> addRequirement(Class<P> type, Predicate<P> predicate) {
     return addRequirement(predicate);
   }
 
-  default io.kubernetes.client.fluent.Visitor<T> addRequirement(
-      java.util.function.Predicate predicate) {
+  default Visitor<T> addRequirement(Predicate predicate) {
     return new DelegatingVisitor(getType(), this) {
       @Override
       public Predicate<List<Object>> getRequirement() {

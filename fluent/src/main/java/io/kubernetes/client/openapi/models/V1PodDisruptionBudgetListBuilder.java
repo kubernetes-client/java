@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PodDisruptionBudgetListBuilder
     extends V1PodDisruptionBudgetListFluentImpl<V1PodDisruptionBudgetListBuilder>
-    implements VisitableBuilder<
-        V1PodDisruptionBudgetList,
-        io.kubernetes.client.openapi.models.V1PodDisruptionBudgetListBuilder> {
+    implements VisitableBuilder<V1PodDisruptionBudgetList, V1PodDisruptionBudgetListBuilder> {
   public V1PodDisruptionBudgetListBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1PodDisruptionBudgetListBuilder
   }
 
   public V1PodDisruptionBudgetListBuilder(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetListFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1PodDisruptionBudgetListFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PodDisruptionBudgetList(), validationEnabled);
   }
 
   public V1PodDisruptionBudgetListBuilder(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetList instance) {
+      V1PodDisruptionBudgetListFluent<?> fluent, V1PodDisruptionBudgetList instance) {
     this(fluent, instance, false);
   }
 
   public V1PodDisruptionBudgetListBuilder(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetListFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetList instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodDisruptionBudgetListFluent<?> fluent,
+      V1PodDisruptionBudgetList instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withApiVersion(instance.getApiVersion());
 
@@ -59,14 +55,12 @@ public class V1PodDisruptionBudgetListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PodDisruptionBudgetListBuilder(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetList instance) {
+  public V1PodDisruptionBudgetListBuilder(V1PodDisruptionBudgetList instance) {
     this(instance, false);
   }
 
   public V1PodDisruptionBudgetListBuilder(
-      io.kubernetes.client.openapi.models.V1PodDisruptionBudgetList instance,
-      java.lang.Boolean validationEnabled) {
+      V1PodDisruptionBudgetList instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withApiVersion(instance.getApiVersion());
 
@@ -79,10 +73,10 @@ public class V1PodDisruptionBudgetListBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PodDisruptionBudgetListFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PodDisruptionBudgetListFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PodDisruptionBudgetList build() {
+  public V1PodDisruptionBudgetList build() {
     V1PodDisruptionBudgetList buildable = new V1PodDisruptionBudgetList();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setItems(fluent.getItems());

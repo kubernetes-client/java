@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(description = "ServiceSpec describes the attributes that a user creates on a service.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-05-06T16:45:00.555Z[Etc/UTC]")
+    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
 public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS =
       "allocateLoadBalancerNodePorts";
@@ -302,18 +302,24 @@ public class V1ServiceSpec {
   }
 
   /**
-   * externalTrafficPolicy denotes if this Service desires to route external traffic to node-local
-   * or cluster-wide endpoints. \&quot;Local\&quot; preserves the client source IP and avoids a
-   * second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced
-   * traffic spreading. \&quot;Cluster\&quot; obscures the client source IP and may cause a second
-   * hop to another node, but should have good overall load-spreading.
+   * externalTrafficPolicy describes how nodes distribute service traffic they receive on one of the
+   * Service&#39;s \&quot;externally-facing\&quot; addresses (NodePorts, ExternalIPs, and
+   * LoadBalancer IPs). If set to \&quot;Local\&quot;, the proxy will configure the service in a way
+   * that assumes that external load balancers will take care of balancing the service traffic
+   * between nodes, and so each node will deliver traffic only to the node-local endpoints of the
+   * service, without masquerading the client source IP. (Traffic mistakenly sent to a node with no
+   * endpoints will be dropped.) The default value, \&quot;Cluster\&quot;, uses the standard
+   * behavior of routing to all endpoints evenly (possibly modified by topology and other features).
+   * Note that traffic sent to an External IP or LoadBalancer IP from within the cluster will always
+   * get \&quot;Cluster\&quot; semantics, but clients sending to a NodePort from within the cluster
+   * may need to take traffic policy into account when picking a node.
    *
    * @return externalTrafficPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "externalTrafficPolicy denotes if this Service desires to route external traffic to node-local or cluster-wide endpoints. \"Local\" preserves the client source IP and avoids a second hop for LoadBalancer and Nodeport type services, but risks potentially imbalanced traffic spreading. \"Cluster\" obscures the client source IP and may cause a second hop to another node, but should have good overall load-spreading.  ")
+          "externalTrafficPolicy describes how nodes distribute service traffic they receive on one of the Service's \"externally-facing\" addresses (NodePorts, ExternalIPs, and LoadBalancer IPs). If set to \"Local\", the proxy will configure the service in a way that assumes that external load balancers will take care of balancing the service traffic between nodes, and so each node will deliver traffic only to the node-local endpoints of the service, without masquerading the client source IP. (Traffic mistakenly sent to a node with no endpoints will be dropped.) The default value, \"Cluster\", uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features). Note that traffic sent to an External IP or LoadBalancer IP from within the cluster will always get \"Cluster\" semantics, but clients sending to a NodePort from within the cluster may need to take traffic policy into account when picking a node.  ")
   public String getExternalTrafficPolicy() {
     return externalTrafficPolicy;
   }
@@ -335,14 +341,15 @@ public class V1ServiceSpec {
    * automatically allocated. External systems (e.g. load-balancers) can use this port to determine
    * if a given node holds endpoints for this service or not. If this field is specified when
    * creating a Service which does not need it, creation will fail. This field will be wiped when
-   * updating a Service to no longer need it (e.g. changing type).
+   * updating a Service to no longer need it (e.g. changing type). This field cannot be updated once
+   * set.
    *
    * @return healthCheckNodePort
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "healthCheckNodePort specifies the healthcheck nodePort for the service. This only applies when type is set to LoadBalancer and externalTrafficPolicy is set to Local. If a value is specified, is in-range, and is not in use, it will be used.  If not specified, a value will be automatically allocated.  External systems (e.g. load-balancers) can use this port to determine if a given node holds endpoints for this service or not.  If this field is specified when creating a Service which does not need it, creation will fail. This field will be wiped when updating a Service to no longer need it (e.g. changing type).")
+          "healthCheckNodePort specifies the healthcheck nodePort for the service. This only applies when type is set to LoadBalancer and externalTrafficPolicy is set to Local. If a value is specified, is in-range, and is not in use, it will be used.  If not specified, a value will be automatically allocated.  External systems (e.g. load-balancers) can use this port to determine if a given node holds endpoints for this service or not.  If this field is specified when creating a Service which does not need it, creation will fail. This field will be wiped when updating a Service to no longer need it (e.g. changing type). This field cannot be updated once set.")
   public Integer getHealthCheckNodePort() {
     return healthCheckNodePort;
   }
@@ -358,18 +365,18 @@ public class V1ServiceSpec {
   }
 
   /**
-   * InternalTrafficPolicy specifies if the cluster internal traffic should be routed to all
-   * endpoints or node-local endpoints only. \&quot;Cluster\&quot; routes internal traffic to a
-   * Service to all endpoints. \&quot;Local\&quot; routes traffic to node-local endpoints only,
-   * traffic is dropped if no node-local endpoints are ready. The default value is
-   * \&quot;Cluster\&quot;.
+   * InternalTrafficPolicy describes how nodes distribute service traffic they receive on the
+   * ClusterIP. If set to \&quot;Local\&quot;, the proxy will assume that pods only want to talk to
+   * endpoints of the service on the same node as the pod, dropping the traffic if there are no
+   * local endpoints. The default value, \&quot;Cluster\&quot;, uses the standard behavior of
+   * routing to all endpoints evenly (possibly modified by topology and other features).
    *
    * @return internalTrafficPolicy
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "InternalTrafficPolicy specifies if the cluster internal traffic should be routed to all endpoints or node-local endpoints only. \"Cluster\" routes internal traffic to a Service to all endpoints. \"Local\" routes traffic to node-local endpoints only, traffic is dropped if no node-local endpoints are ready. The default value is \"Cluster\".")
+          "InternalTrafficPolicy describes how nodes distribute service traffic they receive on the ClusterIP. If set to \"Local\", the proxy will assume that pods only want to talk to endpoints of the service on the same node as the pod, dropping the traffic if there are no local endpoints. The default value, \"Cluster\", uses the standard behavior of routing to all endpoints evenly (possibly modified by topology and other features).")
   public String getInternalTrafficPolicy() {
     return internalTrafficPolicy;
   }

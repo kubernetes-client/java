@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LocalVolumeSourceBuilder
     extends V1LocalVolumeSourceFluentImpl<V1LocalVolumeSourceBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1LocalVolumeSource,
-        io.kubernetes.client.openapi.models.V1LocalVolumeSourceBuilder> {
+    implements VisitableBuilder<V1LocalVolumeSource, V1LocalVolumeSourceBuilder> {
   public V1LocalVolumeSourceBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1LocalVolumeSourceBuilder
   }
 
   public V1LocalVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1LocalVolumeSourceFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1LocalVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1LocalVolumeSource(), validationEnabled);
   }
 
   public V1LocalVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1LocalVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LocalVolumeSource instance) {
+      V1LocalVolumeSourceFluent<?> fluent, V1LocalVolumeSource instance) {
     this(fluent, instance, false);
   }
 
   public V1LocalVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1LocalVolumeSourceFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LocalVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+      V1LocalVolumeSourceFluent<?> fluent,
+      V1LocalVolumeSource instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withFsType(instance.getFsType());
 
@@ -55,14 +51,11 @@ public class V1LocalVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LocalVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1LocalVolumeSource instance) {
+  public V1LocalVolumeSourceBuilder(V1LocalVolumeSource instance) {
     this(instance, false);
   }
 
-  public V1LocalVolumeSourceBuilder(
-      io.kubernetes.client.openapi.models.V1LocalVolumeSource instance,
-      java.lang.Boolean validationEnabled) {
+  public V1LocalVolumeSourceBuilder(V1LocalVolumeSource instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withFsType(instance.getFsType());
 
@@ -71,10 +64,10 @@ public class V1LocalVolumeSourceBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LocalVolumeSourceFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LocalVolumeSourceFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1LocalVolumeSource build() {
+  public V1LocalVolumeSource build() {
     V1LocalVolumeSource buildable = new V1LocalVolumeSource();
     buildable.setFsType(fluent.getFsType());
     buildable.setPath(fluent.getPath());

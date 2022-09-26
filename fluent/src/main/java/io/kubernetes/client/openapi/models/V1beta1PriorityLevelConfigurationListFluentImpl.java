@@ -28,7 +28,7 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
   public V1beta1PriorityLevelConfigurationListFluentImpl() {}
 
   public V1beta1PriorityLevelConfigurationListFluentImpl(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationList instance) {
+      V1beta1PriorityLevelConfigurationList instance) {
     this.withApiVersion(instance.getApiVersion());
 
     this.withItems(instance.getItems());
@@ -40,14 +40,14 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
 
   private String apiVersion;
   private ArrayList<V1beta1PriorityLevelConfigurationBuilder> items;
-  private java.lang.String kind;
+  private String kind;
   private V1ListMetaBuilder metadata;
 
-  public java.lang.String getApiVersion() {
+  public String getApiVersion() {
     return this.apiVersion;
   }
 
-  public A withApiVersion(java.lang.String apiVersion) {
+  public A withApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
     return (A) this;
   }
@@ -56,30 +56,23 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
     return this.apiVersion != null;
   }
 
-  public A addToItems(
-      Integer index, io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item) {
+  public A addToItems(Integer index, V1beta1PriorityLevelConfiguration item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder>();
+      this.items = new ArrayList<V1beta1PriorityLevelConfigurationBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder builder =
-        new io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder(item);
+    V1beta1PriorityLevelConfigurationBuilder builder =
+        new V1beta1PriorityLevelConfigurationBuilder(item);
     _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
     this.items.add(index >= 0 ? index : items.size(), builder);
     return (A) this;
   }
 
-  public A setToItems(
-      java.lang.Integer index,
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item) {
+  public A setToItems(Integer index, V1beta1PriorityLevelConfiguration item) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder>();
+      this.items = new ArrayList<V1beta1PriorityLevelConfigurationBuilder>();
     }
-    io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder builder =
-        new io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder(item);
+    V1beta1PriorityLevelConfigurationBuilder builder =
+        new V1beta1PriorityLevelConfigurationBuilder(item);
     if (index < 0 || index >= _visitables.get("items").size()) {
       _visitables.get("items").add(builder);
     } else {
@@ -96,29 +89,24 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
   public A addToItems(
       io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration... items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder>();
+      this.items = new ArrayList<V1beta1PriorityLevelConfigurationBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item : items) {
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder builder =
-          new io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder(item);
+    for (V1beta1PriorityLevelConfiguration item : items) {
+      V1beta1PriorityLevelConfigurationBuilder builder =
+          new V1beta1PriorityLevelConfigurationBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
     return (A) this;
   }
 
-  public A addAllToItems(
-      Collection<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration> items) {
+  public A addAllToItems(Collection<V1beta1PriorityLevelConfiguration> items) {
     if (this.items == null) {
-      this.items =
-          new java.util.ArrayList<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder>();
+      this.items = new ArrayList<V1beta1PriorityLevelConfigurationBuilder>();
     }
-    for (io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item : items) {
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder builder =
-          new io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder(item);
+    for (V1beta1PriorityLevelConfiguration item : items) {
+      V1beta1PriorityLevelConfigurationBuilder builder =
+          new V1beta1PriorityLevelConfigurationBuilder(item);
       _visitables.get("items").add(builder);
       this.items.add(builder);
     }
@@ -127,9 +115,9 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
 
   public A removeFromItems(
       io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration... items) {
-    for (io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item : items) {
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder builder =
-          new io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder(item);
+    for (V1beta1PriorityLevelConfiguration item : items) {
+      V1beta1PriorityLevelConfigurationBuilder builder =
+          new V1beta1PriorityLevelConfigurationBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -138,12 +126,10 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
     return (A) this;
   }
 
-  public A removeAllFromItems(
-      java.util.Collection<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration>
-          items) {
-    for (io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item : items) {
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder builder =
-          new io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder(item);
+  public A removeAllFromItems(Collection<V1beta1PriorityLevelConfiguration> items) {
+    for (V1beta1PriorityLevelConfiguration item : items) {
+      V1beta1PriorityLevelConfigurationBuilder builder =
+          new V1beta1PriorityLevelConfigurationBuilder(item);
       _visitables.get("items").remove(builder);
       if (this.items != null) {
         this.items.remove(builder);
@@ -152,16 +138,12 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
     return (A) this;
   }
 
-  public A removeMatchingFromItems(
-      Predicate<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder>
-          predicate) {
+  public A removeMatchingFromItems(Predicate<V1beta1PriorityLevelConfigurationBuilder> predicate) {
     if (items == null) return (A) this;
-    final Iterator<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder>
-        each = items.iterator();
+    final Iterator<V1beta1PriorityLevelConfigurationBuilder> each = items.iterator();
     final List visitables = _visitables.get("items");
     while (each.hasNext()) {
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder builder =
-          each.next();
+      V1beta1PriorityLevelConfigurationBuilder builder = each.next();
       if (predicate.test(builder)) {
         visitables.remove(builder);
         each.remove();
@@ -176,34 +158,29 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
    * @return The buildable object.
    */
   @Deprecated
-  public List<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration> getItems() {
+  public List<V1beta1PriorityLevelConfiguration> getItems() {
     return items != null ? build(items) : null;
   }
 
-  public java.util.List<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration>
-      buildItems() {
+  public List<V1beta1PriorityLevelConfiguration> buildItems() {
     return items != null ? build(items) : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration buildItem(
-      java.lang.Integer index) {
+  public V1beta1PriorityLevelConfiguration buildItem(Integer index) {
     return this.items.get(index).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration buildFirstItem() {
+  public V1beta1PriorityLevelConfiguration buildFirstItem() {
     return this.items.get(0).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration buildLastItem() {
+  public V1beta1PriorityLevelConfiguration buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration buildMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder item :
-        items) {
+  public V1beta1PriorityLevelConfiguration buildMatchingItem(
+      Predicate<V1beta1PriorityLevelConfigurationBuilder> predicate) {
+    for (V1beta1PriorityLevelConfigurationBuilder item : items) {
       if (predicate.test(item)) {
         return item.build();
       }
@@ -211,12 +188,8 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
     return null;
   }
 
-  public java.lang.Boolean hasMatchingItem(
-      java.util.function.Predicate<
-              io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder>
-          predicate) {
-    for (io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder item :
-        items) {
+  public Boolean hasMatchingItem(Predicate<V1beta1PriorityLevelConfigurationBuilder> predicate) {
+    for (V1beta1PriorityLevelConfigurationBuilder item : items) {
       if (predicate.test(item)) {
         return true;
       }
@@ -224,14 +197,13 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
     return false;
   }
 
-  public A withItems(
-      java.util.List<io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration> items) {
+  public A withItems(List<V1beta1PriorityLevelConfiguration> items) {
     if (this.items != null) {
       _visitables.get("items").removeAll(this.items);
     }
     if (items != null) {
-      this.items = new java.util.ArrayList();
-      for (io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item : items) {
+      this.items = new ArrayList();
+      for (V1beta1PriorityLevelConfiguration item : items) {
         this.addToItems(item);
       }
     } else {
@@ -246,14 +218,14 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
       this.items.clear();
     }
     if (items != null) {
-      for (io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item : items) {
+      for (V1beta1PriorityLevelConfiguration item : items) {
         this.addToItems(item);
       }
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasItems() {
+  public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
 
@@ -262,52 +234,33 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
   }
 
   public V1beta1PriorityLevelConfigurationListFluent.ItemsNested<A> addNewItemLike(
-      io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item) {
+      V1beta1PriorityLevelConfiguration item) {
     return new V1beta1PriorityLevelConfigurationListFluentImpl.ItemsNestedImpl(-1, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .ItemsNested<
-          A>
-      setNewItemLike(
-          java.lang.Integer index,
-          io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item) {
-    return new io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluentImpl
-        .ItemsNestedImpl(index, item);
+  public V1beta1PriorityLevelConfigurationListFluent.ItemsNested<A> setNewItemLike(
+      Integer index, V1beta1PriorityLevelConfiguration item) {
+    return new V1beta1PriorityLevelConfigurationListFluentImpl.ItemsNestedImpl(index, item);
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .ItemsNested<
-          A>
-      editItem(java.lang.Integer index) {
+  public V1beta1PriorityLevelConfigurationListFluent.ItemsNested<A> editItem(Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .ItemsNested<
-          A>
-      editFirstItem() {
+  public V1beta1PriorityLevelConfigurationListFluent.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .ItemsNested<
-          A>
-      editLastItem() {
+  public V1beta1PriorityLevelConfigurationListFluent.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .ItemsNested<
-          A>
-      editMatchingItem(
-          java.util.function.Predicate<
-                  io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder>
-              predicate) {
+  public V1beta1PriorityLevelConfigurationListFluent.ItemsNested<A> editMatchingItem(
+      Predicate<V1beta1PriorityLevelConfigurationBuilder> predicate) {
     int index = -1;
     for (int i = 0; i < items.size(); i++) {
       if (predicate.test(items.get(i))) {
@@ -319,16 +272,16 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
     return setNewItemLike(index, buildItem(index));
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
@@ -337,25 +290,28 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
    *
    * @return The buildable object.
    */
-  @java.lang.Deprecated
-  public io.kubernetes.client.openapi.models.V1ListMeta getMetadata() {
+  @Deprecated
+  public V1ListMeta getMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1ListMeta buildMetadata() {
+  public V1ListMeta buildMetadata() {
     return this.metadata != null ? this.metadata.build() : null;
   }
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ListMeta metadata) {
+  public A withMetadata(V1ListMeta metadata) {
     _visitables.get("metadata").remove(this.metadata);
     if (metadata != null) {
       this.metadata = new V1ListMetaBuilder(metadata);
       _visitables.get("metadata").add(this.metadata);
+    } else {
+      this.metadata = null;
+      _visitables.get("metadata").remove(this.metadata);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasMetadata() {
+  public Boolean hasMetadata() {
     return this.metadata != null;
   }
 
@@ -363,35 +319,22 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
     return new V1beta1PriorityLevelConfigurationListFluentImpl.MetadataNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .MetadataNested<
-          A>
-      withNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
-    return new io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluentImpl
-        .MetadataNestedImpl(item);
+  public V1beta1PriorityLevelConfigurationListFluent.MetadataNested<A> withNewMetadataLike(
+      V1ListMeta item) {
+    return new V1beta1PriorityLevelConfigurationListFluentImpl.MetadataNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .MetadataNested<
-          A>
-      editMetadata() {
+  public V1beta1PriorityLevelConfigurationListFluent.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .MetadataNested<
-          A>
-      editOrNewMetadata() {
+  public V1beta1PriorityLevelConfigurationListFluent.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(
-        getMetadata() != null
-            ? getMetadata()
-            : new io.kubernetes.client.openapi.models.V1ListMetaBuilder().build());
+        getMetadata() != null ? getMetadata() : new V1ListMetaBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-              .MetadataNested<
-          A>
-      editOrNewMetadataLike(io.kubernetes.client.openapi.models.V1ListMeta item) {
+  public V1beta1PriorityLevelConfigurationListFluent.MetadataNested<A> editOrNewMetadataLike(
+      V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata() : item);
   }
 
@@ -412,7 +355,7 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
     return java.util.Objects.hash(apiVersion, items, kind, metadata, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) {
@@ -438,25 +381,19 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
   class ItemsNestedImpl<N>
       extends V1beta1PriorityLevelConfigurationFluentImpl<
           V1beta1PriorityLevelConfigurationListFluent.ItemsNested<N>>
-      implements io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-                  .ItemsNested<
-              N>,
-          Nested<N> {
-    ItemsNestedImpl(
-        java.lang.Integer index,
-        io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfiguration item) {
+      implements V1beta1PriorityLevelConfigurationListFluent.ItemsNested<N>, Nested<N> {
+    ItemsNestedImpl(Integer index, V1beta1PriorityLevelConfiguration item) {
       this.index = index;
       this.builder = new V1beta1PriorityLevelConfigurationBuilder(this, item);
     }
 
     ItemsNestedImpl() {
       this.index = -1;
-      this.builder =
-          new io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder(this);
+      this.builder = new V1beta1PriorityLevelConfigurationBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationBuilder builder;
-    java.lang.Integer index;
+    V1beta1PriorityLevelConfigurationBuilder builder;
+    Integer index;
 
     public N and() {
       return (N)
@@ -470,19 +407,16 @@ public class V1beta1PriorityLevelConfigurationListFluentImpl<
 
   class MetadataNestedImpl<N>
       extends V1ListMetaFluentImpl<V1beta1PriorityLevelConfigurationListFluent.MetadataNested<N>>
-      implements io.kubernetes.client.openapi.models.V1beta1PriorityLevelConfigurationListFluent
-                  .MetadataNested<
-              N>,
-          io.kubernetes.client.fluent.Nested<N> {
+      implements V1beta1PriorityLevelConfigurationListFluent.MetadataNested<N>, Nested<N> {
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }
 
     MetadataNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1ListMetaBuilder(this);
+      this.builder = new V1ListMetaBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1ListMetaBuilder builder;
+    V1ListMetaBuilder builder;
 
     public N and() {
       return (N) V1beta1PriorityLevelConfigurationListFluentImpl.this.withMetadata(builder.build());

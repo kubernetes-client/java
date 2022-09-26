@@ -22,17 +22,17 @@ public class V1beta2PriorityLevelConfigurationReferenceFluentImpl<
   public V1beta2PriorityLevelConfigurationReferenceFluentImpl() {}
 
   public V1beta2PriorityLevelConfigurationReferenceFluentImpl(
-      io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationReference instance) {
+      V1beta2PriorityLevelConfigurationReference instance) {
     this.withName(instance.getName());
   }
 
   private String name;
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
@@ -54,7 +54,7 @@ public class V1beta2PriorityLevelConfigurationReferenceFluentImpl<
     return java.util.Objects.hash(name, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (name != null) {

@@ -20,37 +20,37 @@ public interface V1CustomResourceColumnDefinitionFluent<
     extends Fluent<A> {
   public String getDescription();
 
-  public A withDescription(java.lang.String description);
+  public A withDescription(String description);
 
   public Boolean hasDescription();
 
-  public java.lang.String getFormat();
+  public String getFormat();
 
-  public A withFormat(java.lang.String format);
+  public A withFormat(String format);
 
-  public java.lang.Boolean hasFormat();
+  public Boolean hasFormat();
 
-  public java.lang.String getJsonPath();
+  public String getJsonPath();
 
-  public A withJsonPath(java.lang.String jsonPath);
+  public A withJsonPath(String jsonPath);
 
-  public java.lang.Boolean hasJsonPath();
+  public Boolean hasJsonPath();
 
-  public java.lang.String getName();
+  public String getName();
 
-  public A withName(java.lang.String name);
+  public A withName(String name);
 
-  public java.lang.Boolean hasName();
+  public Boolean hasName();
 
   public Integer getPriority();
 
-  public A withPriority(java.lang.Integer priority);
+  public A withPriority(Integer priority);
 
-  public java.lang.Boolean hasPriority();
+  public Boolean hasPriority();
 
-  public java.lang.String getType();
+  public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 }

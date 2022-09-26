@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1alpha1StorageVersionStatusBuilder
     extends V1alpha1StorageVersionStatusFluentImpl<V1alpha1StorageVersionStatusBuilder>
-    implements VisitableBuilder<
-        V1alpha1StorageVersionStatus,
-        io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusBuilder> {
+    implements VisitableBuilder<V1alpha1StorageVersionStatus, V1alpha1StorageVersionStatusBuilder> {
   public V1alpha1StorageVersionStatusBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1alpha1StorageVersionStatusBuilder
   }
 
   public V1alpha1StorageVersionStatusBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1alpha1StorageVersionStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1alpha1StorageVersionStatus(), validationEnabled);
   }
 
   public V1alpha1StorageVersionStatusBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatus instance) {
+      V1alpha1StorageVersionStatusFluent<?> fluent, V1alpha1StorageVersionStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1alpha1StorageVersionStatusBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1alpha1StorageVersionStatusFluent<?> fluent,
+      V1alpha1StorageVersionStatus instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withCommonEncodingVersion(instance.getCommonEncodingVersion());
 
@@ -57,14 +53,12 @@ public class V1alpha1StorageVersionStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1alpha1StorageVersionStatusBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatus instance) {
+  public V1alpha1StorageVersionStatusBuilder(V1alpha1StorageVersionStatus instance) {
     this(instance, false);
   }
 
   public V1alpha1StorageVersionStatusBuilder(
-      io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1alpha1StorageVersionStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withCommonEncodingVersion(instance.getCommonEncodingVersion());
 
@@ -75,10 +69,10 @@ public class V1alpha1StorageVersionStatusBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1alpha1StorageVersionStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1alpha1StorageVersionStatus build() {
+  public V1alpha1StorageVersionStatus build() {
     V1alpha1StorageVersionStatus buildable = new V1alpha1StorageVersionStatus();
     buildable.setCommonEncodingVersion(fluent.getCommonEncodingVersion());
     buildable.setConditions(fluent.getConditions());

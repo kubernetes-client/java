@@ -22,8 +22,7 @@ public class V1CinderPersistentVolumeSourceFluentImpl<
     extends BaseFluent<A> implements V1CinderPersistentVolumeSourceFluent<A> {
   public V1CinderPersistentVolumeSourceFluentImpl() {}
 
-  public V1CinderPersistentVolumeSourceFluentImpl(
-      io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSource instance) {
+  public V1CinderPersistentVolumeSourceFluentImpl(V1CinderPersistentVolumeSource instance) {
     this.withFsType(instance.getFsType());
 
     this.withReadOnly(instance.getReadOnly());
@@ -36,31 +35,31 @@ public class V1CinderPersistentVolumeSourceFluentImpl<
   private String fsType;
   private Boolean readOnly;
   private V1SecretReferenceBuilder secretRef;
-  private java.lang.String volumeID;
+  private String volumeID;
 
-  public java.lang.String getFsType() {
+  public String getFsType() {
     return this.fsType;
   }
 
-  public A withFsType(java.lang.String fsType) {
+  public A withFsType(String fsType) {
     this.fsType = fsType;
     return (A) this;
   }
 
-  public java.lang.Boolean hasFsType() {
+  public Boolean hasFsType() {
     return this.fsType != null;
   }
 
-  public java.lang.Boolean getReadOnly() {
+  public Boolean getReadOnly() {
     return this.readOnly;
   }
 
-  public A withReadOnly(java.lang.Boolean readOnly) {
+  public A withReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
     return (A) this;
   }
 
-  public java.lang.Boolean hasReadOnly() {
+  public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
 
@@ -74,20 +73,23 @@ public class V1CinderPersistentVolumeSourceFluentImpl<
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
-  public io.kubernetes.client.openapi.models.V1SecretReference buildSecretRef() {
+  public V1SecretReference buildSecretRef() {
     return this.secretRef != null ? this.secretRef.build() : null;
   }
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1SecretReference secretRef) {
+  public A withSecretRef(V1SecretReference secretRef) {
     _visitables.get("secretRef").remove(this.secretRef);
     if (secretRef != null) {
-      this.secretRef = new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder(secretRef);
+      this.secretRef = new V1SecretReferenceBuilder(secretRef);
       _visitables.get("secretRef").add(this.secretRef);
+    } else {
+      this.secretRef = null;
+      _visitables.get("secretRef").remove(this.secretRef);
     }
     return (A) this;
   }
 
-  public java.lang.Boolean hasSecretRef() {
+  public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
 
@@ -95,39 +97,35 @@ public class V1CinderPersistentVolumeSourceFluentImpl<
     return new V1CinderPersistentVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
 
-  public io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item) {
+  public V1CinderPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1SecretReference item) {
     return new V1CinderPersistentVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
 
-  public io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSourceFluent.SecretRefNested<A>
-      editSecretRef() {
+  public V1CinderPersistentVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
 
-  public io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef() {
+  public V1CinderPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(
-        getSecretRef() != null
-            ? getSecretRef()
-            : new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder().build());
+        getSecretRef() != null ? getSecretRef() : new V1SecretReferenceBuilder().build());
   }
 
-  public io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1SecretReference item) {
+  public V1CinderPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1SecretReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef() : item);
   }
 
-  public java.lang.String getVolumeID() {
+  public String getVolumeID() {
     return this.volumeID;
   }
 
-  public A withVolumeID(java.lang.String volumeID) {
+  public A withVolumeID(String volumeID) {
     this.volumeID = volumeID;
     return (A) this;
   }
 
-  public java.lang.Boolean hasVolumeID() {
+  public Boolean hasVolumeID() {
     return this.volumeID != null;
   }
 
@@ -147,7 +145,7 @@ public class V1CinderPersistentVolumeSourceFluentImpl<
     return java.util.Objects.hash(fsType, readOnly, secretRef, volumeID, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (fsType != null) {
@@ -176,19 +174,16 @@ public class V1CinderPersistentVolumeSourceFluentImpl<
 
   class SecretRefNestedImpl<N>
       extends V1SecretReferenceFluentImpl<V1CinderPersistentVolumeSourceFluent.SecretRefNested<N>>
-      implements io.kubernetes.client.openapi.models.V1CinderPersistentVolumeSourceFluent
-                  .SecretRefNested<
-              N>,
-          Nested<N> {
+      implements V1CinderPersistentVolumeSourceFluent.SecretRefNested<N>, Nested<N> {
     SecretRefNestedImpl(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }
 
     SecretRefNestedImpl() {
-      this.builder = new io.kubernetes.client.openapi.models.V1SecretReferenceBuilder(this);
+      this.builder = new V1SecretReferenceBuilder(this);
     }
 
-    io.kubernetes.client.openapi.models.V1SecretReferenceBuilder builder;
+    V1SecretReferenceBuilder builder;
 
     public N and() {
       return (N) V1CinderPersistentVolumeSourceFluentImpl.this.withSecretRef(builder.build());

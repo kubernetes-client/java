@@ -16,9 +16,7 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1DaemonSetConditionBuilder
     extends V1DaemonSetConditionFluentImpl<V1DaemonSetConditionBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1DaemonSetCondition,
-        io.kubernetes.client.openapi.models.V1DaemonSetConditionBuilder> {
+    implements VisitableBuilder<V1DaemonSetCondition, V1DaemonSetConditionBuilder> {
   public V1DaemonSetConditionBuilder() {
     this(false);
   }
@@ -32,21 +30,19 @@ public class V1DaemonSetConditionBuilder
   }
 
   public V1DaemonSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetConditionFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+      V1DaemonSetConditionFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1DaemonSetCondition(), validationEnabled);
   }
 
   public V1DaemonSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DaemonSetCondition instance) {
+      V1DaemonSetConditionFluent<?> fluent, V1DaemonSetCondition instance) {
     this(fluent, instance, false);
   }
 
   public V1DaemonSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetConditionFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1DaemonSetCondition instance,
-      java.lang.Boolean validationEnabled) {
+      V1DaemonSetConditionFluent<?> fluent,
+      V1DaemonSetCondition instance,
+      Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -61,14 +57,11 @@ public class V1DaemonSetConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1DaemonSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetCondition instance) {
+  public V1DaemonSetConditionBuilder(V1DaemonSetCondition instance) {
     this(instance, false);
   }
 
-  public V1DaemonSetConditionBuilder(
-      io.kubernetes.client.openapi.models.V1DaemonSetCondition instance,
-      java.lang.Boolean validationEnabled) {
+  public V1DaemonSetConditionBuilder(V1DaemonSetCondition instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLastTransitionTime(instance.getLastTransitionTime());
 
@@ -83,10 +76,10 @@ public class V1DaemonSetConditionBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1DaemonSetConditionFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1DaemonSetConditionFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1DaemonSetCondition build() {
+  public V1DaemonSetCondition build() {
     V1DaemonSetCondition buildable = new V1DaemonSetCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
     buildable.setMessage(fluent.getMessage());

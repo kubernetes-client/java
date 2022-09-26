@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1LeaseSpecBuilder extends V1LeaseSpecFluentImpl<V1LeaseSpecBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1LeaseSpec,
-        io.kubernetes.client.openapi.models.V1LeaseSpecBuilder> {
+    implements VisitableBuilder<V1LeaseSpec, V1LeaseSpecBuilder> {
   public V1LeaseSpecBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1LeaseSpecBuilder extends V1LeaseSpecFluentImpl<V1LeaseSpecBuilder
     this(fluent, false);
   }
 
-  public V1LeaseSpecBuilder(
-      io.kubernetes.client.openapi.models.V1LeaseSpecFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1LeaseSpecBuilder(V1LeaseSpecFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1LeaseSpec(), validationEnabled);
   }
 
-  public V1LeaseSpecBuilder(
-      io.kubernetes.client.openapi.models.V1LeaseSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LeaseSpec instance) {
+  public V1LeaseSpecBuilder(V1LeaseSpecFluent<?> fluent, V1LeaseSpec instance) {
     this(fluent, instance, false);
   }
 
   public V1LeaseSpecBuilder(
-      io.kubernetes.client.openapi.models.V1LeaseSpecFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1LeaseSpec instance,
-      java.lang.Boolean validationEnabled) {
+      V1LeaseSpecFluent<?> fluent, V1LeaseSpec instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withAcquireTime(instance.getAcquireTime());
 
@@ -60,13 +52,11 @@ public class V1LeaseSpecBuilder extends V1LeaseSpecFluentImpl<V1LeaseSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  public V1LeaseSpecBuilder(io.kubernetes.client.openapi.models.V1LeaseSpec instance) {
+  public V1LeaseSpecBuilder(V1LeaseSpec instance) {
     this(instance, false);
   }
 
-  public V1LeaseSpecBuilder(
-      io.kubernetes.client.openapi.models.V1LeaseSpec instance,
-      java.lang.Boolean validationEnabled) {
+  public V1LeaseSpecBuilder(V1LeaseSpec instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withAcquireTime(instance.getAcquireTime());
 
@@ -81,10 +71,10 @@ public class V1LeaseSpecBuilder extends V1LeaseSpecFluentImpl<V1LeaseSpecBuilder
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1LeaseSpecFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1LeaseSpecFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1LeaseSpec build() {
+  public V1LeaseSpec build() {
     V1LeaseSpec buildable = new V1LeaseSpec();
     buildable.setAcquireTime(fluent.getAcquireTime());
     buildable.setHolderIdentity(fluent.getHolderIdentity());

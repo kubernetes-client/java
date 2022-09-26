@@ -22,64 +22,63 @@ import java.util.function.Predicate;
 public interface V1RBDVolumeSourceFluent<A extends V1RBDVolumeSourceFluent<A>> extends Fluent<A> {
   public String getFsType();
 
-  public A withFsType(java.lang.String fsType);
+  public A withFsType(String fsType);
 
   public Boolean hasFsType();
 
-  public java.lang.String getImage();
+  public String getImage();
 
-  public A withImage(java.lang.String image);
+  public A withImage(String image);
 
-  public java.lang.Boolean hasImage();
+  public Boolean hasImage();
 
-  public java.lang.String getKeyring();
+  public String getKeyring();
 
-  public A withKeyring(java.lang.String keyring);
+  public A withKeyring(String keyring);
 
-  public java.lang.Boolean hasKeyring();
+  public Boolean hasKeyring();
 
-  public A addToMonitors(Integer index, java.lang.String item);
+  public A addToMonitors(Integer index, String item);
 
-  public A setToMonitors(java.lang.Integer index, java.lang.String item);
+  public A setToMonitors(Integer index, String item);
 
   public A addToMonitors(java.lang.String... items);
 
-  public A addAllToMonitors(Collection<java.lang.String> items);
+  public A addAllToMonitors(Collection<String> items);
 
   public A removeFromMonitors(java.lang.String... items);
 
-  public A removeAllFromMonitors(java.util.Collection<java.lang.String> items);
+  public A removeAllFromMonitors(Collection<String> items);
 
-  public List<java.lang.String> getMonitors();
+  public List<String> getMonitors();
 
-  public java.lang.String getMonitor(java.lang.Integer index);
+  public String getMonitor(Integer index);
 
-  public java.lang.String getFirstMonitor();
+  public String getFirstMonitor();
 
-  public java.lang.String getLastMonitor();
+  public String getLastMonitor();
 
-  public java.lang.String getMatchingMonitor(Predicate<java.lang.String> predicate);
+  public String getMatchingMonitor(Predicate<String> predicate);
 
-  public java.lang.Boolean hasMatchingMonitor(
-      java.util.function.Predicate<java.lang.String> predicate);
+  public Boolean hasMatchingMonitor(Predicate<String> predicate);
 
-  public A withMonitors(java.util.List<java.lang.String> monitors);
+  public A withMonitors(List<String> monitors);
 
   public A withMonitors(java.lang.String... monitors);
 
-  public java.lang.Boolean hasMonitors();
+  public Boolean hasMonitors();
 
-  public java.lang.String getPool();
+  public String getPool();
 
-  public A withPool(java.lang.String pool);
+  public A withPool(String pool);
 
-  public java.lang.Boolean hasPool();
+  public Boolean hasPool();
 
-  public java.lang.Boolean getReadOnly();
+  public Boolean getReadOnly();
 
-  public A withReadOnly(java.lang.Boolean readOnly);
+  public A withReadOnly(Boolean readOnly);
 
-  public java.lang.Boolean hasReadOnly();
+  public Boolean hasReadOnly();
 
   /**
    * This method has been deprecated, please use method buildSecretRef instead.
@@ -89,31 +88,29 @@ public interface V1RBDVolumeSourceFluent<A extends V1RBDVolumeSourceFluent<A>> e
   @Deprecated
   public V1LocalObjectReference getSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1LocalObjectReference buildSecretRef();
+  public V1LocalObjectReference buildSecretRef();
 
-  public A withSecretRef(io.kubernetes.client.openapi.models.V1LocalObjectReference secretRef);
+  public A withSecretRef(V1LocalObjectReference secretRef);
 
-  public java.lang.Boolean hasSecretRef();
+  public Boolean hasSecretRef();
 
   public V1RBDVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent.SecretRefNested<A>
-      withNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public V1RBDVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(
+      V1LocalObjectReference item);
 
-  public io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent.SecretRefNested<A>
-      editSecretRef();
+  public V1RBDVolumeSourceFluent.SecretRefNested<A> editSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRef();
+  public V1RBDVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef();
 
-  public io.kubernetes.client.openapi.models.V1RBDVolumeSourceFluent.SecretRefNested<A>
-      editOrNewSecretRefLike(io.kubernetes.client.openapi.models.V1LocalObjectReference item);
+  public V1RBDVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(
+      V1LocalObjectReference item);
 
-  public java.lang.String getUser();
+  public String getUser();
 
-  public A withUser(java.lang.String user);
+  public A withUser(String user);
 
-  public java.lang.Boolean hasUser();
+  public Boolean hasUser();
 
   public A withReadOnly();
 

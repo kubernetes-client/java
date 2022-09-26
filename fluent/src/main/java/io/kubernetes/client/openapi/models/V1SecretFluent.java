@@ -20,35 +20,35 @@ import java.util.Map;
 public interface V1SecretFluent<A extends V1SecretFluent<A>> extends Fluent<A> {
   public String getApiVersion();
 
-  public A withApiVersion(java.lang.String apiVersion);
+  public A withApiVersion(String apiVersion);
 
   public Boolean hasApiVersion();
 
-  public A addToData(java.lang.String key, byte[] value);
+  public A addToData(String key, byte[] value);
 
-  public A addToData(Map<java.lang.String, byte[]> map);
+  public A addToData(Map<String, byte[]> map);
 
-  public A removeFromData(java.lang.String key);
+  public A removeFromData(String key);
 
-  public A removeFromData(java.util.Map<java.lang.String, byte[]> map);
+  public A removeFromData(Map<String, byte[]> map);
 
-  public java.util.Map<java.lang.String, byte[]> getData();
+  public Map<String, byte[]> getData();
 
-  public <K, V> A withData(java.util.Map<java.lang.String, byte[]> data);
+  public <K, V> A withData(Map<String, byte[]> data);
 
-  public java.lang.Boolean hasData();
+  public Boolean hasData();
 
-  public java.lang.Boolean getImmutable();
+  public Boolean getImmutable();
 
-  public A withImmutable(java.lang.Boolean immutable);
+  public A withImmutable(Boolean immutable);
 
-  public java.lang.Boolean hasImmutable();
+  public Boolean hasImmutable();
 
-  public java.lang.String getKind();
+  public String getKind();
 
-  public A withKind(java.lang.String kind);
+  public A withKind(String kind);
 
-  public java.lang.Boolean hasKind();
+  public Boolean hasKind();
 
   /**
    * This method has been deprecated, please use method buildMetadata instead.
@@ -58,43 +58,41 @@ public interface V1SecretFluent<A extends V1SecretFluent<A>> extends Fluent<A> {
   @Deprecated
   public V1ObjectMeta getMetadata();
 
-  public io.kubernetes.client.openapi.models.V1ObjectMeta buildMetadata();
+  public V1ObjectMeta buildMetadata();
 
-  public A withMetadata(io.kubernetes.client.openapi.models.V1ObjectMeta metadata);
+  public A withMetadata(V1ObjectMeta metadata);
 
-  public java.lang.Boolean hasMetadata();
+  public Boolean hasMetadata();
 
   public V1SecretFluent.MetadataNested<A> withNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<A> withNewMetadataLike(
-      io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1SecretFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item);
 
-  public io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<A> editMetadata();
+  public V1SecretFluent.MetadataNested<A> editMetadata();
 
-  public io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<A> editOrNewMetadata();
+  public V1SecretFluent.MetadataNested<A> editOrNewMetadata();
 
-  public io.kubernetes.client.openapi.models.V1SecretFluent.MetadataNested<A> editOrNewMetadataLike(
-      io.kubernetes.client.openapi.models.V1ObjectMeta item);
+  public V1SecretFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
 
-  public A addToStringData(java.lang.String key, java.lang.String value);
+  public A addToStringData(String key, String value);
 
-  public A addToStringData(java.util.Map<java.lang.String, java.lang.String> map);
+  public A addToStringData(Map<String, String> map);
 
-  public A removeFromStringData(java.lang.String key);
+  public A removeFromStringData(String key);
 
-  public A removeFromStringData(java.util.Map<java.lang.String, java.lang.String> map);
+  public A removeFromStringData(Map<String, String> map);
 
-  public java.util.Map<java.lang.String, java.lang.String> getStringData();
+  public Map<String, String> getStringData();
 
-  public <K, V> A withStringData(java.util.Map<java.lang.String, java.lang.String> stringData);
+  public <K, V> A withStringData(Map<String, String> stringData);
 
-  public java.lang.Boolean hasStringData();
+  public Boolean hasStringData();
 
-  public java.lang.String getType();
+  public String getType();
 
-  public A withType(java.lang.String type);
+  public A withType(String type);
 
-  public java.lang.Boolean hasType();
+  public Boolean hasType();
 
   public A withImmutable();
 

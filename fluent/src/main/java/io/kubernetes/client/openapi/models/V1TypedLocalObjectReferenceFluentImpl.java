@@ -20,8 +20,7 @@ public class V1TypedLocalObjectReferenceFluentImpl<A extends V1TypedLocalObjectR
     extends BaseFluent<A> implements V1TypedLocalObjectReferenceFluent<A> {
   public V1TypedLocalObjectReferenceFluentImpl() {}
 
-  public V1TypedLocalObjectReferenceFluentImpl(
-      io.kubernetes.client.openapi.models.V1TypedLocalObjectReference instance) {
+  public V1TypedLocalObjectReferenceFluentImpl(V1TypedLocalObjectReference instance) {
     this.withApiGroup(instance.getApiGroup());
 
     this.withKind(instance.getKind());
@@ -30,14 +29,14 @@ public class V1TypedLocalObjectReferenceFluentImpl<A extends V1TypedLocalObjectR
   }
 
   private String apiGroup;
-  private java.lang.String kind;
-  private java.lang.String name;
+  private String kind;
+  private String name;
 
-  public java.lang.String getApiGroup() {
+  public String getApiGroup() {
     return this.apiGroup;
   }
 
-  public A withApiGroup(java.lang.String apiGroup) {
+  public A withApiGroup(String apiGroup) {
     this.apiGroup = apiGroup;
     return (A) this;
   }
@@ -46,29 +45,29 @@ public class V1TypedLocalObjectReferenceFluentImpl<A extends V1TypedLocalObjectR
     return this.apiGroup != null;
   }
 
-  public java.lang.String getKind() {
+  public String getKind() {
     return this.kind;
   }
 
-  public A withKind(java.lang.String kind) {
+  public A withKind(String kind) {
     this.kind = kind;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKind() {
+  public Boolean hasKind() {
     return this.kind != null;
   }
 
-  public java.lang.String getName() {
+  public String getName() {
     return this.name;
   }
 
-  public A withName(java.lang.String name) {
+  public A withName(String name) {
     this.name = name;
     return (A) this;
   }
 
-  public java.lang.Boolean hasName() {
+  public Boolean hasName() {
     return this.name != null;
   }
 
@@ -86,7 +85,7 @@ public class V1TypedLocalObjectReferenceFluentImpl<A extends V1TypedLocalObjectR
     return java.util.Objects.hash(apiGroup, kind, name, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiGroup != null) {

@@ -19,7 +19,7 @@ import io.kubernetes.client.fluent.Nested;
 public interface V1IngressClassSpecFluent<A extends V1IngressClassSpecFluent<A>> extends Fluent<A> {
   public String getController();
 
-  public A withController(java.lang.String controller);
+  public A withController(String controller);
 
   public Boolean hasController();
 
@@ -31,28 +31,23 @@ public interface V1IngressClassSpecFluent<A extends V1IngressClassSpecFluent<A>>
   @Deprecated
   public V1IngressClassParametersReference getParameters();
 
-  public io.kubernetes.client.openapi.models.V1IngressClassParametersReference buildParameters();
+  public V1IngressClassParametersReference buildParameters();
 
-  public A withParameters(
-      io.kubernetes.client.openapi.models.V1IngressClassParametersReference parameters);
+  public A withParameters(V1IngressClassParametersReference parameters);
 
-  public java.lang.Boolean hasParameters();
+  public Boolean hasParameters();
 
   public V1IngressClassSpecFluent.ParametersNested<A> withNewParameters();
 
-  public io.kubernetes.client.openapi.models.V1IngressClassSpecFluent.ParametersNested<A>
-      withNewParametersLike(
-          io.kubernetes.client.openapi.models.V1IngressClassParametersReference item);
+  public V1IngressClassSpecFluent.ParametersNested<A> withNewParametersLike(
+      V1IngressClassParametersReference item);
 
-  public io.kubernetes.client.openapi.models.V1IngressClassSpecFluent.ParametersNested<A>
-      editParameters();
+  public V1IngressClassSpecFluent.ParametersNested<A> editParameters();
 
-  public io.kubernetes.client.openapi.models.V1IngressClassSpecFluent.ParametersNested<A>
-      editOrNewParameters();
+  public V1IngressClassSpecFluent.ParametersNested<A> editOrNewParameters();
 
-  public io.kubernetes.client.openapi.models.V1IngressClassSpecFluent.ParametersNested<A>
-      editOrNewParametersLike(
-          io.kubernetes.client.openapi.models.V1IngressClassParametersReference item);
+  public V1IngressClassSpecFluent.ParametersNested<A> editOrNewParametersLike(
+      V1IngressClassParametersReference item);
 
   public interface ParametersNested<N>
       extends Nested<N>,

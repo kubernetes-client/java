@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1PortStatusBuilder extends V1PortStatusFluentImpl<V1PortStatusBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1PortStatus,
-        io.kubernetes.client.openapi.models.V1PortStatusBuilder> {
+    implements VisitableBuilder<V1PortStatus, V1PortStatusBuilder> {
   public V1PortStatusBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1PortStatusBuilder extends V1PortStatusFluentImpl<V1PortStatusBuil
     this(fluent, false);
   }
 
-  public V1PortStatusBuilder(
-      io.kubernetes.client.openapi.models.V1PortStatusFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1PortStatusBuilder(V1PortStatusFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1PortStatus(), validationEnabled);
   }
 
-  public V1PortStatusBuilder(
-      io.kubernetes.client.openapi.models.V1PortStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PortStatus instance) {
+  public V1PortStatusBuilder(V1PortStatusFluent<?> fluent, V1PortStatus instance) {
     this(fluent, instance, false);
   }
 
   public V1PortStatusBuilder(
-      io.kubernetes.client.openapi.models.V1PortStatusFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1PortStatus instance,
-      java.lang.Boolean validationEnabled) {
+      V1PortStatusFluent<?> fluent, V1PortStatus instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withError(instance.getError());
 
@@ -56,13 +48,11 @@ public class V1PortStatusBuilder extends V1PortStatusFluentImpl<V1PortStatusBuil
     this.validationEnabled = validationEnabled;
   }
 
-  public V1PortStatusBuilder(io.kubernetes.client.openapi.models.V1PortStatus instance) {
+  public V1PortStatusBuilder(V1PortStatus instance) {
     this(instance, false);
   }
 
-  public V1PortStatusBuilder(
-      io.kubernetes.client.openapi.models.V1PortStatus instance,
-      java.lang.Boolean validationEnabled) {
+  public V1PortStatusBuilder(V1PortStatus instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withError(instance.getError());
 
@@ -73,10 +63,10 @@ public class V1PortStatusBuilder extends V1PortStatusFluentImpl<V1PortStatusBuil
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1PortStatusFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1PortStatusFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1PortStatus build() {
+  public V1PortStatus build() {
     V1PortStatus buildable = new V1PortStatus();
     buildable.setError(fluent.getError());
     buildable.setPort(fluent.getPort());

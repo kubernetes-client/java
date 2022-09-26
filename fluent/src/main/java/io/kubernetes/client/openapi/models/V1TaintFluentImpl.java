@@ -21,7 +21,7 @@ public class V1TaintFluentImpl<A extends V1TaintFluent<A>> extends BaseFluent<A>
     implements V1TaintFluent<A> {
   public V1TaintFluentImpl() {}
 
-  public V1TaintFluentImpl(io.kubernetes.client.openapi.models.V1Taint instance) {
+  public V1TaintFluentImpl(V1Taint instance) {
     this.withEffect(instance.getEffect());
 
     this.withKey(instance.getKey());
@@ -32,15 +32,15 @@ public class V1TaintFluentImpl<A extends V1TaintFluent<A>> extends BaseFluent<A>
   }
 
   private String effect;
-  private java.lang.String key;
+  private String key;
   private OffsetDateTime timeAdded;
-  private java.lang.String value;
+  private String value;
 
-  public java.lang.String getEffect() {
+  public String getEffect() {
     return this.effect;
   }
 
-  public A withEffect(java.lang.String effect) {
+  public A withEffect(String effect) {
     this.effect = effect;
     return (A) this;
   }
@@ -49,42 +49,42 @@ public class V1TaintFluentImpl<A extends V1TaintFluent<A>> extends BaseFluent<A>
     return this.effect != null;
   }
 
-  public java.lang.String getKey() {
+  public String getKey() {
     return this.key;
   }
 
-  public A withKey(java.lang.String key) {
+  public A withKey(String key) {
     this.key = key;
     return (A) this;
   }
 
-  public java.lang.Boolean hasKey() {
+  public Boolean hasKey() {
     return this.key != null;
   }
 
-  public java.time.OffsetDateTime getTimeAdded() {
+  public OffsetDateTime getTimeAdded() {
     return this.timeAdded;
   }
 
-  public A withTimeAdded(java.time.OffsetDateTime timeAdded) {
+  public A withTimeAdded(OffsetDateTime timeAdded) {
     this.timeAdded = timeAdded;
     return (A) this;
   }
 
-  public java.lang.Boolean hasTimeAdded() {
+  public Boolean hasTimeAdded() {
     return this.timeAdded != null;
   }
 
-  public java.lang.String getValue() {
+  public String getValue() {
     return this.value;
   }
 
-  public A withValue(java.lang.String value) {
+  public A withValue(String value) {
     this.value = value;
     return (A) this;
   }
 
-  public java.lang.Boolean hasValue() {
+  public Boolean hasValue() {
     return this.value != null;
   }
 
@@ -104,7 +104,7 @@ public class V1TaintFluentImpl<A extends V1TaintFluent<A>> extends BaseFluent<A>
     return java.util.Objects.hash(effect, key, timeAdded, value, super.hashCode());
   }
 
-  public java.lang.String toString() {
+  public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (effect != null) {

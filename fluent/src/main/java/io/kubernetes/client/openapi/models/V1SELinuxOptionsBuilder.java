@@ -15,9 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluentImpl<V1SELinuxOptionsBuilder>
-    implements VisitableBuilder<
-        io.kubernetes.client.openapi.models.V1SELinuxOptions,
-        io.kubernetes.client.openapi.models.V1SELinuxOptionsBuilder> {
+    implements VisitableBuilder<V1SELinuxOptions, V1SELinuxOptionsBuilder> {
   public V1SELinuxOptionsBuilder() {
     this(false);
   }
@@ -30,22 +28,16 @@ public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluentImpl<V1SELinu
     this(fluent, false);
   }
 
-  public V1SELinuxOptionsBuilder(
-      io.kubernetes.client.openapi.models.V1SELinuxOptionsFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1SELinuxOptionsBuilder(V1SELinuxOptionsFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1SELinuxOptions(), validationEnabled);
   }
 
-  public V1SELinuxOptionsBuilder(
-      io.kubernetes.client.openapi.models.V1SELinuxOptionsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SELinuxOptions instance) {
+  public V1SELinuxOptionsBuilder(V1SELinuxOptionsFluent<?> fluent, V1SELinuxOptions instance) {
     this(fluent, instance, false);
   }
 
   public V1SELinuxOptionsBuilder(
-      io.kubernetes.client.openapi.models.V1SELinuxOptionsFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1SELinuxOptions instance,
-      java.lang.Boolean validationEnabled) {
+      V1SELinuxOptionsFluent<?> fluent, V1SELinuxOptions instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withLevel(instance.getLevel());
 
@@ -58,13 +50,11 @@ public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluentImpl<V1SELinu
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SELinuxOptionsBuilder(io.kubernetes.client.openapi.models.V1SELinuxOptions instance) {
+  public V1SELinuxOptionsBuilder(V1SELinuxOptions instance) {
     this(instance, false);
   }
 
-  public V1SELinuxOptionsBuilder(
-      io.kubernetes.client.openapi.models.V1SELinuxOptions instance,
-      java.lang.Boolean validationEnabled) {
+  public V1SELinuxOptionsBuilder(V1SELinuxOptions instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withLevel(instance.getLevel());
 
@@ -77,10 +67,10 @@ public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluentImpl<V1SELinu
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SELinuxOptionsFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SELinuxOptionsFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1SELinuxOptions build() {
+  public V1SELinuxOptions build() {
     V1SELinuxOptions buildable = new V1SELinuxOptions();
     buildable.setLevel(fluent.getLevel());
     buildable.setRole(fluent.getRole());

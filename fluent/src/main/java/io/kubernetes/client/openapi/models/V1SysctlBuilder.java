@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi.models;
 import io.kubernetes.client.fluent.VisitableBuilder;
 
 public class V1SysctlBuilder extends V1SysctlFluentImpl<V1SysctlBuilder>
-    implements VisitableBuilder<io.kubernetes.client.openapi.models.V1Sysctl, V1SysctlBuilder> {
+    implements VisitableBuilder<V1Sysctl, V1SysctlBuilder> {
   public V1SysctlBuilder() {
     this(false);
   }
@@ -24,26 +24,19 @@ public class V1SysctlBuilder extends V1SysctlFluentImpl<V1SysctlBuilder>
     this(new V1Sysctl(), validationEnabled);
   }
 
-  public V1SysctlBuilder(io.kubernetes.client.openapi.models.V1SysctlFluent<?> fluent) {
+  public V1SysctlBuilder(V1SysctlFluent<?> fluent) {
     this(fluent, false);
   }
 
-  public V1SysctlBuilder(
-      io.kubernetes.client.openapi.models.V1SysctlFluent<?> fluent,
-      java.lang.Boolean validationEnabled) {
+  public V1SysctlBuilder(V1SysctlFluent<?> fluent, Boolean validationEnabled) {
     this(fluent, new V1Sysctl(), validationEnabled);
   }
 
-  public V1SysctlBuilder(
-      io.kubernetes.client.openapi.models.V1SysctlFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Sysctl instance) {
+  public V1SysctlBuilder(V1SysctlFluent<?> fluent, V1Sysctl instance) {
     this(fluent, instance, false);
   }
 
-  public V1SysctlBuilder(
-      io.kubernetes.client.openapi.models.V1SysctlFluent<?> fluent,
-      io.kubernetes.client.openapi.models.V1Sysctl instance,
-      java.lang.Boolean validationEnabled) {
+  public V1SysctlBuilder(V1SysctlFluent<?> fluent, V1Sysctl instance, Boolean validationEnabled) {
     this.fluent = fluent;
     fluent.withName(instance.getName());
 
@@ -52,12 +45,11 @@ public class V1SysctlBuilder extends V1SysctlFluentImpl<V1SysctlBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  public V1SysctlBuilder(io.kubernetes.client.openapi.models.V1Sysctl instance) {
+  public V1SysctlBuilder(V1Sysctl instance) {
     this(instance, false);
   }
 
-  public V1SysctlBuilder(
-      io.kubernetes.client.openapi.models.V1Sysctl instance, java.lang.Boolean validationEnabled) {
+  public V1SysctlBuilder(V1Sysctl instance, Boolean validationEnabled) {
     this.fluent = this;
     this.withName(instance.getName());
 
@@ -66,10 +58,10 @@ public class V1SysctlBuilder extends V1SysctlFluentImpl<V1SysctlBuilder>
     this.validationEnabled = validationEnabled;
   }
 
-  io.kubernetes.client.openapi.models.V1SysctlFluent<?> fluent;
-  java.lang.Boolean validationEnabled;
+  V1SysctlFluent<?> fluent;
+  Boolean validationEnabled;
 
-  public io.kubernetes.client.openapi.models.V1Sysctl build() {
+  public V1Sysctl build() {
     V1Sysctl buildable = new V1Sysctl();
     buildable.setName(fluent.getName());
     buildable.setValue(fluent.getValue());
