@@ -15,7 +15,7 @@
     </parent>
 
     <properties>
-        <spock.version>2.2-groovy-4.0</spock.version>
+        <spock.version>2.3-groovy-4.0</spock.version>
     </properties>
     <dependencies>
         <dependency>
