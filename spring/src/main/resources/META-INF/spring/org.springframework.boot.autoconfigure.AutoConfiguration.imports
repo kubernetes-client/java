@@ -1,0 +1,3 @@
+io.kubernetes.client.spring.extended.controller.config.KubernetesInformerAutoConfiguration
+io.kubernetes.client.spring.extended.controller.config.KubernetesReconcilerAutoConfiguration
+io.kubernetes.client.spring.extended.manifests.config.KubernetesManifestsAutoConfiguration
