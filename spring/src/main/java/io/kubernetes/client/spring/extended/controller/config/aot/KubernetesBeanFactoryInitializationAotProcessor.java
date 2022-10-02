@@ -1,7 +1,11 @@
 package io.kubernetes.client.spring.extended.controller.config.aot;
 
 
+import com.google.gson.JsonElement;
 import com.google.gson.annotations.JsonAdapter;
+import io.kubernetes.client.informer.cache.ProcessorListener;
+import io.kubernetes.client.util.Watch;
+import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import io.swagger.annotations.ApiModel;
 import org.jetbrains.annotations.NotNull;
 import org.reflections.Reflections;
@@ -34,16 +38,13 @@ public class KubernetesBeanFactoryInitializationAotProcessor implements BeanFact
             @NotNull ConfigurableListableBeanFactory beanFactory) {
         return (generationContext, beanFactoryInitializationCode) -> {
             RuntimeHints hints = generationContext.getRuntimeHints();
-            String[] classNames = new String[]{
-                    "com.google.gson.JsonElement",//
-                    "io.kubernetes.client.informer.cache.ProcessorListener", //
-                    "io.kubernetes.client.extended.controller.Controller", //
-                    "io.kubernetes.client.util.generic.GenericKubernetesApi$StatusPatch", //
-                    "io.kubernetes.client.util.Watch$Response" //
+            Class<?>[] classes = new Class<?>[]{JsonElement.class, ProcessorListener.class,
+                    io.kubernetes.client.extended.controller.Controller.class,
+                    GenericKubernetesApi.StatusPatch.class, Watch.Response.class
             };
-            for (String className : classNames) {
-                LOGGER.info("registering " + className + " for reflection");
-                hints.reflection().registerType(TypeReference.of(className), allMemberCategories);
+            for (Class<?> clazz : classes) {
+                logClassReflectionRegistration(clazz);
+                hints.reflection().registerType(TypeReference.of(clazz), allMemberCategories);
             }
             registerForPackage("io.kubernetes", hints);
             Collection<String> packages = AutoConfigurationPackages.get(beanFactory);
@@ -61,8 +62,14 @@ public class KubernetesBeanFactoryInitializationAotProcessor implements BeanFact
         all.addAll(jsonAdapters);
         all.addAll(apiModels);
         for (Class<?> clazz : all) {
-            LOGGER.info("registering " + clazz.getName() + " for reflection");
+            logClassReflectionRegistration(clazz);
             hints.reflection().registerType(clazz, allMemberCategories);
+        }
+    }
+
+    private static void logClassReflectionRegistration(Class<?> clazz) {
+        if (LOGGER.isInfoEnabled()) {
+            LOGGER.info("registering " + clazz.getName() + " for Spring AOT reflection");
         }
     }
 
