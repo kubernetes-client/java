@@ -19,6 +19,10 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import com.github.tomakehurst.wiremock.core.Admin;
 import com.github.tomakehurst.wiremock.extension.Parameters;
@@ -40,6 +44,7 @@ import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
+import java.util.function.Consumer;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -148,8 +153,40 @@ public class ExecTest {
   }
 
   @Test
+  public void testDefaultUnhandledError() throws IOException, InterruptedException {
+    final Throwable throwable = mock(Throwable.class);
+    final ExecProcess process = new ExecProcess(client);
+    process.getHandler().open("wss", null);
+
+    process.getHandler().failure(throwable);
+    process.waitFor();
+
+    verify(throwable, times(1)).printStackTrace();
+    assertEquals(false, process.isAlive());
+    assertEquals(-1975219, process.exitValue());
+  }
+
+  @Test
+  public void testCustomUnhandledError() throws IOException, InterruptedException {
+    final Consumer<Throwable> consumer = mock(Consumer.class);
+    final Throwable throwable = mock(Throwable.class);
+    final ExecProcess process = new ExecProcess(client, consumer);
+    process.getHandler().open("wss", null);
+
+    process.getHandler().failure(throwable);
+    process.waitFor();
+
+    verify(throwable, times(0)).printStackTrace();
+    verify(consumer, times(1)).accept(throwable);
+    assertEquals(false, process.isAlive());
+    assertEquals(-1975219, process.exitValue());
+  }
+
+  @Test
   public void testUrl() throws IOException, ApiException, InterruptedException {
+    final Consumer<Throwable> consumer = mock(Consumer.class);
     Exec exec = new Exec(client);
+    exec.setOnUnhandledError(consumer);
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));
 
@@ -202,6 +239,7 @@ public class ExecTest {
             .withQueryParam("command", equalTo("cmd")));
 
     assertEquals(-1975219, p.exitValue());
+    verify(consumer, times(1)).accept(any(Throwable.class));
   }
 
   @Test

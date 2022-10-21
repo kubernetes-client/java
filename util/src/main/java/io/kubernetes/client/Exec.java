@@ -39,6 +39,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
@@ -54,6 +55,8 @@ public class Exec {
   private static final Logger log = LoggerFactory.getLogger(Exec.class);
 
   private ApiClient apiClient;
+
+  private Consumer<Throwable> onUnhandledError;
 
   /** Simple Exec API constructor, uses default configuration */
   public Exec() {
@@ -85,6 +88,26 @@ public class Exec {
    */
   public void setApiClient(ApiClient apiClient) {
     this.apiClient = apiClient;
+  }
+
+  /**
+   * Get a {@link Consumer<Throwable>} that will be accepted if there is any unhandled exception
+   * while the websocket communication is happening.
+   *
+   * @return The {@link Consumer<Throwable>} that will be used.
+   */
+  public Consumer<Throwable> getOnUnhandledError() {
+    return onUnhandledError;
+  }
+
+  /**
+   * Set the {@link Consumer<Throwable>} that will be accepted if there is any unhandled exception
+   * while the websocket communication is happening.
+   *
+   * @param onUnhandledError The new {@link Consumer<Throwable>} to use.
+   */
+  public void setOnUnhandledError(Consumer<Throwable> onUnhandledError) {
+    this.onUnhandledError = onUnhandledError;
   }
 
   /**
@@ -195,6 +218,7 @@ public class Exec {
         .setContainer(container)
         .setStdin(stdin)
         .setTty(tty)
+        .setOnUnhandledError(onUnhandledError)
         .execute();
   }
 
@@ -264,10 +288,10 @@ public class Exec {
             Supplier<Integer> returnCode = process::exitValue;
             try {
               log.debug("Waiting for process to close in {} ms: {}", timeoutMs, cmdStr);
-              boolean beforeTimout =
+              boolean beforeTimeout =
                   waitForProcessToExit(
                       process, timeoutMs, cmdStr, err -> errHandler.accept(err, io));
-              if (!beforeTimout) {
+              if (!beforeTimeout) {
                 returnCode = () -> Integer.MAX_VALUE;
               }
             } catch (Exception e) {
@@ -332,6 +356,7 @@ public class Exec {
     private boolean stdout;
     private boolean stderr;
     private boolean tty;
+    private Consumer<Throwable> onUnhandledError;
 
     private ExecutionBuilder(String namespace, String name, String[] command) {
       this.namespace = namespace;
@@ -399,6 +424,15 @@ public class Exec {
       return this;
     }
 
+    public Consumer<Throwable> getOnUnhandledError() {
+      return onUnhandledError;
+    }
+
+    public ExecutionBuilder setOnUnhandledError(Consumer<Throwable> onUnhandledError) {
+      this.onUnhandledError = onUnhandledError;
+      return this;
+    }
+
     private String makePath() {
       String[] encodedCommand = new String[command.length];
       for (int i = 0; i < command.length; i++) {
@@ -433,7 +467,7 @@ public class Exec {
         container = pod.getSpec().getContainers().get(0).getName();
       }
 
-      ExecProcess exec = new ExecProcess(apiClient);
+      ExecProcess exec = new ExecProcess(apiClient, onUnhandledError);
       WebSocketStreamHandler handler = exec.getHandler();
       WebSockets.stream(makePath(), "GET", apiClient, handler);
 
@@ -482,12 +516,20 @@ public class Exec {
 
   public static class ExecProcess extends Process {
     private final WebSocketStreamHandler streamHandler;
+    private final Consumer<Throwable> onUnhandledError;
     private int statusCode = -1;
     private boolean isAlive = true;
     private final Map<Integer, InputStream> input = new HashMap<>();
     private final CountDownLatch latch = new CountDownLatch(1);
 
     public ExecProcess(final ApiClient apiClient) throws IOException {
+      this(apiClient, Throwable::printStackTrace);
+    }
+
+    public ExecProcess(final ApiClient apiClient, final Consumer<Throwable> onUnhandledError)
+        throws IOException {
+      this.onUnhandledError =
+          Optional.ofNullable(onUnhandledError).orElse(Throwable::printStackTrace);
       this.streamHandler =
           new WebSocketStreamHandler() {
             @Override
@@ -513,12 +555,8 @@ public class Exec {
             @Override
             public void failure(Throwable ex) {
               super.failure(ex);
-              // TODO, it's possible we should suppress this error message, but
-              // currently there's
-              // no good place to surface the message, and without it, this will be
-              // really hard to
-              // debug.
-              ex.printStackTrace();
+              ExecProcess.this.onUnhandledError.accept(ex);
+
               synchronized (ExecProcess.this) {
                 // Try for a pretty unique error code, so if someone searches
                 // they'll find this

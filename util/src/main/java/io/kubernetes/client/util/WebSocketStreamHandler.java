@@ -22,6 +22,8 @@ import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 import java.util.Map;
 import okhttp3.WebSocket;
@@ -111,12 +113,6 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   @Override
   public synchronized void close() {
     if (state != State.CLOSED) {
-      state = State.CLOSED;
-      if (null != socket) {
-        // code 1000 means "Normal Closure"
-        socket.close(1000, "Triggered client-side terminate");
-        log.debug("Successfully closed socket.");
-      }
       // Close all output streams.  Caller of getInputStream(int) is responsible
       // for closing returned input streams
       for (PipedOutputStream out : pipedOutput.values()) {
@@ -142,6 +138,13 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
         } catch (IOException ex) {
           log.error("Error on close", ex);
         }
+      }
+
+      state = State.CLOSED;
+      if (null != socket) {
+        // code 1000 means "Normal Closure"
+        socket.close(1000, "Triggered client-side terminate");
+        log.debug("Successfully closed socket.");
       }
     }
     notifyAll();
@@ -209,6 +212,13 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
   }
 
   private class WebSocketOutputStream extends OutputStream {
+
+    private static final long MAX_QUEUE_SIZE = 16L * 1024 * 1024;
+
+    private static final int MAX_WAIT_MILLIS = 10000;
+
+    private static final int WAIT_MILLIS = 10;
+
     private final byte stream;
 
     public WebSocketOutputStream(int stream) {
@@ -265,10 +275,28 @@ public class WebSocketStreamHandler implements WebSockets.SocketListener, Closea
         int bufferSize = Math.min(remaining, 15 * 1024 * 1024);
         byte[] buffer = new byte[bufferSize + 1];
         buffer[0] = stream;
+
         System.arraycopy(b, offset + bytesWritten, buffer, 1, bufferSize);
-        if (!WebSocketStreamHandler.this.socket.send(ByteString.of(buffer))) {
-          throw new IOException("WebSocket has closed.");
+        ByteString byteString = ByteString.of(buffer);
+
+        final Instant start = Instant.now();
+        synchronized (WebSocketOutputStream.this) {
+          while (WebSocketStreamHandler.this.socket.queueSize() + byteString.size() > MAX_QUEUE_SIZE
+              && Instant.now().isBefore(start.plus(MAX_WAIT_MILLIS, ChronoUnit.MILLIS))) {
+            try {
+              wait(WAIT_MILLIS);
+            } catch (InterruptedException e) {
+              throw new IOException("Error waiting web socket queue", e);
+            }
+          }
+
+          if (!WebSocketStreamHandler.this.socket.send(byteString)) {
+            throw new IOException("WebSocket has closed.");
+          }
+
+          notifyAll();
         }
+
         bytesWritten += bufferSize;
         remaining -= bufferSize;
       }
