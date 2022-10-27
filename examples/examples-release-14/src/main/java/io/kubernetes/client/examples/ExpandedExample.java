@@ -64,7 +64,7 @@ public class ExpandedExample {
       System.out.println("----- Scale Deployment Start -----");
       scaleDeployment("account-service", 5);
 
-      // List all of the namaspaces and pods
+      // List all of the namespaces and pods
       List<String> nameSpaces = getAllNameSpaces();
       nameSpaces.stream()
           .forEach(
