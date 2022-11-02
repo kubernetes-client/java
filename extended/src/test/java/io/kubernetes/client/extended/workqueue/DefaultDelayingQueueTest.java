@@ -29,7 +29,7 @@ public class DefaultDelayingQueueTest {
     // Hold time still
     queue.injectTimeSource(
         () -> {
-          return staticTime;
+          return staticTime.toEpochMilli();
         });
     queue.addAfter("foo", Duration.ofMillis(50));
 
@@ -40,7 +40,7 @@ public class DefaultDelayingQueueTest {
     // Advance time
     queue.injectTimeSource(
         () -> {
-          return staticTime.plusMillis(100);
+          return staticTime.plusMillis(100).toEpochMilli();
         });
     assertTrue(waitForAdded(queue, 1));
     String item = queue.get();
@@ -59,7 +59,7 @@ public class DefaultDelayingQueueTest {
     // Hold time still
     queue.injectTimeSource(
         () -> {
-          return staticTime;
+          return staticTime.toEpochMilli();
         });
 
     queue.addAfter(item, Duration.ofMillis(50));
@@ -71,7 +71,7 @@ public class DefaultDelayingQueueTest {
     // Advance time
     queue.injectTimeSource(
         () -> {
-          return staticTime.plusMillis(60);
+          return staticTime.plusMillis(60).toEpochMilli();
         });
     assertTrue(waitForAdded(queue, 1));
     item = queue.get();
@@ -81,7 +81,7 @@ public class DefaultDelayingQueueTest {
     // Advance time
     queue.injectTimeSource(
         () -> {
-          return staticTime.plusMillis(90);
+          return staticTime.plusMillis(90).toEpochMilli();
         });
     assertTrue("should not have added", queue.length() == 0);
 
@@ -94,7 +94,7 @@ public class DefaultDelayingQueueTest {
     // Advance time
     queue.injectTimeSource(
         () -> {
-          return staticTime.plusMillis(150);
+          return staticTime.plusMillis(150).toEpochMilli();
         });
     assertTrue(waitForAdded(queue, 1));
     item = queue.get();
@@ -104,7 +104,7 @@ public class DefaultDelayingQueueTest {
     // Advance time
     queue.injectTimeSource(
         () -> {
-          return staticTime.plusMillis(190);
+          return staticTime.plusMillis(190).toEpochMilli();
         });
     assertTrue("should not have added", queue.length() == 0);
   }
@@ -115,7 +115,7 @@ public class DefaultDelayingQueueTest {
     DefaultDelayingQueue<String> queue = new DefaultDelayingQueue<>();
     queue.injectTimeSource(
         () -> {
-          return staticTime;
+          return staticTime.toEpochMilli();
         });
 
     final String first = "foo";
@@ -130,7 +130,7 @@ public class DefaultDelayingQueueTest {
 
     queue.injectTimeSource(
         () -> {
-          return staticTime.plusMillis(2000);
+          return staticTime.plusMillis(2000).toEpochMilli();
         });
     assertTrue(waitForAdded(queue, 3));
     String actualFirst = queue.get();
