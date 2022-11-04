@@ -129,7 +129,8 @@ public class SSLUtils {
     try (final PEMParser pemParser = new PEMParser(new InputStreamReader(keyInputStream))) {
       final Object pemObject = pemParser.readObject();
       if (pemObject == null) {
-        final String message = String.format("PEM Private Key Algorithm [%s] not parsed", clientKeyAlgo);
+        final String message =
+            String.format("PEM Private Key Algorithm [%s] not parsed", clientKeyAlgo);
         throw new InvalidKeySpecException(message);
       }
       final JcaPEMKeyConverter converter = new JcaPEMKeyConverter();
@@ -142,10 +143,10 @@ public class SSLUtils {
         privateKey = converter.getPrivateKey(privateKeyInfo);
       } else {
         final String pemObjectType = pemObject.getClass().getSimpleName();
-        final String message = String.format("PEM Private Key Algorithm [%s] Type [%s] not supported",
-                clientKeyAlgo,
-                pemObjectType
-        );
+        final String message =
+            String.format(
+                "PEM Private Key Algorithm [%s] Type [%s] not supported",
+                clientKeyAlgo, pemObjectType);
         throw new InvalidKeySpecException(message);
       }
     }
