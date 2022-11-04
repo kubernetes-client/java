@@ -13,8 +13,6 @@ limitations under the License.
 package io.kubernetes.client.extended.workqueue;
 
 import java.time.Duration;
-import java.time.Instant;
-import java.time.temporal.Temporal;
 import java.util.Map;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
@@ -35,10 +33,14 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
   private DelayQueue<WaitForEntry<T>> delayQueue;
   private ConcurrentMap<T, WaitForEntry<T>> waitingEntryByData;
   protected BlockingQueue<WaitForEntry<T>> waitingForAddQueue;
-  private Supplier<Instant> timeSource;
+  private Supplier<Long> timeSource;
+
+  private static Long now() {
+    return System.nanoTime() / 1000000;
+  }
 
   public DefaultDelayingQueue(ExecutorService waitingWorker) {
-    this.timeSource = Instant::now;
+    this.timeSource = DefaultDelayingQueue::now;
     this.delayQueue = new DelayQueue<>();
     this.waitingEntryByData = new ConcurrentHashMap<>();
     this.waitingForAddQueue = new LinkedBlockingQueue<>(1000);
@@ -61,12 +63,12 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
       return;
     }
     WaitForEntry<T> entry =
-        new WaitForEntry<>(item, duration.addTo(this.timeSource.get()), this.timeSource);
+        new WaitForEntry<>(item, this.timeSource.get() + duration.toMillis(), this.timeSource);
     this.waitingForAddQueue.offer(entry);
   }
 
   // Visible for testing
-  protected void injectTimeSource(Supplier<Instant> fn) {
+  protected void injectTimeSource(Supplier<Long> fn) {
     this.timeSource = fn;
   }
 
@@ -87,21 +89,21 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
           //   a. if ready, remove it from the delay-queue and push it into underlying
           // work-queue
           //   b. if not, refresh the next ready-at time.
-          Instant now = this.timeSource.get();
-          if (!Duration.between(entry.readyAtMillis, now).isNegative()) {
+          long now = this.timeSource.get();
+          if (!((now - entry.readyAtMillis) < 0)) {
             delayQueue.remove(entry);
             super.add(entry.data);
             this.waitingEntryByData.remove(entry.data);
             continue;
           } else {
-            nextReadyAt = Duration.between(now, entry.readyAtMillis);
+            nextReadyAt = Duration.ofMillis(entry.readyAtMillis - now);
           }
         }
 
         WaitForEntry<T> waitForEntry =
             waitingForAddQueue.poll(nextReadyAt.toMillis(), TimeUnit.MILLISECONDS);
         if (waitForEntry != null) {
-          if (Duration.between(waitForEntry.readyAtMillis, this.timeSource.get()).isNegative()) {
+          if (this.timeSource.get() - waitForEntry.readyAtMillis < 0) {
             // the item is not yet ready, insert it to the delay-queue
             insert(this.delayQueue, this.waitingEntryByData, waitForEntry);
           } else {
@@ -119,7 +121,7 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
       DelayQueue<WaitForEntry<T>> q, Map<T, WaitForEntry<T>> knownEntries, WaitForEntry entry) {
     WaitForEntry existing = knownEntries.get((T) entry.data);
     if (existing != null) {
-      if (Duration.between(existing.readyAtMillis, entry.readyAtMillis).isNegative()) {
+      if ((entry.readyAtMillis - existing.readyAtMillis) < 0) {
         q.remove(existing);
         existing.readyAtMillis = entry.readyAtMillis;
         q.add(existing);
@@ -135,20 +137,20 @@ public class DefaultDelayingQueue<T> extends DefaultWorkQueue<T> implements Dela
   // WaitForEntry holds the data to add and the time it should be added.
   private static class WaitForEntry<T> implements Delayed {
 
-    private WaitForEntry(T data, Temporal readyAtMillis, Supplier<Instant> timeSource) {
+    private WaitForEntry(T data, long readyAtMillis, Supplier<Long> timeSource) {
       this.data = data;
       this.readyAtMillis = readyAtMillis;
       this.timeSource = timeSource;
     }
 
     private T data;
-    private Temporal readyAtMillis;
-    private Supplier<Instant> timeSource;
+    private long readyAtMillis;
+    private Supplier<Long> timeSource;
 
     @Override
     public long getDelay(TimeUnit unit) {
-      Duration duration = Duration.between(this.timeSource.get(), readyAtMillis);
-      return unit.convert(duration.toMillis(), TimeUnit.MILLISECONDS);
+      long duration = readyAtMillis - this.timeSource.get();
+      return unit.convert(duration, TimeUnit.MILLISECONDS);
     }
 
     @Override
