@@ -12,49 +12,80 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
+import static org.junit.Assert.assertEquals;
+
 import io.kubernetes.client.Resources;
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.net.URL;
+import java.security.GeneralSecurityException;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.spec.InvalidKeySpecException;
-import junit.framework.TestCase;
+import org.apache.commons.io.IOUtils;
+import org.junit.Test;
 
-public class SSLUtilsTest extends TestCase {
+public class SSLUtilsTest {
 
-  private static final String CLIENT_KEY_PATH =
-      new File(Resources.getResource("clientauth.key").getPath()).toString();
-  private static final String CLIENT_KEY_RSA_PATH =
-      new File(Resources.getResource("clientauth-rsa.key").getPath()).toString();
-  private static final String CLIENT_KEY_EC_PATH =
-      new File(Resources.getResource("clientauth-ec.key").getPath()).toString();
+  private static final String CLIENT_CERT = "clientauth.cert";
 
-  public void testPKCS8KeyLoadDump()
-      throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
-    byte[] loaded = Files.readAllBytes(Paths.get(CLIENT_KEY_PATH.replace("C:/", "")));
-    PrivateKey privateKey = SSLUtils.loadKey(loaded);
-    byte[] dumped = SSLUtils.dumpKey(privateKey);
-    PrivateKey reloaded = SSLUtils.loadKey(dumped);
-    assertEquals(privateKey, reloaded);
+  private static final String CLIENT_KEY_RSA_PKCS8 = "clientauth.key";
+
+  private static final String CLIENT_KEY_RSA_PKCS1 = "clientauth-rsa.key";
+
+  private static final String CLIENT_KEY_ECDSA_PKCS7 = "clientauth-ec.key";
+
+  private static final String CLIENT_KEY_ECDSA_PKCS8 = "clientauth-ec-fixed.key";
+
+  private static final String RSA_ALGORITHM = "RSA";
+
+  private static final String ECDSA_ALGORITHM = "ECDSA";
+
+  @Test
+  public void testLoadKeyRsaPkcs8() throws IOException, GeneralSecurityException {
+    final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_RSA_PKCS8);
+    assertEquals(RSA_ALGORITHM, privateKey.getAlgorithm());
   }
 
-  public void testPKCS1RSAKeyLoadDump()
-      throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
-    byte[] loaded = Files.readAllBytes(Paths.get(CLIENT_KEY_RSA_PATH));
-    PrivateKey privateKey = SSLUtils.loadKey(loaded);
-    byte[] dumped = SSLUtils.dumpKey(privateKey);
-    PrivateKey reloaded = SSLUtils.loadKey(dumped);
-    assertEquals(privateKey, reloaded);
+  @Test
+  public void testLoadKeyRsaPkcs1() throws IOException, GeneralSecurityException {
+    final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_RSA_PKCS1);
+    assertEquals(RSA_ALGORITHM, privateKey.getAlgorithm());
   }
 
-  public void testPKCS1ECKeyLoadDump()
+  @Test
+  public void testLoadKeyEcdsaPkcs7() throws IOException, GeneralSecurityException {
+    final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_ECDSA_PKCS7);
+    assertEquals(ECDSA_ALGORITHM, privateKey.getAlgorithm());
+  }
+
+  @Test
+  public void testLoadKeyEcdsaPkcs8() throws IOException, GeneralSecurityException {
+    final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_ECDSA_PKCS8);
+    assertEquals(ECDSA_ALGORITHM, privateKey.getAlgorithm());
+  }
+
+  @Test(expected = InvalidKeySpecException.class)
+  public void testLoadKeyCertificateNotSupported()
       throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
-    byte[] loaded = Files.readAllBytes(Paths.get(CLIENT_KEY_EC_PATH));
-    PrivateKey privateKey = SSLUtils.loadKey(loaded);
-    byte[] dumped = SSLUtils.dumpKey(privateKey);
-    PrivateKey reloaded = SSLUtils.loadKey(dumped);
-    assertEquals(privateKey, reloaded);
+    final byte[] resourceBytes = getResourceBytes(CLIENT_CERT);
+    SSLUtils.loadKey(resourceBytes);
+  }
+
+  private PrivateKey assertLoadDumpReloadKeyEquals(final String filePath)
+      throws IOException, GeneralSecurityException {
+    final byte[] resourceBytes = getResourceBytes(filePath);
+    final PrivateKey privateKey = SSLUtils.loadKey(resourceBytes);
+
+    byte[] dumpedKey = SSLUtils.dumpKey(privateKey);
+    final PrivateKey reloadedPrivateKey = SSLUtils.loadKey(dumpedKey);
+
+    assertEquals(privateKey, reloadedPrivateKey);
+
+    return privateKey;
+  }
+
+  private byte[] getResourceBytes(final String filePath) throws IOException {
+    final URL resourceUrl = Resources.getResource(filePath);
+    return IOUtils.toByteArray(resourceUrl);
   }
 }
