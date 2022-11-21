@@ -283,7 +283,7 @@
       <dependency>
         <groupId>com.flipkart.zjsonpatch</groupId>
         <artifactId>zjsonpatch</artifactId>
-        <version>0.4.12</version>
+        <version>0.4.13</version>
       </dependency>
       <dependency>
         <groupId>org.hamcrest</groupId>
