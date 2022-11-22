@@ -26,8 +26,7 @@ jobs:
     name: Java ${{ matrix.java }} Maven Test on ${{ matrix.os }}
     strategy:
       matrix:
-        # Test against the LTS Java versions. TODO: add JDK18 when it becomes available.
-        java: [ 8.0.x, 11.0.x, 17.0.x ]
+        java: [ 8.0.x, 11.0.x ]
         os: [ macos-latest, windows-latest, ubuntu-latest ]
     runs-on: ${{ matrix.os }}
     steps:
@@ -43,8 +42,14 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
       - name: Build with Maven
+        shell: bash
         run: |
-          mvn clean test -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+          if [ $(grep -E '^(8|11)\.' <<< '${{ matrix.java }}') ]; then
+            # some module doesn't compile on java platform lower than 17, need to skip them by specifying a profile
+            mvn clean test -q -B -Pcompatibility-before-java17 --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+          else
+            mvn clean test -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+          fi
   build-graalvm:
     runs-on: ubuntu-latest
     name: GraalVM Maven Test

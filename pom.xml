@@ -561,5 +561,21 @@ limitations under the License.
         <module>fluent-gen</module>
       </modules>
     </profile>
+    <profile>
+      <id>compatibility-before-java17</id>
+      <modules>
+        <module>util</module>
+        <module>kubernetes</module>
+        <module>proto</module>
+        <module>extended</module>
+        <module>fluent</module>
+        <module>spring</module>
+        <module>e2e</module>
+        <module>examples</module>
+        <module>client-java-contrib/cert-manager</module>
+        <module>client-java-contrib/prometheus-operator</module>
+        <module>client-java-contrib/admissionreview</module>
+      </modules>
+    </profile>
   </profiles>
 </project>
