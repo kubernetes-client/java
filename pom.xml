@@ -63,6 +63,7 @@
     <spring.boot.version>2.7.5</spring.boot.version>
     <spring.version>5.3.23</spring.version>
     <prometheus.client.version>0.15.0</prometheus.client.version>
+    <reflections.version>0.10.2</reflections.version>
 
     <e2e.skip>true</e2e.skip>
 
