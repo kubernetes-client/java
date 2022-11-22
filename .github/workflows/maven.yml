@@ -22,12 +22,34 @@ jobs:
           java-version: 8.0.x
       - name: Verify Format and License
         run: mvn spotless:check
+  legacy-build:
+    name: Legacy Java ${{ matrix.java }} Maven Test on ${{ matrix.os }}
+    strategy:
+      matrix:
+        java: [ 8.0.x, 11.0.x ]
+        os: [ macos-latest, windows-latest, ubuntu-latest ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: ${{ matrix.java }}
+      - name: Cache local Maven repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ matrix.java }}-${{ hashFiles('pom.xml', '**/pom.xml') }}
+      - name: Build with Maven
+        run: |
+          mvn clean test -q -B -Pcompatibility-before-java17 --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
   build:
     name: Java ${{ matrix.java }} Maven Test on ${{ matrix.os }}
     strategy:
       matrix:
         # Test against the LTS Java versions. TODO: add JDK18 when it becomes available.
-        java: [ 8.0.x, 11.0.x, 17.0.x ]
+        java: [ 17.0.x ]
         os: [ macos-latest, windows-latest, ubuntu-latest ]
     runs-on: ${{ matrix.os }}
     steps:
