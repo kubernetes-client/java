@@ -15,6 +15,7 @@
     <module>extended</module>
     <module>fluent</module>
     <module>spring</module>
+    <module>spring-aot</module>
     <module>e2e</module>
     <module>examples</module>
     <module>client-java-contrib/cert-manager</module>
