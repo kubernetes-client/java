@@ -89,18 +89,13 @@ public class KubectlLabelTest {
                                     .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
     wireMockRule.stubFor(
             put(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
+                    .withRequestBody(
+                            matchingJsonPath(
+                                    "$.metadata.labels", equalToJson("{ \"k1\": \"null\" }")))
                     .willReturn(
                             aResponse()
                                     .withStatus(200)
                                     .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
-
-    Kubectl.label(V1Pod.class)
-            .apiClient(apiClient)
-            .skipDiscovery()
-            .namespace("default")
-            .name("foo")
-            .addLabel("k1", "v1")
-            .execute();
 
     V1Pod unlabelledPod =
             Kubectl.label(V1Pod.class)
@@ -111,8 +106,8 @@ public class KubectlLabelTest {
                     .deleteLabel("k1")
                     .execute();
 
-    wireMockRule.verify(2, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
-    wireMockRule.verify(2, putRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
+    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
+    wireMockRule.verify(1, putRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
     assertNotNull(unlabelledPod);
   }
 
@@ -178,14 +173,10 @@ public class KubectlLabelTest {
                     .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
     wireMockRule.stubFor(
             put(urlPathEqualTo("/api/v1/nodes/foo"))
+                    .withRequestBody(
+                            matchingJsonPath(
+                                    "$.metadata.labels", equalToJson("{ \"k1\": \"null\" }")))
                     .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
-
-    Kubectl.label(V1Node.class)
-            .apiClient(apiClient)
-            .skipDiscovery()
-            .name("foo")
-            .addLabel("k1", "v1")
-            .execute();
 
     V1Node unlabelledNode =
             Kubectl.label(V1Node.class)
@@ -194,8 +185,8 @@ public class KubectlLabelTest {
                     .name("foo")
                     .deleteLabel("k1")
                     .execute();
-    wireMockRule.verify(2, getRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
-    wireMockRule.verify(2, putRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
+    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
+    wireMockRule.verify(1, putRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
     assertNotNull(unlabelledNode);
   }
 
