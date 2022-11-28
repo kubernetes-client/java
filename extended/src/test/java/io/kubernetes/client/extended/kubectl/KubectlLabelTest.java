@@ -13,8 +13,10 @@ limitations under the License.
 package io.kubernetes.client.extended.kubectl;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalToJson;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.matchingJsonPath;
 import static com.github.tomakehurst.wiremock.client.WireMock.put;
 import static com.github.tomakehurst.wiremock.client.WireMock.putRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
@@ -56,6 +58,9 @@ public class KubectlLabelTest {
                     .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
     wireMockRule.stubFor(
         put(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
+            .withRequestBody(
+                matchingJsonPath(
+                    "$.metadata.labels", equalToJson("{ \"k1\": \"v1\", \"k2\": \"v2\" }")))
             .willReturn(
                 aResponse()
                     .withStatus(200)
@@ -85,6 +90,9 @@ public class KubectlLabelTest {
                     .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
     wireMockRule.stubFor(
         put(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
+            .withRequestBody(
+                matchingJsonPath(
+                    "$.metadata.labels", equalToJson("{ \"k1\": \"v1\", \"k2\": \"v2\" }")))
             .willReturn(aResponse().withStatus(403).withBody("{\"metadata\":{}}")));
     assertThrows(
         KubectlException.class,
@@ -109,6 +117,9 @@ public class KubectlLabelTest {
             .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
     wireMockRule.stubFor(
         put(urlPathEqualTo("/api/v1/nodes/foo"))
+            .withRequestBody(
+                matchingJsonPath(
+                    "$.metadata.labels", equalToJson("{ \"k1\": \"v1\", \"k2\": \"v2\" }")))
             .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
     V1Node labelledNode =
         Kubectl.label(V1Node.class)
@@ -131,6 +142,9 @@ public class KubectlLabelTest {
             .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
     wireMockRule.stubFor(
         put(urlPathEqualTo("/api/v1/nodes/foo"))
+            .withRequestBody(
+                matchingJsonPath(
+                    "$.metadata.labels", equalToJson("{ \"k1\": \"v1\", \"k2\": \"v2\" }")))
             .willReturn(aResponse().withStatus(403).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
     assertThrows(
         KubectlException.class,
