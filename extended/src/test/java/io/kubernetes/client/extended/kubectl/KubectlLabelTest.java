@@ -80,6 +80,37 @@ public class KubectlLabelTest {
   }
 
   @Test
+  public void testKubectlDeleteLabelNamespacedResourceShouldWork() throws KubectlException {
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
+    wireMockRule.stubFor(
+        put(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
+            .withRequestBody(
+                matchingJsonPath("$.metadata.labels", equalToJson("{ \"k1\": \"null\" }")))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody("{\"metadata\":{\"name\":\"foo\",\"namespace\":\"default\"}}")));
+
+    V1Pod unlabelledPod =
+        Kubectl.label(V1Pod.class)
+            .apiClient(apiClient)
+            .skipDiscovery()
+            .namespace("default")
+            .name("foo")
+            .deleteLabel("k1")
+            .execute();
+
+    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
+    wireMockRule.verify(1, putRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
+    assertNotNull(unlabelledPod);
+  }
+
+  @Test
   public void testKubectlLabelNamespacedResourceReceiveForbiddenShouldThrowException()
       throws KubectlException {
     wireMockRule.stubFor(
@@ -132,6 +163,29 @@ public class KubectlLabelTest {
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
     wireMockRule.verify(1, putRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
     assertNotNull(labelledNode);
+  }
+
+  @Test
+  public void testKubectlDeleteLabelClusterResourceShouldWork() throws KubectlException {
+    wireMockRule.stubFor(
+        get(urlPathEqualTo("/api/v1/nodes/foo"))
+            .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
+    wireMockRule.stubFor(
+        put(urlPathEqualTo("/api/v1/nodes/foo"))
+            .withRequestBody(
+                matchingJsonPath("$.metadata.labels", equalToJson("{ \"k1\": \"null\" }")))
+            .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
+
+    V1Node unlabelledNode =
+        Kubectl.label(V1Node.class)
+            .apiClient(apiClient)
+            .skipDiscovery()
+            .name("foo")
+            .deleteLabel("k1")
+            .execute();
+    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
+    wireMockRule.verify(1, putRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
+    assertNotNull(unlabelledNode);
   }
 
   @Test
