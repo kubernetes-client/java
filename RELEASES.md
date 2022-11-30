@@ -1,8 +1,8 @@
 # Deploy to Maven release process
 
 This document describes how to configure and use the [Maven release
-plugin](http://maven.apache.org/maven-release/maven-release-plugin) to publish
-to [Sonatype](http://central.sonatype.org/).
+plugin](https://maven.apache.org/maven-release/maven-release-plugin) to publish
+to [Sonatype](https://central.sonatype.org/).
 
 Releases are done on an as-needed basis, and this doc applies only to
 [OWNERS](https://github.com/kubernetes-client/java/blob/master/OWNERS).
@@ -98,7 +98,7 @@ There are three stages to a release explained in detail below:
 Prior to publishing a release, you need to collect three release-specific pieces
 of information:
 
-1. This release's version. We follow [semver](http://semver.org/) to determine
+1. This release's version. We follow [semver](https://semver.org/) to determine
    release versions.
 
 2. This release's changelog. This can generally be inferred from the commit

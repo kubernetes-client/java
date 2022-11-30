@@ -808,14 +808,14 @@ public class V1PrometheusSpec {
   /**
    * An optional list of references to secrets in the same namespace to use for pulling prometheus
    * and alertmanager images from registries see
-   * http://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod
+   * https://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod
    *
    * @return imagePullSecrets
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "An optional list of references to secrets in the same namespace to use for pulling prometheus and alertmanager images from registries see http://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod")
+          "An optional list of references to secrets in the same namespace to use for pulling prometheus and alertmanager images from registries see https://kubernetes.io/docs/user-guide/images#specifying-imagepullsecrets-on-a-pod")
   public List<V1ThanosRulerSpecImagePullSecrets> getImagePullSecrets() {
     return imagePullSecrets;
   }

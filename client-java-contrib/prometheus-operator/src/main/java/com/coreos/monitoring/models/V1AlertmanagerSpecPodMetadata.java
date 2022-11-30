@@ -54,14 +54,14 @@ public class V1AlertmanagerSpecPodMetadata {
   /**
    * Annotations is an unstructured key value map stored with a resource that may be set by external
    * tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved
-   * when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations
+   * when modifying objects. More info: https://kubernetes.io/docs/user-guide/annotations
    *
    * @return annotations
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: http://kubernetes.io/docs/user-guide/annotations")
+          "Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: https://kubernetes.io/docs/user-guide/annotations")
   public Map<String, String> getAnnotations() {
     return annotations;
   }
@@ -87,14 +87,14 @@ public class V1AlertmanagerSpecPodMetadata {
   /**
    * Map of string keys and values that can be used to organize and categorize (scope and select)
    * objects. May match selectors of replication controllers and services. More info:
-   * http://kubernetes.io/docs/user-guide/labels
+   * https://kubernetes.io/docs/user-guide/labels
    *
    * @return labels
    */
   @javax.annotation.Nullable
   @ApiModelProperty(
       value =
-          "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels")
+          "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: https://kubernetes.io/docs/user-guide/labels")
   public Map<String, String> getLabels() {
     return labels;
   }

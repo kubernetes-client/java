@@ -19076,7 +19076,7 @@ public final class V1beta1Apps {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -19087,7 +19087,7 @@ public final class V1beta1Apps {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -19101,7 +19101,7 @@ public final class V1beta1Apps {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -19112,7 +19112,7 @@ public final class V1beta1Apps {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -19123,7 +19123,7 @@ public final class V1beta1Apps {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -19358,7 +19358,7 @@ public final class V1beta1Apps {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -19379,7 +19379,7 @@ public final class V1beta1Apps {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -19392,7 +19392,7 @@ public final class V1beta1Apps {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -19410,7 +19410,7 @@ public final class V1beta1Apps {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -19991,7 +19991,7 @@ public final class V1beta1Apps {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -20012,7 +20012,7 @@ public final class V1beta1Apps {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -20025,7 +20025,7 @@ public final class V1beta1Apps {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -20043,7 +20043,7 @@ public final class V1beta1Apps {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -20068,7 +20068,7 @@ public final class V1beta1Apps {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -20090,7 +20090,7 @@ public final class V1beta1Apps {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -20110,7 +20110,7 @@ public final class V1beta1Apps {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *

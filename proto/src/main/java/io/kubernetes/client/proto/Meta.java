@@ -33668,7 +33668,7 @@ public final class Meta {
      * automatically. Name is primarily intended for creation idempotence and configuration
      * definition.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * +optional
      * </pre>
      *
@@ -33684,7 +33684,7 @@ public final class Meta {
      * automatically. Name is primarily intended for creation idempotence and configuration
      * definition.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * +optional
      * </pre>
      *
@@ -33700,7 +33700,7 @@ public final class Meta {
      * automatically. Name is primarily intended for creation idempotence and configuration
      * definition.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * +optional
      * </pre>
      *
@@ -33788,7 +33788,7 @@ public final class Meta {
      * those objects will be empty.
      * Must be a DNS_LABEL.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/namespaces
+     * More info: https://kubernetes.io/docs/user-guide/namespaces
      * +optional
      * </pre>
      *
@@ -33805,7 +33805,7 @@ public final class Meta {
      * those objects will be empty.
      * Must be a DNS_LABEL.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/namespaces
+     * More info: https://kubernetes.io/docs/user-guide/namespaces
      * +optional
      * </pre>
      *
@@ -33822,7 +33822,7 @@ public final class Meta {
      * those objects will be empty.
      * Must be a DNS_LABEL.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/namespaces
+     * More info: https://kubernetes.io/docs/user-guide/namespaces
      * +optional
      * </pre>
      *
@@ -33888,7 +33888,7 @@ public final class Meta {
      * operations.
      * Populated by the system.
      * Read-only.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -33904,7 +33904,7 @@ public final class Meta {
      * operations.
      * Populated by the system.
      * Read-only.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -33920,7 +33920,7 @@ public final class Meta {
      * operations.
      * Populated by the system.
      * Read-only.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -34181,7 +34181,7 @@ public final class Meta {
      * Map of string keys and values that can be used to organize and categorize
      * (scope and select) objects. May match selectors of replication controllers
      * and services.
-     * More info: http://kubernetes.io/docs/user-guide/labels
+     * More info: https://kubernetes.io/docs/user-guide/labels
      * +optional
      * </pre>
      *
@@ -34195,7 +34195,7 @@ public final class Meta {
      * Map of string keys and values that can be used to organize and categorize
      * (scope and select) objects. May match selectors of replication controllers
      * and services.
-     * More info: http://kubernetes.io/docs/user-guide/labels
+     * More info: https://kubernetes.io/docs/user-guide/labels
      * +optional
      * </pre>
      *
@@ -34212,7 +34212,7 @@ public final class Meta {
      * Map of string keys and values that can be used to organize and categorize
      * (scope and select) objects. May match selectors of replication controllers
      * and services.
-     * More info: http://kubernetes.io/docs/user-guide/labels
+     * More info: https://kubernetes.io/docs/user-guide/labels
      * +optional
      * </pre>
      *
@@ -34226,7 +34226,7 @@ public final class Meta {
      * Map of string keys and values that can be used to organize and categorize
      * (scope and select) objects. May match selectors of replication controllers
      * and services.
-     * More info: http://kubernetes.io/docs/user-guide/labels
+     * More info: https://kubernetes.io/docs/user-guide/labels
      * +optional
      * </pre>
      *
@@ -34240,7 +34240,7 @@ public final class Meta {
      * Map of string keys and values that can be used to organize and categorize
      * (scope and select) objects. May match selectors of replication controllers
      * and services.
-     * More info: http://kubernetes.io/docs/user-guide/labels
+     * More info: https://kubernetes.io/docs/user-guide/labels
      * +optional
      * </pre>
      *
@@ -34255,7 +34255,7 @@ public final class Meta {
      * Annotations is an unstructured key value map stored with a resource that may be
      * set by external tools to store and retrieve arbitrary metadata. They are not
      * queryable and should be preserved when modifying objects.
-     * More info: http://kubernetes.io/docs/user-guide/annotations
+     * More info: https://kubernetes.io/docs/user-guide/annotations
      * +optional
      * </pre>
      *
@@ -34269,7 +34269,7 @@ public final class Meta {
      * Annotations is an unstructured key value map stored with a resource that may be
      * set by external tools to store and retrieve arbitrary metadata. They are not
      * queryable and should be preserved when modifying objects.
-     * More info: http://kubernetes.io/docs/user-guide/annotations
+     * More info: https://kubernetes.io/docs/user-guide/annotations
      * +optional
      * </pre>
      *
@@ -34286,7 +34286,7 @@ public final class Meta {
      * Annotations is an unstructured key value map stored with a resource that may be
      * set by external tools to store and retrieve arbitrary metadata. They are not
      * queryable and should be preserved when modifying objects.
-     * More info: http://kubernetes.io/docs/user-guide/annotations
+     * More info: https://kubernetes.io/docs/user-guide/annotations
      * +optional
      * </pre>
      *
@@ -34300,7 +34300,7 @@ public final class Meta {
      * Annotations is an unstructured key value map stored with a resource that may be
      * set by external tools to store and retrieve arbitrary metadata. They are not
      * queryable and should be preserved when modifying objects.
-     * More info: http://kubernetes.io/docs/user-guide/annotations
+     * More info: https://kubernetes.io/docs/user-guide/annotations
      * +optional
      * </pre>
      *
@@ -34314,7 +34314,7 @@ public final class Meta {
      * Annotations is an unstructured key value map stored with a resource that may be
      * set by external tools to store and retrieve arbitrary metadata. They are not
      * queryable and should be preserved when modifying objects.
-     * More info: http://kubernetes.io/docs/user-guide/annotations
+     * More info: https://kubernetes.io/docs/user-guide/annotations
      * +optional
      * </pre>
      *
@@ -34924,7 +34924,7 @@ public final class Meta {
      * automatically. Name is primarily intended for creation idempotence and configuration
      * definition.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * +optional
      * </pre>
      *
@@ -34942,7 +34942,7 @@ public final class Meta {
      * automatically. Name is primarily intended for creation idempotence and configuration
      * definition.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * +optional
      * </pre>
      *
@@ -34970,7 +34970,7 @@ public final class Meta {
      * automatically. Name is primarily intended for creation idempotence and configuration
      * definition.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * +optional
      * </pre>
      *
@@ -35096,7 +35096,7 @@ public final class Meta {
      * those objects will be empty.
      * Must be a DNS_LABEL.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/namespaces
+     * More info: https://kubernetes.io/docs/user-guide/namespaces
      * +optional
      * </pre>
      *
@@ -35115,7 +35115,7 @@ public final class Meta {
      * those objects will be empty.
      * Must be a DNS_LABEL.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/namespaces
+     * More info: https://kubernetes.io/docs/user-guide/namespaces
      * +optional
      * </pre>
      *
@@ -35144,7 +35144,7 @@ public final class Meta {
      * those objects will be empty.
      * Must be a DNS_LABEL.
      * Cannot be updated.
-     * More info: http://kubernetes.io/docs/user-guide/namespaces
+     * More info: https://kubernetes.io/docs/user-guide/namespaces
      * +optional
      * </pre>
      *
@@ -35248,7 +35248,7 @@ public final class Meta {
      * operations.
      * Populated by the system.
      * Read-only.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -35266,7 +35266,7 @@ public final class Meta {
      * operations.
      * Populated by the system.
      * Read-only.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -35294,7 +35294,7 @@ public final class Meta {
      * operations.
      * Populated by the system.
      * Read-only.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -35652,7 +35652,7 @@ public final class Meta {
      * Map of string keys and values that can be used to organize and categorize
      * (scope and select) objects. May match selectors of replication controllers
      * and services.
-     * More info: http://kubernetes.io/docs/user-guide/labels
+     * More info: https://kubernetes.io/docs/user-guide/labels
      * +optional
      * </pre>
      *
@@ -35676,7 +35676,7 @@ public final class Meta {
      * Map of string keys and values that can be used to organize and categorize
      * (scope and select) objects. May match selectors of replication controllers
      * and services.
-     * More info: http://kubernetes.io/docs/user-guide/labels
+     * More info: https://kubernetes.io/docs/user-guide/labels
      * +optional
      * </pre>
      *
@@ -35692,7 +35692,7 @@ public final class Meta {
      * Map of string keys and values that can be used to organize and categorize
      * (scope and select) objects. May match selectors of replication controllers
      * and services.
-     * More info: http://kubernetes.io/docs/user-guide/labels
+     * More info: https://kubernetes.io/docs/user-guide/labels
      * +optional
      * </pre>
      *
@@ -35713,7 +35713,7 @@ public final class Meta {
      * Map of string keys and values that can be used to organize and categorize
      * (scope and select) objects. May match selectors of replication controllers
      * and services.
-     * More info: http://kubernetes.io/docs/user-guide/labels
+     * More info: https://kubernetes.io/docs/user-guide/labels
      * +optional
      * </pre>
      *
@@ -35764,7 +35764,7 @@ public final class Meta {
      * Annotations is an unstructured key value map stored with a resource that may be
      * set by external tools to store and retrieve arbitrary metadata. They are not
      * queryable and should be preserved when modifying objects.
-     * More info: http://kubernetes.io/docs/user-guide/annotations
+     * More info: https://kubernetes.io/docs/user-guide/annotations
      * +optional
      * </pre>
      *
@@ -35788,7 +35788,7 @@ public final class Meta {
      * Annotations is an unstructured key value map stored with a resource that may be
      * set by external tools to store and retrieve arbitrary metadata. They are not
      * queryable and should be preserved when modifying objects.
-     * More info: http://kubernetes.io/docs/user-guide/annotations
+     * More info: https://kubernetes.io/docs/user-guide/annotations
      * +optional
      * </pre>
      *
@@ -35804,7 +35804,7 @@ public final class Meta {
      * Annotations is an unstructured key value map stored with a resource that may be
      * set by external tools to store and retrieve arbitrary metadata. They are not
      * queryable and should be preserved when modifying objects.
-     * More info: http://kubernetes.io/docs/user-guide/annotations
+     * More info: https://kubernetes.io/docs/user-guide/annotations
      * +optional
      * </pre>
      *
@@ -35825,7 +35825,7 @@ public final class Meta {
      * Annotations is an unstructured key value map stored with a resource that may be
      * set by external tools to store and retrieve arbitrary metadata. They are not
      * queryable and should be preserved when modifying objects.
-     * More info: http://kubernetes.io/docs/user-guide/annotations
+     * More info: https://kubernetes.io/docs/user-guide/annotations
      * +optional
      * </pre>
      *
@@ -37038,7 +37038,7 @@ public final class Meta {
        * automatically. Name is primarily intended for creation idempotence and configuration
        * definition.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * +optional
        * </pre>
        *
@@ -37056,7 +37056,7 @@ public final class Meta {
        * automatically. Name is primarily intended for creation idempotence and configuration
        * definition.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * +optional
        * </pre>
        *
@@ -37084,7 +37084,7 @@ public final class Meta {
        * automatically. Name is primarily intended for creation idempotence and configuration
        * definition.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * +optional
        * </pre>
        *
@@ -37110,7 +37110,7 @@ public final class Meta {
        * automatically. Name is primarily intended for creation idempotence and configuration
        * definition.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * +optional
        * </pre>
        *
@@ -37134,7 +37134,7 @@ public final class Meta {
        * automatically. Name is primarily intended for creation idempotence and configuration
        * definition.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * +optional
        * </pre>
        *
@@ -37155,7 +37155,7 @@ public final class Meta {
        * automatically. Name is primarily intended for creation idempotence and configuration
        * definition.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * +optional
        * </pre>
        *
@@ -37367,7 +37367,7 @@ public final class Meta {
        * those objects will be empty.
        * Must be a DNS_LABEL.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/namespaces
+       * More info: https://kubernetes.io/docs/user-guide/namespaces
        * +optional
        * </pre>
        *
@@ -37386,7 +37386,7 @@ public final class Meta {
        * those objects will be empty.
        * Must be a DNS_LABEL.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/namespaces
+       * More info: https://kubernetes.io/docs/user-guide/namespaces
        * +optional
        * </pre>
        *
@@ -37415,7 +37415,7 @@ public final class Meta {
        * those objects will be empty.
        * Must be a DNS_LABEL.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/namespaces
+       * More info: https://kubernetes.io/docs/user-guide/namespaces
        * +optional
        * </pre>
        *
@@ -37442,7 +37442,7 @@ public final class Meta {
        * those objects will be empty.
        * Must be a DNS_LABEL.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/namespaces
+       * More info: https://kubernetes.io/docs/user-guide/namespaces
        * +optional
        * </pre>
        *
@@ -37467,7 +37467,7 @@ public final class Meta {
        * those objects will be empty.
        * Must be a DNS_LABEL.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/namespaces
+       * More info: https://kubernetes.io/docs/user-guide/namespaces
        * +optional
        * </pre>
        *
@@ -37489,7 +37489,7 @@ public final class Meta {
        * those objects will be empty.
        * Must be a DNS_LABEL.
        * Cannot be updated.
-       * More info: http://kubernetes.io/docs/user-guide/namespaces
+       * More info: https://kubernetes.io/docs/user-guide/namespaces
        * +optional
        * </pre>
        *
@@ -37658,7 +37658,7 @@ public final class Meta {
        * operations.
        * Populated by the system.
        * Read-only.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -37676,7 +37676,7 @@ public final class Meta {
        * operations.
        * Populated by the system.
        * Read-only.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -37704,7 +37704,7 @@ public final class Meta {
        * operations.
        * Populated by the system.
        * Read-only.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -37730,7 +37730,7 @@ public final class Meta {
        * operations.
        * Populated by the system.
        * Read-only.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -37754,7 +37754,7 @@ public final class Meta {
        * operations.
        * Populated by the system.
        * Read-only.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -37775,7 +37775,7 @@ public final class Meta {
        * operations.
        * Populated by the system.
        * Read-only.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -38702,7 +38702,7 @@ public final class Meta {
        * Map of string keys and values that can be used to organize and categorize
        * (scope and select) objects. May match selectors of replication controllers
        * and services.
-       * More info: http://kubernetes.io/docs/user-guide/labels
+       * More info: https://kubernetes.io/docs/user-guide/labels
        * +optional
        * </pre>
        *
@@ -38726,7 +38726,7 @@ public final class Meta {
        * Map of string keys and values that can be used to organize and categorize
        * (scope and select) objects. May match selectors of replication controllers
        * and services.
-       * More info: http://kubernetes.io/docs/user-guide/labels
+       * More info: https://kubernetes.io/docs/user-guide/labels
        * +optional
        * </pre>
        *
@@ -38742,7 +38742,7 @@ public final class Meta {
        * Map of string keys and values that can be used to organize and categorize
        * (scope and select) objects. May match selectors of replication controllers
        * and services.
-       * More info: http://kubernetes.io/docs/user-guide/labels
+       * More info: https://kubernetes.io/docs/user-guide/labels
        * +optional
        * </pre>
        *
@@ -38763,7 +38763,7 @@ public final class Meta {
        * Map of string keys and values that can be used to organize and categorize
        * (scope and select) objects. May match selectors of replication controllers
        * and services.
-       * More info: http://kubernetes.io/docs/user-guide/labels
+       * More info: https://kubernetes.io/docs/user-guide/labels
        * +optional
        * </pre>
        *
@@ -38791,7 +38791,7 @@ public final class Meta {
        * Map of string keys and values that can be used to organize and categorize
        * (scope and select) objects. May match selectors of replication controllers
        * and services.
-       * More info: http://kubernetes.io/docs/user-guide/labels
+       * More info: https://kubernetes.io/docs/user-guide/labels
        * +optional
        * </pre>
        *
@@ -38816,7 +38816,7 @@ public final class Meta {
        * Map of string keys and values that can be used to organize and categorize
        * (scope and select) objects. May match selectors of replication controllers
        * and services.
-       * More info: http://kubernetes.io/docs/user-guide/labels
+       * More info: https://kubernetes.io/docs/user-guide/labels
        * +optional
        * </pre>
        *
@@ -38839,7 +38839,7 @@ public final class Meta {
        * Map of string keys and values that can be used to organize and categorize
        * (scope and select) objects. May match selectors of replication controllers
        * and services.
-       * More info: http://kubernetes.io/docs/user-guide/labels
+       * More info: https://kubernetes.io/docs/user-guide/labels
        * +optional
        * </pre>
        *
@@ -38885,7 +38885,7 @@ public final class Meta {
        * Annotations is an unstructured key value map stored with a resource that may be
        * set by external tools to store and retrieve arbitrary metadata. They are not
        * queryable and should be preserved when modifying objects.
-       * More info: http://kubernetes.io/docs/user-guide/annotations
+       * More info: https://kubernetes.io/docs/user-guide/annotations
        * +optional
        * </pre>
        *
@@ -38909,7 +38909,7 @@ public final class Meta {
        * Annotations is an unstructured key value map stored with a resource that may be
        * set by external tools to store and retrieve arbitrary metadata. They are not
        * queryable and should be preserved when modifying objects.
-       * More info: http://kubernetes.io/docs/user-guide/annotations
+       * More info: https://kubernetes.io/docs/user-guide/annotations
        * +optional
        * </pre>
        *
@@ -38925,7 +38925,7 @@ public final class Meta {
        * Annotations is an unstructured key value map stored with a resource that may be
        * set by external tools to store and retrieve arbitrary metadata. They are not
        * queryable and should be preserved when modifying objects.
-       * More info: http://kubernetes.io/docs/user-guide/annotations
+       * More info: https://kubernetes.io/docs/user-guide/annotations
        * +optional
        * </pre>
        *
@@ -38946,7 +38946,7 @@ public final class Meta {
        * Annotations is an unstructured key value map stored with a resource that may be
        * set by external tools to store and retrieve arbitrary metadata. They are not
        * queryable and should be preserved when modifying objects.
-       * More info: http://kubernetes.io/docs/user-guide/annotations
+       * More info: https://kubernetes.io/docs/user-guide/annotations
        * +optional
        * </pre>
        *
@@ -38974,7 +38974,7 @@ public final class Meta {
        * Annotations is an unstructured key value map stored with a resource that may be
        * set by external tools to store and retrieve arbitrary metadata. They are not
        * queryable and should be preserved when modifying objects.
-       * More info: http://kubernetes.io/docs/user-guide/annotations
+       * More info: https://kubernetes.io/docs/user-guide/annotations
        * +optional
        * </pre>
        *
@@ -38999,7 +38999,7 @@ public final class Meta {
        * Annotations is an unstructured key value map stored with a resource that may be
        * set by external tools to store and retrieve arbitrary metadata. They are not
        * queryable and should be preserved when modifying objects.
-       * More info: http://kubernetes.io/docs/user-guide/annotations
+       * More info: https://kubernetes.io/docs/user-guide/annotations
        * +optional
        * </pre>
        *
@@ -39022,7 +39022,7 @@ public final class Meta {
        * Annotations is an unstructured key value map stored with a resource that may be
        * set by external tools to store and retrieve arbitrary metadata. They are not
        * queryable and should be preserved when modifying objects.
-       * More info: http://kubernetes.io/docs/user-guide/annotations
+       * More info: https://kubernetes.io/docs/user-guide/annotations
        * +optional
        * </pre>
        *
@@ -40547,7 +40547,7 @@ public final class Meta {
      *
      * <pre>
      * Name of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -40558,7 +40558,7 @@ public final class Meta {
      *
      * <pre>
      * Name of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -40569,7 +40569,7 @@ public final class Meta {
      *
      * <pre>
      * Name of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -40581,7 +40581,7 @@ public final class Meta {
      *
      * <pre>
      * UID of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * </pre>
      *
      * <code>optional string uid = 4;</code>
@@ -40592,7 +40592,7 @@ public final class Meta {
      *
      * <pre>
      * UID of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * </pre>
      *
      * <code>optional string uid = 4;</code>
@@ -40603,7 +40603,7 @@ public final class Meta {
      *
      * <pre>
      * UID of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * </pre>
      *
      * <code>optional string uid = 4;</code>
@@ -40920,7 +40920,7 @@ public final class Meta {
      *
      * <pre>
      * Name of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -40933,7 +40933,7 @@ public final class Meta {
      *
      * <pre>
      * Name of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -40956,7 +40956,7 @@ public final class Meta {
      *
      * <pre>
      * Name of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 3;</code>
@@ -40980,7 +40980,7 @@ public final class Meta {
      *
      * <pre>
      * UID of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * </pre>
      *
      * <code>optional string uid = 4;</code>
@@ -40993,7 +40993,7 @@ public final class Meta {
      *
      * <pre>
      * UID of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * </pre>
      *
      * <code>optional string uid = 4;</code>
@@ -41016,7 +41016,7 @@ public final class Meta {
      *
      * <pre>
      * UID of the referent.
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * </pre>
      *
      * <code>optional string uid = 4;</code>
@@ -41787,7 +41787,7 @@ public final class Meta {
        *
        * <pre>
        * Name of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -41800,7 +41800,7 @@ public final class Meta {
        *
        * <pre>
        * Name of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -41823,7 +41823,7 @@ public final class Meta {
        *
        * <pre>
        * Name of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -41844,7 +41844,7 @@ public final class Meta {
        *
        * <pre>
        * Name of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -41863,7 +41863,7 @@ public final class Meta {
        *
        * <pre>
        * Name of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -41879,7 +41879,7 @@ public final class Meta {
        *
        * <pre>
        * Name of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 3;</code>
@@ -41900,7 +41900,7 @@ public final class Meta {
        *
        * <pre>
        * UID of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * </pre>
        *
        * <code>optional string uid = 4;</code>
@@ -41913,7 +41913,7 @@ public final class Meta {
        *
        * <pre>
        * UID of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * </pre>
        *
        * <code>optional string uid = 4;</code>
@@ -41936,7 +41936,7 @@ public final class Meta {
        *
        * <pre>
        * UID of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * </pre>
        *
        * <code>optional string uid = 4;</code>
@@ -41957,7 +41957,7 @@ public final class Meta {
        *
        * <pre>
        * UID of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * </pre>
        *
        * <code>optional string uid = 4;</code>
@@ -41976,7 +41976,7 @@ public final class Meta {
        *
        * <pre>
        * UID of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * </pre>
        *
        * <code>optional string uid = 4;</code>
@@ -41992,7 +41992,7 @@ public final class Meta {
        *
        * <pre>
        * UID of the referent.
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * </pre>
        *
        * <code>optional string uid = 4;</code>
@@ -52128,7 +52128,7 @@ public final class Meta {
      * <pre>
      * UID of the resource.
      * (when there is a single resource which can be described).
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -52141,7 +52141,7 @@ public final class Meta {
      * <pre>
      * UID of the resource.
      * (when there is a single resource which can be described).
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -52154,7 +52154,7 @@ public final class Meta {
      * <pre>
      * UID of the resource.
      * (when there is a single resource which can be described).
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -52588,7 +52588,7 @@ public final class Meta {
      * <pre>
      * UID of the resource.
      * (when there is a single resource which can be described).
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -52603,7 +52603,7 @@ public final class Meta {
      * <pre>
      * UID of the resource.
      * (when there is a single resource which can be described).
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -52628,7 +52628,7 @@ public final class Meta {
      * <pre>
      * UID of the resource.
      * (when there is a single resource which can be described).
-     * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+     * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
      * +optional
      * </pre>
      *
@@ -53611,7 +53611,7 @@ public final class Meta {
        * <pre>
        * UID of the resource.
        * (when there is a single resource which can be described).
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -53626,7 +53626,7 @@ public final class Meta {
        * <pre>
        * UID of the resource.
        * (when there is a single resource which can be described).
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -53651,7 +53651,7 @@ public final class Meta {
        * <pre>
        * UID of the resource.
        * (when there is a single resource which can be described).
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -53674,7 +53674,7 @@ public final class Meta {
        * <pre>
        * UID of the resource.
        * (when there is a single resource which can be described).
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -53695,7 +53695,7 @@ public final class Meta {
        * <pre>
        * UID of the resource.
        * (when there is a single resource which can be described).
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *
@@ -53713,7 +53713,7 @@ public final class Meta {
        * <pre>
        * UID of the resource.
        * (when there is a single resource which can be described).
-       * More info: http://kubernetes.io/docs/user-guide/identifiers#uids
+       * More info: https://kubernetes.io/docs/user-guide/identifiers#uids
        * +optional
        * </pre>
        *

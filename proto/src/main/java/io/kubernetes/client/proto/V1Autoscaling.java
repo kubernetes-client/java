@@ -2993,7 +2993,7 @@ public final class V1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3003,7 +3003,7 @@ public final class V1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3013,7 +3013,7 @@ public final class V1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3224,7 +3224,7 @@ public final class V1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3236,7 +3236,7 @@ public final class V1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3258,7 +3258,7 @@ public final class V1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3845,7 +3845,7 @@ public final class V1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -3857,7 +3857,7 @@ public final class V1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -3879,7 +3879,7 @@ public final class V1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -3899,7 +3899,7 @@ public final class V1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -3917,7 +3917,7 @@ public final class V1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -3932,7 +3932,7 @@ public final class V1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -31244,7 +31244,7 @@ public final class V1Autoscaling {
      * label query over pods that should match the replicas count. This is same
      * as the label selector but in the string format to avoid introspection
      * by clients. The string will be in the same format as the query-param syntax.
-     * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -31258,7 +31258,7 @@ public final class V1Autoscaling {
      * label query over pods that should match the replicas count. This is same
      * as the label selector but in the string format to avoid introspection
      * by clients. The string will be in the same format as the query-param syntax.
-     * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -31272,7 +31272,7 @@ public final class V1Autoscaling {
      * label query over pods that should match the replicas count. This is same
      * as the label selector but in the string format to avoid introspection
      * by clients. The string will be in the same format as the query-param syntax.
-     * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -31412,7 +31412,7 @@ public final class V1Autoscaling {
      * label query over pods that should match the replicas count. This is same
      * as the label selector but in the string format to avoid introspection
      * by clients. The string will be in the same format as the query-param syntax.
-     * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -31428,7 +31428,7 @@ public final class V1Autoscaling {
      * label query over pods that should match the replicas count. This is same
      * as the label selector but in the string format to avoid introspection
      * by clients. The string will be in the same format as the query-param syntax.
-     * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -31454,7 +31454,7 @@ public final class V1Autoscaling {
      * label query over pods that should match the replicas count. This is same
      * as the label selector but in the string format to avoid introspection
      * by clients. The string will be in the same format as the query-param syntax.
-     * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * </pre>
      *
@@ -31897,7 +31897,7 @@ public final class V1Autoscaling {
        * label query over pods that should match the replicas count. This is same
        * as the label selector but in the string format to avoid introspection
        * by clients. The string will be in the same format as the query-param syntax.
-       * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -31913,7 +31913,7 @@ public final class V1Autoscaling {
        * label query over pods that should match the replicas count. This is same
        * as the label selector but in the string format to avoid introspection
        * by clients. The string will be in the same format as the query-param syntax.
-       * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -31939,7 +31939,7 @@ public final class V1Autoscaling {
        * label query over pods that should match the replicas count. This is same
        * as the label selector but in the string format to avoid introspection
        * by clients. The string will be in the same format as the query-param syntax.
-       * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -31963,7 +31963,7 @@ public final class V1Autoscaling {
        * label query over pods that should match the replicas count. This is same
        * as the label selector but in the string format to avoid introspection
        * by clients. The string will be in the same format as the query-param syntax.
-       * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -31985,7 +31985,7 @@ public final class V1Autoscaling {
        * label query over pods that should match the replicas count. This is same
        * as the label selector but in the string format to avoid introspection
        * by clients. The string will be in the same format as the query-param syntax.
-       * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
@@ -32004,7 +32004,7 @@ public final class V1Autoscaling {
        * label query over pods that should match the replicas count. This is same
        * as the label selector but in the string format to avoid introspection
        * by clients. The string will be in the same format as the query-param syntax.
-       * More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * More info about label selectors: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * </pre>
        *
