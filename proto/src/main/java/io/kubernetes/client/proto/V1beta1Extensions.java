@@ -82728,7 +82728,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * +mapType=atomic
      * </pre>
@@ -82740,7 +82740,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * +mapType=atomic
      * </pre>
@@ -82755,7 +82755,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * +mapType=atomic
      * </pre>
@@ -82767,7 +82767,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * +mapType=atomic
      * </pre>
@@ -82779,7 +82779,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * +mapType=atomic
      * </pre>
@@ -83015,7 +83015,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * +mapType=atomic
      * </pre>
@@ -83037,7 +83037,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * +mapType=atomic
      * </pre>
@@ -83051,7 +83051,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * +mapType=atomic
      * </pre>
@@ -83070,7 +83070,7 @@ public final class V1beta1Extensions {
      *
      *
      * <pre>
-     * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+     * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
      * +optional
      * +mapType=atomic
      * </pre>
@@ -83653,7 +83653,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * +mapType=atomic
        * </pre>
@@ -83675,7 +83675,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * +mapType=atomic
        * </pre>
@@ -83689,7 +83689,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * +mapType=atomic
        * </pre>
@@ -83708,7 +83708,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * +mapType=atomic
        * </pre>
@@ -83734,7 +83734,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * +mapType=atomic
        * </pre>
@@ -83757,7 +83757,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * +mapType=atomic
        * </pre>
@@ -83778,7 +83778,7 @@ public final class V1beta1Extensions {
        *
        *
        * <pre>
-       * label query over pods that should match the replicas count. More info: http://kubernetes.io/docs/user-guide/labels#label-selectors
+       * label query over pods that should match the replicas count. More info: https://kubernetes.io/docs/user-guide/labels#label-selectors
        * +optional
        * +mapType=atomic
        * </pre>

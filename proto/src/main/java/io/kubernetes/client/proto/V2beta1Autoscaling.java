@@ -3011,7 +3011,7 @@ public final class V2beta1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3021,7 +3021,7 @@ public final class V2beta1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3031,7 +3031,7 @@ public final class V2beta1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3242,7 +3242,7 @@ public final class V2beta1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3254,7 +3254,7 @@ public final class V2beta1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3276,7 +3276,7 @@ public final class V2beta1Autoscaling {
      *
      *
      * <pre>
-     * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+     * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
      * </pre>
      *
      * <code>optional string name = 2;</code>
@@ -3872,7 +3872,7 @@ public final class V2beta1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -3884,7 +3884,7 @@ public final class V2beta1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -3906,7 +3906,7 @@ public final class V2beta1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -3926,7 +3926,7 @@ public final class V2beta1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -3944,7 +3944,7 @@ public final class V2beta1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
@@ -3959,7 +3959,7 @@ public final class V2beta1Autoscaling {
        *
        *
        * <pre>
-       * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
+       * Name of the referent; More info: https://kubernetes.io/docs/user-guide/identifiers#names
        * </pre>
        *
        * <code>optional string name = 2;</code>
