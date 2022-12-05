@@ -24,7 +24,7 @@ import java.io.IOException;
 /**
  * A simple Example of how to use the Java API.<br>
  * This example demonstrates patching of deployment using Json Patch and Strategic Merge Patch.<br>
- * For generating Json Patches, refer <a href="http://jsonpatch.com/">http://jsonpatch.com</a>. For
+ * For generating Json Patches, refer <a href="https://jsonpatch.com/">https://jsonpatch.com</a>. For
  * generating Strategic Merge Patches, refer <a
  * href="https://github.com/kubernetes/community/blob/master/contributors/devel/sig-api-machinery/strategic-merge-patch.md">strategic-merge-patch.md</a>.
  *
