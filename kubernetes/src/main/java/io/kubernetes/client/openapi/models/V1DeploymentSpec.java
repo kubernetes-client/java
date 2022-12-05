@@ -22,7 +22,7 @@ import java.util.Objects;
     description = "DeploymentSpec is the specification of the desired behavior of the Deployment.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
+    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1DeploymentSpec {
   public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
 

@@ -1,52 +1,35 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.fluent;
 
-import java.lang.reflect.Array;
+import java.util.Optional;
+import java.util.ArrayList;
+import java.lang.String;
 import java.lang.reflect.GenericArrayType;
+import java.util.LinkedHashMap;
+import java.lang.reflect.Array;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.lang.reflect.TypeVariable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
+import java.lang.Class;
 import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
-import java.util.Optional;
-
-public final class Visitors {
+public final class Visitors{
   private Visitors() {
-    // Utility Class
+    //Utility Class
   }
-
-  public static <T> Visitor<T> newVisitor(Class<T> type, Visitor<T> visitor) {
+  public static <T>Visitor<T> newVisitor(Class<T> type,Visitor<T> visitor) {
     return new DelegatingVisitor<T>(type, visitor);
   }
-
-  protected static <T> List<Class> getTypeArguments(
-      Class<T> baseClass, Class<? extends T> childClass) {
+  protected static <T>List<Class> getTypeArguments(Class<T> baseClass,Class<? extends T> childClass) {
     Map<Type, Type> resolvedTypes = new LinkedHashMap<Type, Type>();
     Type type = childClass;
     // start walking up the inheritance hierarchy until we hit baseClass
-    for (Class cl = getClass(type);
-        cl != null && cl != Object.class && !baseClass.getName().equals(cl.getName());
-        cl = getClass(type)) {
+    for (Class cl = getClass(type); cl != null && cl != Object.class
+        && !baseClass.getName().equals(cl.getName()); cl = getClass(type)) {
       if (type instanceof Class) {
         Class c = (Class) type;
-        Optional<Type> nextInterface =
-            baseClass.isInterface()
-                ? getMatchingInterface(baseClass, c.getGenericInterfaces())
-                : Optional.empty();
+        Optional<Type> nextInterface = baseClass.isInterface() ? getMatchingInterface(baseClass, c.getGenericInterfaces())
+            : Optional.empty();
         if (nextInterface.isPresent()) {
           type = nextInterface.get();
         } else {
@@ -92,13 +75,9 @@ public final class Visitors {
     }
     return typeArgumentsAsClasses;
   }
-
   private static String getRawName(Type type) {
-    return type instanceof ParameterizedType
-        ? ((ParameterizedType) type).getRawType().getTypeName()
-        : type.getTypeName();
+    return type instanceof ParameterizedType ? ((ParameterizedType) type).getRawType().getTypeName() : type.getTypeName();
   }
-
   private static Class<?> getClass(Type type) {
     if (type instanceof Class) {
       return (Class) type;
@@ -116,16 +95,12 @@ public final class Visitors {
       return null;
     }
   }
-
-  private static <T> Optional<Type> getMatchingInterface(
-      Class<?> targetInterface, java.lang.reflect.Type... candidates) {
+  private static <T>Optional<Type> getMatchingInterface(Class<?> targetInterface,java.lang.reflect.Type... candidates) {
     if (candidates == null || candidates.length == 0) {
       return Optional.empty();
     }
-    Optional<Type> match =
-        Arrays.stream(candidates)
-            .filter(c -> getRawName(c).equals(targetInterface.getTypeName()))
-            .findFirst();
+    Optional<Type> match = Arrays.stream(candidates).filter(c -> getRawName(c).equals(targetInterface.getTypeName()))
+        .findFirst();
     if (match.isPresent()) {
       return match;
     } else {
@@ -141,4 +116,5 @@ public final class Visitors {
       return Optional.empty();
     }
   }
+  
 }

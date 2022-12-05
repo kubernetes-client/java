@@ -1,49 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V1PodSecurityContextBuilder
-    extends V1PodSecurityContextFluentImpl<V1PodSecurityContextBuilder>
-    implements VisitableBuilder<V1PodSecurityContext, V1PodSecurityContextBuilder> {
+import java.lang.Boolean;
+public class V1PodSecurityContextBuilder extends V1PodSecurityContextFluentImpl<V1PodSecurityContextBuilder> implements VisitableBuilder<V1PodSecurityContext,V1PodSecurityContextBuilder>{
   public V1PodSecurityContextBuilder() {
     this(false);
   }
-
   public V1PodSecurityContextBuilder(Boolean validationEnabled) {
     this(new V1PodSecurityContext(), validationEnabled);
   }
-
   public V1PodSecurityContextBuilder(V1PodSecurityContextFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V1PodSecurityContextBuilder(
-      V1PodSecurityContextFluent<?> fluent, Boolean validationEnabled) {
+  public V1PodSecurityContextBuilder(V1PodSecurityContextFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V1PodSecurityContext(), validationEnabled);
   }
-
-  public V1PodSecurityContextBuilder(
-      V1PodSecurityContextFluent<?> fluent, V1PodSecurityContext instance) {
+  public V1PodSecurityContextBuilder(V1PodSecurityContextFluent<?> fluent,V1PodSecurityContext instance) {
     this(fluent, instance, false);
   }
-
-  public V1PodSecurityContextBuilder(
-      V1PodSecurityContextFluent<?> fluent,
-      V1PodSecurityContext instance,
-      Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V1PodSecurityContextBuilder(V1PodSecurityContextFluent<?> fluent,V1PodSecurityContext instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withFsGroup(instance.getFsGroup());
 
     fluent.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
@@ -64,15 +40,13 @@ public class V1PodSecurityContextBuilder
 
     fluent.withWindowsOptions(instance.getWindowsOptions());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V1PodSecurityContextBuilder(V1PodSecurityContext instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V1PodSecurityContextBuilder(V1PodSecurityContext instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V1PodSecurityContextBuilder(V1PodSecurityContext instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withFsGroup(instance.getFsGroup());
 
     this.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
@@ -93,12 +67,10 @@ public class V1PodSecurityContextBuilder
 
     this.withWindowsOptions(instance.getWindowsOptions());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V1PodSecurityContextFluent<?> fluent;
   Boolean validationEnabled;
-
   public V1PodSecurityContext build() {
     V1PodSecurityContext buildable = new V1PodSecurityContext();
     buildable.setFsGroup(fluent.getFsGroup());
@@ -113,4 +85,5 @@ public class V1PodSecurityContextBuilder
     buildable.setWindowsOptions(fluent.getWindowsOptions());
     return buildable;
   }
+  
 }

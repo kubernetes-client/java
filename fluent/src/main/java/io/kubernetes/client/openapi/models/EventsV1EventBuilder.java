@@ -1,44 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class EventsV1EventBuilder extends EventsV1EventFluentImpl<EventsV1EventBuilder>
-    implements VisitableBuilder<EventsV1Event, EventsV1EventBuilder> {
+import java.lang.Boolean;
+public class EventsV1EventBuilder extends EventsV1EventFluentImpl<EventsV1EventBuilder> implements VisitableBuilder<EventsV1Event,EventsV1EventBuilder>{
   public EventsV1EventBuilder() {
     this(false);
   }
-
   public EventsV1EventBuilder(Boolean validationEnabled) {
     this(new EventsV1Event(), validationEnabled);
   }
-
   public EventsV1EventBuilder(EventsV1EventFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public EventsV1EventBuilder(EventsV1EventFluent<?> fluent, Boolean validationEnabled) {
+  public EventsV1EventBuilder(EventsV1EventFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new EventsV1Event(), validationEnabled);
   }
-
-  public EventsV1EventBuilder(EventsV1EventFluent<?> fluent, EventsV1Event instance) {
+  public EventsV1EventBuilder(EventsV1EventFluent<?> fluent,EventsV1Event instance) {
     this(fluent, instance, false);
   }
-
-  public EventsV1EventBuilder(
-      EventsV1EventFluent<?> fluent, EventsV1Event instance, Boolean validationEnabled) {
-    this.fluent = fluent;
+  public EventsV1EventBuilder(EventsV1EventFluent<?> fluent,EventsV1Event instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withAction(instance.getAction());
 
     fluent.withApiVersion(instance.getApiVersion());
@@ -73,15 +54,13 @@ public class EventsV1EventBuilder extends EventsV1EventFluentImpl<EventsV1EventB
 
     fluent.withType(instance.getType());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public EventsV1EventBuilder(EventsV1Event instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public EventsV1EventBuilder(EventsV1Event instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public EventsV1EventBuilder(EventsV1Event instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withAction(instance.getAction());
 
     this.withApiVersion(instance.getApiVersion());
@@ -116,12 +95,10 @@ public class EventsV1EventBuilder extends EventsV1EventFluentImpl<EventsV1EventB
 
     this.withType(instance.getType());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   EventsV1EventFluent<?> fluent;
   Boolean validationEnabled;
-
   public EventsV1Event build() {
     EventsV1Event buildable = new EventsV1Event();
     buildable.setAction(fluent.getAction());
@@ -143,4 +120,5 @@ public class EventsV1EventBuilder extends EventsV1EventFluentImpl<EventsV1EventB
     buildable.setType(fluent.getType());
     return buildable;
   }
+  
 }

@@ -24,7 +24,7 @@ import java.util.Objects;
         "WebhookClientConfig contains the information to make a TLS connection with the webhook")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
+    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class AdmissionregistrationV1WebhookClientConfig {
   public static final String SERIALIZED_NAME_CA_BUNDLE = "caBundle";
 

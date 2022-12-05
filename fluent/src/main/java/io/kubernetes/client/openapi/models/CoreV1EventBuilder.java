@@ -1,44 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class CoreV1EventBuilder extends CoreV1EventFluentImpl<CoreV1EventBuilder>
-    implements VisitableBuilder<CoreV1Event, CoreV1EventBuilder> {
+import java.lang.Boolean;
+public class CoreV1EventBuilder extends CoreV1EventFluentImpl<CoreV1EventBuilder> implements VisitableBuilder<CoreV1Event,CoreV1EventBuilder>{
   public CoreV1EventBuilder() {
     this(false);
   }
-
   public CoreV1EventBuilder(Boolean validationEnabled) {
     this(new CoreV1Event(), validationEnabled);
   }
-
   public CoreV1EventBuilder(CoreV1EventFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public CoreV1EventBuilder(CoreV1EventFluent<?> fluent, Boolean validationEnabled) {
+  public CoreV1EventBuilder(CoreV1EventFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new CoreV1Event(), validationEnabled);
   }
-
-  public CoreV1EventBuilder(CoreV1EventFluent<?> fluent, CoreV1Event instance) {
+  public CoreV1EventBuilder(CoreV1EventFluent<?> fluent,CoreV1Event instance) {
     this(fluent, instance, false);
   }
-
-  public CoreV1EventBuilder(
-      CoreV1EventFluent<?> fluent, CoreV1Event instance, Boolean validationEnabled) {
-    this.fluent = fluent;
+  public CoreV1EventBuilder(CoreV1EventFluent<?> fluent,CoreV1Event instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withAction(instance.getAction());
 
     fluent.withApiVersion(instance.getApiVersion());
@@ -73,15 +54,13 @@ public class CoreV1EventBuilder extends CoreV1EventFluentImpl<CoreV1EventBuilder
 
     fluent.withType(instance.getType());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public CoreV1EventBuilder(CoreV1Event instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public CoreV1EventBuilder(CoreV1Event instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public CoreV1EventBuilder(CoreV1Event instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withAction(instance.getAction());
 
     this.withApiVersion(instance.getApiVersion());
@@ -116,12 +95,10 @@ public class CoreV1EventBuilder extends CoreV1EventFluentImpl<CoreV1EventBuilder
 
     this.withType(instance.getType());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   CoreV1EventFluent<?> fluent;
   Boolean validationEnabled;
-
   public CoreV1Event build() {
     CoreV1Event buildable = new CoreV1Event();
     buildable.setAction(fluent.getAction());
@@ -143,4 +120,5 @@ public class CoreV1EventBuilder extends CoreV1EventFluentImpl<CoreV1EventBuilder
     buildable.setType(fluent.getType());
     return buildable;
   }
+  
 }

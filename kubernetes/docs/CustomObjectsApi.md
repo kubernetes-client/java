@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**deleteCollectionClusterCustomObject**](CustomObjectsApi.md#deleteCollectionClusterCustomObject) | **DELETE** /apis/{group}/{version}/{plural} | 
 [**deleteCollectionNamespacedCustomObject**](CustomObjectsApi.md#deleteCollectionNamespacedCustomObject) | **DELETE** /apis/{group}/{version}/namespaces/{namespace}/{plural} | 
 [**deleteNamespacedCustomObject**](CustomObjectsApi.md#deleteNamespacedCustomObject) | **DELETE** /apis/{group}/{version}/namespaces/{namespace}/{plural}/{name} | 
+[**getAPIResources**](CustomObjectsApi.md#getAPIResources) | **GET** /apis/{group}/{version} | 
 [**getClusterCustomObject**](CustomObjectsApi.md#getClusterCustomObject) | **GET** /apis/{group}/{version}/{plural}/{name} | 
 [**getClusterCustomObjectScale**](CustomObjectsApi.md#getClusterCustomObjectScale) | **GET** /apis/{group}/{version}/{plural}/{name}/scale | 
 [**getClusterCustomObjectStatus**](CustomObjectsApi.md#getClusterCustomObjectStatus) | **GET** /apis/{group}/{version}/{plural}/{name}/status | 
@@ -530,6 +531,78 @@ Name | Type | Description  | Notes
 ### Return type
 
 **Object**
+
+### Authorization
+
+[BearerToken](../README.md#BearerToken)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | OK |  -  |
+**401** | Unauthorized |  -  |
+
+<a name="getAPIResources"></a>
+# **getAPIResources**
+> V1APIResourceList getAPIResources(group, version)
+
+
+
+get available resources
+
+### Example
+```java
+// Import classes:
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.auth.*;
+import io.kubernetes.client.openapi.models.*;
+import io.kubernetes.client.openapi.apis.CustomObjectsApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("http://localhost");
+    
+    // Configure API key authorization: BearerToken
+    ApiKeyAuth BearerToken = (ApiKeyAuth) defaultClient.getAuthentication("BearerToken");
+    BearerToken.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //BearerToken.setApiKeyPrefix("Token");
+
+    CustomObjectsApi apiInstance = new CustomObjectsApi(defaultClient);
+    String group = "group_example"; // String | The custom resource's group name
+    String version = "version_example"; // String | The custom resource's version
+    try {
+      V1APIResourceList result = apiInstance.getAPIResources(group, version);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling CustomObjectsApi#getAPIResources");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group** | **String**| The custom resource&#39;s group name |
+ **version** | **String**| The custom resource&#39;s version |
+
+### Return type
+
+[**V1APIResourceList**](V1APIResourceList.md)
 
 ### Authorization
 

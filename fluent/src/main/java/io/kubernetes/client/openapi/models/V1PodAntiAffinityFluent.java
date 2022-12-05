@@ -1,193 +1,90 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
+import io.kubernetes.client.fluent.VisitableBuilder;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
+import java.util.ArrayList;
+import java.util.function.Predicate;
+import java.lang.Integer;
+import java.lang.Deprecated;
+import java.util.Iterator;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Predicate;
+import java.lang.Boolean;
 
-/** Generated */
-public interface V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> extends Fluent<A> {
-  public A addToPreferredDuringSchedulingIgnoredDuringExecution(
-      Integer index, V1WeightedPodAffinityTerm item);
-
-  public A setToPreferredDuringSchedulingIgnoredDuringExecution(
-      Integer index, V1WeightedPodAffinityTerm item);
-
-  public A addToPreferredDuringSchedulingIgnoredDuringExecution(
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm... items);
-
-  public A addAllToPreferredDuringSchedulingIgnoredDuringExecution(
-      Collection<V1WeightedPodAffinityTerm> items);
-
-  public A removeFromPreferredDuringSchedulingIgnoredDuringExecution(
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm... items);
-
-  public A removeAllFromPreferredDuringSchedulingIgnoredDuringExecution(
-      Collection<V1WeightedPodAffinityTerm> items);
-
-  public A removeMatchingFromPreferredDuringSchedulingIgnoredDuringExecution(
-      Predicate<V1WeightedPodAffinityTermBuilder> predicate);
-
+ /**
+  * Generated
+  */
+public interface V1PodAntiAffinityFluent<A extends V1PodAntiAffinityFluent<A>> extends Fluent<A>{
+  public A addToPreferredDuringSchedulingIgnoredDuringExecution(Integer index,V1WeightedPodAffinityTerm item);
+  public A setToPreferredDuringSchedulingIgnoredDuringExecution(Integer index,V1WeightedPodAffinityTerm item);
+  public A addToPreferredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm... items);
+  public A addAllToPreferredDuringSchedulingIgnoredDuringExecution(Collection<V1WeightedPodAffinityTerm> items);
+  public A removeFromPreferredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm... items);
+  public A removeAllFromPreferredDuringSchedulingIgnoredDuringExecution(Collection<V1WeightedPodAffinityTerm> items);
+  public A removeMatchingFromPreferredDuringSchedulingIgnoredDuringExecution(Predicate<V1WeightedPodAffinityTermBuilder> predicate);
+  
   /**
-   * This method has been deprecated, please use method
-   * buildPreferredDuringSchedulingIgnoredDuringExecution instead.
-   *
+   * This method has been deprecated, please use method buildPreferredDuringSchedulingIgnoredDuringExecution instead.
    * @return The buildable object.
    */
   @Deprecated
   public List<V1WeightedPodAffinityTerm> getPreferredDuringSchedulingIgnoredDuringExecution();
-
   public List<V1WeightedPodAffinityTerm> buildPreferredDuringSchedulingIgnoredDuringExecution();
-
-  public V1WeightedPodAffinityTerm buildPreferredDuringSchedulingIgnoredDuringExecution(
-      Integer index);
-
+  public V1WeightedPodAffinityTerm buildPreferredDuringSchedulingIgnoredDuringExecution(Integer index);
   public V1WeightedPodAffinityTerm buildFirstPreferredDuringSchedulingIgnoredDuringExecution();
-
   public V1WeightedPodAffinityTerm buildLastPreferredDuringSchedulingIgnoredDuringExecution();
-
-  public V1WeightedPodAffinityTerm buildMatchingPreferredDuringSchedulingIgnoredDuringExecution(
-      Predicate<V1WeightedPodAffinityTermBuilder> predicate);
-
-  public Boolean hasMatchingPreferredDuringSchedulingIgnoredDuringExecution(
-      Predicate<V1WeightedPodAffinityTermBuilder> predicate);
-
-  public A withPreferredDuringSchedulingIgnoredDuringExecution(
-      List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution);
-
-  public A withPreferredDuringSchedulingIgnoredDuringExecution(
-      io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm...
-          preferredDuringSchedulingIgnoredDuringExecution);
-
+  public V1WeightedPodAffinityTerm buildMatchingPreferredDuringSchedulingIgnoredDuringExecution(Predicate<V1WeightedPodAffinityTermBuilder> predicate);
+  public Boolean hasMatchingPreferredDuringSchedulingIgnoredDuringExecution(Predicate<V1WeightedPodAffinityTermBuilder> predicate);
+  public A withPreferredDuringSchedulingIgnoredDuringExecution(List<V1WeightedPodAffinityTerm> preferredDuringSchedulingIgnoredDuringExecution);
+  public A withPreferredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1WeightedPodAffinityTerm... preferredDuringSchedulingIgnoredDuringExecution);
   public Boolean hasPreferredDuringSchedulingIgnoredDuringExecution();
-
-  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
-      addNewPreferredDuringSchedulingIgnoredDuringExecution();
-
-  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
-      addNewPreferredDuringSchedulingIgnoredDuringExecutionLike(V1WeightedPodAffinityTerm item);
-
-  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
-      setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(
-          Integer index, V1WeightedPodAffinityTerm item);
-
-  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
-      editPreferredDuringSchedulingIgnoredDuringExecution(Integer index);
-
-  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
-      editFirstPreferredDuringSchedulingIgnoredDuringExecution();
-
-  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
-      editLastPreferredDuringSchedulingIgnoredDuringExecution();
-
-  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A>
-      editMatchingPreferredDuringSchedulingIgnoredDuringExecution(
-          Predicate<V1WeightedPodAffinityTermBuilder> predicate);
-
-  public A addToRequiredDuringSchedulingIgnoredDuringExecution(
-      Integer index, V1PodAffinityTerm item);
-
-  public A setToRequiredDuringSchedulingIgnoredDuringExecution(
-      Integer index, V1PodAffinityTerm item);
-
-  public A addToRequiredDuringSchedulingIgnoredDuringExecution(
-      io.kubernetes.client.openapi.models.V1PodAffinityTerm... items);
-
-  public A addAllToRequiredDuringSchedulingIgnoredDuringExecution(
-      Collection<V1PodAffinityTerm> items);
-
-  public A removeFromRequiredDuringSchedulingIgnoredDuringExecution(
-      io.kubernetes.client.openapi.models.V1PodAffinityTerm... items);
-
-  public A removeAllFromRequiredDuringSchedulingIgnoredDuringExecution(
-      Collection<V1PodAffinityTerm> items);
-
-  public A removeMatchingFromRequiredDuringSchedulingIgnoredDuringExecution(
-      Predicate<V1PodAffinityTermBuilder> predicate);
-
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> addNewPreferredDuringSchedulingIgnoredDuringExecution();
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> addNewPreferredDuringSchedulingIgnoredDuringExecutionLike(V1WeightedPodAffinityTerm item);
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(Integer index,V1WeightedPodAffinityTerm item);
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editPreferredDuringSchedulingIgnoredDuringExecution(Integer index);
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editFirstPreferredDuringSchedulingIgnoredDuringExecution();
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editLastPreferredDuringSchedulingIgnoredDuringExecution();
+  public V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editMatchingPreferredDuringSchedulingIgnoredDuringExecution(Predicate<V1WeightedPodAffinityTermBuilder> predicate);
+  public A addToRequiredDuringSchedulingIgnoredDuringExecution(Integer index,V1PodAffinityTerm item);
+  public A setToRequiredDuringSchedulingIgnoredDuringExecution(Integer index,V1PodAffinityTerm item);
+  public A addToRequiredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1PodAffinityTerm... items);
+  public A addAllToRequiredDuringSchedulingIgnoredDuringExecution(Collection<V1PodAffinityTerm> items);
+  public A removeFromRequiredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1PodAffinityTerm... items);
+  public A removeAllFromRequiredDuringSchedulingIgnoredDuringExecution(Collection<V1PodAffinityTerm> items);
+  public A removeMatchingFromRequiredDuringSchedulingIgnoredDuringExecution(Predicate<V1PodAffinityTermBuilder> predicate);
+  
   /**
-   * This method has been deprecated, please use method
-   * buildRequiredDuringSchedulingIgnoredDuringExecution instead.
-   *
+   * This method has been deprecated, please use method buildRequiredDuringSchedulingIgnoredDuringExecution instead.
    * @return The buildable object.
    */
   @Deprecated
   public List<V1PodAffinityTerm> getRequiredDuringSchedulingIgnoredDuringExecution();
-
   public List<V1PodAffinityTerm> buildRequiredDuringSchedulingIgnoredDuringExecution();
-
   public V1PodAffinityTerm buildRequiredDuringSchedulingIgnoredDuringExecution(Integer index);
-
   public V1PodAffinityTerm buildFirstRequiredDuringSchedulingIgnoredDuringExecution();
-
   public V1PodAffinityTerm buildLastRequiredDuringSchedulingIgnoredDuringExecution();
-
-  public V1PodAffinityTerm buildMatchingRequiredDuringSchedulingIgnoredDuringExecution(
-      Predicate<V1PodAffinityTermBuilder> predicate);
-
-  public Boolean hasMatchingRequiredDuringSchedulingIgnoredDuringExecution(
-      Predicate<V1PodAffinityTermBuilder> predicate);
-
-  public A withRequiredDuringSchedulingIgnoredDuringExecution(
-      List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution);
-
-  public A withRequiredDuringSchedulingIgnoredDuringExecution(
-      io.kubernetes.client.openapi.models.V1PodAffinityTerm...
-          requiredDuringSchedulingIgnoredDuringExecution);
-
+  public V1PodAffinityTerm buildMatchingRequiredDuringSchedulingIgnoredDuringExecution(Predicate<V1PodAffinityTermBuilder> predicate);
+  public Boolean hasMatchingRequiredDuringSchedulingIgnoredDuringExecution(Predicate<V1PodAffinityTermBuilder> predicate);
+  public A withRequiredDuringSchedulingIgnoredDuringExecution(List<V1PodAffinityTerm> requiredDuringSchedulingIgnoredDuringExecution);
+  public A withRequiredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1PodAffinityTerm... requiredDuringSchedulingIgnoredDuringExecution);
   public Boolean hasRequiredDuringSchedulingIgnoredDuringExecution();
-
-  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
-      addNewRequiredDuringSchedulingIgnoredDuringExecution();
-
-  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
-      addNewRequiredDuringSchedulingIgnoredDuringExecutionLike(V1PodAffinityTerm item);
-
-  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
-      setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(
-          Integer index, V1PodAffinityTerm item);
-
-  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
-      editRequiredDuringSchedulingIgnoredDuringExecution(Integer index);
-
-  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
-      editFirstRequiredDuringSchedulingIgnoredDuringExecution();
-
-  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
-      editLastRequiredDuringSchedulingIgnoredDuringExecution();
-
-  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A>
-      editMatchingRequiredDuringSchedulingIgnoredDuringExecution(
-          Predicate<V1PodAffinityTermBuilder> predicate);
-
-  public interface PreferredDuringSchedulingIgnoredDuringExecutionNested<N>
-      extends Nested<N>,
-          V1WeightedPodAffinityTermFluent<
-              V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<N>> {
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A> addNewRequiredDuringSchedulingIgnoredDuringExecution();
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A> addNewRequiredDuringSchedulingIgnoredDuringExecutionLike(V1PodAffinityTerm item);
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A> setNewRequiredDuringSchedulingIgnoredDuringExecutionLike(Integer index,V1PodAffinityTerm item);
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A> editRequiredDuringSchedulingIgnoredDuringExecution(Integer index);
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A> editFirstRequiredDuringSchedulingIgnoredDuringExecution();
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A> editLastRequiredDuringSchedulingIgnoredDuringExecution();
+  public V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<A> editMatchingRequiredDuringSchedulingIgnoredDuringExecution(Predicate<V1PodAffinityTermBuilder> predicate);
+  public interface PreferredDuringSchedulingIgnoredDuringExecutionNested<N> extends Nested<N>,V1WeightedPodAffinityTermFluent<V1PodAntiAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<N>>{
     public N and();
-
     public N endPreferredDuringSchedulingIgnoredDuringExecution();
+    
   }
-
-  public interface RequiredDuringSchedulingIgnoredDuringExecutionNested<N>
-      extends Nested<N>,
-          V1PodAffinityTermFluent<
-              V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<N>> {
+  public interface RequiredDuringSchedulingIgnoredDuringExecutionNested<N> extends Nested<N>,V1PodAffinityTermFluent<V1PodAntiAffinityFluent.RequiredDuringSchedulingIgnoredDuringExecutionNested<N>>{
     public N and();
-
     public N endRequiredDuringSchedulingIgnoredDuringExecution();
+    
   }
+  
 }

@@ -28,7 +28,7 @@ import java.util.Objects;
         "LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
+    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1LoadBalancerIngress {
   public static final String SERIALIZED_NAME_HOSTNAME = "hostname";
 

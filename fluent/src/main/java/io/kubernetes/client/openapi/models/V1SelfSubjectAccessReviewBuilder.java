@@ -1,49 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V1SelfSubjectAccessReviewBuilder
-    extends V1SelfSubjectAccessReviewFluentImpl<V1SelfSubjectAccessReviewBuilder>
-    implements VisitableBuilder<V1SelfSubjectAccessReview, V1SelfSubjectAccessReviewBuilder> {
+import java.lang.Boolean;
+public class V1SelfSubjectAccessReviewBuilder extends V1SelfSubjectAccessReviewFluentImpl<V1SelfSubjectAccessReviewBuilder> implements VisitableBuilder<V1SelfSubjectAccessReview,V1SelfSubjectAccessReviewBuilder>{
   public V1SelfSubjectAccessReviewBuilder() {
     this(false);
   }
-
   public V1SelfSubjectAccessReviewBuilder(Boolean validationEnabled) {
     this(new V1SelfSubjectAccessReview(), validationEnabled);
   }
-
   public V1SelfSubjectAccessReviewBuilder(V1SelfSubjectAccessReviewFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V1SelfSubjectAccessReviewBuilder(
-      V1SelfSubjectAccessReviewFluent<?> fluent, Boolean validationEnabled) {
+  public V1SelfSubjectAccessReviewBuilder(V1SelfSubjectAccessReviewFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V1SelfSubjectAccessReview(), validationEnabled);
   }
-
-  public V1SelfSubjectAccessReviewBuilder(
-      V1SelfSubjectAccessReviewFluent<?> fluent, V1SelfSubjectAccessReview instance) {
+  public V1SelfSubjectAccessReviewBuilder(V1SelfSubjectAccessReviewFluent<?> fluent,V1SelfSubjectAccessReview instance) {
     this(fluent, instance, false);
   }
-
-  public V1SelfSubjectAccessReviewBuilder(
-      V1SelfSubjectAccessReviewFluent<?> fluent,
-      V1SelfSubjectAccessReview instance,
-      Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V1SelfSubjectAccessReviewBuilder(V1SelfSubjectAccessReviewFluent<?> fluent,V1SelfSubjectAccessReview instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withApiVersion(instance.getApiVersion());
 
     fluent.withKind(instance.getKind());
@@ -54,16 +30,13 @@ public class V1SelfSubjectAccessReviewBuilder
 
     fluent.withStatus(instance.getStatus());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V1SelfSubjectAccessReviewBuilder(V1SelfSubjectAccessReview instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V1SelfSubjectAccessReviewBuilder(
-      V1SelfSubjectAccessReview instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V1SelfSubjectAccessReviewBuilder(V1SelfSubjectAccessReview instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withApiVersion(instance.getApiVersion());
 
     this.withKind(instance.getKind());
@@ -74,12 +47,10 @@ public class V1SelfSubjectAccessReviewBuilder
 
     this.withStatus(instance.getStatus());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V1SelfSubjectAccessReviewFluent<?> fluent;
   Boolean validationEnabled;
-
   public V1SelfSubjectAccessReview build() {
     V1SelfSubjectAccessReview buildable = new V1SelfSubjectAccessReview();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -89,4 +60,5 @@ public class V1SelfSubjectAccessReviewBuilder
     buildable.setStatus(fluent.getStatus());
     return buildable;
   }
+  
 }

@@ -1,44 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V1ContainerPortBuilder extends V1ContainerPortFluentImpl<V1ContainerPortBuilder>
-    implements VisitableBuilder<V1ContainerPort, V1ContainerPortBuilder> {
+import java.lang.Boolean;
+public class V1ContainerPortBuilder extends V1ContainerPortFluentImpl<V1ContainerPortBuilder> implements VisitableBuilder<V1ContainerPort,V1ContainerPortBuilder>{
   public V1ContainerPortBuilder() {
     this(false);
   }
-
   public V1ContainerPortBuilder(Boolean validationEnabled) {
     this(new V1ContainerPort(), validationEnabled);
   }
-
   public V1ContainerPortBuilder(V1ContainerPortFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V1ContainerPortBuilder(V1ContainerPortFluent<?> fluent, Boolean validationEnabled) {
+  public V1ContainerPortBuilder(V1ContainerPortFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V1ContainerPort(), validationEnabled);
   }
-
-  public V1ContainerPortBuilder(V1ContainerPortFluent<?> fluent, V1ContainerPort instance) {
+  public V1ContainerPortBuilder(V1ContainerPortFluent<?> fluent,V1ContainerPort instance) {
     this(fluent, instance, false);
   }
-
-  public V1ContainerPortBuilder(
-      V1ContainerPortFluent<?> fluent, V1ContainerPort instance, Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V1ContainerPortBuilder(V1ContainerPortFluent<?> fluent,V1ContainerPort instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withContainerPort(instance.getContainerPort());
 
     fluent.withHostIP(instance.getHostIP());
@@ -49,15 +30,13 @@ public class V1ContainerPortBuilder extends V1ContainerPortFluentImpl<V1Containe
 
     fluent.withProtocol(instance.getProtocol());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V1ContainerPortBuilder(V1ContainerPort instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V1ContainerPortBuilder(V1ContainerPort instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V1ContainerPortBuilder(V1ContainerPort instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withContainerPort(instance.getContainerPort());
 
     this.withHostIP(instance.getHostIP());
@@ -68,12 +47,10 @@ public class V1ContainerPortBuilder extends V1ContainerPortFluentImpl<V1Containe
 
     this.withProtocol(instance.getProtocol());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V1ContainerPortFluent<?> fluent;
   Boolean validationEnabled;
-
   public V1ContainerPort build() {
     V1ContainerPort buildable = new V1ContainerPort();
     buildable.setContainerPort(fluent.getContainerPort());
@@ -83,4 +60,5 @@ public class V1ContainerPortBuilder extends V1ContainerPortFluentImpl<V1Containe
     buildable.setProtocol(fluent.getProtocol());
     return buildable;
   }
+  
 }

@@ -1,44 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuilder>
-    implements VisitableBuilder<V1NodeStatus, V1NodeStatusBuilder> {
+import java.lang.Boolean;
+public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuilder> implements VisitableBuilder<V1NodeStatus,V1NodeStatusBuilder>{
   public V1NodeStatusBuilder() {
     this(false);
   }
-
   public V1NodeStatusBuilder(Boolean validationEnabled) {
     this(new V1NodeStatus(), validationEnabled);
   }
-
   public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent, Boolean validationEnabled) {
+  public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V1NodeStatus(), validationEnabled);
   }
-
-  public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent, V1NodeStatus instance) {
+  public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent,V1NodeStatus instance) {
     this(fluent, instance, false);
   }
-
-  public V1NodeStatusBuilder(
-      V1NodeStatusFluent<?> fluent, V1NodeStatus instance, Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent,V1NodeStatus instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withAddresses(instance.getAddresses());
 
     fluent.withAllocatable(instance.getAllocatable());
@@ -61,15 +42,13 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuil
 
     fluent.withVolumesInUse(instance.getVolumesInUse());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V1NodeStatusBuilder(V1NodeStatus instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V1NodeStatusBuilder(V1NodeStatus instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V1NodeStatusBuilder(V1NodeStatus instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withAddresses(instance.getAddresses());
 
     this.withAllocatable(instance.getAllocatable());
@@ -92,12 +71,10 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuil
 
     this.withVolumesInUse(instance.getVolumesInUse());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V1NodeStatusFluent<?> fluent;
   Boolean validationEnabled;
-
   public V1NodeStatus build() {
     V1NodeStatus buildable = new V1NodeStatus();
     buildable.setAddresses(fluent.getAddresses());
@@ -113,4 +90,5 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuil
     buildable.setVolumesInUse(fluent.getVolumesInUse());
     return buildable;
   }
+  
 }

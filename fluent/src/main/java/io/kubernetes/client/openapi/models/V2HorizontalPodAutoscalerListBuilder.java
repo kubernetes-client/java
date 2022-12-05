@@ -1,50 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V2HorizontalPodAutoscalerListBuilder
-    extends V2HorizontalPodAutoscalerListFluentImpl<V2HorizontalPodAutoscalerListBuilder>
-    implements VisitableBuilder<
-        V2HorizontalPodAutoscalerList, V2HorizontalPodAutoscalerListBuilder> {
+import java.lang.Boolean;
+public class V2HorizontalPodAutoscalerListBuilder extends V2HorizontalPodAutoscalerListFluentImpl<V2HorizontalPodAutoscalerListBuilder> implements VisitableBuilder<V2HorizontalPodAutoscalerList,V2HorizontalPodAutoscalerListBuilder>{
   public V2HorizontalPodAutoscalerListBuilder() {
     this(false);
   }
-
   public V2HorizontalPodAutoscalerListBuilder(Boolean validationEnabled) {
     this(new V2HorizontalPodAutoscalerList(), validationEnabled);
   }
-
   public V2HorizontalPodAutoscalerListBuilder(V2HorizontalPodAutoscalerListFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V2HorizontalPodAutoscalerListBuilder(
-      V2HorizontalPodAutoscalerListFluent<?> fluent, Boolean validationEnabled) {
+  public V2HorizontalPodAutoscalerListBuilder(V2HorizontalPodAutoscalerListFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V2HorizontalPodAutoscalerList(), validationEnabled);
   }
-
-  public V2HorizontalPodAutoscalerListBuilder(
-      V2HorizontalPodAutoscalerListFluent<?> fluent, V2HorizontalPodAutoscalerList instance) {
+  public V2HorizontalPodAutoscalerListBuilder(V2HorizontalPodAutoscalerListFluent<?> fluent,V2HorizontalPodAutoscalerList instance) {
     this(fluent, instance, false);
   }
-
-  public V2HorizontalPodAutoscalerListBuilder(
-      V2HorizontalPodAutoscalerListFluent<?> fluent,
-      V2HorizontalPodAutoscalerList instance,
-      Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V2HorizontalPodAutoscalerListBuilder(V2HorizontalPodAutoscalerListFluent<?> fluent,V2HorizontalPodAutoscalerList instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withApiVersion(instance.getApiVersion());
 
     fluent.withItems(instance.getItems());
@@ -53,16 +28,13 @@ public class V2HorizontalPodAutoscalerListBuilder
 
     fluent.withMetadata(instance.getMetadata());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V2HorizontalPodAutoscalerListBuilder(V2HorizontalPodAutoscalerList instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V2HorizontalPodAutoscalerListBuilder(
-      V2HorizontalPodAutoscalerList instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V2HorizontalPodAutoscalerListBuilder(V2HorizontalPodAutoscalerList instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withApiVersion(instance.getApiVersion());
 
     this.withItems(instance.getItems());
@@ -71,12 +43,10 @@ public class V2HorizontalPodAutoscalerListBuilder
 
     this.withMetadata(instance.getMetadata());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V2HorizontalPodAutoscalerListFluent<?> fluent;
   Boolean validationEnabled;
-
   public V2HorizontalPodAutoscalerList build() {
     V2HorizontalPodAutoscalerList buildable = new V2HorizontalPodAutoscalerList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -85,4 +55,5 @@ public class V2HorizontalPodAutoscalerListBuilder
     buildable.setMetadata(fluent.getMetadata());
     return buildable;
   }
+  
 }

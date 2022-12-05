@@ -1,44 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsBuilder>
-    implements VisitableBuilder<V1JSONSchemaProps, V1JSONSchemaPropsBuilder> {
+import java.lang.Boolean;
+public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsBuilder> implements VisitableBuilder<V1JSONSchemaProps,V1JSONSchemaPropsBuilder>{
   public V1JSONSchemaPropsBuilder() {
     this(false);
   }
-
   public V1JSONSchemaPropsBuilder(Boolean validationEnabled) {
     this(new V1JSONSchemaProps(), validationEnabled);
   }
-
   public V1JSONSchemaPropsBuilder(V1JSONSchemaPropsFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V1JSONSchemaPropsBuilder(V1JSONSchemaPropsFluent<?> fluent, Boolean validationEnabled) {
+  public V1JSONSchemaPropsBuilder(V1JSONSchemaPropsFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V1JSONSchemaProps(), validationEnabled);
   }
-
-  public V1JSONSchemaPropsBuilder(V1JSONSchemaPropsFluent<?> fluent, V1JSONSchemaProps instance) {
+  public V1JSONSchemaPropsBuilder(V1JSONSchemaPropsFluent<?> fluent,V1JSONSchemaProps instance) {
     this(fluent, instance, false);
   }
-
-  public V1JSONSchemaPropsBuilder(
-      V1JSONSchemaPropsFluent<?> fluent, V1JSONSchemaProps instance, Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V1JSONSchemaPropsBuilder(V1JSONSchemaPropsFluent<?> fluent,V1JSONSchemaProps instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withRef(instance.get$Ref());
 
     fluent.withSchema(instance.get$Schema());
@@ -113,15 +94,13 @@ public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluentImpl<V1JSON
 
     fluent.withUniqueItems(instance.getUniqueItems());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V1JSONSchemaPropsBuilder(V1JSONSchemaProps instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V1JSONSchemaPropsBuilder(V1JSONSchemaProps instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V1JSONSchemaPropsBuilder(V1JSONSchemaProps instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withRef(instance.get$Ref());
 
     this.withSchema(instance.get$Schema());
@@ -196,12 +175,10 @@ public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluentImpl<V1JSON
 
     this.withUniqueItems(instance.getUniqueItems());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V1JSONSchemaPropsFluent<?> fluent;
   Boolean validationEnabled;
-
   public V1JSONSchemaProps build() {
     V1JSONSchemaProps buildable = new V1JSONSchemaProps();
     buildable.set$Ref(fluent.getRef());
@@ -243,4 +220,5 @@ public class V1JSONSchemaPropsBuilder extends V1JSONSchemaPropsFluentImpl<V1JSON
     buildable.setUniqueItems(fluent.getUniqueItems());
     return buildable;
   }
+  
 }

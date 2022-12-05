@@ -27,7 +27,7 @@ import java.util.Objects;
         "The node this Taint is attached to has the \"effect\" on any pod that does not tolerate the Taint.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
+    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Taint {
   public static final String SERIALIZED_NAME_EFFECT = "effect";
 

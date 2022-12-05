@@ -1,44 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1EndpointSliceBuilder>
-    implements VisitableBuilder<V1EndpointSlice, V1EndpointSliceBuilder> {
+import java.lang.Boolean;
+public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1EndpointSliceBuilder> implements VisitableBuilder<V1EndpointSlice,V1EndpointSliceBuilder>{
   public V1EndpointSliceBuilder() {
     this(false);
   }
-
   public V1EndpointSliceBuilder(Boolean validationEnabled) {
     this(new V1EndpointSlice(), validationEnabled);
   }
-
   public V1EndpointSliceBuilder(V1EndpointSliceFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V1EndpointSliceBuilder(V1EndpointSliceFluent<?> fluent, Boolean validationEnabled) {
+  public V1EndpointSliceBuilder(V1EndpointSliceFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V1EndpointSlice(), validationEnabled);
   }
-
-  public V1EndpointSliceBuilder(V1EndpointSliceFluent<?> fluent, V1EndpointSlice instance) {
+  public V1EndpointSliceBuilder(V1EndpointSliceFluent<?> fluent,V1EndpointSlice instance) {
     this(fluent, instance, false);
   }
-
-  public V1EndpointSliceBuilder(
-      V1EndpointSliceFluent<?> fluent, V1EndpointSlice instance, Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V1EndpointSliceBuilder(V1EndpointSliceFluent<?> fluent,V1EndpointSlice instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withAddressType(instance.getAddressType());
 
     fluent.withApiVersion(instance.getApiVersion());
@@ -51,15 +32,13 @@ public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1Endpoint
 
     fluent.withPorts(instance.getPorts());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V1EndpointSliceBuilder(V1EndpointSlice instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V1EndpointSliceBuilder(V1EndpointSlice instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V1EndpointSliceBuilder(V1EndpointSlice instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withAddressType(instance.getAddressType());
 
     this.withApiVersion(instance.getApiVersion());
@@ -72,12 +51,10 @@ public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1Endpoint
 
     this.withPorts(instance.getPorts());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V1EndpointSliceFluent<?> fluent;
   Boolean validationEnabled;
-
   public V1EndpointSlice build() {
     V1EndpointSlice buildable = new V1EndpointSlice();
     buildable.setAddressType(fluent.getAddressType());
@@ -88,4 +65,5 @@ public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1Endpoint
     buildable.setPorts(fluent.getPorts());
     return buildable;
   }
+  
 }
