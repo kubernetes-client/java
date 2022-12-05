@@ -77075,6 +77075,51 @@
         ]
       }
     },
+    "/apis/{group}/{version}": {
+      "parameters": [
+        {
+          "name": "group",
+          "in": "path",
+          "required": true,
+          "description": "The custom resource's group name",
+          "type": "string"
+        },
+        {
+          "name": "version",
+          "in": "path",
+          "required": true,
+          "description": "The custom resource's version",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "operationId": "getAPIResources",
+        "description": "get available resources",
+        "tags": [
+          "custom_objects"
+        ],
+        "consumes": [
+          "*/*"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "schemes": [
+          "https"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/v1.APIResourceList"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
     "/apis/{group}/{version}/{plural}": {
       "parameters": [
         {

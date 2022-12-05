@@ -1,44 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V1CronJobListBuilder extends V1CronJobListFluentImpl<V1CronJobListBuilder>
-    implements VisitableBuilder<V1CronJobList, V1CronJobListBuilder> {
+import java.lang.Boolean;
+public class V1CronJobListBuilder extends V1CronJobListFluentImpl<V1CronJobListBuilder> implements VisitableBuilder<V1CronJobList,V1CronJobListBuilder>{
   public V1CronJobListBuilder() {
     this(false);
   }
-
   public V1CronJobListBuilder(Boolean validationEnabled) {
     this(new V1CronJobList(), validationEnabled);
   }
-
   public V1CronJobListBuilder(V1CronJobListFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V1CronJobListBuilder(V1CronJobListFluent<?> fluent, Boolean validationEnabled) {
+  public V1CronJobListBuilder(V1CronJobListFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V1CronJobList(), validationEnabled);
   }
-
-  public V1CronJobListBuilder(V1CronJobListFluent<?> fluent, V1CronJobList instance) {
+  public V1CronJobListBuilder(V1CronJobListFluent<?> fluent,V1CronJobList instance) {
     this(fluent, instance, false);
   }
-
-  public V1CronJobListBuilder(
-      V1CronJobListFluent<?> fluent, V1CronJobList instance, Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V1CronJobListBuilder(V1CronJobListFluent<?> fluent,V1CronJobList instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withApiVersion(instance.getApiVersion());
 
     fluent.withItems(instance.getItems());
@@ -47,15 +28,13 @@ public class V1CronJobListBuilder extends V1CronJobListFluentImpl<V1CronJobListB
 
     fluent.withMetadata(instance.getMetadata());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V1CronJobListBuilder(V1CronJobList instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V1CronJobListBuilder(V1CronJobList instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V1CronJobListBuilder(V1CronJobList instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withApiVersion(instance.getApiVersion());
 
     this.withItems(instance.getItems());
@@ -64,12 +43,10 @@ public class V1CronJobListBuilder extends V1CronJobListFluentImpl<V1CronJobListB
 
     this.withMetadata(instance.getMetadata());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V1CronJobListFluent<?> fluent;
   Boolean validationEnabled;
-
   public V1CronJobList build() {
     V1CronJobList buildable = new V1CronJobList();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -78,4 +55,5 @@ public class V1CronJobListBuilder extends V1CronJobListFluentImpl<V1CronJobListB
     buildable.setMetadata(fluent.getMetadata());
     return buildable;
   }
+  
 }

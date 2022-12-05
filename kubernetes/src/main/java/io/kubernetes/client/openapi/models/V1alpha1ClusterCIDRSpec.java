@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(description = "ClusterCIDRSpec defines the desired state of ClusterCIDR.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
+    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1alpha1ClusterCIDRSpec {
   public static final String SERIALIZED_NAME_IPV4 = "ipv4";
 

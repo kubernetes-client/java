@@ -28,7 +28,7 @@ import java.util.Objects;
         "PriorityLevelConfigurationStatus represents the current state of a \"request-priority\".")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
+    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1beta2PriorityLevelConfigurationStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 

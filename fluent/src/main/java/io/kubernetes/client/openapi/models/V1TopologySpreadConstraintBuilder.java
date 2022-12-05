@@ -1,49 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V1TopologySpreadConstraintBuilder
-    extends V1TopologySpreadConstraintFluentImpl<V1TopologySpreadConstraintBuilder>
-    implements VisitableBuilder<V1TopologySpreadConstraint, V1TopologySpreadConstraintBuilder> {
+import java.lang.Boolean;
+public class V1TopologySpreadConstraintBuilder extends V1TopologySpreadConstraintFluentImpl<V1TopologySpreadConstraintBuilder> implements VisitableBuilder<V1TopologySpreadConstraint,V1TopologySpreadConstraintBuilder>{
   public V1TopologySpreadConstraintBuilder() {
     this(false);
   }
-
   public V1TopologySpreadConstraintBuilder(Boolean validationEnabled) {
     this(new V1TopologySpreadConstraint(), validationEnabled);
   }
-
   public V1TopologySpreadConstraintBuilder(V1TopologySpreadConstraintFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V1TopologySpreadConstraintBuilder(
-      V1TopologySpreadConstraintFluent<?> fluent, Boolean validationEnabled) {
+  public V1TopologySpreadConstraintBuilder(V1TopologySpreadConstraintFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V1TopologySpreadConstraint(), validationEnabled);
   }
-
-  public V1TopologySpreadConstraintBuilder(
-      V1TopologySpreadConstraintFluent<?> fluent, V1TopologySpreadConstraint instance) {
+  public V1TopologySpreadConstraintBuilder(V1TopologySpreadConstraintFluent<?> fluent,V1TopologySpreadConstraint instance) {
     this(fluent, instance, false);
   }
-
-  public V1TopologySpreadConstraintBuilder(
-      V1TopologySpreadConstraintFluent<?> fluent,
-      V1TopologySpreadConstraint instance,
-      Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V1TopologySpreadConstraintBuilder(V1TopologySpreadConstraintFluent<?> fluent,V1TopologySpreadConstraint instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withLabelSelector(instance.getLabelSelector());
 
     fluent.withMatchLabelKeys(instance.getMatchLabelKeys());
@@ -60,16 +36,13 @@ public class V1TopologySpreadConstraintBuilder
 
     fluent.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V1TopologySpreadConstraintBuilder(V1TopologySpreadConstraint instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V1TopologySpreadConstraintBuilder(
-      V1TopologySpreadConstraint instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V1TopologySpreadConstraintBuilder(V1TopologySpreadConstraint instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withLabelSelector(instance.getLabelSelector());
 
     this.withMatchLabelKeys(instance.getMatchLabelKeys());
@@ -86,12 +59,10 @@ public class V1TopologySpreadConstraintBuilder
 
     this.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V1TopologySpreadConstraintFluent<?> fluent;
   Boolean validationEnabled;
-
   public V1TopologySpreadConstraint build() {
     V1TopologySpreadConstraint buildable = new V1TopologySpreadConstraint();
     buildable.setLabelSelector(fluent.getLabelSelector());
@@ -104,4 +75,5 @@ public class V1TopologySpreadConstraintBuilder
     buildable.setWhenUnsatisfiable(fluent.getWhenUnsatisfiable());
     return buildable;
   }
+  
 }

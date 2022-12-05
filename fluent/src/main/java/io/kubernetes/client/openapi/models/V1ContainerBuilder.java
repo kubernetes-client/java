@@ -1,44 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V1ContainerBuilder extends V1ContainerFluentImpl<V1ContainerBuilder>
-    implements VisitableBuilder<V1Container, V1ContainerBuilder> {
+import java.lang.Boolean;
+public class V1ContainerBuilder extends V1ContainerFluentImpl<V1ContainerBuilder> implements VisitableBuilder<V1Container,V1ContainerBuilder>{
   public V1ContainerBuilder() {
     this(false);
   }
-
   public V1ContainerBuilder(Boolean validationEnabled) {
     this(new V1Container(), validationEnabled);
   }
-
   public V1ContainerBuilder(V1ContainerFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V1ContainerBuilder(V1ContainerFluent<?> fluent, Boolean validationEnabled) {
+  public V1ContainerBuilder(V1ContainerFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V1Container(), validationEnabled);
   }
-
-  public V1ContainerBuilder(V1ContainerFluent<?> fluent, V1Container instance) {
+  public V1ContainerBuilder(V1ContainerFluent<?> fluent,V1Container instance) {
     this(fluent, instance, false);
   }
-
-  public V1ContainerBuilder(
-      V1ContainerFluent<?> fluent, V1Container instance, Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V1ContainerBuilder(V1ContainerFluent<?> fluent,V1Container instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withArgs(instance.getArgs());
 
     fluent.withCommand(instance.getCommand());
@@ -83,15 +64,13 @@ public class V1ContainerBuilder extends V1ContainerFluentImpl<V1ContainerBuilder
 
     fluent.withWorkingDir(instance.getWorkingDir());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V1ContainerBuilder(V1Container instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V1ContainerBuilder(V1Container instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V1ContainerBuilder(V1Container instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withArgs(instance.getArgs());
 
     this.withCommand(instance.getCommand());
@@ -136,12 +115,10 @@ public class V1ContainerBuilder extends V1ContainerFluentImpl<V1ContainerBuilder
 
     this.withWorkingDir(instance.getWorkingDir());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V1ContainerFluent<?> fluent;
   Boolean validationEnabled;
-
   public V1Container build() {
     V1Container buildable = new V1Container();
     buildable.setArgs(fluent.getArgs());
@@ -168,4 +145,5 @@ public class V1ContainerBuilder extends V1ContainerFluentImpl<V1ContainerBuilder
     buildable.setWorkingDir(fluent.getWorkingDir());
     return buildable;
   }
+  
 }

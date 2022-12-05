@@ -1,44 +1,25 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-
-public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIVolumeSourceBuilder>
-    implements VisitableBuilder<V1CSIVolumeSource, V1CSIVolumeSourceBuilder> {
+import java.lang.Boolean;
+public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIVolumeSourceBuilder> implements VisitableBuilder<V1CSIVolumeSource,V1CSIVolumeSourceBuilder>{
   public V1CSIVolumeSourceBuilder() {
     this(false);
   }
-
   public V1CSIVolumeSourceBuilder(Boolean validationEnabled) {
     this(new V1CSIVolumeSource(), validationEnabled);
   }
-
   public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent) {
     this(fluent, false);
   }
-
-  public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent, Boolean validationEnabled) {
+  public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
     this(fluent, new V1CSIVolumeSource(), validationEnabled);
   }
-
-  public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent, V1CSIVolumeSource instance) {
+  public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent,V1CSIVolumeSource instance) {
     this(fluent, instance, false);
   }
-
-  public V1CSIVolumeSourceBuilder(
-      V1CSIVolumeSourceFluent<?> fluent, V1CSIVolumeSource instance, Boolean validationEnabled) {
-    this.fluent = fluent;
+  public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent,V1CSIVolumeSource instance,Boolean validationEnabled) {
+    this.fluent = fluent; 
     fluent.withDriver(instance.getDriver());
 
     fluent.withFsType(instance.getFsType());
@@ -49,15 +30,13 @@ public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIV
 
     fluent.withVolumeAttributes(instance.getVolumeAttributes());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   public V1CSIVolumeSourceBuilder(V1CSIVolumeSource instance) {
-    this(instance, false);
+    this(instance,false);
   }
-
-  public V1CSIVolumeSourceBuilder(V1CSIVolumeSource instance, Boolean validationEnabled) {
-    this.fluent = this;
+  public V1CSIVolumeSourceBuilder(V1CSIVolumeSource instance,Boolean validationEnabled) {
+    this.fluent = this; 
     this.withDriver(instance.getDriver());
 
     this.withFsType(instance.getFsType());
@@ -68,12 +47,10 @@ public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIV
 
     this.withVolumeAttributes(instance.getVolumeAttributes());
 
-    this.validationEnabled = validationEnabled;
+    this.validationEnabled = validationEnabled; 
   }
-
   V1CSIVolumeSourceFluent<?> fluent;
   Boolean validationEnabled;
-
   public V1CSIVolumeSource build() {
     V1CSIVolumeSource buildable = new V1CSIVolumeSource();
     buildable.setDriver(fluent.getDriver());
@@ -83,4 +60,5 @@ public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIV
     buildable.setVolumeAttributes(fluent.getVolumeAttributes());
     return buildable;
   }
+  
 }

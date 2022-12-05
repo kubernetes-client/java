@@ -27,7 +27,7 @@ import java.util.Objects;
         "EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
+    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class CoreV1EventSeries {
   public static final String SERIALIZED_NAME_COUNT = "count";
 

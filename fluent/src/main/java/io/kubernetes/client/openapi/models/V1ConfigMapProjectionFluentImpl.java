@@ -1,117 +1,63 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.BaseFluent;
+import io.kubernetes.client.fluent.VisitableBuilder;
+import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
+import java.lang.String;
 import java.util.function.Predicate;
+import java.lang.Integer;
+import java.lang.Deprecated;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.util.Iterator;
+import java.util.Collection;
+import java.lang.Object;
+import java.util.List;
+import java.lang.Boolean;
 
-/** Generated */
-@SuppressWarnings(value = "unchecked")
-public class V1ConfigMapProjectionFluentImpl<A extends V1ConfigMapProjectionFluent<A>>
-    extends BaseFluent<A> implements V1ConfigMapProjectionFluent<A> {
-  public V1ConfigMapProjectionFluentImpl() {}
-
+ /**
+  * Generated
+  */
+  @SuppressWarnings(value = "unchecked")
+  public class V1ConfigMapProjectionFluentImpl<A extends V1ConfigMapProjectionFluent<A>> extends BaseFluent<A> implements V1ConfigMapProjectionFluent<A>{
+  public V1ConfigMapProjectionFluentImpl() {
+  }
   public V1ConfigMapProjectionFluentImpl(V1ConfigMapProjection instance) {
     this.withItems(instance.getItems());
 
     this.withName(instance.getName());
 
     this.withOptional(instance.getOptional());
-  }
 
+  }
   private ArrayList<V1KeyToPathBuilder> items;
   private String name;
   private Boolean optional;
-
-  public A addToItems(Integer index, V1KeyToPath item) {
-    if (this.items == null) {
-      this.items = new ArrayList<V1KeyToPathBuilder>();
-    }
-    V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-    _visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);
-    this.items.add(index >= 0 ? index : items.size(), builder);
-    return (A) this;
+  public A addToItems(Integer index,V1KeyToPath item) {
+    if (this.items == null) {this.items = new ArrayList<V1KeyToPathBuilder>();}
+    V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);_visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);this.items.add(index >= 0 ? index : items.size(), builder); return (A)this;
   }
-
-  public A setToItems(Integer index, V1KeyToPath item) {
-    if (this.items == null) {
-      this.items = new ArrayList<V1KeyToPathBuilder>();
-    }
+  public A setToItems(Integer index,V1KeyToPath item) {
+    if (this.items == null) {this.items = new ArrayList<V1KeyToPathBuilder>();}
     V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-    if (index < 0 || index >= _visitables.get("items").size()) {
-      _visitables.get("items").add(builder);
-    } else {
-      _visitables.get("items").set(index, builder);
-    }
-    if (index < 0 || index >= items.size()) {
-      items.add(builder);
-    } else {
-      items.set(index, builder);
-    }
-    return (A) this;
+    if (index < 0 || index >= _visitables.get("items").size()) { _visitables.get("items").add(builder); } else { _visitables.get("items").set(index, builder);}
+    if (index < 0 || index >= items.size()) { items.add(builder); } else { items.set(index, builder);}
+     return (A)this;
   }
-
   public A addToItems(io.kubernetes.client.openapi.models.V1KeyToPath... items) {
-    if (this.items == null) {
-      this.items = new ArrayList<V1KeyToPathBuilder>();
-    }
-    for (V1KeyToPath item : items) {
-      V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-      _visitables.get("items").add(builder);
-      this.items.add(builder);
-    }
-    return (A) this;
+    if (this.items == null) {this.items = new ArrayList<V1KeyToPathBuilder>();}
+    for (V1KeyToPath item : items) {V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);_visitables.get("items").add(builder);this.items.add(builder);} return (A)this;
   }
-
   public A addAllToItems(Collection<V1KeyToPath> items) {
-    if (this.items == null) {
-      this.items = new ArrayList<V1KeyToPathBuilder>();
-    }
-    for (V1KeyToPath item : items) {
-      V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-      _visitables.get("items").add(builder);
-      this.items.add(builder);
-    }
-    return (A) this;
+    if (this.items == null) {this.items = new ArrayList<V1KeyToPathBuilder>();}
+    for (V1KeyToPath item : items) {V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);_visitables.get("items").add(builder);this.items.add(builder);} return (A)this;
   }
-
   public A removeFromItems(io.kubernetes.client.openapi.models.V1KeyToPath... items) {
-    for (V1KeyToPath item : items) {
-      V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-      _visitables.get("items").remove(builder);
-      if (this.items != null) {
-        this.items.remove(builder);
-      }
-    }
-    return (A) this;
+    for (V1KeyToPath item : items) {V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);_visitables.get("items").remove(builder);if (this.items != null) {this.items.remove(builder);}} return (A)this;
   }
-
   public A removeAllFromItems(Collection<V1KeyToPath> items) {
-    for (V1KeyToPath item : items) {
-      V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-      _visitables.get("items").remove(builder);
-      if (this.items != null) {
-        this.items.remove(builder);
-      }
-    }
-    return (A) this;
+    for (V1KeyToPath item : items) {V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);_visitables.get("items").remove(builder);if (this.items != null) {this.items.remove(builder);}} return (A)this;
   }
-
   public A removeMatchingFromItems(Predicate<V1KeyToPathBuilder> predicate) {
     if (items == null) return (A) this;
     final Iterator<V1KeyToPathBuilder> each = items.iterator();
@@ -123,210 +69,136 @@ public class V1ConfigMapProjectionFluentImpl<A extends V1ConfigMapProjectionFlue
         each.remove();
       }
     }
-    return (A) this;
+    return (A)this;
   }
-
+  
   /**
    * This method has been deprecated, please use method buildItems instead.
-   *
    * @return The buildable object.
    */
   @Deprecated
   public List<V1KeyToPath> getItems() {
     return items != null ? build(items) : null;
   }
-
   public List<V1KeyToPath> buildItems() {
     return items != null ? build(items) : null;
   }
-
   public V1KeyToPath buildItem(Integer index) {
     return this.items.get(index).build();
   }
-
   public V1KeyToPath buildFirstItem() {
     return this.items.get(0).build();
   }
-
   public V1KeyToPath buildLastItem() {
     return this.items.get(items.size() - 1).build();
   }
-
   public V1KeyToPath buildMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
-    for (V1KeyToPathBuilder item : items) {
-      if (predicate.test(item)) {
-        return item.build();
-      }
-    }
-    return null;
+    for (V1KeyToPathBuilder item: items) { if(predicate.test(item)){ return item.build();} } return null;
   }
-
   public Boolean hasMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
-    for (V1KeyToPathBuilder item : items) {
-      if (predicate.test(item)) {
-        return true;
-      }
-    }
-    return false;
+    for (V1KeyToPathBuilder item: items) { if(predicate.test(item)){ return true;} } return false;
   }
-
   public A withItems(List<V1KeyToPath> items) {
-    if (this.items != null) {
-      _visitables.get("items").removeAll(this.items);
-    }
-    if (items != null) {
-      this.items = new ArrayList();
-      for (V1KeyToPath item : items) {
-        this.addToItems(item);
-      }
-    } else {
-      this.items = null;
-    }
-    return (A) this;
+    if (this.items != null) { _visitables.get("items").removeAll(this.items);}
+    if (items != null) {this.items = new ArrayList(); for (V1KeyToPath item : items){this.addToItems(item);}} else { this.items = null;} return (A) this;
   }
-
   public A withItems(io.kubernetes.client.openapi.models.V1KeyToPath... items) {
-    if (this.items != null) {
-      this.items.clear();
-    }
-    if (items != null) {
-      for (V1KeyToPath item : items) {
-        this.addToItems(item);
-      }
-    }
-    return (A) this;
+    if (this.items != null) {this.items.clear();}
+    if (items != null) {for (V1KeyToPath item :items){ this.addToItems(item);}} return (A) this;
   }
-
   public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
-
   public V1ConfigMapProjectionFluent.ItemsNested<A> addNewItem() {
     return new V1ConfigMapProjectionFluentImpl.ItemsNestedImpl();
   }
-
   public V1ConfigMapProjectionFluent.ItemsNested<A> addNewItemLike(V1KeyToPath item) {
     return new V1ConfigMapProjectionFluentImpl.ItemsNestedImpl(-1, item);
   }
-
-  public V1ConfigMapProjectionFluent.ItemsNested<A> setNewItemLike(
-      Integer index, V1KeyToPath item) {
+  public V1ConfigMapProjectionFluent.ItemsNested<A> setNewItemLike(Integer index,V1KeyToPath item) {
     return new V1ConfigMapProjectionFluentImpl.ItemsNestedImpl(index, item);
   }
-
   public V1ConfigMapProjectionFluent.ItemsNested<A> editItem(Integer index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
-
   public V1ConfigMapProjectionFluent.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
-
   public V1ConfigMapProjectionFluent.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
-
-  public V1ConfigMapProjectionFluent.ItemsNested<A> editMatchingItem(
-      Predicate<V1KeyToPathBuilder> predicate) {
+  public V1ConfigMapProjectionFluent.ItemsNested<A> editMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
     int index = -1;
-    for (int i = 0; i < items.size(); i++) {
-      if (predicate.test(items.get(i))) {
-        index = i;
-        break;
-      }
-    }
+    for (int i=0;i<items.size();i++) { 
+    if (predicate.test(items.get(i))) {index = i; break;}
+    } 
     if (index < 0) throw new RuntimeException("Can't edit matching items. No match found.");
     return setNewItemLike(index, buildItem(index));
   }
-
   public String getName() {
     return this.name;
   }
-
   public A withName(String name) {
-    this.name = name;
-    return (A) this;
+    this.name=name; return (A) this;
   }
-
   public Boolean hasName() {
     return this.name != null;
   }
-
   public Boolean getOptional() {
     return this.optional;
   }
-
   public A withOptional(Boolean optional) {
-    this.optional = optional;
-    return (A) this;
+    this.optional=optional; return (A) this;
   }
-
   public Boolean hasOptional() {
     return this.optional != null;
   }
-
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V1ConfigMapProjectionFluentImpl that = (V1ConfigMapProjectionFluentImpl) o;
-    if (items != null ? !items.equals(that.items) : that.items != null) return false;
-    if (name != null ? !name.equals(that.name) : that.name != null) return false;
-    if (optional != null ? !optional.equals(that.optional) : that.optional != null) return false;
+    if (items != null ? !items.equals(that.items) :that.items != null) return false;
+    if (name != null ? !name.equals(that.name) :that.name != null) return false;
+    if (optional != null ? !optional.equals(that.optional) :that.optional != null) return false;
     return true;
   }
-
   public int hashCode() {
-    return java.util.Objects.hash(items, name, optional, super.hashCode());
+    return java.util.Objects.hash(items,  name,  optional,  super.hashCode());
   }
-
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (items != null && !items.isEmpty()) {
-      sb.append("items:");
-      sb.append(items + ",");
-    }
-    if (name != null) {
-      sb.append("name:");
-      sb.append(name + ",");
-    }
-    if (optional != null) {
-      sb.append("optional:");
-      sb.append(optional);
-    }
+    if (items != null && !items.isEmpty()) { sb.append("items:"); sb.append(items + ","); }
+    if (name != null) { sb.append("name:"); sb.append(name + ","); }
+    if (optional != null) { sb.append("optional:"); sb.append(optional); }
     sb.append("}");
     return sb.toString();
   }
-
   public A withOptional() {
     return withOptional(true);
   }
-
-  class ItemsNestedImpl<N> extends V1KeyToPathFluentImpl<V1ConfigMapProjectionFluent.ItemsNested<N>>
-      implements V1ConfigMapProjectionFluent.ItemsNested<N>, Nested<N> {
-    ItemsNestedImpl(Integer index, V1KeyToPath item) {
+  class ItemsNestedImpl<N> extends V1KeyToPathFluentImpl<V1ConfigMapProjectionFluent.ItemsNested<N>> implements V1ConfigMapProjectionFluent.ItemsNested<N>,Nested<N>{
+    ItemsNestedImpl(Integer index,V1KeyToPath item) {
       this.index = index;
       this.builder = new V1KeyToPathBuilder(this, item);
     }
-
     ItemsNestedImpl() {
       this.index = -1;
       this.builder = new V1KeyToPathBuilder(this);
     }
-
     V1KeyToPathBuilder builder;
     Integer index;
-
     public N and() {
-      return (N) V1ConfigMapProjectionFluentImpl.this.setToItems(index, builder.build());
+      return (N) V1ConfigMapProjectionFluentImpl.this.setToItems(index,builder.build());
     }
-
     public N endItem() {
       return and();
     }
+    
   }
+  
 }

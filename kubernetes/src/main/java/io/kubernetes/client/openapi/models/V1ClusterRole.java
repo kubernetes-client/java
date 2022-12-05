@@ -28,7 +28,7 @@ import java.util.Objects;
         "ClusterRole is a cluster level, logical grouping of PolicyRules that can be referenced as a unit by a RoleBinding or ClusterRoleBinding.")
 @javax.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-09-15T17:00:37.921Z[Etc/UTC]")
+    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ClusterRole implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_AGGREGATION_RULE = "aggregationRule";
 

@@ -1,146 +1,105 @@
-/*
-Copyright 2022 The Kubernetes Authors.
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
 package io.kubernetes.client.openapi.models;
 
-import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
+import java.lang.String;
+import java.lang.Deprecated;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Object;
+import java.lang.Boolean;
 
-/** Generated */
-@SuppressWarnings(value = "unchecked")
-public class V2MetricIdentifierFluentImpl<A extends V2MetricIdentifierFluent<A>>
-    extends BaseFluent<A> implements V2MetricIdentifierFluent<A> {
-  public V2MetricIdentifierFluentImpl() {}
-
+ /**
+  * Generated
+  */
+  @SuppressWarnings(value = "unchecked")
+  public class V2MetricIdentifierFluentImpl<A extends V2MetricIdentifierFluent<A>> extends BaseFluent<A> implements V2MetricIdentifierFluent<A>{
+  public V2MetricIdentifierFluentImpl() {
+  }
   public V2MetricIdentifierFluentImpl(V2MetricIdentifier instance) {
     this.withName(instance.getName());
 
     this.withSelector(instance.getSelector());
-  }
 
+  }
   private String name;
   private V1LabelSelectorBuilder selector;
-
   public String getName() {
     return this.name;
   }
-
   public A withName(String name) {
-    this.name = name;
-    return (A) this;
+    this.name=name; return (A) this;
   }
-
   public Boolean hasName() {
     return this.name != null;
   }
-
+  
   /**
    * This method has been deprecated, please use method buildSelector instead.
-   *
    * @return The buildable object.
    */
   @Deprecated
   public V1LabelSelector getSelector() {
-    return this.selector != null ? this.selector.build() : null;
+    return this.selector!=null ?this.selector.build():null;
   }
-
   public V1LabelSelector buildSelector() {
-    return this.selector != null ? this.selector.build() : null;
+    return this.selector!=null ?this.selector.build():null;
   }
-
   public A withSelector(V1LabelSelector selector) {
     _visitables.get("selector").remove(this.selector);
-    if (selector != null) {
-      this.selector = new V1LabelSelectorBuilder(selector);
-      _visitables.get("selector").add(this.selector);
-    } else {
-      this.selector = null;
-      _visitables.get("selector").remove(this.selector);
-    }
-    return (A) this;
+    if (selector!=null){ this.selector= new V1LabelSelectorBuilder(selector); _visitables.get("selector").add(this.selector);} else { this.selector = null; _visitables.get("selector").remove(this.selector); } return (A) this;
   }
-
   public Boolean hasSelector() {
     return this.selector != null;
   }
-
   public V2MetricIdentifierFluent.SelectorNested<A> withNewSelector() {
     return new V2MetricIdentifierFluentImpl.SelectorNestedImpl();
   }
-
   public V2MetricIdentifierFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
     return new V2MetricIdentifierFluentImpl.SelectorNestedImpl(item);
   }
-
   public V2MetricIdentifierFluent.SelectorNested<A> editSelector() {
     return withNewSelectorLike(getSelector());
   }
-
   public V2MetricIdentifierFluent.SelectorNested<A> editOrNewSelector() {
-    return withNewSelectorLike(
-        getSelector() != null ? getSelector() : new V1LabelSelectorBuilder().build());
+    return withNewSelectorLike(getSelector() != null ? getSelector(): new V1LabelSelectorBuilder().build());
   }
-
   public V2MetricIdentifierFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
-    return withNewSelectorLike(getSelector() != null ? getSelector() : item);
+    return withNewSelectorLike(getSelector() != null ? getSelector(): item);
   }
-
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     V2MetricIdentifierFluentImpl that = (V2MetricIdentifierFluentImpl) o;
-    if (name != null ? !name.equals(that.name) : that.name != null) return false;
-    if (selector != null ? !selector.equals(that.selector) : that.selector != null) return false;
+    if (name != null ? !name.equals(that.name) :that.name != null) return false;
+    if (selector != null ? !selector.equals(that.selector) :that.selector != null) return false;
     return true;
   }
-
   public int hashCode() {
-    return java.util.Objects.hash(name, selector, super.hashCode());
+    return java.util.Objects.hash(name,  selector,  super.hashCode());
   }
-
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (name != null) {
-      sb.append("name:");
-      sb.append(name + ",");
-    }
-    if (selector != null) {
-      sb.append("selector:");
-      sb.append(selector);
-    }
+    if (name != null) { sb.append("name:"); sb.append(name + ","); }
+    if (selector != null) { sb.append("selector:"); sb.append(selector); }
     sb.append("}");
     return sb.toString();
   }
-
-  class SelectorNestedImpl<N>
-      extends V1LabelSelectorFluentImpl<V2MetricIdentifierFluent.SelectorNested<N>>
-      implements V2MetricIdentifierFluent.SelectorNested<N>, Nested<N> {
+  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V2MetricIdentifierFluent.SelectorNested<N>> implements V2MetricIdentifierFluent.SelectorNested<N>,Nested<N>{
     SelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
-
     SelectorNestedImpl() {
       this.builder = new V1LabelSelectorBuilder(this);
     }
-
     V1LabelSelectorBuilder builder;
-
     public N and() {
       return (N) V2MetricIdentifierFluentImpl.this.withSelector(builder.build());
     }
-
     public N endSelector() {
       return and();
     }
+    
   }
+  
 }
