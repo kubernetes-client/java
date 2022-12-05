@@ -54,6 +54,7 @@ jobs:
           mvn -q \
             -Dexec.executable=echo \
             -Dexec.args='${project.version}' \
+            -pl !spring-aot \
             --non-recursive \
             exec:exec | perl -ne 'die unless m/${{ github.event.inputs.releaseVersion }}-SNAPSHOT/'
       - name: Release Prepare
@@ -65,7 +66,8 @@ jobs:
             -DconnectionUrl=https://${{ github.token }}@github.com/${{ github.repository }}.git \
             -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
             -DdevelopmentVersion=${{ github.event.inputs.nextDevelopmentVersion }} \
-            -DpushChanges=false
+            -DpushChanges=false \
+            -pl !spring-aot
       - name: Release Perform
         if: ${{ github.event.inputs.dry-run != 'true' }}
         env:
@@ -74,7 +76,7 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSWORD }}
         run: |
           # The tests are already executed in the prepare, skipping
-          mvn -DlocalCheckout=true -Darguments=-DskipTests release:perform
+          mvn -DlocalCheckout=true -Darguments=-DskipTests -pl !spring-aot release:perform
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git \
             automated-release-${{ github.event.inputs.releaseVersion }}:automated-release-${{ github.event.inputs.releaseVersion }}
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git v${{ github.event.inputs.releaseVersion }}
