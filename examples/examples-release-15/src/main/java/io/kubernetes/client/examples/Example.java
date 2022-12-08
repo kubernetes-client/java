@@ -29,7 +29,7 @@ public class Example {
         CoreV1Api coreV1Api = new CoreV1Api();
         V1PodList pods =
                 coreV1Api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null);
-        if (CollectionUtils.isNotEmpty(pods) && CollectionUtils.isNotEmpty(pods.getItems())) {
+        if (pods != null && CollectionUtils.isNotEmpty(pods.getItems())) {
             pods.getItems().forEach((pod) -> System.out.println(pod.getMetadata().getName()));
         }
     }
