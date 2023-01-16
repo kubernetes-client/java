@@ -76,9 +76,6 @@ public class SharedInformerFactory {
    * @param threadPool specified thread pool
    */
   public SharedInformerFactory(ApiClient client, ExecutorService threadPool) {
-    if (client.getReadTimeout() != 0) {
-      throw new IllegalArgumentException("read timeout of ApiClient must be zero");
-    }
 
     apiClient = client;
     informerExecutor = threadPool;
