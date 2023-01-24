@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.SafeConstructor;
 
 public class FilePersister implements ConfigPersister {
   File configFile;
@@ -50,7 +51,7 @@ public class FilePersister implements ConfigPersister {
     // Note this is imperfect, should protect against other processes writing this file too...
     synchronized (configFile) {
       try (FileWriter fw = new FileWriter(configFile)) {
-        Yaml yaml = new Yaml();
+        Yaml yaml = new Yaml(new SafeConstructor());
         yaml.dump(config, fw);
         fw.flush();
       }
