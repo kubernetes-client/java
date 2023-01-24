@@ -468,6 +468,17 @@
                 <replacement>INVALID IMPORTS (GUAVA)</replacement>
               </replaceRegex>
             </format>
+            <!-- prevents empty SnakeYaml constructor -->
+            <format>
+              <includes>
+                <include>src/**/*.java</include>
+              </includes>
+              <replaceRegex>
+                <name>Forbids new Yaml()</name>
+                <searchRegex>^.*new Yaml\(\).*$</searchRegex>
+                <replacement>INVALID CONSTRUCTOR (SNAKEYAML)</replacement>
+              </replaceRegex>
+            </format>
           </formats>
           <java>
             <removeUnusedImports /> <!-- self-explanatory -->
