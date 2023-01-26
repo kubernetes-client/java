@@ -49,6 +49,7 @@ import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.UnaryOperator;
 import javax.annotation.Nonnull;
 import okhttp3.Call;
 import okhttp3.HttpUrl;
@@ -161,6 +162,11 @@ public class GenericKubernetesApi<
     this.apiTypeClass = apiTypeClass;
     this.apiListTypeClass = apiListTypeClass;
     this.customObjectsApi = customObjectsApi;
+  }
+
+  // For unit-test
+  ApiClient getApiClient() {
+    return customObjectsApi.getApiClient();
   }
 
   /**
@@ -1258,13 +1264,32 @@ public class GenericKubernetesApi<
     }
   }
 
+  // For unit-test
+  interface CallAdapter extends UnaryOperator<Call> {
+
+  }
+
+  private <DataType extends KubernetesType> Call prepareCall(CallBuilder callBuilder,
+                                                             Consumer<KubernetesApiResponse<DataType>> callback)
+      throws ApiException {
+    Call call = prepareCall(callBuilder);
+
+    // For unit-test
+    if (callback instanceof CallAdapter) {
+      call = ((CallAdapter) callback).apply(call);
+    }
+
+    return call;
+  }
+
   private <DataType extends KubernetesType> Future<KubernetesApiResponse<DataType>> executeCallAsync(
       ApiClient apiClient, Class<DataType> dataClass, CallBuilder callBuilder,
       Consumer<KubernetesApiResponse<DataType>> callback) {
     try {
-      Call call = prepareCall(callBuilder);
+      Call call = prepareCall(callBuilder, callback);
       CountDownLatch latch = new CountDownLatch(1);
       AtomicReference<KubernetesApiResponse<DataType>> result = new AtomicReference<>();
+
       apiClient.executeAsync(call, JsonElement.class, new ApiCallback<JsonElement>() {
         @Override
         public void onFailure(ApiException e, int statusCode, Map<String, List<String>> responseHeaders) {

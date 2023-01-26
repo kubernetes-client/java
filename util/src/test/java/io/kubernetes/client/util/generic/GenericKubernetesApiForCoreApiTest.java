@@ -23,6 +23,11 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.ClientBuilder;
+import okhttp3.Call;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.jetbrains.annotations.NotNull;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -33,10 +38,10 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
@@ -57,6 +62,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -70,6 +76,7 @@ public class GenericKubernetesApiForCoreApiTest {
   @Before
   public void setup() throws IOException {
     ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8181).build();
+    apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().addInterceptor(new TestInterceptor()).build());
     podClient =
         new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
   }
@@ -157,8 +164,20 @@ public class GenericKubernetesApiForCoreApiTest {
     stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
-    TestCallback<V1PodList> callback = new TestCallback<>();
+    TestCallback<V1PodList> callback = new TestCallback<>(podClient.getApiClient());
+
+    // request will be blocked until proceed()
+    WaitForRequest waitForRequest = callback.awaitBeforeRequest();
+
     Future<KubernetesApiResponse<V1PodList>> podListFuture = podClient.listAsync(callback);
+
+    assertFalse(podListFuture.isDone());
+    assertFalse(podListFuture.isCancelled());
+
+    assertThrows(TimeoutException.class, () -> podListFuture.get(1, TimeUnit.SECONDS));
+
+    waitForRequest.proceed();
+
     KubernetesApiResponse<V1PodList> podListResp = callback.waitForAndGetResponse();
     assertTrue(podListResp.isSuccess());
     assertEquals(podList, podListResp.getObject());
@@ -272,9 +291,23 @@ public class GenericKubernetesApiForCoreApiTest {
     fail("no exception happened");
   }
 
-  static class TestCallback<ApiType extends KubernetesType> implements Consumer<KubernetesApiResponse<ApiType>> {
+  static class TestCallback<ApiType extends KubernetesType>
+      implements Consumer<KubernetesApiResponse<ApiType>>, GenericKubernetesApi.CallAdapter {
     final AtomicReference<KubernetesApiResponse<ApiType>> result = new AtomicReference<>();
     final CountDownLatch latch = new CountDownLatch(1);
+
+    final ApiClient apiClient;
+
+    WaitForRequest waitForRequest = null;
+    WaitForResponse waitForResponse = null;
+
+    TestCallback() {
+      this(null);
+    }
+
+    TestCallback(ApiClient apiClient) {
+      this.apiClient = apiClient;
+    }
 
     @Override
     public void accept(KubernetesApiResponse<ApiType> apiTypeKubernetesApiResponse) {
@@ -286,5 +319,85 @@ public class GenericKubernetesApiForCoreApiTest {
       latch.await();
       return result.get();
     }
+
+    public WaitForRequest awaitBeforeRequest() {
+      waitForRequest = new WaitForRequest();
+      return waitForRequest;
+    }
+
+    public WaitForResponse awaitBeforeResponse() {
+      waitForResponse = new WaitForResponse();
+      return waitForResponse;
+    }
+
+    @Override
+    public Call apply(Call call) {
+      if (waitForRequest != null) {
+        call = apiClient.getHttpClient().newCall(
+            call.request().newBuilder().tag(WaitForRequest.class, waitForRequest).build());
+      }
+      if (waitForResponse != null) {
+        call = apiClient.getHttpClient().newCall(
+            call.request().newBuilder().tag(WaitForResponse.class, waitForResponse).build());
+      }
+      return call;
+    }
+  }
+
+  static class TestInterceptor implements Interceptor {
+
+    @NotNull
+    @Override
+    public Response intercept(@NotNull Chain chain) throws IOException {
+      final Request request = chain.request();
+
+      // TEST
+      System.out.println("Before proceed");
+
+      WaitForRequest waitForRequest = request.tag(WaitForRequest.class);
+      if (waitForRequest != null) {
+        try {
+          waitForRequest.await();
+        } catch (InterruptedException e) {
+          throw new IOException(e);
+        }
+      }
+
+      final Response response =  chain.proceed(request);
+
+      // TEST
+      System.out.println("After proceed");
+
+      WaitForResponse waitForResponse = request.tag(WaitForResponse.class);
+      if (waitForResponse != null) {
+        try {
+          waitForResponse.await();
+        } catch (InterruptedException e) {
+          throw new IOException(e);
+        }
+      }
+
+      return response;
+    }
+  }
+
+  static class WaitSignal {
+    final CountDownLatch latch = new CountDownLatch(1);
+
+    public void await() throws InterruptedException {
+      latch.await();
+    }
+
+    public void proceed() {
+      latch.countDown();
+    }
+  }
+
+  static class WaitForRequest extends WaitSignal {
+
+  }
+
+  static class WaitForResponse extends WaitSignal {
+
   }
 }
