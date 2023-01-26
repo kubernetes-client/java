@@ -12,10 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.util.generic;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.Assert.*;
-
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.JSON;
@@ -25,12 +23,42 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.ClientBuilder;
-import java.io.IOException;
-import java.net.SocketTimeoutException;
-import java.util.concurrent.TimeUnit;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+
+import java.io.IOException;
+import java.net.SocketTimeoutException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Consumer;
+
+import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.containing;
+import static com.github.tomakehurst.wiremock.client.WireMock.delete;
+import static com.github.tomakehurst.wiremock.client.WireMock.deleteRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.patch;
+import static com.github.tomakehurst.wiremock.client.WireMock.patchRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.put;
+import static com.github.tomakehurst.wiremock.client.WireMock.putRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class GenericKubernetesApiForCoreApiTest {
 
@@ -117,6 +145,27 @@ public class GenericKubernetesApiForCoreApiTest {
     assertTrue(podListResp.isSuccess());
     assertEquals(podList, podListResp.getObject());
     assertNull(podListResp.getStatus());
+    verify(
+        1,
+        getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
+  }
+
+  @Test
+  public void listClusterPodAsyncReturningObject() throws InterruptedException, ExecutionException {
+    V1PodList podList = new V1PodList().kind("PodList").metadata(new V1ListMeta());
+
+    stubFor(
+        get(urlPathEqualTo("/api/v1/pods"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
+    TestCallback<V1PodList> callback = new TestCallback<>();
+    Future<KubernetesApiResponse<V1PodList>> podListFuture = podClient.listAsync(callback);
+    KubernetesApiResponse<V1PodList> podListResp = callback.waitForAndGetResponse();
+    assertTrue(podListResp.isSuccess());
+    assertEquals(podList, podListResp.getObject());
+    assertNull(podListResp.getStatus());
+    assertTrue(podListFuture.isDone());
+    assertFalse(podListFuture.isCancelled());
+    assertEquals(podListResp, podListFuture.get());
     verify(
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
@@ -221,5 +270,21 @@ public class GenericKubernetesApiForCoreApiTest {
       return;
     }
     fail("no exception happened");
+  }
+
+  static class TestCallback<ApiType extends KubernetesType> implements Consumer<KubernetesApiResponse<ApiType>> {
+    final AtomicReference<KubernetesApiResponse<ApiType>> result = new AtomicReference<>();
+    final CountDownLatch latch = new CountDownLatch(1);
+
+    @Override
+    public void accept(KubernetesApiResponse<ApiType> apiTypeKubernetesApiResponse) {
+      result.set(apiTypeKubernetesApiResponse);
+      latch.countDown();
+    }
+
+    public KubernetesApiResponse<ApiType> waitForAndGetResponse() throws InterruptedException {
+      latch.await();
+      return result.get();
+    }
   }
 }
