@@ -46,7 +46,8 @@ public class GenericKubernetesApiTest {
 
   @Before
   public void setup() throws IOException {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     jobClient =
         new GenericKubernetesApi<>(V1Job.class, V1JobList.class, "batch", "v1", "jobs", apiClient);
   }
@@ -206,7 +207,8 @@ public class GenericKubernetesApiTest {
 
   @Test
   public void testReadTimeoutShouldThrowException() {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     apiClient.setHttpClient(
         apiClient
             .getHttpClient()

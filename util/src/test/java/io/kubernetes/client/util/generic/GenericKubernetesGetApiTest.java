@@ -39,7 +39,8 @@ public class GenericKubernetesGetApiTest {
 
   @Before
   public void setup() {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     jobClient =
         new GenericKubernetesApi<>(V1Job.class, V1JobList.class, "batch", "v1", "jobs", apiClient);
     fooClient =

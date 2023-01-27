@@ -40,7 +40,8 @@ public class KubernetesApiResponseTest {
 
   @Before
   public void setup() throws IOException {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     podClient =
         new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
   }

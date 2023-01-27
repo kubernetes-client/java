@@ -12,37 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.util.generic;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
-import io.kubernetes.client.common.KubernetesType;
-import io.kubernetes.client.custom.V1Patch;
-import io.kubernetes.client.openapi.ApiClient;
-import io.kubernetes.client.openapi.JSON;
-import io.kubernetes.client.openapi.models.V1ListMeta;
-import io.kubernetes.client.openapi.models.V1ObjectMeta;
-import io.kubernetes.client.openapi.models.V1Pod;
-import io.kubernetes.client.openapi.models.V1PodList;
-import io.kubernetes.client.openapi.models.V1Status;
-import io.kubernetes.client.util.ClientBuilder;
-import okhttp3.Call;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
-import org.jetbrains.annotations.NotNull;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-
-import java.io.IOException;
-import java.net.SocketTimeoutException;
-import java.util.concurrent.CancellationException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.Consumer;
-
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
@@ -69,6 +38,36 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import io.kubernetes.client.common.KubernetesType;
+import io.kubernetes.client.custom.V1Patch;
+import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.JSON;
+import io.kubernetes.client.openapi.models.V1ListMeta;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import io.kubernetes.client.openapi.models.V1Pod;
+import io.kubernetes.client.openapi.models.V1PodList;
+import io.kubernetes.client.openapi.models.V1Status;
+import io.kubernetes.client.util.ClientBuilder;
+import java.io.IOException;
+import java.net.SocketTimeoutException;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Consumer;
+import okhttp3.Call;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.jetbrains.annotations.NotNull;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+
 public class GenericKubernetesApiForCoreApiTest {
 
   @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
@@ -78,8 +77,10 @@ public class GenericKubernetesApiForCoreApiTest {
 
   @Before
   public void setup() throws IOException {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
-    apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().addInterceptor(new TestInterceptor()).build());
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+    apiClient.setHttpClient(
+        apiClient.getHttpClient().newBuilder().addInterceptor(new TestInterceptor()).build());
     podClient =
         new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
   }
@@ -107,7 +108,8 @@ public class GenericKubernetesApiForCoreApiTest {
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(status))));
     TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
 
-    Future<KubernetesApiResponse<V1Pod>> deletePodFuture = podClient.deleteAsync("default", "foo1", null, callback);
+    Future<KubernetesApiResponse<V1Pod>> deletePodFuture =
+        podClient.deleteAsync("default", "foo1", null, callback);
     KubernetesApiResponse<V1Pod> deletePodResp = callback.waitForAndGetResponse();
     assertTrue(deletePodResp.isSuccess());
     assertEquals(status, deletePodResp.getStatus());
@@ -144,7 +146,8 @@ public class GenericKubernetesApiForCoreApiTest {
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
 
-    Future<KubernetesApiResponse<V1Pod>> deletePodFuture = podClient.deleteAsync("default", "foo1", callback);
+    Future<KubernetesApiResponse<V1Pod>> deletePodFuture =
+        podClient.deleteAsync("default", "foo1", callback);
     KubernetesApiResponse<V1Pod> deletePodResp = callback.waitForAndGetResponse();
     assertTrue(deletePodResp.isSuccess());
     assertEquals(foo1, deletePodResp.getObject());
@@ -178,7 +181,8 @@ public class GenericKubernetesApiForCoreApiTest {
             .willReturn(aResponse().withStatus(403).withBody(json.serialize(status))));
     TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
 
-    Future<KubernetesApiResponse<V1Pod>> deletePodFuture = podClient.deleteAsync("default", "foo1", callback);
+    Future<KubernetesApiResponse<V1Pod>> deletePodFuture =
+        podClient.deleteAsync("default", "foo1", callback);
     KubernetesApiResponse<V1Pod> deletePodResp = callback.waitForAndGetResponse();
     assertFalse(deletePodResp.isSuccess());
     assertEquals(status, deletePodResp.getStatus());
@@ -211,7 +215,8 @@ public class GenericKubernetesApiForCoreApiTest {
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
     TestCallback<V1PodList> callback = new TestCallback<>(podClient.getApiClient());
 
-    Future<KubernetesApiResponse<V1PodList>> podListFuture = podClient.listAsync("default", callback);
+    Future<KubernetesApiResponse<V1PodList>> podListFuture =
+        podClient.listAsync("default", callback);
     KubernetesApiResponse<V1PodList> podListResp = callback.waitForAndGetResponse();
     assertTrue(podListResp.isSuccess());
     assertEquals(podList, podListResp.getObject());
@@ -406,7 +411,8 @@ public class GenericKubernetesApiForCoreApiTest {
     TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
 
     Future<KubernetesApiResponse<V1Pod>> podPatchFuture =
-        podClient.patchAsync("default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch, callback);
+        podClient.patchAsync(
+            "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch, callback);
     KubernetesApiResponse<V1Pod> podPatchResp = callback.waitForAndGetResponse();
 
     assertTrue(podPatchResp.isSuccess());
@@ -436,7 +442,9 @@ public class GenericKubernetesApiForCoreApiTest {
             "",
             "v1",
             "pods",
-            new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port() + prefix).build());
+            new ClientBuilder()
+                .setBasePath("http://localhost:" + wireMockRule.port() + prefix)
+                .build());
     KubernetesApiResponse<V1Pod> podPatchResp =
         rancherPodClient.patch(
             "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
@@ -467,7 +475,9 @@ public class GenericKubernetesApiForCoreApiTest {
             "",
             "v1",
             "pods",
-            new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port() + prefix).build());
+            new ClientBuilder()
+                .setBasePath("http://localhost:" + wireMockRule.port() + prefix)
+                .build());
     Future<KubernetesApiResponse<V1Pod>> podPatchFuture =
         rancherPodClient.patchAsync(
             "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch, callback);
@@ -483,7 +493,8 @@ public class GenericKubernetesApiForCoreApiTest {
 
   @Test
   public void testReadTimeoutShouldThrowException() {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     apiClient.setHttpClient(
         apiClient
             .getHttpClient()
@@ -540,8 +551,11 @@ public class GenericKubernetesApiForCoreApiTest {
     @Override
     public Call apply(Call call) {
       if (waitForRequest != null) {
-        call = apiClient.getHttpClient().newCall(
-            call.request().newBuilder().tag(WaitForRequest.class, waitForRequest).build());
+        call =
+            apiClient
+                .getHttpClient()
+                .newCall(
+                    call.request().newBuilder().tag(WaitForRequest.class, waitForRequest).build());
       }
       return call;
     }
