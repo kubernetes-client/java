@@ -198,7 +198,7 @@ public class GenericKubernetesApi<
    * @return future for the kubernetes api response
    */
   public Future<KubernetesApiResponse<ApiType>> getAsync(String name,
-                                                         Consumer<KubernetesApiResponse<ApiType>> callback) {
+                                                         @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return getAsync(name, new GetOptions(), callback);
   }
 
@@ -211,7 +211,7 @@ public class GenericKubernetesApi<
    * @return future for the kubernetes api response
    */
   public Future<KubernetesApiResponse<ApiType>> getAsync(String namespace, String name,
-                                                         Consumer<KubernetesApiResponse<ApiType>> callback) {
+                                                         @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return getAsync(namespace, name, new GetOptions(), callback);
   }
 
@@ -240,7 +240,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiListType>> listAsync(Consumer<KubernetesApiResponse<ApiListType>> callback) {
+  public Future<KubernetesApiResponse<ApiListType>> listAsync(
+      @Nonnull Consumer<KubernetesApiResponse<ApiListType>> callback) {
     return listAsync(new ListOptions(), callback);
   }
 
@@ -251,8 +252,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiListType>> listAsync(String namespace,
-                                                              Consumer<KubernetesApiResponse<ApiListType>> callback) {
+  public Future<KubernetesApiResponse<ApiListType>> listAsync(
+      String namespace, @Nonnull Consumer<KubernetesApiResponse<ApiListType>> callback) {
     return listAsync(namespace, new ListOptions(), callback);
   }
 
@@ -275,8 +276,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiType>> createAsync(ApiType object,
-                                                            Consumer<KubernetesApiResponse<ApiType>> callback) {
+  public Future<KubernetesApiResponse<ApiType>> createAsync(
+      ApiType object, @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return createAsync(object, new CreateOptions(), callback);
   }
 
@@ -299,8 +300,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiType>> updateAsync(ApiType object,
-                                                            Consumer<KubernetesApiResponse<ApiType>> callback) {
+  public Future<KubernetesApiResponse<ApiType>> updateAsync(
+      ApiType object, @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return updateAsync(object, new UpdateOptions(), callback);
   }
 
@@ -340,7 +341,7 @@ public class GenericKubernetesApi<
    * @return future for the kubernetes api response
    */
   public Future<KubernetesApiResponse<ApiType>> patchAsync(String name, String patchType, V1Patch patch,
-                                                           Consumer<KubernetesApiResponse<ApiType>> callback) {
+                                                           @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return patchAsync(name, patchType, patch, new PatchOptions(), callback);
   }
 
@@ -355,7 +356,7 @@ public class GenericKubernetesApi<
    */
   public Future<KubernetesApiResponse<ApiType>> patchAsync(
       String namespace, String name, String patchType, V1Patch patch,
-      Consumer<KubernetesApiResponse<ApiType>> callback) {
+      @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return patchAsync(namespace, name, patchType, patch, new PatchOptions(), callback);
   }
 
@@ -387,8 +388,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiType>> deleteAsync(String name,
-                                                            Consumer<KubernetesApiResponse<ApiType>> callback) {
+  public Future<KubernetesApiResponse<ApiType>> deleteAsync(
+      String name, @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return deleteAsync(name, new DeleteOptions(), callback);
   }
 
@@ -400,8 +401,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiType>> deleteAsync(String namespace, String name,
-                                                            Consumer<KubernetesApiResponse<ApiType>> callback) {
+  public Future<KubernetesApiResponse<ApiType>> deleteAsync(
+      String namespace, String name, @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return deleteAsync(namespace, name, new DeleteOptions(), callback);
   }
 
@@ -445,7 +446,7 @@ public class GenericKubernetesApi<
         makeClusterGetCallBuilder(name, getOptions));
   }
 
-  private CallBuilder makeClusterGetCallBuilder(String name, GetOptions getOptions) {
+  private CallBuilder makeClusterGetCallBuilder(String name, final GetOptions getOptions) {
     return () ->
         customObjectsApi.getClusterCustomObjectCall(
             this.apiGroup, this.apiVersion, this.resourcePlural, name, null);
@@ -460,7 +461,7 @@ public class GenericKubernetesApi<
    * @return future for the kubernetes api response
    */
   public Future<KubernetesApiResponse<ApiType>> getAsync(String name, final GetOptions getOptions,
-                                                         Consumer<KubernetesApiResponse<ApiType>> callback) {
+                                                         @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     if (Strings.isNullOrEmpty(name)) {
       throw new IllegalArgumentException("invalid name");
     }
@@ -508,7 +509,8 @@ public class GenericKubernetesApi<
    * @return future for the kubernetes api response
    */
   public Future<KubernetesApiResponse<ApiType>> getAsync(
-      String namespace, String name, final GetOptions getOptions, Consumer<KubernetesApiResponse<ApiType>> callback) {
+      String namespace, String name, final GetOptions getOptions,
+      @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     if (Strings.isNullOrEmpty(name)) {
       throw new IllegalArgumentException("invalid name");
     }
@@ -596,8 +598,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiListType>> listAsync(final ListOptions listOptions,
-                                                              Consumer<KubernetesApiResponse<ApiListType>> callback) {
+  public Future<KubernetesApiResponse<ApiListType>> listAsync(
+      final ListOptions listOptions, @Nonnull Consumer<KubernetesApiResponse<ApiListType>> callback) {
     return executeCallAsync(
         customObjectsApi.getApiClient(),
         apiListTypeClass,
@@ -613,8 +615,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiListType>> listAsync(String namespace, final ListOptions listOptions,
-                                                              Consumer<KubernetesApiResponse<ApiListType>> callback) {
+  public Future<KubernetesApiResponse<ApiListType>> listAsync(
+      String namespace, final ListOptions listOptions, @Nonnull Consumer<KubernetesApiResponse<ApiListType>> callback) {
     if (Strings.isNullOrEmpty(namespace)) {
       throw new IllegalArgumentException("invalid namespace");
     }
@@ -674,8 +676,8 @@ public class GenericKubernetesApi<
         makeNamespacedCreateCallBuilder(namespace, object, createOptions));
   }
 
-  private CallBuilder makeNamespacedCreateCallBuilder(String namespace, ApiType object, final
-  CreateOptions createOptions) {
+  private CallBuilder makeNamespacedCreateCallBuilder(
+      String namespace, ApiType object, final CreateOptions createOptions) {
     // TODO(yue9944882): judge namespaced object via api discovery
     return () -> customObjectsApi.createNamespacedCustomObjectCall(
         this.apiGroup,
@@ -697,8 +699,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiType>> createAsync(ApiType object, final CreateOptions createOptions,
-                                                            Consumer<KubernetesApiResponse<ApiType>> callback) {
+  public Future<KubernetesApiResponse<ApiType>> createAsync(
+      ApiType object, final CreateOptions createOptions, @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     V1ObjectMeta objectMeta = object.getMetadata();
 
     boolean isNamespaced = !Strings.isNullOrEmpty(objectMeta.getNamespace());
@@ -721,9 +723,9 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiType>> createAsync(String namespace, ApiType object,
-                                                            final CreateOptions createOptions,
-                                                            Consumer<KubernetesApiResponse<ApiType>> callback) {
+  public Future<KubernetesApiResponse<ApiType>> createAsync(
+      String namespace, ApiType object, final CreateOptions createOptions,
+      @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return executeCallAsync(
         customObjectsApi.getApiClient(),
         apiTypeClass,
@@ -780,8 +782,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiType>> updateAsync(ApiType object, final UpdateOptions updateOptions,
-                                                            Consumer<KubernetesApiResponse<ApiType>> callback) {
+  public Future<KubernetesApiResponse<ApiType>> updateAsync(
+      ApiType object, final UpdateOptions updateOptions, @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return executeCallAsync(
         customObjectsApi.getApiClient(),
         apiTypeClass,
@@ -858,7 +860,7 @@ public class GenericKubernetesApi<
    * @return future for the kubernetes api response
    */
   public Future<KubernetesApiResponse<ApiType>> updateStatusAsync(
-      ApiType object, Function<ApiType, Object> status, Consumer<KubernetesApiResponse<ApiType>> callback) {
+      ApiType object, Function<ApiType, Object> status, @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return updateStatusAsync(object, status, new UpdateOptions(), callback);
   }
 
@@ -873,7 +875,7 @@ public class GenericKubernetesApi<
    */
   public Future<KubernetesApiResponse<ApiType>> updateStatusAsync(
       ApiType object, Function<ApiType, Object> status, final UpdateOptions updateOptions,
-      Consumer<KubernetesApiResponse<ApiType>> callback) {
+      @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     return executeCallAsync(
         customObjectsApi.getApiClient(),
         apiTypeClass,
@@ -980,7 +982,7 @@ public class GenericKubernetesApi<
    */
   public Future<KubernetesApiResponse<ApiType>> patchAsync(
       String name, String patchType, V1Patch patch, final PatchOptions patchOptions,
-      Consumer<KubernetesApiResponse<ApiType>> callback) {
+      @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     if (Strings.isNullOrEmpty(name)) {
       throw new IllegalArgumentException("invalid name");
     }
@@ -1009,7 +1011,7 @@ public class GenericKubernetesApi<
       String patchType,
       V1Patch patch,
       final PatchOptions patchOptions,
-      Consumer<KubernetesApiResponse<ApiType>> callback) {
+      @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     if (Strings.isNullOrEmpty(namespace)) {
       throw new IllegalArgumentException("invalid namespace");
     }
@@ -1040,7 +1042,7 @@ public class GenericKubernetesApi<
         makeClusterDeleteCallBuilder(name, deleteOptions));
   }
 
-  private CallBuilder makeClusterDeleteCallBuilder(String name, DeleteOptions deleteOptions) {
+  private CallBuilder makeClusterDeleteCallBuilder(String name, final DeleteOptions deleteOptions) {
     return () -> customObjectsApi.deleteClusterCustomObjectCall(
         this.apiGroup,
         this.apiVersion,
@@ -1100,8 +1102,8 @@ public class GenericKubernetesApi<
    * @param callback the callback
    * @return future for the kubernetes api response
    */
-  public Future<KubernetesApiResponse<ApiType>> deleteAsync(String name, final DeleteOptions deleteOptions,
-                                                            Consumer<KubernetesApiResponse<ApiType>> callback) {
+  public Future<KubernetesApiResponse<ApiType>> deleteAsync(
+      String name, final DeleteOptions deleteOptions, @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     if (Strings.isNullOrEmpty(name)) {
       throw new IllegalArgumentException("invalid name");
     }
@@ -1123,7 +1125,7 @@ public class GenericKubernetesApi<
    */
   public Future<KubernetesApiResponse<ApiType>> deleteAsync(
       String namespace, String name, final DeleteOptions deleteOptions,
-      Consumer<KubernetesApiResponse<ApiType>> callback) {
+      @Nonnull Consumer<KubernetesApiResponse<ApiType>> callback) {
     if (Strings.isNullOrEmpty(namespace)) {
       throw new IllegalArgumentException("invalid namespace");
     }
@@ -1269,8 +1271,8 @@ public class GenericKubernetesApi<
 
   }
 
-  private <DataType extends KubernetesType> Call prepareCall(CallBuilder callBuilder,
-                                                             Consumer<KubernetesApiResponse<DataType>> callback)
+  private <DataType extends KubernetesType> Call prepareCall(
+      CallBuilder callBuilder, @Nonnull Consumer<KubernetesApiResponse<DataType>> callback)
       throws ApiException {
     Call call = prepareCall(callBuilder);
 
@@ -1284,7 +1286,7 @@ public class GenericKubernetesApi<
 
   private <DataType extends KubernetesType> Future<KubernetesApiResponse<DataType>> executeCallAsync(
       ApiClient apiClient, Class<DataType> dataClass, CallBuilder callBuilder,
-      Consumer<KubernetesApiResponse<DataType>> callback) {
+      @Nonnull Consumer<KubernetesApiResponse<DataType>> callback) {
     try {
       Call call = prepareCall(callBuilder, callback);
       CountDownLatch latch = new CountDownLatch(1);
@@ -1293,19 +1295,23 @@ public class GenericKubernetesApi<
       apiClient.executeAsync(call, JsonElement.class, new ApiCallback<JsonElement>() {
         @Override
         public void onFailure(ApiException e, int statusCode, Map<String, List<String>> responseHeaders) {
-          KubernetesApiResponse<DataType> r = responseFromApiException(apiClient, e);
-          result.set(r);
-          latch.countDown();
-          callback.accept(r);
+          if (latch.getCount() > 0) {
+            KubernetesApiResponse<DataType> r = responseFromApiException(apiClient, e);
+            result.set(r);
+            latch.countDown();
+            callback.accept(r);
+          }
         }
 
         @Override
         public void onSuccess(JsonElement element, int statusCode, Map<String, List<String>> responseHeaders) {
           KubernetesApiResponse<DataType> r = getKubernetesApiResponse(
               dataClass, element, apiClient.getJSON().getGson());
-          result.set(r);
-          latch.countDown();
-          callback.accept(r);
+          if (latch.getCount() > 0) {
+            result.set(r);
+            latch.countDown();
+            callback.accept(r);
+          }
         }
 
         @Override

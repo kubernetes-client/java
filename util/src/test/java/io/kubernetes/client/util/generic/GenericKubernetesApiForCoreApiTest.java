@@ -34,6 +34,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.util.concurrent.CancellationException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
@@ -47,6 +48,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.containing;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
 import static com.github.tomakehurst.wiremock.client.WireMock.deleteRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.exactly;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.patch;
@@ -59,6 +61,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -68,14 +71,14 @@ import static org.junit.Assert.fail;
 
 public class GenericKubernetesApiForCoreApiTest {
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(8181);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
-  private JSON json = new JSON();
+  private final JSON json = new JSON();
   private GenericKubernetesApi<V1Pod, V1PodList> podClient;
 
   @Before
   public void setup() throws IOException {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8181).build();
+    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().addInterceptor(new TestInterceptor()).build());
     podClient =
         new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
@@ -174,7 +177,7 @@ public class GenericKubernetesApiForCoreApiTest {
     assertFalse(podListFuture.isDone());
     assertFalse(podListFuture.isCancelled());
 
-    assertThrows(TimeoutException.class, () -> podListFuture.get(1, TimeUnit.SECONDS));
+    assertThrows(TimeoutException.class, () -> podListFuture.get(10, TimeUnit.MILLISECONDS));
 
     waitForRequest.proceed();
 
@@ -187,6 +190,42 @@ public class GenericKubernetesApiForCoreApiTest {
     assertEquals(podListResp, podListFuture.get());
     verify(
         1,
+        getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
+  }
+
+  @Test
+  public void listClusterPodAsyncCanceled() {
+    V1PodList podList = new V1PodList().kind("PodList").metadata(new V1ListMeta());
+
+    stubFor(
+        get(urlPathEqualTo("/api/v1/pods"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
+    TestCallback<V1PodList> callback = new TestCallback<>(podClient.getApiClient());
+
+    // request will be blocked until proceed()
+    WaitForRequest waitForRequest = callback.awaitBeforeRequest();
+
+    Future<KubernetesApiResponse<V1PodList>> podListFuture = podClient.listAsync(callback);
+
+    assertFalse(podListFuture.isDone());
+    assertFalse(podListFuture.isCancelled());
+
+    // cancel request
+    assertTrue(podListFuture.cancel(true));
+
+    assertTrue(podListFuture.isCancelled());
+    assertTrue(podListFuture.isDone());
+
+    // unblock thread to clean up
+    waitForRequest.proceed();
+
+    assertThrows(CancellationException.class, podListFuture::get);
+    assertThrows(CancellationException.class, () -> podListFuture.get(10, TimeUnit.MILLISECONDS));
+
+    assertFalse(callback.hasBeenCalled());
+
+    verify(
+        exactly(0),
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
   }
 
@@ -257,7 +296,7 @@ public class GenericKubernetesApiForCoreApiTest {
             "",
             "v1",
             "pods",
-            new ClientBuilder().setBasePath("http://localhost:" + 8181 + prefix).build());
+            new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port() + prefix).build());
     KubernetesApiResponse<V1Pod> podPatchResp =
         rancherPodClient.patch(
             "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
@@ -270,7 +309,7 @@ public class GenericKubernetesApiForCoreApiTest {
 
   @Test
   public void testReadTimeoutShouldThrowException() {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8181).build();
+    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     apiClient.setHttpClient(
         apiClient
             .getHttpClient()
@@ -299,11 +338,6 @@ public class GenericKubernetesApiForCoreApiTest {
     final ApiClient apiClient;
 
     WaitForRequest waitForRequest = null;
-    WaitForResponse waitForResponse = null;
-
-    TestCallback() {
-      this(null);
-    }
 
     TestCallback(ApiClient apiClient) {
       this.apiClient = apiClient;
@@ -320,14 +354,13 @@ public class GenericKubernetesApiForCoreApiTest {
       return result.get();
     }
 
+    public boolean hasBeenCalled() {
+      return latch.getCount() == 0;
+    }
+
     public WaitForRequest awaitBeforeRequest() {
       waitForRequest = new WaitForRequest();
       return waitForRequest;
-    }
-
-    public WaitForResponse awaitBeforeResponse() {
-      waitForResponse = new WaitForResponse();
-      return waitForResponse;
     }
 
     @Override
@@ -335,10 +368,6 @@ public class GenericKubernetesApiForCoreApiTest {
       if (waitForRequest != null) {
         call = apiClient.getHttpClient().newCall(
             call.request().newBuilder().tag(WaitForRequest.class, waitForRequest).build());
-      }
-      if (waitForResponse != null) {
-        call = apiClient.getHttpClient().newCall(
-            call.request().newBuilder().tag(WaitForResponse.class, waitForResponse).build());
       }
       return call;
     }
@@ -351,9 +380,6 @@ public class GenericKubernetesApiForCoreApiTest {
     public Response intercept(@NotNull Chain chain) throws IOException {
       final Request request = chain.request();
 
-      // TEST
-      System.out.println("Before proceed");
-
       WaitForRequest waitForRequest = request.tag(WaitForRequest.class);
       if (waitForRequest != null) {
         try {
@@ -363,25 +389,11 @@ public class GenericKubernetesApiForCoreApiTest {
         }
       }
 
-      final Response response =  chain.proceed(request);
-
-      // TEST
-      System.out.println("After proceed");
-
-      WaitForResponse waitForResponse = request.tag(WaitForResponse.class);
-      if (waitForResponse != null) {
-        try {
-          waitForResponse.await();
-        } catch (InterruptedException e) {
-          throw new IOException(e);
-        }
-      }
-
-      return response;
+      return chain.proceed(request);
     }
   }
 
-  static class WaitSignal {
+  static class WaitForRequest {
     final CountDownLatch latch = new CountDownLatch(1);
 
     public void await() throws InterruptedException {
@@ -391,13 +403,5 @@ public class GenericKubernetesApiForCoreApiTest {
     public void proceed() {
       latch.countDown();
     }
-  }
-
-  static class WaitForRequest extends WaitSignal {
-
-  }
-
-  static class WaitForResponse extends WaitSignal {
-
   }
 }
