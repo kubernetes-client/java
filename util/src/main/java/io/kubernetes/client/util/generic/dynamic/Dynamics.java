@@ -17,11 +17,12 @@ import com.google.gson.JsonElement;
 import io.kubernetes.client.openapi.JSON;
 import java.util.Map;
 import org.yaml.snakeyaml.Yaml;
+import org.yaml.snakeyaml.constructor.SafeConstructor;
 
 public class Dynamics {
 
   static final JSON internalJSONCodec = new JSON();
-  static final Yaml internalYamlCodec = new Yaml();
+  static final Yaml internalYamlCodec = new Yaml(new SafeConstructor());
 
   public static DynamicKubernetesObject newFromJson(String jsonContent) {
     return newFromJson(internalJSONCodec.getGson(), jsonContent);
