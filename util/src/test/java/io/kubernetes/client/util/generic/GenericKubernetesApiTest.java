@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util.generic;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -38,14 +39,15 @@ import org.junit.Test;
 
 public class GenericKubernetesApiTest {
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(8181);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
   private JSON json = new JSON();
   private GenericKubernetesApi<V1Job, V1JobList> jobClient;
 
   @Before
   public void setup() throws IOException {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8181).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     jobClient =
         new GenericKubernetesApi<>(V1Job.class, V1JobList.class, "batch", "v1", "jobs", apiClient);
   }
@@ -205,7 +207,8 @@ public class GenericKubernetesApiTest {
 
   @Test
   public void testReadTimeoutShouldThrowException() {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8181).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     apiClient.setHttpClient(
         apiClient
             .getHttpClient()

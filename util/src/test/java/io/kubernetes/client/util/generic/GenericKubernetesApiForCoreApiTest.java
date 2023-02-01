@@ -12,10 +12,34 @@ limitations under the License.
 */
 package io.kubernetes.client.util.generic;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.Assert.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.containing;
+import static com.github.tomakehurst.wiremock.client.WireMock.delete;
+import static com.github.tomakehurst.wiremock.client.WireMock.deleteRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.exactly;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.patch;
+import static com.github.tomakehurst.wiremock.client.WireMock.patchRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.post;
+import static com.github.tomakehurst.wiremock.client.WireMock.postRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.put;
+import static com.github.tomakehurst.wiremock.client.WireMock.putRequestedFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.client.WireMock.verify;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.JSON;
@@ -27,21 +51,36 @@ import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.util.concurrent.CancellationException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.Consumer;
+import okhttp3.Call;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.jetbrains.annotations.NotNull;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
 public class GenericKubernetesApiForCoreApiTest {
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(8181);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
-  private JSON json = new JSON();
+  private final JSON json = new JSON();
   private GenericKubernetesApi<V1Pod, V1PodList> podClient;
 
   @Before
   public void setup() throws IOException {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8181).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+    apiClient.setHttpClient(
+        apiClient.getHttpClient().newBuilder().addInterceptor(new TestInterceptor()).build());
     podClient =
         new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
   }
@@ -62,6 +101,26 @@ public class GenericKubernetesApiForCoreApiTest {
   }
 
   @Test
+  public void deleteNamespacedPodAsyncReturningStatus() throws InterruptedException {
+    V1Status status = new V1Status().kind("Status").code(200).message("good!");
+    stubFor(
+        delete(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(status))));
+    TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
+
+    Future<KubernetesApiResponse<V1Pod>> deletePodFuture =
+        podClient.deleteAsync("default", "foo1", null, callback);
+    KubernetesApiResponse<V1Pod> deletePodResp = callback.waitForAndGetResponse();
+    assertTrue(deletePodResp.isSuccess());
+    assertEquals(status, deletePodResp.getStatus());
+    assertNull(deletePodResp.getObject());
+    assertTrue(deletePodFuture.isDone());
+    assertFalse(deletePodFuture.isCancelled());
+
+    verify(1, deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
+  }
+
+  @Test
   public void deleteNamespacedPodReturningDeletedObject() {
     V1Pod foo1 =
         new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
@@ -74,6 +133,27 @@ public class GenericKubernetesApiForCoreApiTest {
     assertTrue(deletePodResp.isSuccess());
     assertEquals(foo1, deletePodResp.getObject());
     assertNull(deletePodResp.getStatus());
+    verify(1, deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
+  }
+
+  @Test
+  public void deleteNamespacedPodAsyncReturningDeletedObject() throws InterruptedException {
+    V1Pod foo1 =
+        new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
+
+    stubFor(
+        delete(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
+    TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
+
+    Future<KubernetesApiResponse<V1Pod>> deletePodFuture =
+        podClient.deleteAsync("default", "foo1", callback);
+    KubernetesApiResponse<V1Pod> deletePodResp = callback.waitForAndGetResponse();
+    assertTrue(deletePodResp.isSuccess());
+    assertEquals(foo1, deletePodResp.getObject());
+    assertNull(deletePodResp.getStatus());
+    assertTrue(deletePodFuture.isDone());
+    assertFalse(deletePodFuture.isCancelled());
     verify(1, deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -93,6 +173,26 @@ public class GenericKubernetesApiForCoreApiTest {
   }
 
   @Test
+  public void deleteNamespacedPodAsyncReturningForbiddenStatus() throws InterruptedException {
+    V1Status status = new V1Status().kind("Status").code(403).message("good!");
+
+    stubFor(
+        delete(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
+            .willReturn(aResponse().withStatus(403).withBody(json.serialize(status))));
+    TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
+
+    Future<KubernetesApiResponse<V1Pod>> deletePodFuture =
+        podClient.deleteAsync("default", "foo1", callback);
+    KubernetesApiResponse<V1Pod> deletePodResp = callback.waitForAndGetResponse();
+    assertFalse(deletePodResp.isSuccess());
+    assertEquals(status, deletePodResp.getStatus());
+    assertNull(deletePodResp.getObject());
+    assertTrue(deletePodFuture.isDone());
+    assertFalse(deletePodFuture.isCancelled());
+    verify(1, deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
+  }
+
+  @Test
   public void listNamespacedPodReturningObject() {
     V1PodList podList = new V1PodList().kind("PodList").metadata(new V1ListMeta());
 
@@ -103,6 +203,26 @@ public class GenericKubernetesApiForCoreApiTest {
     assertTrue(podListResp.isSuccess());
     assertEquals(podList, podListResp.getObject());
     assertNull(podListResp.getStatus());
+    verify(1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods")));
+  }
+
+  @Test
+  public void listNamespacedPodAsyncReturningObject() throws InterruptedException {
+    V1PodList podList = new V1PodList().kind("PodList").metadata(new V1ListMeta());
+
+    stubFor(
+        get(urlPathEqualTo("/api/v1/namespaces/default/pods"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
+    TestCallback<V1PodList> callback = new TestCallback<>(podClient.getApiClient());
+
+    Future<KubernetesApiResponse<V1PodList>> podListFuture =
+        podClient.listAsync("default", callback);
+    KubernetesApiResponse<V1PodList> podListResp = callback.waitForAndGetResponse();
+    assertTrue(podListResp.isSuccess());
+    assertEquals(podList, podListResp.getObject());
+    assertNull(podListResp.getStatus());
+    assertTrue(podListFuture.isDone());
+    assertFalse(podListFuture.isCancelled());
     verify(1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods")));
   }
 
@@ -123,6 +243,75 @@ public class GenericKubernetesApiForCoreApiTest {
   }
 
   @Test
+  public void listClusterPodAsyncReturningObject() throws InterruptedException, ExecutionException {
+    V1PodList podList = new V1PodList().kind("PodList").metadata(new V1ListMeta());
+
+    stubFor(
+        get(urlPathEqualTo("/api/v1/pods"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
+    TestCallback<V1PodList> callback = new TestCallback<>(podClient.getApiClient());
+
+    // request will be blocked until proceed()
+    WaitForRequest waitForRequest = callback.awaitBeforeRequest();
+
+    Future<KubernetesApiResponse<V1PodList>> podListFuture = podClient.listAsync(callback);
+
+    assertFalse(podListFuture.isDone());
+    assertFalse(podListFuture.isCancelled());
+
+    assertThrows(TimeoutException.class, () -> podListFuture.get(10, TimeUnit.MILLISECONDS));
+
+    waitForRequest.proceed();
+
+    KubernetesApiResponse<V1PodList> podListResp = callback.waitForAndGetResponse();
+    assertTrue(podListResp.isSuccess());
+    assertEquals(podList, podListResp.getObject());
+    assertNull(podListResp.getStatus());
+    assertTrue(podListFuture.isDone());
+    assertFalse(podListFuture.isCancelled());
+    assertEquals(podListResp, podListFuture.get());
+    verify(
+        1,
+        getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
+  }
+
+  @Test
+  public void listClusterPodAsyncCanceled() {
+    V1PodList podList = new V1PodList().kind("PodList").metadata(new V1ListMeta());
+
+    stubFor(
+        get(urlPathEqualTo("/api/v1/pods"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
+    TestCallback<V1PodList> callback = new TestCallback<>(podClient.getApiClient());
+
+    // request will be blocked until proceed()
+    WaitForRequest waitForRequest = callback.awaitBeforeRequest();
+
+    Future<KubernetesApiResponse<V1PodList>> podListFuture = podClient.listAsync(callback);
+
+    assertFalse(podListFuture.isDone());
+    assertFalse(podListFuture.isCancelled());
+
+    // cancel request
+    assertTrue(podListFuture.cancel(true));
+
+    assertTrue(podListFuture.isCancelled());
+    assertTrue(podListFuture.isDone());
+
+    // unblock thread to clean up
+    waitForRequest.proceed();
+
+    assertThrows(CancellationException.class, podListFuture::get);
+    assertThrows(CancellationException.class, () -> podListFuture.get(10, TimeUnit.MILLISECONDS));
+
+    assertFalse(callback.hasBeenCalled());
+
+    verify(
+        exactly(0),
+        getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
+  }
+
+  @Test
   public void createNamespacedPodReturningObject() {
     V1Pod foo1 =
         new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
@@ -138,6 +327,26 @@ public class GenericKubernetesApiForCoreApiTest {
   }
 
   @Test
+  public void createNamespacedPodAsyncReturningObject() throws InterruptedException {
+    V1Pod foo1 =
+        new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
+
+    stubFor(
+        post(urlEqualTo("/api/v1/namespaces/default/pods"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
+    TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
+
+    Future<KubernetesApiResponse<V1Pod>> podListFuture = podClient.createAsync(foo1, callback);
+    KubernetesApiResponse<V1Pod> podListResp = callback.waitForAndGetResponse();
+    assertTrue(podListResp.isSuccess());
+    assertEquals(foo1, podListResp.getObject());
+    assertNull(podListResp.getStatus());
+    assertTrue(podListFuture.isDone());
+    assertFalse(podListFuture.isCancelled());
+    verify(1, postRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods")));
+  }
+
+  @Test
   public void updateNamespacedPodReturningObject() {
     V1Pod foo1 =
         new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
@@ -149,6 +358,26 @@ public class GenericKubernetesApiForCoreApiTest {
     assertTrue(podListResp.isSuccess());
     assertEquals(foo1, podListResp.getObject());
     assertNull(podListResp.getStatus());
+    verify(1, putRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
+  }
+
+  @Test
+  public void updateNamespacedPodAsyncReturningObject() throws InterruptedException {
+    V1Pod foo1 =
+        new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
+
+    stubFor(
+        put(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
+    TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
+
+    Future<KubernetesApiResponse<V1Pod>> podListFuture = podClient.updateAsync(foo1, callback);
+    KubernetesApiResponse<V1Pod> podListResp = callback.waitForAndGetResponse();
+    assertTrue(podListResp.isSuccess());
+    assertEquals(foo1, podListResp.getObject());
+    assertNull(podListResp.getStatus());
+    assertTrue(podListFuture.isDone());
+    assertFalse(podListFuture.isCancelled());
     verify(1, putRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -171,6 +400,30 @@ public class GenericKubernetesApiForCoreApiTest {
   }
 
   @Test
+  public void patchNamespacedPodAsyncReturningObject() throws InterruptedException {
+    V1Patch v1Patch = new V1Patch("{}");
+    V1Pod foo1 =
+        new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
+    stubFor(
+        patch(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
+            .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
+    TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
+
+    Future<KubernetesApiResponse<V1Pod>> podPatchFuture =
+        podClient.patchAsync(
+            "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch, callback);
+    KubernetesApiResponse<V1Pod> podPatchResp = callback.waitForAndGetResponse();
+
+    assertTrue(podPatchResp.isSuccess());
+    assertEquals(foo1, podPatchResp.getObject());
+    assertNull(podPatchResp.getStatus());
+    assertTrue(podPatchFuture.isDone());
+    assertFalse(podPatchFuture.isCancelled());
+    verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
+  }
+
+  @Test
   public void patchNamespacedPodWithApiPrefix() {
     V1Patch v1Patch = new V1Patch("{}");
     V1Pod foo1 =
@@ -189,7 +442,9 @@ public class GenericKubernetesApiForCoreApiTest {
             "",
             "v1",
             "pods",
-            new ClientBuilder().setBasePath("http://localhost:" + 8181 + prefix).build());
+            new ClientBuilder()
+                .setBasePath("http://localhost:" + wireMockRule.port() + prefix)
+                .build());
     KubernetesApiResponse<V1Pod> podPatchResp =
         rancherPodClient.patch(
             "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
@@ -201,8 +456,45 @@ public class GenericKubernetesApiForCoreApiTest {
   }
 
   @Test
+  public void patchNamespacedPodAsyncWithApiPrefix() throws InterruptedException {
+    V1Patch v1Patch = new V1Patch("{}");
+    V1Pod foo1 =
+        new V1Pod().kind("Pod").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
+    // add api prefix
+    String prefix = "/k8s/clusters/c-7q988";
+    stubFor(
+        patch(urlEqualTo(prefix + "/api/v1/namespaces/default/pods/foo1"))
+            .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
+    TestCallback<V1Pod> callback = new TestCallback<>(podClient.getApiClient());
+
+    GenericKubernetesApi<V1Pod, V1PodList> rancherPodClient =
+        new GenericKubernetesApi<>(
+            V1Pod.class,
+            V1PodList.class,
+            "",
+            "v1",
+            "pods",
+            new ClientBuilder()
+                .setBasePath("http://localhost:" + wireMockRule.port() + prefix)
+                .build());
+    Future<KubernetesApiResponse<V1Pod>> podPatchFuture =
+        rancherPodClient.patchAsync(
+            "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch, callback);
+    KubernetesApiResponse<V1Pod> podPatchResp = callback.waitForAndGetResponse();
+
+    assertTrue(podPatchResp.isSuccess());
+    assertEquals(foo1, podPatchResp.getObject());
+    assertNull(podPatchResp.getStatus());
+    assertTrue(podPatchFuture.isDone());
+    assertFalse(podPatchFuture.isCancelled());
+    verify(1, patchRequestedFor(urlPathEqualTo(prefix + "/api/v1/namespaces/default/pods/foo1")));
+  }
+
+  @Test
   public void testReadTimeoutShouldThrowException() {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8181).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     apiClient.setHttpClient(
         apiClient
             .getHttpClient()
@@ -221,5 +513,83 @@ public class GenericKubernetesApiForCoreApiTest {
       return;
     }
     fail("no exception happened");
+  }
+
+  static class TestCallback<ApiType extends KubernetesType>
+      implements Consumer<KubernetesApiResponse<ApiType>>, GenericKubernetesApi.CallAdapter {
+    final AtomicReference<KubernetesApiResponse<ApiType>> result = new AtomicReference<>();
+    final CountDownLatch latch = new CountDownLatch(1);
+
+    final ApiClient apiClient;
+
+    WaitForRequest waitForRequest = null;
+
+    TestCallback(ApiClient apiClient) {
+      this.apiClient = apiClient;
+    }
+
+    @Override
+    public void accept(KubernetesApiResponse<ApiType> apiTypeKubernetesApiResponse) {
+      result.set(apiTypeKubernetesApiResponse);
+      latch.countDown();
+    }
+
+    public KubernetesApiResponse<ApiType> waitForAndGetResponse() throws InterruptedException {
+      latch.await();
+      return result.get();
+    }
+
+    public boolean hasBeenCalled() {
+      return latch.getCount() == 0;
+    }
+
+    public WaitForRequest awaitBeforeRequest() {
+      waitForRequest = new WaitForRequest();
+      return waitForRequest;
+    }
+
+    @Override
+    public Call apply(Call call) {
+      if (waitForRequest != null) {
+        call =
+            apiClient
+                .getHttpClient()
+                .newCall(
+                    call.request().newBuilder().tag(WaitForRequest.class, waitForRequest).build());
+      }
+      return call;
+    }
+  }
+
+  static class TestInterceptor implements Interceptor {
+
+    @NotNull
+    @Override
+    public Response intercept(@NotNull Chain chain) throws IOException {
+      final Request request = chain.request();
+
+      WaitForRequest waitForRequest = request.tag(WaitForRequest.class);
+      if (waitForRequest != null) {
+        try {
+          waitForRequest.await();
+        } catch (InterruptedException e) {
+          throw new IOException(e);
+        }
+      }
+
+      return chain.proceed(request);
+    }
+  }
+
+  static class WaitForRequest {
+    final CountDownLatch latch = new CountDownLatch(1);
+
+    public void await() throws InterruptedException {
+      latch.await();
+    }
+
+    public void proceed() {
+      latch.countDown();
+    }
   }
 }
