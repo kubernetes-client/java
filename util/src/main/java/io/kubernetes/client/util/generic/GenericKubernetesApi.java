@@ -46,6 +46,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -1384,22 +1385,22 @@ public class GenericKubernetesApi<
           });
 
       return new Future<KubernetesApiResponse<DataType>>() {
+        private final AtomicBoolean isCanceled = new AtomicBoolean(false);
+
         @Override
         public boolean cancel(boolean mayInterruptIfRunning) {
           if (isDone()) {
             return false;
           }
           call.cancel();
-          boolean isCanceled = call.isCanceled();
-          if (isCanceled) {
-            latch.countDown();
-          }
-          return isCanceled;
+          isCanceled.set(true);
+          latch.countDown();
+          return true;
         }
 
         @Override
         public boolean isCancelled() {
-          return call.isCanceled();
+          return isCanceled.get();
         }
 
         @Override
