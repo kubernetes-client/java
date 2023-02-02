@@ -16,12 +16,22 @@ public class UpdateOptions {
   private String dryRun;
   private String fieldManager;
 
+  public UpdateOptions dryRun(String dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
   public String getDryRun() {
     return dryRun;
   }
 
   public void setDryRun(String dryRun) {
     this.dryRun = dryRun;
+  }
+
+  public UpdateOptions fieldManager(String fieldManager) {
+    this.fieldManager = fieldManager;
+    return this;
   }
 
   public String getFieldManager() {

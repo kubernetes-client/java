@@ -41,6 +41,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
@@ -78,6 +79,11 @@ import okhttp3.Request;
  */
 public class GenericKubernetesApi<
     ApiType extends KubernetesObject, ApiListType extends KubernetesListObject> {
+
+  private static final String PARTIAL_OBJECT_METADATA_HEADER =
+      "as=PartialObjectMetadata;g=meta.k8s.io;v=v1,application/json";
+  private static final String PARTIAL_OBJECT_METADATA_LIST_HEADER =
+      "as=PartialObjectMetadataList;g=meta.k8s.io;v=v1,application/json";
 
   // TODO(yue9944882): supports status operations..
   // TODO(yue9944882): supports generic sub-resource operations..
@@ -453,8 +459,24 @@ public class GenericKubernetesApi<
 
   private CallBuilder makeClusterGetCallBuilder(String name, final GetOptions getOptions) {
     return () ->
-        customObjectsApi.getClusterCustomObjectCall(
-            this.apiGroup, this.apiVersion, this.resourcePlural, name, null);
+        adaptGetCall(customObjectsApi.getApiClient(),
+            customObjectsApi.getClusterCustomObjectCall(
+                this.apiGroup, this.apiVersion, this.resourcePlural, name, null),
+            getOptions);
+  }
+
+  private Call adaptGetCall(ApiClient apiClient, Call call, GetOptions getOptions) {
+    if (Optional.ofNullable(getOptions).map(GetOptions::isPartialObjectMetadataRequest).orElse(Boolean.FALSE)) {
+      Request request = call.request();
+      return apiClient
+          .getHttpClient()
+          .newCall(
+              request
+                  .newBuilder()
+                  .header("Accept", PARTIAL_OBJECT_METADATA_HEADER)
+                  .build());
+    }
+    return call;
   }
 
   /**
@@ -504,8 +526,11 @@ public class GenericKubernetesApi<
   private CallBuilder makeNamespacedGetCallBuilder(
       String namespace, String name, final GetOptions getOptions) {
     return () ->
-        customObjectsApi.getNamespacedCustomObjectCall(
-            this.apiGroup, this.apiVersion, namespace, this.resourcePlural, name, null);
+        adaptGetCall(
+            customObjectsApi.getApiClient(),
+            customObjectsApi.getNamespacedCustomObjectCall(
+                this.apiGroup, this.apiVersion, namespace, this.resourcePlural, name, null),
+            getOptions);
   }
 
   /**
@@ -548,21 +573,38 @@ public class GenericKubernetesApi<
 
   private CallBuilder makeClusterListCallBuilder(final ListOptions listOptions) {
     return () ->
-        customObjectsApi.listClusterCustomObjectCall(
-            this.apiGroup,
-            this.apiVersion,
-            this.resourcePlural,
-            null,
-            false,
-            listOptions.getContinue(),
-            listOptions.getFieldSelector(),
-            listOptions.getLabelSelector(),
-            listOptions.getLimit(),
-            listOptions.getResourceVersion(),
-            null,
-            listOptions.getTimeoutSeconds(),
-            false,
-            null);
+        adaptListCall(
+            customObjectsApi.getApiClient(),
+            customObjectsApi.listClusterCustomObjectCall(
+              this.apiGroup,
+              this.apiVersion,
+              this.resourcePlural,
+              null,
+              false,
+              listOptions.getContinue(),
+              listOptions.getFieldSelector(),
+              listOptions.getLabelSelector(),
+              listOptions.getLimit(),
+              listOptions.getResourceVersion(),
+              null,
+              listOptions.getTimeoutSeconds(),
+              false,
+              null),
+            listOptions);
+  }
+
+  private Call adaptListCall(ApiClient apiClient, Call call, ListOptions listOptions) {
+    if (Optional.ofNullable(listOptions).map(ListOptions::isPartialObjectMetadataListRequest).orElse(Boolean.FALSE)) {
+      Request request = call.request();
+      return apiClient
+          .getHttpClient()
+          .newCall(
+              request
+                  .newBuilder()
+                  .header("Accept", PARTIAL_OBJECT_METADATA_LIST_HEADER)
+                  .build());
+    }
+    return call;
   }
 
   /**
@@ -585,22 +627,25 @@ public class GenericKubernetesApi<
   private CallBuilder makeNamespacedListCallBuilder(
       String namespace, final ListOptions listOptions) {
     return () ->
-        customObjectsApi.listNamespacedCustomObjectCall(
-            this.apiGroup,
-            this.apiVersion,
-            namespace,
-            this.resourcePlural,
-            null,
-            null,
-            listOptions.getContinue(),
-            listOptions.getFieldSelector(),
-            listOptions.getLabelSelector(),
-            listOptions.getLimit(),
-            listOptions.getResourceVersion(),
-            null,
-            listOptions.getTimeoutSeconds(),
-            false,
-            null);
+        adaptListCall(
+            customObjectsApi.getApiClient(),
+            customObjectsApi.listNamespacedCustomObjectCall(
+                this.apiGroup,
+                this.apiVersion,
+                namespace,
+                this.resourcePlural,
+                null,
+                null,
+                listOptions.getContinue(),
+                listOptions.getFieldSelector(),
+                listOptions.getLabelSelector(),
+                listOptions.getLimit(),
+                listOptions.getResourceVersion(),
+                null,
+                listOptions.getTimeoutSeconds(),
+                false,
+                null),
+            listOptions);
   }
 
   /**

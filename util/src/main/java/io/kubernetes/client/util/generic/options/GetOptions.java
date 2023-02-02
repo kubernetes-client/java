@@ -12,4 +12,19 @@ limitations under the License.
 */
 package io.kubernetes.client.util.generic.options;
 
-public class GetOptions {}
+public class GetOptions {
+  private Boolean isPartialObjectMetadataRequest;
+
+  public GetOptions isPartialObjectMetadataRequest(Boolean isPartialObjectMetadataRequest) {
+    this.isPartialObjectMetadataRequest = isPartialObjectMetadataRequest;
+    return this;
+  }
+
+  public Boolean isPartialObjectMetadataRequest() {
+    return isPartialObjectMetadataRequest;
+  }
+
+  public void setPartialObjectMetadataRequest(Boolean isPartialObjectMetadataRequest) {
+    this.isPartialObjectMetadataRequest = isPartialObjectMetadataRequest;
+  }
+}
