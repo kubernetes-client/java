@@ -33,12 +33,22 @@ public class ListOptions {
   @SerializedName("continue")
   private String _continue;
 
+  public ListOptions fieldSelector(String fieldSelector) {
+    this.fieldSelector = fieldSelector;
+    return this;
+  }
+
   public String getFieldSelector() {
     return fieldSelector;
   }
 
   public void setFieldSelector(String fieldSelector) {
     this.fieldSelector = fieldSelector;
+  }
+
+  public ListOptions labelSelector(String labelSelector) {
+    this.labelSelector = labelSelector;
+    return this;
   }
 
   public String getLabelSelector() {
@@ -49,12 +59,22 @@ public class ListOptions {
     this.labelSelector = labelSelector;
   }
 
+  public ListOptions resourceVersion(String resourceVersion) {
+    this.resourceVersion = resourceVersion;
+    return this;
+  }
+
   public String getResourceVersion() {
     return resourceVersion;
   }
 
   public void setResourceVersion(String resourceVersion) {
     this.resourceVersion = resourceVersion;
+  }
+
+  public ListOptions limit(Integer limit) {
+    this.limit = limit;
+    return this;
   }
 
   public Integer getLimit() {
@@ -65,12 +85,22 @@ public class ListOptions {
     this.limit = limit;
   }
 
+  public ListOptions _continue(String _continue) {
+    this._continue = _continue;
+    return this;
+  }
+
   public String getContinue() {
     return _continue;
   }
 
   public void setContinue(String _continue) {
     this._continue = _continue;
+  }
+
+  public ListOptions timeoutSeconds(Integer timeoutSeconds) {
+    this.timeoutSeconds = timeoutSeconds;
+    return this;
   }
 
   public Integer getTimeoutSeconds() {
