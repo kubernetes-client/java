@@ -133,7 +133,8 @@ public class GenericKubernetesApiTest {
     assertEquals(jobList, jobListResp.getObject());
     assertNull(jobListResp.getStatus());
     verify(1, getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
-        .withHeader("Accept", equalTo("as=PartialObjectMetadataList;g=meta.k8s.io;v=v1,application/json")));
+        .withHeader("Accept",
+            equalTo("application/json;as=PartialObjectMetadataList;g=meta.k8s.io;v=v1,application/json")));
   }
 
   @Test
@@ -154,7 +155,8 @@ public class GenericKubernetesApiTest {
     assertEquals(job, jobResp.getObject());
     assertNull(jobResp.getStatus());
     verify(1, getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/noxu"))
-        .withHeader("Accept", equalTo("as=PartialObjectMetadata;g=meta.k8s.io;v=v1,application/json")));
+        .withHeader("Accept",
+            equalTo("application/json;as=PartialObjectMetadata;g=meta.k8s.io;v=v1,application/json")));
   }
 
   @Test

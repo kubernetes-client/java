@@ -23,8 +23,7 @@ public class PartialObjectMetadataList implements KubernetesListObject {
   private String apiVersion;
   private String kind;
   private V1ListMeta metadata;
-  private List<KubernetesObject> items;
-
+  private List<PartialObjectMetadata> items;
 
   public PartialObjectMetadataList apiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
@@ -71,13 +70,12 @@ public class PartialObjectMetadataList implements KubernetesListObject {
     this.metadata = metadata;
   }
 
-  @SuppressWarnings("unchecked")
-  public PartialObjectMetadataList items(List<? extends KubernetesObject> items) {
-    this.items = (List<KubernetesObject>) items;
+  public PartialObjectMetadataList items(List<PartialObjectMetadata> items) {
+    this.items = items;
     return this;
   }
 
-  public PartialObjectMetadataList addItemsItem(KubernetesObject item) {
+  public PartialObjectMetadataList addItemsItem(PartialObjectMetadata item) {
     if (items == null) {
       items = new ArrayList<>();
     }
@@ -87,13 +85,12 @@ public class PartialObjectMetadataList implements KubernetesListObject {
 
   @Override
   @Nullable
-  public List<? extends KubernetesObject> getItems() {
+  public List<PartialObjectMetadata> getItems() {
     return items;
   }
 
-  @SuppressWarnings("unchecked")
-  public void setItems(List<? extends KubernetesObject> items) {
-    this.items = (List<KubernetesObject>) items;
+  public void setItems(List<PartialObjectMetadata> items) {
+    this.items = items;
   }
 
   @Override

@@ -81,9 +81,10 @@ public class GenericKubernetesApi<
     ApiType extends KubernetesObject, ApiListType extends KubernetesListObject> {
 
   private static final String PARTIAL_OBJECT_METADATA_HEADER =
-      "as=PartialObjectMetadata;g=meta.k8s.io;v=v1,application/json";
+      "application/json;as=PartialObjectMetadata;g=meta.k8s.io;v=v1,application/json";
+
   private static final String PARTIAL_OBJECT_METADATA_LIST_HEADER =
-      "as=PartialObjectMetadataList;g=meta.k8s.io;v=v1,application/json";
+      "application/json;as=PartialObjectMetadataList;g=meta.k8s.io;v=v1,application/json";
 
   // TODO(yue9944882): supports status operations..
   // TODO(yue9944882): supports generic sub-resource operations..
