@@ -12,11 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.common;
 
-import javax.annotation.Nullable;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
-import io.kubernetes.client.openapi.models.V1Pod;
-
 import java.util.Objects;
+import javax.annotation.Nullable;
 
 public class PartialObjectMetadata implements KubernetesObject {
   private String apiVersion;

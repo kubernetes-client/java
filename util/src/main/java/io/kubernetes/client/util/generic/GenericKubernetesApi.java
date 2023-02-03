@@ -460,22 +460,21 @@ public class GenericKubernetesApi<
 
   private CallBuilder makeClusterGetCallBuilder(String name, final GetOptions getOptions) {
     return () ->
-        adaptGetCall(customObjectsApi.getApiClient(),
+        adaptGetCall(
+            customObjectsApi.getApiClient(),
             customObjectsApi.getClusterCustomObjectCall(
                 this.apiGroup, this.apiVersion, this.resourcePlural, name, null),
             getOptions);
   }
 
   private Call adaptGetCall(ApiClient apiClient, Call call, GetOptions getOptions) {
-    if (Optional.ofNullable(getOptions).map(GetOptions::isPartialObjectMetadataRequest).orElse(Boolean.FALSE)) {
+    if (Optional.ofNullable(getOptions)
+        .map(GetOptions::isPartialObjectMetadataRequest)
+        .orElse(Boolean.FALSE)) {
       Request request = call.request();
       return apiClient
           .getHttpClient()
-          .newCall(
-              request
-                  .newBuilder()
-                  .header("Accept", PARTIAL_OBJECT_METADATA_HEADER)
-                  .build());
+          .newCall(request.newBuilder().header("Accept", PARTIAL_OBJECT_METADATA_HEADER).build());
     }
     return call;
   }
@@ -577,33 +576,32 @@ public class GenericKubernetesApi<
         adaptListCall(
             customObjectsApi.getApiClient(),
             customObjectsApi.listClusterCustomObjectCall(
-              this.apiGroup,
-              this.apiVersion,
-              this.resourcePlural,
-              null,
-              false,
-              listOptions.getContinue(),
-              listOptions.getFieldSelector(),
-              listOptions.getLabelSelector(),
-              listOptions.getLimit(),
-              listOptions.getResourceVersion(),
-              null,
-              listOptions.getTimeoutSeconds(),
-              false,
-              null),
+                this.apiGroup,
+                this.apiVersion,
+                this.resourcePlural,
+                null,
+                false,
+                listOptions.getContinue(),
+                listOptions.getFieldSelector(),
+                listOptions.getLabelSelector(),
+                listOptions.getLimit(),
+                listOptions.getResourceVersion(),
+                null,
+                listOptions.getTimeoutSeconds(),
+                false,
+                null),
             listOptions);
   }
 
   private Call adaptListCall(ApiClient apiClient, Call call, ListOptions listOptions) {
-    if (Optional.ofNullable(listOptions).map(ListOptions::isPartialObjectMetadataListRequest).orElse(Boolean.FALSE)) {
+    if (Optional.ofNullable(listOptions)
+        .map(ListOptions::isPartialObjectMetadataListRequest)
+        .orElse(Boolean.FALSE)) {
       Request request = call.request();
       return apiClient
           .getHttpClient()
           .newCall(
-              request
-                  .newBuilder()
-                  .header("Accept", PARTIAL_OBJECT_METADATA_LIST_HEADER)
-                  .build());
+              request.newBuilder().header("Accept", PARTIAL_OBJECT_METADATA_LIST_HEADER).build());
     }
     return call;
   }

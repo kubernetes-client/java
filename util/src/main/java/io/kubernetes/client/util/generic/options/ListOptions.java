@@ -114,7 +114,8 @@ public class ListOptions {
     this.timeoutSeconds = timeoutSeconds;
   }
 
-  public ListOptions isPartialObjectMetadataListRequest(Boolean isPartialObjectMetadataListRequest) {
+  public ListOptions isPartialObjectMetadataListRequest(
+      Boolean isPartialObjectMetadataListRequest) {
     this.isPartialObjectMetadataListRequest = isPartialObjectMetadataListRequest;
     return this;
   }
