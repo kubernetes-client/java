@@ -115,7 +115,8 @@ public class GenericKubernetesApiTest {
 
   @Test
   public void listNamespacedJobWithPartialMetadataObjectListHeader() {
-    V1JobList jobList = new V1JobList().kind("PartialObjectMetadataList").metadata(new V1ListMeta());
+    V1JobList jobList =
+        new V1JobList().kind("PartialObjectMetadataList").metadata(new V1ListMeta());
 
     stubFor(
         get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
@@ -123,12 +124,7 @@ public class GenericKubernetesApiTest {
 
     GenericKubernetesApi<V1Job, V1JobList> pomClient =
         new GenericKubernetesApi<>(
-            V1Job.class,
-            V1JobList.class,
-            "batch",
-            "v1",
-            "jobs",
-            jobClient.getApiClient());
+            V1Job.class, V1JobList.class, "batch", "v1", "jobs", jobClient.getApiClient());
 
     KubernetesApiResponse<V1JobList> jobListResp =
         pomClient.list("default", new ListOptions().isPartialObjectMetadataListRequest(true));
@@ -154,12 +150,7 @@ public class GenericKubernetesApiTest {
 
     GenericKubernetesApi<V1Job, V1JobList> pomClient =
         new GenericKubernetesApi<>(
-            V1Job.class,
-            V1JobList.class,
-            "batch",
-            "v1",
-            "jobs",
-            jobClient.getApiClient());
+            V1Job.class, V1JobList.class, "batch", "v1", "jobs", jobClient.getApiClient());
 
     KubernetesApiResponse<V1Job> jobResp =
         pomClient.get("default", "noxu", new GetOptions().isPartialObjectMetadataRequest(true));
