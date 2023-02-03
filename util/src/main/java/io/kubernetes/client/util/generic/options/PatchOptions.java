@@ -17,6 +17,11 @@ public class PatchOptions {
   private String fieldManager;
   private Boolean force;
 
+  public PatchOptions dryRun(String dryRun) {
+    this.dryRun = dryRun;
+    return this;
+  }
+
   public String getDryRun() {
     return dryRun;
   }
@@ -25,12 +30,22 @@ public class PatchOptions {
     this.dryRun = dryRun;
   }
 
+  public PatchOptions force(Boolean force) {
+    this.force = force;
+    return this;
+  }
+
   public Boolean getForce() {
     return force;
   }
 
   public void setForce(Boolean force) {
     this.force = force;
+  }
+
+  public PatchOptions fieldManager(String fieldManager) {
+    this.fieldManager = fieldManager;
+    return this;
   }
 
   public String getFieldManager() {
