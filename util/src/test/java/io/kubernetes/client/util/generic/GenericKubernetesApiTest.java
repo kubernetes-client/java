@@ -29,6 +29,7 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.Watchable;
+import io.kubernetes.client.util.generic.options.GetOptions;
 import io.kubernetes.client.util.generic.options.ListOptions;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
@@ -110,6 +111,59 @@ public class GenericKubernetesApiTest {
     assertEquals(jobList, jobListResp.getObject());
     assertNull(jobListResp.getStatus());
     verify(1, getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs")));
+  }
+
+  @Test
+  public void listNamespacedJobWithPartialMetadataObjectListHeader() {
+    V1JobList jobList =
+        new V1JobList().kind("PartialObjectMetadataList").metadata(new V1ListMeta());
+
+    stubFor(
+        get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
+
+    GenericKubernetesApi<V1Job, V1JobList> pomClient =
+        new GenericKubernetesApi<>(
+            V1Job.class, V1JobList.class, "batch", "v1", "jobs", jobClient.getApiClient());
+
+    KubernetesApiResponse<V1JobList> jobListResp =
+        pomClient.list("default", new ListOptions().isPartialObjectMetadataListRequest(true));
+    assertTrue(jobListResp.isSuccess());
+    assertEquals(jobList, jobListResp.getObject());
+    assertNull(jobListResp.getStatus());
+    verify(
+        1,
+        getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
+            .withHeader(
+                "Accept",
+                equalTo(
+                    "application/json;as=PartialObjectMetadataList;g=meta.k8s.io;v=v1,application/json")));
+  }
+
+  @Test
+  public void getNamespacedJobWithPartialMetadataObjectHeader() {
+    V1Job job = new V1Job().kind("PartialObjectMetadata").metadata(new V1ObjectMeta());
+
+    stubFor(
+        get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/noxu"))
+            .willReturn(aResponse().withStatus(200).withBody(json.serialize(job))));
+
+    GenericKubernetesApi<V1Job, V1JobList> pomClient =
+        new GenericKubernetesApi<>(
+            V1Job.class, V1JobList.class, "batch", "v1", "jobs", jobClient.getApiClient());
+
+    KubernetesApiResponse<V1Job> jobResp =
+        pomClient.get("default", "noxu", new GetOptions().isPartialObjectMetadataRequest(true));
+    assertTrue(jobResp.isSuccess());
+    assertEquals(job, jobResp.getObject());
+    assertNull(jobResp.getStatus());
+    verify(
+        1,
+        getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/noxu"))
+            .withHeader(
+                "Accept",
+                equalTo(
+                    "application/json;as=PartialObjectMetadata;g=meta.k8s.io;v=v1,application/json")));
   }
 
   @Test

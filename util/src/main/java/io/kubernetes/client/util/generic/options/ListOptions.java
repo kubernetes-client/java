@@ -33,6 +33,9 @@ public class ListOptions {
   @SerializedName("continue")
   private String _continue;
 
+  @SerializedName("isPartialObjectMetadataListRequest")
+  private Boolean isPartialObjectMetadataListRequest;
+
   public ListOptions fieldSelector(String fieldSelector) {
     this.fieldSelector = fieldSelector;
     return this;
@@ -109,5 +112,19 @@ public class ListOptions {
 
   public void setTimeoutSeconds(Integer timeoutSeconds) {
     this.timeoutSeconds = timeoutSeconds;
+  }
+
+  public ListOptions isPartialObjectMetadataListRequest(
+      Boolean isPartialObjectMetadataListRequest) {
+    this.isPartialObjectMetadataListRequest = isPartialObjectMetadataListRequest;
+    return this;
+  }
+
+  public Boolean isPartialObjectMetadataListRequest() {
+    return isPartialObjectMetadataListRequest;
+  }
+
+  public void setPartialObjectMetadataListRequest(Boolean isPartialObjectMetadataListRequest) {
+    this.isPartialObjectMetadataListRequest = isPartialObjectMetadataListRequest;
   }
 }
