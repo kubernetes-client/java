@@ -14,7 +14,7 @@ package io.kubernetes.client.informer.cache;
 
 import io.kubernetes.client.common.KubernetesObject;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -242,6 +242,9 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
     }
     Map<String, Set<String>> index = this.indices.get(indexName);
     Set<String> set = index.get(indexKey);
+    if (set == null) {
+      return Collections.EMPTY_LIST;
+    }
     List<String> keys = new ArrayList<>(set.size());
     for (String key : set) {
       keys.add(key);
@@ -264,7 +267,7 @@ public class Cache<ApiType extends KubernetesObject> implements Indexer<ApiType>
     Map<String, Set<String>> index = this.indices.get(indexName);
     Set<String> set = index.get(indexKey);
     if (set == null) {
-      return Arrays.asList();
+      return Collections.EMPTY_LIST;
     }
     List<ApiType> items = new ArrayList<>(set.size());
     for (String key : set) {

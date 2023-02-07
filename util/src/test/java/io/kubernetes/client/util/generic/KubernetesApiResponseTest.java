@@ -16,6 +16,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.junit.Assert.*;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -33,13 +34,14 @@ import org.junit.Rule;
 import org.junit.Test;
 
 public class KubernetesApiResponseTest {
-  @Rule public WireMockRule wireMockRule = new WireMockRule(8485);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
   private GenericKubernetesApi<V1Pod, V1PodList> podClient;
 
   @Before
   public void setup() throws IOException {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8485).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     podClient =
         new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
   }
