@@ -44,11 +44,7 @@ public class DynamicKubernetesTypeAdaptorFactoryTest {
 
   @Before
   public void setup() {
-    gson =
-        new Gson()
-            .newBuilder()
-            .registerTypeAdapterFactory(factory)
-            .create();
+    gson = new Gson().newBuilder().registerTypeAdapterFactory(factory).create();
   }
 
   @Test
