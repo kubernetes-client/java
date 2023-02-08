@@ -19,6 +19,8 @@ import com.google.gson.Gson;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
+import java.util.Collections;
+import java.util.Map;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -37,12 +39,15 @@ public class DynamicKubernetesTypeAdaptorFactoryTest {
           .append("}")
           .toString();
 
+  private final DynamicKubernetesTypeAdaptorFactory factory =
+      new DynamicKubernetesTypeAdaptorFactory();
+
   @Before
   public void setup() {
     gson =
         new Gson()
             .newBuilder()
-            .registerTypeAdapterFactory(new DynamicKubernetesTypeAdaptorFactory())
+            .registerTypeAdapterFactory(factory)
             .create();
   }
 
@@ -78,5 +83,14 @@ public class DynamicKubernetesTypeAdaptorFactoryTest {
 
     String dumped = gson.toJson(dynamicListObj);
     assertEquals(listJsonContent, dumped);
+  }
+
+  // Registering the same factory twice is not a good idea, but we should not explode if it happens.
+  // See https://github.com/google/gson/issues/2312
+  @Test
+  public void testMultipleRegistration() {
+    Gson badGson = gson.newBuilder().registerTypeAdapterFactory(factory).create();
+    Object x = badGson.fromJson("{}", Map.class);
+    assertEquals(Collections.emptyMap(), x);
   }
 }
