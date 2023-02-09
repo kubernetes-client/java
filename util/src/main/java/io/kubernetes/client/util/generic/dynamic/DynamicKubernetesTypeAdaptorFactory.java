@@ -34,7 +34,7 @@ public class DynamicKubernetesTypeAdaptorFactory implements TypeAdapterFactory {
     if (shouldHandleAsListObject(typeToken)) {
       return (TypeAdapter<T>) (new GenericListObjectCreator(gson));
     }
-    return gson.getDelegateAdapter(this, typeToken);
+    return null;
   }
 
   private boolean shouldHandleAsSingleObject(TypeToken typeToken) {
