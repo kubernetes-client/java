@@ -20,9 +20,14 @@ public class Threads {
 
   public static ThreadFactory threadFactory(String format) {
     final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
+    // Users can inject their own thread 
+    public static void setDefaultThreadFactory(ThreadFactory factory) {
+      defaultFactory = factory;
+  }
+    final ThreadFactory factory = defaultFactory;
     final AtomicInteger threadNumber = new AtomicInteger(1);
     return r -> {
-      Thread thread = defaultFactory.newThread(r);
+      Thread thread = factory.newThread(r);
       // Daemon status inherited from default
       thread.setName(String.format(format, threadNumber.getAndIncrement()));
       return thread;
