@@ -24,10 +24,9 @@ public class Threads {
     public static void setDefaultThreadFactory(ThreadFactory factory) {
       defaultFactory = factory;
   }
-    final ThreadFactory factory = defaultFactory;
     final AtomicInteger threadNumber = new AtomicInteger(1);
     return r -> {
-      Thread thread = factory.newThread(r);
+      Thread thread = defaultFactory.newThread(r);
       // Daemon status inherited from default
       thread.setName(String.format(format, threadNumber.getAndIncrement()));
       return thread;
