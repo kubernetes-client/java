@@ -109,7 +109,7 @@ docker run \
 
 ## Manipulate the generated models
 
-After generation you will see bunch of generated model sources under the `/tmp/java`: 
+After generation you will see a bunch of generated model sources under the `/tmp/java`: 
 
 ```bash
 ls -R /tmp/java/ | grep V1CronTab
