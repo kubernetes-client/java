@@ -17,9 +17,13 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Threads {
+  private static ThreadFactory defaultFactory = Executors.defaultThreadFactory();
+  // Users can inject their own thread
+  public static void setDefaultThreadFactory(ThreadFactory factory) {
+    defaultFactory = factory;
+  }
 
   public static ThreadFactory threadFactory(String format) {
-    final ThreadFactory defaultFactory = Executors.defaultThreadFactory();
     final AtomicInteger threadNumber = new AtomicInteger(1);
     return r -> {
       Thread thread = defaultFactory.newThread(r);
