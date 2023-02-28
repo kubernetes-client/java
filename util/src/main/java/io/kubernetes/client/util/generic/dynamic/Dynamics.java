@@ -16,7 +16,6 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import io.kubernetes.client.openapi.JSON;
 import java.util.Map;
-
 import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
