@@ -37,6 +37,7 @@ import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
 
@@ -80,7 +81,7 @@ public class KubeConfig {
 
   /** Load a Kubernetes config from a Reader */
   public static KubeConfig loadKubeConfig(Reader input) {
-    Yaml yaml = new Yaml(new SafeConstructor());
+    Yaml yaml = new Yaml(new SafeConstructor(new LoaderOptions()));
     Object config = yaml.load(input);
     Map<String, Object> configMap = (Map<String, Object>) config;
 
