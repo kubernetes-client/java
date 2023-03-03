@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util.generic;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
@@ -29,7 +30,7 @@ import org.junit.Test;
 
 public class GenericKubernetesGetApiTest {
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(8181);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
   private JSON json = new JSON();
   private GenericKubernetesApi<V1Job, V1JobList> jobClient; // non-core built-in resource
@@ -38,7 +39,8 @@ public class GenericKubernetesGetApiTest {
 
   @Before
   public void setup() {
-    ApiClient apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8181).build();
+    ApiClient apiClient =
+        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     jobClient =
         new GenericKubernetesApi<>(V1Job.class, V1JobList.class, "batch", "v1", "jobs", apiClient);
     fooClient =

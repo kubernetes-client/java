@@ -20,6 +20,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.matchingJsonPath;
 import static com.github.tomakehurst.wiremock.client.WireMock.put;
 import static com.github.tomakehurst.wiremock.client.WireMock.putRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertThrows;
 
@@ -39,13 +40,13 @@ public class KubectlLabelTest {
 
   private ApiClient apiClient;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(8384);
+  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
   @Before
   public void setup() throws IOException {
     ModelMapper.addModelMap("", "v1", "Pod", "pods", true, V1Pod.class);
     ModelMapper.addModelMap("", "v1", "Node", "nodes", false, V1Node.class);
-    apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8384).build();
+    apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
   @Test
