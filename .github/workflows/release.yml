@@ -79,6 +79,7 @@ jobs:
             automated-release-${{ github.event.inputs.releaseVersion }}:automated-release-${{ github.event.inputs.releaseVersion }}
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git v${{ github.event.inputs.releaseVersion }}
       - name: Pull Request
+        if: ${{ github.event.inputs.dry-run != 'true' }}
         uses: repo-sync/pull-request@v2
         with:
           source_branch: automated-release-${{ github.event.inputs.releaseVersion }}
