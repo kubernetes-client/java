@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: 8.0.x
+          java-version: 11
       - name: Verify Format and License
         run: mvn spotless:check
   build:
