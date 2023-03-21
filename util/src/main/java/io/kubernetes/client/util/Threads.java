@@ -29,6 +29,7 @@ public class Threads {
       Thread thread = defaultFactory.newThread(r);
       // Daemon status inherited from default
       thread.setName(String.format(format, threadNumber.getAndIncrement()));
+      thread.setDaemon(false); // Explicitly set daemon status to false
       return thread;
     };
   }
