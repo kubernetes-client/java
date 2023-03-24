@@ -25,7 +25,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import com.github.tomakehurst.wiremock.core.Admin;
+import com.github.tomakehurst.wiremock.extension.Parameters;
+import com.github.tomakehurst.wiremock.extension.PostServeAction;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.stubbing.ServeEvent;
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.informer.SharedIndexInformer;
@@ -46,6 +50,8 @@ import io.kubernetes.client.util.Watch;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.junit.Before;
 import org.junit.Rule;
@@ -59,7 +65,20 @@ public class DefaultSharedIndexInformerWireMockTest {
 
   private ApiClient client;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
+  public static class CountRequestAction extends PostServeAction {
+        @Override
+        public String getName() {
+            return "semaphore";
+        }
+
+        @Override
+        public void doAction(ServeEvent serveEvent, Admin admin, Parameters parameters) {
+            Semaphore count = (Semaphore) parameters.get("semaphore");
+            count.release();
+        }
+  }
+
+  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort().extensions(new CountRequestAction()));
 
   @Before
   public void setup() throws IOException {
@@ -130,6 +149,7 @@ public class DefaultSharedIndexInformerWireMockTest {
             V1PodList.class);
 
     AtomicBoolean foundExistingPod = new AtomicBoolean(false);
+    CountDownLatch latch = new CountDownLatch(1);
     podInformer.addEventHandler(
         new ResourceEventHandler<V1Pod>() {
           @Override
@@ -137,6 +157,7 @@ public class DefaultSharedIndexInformerWireMockTest {
             if (podName.equals(obj.getMetadata().getName())
                 && namespace.equals(obj.getMetadata().getNamespace())) {
               foundExistingPod.set(true);
+              latch.countDown();
             }
           }
 
@@ -148,7 +169,7 @@ public class DefaultSharedIndexInformerWireMockTest {
         });
     factory.startAllRegisteredInformers();
 
-    Thread.sleep(1000);
+    latch.await();
 
     assertEquals(true, foundExistingPod.get());
     assertEquals(endRV, podInformer.lastSyncResourceVersion());
@@ -243,6 +264,7 @@ public class DefaultSharedIndexInformerWireMockTest {
     AtomicBoolean foundExistingPod = new AtomicBoolean(false);
     AtomicBoolean transformed = new AtomicBoolean(false);
     AtomicBoolean setTransformAfterStarted = new AtomicBoolean(false);
+    CountDownLatch latch = new CountDownLatch(2);
     podInformer.addEventHandler(
         new ResourceEventHandler<V1Pod>() {
           @Override
@@ -250,12 +272,14 @@ public class DefaultSharedIndexInformerWireMockTest {
             if (podName.equals(obj.getMetadata().getName())
                 && namespace.equals(obj.getMetadata().getNamespace())) {
               foundExistingPod.set(true);
+              latch.countDown();
             }
             V1ObjectMeta metadata = obj.getMetadata();
             // check if the object was transformed
             if (metadata.getLabels().get("foo").equals("bar")
                 && metadata.getAnnotations() == null) {
               transformed.set(true);
+              latch.countDown();
             }
           }
 
@@ -266,7 +290,7 @@ public class DefaultSharedIndexInformerWireMockTest {
           public void onDelete(V1Pod obj, boolean deletedFinalStateUnknown) {}
         });
     factory.startAllRegisteredInformers();
-    Thread.sleep(1000);
+    latch.await();
 
     // can not set transform func if the informer has started
     try {
@@ -348,13 +372,14 @@ public class DefaultSharedIndexInformerWireMockTest {
             },
             V1Pod.class,
             V1PodList.class);
-
+    CountDownLatch latch = new CountDownLatch(2);
     podInformer.setTransform(
         (obj) -> {
+          latch.countDown();
           throw new ObjectTransformException("test transform failure");
         });
-
     AtomicBoolean foundExistingPod = new AtomicBoolean(false);
+
     podInformer.addEventHandler(
         new ResourceEventHandler<V1Pod>() {
           @Override
@@ -362,6 +387,7 @@ public class DefaultSharedIndexInformerWireMockTest {
             if (podName.equals(obj.getMetadata().getName())
                 && namespace.equals(obj.getMetadata().getNamespace())) {
               foundExistingPod.set(true);
+              latch.countDown();
             }
           }
 
@@ -372,7 +398,7 @@ public class DefaultSharedIndexInformerWireMockTest {
           public void onDelete(V1Pod obj, boolean deletedFinalStateUnknown) {}
         });
     factory.startAllRegisteredInformers();
-    Thread.sleep(1000);
+    latch.await();
 
     // cannot find the pod due to transform failure
     assertFalse(foundExistingPod.get());
@@ -395,9 +421,17 @@ public class DefaultSharedIndexInformerWireMockTest {
     String startRV = "1000";
     V1PodList podList =
         new V1PodList().metadata(new V1ListMeta().resourceVersion(startRV)).items(Arrays.asList());
+    Semaphore getCount = new Semaphore(2);
+    Semaphore watchCount = new Semaphore(2);
+    Parameters getParams = new Parameters();
+    Parameters watchParams = new Parameters();
+    getParams.put("semaphore", getCount);
+    watchParams.put("semaphore", watchCount);
 
-    stubFor(
+
+      wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
+            .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
                 aResponse()
@@ -408,8 +442,9 @@ public class DefaultSharedIndexInformerWireMockTest {
     Watch.Response<V1Pod> watchResponse =
         new Watch.Response<>(
             EventType.ERROR.name(), new V1Status().apiVersion("v1").kind("Status").code(409));
-    stubFor(
+      wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
+            .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
             .withQueryParam("resourceVersion", equalTo(startRV))
             .willReturn(
@@ -443,10 +478,13 @@ public class DefaultSharedIndexInformerWireMockTest {
             V1Pod.class,
             V1PodList.class);
 
+    getCount.acquire(2);
+    watchCount.acquire(2);
+
     factory.startAllRegisteredInformers();
 
-    // Sleep mroe than 1s so that informer can perform multiple rounds of list-watch
-    Thread.sleep(3000);
+    getCount.acquire(2);
+    watchCount.acquire(2);
 
     verify(
         moreThan(1),
@@ -463,9 +501,13 @@ public class DefaultSharedIndexInformerWireMockTest {
   public void testInformerReListingOnListForbidden() throws InterruptedException {
 
     CoreV1Api coreV1Api = new CoreV1Api(client);
+    Semaphore getCount = new Semaphore(2);
+    Parameters getParams = new Parameters();
+    getParams.put("semaphore", getCount);
 
-    stubFor(
+      wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
+            .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
                 aResponse()
@@ -505,10 +547,9 @@ public class DefaultSharedIndexInformerWireMockTest {
             V1Pod.class,
             V1PodList.class);
 
+    getCount.acquire(2);
     factory.startAllRegisteredInformers();
-
-    // Sleep mroe than 1s so that informer can perform multiple rounds of list-watch
-    Thread.sleep(3000);
+    getCount.acquire(2);
 
     verify(
         moreThan(1),
