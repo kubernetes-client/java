@@ -97,7 +97,7 @@ public class SharedInformerFactory {
    * @return the shared index informer
    */
   public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
-  SharedIndexInformer<ApiType> sharedIndexInformerFor(
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
           CallGenerator callGenerator,
           Class<ApiType> apiTypeClass,
           Class<ApiListType> apiListTypeClass) {
@@ -117,12 +117,13 @@ public class SharedInformerFactory {
    * @return the shared index informer
    */
   public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
-  SharedIndexInformer<ApiType> sharedIndexInformerFor(
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
           CallGenerator callGenerator,
           Class<ApiType> apiTypeClass,
           Class<ApiListType> apiListTypeClass,
           long resyncPeriodInMillis) {
-    return sharedIndexInformerFor(callGenerator, apiTypeClass, apiListTypeClass, resyncPeriodInMillis, null);
+    return sharedIndexInformerFor(
+        callGenerator, apiTypeClass, apiListTypeClass, resyncPeriodInMillis, null);
   }
 
   /**
@@ -137,15 +138,16 @@ public class SharedInformerFactory {
    * @return the shared index informer
    */
   public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
-  SharedIndexInformer<ApiType> sharedIndexInformerFor(
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
           CallGenerator callGenerator,
           Class<ApiType> apiTypeClass,
           Class<ApiListType> apiListTypeClass,
           long resyncPeriodInMillis,
           BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
     ListerWatcher<ApiType, ApiListType> listerWatcher =
-            listerWatcherFor(callGenerator, apiTypeClass, apiListTypeClass);
-    return sharedIndexInformerFor(listerWatcher, apiTypeClass, resyncPeriodInMillis, exceptionHandler);
+        listerWatcherFor(callGenerator, apiTypeClass, apiListTypeClass);
+    return sharedIndexInformerFor(
+        listerWatcher, apiTypeClass, resyncPeriodInMillis, exceptionHandler);
   }
 
   /**
@@ -161,7 +163,7 @@ public class SharedInformerFactory {
    * @return the shared index informer
    */
   public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
-  SharedIndexInformer<ApiType> sharedIndexInformerFor(
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
           ListerWatcher<ApiType, ApiListType> listerWatcher,
           Class<ApiType> apiTypeClass,
           long resyncPeriodInMillis) {
@@ -169,15 +171,15 @@ public class SharedInformerFactory {
   }
 
   public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
-  SharedIndexInformer<ApiType> sharedIndexInformerFor(
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
           ListerWatcher<ApiType, ApiListType> listerWatcher,
           Class<ApiType> apiTypeClass,
           long resyncPeriodInMillis,
           BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
 
     SharedIndexInformer<ApiType> informer =
-            new DefaultSharedIndexInformer<>(
-                    apiTypeClass, listerWatcher, resyncPeriodInMillis, new Cache<>(), exceptionHandler);
+        new DefaultSharedIndexInformer<>(
+            apiTypeClass, listerWatcher, resyncPeriodInMillis, new Cache<>(), exceptionHandler);
     this.informers.putIfAbsent(TypeToken.get(apiTypeClass).getType(), informer);
     return informer;
   }
@@ -195,12 +197,12 @@ public class SharedInformerFactory {
    * @return the shared index informer
    */
   public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
-  SharedIndexInformer<ApiType> sharedIndexInformerFor(
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
           GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi,
           Class<ApiType> apiTypeClass,
           long resyncPeriodInMillis) {
     return sharedIndexInformerFor(
-            genericKubernetesApi, apiTypeClass, resyncPeriodInMillis, Namespaces.NAMESPACE_ALL);
+        genericKubernetesApi, apiTypeClass, resyncPeriodInMillis, Namespaces.NAMESPACE_ALL);
   }
 
   /**
@@ -217,12 +219,13 @@ public class SharedInformerFactory {
    * @return the shared index informer
    */
   public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
-  SharedIndexInformer<ApiType> sharedIndexInformerFor(
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
           GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi,
           Class<ApiType> apiTypeClass,
           long resyncPeriodInMillis,
           String namespace) {
-    return sharedIndexInformerFor(genericKubernetesApi, apiTypeClass, resyncPeriodInMillis, namespace, null);
+    return sharedIndexInformerFor(
+        genericKubernetesApi, apiTypeClass, resyncPeriodInMillis, namespace, null);
   }
 
   /**
@@ -240,19 +243,20 @@ public class SharedInformerFactory {
    * @return the shared index informer
    */
   public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
-  SharedIndexInformer<ApiType> sharedIndexInformerFor(
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
           GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi,
           Class<ApiType> apiTypeClass,
           long resyncPeriodInMillis,
           String namespace,
           BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
     ListerWatcher<ApiType, ApiListType> listerWatcher =
-            listerWatcherFor(genericKubernetesApi, namespace);
-    return sharedIndexInformerFor(listerWatcher, apiTypeClass, resyncPeriodInMillis, exceptionHandler);
+        listerWatcherFor(genericKubernetesApi, namespace);
+    return sharedIndexInformerFor(
+        listerWatcher, apiTypeClass, resyncPeriodInMillis, exceptionHandler);
   }
 
   private <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
-  ListerWatcher<ApiType, ApiListType> listerWatcherFor(
+      ListerWatcher<ApiType, ApiListType> listerWatcherFor(
           CallGenerator callGenerator,
           Class<ApiType> apiTypeClass,
           Class<ApiListType> apiListTypeClass) {
@@ -273,15 +277,15 @@ public class SharedInformerFactory {
         // bind call with private http client to make sure read timeout is zero.
         call = apiClient.getHttpClient().newCall(call.request());
         return Watch.createWatch(
-                apiClient,
-                call,
-                TypeToken.getParameterized(Watch.Response.class, apiTypeClass).getType());
+            apiClient,
+            call,
+            TypeToken.getParameterized(Watch.Response.class, apiTypeClass).getType());
       }
     };
   }
 
   private <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
-  ListerWatcher<ApiType, ApiListType> listerWatcherFor(
+      ListerWatcher<ApiType, ApiListType> listerWatcherFor(
           GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi, String namespace) {
     if (apiClient.getReadTimeout() > 0) {
       // set read timeout zero to ensure client doesn't time out
@@ -292,48 +296,48 @@ public class SharedInformerFactory {
       public ApiListType list(CallGeneratorParams params) throws ApiException {
         if (Namespaces.NAMESPACE_ALL.equals(namespace)) {
           return genericKubernetesApi
-                  .list(
-                          new ListOptions() {
-                            {
-                              setResourceVersion(params.resourceVersion);
-                              setTimeoutSeconds(params.timeoutSeconds);
-                            }
-                          })
-                  .throwsApiException()
-                  .getObject();
-        } else {
-          return genericKubernetesApi
-                  .list(
-                          namespace,
-                          new ListOptions() {
-                            {
-                              setResourceVersion(params.resourceVersion);
-                              setTimeoutSeconds(params.timeoutSeconds);
-                            }
-                          })
-                  .throwsApiException()
-                  .getObject();
-        }
-      }
-
-      public Watchable<ApiType> watch(CallGeneratorParams params) throws ApiException {
-        if (Namespaces.NAMESPACE_ALL.equals(namespace)) {
-          return genericKubernetesApi.watch(
+              .list(
                   new ListOptions() {
                     {
                       setResourceVersion(params.resourceVersion);
                       setTimeoutSeconds(params.timeoutSeconds);
                     }
-                  });
+                  })
+              .throwsApiException()
+              .getObject();
         } else {
-          return genericKubernetesApi.watch(
+          return genericKubernetesApi
+              .list(
                   namespace,
                   new ListOptions() {
                     {
                       setResourceVersion(params.resourceVersion);
                       setTimeoutSeconds(params.timeoutSeconds);
                     }
-                  });
+                  })
+              .throwsApiException()
+              .getObject();
+        }
+      }
+
+      public Watchable<ApiType> watch(CallGeneratorParams params) throws ApiException {
+        if (Namespaces.NAMESPACE_ALL.equals(namespace)) {
+          return genericKubernetesApi.watch(
+              new ListOptions() {
+                {
+                  setResourceVersion(params.resourceVersion);
+                  setTimeoutSeconds(params.timeoutSeconds);
+                }
+              });
+        } else {
+          return genericKubernetesApi.watch(
+              namespace,
+              new ListOptions() {
+                {
+                  setResourceVersion(params.resourceVersion);
+                  setTimeoutSeconds(params.timeoutSeconds);
+                }
+              });
         }
       }
     };
@@ -348,7 +352,7 @@ public class SharedInformerFactory {
    * @return the existing shared index informer
    */
   public synchronized <ApiType extends KubernetesObject>
-  SharedIndexInformer<ApiType> getExistingSharedIndexInformer(Class<ApiType> apiTypeClass) {
+      SharedIndexInformer<ApiType> getExistingSharedIndexInformer(Class<ApiType> apiTypeClass) {
     return this.informers.get(TypeToken.get(apiTypeClass).getType());
   }
 
@@ -358,9 +362,9 @@ public class SharedInformerFactory {
       return;
     }
     informers.forEach(
-            (informerType, informer) ->
-                    startedInformers.computeIfAbsent(
-                            informerType, key -> informerExecutor.submit((Runnable) informer::run)));
+        (informerType, informer) ->
+            startedInformers.computeIfAbsent(
+                informerType, key -> informerExecutor.submit((Runnable) informer::run)));
   }
 
   /** Stop all registered informers and shut down the thread pool. */
@@ -378,11 +382,11 @@ public class SharedInformerFactory {
       return;
     }
     informers.forEach(
-            (informerType, informer) -> {
-              if (startedInformers.remove(informerType) != null) {
-                informer.stop();
-              }
-            });
+        (informerType, informer) -> {
+          if (startedInformers.remove(informerType) != null) {
+            informer.stop();
+          }
+        });
     if (shutdownThreadPool) {
       informerExecutor.shutdown();
     }
