@@ -93,15 +93,21 @@ public class DefaultSharedIndexInformerWireMockTest {
   public void testNamespacedPodInformerNormalBehavior() throws InterruptedException {
 
     CoreV1Api coreV1Api = new CoreV1Api(client);
-
+    Semaphore getCount = new Semaphore(1);
+    Semaphore watchCount = new Semaphore(2);
+    Parameters getParams = new Parameters();
+    Parameters watchParams = new Parameters();
+    getParams.put("semaphore", getCount);
+    watchParams.put("semaphore", watchCount);
     String startRV = "1000";
     String endRV = "1001";
 
     V1PodList podList =
         new V1PodList().metadata(new V1ListMeta().resourceVersion(startRV)).items(Arrays.asList());
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
+            .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
                 aResponse()
@@ -114,8 +120,9 @@ public class DefaultSharedIndexInformerWireMockTest {
             new V1Pod()
                 .metadata(
                     new V1ObjectMeta().namespace(namespace).name(podName).resourceVersion(endRV)));
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
+            .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
             .willReturn(
                 aResponse()
@@ -167,9 +174,15 @@ public class DefaultSharedIndexInformerWireMockTest {
           @Override
           public void onDelete(V1Pod obj, boolean deletedFinalStateUnknown) {}
         });
+
+    getCount.acquire(1);
+    watchCount.acquire(2);
+
     factory.startAllRegisteredInformers();
 
     latch.await();
+    getCount.acquire(1);
+    watchCount.acquire(2);
 
     assertEquals(true, foundExistingPod.get());
     assertEquals(endRV, podInformer.lastSyncResourceVersion());
@@ -190,15 +203,21 @@ public class DefaultSharedIndexInformerWireMockTest {
   public void testAllNamespacedPodInformerNormalBehavior() throws InterruptedException {
 
     CoreV1Api coreV1Api = new CoreV1Api(client);
-
+    Semaphore getCount = new Semaphore(1);
+    Semaphore watchCount = new Semaphore(2);
+    Parameters getParams = new Parameters();
+    Parameters watchParams = new Parameters();
+    getParams.put("semaphore", getCount);
+    watchParams.put("semaphore", watchCount);
     String startRV = "1000";
     String endRV = "1001";
 
     V1PodList podList =
         new V1PodList().metadata(new V1ListMeta().resourceVersion(startRV)).items(Arrays.asList());
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
+            .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
                 aResponse()
@@ -218,8 +237,9 @@ public class DefaultSharedIndexInformerWireMockTest {
                         .labels(Collections.singletonMap("foo", "bar"))
                         .annotations(Collections.singletonMap("foo", "bar"))));
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
+            .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
             .willReturn(
                 aResponse()
@@ -289,9 +309,15 @@ public class DefaultSharedIndexInformerWireMockTest {
           @Override
           public void onDelete(V1Pod obj, boolean deletedFinalStateUnknown) {}
         });
-    factory.startAllRegisteredInformers();
-    latch.await();
 
+    getCount.acquire(1);
+    watchCount.acquire(2);
+
+    factory.startAllRegisteredInformers();
+
+    latch.await();
+    getCount.acquire(1);
+    watchCount.acquire(2);
     // can not set transform func if the informer has started
     try {
       podInformer.setTransform((obj) -> new V1Pod());
@@ -317,15 +343,21 @@ public class DefaultSharedIndexInformerWireMockTest {
   public void testAllNamespacedPodInformerTransformFailure() throws InterruptedException {
 
     CoreV1Api coreV1Api = new CoreV1Api(client);
-
+    Semaphore getCount = new Semaphore(1);
+    Semaphore watchCount = new Semaphore(2);
+    Parameters getParams = new Parameters();
+    Parameters watchParams = new Parameters();
+    getParams.put("semaphore", getCount);
+    watchParams.put("semaphore", watchCount);
     String startRV = "1000";
     String endRV = "1001";
 
     V1PodList podList =
         new V1PodList().metadata(new V1ListMeta().resourceVersion(startRV)).items(Arrays.asList());
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
+            .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
             .willReturn(
                 aResponse()
@@ -340,8 +372,9 @@ public class DefaultSharedIndexInformerWireMockTest {
                 .metadata(
                     new V1ObjectMeta().namespace(namespace).name(podName).resourceVersion(endRV)));
 
-    stubFor(
+    wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
+            .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
             .willReturn(
                 aResponse()
@@ -397,8 +430,15 @@ public class DefaultSharedIndexInformerWireMockTest {
           @Override
           public void onDelete(V1Pod obj, boolean deletedFinalStateUnknown) {}
         });
+
+    getCount.acquire(1);
+    watchCount.acquire(2);
+
     factory.startAllRegisteredInformers();
+
     latch.await();
+    getCount.acquire(1);
+    watchCount.acquire(2);
 
     // cannot find the pod due to transform failure
     assertFalse(foundExistingPod.get());
