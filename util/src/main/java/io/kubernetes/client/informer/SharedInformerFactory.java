@@ -122,9 +122,32 @@ public class SharedInformerFactory {
           Class<ApiType> apiTypeClass,
           Class<ApiListType> apiListTypeClass,
           long resyncPeriodInMillis) {
+    return sharedIndexInformerFor(
+        callGenerator, apiTypeClass, apiListTypeClass, resyncPeriodInMillis, null);
+  }
+
+  /**
+   * Shared index informer for shared index informer.
+   *
+   * @param <ApiType> the type parameter
+   * @param <ApiListType> the type parameter
+   * @param callGenerator the call generator
+   * @param apiTypeClass the api type class
+   * @param apiListTypeClass the api list type class
+   * @param exceptionHandler the exception Handler
+   * @return the shared index informer
+   */
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          CallGenerator callGenerator,
+          Class<ApiType> apiTypeClass,
+          Class<ApiListType> apiListTypeClass,
+          long resyncPeriodInMillis,
+          BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
     ListerWatcher<ApiType, ApiListType> listerWatcher =
         listerWatcherFor(callGenerator, apiTypeClass, apiListTypeClass);
-    return sharedIndexInformerFor(listerWatcher, apiTypeClass, resyncPeriodInMillis);
+    return sharedIndexInformerFor(
+        listerWatcher, apiTypeClass, resyncPeriodInMillis, exceptionHandler);
   }
 
   /**
@@ -201,9 +224,35 @@ public class SharedInformerFactory {
           Class<ApiType> apiTypeClass,
           long resyncPeriodInMillis,
           String namespace) {
+    return sharedIndexInformerFor(
+        genericKubernetesApi, apiTypeClass, resyncPeriodInMillis, namespace, null);
+  }
+
+  /**
+   * Working the same as {@link SharedInformerFactory#sharedIndexInformerFor} above.
+   *
+   * <p>Constructs and returns a shared index informer for a specific namespace.
+   *
+   * @param <ApiType> the type parameter
+   * @param <ApiListType> the type parameter
+   * @param genericKubernetesApi the generic kubernetes api
+   * @param apiTypeClass the api type class
+   * @param resyncPeriodInMillis the resync period in millis
+   * @param namespace the target namespace
+   * @param exceptionHandler the exception Handler
+   * @return the shared index informer
+   */
+  public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
+      SharedIndexInformer<ApiType> sharedIndexInformerFor(
+          GenericKubernetesApi<ApiType, ApiListType> genericKubernetesApi,
+          Class<ApiType> apiTypeClass,
+          long resyncPeriodInMillis,
+          String namespace,
+          BiConsumer<Class<ApiType>, Throwable> exceptionHandler) {
     ListerWatcher<ApiType, ApiListType> listerWatcher =
         listerWatcherFor(genericKubernetesApi, namespace);
-    return sharedIndexInformerFor(listerWatcher, apiTypeClass, resyncPeriodInMillis);
+    return sharedIndexInformerFor(
+        listerWatcher, apiTypeClass, resyncPeriodInMillis, exceptionHandler);
   }
 
   private <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
