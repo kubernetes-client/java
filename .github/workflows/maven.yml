@@ -129,7 +129,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.0
       - name: Publish to Registry
-        uses: elgohr/Publish-Docker-Github-Action@master
+        uses: elgohr/Publish-Docker-Github-Action@v5
         with:
           name: kubernetes-client/java/crd-model-gen
           tags: gh-action-tmp
