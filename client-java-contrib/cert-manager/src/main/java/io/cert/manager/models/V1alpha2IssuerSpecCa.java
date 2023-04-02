@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CA configures this issuer to sign certificates using a signing CA keypair stored in a Secret resource. This is used to build internal PKIs that are managed by cert-manager.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecCa {
@@ -61,7 +61,7 @@ public class V1alpha2IssuerSpecCa {
    *
    * @return crlDistributionPoints
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The CRL distribution points is an X.509 v3 certificate extension which identifies the location of the CRL from which the revocation of this certificate can be checked. If not set, certificates will be issued without distribution points set.")

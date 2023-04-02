@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "UncountedTerminatedPods holds UIDs of Pods that have terminated but haven't been accounted in Job status counters.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1UncountedTerminatedPods {
@@ -59,7 +59,7 @@ public class V1UncountedTerminatedPods {
    *
    * @return failed
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Failed holds UIDs of failed Pods.")
   public List<String> getFailed() {
     return failed;
@@ -88,7 +88,7 @@ public class V1UncountedTerminatedPods {
    *
    * @return succeeded
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Succeeded holds UIDs of succeeded Pods.")
   public List<String> getSucceeded() {
     return succeeded;

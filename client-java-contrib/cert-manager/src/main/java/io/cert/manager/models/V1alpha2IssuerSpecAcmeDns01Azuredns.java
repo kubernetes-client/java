@@ -24,7 +24,7 @@ import java.util.Objects;
 
 /** Use the Microsoft Azure DNS API to manage DNS01 challenge records. */
 @ApiModel(description = "Use the Microsoft Azure DNS API to manage DNS01 challenge records.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeDns01Azuredns {
@@ -124,7 +124,7 @@ public class V1alpha2IssuerSpecAcmeDns01Azuredns {
    *
    * @return clientID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "if both this and ClientSecret are left unset MSI will be used")
   public String getClientID() {
     return clientID;
@@ -146,7 +146,7 @@ public class V1alpha2IssuerSpecAcmeDns01Azuredns {
    *
    * @return clientSecretSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01AzurednsClientSecretSecretRef getClientSecretSecretRef() {
     return clientSecretSecretRef;
@@ -168,7 +168,7 @@ public class V1alpha2IssuerSpecAcmeDns01Azuredns {
    *
    * @return environment
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public EnvironmentEnum getEnvironment() {
     return environment;
@@ -189,7 +189,7 @@ public class V1alpha2IssuerSpecAcmeDns01Azuredns {
    *
    * @return hostedZoneName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getHostedZoneName() {
     return hostedZoneName;
@@ -250,7 +250,7 @@ public class V1alpha2IssuerSpecAcmeDns01Azuredns {
    *
    * @return tenantID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "when specifying ClientID and ClientSecret then this field is also needed")
   public String getTenantID() {

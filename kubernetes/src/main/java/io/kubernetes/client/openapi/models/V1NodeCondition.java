@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** NodeCondition contains condition information for a node. */
 @ApiModel(description = "NodeCondition contains condition information for a node.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NodeCondition {
@@ -65,7 +65,7 @@ public class V1NodeCondition {
    *
    * @return lastHeartbeatTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last time we got an update on a given condition.")
   public OffsetDateTime getLastHeartbeatTime() {
     return lastHeartbeatTime;
@@ -86,7 +86,7 @@ public class V1NodeCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition transit from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
@@ -107,7 +107,7 @@ public class V1NodeCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Human readable message indicating details about last transition.")
   public String getMessage() {
     return message;
@@ -128,7 +128,7 @@ public class V1NodeCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "(brief) reason for the condition's last transition.")
   public String getReason() {
     return reason;

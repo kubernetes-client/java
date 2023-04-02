@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "LoadBalancerIngress represents the status of a load-balancer ingress point: traffic intended for the service should be sent to an ingress point.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1LoadBalancerIngress {
@@ -57,7 +57,7 @@ public class V1LoadBalancerIngress {
    *
    * @return hostname
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Hostname is set for load-balancer ingress points that are DNS based (typically AWS load-balancers)")
@@ -81,7 +81,7 @@ public class V1LoadBalancerIngress {
    *
    * @return ip
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "IP is set for load-balancer ingress points that are IP based (typically GCE or OpenStack load-balancers)")
@@ -113,7 +113,7 @@ public class V1LoadBalancerIngress {
    *
    * @return ports
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Ports is a list of records of service ports If used, every port defined in the service should have an entry in it")

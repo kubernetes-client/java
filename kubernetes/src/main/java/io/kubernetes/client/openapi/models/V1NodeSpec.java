@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** NodeSpec describes the attributes that a node is created with. */
 @ApiModel(description = "NodeSpec describes the attributes that a node is created with.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NodeSpec {
@@ -71,7 +71,7 @@ public class V1NodeSpec {
    *
    * @return configSource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeConfigSource getConfigSource() {
     return configSource;
@@ -93,7 +93,7 @@ public class V1NodeSpec {
    *
    * @return externalID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Deprecated. Not all kubelets will set this field. Remove field after 1.13. see: https://issues.k8s.io/61966")
@@ -116,7 +116,7 @@ public class V1NodeSpec {
    *
    * @return podCIDR
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "PodCIDR represents the pod IP range assigned to the node.")
   public String getPodCIDR() {
     return podCIDR;
@@ -147,7 +147,7 @@ public class V1NodeSpec {
    *
    * @return podCIDRs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "podCIDRs represents the IP ranges assigned to the node for usage by Pods on that node. If this field is specified, the 0th entry must match the podCIDR field. It may contain at most 1 value for each of IPv4 and IPv6.")
@@ -171,7 +171,7 @@ public class V1NodeSpec {
    *
    * @return providerID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ID of the node assigned by the cloud provider in the format: <ProviderName>://<ProviderSpecificNodeID>")
@@ -202,7 +202,7 @@ public class V1NodeSpec {
    *
    * @return taints
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If specified, the node's taints.")
   public List<V1Taint> getTaints() {
     return taints;
@@ -224,7 +224,7 @@ public class V1NodeSpec {
    *
    * @return unschedulable
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Unschedulable controls node schedulability of new pods. By default, node is schedulable. More info: https://kubernetes.io/docs/concepts/nodes/node/#manual-node-administration")

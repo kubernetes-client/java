@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "EventSeries contain information on series of events, i.e. thing that was/is happening continuously for some time.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class CoreV1EventSeries {
@@ -50,7 +50,7 @@ public class CoreV1EventSeries {
    *
    * @return count
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Number of occurrences in this series up to the last heartbeat time")
   public Integer getCount() {
     return count;
@@ -71,7 +71,7 @@ public class CoreV1EventSeries {
    *
    * @return lastObservedTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time of the last occurrence observed")
   public OffsetDateTime getLastObservedTime() {
     return lastObservedTime;

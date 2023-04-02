@@ -20,7 +20,7 @@ import java.util.Objects;
 /** WindowsSecurityContextOptions contain Windows-specific options and credentials. */
 @ApiModel(
     description = "WindowsSecurityContextOptions contain Windows-specific options and credentials.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1WindowsSecurityContextOptions {
@@ -57,7 +57,7 @@ public class V1WindowsSecurityContextOptions {
    *
    * @return gmsaCredentialSpec
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "GMSACredentialSpec is where the GMSA admission webhook (https://github.com/kubernetes-sigs/windows-gmsa) inlines the contents of the GMSA credential spec named by the GMSACredentialSpecName field.")
@@ -80,7 +80,7 @@ public class V1WindowsSecurityContextOptions {
    *
    * @return gmsaCredentialSpecName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "GMSACredentialSpecName is the name of the GMSA credential spec to use.")
   public String getGmsaCredentialSpecName() {
@@ -108,7 +108,7 @@ public class V1WindowsSecurityContextOptions {
    *
    * @return hostProcess
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "HostProcess determines if a container should be run as a 'Host Process' container. This field is alpha-level and will only be honored by components that enable the WindowsHostProcessContainers feature flag. Setting this field without the feature flag will result in errors when validating the Pod. All of a Pod's containers must have the same effective HostProcess value (it is not allowed to have a mix of HostProcess containers and non-HostProcess containers).  In addition, if HostProcess is true then HostNetwork must also be set to true.")
@@ -134,7 +134,7 @@ public class V1WindowsSecurityContextOptions {
    *
    * @return runAsUserName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The UserName in Windows to run the entrypoint of the container process. Defaults to the user specified in image metadata if unspecified. May also be set in PodSecurityContext. If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")

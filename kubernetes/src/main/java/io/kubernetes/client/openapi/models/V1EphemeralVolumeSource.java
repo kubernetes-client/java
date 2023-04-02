@@ -20,7 +20,7 @@ import java.util.Objects;
 /** Represents an ephemeral volume that is handled by a normal storage driver. */
 @ApiModel(
     description = "Represents an ephemeral volume that is handled by a normal storage driver.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1EphemeralVolumeSource {
@@ -41,7 +41,7 @@ public class V1EphemeralVolumeSource {
    *
    * @return volumeClaimTemplate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PersistentVolumeClaimTemplate getVolumeClaimTemplate() {
     return volumeClaimTemplate;

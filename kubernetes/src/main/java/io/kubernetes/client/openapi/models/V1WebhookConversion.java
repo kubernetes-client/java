@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** WebhookConversion describes how to call a conversion webhook */
 @ApiModel(description = "WebhookConversion describes how to call a conversion webhook")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1WebhookConversion {
@@ -47,7 +47,7 @@ public class V1WebhookConversion {
    *
    * @return clientConfig
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public ApiextensionsV1WebhookClientConfig getClientConfig() {
     return clientConfig;

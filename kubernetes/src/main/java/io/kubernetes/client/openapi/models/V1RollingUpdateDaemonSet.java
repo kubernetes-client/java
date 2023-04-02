@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** Spec to control the desired behavior of daemon set rolling update. */
 @ApiModel(description = "Spec to control the desired behavior of daemon set rolling update.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1RollingUpdateDaemonSet {
@@ -47,7 +47,7 @@ public class V1RollingUpdateDaemonSet {
    *
    * @return maxSurge
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
@@ -72,7 +72,7 @@ public class V1RollingUpdateDaemonSet {
    *
    * @return maxUnavailable
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")

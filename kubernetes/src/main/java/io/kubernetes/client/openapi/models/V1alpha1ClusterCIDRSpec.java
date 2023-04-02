@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** ClusterCIDRSpec defines the desired state of ClusterCIDR. */
 @ApiModel(description = "ClusterCIDRSpec defines the desired state of ClusterCIDR.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1alpha1ClusterCIDRSpec {
@@ -55,7 +55,7 @@ public class V1alpha1ClusterCIDRSpec {
    *
    * @return ipv4
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "IPv4 defines an IPv4 IP block in CIDR notation(e.g. \"10.0.0.0/8\"). At least one of IPv4 and IPv6 must be specified. This field is immutable.")
@@ -79,7 +79,7 @@ public class V1alpha1ClusterCIDRSpec {
    *
    * @return ipv6
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "IPv6 defines an IPv6 IP block in CIDR notation(e.g. \"fd12:3456:789a:1::/64\"). At least one of IPv4 and IPv6 must be specified. This field is immutable.")
@@ -102,7 +102,7 @@ public class V1alpha1ClusterCIDRSpec {
    *
    * @return nodeSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeSelector getNodeSelector() {
     return nodeSelector;

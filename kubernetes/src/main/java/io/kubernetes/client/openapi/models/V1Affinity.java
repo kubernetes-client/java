@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Affinity is a group of affinity scheduling rules. */
 @ApiModel(description = "Affinity is a group of affinity scheduling rules.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Affinity {
@@ -49,7 +49,7 @@ public class V1Affinity {
    *
    * @return nodeAffinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeAffinity getNodeAffinity() {
     return nodeAffinity;
@@ -70,7 +70,7 @@ public class V1Affinity {
    *
    * @return podAffinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PodAffinity getPodAffinity() {
     return podAffinity;
@@ -91,7 +91,7 @@ public class V1Affinity {
    *
    * @return podAntiAffinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PodAntiAffinity getPodAntiAffinity() {
     return podAntiAffinity;

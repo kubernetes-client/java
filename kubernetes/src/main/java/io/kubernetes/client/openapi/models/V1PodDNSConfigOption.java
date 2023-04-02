@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** PodDNSConfigOption defines DNS resolver options of a pod. */
 @ApiModel(description = "PodDNSConfigOption defines DNS resolver options of a pod.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PodDNSConfigOption {
@@ -44,7 +44,7 @@ public class V1PodDNSConfigOption {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Required.")
   public String getName() {
     return name;
@@ -65,7 +65,7 @@ public class V1PodDNSConfigOption {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getValue() {
     return value;

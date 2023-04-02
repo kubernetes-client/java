@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CustomResourceDefinitionNames indicates the names to serve this CustomResourceDefinition")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CustomResourceDefinitionNames {
@@ -78,7 +78,7 @@ public class V1CustomResourceDefinitionNames {
    *
    * @return categories
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "categories is a list of grouped resources this custom resource belongs to (e.g. 'all'). This is published in API discovery documents, and used by clients to support invocations like `kubectl get all`.")
@@ -126,7 +126,7 @@ public class V1CustomResourceDefinitionNames {
    *
    * @return listKind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "listKind is the serialized kind of the list for this resource. Defaults to \"`kind`List\".")
@@ -185,7 +185,7 @@ public class V1CustomResourceDefinitionNames {
    *
    * @return shortNames
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "shortNames are short names for the resource, exposed in API discovery documents, and used by clients to support invocations like `kubectl get <shortname>`. It must be all lowercase.")
@@ -209,7 +209,7 @@ public class V1CustomResourceDefinitionNames {
    *
    * @return singular
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "singular is the singular name of the resource. It must be all lowercase. Defaults to lowercased `kind`.")

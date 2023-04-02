@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** NamespaceStatus is information about the current status of a Namespace. */
 @ApiModel(description = "NamespaceStatus is information about the current status of a Namespace.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NamespaceStatus {
@@ -54,7 +54,7 @@ public class V1NamespaceStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Represents the latest available observations of a namespace's current state.")
   public List<V1NamespaceCondition> getConditions() {
@@ -77,7 +77,7 @@ public class V1NamespaceStatus {
    *
    * @return phase
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Phase is the current lifecycle phase of the namespace. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/  ")

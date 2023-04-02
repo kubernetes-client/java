@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CustomResourceDefinitionSpec describes how a user wants their resource to appear")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CustomResourceDefinitionSpec {
@@ -68,7 +68,7 @@ public class V1CustomResourceDefinitionSpec {
    *
    * @return conversion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CustomResourceConversion getConversion() {
     return conversion;
@@ -140,7 +140,7 @@ public class V1CustomResourceDefinitionSpec {
    *
    * @return preserveUnknownFields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "preserveUnknownFields indicates that object fields which are not specified in the OpenAPI schema should be preserved when persisting to storage. apiVersion, kind, metadata and known fields inside metadata are always preserved. This field is deprecated in favor of setting `x-preserve-unknown-fields` to true in `spec.versions[*].schema.openAPIV3Schema`. See https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/#pruning-versus-preserving-unknown-fields for details.")

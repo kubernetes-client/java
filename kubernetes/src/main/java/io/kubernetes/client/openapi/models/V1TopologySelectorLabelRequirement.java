@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1TopologySelectorLabelRequirement {

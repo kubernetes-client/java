@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1LocalObjectReference {
@@ -45,7 +45,7 @@ public class V1LocalObjectReference {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")

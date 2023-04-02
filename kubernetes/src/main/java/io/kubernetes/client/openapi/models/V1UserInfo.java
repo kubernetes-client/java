@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "UserInfo holds the information about the user needed to implement the user.Info interface.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1UserInfo {
@@ -68,7 +68,7 @@ public class V1UserInfo {
    *
    * @return extra
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Any additional information provided by the authenticator.")
   public Map<String, List<String>> getExtra() {
     return extra;
@@ -97,7 +97,7 @@ public class V1UserInfo {
    *
    * @return groups
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The names of groups this user is a part of.")
   public List<String> getGroups() {
     return groups;
@@ -119,7 +119,7 @@ public class V1UserInfo {
    *
    * @return uid
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "A unique value that identifies this user across time. If this user is deleted and another user by the same name is added, they will have different UIDs.")
@@ -142,7 +142,7 @@ public class V1UserInfo {
    *
    * @return username
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The name that uniquely identifies this user among all active users.")
   public String getUsername() {
     return username;

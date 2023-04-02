@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Info contains versioning information. how we'll want to distribute that information.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class VersionInfo {

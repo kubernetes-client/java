@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** ObjectFieldSelector selects an APIVersioned field of an object. */
 @ApiModel(description = "ObjectFieldSelector selects an APIVersioned field of an object.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ObjectFieldSelector {
@@ -44,7 +44,7 @@ public class V1ObjectFieldSelector {
    *
    * @return apiVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".")
   public String getApiVersion() {

@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Keystores configures additional keystore output formats stored in the `secretName` Secret resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1CertificateSpecKeystores {
@@ -49,7 +49,7 @@ public class V1beta1CertificateSpecKeystores {
    *
    * @return jks
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1CertificateSpecKeystoresJks getJks() {
     return jks;
@@ -70,7 +70,7 @@ public class V1beta1CertificateSpecKeystores {
    *
    * @return pkcs12
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1CertificateSpecKeystoresPkcs12 getPkcs12() {
     return pkcs12;

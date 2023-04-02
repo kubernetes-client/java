@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** SubjectAccessReviewStatus */
 @ApiModel(description = "SubjectAccessReviewStatus")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1SubjectAccessReviewStatus {
@@ -78,7 +78,7 @@ public class V1SubjectAccessReviewStatus {
    *
    * @return denied
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Denied is optional. True if the action would be denied, otherwise false. If both allowed is false and denied is false, then the authorizer has no opinion on whether to authorize the action. Denied may not be true if Allowed is true.")
@@ -104,7 +104,7 @@ public class V1SubjectAccessReviewStatus {
    *
    * @return evaluationError
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "EvaluationError is an indication that some error occurred during the authorization check. It is entirely possible to get an error and be able to continue determine authorization status in spite of it. For instance, RBAC can be missing a role, but enough roles are still present and bound to reason about the request.")
@@ -127,7 +127,7 @@ public class V1SubjectAccessReviewStatus {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Reason is optional.  It indicates why a request was allowed or denied.")
   public String getReason() {

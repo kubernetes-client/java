@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Kubernetes authenticates with Vault by passing the ServiceAccount token stored in the named Secret resource to the Vault server.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecVaultAuthKubernetes {
@@ -57,7 +57,7 @@ public class V1alpha2IssuerSpecVaultAuthKubernetes {
    *
    * @return mountPath
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The Vault mountPath here is the mount path to use when authenticating with Vault. For example, setting a value to `/v1/auth/foo`, will use the path `/v1/auth/foo/login` to authenticate with Vault. If unspecified, the default value \"/v1/auth/kubernetes\" will be used.")

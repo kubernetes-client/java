@@ -21,7 +21,7 @@ import java.util.Objects;
 /** PriorityLevelConfigurationCondition defines the condition of priority level. */
 @ApiModel(
     description = "PriorityLevelConfigurationCondition defines the condition of priority level.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1beta2PriorityLevelConfigurationCondition {
@@ -63,7 +63,7 @@ public class V1beta2PriorityLevelConfigurationCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "`lastTransitionTime` is the last time the condition transitioned from one status to another.")
@@ -86,7 +86,7 @@ public class V1beta2PriorityLevelConfigurationCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "`message` is a human-readable message indicating details about last transition.")
   public String getMessage() {
@@ -109,7 +109,7 @@ public class V1beta2PriorityLevelConfigurationCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "`reason` is a unique, one-word, CamelCase reason for the condition's last transition.")
@@ -132,7 +132,7 @@ public class V1beta2PriorityLevelConfigurationCondition {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "`status` is the status of the condition. Can be True, False, Unknown. Required.")
   public String getStatus() {
@@ -154,7 +154,7 @@ public class V1beta2PriorityLevelConfigurationCondition {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "`type` is the type of the condition. Required.")
   public String getType() {
     return type;

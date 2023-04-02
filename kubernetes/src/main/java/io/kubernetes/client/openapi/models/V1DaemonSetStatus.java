@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** DaemonSetStatus represents the current status of a daemon set. */
 @ApiModel(description = "DaemonSetStatus represents the current status of a daemon set.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1DaemonSetStatus {
@@ -88,7 +88,7 @@ public class V1DaemonSetStatus {
    *
    * @return collisionCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Count of hash collisions for the DaemonSet. The DaemonSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.")
@@ -119,7 +119,7 @@ public class V1DaemonSetStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Represents the latest available observations of a DaemonSet's current state.")
   public List<V1DaemonSetCondition> getConditions() {
@@ -191,7 +191,7 @@ public class V1DaemonSetStatus {
    *
    * @return numberAvailable
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available (ready for at least spec.minReadySeconds)")
@@ -263,7 +263,7 @@ public class V1DaemonSetStatus {
    *
    * @return numberUnavailable
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds)")
@@ -286,7 +286,7 @@ public class V1DaemonSetStatus {
    *
    * @return observedGeneration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The most recent generation observed by the daemon set controller.")
   public Long getObservedGeneration() {
     return observedGeneration;
@@ -307,7 +307,7 @@ public class V1DaemonSetStatus {
    *
    * @return updatedNumberScheduled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The total number of nodes that are running updated daemon pod")
   public Integer getUpdatedNumberScheduled() {
     return updatedNumberScheduled;

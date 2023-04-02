@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "The node this Taint is attached to has the \"effect\" on any pod that does not tolerate the Taint.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Taint {
@@ -105,7 +105,7 @@ public class V1Taint {
    *
    * @return timeAdded
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "TimeAdded represents the time at which the taint was added. It is only written for NoExecute taints.")
@@ -128,7 +128,7 @@ public class V1Taint {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The taint value corresponding to the taint key.")
   public String getValue() {
     return value;

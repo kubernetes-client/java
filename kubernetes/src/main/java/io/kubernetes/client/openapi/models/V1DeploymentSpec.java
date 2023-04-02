@@ -20,7 +20,7 @@ import java.util.Objects;
 /** DeploymentSpec is the specification of the desired behavior of the Deployment. */
 @ApiModel(
     description = "DeploymentSpec is the specification of the desired behavior of the Deployment.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1DeploymentSpec {
@@ -77,7 +77,7 @@ public class V1DeploymentSpec {
    *
    * @return minReadySeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)")
@@ -100,7 +100,7 @@ public class V1DeploymentSpec {
    *
    * @return paused
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Indicates that the deployment is paused.")
   public Boolean getPaused() {
     return paused;
@@ -124,7 +124,7 @@ public class V1DeploymentSpec {
    *
    * @return progressDeadlineSeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The maximum time in seconds for a deployment to make progress before it is considered to be failed. The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. Defaults to 600s.")
@@ -148,7 +148,7 @@ public class V1DeploymentSpec {
    *
    * @return replicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Number of desired pods. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.")
@@ -172,7 +172,7 @@ public class V1DeploymentSpec {
    *
    * @return revisionHistoryLimit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The number of old ReplicaSets to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.")
@@ -215,7 +215,7 @@ public class V1DeploymentSpec {
    *
    * @return strategy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1DeploymentStrategy getStrategy() {
     return strategy;

@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** ContainerStateRunning is a running state of a container. */
 @ApiModel(description = "ContainerStateRunning is a running state of a container.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ContainerStateRunning {
@@ -40,7 +40,7 @@ public class V1ContainerStateRunning {
    *
    * @return startedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time at which the container was last (re-)started")
   public OffsetDateTime getStartedAt() {
     return startedAt;

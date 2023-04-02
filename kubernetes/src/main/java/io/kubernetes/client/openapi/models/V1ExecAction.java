@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** ExecAction describes a \&quot;run in container\&quot; action. */
 @ApiModel(description = "ExecAction describes a \"run in container\" action.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ExecAction {
@@ -53,7 +53,7 @@ public class V1ExecAction {
    *
    * @return command
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.")

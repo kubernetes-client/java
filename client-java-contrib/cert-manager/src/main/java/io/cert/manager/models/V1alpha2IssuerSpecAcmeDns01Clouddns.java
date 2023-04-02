@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Use the Google Cloud DNS API to manage DNS01 challenge records. */
 @ApiModel(description = "Use the Google Cloud DNS API to manage DNS01 challenge records.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeDns01Clouddns {
@@ -51,7 +51,7 @@ public class V1alpha2IssuerSpecAcmeDns01Clouddns {
    *
    * @return hostedZoneName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "HostedZoneName is an optional field that tells cert-manager in which Cloud DNS zone the challenge record has to be created. If left empty cert-manager will automatically choose a zone.")
@@ -95,7 +95,7 @@ public class V1alpha2IssuerSpecAcmeDns01Clouddns {
    *
    * @return serviceAccountSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01AcmednsAccountSecretRef getServiceAccountSecretRef() {
     return serviceAccountSecretRef;

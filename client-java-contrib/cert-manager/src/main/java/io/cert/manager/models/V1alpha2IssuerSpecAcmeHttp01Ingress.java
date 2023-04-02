@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "The ingress based HTTP01 challenge solver will solve challenges by creating or modifying Ingress resources in order to route requests for '/.well-known/acme-challenge/XYZ' to 'challenge solver' pods that are provisioned by cert-manager for each Challenge to be completed.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeHttp01Ingress {
@@ -67,7 +67,7 @@ public class V1alpha2IssuerSpecAcmeHttp01Ingress {
    *
    * @return propertyClass
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The ingress class to use when creating Ingress resources to solve ACME challenges that use this challenge solver. Only one of 'class' or 'name' may be specified.")
@@ -91,7 +91,7 @@ public class V1alpha2IssuerSpecAcmeHttp01Ingress {
    *
    * @return ingressTemplate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01IngressIngressTemplate getIngressTemplate() {
     return ingressTemplate;
@@ -116,7 +116,7 @@ public class V1alpha2IssuerSpecAcmeHttp01Ingress {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The name of the ingress resource that should have ACME challenge solving routes inserted into it in order to solve HTTP01 challenges. This is typically used in conjunction with ingress controllers like ingress-gce, which maintains a 1:1 mapping between external IPs and ingress resources.")
@@ -140,7 +140,7 @@ public class V1alpha2IssuerSpecAcmeHttp01Ingress {
    *
    * @return podTemplate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01IngressPodTemplate getPodTemplate() {
     return podTemplate;
@@ -161,7 +161,7 @@ public class V1alpha2IssuerSpecAcmeHttp01Ingress {
    *
    * @return serviceType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional service type for Kubernetes solver service")
   public String getServiceType() {
     return serviceType;

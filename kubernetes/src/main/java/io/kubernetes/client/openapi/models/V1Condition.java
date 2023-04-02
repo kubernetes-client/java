@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Condition contains details for one aspect of the current state of this API Resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Condition {
@@ -119,7 +119,7 @@ public class V1Condition {
    *
    * @return observedGeneration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.")

@@ -23,7 +23,7 @@ import java.util.Objects;
 
 /** Endpoint represents a single logical \&quot;backend\&quot; implementing a service. */
 @ApiModel(description = "Endpoint represents a single logical \"backend\" implementing a service.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Endpoint {
@@ -110,7 +110,7 @@ public class V1Endpoint {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1EndpointConditions getConditions() {
     return conditions;
@@ -143,7 +143,7 @@ public class V1Endpoint {
    *
    * @return deprecatedTopology
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "deprecatedTopology contains topology information part of the v1beta1 API. This field is deprecated, and will be removed when the v1beta1 API is removed (no sooner than kubernetes v1.24).  While this field can hold values, it is not writable through the v1 API, and any attempts to write to it will be silently ignored. Topology information can be found in the zone and nodeName fields instead.")
@@ -166,7 +166,7 @@ public class V1Endpoint {
    *
    * @return hints
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1EndpointHints getHints() {
     return hints;
@@ -190,7 +190,7 @@ public class V1Endpoint {
    *
    * @return hostname
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "hostname of this endpoint. This field may be used by consumers of endpoints to distinguish endpoints from each other (e.g. in DNS names). Multiple endpoints which use the same hostname should be considered fungible (e.g. multiple A values in DNS). Must be lowercase and pass DNS Label (RFC 1123) validation.")
@@ -214,7 +214,7 @@ public class V1Endpoint {
    *
    * @return nodeName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "nodeName represents the name of the Node hosting this endpoint. This can be used to determine endpoints local to a Node.")
@@ -237,7 +237,7 @@ public class V1Endpoint {
    *
    * @return targetRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectReference getTargetRef() {
     return targetRef;
@@ -258,7 +258,7 @@ public class V1Endpoint {
    *
    * @return zone
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "zone is the name of the Zone this endpoint exists in.")
   public String getZone() {
     return zone;

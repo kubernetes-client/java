@@ -20,7 +20,7 @@ import java.util.Objects;
 /** CustomResourceColumnDefinition specifies a column for server side printing. */
 @ApiModel(
     description = "CustomResourceColumnDefinition specifies a column for server side printing.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CustomResourceColumnDefinition {
@@ -65,7 +65,7 @@ public class V1CustomResourceColumnDefinition {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "description is a human readable description of this column.")
   public String getDescription() {
     return description;
@@ -90,7 +90,7 @@ public class V1CustomResourceColumnDefinition {
    *
    * @return format
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "format is an optional OpenAPI type definition for this column. The 'name' format is applied to the primary identifier column to assist in clients identifying column is the resource name. See https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#data-types for details.")
@@ -159,7 +159,7 @@ public class V1CustomResourceColumnDefinition {
    *
    * @return priority
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "priority is an integer defining the relative importance of this column compared to others. Lower numbers are considered higher priority. Columns that may be omitted in limited space scenarios should be given a priority greater than 0.")

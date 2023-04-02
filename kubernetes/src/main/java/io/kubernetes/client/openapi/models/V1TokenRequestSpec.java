@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** TokenRequestSpec contains client provided parameters of a token request. */
 @ApiModel(description = "TokenRequestSpec contains client provided parameters of a token request.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1TokenRequestSpec {
@@ -82,7 +82,7 @@ public class V1TokenRequestSpec {
    *
    * @return boundObjectRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1BoundObjectReference getBoundObjectRef() {
     return boundObjectRef;
@@ -105,7 +105,7 @@ public class V1TokenRequestSpec {
    *
    * @return expirationSeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ExpirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the 'expiration' field in a response.")

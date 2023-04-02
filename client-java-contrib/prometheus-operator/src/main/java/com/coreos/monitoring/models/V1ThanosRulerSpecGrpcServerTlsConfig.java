@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "GRPCServerTLSConfig configures the gRPC server from which Thanos Querier reads recorded rule data. Note: Currently only the CAFile, CertFile, and KeyFile fields are supported. Maps to the '--grpc-server-tls-*' CLI args.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecGrpcServerTlsConfig {
@@ -80,7 +80,7 @@ public class V1ThanosRulerSpecGrpcServerTlsConfig {
    *
    * @return ca
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecTlsConfigCa getCa() {
     return ca;
@@ -101,7 +101,7 @@ public class V1ThanosRulerSpecGrpcServerTlsConfig {
    *
    * @return caFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Path to the CA cert in the Prometheus container to use for the targets.")
   public String getCaFile() {
@@ -123,7 +123,7 @@ public class V1ThanosRulerSpecGrpcServerTlsConfig {
    *
    * @return cert
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecTlsConfigCert getCert() {
     return cert;
@@ -144,7 +144,7 @@ public class V1ThanosRulerSpecGrpcServerTlsConfig {
    *
    * @return certFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Path to the client cert file in the Prometheus container for the targets.")
   public String getCertFile() {
@@ -166,7 +166,7 @@ public class V1ThanosRulerSpecGrpcServerTlsConfig {
    *
    * @return insecureSkipVerify
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Disable target certificate validation.")
   public Boolean getInsecureSkipVerify() {
     return insecureSkipVerify;
@@ -187,7 +187,7 @@ public class V1ThanosRulerSpecGrpcServerTlsConfig {
    *
    * @return keyFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Path to the client key file in the Prometheus container for the targets.")
   public String getKeyFile() {
@@ -210,7 +210,7 @@ public class V1ThanosRulerSpecGrpcServerTlsConfig {
    *
    * @return keySecret
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecTlsConfigKeySecret getKeySecret() {
     return keySecret;
@@ -231,7 +231,7 @@ public class V1ThanosRulerSpecGrpcServerTlsConfig {
    *
    * @return serverName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Used to verify the hostname for the targets.")
   public String getServerName() {
     return serverName;

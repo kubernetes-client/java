@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1beta1Subject {
@@ -59,7 +59,7 @@ public class V1beta1Subject {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1GroupSubject getGroup() {
     return group;
@@ -102,7 +102,7 @@ public class V1beta1Subject {
    *
    * @return serviceAccount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1ServiceAccountSubject getServiceAccount() {
     return serviceAccount;
@@ -123,7 +123,7 @@ public class V1beta1Subject {
    *
    * @return user
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1UserSubject getUser() {
     return user;

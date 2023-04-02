@@ -20,7 +20,7 @@ import java.util.Objects;
 /** PriorityLevelConfigurationSpec specifies the configuration of a priority level. */
 @ApiModel(
     description = "PriorityLevelConfigurationSpec specifies the configuration of a priority level.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1beta1PriorityLevelConfigurationSpec {
@@ -46,7 +46,7 @@ public class V1beta1PriorityLevelConfigurationSpec {
    *
    * @return limited
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1LimitedPriorityLevelConfiguration getLimited() {
     return limited;

@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** FlowSchemaSpec describes how the FlowSchema&#39;s specification looks like. */
 @ApiModel(description = "FlowSchemaSpec describes how the FlowSchema's specification looks like.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1beta1FlowSchemaSpec {
@@ -58,7 +58,7 @@ public class V1beta1FlowSchemaSpec {
    *
    * @return distinguisherMethod
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1FlowDistinguisherMethod getDistinguisherMethod() {
     return distinguisherMethod;
@@ -82,7 +82,7 @@ public class V1beta1FlowSchemaSpec {
    *
    * @return matchingPrecedence
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "`matchingPrecedence` is used to choose among the FlowSchemas that match a given request. The chosen FlowSchema is among those with the numerically lowest (which we take to be logically highest) MatchingPrecedence.  Each MatchingPrecedence value must be ranged in [1,10000]. Note that if the precedence is not specified, it will be set to 1000 as default.")
@@ -137,7 +137,7 @@ public class V1beta1FlowSchemaSpec {
    *
    * @return rules
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "`rules` describes which requests will match this flow schema. This FlowSchema matches a request if and only if at least one member of rules matches the request. if it is an empty slice, there will be no requests matching the FlowSchema.")

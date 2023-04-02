@@ -21,7 +21,7 @@ import java.util.Objects;
 /** StatefulSetCondition describes the state of a statefulset at a certain point. */
 @ApiModel(
     description = "StatefulSetCondition describes the state of a statefulset at a certain point.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1StatefulSetCondition {
@@ -61,7 +61,7 @@ public class V1StatefulSetCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition transitioned from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
@@ -82,7 +82,7 @@ public class V1StatefulSetCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A human readable message indicating details about the transition.")
   public String getMessage() {
     return message;
@@ -103,7 +103,7 @@ public class V1StatefulSetCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The reason for the condition's last transition.")
   public String getReason() {
     return reason;

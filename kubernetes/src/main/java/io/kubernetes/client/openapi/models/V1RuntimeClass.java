@@ -27,7 +27,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "RuntimeClass defines a class of container runtime supported in the cluster. The RuntimeClass is used to determine which container runtime is used to run all containers in a pod. RuntimeClasses are manually defined by a user or cluster provisioner, and referenced in the PodSpec. The Kubelet is responsible for resolving the RuntimeClassName reference before running the pod.  For more details, see https://kubernetes.io/docs/concepts/containers/runtime-class/")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1RuntimeClass implements io.kubernetes.client.common.KubernetesObject {
@@ -75,7 +75,7 @@ public class V1RuntimeClass implements io.kubernetes.client.common.KubernetesObj
    *
    * @return apiVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
@@ -130,7 +130,7 @@ public class V1RuntimeClass implements io.kubernetes.client.common.KubernetesObj
    *
    * @return kind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
@@ -153,7 +153,7 @@ public class V1RuntimeClass implements io.kubernetes.client.common.KubernetesObj
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
@@ -174,7 +174,7 @@ public class V1RuntimeClass implements io.kubernetes.client.common.KubernetesObj
    *
    * @return overhead
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1Overhead getOverhead() {
     return overhead;
@@ -195,7 +195,7 @@ public class V1RuntimeClass implements io.kubernetes.client.common.KubernetesObj
    *
    * @return scheduling
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1Scheduling getScheduling() {
     return scheduling;

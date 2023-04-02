@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "AggregationRule describes how to locate ClusterRoles to aggregate into the ClusterRole")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1AggregationRule {
@@ -53,7 +53,7 @@ public class V1AggregationRule {
    *
    * @return clusterRoleSelectors
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ClusterRoleSelectors holds a list of selectors which will be used to find ClusterRoles and create the rules. If any of the selectors match, then the ClusterRole's permissions will be added")

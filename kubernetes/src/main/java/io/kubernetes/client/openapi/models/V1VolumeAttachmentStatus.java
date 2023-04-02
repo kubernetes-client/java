@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** VolumeAttachmentStatus is the status of a VolumeAttachment request. */
 @ApiModel(description = "VolumeAttachmentStatus is the status of a VolumeAttachment request.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1VolumeAttachmentStatus {
@@ -56,7 +56,7 @@ public class V1VolumeAttachmentStatus {
    *
    * @return attachError
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1VolumeError getAttachError() {
     return attachError;
@@ -112,7 +112,7 @@ public class V1VolumeAttachmentStatus {
    *
    * @return attachmentMetadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Upon successful attach, this field is populated with any information returned by the attach operation that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.")
@@ -135,7 +135,7 @@ public class V1VolumeAttachmentStatus {
    *
    * @return detachError
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1VolumeError getDetachError() {
     return detachError;

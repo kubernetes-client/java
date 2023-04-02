@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Selects a key from a ConfigMap. */
 @ApiModel(description = "Selects a key from a ConfigMap.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ConfigMapKeySelector {
@@ -70,7 +70,7 @@ public class V1ConfigMapKeySelector {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
@@ -93,7 +93,7 @@ public class V1ConfigMapKeySelector {
    *
    * @return optional
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specify whether the ConfigMap or its key must be defined")
   public Boolean getOptional() {
     return optional;

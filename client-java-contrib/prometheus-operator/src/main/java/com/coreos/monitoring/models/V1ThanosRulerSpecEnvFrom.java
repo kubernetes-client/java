@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** EnvFromSource represents the source of a set of ConfigMaps */
 @ApiModel(description = "EnvFromSource represents the source of a set of ConfigMaps")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecEnvFrom {
@@ -49,7 +49,7 @@ public class V1ThanosRulerSpecEnvFrom {
    *
    * @return configMapRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecConfigMapRef getConfigMapRef() {
     return configMapRef;
@@ -70,7 +70,7 @@ public class V1ThanosRulerSpecEnvFrom {
    *
    * @return prefix
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "An optional identifier to prepend to each key in the ConfigMap. Must be a C_IDENTIFIER.")
@@ -93,7 +93,7 @@ public class V1ThanosRulerSpecEnvFrom {
    *
    * @return secretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecSecretRef getSecretRef() {
     return secretRef;

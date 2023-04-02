@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "FlexPersistentVolumeSource represents a generic persistent volume resource that is provisioned/attached using an exec based plugin.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1FlexPersistentVolumeSource {
@@ -90,7 +90,7 @@ public class V1FlexPersistentVolumeSource {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "fsType is the Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". The default filesystem depends on FlexVolume script.")
@@ -121,7 +121,7 @@ public class V1FlexPersistentVolumeSource {
    *
    * @return options
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "options is Optional: this field holds extra command options if any.")
   public Map<String, String> getOptions() {
     return options;
@@ -143,7 +143,7 @@ public class V1FlexPersistentVolumeSource {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "readOnly is Optional: defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
@@ -166,7 +166,7 @@ public class V1FlexPersistentVolumeSource {
    *
    * @return secretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getSecretRef() {
     return secretRef;

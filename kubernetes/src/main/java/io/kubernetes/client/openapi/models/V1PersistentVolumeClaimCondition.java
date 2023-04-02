@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** PersistentVolumeClaimCondition contails details about state of pvc */
 @ApiModel(description = "PersistentVolumeClaimCondition contails details about state of pvc")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PersistentVolumeClaimCondition {
@@ -65,7 +65,7 @@ public class V1PersistentVolumeClaimCondition {
    *
    * @return lastProbeTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "lastProbeTime is the time we probed the condition.")
   public OffsetDateTime getLastProbeTime() {
     return lastProbeTime;
@@ -86,7 +86,7 @@ public class V1PersistentVolumeClaimCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "lastTransitionTime is the time the condition transitioned from one status to another.")
@@ -109,7 +109,7 @@ public class V1PersistentVolumeClaimCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "message is the human-readable message indicating details about last transition.")
   public String getMessage() {
@@ -133,7 +133,7 @@ public class V1PersistentVolumeClaimCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "reason is a unique, this should be a short, machine understandable string that gives the reason for condition's last transition. If it reports \"ResizeStarted\" that means the underlying persistent volume is being resized.")

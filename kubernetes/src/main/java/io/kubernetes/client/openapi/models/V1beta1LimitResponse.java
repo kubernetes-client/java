@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "LimitResponse defines how to handle requests that can not be executed right now.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1beta1LimitResponse {
@@ -46,7 +46,7 @@ public class V1beta1LimitResponse {
    *
    * @return queuing
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1QueuingConfiguration getQueuing() {
     return queuing;

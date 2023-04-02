@@ -27,7 +27,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CertificateRequestCondition contains condition information for a CertificateRequest.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1CertificateRequestStatusConditions {
@@ -116,7 +116,7 @@ public class V1beta1CertificateRequestStatusConditions {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "LastTransitionTime is the timestamp corresponding to the last status change of this condition.")
@@ -140,7 +140,7 @@ public class V1beta1CertificateRequestStatusConditions {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Message is a human readable description of the details of the last transition, complementing reason.")
@@ -163,7 +163,7 @@ public class V1beta1CertificateRequestStatusConditions {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Reason is a brief machine readable explanation for the condition's last transition.")
   public String getReason() {

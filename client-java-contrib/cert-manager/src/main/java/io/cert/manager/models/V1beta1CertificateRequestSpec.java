@@ -27,7 +27,7 @@ import java.util.Objects;
 
 /** Desired state of the CertificateRequest resource. */
 @ApiModel(description = "Desired state of the CertificateRequest resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1CertificateRequestSpec {
@@ -168,7 +168,7 @@ public class V1beta1CertificateRequestSpec {
    *
    * @return duration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The requested 'duration' (i.e. lifetime) of the Certificate. This option may be ignored/overridden by some issuer types.")
@@ -193,7 +193,7 @@ public class V1beta1CertificateRequestSpec {
    *
    * @return isCA
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "IsCA will request to mark the certificate as valid for certificate signing when submitting to the issuer. This will automatically add the `cert sign` usage to the list of `usages`.")
@@ -268,7 +268,7 @@ public class V1beta1CertificateRequestSpec {
    *
    * @return usages
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Usages is the set of x509 usages that are requested for the certificate. Defaults to `digital signature` and `key encipherment` if not specified.")

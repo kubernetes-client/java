@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** VolumeMount describes a mounting of a Volume within a container. */
 @ApiModel(description = "VolumeMount describes a mounting of a Volume within a container.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1VolumeMount {
@@ -88,7 +88,7 @@ public class V1VolumeMount {
    *
    * @return mountPropagation
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.")
@@ -131,7 +131,7 @@ public class V1VolumeMount {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.")
@@ -155,7 +155,7 @@ public class V1VolumeMount {
    *
    * @return subPath
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).")
@@ -181,7 +181,7 @@ public class V1VolumeMount {
    *
    * @return subPathExpr
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to \"\" (volume's root). SubPathExpr and SubPath are mutually exclusive.")

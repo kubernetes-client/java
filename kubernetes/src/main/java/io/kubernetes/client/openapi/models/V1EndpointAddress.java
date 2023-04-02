@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** EndpointAddress is a tuple that describes single IP address. */
 @ApiModel(description = "EndpointAddress is a tuple that describes single IP address.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1EndpointAddress {
@@ -54,7 +54,7 @@ public class V1EndpointAddress {
    *
    * @return hostname
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The Hostname of this endpoint")
   public String getHostname() {
     return hostname;
@@ -100,7 +100,7 @@ public class V1EndpointAddress {
    *
    * @return nodeName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Optional: Node hosting this endpoint. This can be used to determine endpoints local to a node.")
@@ -123,7 +123,7 @@ public class V1EndpointAddress {
    *
    * @return targetRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectReference getTargetRef() {
     return targetRef;

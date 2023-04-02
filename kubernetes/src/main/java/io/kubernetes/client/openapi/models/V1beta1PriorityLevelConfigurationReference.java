@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PriorityLevelConfigurationReference contains information that points to the \"request-priority\" being used.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1beta1PriorityLevelConfigurationReference {

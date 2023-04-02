@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** EndpointPort is a tuple that describes a single port. */
 @ApiModel(description = "EndpointPort is a tuple that describes a single port.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class CoreV1EndpointPort {
@@ -57,7 +57,7 @@ public class CoreV1EndpointPort {
    *
    * @return appProtocol
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.")
@@ -81,7 +81,7 @@ public class CoreV1EndpointPort {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The name of this port.  This must match the 'name' field in the corresponding ServicePort. Must be a DNS_LABEL. Optional only if one port is defined.")
@@ -124,7 +124,7 @@ public class CoreV1EndpointPort {
    *
    * @return protocol
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.  ")
   public String getProtocol() {

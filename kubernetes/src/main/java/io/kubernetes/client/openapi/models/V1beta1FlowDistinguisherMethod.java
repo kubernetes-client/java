@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** FlowDistinguisherMethod specifies the method of a flow distinguisher. */
 @ApiModel(description = "FlowDistinguisherMethod specifies the method of a flow distinguisher.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1beta1FlowDistinguisherMethod {

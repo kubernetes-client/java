@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** SecretKeySelector selects a key of a Secret. */
 @ApiModel(description = "SecretKeySelector selects a key of a Secret.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1SecretKeySelector {
@@ -72,7 +72,7 @@ public class V1SecretKeySelector {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
@@ -95,7 +95,7 @@ public class V1SecretKeySelector {
    *
    * @return optional
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specify whether the Secret or its key must be defined")
   public Boolean getOptional() {
     return optional;

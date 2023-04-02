@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** Describes node affinity scheduling rules for the pod. */
 @ApiModel(description = "Describes node affinity scheduling rules for the pod.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffinity {
@@ -77,7 +77,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffin
    *
    * @return preferredDuringSchedulingIgnoredDuringExecution
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The scheduler will prefer to schedule pods to nodes that satisfy the affinity expressions specified by this field, but it may choose a node that violates one or more of the expressions. The node that is most preferred is the one with the greatest sum of weights, i.e. for each node that meets all of the scheduling requirements (resource request, requiredDuringScheduling affinity expressions, etc.), compute a sum by iterating through the elements of this field and adding \"weight\" to the sum if the node matches the corresponding matchExpressions; the node(s) with the highest sum are the most preferred.")
@@ -110,7 +110,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffin
    *
    * @return requiredDuringSchedulingIgnoredDuringExecution
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public
   V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffinityRequiredDuringSchedulingIgnoredDuringExecution

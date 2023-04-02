@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** PodDisruptionBudgetSpec is a description of a PodDisruptionBudget. */
 @ApiModel(description = "PodDisruptionBudgetSpec is a description of a PodDisruptionBudget.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PodDisruptionBudgetSpec {
@@ -52,7 +52,7 @@ public class V1PodDisruptionBudgetSpec {
    *
    * @return maxUnavailable
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
@@ -77,7 +77,7 @@ public class V1PodDisruptionBudgetSpec {
    *
    * @return minAvailable
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
@@ -100,7 +100,7 @@ public class V1PodDisruptionBudgetSpec {
    *
    * @return selector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getSelector() {
     return selector;

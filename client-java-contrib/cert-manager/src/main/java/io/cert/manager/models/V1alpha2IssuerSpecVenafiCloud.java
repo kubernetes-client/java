@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Cloud specifies the Venafi cloud configuration settings. Only one of TPP or Cloud may be specified.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecVenafiCloud {
@@ -71,7 +71,7 @@ public class V1alpha2IssuerSpecVenafiCloud {
    *
    * @return url
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "URL is the base URL for Venafi Cloud. Defaults to \"https://api.venafi.cloud/v1\".")
   public String getUrl() {

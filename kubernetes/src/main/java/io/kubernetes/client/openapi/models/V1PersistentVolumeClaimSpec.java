@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PersistentVolumeClaimSpec {
@@ -90,7 +90,7 @@ public class V1PersistentVolumeClaimSpec {
    *
    * @return accessModes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1")
@@ -113,7 +113,7 @@ public class V1PersistentVolumeClaimSpec {
    *
    * @return dataSource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1TypedLocalObjectReference getDataSource() {
     return dataSource;
@@ -134,7 +134,7 @@ public class V1PersistentVolumeClaimSpec {
    *
    * @return dataSourceRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1TypedLocalObjectReference getDataSourceRef() {
     return dataSourceRef;
@@ -155,7 +155,7 @@ public class V1PersistentVolumeClaimSpec {
    *
    * @return resources
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ResourceRequirements getResources() {
     return resources;
@@ -176,7 +176,7 @@ public class V1PersistentVolumeClaimSpec {
    *
    * @return selector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getSelector() {
     return selector;
@@ -198,7 +198,7 @@ public class V1PersistentVolumeClaimSpec {
    *
    * @return storageClassName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1")
@@ -222,7 +222,7 @@ public class V1PersistentVolumeClaimSpec {
    *
    * @return volumeMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.")
@@ -245,7 +245,7 @@ public class V1PersistentVolumeClaimSpec {
    *
    * @return volumeName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "volumeName is the binding reference to the PersistentVolume backing this claim.")
   public String getVolumeName() {

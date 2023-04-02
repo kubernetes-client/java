@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CustomResourceDefinitionCondition contains details for the current condition of this pod.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CustomResourceDefinitionCondition {
@@ -62,7 +62,7 @@ public class V1CustomResourceDefinitionCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "lastTransitionTime last time the condition transitioned from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
@@ -84,7 +84,7 @@ public class V1CustomResourceDefinitionCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "message is a human-readable message indicating details about last transition.")
   public String getMessage() {
@@ -106,7 +106,7 @@ public class V1CustomResourceDefinitionCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "reason is a unique, one-word, CamelCase reason for the condition's last transition.")
   public String getReason() {

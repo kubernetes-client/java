@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /** V1alpha3ChallengeSpec */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha3ChallengeSpec {
@@ -319,7 +319,7 @@ public class V1alpha3ChallengeSpec {
    *
    * @return wildcard
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Wildcard will be true if this challenge is for a wildcard identifier, for example '*.example.com'.")

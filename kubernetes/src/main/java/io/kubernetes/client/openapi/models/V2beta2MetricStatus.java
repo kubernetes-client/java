@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** MetricStatus describes the last-read state of a single metric. */
 @ApiModel(description = "MetricStatus describes the last-read state of a single metric.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V2beta2MetricStatus {
@@ -65,7 +65,7 @@ public class V2beta2MetricStatus {
    *
    * @return containerResource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2ContainerResourceMetricStatus getContainerResource() {
     return containerResource;
@@ -86,7 +86,7 @@ public class V2beta2MetricStatus {
    *
    * @return external
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2ExternalMetricStatus getExternal() {
     return external;
@@ -107,7 +107,7 @@ public class V2beta2MetricStatus {
    *
    * @return _object
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2ObjectMetricStatus getObject() {
     return _object;
@@ -128,7 +128,7 @@ public class V2beta2MetricStatus {
    *
    * @return pods
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2PodsMetricStatus getPods() {
     return pods;
@@ -149,7 +149,7 @@ public class V2beta2MetricStatus {
    *
    * @return resource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2ResourceMetricStatus getResource() {
     return resource;

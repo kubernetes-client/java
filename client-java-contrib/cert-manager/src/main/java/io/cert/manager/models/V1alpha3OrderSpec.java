@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Objects;
 
 /** V1alpha3OrderSpec */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha3OrderSpec {
@@ -57,7 +57,7 @@ public class V1alpha3OrderSpec {
    *
    * @return commonName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "CommonName is the common name as specified on the DER encoded CSR. If specified, this value must also be present in `dnsNames`. This field must match the corresponding field on the DER encoded CSR.")

@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** Adds and removes POSIX capabilities from running containers. */
 @ApiModel(description = "Adds and removes POSIX capabilities from running containers.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Capabilities {
@@ -54,7 +54,7 @@ public class V1Capabilities {
    *
    * @return add
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Added capabilities")
   public List<String> getAdd() {
     return add;
@@ -83,7 +83,7 @@ public class V1Capabilities {
    *
    * @return drop
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Removed capabilities")
   public List<String> getDrop() {
     return drop;

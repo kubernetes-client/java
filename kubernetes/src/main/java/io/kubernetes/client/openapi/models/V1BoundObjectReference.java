@@ -20,7 +20,7 @@ import java.util.Objects;
 /** BoundObjectReference is a reference to an object that a token is bound to. */
 @ApiModel(
     description = "BoundObjectReference is a reference to an object that a token is bound to.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1BoundObjectReference {
@@ -55,7 +55,7 @@ public class V1BoundObjectReference {
    *
    * @return apiVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "API version of the referent.")
   public String getApiVersion() {
     return apiVersion;
@@ -76,7 +76,7 @@ public class V1BoundObjectReference {
    *
    * @return kind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind of the referent. Valid kinds are 'Pod' and 'Secret'.")
   public String getKind() {
     return kind;
@@ -97,7 +97,7 @@ public class V1BoundObjectReference {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Name of the referent.")
   public String getName() {
     return name;
@@ -118,7 +118,7 @@ public class V1BoundObjectReference {
    *
    * @return uid
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "UID of the referent.")
   public String getUid() {
     return uid;

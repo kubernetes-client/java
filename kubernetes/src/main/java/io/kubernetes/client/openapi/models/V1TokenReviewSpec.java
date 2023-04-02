@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** TokenReviewSpec is a description of the token authentication request. */
 @ApiModel(description = "TokenReviewSpec is a description of the token authentication request.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1TokenReviewSpec {
@@ -57,7 +57,7 @@ public class V1TokenReviewSpec {
    *
    * @return audiences
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.")
@@ -80,7 +80,7 @@ public class V1TokenReviewSpec {
    *
    * @return token
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Token is the opaque bearer token.")
   public String getToken() {
     return token;

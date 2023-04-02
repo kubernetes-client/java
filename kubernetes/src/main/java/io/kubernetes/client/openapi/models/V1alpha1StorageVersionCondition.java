@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** Describes the state of the storageVersion at a certain point. */
 @ApiModel(description = "Describes the state of the storageVersion at a certain point.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1alpha1StorageVersionCondition {
@@ -65,7 +65,7 @@ public class V1alpha1StorageVersionCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition transitioned from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
@@ -86,7 +86,7 @@ public class V1alpha1StorageVersionCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A human readable message indicating details about the transition.")
   public String getMessage() {
     return message;
@@ -107,7 +107,7 @@ public class V1alpha1StorageVersionCondition {
    *
    * @return observedGeneration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "If set, this represents the .metadata.generation that the condition was set based upon.")

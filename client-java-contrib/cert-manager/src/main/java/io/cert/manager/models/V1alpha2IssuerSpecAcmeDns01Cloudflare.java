@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Use the Cloudflare API to manage DNS01 challenge records. */
 @ApiModel(description = "Use the Cloudflare API to manage DNS01 challenge records.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeDns01Cloudflare {
@@ -50,7 +50,7 @@ public class V1alpha2IssuerSpecAcmeDns01Cloudflare {
    *
    * @return apiKeySecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01CloudflareApiKeySecretRef getApiKeySecretRef() {
     return apiKeySecretRef;
@@ -73,7 +73,7 @@ public class V1alpha2IssuerSpecAcmeDns01Cloudflare {
    *
    * @return apiTokenSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01CloudflareApiTokenSecretRef getApiTokenSecretRef() {
     return apiTokenSecretRef;
@@ -95,7 +95,7 @@ public class V1alpha2IssuerSpecAcmeDns01Cloudflare {
    *
    * @return email
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Email of the account, only required when using API key based authentication.")
   public String getEmail() {

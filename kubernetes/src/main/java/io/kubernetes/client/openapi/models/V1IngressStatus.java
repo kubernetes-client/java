@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** IngressStatus describe the current state of the Ingress. */
 @ApiModel(description = "IngressStatus describe the current state of the Ingress.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1IngressStatus {
@@ -39,7 +39,7 @@ public class V1IngressStatus {
    *
    * @return loadBalancer
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LoadBalancerStatus getLoadBalancer() {
     return loadBalancer;

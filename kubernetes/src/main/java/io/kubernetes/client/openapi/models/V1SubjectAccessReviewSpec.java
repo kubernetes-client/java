@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1SubjectAccessReviewSpec {
@@ -82,7 +82,7 @@ public class V1SubjectAccessReviewSpec {
    *
    * @return extra
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.")
@@ -113,7 +113,7 @@ public class V1SubjectAccessReviewSpec {
    *
    * @return groups
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Groups is the groups you're testing for.")
   public List<String> getGroups() {
     return groups;
@@ -135,7 +135,7 @@ public class V1SubjectAccessReviewSpec {
    *
    * @return nonResourceAttributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NonResourceAttributes getNonResourceAttributes() {
     return nonResourceAttributes;
@@ -156,7 +156,7 @@ public class V1SubjectAccessReviewSpec {
    *
    * @return resourceAttributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ResourceAttributes getResourceAttributes() {
     return resourceAttributes;
@@ -177,7 +177,7 @@ public class V1SubjectAccessReviewSpec {
    *
    * @return uid
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "UID information about the requesting user.")
   public String getUid() {
     return uid;
@@ -200,7 +200,7 @@ public class V1SubjectAccessReviewSpec {
    *
    * @return user
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "User is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups")

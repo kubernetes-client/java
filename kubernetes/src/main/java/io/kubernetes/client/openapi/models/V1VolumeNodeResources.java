@@ -20,7 +20,7 @@ import java.util.Objects;
 /** VolumeNodeResources is a set of resource limits for scheduling of volumes. */
 @ApiModel(
     description = "VolumeNodeResources is a set of resource limits for scheduling of volumes.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1VolumeNodeResources {
@@ -43,7 +43,7 @@ public class V1VolumeNodeResources {
    *
    * @return count
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Maximum number of unique volumes managed by the CSI driver that can be used on a node. A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is not specified, then the supported number of volumes on this node is unbounded.")

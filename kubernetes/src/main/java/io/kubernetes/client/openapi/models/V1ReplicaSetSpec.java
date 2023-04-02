@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** ReplicaSetSpec is the specification of a ReplicaSet. */
 @ApiModel(description = "ReplicaSetSpec is the specification of a ReplicaSet.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ReplicaSetSpec {
@@ -56,7 +56,7 @@ public class V1ReplicaSetSpec {
    *
    * @return minReadySeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)")
@@ -81,7 +81,7 @@ public class V1ReplicaSetSpec {
    *
    * @return replicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Replicas is the number of desired replicas. This is a pointer to distinguish between explicit zero and unspecified. Defaults to 1. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller")
@@ -124,7 +124,7 @@ public class V1ReplicaSetSpec {
    *
    * @return template
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PodTemplateSpec getTemplate() {
     return template;

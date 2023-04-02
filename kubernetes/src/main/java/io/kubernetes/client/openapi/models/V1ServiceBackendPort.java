@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** ServiceBackendPort is the service port being referenced. */
 @ApiModel(description = "ServiceBackendPort is the service port being referenced.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ServiceBackendPort {
@@ -45,7 +45,7 @@ public class V1ServiceBackendPort {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name is the name of the port on the Service. This is a mutually exclusive setting with \"Number\".")
@@ -69,7 +69,7 @@ public class V1ServiceBackendPort {
    *
    * @return number
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Number is the numerical port number (e.g. 80) on the Service. This is a mutually exclusive setting with \"Name\".")

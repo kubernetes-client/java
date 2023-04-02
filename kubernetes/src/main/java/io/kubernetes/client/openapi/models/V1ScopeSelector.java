@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ScopeSelector {
@@ -56,7 +56,7 @@ public class V1ScopeSelector {
    *
    * @return matchExpressions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of scope selector requirements by scope of the resources.")
   public List<V1ScopedResourceSelectorRequirement> getMatchExpressions() {
     return matchExpressions;

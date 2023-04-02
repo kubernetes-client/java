@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Flocker represents a Flocker volume attached to a kubelet's host machine. This depends on the Flocker control service being running")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecFlocker {
@@ -50,7 +50,7 @@ public class V1ThanosRulerSpecFlocker {
    *
    * @return datasetName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated")
@@ -73,7 +73,7 @@ public class V1ThanosRulerSpecFlocker {
    *
    * @return datasetUUID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "UUID of the dataset. This is unique identifier of a Flocker dataset")
   public String getDatasetUUID() {
     return datasetUUID;

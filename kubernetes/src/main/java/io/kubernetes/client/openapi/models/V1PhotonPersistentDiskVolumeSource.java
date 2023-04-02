@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Represents a Photon Controller persistent disk resource. */
 @ApiModel(description = "Represents a Photon Controller persistent disk resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PhotonPersistentDiskVolumeSource {
@@ -46,7 +46,7 @@ public class V1PhotonPersistentDiskVolumeSource {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")

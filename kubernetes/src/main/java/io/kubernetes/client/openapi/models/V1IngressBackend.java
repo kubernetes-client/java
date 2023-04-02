@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** IngressBackend describes all endpoints for a given service and port. */
 @ApiModel(description = "IngressBackend describes all endpoints for a given service and port.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1IngressBackend {
@@ -44,7 +44,7 @@ public class V1IngressBackend {
    *
    * @return resource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1TypedLocalObjectReference getResource() {
     return resource;
@@ -65,7 +65,7 @@ public class V1IngressBackend {
    *
    * @return service
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1IngressServiceBackend getService() {
     return service;

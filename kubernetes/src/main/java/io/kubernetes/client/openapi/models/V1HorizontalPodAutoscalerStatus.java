@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** current status of a horizontal pod autoscaler */
 @ApiModel(description = "current status of a horizontal pod autoscaler")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1HorizontalPodAutoscalerStatus {
@@ -63,7 +63,7 @@ public class V1HorizontalPodAutoscalerStatus {
    *
    * @return currentCPUUtilizationPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.")
@@ -131,7 +131,7 @@ public class V1HorizontalPodAutoscalerStatus {
    *
    * @return lastScaleTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "last time the HorizontalPodAutoscaler scaled the number of pods; used by the autoscaler to control how often the number of pods is changed.")
@@ -154,7 +154,7 @@ public class V1HorizontalPodAutoscalerStatus {
    *
    * @return observedGeneration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "most recent generation observed by this autoscaler.")
   public Long getObservedGeneration() {
     return observedGeneration;

@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** HTTPGet specifies the http request to perform. */
 @ApiModel(description = "HTTPGet specifies the http request to perform.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecLifecyclePostStartHttpGet {
@@ -62,7 +62,7 @@ public class V1ThanosRulerSpecLifecyclePostStartHttpGet {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.")
@@ -95,7 +95,7 @@ public class V1ThanosRulerSpecLifecyclePostStartHttpGet {
    *
    * @return httpHeaders
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Custom headers to set in the request. HTTP allows repeated headers.")
   public List<V1ThanosRulerSpecLifecyclePostStartHttpGetHttpHeaders> getHttpHeaders() {
     return httpHeaders;
@@ -117,7 +117,7 @@ public class V1ThanosRulerSpecLifecyclePostStartHttpGet {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Path to access on the HTTP server.")
   public String getPath() {
     return path;
@@ -162,7 +162,7 @@ public class V1ThanosRulerSpecLifecyclePostStartHttpGet {
    *
    * @return scheme
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Scheme to use for connecting to the host. Defaults to HTTP.")
   public String getScheme() {
     return scheme;

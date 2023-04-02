@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** A node selector term, associated with the corresponding weight. */
 @ApiModel(description = "A node selector term, associated with the corresponding weight.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffinityPreference {
@@ -67,7 +67,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffin
    *
    * @return matchExpressions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of node selector requirements by node's labels.")
   public List<
           V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffinityPreferenceMatchExpressions>
@@ -110,7 +110,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffin
    *
    * @return matchFields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of node selector requirements by node's fields.")
   public List<
           V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffinityPreferenceMatchExpressions>

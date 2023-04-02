@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Overhead structure represents the resource overhead associated with running a pod.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Overhead {
@@ -52,7 +52,7 @@ public class V1Overhead {
    *
    * @return podFixed
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "PodFixed represents the fixed resource overhead associated with running a pod.")
   public Map<String, Quantity> getPodFixed() {

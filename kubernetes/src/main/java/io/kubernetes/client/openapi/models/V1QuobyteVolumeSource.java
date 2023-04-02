@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Represents a Quobyte mount that lasts the lifetime of a pod. Quobyte volumes do not support ownership management or SELinux relabeling.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1QuobyteVolumeSource {
@@ -69,7 +69,7 @@ public class V1QuobyteVolumeSource {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "group to map volume access to Default is no group")
   public String getGroup() {
     return group;
@@ -91,7 +91,7 @@ public class V1QuobyteVolumeSource {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "readOnly here will force the Quobyte volume to be mounted with read-only permissions. Defaults to false.")
@@ -140,7 +140,7 @@ public class V1QuobyteVolumeSource {
    *
    * @return tenant
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "tenant owning the given Quobyte volume in the Backend Used with dynamically provisioned Quobyte volumes, value is set by the plugin")
@@ -163,7 +163,7 @@ public class V1QuobyteVolumeSource {
    *
    * @return user
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "user to map volume access to Defaults to serivceaccount user")
   public String getUser() {
     return user;

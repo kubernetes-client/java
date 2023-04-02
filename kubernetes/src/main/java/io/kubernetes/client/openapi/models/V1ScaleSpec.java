@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** ScaleSpec describes the attributes of a scale subresource. */
 @ApiModel(description = "ScaleSpec describes the attributes of a scale subresource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ScaleSpec {
@@ -39,7 +39,7 @@ public class V1ScaleSpec {
    *
    * @return replicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "desired number of instances for the scaled object.")
   public Integer getReplicas() {
     return replicas;

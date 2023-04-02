@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** MetricIdentifier defines the name and optionally selector for a metric */
 @ApiModel(description = "MetricIdentifier defines the name and optionally selector for a metric")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V2beta2MetricIdentifier {
@@ -64,7 +64,7 @@ public class V2beta2MetricIdentifier {
    *
    * @return selector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getSelector() {
     return selector;

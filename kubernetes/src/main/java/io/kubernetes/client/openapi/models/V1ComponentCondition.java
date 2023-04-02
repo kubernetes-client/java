@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Information about the condition of a component. */
 @ApiModel(description = "Information about the condition of a component.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ComponentCondition {
@@ -54,7 +54,7 @@ public class V1ComponentCondition {
    *
    * @return error
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Condition error code for a component. For example, a health check error code.")
   public String getError() {
@@ -76,7 +76,7 @@ public class V1ComponentCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Message about the condition for a component. For example, information about a health check.")

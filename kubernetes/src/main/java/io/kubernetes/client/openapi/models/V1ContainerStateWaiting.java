@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** ContainerStateWaiting is a waiting state of a container. */
 @ApiModel(description = "ContainerStateWaiting is a waiting state of a container.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ContainerStateWaiting {
@@ -44,7 +44,7 @@ public class V1ContainerStateWaiting {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Message regarding why the container is not yet running.")
   public String getMessage() {
     return message;
@@ -65,7 +65,7 @@ public class V1ContainerStateWaiting {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "(brief) reason the container is not yet running.")
   public String getReason() {
     return reason;

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** ContainerPort represents a network port in a single container. */
 @ApiModel(description = "ContainerPort represents a network port in a single container.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ContainerPort {
@@ -83,7 +83,7 @@ public class V1ContainerPort {
    *
    * @return hostIP
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "What host IP to bind the external port to.")
   public String getHostIP() {
     return hostIP;
@@ -106,7 +106,7 @@ public class V1ContainerPort {
    *
    * @return hostPort
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Number of port to expose on the host. If specified, this must be a valid port number, 0 < x < 65536. If HostNetwork is specified, this must match ContainerPort. Most containers do not need this.")
@@ -130,7 +130,7 @@ public class V1ContainerPort {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.")
@@ -153,7 +153,7 @@ public class V1ContainerPort {
    *
    * @return protocol
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Protocol for port. Must be UDP, TCP, or SCTP. Defaults to \"TCP\".  ")
   public String getProtocol() {
     return protocol;

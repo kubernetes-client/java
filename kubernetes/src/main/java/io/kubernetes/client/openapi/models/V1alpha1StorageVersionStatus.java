@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "API server instances report the versions they can decode and the version they encode objects to when persisting objects in the backend.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1alpha1StorageVersionStatus {
@@ -59,7 +59,7 @@ public class V1alpha1StorageVersionStatus {
    *
    * @return commonEncodingVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "If all API server instances agree on the same encoding storage version, then this field is set to that version. Otherwise this field is left empty. API servers should finish updating its storageVersionStatus entry before serving write operations, so that this field will be in sync with the reality.")
@@ -91,7 +91,7 @@ public class V1alpha1StorageVersionStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The latest available observations of the storageVersion's state.")
   public List<V1alpha1StorageVersionCondition> getConditions() {
     return conditions;
@@ -122,7 +122,7 @@ public class V1alpha1StorageVersionStatus {
    *
    * @return storageVersions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The reported versions per API server instance.")
   public List<V1alpha1ServerStorageVersion> getStorageVersions() {
     return storageVersions;

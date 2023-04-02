@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1SelfSubjectRulesReviewSpec {
@@ -41,7 +41,7 @@ public class V1SelfSubjectRulesReviewSpec {
    *
    * @return namespace
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Namespace to evaluate rules for. Required.")
   public String getNamespace() {
     return namespace;

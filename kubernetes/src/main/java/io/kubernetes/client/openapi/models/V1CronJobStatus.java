@@ -22,7 +22,7 @@ import java.util.Objects;
 
 /** CronJobStatus represents the current state of a cron job. */
 @ApiModel(description = "CronJobStatus represents the current state of a cron job.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CronJobStatus {
@@ -60,7 +60,7 @@ public class V1CronJobStatus {
    *
    * @return active
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of pointers to currently running jobs.")
   public List<V1ObjectReference> getActive() {
     return active;
@@ -81,7 +81,7 @@ public class V1CronJobStatus {
    *
    * @return lastScheduleTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Information when was the last time the job was successfully scheduled.")
   public OffsetDateTime getLastScheduleTime() {
@@ -103,7 +103,7 @@ public class V1CronJobStatus {
    *
    * @return lastSuccessfulTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Information when was the last time the job successfully completed.")
   public OffsetDateTime getLastSuccessfulTime() {
     return lastSuccessfulTime;

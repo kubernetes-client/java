@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** TokenRequest contains parameters of a service account token. */
 @ApiModel(description = "TokenRequest contains parameters of a service account token.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class StorageV1TokenRequest {
@@ -70,7 +70,7 @@ public class StorageV1TokenRequest {
    *
    * @return expirationSeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ExpirationSeconds is the duration of validity of the token in \"TokenRequestSpec\". It has the same default value of \"ExpirationSeconds\" in \"TokenRequestSpec\".")

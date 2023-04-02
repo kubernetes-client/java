@@ -22,7 +22,7 @@ import java.util.Objects;
 
 /** ResourceQuotaStatus defines the enforced hard limits and observed use. */
 @ApiModel(description = "ResourceQuotaStatus defines the enforced hard limits and observed use.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ResourceQuotaStatus {
@@ -56,7 +56,7 @@ public class V1ResourceQuotaStatus {
    *
    * @return hard
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Hard is the set of enforced hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/")
@@ -87,7 +87,7 @@ public class V1ResourceQuotaStatus {
    *
    * @return used
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Used is the current observed total usage of the resource in the namespace.")
   public Map<String, Quantity> getUsed() {

@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "SeccompProfile defines a pod/container's seccomp profile settings. Only one profile source may be set.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1SeccompProfile {
@@ -52,7 +52,7 @@ public class V1SeccompProfile {
    *
    * @return localhostProfile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is \"Localhost\".")

@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "HorizontalPodAutoscalerBehavior configures the scaling behavior of the target in both Up and Down directions (scaleUp and scaleDown fields respectively).")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V2beta2HorizontalPodAutoscalerBehavior {
@@ -49,7 +49,7 @@ public class V2beta2HorizontalPodAutoscalerBehavior {
    *
    * @return scaleDown
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2HPAScalingRules getScaleDown() {
     return scaleDown;
@@ -70,7 +70,7 @@ public class V2beta2HorizontalPodAutoscalerBehavior {
    *
    * @return scaleUp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2HPAScalingRules getScaleUp() {
     return scaleUp;

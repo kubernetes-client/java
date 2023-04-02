@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** DaemonSetSpec is the specification of a daemon set. */
 @ApiModel(description = "DaemonSetSpec is the specification of a daemon set.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1DaemonSetSpec {
@@ -61,7 +61,7 @@ public class V1DaemonSetSpec {
    *
    * @return minReadySeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The minimum number of seconds for which a newly created DaemonSet pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready).")
@@ -85,7 +85,7 @@ public class V1DaemonSetSpec {
    *
    * @return revisionHistoryLimit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The number of old history to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.")
@@ -148,7 +148,7 @@ public class V1DaemonSetSpec {
    *
    * @return updateStrategy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1DaemonSetUpdateStrategy getUpdateStrategy() {
     return updateStrategy;

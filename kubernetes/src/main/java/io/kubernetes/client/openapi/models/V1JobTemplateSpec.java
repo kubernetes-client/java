@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "JobTemplateSpec describes the data a Job should have when created from a template")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1JobTemplateSpec {
@@ -46,7 +46,7 @@ public class V1JobTemplateSpec {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
@@ -67,7 +67,7 @@ public class V1JobTemplateSpec {
    *
    * @return spec
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1JobSpec getSpec() {
     return spec;

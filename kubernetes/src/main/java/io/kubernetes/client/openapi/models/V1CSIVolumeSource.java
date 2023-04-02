@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Represents a source location of a volume to mount, managed by an external CSI driver")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CSIVolumeSource {
@@ -89,7 +89,7 @@ public class V1CSIVolumeSource {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "fsType to mount. Ex. \"ext4\", \"xfs\", \"ntfs\". If not provided, the empty value is passed to the associated CSI driver which will determine the default filesystem to apply.")
@@ -112,7 +112,7 @@ public class V1CSIVolumeSource {
    *
    * @return nodePublishSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LocalObjectReference getNodePublishSecretRef() {
     return nodePublishSecretRef;
@@ -133,7 +133,7 @@ public class V1CSIVolumeSource {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "readOnly specifies a read-only configuration for the volume. Defaults to false (read/write).")
@@ -165,7 +165,7 @@ public class V1CSIVolumeSource {
    *
    * @return volumeAttributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "volumeAttributes stores driver-specific properties that are passed to the CSI driver. Consult your driver's documentation for supported values.")

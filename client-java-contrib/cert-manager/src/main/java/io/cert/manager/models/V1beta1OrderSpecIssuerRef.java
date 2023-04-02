@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "IssuerRef references a properly configured ACME-type Issuer which should be used to create this Order. If the Issuer does not exist, processing will be retried. If the Issuer is not an 'ACME' Issuer, an error will be returned and the Order will be marked as failed.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1OrderSpecIssuerRef {
@@ -55,7 +55,7 @@ public class V1beta1OrderSpecIssuerRef {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Group of the resource being referred to.")
   public String getGroup() {
     return group;
@@ -76,7 +76,7 @@ public class V1beta1OrderSpecIssuerRef {
    *
    * @return kind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind of the resource being referred to.")
   public String getKind() {
     return kind;

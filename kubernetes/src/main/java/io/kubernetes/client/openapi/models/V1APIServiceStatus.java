@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** APIServiceStatus contains derived information about an API server */
 @ApiModel(description = "APIServiceStatus contains derived information about an API server")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1APIServiceStatus {
@@ -49,7 +49,7 @@ public class V1APIServiceStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Current service state of apiService.")
   public List<V1APIServiceCondition> getConditions() {
     return conditions;

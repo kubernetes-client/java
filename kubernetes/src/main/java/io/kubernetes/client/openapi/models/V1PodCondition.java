@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** PodCondition contains details for the current condition of this pod. */
 @ApiModel(description = "PodCondition contains details for the current condition of this pod.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PodCondition {
@@ -65,7 +65,7 @@ public class V1PodCondition {
    *
    * @return lastProbeTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last time we probed the condition.")
   public OffsetDateTime getLastProbeTime() {
     return lastProbeTime;
@@ -86,7 +86,7 @@ public class V1PodCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition transitioned from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
@@ -107,7 +107,7 @@ public class V1PodCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Human-readable message indicating details about last transition.")
   public String getMessage() {
     return message;
@@ -128,7 +128,7 @@ public class V1PodCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Unique, one-word, CamelCase reason for the condition's last transition.")
   public String getReason() {

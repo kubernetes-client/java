@@ -20,7 +20,7 @@ import java.util.Objects;
 /** volumeDevice describes a mapping of a raw block device within a container. */
 @ApiModel(
     description = "volumeDevice describes a mapping of a raw block device within a container.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1VolumeDevice {

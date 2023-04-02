@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "GroupVersion contains the \"group/version\" and \"version\" string of a version. It is made a struct to keep extensibility.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1GroupVersionForDiscovery {

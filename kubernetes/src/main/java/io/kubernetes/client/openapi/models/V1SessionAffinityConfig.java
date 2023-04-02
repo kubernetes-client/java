@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** SessionAffinityConfig represents the configurations of session affinity. */
 @ApiModel(description = "SessionAffinityConfig represents the configurations of session affinity.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1SessionAffinityConfig {
@@ -39,7 +39,7 @@ public class V1SessionAffinityConfig {
    *
    * @return clientIP
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ClientIPConfig getClientIP() {
     return clientIP;

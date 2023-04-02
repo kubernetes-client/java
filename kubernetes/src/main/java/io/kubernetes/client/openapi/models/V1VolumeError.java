@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** VolumeError captures an error encountered during a volume operation. */
 @ApiModel(description = "VolumeError captures an error encountered during a volume operation.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1VolumeError {
@@ -46,7 +46,7 @@ public class V1VolumeError {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information.")
@@ -69,7 +69,7 @@ public class V1VolumeError {
    *
    * @return time
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time the error was encountered.")
   public OffsetDateTime getTime() {
     return time;

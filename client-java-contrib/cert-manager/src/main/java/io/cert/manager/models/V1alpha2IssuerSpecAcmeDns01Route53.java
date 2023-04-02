@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Use the AWS Route53 API to manage DNS01 challenge records. */
 @ApiModel(description = "Use the AWS Route53 API to manage DNS01 challenge records.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeDns01Route53 {
@@ -62,7 +62,7 @@ public class V1alpha2IssuerSpecAcmeDns01Route53 {
    *
    * @return accessKeyID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The AccessKeyID is used for authentication. If not set we fall-back to using env vars, shared credentials file or AWS Instance metadata see: https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/configuring-sdk.html#specifying-credentials")
@@ -86,7 +86,7 @@ public class V1alpha2IssuerSpecAcmeDns01Route53 {
    *
    * @return hostedZoneID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "If set, the provider will manage only this zone in Route53 and will not do an lookup using the route53:ListHostedZonesByName api call.")
@@ -133,7 +133,7 @@ public class V1alpha2IssuerSpecAcmeDns01Route53 {
    *
    * @return role
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Role is a Role ARN which the Route53 provider will assume using either the explicit credentials AccessKeyID/SecretAccessKey or the inferred credentials from environment variables, shared credentials file or AWS Instance metadata")
@@ -157,7 +157,7 @@ public class V1alpha2IssuerSpecAcmeDns01Route53 {
    *
    * @return secretAccessKeySecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Route53SecretAccessKeySecretRef getSecretAccessKeySecretRef() {
     return secretAccessKeySecretRef;

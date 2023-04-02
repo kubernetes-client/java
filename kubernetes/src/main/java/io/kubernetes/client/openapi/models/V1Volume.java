@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Volume represents a named volume in a pod that may be accessed by any container in the pod.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Volume {
@@ -186,7 +186,7 @@ public class V1Volume {
    *
    * @return awsElasticBlockStore
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1AWSElasticBlockStoreVolumeSource getAwsElasticBlockStore() {
     return awsElasticBlockStore;
@@ -207,7 +207,7 @@ public class V1Volume {
    *
    * @return azureDisk
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1AzureDiskVolumeSource getAzureDisk() {
     return azureDisk;
@@ -228,7 +228,7 @@ public class V1Volume {
    *
    * @return azureFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1AzureFileVolumeSource getAzureFile() {
     return azureFile;
@@ -249,7 +249,7 @@ public class V1Volume {
    *
    * @return cephfs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CephFSVolumeSource getCephfs() {
     return cephfs;
@@ -270,7 +270,7 @@ public class V1Volume {
    *
    * @return cinder
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CinderVolumeSource getCinder() {
     return cinder;
@@ -291,7 +291,7 @@ public class V1Volume {
    *
    * @return configMap
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ConfigMapVolumeSource getConfigMap() {
     return configMap;
@@ -312,7 +312,7 @@ public class V1Volume {
    *
    * @return csi
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CSIVolumeSource getCsi() {
     return csi;
@@ -333,7 +333,7 @@ public class V1Volume {
    *
    * @return downwardAPI
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1DownwardAPIVolumeSource getDownwardAPI() {
     return downwardAPI;
@@ -354,7 +354,7 @@ public class V1Volume {
    *
    * @return emptyDir
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1EmptyDirVolumeSource getEmptyDir() {
     return emptyDir;
@@ -375,7 +375,7 @@ public class V1Volume {
    *
    * @return ephemeral
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1EphemeralVolumeSource getEphemeral() {
     return ephemeral;
@@ -396,7 +396,7 @@ public class V1Volume {
    *
    * @return fc
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1FCVolumeSource getFc() {
     return fc;
@@ -417,7 +417,7 @@ public class V1Volume {
    *
    * @return flexVolume
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1FlexVolumeSource getFlexVolume() {
     return flexVolume;
@@ -438,7 +438,7 @@ public class V1Volume {
    *
    * @return flocker
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1FlockerVolumeSource getFlocker() {
     return flocker;
@@ -459,7 +459,7 @@ public class V1Volume {
    *
    * @return gcePersistentDisk
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1GCEPersistentDiskVolumeSource getGcePersistentDisk() {
     return gcePersistentDisk;
@@ -480,7 +480,7 @@ public class V1Volume {
    *
    * @return gitRepo
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1GitRepoVolumeSource getGitRepo() {
     return gitRepo;
@@ -501,7 +501,7 @@ public class V1Volume {
    *
    * @return glusterfs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1GlusterfsVolumeSource getGlusterfs() {
     return glusterfs;
@@ -522,7 +522,7 @@ public class V1Volume {
    *
    * @return hostPath
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1HostPathVolumeSource getHostPath() {
     return hostPath;
@@ -543,7 +543,7 @@ public class V1Volume {
    *
    * @return iscsi
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ISCSIVolumeSource getIscsi() {
     return iscsi;
@@ -588,7 +588,7 @@ public class V1Volume {
    *
    * @return nfs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NFSVolumeSource getNfs() {
     return nfs;
@@ -609,7 +609,7 @@ public class V1Volume {
    *
    * @return persistentVolumeClaim
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PersistentVolumeClaimVolumeSource getPersistentVolumeClaim() {
     return persistentVolumeClaim;
@@ -630,7 +630,7 @@ public class V1Volume {
    *
    * @return photonPersistentDisk
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PhotonPersistentDiskVolumeSource getPhotonPersistentDisk() {
     return photonPersistentDisk;
@@ -651,7 +651,7 @@ public class V1Volume {
    *
    * @return portworxVolume
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PortworxVolumeSource getPortworxVolume() {
     return portworxVolume;
@@ -672,7 +672,7 @@ public class V1Volume {
    *
    * @return projected
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ProjectedVolumeSource getProjected() {
     return projected;
@@ -693,7 +693,7 @@ public class V1Volume {
    *
    * @return quobyte
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1QuobyteVolumeSource getQuobyte() {
     return quobyte;
@@ -714,7 +714,7 @@ public class V1Volume {
    *
    * @return rbd
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1RBDVolumeSource getRbd() {
     return rbd;
@@ -735,7 +735,7 @@ public class V1Volume {
    *
    * @return scaleIO
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ScaleIOVolumeSource getScaleIO() {
     return scaleIO;
@@ -756,7 +756,7 @@ public class V1Volume {
    *
    * @return secret
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretVolumeSource getSecret() {
     return secret;
@@ -777,7 +777,7 @@ public class V1Volume {
    *
    * @return storageos
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1StorageOSVolumeSource getStorageos() {
     return storageos;
@@ -798,7 +798,7 @@ public class V1Volume {
    *
    * @return vsphereVolume
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1VsphereVirtualDiskVolumeSource getVsphereVolume() {
     return vsphereVolume;

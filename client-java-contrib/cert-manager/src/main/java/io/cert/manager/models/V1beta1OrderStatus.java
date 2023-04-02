@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Objects;
 
 /** V1beta1OrderStatus */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1OrderStatus {
@@ -145,7 +145,7 @@ public class V1beta1OrderStatus {
    *
    * @return authorizations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Authorizations contains data returned from the ACME server on what authorizations must be completed in order to validate the DNS names specified on the Order.")
@@ -170,7 +170,7 @@ public class V1beta1OrderStatus {
    *
    * @return certificate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Certificate is a copy of the PEM encoded certificate for this Order. This field will be populated after the order has been successfully finalized with the ACME server, and the order has transitioned to the 'valid' state.")
@@ -194,7 +194,7 @@ public class V1beta1OrderStatus {
    *
    * @return failureTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "FailureTime stores the time that this order failed. This is used to influence garbage collection and back-off.")
@@ -218,7 +218,7 @@ public class V1beta1OrderStatus {
    *
    * @return finalizeURL
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "FinalizeURL of the Order. This is used to obtain certificates for this order once it has been completed.")
@@ -241,7 +241,7 @@ public class V1beta1OrderStatus {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Reason optionally provides more information about a why the order is in the current state.")
@@ -265,7 +265,7 @@ public class V1beta1OrderStatus {
    *
    * @return state
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "State contains the current state of this Order resource. States 'success' and 'expired' are 'final'")
@@ -290,7 +290,7 @@ public class V1beta1OrderStatus {
    *
    * @return url
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "URL of the Order. This will initially be empty when the resource is first created. The Order controller will populate this field when the Order is first processed. This field will be immutable after it is initially set.")

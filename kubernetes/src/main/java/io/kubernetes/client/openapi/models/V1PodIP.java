@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "IP address information for entries in the (plural) PodIPs field. Each entry includes:   IP: An IP address allocated to the pod. Routable at least within the cluster.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PodIP {
@@ -44,7 +44,7 @@ public class V1PodIP {
    *
    * @return ip
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ip is an IP address (IPv4 or IPv6) assigned to the pod")
   public String getIp() {
     return ip;

@@ -22,7 +22,7 @@ import java.util.Objects;
 /** APIResource specifies the name of a resource and whether it is namespaced. */
 @ApiModel(
     description = "APIResource specifies the name of a resource and whether it is namespaced.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1APIResource {
@@ -95,7 +95,7 @@ public class V1APIResource {
    *
    * @return categories
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "categories is a list of the grouped resources this resource belongs to (e.g. 'all')")
   public List<String> getCategories() {
@@ -118,7 +118,7 @@ public class V1APIResource {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "group is the preferred group of the resource.  Empty implies the group of the containing resource list. For subresources, this may have a different value, for example: Scale\".")
@@ -213,7 +213,7 @@ public class V1APIResource {
    *
    * @return shortNames
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "shortNames is a list of suggested short names of the resource.")
   public List<String> getShortNames() {
     return shortNames;
@@ -263,7 +263,7 @@ public class V1APIResource {
    *
    * @return storageVersionHash
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The hash value of the storage version, the version this resource is converted to when written to the data store. Value must be treated as opaque by clients. Only equality comparison on the value is valid. This is an alpha feature and may change or be removed in the future. The field is populated by the apiserver only if the StorageVersionHash feature gate is enabled. This field will remain optional even if it graduates.")
@@ -317,7 +317,7 @@ public class V1APIResource {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "version is the preferred version of the resource.  Empty implies the version of the containing resource list For subresources, this may have a different value, for example: v1 (while inside a v1beta1 version of the core resource's group)\".")

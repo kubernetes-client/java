@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "TracingConfig configures tracing in Thanos. This is an experimental feature, it may change in any upcoming release in a breaking way.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecTracingConfig {
@@ -78,7 +78,7 @@ public class V1ThanosRulerSpecTracingConfig {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names TODO: Add other useful fields. apiVersion, kind, uid?")
@@ -101,7 +101,7 @@ public class V1ThanosRulerSpecTracingConfig {
    *
    * @return optional
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specify whether the Secret or its key must be defined")
   public Boolean getOptional() {
     return optional;

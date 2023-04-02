@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Eviction evicts a pod from its node subject to certain policies and safety constraints. This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods/<pod name>/evictions.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Eviction implements io.kubernetes.client.common.KubernetesObject {
@@ -63,7 +63,7 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
    *
    * @return apiVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
@@ -86,7 +86,7 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
    *
    * @return deleteOptions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1DeleteOptions getDeleteOptions() {
     return deleteOptions;
@@ -110,7 +110,7 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
    *
    * @return kind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
@@ -133,7 +133,7 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;

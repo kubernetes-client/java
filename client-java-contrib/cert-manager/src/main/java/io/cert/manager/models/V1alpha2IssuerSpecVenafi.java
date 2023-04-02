@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Venafi configures this issuer to sign certificates using a Venafi TPP or Venafi Cloud policy zone.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecVenafi {
@@ -54,7 +54,7 @@ public class V1alpha2IssuerSpecVenafi {
    *
    * @return cloud
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecVenafiCloud getCloud() {
     return cloud;
@@ -75,7 +75,7 @@ public class V1alpha2IssuerSpecVenafi {
    *
    * @return tpp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecVenafiTpp getTpp() {
     return tpp;

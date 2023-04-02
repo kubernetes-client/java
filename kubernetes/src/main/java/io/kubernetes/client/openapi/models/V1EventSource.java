@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** EventSource contains information for an event. */
 @ApiModel(description = "EventSource contains information for an event.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1EventSource {
@@ -44,7 +44,7 @@ public class V1EventSource {
    *
    * @return component
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Component from which the event is generated.")
   public String getComponent() {
     return component;
@@ -65,7 +65,7 @@ public class V1EventSource {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Node name on which the event is generated.")
   public String getHost() {
     return host;

@@ -22,7 +22,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Vault configures this issuer to sign certificates using a HashiCorp Vault PKI backend.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecVault {
@@ -79,7 +79,7 @@ public class V1alpha2IssuerSpecVault {
    *
    * @return caBundle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "PEM encoded CA bundle used to validate Vault server certificate. Only used if the Server URL is using HTTPS protocol. This parameter is ignored for plain HTTP protocol connection. If not set the system root certificates are used to validate the TLS connection.")

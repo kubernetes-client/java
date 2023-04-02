@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** JobCondition describes current state of a job. */
 @ApiModel(description = "JobCondition describes current state of a job.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1JobCondition {
@@ -65,7 +65,7 @@ public class V1JobCondition {
    *
    * @return lastProbeTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition was checked.")
   public OffsetDateTime getLastProbeTime() {
     return lastProbeTime;
@@ -86,7 +86,7 @@ public class V1JobCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition transit from one status to another.")
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
@@ -107,7 +107,7 @@ public class V1JobCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Human readable message indicating details about last transition.")
   public String getMessage() {
     return message;
@@ -128,7 +128,7 @@ public class V1JobCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "(brief) reason for the condition's last transition.")
   public String getReason() {
     return reason;

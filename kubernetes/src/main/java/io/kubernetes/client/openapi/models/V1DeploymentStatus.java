@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** DeploymentStatus is the most recently observed status of the Deployment. */
 @ApiModel(description = "DeploymentStatus is the most recently observed status of the Deployment.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1DeploymentStatus {
@@ -77,7 +77,7 @@ public class V1DeploymentStatus {
    *
    * @return availableReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Total number of available pods (ready for at least minReadySeconds) targeted by this deployment.")
@@ -101,7 +101,7 @@ public class V1DeploymentStatus {
    *
    * @return collisionCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Count of hash collisions for the Deployment. The Deployment controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ReplicaSet.")
@@ -132,7 +132,7 @@ public class V1DeploymentStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Represents the latest available observations of a deployment's current state.")
   public List<V1DeploymentCondition> getConditions() {
@@ -154,7 +154,7 @@ public class V1DeploymentStatus {
    *
    * @return observedGeneration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The generation observed by the deployment controller.")
   public Long getObservedGeneration() {
     return observedGeneration;
@@ -175,7 +175,7 @@ public class V1DeploymentStatus {
    *
    * @return readyReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "readyReplicas is the number of pods targeted by this Deployment with a Ready Condition.")
@@ -199,7 +199,7 @@ public class V1DeploymentStatus {
    *
    * @return replicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Total number of non-terminated pods targeted by this deployment (their labels match the selector).")
@@ -224,7 +224,7 @@ public class V1DeploymentStatus {
    *
    * @return unavailableReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Total number of unavailable pods targeted by this deployment. This is the total number of pods that are still required for the deployment to have 100% available capacity. They may either be pods that are running but not yet available or pods that still have not been created.")
@@ -248,7 +248,7 @@ public class V1DeploymentStatus {
    *
    * @return updatedReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Total number of non-terminated pods targeted by this deployment that have the desired template spec.")

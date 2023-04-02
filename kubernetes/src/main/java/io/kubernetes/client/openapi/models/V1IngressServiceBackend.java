@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** IngressServiceBackend references a Kubernetes Service as a Backend. */
 @ApiModel(description = "IngressServiceBackend references a Kubernetes Service as a Backend.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1IngressServiceBackend {
@@ -68,7 +68,7 @@ public class V1IngressServiceBackend {
    *
    * @return port
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceBackendPort getPort() {
     return port;

@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CustomResourceSubresources defines the status and scale subresources for CustomResources.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CustomResourceSubresources {
@@ -46,7 +46,7 @@ public class V1CustomResourceSubresources {
    *
    * @return scale
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CustomResourceSubresourceScale getScale() {
     return scale;
@@ -70,7 +70,7 @@ public class V1CustomResourceSubresources {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "status indicates the custom resource should serve a `/status` subresource. When enabled: 1. requests to the custom resource primary endpoint ignore changes to the `status` stanza of the object. 2. requests to the custom resource `/status` subresource ignore changes to anything other than the `status` stanza of the object.")

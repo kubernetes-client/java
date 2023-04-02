@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "TPP specifies Trust Protection Platform configuration settings. Only one of TPP or Cloud may be specified.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecVenafiTpp {
@@ -58,7 +58,7 @@ public class V1alpha2IssuerSpecVenafiTpp {
    *
    * @return caBundle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "CABundle is a PEM encoded TLS certificate to use to verify connections to the TPP instance. If specified, system roots will not be used and the issuing CA for the TPP instance must be verifiable using the provided root. If not specified, the connection will be verified using the cert-manager system root certificates.")

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** PortworxVolumeSource represents a Portworx volume resource. */
 @ApiModel(description = "PortworxVolumeSource represents a Portworx volume resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PortworxVolumeSource {
@@ -51,7 +51,7 @@ public class V1PortworxVolumeSource {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "fSType represents the filesystem type to mount Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\". Implicitly inferred to be \"ext4\" if unspecified.")
@@ -75,7 +75,7 @@ public class V1PortworxVolumeSource {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "readOnly defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")

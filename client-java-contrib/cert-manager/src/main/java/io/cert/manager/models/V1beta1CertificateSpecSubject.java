@@ -22,7 +22,7 @@ import java.util.Objects;
 /** Full X509 name specification (https://golang.org/pkg/crypto/x509/pkix/#Name). */
 @ApiModel(
     description = "Full X509 name specification (https://golang.org/pkg/crypto/x509/pkix/#Name).")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1CertificateSpecSubject {
@@ -85,7 +85,7 @@ public class V1beta1CertificateSpecSubject {
    *
    * @return countries
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Countries to be used on the Certificate.")
   public List<String> getCountries() {
     return countries;
@@ -114,7 +114,7 @@ public class V1beta1CertificateSpecSubject {
    *
    * @return localities
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Cities to be used on the Certificate.")
   public List<String> getLocalities() {
     return localities;
@@ -143,7 +143,7 @@ public class V1beta1CertificateSpecSubject {
    *
    * @return organizationalUnits
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Organizational Units to be used on the Certificate.")
   public List<String> getOrganizationalUnits() {
     return organizationalUnits;
@@ -172,7 +172,7 @@ public class V1beta1CertificateSpecSubject {
    *
    * @return organizations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Organizations to be used on the Certificate.")
   public List<String> getOrganizations() {
     return organizations;
@@ -201,7 +201,7 @@ public class V1beta1CertificateSpecSubject {
    *
    * @return postalCodes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Postal codes to be used on the Certificate.")
   public List<String> getPostalCodes() {
     return postalCodes;
@@ -230,7 +230,7 @@ public class V1beta1CertificateSpecSubject {
    *
    * @return provinces
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "State/Provinces to be used on the Certificate.")
   public List<String> getProvinces() {
     return provinces;
@@ -251,7 +251,7 @@ public class V1beta1CertificateSpecSubject {
    *
    * @return serialNumber
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Serial number to be used on the Certificate.")
   public String getSerialNumber() {
     return serialNumber;
@@ -280,7 +280,7 @@ public class V1beta1CertificateSpecSubject {
    *
    * @return streetAddresses
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Street addresses to be used on the Certificate.")
   public List<String> getStreetAddresses() {
     return streetAddresses;

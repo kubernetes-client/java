@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** SELinuxOptions are the labels to be applied to the container */
 @ApiModel(description = "SELinuxOptions are the labels to be applied to the container")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1SELinuxOptions {
@@ -54,7 +54,7 @@ public class V1SELinuxOptions {
    *
    * @return level
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Level is SELinux level label that applies to the container.")
   public String getLevel() {
     return level;
@@ -75,7 +75,7 @@ public class V1SELinuxOptions {
    *
    * @return role
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Role is a SELinux role label that applies to the container.")
   public String getRole() {
     return role;
@@ -96,7 +96,7 @@ public class V1SELinuxOptions {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Type is a SELinux type label that applies to the container.")
   public String getType() {
     return type;
@@ -117,7 +117,7 @@ public class V1SELinuxOptions {
    *
    * @return user
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "User is a SELinux user label that applies to the container.")
   public String getUser() {
     return user;

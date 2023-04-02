@@ -20,7 +20,7 @@ import java.util.Objects;
 /** CustomResourceValidation is a list of validation methods for CustomResources. */
 @ApiModel(
     description = "CustomResourceValidation is a list of validation methods for CustomResources.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CustomResourceValidation {
@@ -40,7 +40,7 @@ public class V1CustomResourceValidation {
    *
    * @return openAPIV3Schema
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1JSONSchemaProps getOpenAPIV3Schema() {
     return openAPIV3Schema;

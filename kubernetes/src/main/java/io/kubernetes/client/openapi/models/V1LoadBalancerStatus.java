@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** LoadBalancerStatus represents the status of a load-balancer. */
 @ApiModel(description = "LoadBalancerStatus represents the status of a load-balancer.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1LoadBalancerStatus {
@@ -50,7 +50,7 @@ public class V1LoadBalancerStatus {
    *
    * @return ingress
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Ingress is a list containing ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points.")

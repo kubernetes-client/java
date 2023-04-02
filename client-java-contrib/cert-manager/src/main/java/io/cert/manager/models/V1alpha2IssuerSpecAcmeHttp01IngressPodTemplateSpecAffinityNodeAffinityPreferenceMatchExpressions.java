@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "A node selector requirement is a selector that contains values, a key, and an operator that relates the key and values.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public
@@ -120,7 +120,7 @@ class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffinityPref
    *
    * @return values
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. If the operator is Gt or Lt, the values array must have a single element, which will be interpreted as an integer. This array is replaced during a strategic merge patch.")

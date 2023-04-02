@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ACME configures this issuer to communicate with a RFC8555 (ACME) server to obtain signed x509 certificates.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1IssuerSpecAcme {
@@ -74,7 +74,7 @@ public class V1beta1IssuerSpecAcme {
    *
    * @return email
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Email is the email address to be associated with the ACME account. This field is optional, but it is strongly recommended to be set. It will be used to contact you in case of issues with your account or certificates, including expiry notification emails. This field may be updated after the account is initially registered.")
@@ -98,7 +98,7 @@ public class V1beta1IssuerSpecAcme {
    *
    * @return externalAccountBinding
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeExternalAccountBinding getExternalAccountBinding() {
     return externalAccountBinding;
@@ -172,7 +172,7 @@ public class V1beta1IssuerSpecAcme {
    *
    * @return skipTLSVerify
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Enables or disables validation of the ACME server TLS certificate. If true, requests to the ACME server will not have their TLS certificate validated (i.e. insecure connections will be allowed). Only enable this option in development environments. The cert-manager system installed roots will be used to verify connections to the ACME server if this is false. Defaults to false.")
@@ -205,7 +205,7 @@ public class V1beta1IssuerSpecAcme {
    *
    * @return solvers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Solvers is a list of challenge solvers that will be used to solve ACME challenges for the matching domains. Solver configurations must be provided in order to obtain certificates from an ACME server. For more information, see: https://cert-manager.io/docs/configuration/acme/")

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** ScaleIOVolumeSource represents a persistent ScaleIO volume */
 @ApiModel(description = "ScaleIOVolumeSource represents a persistent ScaleIO volume")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ScaleIOVolumeSource {
@@ -86,7 +86,7 @@ public class V1ScaleIOVolumeSource {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Default is \"xfs\".")
@@ -131,7 +131,7 @@ public class V1ScaleIOVolumeSource {
    *
    * @return protectionDomain
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "protectionDomain is the name of the ScaleIO Protection Domain for the configured storage.")
@@ -155,7 +155,7 @@ public class V1ScaleIOVolumeSource {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "readOnly Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
@@ -198,7 +198,7 @@ public class V1ScaleIOVolumeSource {
    *
    * @return sslEnabled
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "sslEnabled Flag enable/disable SSL communication with Gateway, default false")
   public Boolean getSslEnabled() {
@@ -221,7 +221,7 @@ public class V1ScaleIOVolumeSource {
    *
    * @return storageMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "storageMode indicates whether the storage for a volume should be ThickProvisioned or ThinProvisioned. Default is ThinProvisioned.")
@@ -244,7 +244,7 @@ public class V1ScaleIOVolumeSource {
    *
    * @return storagePool
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "storagePool is the ScaleIO Storage Pool associated with the protection domain.")
   public String getStoragePool() {
@@ -289,7 +289,7 @@ public class V1ScaleIOVolumeSource {
    *
    * @return volumeName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "volumeName is the name of a volume already created in the ScaleIO system that is associated with this volume source.")

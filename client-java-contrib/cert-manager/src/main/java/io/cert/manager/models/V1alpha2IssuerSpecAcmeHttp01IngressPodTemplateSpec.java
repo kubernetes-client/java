@@ -29,7 +29,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PodSpec defines overrides for the HTTP01 challenge solver pod. Only the 'nodeSelector', 'affinity' and 'tolerations' fields are supported currently. All other fields will be ignored.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpec {
@@ -60,7 +60,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpec {
    *
    * @return affinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinity getAffinity() {
     return affinity;
@@ -93,7 +93,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpec {
    *
    * @return nodeSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "NodeSelector is a selector which must be true for the pod to fit on a node. Selector which must match a node's labels for the pod to be scheduled on that node. More info: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/")
@@ -127,7 +127,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpec {
    *
    * @return tolerations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "If specified, the pod's tolerations.")
   public List<V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecTolerations> getTolerations() {
     return tolerations;

@@ -24,7 +24,7 @@ import java.util.Objects;
 
 /** NodeStatus is information about the current status of a node. */
 @ApiModel(description = "NodeStatus is information about the current status of a node.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NodeStatus {
@@ -106,7 +106,7 @@ public class V1NodeStatus {
    *
    * @return addresses
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "List of addresses reachable to the node. Queried from cloud provider, if available. More info: https://kubernetes.io/docs/concepts/nodes/node/#addresses Note: This field is declared as mergeable, but the merge key is not sufficiently unique, which can cause data corruption when it is merged. Callers should instead use a full-replacement patch. See http://pr.k8s.io/79391 for an example.")
@@ -138,7 +138,7 @@ public class V1NodeStatus {
    *
    * @return allocatable
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Allocatable represents the resources of a node that are available for scheduling. Defaults to Capacity.")
@@ -170,7 +170,7 @@ public class V1NodeStatus {
    *
    * @return capacity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Capacity represents the total resources of a node. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#capacity")
@@ -202,7 +202,7 @@ public class V1NodeStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Conditions is an array of current observed node conditions. More info: https://kubernetes.io/docs/concepts/nodes/node/#condition")
@@ -225,7 +225,7 @@ public class V1NodeStatus {
    *
    * @return config
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeConfigStatus getConfig() {
     return config;
@@ -246,7 +246,7 @@ public class V1NodeStatus {
    *
    * @return daemonEndpoints
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeDaemonEndpoints getDaemonEndpoints() {
     return daemonEndpoints;
@@ -275,7 +275,7 @@ public class V1NodeStatus {
    *
    * @return images
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of container images on this node")
   public List<V1ContainerImage> getImages() {
     return images;
@@ -296,7 +296,7 @@ public class V1NodeStatus {
    *
    * @return nodeInfo
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NodeSystemInfo getNodeInfo() {
     return nodeInfo;
@@ -319,7 +319,7 @@ public class V1NodeStatus {
    *
    * @return phase
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "NodePhase is the recently observed lifecycle phase of the node. More info: https://kubernetes.io/docs/concepts/nodes/node/#phase The field is never populated, and now is deprecated.  ")
@@ -350,7 +350,7 @@ public class V1NodeStatus {
    *
    * @return volumesAttached
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of volumes that are attached to the node.")
   public List<V1AttachedVolume> getVolumesAttached() {
     return volumesAttached;
@@ -379,7 +379,7 @@ public class V1NodeStatus {
    *
    * @return volumesInUse
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "List of attachable volumes in use (mounted) by the node.")
   public List<String> getVolumesInUse() {
     return volumesInUse;

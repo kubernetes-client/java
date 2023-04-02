@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "NodeConfigSource specifies a source of node configuration. Exactly one subfield (excluding metadata) must be non-nil. This API is deprecated since 1.22")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NodeConfigSource {
@@ -44,7 +44,7 @@ public class V1NodeConfigSource {
    *
    * @return configMap
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ConfigMapNodeConfigSource getConfigMap() {
     return configMap;

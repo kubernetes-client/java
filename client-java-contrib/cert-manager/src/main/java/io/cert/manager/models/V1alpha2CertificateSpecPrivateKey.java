@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Options to control private keys used for the Certificate. */
 @ApiModel(description = "Options to control private keys used for the Certificate.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2CertificateSpecPrivateKey {
@@ -44,7 +44,7 @@ public class V1alpha2CertificateSpecPrivateKey {
    *
    * @return rotationPolicy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "RotationPolicy controls how private keys should be regenerated when a re-issuance is being processed. If set to Never, a private key will only be generated if one does not already exist in the target `spec.secretName`. If one does exists but it does not have the correct algorithm or size, a warning will be raised to await user intervention. If set to Always, a private key matching the specified requirements will be generated whenever a re-issuance occurs. Default is 'Never' for backward compatibility.")

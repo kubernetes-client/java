@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Desired state of the ClusterIssuer resource. */
 @ApiModel(description = "Desired state of the ClusterIssuer resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha3ClusterIssuerSpec {
@@ -59,7 +59,7 @@ public class V1alpha3ClusterIssuerSpec {
    *
    * @return acme
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcme getAcme() {
     return acme;
@@ -80,7 +80,7 @@ public class V1alpha3ClusterIssuerSpec {
    *
    * @return ca
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecCa getCa() {
     return ca;
@@ -101,7 +101,7 @@ public class V1alpha3ClusterIssuerSpec {
    *
    * @return selfSigned
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecSelfSigned getSelfSigned() {
     return selfSigned;
@@ -122,7 +122,7 @@ public class V1alpha3ClusterIssuerSpec {
    *
    * @return vault
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecVault getVault() {
     return vault;
@@ -143,7 +143,7 @@ public class V1alpha3ClusterIssuerSpec {
    *
    * @return venafi
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecVenafi getVenafi() {
     return venafi;

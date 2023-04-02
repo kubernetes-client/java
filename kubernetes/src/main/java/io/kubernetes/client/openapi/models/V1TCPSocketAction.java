@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** TCPSocketAction describes an action based on opening a socket */
 @ApiModel(description = "TCPSocketAction describes an action based on opening a socket")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1TCPSocketAction {
@@ -45,7 +45,7 @@ public class V1TCPSocketAction {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional: Host name to connect to, defaults to the pod IP.")
   public String getHost() {
     return host;

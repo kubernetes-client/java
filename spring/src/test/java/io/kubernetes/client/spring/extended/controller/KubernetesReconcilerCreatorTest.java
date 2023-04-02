@@ -47,7 +47,7 @@ import io.kubernetes.client.spring.extended.controller.factory.KubernetesControl
 import io.kubernetes.client.util.ClientBuilder;
 import java.util.LinkedList;
 import java.util.function.Function;
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.junit.Rule;
 import org.junit.Test;

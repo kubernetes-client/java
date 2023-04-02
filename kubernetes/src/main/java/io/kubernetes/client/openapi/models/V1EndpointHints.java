@@ -22,7 +22,7 @@ import java.util.Objects;
 /** EndpointHints provides hints describing how an endpoint should be consumed. */
 @ApiModel(
     description = "EndpointHints provides hints describing how an endpoint should be consumed.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1EndpointHints {
@@ -51,7 +51,7 @@ public class V1EndpointHints {
    *
    * @return forZones
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.")

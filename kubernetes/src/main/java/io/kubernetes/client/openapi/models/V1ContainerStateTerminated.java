@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** ContainerStateTerminated is a terminated state of a container. */
 @ApiModel(description = "ContainerStateTerminated is a terminated state of a container.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ContainerStateTerminated {
@@ -70,7 +70,7 @@ public class V1ContainerStateTerminated {
    *
    * @return containerID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Container's ID in the format '<type>://<container_id>'")
   public String getContainerID() {
     return containerID;
@@ -113,7 +113,7 @@ public class V1ContainerStateTerminated {
    *
    * @return finishedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time at which the container last terminated")
   public OffsetDateTime getFinishedAt() {
     return finishedAt;
@@ -134,7 +134,7 @@ public class V1ContainerStateTerminated {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Message regarding the last termination of the container")
   public String getMessage() {
     return message;
@@ -155,7 +155,7 @@ public class V1ContainerStateTerminated {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "(brief) reason from the last termination of the container")
   public String getReason() {
     return reason;
@@ -176,7 +176,7 @@ public class V1ContainerStateTerminated {
    *
    * @return signal
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Signal from the last termination of the container")
   public Integer getSignal() {
     return signal;
@@ -197,7 +197,7 @@ public class V1ContainerStateTerminated {
    *
    * @return startedAt
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time at which previous execution of the container started")
   public OffsetDateTime getStartedAt() {
     return startedAt;

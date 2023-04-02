@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "MetricSpec specifies how to scale based on a single metric (only `type` and one other matching field should be set at once).")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V2beta2MetricSpec {
@@ -70,7 +70,7 @@ public class V2beta2MetricSpec {
    *
    * @return containerResource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2ContainerResourceMetricSource getContainerResource() {
     return containerResource;
@@ -91,7 +91,7 @@ public class V2beta2MetricSpec {
    *
    * @return external
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2ExternalMetricSource getExternal() {
     return external;
@@ -112,7 +112,7 @@ public class V2beta2MetricSpec {
    *
    * @return _object
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2ObjectMetricSource getObject() {
     return _object;
@@ -133,7 +133,7 @@ public class V2beta2MetricSpec {
    *
    * @return pods
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2PodsMetricSource getPods() {
     return pods;
@@ -154,7 +154,7 @@ public class V2beta2MetricSpec {
    *
    * @return resource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V2beta2ResourceMetricSource getResource() {
     return resource;

@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "A scoped-resource selector requirement is a selector that contains values, a scope name, and an operator that relates the scope name and values.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ScopedResourceSelectorRequirement {
@@ -112,7 +112,7 @@ public class V1ScopedResourceSelectorRequirement {
    *
    * @return values
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "An array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.")

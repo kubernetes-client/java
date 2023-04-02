@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** ScaleStatus represents the current status of a scale subresource. */
 @ApiModel(description = "ScaleStatus represents the current status of a scale subresource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ScaleStatus {
@@ -69,7 +69,7 @@ public class V1ScaleStatus {
    *
    * @return selector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "label query over pods that should match the replicas count. This is same as the label selector but in the string format to avoid introspection by clients. The string will be in the same format as the query-param syntax. More info about label selectors: http://kubernetes.io/docs/user-guide/labels#label-selectors")

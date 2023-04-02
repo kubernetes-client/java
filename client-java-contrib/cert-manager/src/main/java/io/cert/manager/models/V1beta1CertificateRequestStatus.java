@@ -23,7 +23,7 @@ import java.util.Objects;
 
 /** Status of the CertificateRequest. This is set and managed automatically. */
 @ApiModel(description = "Status of the CertificateRequest. This is set and managed automatically.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1CertificateRequestStatus {
@@ -60,7 +60,7 @@ public class V1beta1CertificateRequestStatus {
    *
    * @return ca
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The PEM encoded x509 certificate of the signer, also known as the CA (Certificate Authority). This is set on a best-effort basis by different issuers. If not set, the CA is assumed to be unknown/not available.")
@@ -85,7 +85,7 @@ public class V1beta1CertificateRequestStatus {
    *
    * @return certificate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The PEM encoded x509 certificate resulting from the certificate signing request. If not set, the CertificateRequest has either not been completed or has failed. More information on failure can be found by checking the `conditions` field.")
@@ -119,7 +119,7 @@ public class V1beta1CertificateRequestStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "List of status conditions to indicate the status of a CertificateRequest. Known condition types are `Ready` and `InvalidRequest`.")
@@ -143,7 +143,7 @@ public class V1beta1CertificateRequestStatus {
    *
    * @return failureTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "FailureTime stores the time that this CertificateRequest failed. This is used to influence garbage collection and back-off.")

@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ExternalDocumentation allows referencing an external resource for extended documentation.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ExternalDocumentation {
@@ -46,7 +46,7 @@ public class V1ExternalDocumentation {
    *
    * @return description
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getDescription() {
     return description;
@@ -67,7 +67,7 @@ public class V1ExternalDocumentation {
    *
    * @return url
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getUrl() {
     return url;

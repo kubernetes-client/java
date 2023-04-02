@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "SelfSubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1SelfSubjectAccessReviewSpec {
@@ -50,7 +50,7 @@ public class V1SelfSubjectAccessReviewSpec {
    *
    * @return nonResourceAttributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1NonResourceAttributes getNonResourceAttributes() {
     return nonResourceAttributes;
@@ -71,7 +71,7 @@ public class V1SelfSubjectAccessReviewSpec {
    *
    * @return resourceAttributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ResourceAttributes getResourceAttributes() {
     return resourceAttributes;

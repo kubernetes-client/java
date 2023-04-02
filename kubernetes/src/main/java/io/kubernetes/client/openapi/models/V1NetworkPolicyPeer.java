@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "NetworkPolicyPeer describes a peer to allow traffic to/from. Only certain combinations of fields are allowed")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NetworkPolicyPeer {
@@ -54,7 +54,7 @@ public class V1NetworkPolicyPeer {
    *
    * @return ipBlock
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1IPBlock getIpBlock() {
     return ipBlock;
@@ -75,7 +75,7 @@ public class V1NetworkPolicyPeer {
    *
    * @return namespaceSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getNamespaceSelector() {
     return namespaceSelector;
@@ -96,7 +96,7 @@ public class V1NetworkPolicyPeer {
    *
    * @return podSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LabelSelector getPodSelector() {
     return podSelector;

@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "IssuerRef is a reference to the issuer for this CertificateRequest.  If the 'kind' field is not set, or set to 'Issuer', an Issuer resource with the given name in the same namespace as the CertificateRequest will be used.  If the 'kind' field is set to 'ClusterIssuer', a ClusterIssuer with the provided name will be used. The 'name' field in this stanza is required at all times. The group field refers to the API group of the issuer which defaults to 'cert-manager.io' if empty.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1CertificateRequestSpecIssuerRef {
@@ -58,7 +58,7 @@ public class V1beta1CertificateRequestSpecIssuerRef {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Group of the resource being referred to.")
   public String getGroup() {
     return group;
@@ -79,7 +79,7 @@ public class V1beta1CertificateRequestSpecIssuerRef {
    *
    * @return kind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Kind of the resource being referred to.")
   public String getKind() {
     return kind;

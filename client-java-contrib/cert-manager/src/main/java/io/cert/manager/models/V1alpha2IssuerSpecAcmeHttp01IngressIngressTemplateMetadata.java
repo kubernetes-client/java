@@ -27,7 +27,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ObjectMeta overrides for the ingress used to solve HTTP01 challenges. Only the 'labels' and 'annotations' fields may be set. If labels or annotations overlap with in-built values, the values here will override the in-built values.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeHttp01IngressIngressTemplateMetadata {
@@ -62,7 +62,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressIngressTemplateMetadata {
    *
    * @return annotations
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Annotations that should be added to the created ACME HTTP01 solver ingress.")
   public Map<String, String> getAnnotations() {
@@ -94,7 +94,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressIngressTemplateMetadata {
    *
    * @return labels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Labels that should be added to the created ACME HTTP01 solver ingress.")
   public Map<String, String> getLabels() {

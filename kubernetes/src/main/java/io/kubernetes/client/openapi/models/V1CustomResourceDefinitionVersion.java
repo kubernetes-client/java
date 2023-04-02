@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** CustomResourceDefinitionVersion describes a version for CRD. */
 @ApiModel(description = "CustomResourceDefinitionVersion describes a version for CRD.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CustomResourceDefinitionVersion {
@@ -90,7 +90,7 @@ public class V1CustomResourceDefinitionVersion {
    *
    * @return additionalPrinterColumns
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "additionalPrinterColumns specifies additional columns returned in Table output. See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If no columns are specified, a single column displaying the age of the custom resource is used.")
@@ -116,7 +116,7 @@ public class V1CustomResourceDefinitionVersion {
    *
    * @return deprecated
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "deprecated indicates this version of the custom resource API is deprecated. When set to true, API requests to this version receive a warning header in the server response. Defaults to false.")
@@ -141,7 +141,7 @@ public class V1CustomResourceDefinitionVersion {
    *
    * @return deprecationWarning
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "deprecationWarning overrides the default warning returned to API clients. May only be set when `deprecated` is true. The default warning indicates this version is deprecated and recommends use of the newest served version of equal or greater stability, if one exists.")
@@ -188,7 +188,7 @@ public class V1CustomResourceDefinitionVersion {
    *
    * @return schema
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CustomResourceValidation getSchema() {
     return schema;
@@ -255,7 +255,7 @@ public class V1CustomResourceDefinitionVersion {
    *
    * @return subresources
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CustomResourceSubresources getSubresources() {
     return subresources;

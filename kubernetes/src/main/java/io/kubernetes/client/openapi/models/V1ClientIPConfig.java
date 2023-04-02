@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ClientIPConfig represents the configurations of Client IP based session affinity.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ClientIPConfig {
@@ -43,7 +43,7 @@ public class V1ClientIPConfig {
    *
    * @return timeoutSeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "timeoutSeconds specifies the seconds of ClientIP type session sticky time. The value must be >0 && <=86400(for 1 day) if ServiceAffinity == \"ClientIP\". Default value is 10800(for 3 hours).")

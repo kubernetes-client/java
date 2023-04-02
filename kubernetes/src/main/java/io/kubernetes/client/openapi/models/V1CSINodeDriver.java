@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CSINodeDriver holds information about the specification of one CSI driver installed on a node")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CSINodeDriver {
@@ -58,7 +58,7 @@ public class V1CSINodeDriver {
    *
    * @return allocatable
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1VolumeNodeResources getAllocatable() {
     return allocatable;
@@ -147,7 +147,7 @@ public class V1CSINodeDriver {
    *
    * @return topologyKeys
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "topologyKeys is the list of keys supported by the driver. When a driver is initialized on a cluster, it provides a set of topology keys that it understands (e.g. \"company.com/zone\", \"company.com/region\"). When a driver is initialized on a node, it provides the same topology keys along with values. Kubelet will expose these topology keys as labels on its own node object. When Kubernetes does topology aware provisioning, it can use this list to determine which labels it should retrieve from the node object and pass back to the driver. It is possible for different nodes to use different topology keys. This can be empty if driver does not support topology.")

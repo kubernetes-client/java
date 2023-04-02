@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Configures cert-manager to attempt to complete authorizations by performing the HTTP01 challenge flow. It is not possible to obtain certificates for wildcard domain names (e.g. `*.example.com`) using the HTTP01 challenge mechanism.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeHttp01 {
@@ -45,7 +45,7 @@ public class V1alpha2IssuerSpecAcmeHttp01 {
    *
    * @return ingress
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01Ingress getIngress() {
     return ingress;

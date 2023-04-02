@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** StatefulSetStatus represents the current state of a StatefulSet. */
 @ApiModel(description = "StatefulSetStatus represents the current state of a StatefulSet.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1StatefulSetStatus {
@@ -87,7 +87,7 @@ public class V1StatefulSetStatus {
    *
    * @return availableReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Total number of available pods (ready for at least minReadySeconds) targeted by this statefulset.")
@@ -112,7 +112,7 @@ public class V1StatefulSetStatus {
    *
    * @return collisionCount
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "collisionCount is the count of hash collisions for the StatefulSet. The StatefulSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.")
@@ -143,7 +143,7 @@ public class V1StatefulSetStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Represents the latest available observations of a statefulset's current state.")
   public List<V1StatefulSetCondition> getConditions() {
@@ -166,7 +166,7 @@ public class V1StatefulSetStatus {
    *
    * @return currentReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "currentReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by currentRevision.")
@@ -190,7 +190,7 @@ public class V1StatefulSetStatus {
    *
    * @return currentRevision
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "currentRevision, if not empty, indicates the version of the StatefulSet used to generate Pods in the sequence [0,currentReplicas).")
@@ -214,7 +214,7 @@ public class V1StatefulSetStatus {
    *
    * @return observedGeneration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "observedGeneration is the most recent generation observed for this StatefulSet. It corresponds to the StatefulSet's generation, which is updated on mutation by the API Server.")
@@ -237,7 +237,7 @@ public class V1StatefulSetStatus {
    *
    * @return readyReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "readyReplicas is the number of pods created for this StatefulSet with a Ready Condition.")
@@ -283,7 +283,7 @@ public class V1StatefulSetStatus {
    *
    * @return updateRevision
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "updateRevision, if not empty, indicates the version of the StatefulSet used to generate Pods in the sequence [replicas-updatedReplicas,replicas)")
@@ -307,7 +307,7 @@ public class V1StatefulSetStatus {
    *
    * @return updatedReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "updatedReplicas is the number of Pods created by the StatefulSet controller from the StatefulSet version indicated by updateRevision.")

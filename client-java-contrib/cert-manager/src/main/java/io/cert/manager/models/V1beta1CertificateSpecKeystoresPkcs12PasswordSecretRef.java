@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PasswordSecretRef is a reference to a key in a Secret resource containing the password used to encrypt the PKCS12 keystore.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1CertificateSpecKeystoresPkcs12PasswordSecretRef {
@@ -50,7 +50,7 @@ public class V1beta1CertificateSpecKeystoresPkcs12PasswordSecretRef {
    *
    * @return key
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The key of the entry in the Secret resource's `data` field to be used. Some instances of this field may be defaulted, in others it may be required.")

@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "A CertificateRequest is used to request a signed certificate from one of the configured issuers.   All fields within the CertificateRequest's `spec` are immutable after creation. A CertificateRequest will either succeed or fail, as denoted by its `status.state` field.   A CertificateRequest is a 'one-shot' resource, meaning it represents a single point in time request for a certificate and cannot be re-used.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1CertificateRequest implements io.kubernetes.client.common.KubernetesObject {
@@ -71,7 +71,7 @@ public class V1beta1CertificateRequest implements io.kubernetes.client.common.Ku
    *
    * @return apiVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
@@ -97,7 +97,7 @@ public class V1beta1CertificateRequest implements io.kubernetes.client.common.Ku
    *
    * @return kind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
@@ -120,7 +120,7 @@ public class V1beta1CertificateRequest implements io.kubernetes.client.common.Ku
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectMeta getMetadata() {
     return metadata;
@@ -161,7 +161,7 @@ public class V1beta1CertificateRequest implements io.kubernetes.client.common.Ku
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1CertificateRequestStatus getStatus() {
     return status;

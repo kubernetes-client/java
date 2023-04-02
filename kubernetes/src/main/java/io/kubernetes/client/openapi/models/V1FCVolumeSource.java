@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Represents a Fibre Channel volume. Fibre Channel volumes can only be mounted as read/write once. Fibre Channel volumes support ownership management and SELinux relabeling.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1FCVolumeSource {
@@ -68,7 +68,7 @@ public class V1FCVolumeSource {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
@@ -91,7 +91,7 @@ public class V1FCVolumeSource {
    *
    * @return lun
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "lun is Optional: FC target lun number")
   public Integer getLun() {
     return lun;
@@ -113,7 +113,7 @@ public class V1FCVolumeSource {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts.")
@@ -144,7 +144,7 @@ public class V1FCVolumeSource {
    *
    * @return targetWWNs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "targetWWNs is Optional: FC target worldwide names (WWNs)")
   public List<String> getTargetWWNs() {
     return targetWWNs;
@@ -174,7 +174,7 @@ public class V1FCVolumeSource {
    *
    * @return wwids
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "wwids Optional: FC volume world wide identifiers (wwids) Either wwids or combination of targetWWNs and lun must be set, but not both simultaneously.")

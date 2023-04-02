@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "LimitRangeItem defines a min/max usage limit for any resource that matches on kind.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1LimitRangeItem {
@@ -77,7 +77,7 @@ public class V1LimitRangeItem {
    *
    * @return _default
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Default resource requirement limit value by resource name if resource limit is omitted.")
@@ -109,7 +109,7 @@ public class V1LimitRangeItem {
    *
    * @return defaultRequest
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "DefaultRequest is the default resource requirement request value by resource name if resource request is omitted.")
@@ -140,7 +140,7 @@ public class V1LimitRangeItem {
    *
    * @return max
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Max usage constraints on this kind by resource name.")
   public Map<String, Quantity> getMax() {
     return max;
@@ -172,7 +172,7 @@ public class V1LimitRangeItem {
    *
    * @return maxLimitRequestRatio
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "MaxLimitRequestRatio if specified, the named resource must have a request and limit that are both non-zero where limit divided by request is less than or equal to the enumerated value; this represents the max burst for the named resource.")
@@ -203,7 +203,7 @@ public class V1LimitRangeItem {
    *
    * @return min
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Min usage constraints on this kind by resource name.")
   public Map<String, Quantity> getMin() {
     return min;

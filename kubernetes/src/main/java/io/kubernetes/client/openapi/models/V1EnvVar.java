@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** EnvVar represents an environment variable present in a Container. */
 @ApiModel(description = "EnvVar represents an environment variable present in a Container.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1EnvVar {
@@ -76,7 +76,7 @@ public class V1EnvVar {
    *
    * @return value
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Variable references $(VAR_NAME) are expanded using the previously defined environment variables in the container and any service environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. Double $$ are reduced to a single $, which allows for escaping the $(VAR_NAME) syntax: i.e. \"$$(VAR_NAME)\" will produce the string literal \"$(VAR_NAME)\". Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\".")
@@ -99,7 +99,7 @@ public class V1EnvVar {
    *
    * @return valueFrom
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1EnvVarSource getValueFrom() {
     return valueFrom;

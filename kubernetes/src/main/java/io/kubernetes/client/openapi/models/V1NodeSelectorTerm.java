@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NodeSelectorTerm {
@@ -60,7 +60,7 @@ public class V1NodeSelectorTerm {
    *
    * @return matchExpressions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of node selector requirements by node's labels.")
   public List<V1NodeSelectorRequirement> getMatchExpressions() {
     return matchExpressions;
@@ -89,7 +89,7 @@ public class V1NodeSelectorTerm {
    *
    * @return matchFields
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A list of node selector requirements by node's fields.")
   public List<V1NodeSelectorRequirement> getMatchFields() {
     return matchFields;

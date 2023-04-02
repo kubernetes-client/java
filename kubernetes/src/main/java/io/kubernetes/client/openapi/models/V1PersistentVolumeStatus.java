@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** PersistentVolumeStatus is the current status of a persistent volume. */
 @ApiModel(description = "PersistentVolumeStatus is the current status of a persistent volume.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PersistentVolumeStatus {
@@ -49,7 +49,7 @@ public class V1PersistentVolumeStatus {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "message is a human-readable message indicating details about why the volume is in this state.")
@@ -73,7 +73,7 @@ public class V1PersistentVolumeStatus {
    *
    * @return phase
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase  ")
@@ -97,7 +97,7 @@ public class V1PersistentVolumeStatus {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.")

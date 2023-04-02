@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ACME specific status options. This field should only be set if the Issuer is configured to use an ACME server to issue certificates.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerStatusAcme {
@@ -50,7 +50,7 @@ public class V1alpha2IssuerStatusAcme {
    *
    * @return lastRegisteredEmail
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "LastRegisteredEmail is the email associated with the latest registered ACME account, in order to track changes made to registered account associated with the  Issuer")
@@ -74,7 +74,7 @@ public class V1alpha2IssuerStatusAcme {
    *
    * @return uri
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "URI is the unique account identifier, which can also be used to retrieve account details from the CA")

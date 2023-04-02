@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** ServiceStatus represents the current status of a service. */
 @ApiModel(description = "ServiceStatus represents the current status of a service.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ServiceStatus {
@@ -54,7 +54,7 @@ public class V1ServiceStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Current service state")
   public List<V1Condition> getConditions() {
     return conditions;
@@ -75,7 +75,7 @@ public class V1ServiceStatus {
    *
    * @return loadBalancer
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LoadBalancerStatus getLoadBalancer() {
     return loadBalancer;

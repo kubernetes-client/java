@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "HorizontalPodAutoscalerStatus describes the current status of a horizontal pod autoscaler.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V2beta2HorizontalPodAutoscalerStatus {
@@ -80,7 +80,7 @@ public class V2beta2HorizontalPodAutoscalerStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "conditions is the set of conditions required for this autoscaler to scale its target, and indicates whether or not those conditions are met.")
@@ -113,7 +113,7 @@ public class V2beta2HorizontalPodAutoscalerStatus {
    *
    * @return currentMetrics
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "currentMetrics is the last read state of the metrics used by this autoscaler.")
   public List<V2beta2MetricStatus> getCurrentMetrics() {
@@ -184,7 +184,7 @@ public class V2beta2HorizontalPodAutoscalerStatus {
    *
    * @return lastScaleTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "lastScaleTime is the last time the HorizontalPodAutoscaler scaled the number of pods, used by the autoscaler to control how often the number of pods is changed.")
@@ -207,7 +207,7 @@ public class V2beta2HorizontalPodAutoscalerStatus {
    *
    * @return observedGeneration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "observedGeneration is the most recent generation observed by this autoscaler.")
   public Long getObservedGeneration() {

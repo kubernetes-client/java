@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Preconditions must be fulfilled before an operation (update, delete, etc.) is carried out.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Preconditions {
@@ -46,7 +46,7 @@ public class V1Preconditions {
    *
    * @return resourceVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specifies the target ResourceVersion")
   public String getResourceVersion() {
     return resourceVersion;
@@ -67,7 +67,7 @@ public class V1Preconditions {
    *
    * @return uid
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specifies the target UID.")
   public String getUid() {
     return uid;

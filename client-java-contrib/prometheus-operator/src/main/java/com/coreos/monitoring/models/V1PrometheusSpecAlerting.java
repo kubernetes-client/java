@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** Define details regarding alerting. */
 @ApiModel(description = "Define details regarding alerting.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1PrometheusSpecAlerting {

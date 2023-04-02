@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** PodFailurePolicy describes how failed pods influence the backoffLimit. */
 @ApiModel(description = "PodFailurePolicy describes how failed pods influence the backoffLimit.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PodFailurePolicy {

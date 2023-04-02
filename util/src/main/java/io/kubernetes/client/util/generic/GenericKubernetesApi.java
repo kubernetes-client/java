@@ -52,7 +52,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 import okhttp3.Call;
 import okhttp3.HttpUrl;
 import okhttp3.Request;

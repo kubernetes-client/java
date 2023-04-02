@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Use RFC2136 (\"Dynamic Updates in the Domain Name System\") (https://datatracker.ietf.org/doc/rfc2136/) to manage DNS01 challenge records.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeDns01Rfc2136 {
@@ -88,7 +88,7 @@ public class V1alpha2IssuerSpecAcmeDns01Rfc2136 {
    *
    * @return tsigAlgorithm
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The TSIG Algorithm configured in the DNS supporting RFC2136. Used only when ``tsigSecretSecretRef`` and ``tsigKeyName`` are defined. Supported values are (case-insensitive): ``HMACMD5`` (default), ``HMACSHA1``, ``HMACSHA256`` or ``HMACSHA512``.")
@@ -112,7 +112,7 @@ public class V1alpha2IssuerSpecAcmeDns01Rfc2136 {
    *
    * @return tsigKeyName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The TSIG Key name configured in the DNS. If ``tsigSecretSecretRef`` is defined, this field is required.")
@@ -136,7 +136,7 @@ public class V1alpha2IssuerSpecAcmeDns01Rfc2136 {
    *
    * @return tsigSecretSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Rfc2136TsigSecretSecretRef getTsigSecretSecretRef() {
     return tsigSecretSecretRef;

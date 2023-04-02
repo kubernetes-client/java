@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CertificateSigningRequestCondition describes a condition of a CertificateSigningRequest object")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CertificateSigningRequestCondition {
@@ -72,7 +72,7 @@ public class V1CertificateSigningRequestCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "lastTransitionTime is the time the condition last transitioned from one status to another. If unset, when a new condition type is added or an existing condition's status is changed, the server defaults this to the current time.")
@@ -95,7 +95,7 @@ public class V1CertificateSigningRequestCondition {
    *
    * @return lastUpdateTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "lastUpdateTime is the time of the last update to this condition")
   public OffsetDateTime getLastUpdateTime() {
     return lastUpdateTime;
@@ -116,7 +116,7 @@ public class V1CertificateSigningRequestCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "message contains a human readable message with details about the request state")
   public String getMessage() {
@@ -138,7 +138,7 @@ public class V1CertificateSigningRequestCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "reason indicates a brief reason for the request state")
   public String getReason() {
     return reason;

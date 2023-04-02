@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** FlowSchemaStatus represents the current state of a FlowSchema. */
 @ApiModel(description = "FlowSchemaStatus represents the current state of a FlowSchema.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1beta1FlowSchemaStatus {
@@ -49,7 +49,7 @@ public class V1beta1FlowSchemaStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "`conditions` is a list of the current states of FlowSchema.")
   public List<V1beta1FlowSchemaCondition> getConditions() {
     return conditions;

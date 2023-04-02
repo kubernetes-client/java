@@ -17,7 +17,7 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
 
 /** V1GRPCAction */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1GRPCAction {
@@ -66,7 +66,7 @@ public class V1GRPCAction {
    *
    * @return service
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).  If this is not specified, the default behavior is defined by gRPC.")

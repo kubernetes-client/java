@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1LifecycleHandler {
@@ -54,7 +54,7 @@ public class V1LifecycleHandler {
    *
    * @return exec
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ExecAction getExec() {
     return exec;
@@ -75,7 +75,7 @@ public class V1LifecycleHandler {
    *
    * @return httpGet
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1HTTPGetAction getHttpGet() {
     return httpGet;
@@ -96,7 +96,7 @@ public class V1LifecycleHandler {
    *
    * @return tcpSocket
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1TCPSocketAction getTcpSocket() {
     return tcpSocket;

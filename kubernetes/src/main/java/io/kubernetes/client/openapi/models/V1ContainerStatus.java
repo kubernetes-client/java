@@ -20,7 +20,7 @@ import java.util.Objects;
 /** ContainerStatus contains details for the current status of this container. */
 @ApiModel(
     description = "ContainerStatus contains details for the current status of this container.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ContainerStatus {
@@ -80,7 +80,7 @@ public class V1ContainerStatus {
    *
    * @return containerID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Container's ID in the format '<type>://<container_id>'.")
   public String getContainerID() {
     return containerID;
@@ -145,7 +145,7 @@ public class V1ContainerStatus {
    *
    * @return lastState
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ContainerState getLastState() {
     return lastState;
@@ -236,7 +236,7 @@ public class V1ContainerStatus {
    *
    * @return started
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Specifies whether the container has passed its startup probe. Initialized as false, becomes true after startupProbe is considered successful. Resets to false when the container is restarted, or if kubelet loses state temporarily. Is always true when no startupProbe is defined.")
@@ -259,7 +259,7 @@ public class V1ContainerStatus {
    *
    * @return state
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ContainerState getState() {
     return state;

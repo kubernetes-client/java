@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PodFailurePolicyRule describes how a pod failure is handled when the requirements are met. One of OnExitCodes and onPodConditions, but not both, can be used in each rule.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1PodFailurePolicyRule {
@@ -85,7 +85,7 @@ public class V1PodFailurePolicyRule {
    *
    * @return onExitCodes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1PodFailurePolicyOnExitCodesRequirement getOnExitCodes() {
     return onExitCodes;

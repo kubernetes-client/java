@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "DaemonSetUpdateStrategy is a struct used to control the update strategy for a DaemonSet.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1DaemonSetUpdateStrategy {
@@ -46,7 +46,7 @@ public class V1DaemonSetUpdateStrategy {
    *
    * @return rollingUpdate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1RollingUpdateDaemonSet getRollingUpdate() {
     return rollingUpdate;
@@ -68,7 +68,7 @@ public class V1DaemonSetUpdateStrategy {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Type of daemon set update. Can be \"RollingUpdate\" or \"OnDelete\". Default is RollingUpdate.  ")

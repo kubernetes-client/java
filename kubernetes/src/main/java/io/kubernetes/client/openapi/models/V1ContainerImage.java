@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** Describe a container image */
 @ApiModel(description = "Describe a container image")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ContainerImage {
@@ -55,7 +55,7 @@ public class V1ContainerImage {
    *
    * @return names
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Names by which this image is known. e.g. [\"kubernetes.example/hyperkube:v1.0.7\", \"cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7\"]")
@@ -78,7 +78,7 @@ public class V1ContainerImage {
    *
    * @return sizeBytes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The size of the image in bytes.")
   public Long getSizeBytes() {
     return sizeBytes;

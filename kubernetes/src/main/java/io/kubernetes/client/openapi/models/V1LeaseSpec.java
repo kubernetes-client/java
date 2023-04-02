@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** LeaseSpec is a specification of a Lease. */
 @ApiModel(description = "LeaseSpec is a specification of a Lease.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1LeaseSpec {
@@ -60,7 +60,7 @@ public class V1LeaseSpec {
    *
    * @return acquireTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "acquireTime is a time when the current lease was acquired.")
   public OffsetDateTime getAcquireTime() {
     return acquireTime;
@@ -81,7 +81,7 @@ public class V1LeaseSpec {
    *
    * @return holderIdentity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "holderIdentity contains the identity of the holder of a current lease.")
   public String getHolderIdentity() {
@@ -104,7 +104,7 @@ public class V1LeaseSpec {
    *
    * @return leaseDurationSeconds
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed RenewTime.")
@@ -127,7 +127,7 @@ public class V1LeaseSpec {
    *
    * @return leaseTransitions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "leaseTransitions is the number of transitions of a lease between holders.")
   public Integer getLeaseTransitions() {
@@ -149,7 +149,7 @@ public class V1LeaseSpec {
    *
    * @return renewTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "renewTime is a time when the current holder of a lease has last updated the lease.")
   public OffsetDateTime getRenewTime() {

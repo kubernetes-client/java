@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "HorizontalPodAutoscalerCondition describes the state of a HorizontalPodAutoscaler at a certain point.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V2beta2HorizontalPodAutoscalerCondition {
@@ -66,7 +66,7 @@ public class V2beta2HorizontalPodAutoscalerCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "lastTransitionTime is the last time the condition transitioned from one status to another")
@@ -89,7 +89,7 @@ public class V2beta2HorizontalPodAutoscalerCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "message is a human-readable explanation containing details about the transition")
   public String getMessage() {
@@ -111,7 +111,7 @@ public class V2beta2HorizontalPodAutoscalerCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "reason is the reason for the condition's last transition.")
   public String getReason() {
     return reason;

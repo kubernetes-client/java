@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ResourceAttributes {
@@ -74,7 +74,7 @@ public class V1ResourceAttributes {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Group is the API Group of the Resource.  \"*\" means all.")
   public String getGroup() {
     return group;
@@ -96,7 +96,7 @@ public class V1ResourceAttributes {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.")
@@ -123,7 +123,7 @@ public class V1ResourceAttributes {
    *
    * @return namespace
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview")
@@ -146,7 +146,7 @@ public class V1ResourceAttributes {
    *
    * @return resource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Resource is one of the existing resource types.  \"*\" means all.")
   public String getResource() {
     return resource;
@@ -167,7 +167,7 @@ public class V1ResourceAttributes {
    *
    * @return subresource
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Subresource is one of the existing resource types.  \"\" means none.")
   public String getSubresource() {
     return subresource;
@@ -189,7 +189,7 @@ public class V1ResourceAttributes {
    *
    * @return verb
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.")
@@ -212,7 +212,7 @@ public class V1ResourceAttributes {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Version is the API Version of the Resource.  \"*\" means all.")
   public String getVersion() {
     return version;

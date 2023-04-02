@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** NamespaceCondition contains details about state of namespace. */
 @ApiModel(description = "NamespaceCondition contains details about state of namespace.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NamespaceCondition {
@@ -61,7 +61,7 @@ public class V1NamespaceCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON.  Wrappers are provided for many of the factory methods that the time package offers.")
@@ -84,7 +84,7 @@ public class V1NamespaceCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getMessage() {
     return message;
@@ -105,7 +105,7 @@ public class V1NamespaceCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public String getReason() {
     return reason;

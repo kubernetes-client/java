@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "SecretEnvSource selects a Secret to populate the environment variables with.  The contents of the target Secret's Data field will represent the key-value pairs as environment variables.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1SecretEnvSource {
@@ -50,7 +50,7 @@ public class V1SecretEnvSource {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
@@ -73,7 +73,7 @@ public class V1SecretEnvSource {
    *
    * @return optional
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specify whether the Secret must be defined")
   public Boolean getOptional() {
     return optional;

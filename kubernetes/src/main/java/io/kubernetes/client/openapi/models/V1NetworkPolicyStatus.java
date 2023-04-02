@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** NetworkPolicyStatus describe the current state of the NetworkPolicy. */
 @ApiModel(description = "NetworkPolicyStatus describe the current state of the NetworkPolicy.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NetworkPolicyStatus {
@@ -50,7 +50,7 @@ public class V1NetworkPolicyStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Conditions holds an array of metav1.Condition that describe the state of the NetworkPolicy. Current service state")

@@ -29,7 +29,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Configures cert-manager to attempt to complete authorizations by performing the DNS01 challenge flow.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1ChallengeSpecSolverDns01 {
@@ -143,7 +143,7 @@ public class V1beta1ChallengeSpecSolverDns01 {
    *
    * @return acmeDNS
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Acmedns getAcmeDNS() {
     return acmeDNS;
@@ -164,7 +164,7 @@ public class V1beta1ChallengeSpecSolverDns01 {
    *
    * @return akamai
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Akamai getAkamai() {
     return akamai;
@@ -185,7 +185,7 @@ public class V1beta1ChallengeSpecSolverDns01 {
    *
    * @return azureDNS
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Azuredns getAzureDNS() {
     return azureDNS;
@@ -206,7 +206,7 @@ public class V1beta1ChallengeSpecSolverDns01 {
    *
    * @return cloudDNS
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Clouddns getCloudDNS() {
     return cloudDNS;
@@ -228,7 +228,7 @@ public class V1beta1ChallengeSpecSolverDns01 {
    *
    * @return cloudflare
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Cloudflare getCloudflare() {
     return cloudflare;
@@ -250,7 +250,7 @@ public class V1beta1ChallengeSpecSolverDns01 {
    *
    * @return cnameStrategy
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "CNAMEStrategy configures how the DNS01 provider should handle CNAME records when found in DNS zones.")
@@ -274,7 +274,7 @@ public class V1beta1ChallengeSpecSolverDns01 {
    *
    * @return digitalocean
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Digitalocean getDigitalocean() {
     return digitalocean;
@@ -295,7 +295,7 @@ public class V1beta1ChallengeSpecSolverDns01 {
    *
    * @return rfc2136
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Rfc2136 getRfc2136() {
     return rfc2136;
@@ -316,7 +316,7 @@ public class V1beta1ChallengeSpecSolverDns01 {
    *
    * @return route53
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Route53 getRoute53() {
     return route53;
@@ -337,7 +337,7 @@ public class V1beta1ChallengeSpecSolverDns01 {
    *
    * @return webhook
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01Webhook getWebhook() {
     return webhook;

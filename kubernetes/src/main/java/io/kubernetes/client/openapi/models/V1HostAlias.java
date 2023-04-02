@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "HostAlias holds the mapping between IP and hostnames that will be injected as an entry in the pod's hosts file.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1HostAlias {
@@ -59,7 +59,7 @@ public class V1HostAlias {
    *
    * @return hostnames
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Hostnames for the above IP address.")
   public List<String> getHostnames() {
     return hostnames;
@@ -80,7 +80,7 @@ public class V1HostAlias {
    *
    * @return ip
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "IP address of the host file entry.")
   public String getIp() {
     return ip;

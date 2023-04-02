@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "APIServiceSpec contains information for locating and communicating with a server. Only https is supported, though you are able to disable certificate verification.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1APIServiceSpec {
@@ -76,7 +76,7 @@ public class V1APIServiceSpec {
    *
    * @return caBundle
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "CABundle is a PEM encoded CA bundle which will be used to validate an API server's serving certificate. If unspecified, system trust roots on the apiserver are used.")
@@ -99,7 +99,7 @@ public class V1APIServiceSpec {
    *
    * @return group
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Group is the API group name this server hosts")
   public String getGroup() {
     return group;
@@ -150,7 +150,7 @@ public class V1APIServiceSpec {
    *
    * @return insecureSkipTLSVerify
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "InsecureSkipTLSVerify disables TLS certificate verification when communicating with this server. This is strongly discouraged.  You should use the CABundle instead.")
@@ -173,7 +173,7 @@ public class V1APIServiceSpec {
    *
    * @return service
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public ApiregistrationV1ServiceReference getService() {
     return service;
@@ -194,7 +194,7 @@ public class V1APIServiceSpec {
    *
    * @return version
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Version is the API version this server hosts.  For example, \"v1\"")
   public String getVersion() {
     return version;

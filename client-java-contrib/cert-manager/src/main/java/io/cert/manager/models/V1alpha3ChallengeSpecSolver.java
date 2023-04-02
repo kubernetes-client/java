@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Solver contains the domain solving configuration that should be used to solve this challenge resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha3ChallengeSpecSolver {
@@ -54,7 +54,7 @@ public class V1alpha3ChallengeSpecSolver {
    *
    * @return dns01
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeDns01 getDns01() {
     return dns01;
@@ -75,7 +75,7 @@ public class V1alpha3ChallengeSpecSolver {
    *
    * @return http01
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01 getHttp01() {
     return http01;
@@ -96,7 +96,7 @@ public class V1alpha3ChallengeSpecSolver {
    *
    * @return selector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeSelector getSelector() {
     return selector;

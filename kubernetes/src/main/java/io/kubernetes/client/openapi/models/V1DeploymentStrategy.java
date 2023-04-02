@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** DeploymentStrategy describes how to replace existing pods with new ones. */
 @ApiModel(description = "DeploymentStrategy describes how to replace existing pods with new ones.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1DeploymentStrategy {
@@ -44,7 +44,7 @@ public class V1DeploymentStrategy {
    *
    * @return rollingUpdate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1RollingUpdateDeployment getRollingUpdate() {
     return rollingUpdate;
@@ -66,7 +66,7 @@ public class V1DeploymentStrategy {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Type of deployment. Can be \"Recreate\" or \"RollingUpdate\". Default is RollingUpdate.  ")

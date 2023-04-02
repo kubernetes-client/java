@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1alpha1ServerStorageVersion {
@@ -56,7 +56,7 @@ public class V1alpha1ServerStorageVersion {
    *
    * @return apiServerID
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The ID of the reporting API server.")
   public String getApiServerID() {
     return apiServerID;
@@ -86,7 +86,7 @@ public class V1alpha1ServerStorageVersion {
    *
    * @return decodableVersions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.")
@@ -110,7 +110,7 @@ public class V1alpha1ServerStorageVersion {
    *
    * @return encodingVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The API server encodes the object to this version when persisting it in the backend (e.g., etcd).")

@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Represents downward API info for projecting into a projected volume. Note that this is identical to a downwardAPI volume source without the default mode.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1DownwardAPIProjection {
@@ -54,7 +54,7 @@ public class V1DownwardAPIProjection {
    *
    * @return items
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Items is a list of DownwardAPIVolume file")
   public List<V1DownwardAPIVolumeFile> getItems() {
     return items;

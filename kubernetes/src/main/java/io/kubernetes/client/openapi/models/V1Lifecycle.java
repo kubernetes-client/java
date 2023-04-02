@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1Lifecycle {
@@ -51,7 +51,7 @@ public class V1Lifecycle {
    *
    * @return postStart
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LifecycleHandler getPostStart() {
     return postStart;
@@ -72,7 +72,7 @@ public class V1Lifecycle {
    *
    * @return preStop
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1LifecycleHandler getPreStop() {
     return preStop;

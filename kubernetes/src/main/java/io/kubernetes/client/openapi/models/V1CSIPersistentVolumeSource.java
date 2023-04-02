@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Represents storage that is managed by an external CSI volume driver (Beta feature)")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CSIPersistentVolumeSource {
@@ -91,7 +91,7 @@ public class V1CSIPersistentVolumeSource {
    *
    * @return controllerExpandSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getControllerExpandSecretRef() {
     return controllerExpandSecretRef;
@@ -113,7 +113,7 @@ public class V1CSIPersistentVolumeSource {
    *
    * @return controllerPublishSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getControllerPublishSecretRef() {
     return controllerPublishSecretRef;
@@ -157,7 +157,7 @@ public class V1CSIPersistentVolumeSource {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "fsType to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\".")
@@ -180,7 +180,7 @@ public class V1CSIPersistentVolumeSource {
    *
    * @return nodeExpandSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getNodeExpandSecretRef() {
     return nodeExpandSecretRef;
@@ -201,7 +201,7 @@ public class V1CSIPersistentVolumeSource {
    *
    * @return nodePublishSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getNodePublishSecretRef() {
     return nodePublishSecretRef;
@@ -222,7 +222,7 @@ public class V1CSIPersistentVolumeSource {
    *
    * @return nodeStageSecretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretReference getNodeStageSecretRef() {
     return nodeStageSecretRef;
@@ -243,7 +243,7 @@ public class V1CSIPersistentVolumeSource {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "readOnly value to pass to ControllerPublishVolumeRequest. Defaults to false (read/write).")
@@ -275,7 +275,7 @@ public class V1CSIPersistentVolumeSource {
    *
    * @return volumeAttributes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "volumeAttributes of the volume to publish.")
   public Map<String, String> getVolumeAttributes() {
     return volumeAttributes;

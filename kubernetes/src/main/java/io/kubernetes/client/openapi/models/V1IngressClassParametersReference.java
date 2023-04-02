@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "IngressClassParametersReference identifies an API object. This can be used to specify a cluster or namespace-scoped resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1IngressClassParametersReference {
@@ -66,7 +66,7 @@ public class V1IngressClassParametersReference {
    *
    * @return apiGroup
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.")
@@ -130,7 +130,7 @@ public class V1IngressClassParametersReference {
    *
    * @return namespace
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Namespace is the namespace of the resource being referenced. This field is required when scope is set to \"Namespace\" and must be unset when scope is set to \"Cluster\".")
@@ -154,7 +154,7 @@ public class V1IngressClassParametersReference {
    *
    * @return scope
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Scope represents if this refers to a cluster or namespace scoped resource. This may be set to \"Cluster\" (default) or \"Namespace\".")

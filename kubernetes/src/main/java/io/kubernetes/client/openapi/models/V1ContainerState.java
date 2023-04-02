@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ContainerState {
@@ -54,7 +54,7 @@ public class V1ContainerState {
    *
    * @return running
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ContainerStateRunning getRunning() {
     return running;
@@ -75,7 +75,7 @@ public class V1ContainerState {
    *
    * @return terminated
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ContainerStateTerminated getTerminated() {
     return terminated;
@@ -96,7 +96,7 @@ public class V1ContainerState {
    *
    * @return waiting
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ContainerStateWaiting getWaiting() {
     return waiting;

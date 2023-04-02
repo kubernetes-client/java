@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** If specified, the pod&#39;s scheduling constraints */
 @ApiModel(description = "If specified, the pod's scheduling constraints")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinity {
@@ -50,7 +50,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinity {
    *
    * @return nodeAffinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityNodeAffinity getNodeAffinity() {
     return nodeAffinity;
@@ -73,7 +73,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinity {
    *
    * @return podAffinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityPodAffinity getPodAffinity() {
     return podAffinity;
@@ -96,7 +96,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinity {
    *
    * @return podAntiAffinity
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpecAffinityPodAntiAffinity
       getPodAntiAffinity() {

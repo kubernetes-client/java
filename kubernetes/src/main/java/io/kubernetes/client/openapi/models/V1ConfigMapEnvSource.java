@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ConfigMapEnvSource selects a ConfigMap to populate the environment variables with.  The contents of the target ConfigMap's Data field will represent the key-value pairs as environment variables.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ConfigMapEnvSource {
@@ -51,7 +51,7 @@ public class V1ConfigMapEnvSource {
    *
    * @return name
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
@@ -74,7 +74,7 @@ public class V1ConfigMapEnvSource {
    *
    * @return optional
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Specify whether the ConfigMap must be defined")
   public Boolean getOptional() {
     return optional;

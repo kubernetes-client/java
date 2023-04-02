@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "A reference to a specific 'key' within a Secret resource. In some instances, `key` is a required field.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeDns01AcmednsAccountSecretRef {
@@ -50,7 +50,7 @@ public class V1alpha2IssuerSpecAcmeDns01AcmednsAccountSecretRef {
    *
    * @return key
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The key of the entry in the Secret resource's `data` field to be used. Some instances of this field may be defaulted, in others it may be required.")

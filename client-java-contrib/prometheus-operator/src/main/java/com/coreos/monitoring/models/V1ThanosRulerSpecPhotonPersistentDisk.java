@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PhotonPersistentDisk represents a PhotonController persistent disk attached and mounted on kubelets host machine")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecPhotonPersistentDisk {
@@ -51,7 +51,7 @@ public class V1ThanosRulerSpecPhotonPersistentDisk {
    *
    * @return fsType
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")

@@ -22,7 +22,7 @@ import java.util.Objects;
 
 /** HTTPGetAction describes an action based on HTTP Get requests. */
 @ApiModel(description = "HTTPGetAction describes an action based on HTTP Get requests.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1HTTPGetAction {
@@ -63,7 +63,7 @@ public class V1HTTPGetAction {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.")
@@ -94,7 +94,7 @@ public class V1HTTPGetAction {
    *
    * @return httpHeaders
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Custom headers to set in the request. HTTP allows repeated headers.")
   public List<V1HTTPHeader> getHttpHeaders() {
     return httpHeaders;
@@ -115,7 +115,7 @@ public class V1HTTPGetAction {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Path to access on the HTTP server.")
   public String getPath() {
     return path;
@@ -161,7 +161,7 @@ public class V1HTTPGetAction {
    *
    * @return scheme
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Scheme to use for connecting to the host. Defaults to HTTP.  ")
   public String getScheme() {
     return scheme;

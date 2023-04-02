@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** EnvVarSource represents a source for the value of an EnvVar. */
 @ApiModel(description = "EnvVarSource represents a source for the value of an EnvVar.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1EnvVarSource {
@@ -54,7 +54,7 @@ public class V1EnvVarSource {
    *
    * @return configMapKeyRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ConfigMapKeySelector getConfigMapKeyRef() {
     return configMapKeyRef;
@@ -75,7 +75,7 @@ public class V1EnvVarSource {
    *
    * @return fieldRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectFieldSelector getFieldRef() {
     return fieldRef;
@@ -96,7 +96,7 @@ public class V1EnvVarSource {
    *
    * @return resourceFieldRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ResourceFieldSelector getResourceFieldRef() {
     return resourceFieldRef;
@@ -117,7 +117,7 @@ public class V1EnvVarSource {
    *
    * @return secretKeyRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretKeySelector getSecretKeyRef() {
     return secretKeyRef;

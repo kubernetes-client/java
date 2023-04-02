@@ -24,7 +24,7 @@ import java.util.Objects;
 
 /** ResourceQuotaSpec defines the desired hard limits to enforce for Quota. */
 @ApiModel(description = "ResourceQuotaSpec defines the desired hard limits to enforce for Quota.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ResourceQuotaSpec {
@@ -63,7 +63,7 @@ public class V1ResourceQuotaSpec {
    *
    * @return hard
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "hard is the set of desired hard limits for each named resource. More info: https://kubernetes.io/docs/concepts/policy/resource-quotas/")
@@ -86,7 +86,7 @@ public class V1ResourceQuotaSpec {
    *
    * @return scopeSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ScopeSelector getScopeSelector() {
     return scopeSelector;
@@ -116,7 +116,7 @@ public class V1ResourceQuotaSpec {
    *
    * @return scopes
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "A collection of filters that must match each object tracked by a quota. If not specified, the quota matches all objects.")

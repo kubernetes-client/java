@@ -25,7 +25,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "StatefulSetUpdateStrategy indicates the strategy that the StatefulSet controller will use to perform updates. It includes any additional parameters necessary to perform the update for the indicated strategy.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1StatefulSetUpdateStrategy {
@@ -51,7 +51,7 @@ public class V1StatefulSetUpdateStrategy {
    *
    * @return rollingUpdate
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1RollingUpdateStatefulSetStrategy getRollingUpdate() {
     return rollingUpdate;
@@ -72,7 +72,7 @@ public class V1StatefulSetUpdateStrategy {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Type indicates the type of the StatefulSetUpdateStrategy. Default is RollingUpdate.  ")

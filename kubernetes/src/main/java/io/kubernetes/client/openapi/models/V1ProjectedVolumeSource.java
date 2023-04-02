@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** Represents a projected volume source */
 @ApiModel(description = "Represents a projected volume source")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ProjectedVolumeSource {
@@ -50,7 +50,7 @@ public class V1ProjectedVolumeSource {
    *
    * @return defaultMode
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "defaultMode are the mode bits used to set permissions on created files by default. Must be an octal value between 0000 and 0777 or a decimal value between 0 and 511. YAML accepts both octal and decimal values, JSON requires decimal values for mode bits. Directories within the path are not affected by this setting. This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set.")
@@ -81,7 +81,7 @@ public class V1ProjectedVolumeSource {
    *
    * @return sources
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "sources is the list of volume projections")
   public List<V1VolumeProjection> getSources() {
     return sources;

@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CrossVersionObjectReference contains enough information to let you identify the referred resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V2beta2CrossVersionObjectReference {
@@ -54,7 +54,7 @@ public class V2beta2CrossVersionObjectReference {
    *
    * @return apiVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "API version of the referent")
   public String getApiVersion() {
     return apiVersion;

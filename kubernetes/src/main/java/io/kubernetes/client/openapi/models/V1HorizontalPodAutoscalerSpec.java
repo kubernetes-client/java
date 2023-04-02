@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** specification of a horizontal pod autoscaler. */
 @ApiModel(description = "specification of a horizontal pod autoscaler.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1HorizontalPodAutoscalerSpec {
@@ -82,7 +82,7 @@ public class V1HorizontalPodAutoscalerSpec {
    *
    * @return minReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.")
@@ -128,7 +128,7 @@ public class V1HorizontalPodAutoscalerSpec {
    *
    * @return targetCPUUtilizationPercentage
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.")

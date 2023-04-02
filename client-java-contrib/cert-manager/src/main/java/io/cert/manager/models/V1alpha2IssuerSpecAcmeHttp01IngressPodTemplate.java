@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Optional pod template used to configure the ACME challenge solver pods used for HTTP01 challenges")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplate {
@@ -49,7 +49,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplate {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateMetadata getMetadata() {
     return metadata;
@@ -71,7 +71,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressPodTemplate {
    *
    * @return spec
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01IngressPodTemplateSpec getSpec() {
     return spec;

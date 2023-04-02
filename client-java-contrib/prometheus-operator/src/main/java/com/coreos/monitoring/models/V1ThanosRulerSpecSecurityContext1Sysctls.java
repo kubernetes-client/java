@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Sysctl defines a kernel parameter to be set */
 @ApiModel(description = "Sysctl defines a kernel parameter to be set")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecSecurityContext1Sysctls {

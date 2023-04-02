@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "PKCS12 configures options for storing a PKCS12 keystore in the `spec.secretName` Secret resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1beta1CertificateSpecKeystoresPkcs12 {

@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NonResourceAttributes {
@@ -49,7 +49,7 @@ public class V1NonResourceAttributes {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Path is the URL path of the request")
   public String getPath() {
     return path;
@@ -70,7 +70,7 @@ public class V1NonResourceAttributes {
    *
    * @return verb
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Verb is the standard HTTP verb")
   public String getVerb() {
     return verb;

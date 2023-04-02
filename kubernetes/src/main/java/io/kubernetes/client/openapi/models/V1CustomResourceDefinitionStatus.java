@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "CustomResourceDefinitionStatus indicates the state of the CustomResourceDefinition")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1CustomResourceDefinitionStatus {
@@ -54,7 +54,7 @@ public class V1CustomResourceDefinitionStatus {
    *
    * @return acceptedNames
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1CustomResourceDefinitionNames getAcceptedNames() {
     return acceptedNames;
@@ -85,7 +85,7 @@ public class V1CustomResourceDefinitionStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "conditions indicate state for particular aspects of a CustomResourceDefinition")
   public List<V1CustomResourceDefinitionCondition> getConditions() {
@@ -119,7 +119,7 @@ public class V1CustomResourceDefinitionStatus {
    *
    * @return storedVersions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "storedVersions lists all versions of CustomResources that were ever persisted. Tracking these versions allows a migration path for stored versions in etcd. The field is mutable so a migration controller can finish a migration to another version (ensuring no old objects are left in storage), and then remove the rest of the versions from this list. Versions may not be removed from `spec.versions` while they exist in this list.")

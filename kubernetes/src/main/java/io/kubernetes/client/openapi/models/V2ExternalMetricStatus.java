@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ExternalMetricStatus indicates the current value of a global metric not associated with any Kubernetes object.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V2ExternalMetricStatus {

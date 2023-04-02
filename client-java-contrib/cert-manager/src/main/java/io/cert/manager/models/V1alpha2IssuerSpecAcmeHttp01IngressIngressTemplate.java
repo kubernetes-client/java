@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Optional ingress template used to configure the ACME challenge solver ingress used for HTTP01 challenges")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecAcmeHttp01IngressIngressTemplate {
@@ -45,7 +45,7 @@ public class V1alpha2IssuerSpecAcmeHttp01IngressIngressTemplate {
    *
    * @return metadata
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerSpecAcmeHttp01IngressIngressTemplateMetadata getMetadata() {
     return metadata;

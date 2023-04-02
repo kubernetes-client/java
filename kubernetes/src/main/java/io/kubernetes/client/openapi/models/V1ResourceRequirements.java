@@ -22,7 +22,7 @@ import java.util.Objects;
 
 /** ResourceRequirements describes the compute resource requirements. */
 @ApiModel(description = "ResourceRequirements describes the compute resource requirements.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ResourceRequirements {
@@ -56,7 +56,7 @@ public class V1ResourceRequirements {
    *
    * @return limits
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/")
@@ -90,7 +90,7 @@ public class V1ResourceRequirements {
    *
    * @return requests
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/")

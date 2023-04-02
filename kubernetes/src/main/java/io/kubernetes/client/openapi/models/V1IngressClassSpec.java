@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** IngressClassSpec provides information about the class of an Ingress. */
 @ApiModel(description = "IngressClassSpec provides information about the class of an Ingress.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1IngressClassSpec {
@@ -48,7 +48,7 @@ public class V1IngressClassSpec {
    *
    * @return controller
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Controller refers to the name of the controller that should handle this class. This allows for different \"flavors\" that are controlled by the same controller. For example, you may have different Parameters for the same implementing controller. This should be specified as a domain-prefixed path no more than 250 characters in length, e.g. \"acme.io/ingress-controller\". This field is immutable.")
@@ -71,7 +71,7 @@ public class V1IngressClassSpec {
    *
    * @return parameters
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1IngressClassParametersReference getParameters() {
     return parameters;

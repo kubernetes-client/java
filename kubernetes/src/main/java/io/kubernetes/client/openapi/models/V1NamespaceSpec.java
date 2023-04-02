@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** NamespaceSpec describes the attributes on a Namespace. */
 @ApiModel(description = "NamespaceSpec describes the attributes on a Namespace.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NamespaceSpec {
@@ -50,7 +50,7 @@ public class V1NamespaceSpec {
    *
    * @return finalizers
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Finalizers is an opaque list of values that must be empty to permanently remove object from storage. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/")

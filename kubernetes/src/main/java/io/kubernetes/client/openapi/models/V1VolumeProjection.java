@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** Projection that may be projected along with other supported volume types */
 @ApiModel(description = "Projection that may be projected along with other supported volume types")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1VolumeProjection {
@@ -54,7 +54,7 @@ public class V1VolumeProjection {
    *
    * @return configMap
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ConfigMapProjection getConfigMap() {
     return configMap;
@@ -75,7 +75,7 @@ public class V1VolumeProjection {
    *
    * @return downwardAPI
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1DownwardAPIProjection getDownwardAPI() {
     return downwardAPI;
@@ -96,7 +96,7 @@ public class V1VolumeProjection {
    *
    * @return secret
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1SecretProjection getSecret() {
     return secret;
@@ -118,7 +118,7 @@ public class V1VolumeProjection {
    *
    * @return serviceAccountToken
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceAccountTokenProjection getServiceAccountToken() {
     return serviceAccountToken;

@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** VolumeAttachmentSpec is the specification of a VolumeAttachment request. */
 @ApiModel(description = "VolumeAttachmentSpec is the specification of a VolumeAttachment request.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1VolumeAttachmentSpec {

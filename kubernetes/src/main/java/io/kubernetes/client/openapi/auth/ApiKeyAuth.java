@@ -16,7 +16,7 @@ import io.kubernetes.client.openapi.Pair;
 import java.util.List;
 import java.util.Map;
 
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class ApiKeyAuth implements Authentication {

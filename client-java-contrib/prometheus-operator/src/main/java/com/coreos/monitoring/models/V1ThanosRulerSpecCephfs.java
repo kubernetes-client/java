@@ -22,7 +22,7 @@ import java.util.Objects;
 /** CephFS represents a Ceph FS mount on the host that shares a pod&#39;s lifetime */
 @ApiModel(
     description = "CephFS represents a Ceph FS mount on the host that shares a pod's lifetime")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecCephfs {
@@ -96,7 +96,7 @@ public class V1ThanosRulerSpecCephfs {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Optional: Used as the mounted root, rather than the full Ceph tree, default is /")
   public String getPath() {
@@ -119,7 +119,7 @@ public class V1ThanosRulerSpecCephfs {
    *
    * @return readOnly
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
@@ -143,7 +143,7 @@ public class V1ThanosRulerSpecCephfs {
    *
    * @return secretFile
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
@@ -166,7 +166,7 @@ public class V1ThanosRulerSpecCephfs {
    *
    * @return secretRef
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ThanosRulerSpecCephfsSecretRef getSecretRef() {
     return secretRef;
@@ -188,7 +188,7 @@ public class V1ThanosRulerSpecCephfs {
    *
    * @return user
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")

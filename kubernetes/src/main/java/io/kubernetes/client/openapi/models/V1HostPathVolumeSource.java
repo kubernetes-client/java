@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1HostPathVolumeSource {
@@ -74,7 +74,7 @@ public class V1HostPathVolumeSource {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "type for HostPath Volume Defaults to \"\" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")

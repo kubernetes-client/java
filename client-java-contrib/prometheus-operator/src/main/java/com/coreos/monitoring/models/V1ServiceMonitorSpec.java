@@ -22,7 +22,7 @@ import java.util.Objects;
 /** Specification of desired Service selection for target discovery by Prometheus. */
 @ApiModel(
     description = "Specification of desired Service selection for target discovery by Prometheus.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ServiceMonitorSpec {
@@ -100,7 +100,7 @@ public class V1ServiceMonitorSpec {
    *
    * @return jobLabel
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The label to use to retrieve the job name from.")
   public String getJobLabel() {
     return jobLabel;
@@ -122,7 +122,7 @@ public class V1ServiceMonitorSpec {
    *
    * @return namespaceSelector
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ServiceMonitorSpecNamespaceSelector getNamespaceSelector() {
     return namespaceSelector;
@@ -151,7 +151,7 @@ public class V1ServiceMonitorSpec {
    *
    * @return podTargetLabels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "PodTargetLabels transfers labels on the Kubernetes Pod onto the target.")
   public List<String> getPodTargetLabels() {
@@ -173,7 +173,7 @@ public class V1ServiceMonitorSpec {
    *
    * @return sampleLimit
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "SampleLimit defines per-scrape limit on number of scraped samples that will be accepted.")
@@ -224,7 +224,7 @@ public class V1ServiceMonitorSpec {
    *
    * @return targetLabels
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "TargetLabels transfers labels on the Kubernetes Service onto the target.")
   public List<String> getTargetLabels() {

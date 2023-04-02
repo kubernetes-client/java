@@ -24,7 +24,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported TODO: implement a realistic TCP lifecycle hook")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-31T19:41:55.826Z[Etc/UTC]")
 public class V1ThanosRulerSpecLifecyclePostStartTcpSocket {
@@ -49,7 +49,7 @@ public class V1ThanosRulerSpecLifecyclePostStartTcpSocket {
    *
    * @return host
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Optional: Host name to connect to, defaults to the pod IP.")
   public String getHost() {
     return host;

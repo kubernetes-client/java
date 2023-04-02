@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 /** V1alpha3ChallengeStatus */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha3ChallengeStatus {
@@ -119,7 +119,7 @@ public class V1alpha3ChallengeStatus {
    *
    * @return presented
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Presented will be set to true if the challenge values for this challenge are currently 'presented'. This *does not* imply the self check is passing. Only that the values have been 'submitted' for the appropriate challenge mechanism (i.e. the DNS01 TXT record has been presented, or the HTTP01 configuration has been configured).")
@@ -145,7 +145,7 @@ public class V1alpha3ChallengeStatus {
    *
    * @return processing
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Processing is used to denote whether this challenge should be processed or not. This field will only be set to true by the 'scheduling' component. It will only be set to false by the 'challenges' controller, after the challenge has reached a final state or timed out. If this field is set to false, the challenge controller will not take any more action.")
@@ -168,7 +168,7 @@ public class V1alpha3ChallengeStatus {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Reason contains human readable information on why the Challenge is in the current state.")
@@ -192,7 +192,7 @@ public class V1alpha3ChallengeStatus {
    *
    * @return state
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "State contains the current 'state' of the challenge. If not set, the state of the challenge is unknown.")

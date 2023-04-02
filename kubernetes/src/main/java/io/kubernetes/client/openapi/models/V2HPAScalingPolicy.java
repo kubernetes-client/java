@@ -21,7 +21,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "HPAScalingPolicy is a single policy which must hold true for a specified past interval.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V2HPAScalingPolicy {

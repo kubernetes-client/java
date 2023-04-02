@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** TokenReviewStatus is the result of the token authentication request. */
 @ApiModel(description = "TokenReviewStatus is the result of the token authentication request.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1TokenReviewStatus {
@@ -70,7 +70,7 @@ public class V1TokenReviewStatus {
    *
    * @return audiences
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Audiences are audience identifiers chosen by the authenticator that are compatible with both the TokenReview and token. An identifier is any identifier in the intersection of the TokenReviewSpec audiences and the token's audiences. A client of the TokenReview API that sets the spec.audiences field should validate that a compatible audience identifier is returned in the status.audiences field to ensure that the TokenReview server is audience aware. If a TokenReview returns an empty status.audience field where status.authenticated is \"true\", the token is valid against the audience of the Kubernetes API server.")
@@ -93,7 +93,7 @@ public class V1TokenReviewStatus {
    *
    * @return authenticated
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Authenticated indicates that the token was associated with a known user.")
   public Boolean getAuthenticated() {
@@ -115,7 +115,7 @@ public class V1TokenReviewStatus {
    *
    * @return error
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Error indicates that the token couldn't be checked")
   public String getError() {
     return error;
@@ -136,7 +136,7 @@ public class V1TokenReviewStatus {
    *
    * @return user
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1UserInfo getUser() {
     return user;

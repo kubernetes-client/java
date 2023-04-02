@@ -23,7 +23,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import okhttp3.Call;
 import okhttp3.Request;
 import okhttp3.Response;

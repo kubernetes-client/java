@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** ServiceReference holds a reference to Service.legacy.k8s.io */
 @ApiModel(description = "ServiceReference holds a reference to Service.legacy.k8s.io")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class AdmissionregistrationV1ServiceReference {
@@ -96,7 +96,7 @@ public class AdmissionregistrationV1ServiceReference {
    *
    * @return path
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "`path` is an optional URL path which will be sent in any request to this service.")
   public String getPath() {
@@ -119,7 +119,7 @@ public class AdmissionregistrationV1ServiceReference {
    *
    * @return port
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "If specified, the port on the service that hosting webhook. Default to 443 for backward compatibility. `port` should be a valid port number (1-65535, inclusive).")

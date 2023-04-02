@@ -20,7 +20,7 @@ import java.util.Objects;
 
 /** FlowSchemaCondition describes conditions for a FlowSchema. */
 @ApiModel(description = "FlowSchemaCondition describes conditions for a FlowSchema.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1beta1FlowSchemaCondition {
@@ -61,7 +61,7 @@ public class V1beta1FlowSchemaCondition {
    *
    * @return lastTransitionTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "`lastTransitionTime` is the last time the condition transitioned from one status to another.")
@@ -84,7 +84,7 @@ public class V1beta1FlowSchemaCondition {
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "`message` is a human-readable message indicating details about last transition.")
   public String getMessage() {
@@ -107,7 +107,7 @@ public class V1beta1FlowSchemaCondition {
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "`reason` is a unique, one-word, CamelCase reason for the condition's last transition.")
@@ -130,7 +130,7 @@ public class V1beta1FlowSchemaCondition {
    *
    * @return status
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "`status` is the status of the condition. Can be True, False, Unknown. Required.")
   public String getStatus() {
@@ -152,7 +152,7 @@ public class V1beta1FlowSchemaCondition {
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "`type` is the type of the condition. Required.")
   public String getType() {
     return type;

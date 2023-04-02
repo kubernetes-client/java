@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** ReplicaSetStatus represents the current status of a ReplicaSet. */
 @ApiModel(description = "ReplicaSetStatus represents the current status of a ReplicaSet.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ReplicaSetStatus {
@@ -66,7 +66,7 @@ public class V1ReplicaSetStatus {
    *
    * @return availableReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The number of available replicas (ready for at least minReadySeconds) for this replica set.")
@@ -97,7 +97,7 @@ public class V1ReplicaSetStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Represents the latest available observations of a replica set's current state.")
   public List<V1ReplicaSetCondition> getConditions() {
@@ -119,7 +119,7 @@ public class V1ReplicaSetStatus {
    *
    * @return fullyLabeledReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The number of pods that have labels matching the labels of the pod template of the replicaset.")
@@ -142,7 +142,7 @@ public class V1ReplicaSetStatus {
    *
    * @return observedGeneration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ObservedGeneration reflects the generation of the most recently observed ReplicaSet.")
@@ -165,7 +165,7 @@ public class V1ReplicaSetStatus {
    *
    * @return readyReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "readyReplicas is the number of pods targeted by this ReplicaSet with a Ready Condition.")

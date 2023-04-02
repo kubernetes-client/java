@@ -21,7 +21,7 @@ import java.util.Objects;
 
 /** Status of the Issuer. This is set and managed automatically. */
 @ApiModel(description = "Status of the Issuer. This is set and managed automatically.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerStatus {
@@ -46,7 +46,7 @@ public class V1alpha2IssuerStatus {
    *
    * @return acme
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2IssuerStatusAcme getAcme() {
     return acme;
@@ -76,7 +76,7 @@ public class V1alpha2IssuerStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "List of status conditions to indicate the status of a CertificateRequest. Known condition types are `Ready`.")

@@ -28,7 +28,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "Event is a report of an event somewhere in the cluster.  Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject {
@@ -128,7 +128,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return action
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "What action was taken/failed regarding to the Regarding object.")
   public String getAction() {
     return action;
@@ -152,7 +152,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return apiVersion
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
@@ -175,7 +175,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return count
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The number of times this event has occurred.")
   public Integer getCount() {
     return count;
@@ -196,7 +196,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return eventTime
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "Time when this Event was first observed.")
   public OffsetDateTime getEventTime() {
     return eventTime;
@@ -217,7 +217,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return firstTimestamp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The time at which the event was first recorded. (Time of server receipt is in TypeMeta.)")
@@ -263,7 +263,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return kind
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
@@ -286,7 +286,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return lastTimestamp
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "The time at which the most recent occurrence of this event was recorded.")
   public OffsetDateTime getLastTimestamp() {
@@ -308,7 +308,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return message
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "A human-readable description of the status of this operation.")
   public String getMessage() {
     return message;
@@ -350,7 +350,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return reason
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "This should be a short, machine understandable string that gives the reason for the transition into the object's current status.")
@@ -373,7 +373,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return related
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1ObjectReference getRelated() {
     return related;
@@ -394,7 +394,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return reportingComponent
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`.")
   public String getReportingComponent() {
@@ -416,7 +416,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return reportingInstance
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "ID of the controller instance, e.g. `kubelet-xyzf`.")
   public String getReportingInstance() {
     return reportingInstance;
@@ -437,7 +437,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return series
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public CoreV1EventSeries getSeries() {
     return series;
@@ -458,7 +458,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return source
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1EventSource getSource() {
     return source;
@@ -479,7 +479,7 @@ public class CoreV1Event implements io.kubernetes.client.common.KubernetesObject
    *
    * @return type
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "Type of this event (Normal, Warning), new types could be added in the future")
   public String getType() {

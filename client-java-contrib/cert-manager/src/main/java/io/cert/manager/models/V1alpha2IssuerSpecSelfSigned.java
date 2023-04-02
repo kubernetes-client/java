@@ -26,7 +26,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "SelfSigned configures this issuer to 'self sign' certificates using the private key used to create the CertificateRequest object.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha2IssuerSpecSelfSigned {
@@ -57,7 +57,7 @@ public class V1alpha2IssuerSpecSelfSigned {
    *
    * @return crlDistributionPoints
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The CRL distribution points is an X.509 v3 certificate extension which identifies the location of the CRL from which the revocation of this certificate can be checked. If not set certificate will be issued without CDP. Values are strings.")

@@ -26,7 +26,7 @@ import java.util.Objects;
 
 /** Desired state of the Certificate resource. */
 @ApiModel(description = "Desired state of the Certificate resource.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2020-08-18T19:55:23.947Z[Etc/UTC]")
 public class V1alpha3CertificateSpec {
@@ -332,7 +332,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return commonName
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "CommonName is a common name to be used on the Certificate. The CommonName should have a length of 64 characters or fewer to avoid generating invalid CSRs. This value is ignored by TLS clients when any subject alt name is set. This is x509 behaviour: https://tools.ietf.org/html/rfc6125#section-6.4.4")
@@ -363,7 +363,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return dnsNames
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "DNSNames is a list of DNS subjectAltNames to be set on the Certificate.")
   public List<String> getDnsNames() {
@@ -388,7 +388,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return duration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The requested 'duration' (i.e. lifetime) of the Certificate. This option may be ignored/overridden by some issuer types. If overridden and `renewBefore` is greater than the actual certificate duration, the certificate will be automatically renewed 2/3rds of the way through the certificate's duration.")
@@ -419,7 +419,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return emailSANs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "EmailSANs is a list of email subjectAltNames to be set on the Certificate.")
   public List<String> getEmailSANs() {
@@ -449,7 +449,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return ipAddresses
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "IPAddresses is a list of IP address subjectAltNames to be set on the Certificate.")
   public List<String> getIpAddresses() {
@@ -472,7 +472,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return isCA
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "IsCA will mark this Certificate as valid for certificate signing. This will automatically add the `cert sign` usage to the list of `usages`.")
@@ -519,7 +519,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return keyAlgorithm
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "KeyAlgorithm is the private key algorithm of the corresponding private key for this certificate. If provided, allowed values are either \"rsa\" or \"ecdsa\" If `keyAlgorithm` is specified and `keySize` is not provided, key size of 256 will be used for \"ecdsa\" key algorithm and key size of 2048 will be used for \"rsa\" key algorithm.")
@@ -545,7 +545,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return keyEncoding
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "KeyEncoding is the private key cryptography standards (PKCS) for this certificate's private key to be encoded in. If provided, allowed values are \"pkcs1\" and \"pkcs8\" standing for PKCS#1 and PKCS#8, respectively. If KeyEncoding is not specified, then PKCS#1 will be used by default.")
@@ -573,7 +573,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return keySize
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "KeySize is the key bit size of the corresponding private key for this certificate. If `keyAlgorithm` is set to `RSA`, valid values are `2048`, `4096` or `8192`, and will default to `2048` if not specified. If `keyAlgorithm` is set to `ECDSA`, valid values are `256`, `384` or `521`, and will default to `256` if not specified. No other values are allowed.")
@@ -596,7 +596,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return keystores
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1CertificateSpecKeystores getKeystores() {
     return keystores;
@@ -617,7 +617,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return privateKey
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1alpha2CertificateSpecPrivateKey getPrivateKey() {
     return privateKey;
@@ -641,7 +641,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return renewBefore
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The amount of time before the currently issued certificate's `notAfter` time that cert-manager will begin to attempt to renew the certificate. If this value is greater than the total duration of the certificate (i.e. notAfter - notBefore), it will be automatically renewed 2/3rds of the way through the certificate's duration.")
@@ -689,7 +689,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return subject
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "")
   public V1beta1CertificateSpecSubject getSubject() {
     return subject;
@@ -718,7 +718,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return uriSANs
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value = "URISANs is a list of URI subjectAltNames to be set on the Certificate.")
   public List<String> getUriSANs() {
@@ -749,7 +749,7 @@ public class V1alpha3CertificateSpec {
    *
    * @return usages
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Usages is the set of x509 usages that are requested for the certificate. Defaults to `digital signature` and `key encipherment` if not specified.")

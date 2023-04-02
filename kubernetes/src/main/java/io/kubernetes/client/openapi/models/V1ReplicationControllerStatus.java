@@ -23,7 +23,7 @@ import java.util.Objects;
 @ApiModel(
     description =
         "ReplicationControllerStatus represents the current status of a replication controller.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1ReplicationControllerStatus {
@@ -69,7 +69,7 @@ public class V1ReplicationControllerStatus {
    *
    * @return availableReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The number of available replicas (ready for at least minReadySeconds) for this replication controller.")
@@ -102,7 +102,7 @@ public class V1ReplicationControllerStatus {
    *
    * @return conditions
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "Represents the latest available observations of a replication controller's current state.")
@@ -126,7 +126,7 @@ public class V1ReplicationControllerStatus {
    *
    * @return fullyLabeledReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "The number of pods that have labels matching the labels of the pod template of the replication controller.")
@@ -150,7 +150,7 @@ public class V1ReplicationControllerStatus {
    *
    * @return observedGeneration
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(
       value =
           "ObservedGeneration reflects the generation of the most recently observed replication controller.")
@@ -173,7 +173,7 @@ public class V1ReplicationControllerStatus {
    *
    * @return readyReplicas
    */
-  @javax.annotation.Nullable
+  @jakarta.annotation.Nullable
   @ApiModelProperty(value = "The number of ready replicas for this replication controller.")
   public Integer getReadyReplicas() {
     return readyReplicas;

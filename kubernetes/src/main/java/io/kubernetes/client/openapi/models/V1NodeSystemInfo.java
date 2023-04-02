@@ -19,7 +19,7 @@ import java.util.Objects;
 
 /** NodeSystemInfo is a set of ids/uuids to uniquely identify the node. */
 @ApiModel(description = "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.")
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
     value = "org.openapitools.codegen.languages.JavaClientCodegen",
     date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
 public class V1NodeSystemInfo {
