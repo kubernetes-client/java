@@ -1,0 +1,598 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>client-java-parent</artifactId>
+  <groupId>io.kubernetes</groupId>
+  <version>18.0.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Kubernetes Client API</name>
+  <url>https://github.com/kubernetes-client/java</url>
+  <description>Kubernetes Client Library</description>
+
+  <modules>
+    <module>util</module>
+    <module>kubernetes</module>
+    <module>proto</module>
+    <module>extended</module>
+    <module>fluent</module>
+    <module>spring</module>
+    <module>spring-aot</module>
+    <module>e2e</module>
+    <module>examples</module>
+    <module>client-java-contrib/cert-manager</module>
+    <module>client-java-contrib/prometheus-operator</module>
+    <module>client-java-contrib/admissionreview</module>
+  </modules>
+
+  <scm>
+    <connection>scm:git:git@github.com:kubernetes-client/java.git</connection>
+    <developerConnection>scm:git:git@github.com:kubernetes-client/java.git</developerConnection>
+    <url>https://github.com/kubernetes-client/java</url>
+    <tag>HEAD</tag>
+  </scm>
+
+  <prerequisites>
+    <maven>2.2.0</maven>
+  </prerequisites>
+
+  <properties>
+    <java.version>1.8</java.version>
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+    <maven-plugin-version>1.0.0</maven-plugin-version>
+    <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <javax.annotation.version>1.3.2</javax.annotation.version>
+    <snakeyaml.version>2.0</snakeyaml.version>
+    <slf4j.version>2.0.7</slf4j.version>
+    <caffeine.version>2.9.3</caffeine.version>
+    <protobuf.version>3.22.2</protobuf.version>
+    <junit.version>4.13</junit.version>
+    <bucket4j.version>7.6.0</bucket4j.version>
+    <bouncycastle.version>1.72</bouncycastle.version>
+    <gson.version>2.10.1</gson.version>
+    <jsr305.version>3.0.2</jsr305.version>
+    <okhttp3.version>4.10.0</okhttp3.version>
+    <swagger-core.version>1.6.10</swagger-core.version>
+    <sundrio.version>0.94.0</sundrio.version>
+    <gsonfire.version>1.8.5</gsonfire.version>
+    <apache.commons.lang3.version>3.12.0</apache.commons.lang3.version>
+    <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
+    <apache.commons.compress>1.23.0</apache.commons.compress>
+    <apache.commons.io>2.11.0</apache.commons.io>
+    <common.codec.version>1.15</common.codec.version>
+    <spring.boot.version>2.7.5</spring.boot.version>
+    <spring.version>5.3.23</spring.version>
+    <prometheus.client.version>0.15.0</prometheus.client.version>
+    <reflections.version>0.10.2</reflections.version>
+
+    <e2e.skip>true</e2e.skip>
+
+    <gpg.keyname>48540ECBBF00A28EACCF04E720FD12AFB0C9EBA9</gpg.keyname>
+    <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
+  </properties>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>The Kubernetes Authors</name>
+      <email>kubernetes-dev@googlegroups.com</email>
+      <organization>Kubernetes</organization>
+      <organizationUrl>https://kubernetes.io</organizationUrl>
+    </developer>
+  </developers>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-lang3</artifactId>
+        <version>${apache.commons.lang3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-collections4</artifactId>
+        <version>${apache.commons.collections4.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.yaml</groupId>
+        <artifactId>snakeyaml</artifactId>
+        <version>${snakeyaml.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>${common.codec.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-compress</artifactId>
+        <version>${apache.commons.compress}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>${apache.commons.io}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.ben-manes.caffeine</groupId>
+        <artifactId>caffeine</artifactId>
+        <version>${caffeine.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.bouncycastle</groupId>
+        <artifactId>bcpkix-jdk18on</artifactId>
+        <version>${bouncycastle.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>adal4j</artifactId>
+        <version>1.6.7</version>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>com.google.protobuf</groupId>
+        <artifactId>protobuf-java</artifactId>
+        <version>${protobuf.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.bitbucket.b_c</groupId>
+        <artifactId>jose4j</artifactId>
+        <version>0.9.3</version>
+      </dependency>
+      <dependency>
+        <groupId>com.github.vladimir-bukhtoyarov</groupId>
+        <artifactId>bucket4j-core</artifactId>
+        <version>${bucket4j.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-cli</groupId>
+        <artifactId>commons-cli</artifactId>
+        <version>1.5.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot</artifactId>
+        <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-autoconfigure</artifactId>
+        <version>${spring.boot.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-actuator</artifactId>
+        <version>${spring.boot.version}</version>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>io.prometheus</groupId>
+        <artifactId>simpleclient</artifactId>
+        <version>${prometheus.client.version}</version>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>io.prometheus</groupId>
+        <artifactId>simpleclient_httpserver</artifactId>
+        <version>${prometheus.client.version}</version>
+        <optional>true</optional>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>${gson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.gsonfire</groupId>
+        <artifactId>gson-fire</artifactId>
+        <version>${gsonfire.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>okhttp</artifactId>
+        <version>${okhttp3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.squareup.okhttp3</groupId>
+        <artifactId>logging-interceptor</artifactId>
+        <version>${okhttp3.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>io.swagger</groupId>
+        <artifactId>swagger-annotations</artifactId>
+        <version>${swagger-core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>javax.annotation</groupId>
+        <artifactId>javax.annotation-api</artifactId>
+        <version>${javax.annotation.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.code.findbugs</groupId>
+        <artifactId>jsr305</artifactId>
+        <version>${jsr305.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.auth</groupId>
+        <artifactId>google-auth-library-oauth2-http</artifactId>
+        <version>1.16.0</version>
+        <optional>true</optional>
+      </dependency>
+
+
+      <!-- tests -->
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.3.6</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.13.2</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>4.11.0</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.github.stefanbirkner</groupId>
+        <artifactId>system-lambda</artifactId>
+        <version>1.2.1</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>uk.org.webcompere</groupId>
+        <artifactId>system-stubs-core</artifactId>
+        <version>2.0.2</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.github.tomakehurst</groupId>
+        <artifactId>wiremock</artifactId>
+        <version>2.27.2</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-test</artifactId>
+        <version>${spring.boot.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-test</artifactId>
+        <version>${spring.version}</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.flipkart.zjsonpatch</groupId>
+        <artifactId>zjsonpatch</artifactId>
+        <version>0.4.14</version>
+      </dependency>
+      <dependency>
+        <groupId>org.hamcrest</groupId>
+        <artifactId>hamcrest-junit</artifactId>
+        <version>2.0.0.0</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.awaitility</groupId>
+        <artifactId>awaitility</artifactId>
+        <version>4.2.0</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>3.24.2</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-annotations</artifactId>
+        <version>2.14.2</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <layout>default</layout>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      <layout>default</layout>
+    </repository>
+  </distributionManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <version>5.1.8</version>
+          <extensions>true</extensions>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>3.5.0</version>
+          <configuration>
+            <doclint>none</doclint>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>3.2.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.11.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>1.6.13</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>3.3.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.3.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.0.0</version>
+          <configuration>
+            <trimStackTrace>false</trimStackTrace> <!-- SUREFIRE-1226 workaround -->
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>3.1.1</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.gmavenplus</groupId>
+          <artifactId>gmavenplus-plugin</artifactId>
+          <version>2.1.0</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+    <!-- Sources jar -->
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.2.1</version>
+        <executions>
+            <execution>
+                <id>attach-sources</id>
+                <goals>
+                    <goal>jar-no-fork</goal>
+                </goals>
+            </execution>
+        </executions>
+    </plugin>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.5.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <configuration>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+          <releaseProfiles>release-sign-artifacts</releaseProfiles>
+          <goals>deploy</goals>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.sonatype.plugins</groupId>
+        <artifactId>nexus-staging-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <serverId>ossrh</serverId>
+          <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+          <autoReleaseAfterClose>true</autoReleaseAfterClose>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>2.35.0</version>
+        <configuration>
+          <formats>
+            <!-- common settings -->
+            <format>
+              <includes>
+                <include>src/**/*.java</include>
+              </includes>
+              <trimTrailingWhitespace />
+              <endWithNewline />
+            </format>
+            <!-- removes wildcard imports -->
+            <format>
+              <includes>
+                <include>src/**/*.java</include>
+              </includes>
+              <replaceRegex>
+                <name>Remove wildcard imports</name>
+                <searchRegex>import (static )?\s+\S+\.\*;$</searchRegex>
+                <replacement>INVALID IMPORTS (WILDCARD)</replacement>
+              </replaceRegex>
+            </format>
+            <!-- removes guava imports -->
+            <format>
+              <includes>
+                <include>src/**/*.java</include>
+              </includes>
+              <replaceRegex>
+                <name>Forbids guava imports</name>
+                <searchRegex>^import (static )?com\.google\.common\..*;$</searchRegex>
+                <replacement>INVALID IMPORTS (GUAVA)</replacement>
+              </replaceRegex>
+            </format>
+            <!-- prevents empty SnakeYaml constructor -->
+            <format>
+              <includes>
+                <include>src/**/*.java</include>
+              </includes>
+              <replaceRegex>
+                <name>Forbids new Yaml()</name>
+                <searchRegex>^.*new Yaml\(\).*$</searchRegex>
+                <replacement>INVALID CONSTRUCTOR (SNAKEYAML)</replacement>
+              </replaceRegex>
+            </format>
+          </formats>
+          <java>
+            <removeUnusedImports /> <!-- self-explanatory -->
+            <googleJavaFormat>
+              <version>1.7</version>
+            </googleJavaFormat>
+          </java>
+          <groovy>
+            <!-- These are the defaults, you can override if you want -->
+            <includes>
+              <include>src/main/groovy/**/*.groovy</include>
+              <include>src/test/groovy/**/*.groovy</include>
+            </includes>
+
+            <importOrder>  <!-- or a custom ordering -->
+              <order>java,javax,org,com,com.diffplug,
+              </order>  <!-- or use <file>${basedir}/eclipse.importorder</file> -->
+            </importOrder>
+            <greclipse />          <!-- has its own section below -->
+            <licenseHeader>
+              <content>
+/*
+Copyright $YEAR The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+              </content>
+            </licenseHeader>
+          </groovy>
+          <licenseHeader>
+            <content>
+/*
+Copyright $YEAR The Kubernetes Authors.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+            </content>
+            <delimiter>package </delimiter>
+          </licenseHeader>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <profiles>
+    <profile>
+      <id>release-sign-artifacts</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>3.0.1</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+	        </goals>
+		<configuration>
+                  <!-- This is necessary for gpg to not try to use the pinentry programs -->
+                  <gpgArguments>
+                    <arg>--pinentry-mode</arg>
+                    <arg>loopback</arg>
+                  </gpgArguments>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.8</version>
+            <executions>
+              <execution>
+                <id>jacoco-initialize</id>
+                <goals>
+                  <goal>prepare-agent</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>jacoco-report</id>
+                <phase>test</phase>
+                <goals>
+                  <goal>report</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+    <profile>
+      <id>fluent-gen</id>
+      <modules>
+        <module>fluent-gen</module>
+      </modules>
+    </profile>
+  </profiles>
+</project>

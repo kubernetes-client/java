@@ -1,0 +1,94 @@
+name: Maven Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      releaseVersion:
+        type: string
+        required: true
+        description: The POM release version of this release. Must be a semantic version of the form X.Y.Z.
+      nextDevelopmentVersion:
+        type: string
+        required: true
+        description: The next POM development version after the release is done. Must be of the form X.Y.${Z+1}-SNAPSHOT
+      dry-run:
+        type: boolean
+        required: true
+        description: Dry run, will not push branches or upload the artifacts.
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate Input
+        run: |
+          echo "${{ github.ref_type }}" | perl -ne 'die unless m/^branch$/'
+          echo "${{ github.ref_name }}" | perl -ne 'die unless m/^release-\d+$/'
+          echo "${{ github.event.inputs.releaseVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+$/'
+          echo "${{ github.event.inputs.nextDevelopmentVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+-SNAPSHOT$/'
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Check Actor
+        run: |
+          # Release actor should be in the OWNER list
+          cat OWNERS | grep ${{ github.actor }}
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: 17.0.x
+          server-id: ossrh
+          server-username: OSSRH_USERNAME
+          server-password: OSSRH_TOKEN
+          gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+          gpg-passphrase: GPG_PASSPHRASE
+      - name: Prepare
+        run: |
+          export GPG_TTY=$(tty)
+          (echo 5; echo y; echo save) | gpg --command-fd 0 --no-tty --pinentry-mode loopback --passphrase ${{ secrets.GPG_PASSWORD }} --no-greeting --edit-key 'Kubernetes Client Publishers' trust
+          (echo 0; echo y; echo save) | gpg --command-fd 0 --no-tty --pinentry-mode loopback --passphrase ${{ secrets.GPG_PASSWORD }} --no-greeting --edit-key 'Kubernetes Client Publishers' expire
+          git config user.email "k8s.ci.robot@gmail.com"
+          git config user.name "Kubernetes Prow Robot"
+      - name: Check Current Version
+        run: |
+          mvn -q \
+            -Dexec.executable=echo \
+            -Dexec.args='${project.version}' \
+            --non-recursive \
+            exec:exec | perl -ne 'die unless m/${{ github.event.inputs.releaseVersion }}-SNAPSHOT/'
+      - name: Release Prepare
+        run: |
+          git checkout -b 'automated-release-${{ github.event.inputs.releaseVersion }}'
+          mvn --batch-mode \
+            release:prepare \
+            -Dtag=v${{ github.event.inputs.releaseVersion }} \
+            -DconnectionUrl=https://${{ github.token }}@github.com/${{ github.repository }}.git \
+            -DreleaseVersion=${{ github.event.inputs.releaseVersion }} \
+            -DdevelopmentVersion=${{ github.event.inputs.nextDevelopmentVersion }} \
+            -DpushChanges=false
+      - name: Release Perform
+        if: ${{ github.event.inputs.dry-run != 'true' }}
+        env:
+          OSSRH_USERNAME: ${{ secrets.SNAPSHOT_UPLOAD_USER }}
+          OSSRH_TOKEN: ${{ secrets.SNAPSHOT_UPLOAD_PASSWORD }}
+          GPG_PASSPHRASE: ${{ secrets.GPG_PASSWORD }}
+        run: |
+          # The tests are already executed in the prepare, skipping
+          mvn -DlocalCheckout=true -Darguments=-DskipTests release:perform
+          git push https://${{ github.token }}@github.com/${{ github.repository }}.git \
+            automated-release-${{ github.event.inputs.releaseVersion }}:automated-release-${{ github.event.inputs.releaseVersion }}
+          git push https://${{ github.token }}@github.com/${{ github.repository }}.git v${{ github.event.inputs.releaseVersion }}
+      - name: Pull Request
+        if: ${{ github.event.inputs.dry-run != 'true' }}
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: automated-release-${{ github.event.inputs.releaseVersion }}
+          destination_branch: ${{ github.ref_name }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: "Automated Release: ${{ github.event.inputs.releaseVersion }}"
+      - name: Publish Release
+        if: ${{ github.event.inputs.dry-run != 'true' }}
+        uses: ncipollo/release-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: v${{ github.event.inputs.releaseVersion }}

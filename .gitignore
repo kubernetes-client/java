@@ -1,0 +1,35 @@
+*.class
+
+# VS Code IDE Files
+.classpath
+.settings/
+.project
+.vscode/
+.attach_pid*
+
+# Maven builds
+*/target/
+target/
+**/.factorypath
+gen/**
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see https://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Intellij IDEA files
+.idea
+*.iml
+
+.DS_Store
+
+# generated stuff
+kubernetes/bin
+kubernetes/swagger.json.unprocessed

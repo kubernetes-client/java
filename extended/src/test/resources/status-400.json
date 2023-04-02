@@ -1,0 +1,9 @@
+{
+  "kind": "Status",
+  "apiVersion": "v1",
+  "metadata": {},
+  "status": "Failure",
+  "message": "field label not supported: metadata.nam",
+  "reason": "BadRequest",
+  "code": 400
+}
