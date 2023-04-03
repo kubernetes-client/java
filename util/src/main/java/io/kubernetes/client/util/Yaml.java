@@ -33,6 +33,7 @@ import okio.ByteString;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
+import org.yaml.snakeyaml.LoaderOptions;
 import org.yaml.snakeyaml.constructor.Constructor;
 import org.yaml.snakeyaml.constructor.SafeConstructor;
 import org.yaml.snakeyaml.introspector.Property;
@@ -218,8 +219,8 @@ public class Yaml {
 
   /** Defines constructor logic for custom types in this library. */
   public static class CustomConstructor extends Constructor {
-    public CustomConstructor(Class<?> type) {
-      super(type);
+    public CustomConstructor(Class<?> type, LoaderOptions loaderConfig) {
+      super(type, loaderConfig);
     }
 
     @Override
@@ -259,6 +260,7 @@ public class Yaml {
 
   public static class CustomRepresenter extends Representer {
     public CustomRepresenter() {
+      super(new DumperOptions());
       this.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
       this.representers.put(IntOrString.class, new RepresentIntOrString());
       this.representers.put(byte[].class, new RepresentByteArray());
@@ -365,11 +367,19 @@ public class Yaml {
     return getSnakeYaml(null);
   }
 
-  private static org.yaml.snakeyaml.Yaml getSnakeYaml(Class<?> type) {
-    if (type != null) {
-      return new org.yaml.snakeyaml.Yaml(new CustomConstructor(type), new CustomRepresenter());
+  public static org.yaml.snakeyaml.Yaml getSnakeYaml(Class<?> type) {
+    return getSnakeYaml(type, null);
+  }
+
+  private static org.yaml.snakeyaml.Yaml getSnakeYaml(Class<?> type, LoaderOptions loaderConfig) {
+    if (loaderConfig == null) {
+      loaderConfig = new LoaderOptions();
     }
-    return new org.yaml.snakeyaml.Yaml(new SafeConstructor(), new CustomRepresenter());
+    if (type != null) {
+      return new org.yaml.snakeyaml.Yaml(
+          new CustomConstructor(type, loaderConfig), new CustomRepresenter());
+    }
+    return new org.yaml.snakeyaml.Yaml(new SafeConstructor(loaderConfig), new CustomRepresenter());
   }
 
   /**
