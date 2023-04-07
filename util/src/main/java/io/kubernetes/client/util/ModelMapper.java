@@ -19,6 +19,7 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.ApiException;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
@@ -34,6 +35,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.jar.JarInputStream;
+
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
@@ -460,49 +463,55 @@ public class ModelMapper {
       return vkMap.get(v);
     }
   }
-
-  private static List<String> getClassNamesFromPackage(ClassLoader classLoader, String pkg)
-      throws IOException {
-
-    URL packageURL;
-    ArrayList<String> names = new ArrayList<String>();
-
+  private static List<String> getClassNamesFromPackage(ClassLoader classLoader, String pkg) throws IOException {
+    ArrayList<String> names = new ArrayList<>();
     String packageName = pkg.replace(".", "/");
-    packageURL = classLoader.getResource(packageName);
+    URL packageURL = classLoader.getResource(packageName);
 
     if (packageURL.getProtocol().equals("jar")) {
-      String jarFileName;
-      JarFile jf;
-      Enumeration<JarEntry> jarEntries;
-      String entryName;
-      jarFileName = URLDecoder.decode(packageURL.getFile(), "UTF-8");
-      jarFileName = jarFileName.substring(5, jarFileName.indexOf("!"));
-      logger.info("Loading classes from jar {}", jarFileName);
-      jf = new JarFile(jarFileName);
-      jarEntries = jf.entries();
-      while (jarEntries.hasMoreElements()) {
-        entryName = jarEntries.nextElement().getName();
-        if (entryName.startsWith(packageName) && entryName.length() > packageName.length() + 5) {
-          entryName = entryName.substring(packageName.length() + 1, entryName.lastIndexOf('.'));
-          names.add(pkg + "." + entryName);
-        }
-      }
-      jf.close();
+      processJarPackage(packageURL, packageName, pkg, names);
     } else {
-      URI uri = URI.create(packageURL.toString());
-      File folder = new File(uri.getPath());
-      File[] contenuti = folder.listFiles();
-      if (contenuti == null) {
-        logger.warn("No files to load found in {}", folder.getPath());
-        return names;
-      }
-      String entryName;
-      for (File actual : contenuti) {
-        entryName = actual.getName();
-        entryName = entryName.substring(0, entryName.lastIndexOf('.'));
-        names.add(pkg + "." + entryName);
-      }
+      processFilePackage(packageURL, pkg, names);
     }
     return names;
+  }
+
+  private static void processJarPackage(URL packageURL, String packageName, String pkg, ArrayList<String> names) throws IOException {
+    String jarFileName = URLDecoder.decode(packageURL.getFile(), "UTF-8");
+    jarFileName = jarFileName.substring(5, jarFileName.indexOf("!"));
+    logger.info("Loading classes from jar {}", jarFileName);
+    try (JarFile jf = new JarFile(jarFileName)) {
+      Enumeration<JarEntry> jarEntries = jf.entries();
+      while (jarEntries.hasMoreElements()) {
+        processJarEntry(jarEntries.nextElement(), packageName, pkg, names);
+      }
+    }
+  }
+
+  private static void processJarEntry(JarEntry jarEntry, String packageName, String pkg, ArrayList<String> names) {
+    String entryName = jarEntry.getName();
+    if (entryName.startsWith(packageName) && entryName.length() > packageName.length() + 5) {
+      entryName = entryName.substring(packageName.length() + 1, entryName.lastIndexOf('.'));
+      names.add(pkg + "." + entryName);
+    }
+  }
+
+  private static void processFilePackage(URL packageURL, String pkg, ArrayList<String> names) {
+    URI uri = URI.create(packageURL.toString());
+    File folder = new File(uri.getPath());
+    File[] contenuti = folder.listFiles();
+    if (contenuti == null) {
+      logger.warn("No files to load found in {}", folder.getPath());
+      return;
+    }
+    for (File actual : contenuti) {
+      processFileEntry(actual, pkg, names);
+    }
+  }
+
+  private static void processFileEntry(File actual, String pkg, ArrayList<String> names) {
+    String entryName = actual.getName();
+    entryName = entryName.substring(0, entryName.lastIndexOf('.'));
+    names.add(pkg + "." + entryName);
   }
 }
