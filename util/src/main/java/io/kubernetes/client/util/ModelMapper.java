@@ -25,13 +25,7 @@ import java.net.URI;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -312,12 +306,11 @@ public class ModelMapper {
     return preBuiltClassesByGVK.get(new GroupVersionKind("", version, kind));
   }
 
-  public static GroupVersionKind preBuiltGetGroupVersionKindByClass(Class<?> clazz) {
+  public static Optional<GroupVersionKind> preBuiltGetGroupVersionKindByClass(Class<?> clazz) {
     return preBuiltClassesByGVK.entrySet().stream()
-        .filter(e -> clazz.equals(e.getValue()))
-        .map(e -> e.getKey())
-        .findFirst()
-        .get();
+            .filter(e -> clazz.equals(e.getValue()))
+            .map(Map.Entry::getKey)
+            .findFirst();
   }
 
   /**
