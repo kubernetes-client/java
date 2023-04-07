@@ -30,6 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.slf4j.Logger;
@@ -428,18 +429,18 @@ public class ModelMapper {
 
   private static Pair<String, String> getApiGroup(String name) {
     return preBuiltApiGroups.entrySet().stream()
-        .filter(e -> name.startsWith(e.getKey()))
-        .map(e -> new MutablePair(e.getValue(), name.substring(e.getKey().length())))
-        .findFirst()
-        .orElse(new MutablePair(null, name));
+            .filter(e -> name.startsWith(e.getKey()))
+            .map(e -> new ImmutablePair<>(e.getValue(), name.substring(e.getKey().length())))
+            .findFirst()
+            .orElse(new ImmutablePair<>(null, name));
   }
 
   private static Pair<String, String> getApiVersion(String name) {
     return preBuiltApiVersions.stream()
-        .filter(v -> name.startsWith(v))
-        .map(v -> new MutablePair(v.toLowerCase(), name.substring(v.length())))
-        .findFirst()
-        .orElse(new MutablePair(null, name));
+            .filter(v -> name.startsWith(v))
+            .map(v -> new ImmutablePair<>(v.toLowerCase(), name.substring(v.length())))
+            .findFirst()
+            .orElse(new ImmutablePair<>(null, name));
   }
 
   static class BiDirectionalMap<K, V> {
