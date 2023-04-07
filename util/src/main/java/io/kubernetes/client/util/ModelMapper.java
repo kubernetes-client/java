@@ -19,7 +19,7 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.ApiException;
 import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
@@ -35,7 +35,6 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-import java.util.jar.JarInputStream;
 
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
@@ -88,6 +87,10 @@ public class ModelMapper {
    *
    * <p>Note that the the so-called apiGroupVersion equals to the "apiVersion" in the kubenretes
    * resource yamls.
+   *
+   * @deprecated This method is deprecated. Please use the alternative method with the correct
+   *             parameters. For example, use {@link #addModelMap(String, String, String, Class)}
+   *             instead.
    */
   @Deprecated
   public static void addModelMap(String apiGroupVersion, String kind, Class<?> clazz) {
@@ -107,6 +110,8 @@ public class ModelMapper {
    * @param version the version
    * @param kind the kind
    * @param clazz the clazz
+   * @deprecated This method is deprecated and will be removed in a future version.
+   *             Use the non-deprecated method(s) instead.
    */
   @Deprecated
   public static void addModelMap(String group, String version, String kind, Class<?> clazz) {
