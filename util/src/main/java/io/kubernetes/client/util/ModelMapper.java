@@ -340,20 +340,15 @@ public class ModelMapper {
   }
 
   public static Discovery.APIResource findApiResourceByGroupVersionKind(GroupVersionKind gvk) {
-    // TODO: Create another hash map to make this lookup fast? For now I don't think it matters, but
-    // it's definitely slow.
+    Map<String, Discovery.APIResource> apiResourcesByKey = new HashMap<>();
     for (Discovery.APIResource apiResource : lastAPIDiscovery) {
-      if (!apiResource.getGroup().equals(gvk.getGroup())
-          || !apiResource.getKind().equals(gvk.getKind())) {
-        continue;
-      }
       for (String version : apiResource.getVersions()) {
-        if (version.equals(gvk.getVersion())) {
-          return apiResource;
-        }
+        String key = apiResource.getKind() + "/" + apiResource.getGroup() + "/" + version;
+        apiResourcesByKey.put(key, apiResource);
       }
     }
-    return null;
+    String key = gvk.getKind() + "/" + gvk.getGroup() + "/" + gvk.getVersion();
+    return apiResourcesByKey.get(key);
   }
 
   private static void initApiGroupMap() {
