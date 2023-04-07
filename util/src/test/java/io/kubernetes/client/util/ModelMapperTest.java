@@ -29,17 +29,17 @@ public class ModelMapperTest {
     assertEquals(V1Pod.class, ModelMapper.getApiTypeClass("", "v1", "Pod"));
     assertEquals(V1Deployment.class, ModelMapper.getApiTypeClass("", "v1", "Deployment"));
     assertEquals(
-        V1CustomResourceDefinition.class,
-        ModelMapper.getApiTypeClass("", "v1", "CustomResourceDefinition"));
+            V1CustomResourceDefinition.class,
+            ModelMapper.getApiTypeClass("", "v1", "CustomResourceDefinition"));
   }
 
   @Test
   public void testAddingModel() {
     Class objClass =
-        new Object() {
-          {
-          }
-        }.getClass();
+            new Object() {
+              {
+              }
+            }.getClass();
 
     ModelMapper.addModelMap("example.io", "v1", "Toss", objClass);
 
@@ -58,19 +58,20 @@ public class ModelMapperTest {
     assertEquals(objClass, ModelMapper.getApiTypeClass("v1", "Togu"));
   }
 
+
   @Test
-  public void testPreBuiltGetClassByKind() {
+  public void testPreBuiltGetGroupVersionKindByClass() {
     assertEquals(
-        new GroupVersionKind("", "v1", "Pod"),
-        ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class));
+            new GroupVersionKind("", "v1", "Pod"),
+            ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class).orElse(null));
     assertEquals(
-        new GroupVersionKind("", "v1", "Pod"),
-        ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class));
+            new GroupVersionKind("", "v1", "Pod"),
+            ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class).orElse(null));
     assertEquals(
-        new GroupVersionKind("", "v1", "Deployment"),
-        ModelMapper.preBuiltGetGroupVersionKindByClass(V1Deployment.class));
+            new GroupVersionKind("", "v1", "Deployment"),
+            ModelMapper.preBuiltGetGroupVersionKindByClass(V1Deployment.class).orElse(null));
     assertEquals(
-        new GroupVersionKind("", "v1", "CustomResourceDefinition"),
-        ModelMapper.preBuiltGetGroupVersionKindByClass(V1CustomResourceDefinition.class));
+            new GroupVersionKind("", "v1", "CustomResourceDefinition"),
+            ModelMapper.preBuiltGetGroupVersionKindByClass(V1CustomResourceDefinition.class).orElse(null));
   }
 }
