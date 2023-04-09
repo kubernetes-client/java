@@ -175,26 +175,39 @@ public class ClientBuilder {
         return config;
       }
     }
-    if (System.getProperty("os.name").toLowerCase().startsWith("windows")) {
-      String homeDrive = System.getenv("HOMEDRIVE");
-      String homePath = System.getenv("HOMEPATH");
-      if (homeDrive != null
-          && homeDrive.length() > 0
-          && homePath != null
-          && homePath.length() > 0) {
-        File homeDir = new File(new File(homeDrive), homePath);
-        if (homeDir.exists()) {
-          return homeDir;
-        }
-      }
-      String userProfile = System.getenv("USERPROFILE");
-      if (userProfile != null && userProfile.length() > 0) {
-        File profileDir = new File(userProfile);
-        if (profileDir.exists()) {
-          return profileDir;
-        }
+
+    if (isWindows()) {
+      File homeDir = getWindowsHomeDir();
+      if (homeDir != null && homeDir.exists()) {
+        return homeDir;
       }
     }
+
+    return null;
+  }
+
+  private static boolean isWindows() {
+    return System.getProperty("os.name").toLowerCase().startsWith("windows");
+  }
+
+  private static File getWindowsHomeDir() {
+    String homeDrive = System.getenv("HOMEDRIVE");
+    String homePath = System.getenv("HOMEPATH");
+    if (homeDrive != null && homeDrive.length() > 0 && homePath != null && homePath.length() > 0) {
+      File homeDir = new File(new File(homeDrive), homePath);
+      if (homeDir.exists()) {
+        return homeDir;
+      }
+    }
+
+    String userProfile = System.getenv("USERPROFILE");
+    if (userProfile != null && userProfile.length() > 0) {
+      File profileDir = new File(userProfile);
+      if (profileDir.exists()) {
+        return profileDir;
+      }
+    }
+
     return null;
   }
 
