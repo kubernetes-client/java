@@ -12,16 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import static org.junit.Assert.*;
-
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
+import org.junit.Test;
+
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
-import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
 
 public class SharedProcessorTest {
 
@@ -69,15 +70,19 @@ public class SharedProcessorTest {
     TestWorker<V1Pod> slowWorker = new TestWorker<>(null, 0);
     final boolean[] interrupted = {false};
     CountDownLatch latch = new CountDownLatch(1);
+    Object lock = new Object();
     slowWorker.setTask(
         () -> {
-          try {
-            // sleep 10s so that it could be interrupted by shutdownNow()
-            Thread.sleep(10 * 1000);
-          } catch (InterruptedException e) {
-            interrupted[0] = true;
-          } finally {
-            latch.countDown();
+          synchronized (lock) {
+            try {
+              // sleep 10s so that it could be interrupted by shutdownNow()
+              lock.wait(10 * 000);
+            } catch (InterruptedException e) {
+              interrupted[0] = true;
+            } finally {
+              lock.notifyAll();
+              latch.countDown();
+            }
           }
         });
     sharedProcessor.addAndStartListener(slowWorker);
