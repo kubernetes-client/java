@@ -26,7 +26,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -217,44 +216,54 @@ public class KubeConfig {
         String name = (String) authProviderMap.get("name");
         Authenticator auth = authenticators.get(name);
         if (auth != null) {
-          if (auth.isExpired(authConfig)) {
-            authConfig = auth.refresh(authConfig);
-            if (persister != null) {
-              try {
-                persister.save(contexts, clusters, users, preferences, currentContextName);
-              } catch (IOException ex) {
-                log.error("Failed to persist new token", ex);
-              }
-            }
-          }
-          credentials.put(CRED_TOKEN_KEY, auth.getToken(authConfig));
+          credentials = refreshAuthCredentials(auth, authConfig, name);
           return credentials;
         } else {
-          log.error("Unknown auth provider: " + name);
+          log.error("Unknown auth provider: {}", name);
         }
       }
     }
-    Map<String, String> credentialsViaExecCredential =
-        credentialsViaExecCredential((Map<String, Object>) currentUser.get("exec"));
-    if (credentialsViaExecCredential != null) {
-      return credentialsViaExecCredential;
+
+    credentials = credentialsViaExecCredential((Map<String, Object>) currentUser.get("exec"));
+    if (credentials != null) {
+      return credentials;
     }
+
     if (currentUser.containsKey("token")) {
       credentials.put(CRED_TOKEN_KEY, (String) currentUser.get("token"));
       return credentials;
     }
+
     if (currentUser.containsKey("tokenFile")) {
       String tokenFile = (String) currentUser.get("tokenFile");
       try {
-        byte[] data = Files.readAllBytes(FileSystems.getDefault().getPath(tokenFile));
+        byte[] data = Files.readAllBytes(Paths.get(tokenFile));
         credentials.put(CRED_TOKEN_KEY, new String(data, StandardCharsets.UTF_8));
         return credentials;
       } catch (IOException ex) {
         log.error("Failed to read token file", ex);
       }
     }
+
     return null;
   }
+
+  private Map<String, String> refreshAuthCredentials(Authenticator auth, Map<String, Object> authConfig, String name) {
+    Map<String, String> credentials = new HashMap<>();
+    if (auth.isExpired(authConfig)) {
+      authConfig = auth.refresh(authConfig);
+      if (persister != null) {
+        try {
+          persister.save(contexts, clusters, users, preferences, currentContextName);
+        } catch (IOException ex) {
+          log.error("Failed to persist new token", ex);
+        }
+      }
+    }
+    credentials.put(CRED_TOKEN_KEY, auth.getToken(authConfig));
+    return credentials;
+  }
+
 
   /**
    * Attempt to create an access token or client certificate by running a configured external
