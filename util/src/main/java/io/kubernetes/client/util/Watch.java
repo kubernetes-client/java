@@ -188,6 +188,7 @@ public class Watch<T> implements Watchable<T>, Closeable {
     return this;
   }
 
+  @Override
   public void remove() {
     throw new UnsupportedOperationException("remove");
   }
