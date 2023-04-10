@@ -21,6 +21,7 @@ import org.junit.Test;
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import static org.junit.Assert.assertTrue;
 
@@ -68,7 +69,7 @@ public class SharedProcessorTest {
     SharedProcessor<V1Pod> sharedProcessor =
         new SharedProcessor<>(Executors.newCachedThreadPool(), Duration.ofSeconds(5));
     TestWorker<V1Pod> slowWorker = new TestWorker<>(null, 0);
-    final boolean[] interrupted = {false};
+    AtomicBoolean wasInterrupted = new AtomicBoolean(false);
     CountDownLatch latch = new CountDownLatch(1);
     Object lock = new Object();
     slowWorker.setTask(
@@ -78,7 +79,7 @@ public class SharedProcessorTest {
               // sleep 10s so that it could be interrupted by shutdownNow()
               lock.wait(10 * 000);
             } catch (InterruptedException e) {
-              interrupted[0] = true;
+              wasInterrupted.set(true);
             } finally {
               lock.notifyAll();
               latch.countDown();
@@ -88,7 +89,7 @@ public class SharedProcessorTest {
     sharedProcessor.addAndStartListener(slowWorker);
     sharedProcessor.stop();
     latch.await();
-    assertTrue(interrupted[0]);
+    assertTrue(wasInterrupted.get());
   }
 
   private static class ExpectingNoticationHandler<ApiType extends KubernetesObject>
