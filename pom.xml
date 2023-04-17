@@ -485,7 +485,7 @@
           <java>
             <removeUnusedImports /> <!-- self-explanatory -->
             <googleJavaFormat>
-              <version>1.15</version>
+              <version>1.15.0</version>
             </googleJavaFormat>
           </java>
           <groovy>
