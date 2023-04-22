@@ -46,10 +46,10 @@
     <snakeyaml.version>2.0</snakeyaml.version>
     <slf4j.version>2.0.7</slf4j.version>
     <caffeine.version>2.9.3</caffeine.version>
-    <protobuf.version>3.22.2</protobuf.version>
+    <protobuf.version>3.22.3</protobuf.version>
     <junit.version>4.13</junit.version>
     <bucket4j.version>7.6.0</bucket4j.version>
-    <bouncycastle.version>1.72</bouncycastle.version>
+    <bouncycastle.version>1.73</bouncycastle.version>
     <gson.version>2.10.1</gson.version>
     <jsr305.version>3.0.2</jsr305.version>
     <okhttp3.version>4.10.0</okhttp3.version>
@@ -228,7 +228,7 @@
       <dependency>
         <groupId>com.google.auth</groupId>
         <artifactId>google-auth-library-oauth2-http</artifactId>
-        <version>1.16.0</version>
+        <version>1.16.1</version>
         <optional>true</optional>
       </dependency>
 
@@ -437,7 +437,7 @@
       <plugin>
         <groupId>com.diffplug.spotless</groupId>
         <artifactId>spotless-maven-plugin</artifactId>
-        <version>2.35.0</version>
+        <version>2.36.0</version>
         <configuration>
           <formats>
             <!-- common settings -->
@@ -485,7 +485,7 @@
           <java>
             <removeUnusedImports /> <!-- self-explanatory -->
             <googleJavaFormat>
-              <version>1.7</version>
+              <version>1.15.0</version>
             </googleJavaFormat>
           </java>
           <groovy>
@@ -568,7 +568,7 @@ limitations under the License.
           <plugin>
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
-            <version>0.8.9</version>
+            <version>0.8.8</version>
             <executions>
               <execution>
                 <id>jacoco-initialize</id>
