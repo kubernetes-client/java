@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,39 +12,38 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1KeyToPath;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * Adapts a secret into a projected volume. The contents of the target Secret&#39;s Data field will
- * be presented in a projected volume as files using the keys in the Data field as the file names.
- * Note that this is identical to a secret volume source without the default mode.
+ * Adapts a secret into a projected volume.  The contents of the target Secret&#39;s Data field will be presented in a projected volume as files using the keys in the Data field as the file names. Note that this is identical to a secret volume source without the default mode.
  */
-@ApiModel(
-    description =
-        "Adapts a secret into a projected volume.  The contents of the target Secret's Data field will be presented in a projected volume as files using the keys in the Data field as the file names. Note that this is identical to a secret volume source without the default mode.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "Adapts a secret into a projected volume.  The contents of the target Secret's Data field will be presented in a projected volume as files using the keys in the Data field as the file names. Note that this is identical to a secret volume source without the default mode.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1SecretProjection {
   public static final String SERIALIZED_NAME_ITEMS = "items";
-
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<V1KeyToPath> items = null;
 
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_OPTIONAL = "optional";
-
   @SerializedName(SERIALIZED_NAME_OPTIONAL)
   private Boolean optional;
+
 
   public V1SecretProjection items(List<V1KeyToPath> items) {
 
@@ -60,27 +59,22 @@ public class V1SecretProjection {
     return this;
   }
 
-  /**
-   * items if unspecified, each key-value pair in the Data field of the referenced Secret will be
-   * projected into the volume as a file whose name is the key and content is the value. If
-   * specified, the listed keys will be projected into the specified paths, and unlisted keys will
-   * not be present. If a key is specified which is not present in the Secret, the volume setup will
-   * error unless it is marked optional. Paths must be relative and may not contain the &#39;..&#39;
-   * path or start with &#39;..&#39;.
-   *
+   /**
+   * items if unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the &#39;..&#39; path or start with &#39;..&#39;.
    * @return items
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "items if unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.")
+  @ApiModelProperty(value = "items if unspecified, each key-value pair in the Data field of the referenced Secret will be projected into the volume as a file whose name is the key and content is the value. If specified, the listed keys will be projected into the specified paths, and unlisted keys will not be present. If a key is specified which is not present in the Secret, the volume setup will error unless it is marked optional. Paths must be relative and may not contain the '..' path or start with '..'.")
+
   public List<V1KeyToPath> getItems() {
     return items;
   }
 
+
   public void setItems(List<V1KeyToPath> items) {
     this.items = items;
   }
+
 
   public V1SecretProjection name(String name) {
 
@@ -88,23 +82,22 @@ public class V1SecretProjection {
     return this;
   }
 
-  /**
-   * Name of the referent. More info:
-   * https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-   *
+   /**
+   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
+  @ApiModelProperty(value = "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public V1SecretProjection optional(Boolean optional) {
 
@@ -112,20 +105,22 @@ public class V1SecretProjection {
     return this;
   }
 
-  /**
+   /**
    * optional field specify whether the Secret or its key must be defined
-   *
    * @return optional
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "optional field specify whether the Secret or its key must be defined")
+
   public Boolean getOptional() {
     return optional;
   }
 
+
   public void setOptional(Boolean optional) {
     this.optional = optional;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -136,15 +131,16 @@ public class V1SecretProjection {
       return false;
     }
     V1SecretProjection v1SecretProjection = (V1SecretProjection) o;
-    return Objects.equals(this.items, v1SecretProjection.items)
-        && Objects.equals(this.name, v1SecretProjection.name)
-        && Objects.equals(this.optional, v1SecretProjection.optional);
+    return Objects.equals(this.items, v1SecretProjection.items) &&
+        Objects.equals(this.name, v1SecretProjection.name) &&
+        Objects.equals(this.optional, v1SecretProjection.optional);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(items, name, optional);
   }
+
 
   @Override
   public String toString() {
@@ -158,7 +154,8 @@ public class V1SecretProjection {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -166,4 +163,5 @@ public class V1SecretProjection {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

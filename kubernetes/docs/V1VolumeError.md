@@ -7,8 +7,8 @@ VolumeError captures an error encountered during a volume operation.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **String** | String detailing the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information. |  [optional]
-**time** | [**OffsetDateTime**](OffsetDateTime.md) | Time the error was encountered. |  [optional]
+**message** | **String** | message represents the error encountered during Attach or Detach operation. This string may be logged, so it should not contain sensitive information. |  [optional]
+**time** | [**OffsetDateTime**](OffsetDateTime.md) | time represents the time the error was encountered. |  [optional]
 
 
 

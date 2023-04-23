@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,31 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * Represents a host path mapped into a pod. Host path volumes do not support ownership management
- * or SELinux relabeling.
+ * Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.
  */
-@ApiModel(
-    description =
-        "Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "Represents a host path mapped into a pod. Host path volumes do not support ownership management or SELinux relabeling.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1HostPathVolumeSource {
   public static final String SERIALIZED_NAME_PATH = "path";
-
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
-
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+
 
   public V1HostPathVolumeSource path(String path) {
 
@@ -44,23 +44,21 @@ public class V1HostPathVolumeSource {
     return this;
   }
 
-  /**
-   * path of the directory on the host. If the path is a symlink, it will follow the link to the
-   * real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
-   *
+   /**
+   * path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    * @return path
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")
+  **/
+  @ApiModelProperty(required = true, value = "path of the directory on the host. If the path is a symlink, it will follow the link to the real path. More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")
+
   public String getPath() {
     return path;
   }
 
+
   public void setPath(String path) {
     this.path = path;
   }
+
 
   public V1HostPathVolumeSource type(String type) {
 
@@ -68,23 +66,22 @@ public class V1HostPathVolumeSource {
     return this;
   }
 
-  /**
-   * type for HostPath Volume Defaults to \&quot;\&quot; More info:
-   * https://kubernetes.io/docs/concepts/storage/volumes#hostpath
-   *
+   /**
+   * type for HostPath Volume Defaults to \&quot;\&quot; More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath
    * @return type
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "type for HostPath Volume Defaults to \"\" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")
+  @ApiModelProperty(value = "type for HostPath Volume Defaults to \"\" More info: https://kubernetes.io/docs/concepts/storage/volumes#hostpath")
+
   public String getType() {
     return type;
   }
 
+
   public void setType(String type) {
     this.type = type;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -95,14 +92,15 @@ public class V1HostPathVolumeSource {
       return false;
     }
     V1HostPathVolumeSource v1HostPathVolumeSource = (V1HostPathVolumeSource) o;
-    return Objects.equals(this.path, v1HostPathVolumeSource.path)
-        && Objects.equals(this.type, v1HostPathVolumeSource.type);
+    return Objects.equals(this.path, v1HostPathVolumeSource.path) &&
+        Objects.equals(this.type, v1HostPathVolumeSource.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(path, type);
   }
+
 
   @Override
   public String toString() {
@@ -115,7 +113,8 @@ public class V1HostPathVolumeSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -123,4 +122,5 @@ public class V1HostPathVolumeSource {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

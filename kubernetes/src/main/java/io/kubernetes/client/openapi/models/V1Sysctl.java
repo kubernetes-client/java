@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** Sysctl defines a kernel parameter to be set */
+/**
+ * Sysctl defines a kernel parameter to be set
+ */
 @ApiModel(description = "Sysctl defines a kernel parameter to be set")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1Sysctl {
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
-
   @SerializedName(SERIALIZED_NAME_VALUE)
   private String value;
+
 
   public V1Sysctl name(String name) {
 
@@ -39,19 +44,21 @@ public class V1Sysctl {
     return this;
   }
 
-  /**
+   /**
    * Name of a property to set
-   *
    * @return name
-   */
+  **/
   @ApiModelProperty(required = true, value = "Name of a property to set")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public V1Sysctl value(String value) {
 
@@ -59,19 +66,21 @@ public class V1Sysctl {
     return this;
   }
 
-  /**
+   /**
    * Value of a property to set
-   *
    * @return value
-   */
+  **/
   @ApiModelProperty(required = true, value = "Value of a property to set")
+
   public String getValue() {
     return value;
   }
 
+
   public void setValue(String value) {
     this.value = value;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,13 +91,15 @@ public class V1Sysctl {
       return false;
     }
     V1Sysctl v1Sysctl = (V1Sysctl) o;
-    return Objects.equals(this.name, v1Sysctl.name) && Objects.equals(this.value, v1Sysctl.value);
+    return Objects.equals(this.name, v1Sysctl.name) &&
+        Objects.equals(this.value, v1Sysctl.value);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(name, value);
   }
+
 
   @Override
   public String toString() {
@@ -101,7 +112,8 @@ public class V1Sysctl {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -109,4 +121,5 @@ public class V1Sysctl {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

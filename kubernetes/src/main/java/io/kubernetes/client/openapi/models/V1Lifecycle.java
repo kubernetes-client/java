@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,33 +12,32 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1LifecycleHandler;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * Lifecycle describes actions that the management system should take in response to container
- * lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container
- * blocks until the action is complete, unless the container process fails, in which case the
- * handler is aborted.
+ * Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.
  */
-@ApiModel(
-    description =
-        "Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "Lifecycle describes actions that the management system should take in response to container lifecycle events. For the PostStart and PreStop lifecycle handlers, management of the container blocks until the action is complete, unless the container process fails, in which case the handler is aborted.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1Lifecycle {
   public static final String SERIALIZED_NAME_POST_START = "postStart";
-
   @SerializedName(SERIALIZED_NAME_POST_START)
   private V1LifecycleHandler postStart;
 
   public static final String SERIALIZED_NAME_PRE_STOP = "preStop";
-
   @SerializedName(SERIALIZED_NAME_PRE_STOP)
   private V1LifecycleHandler preStop;
+
 
   public V1Lifecycle postStart(V1LifecycleHandler postStart) {
 
@@ -46,20 +45,22 @@ public class V1Lifecycle {
     return this;
   }
 
-  /**
+   /**
    * Get postStart
-   *
    * @return postStart
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1LifecycleHandler getPostStart() {
     return postStart;
   }
 
+
   public void setPostStart(V1LifecycleHandler postStart) {
     this.postStart = postStart;
   }
+
 
   public V1Lifecycle preStop(V1LifecycleHandler preStop) {
 
@@ -67,20 +68,22 @@ public class V1Lifecycle {
     return this;
   }
 
-  /**
+   /**
    * Get preStop
-   *
    * @return preStop
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1LifecycleHandler getPreStop() {
     return preStop;
   }
 
+
   public void setPreStop(V1LifecycleHandler preStop) {
     this.preStop = preStop;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,14 +94,15 @@ public class V1Lifecycle {
       return false;
     }
     V1Lifecycle v1Lifecycle = (V1Lifecycle) o;
-    return Objects.equals(this.postStart, v1Lifecycle.postStart)
-        && Objects.equals(this.preStop, v1Lifecycle.preStop);
+    return Objects.equals(this.postStart, v1Lifecycle.postStart) &&
+        Objects.equals(this.preStop, v1Lifecycle.preStop);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(postStart, preStop);
   }
+
 
   @Override
   public String toString() {
@@ -111,7 +115,8 @@ public class V1Lifecycle {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -119,4 +124,5 @@ public class V1Lifecycle {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

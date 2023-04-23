@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,36 +12,39 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** EndpointPort is a tuple that describes a single port. */
+/**
+ * EndpointPort is a tuple that describes a single port.
+ */
 @ApiModel(description = "EndpointPort is a tuple that describes a single port.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class CoreV1EndpointPort {
   public static final String SERIALIZED_NAME_APP_PROTOCOL = "appProtocol";
-
   @SerializedName(SERIALIZED_NAME_APP_PROTOCOL)
   private String appProtocol;
 
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_PORT = "port";
-
   @SerializedName(SERIALIZED_NAME_PORT)
   private Integer port;
 
   public static final String SERIALIZED_NAME_PROTOCOL = "protocol";
-
   @SerializedName(SERIALIZED_NAME_PROTOCOL)
   private String protocol;
+
 
   public CoreV1EndpointPort appProtocol(String appProtocol) {
 
@@ -49,25 +52,22 @@ public class CoreV1EndpointPort {
     return this;
   }
 
-  /**
-   * The application protocol for this port. This field follows standard Kubernetes label syntax.
-   * Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and
-   * https://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed
-   * names such as mycompany.com/my-custom-protocol.
-   *
+   /**
+   * The application protocol for this port. This is used as a hint for implementations to offer richer behavior for protocols that they understand. This field follows standard Kubernetes label syntax. Valid values are either:  * Un-prefixed protocol names - reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names).  * Kubernetes-defined prefixed names:   * &#39;kubernetes.io/h2c&#39; - HTTP/2 over cleartext as described in https://www.rfc-editor.org/rfc/rfc7540  * Other protocols should use implementation-defined prefixed names such as mycompany.com/my-custom-protocol.
    * @return appProtocol
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The application protocol for this port. This field follows standard Kubernetes label syntax. Un-prefixed names are reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names). Non-standard protocols should use prefixed names such as mycompany.com/my-custom-protocol.")
+  @ApiModelProperty(value = "The application protocol for this port. This is used as a hint for implementations to offer richer behavior for protocols that they understand. This field follows standard Kubernetes label syntax. Valid values are either:  * Un-prefixed protocol names - reserved for IANA standard service names (as per RFC-6335 and https://www.iana.org/assignments/service-names).  * Kubernetes-defined prefixed names:   * 'kubernetes.io/h2c' - HTTP/2 over cleartext as described in https://www.rfc-editor.org/rfc/rfc7540  * Other protocols should use implementation-defined prefixed names such as mycompany.com/my-custom-protocol.")
+
   public String getAppProtocol() {
     return appProtocol;
   }
 
+
   public void setAppProtocol(String appProtocol) {
     this.appProtocol = appProtocol;
   }
+
 
   public CoreV1EndpointPort name(String name) {
 
@@ -75,23 +75,22 @@ public class CoreV1EndpointPort {
     return this;
   }
 
-  /**
-   * The name of this port. This must match the &#39;name&#39; field in the corresponding
-   * ServicePort. Must be a DNS_LABEL. Optional only if one port is defined.
-   *
+   /**
+   * The name of this port.  This must match the &#39;name&#39; field in the corresponding ServicePort. Must be a DNS_LABEL. Optional only if one port is defined.
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The name of this port.  This must match the 'name' field in the corresponding ServicePort. Must be a DNS_LABEL. Optional only if one port is defined.")
+  @ApiModelProperty(value = "The name of this port.  This must match the 'name' field in the corresponding ServicePort. Must be a DNS_LABEL. Optional only if one port is defined.")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public CoreV1EndpointPort port(Integer port) {
 
@@ -99,19 +98,21 @@ public class CoreV1EndpointPort {
     return this;
   }
 
-  /**
+   /**
    * The port number of the endpoint.
-   *
    * @return port
-   */
+  **/
   @ApiModelProperty(required = true, value = "The port number of the endpoint.")
+
   public Integer getPort() {
     return port;
   }
 
+
   public void setPort(Integer port) {
     this.port = port;
   }
+
 
   public CoreV1EndpointPort protocol(String protocol) {
 
@@ -119,21 +120,22 @@ public class CoreV1EndpointPort {
     return this;
   }
 
-  /**
+   /**
    * The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.
-   *
    * @return protocol
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.  ")
+  @ApiModelProperty(value = "The IP protocol for this port. Must be UDP, TCP, or SCTP. Default is TCP.")
+
   public String getProtocol() {
     return protocol;
   }
 
+
   public void setProtocol(String protocol) {
     this.protocol = protocol;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -144,16 +146,17 @@ public class CoreV1EndpointPort {
       return false;
     }
     CoreV1EndpointPort coreV1EndpointPort = (CoreV1EndpointPort) o;
-    return Objects.equals(this.appProtocol, coreV1EndpointPort.appProtocol)
-        && Objects.equals(this.name, coreV1EndpointPort.name)
-        && Objects.equals(this.port, coreV1EndpointPort.port)
-        && Objects.equals(this.protocol, coreV1EndpointPort.protocol);
+    return Objects.equals(this.appProtocol, coreV1EndpointPort.appProtocol) &&
+        Objects.equals(this.name, coreV1EndpointPort.name) &&
+        Objects.equals(this.port, coreV1EndpointPort.port) &&
+        Objects.equals(this.protocol, coreV1EndpointPort.protocol);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(appProtocol, name, port, protocol);
   }
+
 
   @Override
   public String toString() {
@@ -168,7 +171,8 @@ public class CoreV1EndpointPort {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -176,4 +180,5 @@ public class CoreV1EndpointPort {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

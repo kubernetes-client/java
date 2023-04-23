@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,33 +12,35 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** HPAScalingPolicy is a single policy which must hold true for a specified past interval. */
-@ApiModel(
-    description =
-        "HPAScalingPolicy is a single policy which must hold true for a specified past interval.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * HPAScalingPolicy is a single policy which must hold true for a specified past interval.
+ */
+@ApiModel(description = "HPAScalingPolicy is a single policy which must hold true for a specified past interval.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V2HPAScalingPolicy {
   public static final String SERIALIZED_NAME_PERIOD_SECONDS = "periodSeconds";
-
   @SerializedName(SERIALIZED_NAME_PERIOD_SECONDS)
   private Integer periodSeconds;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
-
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
   public static final String SERIALIZED_NAME_VALUE = "value";
-
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Integer value;
+
 
   public V2HPAScalingPolicy periodSeconds(Integer periodSeconds) {
 
@@ -46,23 +48,21 @@ public class V2HPAScalingPolicy {
     return this;
   }
 
-  /**
-   * PeriodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds
-   * must be greater than zero and less than or equal to 1800 (30 min).
-   *
+   /**
+   * periodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).
    * @return periodSeconds
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "PeriodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).")
+  **/
+  @ApiModelProperty(required = true, value = "periodSeconds specifies the window of time for which the policy should hold true. PeriodSeconds must be greater than zero and less than or equal to 1800 (30 min).")
+
   public Integer getPeriodSeconds() {
     return periodSeconds;
   }
 
+
   public void setPeriodSeconds(Integer periodSeconds) {
     this.periodSeconds = periodSeconds;
   }
+
 
   public V2HPAScalingPolicy type(String type) {
 
@@ -70,19 +70,21 @@ public class V2HPAScalingPolicy {
     return this;
   }
 
-  /**
-   * Type is used to specify the scaling policy.
-   *
+   /**
+   * type is used to specify the scaling policy.
    * @return type
-   */
-  @ApiModelProperty(required = true, value = "Type is used to specify the scaling policy.")
+  **/
+  @ApiModelProperty(required = true, value = "type is used to specify the scaling policy.")
+
   public String getType() {
     return type;
   }
 
+
   public void setType(String type) {
     this.type = type;
   }
+
 
   public V2HPAScalingPolicy value(Integer value) {
 
@@ -90,23 +92,21 @@ public class V2HPAScalingPolicy {
     return this;
   }
 
-  /**
-   * Value contains the amount of change which is permitted by the policy. It must be greater than
-   * zero
-   *
+   /**
+   * value contains the amount of change which is permitted by the policy. It must be greater than zero
    * @return value
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Value contains the amount of change which is permitted by the policy. It must be greater than zero")
+  **/
+  @ApiModelProperty(required = true, value = "value contains the amount of change which is permitted by the policy. It must be greater than zero")
+
   public Integer getValue() {
     return value;
   }
 
+
   public void setValue(Integer value) {
     this.value = value;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -117,15 +117,16 @@ public class V2HPAScalingPolicy {
       return false;
     }
     V2HPAScalingPolicy v2HPAScalingPolicy = (V2HPAScalingPolicy) o;
-    return Objects.equals(this.periodSeconds, v2HPAScalingPolicy.periodSeconds)
-        && Objects.equals(this.type, v2HPAScalingPolicy.type)
-        && Objects.equals(this.value, v2HPAScalingPolicy.value);
+    return Objects.equals(this.periodSeconds, v2HPAScalingPolicy.periodSeconds) &&
+        Objects.equals(this.type, v2HPAScalingPolicy.type) &&
+        Objects.equals(this.value, v2HPAScalingPolicy.value);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(periodSeconds, type, value);
   }
+
 
   @Override
   public String toString() {
@@ -139,7 +140,8 @@ public class V2HPAScalingPolicy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -147,4 +149,5 @@ public class V2HPAScalingPolicy {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

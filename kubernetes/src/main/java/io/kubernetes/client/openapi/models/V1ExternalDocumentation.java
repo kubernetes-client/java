@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,28 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** ExternalDocumentation allows referencing an external resource for extended documentation. */
-@ApiModel(
-    description =
-        "ExternalDocumentation allows referencing an external resource for extended documentation.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * ExternalDocumentation allows referencing an external resource for extended documentation.
+ */
+@ApiModel(description = "ExternalDocumentation allows referencing an external resource for extended documentation.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1ExternalDocumentation {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
   private String description;
 
   public static final String SERIALIZED_NAME_URL = "url";
-
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
+
 
   public V1ExternalDocumentation description(String description) {
 
@@ -41,20 +44,22 @@ public class V1ExternalDocumentation {
     return this;
   }
 
-  /**
+   /**
    * Get description
-   *
    * @return description
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getDescription() {
     return description;
   }
 
+
   public void setDescription(String description) {
     this.description = description;
   }
+
 
   public V1ExternalDocumentation url(String url) {
 
@@ -62,20 +67,22 @@ public class V1ExternalDocumentation {
     return this;
   }
 
-  /**
+   /**
    * Get url
-   *
    * @return url
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public String getUrl() {
     return url;
   }
 
+
   public void setUrl(String url) {
     this.url = url;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -86,14 +93,15 @@ public class V1ExternalDocumentation {
       return false;
     }
     V1ExternalDocumentation v1ExternalDocumentation = (V1ExternalDocumentation) o;
-    return Objects.equals(this.description, v1ExternalDocumentation.description)
-        && Objects.equals(this.url, v1ExternalDocumentation.url);
+    return Objects.equals(this.description, v1ExternalDocumentation.description) &&
+        Objects.equals(this.url, v1ExternalDocumentation.url);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(description, url);
   }
+
 
   @Override
   public String toString() {
@@ -106,7 +114,8 @@ public class V1ExternalDocumentation {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -114,4 +123,5 @@ public class V1ExternalDocumentation {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

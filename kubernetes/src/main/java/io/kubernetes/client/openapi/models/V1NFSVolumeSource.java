@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,36 +12,35 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * Represents an NFS mount that lasts the lifetime of a pod. NFS volumes do not support ownership
- * management or SELinux relabeling.
+ * Represents an NFS mount that lasts the lifetime of a pod. NFS volumes do not support ownership management or SELinux relabeling.
  */
-@ApiModel(
-    description =
-        "Represents an NFS mount that lasts the lifetime of a pod. NFS volumes do not support ownership management or SELinux relabeling.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "Represents an NFS mount that lasts the lifetime of a pod. NFS volumes do not support ownership management or SELinux relabeling.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1NFSVolumeSource {
   public static final String SERIALIZED_NAME_PATH = "path";
-
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
-
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
   private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_SERVER = "server";
-
   @SerializedName(SERIALIZED_NAME_SERVER)
   private String server;
+
 
   public V1NFSVolumeSource path(String path) {
 
@@ -49,23 +48,21 @@ public class V1NFSVolumeSource {
     return this;
   }
 
-  /**
-   * path that is exported by the NFS server. More info:
-   * https://kubernetes.io/docs/concepts/storage/volumes#nfs
-   *
+   /**
+   * path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    * @return path
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs")
+  **/
+  @ApiModelProperty(required = true, value = "path that is exported by the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs")
+
   public String getPath() {
     return path;
   }
 
+
   public void setPath(String path) {
     this.path = path;
   }
+
 
   public V1NFSVolumeSource readOnly(Boolean readOnly) {
 
@@ -73,23 +70,22 @@ public class V1NFSVolumeSource {
     return this;
   }
 
-  /**
-   * readOnly here will force the NFS export to be mounted with read-only permissions. Defaults to
-   * false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
-   *
+   /**
+   * readOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    * @return readOnly
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "readOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs")
+  @ApiModelProperty(value = "readOnly here will force the NFS export to be mounted with read-only permissions. Defaults to false. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs")
+
   public Boolean getReadOnly() {
     return readOnly;
   }
 
+
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
   }
+
 
   public V1NFSVolumeSource server(String server) {
 
@@ -97,23 +93,21 @@ public class V1NFSVolumeSource {
     return this;
   }
 
-  /**
-   * server is the hostname or IP address of the NFS server. More info:
-   * https://kubernetes.io/docs/concepts/storage/volumes#nfs
-   *
+   /**
+   * server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs
    * @return server
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs")
+  **/
+  @ApiModelProperty(required = true, value = "server is the hostname or IP address of the NFS server. More info: https://kubernetes.io/docs/concepts/storage/volumes#nfs")
+
   public String getServer() {
     return server;
   }
 
+
   public void setServer(String server) {
     this.server = server;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -124,15 +118,16 @@ public class V1NFSVolumeSource {
       return false;
     }
     V1NFSVolumeSource v1NFSVolumeSource = (V1NFSVolumeSource) o;
-    return Objects.equals(this.path, v1NFSVolumeSource.path)
-        && Objects.equals(this.readOnly, v1NFSVolumeSource.readOnly)
-        && Objects.equals(this.server, v1NFSVolumeSource.server);
+    return Objects.equals(this.path, v1NFSVolumeSource.path) &&
+        Objects.equals(this.readOnly, v1NFSVolumeSource.readOnly) &&
+        Objects.equals(this.server, v1NFSVolumeSource.server);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(path, readOnly, server);
   }
+
 
   @Override
   public String toString() {
@@ -146,7 +141,8 @@ public class V1NFSVolumeSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -154,4 +150,5 @@ public class V1NFSVolumeSource {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

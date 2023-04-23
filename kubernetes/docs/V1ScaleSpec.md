@@ -7,7 +7,7 @@ ScaleSpec describes the attributes of a scale subresource.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**replicas** | **Integer** | desired number of instances for the scaled object. |  [optional]
+**replicas** | **Integer** | replicas is the desired number of instances for the scaled object. |  [optional]
 
 
 

@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,38 +12,44 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1LabelSelector;
+import io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule;
+import io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** NetworkPolicySpec provides the specification of a NetworkPolicy */
+/**
+ * NetworkPolicySpec provides the specification of a NetworkPolicy
+ */
 @ApiModel(description = "NetworkPolicySpec provides the specification of a NetworkPolicy")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1NetworkPolicySpec {
   public static final String SERIALIZED_NAME_EGRESS = "egress";
-
   @SerializedName(SERIALIZED_NAME_EGRESS)
   private List<V1NetworkPolicyEgressRule> egress = null;
 
   public static final String SERIALIZED_NAME_INGRESS = "ingress";
-
   @SerializedName(SERIALIZED_NAME_INGRESS)
   private List<V1NetworkPolicyIngressRule> ingress = null;
 
   public static final String SERIALIZED_NAME_POD_SELECTOR = "podSelector";
-
   @SerializedName(SERIALIZED_NAME_POD_SELECTOR)
   private V1LabelSelector podSelector;
 
   public static final String SERIALIZED_NAME_POLICY_TYPES = "policyTypes";
-
   @SerializedName(SERIALIZED_NAME_POLICY_TYPES)
   private List<String> policyTypes = null;
+
 
   public V1NetworkPolicySpec egress(List<V1NetworkPolicyEgressRule> egress) {
 
@@ -59,27 +65,22 @@ public class V1NetworkPolicySpec {
     return this;
   }
 
-  /**
-   * List of egress rules to be applied to the selected pods. Outgoing traffic is allowed if there
-   * are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR
-   * if the traffic matches at least one egress rule across all of the NetworkPolicy objects whose
-   * podSelector matches the pod. If this field is empty then this NetworkPolicy limits all outgoing
-   * traffic (and serves solely to ensure that the pods it selects are isolated by default). This
-   * field is beta-level in 1.8
-   *
+   /**
+   * egress is a list of egress rules to be applied to the selected pods. Outgoing traffic is allowed if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic matches at least one egress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy limits all outgoing traffic (and serves solely to ensure that the pods it selects are isolated by default). This field is beta-level in 1.8
    * @return egress
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "List of egress rules to be applied to the selected pods. Outgoing traffic is allowed if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic matches at least one egress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy limits all outgoing traffic (and serves solely to ensure that the pods it selects are isolated by default). This field is beta-level in 1.8")
+  @ApiModelProperty(value = "egress is a list of egress rules to be applied to the selected pods. Outgoing traffic is allowed if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic matches at least one egress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy limits all outgoing traffic (and serves solely to ensure that the pods it selects are isolated by default). This field is beta-level in 1.8")
+
   public List<V1NetworkPolicyEgressRule> getEgress() {
     return egress;
   }
 
+
   public void setEgress(List<V1NetworkPolicyEgressRule> egress) {
     this.egress = egress;
   }
+
 
   public V1NetworkPolicySpec ingress(List<V1NetworkPolicyIngressRule> ingress) {
 
@@ -95,27 +96,22 @@ public class V1NetworkPolicySpec {
     return this;
   }
 
-  /**
-   * List of ingress rules to be applied to the selected pods. Traffic is allowed to a pod if there
-   * are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR
-   * if the traffic source is the pod&#39;s local node, OR if the traffic matches at least one
-   * ingress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this
-   * field is empty then this NetworkPolicy does not allow any traffic (and serves solely to ensure
-   * that the pods it selects are isolated by default)
-   *
+   /**
+   * ingress is a list of ingress rules to be applied to the selected pods. Traffic is allowed to a pod if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic source is the pod&#39;s local node, OR if the traffic matches at least one ingress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy does not allow any traffic (and serves solely to ensure that the pods it selects are isolated by default)
    * @return ingress
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "List of ingress rules to be applied to the selected pods. Traffic is allowed to a pod if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic source is the pod's local node, OR if the traffic matches at least one ingress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy does not allow any traffic (and serves solely to ensure that the pods it selects are isolated by default)")
+  @ApiModelProperty(value = "ingress is a list of ingress rules to be applied to the selected pods. Traffic is allowed to a pod if there are no NetworkPolicies selecting the pod (and cluster policy otherwise allows the traffic), OR if the traffic source is the pod's local node, OR if the traffic matches at least one ingress rule across all of the NetworkPolicy objects whose podSelector matches the pod. If this field is empty then this NetworkPolicy does not allow any traffic (and serves solely to ensure that the pods it selects are isolated by default)")
+
   public List<V1NetworkPolicyIngressRule> getIngress() {
     return ingress;
   }
 
+
   public void setIngress(List<V1NetworkPolicyIngressRule> ingress) {
     this.ingress = ingress;
   }
+
 
   public V1NetworkPolicySpec podSelector(V1LabelSelector podSelector) {
 
@@ -123,19 +119,21 @@ public class V1NetworkPolicySpec {
     return this;
   }
 
-  /**
+   /**
    * Get podSelector
-   *
    * @return podSelector
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
+
   public V1LabelSelector getPodSelector() {
     return podSelector;
   }
 
+
   public void setPodSelector(V1LabelSelector podSelector) {
     this.podSelector = podSelector;
   }
+
 
   public V1NetworkPolicySpec policyTypes(List<String> policyTypes) {
 
@@ -151,31 +149,22 @@ public class V1NetworkPolicySpec {
     return this;
   }
 
-  /**
-   * List of rule types that the NetworkPolicy relates to. Valid options are
-   * [\&quot;Ingress\&quot;], [\&quot;Egress\&quot;], or [\&quot;Ingress\&quot;,
-   * \&quot;Egress\&quot;]. If this field is not specified, it will default based on the existence
-   * of Ingress or Egress rules; policies that contain an Egress section are assumed to affect
-   * Egress, and all policies (whether or not they contain an Ingress section) are assumed to affect
-   * Ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [
-   * \&quot;Egress\&quot; ]. Likewise, if you want to write a policy that specifies that no egress
-   * is allowed, you must specify a policyTypes value that include \&quot;Egress\&quot; (since such
-   * a policy would not include an Egress section and would otherwise default to just [
-   * \&quot;Ingress\&quot; ]). This field is beta-level in 1.8
-   *
+   /**
+   * policyTypes is a list of rule types that the NetworkPolicy relates to. Valid options are [\&quot;Ingress\&quot;], [\&quot;Egress\&quot;], or [\&quot;Ingress\&quot;, \&quot;Egress\&quot;]. If this field is not specified, it will default based on the existence of ingress or egress rules; policies that contain an egress section are assumed to affect egress, and all policies (whether or not they contain an ingress section) are assumed to affect ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [ \&quot;Egress\&quot; ]. Likewise, if you want to write a policy that specifies that no egress is allowed, you must specify a policyTypes value that include \&quot;Egress\&quot; (since such a policy would not include an egress section and would otherwise default to just [ \&quot;Ingress\&quot; ]). This field is beta-level in 1.8
    * @return policyTypes
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "List of rule types that the NetworkPolicy relates to. Valid options are [\"Ingress\"], [\"Egress\"], or [\"Ingress\", \"Egress\"]. If this field is not specified, it will default based on the existence of Ingress or Egress rules; policies that contain an Egress section are assumed to affect Egress, and all policies (whether or not they contain an Ingress section) are assumed to affect Ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [ \"Egress\" ]. Likewise, if you want to write a policy that specifies that no egress is allowed, you must specify a policyTypes value that include \"Egress\" (since such a policy would not include an Egress section and would otherwise default to just [ \"Ingress\" ]). This field is beta-level in 1.8")
+  @ApiModelProperty(value = "policyTypes is a list of rule types that the NetworkPolicy relates to. Valid options are [\"Ingress\"], [\"Egress\"], or [\"Ingress\", \"Egress\"]. If this field is not specified, it will default based on the existence of ingress or egress rules; policies that contain an egress section are assumed to affect egress, and all policies (whether or not they contain an ingress section) are assumed to affect ingress. If you want to write an egress-only policy, you must explicitly specify policyTypes [ \"Egress\" ]. Likewise, if you want to write a policy that specifies that no egress is allowed, you must specify a policyTypes value that include \"Egress\" (since such a policy would not include an egress section and would otherwise default to just [ \"Ingress\" ]). This field is beta-level in 1.8")
+
   public List<String> getPolicyTypes() {
     return policyTypes;
   }
 
+
   public void setPolicyTypes(List<String> policyTypes) {
     this.policyTypes = policyTypes;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -186,16 +175,17 @@ public class V1NetworkPolicySpec {
       return false;
     }
     V1NetworkPolicySpec v1NetworkPolicySpec = (V1NetworkPolicySpec) o;
-    return Objects.equals(this.egress, v1NetworkPolicySpec.egress)
-        && Objects.equals(this.ingress, v1NetworkPolicySpec.ingress)
-        && Objects.equals(this.podSelector, v1NetworkPolicySpec.podSelector)
-        && Objects.equals(this.policyTypes, v1NetworkPolicySpec.policyTypes);
+    return Objects.equals(this.egress, v1NetworkPolicySpec.egress) &&
+        Objects.equals(this.ingress, v1NetworkPolicySpec.ingress) &&
+        Objects.equals(this.podSelector, v1NetworkPolicySpec.podSelector) &&
+        Objects.equals(this.policyTypes, v1NetworkPolicySpec.policyTypes);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(egress, ingress, podSelector, policyTypes);
   }
+
 
   @Override
   public String toString() {
@@ -210,7 +200,8 @@ public class V1NetworkPolicySpec {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -218,4 +209,5 @@ public class V1NetworkPolicySpec {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

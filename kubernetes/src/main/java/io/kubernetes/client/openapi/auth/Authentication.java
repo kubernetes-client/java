@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -13,17 +13,17 @@ limitations under the License.
 package io.kubernetes.client.openapi.auth;
 
 import io.kubernetes.client.openapi.Pair;
-import java.util.List;
+
 import java.util.Map;
+import java.util.List;
 
 public interface Authentication {
-  /**
-   * Apply authentication settings to header and query params.
-   *
-   * @param queryParams List of query parameters
-   * @param headerParams Map of header parameters
-   * @param cookieParams Map of cookie parameters
-   */
-  void applyToParams(
-      List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams);
+    /**
+     * Apply authentication settings to header and query params.
+     *
+     * @param queryParams List of query parameters
+     * @param headerParams Map of header parameters
+     * @param cookieParams Map of cookie parameters
+     */
+    void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams);
 }

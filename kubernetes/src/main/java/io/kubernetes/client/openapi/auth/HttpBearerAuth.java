@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -13,12 +13,11 @@ limitations under the License.
 package io.kubernetes.client.openapi.auth;
 
 import io.kubernetes.client.openapi.Pair;
-import java.util.List;
-import java.util.Map;
 
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+import java.util.Map;
+import java.util.List;
+
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class HttpBearerAuth implements Authentication {
   private final String scheme;
   private String bearerToken;
@@ -28,8 +27,7 @@ public class HttpBearerAuth implements Authentication {
   }
 
   /**
-   * Gets the token, which together with the scheme, will be sent as the value of the Authorization
-   * header.
+   * Gets the token, which together with the scheme, will be sent as the value of the Authorization header.
    *
    * @return The bearer token
    */
@@ -38,8 +36,7 @@ public class HttpBearerAuth implements Authentication {
   }
 
   /**
-   * Sets the token, which together with the scheme, will be sent as the value of the Authorization
-   * header.
+   * Sets the token, which together with the scheme, will be sent as the value of the Authorization header.
    *
    * @param bearerToken The bearer token to send in the Authorization header
    */
@@ -48,14 +45,12 @@ public class HttpBearerAuth implements Authentication {
   }
 
   @Override
-  public void applyToParams(
-      List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams) {
-    if (bearerToken == null) {
+  public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams) {
+    if(bearerToken == null) {
       return;
     }
 
-    headerParams.put(
-        "Authorization", (scheme != null ? upperCaseBearer(scheme) + " " : "") + bearerToken);
+    headerParams.put("Authorization", (scheme != null ? upperCaseBearer(scheme) + " " : "") + bearerToken);
   }
 
   private static String upperCaseBearer(String scheme) {

@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,36 +12,43 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1ConfigMapProjection;
+import io.kubernetes.client.openapi.models.V1DownwardAPIProjection;
+import io.kubernetes.client.openapi.models.V1SecretProjection;
+import io.kubernetes.client.openapi.models.V1ServiceAccountTokenProjection;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** Projection that may be projected along with other supported volume types */
+/**
+ * Projection that may be projected along with other supported volume types
+ */
 @ApiModel(description = "Projection that may be projected along with other supported volume types")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1VolumeProjection {
   public static final String SERIALIZED_NAME_CONFIG_MAP = "configMap";
-
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP)
   private V1ConfigMapProjection configMap;
 
   public static final String SERIALIZED_NAME_DOWNWARD_A_P_I = "downwardAPI";
-
   @SerializedName(SERIALIZED_NAME_DOWNWARD_A_P_I)
   private V1DownwardAPIProjection downwardAPI;
 
   public static final String SERIALIZED_NAME_SECRET = "secret";
-
   @SerializedName(SERIALIZED_NAME_SECRET)
   private V1SecretProjection secret;
 
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT_TOKEN = "serviceAccountToken";
-
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT_TOKEN)
   private V1ServiceAccountTokenProjection serviceAccountToken;
+
 
   public V1VolumeProjection configMap(V1ConfigMapProjection configMap) {
 
@@ -49,20 +56,22 @@ public class V1VolumeProjection {
     return this;
   }
 
-  /**
+   /**
    * Get configMap
-   *
    * @return configMap
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1ConfigMapProjection getConfigMap() {
     return configMap;
   }
 
+
   public void setConfigMap(V1ConfigMapProjection configMap) {
     this.configMap = configMap;
   }
+
 
   public V1VolumeProjection downwardAPI(V1DownwardAPIProjection downwardAPI) {
 
@@ -70,20 +79,22 @@ public class V1VolumeProjection {
     return this;
   }
 
-  /**
+   /**
    * Get downwardAPI
-   *
    * @return downwardAPI
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1DownwardAPIProjection getDownwardAPI() {
     return downwardAPI;
   }
 
+
   public void setDownwardAPI(V1DownwardAPIProjection downwardAPI) {
     this.downwardAPI = downwardAPI;
   }
+
 
   public V1VolumeProjection secret(V1SecretProjection secret) {
 
@@ -91,42 +102,45 @@ public class V1VolumeProjection {
     return this;
   }
 
-  /**
+   /**
    * Get secret
-   *
    * @return secret
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1SecretProjection getSecret() {
     return secret;
   }
+
 
   public void setSecret(V1SecretProjection secret) {
     this.secret = secret;
   }
 
-  public V1VolumeProjection serviceAccountToken(
-      V1ServiceAccountTokenProjection serviceAccountToken) {
+
+  public V1VolumeProjection serviceAccountToken(V1ServiceAccountTokenProjection serviceAccountToken) {
 
     this.serviceAccountToken = serviceAccountToken;
     return this;
   }
 
-  /**
+   /**
    * Get serviceAccountToken
-   *
    * @return serviceAccountToken
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1ServiceAccountTokenProjection getServiceAccountToken() {
     return serviceAccountToken;
   }
 
+
   public void setServiceAccountToken(V1ServiceAccountTokenProjection serviceAccountToken) {
     this.serviceAccountToken = serviceAccountToken;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -137,16 +151,17 @@ public class V1VolumeProjection {
       return false;
     }
     V1VolumeProjection v1VolumeProjection = (V1VolumeProjection) o;
-    return Objects.equals(this.configMap, v1VolumeProjection.configMap)
-        && Objects.equals(this.downwardAPI, v1VolumeProjection.downwardAPI)
-        && Objects.equals(this.secret, v1VolumeProjection.secret)
-        && Objects.equals(this.serviceAccountToken, v1VolumeProjection.serviceAccountToken);
+    return Objects.equals(this.configMap, v1VolumeProjection.configMap) &&
+        Objects.equals(this.downwardAPI, v1VolumeProjection.downwardAPI) &&
+        Objects.equals(this.secret, v1VolumeProjection.secret) &&
+        Objects.equals(this.serviceAccountToken, v1VolumeProjection.serviceAccountToken);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(configMap, downwardAPI, secret, serviceAccountToken);
   }
+
 
   @Override
   public String toString() {
@@ -155,15 +170,14 @@ public class V1VolumeProjection {
     sb.append("    configMap: ").append(toIndentedString(configMap)).append("\n");
     sb.append("    downwardAPI: ").append(toIndentedString(downwardAPI)).append("\n");
     sb.append("    secret: ").append(toIndentedString(secret)).append("\n");
-    sb.append("    serviceAccountToken: ")
-        .append(toIndentedString(serviceAccountToken))
-        .append("\n");
+    sb.append("    serviceAccountToken: ").append(toIndentedString(serviceAccountToken)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -171,4 +185,5 @@ public class V1VolumeProjection {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

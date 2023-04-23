@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,31 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from
- * the StatefulSet VolumeClaimTemplates.
+ * StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.
  */
-@ApiModel(
-    description =
-        "StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
   public static final String SERIALIZED_NAME_WHEN_DELETED = "whenDeleted";
-
   @SerializedName(SERIALIZED_NAME_WHEN_DELETED)
   private String whenDeleted;
 
   public static final String SERIALIZED_NAME_WHEN_SCALED = "whenScaled";
-
   @SerializedName(SERIALIZED_NAME_WHEN_SCALED)
   private String whenScaled;
+
 
   public V1StatefulSetPersistentVolumeClaimRetentionPolicy whenDeleted(String whenDeleted) {
 
@@ -44,25 +44,22 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
     return this;
   }
 
-  /**
-   * WhenDeleted specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when
-   * the StatefulSet is deleted. The default policy of &#x60;Retain&#x60; causes PVCs to not be
-   * affected by StatefulSet deletion. The &#x60;Delete&#x60; policy causes those PVCs to be
-   * deleted.
-   *
+   /**
+   * WhenDeleted specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is deleted. The default policy of &#x60;Retain&#x60; causes PVCs to not be affected by StatefulSet deletion. The &#x60;Delete&#x60; policy causes those PVCs to be deleted.
    * @return whenDeleted
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "WhenDeleted specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is deleted. The default policy of `Retain` causes PVCs to not be affected by StatefulSet deletion. The `Delete` policy causes those PVCs to be deleted.")
+  @ApiModelProperty(value = "WhenDeleted specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is deleted. The default policy of `Retain` causes PVCs to not be affected by StatefulSet deletion. The `Delete` policy causes those PVCs to be deleted.")
+
   public String getWhenDeleted() {
     return whenDeleted;
   }
 
+
   public void setWhenDeleted(String whenDeleted) {
     this.whenDeleted = whenDeleted;
   }
+
 
   public V1StatefulSetPersistentVolumeClaimRetentionPolicy whenScaled(String whenScaled) {
 
@@ -70,25 +67,22 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
     return this;
   }
 
-  /**
-   * WhenScaled specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when
-   * the StatefulSet is scaled down. The default policy of &#x60;Retain&#x60; causes PVCs to not be
-   * affected by a scaledown. The &#x60;Delete&#x60; policy causes the associated PVCs for any
-   * excess pods above the replica count to be deleted.
-   *
+   /**
+   * WhenScaled specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is scaled down. The default policy of &#x60;Retain&#x60; causes PVCs to not be affected by a scaledown. The &#x60;Delete&#x60; policy causes the associated PVCs for any excess pods above the replica count to be deleted.
    * @return whenScaled
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "WhenScaled specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is scaled down. The default policy of `Retain` causes PVCs to not be affected by a scaledown. The `Delete` policy causes the associated PVCs for any excess pods above the replica count to be deleted.")
+  @ApiModelProperty(value = "WhenScaled specifies what happens to PVCs created from StatefulSet VolumeClaimTemplates when the StatefulSet is scaled down. The default policy of `Retain` causes PVCs to not be affected by a scaledown. The `Delete` policy causes the associated PVCs for any excess pods above the replica count to be deleted.")
+
   public String getWhenScaled() {
     return whenScaled;
   }
 
+
   public void setWhenScaled(String whenScaled) {
     this.whenScaled = whenScaled;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,19 +92,16 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1StatefulSetPersistentVolumeClaimRetentionPolicy
-        v1StatefulSetPersistentVolumeClaimRetentionPolicy =
-            (V1StatefulSetPersistentVolumeClaimRetentionPolicy) o;
-    return Objects.equals(
-            this.whenDeleted, v1StatefulSetPersistentVolumeClaimRetentionPolicy.whenDeleted)
-        && Objects.equals(
-            this.whenScaled, v1StatefulSetPersistentVolumeClaimRetentionPolicy.whenScaled);
+    V1StatefulSetPersistentVolumeClaimRetentionPolicy v1StatefulSetPersistentVolumeClaimRetentionPolicy = (V1StatefulSetPersistentVolumeClaimRetentionPolicy) o;
+    return Objects.equals(this.whenDeleted, v1StatefulSetPersistentVolumeClaimRetentionPolicy.whenDeleted) &&
+        Objects.equals(this.whenScaled, v1StatefulSetPersistentVolumeClaimRetentionPolicy.whenScaled);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(whenDeleted, whenScaled);
   }
+
 
   @Override
   public String toString() {
@@ -123,7 +114,8 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -131,4 +123,5 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

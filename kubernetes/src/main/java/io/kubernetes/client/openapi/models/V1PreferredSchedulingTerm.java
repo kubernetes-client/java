@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,31 +12,32 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1NodeSelectorTerm;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it&#39;s a
- * no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
+ * An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it&#39;s a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).
  */
-@ApiModel(
-    description =
-        "An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "An empty preferred scheduling term matches all objects with implicit weight 0 (i.e. it's a no-op). A null preferred scheduling term matches no objects (i.e. is also a no-op).")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1PreferredSchedulingTerm {
   public static final String SERIALIZED_NAME_PREFERENCE = "preference";
-
   @SerializedName(SERIALIZED_NAME_PREFERENCE)
   private V1NodeSelectorTerm preference;
 
   public static final String SERIALIZED_NAME_WEIGHT = "weight";
-
   @SerializedName(SERIALIZED_NAME_WEIGHT)
   private Integer weight;
+
 
   public V1PreferredSchedulingTerm preference(V1NodeSelectorTerm preference) {
 
@@ -44,19 +45,21 @@ public class V1PreferredSchedulingTerm {
     return this;
   }
 
-  /**
+   /**
    * Get preference
-   *
    * @return preference
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
+
   public V1NodeSelectorTerm getPreference() {
     return preference;
   }
 
+
   public void setPreference(V1NodeSelectorTerm preference) {
     this.preference = preference;
   }
+
 
   public V1PreferredSchedulingTerm weight(Integer weight) {
 
@@ -64,22 +67,21 @@ public class V1PreferredSchedulingTerm {
     return this;
   }
 
-  /**
+   /**
    * Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.
-   *
    * @return weight
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.")
+  **/
+  @ApiModelProperty(required = true, value = "Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.")
+
   public Integer getWeight() {
     return weight;
   }
 
+
   public void setWeight(Integer weight) {
     this.weight = weight;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -90,14 +92,15 @@ public class V1PreferredSchedulingTerm {
       return false;
     }
     V1PreferredSchedulingTerm v1PreferredSchedulingTerm = (V1PreferredSchedulingTerm) o;
-    return Objects.equals(this.preference, v1PreferredSchedulingTerm.preference)
-        && Objects.equals(this.weight, v1PreferredSchedulingTerm.weight);
+    return Objects.equals(this.preference, v1PreferredSchedulingTerm.preference) &&
+        Objects.equals(this.weight, v1PreferredSchedulingTerm.weight);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(preference, weight);
   }
+
 
   @Override
   public String toString() {
@@ -110,7 +113,8 @@ public class V1PreferredSchedulingTerm {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -118,4 +122,5 @@ public class V1PreferredSchedulingTerm {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

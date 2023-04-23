@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** TokenRequest contains parameters of a service account token. */
+/**
+ * TokenRequest contains parameters of a service account token.
+ */
 @ApiModel(description = "TokenRequest contains parameters of a service account token.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class StorageV1TokenRequest {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
-
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   private String audience;
 
   public static final String SERIALIZED_NAME_EXPIRATION_SECONDS = "expirationSeconds";
-
   @SerializedName(SERIALIZED_NAME_EXPIRATION_SECONDS)
   private Long expirationSeconds;
+
 
   public StorageV1TokenRequest audience(String audience) {
 
@@ -39,23 +44,21 @@ public class StorageV1TokenRequest {
     return this;
   }
 
-  /**
-   * Audience is the intended audience of the token in \&quot;TokenRequestSpec\&quot;. It will
-   * default to the audiences of kube apiserver.
-   *
+   /**
+   * audience is the intended audience of the token in \&quot;TokenRequestSpec\&quot;. It will default to the audiences of kube apiserver.
    * @return audience
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Audience is the intended audience of the token in \"TokenRequestSpec\". It will default to the audiences of kube apiserver.")
+  **/
+  @ApiModelProperty(required = true, value = "audience is the intended audience of the token in \"TokenRequestSpec\". It will default to the audiences of kube apiserver.")
+
   public String getAudience() {
     return audience;
   }
 
+
   public void setAudience(String audience) {
     this.audience = audience;
   }
+
 
   public StorageV1TokenRequest expirationSeconds(Long expirationSeconds) {
 
@@ -63,24 +66,22 @@ public class StorageV1TokenRequest {
     return this;
   }
 
-  /**
-   * ExpirationSeconds is the duration of validity of the token in \&quot;TokenRequestSpec\&quot;.
-   * It has the same default value of \&quot;ExpirationSeconds\&quot; in
-   * \&quot;TokenRequestSpec\&quot;.
-   *
+   /**
+   * expirationSeconds is the duration of validity of the token in \&quot;TokenRequestSpec\&quot;. It has the same default value of \&quot;ExpirationSeconds\&quot; in \&quot;TokenRequestSpec\&quot;.
    * @return expirationSeconds
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "ExpirationSeconds is the duration of validity of the token in \"TokenRequestSpec\". It has the same default value of \"ExpirationSeconds\" in \"TokenRequestSpec\".")
+  @ApiModelProperty(value = "expirationSeconds is the duration of validity of the token in \"TokenRequestSpec\". It has the same default value of \"ExpirationSeconds\" in \"TokenRequestSpec\".")
+
   public Long getExpirationSeconds() {
     return expirationSeconds;
   }
 
+
   public void setExpirationSeconds(Long expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -91,14 +92,15 @@ public class StorageV1TokenRequest {
       return false;
     }
     StorageV1TokenRequest storageV1TokenRequest = (StorageV1TokenRequest) o;
-    return Objects.equals(this.audience, storageV1TokenRequest.audience)
-        && Objects.equals(this.expirationSeconds, storageV1TokenRequest.expirationSeconds);
+    return Objects.equals(this.audience, storageV1TokenRequest.audience) &&
+        Objects.equals(this.expirationSeconds, storageV1TokenRequest.expirationSeconds);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(audience, expirationSeconds);
   }
+
 
   @Override
   public String toString() {
@@ -111,7 +113,8 @@ public class StorageV1TokenRequest {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -119,4 +122,5 @@ public class StorageV1TokenRequest {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

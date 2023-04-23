@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,22 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** VolumeNodeResources is a set of resource limits for scheduling of volumes. */
-@ApiModel(
-    description = "VolumeNodeResources is a set of resource limits for scheduling of volumes.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * VolumeNodeResources is a set of resource limits for scheduling of volumes.
+ */
+@ApiModel(description = "VolumeNodeResources is a set of resource limits for scheduling of volumes.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1VolumeNodeResources {
   public static final String SERIALIZED_NAME_COUNT = "count";
-
   @SerializedName(SERIALIZED_NAME_COUNT)
   private Integer count;
+
 
   public V1VolumeNodeResources count(Integer count) {
 
@@ -35,25 +40,22 @@ public class V1VolumeNodeResources {
     return this;
   }
 
-  /**
-   * Maximum number of unique volumes managed by the CSI driver that can be used on a node. A volume
-   * that is both attached and mounted on a node is considered to be used once, not twice. The same
-   * rule applies for a unique volume that is shared among multiple pods on the same node. If this
-   * field is not specified, then the supported number of volumes on this node is unbounded.
-   *
+   /**
+   * count indicates the maximum number of unique volumes managed by the CSI driver that can be used on a node. A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is not specified, then the supported number of volumes on this node is unbounded.
    * @return count
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Maximum number of unique volumes managed by the CSI driver that can be used on a node. A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is not specified, then the supported number of volumes on this node is unbounded.")
+  @ApiModelProperty(value = "count indicates the maximum number of unique volumes managed by the CSI driver that can be used on a node. A volume that is both attached and mounted on a node is considered to be used once, not twice. The same rule applies for a unique volume that is shared among multiple pods on the same node. If this field is not specified, then the supported number of volumes on this node is unbounded.")
+
   public Integer getCount() {
     return count;
   }
 
+
   public void setCount(Integer count) {
     this.count = count;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -72,6 +74,7 @@ public class V1VolumeNodeResources {
     return Objects.hash(count);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -82,7 +85,8 @@ public class V1VolumeNodeResources {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -90,4 +94,5 @@ public class V1VolumeNodeResources {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

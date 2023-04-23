@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,33 +12,33 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * A topology selector requirement is a selector that matches given label. This is an alpha feature
- * and may change in the future.
+ * A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.
  */
-@ApiModel(
-    description =
-        "A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "A topology selector requirement is a selector that matches given label. This is an alpha feature and may change in the future.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-04-23T16:24:37.468Z[Etc/UTC]")
 public class V1TopologySelectorLabelRequirement {
   public static final String SERIALIZED_NAME_KEY = "key";
-
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
   public static final String SERIALIZED_NAME_VALUES = "values";
-
   @SerializedName(SERIALIZED_NAME_VALUES)
   private List<String> values = new ArrayList<>();
+
 
   public V1TopologySelectorLabelRequirement key(String key) {
 
@@ -46,19 +46,21 @@ public class V1TopologySelectorLabelRequirement {
     return this;
   }
 
-  /**
+   /**
    * The label key that the selector applies to.
-   *
    * @return key
-   */
+  **/
   @ApiModelProperty(required = true, value = "The label key that the selector applies to.")
+
   public String getKey() {
     return key;
   }
 
+
   public void setKey(String key) {
     this.key = key;
   }
+
 
   public V1TopologySelectorLabelRequirement values(List<String> values) {
 
@@ -71,23 +73,21 @@ public class V1TopologySelectorLabelRequirement {
     return this;
   }
 
-  /**
-   * An array of string values. One value must match the label to be selected. Each entry in Values
-   * is ORed.
-   *
+   /**
+   * An array of string values. One value must match the label to be selected. Each entry in Values is ORed.
    * @return values
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "An array of string values. One value must match the label to be selected. Each entry in Values is ORed.")
+  **/
+  @ApiModelProperty(required = true, value = "An array of string values. One value must match the label to be selected. Each entry in Values is ORed.")
+
   public List<String> getValues() {
     return values;
   }
 
+
   public void setValues(List<String> values) {
     this.values = values;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,16 +97,16 @@ public class V1TopologySelectorLabelRequirement {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1TopologySelectorLabelRequirement v1TopologySelectorLabelRequirement =
-        (V1TopologySelectorLabelRequirement) o;
-    return Objects.equals(this.key, v1TopologySelectorLabelRequirement.key)
-        && Objects.equals(this.values, v1TopologySelectorLabelRequirement.values);
+    V1TopologySelectorLabelRequirement v1TopologySelectorLabelRequirement = (V1TopologySelectorLabelRequirement) o;
+    return Objects.equals(this.key, v1TopologySelectorLabelRequirement.key) &&
+        Objects.equals(this.values, v1TopologySelectorLabelRequirement.values);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(key, values);
   }
+
 
   @Override
   public String toString() {
@@ -119,7 +119,8 @@ public class V1TopologySelectorLabelRequirement {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -127,4 +128,5 @@ public class V1TopologySelectorLabelRequirement {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
