@@ -38,7 +38,7 @@ public class KubectlLabel<ApiType extends KubernetesObject>
   }
 
   public KubectlLabel<ApiType> deleteLabel(String key) {
-    this.addingLabels.put(key, "null");
+    this.addingLabels.remove(key);
     return this;
   }
 
