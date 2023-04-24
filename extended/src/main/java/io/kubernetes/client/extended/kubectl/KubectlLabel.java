@@ -38,11 +38,7 @@ public class KubectlLabel<ApiType extends KubernetesObject>
   }
 
   public KubectlLabel<ApiType> deleteLabel(String key) {
-    if (this.addingLabels.containsKey(key)) {
-      // Remove the label from the map
-      this.addingLabels.remove(key);
-    }
-
+    this.addingLabels.remove(key);
     return this;
   }
 
