@@ -91,7 +91,7 @@ public class KubectlLabelTest {
     wireMockRule.stubFor(
         put(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
             .withRequestBody(
-                matchingJsonPath("$.metadata.labels", equalToJson("{ \"k1\": \"null\" }")))
+                matchingJsonPath("$.metadata.labels", equalToJson("{}")))
             .willReturn(
                 aResponse()
                     .withStatus(200)
@@ -174,7 +174,7 @@ public class KubectlLabelTest {
     wireMockRule.stubFor(
         put(urlPathEqualTo("/api/v1/nodes/foo"))
             .withRequestBody(
-                matchingJsonPath("$.metadata.labels", equalToJson("{ \"k1\": \"null\" }")))
+                matchingJsonPath("$.metadata.labels", equalToJson("{}")))
             .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
 
     V1Node unlabelledNode =
