@@ -53,6 +53,8 @@ import org.yaml.snakeyaml.nodes.Tag;
 import org.yaml.snakeyaml.representer.Represent;
 import org.yaml.snakeyaml.representer.Representer;
 
+import javax.lang.model.SourceVersion;
+
 /** The type Yaml. */
 public class Yaml {
 
@@ -442,50 +444,38 @@ public class Yaml {
    * Instantiate a new {@link TypeDescription} which will load the {@link SerializedName} via
    * reflection so that yaml serialization can work for the custom gson serialized name.
    *
-   * @param modelClass the kubenretes api model class
-   * @param gsonTaggedFields the custom serialized names tagged by gson
+   * @param modelClass the kubernetes api model class
    * @return the type description
    */
-  public static TypeDescription newGsonCompatibleTypeDescription(
-      Class modelClass, String... gsonTaggedFields) {
+  public static TypeDescription newGsonCompatibleTypeDescription(Class<?> modelClass) {
     TypeDescription desc = new TypeDescription(modelClass);
     List<String> excluding = new ArrayList<>();
-    for (String targetGsonAnnotation : gsonTaggedFields) {
-      Field field =
-          Arrays.stream(modelClass.getDeclaredFields())
-              .filter(f -> f.getAnnotation(SerializedName.class) != null)
-              .filter(
-                  f -> targetGsonAnnotation.equals(f.getAnnotation(SerializedName.class).value()))
-              .findAny()
-              .orElseThrow(
-                  () ->
-                      new IllegalArgumentException(
-                          "Api model class "
-                              + modelClass.getSimpleName()
-                              + " doesn't have field with Gson @SerializedName with value "
-                              + targetGsonAnnotation));
-      Method getterMethod =
-          tryFindGetterMethod(modelClass, field)
-              .orElseThrow(
-                  () ->
-                      new IllegalArgumentException(
-                          "Cannot find getter method for "
-                              + targetGsonAnnotation
-                              + " on api model class "
-                              + modelClass.getSimpleName()));
-      Method setterMethod =
-          tryFindSetterMethod(modelClass, field)
-              .orElseThrow(
-                  () ->
-                      new IllegalArgumentException(
-                          "Cannot find setter method for "
-                              + targetGsonAnnotation
-                              + " on api model class "
-                              + modelClass.getSimpleName()));
+    for (Field field : modelClass.getDeclaredFields()) {
+      String targetGsonAnnotation = findNonDefaultGsonAnnotation(field);
+      if (targetGsonAnnotation != null) {
+        Method getterMethod =
+            tryFindGetterMethod(modelClass, field)
+                .orElseThrow(
+                    () ->
+                        new IllegalArgumentException(
+                            "Cannot find getter method for "
+                                + targetGsonAnnotation
+                                + " on api model class "
+                                + modelClass.getSimpleName()));
+        Method setterMethod =
+            tryFindSetterMethod(modelClass, field)
+                .orElseThrow(
+                    () ->
+                        new IllegalArgumentException(
+                            "Cannot find setter method for "
+                                + targetGsonAnnotation
+                                + " on api model class "
+                                + modelClass.getSimpleName()));
 
-      desc.substituteProperty(
-          targetGsonAnnotation, field.getType(), getterMethod.getName(), setterMethod.getName());
-      excluding.add(field.getName());
+        desc.substituteProperty(
+            targetGsonAnnotation, field.getType(), getterMethod.getName(), setterMethod.getName());
+        excluding.add(field.getName());
+      }
     }
     desc.setExcludes(excluding.toArray(new String[0]));
     return desc;
@@ -494,19 +484,10 @@ public class Yaml {
   private static void registerBuiltinGsonCompatibles(
       BaseConstructor constructor, Representer representer) {
     // TODO: Are there more builtin api classes need these explicit substitution below
-    String[] crdOpenApiExtensions =
-        new String[] {
-          "x-kubernetes-embedded-resource",
-          "x-kubernetes-int-or-string",
-          "x-kubernetes-list-map-keys",
-          "x-kubernetes-list-type",
-          "x-kubernetes-map-type",
-          "x-kubernetes-preserve-unknown-fields",
-        };
     registerCustomTypeDescriptions(
         constructor,
         representer,
-        newGsonCompatibleTypeDescription(V1JSONSchemaProps.class, crdOpenApiExtensions));
+        newGsonCompatibleTypeDescription(V1JSONSchemaProps.class));
   }
 
   private static void registerCustomTypeDescriptions(
@@ -521,14 +502,30 @@ public class Yaml {
             });
   }
 
-  private static Optional<Method> tryFindGetterMethod(Class modelClass, Field targetField) {
+  private static String findNonDefaultGsonAnnotation(Field field) {
+    SerializedName serializedName = field.getAnnotation(SerializedName.class);
+    if (serializedName == null) {
+      return null;
+    }
+    String targetGsonAnnotation = serializedName.value();
+    String fieldName = field.getName();
+    if (fieldName.startsWith("_") && SourceVersion.isKeyword(targetGsonAnnotation)) {
+      fieldName = fieldName.substring(1);
+    }
+    if (fieldName.equals(targetGsonAnnotation)) {
+      return null;
+    }
+    return targetGsonAnnotation;
+  }
+
+  private static Optional<Method> tryFindGetterMethod(Class<?> modelClass, Field targetField) {
     return Arrays.stream(modelClass.getDeclaredMethods())
         .filter(f -> f.getName().startsWith("get"))
         .filter(f -> f.getName().equalsIgnoreCase("get" + targetField.getName()))
         .findAny();
   }
 
-  private static Optional<Method> tryFindSetterMethod(Class modelClass, Field targetField) {
+  private static Optional<Method> tryFindSetterMethod(Class<?> modelClass, Field targetField) {
     return Arrays.stream(modelClass.getDeclaredMethods())
         .filter(f -> f.getName().startsWith("set"))
         .filter(f -> f.getName().equalsIgnoreCase("set" + targetField.getName()))

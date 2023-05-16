@@ -21,10 +21,12 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.openapi.models.V1CustomResourceDefinition;
 import io.kubernetes.client.openapi.models.V1Deployment;
+import io.kubernetes.client.openapi.models.V1JSONSchemaProps;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1Secret;
@@ -34,11 +36,16 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
+
 import org.junit.Test;
+import org.yaml.snakeyaml.TypeDescription;
 
 public class YamlTest {
 
@@ -52,6 +59,8 @@ public class YamlTest {
   private static final URL TAGGED_FILE = Resources.getResource("pod-tag.yaml");
 
   private static final URL CRD_INT_OR_STRING_FILE = Resources.getResource("crd-int-or-string.yaml");
+
+  private static final URL CRD_VALIDATIONS_FILE = Resources.getResource("crd-validations.yaml");
 
   private static final String[] kinds =
       new String[] {
@@ -299,6 +308,25 @@ public class YamlTest {
             .getProperties()
             .get("foo")
             .getxKubernetesIntOrString());
+    String dumped = Yaml.dump(crd);
+    assertEquals(data, dumped);
+  }
+
+  @Test
+  public void testLoadDumpCRDWithValidationsExtension() {
+    String data = Resources.toString(CRD_VALIDATIONS_FILE, UTF_8).replace("\r\n", "\n");
+    V1CustomResourceDefinition crd = Yaml.loadAs(data, V1CustomResourceDefinition.class);
+    assertNotNull(crd);
+    assertFalse(
+        crd.getSpec()
+            .getVersions()
+            .get(0)
+            .getSchema()
+            .getOpenAPIV3Schema()
+            .getProperties()
+            .get("spec")
+            .getxKubernetesValidations()
+            .isEmpty());
     String dumped = Yaml.dump(crd);
     assertEquals(data, dumped);
   }
