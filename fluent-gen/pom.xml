@@ -6,9 +6,6 @@
   <name>client-java-fluent-gen</name>
   <url>https://github.com/kubernetes-client/java</url>
   <description>Client Java Fluent Generator</description>
-  <prerequisites>
-    <maven>2.2.0</maven>
-  </prerequisites>
 
   <parent>
     <groupId>io.kubernetes</groupId>
