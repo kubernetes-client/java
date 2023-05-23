@@ -42,20 +42,20 @@
     <snakeyaml.version>2.0</snakeyaml.version>
     <slf4j.version>2.0.7</slf4j.version>
     <caffeine.version>2.9.3</caffeine.version>
-    <protobuf.version>3.22.3</protobuf.version>
+    <protobuf.version>3.23.1</protobuf.version>
     <junit.version>4.13</junit.version>
     <bucket4j.version>7.6.0</bucket4j.version>
     <bouncycastle.version>1.73</bouncycastle.version>
     <gson.version>2.10.1</gson.version>
     <jsr305.version>3.0.2</jsr305.version>
     <okhttp3.version>4.10.0</okhttp3.version>
-    <swagger-core.version>1.6.10</swagger-core.version>
+    <swagger-core.version>1.6.11</swagger-core.version>
     <sundrio.version>0.94.0</sundrio.version>
     <gsonfire.version>1.8.5</gsonfire.version>
     <apache.commons.lang3.version>3.12.0</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
     <apache.commons.compress>1.23.0</apache.commons.compress>
-    <apache.commons.io>2.11.0</apache.commons.io>
+    <apache.commons.io>2.12.0</apache.commons.io>
     <common.codec.version>1.15</common.codec.version>
     <spring.boot.version>2.7.5</spring.boot.version>
     <spring.version>5.3.23</spring.version>
@@ -304,7 +304,7 @@
       <dependency>
         <groupId>com.fasterxml.jackson.core</groupId>
         <artifactId>jackson-annotations</artifactId>
-        <version>2.15.0</version>
+        <version>2.15.1</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
@@ -329,7 +329,7 @@
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
-          <version>5.1.8</version>
+          <version>5.1.9</version>
           <extensions>true</extensions>
         </plugin>
         <plugin>
@@ -363,7 +363,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
-          <version>3.3.0</version>
+          <version>3.4.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -373,7 +373,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.1.0</version>
           <configuration>
             <trimStackTrace>false</trimStackTrace> <!-- SUREFIRE-1226 workaround -->
           </configuration>
@@ -418,7 +418,7 @@
     <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.5.0</version>
+        <version>3.6.0</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -572,7 +572,7 @@ limitations under the License.
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-gpg-plugin</artifactId>
-            <version>3.0.1</version>
+            <version>3.1.0</version>
             <executions>
               <execution>
                 <id>sign-artifacts</id>
