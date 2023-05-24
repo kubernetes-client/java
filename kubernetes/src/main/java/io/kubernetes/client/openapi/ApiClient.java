@@ -457,6 +457,13 @@ public class ApiClient {
     return this;
   }
 
+  /**
+   * Sets the call timeout (in milliseconds). A value of 0 means no timeout, otherwise values
+   * must be between 1 and {@link Integer#MAX_VALUE}.
+   *
+   * @param callTimeout connection timeout in milliseconds
+   * @return Api client
+   */
   public ApiClient setCallTimeout(int callTimeout) {
     httpClient =
         httpClient.newBuilder().callTimeout(callTimeout, TimeUnit.MILLISECONDS).build();
