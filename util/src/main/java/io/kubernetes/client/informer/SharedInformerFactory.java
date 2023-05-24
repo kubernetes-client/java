@@ -275,7 +275,7 @@ public class SharedInformerFactory {
       public Watch<ApiType> watch(CallGeneratorParams params) throws ApiException {
         Call call = callGenerator.generate(params);
 
-        //set call timeout to make sure the machine down still work well
+        //set call timeout to make sure the api machine down still work well
         apiClient.setCallTimeout(apiClient.getConnectTimeout() + params.getTimeoutSeconds() * 1000);
 
         // bind call with private http client to make sure read timeout is zero.
@@ -325,6 +325,9 @@ public class SharedInformerFactory {
       }
 
       public Watchable<ApiType> watch(CallGeneratorParams params) throws ApiException {
+        //set call timeout to make sure the api machine down still work well
+        apiClient.setCallTimeout(apiClient.getConnectTimeout() + params.getTimeoutSeconds() * 1000);
+        
         if (Namespaces.NAMESPACE_ALL.equals(namespace)) {
           return genericKubernetesApi.watch(
               new ListOptions() {
