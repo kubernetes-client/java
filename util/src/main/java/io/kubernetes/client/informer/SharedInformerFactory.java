@@ -276,9 +276,8 @@ public class SharedInformerFactory {
         Call call = callGenerator.generate(params);
 
         //set call timeout to make sure the machine down still work well
-        int callTimeout = apiClient.getConnectTimeout() + params.getTimeoutSeconds() * 1000;
-        apiClient.setHttpClient(apiClient.getHttpClient().newBuilder().callTimeout(Duration.ofMillis(callTimeout)).build());
-        
+        apiClient.setCallTimeout(apiClient.getConnectTimeout() + params.getTimeoutSeconds() * 1000);
+
         // bind call with private http client to make sure read timeout is zero.
         call = apiClient.getHttpClient().newCall(call.request());
         return Watch.createWatch(

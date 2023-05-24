@@ -457,6 +457,12 @@ public class ApiClient {
     return this;
   }
 
+  public ApiClient setCallTimeout(int callTimeout) {
+    httpClient =
+        httpClient.newBuilder().callTimeout(callTimeout, TimeUnit.MILLISECONDS).build();
+    return this;
+  }
+
   /**
    * Get read timeout (in milliseconds).
    *
