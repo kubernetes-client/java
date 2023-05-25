@@ -16,6 +16,7 @@ import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.cache.Cache;
+import io.kubernetes.client.informer.cache.ReflectorRunnable;
 import io.kubernetes.client.informer.impl.DefaultSharedIndexInformer;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -276,7 +277,7 @@ public class SharedInformerFactory {
         Call call = callGenerator.generate(params);
 
         //set call timeout to make sure the api machine down still work well
-        apiClient.setCallTimeout(apiClient.getConnectTimeout() + params.getTimeoutSeconds() * 1000);
+        apiClient.setCallTimeout(ReflectorRunnable.REFLECTOR_WATCH_CLIENTSIDE_MAX_TIMEOUT.toMillis());
 
         // bind call with private http client to make sure read timeout is zero.
         call = apiClient.getHttpClient().newCall(call.request());
@@ -326,7 +327,7 @@ public class SharedInformerFactory {
 
       public Watchable<ApiType> watch(CallGeneratorParams params) throws ApiException {
         //set call timeout to make sure the api machine down still work well
-        apiClient.setCallTimeout(apiClient.getConnectTimeout() + params.getTimeoutSeconds() * 1000);
+        apiClient.setCallTimeout(apiClient.getConnectTimeout() + ReflectorRunnable.REFLECTOR_WATCH_CLIENTSIDE_MAX_TIMEOUT.toMillis());
         
         if (Namespaces.NAMESPACE_ALL.equals(namespace)) {
           return genericKubernetesApi.watch(
