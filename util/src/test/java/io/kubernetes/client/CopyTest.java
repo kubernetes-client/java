@@ -107,6 +107,7 @@ public class CopyTest {
     // When attempting to write to the process outputstream in copyFileToPod, the
     // WebSocketStreamHandler is in a wait state because no websocket is created by mock, which
     // blocks the main thread. So here we execute the method in a thread.
+    private final Semaphore semaphore = new Semaphore(0);
     Thread t =
         new Thread(
             new Runnable() {
@@ -120,7 +121,11 @@ public class CopyTest {
               }
             });
     t.start();
-    Thread.sleep(2000);
+    var counter = new AsyncCounter(this);
+
+    counter.startCounting();
+
+    semaphore.acquire();
     t.interrupt();
 
     wireMockRule.verify(
