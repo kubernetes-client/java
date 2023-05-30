@@ -104,6 +104,11 @@
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
                 <extensions>true</extensions>
+                <configuration>
+                  <instructions>
+                    <Automatic-Module-Name>io.kubernetes.client.java.extended</Automatic-Module-Name>
+                  </instructions>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
