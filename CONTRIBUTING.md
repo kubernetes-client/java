@@ -18,7 +18,7 @@ If you have any problem with the package or any suggestions, please file an [iss
 1. Submit an issue describing your proposed change to the repo.
 2. Fork this repo, develop and test your code changes.
 3. Submit a pull request.
-4. The bot will automatically assigns someone to review your PR. Check the full list of bot commands [here](https://prow.k8s.io/command-help).
+4. The bot will automatically assign someone to review your PR. Check the full list of bot commands [here](https://prow.k8s.io/command-help).
 
 ### Contact
 You can reach the maintainers of this project at [SIG API Machinery](https://github.com/kubernetes/community/tree/master/sig-api-machinery) or on the [#kubernetes-client](https://kubernetes.slack.com/messages/kubernetes-client) channel on the Kubernetes slack.

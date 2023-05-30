@@ -6,9 +6,6 @@
   <name>client-java-api</name>
   <url>https://github.com/kubernetes-client/java</url>
   <description>Swagger Java</description>
-  <prerequisites>
-    <maven>2.2.0</maven>
-  </prerequisites>
 
   <parent>
     <groupId>io.kubernetes</groupId>
