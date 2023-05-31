@@ -31,13 +31,13 @@ docker run \
   --network host \
   ${IMAGE_NAME}:${IMAGE_TAG} \
   /generate.sh \
-  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml \
-  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml \
-  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml \
-  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml \
-  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml \
-  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml \
-  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.38.1/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml \
+  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_alertmanagers.yaml \
+  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml \
+  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_podmonitors.yaml \
+  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml \
+  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml \
+  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml \
+  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_thanosrulers.yaml \
   -n com.coreos.monitoring \
   -p com.coreos.monitoring \
   -o "$(pwd)"
