@@ -18,26 +18,18 @@ import java.lang.Object;
   public V1ProbeFluentImpl() {
   }
   public V1ProbeFluentImpl(V1Probe instance) {
-    this.withExec(instance.getExec());
-
-    this.withFailureThreshold(instance.getFailureThreshold());
-
-    this.withGrpc(instance.getGrpc());
-
-    this.withHttpGet(instance.getHttpGet());
-
-    this.withInitialDelaySeconds(instance.getInitialDelaySeconds());
-
-    this.withPeriodSeconds(instance.getPeriodSeconds());
-
-    this.withSuccessThreshold(instance.getSuccessThreshold());
-
-    this.withTcpSocket(instance.getTcpSocket());
-
-    this.withTerminationGracePeriodSeconds(instance.getTerminationGracePeriodSeconds());
-
-    this.withTimeoutSeconds(instance.getTimeoutSeconds());
-
+    if (instance != null) {
+      this.withExec(instance.getExec());
+      this.withFailureThreshold(instance.getFailureThreshold());
+      this.withGrpc(instance.getGrpc());
+      this.withHttpGet(instance.getHttpGet());
+      this.withInitialDelaySeconds(instance.getInitialDelaySeconds());
+      this.withPeriodSeconds(instance.getPeriodSeconds());
+      this.withSuccessThreshold(instance.getSuccessThreshold());
+      this.withTcpSocket(instance.getTcpSocket());
+      this.withTerminationGracePeriodSeconds(instance.getTerminationGracePeriodSeconds());
+      this.withTimeoutSeconds(instance.getTimeoutSeconds());
+    }
   }
   private V1ExecActionBuilder exec;
   private Integer failureThreshold;
@@ -68,19 +60,19 @@ import java.lang.Object;
   public Boolean hasExec() {
     return this.exec != null;
   }
-  public V1ProbeFluent.ExecNested<A> withNewExec() {
+  public V1ProbeFluentImpl.ExecNested<A> withNewExec() {
     return new V1ProbeFluentImpl.ExecNestedImpl();
   }
-  public V1ProbeFluent.ExecNested<A> withNewExecLike(V1ExecAction item) {
+  public V1ProbeFluentImpl.ExecNested<A> withNewExecLike(V1ExecAction item) {
     return new V1ProbeFluentImpl.ExecNestedImpl(item);
   }
-  public V1ProbeFluent.ExecNested<A> editExec() {
+  public V1ProbeFluentImpl.ExecNested<A> editExec() {
     return withNewExecLike(getExec());
   }
-  public V1ProbeFluent.ExecNested<A> editOrNewExec() {
+  public V1ProbeFluentImpl.ExecNested<A> editOrNewExec() {
     return withNewExecLike(getExec() != null ? getExec(): new V1ExecActionBuilder().build());
   }
-  public V1ProbeFluent.ExecNested<A> editOrNewExecLike(V1ExecAction item) {
+  public V1ProbeFluentImpl.ExecNested<A> editOrNewExecLike(V1ExecAction item) {
     return withNewExecLike(getExec() != null ? getExec(): item);
   }
   public Integer getFailureThreshold() {
@@ -111,19 +103,19 @@ import java.lang.Object;
   public Boolean hasGrpc() {
     return this.grpc != null;
   }
-  public V1ProbeFluent.GrpcNested<A> withNewGrpc() {
+  public V1ProbeFluentImpl.GrpcNested<A> withNewGrpc() {
     return new V1ProbeFluentImpl.GrpcNestedImpl();
   }
-  public V1ProbeFluent.GrpcNested<A> withNewGrpcLike(V1GRPCAction item) {
+  public V1ProbeFluentImpl.GrpcNested<A> withNewGrpcLike(V1GRPCAction item) {
     return new V1ProbeFluentImpl.GrpcNestedImpl(item);
   }
-  public V1ProbeFluent.GrpcNested<A> editGrpc() {
+  public V1ProbeFluentImpl.GrpcNested<A> editGrpc() {
     return withNewGrpcLike(getGrpc());
   }
-  public V1ProbeFluent.GrpcNested<A> editOrNewGrpc() {
+  public V1ProbeFluentImpl.GrpcNested<A> editOrNewGrpc() {
     return withNewGrpcLike(getGrpc() != null ? getGrpc(): new V1GRPCActionBuilder().build());
   }
-  public V1ProbeFluent.GrpcNested<A> editOrNewGrpcLike(V1GRPCAction item) {
+  public V1ProbeFluentImpl.GrpcNested<A> editOrNewGrpcLike(V1GRPCAction item) {
     return withNewGrpcLike(getGrpc() != null ? getGrpc(): item);
   }
   
@@ -145,19 +137,19 @@ import java.lang.Object;
   public Boolean hasHttpGet() {
     return this.httpGet != null;
   }
-  public V1ProbeFluent.HttpGetNested<A> withNewHttpGet() {
+  public V1ProbeFluentImpl.HttpGetNested<A> withNewHttpGet() {
     return new V1ProbeFluentImpl.HttpGetNestedImpl();
   }
-  public V1ProbeFluent.HttpGetNested<A> withNewHttpGetLike(V1HTTPGetAction item) {
+  public V1ProbeFluentImpl.HttpGetNested<A> withNewHttpGetLike(V1HTTPGetAction item) {
     return new V1ProbeFluentImpl.HttpGetNestedImpl(item);
   }
-  public V1ProbeFluent.HttpGetNested<A> editHttpGet() {
+  public V1ProbeFluentImpl.HttpGetNested<A> editHttpGet() {
     return withNewHttpGetLike(getHttpGet());
   }
-  public V1ProbeFluent.HttpGetNested<A> editOrNewHttpGet() {
+  public V1ProbeFluentImpl.HttpGetNested<A> editOrNewHttpGet() {
     return withNewHttpGetLike(getHttpGet() != null ? getHttpGet(): new V1HTTPGetActionBuilder().build());
   }
-  public V1ProbeFluent.HttpGetNested<A> editOrNewHttpGetLike(V1HTTPGetAction item) {
+  public V1ProbeFluentImpl.HttpGetNested<A> editOrNewHttpGetLike(V1HTTPGetAction item) {
     return withNewHttpGetLike(getHttpGet() != null ? getHttpGet(): item);
   }
   public Integer getInitialDelaySeconds() {
@@ -206,19 +198,19 @@ import java.lang.Object;
   public Boolean hasTcpSocket() {
     return this.tcpSocket != null;
   }
-  public V1ProbeFluent.TcpSocketNested<A> withNewTcpSocket() {
+  public V1ProbeFluentImpl.TcpSocketNested<A> withNewTcpSocket() {
     return new V1ProbeFluentImpl.TcpSocketNestedImpl();
   }
-  public V1ProbeFluent.TcpSocketNested<A> withNewTcpSocketLike(V1TCPSocketAction item) {
+  public V1ProbeFluentImpl.TcpSocketNested<A> withNewTcpSocketLike(V1TCPSocketAction item) {
     return new V1ProbeFluentImpl.TcpSocketNestedImpl(item);
   }
-  public V1ProbeFluent.TcpSocketNested<A> editTcpSocket() {
+  public V1ProbeFluentImpl.TcpSocketNested<A> editTcpSocket() {
     return withNewTcpSocketLike(getTcpSocket());
   }
-  public V1ProbeFluent.TcpSocketNested<A> editOrNewTcpSocket() {
+  public V1ProbeFluentImpl.TcpSocketNested<A> editOrNewTcpSocket() {
     return withNewTcpSocketLike(getTcpSocket() != null ? getTcpSocket(): new V1TCPSocketActionBuilder().build());
   }
-  public V1ProbeFluent.TcpSocketNested<A> editOrNewTcpSocketLike(V1TCPSocketAction item) {
+  public V1ProbeFluentImpl.TcpSocketNested<A> editOrNewTcpSocketLike(V1TCPSocketAction item) {
     return withNewTcpSocketLike(getTcpSocket() != null ? getTcpSocket(): item);
   }
   public Long getTerminationGracePeriodSeconds() {
@@ -242,17 +234,28 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ProbeFluentImpl that = (V1ProbeFluentImpl) o;
-    if (exec != null ? !exec.equals(that.exec) :that.exec != null) return false;
-    if (failureThreshold != null ? !failureThreshold.equals(that.failureThreshold) :that.failureThreshold != null) return false;
-    if (grpc != null ? !grpc.equals(that.grpc) :that.grpc != null) return false;
-    if (httpGet != null ? !httpGet.equals(that.httpGet) :that.httpGet != null) return false;
-    if (initialDelaySeconds != null ? !initialDelaySeconds.equals(that.initialDelaySeconds) :that.initialDelaySeconds != null) return false;
-    if (periodSeconds != null ? !periodSeconds.equals(that.periodSeconds) :that.periodSeconds != null) return false;
-    if (successThreshold != null ? !successThreshold.equals(that.successThreshold) :that.successThreshold != null) return false;
-    if (tcpSocket != null ? !tcpSocket.equals(that.tcpSocket) :that.tcpSocket != null) return false;
-    if (terminationGracePeriodSeconds != null ? !terminationGracePeriodSeconds.equals(that.terminationGracePeriodSeconds) :that.terminationGracePeriodSeconds != null) return false;
-    if (timeoutSeconds != null ? !timeoutSeconds.equals(that.timeoutSeconds) :that.timeoutSeconds != null) return false;
+    if (!java.util.Objects.equals(exec, that.exec)) return false;
+
+    if (!java.util.Objects.equals(failureThreshold, that.failureThreshold)) return false;
+
+    if (!java.util.Objects.equals(grpc, that.grpc)) return false;
+
+    if (!java.util.Objects.equals(httpGet, that.httpGet)) return false;
+
+    if (!java.util.Objects.equals(initialDelaySeconds, that.initialDelaySeconds)) return false;
+
+    if (!java.util.Objects.equals(periodSeconds, that.periodSeconds)) return false;
+
+    if (!java.util.Objects.equals(successThreshold, that.successThreshold)) return false;
+
+    if (!java.util.Objects.equals(tcpSocket, that.tcpSocket)) return false;
+
+    if (!java.util.Objects.equals(terminationGracePeriodSeconds, that.terminationGracePeriodSeconds)) return false;
+
+    if (!java.util.Objects.equals(timeoutSeconds, that.timeoutSeconds)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -274,7 +277,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class ExecNestedImpl<N> extends V1ExecActionFluentImpl<V1ProbeFluent.ExecNested<N>> implements V1ProbeFluent.ExecNested<N>,Nested<N>{
+  class ExecNestedImpl<N> extends V1ExecActionFluentImpl<V1ProbeFluentImpl.ExecNested<N>> implements V1ProbeFluentImpl.ExecNested<N>,Nested<N>{
     ExecNestedImpl(V1ExecAction item) {
       this.builder = new V1ExecActionBuilder(this, item);
     }
@@ -290,7 +293,7 @@ import java.lang.Object;
     }
     
   }
-  class GrpcNestedImpl<N> extends V1GRPCActionFluentImpl<V1ProbeFluent.GrpcNested<N>> implements V1ProbeFluent.GrpcNested<N>,Nested<N>{
+  class GrpcNestedImpl<N> extends V1GRPCActionFluentImpl<V1ProbeFluentImpl.GrpcNested<N>> implements V1ProbeFluentImpl.GrpcNested<N>,Nested<N>{
     GrpcNestedImpl(V1GRPCAction item) {
       this.builder = new V1GRPCActionBuilder(this, item);
     }
@@ -306,7 +309,7 @@ import java.lang.Object;
     }
     
   }
-  class HttpGetNestedImpl<N> extends V1HTTPGetActionFluentImpl<V1ProbeFluent.HttpGetNested<N>> implements V1ProbeFluent.HttpGetNested<N>,Nested<N>{
+  class HttpGetNestedImpl<N> extends V1HTTPGetActionFluentImpl<V1ProbeFluentImpl.HttpGetNested<N>> implements V1ProbeFluentImpl.HttpGetNested<N>,Nested<N>{
     HttpGetNestedImpl(V1HTTPGetAction item) {
       this.builder = new V1HTTPGetActionBuilder(this, item);
     }
@@ -322,7 +325,7 @@ import java.lang.Object;
     }
     
   }
-  class TcpSocketNestedImpl<N> extends V1TCPSocketActionFluentImpl<V1ProbeFluent.TcpSocketNested<N>> implements V1ProbeFluent.TcpSocketNested<N>,Nested<N>{
+  class TcpSocketNestedImpl<N> extends V1TCPSocketActionFluentImpl<V1ProbeFluentImpl.TcpSocketNested<N>> implements V1ProbeFluentImpl.TcpSocketNested<N>,Nested<N>{
     TcpSocketNestedImpl(V1TCPSocketAction item) {
       this.builder = new V1TCPSocketActionBuilder(this, item);
     }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
@@ -10,7 +11,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
 import io.kubernetes.client.fluent.Fluent;
-import java.lang.Integer;
 import java.lang.Long;
 import java.util.Collection;
 
@@ -63,14 +63,14 @@ public interface V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent
   public V1PodSecurityContextFluent.SeccompProfileNested<A> editSeccompProfile();
   public V1PodSecurityContextFluent.SeccompProfileNested<A> editOrNewSeccompProfile();
   public V1PodSecurityContextFluent.SeccompProfileNested<A> editOrNewSeccompProfileLike(V1SeccompProfile item);
-  public A addToSupplementalGroups(Integer index,Long item);
-  public A setToSupplementalGroups(Integer index,Long item);
+  public A addToSupplementalGroups(int index,Long item);
+  public A setToSupplementalGroups(int index,Long item);
   public A addToSupplementalGroups(java.lang.Long... items);
   public A addAllToSupplementalGroups(Collection<Long> items);
   public A removeFromSupplementalGroups(java.lang.Long... items);
   public A removeAllFromSupplementalGroups(Collection<Long> items);
   public List<Long> getSupplementalGroups();
-  public Long getSupplementalGroup(Integer index);
+  public Long getSupplementalGroup(int index);
   public Long getFirstSupplementalGroup();
   public Long getLastSupplementalGroup();
   public Long getMatchingSupplementalGroup(Predicate<Long> predicate);
@@ -78,8 +78,8 @@ public interface V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent
   public A withSupplementalGroups(List<Long> supplementalGroups);
   public A withSupplementalGroups(java.lang.Long... supplementalGroups);
   public Boolean hasSupplementalGroups();
-  public A addToSysctls(Integer index,V1Sysctl item);
-  public A setToSysctls(Integer index,V1Sysctl item);
+  public A addToSysctls(int index,V1Sysctl item);
+  public A setToSysctls(int index,V1Sysctl item);
   public A addToSysctls(io.kubernetes.client.openapi.models.V1Sysctl... items);
   public A addAllToSysctls(Collection<V1Sysctl> items);
   public A removeFromSysctls(io.kubernetes.client.openapi.models.V1Sysctl... items);
@@ -93,7 +93,7 @@ public interface V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent
   @Deprecated
   public List<V1Sysctl> getSysctls();
   public List<V1Sysctl> buildSysctls();
-  public V1Sysctl buildSysctl(Integer index);
+  public V1Sysctl buildSysctl(int index);
   public V1Sysctl buildFirstSysctl();
   public V1Sysctl buildLastSysctl();
   public V1Sysctl buildMatchingSysctl(Predicate<V1SysctlBuilder> predicate);
@@ -103,8 +103,8 @@ public interface V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent
   public Boolean hasSysctls();
   public V1PodSecurityContextFluent.SysctlsNested<A> addNewSysctl();
   public V1PodSecurityContextFluent.SysctlsNested<A> addNewSysctlLike(V1Sysctl item);
-  public V1PodSecurityContextFluent.SysctlsNested<A> setNewSysctlLike(Integer index,V1Sysctl item);
-  public V1PodSecurityContextFluent.SysctlsNested<A> editSysctl(Integer index);
+  public V1PodSecurityContextFluent.SysctlsNested<A> setNewSysctlLike(int index,V1Sysctl item);
+  public V1PodSecurityContextFluent.SysctlsNested<A> editSysctl(int index);
   public V1PodSecurityContextFluent.SysctlsNested<A> editFirstSysctl();
   public V1PodSecurityContextFluent.SysctlsNested<A> editLastSysctl();
   public V1PodSecurityContextFluent.SysctlsNested<A> editMatchingSysctl(Predicate<V1SysctlBuilder> predicate);

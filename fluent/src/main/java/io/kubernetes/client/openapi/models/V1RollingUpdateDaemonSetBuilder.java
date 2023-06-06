@@ -20,10 +20,10 @@ public class V1RollingUpdateDaemonSetBuilder extends V1RollingUpdateDaemonSetFlu
   }
   public V1RollingUpdateDaemonSetBuilder(V1RollingUpdateDaemonSetFluent<?> fluent,V1RollingUpdateDaemonSet instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMaxSurge(instance.getMaxSurge());
-
-    fluent.withMaxUnavailable(instance.getMaxUnavailable());
-
+    if (instance != null) {
+      fluent.withMaxSurge(instance.getMaxSurge());
+      fluent.withMaxUnavailable(instance.getMaxUnavailable());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1RollingUpdateDaemonSetBuilder(V1RollingUpdateDaemonSet instance) {
@@ -31,10 +31,10 @@ public class V1RollingUpdateDaemonSetBuilder extends V1RollingUpdateDaemonSetFlu
   }
   public V1RollingUpdateDaemonSetBuilder(V1RollingUpdateDaemonSet instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMaxSurge(instance.getMaxSurge());
-
-    this.withMaxUnavailable(instance.getMaxUnavailable());
-
+    if (instance != null) {
+      this.withMaxSurge(instance.getMaxSurge());
+      this.withMaxUnavailable(instance.getMaxUnavailable());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1RollingUpdateDaemonSetFluent<?> fluent;

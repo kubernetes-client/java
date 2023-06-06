@@ -16,8 +16,9 @@ import java.lang.Boolean;
   public V1VolumeNodeAffinityFluentImpl() {
   }
   public V1VolumeNodeAffinityFluentImpl(V1VolumeNodeAffinity instance) {
-    this.withRequired(instance.getRequired());
-
+    if (instance != null) {
+      this.withRequired(instance.getRequired());
+    }
   }
   private V1NodeSelectorBuilder required;
   
@@ -39,26 +40,28 @@ import java.lang.Boolean;
   public Boolean hasRequired() {
     return this.required != null;
   }
-  public V1VolumeNodeAffinityFluent.RequiredNested<A> withNewRequired() {
+  public V1VolumeNodeAffinityFluentImpl.RequiredNested<A> withNewRequired() {
     return new V1VolumeNodeAffinityFluentImpl.RequiredNestedImpl();
   }
-  public V1VolumeNodeAffinityFluent.RequiredNested<A> withNewRequiredLike(V1NodeSelector item) {
+  public V1VolumeNodeAffinityFluentImpl.RequiredNested<A> withNewRequiredLike(V1NodeSelector item) {
     return new V1VolumeNodeAffinityFluentImpl.RequiredNestedImpl(item);
   }
-  public V1VolumeNodeAffinityFluent.RequiredNested<A> editRequired() {
+  public V1VolumeNodeAffinityFluentImpl.RequiredNested<A> editRequired() {
     return withNewRequiredLike(getRequired());
   }
-  public V1VolumeNodeAffinityFluent.RequiredNested<A> editOrNewRequired() {
+  public V1VolumeNodeAffinityFluentImpl.RequiredNested<A> editOrNewRequired() {
     return withNewRequiredLike(getRequired() != null ? getRequired(): new V1NodeSelectorBuilder().build());
   }
-  public V1VolumeNodeAffinityFluent.RequiredNested<A> editOrNewRequiredLike(V1NodeSelector item) {
+  public V1VolumeNodeAffinityFluentImpl.RequiredNested<A> editOrNewRequiredLike(V1NodeSelector item) {
     return withNewRequiredLike(getRequired() != null ? getRequired(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1VolumeNodeAffinityFluentImpl that = (V1VolumeNodeAffinityFluentImpl) o;
-    if (required != null ? !required.equals(that.required) :that.required != null) return false;
+    if (!java.util.Objects.equals(required, that.required)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -71,7 +74,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class RequiredNestedImpl<N> extends V1NodeSelectorFluentImpl<V1VolumeNodeAffinityFluent.RequiredNested<N>> implements V1VolumeNodeAffinityFluent.RequiredNested<N>,Nested<N>{
+  class RequiredNestedImpl<N> extends V1NodeSelectorFluentImpl<V1VolumeNodeAffinityFluentImpl.RequiredNested<N>> implements V1VolumeNodeAffinityFluentImpl.RequiredNested<N>,Nested<N>{
     RequiredNestedImpl(V1NodeSelector item) {
       this.builder = new V1NodeSelectorBuilder(this, item);
     }

@@ -19,16 +19,13 @@ import java.lang.Boolean;
   public V1FCVolumeSourceFluentImpl() {
   }
   public V1FCVolumeSourceFluentImpl(V1FCVolumeSource instance) {
-    this.withFsType(instance.getFsType());
-
-    this.withLun(instance.getLun());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withTargetWWNs(instance.getTargetWWNs());
-
-    this.withWwids(instance.getWwids());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withLun(instance.getLun());
+      this.withReadOnly(instance.getReadOnly());
+      this.withTargetWWNs(instance.getTargetWWNs());
+      this.withWwids(instance.getWwids());
+    }
   }
   private String fsType;
   private Integer lun;
@@ -62,12 +59,12 @@ import java.lang.Boolean;
   public Boolean hasReadOnly() {
     return this.readOnly != null;
   }
-  public A addToTargetWWNs(Integer index,String item) {
+  public A addToTargetWWNs(int index,String item) {
     if (this.targetWWNs == null) {this.targetWWNs = new ArrayList<String>();}
     this.targetWWNs.add(index, item);
     return (A)this;
   }
-  public A setToTargetWWNs(Integer index,String item) {
+  public A setToTargetWWNs(int index,String item) {
     if (this.targetWWNs == null) {this.targetWWNs = new ArrayList<String>();}
     this.targetWWNs.set(index, item); return (A)this;
   }
@@ -88,7 +85,7 @@ import java.lang.Boolean;
   public List<String> getTargetWWNs() {
     return this.targetWWNs;
   }
-  public String getTargetWWN(Integer index) {
+  public String getTargetWWN(int index) {
     return this.targetWWNs.get(index);
   }
   public String getFirstTargetWWN() {
@@ -107,18 +104,18 @@ import java.lang.Boolean;
     if (targetWWNs != null) {this.targetWWNs = new ArrayList(); for (String item : targetWWNs){this.addToTargetWWNs(item);}} else { this.targetWWNs = null;} return (A) this;
   }
   public A withTargetWWNs(java.lang.String... targetWWNs) {
-    if (this.targetWWNs != null) {this.targetWWNs.clear();}
+    if (this.targetWWNs != null) {this.targetWWNs.clear(); _visitables.remove("targetWWNs"); }
     if (targetWWNs != null) {for (String item :targetWWNs){ this.addToTargetWWNs(item);}} return (A) this;
   }
   public Boolean hasTargetWWNs() {
     return targetWWNs != null && !targetWWNs.isEmpty();
   }
-  public A addToWwids(Integer index,String item) {
+  public A addToWwids(int index,String item) {
     if (this.wwids == null) {this.wwids = new ArrayList<String>();}
     this.wwids.add(index, item);
     return (A)this;
   }
-  public A setToWwids(Integer index,String item) {
+  public A setToWwids(int index,String item) {
     if (this.wwids == null) {this.wwids = new ArrayList<String>();}
     this.wwids.set(index, item); return (A)this;
   }
@@ -139,7 +136,7 @@ import java.lang.Boolean;
   public List<String> getWwids() {
     return this.wwids;
   }
-  public String getWwid(Integer index) {
+  public String getWwid(int index) {
     return this.wwids.get(index);
   }
   public String getFirstWwid() {
@@ -158,7 +155,7 @@ import java.lang.Boolean;
     if (wwids != null) {this.wwids = new ArrayList(); for (String item : wwids){this.addToWwids(item);}} else { this.wwids = null;} return (A) this;
   }
   public A withWwids(java.lang.String... wwids) {
-    if (this.wwids != null) {this.wwids.clear();}
+    if (this.wwids != null) {this.wwids.clear(); _visitables.remove("wwids"); }
     if (wwids != null) {for (String item :wwids){ this.addToWwids(item);}} return (A) this;
   }
   public Boolean hasWwids() {
@@ -167,12 +164,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1FCVolumeSourceFluentImpl that = (V1FCVolumeSourceFluentImpl) o;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (lun != null ? !lun.equals(that.lun) :that.lun != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (targetWWNs != null ? !targetWWNs.equals(that.targetWWNs) :that.targetWWNs != null) return false;
-    if (wwids != null ? !wwids.equals(that.wwids) :that.wwids != null) return false;
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(lun, that.lun)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(targetWWNs, that.targetWWNs)) return false;
+
+    if (!java.util.Objects.equals(wwids, that.wwids)) return false;
+
     return true;
   }
   public int hashCode() {

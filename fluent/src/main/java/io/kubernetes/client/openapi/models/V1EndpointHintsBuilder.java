@@ -20,8 +20,9 @@ public class V1EndpointHintsBuilder extends V1EndpointHintsFluentImpl<V1Endpoint
   }
   public V1EndpointHintsBuilder(V1EndpointHintsFluent<?> fluent,V1EndpointHints instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withForZones(instance.getForZones());
-
+    if (instance != null) {
+      fluent.withForZones(instance.getForZones());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EndpointHintsBuilder(V1EndpointHints instance) {
@@ -29,8 +30,9 @@ public class V1EndpointHintsBuilder extends V1EndpointHintsFluentImpl<V1Endpoint
   }
   public V1EndpointHintsBuilder(V1EndpointHints instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withForZones(instance.getForZones());
-
+    if (instance != null) {
+      this.withForZones(instance.getForZones());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EndpointHintsFluent<?> fluent;

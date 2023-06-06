@@ -20,14 +20,12 @@ public class V1EndpointsBuilder extends V1EndpointsFluentImpl<V1EndpointsBuilder
   }
   public V1EndpointsBuilder(V1EndpointsFluent<?> fluent,V1Endpoints instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSubsets(instance.getSubsets());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSubsets(instance.getSubsets());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EndpointsBuilder(V1Endpoints instance) {
@@ -35,14 +33,12 @@ public class V1EndpointsBuilder extends V1EndpointsFluentImpl<V1EndpointsBuilder
   }
   public V1EndpointsBuilder(V1Endpoints instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSubsets(instance.getSubsets());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSubsets(instance.getSubsets());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EndpointsFluent<?> fluent;

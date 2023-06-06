@@ -16,26 +16,18 @@ import java.lang.Boolean;
   public V1ScaleIOVolumeSourceFluentImpl() {
   }
   public V1ScaleIOVolumeSourceFluentImpl(V1ScaleIOVolumeSource instance) {
-    this.withFsType(instance.getFsType());
-
-    this.withGateway(instance.getGateway());
-
-    this.withProtectionDomain(instance.getProtectionDomain());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withSslEnabled(instance.getSslEnabled());
-
-    this.withStorageMode(instance.getStorageMode());
-
-    this.withStoragePool(instance.getStoragePool());
-
-    this.withSystem(instance.getSystem());
-
-    this.withVolumeName(instance.getVolumeName());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withGateway(instance.getGateway());
+      this.withProtectionDomain(instance.getProtectionDomain());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+      this.withSslEnabled(instance.getSslEnabled());
+      this.withStorageMode(instance.getStorageMode());
+      this.withStoragePool(instance.getStoragePool());
+      this.withSystem(instance.getSystem());
+      this.withVolumeName(instance.getVolumeName());
+    }
   }
   private String fsType;
   private String gateway;
@@ -102,19 +94,19 @@ import java.lang.Boolean;
   public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
-  public V1ScaleIOVolumeSourceFluent.SecretRefNested<A> withNewSecretRef() {
+  public V1ScaleIOVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRef() {
     return new V1ScaleIOVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
-  public V1ScaleIOVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item) {
+  public V1ScaleIOVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item) {
     return new V1ScaleIOVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
-  public V1ScaleIOVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
+  public V1ScaleIOVolumeSourceFluentImpl.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
-  public V1ScaleIOVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
+  public V1ScaleIOVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): new V1LocalObjectReferenceBuilder().build());
   }
-  public V1ScaleIOVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(V1LocalObjectReference item) {
+  public V1ScaleIOVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRefLike(V1LocalObjectReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): item);
   }
   public Boolean getSslEnabled() {
@@ -165,17 +157,28 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ScaleIOVolumeSourceFluentImpl that = (V1ScaleIOVolumeSourceFluentImpl) o;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (gateway != null ? !gateway.equals(that.gateway) :that.gateway != null) return false;
-    if (protectionDomain != null ? !protectionDomain.equals(that.protectionDomain) :that.protectionDomain != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (secretRef != null ? !secretRef.equals(that.secretRef) :that.secretRef != null) return false;
-    if (sslEnabled != null ? !sslEnabled.equals(that.sslEnabled) :that.sslEnabled != null) return false;
-    if (storageMode != null ? !storageMode.equals(that.storageMode) :that.storageMode != null) return false;
-    if (storagePool != null ? !storagePool.equals(that.storagePool) :that.storagePool != null) return false;
-    if (system != null ? !system.equals(that.system) :that.system != null) return false;
-    if (volumeName != null ? !volumeName.equals(that.volumeName) :that.volumeName != null) return false;
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(gateway, that.gateway)) return false;
+
+    if (!java.util.Objects.equals(protectionDomain, that.protectionDomain)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
+
+    if (!java.util.Objects.equals(sslEnabled, that.sslEnabled)) return false;
+
+    if (!java.util.Objects.equals(storageMode, that.storageMode)) return false;
+
+    if (!java.util.Objects.equals(storagePool, that.storagePool)) return false;
+
+    if (!java.util.Objects.equals(system, that.system)) return false;
+
+    if (!java.util.Objects.equals(volumeName, that.volumeName)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -203,7 +206,7 @@ import java.lang.Boolean;
   public A withSslEnabled() {
     return withSslEnabled(true);
   }
-  class SecretRefNestedImpl<N> extends V1LocalObjectReferenceFluentImpl<V1ScaleIOVolumeSourceFluent.SecretRefNested<N>> implements V1ScaleIOVolumeSourceFluent.SecretRefNested<N>,Nested<N>{
+  class SecretRefNestedImpl<N> extends V1LocalObjectReferenceFluentImpl<V1ScaleIOVolumeSourceFluentImpl.SecretRefNested<N>> implements V1ScaleIOVolumeSourceFluentImpl.SecretRefNested<N>,Nested<N>{
     SecretRefNestedImpl(V1LocalObjectReference item) {
       this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }

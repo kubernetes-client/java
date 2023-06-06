@@ -20,10 +20,10 @@ public class V1PodTemplateSpecBuilder extends V1PodTemplateSpecFluentImpl<V1PodT
   }
   public V1PodTemplateSpecBuilder(V1PodTemplateSpecFluent<?> fluent,V1PodTemplateSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodTemplateSpecBuilder(V1PodTemplateSpec instance) {
@@ -31,10 +31,10 @@ public class V1PodTemplateSpecBuilder extends V1PodTemplateSpecFluentImpl<V1PodT
   }
   public V1PodTemplateSpecBuilder(V1PodTemplateSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodTemplateSpecFluent<?> fluent;

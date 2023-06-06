@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,38 +21,38 @@ import java.util.Map;
  * @param <T> The type of data that is deserialized from response body
  */
 public class ApiResponse<T> {
-  private final int statusCode;
-  private final Map<String, List<String>> headers;
-  private final T data;
+    final private int statusCode;
+    final private Map<String, List<String>> headers;
+    final private T data;
 
-  /**
-   * @param statusCode The status code of HTTP response
-   * @param headers The headers of HTTP response
-   */
-  public ApiResponse(int statusCode, Map<String, List<String>> headers) {
-    this(statusCode, headers, null);
-  }
+    /**
+     * @param statusCode The status code of HTTP response
+     * @param headers The headers of HTTP response
+     */
+    public ApiResponse(int statusCode, Map<String, List<String>> headers) {
+        this(statusCode, headers, null);
+    }
 
-  /**
-   * @param statusCode The status code of HTTP response
-   * @param headers The headers of HTTP response
-   * @param data The object deserialized from response bod
-   */
-  public ApiResponse(int statusCode, Map<String, List<String>> headers, T data) {
-    this.statusCode = statusCode;
-    this.headers = headers;
-    this.data = data;
-  }
+    /**
+     * @param statusCode The status code of HTTP response
+     * @param headers The headers of HTTP response
+     * @param data The object deserialized from response bod
+     */
+    public ApiResponse(int statusCode, Map<String, List<String>> headers, T data) {
+        this.statusCode = statusCode;
+        this.headers = headers;
+        this.data = data;
+    }
 
-  public int getStatusCode() {
-    return statusCode;
-  }
+    public int getStatusCode() {
+        return statusCode;
+    }
 
-  public Map<String, List<String>> getHeaders() {
-    return headers;
-  }
+    public Map<String, List<String>> getHeaders() {
+        return headers;
+    }
 
-  public T getData() {
-    return data;
-  }
+    public T getData() {
+        return data;
+    }
 }

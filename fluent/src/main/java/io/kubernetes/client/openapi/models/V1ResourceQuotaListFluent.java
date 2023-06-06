@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1ResourceQuotaListFluent<A extends V1ResourceQuotaListFluent<A
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1ResourceQuota item);
-  public A setToItems(Integer index,V1ResourceQuota item);
+  public A addToItems(int index,V1ResourceQuota item);
+  public A setToItems(int index,V1ResourceQuota item);
   public A addToItems(io.kubernetes.client.openapi.models.V1ResourceQuota... items);
   public A addAllToItems(Collection<V1ResourceQuota> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1ResourceQuota... items);
@@ -35,7 +35,7 @@ public interface V1ResourceQuotaListFluent<A extends V1ResourceQuotaListFluent<A
   @Deprecated
   public List<V1ResourceQuota> getItems();
   public List<V1ResourceQuota> buildItems();
-  public V1ResourceQuota buildItem(Integer index);
+  public V1ResourceQuota buildItem(int index);
   public V1ResourceQuota buildFirstItem();
   public V1ResourceQuota buildLastItem();
   public V1ResourceQuota buildMatchingItem(Predicate<V1ResourceQuotaBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1ResourceQuotaListFluent<A extends V1ResourceQuotaListFluent<A
   public Boolean hasItems();
   public V1ResourceQuotaListFluent.ItemsNested<A> addNewItem();
   public V1ResourceQuotaListFluent.ItemsNested<A> addNewItemLike(V1ResourceQuota item);
-  public V1ResourceQuotaListFluent.ItemsNested<A> setNewItemLike(Integer index,V1ResourceQuota item);
-  public V1ResourceQuotaListFluent.ItemsNested<A> editItem(Integer index);
+  public V1ResourceQuotaListFluent.ItemsNested<A> setNewItemLike(int index,V1ResourceQuota item);
+  public V1ResourceQuotaListFluent.ItemsNested<A> editItem(int index);
   public V1ResourceQuotaListFluent.ItemsNested<A> editFirstItem();
   public V1ResourceQuotaListFluent.ItemsNested<A> editLastItem();
   public V1ResourceQuotaListFluent.ItemsNested<A> editMatchingItem(Predicate<V1ResourceQuotaBuilder> predicate);

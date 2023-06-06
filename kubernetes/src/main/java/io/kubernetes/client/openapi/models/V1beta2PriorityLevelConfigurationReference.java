@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * PriorityLevelConfigurationReference contains information that points to the
- * \&quot;request-priority\&quot; being used.
+ * PriorityLevelConfigurationReference contains information that points to the \&quot;request-priority\&quot; being used.
  */
-@ApiModel(
-    description =
-        "PriorityLevelConfigurationReference contains information that points to the \"request-priority\" being used.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "PriorityLevelConfigurationReference contains information that points to the \"request-priority\" being used.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1beta2PriorityLevelConfigurationReference {
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
 
   public V1beta2PriorityLevelConfigurationReference name(String name) {
 
@@ -39,21 +40,21 @@ public class V1beta2PriorityLevelConfigurationReference {
     return this;
   }
 
-  /**
+   /**
    * &#x60;name&#x60; is the name of the priority level configuration being referenced Required.
-   *
    * @return name
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "`name` is the name of the priority level configuration being referenced Required.")
+  **/
+  @ApiModelProperty(required = true, value = "`name` is the name of the priority level configuration being referenced Required.")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -63,8 +64,7 @@ public class V1beta2PriorityLevelConfigurationReference {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1beta2PriorityLevelConfigurationReference v1beta2PriorityLevelConfigurationReference =
-        (V1beta2PriorityLevelConfigurationReference) o;
+    V1beta2PriorityLevelConfigurationReference v1beta2PriorityLevelConfigurationReference = (V1beta2PriorityLevelConfigurationReference) o;
     return Objects.equals(this.name, v1beta2PriorityLevelConfigurationReference.name);
   }
 
@@ -72,6 +72,7 @@ public class V1beta2PriorityLevelConfigurationReference {
   public int hashCode() {
     return Objects.hash(name);
   }
+
 
   @Override
   public String toString() {
@@ -83,7 +84,8 @@ public class V1beta2PriorityLevelConfigurationReference {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -91,4 +93,5 @@ public class V1beta2PriorityLevelConfigurationReference {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

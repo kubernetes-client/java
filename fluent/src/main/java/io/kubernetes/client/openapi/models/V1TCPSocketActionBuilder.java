@@ -20,10 +20,10 @@ public class V1TCPSocketActionBuilder extends V1TCPSocketActionFluentImpl<V1TCPS
   }
   public V1TCPSocketActionBuilder(V1TCPSocketActionFluent<?> fluent,V1TCPSocketAction instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withHost(instance.getHost());
-
-    fluent.withPort(instance.getPort());
-
+    if (instance != null) {
+      fluent.withHost(instance.getHost());
+      fluent.withPort(instance.getPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TCPSocketActionBuilder(V1TCPSocketAction instance) {
@@ -31,10 +31,10 @@ public class V1TCPSocketActionBuilder extends V1TCPSocketActionFluentImpl<V1TCPS
   }
   public V1TCPSocketActionBuilder(V1TCPSocketAction instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withHost(instance.getHost());
-
-    this.withPort(instance.getPort());
-
+    if (instance != null) {
+      this.withHost(instance.getHost());
+      this.withPort(instance.getPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TCPSocketActionFluent<?> fluent;

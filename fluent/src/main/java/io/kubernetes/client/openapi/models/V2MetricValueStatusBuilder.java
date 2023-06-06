@@ -20,12 +20,11 @@ public class V2MetricValueStatusBuilder extends V2MetricValueStatusFluentImpl<V2
   }
   public V2MetricValueStatusBuilder(V2MetricValueStatusFluent<?> fluent,V2MetricValueStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAverageUtilization(instance.getAverageUtilization());
-
-    fluent.withAverageValue(instance.getAverageValue());
-
-    fluent.withValue(instance.getValue());
-
+    if (instance != null) {
+      fluent.withAverageUtilization(instance.getAverageUtilization());
+      fluent.withAverageValue(instance.getAverageValue());
+      fluent.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2MetricValueStatusBuilder(V2MetricValueStatus instance) {
@@ -33,12 +32,11 @@ public class V2MetricValueStatusBuilder extends V2MetricValueStatusFluentImpl<V2
   }
   public V2MetricValueStatusBuilder(V2MetricValueStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAverageUtilization(instance.getAverageUtilization());
-
-    this.withAverageValue(instance.getAverageValue());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withAverageUtilization(instance.getAverageUtilization());
+      this.withAverageValue(instance.getAverageValue());
+      this.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2MetricValueStatusFluent<?> fluent;

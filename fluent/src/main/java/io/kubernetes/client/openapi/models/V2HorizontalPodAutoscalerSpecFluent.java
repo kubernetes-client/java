@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -34,8 +35,8 @@ public interface V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAu
   public Integer getMaxReplicas();
   public A withMaxReplicas(Integer maxReplicas);
   public Boolean hasMaxReplicas();
-  public A addToMetrics(Integer index,V2MetricSpec item);
-  public A setToMetrics(Integer index,V2MetricSpec item);
+  public A addToMetrics(int index,V2MetricSpec item);
+  public A setToMetrics(int index,V2MetricSpec item);
   public A addToMetrics(io.kubernetes.client.openapi.models.V2MetricSpec... items);
   public A addAllToMetrics(Collection<V2MetricSpec> items);
   public A removeFromMetrics(io.kubernetes.client.openapi.models.V2MetricSpec... items);
@@ -49,7 +50,7 @@ public interface V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAu
   @Deprecated
   public List<V2MetricSpec> getMetrics();
   public List<V2MetricSpec> buildMetrics();
-  public V2MetricSpec buildMetric(Integer index);
+  public V2MetricSpec buildMetric(int index);
   public V2MetricSpec buildFirstMetric();
   public V2MetricSpec buildLastMetric();
   public V2MetricSpec buildMatchingMetric(Predicate<V2MetricSpecBuilder> predicate);
@@ -59,8 +60,8 @@ public interface V2HorizontalPodAutoscalerSpecFluent<A extends V2HorizontalPodAu
   public Boolean hasMetrics();
   public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> addNewMetric();
   public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> addNewMetricLike(V2MetricSpec item);
-  public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> setNewMetricLike(Integer index,V2MetricSpec item);
-  public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> editMetric(Integer index);
+  public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> setNewMetricLike(int index,V2MetricSpec item);
+  public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> editMetric(int index);
   public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> editFirstMetric();
   public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> editLastMetric();
   public V2HorizontalPodAutoscalerSpecFluent.MetricsNested<A> editMatchingMetric(Predicate<V2MetricSpecBuilder> predicate);

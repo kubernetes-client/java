@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,26 +22,26 @@ import java.lang.Object;
   public V1beta2PolicyRulesWithSubjectsFluentImpl() {
   }
   public V1beta2PolicyRulesWithSubjectsFluentImpl(V1beta2PolicyRulesWithSubjects instance) {
-    this.withNonResourceRules(instance.getNonResourceRules());
-
-    this.withResourceRules(instance.getResourceRules());
-
-    this.withSubjects(instance.getSubjects());
-
+    if (instance != null) {
+      this.withNonResourceRules(instance.getNonResourceRules());
+      this.withResourceRules(instance.getResourceRules());
+      this.withSubjects(instance.getSubjects());
+    }
   }
   private ArrayList<V1beta2NonResourcePolicyRuleBuilder> nonResourceRules;
   private ArrayList<V1beta2ResourcePolicyRuleBuilder> resourceRules;
   private ArrayList<V1beta2SubjectBuilder> subjects;
-  public A addToNonResourceRules(Integer index,V1beta2NonResourcePolicyRule item) {
-    if (this.nonResourceRules == null) {this.nonResourceRules = new ArrayList<V1beta2NonResourcePolicyRuleBuilder>();}
-    V1beta2NonResourcePolicyRuleBuilder builder = new V1beta2NonResourcePolicyRuleBuilder(item);_visitables.get("nonResourceRules").add(index >= 0 ? index : _visitables.get("nonResourceRules").size(), builder);this.nonResourceRules.add(index >= 0 ? index : nonResourceRules.size(), builder); return (A)this;
-  }
-  public A setToNonResourceRules(Integer index,V1beta2NonResourcePolicyRule item) {
+  public A addToNonResourceRules(int index,V1beta2NonResourcePolicyRule item) {
     if (this.nonResourceRules == null) {this.nonResourceRules = new ArrayList<V1beta2NonResourcePolicyRuleBuilder>();}
     V1beta2NonResourcePolicyRuleBuilder builder = new V1beta2NonResourcePolicyRuleBuilder(item);
-    if (index < 0 || index >= _visitables.get("nonResourceRules").size()) { _visitables.get("nonResourceRules").add(builder); } else { _visitables.get("nonResourceRules").set(index, builder);}
-    if (index < 0 || index >= nonResourceRules.size()) { nonResourceRules.add(builder); } else { nonResourceRules.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= nonResourceRules.size()) { _visitables.get("nonResourceRules").add(builder); nonResourceRules.add(builder); } else { _visitables.get("nonResourceRules").add(index, builder); nonResourceRules.add(index, builder);}
+    return (A)this;
+  }
+  public A setToNonResourceRules(int index,V1beta2NonResourcePolicyRule item) {
+    if (this.nonResourceRules == null) {this.nonResourceRules = new ArrayList<V1beta2NonResourcePolicyRuleBuilder>();}
+    V1beta2NonResourcePolicyRuleBuilder builder = new V1beta2NonResourcePolicyRuleBuilder(item);
+    if (index < 0 || index >= nonResourceRules.size()) { _visitables.get("nonResourceRules").add(builder); nonResourceRules.add(builder); } else { _visitables.get("nonResourceRules").set(index, builder); nonResourceRules.set(index, builder);}
+    return (A)this;
   }
   public A addToNonResourceRules(io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule... items) {
     if (this.nonResourceRules == null) {this.nonResourceRules = new ArrayList<V1beta2NonResourcePolicyRuleBuilder>();}
@@ -83,7 +82,7 @@ import java.lang.Object;
   public List<V1beta2NonResourcePolicyRule> buildNonResourceRules() {
     return nonResourceRules != null ? build(nonResourceRules) : null;
   }
-  public V1beta2NonResourcePolicyRule buildNonResourceRule(Integer index) {
+  public V1beta2NonResourcePolicyRule buildNonResourceRule(int index) {
     return this.nonResourceRules.get(index).build();
   }
   public V1beta2NonResourcePolicyRule buildFirstNonResourceRule() {
@@ -99,39 +98,39 @@ import java.lang.Object;
     for (V1beta2NonResourcePolicyRuleBuilder item: nonResourceRules) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withNonResourceRules(List<V1beta2NonResourcePolicyRule> nonResourceRules) {
-    if (this.nonResourceRules != null) { _visitables.get("nonResourceRules").removeAll(this.nonResourceRules);}
+    if (this.nonResourceRules != null) { _visitables.get("nonResourceRules").clear();}
     if (nonResourceRules != null) {this.nonResourceRules = new ArrayList(); for (V1beta2NonResourcePolicyRule item : nonResourceRules){this.addToNonResourceRules(item);}} else { this.nonResourceRules = null;} return (A) this;
   }
   public A withNonResourceRules(io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule... nonResourceRules) {
-    if (this.nonResourceRules != null) {this.nonResourceRules.clear();}
+    if (this.nonResourceRules != null) {this.nonResourceRules.clear(); _visitables.remove("nonResourceRules"); }
     if (nonResourceRules != null) {for (V1beta2NonResourcePolicyRule item :nonResourceRules){ this.addToNonResourceRules(item);}} return (A) this;
   }
   public Boolean hasNonResourceRules() {
     return nonResourceRules != null && !nonResourceRules.isEmpty();
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<A> addNewNonResourceRule() {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNested<A> addNewNonResourceRule() {
     return new V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNestedImpl();
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<A> addNewNonResourceRuleLike(V1beta2NonResourcePolicyRule item) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNested<A> addNewNonResourceRuleLike(V1beta2NonResourcePolicyRule item) {
     return new V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNestedImpl(-1, item);
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<A> setNewNonResourceRuleLike(Integer index,V1beta2NonResourcePolicyRule item) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNested<A> setNewNonResourceRuleLike(int index,V1beta2NonResourcePolicyRule item) {
     return new V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNestedImpl(index, item);
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<A> editNonResourceRule(Integer index) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNested<A> editNonResourceRule(int index) {
     if (nonResourceRules.size() <= index) throw new RuntimeException("Can't edit nonResourceRules. Index exceeds size.");
     return setNewNonResourceRuleLike(index, buildNonResourceRule(index));
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<A> editFirstNonResourceRule() {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNested<A> editFirstNonResourceRule() {
     if (nonResourceRules.size() == 0) throw new RuntimeException("Can't edit first nonResourceRules. The list is empty.");
     return setNewNonResourceRuleLike(0, buildNonResourceRule(0));
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<A> editLastNonResourceRule() {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNested<A> editLastNonResourceRule() {
     int index = nonResourceRules.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last nonResourceRules. The list is empty.");
     return setNewNonResourceRuleLike(index, buildNonResourceRule(index));
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<A> editMatchingNonResourceRule(Predicate<V1beta2NonResourcePolicyRuleBuilder> predicate) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNested<A> editMatchingNonResourceRule(Predicate<V1beta2NonResourcePolicyRuleBuilder> predicate) {
     int index = -1;
     for (int i=0;i<nonResourceRules.size();i++) { 
     if (predicate.test(nonResourceRules.get(i))) {index = i; break;}
@@ -139,16 +138,17 @@ import java.lang.Object;
     if (index < 0) throw new RuntimeException("Can't edit matching nonResourceRules. No match found.");
     return setNewNonResourceRuleLike(index, buildNonResourceRule(index));
   }
-  public A addToResourceRules(Integer index,V1beta2ResourcePolicyRule item) {
-    if (this.resourceRules == null) {this.resourceRules = new ArrayList<V1beta2ResourcePolicyRuleBuilder>();}
-    V1beta2ResourcePolicyRuleBuilder builder = new V1beta2ResourcePolicyRuleBuilder(item);_visitables.get("resourceRules").add(index >= 0 ? index : _visitables.get("resourceRules").size(), builder);this.resourceRules.add(index >= 0 ? index : resourceRules.size(), builder); return (A)this;
-  }
-  public A setToResourceRules(Integer index,V1beta2ResourcePolicyRule item) {
+  public A addToResourceRules(int index,V1beta2ResourcePolicyRule item) {
     if (this.resourceRules == null) {this.resourceRules = new ArrayList<V1beta2ResourcePolicyRuleBuilder>();}
     V1beta2ResourcePolicyRuleBuilder builder = new V1beta2ResourcePolicyRuleBuilder(item);
-    if (index < 0 || index >= _visitables.get("resourceRules").size()) { _visitables.get("resourceRules").add(builder); } else { _visitables.get("resourceRules").set(index, builder);}
-    if (index < 0 || index >= resourceRules.size()) { resourceRules.add(builder); } else { resourceRules.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= resourceRules.size()) { _visitables.get("resourceRules").add(builder); resourceRules.add(builder); } else { _visitables.get("resourceRules").add(index, builder); resourceRules.add(index, builder);}
+    return (A)this;
+  }
+  public A setToResourceRules(int index,V1beta2ResourcePolicyRule item) {
+    if (this.resourceRules == null) {this.resourceRules = new ArrayList<V1beta2ResourcePolicyRuleBuilder>();}
+    V1beta2ResourcePolicyRuleBuilder builder = new V1beta2ResourcePolicyRuleBuilder(item);
+    if (index < 0 || index >= resourceRules.size()) { _visitables.get("resourceRules").add(builder); resourceRules.add(builder); } else { _visitables.get("resourceRules").set(index, builder); resourceRules.set(index, builder);}
+    return (A)this;
   }
   public A addToResourceRules(io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRule... items) {
     if (this.resourceRules == null) {this.resourceRules = new ArrayList<V1beta2ResourcePolicyRuleBuilder>();}
@@ -189,7 +189,7 @@ import java.lang.Object;
   public List<V1beta2ResourcePolicyRule> buildResourceRules() {
     return resourceRules != null ? build(resourceRules) : null;
   }
-  public V1beta2ResourcePolicyRule buildResourceRule(Integer index) {
+  public V1beta2ResourcePolicyRule buildResourceRule(int index) {
     return this.resourceRules.get(index).build();
   }
   public V1beta2ResourcePolicyRule buildFirstResourceRule() {
@@ -205,39 +205,39 @@ import java.lang.Object;
     for (V1beta2ResourcePolicyRuleBuilder item: resourceRules) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withResourceRules(List<V1beta2ResourcePolicyRule> resourceRules) {
-    if (this.resourceRules != null) { _visitables.get("resourceRules").removeAll(this.resourceRules);}
+    if (this.resourceRules != null) { _visitables.get("resourceRules").clear();}
     if (resourceRules != null) {this.resourceRules = new ArrayList(); for (V1beta2ResourcePolicyRule item : resourceRules){this.addToResourceRules(item);}} else { this.resourceRules = null;} return (A) this;
   }
   public A withResourceRules(io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRule... resourceRules) {
-    if (this.resourceRules != null) {this.resourceRules.clear();}
+    if (this.resourceRules != null) {this.resourceRules.clear(); _visitables.remove("resourceRules"); }
     if (resourceRules != null) {for (V1beta2ResourcePolicyRule item :resourceRules){ this.addToResourceRules(item);}} return (A) this;
   }
   public Boolean hasResourceRules() {
     return resourceRules != null && !resourceRules.isEmpty();
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<A> addNewResourceRule() {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNested<A> addNewResourceRule() {
     return new V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNestedImpl();
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<A> addNewResourceRuleLike(V1beta2ResourcePolicyRule item) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNested<A> addNewResourceRuleLike(V1beta2ResourcePolicyRule item) {
     return new V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNestedImpl(-1, item);
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<A> setNewResourceRuleLike(Integer index,V1beta2ResourcePolicyRule item) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNested<A> setNewResourceRuleLike(int index,V1beta2ResourcePolicyRule item) {
     return new V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNestedImpl(index, item);
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<A> editResourceRule(Integer index) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNested<A> editResourceRule(int index) {
     if (resourceRules.size() <= index) throw new RuntimeException("Can't edit resourceRules. Index exceeds size.");
     return setNewResourceRuleLike(index, buildResourceRule(index));
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<A> editFirstResourceRule() {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNested<A> editFirstResourceRule() {
     if (resourceRules.size() == 0) throw new RuntimeException("Can't edit first resourceRules. The list is empty.");
     return setNewResourceRuleLike(0, buildResourceRule(0));
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<A> editLastResourceRule() {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNested<A> editLastResourceRule() {
     int index = resourceRules.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last resourceRules. The list is empty.");
     return setNewResourceRuleLike(index, buildResourceRule(index));
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<A> editMatchingResourceRule(Predicate<V1beta2ResourcePolicyRuleBuilder> predicate) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNested<A> editMatchingResourceRule(Predicate<V1beta2ResourcePolicyRuleBuilder> predicate) {
     int index = -1;
     for (int i=0;i<resourceRules.size();i++) { 
     if (predicate.test(resourceRules.get(i))) {index = i; break;}
@@ -245,16 +245,17 @@ import java.lang.Object;
     if (index < 0) throw new RuntimeException("Can't edit matching resourceRules. No match found.");
     return setNewResourceRuleLike(index, buildResourceRule(index));
   }
-  public A addToSubjects(Integer index,V1beta2Subject item) {
-    if (this.subjects == null) {this.subjects = new ArrayList<V1beta2SubjectBuilder>();}
-    V1beta2SubjectBuilder builder = new V1beta2SubjectBuilder(item);_visitables.get("subjects").add(index >= 0 ? index : _visitables.get("subjects").size(), builder);this.subjects.add(index >= 0 ? index : subjects.size(), builder); return (A)this;
-  }
-  public A setToSubjects(Integer index,V1beta2Subject item) {
+  public A addToSubjects(int index,V1beta2Subject item) {
     if (this.subjects == null) {this.subjects = new ArrayList<V1beta2SubjectBuilder>();}
     V1beta2SubjectBuilder builder = new V1beta2SubjectBuilder(item);
-    if (index < 0 || index >= _visitables.get("subjects").size()) { _visitables.get("subjects").add(builder); } else { _visitables.get("subjects").set(index, builder);}
-    if (index < 0 || index >= subjects.size()) { subjects.add(builder); } else { subjects.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= subjects.size()) { _visitables.get("subjects").add(builder); subjects.add(builder); } else { _visitables.get("subjects").add(index, builder); subjects.add(index, builder);}
+    return (A)this;
+  }
+  public A setToSubjects(int index,V1beta2Subject item) {
+    if (this.subjects == null) {this.subjects = new ArrayList<V1beta2SubjectBuilder>();}
+    V1beta2SubjectBuilder builder = new V1beta2SubjectBuilder(item);
+    if (index < 0 || index >= subjects.size()) { _visitables.get("subjects").add(builder); subjects.add(builder); } else { _visitables.get("subjects").set(index, builder); subjects.set(index, builder);}
+    return (A)this;
   }
   public A addToSubjects(io.kubernetes.client.openapi.models.V1beta2Subject... items) {
     if (this.subjects == null) {this.subjects = new ArrayList<V1beta2SubjectBuilder>();}
@@ -295,7 +296,7 @@ import java.lang.Object;
   public List<V1beta2Subject> buildSubjects() {
     return subjects != null ? build(subjects) : null;
   }
-  public V1beta2Subject buildSubject(Integer index) {
+  public V1beta2Subject buildSubject(int index) {
     return this.subjects.get(index).build();
   }
   public V1beta2Subject buildFirstSubject() {
@@ -311,39 +312,39 @@ import java.lang.Object;
     for (V1beta2SubjectBuilder item: subjects) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withSubjects(List<V1beta2Subject> subjects) {
-    if (this.subjects != null) { _visitables.get("subjects").removeAll(this.subjects);}
+    if (this.subjects != null) { _visitables.get("subjects").clear();}
     if (subjects != null) {this.subjects = new ArrayList(); for (V1beta2Subject item : subjects){this.addToSubjects(item);}} else { this.subjects = null;} return (A) this;
   }
   public A withSubjects(io.kubernetes.client.openapi.models.V1beta2Subject... subjects) {
-    if (this.subjects != null) {this.subjects.clear();}
+    if (this.subjects != null) {this.subjects.clear(); _visitables.remove("subjects"); }
     if (subjects != null) {for (V1beta2Subject item :subjects){ this.addToSubjects(item);}} return (A) this;
   }
   public Boolean hasSubjects() {
     return subjects != null && !subjects.isEmpty();
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A> addNewSubject() {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNested<A> addNewSubject() {
     return new V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNestedImpl();
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A> addNewSubjectLike(V1beta2Subject item) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNested<A> addNewSubjectLike(V1beta2Subject item) {
     return new V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNestedImpl(-1, item);
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A> setNewSubjectLike(Integer index,V1beta2Subject item) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNested<A> setNewSubjectLike(int index,V1beta2Subject item) {
     return new V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNestedImpl(index, item);
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A> editSubject(Integer index) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNested<A> editSubject(int index) {
     if (subjects.size() <= index) throw new RuntimeException("Can't edit subjects. Index exceeds size.");
     return setNewSubjectLike(index, buildSubject(index));
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A> editFirstSubject() {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNested<A> editFirstSubject() {
     if (subjects.size() == 0) throw new RuntimeException("Can't edit first subjects. The list is empty.");
     return setNewSubjectLike(0, buildSubject(0));
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A> editLastSubject() {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNested<A> editLastSubject() {
     int index = subjects.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last subjects. The list is empty.");
     return setNewSubjectLike(index, buildSubject(index));
   }
-  public V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<A> editMatchingSubject(Predicate<V1beta2SubjectBuilder> predicate) {
+  public V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNested<A> editMatchingSubject(Predicate<V1beta2SubjectBuilder> predicate) {
     int index = -1;
     for (int i=0;i<subjects.size();i++) { 
     if (predicate.test(subjects.get(i))) {index = i; break;}
@@ -354,10 +355,14 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1beta2PolicyRulesWithSubjectsFluentImpl that = (V1beta2PolicyRulesWithSubjectsFluentImpl) o;
-    if (nonResourceRules != null ? !nonResourceRules.equals(that.nonResourceRules) :that.nonResourceRules != null) return false;
-    if (resourceRules != null ? !resourceRules.equals(that.resourceRules) :that.resourceRules != null) return false;
-    if (subjects != null ? !subjects.equals(that.subjects) :that.subjects != null) return false;
+    if (!java.util.Objects.equals(nonResourceRules, that.nonResourceRules)) return false;
+
+    if (!java.util.Objects.equals(resourceRules, that.resourceRules)) return false;
+
+    if (!java.util.Objects.equals(subjects, that.subjects)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -366,14 +371,14 @@ import java.lang.Object;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (nonResourceRules != null && !nonResourceRules.isEmpty()) { sb.append("nonResourceRules:"); sb.append(nonResourceRules + ","); }
-    if (resourceRules != null && !resourceRules.isEmpty()) { sb.append("resourceRules:"); sb.append(resourceRules + ","); }
-    if (subjects != null && !subjects.isEmpty()) { sb.append("subjects:"); sb.append(subjects); }
+    if (nonResourceRules != null) { sb.append("nonResourceRules:"); sb.append(nonResourceRules + ","); }
+    if (resourceRules != null) { sb.append("resourceRules:"); sb.append(resourceRules + ","); }
+    if (subjects != null) { sb.append("subjects:"); sb.append(subjects); }
     sb.append("}");
     return sb.toString();
   }
-  class NonResourceRulesNestedImpl<N> extends V1beta2NonResourcePolicyRuleFluentImpl<V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<N>> implements V1beta2PolicyRulesWithSubjectsFluent.NonResourceRulesNested<N>,Nested<N>{
-    NonResourceRulesNestedImpl(Integer index,V1beta2NonResourcePolicyRule item) {
+  class NonResourceRulesNestedImpl<N> extends V1beta2NonResourcePolicyRuleFluentImpl<V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNested<N>> implements V1beta2PolicyRulesWithSubjectsFluentImpl.NonResourceRulesNested<N>,Nested<N>{
+    NonResourceRulesNestedImpl(int index,V1beta2NonResourcePolicyRule item) {
       this.index = index;
       this.builder = new V1beta2NonResourcePolicyRuleBuilder(this, item);
     }
@@ -382,7 +387,7 @@ import java.lang.Object;
       this.builder = new V1beta2NonResourcePolicyRuleBuilder(this);
     }
     V1beta2NonResourcePolicyRuleBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1beta2PolicyRulesWithSubjectsFluentImpl.this.setToNonResourceRules(index,builder.build());
     }
@@ -391,8 +396,8 @@ import java.lang.Object;
     }
     
   }
-  class ResourceRulesNestedImpl<N> extends V1beta2ResourcePolicyRuleFluentImpl<V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<N>> implements V1beta2PolicyRulesWithSubjectsFluent.ResourceRulesNested<N>,Nested<N>{
-    ResourceRulesNestedImpl(Integer index,V1beta2ResourcePolicyRule item) {
+  class ResourceRulesNestedImpl<N> extends V1beta2ResourcePolicyRuleFluentImpl<V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNested<N>> implements V1beta2PolicyRulesWithSubjectsFluentImpl.ResourceRulesNested<N>,Nested<N>{
+    ResourceRulesNestedImpl(int index,V1beta2ResourcePolicyRule item) {
       this.index = index;
       this.builder = new V1beta2ResourcePolicyRuleBuilder(this, item);
     }
@@ -401,7 +406,7 @@ import java.lang.Object;
       this.builder = new V1beta2ResourcePolicyRuleBuilder(this);
     }
     V1beta2ResourcePolicyRuleBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1beta2PolicyRulesWithSubjectsFluentImpl.this.setToResourceRules(index,builder.build());
     }
@@ -410,8 +415,8 @@ import java.lang.Object;
     }
     
   }
-  class SubjectsNestedImpl<N> extends V1beta2SubjectFluentImpl<V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<N>> implements V1beta2PolicyRulesWithSubjectsFluent.SubjectsNested<N>,Nested<N>{
-    SubjectsNestedImpl(Integer index,V1beta2Subject item) {
+  class SubjectsNestedImpl<N> extends V1beta2SubjectFluentImpl<V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNested<N>> implements V1beta2PolicyRulesWithSubjectsFluentImpl.SubjectsNested<N>,Nested<N>{
+    SubjectsNestedImpl(int index,V1beta2Subject item) {
       this.index = index;
       this.builder = new V1beta2SubjectBuilder(this, item);
     }
@@ -420,7 +425,7 @@ import java.lang.Object;
       this.builder = new V1beta2SubjectBuilder(this);
     }
     V1beta2SubjectBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1beta2PolicyRulesWithSubjectsFluentImpl.this.setToSubjects(index,builder.build());
     }

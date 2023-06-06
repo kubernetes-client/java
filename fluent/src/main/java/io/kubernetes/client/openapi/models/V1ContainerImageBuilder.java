@@ -20,10 +20,10 @@ public class V1ContainerImageBuilder extends V1ContainerImageFluentImpl<V1Contai
   }
   public V1ContainerImageBuilder(V1ContainerImageFluent<?> fluent,V1ContainerImage instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withNames(instance.getNames());
-
-    fluent.withSizeBytes(instance.getSizeBytes());
-
+    if (instance != null) {
+      fluent.withNames(instance.getNames());
+      fluent.withSizeBytes(instance.getSizeBytes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ContainerImageBuilder(V1ContainerImage instance) {
@@ -31,10 +31,10 @@ public class V1ContainerImageBuilder extends V1ContainerImageFluentImpl<V1Contai
   }
   public V1ContainerImageBuilder(V1ContainerImage instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withNames(instance.getNames());
-
-    this.withSizeBytes(instance.getSizeBytes());
-
+    if (instance != null) {
+      this.withNames(instance.getNames());
+      this.withSizeBytes(instance.getSizeBytes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ContainerImageFluent<?> fluent;

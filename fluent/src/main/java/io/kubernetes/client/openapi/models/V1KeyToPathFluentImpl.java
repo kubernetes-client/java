@@ -15,12 +15,11 @@ import java.lang.Boolean;
   public V1KeyToPathFluentImpl() {
   }
   public V1KeyToPathFluentImpl(V1KeyToPath instance) {
-    this.withKey(instance.getKey());
-
-    this.withMode(instance.getMode());
-
-    this.withPath(instance.getPath());
-
+    if (instance != null) {
+      this.withKey(instance.getKey());
+      this.withMode(instance.getMode());
+      this.withPath(instance.getPath());
+    }
   }
   private String key;
   private Integer mode;
@@ -55,10 +54,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1KeyToPathFluentImpl that = (V1KeyToPathFluentImpl) o;
-    if (key != null ? !key.equals(that.key) :that.key != null) return false;
-    if (mode != null ? !mode.equals(that.mode) :that.mode != null) return false;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
+    if (!java.util.Objects.equals(key, that.key)) return false;
+
+    if (!java.util.Objects.equals(mode, that.mode)) return false;
+
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
     return true;
   }
   public int hashCode() {

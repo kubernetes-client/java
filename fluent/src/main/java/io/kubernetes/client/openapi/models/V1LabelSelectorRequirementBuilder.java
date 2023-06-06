@@ -20,12 +20,11 @@ public class V1LabelSelectorRequirementBuilder extends V1LabelSelectorRequiremen
   }
   public V1LabelSelectorRequirementBuilder(V1LabelSelectorRequirementFluent<?> fluent,V1LabelSelectorRequirement instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withKey(instance.getKey());
-
-    fluent.withOperator(instance.getOperator());
-
-    fluent.withValues(instance.getValues());
-
+    if (instance != null) {
+      fluent.withKey(instance.getKey());
+      fluent.withOperator(instance.getOperator());
+      fluent.withValues(instance.getValues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LabelSelectorRequirementBuilder(V1LabelSelectorRequirement instance) {
@@ -33,12 +32,11 @@ public class V1LabelSelectorRequirementBuilder extends V1LabelSelectorRequiremen
   }
   public V1LabelSelectorRequirementBuilder(V1LabelSelectorRequirement instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withKey(instance.getKey());
-
-    this.withOperator(instance.getOperator());
-
-    this.withValues(instance.getValues());
-
+    if (instance != null) {
+      this.withKey(instance.getKey());
+      this.withOperator(instance.getOperator());
+      this.withValues(instance.getValues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LabelSelectorRequirementFluent<?> fluent;

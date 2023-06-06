@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,31 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * SecretReference represents a Secret Reference. It has enough information to retrieve secret in
- * any namespace
+ * SecretReference represents a Secret Reference. It has enough information to retrieve secret in any namespace
  */
-@ApiModel(
-    description =
-        "SecretReference represents a Secret Reference. It has enough information to retrieve secret in any namespace")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "SecretReference represents a Secret Reference. It has enough information to retrieve secret in any namespace")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1SecretReference {
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
-
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
   private String namespace;
+
 
   public V1SecretReference name(String name) {
 
@@ -44,20 +44,22 @@ public class V1SecretReference {
     return this;
   }
 
-  /**
+   /**
    * name is unique within a namespace to reference a secret resource.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "name is unique within a namespace to reference a secret resource.")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public V1SecretReference namespace(String namespace) {
 
@@ -65,21 +67,22 @@ public class V1SecretReference {
     return this;
   }
 
-  /**
+   /**
    * namespace defines the space within which the secret name must be unique.
-   *
    * @return namespace
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "namespace defines the space within which the secret name must be unique.")
+  @ApiModelProperty(value = "namespace defines the space within which the secret name must be unique.")
+
   public String getNamespace() {
     return namespace;
   }
 
+
   public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -90,14 +93,15 @@ public class V1SecretReference {
       return false;
     }
     V1SecretReference v1SecretReference = (V1SecretReference) o;
-    return Objects.equals(this.name, v1SecretReference.name)
-        && Objects.equals(this.namespace, v1SecretReference.namespace);
+    return Objects.equals(this.name, v1SecretReference.name) &&
+        Objects.equals(this.namespace, v1SecretReference.namespace);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(name, namespace);
   }
+
 
   @Override
   public String toString() {
@@ -110,7 +114,8 @@ public class V1SecretReference {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -118,4 +123,5 @@ public class V1SecretReference {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

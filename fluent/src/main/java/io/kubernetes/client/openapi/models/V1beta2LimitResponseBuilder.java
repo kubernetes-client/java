@@ -20,10 +20,10 @@ public class V1beta2LimitResponseBuilder extends V1beta2LimitResponseFluentImpl<
   }
   public V1beta2LimitResponseBuilder(V1beta2LimitResponseFluent<?> fluent,V1beta2LimitResponse instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withQueuing(instance.getQueuing());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withQueuing(instance.getQueuing());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2LimitResponseBuilder(V1beta2LimitResponse instance) {
@@ -31,10 +31,10 @@ public class V1beta2LimitResponseBuilder extends V1beta2LimitResponseFluentImpl<
   }
   public V1beta2LimitResponseBuilder(V1beta2LimitResponse instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withQueuing(instance.getQueuing());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withQueuing(instance.getQueuing());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2LimitResponseFluent<?> fluent;

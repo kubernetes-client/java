@@ -14,14 +14,12 @@ import java.lang.Boolean;
   public V1GlusterfsPersistentVolumeSourceFluentImpl() {
   }
   public V1GlusterfsPersistentVolumeSourceFluentImpl(V1GlusterfsPersistentVolumeSource instance) {
-    this.withEndpoints(instance.getEndpoints());
-
-    this.withEndpointsNamespace(instance.getEndpointsNamespace());
-
-    this.withPath(instance.getPath());
-
-    this.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      this.withEndpoints(instance.getEndpoints());
+      this.withEndpointsNamespace(instance.getEndpointsNamespace());
+      this.withPath(instance.getPath());
+      this.withReadOnly(instance.getReadOnly());
+    }
   }
   private String endpoints;
   private String endpointsNamespace;
@@ -66,11 +64,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1GlusterfsPersistentVolumeSourceFluentImpl that = (V1GlusterfsPersistentVolumeSourceFluentImpl) o;
-    if (endpoints != null ? !endpoints.equals(that.endpoints) :that.endpoints != null) return false;
-    if (endpointsNamespace != null ? !endpointsNamespace.equals(that.endpointsNamespace) :that.endpointsNamespace != null) return false;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
+    if (!java.util.Objects.equals(endpoints, that.endpoints)) return false;
+
+    if (!java.util.Objects.equals(endpointsNamespace, that.endpointsNamespace)) return false;
+
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
     return true;
   }
   public int hashCode() {

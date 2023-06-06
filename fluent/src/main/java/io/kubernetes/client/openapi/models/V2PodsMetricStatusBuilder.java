@@ -20,10 +20,10 @@ public class V2PodsMetricStatusBuilder extends V2PodsMetricStatusFluentImpl<V2Po
   }
   public V2PodsMetricStatusBuilder(V2PodsMetricStatusFluent<?> fluent,V2PodsMetricStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCurrent(instance.getCurrent());
-
-    fluent.withMetric(instance.getMetric());
-
+    if (instance != null) {
+      fluent.withCurrent(instance.getCurrent());
+      fluent.withMetric(instance.getMetric());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2PodsMetricStatusBuilder(V2PodsMetricStatus instance) {
@@ -31,10 +31,10 @@ public class V2PodsMetricStatusBuilder extends V2PodsMetricStatusFluentImpl<V2Po
   }
   public V2PodsMetricStatusBuilder(V2PodsMetricStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCurrent(instance.getCurrent());
-
-    this.withMetric(instance.getMetric());
-
+    if (instance != null) {
+      this.withCurrent(instance.getCurrent());
+      this.withMetric(instance.getMetric());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2PodsMetricStatusFluent<?> fluent;

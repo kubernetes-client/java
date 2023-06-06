@@ -20,18 +20,14 @@ public class V1OwnerReferenceBuilder extends V1OwnerReferenceFluentImpl<V1OwnerR
   }
   public V1OwnerReferenceBuilder(V1OwnerReferenceFluent<?> fluent,V1OwnerReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withBlockOwnerDeletion(instance.getBlockOwnerDeletion());
-
-    fluent.withController(instance.getController());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
-    fluent.withUid(instance.getUid());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withBlockOwnerDeletion(instance.getBlockOwnerDeletion());
+      fluent.withController(instance.getController());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+      fluent.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1OwnerReferenceBuilder(V1OwnerReference instance) {
@@ -39,18 +35,14 @@ public class V1OwnerReferenceBuilder extends V1OwnerReferenceFluentImpl<V1OwnerR
   }
   public V1OwnerReferenceBuilder(V1OwnerReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withBlockOwnerDeletion(instance.getBlockOwnerDeletion());
-
-    this.withController(instance.getController());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withBlockOwnerDeletion(instance.getBlockOwnerDeletion());
+      this.withController(instance.getController());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1OwnerReferenceFluent<?> fluent;

@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -7,7 +8,6 @@ import io.kubernetes.client.custom.Quantity;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Collection;
 import java.util.List;
@@ -40,14 +40,14 @@ public interface V1ResourceQuotaSpecFluent<A extends V1ResourceQuotaSpecFluent<A
   public V1ResourceQuotaSpecFluent.ScopeSelectorNested<A> editScopeSelector();
   public V1ResourceQuotaSpecFluent.ScopeSelectorNested<A> editOrNewScopeSelector();
   public V1ResourceQuotaSpecFluent.ScopeSelectorNested<A> editOrNewScopeSelectorLike(V1ScopeSelector item);
-  public A addToScopes(Integer index,String item);
-  public A setToScopes(Integer index,String item);
+  public A addToScopes(int index,String item);
+  public A setToScopes(int index,String item);
   public A addToScopes(java.lang.String... items);
   public A addAllToScopes(Collection<String> items);
   public A removeFromScopes(java.lang.String... items);
   public A removeAllFromScopes(Collection<String> items);
   public List<String> getScopes();
-  public String getScope(Integer index);
+  public String getScope(int index);
   public String getFirstScope();
   public String getLastScope();
   public String getMatchingScope(Predicate<String> predicate);

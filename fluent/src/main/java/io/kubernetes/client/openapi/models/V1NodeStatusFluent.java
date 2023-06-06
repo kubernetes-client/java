@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
@@ -12,7 +13,6 @@ import java.util.List;
 import java.lang.Boolean;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.custom.Quantity;
-import java.lang.Integer;
 import java.util.Collection;
 import java.util.Map;
 
@@ -20,8 +20,8 @@ import java.util.Map;
   * Generated
   */
 public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Fluent<A>{
-  public A addToAddresses(Integer index,V1NodeAddress item);
-  public A setToAddresses(Integer index,V1NodeAddress item);
+  public A addToAddresses(int index,V1NodeAddress item);
+  public A setToAddresses(int index,V1NodeAddress item);
   public A addToAddresses(io.kubernetes.client.openapi.models.V1NodeAddress... items);
   public A addAllToAddresses(Collection<V1NodeAddress> items);
   public A removeFromAddresses(io.kubernetes.client.openapi.models.V1NodeAddress... items);
@@ -35,7 +35,7 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   @Deprecated
   public List<V1NodeAddress> getAddresses();
   public List<V1NodeAddress> buildAddresses();
-  public V1NodeAddress buildAddress(Integer index);
+  public V1NodeAddress buildAddress(int index);
   public V1NodeAddress buildFirstAddress();
   public V1NodeAddress buildLastAddress();
   public V1NodeAddress buildMatchingAddress(Predicate<V1NodeAddressBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   public Boolean hasAddresses();
   public V1NodeStatusFluent.AddressesNested<A> addNewAddress();
   public V1NodeStatusFluent.AddressesNested<A> addNewAddressLike(V1NodeAddress item);
-  public V1NodeStatusFluent.AddressesNested<A> setNewAddressLike(Integer index,V1NodeAddress item);
-  public V1NodeStatusFluent.AddressesNested<A> editAddress(Integer index);
+  public V1NodeStatusFluent.AddressesNested<A> setNewAddressLike(int index,V1NodeAddress item);
+  public V1NodeStatusFluent.AddressesNested<A> editAddress(int index);
   public V1NodeStatusFluent.AddressesNested<A> editFirstAddress();
   public V1NodeStatusFluent.AddressesNested<A> editLastAddress();
   public V1NodeStatusFluent.AddressesNested<A> editMatchingAddress(Predicate<V1NodeAddressBuilder> predicate);
@@ -64,8 +64,8 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   public Map<String,Quantity> getCapacity();
   public <K,V>A withCapacity(Map<String,Quantity> capacity);
   public Boolean hasCapacity();
-  public A addToConditions(Integer index,V1NodeCondition item);
-  public A setToConditions(Integer index,V1NodeCondition item);
+  public A addToConditions(int index,V1NodeCondition item);
+  public A setToConditions(int index,V1NodeCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1NodeCondition... items);
   public A addAllToConditions(Collection<V1NodeCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1NodeCondition... items);
@@ -79,7 +79,7 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   @Deprecated
   public List<V1NodeCondition> getConditions();
   public List<V1NodeCondition> buildConditions();
-  public V1NodeCondition buildCondition(Integer index);
+  public V1NodeCondition buildCondition(int index);
   public V1NodeCondition buildFirstCondition();
   public V1NodeCondition buildLastCondition();
   public V1NodeCondition buildMatchingCondition(Predicate<V1NodeConditionBuilder> predicate);
@@ -89,8 +89,8 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   public Boolean hasConditions();
   public V1NodeStatusFluent.ConditionsNested<A> addNewCondition();
   public V1NodeStatusFluent.ConditionsNested<A> addNewConditionLike(V1NodeCondition item);
-  public V1NodeStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1NodeCondition item);
-  public V1NodeStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1NodeStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1NodeCondition item);
+  public V1NodeStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1NodeStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1NodeStatusFluent.ConditionsNested<A> editLastCondition();
   public V1NodeStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1NodeConditionBuilder> predicate);
@@ -124,8 +124,8 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   public V1NodeStatusFluent.DaemonEndpointsNested<A> editDaemonEndpoints();
   public V1NodeStatusFluent.DaemonEndpointsNested<A> editOrNewDaemonEndpoints();
   public V1NodeStatusFluent.DaemonEndpointsNested<A> editOrNewDaemonEndpointsLike(V1NodeDaemonEndpoints item);
-  public A addToImages(Integer index,V1ContainerImage item);
-  public A setToImages(Integer index,V1ContainerImage item);
+  public A addToImages(int index,V1ContainerImage item);
+  public A setToImages(int index,V1ContainerImage item);
   public A addToImages(io.kubernetes.client.openapi.models.V1ContainerImage... items);
   public A addAllToImages(Collection<V1ContainerImage> items);
   public A removeFromImages(io.kubernetes.client.openapi.models.V1ContainerImage... items);
@@ -139,7 +139,7 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   @Deprecated
   public List<V1ContainerImage> getImages();
   public List<V1ContainerImage> buildImages();
-  public V1ContainerImage buildImage(Integer index);
+  public V1ContainerImage buildImage(int index);
   public V1ContainerImage buildFirstImage();
   public V1ContainerImage buildLastImage();
   public V1ContainerImage buildMatchingImage(Predicate<V1ContainerImageBuilder> predicate);
@@ -149,8 +149,8 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   public Boolean hasImages();
   public V1NodeStatusFluent.ImagesNested<A> addNewImage();
   public V1NodeStatusFluent.ImagesNested<A> addNewImageLike(V1ContainerImage item);
-  public V1NodeStatusFluent.ImagesNested<A> setNewImageLike(Integer index,V1ContainerImage item);
-  public V1NodeStatusFluent.ImagesNested<A> editImage(Integer index);
+  public V1NodeStatusFluent.ImagesNested<A> setNewImageLike(int index,V1ContainerImage item);
+  public V1NodeStatusFluent.ImagesNested<A> editImage(int index);
   public V1NodeStatusFluent.ImagesNested<A> editFirstImage();
   public V1NodeStatusFluent.ImagesNested<A> editLastImage();
   public V1NodeStatusFluent.ImagesNested<A> editMatchingImage(Predicate<V1ContainerImageBuilder> predicate);
@@ -172,8 +172,8 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   public String getPhase();
   public A withPhase(String phase);
   public Boolean hasPhase();
-  public A addToVolumesAttached(Integer index,V1AttachedVolume item);
-  public A setToVolumesAttached(Integer index,V1AttachedVolume item);
+  public A addToVolumesAttached(int index,V1AttachedVolume item);
+  public A setToVolumesAttached(int index,V1AttachedVolume item);
   public A addToVolumesAttached(io.kubernetes.client.openapi.models.V1AttachedVolume... items);
   public A addAllToVolumesAttached(Collection<V1AttachedVolume> items);
   public A removeFromVolumesAttached(io.kubernetes.client.openapi.models.V1AttachedVolume... items);
@@ -187,7 +187,7 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   @Deprecated
   public List<V1AttachedVolume> getVolumesAttached();
   public List<V1AttachedVolume> buildVolumesAttached();
-  public V1AttachedVolume buildVolumesAttached(Integer index);
+  public V1AttachedVolume buildVolumesAttached(int index);
   public V1AttachedVolume buildFirstVolumesAttached();
   public V1AttachedVolume buildLastVolumesAttached();
   public V1AttachedVolume buildMatchingVolumesAttached(Predicate<V1AttachedVolumeBuilder> predicate);
@@ -197,19 +197,19 @@ public interface V1NodeStatusFluent<A extends V1NodeStatusFluent<A>> extends Flu
   public Boolean hasVolumesAttached();
   public V1NodeStatusFluent.VolumesAttachedNested<A> addNewVolumesAttached();
   public V1NodeStatusFluent.VolumesAttachedNested<A> addNewVolumesAttachedLike(V1AttachedVolume item);
-  public V1NodeStatusFluent.VolumesAttachedNested<A> setNewVolumesAttachedLike(Integer index,V1AttachedVolume item);
-  public V1NodeStatusFluent.VolumesAttachedNested<A> editVolumesAttached(Integer index);
+  public V1NodeStatusFluent.VolumesAttachedNested<A> setNewVolumesAttachedLike(int index,V1AttachedVolume item);
+  public V1NodeStatusFluent.VolumesAttachedNested<A> editVolumesAttached(int index);
   public V1NodeStatusFluent.VolumesAttachedNested<A> editFirstVolumesAttached();
   public V1NodeStatusFluent.VolumesAttachedNested<A> editLastVolumesAttached();
   public V1NodeStatusFluent.VolumesAttachedNested<A> editMatchingVolumesAttached(Predicate<V1AttachedVolumeBuilder> predicate);
-  public A addToVolumesInUse(Integer index,String item);
-  public A setToVolumesInUse(Integer index,String item);
+  public A addToVolumesInUse(int index,String item);
+  public A setToVolumesInUse(int index,String item);
   public A addToVolumesInUse(java.lang.String... items);
   public A addAllToVolumesInUse(Collection<String> items);
   public A removeFromVolumesInUse(java.lang.String... items);
   public A removeAllFromVolumesInUse(Collection<String> items);
   public List<String> getVolumesInUse();
-  public String getVolumesInUse(Integer index);
+  public String getVolumesInUse(int index);
   public String getFirstVolumesInUse();
   public String getLastVolumesInUse();
   public String getMatchingVolumesInUse(Predicate<String> predicate);

@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,28 +12,33 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** TokenReviewSpec is a description of the token authentication request. */
+/**
+ * TokenReviewSpec is a description of the token authentication request.
+ */
 @ApiModel(description = "TokenReviewSpec is a description of the token authentication request.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1TokenReviewSpec {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
-
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
   private List<String> audiences = null;
 
   public static final String SERIALIZED_NAME_TOKEN = "token";
-
   @SerializedName(SERIALIZED_NAME_TOKEN)
   private String token;
+
 
   public V1TokenReviewSpec audiences(List<String> audiences) {
 
@@ -49,25 +54,22 @@ public class V1TokenReviewSpec {
     return this;
   }
 
-  /**
-   * Audiences is a list of the identifiers that the resource server presented with the token
-   * identifies as. Audience-aware token authenticators will verify that the token was intended for
-   * at least one of the audiences in this list. If no audiences are provided, the audience will
-   * default to the audience of the Kubernetes apiserver.
-   *
+   /**
+   * Audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.
    * @return audiences
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.")
+  @ApiModelProperty(value = "Audiences is a list of the identifiers that the resource server presented with the token identifies as. Audience-aware token authenticators will verify that the token was intended for at least one of the audiences in this list. If no audiences are provided, the audience will default to the audience of the Kubernetes apiserver.")
+
   public List<String> getAudiences() {
     return audiences;
   }
 
+
   public void setAudiences(List<String> audiences) {
     this.audiences = audiences;
   }
+
 
   public V1TokenReviewSpec token(String token) {
 
@@ -75,20 +77,22 @@ public class V1TokenReviewSpec {
     return this;
   }
 
-  /**
+   /**
    * Token is the opaque bearer token.
-   *
    * @return token
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Token is the opaque bearer token.")
+
   public String getToken() {
     return token;
   }
 
+
   public void setToken(String token) {
     this.token = token;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -99,14 +103,15 @@ public class V1TokenReviewSpec {
       return false;
     }
     V1TokenReviewSpec v1TokenReviewSpec = (V1TokenReviewSpec) o;
-    return Objects.equals(this.audiences, v1TokenReviewSpec.audiences)
-        && Objects.equals(this.token, v1TokenReviewSpec.token);
+    return Objects.equals(this.audiences, v1TokenReviewSpec.audiences) &&
+        Objects.equals(this.token, v1TokenReviewSpec.token);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(audiences, token);
   }
+
 
   @Override
   public String toString() {
@@ -119,7 +124,8 @@ public class V1TokenReviewSpec {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -127,4 +133,5 @@ public class V1TokenReviewSpec {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

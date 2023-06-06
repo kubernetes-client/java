@@ -20,16 +20,13 @@ public class V1VolumeAttachmentBuilder extends V1VolumeAttachmentFluentImpl<V1Vo
   }
   public V1VolumeAttachmentBuilder(V1VolumeAttachmentFluent<?> fluent,V1VolumeAttachment instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
-    fluent.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+      fluent.withStatus(instance.getStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeAttachmentBuilder(V1VolumeAttachment instance) {
@@ -37,16 +34,13 @@ public class V1VolumeAttachmentBuilder extends V1VolumeAttachmentFluentImpl<V1Vo
   }
   public V1VolumeAttachmentBuilder(V1VolumeAttachment instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeAttachmentFluent<?> fluent;

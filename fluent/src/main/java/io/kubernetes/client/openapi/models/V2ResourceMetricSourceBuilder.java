@@ -20,10 +20,10 @@ public class V2ResourceMetricSourceBuilder extends V2ResourceMetricSourceFluentI
   }
   public V2ResourceMetricSourceBuilder(V2ResourceMetricSourceFluent<?> fluent,V2ResourceMetricSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withTarget(instance.getTarget());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2ResourceMetricSourceBuilder(V2ResourceMetricSource instance) {
@@ -31,10 +31,10 @@ public class V2ResourceMetricSourceBuilder extends V2ResourceMetricSourceFluentI
   }
   public V2ResourceMetricSourceBuilder(V2ResourceMetricSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withTarget(instance.getTarget());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2ResourceMetricSourceFluent<?> fluent;

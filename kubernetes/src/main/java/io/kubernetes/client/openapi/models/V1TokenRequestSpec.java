@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,33 +12,38 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1BoundObjectReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** TokenRequestSpec contains client provided parameters of a token request. */
+/**
+ * TokenRequestSpec contains client provided parameters of a token request.
+ */
 @ApiModel(description = "TokenRequestSpec contains client provided parameters of a token request.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1TokenRequestSpec {
   public static final String SERIALIZED_NAME_AUDIENCES = "audiences";
-
   @SerializedName(SERIALIZED_NAME_AUDIENCES)
   private List<String> audiences = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_BOUND_OBJECT_REF = "boundObjectRef";
-
   @SerializedName(SERIALIZED_NAME_BOUND_OBJECT_REF)
   private V1BoundObjectReference boundObjectRef;
 
   public static final String SERIALIZED_NAME_EXPIRATION_SECONDS = "expirationSeconds";
-
   @SerializedName(SERIALIZED_NAME_EXPIRATION_SECONDS)
   private Long expirationSeconds;
+
 
   public V1TokenRequestSpec audiences(List<String> audiences) {
 
@@ -51,25 +56,21 @@ public class V1TokenRequestSpec {
     return this;
   }
 
-  /**
-   * Audiences are the intendend audiences of the token. A recipient of a token must identify
-   * themself with an identifier in the list of audiences of the token, and otherwise should reject
-   * the token. A token issued for multiple audiences may be used to authenticate against any of the
-   * audiences listed but implies a high degree of trust between the target audiences.
-   *
+   /**
+   * Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.
    * @return audiences
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.")
+  **/
+  @ApiModelProperty(required = true, value = "Audiences are the intendend audiences of the token. A recipient of a token must identify themself with an identifier in the list of audiences of the token, and otherwise should reject the token. A token issued for multiple audiences may be used to authenticate against any of the audiences listed but implies a high degree of trust between the target audiences.")
+
   public List<String> getAudiences() {
     return audiences;
   }
 
+
   public void setAudiences(List<String> audiences) {
     this.audiences = audiences;
   }
+
 
   public V1TokenRequestSpec boundObjectRef(V1BoundObjectReference boundObjectRef) {
 
@@ -77,20 +78,22 @@ public class V1TokenRequestSpec {
     return this;
   }
 
-  /**
+   /**
    * Get boundObjectRef
-   *
    * @return boundObjectRef
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1BoundObjectReference getBoundObjectRef() {
     return boundObjectRef;
   }
 
+
   public void setBoundObjectRef(V1BoundObjectReference boundObjectRef) {
     this.boundObjectRef = boundObjectRef;
   }
+
 
   public V1TokenRequestSpec expirationSeconds(Long expirationSeconds) {
 
@@ -98,24 +101,22 @@ public class V1TokenRequestSpec {
     return this;
   }
 
-  /**
-   * ExpirationSeconds is the requested duration of validity of the request. The token issuer may
-   * return a token with a different validity duration so a client needs to check the
-   * &#39;expiration&#39; field in a response.
-   *
+   /**
+   * ExpirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the &#39;expiration&#39; field in a response.
    * @return expirationSeconds
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "ExpirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the 'expiration' field in a response.")
+  @ApiModelProperty(value = "ExpirationSeconds is the requested duration of validity of the request. The token issuer may return a token with a different validity duration so a client needs to check the 'expiration' field in a response.")
+
   public Long getExpirationSeconds() {
     return expirationSeconds;
   }
 
+
   public void setExpirationSeconds(Long expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,15 +127,16 @@ public class V1TokenRequestSpec {
       return false;
     }
     V1TokenRequestSpec v1TokenRequestSpec = (V1TokenRequestSpec) o;
-    return Objects.equals(this.audiences, v1TokenRequestSpec.audiences)
-        && Objects.equals(this.boundObjectRef, v1TokenRequestSpec.boundObjectRef)
-        && Objects.equals(this.expirationSeconds, v1TokenRequestSpec.expirationSeconds);
+    return Objects.equals(this.audiences, v1TokenRequestSpec.audiences) &&
+        Objects.equals(this.boundObjectRef, v1TokenRequestSpec.boundObjectRef) &&
+        Objects.equals(this.expirationSeconds, v1TokenRequestSpec.expirationSeconds);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(audiences, boundObjectRef, expirationSeconds);
   }
+
 
   @Override
   public String toString() {
@@ -148,7 +150,8 @@ public class V1TokenRequestSpec {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -156,4 +159,5 @@ public class V1TokenRequestSpec {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

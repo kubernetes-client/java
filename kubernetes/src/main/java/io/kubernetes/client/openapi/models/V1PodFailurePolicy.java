@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,23 +12,30 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1PodFailurePolicyRule;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** PodFailurePolicy describes how failed pods influence the backoffLimit. */
+/**
+ * PodFailurePolicy describes how failed pods influence the backoffLimit.
+ */
 @ApiModel(description = "PodFailurePolicy describes how failed pods influence the backoffLimit.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1PodFailurePolicy {
   public static final String SERIALIZED_NAME_RULES = "rules";
-
   @SerializedName(SERIALIZED_NAME_RULES)
   private List<V1PodFailurePolicyRule> rules = new ArrayList<>();
+
 
   public V1PodFailurePolicy rules(List<V1PodFailurePolicyRule> rules) {
 
@@ -41,25 +48,21 @@ public class V1PodFailurePolicy {
     return this;
   }
 
-  /**
-   * A list of pod failure policy rules. The rules are evaluated in order. Once a rule matches a Pod
-   * failure, the remaining of the rules are ignored. When no rule matches the Pod failure, the
-   * default handling applies - the counter of pod failures is incremented and it is checked against
-   * the backoffLimit. At most 20 elements are allowed.
-   *
+   /**
+   * A list of pod failure policy rules. The rules are evaluated in order. Once a rule matches a Pod failure, the remaining of the rules are ignored. When no rule matches the Pod failure, the default handling applies - the counter of pod failures is incremented and it is checked against the backoffLimit. At most 20 elements are allowed.
    * @return rules
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "A list of pod failure policy rules. The rules are evaluated in order. Once a rule matches a Pod failure, the remaining of the rules are ignored. When no rule matches the Pod failure, the default handling applies - the counter of pod failures is incremented and it is checked against the backoffLimit. At most 20 elements are allowed.")
+  **/
+  @ApiModelProperty(required = true, value = "A list of pod failure policy rules. The rules are evaluated in order. Once a rule matches a Pod failure, the remaining of the rules are ignored. When no rule matches the Pod failure, the default handling applies - the counter of pod failures is incremented and it is checked against the backoffLimit. At most 20 elements are allowed.")
+
   public List<V1PodFailurePolicyRule> getRules() {
     return rules;
   }
 
+
   public void setRules(List<V1PodFailurePolicyRule> rules) {
     this.rules = rules;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -78,6 +81,7 @@ public class V1PodFailurePolicy {
     return Objects.hash(rules);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -88,7 +92,8 @@ public class V1PodFailurePolicy {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -96,4 +101,5 @@ public class V1PodFailurePolicy {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

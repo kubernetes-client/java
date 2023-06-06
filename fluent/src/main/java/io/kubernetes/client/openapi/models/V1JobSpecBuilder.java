@@ -20,28 +20,19 @@ public class V1JobSpecBuilder extends V1JobSpecFluentImpl<V1JobSpecBuilder> impl
   }
   public V1JobSpecBuilder(V1JobSpecFluent<?> fluent,V1JobSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
-
-    fluent.withBackoffLimit(instance.getBackoffLimit());
-
-    fluent.withCompletionMode(instance.getCompletionMode());
-
-    fluent.withCompletions(instance.getCompletions());
-
-    fluent.withManualSelector(instance.getManualSelector());
-
-    fluent.withParallelism(instance.getParallelism());
-
-    fluent.withPodFailurePolicy(instance.getPodFailurePolicy());
-
-    fluent.withSelector(instance.getSelector());
-
-    fluent.withSuspend(instance.getSuspend());
-
-    fluent.withTemplate(instance.getTemplate());
-
-    fluent.withTtlSecondsAfterFinished(instance.getTtlSecondsAfterFinished());
-
+    if (instance != null) {
+      fluent.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
+      fluent.withBackoffLimit(instance.getBackoffLimit());
+      fluent.withCompletionMode(instance.getCompletionMode());
+      fluent.withCompletions(instance.getCompletions());
+      fluent.withManualSelector(instance.getManualSelector());
+      fluent.withParallelism(instance.getParallelism());
+      fluent.withPodFailurePolicy(instance.getPodFailurePolicy());
+      fluent.withSelector(instance.getSelector());
+      fluent.withSuspend(instance.getSuspend());
+      fluent.withTemplate(instance.getTemplate());
+      fluent.withTtlSecondsAfterFinished(instance.getTtlSecondsAfterFinished());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1JobSpecBuilder(V1JobSpec instance) {
@@ -49,28 +40,19 @@ public class V1JobSpecBuilder extends V1JobSpecFluentImpl<V1JobSpecBuilder> impl
   }
   public V1JobSpecBuilder(V1JobSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
-
-    this.withBackoffLimit(instance.getBackoffLimit());
-
-    this.withCompletionMode(instance.getCompletionMode());
-
-    this.withCompletions(instance.getCompletions());
-
-    this.withManualSelector(instance.getManualSelector());
-
-    this.withParallelism(instance.getParallelism());
-
-    this.withPodFailurePolicy(instance.getPodFailurePolicy());
-
-    this.withSelector(instance.getSelector());
-
-    this.withSuspend(instance.getSuspend());
-
-    this.withTemplate(instance.getTemplate());
-
-    this.withTtlSecondsAfterFinished(instance.getTtlSecondsAfterFinished());
-
+    if (instance != null) {
+      this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
+      this.withBackoffLimit(instance.getBackoffLimit());
+      this.withCompletionMode(instance.getCompletionMode());
+      this.withCompletions(instance.getCompletions());
+      this.withManualSelector(instance.getManualSelector());
+      this.withParallelism(instance.getParallelism());
+      this.withPodFailurePolicy(instance.getPodFailurePolicy());
+      this.withSelector(instance.getSelector());
+      this.withSuspend(instance.getSuspend());
+      this.withTemplate(instance.getTemplate());
+      this.withTtlSecondsAfterFinished(instance.getTtlSecondsAfterFinished());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1JobSpecFluent<?> fluent;

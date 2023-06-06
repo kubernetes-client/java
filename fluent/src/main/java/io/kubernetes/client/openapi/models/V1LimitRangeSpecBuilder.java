@@ -20,8 +20,9 @@ public class V1LimitRangeSpecBuilder extends V1LimitRangeSpecFluentImpl<V1LimitR
   }
   public V1LimitRangeSpecBuilder(V1LimitRangeSpecFluent<?> fluent,V1LimitRangeSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLimits(instance.getLimits());
-
+    if (instance != null) {
+      fluent.withLimits(instance.getLimits());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LimitRangeSpecBuilder(V1LimitRangeSpec instance) {
@@ -29,8 +30,9 @@ public class V1LimitRangeSpecBuilder extends V1LimitRangeSpecFluentImpl<V1LimitR
   }
   public V1LimitRangeSpecBuilder(V1LimitRangeSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLimits(instance.getLimits());
-
+    if (instance != null) {
+      this.withLimits(instance.getLimits());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LimitRangeSpecFluent<?> fluent;

@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
@@ -12,20 +13,19 @@ import java.util.Map;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.Deprecated;
 import io.kubernetes.client.custom.Quantity;
-import java.lang.Integer;
 
  /**
   * Generated
   */
 public interface V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFluent<A>> extends Fluent<A>{
-  public A addToAccessModes(Integer index,String item);
-  public A setToAccessModes(Integer index,String item);
+  public A addToAccessModes(int index,String item);
+  public A setToAccessModes(int index,String item);
   public A addToAccessModes(java.lang.String... items);
   public A addAllToAccessModes(Collection<String> items);
   public A removeFromAccessModes(java.lang.String... items);
   public A removeAllFromAccessModes(Collection<String> items);
   public List<String> getAccessModes();
-  public String getAccessMode(Integer index);
+  public String getAccessMode(int index);
   public String getFirstAccessMode();
   public String getLastAccessMode();
   public String getMatchingAccessMode(Predicate<String> predicate);
@@ -265,14 +265,14 @@ public interface V1PersistentVolumeSpecFluent<A extends V1PersistentVolumeSpecFl
   public V1PersistentVolumeSpecFluent.LocalNested<A> editLocal();
   public V1PersistentVolumeSpecFluent.LocalNested<A> editOrNewLocal();
   public V1PersistentVolumeSpecFluent.LocalNested<A> editOrNewLocalLike(V1LocalVolumeSource item);
-  public A addToMountOptions(Integer index,String item);
-  public A setToMountOptions(Integer index,String item);
+  public A addToMountOptions(int index,String item);
+  public A setToMountOptions(int index,String item);
   public A addToMountOptions(java.lang.String... items);
   public A addAllToMountOptions(Collection<String> items);
   public A removeFromMountOptions(java.lang.String... items);
   public A removeAllFromMountOptions(Collection<String> items);
   public List<String> getMountOptions();
-  public String getMountOption(Integer index);
+  public String getMountOption(int index);
   public String getFirstMountOption();
   public String getLastMountOption();
   public String getMatchingMountOption(Predicate<String> predicate);

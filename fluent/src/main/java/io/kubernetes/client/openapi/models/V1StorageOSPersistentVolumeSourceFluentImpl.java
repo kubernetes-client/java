@@ -16,16 +16,13 @@ import java.lang.Boolean;
   public V1StorageOSPersistentVolumeSourceFluentImpl() {
   }
   public V1StorageOSPersistentVolumeSourceFluentImpl(V1StorageOSPersistentVolumeSource instance) {
-    this.withFsType(instance.getFsType());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withVolumeName(instance.getVolumeName());
-
-    this.withVolumeNamespace(instance.getVolumeNamespace());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+      this.withVolumeName(instance.getVolumeName());
+      this.withVolumeNamespace(instance.getVolumeNamespace());
+    }
   }
   private String fsType;
   private Boolean readOnly;
@@ -69,19 +66,19 @@ import java.lang.Boolean;
   public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
-  public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef() {
+  public V1StorageOSPersistentVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRef() {
     return new V1StorageOSPersistentVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
-  public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(V1ObjectReference item) {
+  public V1StorageOSPersistentVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRefLike(V1ObjectReference item) {
     return new V1StorageOSPersistentVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
-  public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
+  public V1StorageOSPersistentVolumeSourceFluentImpl.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
-  public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
+  public V1StorageOSPersistentVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): new V1ObjectReferenceBuilder().build());
   }
-  public V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(V1ObjectReference item) {
+  public V1StorageOSPersistentVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRefLike(V1ObjectReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): item);
   }
   public String getVolumeName() {
@@ -105,12 +102,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1StorageOSPersistentVolumeSourceFluentImpl that = (V1StorageOSPersistentVolumeSourceFluentImpl) o;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (secretRef != null ? !secretRef.equals(that.secretRef) :that.secretRef != null) return false;
-    if (volumeName != null ? !volumeName.equals(that.volumeName) :that.volumeName != null) return false;
-    if (volumeNamespace != null ? !volumeNamespace.equals(that.volumeNamespace) :that.volumeNamespace != null) return false;
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
+
+    if (!java.util.Objects.equals(volumeName, that.volumeName)) return false;
+
+    if (!java.util.Objects.equals(volumeNamespace, that.volumeNamespace)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -130,7 +133,7 @@ import java.lang.Boolean;
   public A withReadOnly() {
     return withReadOnly(true);
   }
-  class SecretRefNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<N>> implements V1StorageOSPersistentVolumeSourceFluent.SecretRefNested<N>,Nested<N>{
+  class SecretRefNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1StorageOSPersistentVolumeSourceFluentImpl.SecretRefNested<N>> implements V1StorageOSPersistentVolumeSourceFluentImpl.SecretRefNested<N>,Nested<N>{
     SecretRefNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }

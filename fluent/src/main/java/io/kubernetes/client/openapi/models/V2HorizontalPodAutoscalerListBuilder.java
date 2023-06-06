@@ -20,14 +20,12 @@ public class V2HorizontalPodAutoscalerListBuilder extends V2HorizontalPodAutosca
   }
   public V2HorizontalPodAutoscalerListBuilder(V2HorizontalPodAutoscalerListFluent<?> fluent,V2HorizontalPodAutoscalerList instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withItems(instance.getItems());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withItems(instance.getItems());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2HorizontalPodAutoscalerListBuilder(V2HorizontalPodAutoscalerList instance) {
@@ -35,14 +33,12 @@ public class V2HorizontalPodAutoscalerListBuilder extends V2HorizontalPodAutosca
   }
   public V2HorizontalPodAutoscalerListBuilder(V2HorizontalPodAutoscalerList instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withItems(instance.getItems());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withItems(instance.getItems());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2HorizontalPodAutoscalerListFluent<?> fluent;

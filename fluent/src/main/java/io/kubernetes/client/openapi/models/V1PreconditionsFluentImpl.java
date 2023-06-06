@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1PreconditionsFluentImpl() {
   }
   public V1PreconditionsFluentImpl(V1Preconditions instance) {
-    this.withResourceVersion(instance.getResourceVersion());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withResourceVersion(instance.getResourceVersion());
+      this.withUid(instance.getUid());
+    }
   }
   private String resourceVersion;
   private String uid;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PreconditionsFluentImpl that = (V1PreconditionsFluentImpl) o;
-    if (resourceVersion != null ? !resourceVersion.equals(that.resourceVersion) :that.resourceVersion != null) return false;
-    if (uid != null ? !uid.equals(that.uid) :that.uid != null) return false;
+    if (!java.util.Objects.equals(resourceVersion, that.resourceVersion)) return false;
+
+    if (!java.util.Objects.equals(uid, that.uid)) return false;
+
     return true;
   }
   public int hashCode() {

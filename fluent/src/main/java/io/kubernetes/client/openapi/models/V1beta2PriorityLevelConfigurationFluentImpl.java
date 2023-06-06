@@ -16,16 +16,13 @@ import java.lang.Object;
   public V1beta2PriorityLevelConfigurationFluentImpl() {
   }
   public V1beta2PriorityLevelConfigurationFluentImpl(V1beta2PriorityLevelConfiguration instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1beta2PriorityLevelConfigurationFluent.MetadataNested<A> withNewMetadata() {
+  public V1beta2PriorityLevelConfigurationFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1beta2PriorityLevelConfigurationFluentImpl.MetadataNestedImpl();
   }
-  public V1beta2PriorityLevelConfigurationFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1beta2PriorityLevelConfigurationFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1beta2PriorityLevelConfigurationFluentImpl.MetadataNestedImpl(item);
   }
-  public V1beta2PriorityLevelConfigurationFluent.MetadataNested<A> editMetadata() {
+  public V1beta2PriorityLevelConfigurationFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1beta2PriorityLevelConfigurationFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1beta2PriorityLevelConfigurationFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1beta2PriorityLevelConfigurationFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1beta2PriorityLevelConfigurationFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1beta2PriorityLevelConfigurationFluent.SpecNested<A> withNewSpec() {
+  public V1beta2PriorityLevelConfigurationFluentImpl.SpecNested<A> withNewSpec() {
     return new V1beta2PriorityLevelConfigurationFluentImpl.SpecNestedImpl();
   }
-  public V1beta2PriorityLevelConfigurationFluent.SpecNested<A> withNewSpecLike(V1beta2PriorityLevelConfigurationSpec item) {
+  public V1beta2PriorityLevelConfigurationFluentImpl.SpecNested<A> withNewSpecLike(V1beta2PriorityLevelConfigurationSpec item) {
     return new V1beta2PriorityLevelConfigurationFluentImpl.SpecNestedImpl(item);
   }
-  public V1beta2PriorityLevelConfigurationFluent.SpecNested<A> editSpec() {
+  public V1beta2PriorityLevelConfigurationFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1beta2PriorityLevelConfigurationFluent.SpecNested<A> editOrNewSpec() {
+  public V1beta2PriorityLevelConfigurationFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1beta2PriorityLevelConfigurationSpecBuilder().build());
   }
-  public V1beta2PriorityLevelConfigurationFluent.SpecNested<A> editOrNewSpecLike(V1beta2PriorityLevelConfigurationSpec item) {
+  public V1beta2PriorityLevelConfigurationFluentImpl.SpecNested<A> editOrNewSpecLike(V1beta2PriorityLevelConfigurationSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1beta2PriorityLevelConfigurationFluent.StatusNested<A> withNewStatus() {
+  public V1beta2PriorityLevelConfigurationFluentImpl.StatusNested<A> withNewStatus() {
     return new V1beta2PriorityLevelConfigurationFluentImpl.StatusNestedImpl();
   }
-  public V1beta2PriorityLevelConfigurationFluent.StatusNested<A> withNewStatusLike(V1beta2PriorityLevelConfigurationStatus item) {
+  public V1beta2PriorityLevelConfigurationFluentImpl.StatusNested<A> withNewStatusLike(V1beta2PriorityLevelConfigurationStatus item) {
     return new V1beta2PriorityLevelConfigurationFluentImpl.StatusNestedImpl(item);
   }
-  public V1beta2PriorityLevelConfigurationFluent.StatusNested<A> editStatus() {
+  public V1beta2PriorityLevelConfigurationFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1beta2PriorityLevelConfigurationFluent.StatusNested<A> editOrNewStatus() {
+  public V1beta2PriorityLevelConfigurationFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1beta2PriorityLevelConfigurationStatusBuilder().build());
   }
-  public V1beta2PriorityLevelConfigurationFluent.StatusNested<A> editOrNewStatusLike(V1beta2PriorityLevelConfigurationStatus item) {
+  public V1beta2PriorityLevelConfigurationFluentImpl.StatusNested<A> editOrNewStatusLike(V1beta2PriorityLevelConfigurationStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1beta2PriorityLevelConfigurationFluentImpl that = (V1beta2PriorityLevelConfigurationFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1beta2PriorityLevelConfigurationFluent.MetadataNested<N>> implements V1beta2PriorityLevelConfigurationFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1beta2PriorityLevelConfigurationFluentImpl.MetadataNested<N>> implements V1beta2PriorityLevelConfigurationFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1beta2PriorityLevelConfigurationSpecFluentImpl<V1beta2PriorityLevelConfigurationFluent.SpecNested<N>> implements V1beta2PriorityLevelConfigurationFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1beta2PriorityLevelConfigurationSpecFluentImpl<V1beta2PriorityLevelConfigurationFluentImpl.SpecNested<N>> implements V1beta2PriorityLevelConfigurationFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1beta2PriorityLevelConfigurationSpec item) {
       this.builder = new V1beta2PriorityLevelConfigurationSpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1beta2PriorityLevelConfigurationStatusFluentImpl<V1beta2PriorityLevelConfigurationFluent.StatusNested<N>> implements V1beta2PriorityLevelConfigurationFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1beta2PriorityLevelConfigurationStatusFluentImpl<V1beta2PriorityLevelConfigurationFluentImpl.StatusNested<N>> implements V1beta2PriorityLevelConfigurationFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1beta2PriorityLevelConfigurationStatus item) {
       this.builder = new V1beta2PriorityLevelConfigurationStatusBuilder(this, item);
     }

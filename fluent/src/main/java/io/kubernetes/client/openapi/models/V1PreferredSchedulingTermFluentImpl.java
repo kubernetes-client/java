@@ -17,10 +17,10 @@ import java.lang.Boolean;
   public V1PreferredSchedulingTermFluentImpl() {
   }
   public V1PreferredSchedulingTermFluentImpl(V1PreferredSchedulingTerm instance) {
-    this.withPreference(instance.getPreference());
-
-    this.withWeight(instance.getWeight());
-
+    if (instance != null) {
+      this.withPreference(instance.getPreference());
+      this.withWeight(instance.getWeight());
+    }
   }
   private V1NodeSelectorTermBuilder preference;
   private Integer weight;
@@ -43,19 +43,19 @@ import java.lang.Boolean;
   public Boolean hasPreference() {
     return this.preference != null;
   }
-  public V1PreferredSchedulingTermFluent.PreferenceNested<A> withNewPreference() {
+  public V1PreferredSchedulingTermFluentImpl.PreferenceNested<A> withNewPreference() {
     return new V1PreferredSchedulingTermFluentImpl.PreferenceNestedImpl();
   }
-  public V1PreferredSchedulingTermFluent.PreferenceNested<A> withNewPreferenceLike(V1NodeSelectorTerm item) {
+  public V1PreferredSchedulingTermFluentImpl.PreferenceNested<A> withNewPreferenceLike(V1NodeSelectorTerm item) {
     return new V1PreferredSchedulingTermFluentImpl.PreferenceNestedImpl(item);
   }
-  public V1PreferredSchedulingTermFluent.PreferenceNested<A> editPreference() {
+  public V1PreferredSchedulingTermFluentImpl.PreferenceNested<A> editPreference() {
     return withNewPreferenceLike(getPreference());
   }
-  public V1PreferredSchedulingTermFluent.PreferenceNested<A> editOrNewPreference() {
+  public V1PreferredSchedulingTermFluentImpl.PreferenceNested<A> editOrNewPreference() {
     return withNewPreferenceLike(getPreference() != null ? getPreference(): new V1NodeSelectorTermBuilder().build());
   }
-  public V1PreferredSchedulingTermFluent.PreferenceNested<A> editOrNewPreferenceLike(V1NodeSelectorTerm item) {
+  public V1PreferredSchedulingTermFluentImpl.PreferenceNested<A> editOrNewPreferenceLike(V1NodeSelectorTerm item) {
     return withNewPreferenceLike(getPreference() != null ? getPreference(): item);
   }
   public Integer getWeight() {
@@ -70,9 +70,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PreferredSchedulingTermFluentImpl that = (V1PreferredSchedulingTermFluentImpl) o;
-    if (preference != null ? !preference.equals(that.preference) :that.preference != null) return false;
-    if (weight != null ? !weight.equals(that.weight) :that.weight != null) return false;
+    if (!java.util.Objects.equals(preference, that.preference)) return false;
+
+    if (!java.util.Objects.equals(weight, that.weight)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -86,7 +89,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class PreferenceNestedImpl<N> extends V1NodeSelectorTermFluentImpl<V1PreferredSchedulingTermFluent.PreferenceNested<N>> implements V1PreferredSchedulingTermFluent.PreferenceNested<N>,Nested<N>{
+  class PreferenceNestedImpl<N> extends V1NodeSelectorTermFluentImpl<V1PreferredSchedulingTermFluentImpl.PreferenceNested<N>> implements V1PreferredSchedulingTermFluentImpl.PreferenceNested<N>,Nested<N>{
     PreferenceNestedImpl(V1NodeSelectorTerm item) {
       this.builder = new V1NodeSelectorTermBuilder(this, item);
     }

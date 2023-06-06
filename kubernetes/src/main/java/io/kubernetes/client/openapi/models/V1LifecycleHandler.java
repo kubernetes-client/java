@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,36 +12,38 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1ExecAction;
+import io.kubernetes.client.openapi.models.V1HTTPGetAction;
+import io.kubernetes.client.openapi.models.V1TCPSocketAction;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only
- * one of the fields, except TCPSocket must be specified.
+ * LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.
  */
-@ApiModel(
-    description =
-        "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1LifecycleHandler {
   public static final String SERIALIZED_NAME_EXEC = "exec";
-
   @SerializedName(SERIALIZED_NAME_EXEC)
   private V1ExecAction exec;
 
   public static final String SERIALIZED_NAME_HTTP_GET = "httpGet";
-
   @SerializedName(SERIALIZED_NAME_HTTP_GET)
   private V1HTTPGetAction httpGet;
 
   public static final String SERIALIZED_NAME_TCP_SOCKET = "tcpSocket";
-
   @SerializedName(SERIALIZED_NAME_TCP_SOCKET)
   private V1TCPSocketAction tcpSocket;
+
 
   public V1LifecycleHandler exec(V1ExecAction exec) {
 
@@ -49,20 +51,22 @@ public class V1LifecycleHandler {
     return this;
   }
 
-  /**
+   /**
    * Get exec
-   *
    * @return exec
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1ExecAction getExec() {
     return exec;
   }
 
+
   public void setExec(V1ExecAction exec) {
     this.exec = exec;
   }
+
 
   public V1LifecycleHandler httpGet(V1HTTPGetAction httpGet) {
 
@@ -70,20 +74,22 @@ public class V1LifecycleHandler {
     return this;
   }
 
-  /**
+   /**
    * Get httpGet
-   *
    * @return httpGet
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1HTTPGetAction getHttpGet() {
     return httpGet;
   }
 
+
   public void setHttpGet(V1HTTPGetAction httpGet) {
     this.httpGet = httpGet;
   }
+
 
   public V1LifecycleHandler tcpSocket(V1TCPSocketAction tcpSocket) {
 
@@ -91,20 +97,22 @@ public class V1LifecycleHandler {
     return this;
   }
 
-  /**
+   /**
    * Get tcpSocket
-   *
    * @return tcpSocket
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1TCPSocketAction getTcpSocket() {
     return tcpSocket;
   }
 
+
   public void setTcpSocket(V1TCPSocketAction tcpSocket) {
     this.tcpSocket = tcpSocket;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,15 +123,16 @@ public class V1LifecycleHandler {
       return false;
     }
     V1LifecycleHandler v1LifecycleHandler = (V1LifecycleHandler) o;
-    return Objects.equals(this.exec, v1LifecycleHandler.exec)
-        && Objects.equals(this.httpGet, v1LifecycleHandler.httpGet)
-        && Objects.equals(this.tcpSocket, v1LifecycleHandler.tcpSocket);
+    return Objects.equals(this.exec, v1LifecycleHandler.exec) &&
+        Objects.equals(this.httpGet, v1LifecycleHandler.httpGet) &&
+        Objects.equals(this.tcpSocket, v1LifecycleHandler.tcpSocket);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(exec, httpGet, tcpSocket);
   }
+
 
   @Override
   public String toString() {
@@ -137,7 +146,8 @@ public class V1LifecycleHandler {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -145,4 +155,5 @@ public class V1LifecycleHandler {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

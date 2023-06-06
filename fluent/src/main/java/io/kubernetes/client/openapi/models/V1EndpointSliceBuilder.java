@@ -20,18 +20,14 @@ public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1Endpoint
   }
   public V1EndpointSliceBuilder(V1EndpointSliceFluent<?> fluent,V1EndpointSlice instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAddressType(instance.getAddressType());
-
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withEndpoints(instance.getEndpoints());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withPorts(instance.getPorts());
-
+    if (instance != null) {
+      fluent.withAddressType(instance.getAddressType());
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withEndpoints(instance.getEndpoints());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withPorts(instance.getPorts());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EndpointSliceBuilder(V1EndpointSlice instance) {
@@ -39,18 +35,14 @@ public class V1EndpointSliceBuilder extends V1EndpointSliceFluentImpl<V1Endpoint
   }
   public V1EndpointSliceBuilder(V1EndpointSlice instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAddressType(instance.getAddressType());
-
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withEndpoints(instance.getEndpoints());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withPorts(instance.getPorts());
-
+    if (instance != null) {
+      this.withAddressType(instance.getAddressType());
+      this.withApiVersion(instance.getApiVersion());
+      this.withEndpoints(instance.getEndpoints());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withPorts(instance.getPorts());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EndpointSliceFluent<?> fluent;

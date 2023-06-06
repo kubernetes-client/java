@@ -14,12 +14,11 @@ import java.lang.Boolean;
   public V1EndpointConditionsFluentImpl() {
   }
   public V1EndpointConditionsFluentImpl(V1EndpointConditions instance) {
-    this.withReady(instance.getReady());
-
-    this.withServing(instance.getServing());
-
-    this.withTerminating(instance.getTerminating());
-
+    if (instance != null) {
+      this.withReady(instance.getReady());
+      this.withServing(instance.getServing());
+      this.withTerminating(instance.getTerminating());
+    }
   }
   private Boolean ready;
   private Boolean serving;
@@ -54,10 +53,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EndpointConditionsFluentImpl that = (V1EndpointConditionsFluentImpl) o;
-    if (ready != null ? !ready.equals(that.ready) :that.ready != null) return false;
-    if (serving != null ? !serving.equals(that.serving) :that.serving != null) return false;
-    if (terminating != null ? !terminating.equals(that.terminating) :that.terminating != null) return false;
+    if (!java.util.Objects.equals(ready, that.ready)) return false;
+
+    if (!java.util.Objects.equals(serving, that.serving)) return false;
+
+    if (!java.util.Objects.equals(terminating, that.terminating)) return false;
+
     return true;
   }
   public int hashCode() {

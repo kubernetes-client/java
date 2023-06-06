@@ -20,12 +20,11 @@ public class V1StatusCauseBuilder extends V1StatusCauseFluentImpl<V1StatusCauseB
   }
   public V1StatusCauseBuilder(V1StatusCauseFluent<?> fluent,V1StatusCause instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withField(instance.getField());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withReason(instance.getReason());
-
+    if (instance != null) {
+      fluent.withField(instance.getField());
+      fluent.withMessage(instance.getMessage());
+      fluent.withReason(instance.getReason());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1StatusCauseBuilder(V1StatusCause instance) {
@@ -33,12 +32,11 @@ public class V1StatusCauseBuilder extends V1StatusCauseFluentImpl<V1StatusCauseB
   }
   public V1StatusCauseBuilder(V1StatusCause instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withField(instance.getField());
-
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
+    if (instance != null) {
+      this.withField(instance.getField());
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1StatusCauseFluent<?> fluent;

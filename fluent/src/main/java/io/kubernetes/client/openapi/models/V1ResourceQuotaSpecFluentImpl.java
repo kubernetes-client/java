@@ -7,7 +7,6 @@ import io.kubernetes.client.custom.Quantity;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Collection;
@@ -24,12 +23,11 @@ import java.util.Map;
   public V1ResourceQuotaSpecFluentImpl() {
   }
   public V1ResourceQuotaSpecFluentImpl(V1ResourceQuotaSpec instance) {
-    this.withHard(instance.getHard());
-
-    this.withScopeSelector(instance.getScopeSelector());
-
-    this.withScopes(instance.getScopes());
-
+    if (instance != null) {
+      this.withHard(instance.getHard());
+      this.withScopeSelector(instance.getScopeSelector());
+      this.withScopes(instance.getScopes());
+    }
   }
   private Map<String,Quantity> hard;
   private V1ScopeSelectorBuilder scopeSelector;
@@ -78,27 +76,27 @@ import java.util.Map;
   public Boolean hasScopeSelector() {
     return this.scopeSelector != null;
   }
-  public V1ResourceQuotaSpecFluent.ScopeSelectorNested<A> withNewScopeSelector() {
+  public V1ResourceQuotaSpecFluentImpl.ScopeSelectorNested<A> withNewScopeSelector() {
     return new V1ResourceQuotaSpecFluentImpl.ScopeSelectorNestedImpl();
   }
-  public V1ResourceQuotaSpecFluent.ScopeSelectorNested<A> withNewScopeSelectorLike(V1ScopeSelector item) {
+  public V1ResourceQuotaSpecFluentImpl.ScopeSelectorNested<A> withNewScopeSelectorLike(V1ScopeSelector item) {
     return new V1ResourceQuotaSpecFluentImpl.ScopeSelectorNestedImpl(item);
   }
-  public V1ResourceQuotaSpecFluent.ScopeSelectorNested<A> editScopeSelector() {
+  public V1ResourceQuotaSpecFluentImpl.ScopeSelectorNested<A> editScopeSelector() {
     return withNewScopeSelectorLike(getScopeSelector());
   }
-  public V1ResourceQuotaSpecFluent.ScopeSelectorNested<A> editOrNewScopeSelector() {
+  public V1ResourceQuotaSpecFluentImpl.ScopeSelectorNested<A> editOrNewScopeSelector() {
     return withNewScopeSelectorLike(getScopeSelector() != null ? getScopeSelector(): new V1ScopeSelectorBuilder().build());
   }
-  public V1ResourceQuotaSpecFluent.ScopeSelectorNested<A> editOrNewScopeSelectorLike(V1ScopeSelector item) {
+  public V1ResourceQuotaSpecFluentImpl.ScopeSelectorNested<A> editOrNewScopeSelectorLike(V1ScopeSelector item) {
     return withNewScopeSelectorLike(getScopeSelector() != null ? getScopeSelector(): item);
   }
-  public A addToScopes(Integer index,String item) {
+  public A addToScopes(int index,String item) {
     if (this.scopes == null) {this.scopes = new ArrayList<String>();}
     this.scopes.add(index, item);
     return (A)this;
   }
-  public A setToScopes(Integer index,String item) {
+  public A setToScopes(int index,String item) {
     if (this.scopes == null) {this.scopes = new ArrayList<String>();}
     this.scopes.set(index, item); return (A)this;
   }
@@ -119,7 +117,7 @@ import java.util.Map;
   public List<String> getScopes() {
     return this.scopes;
   }
-  public String getScope(Integer index) {
+  public String getScope(int index) {
     return this.scopes.get(index);
   }
   public String getFirstScope() {
@@ -138,7 +136,7 @@ import java.util.Map;
     if (scopes != null) {this.scopes = new ArrayList(); for (String item : scopes){this.addToScopes(item);}} else { this.scopes = null;} return (A) this;
   }
   public A withScopes(java.lang.String... scopes) {
-    if (this.scopes != null) {this.scopes.clear();}
+    if (this.scopes != null) {this.scopes.clear(); _visitables.remove("scopes"); }
     if (scopes != null) {for (String item :scopes){ this.addToScopes(item);}} return (A) this;
   }
   public Boolean hasScopes() {
@@ -147,10 +145,14 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ResourceQuotaSpecFluentImpl that = (V1ResourceQuotaSpecFluentImpl) o;
-    if (hard != null ? !hard.equals(that.hard) :that.hard != null) return false;
-    if (scopeSelector != null ? !scopeSelector.equals(that.scopeSelector) :that.scopeSelector != null) return false;
-    if (scopes != null ? !scopes.equals(that.scopes) :that.scopes != null) return false;
+    if (!java.util.Objects.equals(hard, that.hard)) return false;
+
+    if (!java.util.Objects.equals(scopeSelector, that.scopeSelector)) return false;
+
+    if (!java.util.Objects.equals(scopes, that.scopes)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -165,7 +167,7 @@ import java.util.Map;
     sb.append("}");
     return sb.toString();
   }
-  class ScopeSelectorNestedImpl<N> extends V1ScopeSelectorFluentImpl<V1ResourceQuotaSpecFluent.ScopeSelectorNested<N>> implements V1ResourceQuotaSpecFluent.ScopeSelectorNested<N>,Nested<N>{
+  class ScopeSelectorNestedImpl<N> extends V1ScopeSelectorFluentImpl<V1ResourceQuotaSpecFluentImpl.ScopeSelectorNested<N>> implements V1ResourceQuotaSpecFluentImpl.ScopeSelectorNested<N>,Nested<N>{
     ScopeSelectorNestedImpl(V1ScopeSelector item) {
       this.builder = new V1ScopeSelectorBuilder(this, item);
     }

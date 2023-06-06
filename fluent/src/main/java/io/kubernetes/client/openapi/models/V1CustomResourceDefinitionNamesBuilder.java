@@ -20,18 +20,14 @@ public class V1CustomResourceDefinitionNamesBuilder extends V1CustomResourceDefi
   }
   public V1CustomResourceDefinitionNamesBuilder(V1CustomResourceDefinitionNamesFluent<?> fluent,V1CustomResourceDefinitionNames instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCategories(instance.getCategories());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withListKind(instance.getListKind());
-
-    fluent.withPlural(instance.getPlural());
-
-    fluent.withShortNames(instance.getShortNames());
-
-    fluent.withSingular(instance.getSingular());
-
+    if (instance != null) {
+      fluent.withCategories(instance.getCategories());
+      fluent.withKind(instance.getKind());
+      fluent.withListKind(instance.getListKind());
+      fluent.withPlural(instance.getPlural());
+      fluent.withShortNames(instance.getShortNames());
+      fluent.withSingular(instance.getSingular());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CustomResourceDefinitionNamesBuilder(V1CustomResourceDefinitionNames instance) {
@@ -39,18 +35,14 @@ public class V1CustomResourceDefinitionNamesBuilder extends V1CustomResourceDefi
   }
   public V1CustomResourceDefinitionNamesBuilder(V1CustomResourceDefinitionNames instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCategories(instance.getCategories());
-
-    this.withKind(instance.getKind());
-
-    this.withListKind(instance.getListKind());
-
-    this.withPlural(instance.getPlural());
-
-    this.withShortNames(instance.getShortNames());
-
-    this.withSingular(instance.getSingular());
-
+    if (instance != null) {
+      this.withCategories(instance.getCategories());
+      this.withKind(instance.getKind());
+      this.withListKind(instance.getListKind());
+      this.withPlural(instance.getPlural());
+      this.withShortNames(instance.getShortNames());
+      this.withSingular(instance.getSingular());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CustomResourceDefinitionNamesFluent<?> fluent;

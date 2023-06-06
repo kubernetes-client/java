@@ -20,12 +20,11 @@ public class V1EnvVarBuilder extends V1EnvVarFluentImpl<V1EnvVarBuilder> impleme
   }
   public V1EnvVarBuilder(V1EnvVarFluent<?> fluent,V1EnvVar instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withValue(instance.getValue());
-
-    fluent.withValueFrom(instance.getValueFrom());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withValue(instance.getValue());
+      fluent.withValueFrom(instance.getValueFrom());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EnvVarBuilder(V1EnvVar instance) {
@@ -33,12 +32,11 @@ public class V1EnvVarBuilder extends V1EnvVarFluentImpl<V1EnvVarBuilder> impleme
   }
   public V1EnvVarBuilder(V1EnvVar instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withValue(instance.getValue());
-
-    this.withValueFrom(instance.getValueFrom());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withValue(instance.getValue());
+      this.withValueFrom(instance.getValueFrom());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EnvVarFluent<?> fluent;

@@ -15,10 +15,10 @@ import java.lang.Boolean;
   public V1TokenRequestStatusFluentImpl() {
   }
   public V1TokenRequestStatusFluentImpl(V1TokenRequestStatus instance) {
-    this.withExpirationTimestamp(instance.getExpirationTimestamp());
-
-    this.withToken(instance.getToken());
-
+    if (instance != null) {
+      this.withExpirationTimestamp(instance.getExpirationTimestamp());
+      this.withToken(instance.getToken());
+    }
   }
   private OffsetDateTime expirationTimestamp;
   private String token;
@@ -43,9 +43,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1TokenRequestStatusFluentImpl that = (V1TokenRequestStatusFluentImpl) o;
-    if (expirationTimestamp != null ? !expirationTimestamp.equals(that.expirationTimestamp) :that.expirationTimestamp != null) return false;
-    if (token != null ? !token.equals(that.token) :that.token != null) return false;
+    if (!java.util.Objects.equals(expirationTimestamp, that.expirationTimestamp)) return false;
+
+    if (!java.util.Objects.equals(token, that.token)) return false;
+
     return true;
   }
   public int hashCode() {

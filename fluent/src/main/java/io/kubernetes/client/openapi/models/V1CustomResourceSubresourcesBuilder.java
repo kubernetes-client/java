@@ -20,10 +20,10 @@ public class V1CustomResourceSubresourcesBuilder extends V1CustomResourceSubreso
   }
   public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresourcesFluent<?> fluent,V1CustomResourceSubresources instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withScale(instance.getScale());
-
-    fluent.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      fluent.withScale(instance.getScale());
+      fluent.withStatus(instance.getStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresources instance) {
@@ -31,10 +31,10 @@ public class V1CustomResourceSubresourcesBuilder extends V1CustomResourceSubreso
   }
   public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresources instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withScale(instance.getScale());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withScale(instance.getScale());
+      this.withStatus(instance.getStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CustomResourceSubresourcesFluent<?> fluent;

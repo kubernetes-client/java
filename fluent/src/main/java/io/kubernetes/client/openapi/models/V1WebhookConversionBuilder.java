@@ -20,10 +20,10 @@ public class V1WebhookConversionBuilder extends V1WebhookConversionFluentImpl<V1
   }
   public V1WebhookConversionBuilder(V1WebhookConversionFluent<?> fluent,V1WebhookConversion instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withClientConfig(instance.getClientConfig());
-
-    fluent.withConversionReviewVersions(instance.getConversionReviewVersions());
-
+    if (instance != null) {
+      fluent.withClientConfig(instance.getClientConfig());
+      fluent.withConversionReviewVersions(instance.getConversionReviewVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1WebhookConversionBuilder(V1WebhookConversion instance) {
@@ -31,10 +31,10 @@ public class V1WebhookConversionBuilder extends V1WebhookConversionFluentImpl<V1
   }
   public V1WebhookConversionBuilder(V1WebhookConversion instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withClientConfig(instance.getClientConfig());
-
-    this.withConversionReviewVersions(instance.getConversionReviewVersions());
-
+    if (instance != null) {
+      this.withClientConfig(instance.getClientConfig());
+      this.withConversionReviewVersions(instance.getConversionReviewVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1WebhookConversionFluent<?> fluent;

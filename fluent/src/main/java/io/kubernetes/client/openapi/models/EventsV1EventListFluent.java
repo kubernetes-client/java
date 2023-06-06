@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface EventsV1EventListFluent<A extends EventsV1EventListFluent<A>> e
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,EventsV1Event item);
-  public A setToItems(Integer index,EventsV1Event item);
+  public A addToItems(int index,EventsV1Event item);
+  public A setToItems(int index,EventsV1Event item);
   public A addToItems(io.kubernetes.client.openapi.models.EventsV1Event... items);
   public A addAllToItems(Collection<EventsV1Event> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.EventsV1Event... items);
@@ -35,7 +35,7 @@ public interface EventsV1EventListFluent<A extends EventsV1EventListFluent<A>> e
   @Deprecated
   public List<EventsV1Event> getItems();
   public List<EventsV1Event> buildItems();
-  public EventsV1Event buildItem(Integer index);
+  public EventsV1Event buildItem(int index);
   public EventsV1Event buildFirstItem();
   public EventsV1Event buildLastItem();
   public EventsV1Event buildMatchingItem(Predicate<EventsV1EventBuilder> predicate);
@@ -45,8 +45,8 @@ public interface EventsV1EventListFluent<A extends EventsV1EventListFluent<A>> e
   public Boolean hasItems();
   public EventsV1EventListFluent.ItemsNested<A> addNewItem();
   public EventsV1EventListFluent.ItemsNested<A> addNewItemLike(EventsV1Event item);
-  public EventsV1EventListFluent.ItemsNested<A> setNewItemLike(Integer index,EventsV1Event item);
-  public EventsV1EventListFluent.ItemsNested<A> editItem(Integer index);
+  public EventsV1EventListFluent.ItemsNested<A> setNewItemLike(int index,EventsV1Event item);
+  public EventsV1EventListFluent.ItemsNested<A> editItem(int index);
   public EventsV1EventListFluent.ItemsNested<A> editFirstItem();
   public EventsV1EventListFluent.ItemsNested<A> editLastItem();
   public EventsV1EventListFluent.ItemsNested<A> editMatchingItem(Predicate<EventsV1EventBuilder> predicate);

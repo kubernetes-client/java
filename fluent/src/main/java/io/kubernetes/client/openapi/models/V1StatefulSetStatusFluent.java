@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -24,8 +25,8 @@ public interface V1StatefulSetStatusFluent<A extends V1StatefulSetStatusFluent<A
   public Integer getCollisionCount();
   public A withCollisionCount(Integer collisionCount);
   public Boolean hasCollisionCount();
-  public A addToConditions(Integer index,V1StatefulSetCondition item);
-  public A setToConditions(Integer index,V1StatefulSetCondition item);
+  public A addToConditions(int index,V1StatefulSetCondition item);
+  public A setToConditions(int index,V1StatefulSetCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1StatefulSetCondition... items);
   public A addAllToConditions(Collection<V1StatefulSetCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1StatefulSetCondition... items);
@@ -39,7 +40,7 @@ public interface V1StatefulSetStatusFluent<A extends V1StatefulSetStatusFluent<A
   @Deprecated
   public List<V1StatefulSetCondition> getConditions();
   public List<V1StatefulSetCondition> buildConditions();
-  public V1StatefulSetCondition buildCondition(Integer index);
+  public V1StatefulSetCondition buildCondition(int index);
   public V1StatefulSetCondition buildFirstCondition();
   public V1StatefulSetCondition buildLastCondition();
   public V1StatefulSetCondition buildMatchingCondition(Predicate<V1StatefulSetConditionBuilder> predicate);
@@ -49,8 +50,8 @@ public interface V1StatefulSetStatusFluent<A extends V1StatefulSetStatusFluent<A
   public Boolean hasConditions();
   public V1StatefulSetStatusFluent.ConditionsNested<A> addNewCondition();
   public V1StatefulSetStatusFluent.ConditionsNested<A> addNewConditionLike(V1StatefulSetCondition item);
-  public V1StatefulSetStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1StatefulSetCondition item);
-  public V1StatefulSetStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1StatefulSetStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1StatefulSetCondition item);
+  public V1StatefulSetStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1StatefulSetStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1StatefulSetStatusFluent.ConditionsNested<A> editLastCondition();
   public V1StatefulSetStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1StatefulSetConditionBuilder> predicate);

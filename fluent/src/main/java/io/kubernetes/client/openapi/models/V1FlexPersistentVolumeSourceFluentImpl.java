@@ -18,16 +18,13 @@ import java.util.Map;
   public V1FlexPersistentVolumeSourceFluentImpl() {
   }
   public V1FlexPersistentVolumeSourceFluentImpl(V1FlexPersistentVolumeSource instance) {
-    this.withDriver(instance.getDriver());
-
-    this.withFsType(instance.getFsType());
-
-    this.withOptions(instance.getOptions());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
+    if (instance != null) {
+      this.withDriver(instance.getDriver());
+      this.withFsType(instance.getFsType());
+      this.withOptions(instance.getOptions());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+    }
   }
   private String driver;
   private String fsType;
@@ -105,30 +102,36 @@ import java.util.Map;
   public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
-  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef() {
+  public V1FlexPersistentVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRef() {
     return new V1FlexPersistentVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
-  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(V1SecretReference item) {
+  public V1FlexPersistentVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRefLike(V1SecretReference item) {
     return new V1FlexPersistentVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
-  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
+  public V1FlexPersistentVolumeSourceFluentImpl.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
-  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
+  public V1FlexPersistentVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): new V1SecretReferenceBuilder().build());
   }
-  public V1FlexPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(V1SecretReference item) {
+  public V1FlexPersistentVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRefLike(V1SecretReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1FlexPersistentVolumeSourceFluentImpl that = (V1FlexPersistentVolumeSourceFluentImpl) o;
-    if (driver != null ? !driver.equals(that.driver) :that.driver != null) return false;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (options != null ? !options.equals(that.options) :that.options != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (secretRef != null ? !secretRef.equals(that.secretRef) :that.secretRef != null) return false;
+    if (!java.util.Objects.equals(driver, that.driver)) return false;
+
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(options, that.options)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -148,7 +151,7 @@ import java.util.Map;
   public A withReadOnly() {
     return withReadOnly(true);
   }
-  class SecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1FlexPersistentVolumeSourceFluent.SecretRefNested<N>> implements V1FlexPersistentVolumeSourceFluent.SecretRefNested<N>,Nested<N>{
+  class SecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1FlexPersistentVolumeSourceFluentImpl.SecretRefNested<N>> implements V1FlexPersistentVolumeSourceFluentImpl.SecretRefNested<N>,Nested<N>{
     SecretRefNestedImpl(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }

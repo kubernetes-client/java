@@ -1,13 +1,13 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -19,8 +19,8 @@ import java.util.Map;
   * Generated
   */
 public interface V1LabelSelectorFluent<A extends V1LabelSelectorFluent<A>> extends Fluent<A>{
-  public A addToMatchExpressions(Integer index,V1LabelSelectorRequirement item);
-  public A setToMatchExpressions(Integer index,V1LabelSelectorRequirement item);
+  public A addToMatchExpressions(int index,V1LabelSelectorRequirement item);
+  public A setToMatchExpressions(int index,V1LabelSelectorRequirement item);
   public A addToMatchExpressions(io.kubernetes.client.openapi.models.V1LabelSelectorRequirement... items);
   public A addAllToMatchExpressions(Collection<V1LabelSelectorRequirement> items);
   public A removeFromMatchExpressions(io.kubernetes.client.openapi.models.V1LabelSelectorRequirement... items);
@@ -34,7 +34,7 @@ public interface V1LabelSelectorFluent<A extends V1LabelSelectorFluent<A>> exten
   @Deprecated
   public List<V1LabelSelectorRequirement> getMatchExpressions();
   public List<V1LabelSelectorRequirement> buildMatchExpressions();
-  public V1LabelSelectorRequirement buildMatchExpression(Integer index);
+  public V1LabelSelectorRequirement buildMatchExpression(int index);
   public V1LabelSelectorRequirement buildFirstMatchExpression();
   public V1LabelSelectorRequirement buildLastMatchExpression();
   public V1LabelSelectorRequirement buildMatchingMatchExpression(Predicate<V1LabelSelectorRequirementBuilder> predicate);
@@ -44,8 +44,8 @@ public interface V1LabelSelectorFluent<A extends V1LabelSelectorFluent<A>> exten
   public Boolean hasMatchExpressions();
   public V1LabelSelectorFluent.MatchExpressionsNested<A> addNewMatchExpression();
   public V1LabelSelectorFluent.MatchExpressionsNested<A> addNewMatchExpressionLike(V1LabelSelectorRequirement item);
-  public V1LabelSelectorFluent.MatchExpressionsNested<A> setNewMatchExpressionLike(Integer index,V1LabelSelectorRequirement item);
-  public V1LabelSelectorFluent.MatchExpressionsNested<A> editMatchExpression(Integer index);
+  public V1LabelSelectorFluent.MatchExpressionsNested<A> setNewMatchExpressionLike(int index,V1LabelSelectorRequirement item);
+  public V1LabelSelectorFluent.MatchExpressionsNested<A> editMatchExpression(int index);
   public V1LabelSelectorFluent.MatchExpressionsNested<A> editFirstMatchExpression();
   public V1LabelSelectorFluent.MatchExpressionsNested<A> editLastMatchExpression();
   public V1LabelSelectorFluent.MatchExpressionsNested<A> editMatchingMatchExpression(Predicate<V1LabelSelectorRequirementBuilder> predicate);

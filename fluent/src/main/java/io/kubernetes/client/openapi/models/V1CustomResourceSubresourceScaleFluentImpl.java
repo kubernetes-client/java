@@ -14,12 +14,11 @@ import java.lang.Boolean;
   public V1CustomResourceSubresourceScaleFluentImpl() {
   }
   public V1CustomResourceSubresourceScaleFluentImpl(V1CustomResourceSubresourceScale instance) {
-    this.withLabelSelectorPath(instance.getLabelSelectorPath());
-
-    this.withSpecReplicasPath(instance.getSpecReplicasPath());
-
-    this.withStatusReplicasPath(instance.getStatusReplicasPath());
-
+    if (instance != null) {
+      this.withLabelSelectorPath(instance.getLabelSelectorPath());
+      this.withSpecReplicasPath(instance.getSpecReplicasPath());
+      this.withStatusReplicasPath(instance.getStatusReplicasPath());
+    }
   }
   private String labelSelectorPath;
   private String specReplicasPath;
@@ -54,10 +53,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CustomResourceSubresourceScaleFluentImpl that = (V1CustomResourceSubresourceScaleFluentImpl) o;
-    if (labelSelectorPath != null ? !labelSelectorPath.equals(that.labelSelectorPath) :that.labelSelectorPath != null) return false;
-    if (specReplicasPath != null ? !specReplicasPath.equals(that.specReplicasPath) :that.specReplicasPath != null) return false;
-    if (statusReplicasPath != null ? !statusReplicasPath.equals(that.statusReplicasPath) :that.statusReplicasPath != null) return false;
+    if (!java.util.Objects.equals(labelSelectorPath, that.labelSelectorPath)) return false;
+
+    if (!java.util.Objects.equals(specReplicasPath, that.specReplicasPath)) return false;
+
+    if (!java.util.Objects.equals(statusReplicasPath, that.statusReplicasPath)) return false;
+
     return true;
   }
   public int hashCode() {

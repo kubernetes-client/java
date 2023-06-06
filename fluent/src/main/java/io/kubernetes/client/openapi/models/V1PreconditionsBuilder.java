@@ -20,10 +20,10 @@ public class V1PreconditionsBuilder extends V1PreconditionsFluentImpl<V1Precondi
   }
   public V1PreconditionsBuilder(V1PreconditionsFluent<?> fluent,V1Preconditions instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withResourceVersion(instance.getResourceVersion());
-
-    fluent.withUid(instance.getUid());
-
+    if (instance != null) {
+      fluent.withResourceVersion(instance.getResourceVersion());
+      fluent.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PreconditionsBuilder(V1Preconditions instance) {
@@ -31,10 +31,10 @@ public class V1PreconditionsBuilder extends V1PreconditionsFluentImpl<V1Precondi
   }
   public V1PreconditionsBuilder(V1Preconditions instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withResourceVersion(instance.getResourceVersion());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withResourceVersion(instance.getResourceVersion());
+      this.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PreconditionsFluent<?> fluent;

@@ -20,12 +20,11 @@ public class V1PersistentVolumeStatusBuilder extends V1PersistentVolumeStatusFlu
   }
   public V1PersistentVolumeStatusBuilder(V1PersistentVolumeStatusFluent<?> fluent,V1PersistentVolumeStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withPhase(instance.getPhase());
-
-    fluent.withReason(instance.getReason());
-
+    if (instance != null) {
+      fluent.withMessage(instance.getMessage());
+      fluent.withPhase(instance.getPhase());
+      fluent.withReason(instance.getReason());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PersistentVolumeStatusBuilder(V1PersistentVolumeStatus instance) {
@@ -33,12 +32,11 @@ public class V1PersistentVolumeStatusBuilder extends V1PersistentVolumeStatusFlu
   }
   public V1PersistentVolumeStatusBuilder(V1PersistentVolumeStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMessage(instance.getMessage());
-
-    this.withPhase(instance.getPhase());
-
-    this.withReason(instance.getReason());
-
+    if (instance != null) {
+      this.withMessage(instance.getMessage());
+      this.withPhase(instance.getPhase());
+      this.withReason(instance.getReason());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PersistentVolumeStatusFluent<?> fluent;

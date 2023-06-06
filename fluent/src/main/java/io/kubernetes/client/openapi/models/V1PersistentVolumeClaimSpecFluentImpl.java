@@ -9,7 +9,6 @@ import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -21,37 +20,31 @@ import java.lang.Object;
   public V1PersistentVolumeClaimSpecFluentImpl() {
   }
   public V1PersistentVolumeClaimSpecFluentImpl(V1PersistentVolumeClaimSpec instance) {
-    this.withAccessModes(instance.getAccessModes());
-
-    this.withDataSource(instance.getDataSource());
-
-    this.withDataSourceRef(instance.getDataSourceRef());
-
-    this.withResources(instance.getResources());
-
-    this.withSelector(instance.getSelector());
-
-    this.withStorageClassName(instance.getStorageClassName());
-
-    this.withVolumeMode(instance.getVolumeMode());
-
-    this.withVolumeName(instance.getVolumeName());
-
+    if (instance != null) {
+      this.withAccessModes(instance.getAccessModes());
+      this.withDataSource(instance.getDataSource());
+      this.withDataSourceRef(instance.getDataSourceRef());
+      this.withResources(instance.getResources());
+      this.withSelector(instance.getSelector());
+      this.withStorageClassName(instance.getStorageClassName());
+      this.withVolumeMode(instance.getVolumeMode());
+      this.withVolumeName(instance.getVolumeName());
+    }
   }
   private List<String> accessModes;
   private V1TypedLocalObjectReferenceBuilder dataSource;
-  private V1TypedLocalObjectReferenceBuilder dataSourceRef;
+  private V1TypedObjectReferenceBuilder dataSourceRef;
   private V1ResourceRequirementsBuilder resources;
   private V1LabelSelectorBuilder selector;
   private String storageClassName;
   private String volumeMode;
   private String volumeName;
-  public A addToAccessModes(Integer index,String item) {
+  public A addToAccessModes(int index,String item) {
     if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
     this.accessModes.add(index, item);
     return (A)this;
   }
-  public A setToAccessModes(Integer index,String item) {
+  public A setToAccessModes(int index,String item) {
     if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
     this.accessModes.set(index, item); return (A)this;
   }
@@ -72,7 +65,7 @@ import java.lang.Object;
   public List<String> getAccessModes() {
     return this.accessModes;
   }
-  public String getAccessMode(Integer index) {
+  public String getAccessMode(int index) {
     return this.accessModes.get(index);
   }
   public String getFirstAccessMode() {
@@ -91,7 +84,7 @@ import java.lang.Object;
     if (accessModes != null) {this.accessModes = new ArrayList(); for (String item : accessModes){this.addToAccessModes(item);}} else { this.accessModes = null;} return (A) this;
   }
   public A withAccessModes(java.lang.String... accessModes) {
-    if (this.accessModes != null) {this.accessModes.clear();}
+    if (this.accessModes != null) {this.accessModes.clear(); _visitables.remove("accessModes"); }
     if (accessModes != null) {for (String item :accessModes){ this.addToAccessModes(item);}} return (A) this;
   }
   public Boolean hasAccessModes() {
@@ -116,19 +109,19 @@ import java.lang.Object;
   public Boolean hasDataSource() {
     return this.dataSource != null;
   }
-  public V1PersistentVolumeClaimSpecFluent.DataSourceNested<A> withNewDataSource() {
+  public V1PersistentVolumeClaimSpecFluentImpl.DataSourceNested<A> withNewDataSource() {
     return new V1PersistentVolumeClaimSpecFluentImpl.DataSourceNestedImpl();
   }
-  public V1PersistentVolumeClaimSpecFluent.DataSourceNested<A> withNewDataSourceLike(V1TypedLocalObjectReference item) {
+  public V1PersistentVolumeClaimSpecFluentImpl.DataSourceNested<A> withNewDataSourceLike(V1TypedLocalObjectReference item) {
     return new V1PersistentVolumeClaimSpecFluentImpl.DataSourceNestedImpl(item);
   }
-  public V1PersistentVolumeClaimSpecFluent.DataSourceNested<A> editDataSource() {
+  public V1PersistentVolumeClaimSpecFluentImpl.DataSourceNested<A> editDataSource() {
     return withNewDataSourceLike(getDataSource());
   }
-  public V1PersistentVolumeClaimSpecFluent.DataSourceNested<A> editOrNewDataSource() {
+  public V1PersistentVolumeClaimSpecFluentImpl.DataSourceNested<A> editOrNewDataSource() {
     return withNewDataSourceLike(getDataSource() != null ? getDataSource(): new V1TypedLocalObjectReferenceBuilder().build());
   }
-  public V1PersistentVolumeClaimSpecFluent.DataSourceNested<A> editOrNewDataSourceLike(V1TypedLocalObjectReference item) {
+  public V1PersistentVolumeClaimSpecFluentImpl.DataSourceNested<A> editOrNewDataSourceLike(V1TypedLocalObjectReference item) {
     return withNewDataSourceLike(getDataSource() != null ? getDataSource(): item);
   }
   
@@ -137,32 +130,32 @@ import java.lang.Object;
    * @return The buildable object.
    */
   @Deprecated
-  public V1TypedLocalObjectReference getDataSourceRef() {
+  public V1TypedObjectReference getDataSourceRef() {
     return this.dataSourceRef!=null ?this.dataSourceRef.build():null;
   }
-  public V1TypedLocalObjectReference buildDataSourceRef() {
+  public V1TypedObjectReference buildDataSourceRef() {
     return this.dataSourceRef!=null ?this.dataSourceRef.build():null;
   }
-  public A withDataSourceRef(V1TypedLocalObjectReference dataSourceRef) {
+  public A withDataSourceRef(V1TypedObjectReference dataSourceRef) {
     _visitables.get("dataSourceRef").remove(this.dataSourceRef);
-    if (dataSourceRef!=null){ this.dataSourceRef= new V1TypedLocalObjectReferenceBuilder(dataSourceRef); _visitables.get("dataSourceRef").add(this.dataSourceRef);} else { this.dataSourceRef = null; _visitables.get("dataSourceRef").remove(this.dataSourceRef); } return (A) this;
+    if (dataSourceRef!=null){ this.dataSourceRef= new V1TypedObjectReferenceBuilder(dataSourceRef); _visitables.get("dataSourceRef").add(this.dataSourceRef);} else { this.dataSourceRef = null; _visitables.get("dataSourceRef").remove(this.dataSourceRef); } return (A) this;
   }
   public Boolean hasDataSourceRef() {
     return this.dataSourceRef != null;
   }
-  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> withNewDataSourceRef() {
+  public V1PersistentVolumeClaimSpecFluentImpl.DataSourceRefNested<A> withNewDataSourceRef() {
     return new V1PersistentVolumeClaimSpecFluentImpl.DataSourceRefNestedImpl();
   }
-  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> withNewDataSourceRefLike(V1TypedLocalObjectReference item) {
+  public V1PersistentVolumeClaimSpecFluentImpl.DataSourceRefNested<A> withNewDataSourceRefLike(V1TypedObjectReference item) {
     return new V1PersistentVolumeClaimSpecFluentImpl.DataSourceRefNestedImpl(item);
   }
-  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> editDataSourceRef() {
+  public V1PersistentVolumeClaimSpecFluentImpl.DataSourceRefNested<A> editDataSourceRef() {
     return withNewDataSourceRefLike(getDataSourceRef());
   }
-  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> editOrNewDataSourceRef() {
-    return withNewDataSourceRefLike(getDataSourceRef() != null ? getDataSourceRef(): new V1TypedLocalObjectReferenceBuilder().build());
+  public V1PersistentVolumeClaimSpecFluentImpl.DataSourceRefNested<A> editOrNewDataSourceRef() {
+    return withNewDataSourceRefLike(getDataSourceRef() != null ? getDataSourceRef(): new V1TypedObjectReferenceBuilder().build());
   }
-  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> editOrNewDataSourceRefLike(V1TypedLocalObjectReference item) {
+  public V1PersistentVolumeClaimSpecFluentImpl.DataSourceRefNested<A> editOrNewDataSourceRefLike(V1TypedObjectReference item) {
     return withNewDataSourceRefLike(getDataSourceRef() != null ? getDataSourceRef(): item);
   }
   
@@ -184,19 +177,19 @@ import java.lang.Object;
   public Boolean hasResources() {
     return this.resources != null;
   }
-  public V1PersistentVolumeClaimSpecFluent.ResourcesNested<A> withNewResources() {
+  public V1PersistentVolumeClaimSpecFluentImpl.ResourcesNested<A> withNewResources() {
     return new V1PersistentVolumeClaimSpecFluentImpl.ResourcesNestedImpl();
   }
-  public V1PersistentVolumeClaimSpecFluent.ResourcesNested<A> withNewResourcesLike(V1ResourceRequirements item) {
+  public V1PersistentVolumeClaimSpecFluentImpl.ResourcesNested<A> withNewResourcesLike(V1ResourceRequirements item) {
     return new V1PersistentVolumeClaimSpecFluentImpl.ResourcesNestedImpl(item);
   }
-  public V1PersistentVolumeClaimSpecFluent.ResourcesNested<A> editResources() {
+  public V1PersistentVolumeClaimSpecFluentImpl.ResourcesNested<A> editResources() {
     return withNewResourcesLike(getResources());
   }
-  public V1PersistentVolumeClaimSpecFluent.ResourcesNested<A> editOrNewResources() {
+  public V1PersistentVolumeClaimSpecFluentImpl.ResourcesNested<A> editOrNewResources() {
     return withNewResourcesLike(getResources() != null ? getResources(): new V1ResourceRequirementsBuilder().build());
   }
-  public V1PersistentVolumeClaimSpecFluent.ResourcesNested<A> editOrNewResourcesLike(V1ResourceRequirements item) {
+  public V1PersistentVolumeClaimSpecFluentImpl.ResourcesNested<A> editOrNewResourcesLike(V1ResourceRequirements item) {
     return withNewResourcesLike(getResources() != null ? getResources(): item);
   }
   
@@ -218,19 +211,19 @@ import java.lang.Object;
   public Boolean hasSelector() {
     return this.selector != null;
   }
-  public V1PersistentVolumeClaimSpecFluent.SelectorNested<A> withNewSelector() {
+  public V1PersistentVolumeClaimSpecFluentImpl.SelectorNested<A> withNewSelector() {
     return new V1PersistentVolumeClaimSpecFluentImpl.SelectorNestedImpl();
   }
-  public V1PersistentVolumeClaimSpecFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
+  public V1PersistentVolumeClaimSpecFluentImpl.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
     return new V1PersistentVolumeClaimSpecFluentImpl.SelectorNestedImpl(item);
   }
-  public V1PersistentVolumeClaimSpecFluent.SelectorNested<A> editSelector() {
+  public V1PersistentVolumeClaimSpecFluentImpl.SelectorNested<A> editSelector() {
     return withNewSelectorLike(getSelector());
   }
-  public V1PersistentVolumeClaimSpecFluent.SelectorNested<A> editOrNewSelector() {
+  public V1PersistentVolumeClaimSpecFluentImpl.SelectorNested<A> editOrNewSelector() {
     return withNewSelectorLike(getSelector() != null ? getSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1PersistentVolumeClaimSpecFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
+  public V1PersistentVolumeClaimSpecFluentImpl.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
     return withNewSelectorLike(getSelector() != null ? getSelector(): item);
   }
   public String getStorageClassName() {
@@ -263,15 +256,24 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PersistentVolumeClaimSpecFluentImpl that = (V1PersistentVolumeClaimSpecFluentImpl) o;
-    if (accessModes != null ? !accessModes.equals(that.accessModes) :that.accessModes != null) return false;
-    if (dataSource != null ? !dataSource.equals(that.dataSource) :that.dataSource != null) return false;
-    if (dataSourceRef != null ? !dataSourceRef.equals(that.dataSourceRef) :that.dataSourceRef != null) return false;
-    if (resources != null ? !resources.equals(that.resources) :that.resources != null) return false;
-    if (selector != null ? !selector.equals(that.selector) :that.selector != null) return false;
-    if (storageClassName != null ? !storageClassName.equals(that.storageClassName) :that.storageClassName != null) return false;
-    if (volumeMode != null ? !volumeMode.equals(that.volumeMode) :that.volumeMode != null) return false;
-    if (volumeName != null ? !volumeName.equals(that.volumeName) :that.volumeName != null) return false;
+    if (!java.util.Objects.equals(accessModes, that.accessModes)) return false;
+
+    if (!java.util.Objects.equals(dataSource, that.dataSource)) return false;
+
+    if (!java.util.Objects.equals(dataSourceRef, that.dataSourceRef)) return false;
+
+    if (!java.util.Objects.equals(resources, that.resources)) return false;
+
+    if (!java.util.Objects.equals(selector, that.selector)) return false;
+
+    if (!java.util.Objects.equals(storageClassName, that.storageClassName)) return false;
+
+    if (!java.util.Objects.equals(volumeMode, that.volumeMode)) return false;
+
+    if (!java.util.Objects.equals(volumeName, that.volumeName)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -291,7 +293,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class DataSourceNestedImpl<N> extends V1TypedLocalObjectReferenceFluentImpl<V1PersistentVolumeClaimSpecFluent.DataSourceNested<N>> implements V1PersistentVolumeClaimSpecFluent.DataSourceNested<N>,Nested<N>{
+  class DataSourceNestedImpl<N> extends V1TypedLocalObjectReferenceFluentImpl<V1PersistentVolumeClaimSpecFluentImpl.DataSourceNested<N>> implements V1PersistentVolumeClaimSpecFluentImpl.DataSourceNested<N>,Nested<N>{
     DataSourceNestedImpl(V1TypedLocalObjectReference item) {
       this.builder = new V1TypedLocalObjectReferenceBuilder(this, item);
     }
@@ -307,14 +309,14 @@ import java.lang.Object;
     }
     
   }
-  class DataSourceRefNestedImpl<N> extends V1TypedLocalObjectReferenceFluentImpl<V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<N>> implements V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<N>,Nested<N>{
-    DataSourceRefNestedImpl(V1TypedLocalObjectReference item) {
-      this.builder = new V1TypedLocalObjectReferenceBuilder(this, item);
+  class DataSourceRefNestedImpl<N> extends V1TypedObjectReferenceFluentImpl<V1PersistentVolumeClaimSpecFluentImpl.DataSourceRefNested<N>> implements V1PersistentVolumeClaimSpecFluentImpl.DataSourceRefNested<N>,Nested<N>{
+    DataSourceRefNestedImpl(V1TypedObjectReference item) {
+      this.builder = new V1TypedObjectReferenceBuilder(this, item);
     }
     DataSourceRefNestedImpl() {
-      this.builder = new V1TypedLocalObjectReferenceBuilder(this);
+      this.builder = new V1TypedObjectReferenceBuilder(this);
     }
-    V1TypedLocalObjectReferenceBuilder builder;
+    V1TypedObjectReferenceBuilder builder;
     public N and() {
       return (N) V1PersistentVolumeClaimSpecFluentImpl.this.withDataSourceRef(builder.build());
     }
@@ -323,7 +325,7 @@ import java.lang.Object;
     }
     
   }
-  class ResourcesNestedImpl<N> extends V1ResourceRequirementsFluentImpl<V1PersistentVolumeClaimSpecFluent.ResourcesNested<N>> implements V1PersistentVolumeClaimSpecFluent.ResourcesNested<N>,Nested<N>{
+  class ResourcesNestedImpl<N> extends V1ResourceRequirementsFluentImpl<V1PersistentVolumeClaimSpecFluentImpl.ResourcesNested<N>> implements V1PersistentVolumeClaimSpecFluentImpl.ResourcesNested<N>,Nested<N>{
     ResourcesNestedImpl(V1ResourceRequirements item) {
       this.builder = new V1ResourceRequirementsBuilder(this, item);
     }
@@ -339,7 +341,7 @@ import java.lang.Object;
     }
     
   }
-  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1PersistentVolumeClaimSpecFluent.SelectorNested<N>> implements V1PersistentVolumeClaimSpecFluent.SelectorNested<N>,Nested<N>{
+  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1PersistentVolumeClaimSpecFluentImpl.SelectorNested<N>> implements V1PersistentVolumeClaimSpecFluentImpl.SelectorNested<N>,Nested<N>{
     SelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }

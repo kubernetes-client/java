@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,41 +12,42 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta2GroupSubject;
+import io.kubernetes.client.openapi.models.V1beta2ServiceAccountSubject;
+import io.kubernetes.client.openapi.models.V1beta2UserSubject;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * Subject matches the originator of a request, as identified by the request authentication system.
- * There are three ways of matching an originator; by user, group, or service account.
+ * Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.
  */
-@ApiModel(
-    description =
-        "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "Subject matches the originator of a request, as identified by the request authentication system. There are three ways of matching an originator; by user, group, or service account.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1beta2Subject {
   public static final String SERIALIZED_NAME_GROUP = "group";
-
   @SerializedName(SERIALIZED_NAME_GROUP)
   private V1beta2GroupSubject group;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
-
   @SerializedName(SERIALIZED_NAME_KIND)
   private String kind;
 
   public static final String SERIALIZED_NAME_SERVICE_ACCOUNT = "serviceAccount";
-
   @SerializedName(SERIALIZED_NAME_SERVICE_ACCOUNT)
   private V1beta2ServiceAccountSubject serviceAccount;
 
   public static final String SERIALIZED_NAME_USER = "user";
-
   @SerializedName(SERIALIZED_NAME_USER)
   private V1beta2UserSubject user;
+
 
   public V1beta2Subject group(V1beta2GroupSubject group) {
 
@@ -54,20 +55,22 @@ public class V1beta2Subject {
     return this;
   }
 
-  /**
+   /**
    * Get group
-   *
    * @return group
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1beta2GroupSubject getGroup() {
     return group;
   }
 
+
   public void setGroup(V1beta2GroupSubject group) {
     this.group = group;
   }
+
 
   public V1beta2Subject kind(String kind) {
 
@@ -75,21 +78,21 @@ public class V1beta2Subject {
     return this;
   }
 
-  /**
+   /**
    * &#x60;kind&#x60; indicates which one of the other fields is non-empty. Required
-   *
    * @return kind
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "`kind` indicates which one of the other fields is non-empty. Required")
+  **/
+  @ApiModelProperty(required = true, value = "`kind` indicates which one of the other fields is non-empty. Required")
+
   public String getKind() {
     return kind;
   }
 
+
   public void setKind(String kind) {
     this.kind = kind;
   }
+
 
   public V1beta2Subject serviceAccount(V1beta2ServiceAccountSubject serviceAccount) {
 
@@ -97,20 +100,22 @@ public class V1beta2Subject {
     return this;
   }
 
-  /**
+   /**
    * Get serviceAccount
-   *
    * @return serviceAccount
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1beta2ServiceAccountSubject getServiceAccount() {
     return serviceAccount;
   }
 
+
   public void setServiceAccount(V1beta2ServiceAccountSubject serviceAccount) {
     this.serviceAccount = serviceAccount;
   }
+
 
   public V1beta2Subject user(V1beta2UserSubject user) {
 
@@ -118,20 +123,22 @@ public class V1beta2Subject {
     return this;
   }
 
-  /**
+   /**
    * Get user
-   *
    * @return user
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1beta2UserSubject getUser() {
     return user;
   }
 
+
   public void setUser(V1beta2UserSubject user) {
     this.user = user;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -142,16 +149,17 @@ public class V1beta2Subject {
       return false;
     }
     V1beta2Subject v1beta2Subject = (V1beta2Subject) o;
-    return Objects.equals(this.group, v1beta2Subject.group)
-        && Objects.equals(this.kind, v1beta2Subject.kind)
-        && Objects.equals(this.serviceAccount, v1beta2Subject.serviceAccount)
-        && Objects.equals(this.user, v1beta2Subject.user);
+    return Objects.equals(this.group, v1beta2Subject.group) &&
+        Objects.equals(this.kind, v1beta2Subject.kind) &&
+        Objects.equals(this.serviceAccount, v1beta2Subject.serviceAccount) &&
+        Objects.equals(this.user, v1beta2Subject.user);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(group, kind, serviceAccount, user);
   }
+
 
   @Override
   public String toString() {
@@ -166,7 +174,8 @@ public class V1beta2Subject {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -174,4 +183,5 @@ public class V1beta2Subject {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

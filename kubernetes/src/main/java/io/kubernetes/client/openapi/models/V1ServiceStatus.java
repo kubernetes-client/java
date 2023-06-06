@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,28 +12,35 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1Condition;
+import io.kubernetes.client.openapi.models.V1LoadBalancerStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** ServiceStatus represents the current status of a service. */
+/**
+ * ServiceStatus represents the current status of a service.
+ */
 @ApiModel(description = "ServiceStatus represents the current status of a service.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1ServiceStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
-
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private List<V1Condition> conditions = null;
 
   public static final String SERIALIZED_NAME_LOAD_BALANCER = "loadBalancer";
-
   @SerializedName(SERIALIZED_NAME_LOAD_BALANCER)
   private V1LoadBalancerStatus loadBalancer;
+
 
   public V1ServiceStatus conditions(List<V1Condition> conditions) {
 
@@ -49,20 +56,22 @@ public class V1ServiceStatus {
     return this;
   }
 
-  /**
+   /**
    * Current service state
-   *
    * @return conditions
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Current service state")
+
   public List<V1Condition> getConditions() {
     return conditions;
   }
 
+
   public void setConditions(List<V1Condition> conditions) {
     this.conditions = conditions;
   }
+
 
   public V1ServiceStatus loadBalancer(V1LoadBalancerStatus loadBalancer) {
 
@@ -70,20 +79,22 @@ public class V1ServiceStatus {
     return this;
   }
 
-  /**
+   /**
    * Get loadBalancer
-   *
    * @return loadBalancer
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1LoadBalancerStatus getLoadBalancer() {
     return loadBalancer;
   }
 
+
   public void setLoadBalancer(V1LoadBalancerStatus loadBalancer) {
     this.loadBalancer = loadBalancer;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -94,14 +105,15 @@ public class V1ServiceStatus {
       return false;
     }
     V1ServiceStatus v1ServiceStatus = (V1ServiceStatus) o;
-    return Objects.equals(this.conditions, v1ServiceStatus.conditions)
-        && Objects.equals(this.loadBalancer, v1ServiceStatus.loadBalancer);
+    return Objects.equals(this.conditions, v1ServiceStatus.conditions) &&
+        Objects.equals(this.loadBalancer, v1ServiceStatus.loadBalancer);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(conditions, loadBalancer);
   }
+
 
   @Override
   public String toString() {
@@ -114,7 +126,8 @@ public class V1ServiceStatus {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -122,4 +135,5 @@ public class V1ServiceStatus {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

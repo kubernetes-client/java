@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1PriorityClassListFluent<A extends V1PriorityClassListFluent<A
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1PriorityClass item);
-  public A setToItems(Integer index,V1PriorityClass item);
+  public A addToItems(int index,V1PriorityClass item);
+  public A setToItems(int index,V1PriorityClass item);
   public A addToItems(io.kubernetes.client.openapi.models.V1PriorityClass... items);
   public A addAllToItems(Collection<V1PriorityClass> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1PriorityClass... items);
@@ -35,7 +35,7 @@ public interface V1PriorityClassListFluent<A extends V1PriorityClassListFluent<A
   @Deprecated
   public List<V1PriorityClass> getItems();
   public List<V1PriorityClass> buildItems();
-  public V1PriorityClass buildItem(Integer index);
+  public V1PriorityClass buildItem(int index);
   public V1PriorityClass buildFirstItem();
   public V1PriorityClass buildLastItem();
   public V1PriorityClass buildMatchingItem(Predicate<V1PriorityClassBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1PriorityClassListFluent<A extends V1PriorityClassListFluent<A
   public Boolean hasItems();
   public V1PriorityClassListFluent.ItemsNested<A> addNewItem();
   public V1PriorityClassListFluent.ItemsNested<A> addNewItemLike(V1PriorityClass item);
-  public V1PriorityClassListFluent.ItemsNested<A> setNewItemLike(Integer index,V1PriorityClass item);
-  public V1PriorityClassListFluent.ItemsNested<A> editItem(Integer index);
+  public V1PriorityClassListFluent.ItemsNested<A> setNewItemLike(int index,V1PriorityClass item);
+  public V1PriorityClassListFluent.ItemsNested<A> editItem(int index);
   public V1PriorityClassListFluent.ItemsNested<A> editFirstItem();
   public V1PriorityClassListFluent.ItemsNested<A> editLastItem();
   public V1PriorityClassListFluent.ItemsNested<A> editMatchingItem(Predicate<V1PriorityClassBuilder> predicate);

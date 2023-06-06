@@ -17,14 +17,12 @@ import java.lang.Boolean;
   public V1ReplicaSetSpecFluentImpl() {
   }
   public V1ReplicaSetSpecFluentImpl(V1ReplicaSetSpec instance) {
-    this.withMinReadySeconds(instance.getMinReadySeconds());
-
-    this.withReplicas(instance.getReplicas());
-
-    this.withSelector(instance.getSelector());
-
-    this.withTemplate(instance.getTemplate());
-
+    if (instance != null) {
+      this.withMinReadySeconds(instance.getMinReadySeconds());
+      this.withReplicas(instance.getReplicas());
+      this.withSelector(instance.getSelector());
+      this.withTemplate(instance.getTemplate());
+    }
   }
   private Integer minReadySeconds;
   private Integer replicas;
@@ -67,19 +65,19 @@ import java.lang.Boolean;
   public Boolean hasSelector() {
     return this.selector != null;
   }
-  public V1ReplicaSetSpecFluent.SelectorNested<A> withNewSelector() {
+  public V1ReplicaSetSpecFluentImpl.SelectorNested<A> withNewSelector() {
     return new V1ReplicaSetSpecFluentImpl.SelectorNestedImpl();
   }
-  public V1ReplicaSetSpecFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
+  public V1ReplicaSetSpecFluentImpl.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
     return new V1ReplicaSetSpecFluentImpl.SelectorNestedImpl(item);
   }
-  public V1ReplicaSetSpecFluent.SelectorNested<A> editSelector() {
+  public V1ReplicaSetSpecFluentImpl.SelectorNested<A> editSelector() {
     return withNewSelectorLike(getSelector());
   }
-  public V1ReplicaSetSpecFluent.SelectorNested<A> editOrNewSelector() {
+  public V1ReplicaSetSpecFluentImpl.SelectorNested<A> editOrNewSelector() {
     return withNewSelectorLike(getSelector() != null ? getSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1ReplicaSetSpecFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
+  public V1ReplicaSetSpecFluentImpl.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
     return withNewSelectorLike(getSelector() != null ? getSelector(): item);
   }
   
@@ -101,29 +99,34 @@ import java.lang.Boolean;
   public Boolean hasTemplate() {
     return this.template != null;
   }
-  public V1ReplicaSetSpecFluent.TemplateNested<A> withNewTemplate() {
+  public V1ReplicaSetSpecFluentImpl.TemplateNested<A> withNewTemplate() {
     return new V1ReplicaSetSpecFluentImpl.TemplateNestedImpl();
   }
-  public V1ReplicaSetSpecFluent.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
+  public V1ReplicaSetSpecFluentImpl.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
     return new V1ReplicaSetSpecFluentImpl.TemplateNestedImpl(item);
   }
-  public V1ReplicaSetSpecFluent.TemplateNested<A> editTemplate() {
+  public V1ReplicaSetSpecFluentImpl.TemplateNested<A> editTemplate() {
     return withNewTemplateLike(getTemplate());
   }
-  public V1ReplicaSetSpecFluent.TemplateNested<A> editOrNewTemplate() {
+  public V1ReplicaSetSpecFluentImpl.TemplateNested<A> editOrNewTemplate() {
     return withNewTemplateLike(getTemplate() != null ? getTemplate(): new V1PodTemplateSpecBuilder().build());
   }
-  public V1ReplicaSetSpecFluent.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
+  public V1ReplicaSetSpecFluentImpl.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
     return withNewTemplateLike(getTemplate() != null ? getTemplate(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ReplicaSetSpecFluentImpl that = (V1ReplicaSetSpecFluentImpl) o;
-    if (minReadySeconds != null ? !minReadySeconds.equals(that.minReadySeconds) :that.minReadySeconds != null) return false;
-    if (replicas != null ? !replicas.equals(that.replicas) :that.replicas != null) return false;
-    if (selector != null ? !selector.equals(that.selector) :that.selector != null) return false;
-    if (template != null ? !template.equals(that.template) :that.template != null) return false;
+    if (!java.util.Objects.equals(minReadySeconds, that.minReadySeconds)) return false;
+
+    if (!java.util.Objects.equals(replicas, that.replicas)) return false;
+
+    if (!java.util.Objects.equals(selector, that.selector)) return false;
+
+    if (!java.util.Objects.equals(template, that.template)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -139,7 +142,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1ReplicaSetSpecFluent.SelectorNested<N>> implements V1ReplicaSetSpecFluent.SelectorNested<N>,Nested<N>{
+  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1ReplicaSetSpecFluentImpl.SelectorNested<N>> implements V1ReplicaSetSpecFluentImpl.SelectorNested<N>,Nested<N>{
     SelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
@@ -155,7 +158,7 @@ import java.lang.Boolean;
     }
     
   }
-  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1ReplicaSetSpecFluent.TemplateNested<N>> implements V1ReplicaSetSpecFluent.TemplateNested<N>,Nested<N>{
+  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1ReplicaSetSpecFluentImpl.TemplateNested<N>> implements V1ReplicaSetSpecFluentImpl.TemplateNested<N>,Nested<N>{
     TemplateNestedImpl(V1PodTemplateSpec item) {
       this.builder = new V1PodTemplateSpecBuilder(this, item);
     }

@@ -20,26 +20,18 @@ public class V1CSIPersistentVolumeSourceBuilder extends V1CSIPersistentVolumeSou
   }
   public V1CSIPersistentVolumeSourceBuilder(V1CSIPersistentVolumeSourceFluent<?> fluent,V1CSIPersistentVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withControllerExpandSecretRef(instance.getControllerExpandSecretRef());
-
-    fluent.withControllerPublishSecretRef(instance.getControllerPublishSecretRef());
-
-    fluent.withDriver(instance.getDriver());
-
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withNodeExpandSecretRef(instance.getNodeExpandSecretRef());
-
-    fluent.withNodePublishSecretRef(instance.getNodePublishSecretRef());
-
-    fluent.withNodeStageSecretRef(instance.getNodeStageSecretRef());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withVolumeAttributes(instance.getVolumeAttributes());
-
-    fluent.withVolumeHandle(instance.getVolumeHandle());
-
+    if (instance != null) {
+      fluent.withControllerExpandSecretRef(instance.getControllerExpandSecretRef());
+      fluent.withControllerPublishSecretRef(instance.getControllerPublishSecretRef());
+      fluent.withDriver(instance.getDriver());
+      fluent.withFsType(instance.getFsType());
+      fluent.withNodeExpandSecretRef(instance.getNodeExpandSecretRef());
+      fluent.withNodePublishSecretRef(instance.getNodePublishSecretRef());
+      fluent.withNodeStageSecretRef(instance.getNodeStageSecretRef());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withVolumeAttributes(instance.getVolumeAttributes());
+      fluent.withVolumeHandle(instance.getVolumeHandle());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CSIPersistentVolumeSourceBuilder(V1CSIPersistentVolumeSource instance) {
@@ -47,26 +39,18 @@ public class V1CSIPersistentVolumeSourceBuilder extends V1CSIPersistentVolumeSou
   }
   public V1CSIPersistentVolumeSourceBuilder(V1CSIPersistentVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withControllerExpandSecretRef(instance.getControllerExpandSecretRef());
-
-    this.withControllerPublishSecretRef(instance.getControllerPublishSecretRef());
-
-    this.withDriver(instance.getDriver());
-
-    this.withFsType(instance.getFsType());
-
-    this.withNodeExpandSecretRef(instance.getNodeExpandSecretRef());
-
-    this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
-
-    this.withNodeStageSecretRef(instance.getNodeStageSecretRef());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withVolumeAttributes(instance.getVolumeAttributes());
-
-    this.withVolumeHandle(instance.getVolumeHandle());
-
+    if (instance != null) {
+      this.withControllerExpandSecretRef(instance.getControllerExpandSecretRef());
+      this.withControllerPublishSecretRef(instance.getControllerPublishSecretRef());
+      this.withDriver(instance.getDriver());
+      this.withFsType(instance.getFsType());
+      this.withNodeExpandSecretRef(instance.getNodeExpandSecretRef());
+      this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
+      this.withNodeStageSecretRef(instance.getNodeStageSecretRef());
+      this.withReadOnly(instance.getReadOnly());
+      this.withVolumeAttributes(instance.getVolumeAttributes());
+      this.withVolumeHandle(instance.getVolumeHandle());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CSIPersistentVolumeSourceFluent<?> fluent;

@@ -20,14 +20,12 @@ public class ApiextensionsV1ServiceReferenceBuilder extends ApiextensionsV1Servi
   }
   public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReferenceFluent<?> fluent,ApiextensionsV1ServiceReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withNamespace(instance.getNamespace());
-
-    fluent.withPath(instance.getPath());
-
-    fluent.withPort(instance.getPort());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withNamespace(instance.getNamespace());
+      fluent.withPath(instance.getPath());
+      fluent.withPort(instance.getPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReference instance) {
@@ -35,14 +33,12 @@ public class ApiextensionsV1ServiceReferenceBuilder extends ApiextensionsV1Servi
   }
   public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withPath(instance.getPath());
-
-    this.withPort(instance.getPort());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withPath(instance.getPath());
+      this.withPort(instance.getPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   ApiextensionsV1ServiceReferenceFluent<?> fluent;

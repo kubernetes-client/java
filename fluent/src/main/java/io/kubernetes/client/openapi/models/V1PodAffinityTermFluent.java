@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Collection;
 import java.util.List;
@@ -45,14 +45,14 @@ public interface V1PodAffinityTermFluent<A extends V1PodAffinityTermFluent<A>> e
   public V1PodAffinityTermFluent.NamespaceSelectorNested<A> editNamespaceSelector();
   public V1PodAffinityTermFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelector();
   public V1PodAffinityTermFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelectorLike(V1LabelSelector item);
-  public A addToNamespaces(Integer index,String item);
-  public A setToNamespaces(Integer index,String item);
+  public A addToNamespaces(int index,String item);
+  public A setToNamespaces(int index,String item);
   public A addToNamespaces(java.lang.String... items);
   public A addAllToNamespaces(Collection<String> items);
   public A removeFromNamespaces(java.lang.String... items);
   public A removeAllFromNamespaces(Collection<String> items);
   public List<String> getNamespaces();
-  public String getNamespace(Integer index);
+  public String getNamespace(int index);
   public String getFirstNamespace();
   public String getLastNamespace();
   public String getMatchingNamespace(Predicate<String> predicate);

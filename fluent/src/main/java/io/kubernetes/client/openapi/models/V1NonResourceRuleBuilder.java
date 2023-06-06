@@ -20,10 +20,10 @@ public class V1NonResourceRuleBuilder extends V1NonResourceRuleFluentImpl<V1NonR
   }
   public V1NonResourceRuleBuilder(V1NonResourceRuleFluent<?> fluent,V1NonResourceRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withNonResourceURLs(instance.getNonResourceURLs());
-
-    fluent.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      fluent.withNonResourceURLs(instance.getNonResourceURLs());
+      fluent.withVerbs(instance.getVerbs());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NonResourceRuleBuilder(V1NonResourceRule instance) {
@@ -31,10 +31,10 @@ public class V1NonResourceRuleBuilder extends V1NonResourceRuleFluentImpl<V1NonR
   }
   public V1NonResourceRuleBuilder(V1NonResourceRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withNonResourceURLs(instance.getNonResourceURLs());
-
-    this.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      this.withNonResourceURLs(instance.getNonResourceURLs());
+      this.withVerbs(instance.getVerbs());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NonResourceRuleFluent<?> fluent;

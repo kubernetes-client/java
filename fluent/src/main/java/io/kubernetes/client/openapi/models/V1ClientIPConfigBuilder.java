@@ -20,8 +20,9 @@ public class V1ClientIPConfigBuilder extends V1ClientIPConfigFluentImpl<V1Client
   }
   public V1ClientIPConfigBuilder(V1ClientIPConfigFluent<?> fluent,V1ClientIPConfig instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withTimeoutSeconds(instance.getTimeoutSeconds());
-
+    if (instance != null) {
+      fluent.withTimeoutSeconds(instance.getTimeoutSeconds());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ClientIPConfigBuilder(V1ClientIPConfig instance) {
@@ -29,8 +30,9 @@ public class V1ClientIPConfigBuilder extends V1ClientIPConfigFluentImpl<V1Client
   }
   public V1ClientIPConfigBuilder(V1ClientIPConfig instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withTimeoutSeconds(instance.getTimeoutSeconds());
-
+    if (instance != null) {
+      this.withTimeoutSeconds(instance.getTimeoutSeconds());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ClientIPConfigFluent<?> fluent;

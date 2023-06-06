@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1PodTemplateSpecFluentImpl() {
   }
   public V1PodTemplateSpecFluentImpl(V1PodTemplateSpec instance) {
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
   }
   private V1ObjectMetaBuilder metadata;
   private V1PodSpecBuilder spec;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1PodTemplateSpecFluent.MetadataNested<A> withNewMetadata() {
+  public V1PodTemplateSpecFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1PodTemplateSpecFluentImpl.MetadataNestedImpl();
   }
-  public V1PodTemplateSpecFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1PodTemplateSpecFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1PodTemplateSpecFluentImpl.MetadataNestedImpl(item);
   }
-  public V1PodTemplateSpecFluent.MetadataNested<A> editMetadata() {
+  public V1PodTemplateSpecFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1PodTemplateSpecFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1PodTemplateSpecFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1PodTemplateSpecFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1PodTemplateSpecFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -76,27 +76,30 @@ import java.lang.Boolean;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1PodTemplateSpecFluent.SpecNested<A> withNewSpec() {
+  public V1PodTemplateSpecFluentImpl.SpecNested<A> withNewSpec() {
     return new V1PodTemplateSpecFluentImpl.SpecNestedImpl();
   }
-  public V1PodTemplateSpecFluent.SpecNested<A> withNewSpecLike(V1PodSpec item) {
+  public V1PodTemplateSpecFluentImpl.SpecNested<A> withNewSpecLike(V1PodSpec item) {
     return new V1PodTemplateSpecFluentImpl.SpecNestedImpl(item);
   }
-  public V1PodTemplateSpecFluent.SpecNested<A> editSpec() {
+  public V1PodTemplateSpecFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1PodTemplateSpecFluent.SpecNested<A> editOrNewSpec() {
+  public V1PodTemplateSpecFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1PodSpecBuilder().build());
   }
-  public V1PodTemplateSpecFluent.SpecNested<A> editOrNewSpecLike(V1PodSpec item) {
+  public V1PodTemplateSpecFluentImpl.SpecNested<A> editOrNewSpecLike(V1PodSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodTemplateSpecFluentImpl that = (V1PodTemplateSpecFluentImpl) o;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -110,7 +113,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1PodTemplateSpecFluent.MetadataNested<N>> implements V1PodTemplateSpecFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1PodTemplateSpecFluentImpl.MetadataNested<N>> implements V1PodTemplateSpecFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -126,7 +129,7 @@ import java.lang.Boolean;
     }
     
   }
-  class SpecNestedImpl<N> extends V1PodSpecFluentImpl<V1PodTemplateSpecFluent.SpecNested<N>> implements V1PodTemplateSpecFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1PodSpecFluentImpl<V1PodTemplateSpecFluentImpl.SpecNested<N>> implements V1PodTemplateSpecFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1PodSpec item) {
       this.builder = new V1PodSpecBuilder(this, item);
     }

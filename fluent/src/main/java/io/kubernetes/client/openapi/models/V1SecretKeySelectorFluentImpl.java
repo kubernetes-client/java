@@ -14,12 +14,11 @@ import java.lang.Boolean;
   public V1SecretKeySelectorFluentImpl() {
   }
   public V1SecretKeySelectorFluentImpl(V1SecretKeySelector instance) {
-    this.withKey(instance.getKey());
-
-    this.withName(instance.getName());
-
-    this.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      this.withKey(instance.getKey());
+      this.withName(instance.getName());
+      this.withOptional(instance.getOptional());
+    }
   }
   private String key;
   private String name;
@@ -54,10 +53,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SecretKeySelectorFluentImpl that = (V1SecretKeySelectorFluentImpl) o;
-    if (key != null ? !key.equals(that.key) :that.key != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (optional != null ? !optional.equals(that.optional) :that.optional != null) return false;
+    if (!java.util.Objects.equals(key, that.key)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(optional, that.optional)) return false;
+
     return true;
   }
   public int hashCode() {

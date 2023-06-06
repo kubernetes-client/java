@@ -1,10 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.lang.Byte;
 import java.util.Collection;
@@ -16,8 +16,8 @@ import java.lang.Boolean;
 public interface ApiextensionsV1WebhookClientConfigFluent<A extends ApiextensionsV1WebhookClientConfigFluent<A>> extends Fluent<A>{
   public A withCaBundle(byte... caBundle);
   public byte[] getCaBundle();
-  public A addToCaBundle(Integer index,Byte item);
-  public A setToCaBundle(Integer index,Byte item);
+  public A addToCaBundle(int index,Byte item);
+  public A setToCaBundle(int index,Byte item);
   public A addToCaBundle(java.lang.Byte... items);
   public A addAllToCaBundle(Collection<Byte> items);
   public A removeFromCaBundle(java.lang.Byte... items);

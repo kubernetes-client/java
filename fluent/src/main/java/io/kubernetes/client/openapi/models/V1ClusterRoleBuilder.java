@@ -20,16 +20,13 @@ public class V1ClusterRoleBuilder extends V1ClusterRoleFluentImpl<V1ClusterRoleB
   }
   public V1ClusterRoleBuilder(V1ClusterRoleFluent<?> fluent,V1ClusterRole instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAggregationRule(instance.getAggregationRule());
-
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withRules(instance.getRules());
-
+    if (instance != null) {
+      fluent.withAggregationRule(instance.getAggregationRule());
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withRules(instance.getRules());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ClusterRoleBuilder(V1ClusterRole instance) {
@@ -37,16 +34,13 @@ public class V1ClusterRoleBuilder extends V1ClusterRoleFluentImpl<V1ClusterRoleB
   }
   public V1ClusterRoleBuilder(V1ClusterRole instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAggregationRule(instance.getAggregationRule());
-
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withRules(instance.getRules());
-
+    if (instance != null) {
+      this.withAggregationRule(instance.getAggregationRule());
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withRules(instance.getRules());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ClusterRoleFluent<?> fluent;

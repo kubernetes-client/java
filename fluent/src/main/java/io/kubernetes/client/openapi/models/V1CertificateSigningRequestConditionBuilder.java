@@ -20,18 +20,14 @@ public class V1CertificateSigningRequestConditionBuilder extends V1CertificateSi
   }
   public V1CertificateSigningRequestConditionBuilder(V1CertificateSigningRequestConditionFluent<?> fluent,V1CertificateSigningRequestCondition instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLastTransitionTime(instance.getLastTransitionTime());
-
-    fluent.withLastUpdateTime(instance.getLastUpdateTime());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withReason(instance.getReason());
-
-    fluent.withStatus(instance.getStatus());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withLastTransitionTime(instance.getLastTransitionTime());
+      fluent.withLastUpdateTime(instance.getLastUpdateTime());
+      fluent.withMessage(instance.getMessage());
+      fluent.withReason(instance.getReason());
+      fluent.withStatus(instance.getStatus());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CertificateSigningRequestConditionBuilder(V1CertificateSigningRequestCondition instance) {
@@ -39,18 +35,14 @@ public class V1CertificateSigningRequestConditionBuilder extends V1CertificateSi
   }
   public V1CertificateSigningRequestConditionBuilder(V1CertificateSigningRequestCondition instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLastTransitionTime(instance.getLastTransitionTime());
-
-    this.withLastUpdateTime(instance.getLastUpdateTime());
-
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLastTransitionTime(instance.getLastTransitionTime());
+      this.withLastUpdateTime(instance.getLastUpdateTime());
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CertificateSigningRequestConditionFluent<?> fluent;

@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,42 +12,39 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.CoreV1EndpointPort;
+import io.kubernetes.client.openapi.models.V1EndpointAddress;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints
- * is the Cartesian product of Addresses x Ports. For example, given: { Addresses:
- * [{\&quot;ip\&quot;: \&quot;10.10.1.1\&quot;}, {\&quot;ip\&quot;: \&quot;10.10.2.2\&quot;}],
- * Ports: [{\&quot;name\&quot;: \&quot;a\&quot;, \&quot;port\&quot;: 8675}, {\&quot;name\&quot;:
- * \&quot;b\&quot;, \&quot;port\&quot;: 309}] } The resulting set of endpoints can be viewed as: a:
- * [ 10.10.1.1:8675, 10.10.2.2:8675 ], b: [ 10.10.1.1:309, 10.10.2.2:309 ]
+ * EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\&quot;ip\&quot;: \&quot;10.10.1.1\&quot;}, {\&quot;ip\&quot;: \&quot;10.10.2.2\&quot;}],    Ports:     [{\&quot;name\&quot;: \&quot;a\&quot;, \&quot;port\&quot;: 8675}, {\&quot;name\&quot;: \&quot;b\&quot;, \&quot;port\&quot;: 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]
  */
-@ApiModel(
-    description =
-        "EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\"ip\": \"10.10.1.1\"}, {\"ip\": \"10.10.2.2\"}],    Ports:     [{\"name\": \"a\", \"port\": 8675}, {\"name\": \"b\", \"port\": 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "EndpointSubset is a group of addresses with a common set of ports. The expanded set of endpoints is the Cartesian product of Addresses x Ports. For example, given:   {    Addresses: [{\"ip\": \"10.10.1.1\"}, {\"ip\": \"10.10.2.2\"}],    Ports:     [{\"name\": \"a\", \"port\": 8675}, {\"name\": \"b\", \"port\": 309}]  }  The resulting set of endpoints can be viewed as:   a: [ 10.10.1.1:8675, 10.10.2.2:8675 ],  b: [ 10.10.1.1:309, 10.10.2.2:309 ]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1EndpointSubset {
   public static final String SERIALIZED_NAME_ADDRESSES = "addresses";
-
   @SerializedName(SERIALIZED_NAME_ADDRESSES)
   private List<V1EndpointAddress> addresses = null;
 
   public static final String SERIALIZED_NAME_NOT_READY_ADDRESSES = "notReadyAddresses";
-
   @SerializedName(SERIALIZED_NAME_NOT_READY_ADDRESSES)
   private List<V1EndpointAddress> notReadyAddresses = null;
 
   public static final String SERIALIZED_NAME_PORTS = "ports";
-
   @SerializedName(SERIALIZED_NAME_PORTS)
   private List<CoreV1EndpointPort> ports = null;
+
 
   public V1EndpointSubset addresses(List<V1EndpointAddress> addresses) {
 
@@ -63,23 +60,22 @@ public class V1EndpointSubset {
     return this;
   }
 
-  /**
-   * IP addresses which offer the related ports that are marked as ready. These endpoints should be
-   * considered safe for load balancers and clients to utilize.
-   *
+   /**
+   * IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize.
    * @return addresses
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize.")
+  @ApiModelProperty(value = "IP addresses which offer the related ports that are marked as ready. These endpoints should be considered safe for load balancers and clients to utilize.")
+
   public List<V1EndpointAddress> getAddresses() {
     return addresses;
   }
 
+
   public void setAddresses(List<V1EndpointAddress> addresses) {
     this.addresses = addresses;
   }
+
 
   public V1EndpointSubset notReadyAddresses(List<V1EndpointAddress> notReadyAddresses) {
 
@@ -95,24 +91,22 @@ public class V1EndpointSubset {
     return this;
   }
 
-  /**
-   * IP addresses which offer the related ports but are not currently marked as ready because they
-   * have not yet finished starting, have recently failed a readiness check, or have recently failed
-   * a liveness check.
-   *
+   /**
+   * IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.
    * @return notReadyAddresses
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.")
+  @ApiModelProperty(value = "IP addresses which offer the related ports but are not currently marked as ready because they have not yet finished starting, have recently failed a readiness check, or have recently failed a liveness check.")
+
   public List<V1EndpointAddress> getNotReadyAddresses() {
     return notReadyAddresses;
   }
 
+
   public void setNotReadyAddresses(List<V1EndpointAddress> notReadyAddresses) {
     this.notReadyAddresses = notReadyAddresses;
   }
+
 
   public V1EndpointSubset ports(List<CoreV1EndpointPort> ports) {
 
@@ -128,20 +122,22 @@ public class V1EndpointSubset {
     return this;
   }
 
-  /**
+   /**
    * Port numbers available on the related IP addresses.
-   *
    * @return ports
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Port numbers available on the related IP addresses.")
+
   public List<CoreV1EndpointPort> getPorts() {
     return ports;
   }
 
+
   public void setPorts(List<CoreV1EndpointPort> ports) {
     this.ports = ports;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -152,15 +148,16 @@ public class V1EndpointSubset {
       return false;
     }
     V1EndpointSubset v1EndpointSubset = (V1EndpointSubset) o;
-    return Objects.equals(this.addresses, v1EndpointSubset.addresses)
-        && Objects.equals(this.notReadyAddresses, v1EndpointSubset.notReadyAddresses)
-        && Objects.equals(this.ports, v1EndpointSubset.ports);
+    return Objects.equals(this.addresses, v1EndpointSubset.addresses) &&
+        Objects.equals(this.notReadyAddresses, v1EndpointSubset.notReadyAddresses) &&
+        Objects.equals(this.ports, v1EndpointSubset.ports);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(addresses, notReadyAddresses, ports);
   }
+
 
   @Override
   public String toString() {
@@ -174,7 +171,8 @@ public class V1EndpointSubset {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -182,4 +180,5 @@ public class V1EndpointSubset {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

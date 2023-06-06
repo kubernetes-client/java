@@ -5,7 +5,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Collection;
@@ -21,18 +20,14 @@ import java.lang.Boolean;
   public V1CephFSPersistentVolumeSourceFluentImpl() {
   }
   public V1CephFSPersistentVolumeSourceFluentImpl(V1CephFSPersistentVolumeSource instance) {
-    this.withMonitors(instance.getMonitors());
-
-    this.withPath(instance.getPath());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretFile(instance.getSecretFile());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withMonitors(instance.getMonitors());
+      this.withPath(instance.getPath());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretFile(instance.getSecretFile());
+      this.withSecretRef(instance.getSecretRef());
+      this.withUser(instance.getUser());
+    }
   }
   private List<String> monitors;
   private String path;
@@ -40,12 +35,12 @@ import java.lang.Boolean;
   private String secretFile;
   private V1SecretReferenceBuilder secretRef;
   private String user;
-  public A addToMonitors(Integer index,String item) {
+  public A addToMonitors(int index,String item) {
     if (this.monitors == null) {this.monitors = new ArrayList<String>();}
     this.monitors.add(index, item);
     return (A)this;
   }
-  public A setToMonitors(Integer index,String item) {
+  public A setToMonitors(int index,String item) {
     if (this.monitors == null) {this.monitors = new ArrayList<String>();}
     this.monitors.set(index, item); return (A)this;
   }
@@ -66,7 +61,7 @@ import java.lang.Boolean;
   public List<String> getMonitors() {
     return this.monitors;
   }
-  public String getMonitor(Integer index) {
+  public String getMonitor(int index) {
     return this.monitors.get(index);
   }
   public String getFirstMonitor() {
@@ -85,7 +80,7 @@ import java.lang.Boolean;
     if (monitors != null) {this.monitors = new ArrayList(); for (String item : monitors){this.addToMonitors(item);}} else { this.monitors = null;} return (A) this;
   }
   public A withMonitors(java.lang.String... monitors) {
-    if (this.monitors != null) {this.monitors.clear();}
+    if (this.monitors != null) {this.monitors.clear(); _visitables.remove("monitors"); }
     if (monitors != null) {for (String item :monitors){ this.addToMonitors(item);}} return (A) this;
   }
   public Boolean hasMonitors() {
@@ -137,19 +132,19 @@ import java.lang.Boolean;
   public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
-  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef() {
+  public V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRef() {
     return new V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
-  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(V1SecretReference item) {
+  public V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRefLike(V1SecretReference item) {
     return new V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
-  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
+  public V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
-  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
+  public V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): new V1SecretReferenceBuilder().build());
   }
-  public V1CephFSPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(V1SecretReference item) {
+  public V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRefLike(V1SecretReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): item);
   }
   public String getUser() {
@@ -164,13 +159,20 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CephFSPersistentVolumeSourceFluentImpl that = (V1CephFSPersistentVolumeSourceFluentImpl) o;
-    if (monitors != null ? !monitors.equals(that.monitors) :that.monitors != null) return false;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (secretFile != null ? !secretFile.equals(that.secretFile) :that.secretFile != null) return false;
-    if (secretRef != null ? !secretRef.equals(that.secretRef) :that.secretRef != null) return false;
-    if (user != null ? !user.equals(that.user) :that.user != null) return false;
+    if (!java.util.Objects.equals(monitors, that.monitors)) return false;
+
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(secretFile, that.secretFile)) return false;
+
+    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
+
+    if (!java.util.Objects.equals(user, that.user)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -191,7 +193,7 @@ import java.lang.Boolean;
   public A withReadOnly() {
     return withReadOnly(true);
   }
-  class SecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CephFSPersistentVolumeSourceFluent.SecretRefNested<N>> implements V1CephFSPersistentVolumeSourceFluent.SecretRefNested<N>,Nested<N>{
+  class SecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNested<N>> implements V1CephFSPersistentVolumeSourceFluentImpl.SecretRefNested<N>,Nested<N>{
     SecretRefNestedImpl(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }

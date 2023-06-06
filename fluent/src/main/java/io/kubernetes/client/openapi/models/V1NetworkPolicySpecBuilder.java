@@ -20,14 +20,12 @@ public class V1NetworkPolicySpecBuilder extends V1NetworkPolicySpecFluentImpl<V1
   }
   public V1NetworkPolicySpecBuilder(V1NetworkPolicySpecFluent<?> fluent,V1NetworkPolicySpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withEgress(instance.getEgress());
-
-    fluent.withIngress(instance.getIngress());
-
-    fluent.withPodSelector(instance.getPodSelector());
-
-    fluent.withPolicyTypes(instance.getPolicyTypes());
-
+    if (instance != null) {
+      fluent.withEgress(instance.getEgress());
+      fluent.withIngress(instance.getIngress());
+      fluent.withPodSelector(instance.getPodSelector());
+      fluent.withPolicyTypes(instance.getPolicyTypes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NetworkPolicySpecBuilder(V1NetworkPolicySpec instance) {
@@ -35,14 +33,12 @@ public class V1NetworkPolicySpecBuilder extends V1NetworkPolicySpecFluentImpl<V1
   }
   public V1NetworkPolicySpecBuilder(V1NetworkPolicySpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withEgress(instance.getEgress());
-
-    this.withIngress(instance.getIngress());
-
-    this.withPodSelector(instance.getPodSelector());
-
-    this.withPolicyTypes(instance.getPolicyTypes());
-
+    if (instance != null) {
+      this.withEgress(instance.getEgress());
+      this.withIngress(instance.getIngress());
+      this.withPodSelector(instance.getPodSelector());
+      this.withPolicyTypes(instance.getPolicyTypes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NetworkPolicySpecFluent<?> fluent;

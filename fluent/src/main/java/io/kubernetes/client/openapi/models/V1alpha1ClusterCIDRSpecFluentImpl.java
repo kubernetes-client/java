@@ -17,14 +17,12 @@ import java.lang.Boolean;
   public V1alpha1ClusterCIDRSpecFluentImpl() {
   }
   public V1alpha1ClusterCIDRSpecFluentImpl(V1alpha1ClusterCIDRSpec instance) {
-    this.withIpv4(instance.getIpv4());
-
-    this.withIpv6(instance.getIpv6());
-
-    this.withNodeSelector(instance.getNodeSelector());
-
-    this.withPerNodeHostBits(instance.getPerNodeHostBits());
-
+    if (instance != null) {
+      this.withIpv4(instance.getIpv4());
+      this.withIpv6(instance.getIpv6());
+      this.withNodeSelector(instance.getNodeSelector());
+      this.withPerNodeHostBits(instance.getPerNodeHostBits());
+    }
   }
   private String ipv4;
   private String ipv6;
@@ -67,19 +65,19 @@ import java.lang.Boolean;
   public Boolean hasNodeSelector() {
     return this.nodeSelector != null;
   }
-  public V1alpha1ClusterCIDRSpecFluent.NodeSelectorNested<A> withNewNodeSelector() {
+  public V1alpha1ClusterCIDRSpecFluentImpl.NodeSelectorNested<A> withNewNodeSelector() {
     return new V1alpha1ClusterCIDRSpecFluentImpl.NodeSelectorNestedImpl();
   }
-  public V1alpha1ClusterCIDRSpecFluent.NodeSelectorNested<A> withNewNodeSelectorLike(V1NodeSelector item) {
+  public V1alpha1ClusterCIDRSpecFluentImpl.NodeSelectorNested<A> withNewNodeSelectorLike(V1NodeSelector item) {
     return new V1alpha1ClusterCIDRSpecFluentImpl.NodeSelectorNestedImpl(item);
   }
-  public V1alpha1ClusterCIDRSpecFluent.NodeSelectorNested<A> editNodeSelector() {
+  public V1alpha1ClusterCIDRSpecFluentImpl.NodeSelectorNested<A> editNodeSelector() {
     return withNewNodeSelectorLike(getNodeSelector());
   }
-  public V1alpha1ClusterCIDRSpecFluent.NodeSelectorNested<A> editOrNewNodeSelector() {
+  public V1alpha1ClusterCIDRSpecFluentImpl.NodeSelectorNested<A> editOrNewNodeSelector() {
     return withNewNodeSelectorLike(getNodeSelector() != null ? getNodeSelector(): new V1NodeSelectorBuilder().build());
   }
-  public V1alpha1ClusterCIDRSpecFluent.NodeSelectorNested<A> editOrNewNodeSelectorLike(V1NodeSelector item) {
+  public V1alpha1ClusterCIDRSpecFluentImpl.NodeSelectorNested<A> editOrNewNodeSelectorLike(V1NodeSelector item) {
     return withNewNodeSelectorLike(getNodeSelector() != null ? getNodeSelector(): item);
   }
   public Integer getPerNodeHostBits() {
@@ -94,11 +92,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1alpha1ClusterCIDRSpecFluentImpl that = (V1alpha1ClusterCIDRSpecFluentImpl) o;
-    if (ipv4 != null ? !ipv4.equals(that.ipv4) :that.ipv4 != null) return false;
-    if (ipv6 != null ? !ipv6.equals(that.ipv6) :that.ipv6 != null) return false;
-    if (nodeSelector != null ? !nodeSelector.equals(that.nodeSelector) :that.nodeSelector != null) return false;
-    if (perNodeHostBits != null ? !perNodeHostBits.equals(that.perNodeHostBits) :that.perNodeHostBits != null) return false;
+    if (!java.util.Objects.equals(ipv4, that.ipv4)) return false;
+
+    if (!java.util.Objects.equals(ipv6, that.ipv6)) return false;
+
+    if (!java.util.Objects.equals(nodeSelector, that.nodeSelector)) return false;
+
+    if (!java.util.Objects.equals(perNodeHostBits, that.perNodeHostBits)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -114,7 +117,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class NodeSelectorNestedImpl<N> extends V1NodeSelectorFluentImpl<V1alpha1ClusterCIDRSpecFluent.NodeSelectorNested<N>> implements V1alpha1ClusterCIDRSpecFluent.NodeSelectorNested<N>,Nested<N>{
+  class NodeSelectorNestedImpl<N> extends V1NodeSelectorFluentImpl<V1alpha1ClusterCIDRSpecFluentImpl.NodeSelectorNested<N>> implements V1alpha1ClusterCIDRSpecFluentImpl.NodeSelectorNested<N>,Nested<N>{
     NodeSelectorNestedImpl(V1NodeSelector item) {
       this.builder = new V1NodeSelectorBuilder(this, item);
     }

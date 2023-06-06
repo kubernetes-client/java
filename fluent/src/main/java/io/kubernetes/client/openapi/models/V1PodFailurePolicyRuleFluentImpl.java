@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,12 +22,11 @@ import java.lang.Object;
   public V1PodFailurePolicyRuleFluentImpl() {
   }
   public V1PodFailurePolicyRuleFluentImpl(V1PodFailurePolicyRule instance) {
-    this.withAction(instance.getAction());
-
-    this.withOnExitCodes(instance.getOnExitCodes());
-
-    this.withOnPodConditions(instance.getOnPodConditions());
-
+    if (instance != null) {
+      this.withAction(instance.getAction());
+      this.withOnExitCodes(instance.getOnExitCodes());
+      this.withOnPodConditions(instance.getOnPodConditions());
+    }
   }
   private String action;
   private V1PodFailurePolicyOnExitCodesRequirementBuilder onExitCodes;
@@ -61,31 +59,32 @@ import java.lang.Object;
   public Boolean hasOnExitCodes() {
     return this.onExitCodes != null;
   }
-  public V1PodFailurePolicyRuleFluent.OnExitCodesNested<A> withNewOnExitCodes() {
+  public V1PodFailurePolicyRuleFluentImpl.OnExitCodesNested<A> withNewOnExitCodes() {
     return new V1PodFailurePolicyRuleFluentImpl.OnExitCodesNestedImpl();
   }
-  public V1PodFailurePolicyRuleFluent.OnExitCodesNested<A> withNewOnExitCodesLike(V1PodFailurePolicyOnExitCodesRequirement item) {
+  public V1PodFailurePolicyRuleFluentImpl.OnExitCodesNested<A> withNewOnExitCodesLike(V1PodFailurePolicyOnExitCodesRequirement item) {
     return new V1PodFailurePolicyRuleFluentImpl.OnExitCodesNestedImpl(item);
   }
-  public V1PodFailurePolicyRuleFluent.OnExitCodesNested<A> editOnExitCodes() {
+  public V1PodFailurePolicyRuleFluentImpl.OnExitCodesNested<A> editOnExitCodes() {
     return withNewOnExitCodesLike(getOnExitCodes());
   }
-  public V1PodFailurePolicyRuleFluent.OnExitCodesNested<A> editOrNewOnExitCodes() {
+  public V1PodFailurePolicyRuleFluentImpl.OnExitCodesNested<A> editOrNewOnExitCodes() {
     return withNewOnExitCodesLike(getOnExitCodes() != null ? getOnExitCodes(): new V1PodFailurePolicyOnExitCodesRequirementBuilder().build());
   }
-  public V1PodFailurePolicyRuleFluent.OnExitCodesNested<A> editOrNewOnExitCodesLike(V1PodFailurePolicyOnExitCodesRequirement item) {
+  public V1PodFailurePolicyRuleFluentImpl.OnExitCodesNested<A> editOrNewOnExitCodesLike(V1PodFailurePolicyOnExitCodesRequirement item) {
     return withNewOnExitCodesLike(getOnExitCodes() != null ? getOnExitCodes(): item);
   }
-  public A addToOnPodConditions(Integer index,V1PodFailurePolicyOnPodConditionsPattern item) {
-    if (this.onPodConditions == null) {this.onPodConditions = new ArrayList<V1PodFailurePolicyOnPodConditionsPatternBuilder>();}
-    V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);_visitables.get("onPodConditions").add(index >= 0 ? index : _visitables.get("onPodConditions").size(), builder);this.onPodConditions.add(index >= 0 ? index : onPodConditions.size(), builder); return (A)this;
-  }
-  public A setToOnPodConditions(Integer index,V1PodFailurePolicyOnPodConditionsPattern item) {
+  public A addToOnPodConditions(int index,V1PodFailurePolicyOnPodConditionsPattern item) {
     if (this.onPodConditions == null) {this.onPodConditions = new ArrayList<V1PodFailurePolicyOnPodConditionsPatternBuilder>();}
     V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
-    if (index < 0 || index >= _visitables.get("onPodConditions").size()) { _visitables.get("onPodConditions").add(builder); } else { _visitables.get("onPodConditions").set(index, builder);}
-    if (index < 0 || index >= onPodConditions.size()) { onPodConditions.add(builder); } else { onPodConditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= onPodConditions.size()) { _visitables.get("onPodConditions").add(builder); onPodConditions.add(builder); } else { _visitables.get("onPodConditions").add(index, builder); onPodConditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToOnPodConditions(int index,V1PodFailurePolicyOnPodConditionsPattern item) {
+    if (this.onPodConditions == null) {this.onPodConditions = new ArrayList<V1PodFailurePolicyOnPodConditionsPatternBuilder>();}
+    V1PodFailurePolicyOnPodConditionsPatternBuilder builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(item);
+    if (index < 0 || index >= onPodConditions.size()) { _visitables.get("onPodConditions").add(builder); onPodConditions.add(builder); } else { _visitables.get("onPodConditions").set(index, builder); onPodConditions.set(index, builder);}
+    return (A)this;
   }
   public A addToOnPodConditions(io.kubernetes.client.openapi.models.V1PodFailurePolicyOnPodConditionsPattern... items) {
     if (this.onPodConditions == null) {this.onPodConditions = new ArrayList<V1PodFailurePolicyOnPodConditionsPatternBuilder>();}
@@ -126,7 +125,7 @@ import java.lang.Object;
   public List<V1PodFailurePolicyOnPodConditionsPattern> buildOnPodConditions() {
     return onPodConditions != null ? build(onPodConditions) : null;
   }
-  public V1PodFailurePolicyOnPodConditionsPattern buildOnPodCondition(Integer index) {
+  public V1PodFailurePolicyOnPodConditionsPattern buildOnPodCondition(int index) {
     return this.onPodConditions.get(index).build();
   }
   public V1PodFailurePolicyOnPodConditionsPattern buildFirstOnPodCondition() {
@@ -142,39 +141,39 @@ import java.lang.Object;
     for (V1PodFailurePolicyOnPodConditionsPatternBuilder item: onPodConditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withOnPodConditions(List<V1PodFailurePolicyOnPodConditionsPattern> onPodConditions) {
-    if (this.onPodConditions != null) { _visitables.get("onPodConditions").removeAll(this.onPodConditions);}
+    if (this.onPodConditions != null) { _visitables.get("onPodConditions").clear();}
     if (onPodConditions != null) {this.onPodConditions = new ArrayList(); for (V1PodFailurePolicyOnPodConditionsPattern item : onPodConditions){this.addToOnPodConditions(item);}} else { this.onPodConditions = null;} return (A) this;
   }
   public A withOnPodConditions(io.kubernetes.client.openapi.models.V1PodFailurePolicyOnPodConditionsPattern... onPodConditions) {
-    if (this.onPodConditions != null) {this.onPodConditions.clear();}
+    if (this.onPodConditions != null) {this.onPodConditions.clear(); _visitables.remove("onPodConditions"); }
     if (onPodConditions != null) {for (V1PodFailurePolicyOnPodConditionsPattern item :onPodConditions){ this.addToOnPodConditions(item);}} return (A) this;
   }
   public Boolean hasOnPodConditions() {
     return onPodConditions != null && !onPodConditions.isEmpty();
   }
-  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> addNewOnPodCondition() {
+  public V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNested<A> addNewOnPodCondition() {
     return new V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNestedImpl();
   }
-  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> addNewOnPodConditionLike(V1PodFailurePolicyOnPodConditionsPattern item) {
+  public V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNested<A> addNewOnPodConditionLike(V1PodFailurePolicyOnPodConditionsPattern item) {
     return new V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNestedImpl(-1, item);
   }
-  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> setNewOnPodConditionLike(Integer index,V1PodFailurePolicyOnPodConditionsPattern item) {
+  public V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNested<A> setNewOnPodConditionLike(int index,V1PodFailurePolicyOnPodConditionsPattern item) {
     return new V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNestedImpl(index, item);
   }
-  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> editOnPodCondition(Integer index) {
+  public V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNested<A> editOnPodCondition(int index) {
     if (onPodConditions.size() <= index) throw new RuntimeException("Can't edit onPodConditions. Index exceeds size.");
     return setNewOnPodConditionLike(index, buildOnPodCondition(index));
   }
-  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> editFirstOnPodCondition() {
+  public V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNested<A> editFirstOnPodCondition() {
     if (onPodConditions.size() == 0) throw new RuntimeException("Can't edit first onPodConditions. The list is empty.");
     return setNewOnPodConditionLike(0, buildOnPodCondition(0));
   }
-  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> editLastOnPodCondition() {
+  public V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNested<A> editLastOnPodCondition() {
     int index = onPodConditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last onPodConditions. The list is empty.");
     return setNewOnPodConditionLike(index, buildOnPodCondition(index));
   }
-  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> editMatchingOnPodCondition(Predicate<V1PodFailurePolicyOnPodConditionsPatternBuilder> predicate) {
+  public V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNested<A> editMatchingOnPodCondition(Predicate<V1PodFailurePolicyOnPodConditionsPatternBuilder> predicate) {
     int index = -1;
     for (int i=0;i<onPodConditions.size();i++) { 
     if (predicate.test(onPodConditions.get(i))) {index = i; break;}
@@ -185,10 +184,14 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodFailurePolicyRuleFluentImpl that = (V1PodFailurePolicyRuleFluentImpl) o;
-    if (action != null ? !action.equals(that.action) :that.action != null) return false;
-    if (onExitCodes != null ? !onExitCodes.equals(that.onExitCodes) :that.onExitCodes != null) return false;
-    if (onPodConditions != null ? !onPodConditions.equals(that.onPodConditions) :that.onPodConditions != null) return false;
+    if (!java.util.Objects.equals(action, that.action)) return false;
+
+    if (!java.util.Objects.equals(onExitCodes, that.onExitCodes)) return false;
+
+    if (!java.util.Objects.equals(onPodConditions, that.onPodConditions)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -199,11 +202,11 @@ import java.lang.Object;
     sb.append("{");
     if (action != null) { sb.append("action:"); sb.append(action + ","); }
     if (onExitCodes != null) { sb.append("onExitCodes:"); sb.append(onExitCodes + ","); }
-    if (onPodConditions != null && !onPodConditions.isEmpty()) { sb.append("onPodConditions:"); sb.append(onPodConditions); }
+    if (onPodConditions != null) { sb.append("onPodConditions:"); sb.append(onPodConditions); }
     sb.append("}");
     return sb.toString();
   }
-  class OnExitCodesNestedImpl<N> extends V1PodFailurePolicyOnExitCodesRequirementFluentImpl<V1PodFailurePolicyRuleFluent.OnExitCodesNested<N>> implements V1PodFailurePolicyRuleFluent.OnExitCodesNested<N>,Nested<N>{
+  class OnExitCodesNestedImpl<N> extends V1PodFailurePolicyOnExitCodesRequirementFluentImpl<V1PodFailurePolicyRuleFluentImpl.OnExitCodesNested<N>> implements V1PodFailurePolicyRuleFluentImpl.OnExitCodesNested<N>,Nested<N>{
     OnExitCodesNestedImpl(V1PodFailurePolicyOnExitCodesRequirement item) {
       this.builder = new V1PodFailurePolicyOnExitCodesRequirementBuilder(this, item);
     }
@@ -219,8 +222,8 @@ import java.lang.Object;
     }
     
   }
-  class OnPodConditionsNestedImpl<N> extends V1PodFailurePolicyOnPodConditionsPatternFluentImpl<V1PodFailurePolicyRuleFluent.OnPodConditionsNested<N>> implements V1PodFailurePolicyRuleFluent.OnPodConditionsNested<N>,Nested<N>{
-    OnPodConditionsNestedImpl(Integer index,V1PodFailurePolicyOnPodConditionsPattern item) {
+  class OnPodConditionsNestedImpl<N> extends V1PodFailurePolicyOnPodConditionsPatternFluentImpl<V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNested<N>> implements V1PodFailurePolicyRuleFluentImpl.OnPodConditionsNested<N>,Nested<N>{
+    OnPodConditionsNestedImpl(int index,V1PodFailurePolicyOnPodConditionsPattern item) {
       this.index = index;
       this.builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(this, item);
     }
@@ -229,7 +232,7 @@ import java.lang.Object;
       this.builder = new V1PodFailurePolicyOnPodConditionsPatternBuilder(this);
     }
     V1PodFailurePolicyOnPodConditionsPatternBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1PodFailurePolicyRuleFluentImpl.this.setToOnPodConditions(index,builder.build());
     }

@@ -15,12 +15,11 @@ import java.lang.Boolean;
   public V1ResourceFieldSelectorFluentImpl() {
   }
   public V1ResourceFieldSelectorFluentImpl(V1ResourceFieldSelector instance) {
-    this.withContainerName(instance.getContainerName());
-
-    this.withDivisor(instance.getDivisor());
-
-    this.withResource(instance.getResource());
-
+    if (instance != null) {
+      this.withContainerName(instance.getContainerName());
+      this.withDivisor(instance.getDivisor());
+      this.withResource(instance.getResource());
+    }
   }
   private String containerName;
   private Quantity divisor;
@@ -58,10 +57,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ResourceFieldSelectorFluentImpl that = (V1ResourceFieldSelectorFluentImpl) o;
-    if (containerName != null ? !containerName.equals(that.containerName) :that.containerName != null) return false;
-    if (divisor != null ? !divisor.equals(that.divisor) :that.divisor != null) return false;
-    if (resource != null ? !resource.equals(that.resource) :that.resource != null) return false;
+    if (!java.util.Objects.equals(containerName, that.containerName)) return false;
+
+    if (!java.util.Objects.equals(divisor, that.divisor)) return false;
+
+    if (!java.util.Objects.equals(resource, that.resource)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -20,10 +20,10 @@ public class V1ExternalDocumentationBuilder extends V1ExternalDocumentationFluen
   }
   public V1ExternalDocumentationBuilder(V1ExternalDocumentationFluent<?> fluent,V1ExternalDocumentation instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDescription(instance.getDescription());
-
-    fluent.withUrl(instance.getUrl());
-
+    if (instance != null) {
+      fluent.withDescription(instance.getDescription());
+      fluent.withUrl(instance.getUrl());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ExternalDocumentationBuilder(V1ExternalDocumentation instance) {
@@ -31,10 +31,10 @@ public class V1ExternalDocumentationBuilder extends V1ExternalDocumentationFluen
   }
   public V1ExternalDocumentationBuilder(V1ExternalDocumentation instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDescription(instance.getDescription());
-
-    this.withUrl(instance.getUrl());
-
+    if (instance != null) {
+      this.withDescription(instance.getDescription());
+      this.withUrl(instance.getUrl());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ExternalDocumentationFluent<?> fluent;

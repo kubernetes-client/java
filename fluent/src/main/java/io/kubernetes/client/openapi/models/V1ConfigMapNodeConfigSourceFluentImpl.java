@@ -14,16 +14,13 @@ import java.lang.Boolean;
   public V1ConfigMapNodeConfigSourceFluentImpl() {
   }
   public V1ConfigMapNodeConfigSourceFluentImpl(V1ConfigMapNodeConfigSource instance) {
-    this.withKubeletConfigKey(instance.getKubeletConfigKey());
-
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withResourceVersion(instance.getResourceVersion());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withKubeletConfigKey(instance.getKubeletConfigKey());
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withResourceVersion(instance.getResourceVersion());
+      this.withUid(instance.getUid());
+    }
   }
   private String kubeletConfigKey;
   private String name;
@@ -78,12 +75,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ConfigMapNodeConfigSourceFluentImpl that = (V1ConfigMapNodeConfigSourceFluentImpl) o;
-    if (kubeletConfigKey != null ? !kubeletConfigKey.equals(that.kubeletConfigKey) :that.kubeletConfigKey != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (namespace != null ? !namespace.equals(that.namespace) :that.namespace != null) return false;
-    if (resourceVersion != null ? !resourceVersion.equals(that.resourceVersion) :that.resourceVersion != null) return false;
-    if (uid != null ? !uid.equals(that.uid) :that.uid != null) return false;
+    if (!java.util.Objects.equals(kubeletConfigKey, that.kubeletConfigKey)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
+
+    if (!java.util.Objects.equals(resourceVersion, that.resourceVersion)) return false;
+
+    if (!java.util.Objects.equals(uid, that.uid)) return false;
+
     return true;
   }
   public int hashCode() {

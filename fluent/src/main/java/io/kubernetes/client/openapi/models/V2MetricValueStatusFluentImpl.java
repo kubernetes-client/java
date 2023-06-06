@@ -16,12 +16,11 @@ import java.lang.Boolean;
   public V2MetricValueStatusFluentImpl() {
   }
   public V2MetricValueStatusFluentImpl(V2MetricValueStatus instance) {
-    this.withAverageUtilization(instance.getAverageUtilization());
-
-    this.withAverageValue(instance.getAverageValue());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withAverageUtilization(instance.getAverageUtilization());
+      this.withAverageValue(instance.getAverageValue());
+      this.withValue(instance.getValue());
+    }
   }
   private Integer averageUtilization;
   private Quantity averageValue;
@@ -62,10 +61,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2MetricValueStatusFluentImpl that = (V2MetricValueStatusFluentImpl) o;
-    if (averageUtilization != null ? !averageUtilization.equals(that.averageUtilization) :that.averageUtilization != null) return false;
-    if (averageValue != null ? !averageValue.equals(that.averageValue) :that.averageValue != null) return false;
-    if (value != null ? !value.equals(that.value) :that.value != null) return false;
+    if (!java.util.Objects.equals(averageUtilization, that.averageUtilization)) return false;
+
+    if (!java.util.Objects.equals(averageValue, that.averageValue)) return false;
+
+    if (!java.util.Objects.equals(value, that.value)) return false;
+
     return true;
   }
   public int hashCode() {

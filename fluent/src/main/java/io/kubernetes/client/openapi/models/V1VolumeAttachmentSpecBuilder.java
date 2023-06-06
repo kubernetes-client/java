@@ -20,12 +20,11 @@ public class V1VolumeAttachmentSpecBuilder extends V1VolumeAttachmentSpecFluentI
   }
   public V1VolumeAttachmentSpecBuilder(V1VolumeAttachmentSpecFluent<?> fluent,V1VolumeAttachmentSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAttacher(instance.getAttacher());
-
-    fluent.withNodeName(instance.getNodeName());
-
-    fluent.withSource(instance.getSource());
-
+    if (instance != null) {
+      fluent.withAttacher(instance.getAttacher());
+      fluent.withNodeName(instance.getNodeName());
+      fluent.withSource(instance.getSource());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeAttachmentSpecBuilder(V1VolumeAttachmentSpec instance) {
@@ -33,12 +32,11 @@ public class V1VolumeAttachmentSpecBuilder extends V1VolumeAttachmentSpecFluentI
   }
   public V1VolumeAttachmentSpecBuilder(V1VolumeAttachmentSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAttacher(instance.getAttacher());
-
-    this.withNodeName(instance.getNodeName());
-
-    this.withSource(instance.getSource());
-
+    if (instance != null) {
+      this.withAttacher(instance.getAttacher());
+      this.withNodeName(instance.getNodeName());
+      this.withSource(instance.getSource());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeAttachmentSpecFluent<?> fluent;

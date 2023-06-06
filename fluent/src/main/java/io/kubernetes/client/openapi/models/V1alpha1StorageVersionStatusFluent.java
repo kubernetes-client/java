@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1alpha1StorageVersionStatusFluent<A extends V1alpha1StorageVer
   public String getCommonEncodingVersion();
   public A withCommonEncodingVersion(String commonEncodingVersion);
   public Boolean hasCommonEncodingVersion();
-  public A addToConditions(Integer index,V1alpha1StorageVersionCondition item);
-  public A setToConditions(Integer index,V1alpha1StorageVersionCondition item);
+  public A addToConditions(int index,V1alpha1StorageVersionCondition item);
+  public A setToConditions(int index,V1alpha1StorageVersionCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition... items);
   public A addAllToConditions(Collection<V1alpha1StorageVersionCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1alpha1StorageVersionCondition... items);
@@ -35,7 +35,7 @@ public interface V1alpha1StorageVersionStatusFluent<A extends V1alpha1StorageVer
   @Deprecated
   public List<V1alpha1StorageVersionCondition> getConditions();
   public List<V1alpha1StorageVersionCondition> buildConditions();
-  public V1alpha1StorageVersionCondition buildCondition(Integer index);
+  public V1alpha1StorageVersionCondition buildCondition(int index);
   public V1alpha1StorageVersionCondition buildFirstCondition();
   public V1alpha1StorageVersionCondition buildLastCondition();
   public V1alpha1StorageVersionCondition buildMatchingCondition(Predicate<V1alpha1StorageVersionConditionBuilder> predicate);
@@ -45,13 +45,13 @@ public interface V1alpha1StorageVersionStatusFluent<A extends V1alpha1StorageVer
   public Boolean hasConditions();
   public V1alpha1StorageVersionStatusFluent.ConditionsNested<A> addNewCondition();
   public V1alpha1StorageVersionStatusFluent.ConditionsNested<A> addNewConditionLike(V1alpha1StorageVersionCondition item);
-  public V1alpha1StorageVersionStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1alpha1StorageVersionCondition item);
-  public V1alpha1StorageVersionStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1alpha1StorageVersionStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1alpha1StorageVersionCondition item);
+  public V1alpha1StorageVersionStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1alpha1StorageVersionStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1alpha1StorageVersionStatusFluent.ConditionsNested<A> editLastCondition();
   public V1alpha1StorageVersionStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1alpha1StorageVersionConditionBuilder> predicate);
-  public A addToStorageVersions(Integer index,V1alpha1ServerStorageVersion item);
-  public A setToStorageVersions(Integer index,V1alpha1ServerStorageVersion item);
+  public A addToStorageVersions(int index,V1alpha1ServerStorageVersion item);
+  public A setToStorageVersions(int index,V1alpha1ServerStorageVersion item);
   public A addToStorageVersions(io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion... items);
   public A addAllToStorageVersions(Collection<V1alpha1ServerStorageVersion> items);
   public A removeFromStorageVersions(io.kubernetes.client.openapi.models.V1alpha1ServerStorageVersion... items);
@@ -65,7 +65,7 @@ public interface V1alpha1StorageVersionStatusFluent<A extends V1alpha1StorageVer
   @Deprecated
   public List<V1alpha1ServerStorageVersion> getStorageVersions();
   public List<V1alpha1ServerStorageVersion> buildStorageVersions();
-  public V1alpha1ServerStorageVersion buildStorageVersion(Integer index);
+  public V1alpha1ServerStorageVersion buildStorageVersion(int index);
   public V1alpha1ServerStorageVersion buildFirstStorageVersion();
   public V1alpha1ServerStorageVersion buildLastStorageVersion();
   public V1alpha1ServerStorageVersion buildMatchingStorageVersion(Predicate<V1alpha1ServerStorageVersionBuilder> predicate);
@@ -75,8 +75,8 @@ public interface V1alpha1StorageVersionStatusFluent<A extends V1alpha1StorageVer
   public Boolean hasStorageVersions();
   public V1alpha1StorageVersionStatusFluent.StorageVersionsNested<A> addNewStorageVersion();
   public V1alpha1StorageVersionStatusFluent.StorageVersionsNested<A> addNewStorageVersionLike(V1alpha1ServerStorageVersion item);
-  public V1alpha1StorageVersionStatusFluent.StorageVersionsNested<A> setNewStorageVersionLike(Integer index,V1alpha1ServerStorageVersion item);
-  public V1alpha1StorageVersionStatusFluent.StorageVersionsNested<A> editStorageVersion(Integer index);
+  public V1alpha1StorageVersionStatusFluent.StorageVersionsNested<A> setNewStorageVersionLike(int index,V1alpha1ServerStorageVersion item);
+  public V1alpha1StorageVersionStatusFluent.StorageVersionsNested<A> editStorageVersion(int index);
   public V1alpha1StorageVersionStatusFluent.StorageVersionsNested<A> editFirstStorageVersion();
   public V1alpha1StorageVersionStatusFluent.StorageVersionsNested<A> editLastStorageVersion();
   public V1alpha1StorageVersionStatusFluent.StorageVersionsNested<A> editMatchingStorageVersion(Predicate<V1alpha1ServerStorageVersionBuilder> predicate);

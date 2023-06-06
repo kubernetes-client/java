@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,42 +12,41 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1DeleteOptions;
+import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * Eviction evicts a pod from its node subject to certain policies and safety constraints. This is a
- * subresource of Pod. A request to cause such an eviction is created by POSTing to .../pods/&lt;pod
- * name&gt;/evictions.
+ * Eviction evicts a pod from its node subject to certain policies and safety constraints. This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods/&lt;pod name&gt;/evictions.
  */
-@ApiModel(
-    description =
-        "Eviction evicts a pod from its node subject to certain policies and safety constraints. This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods/<pod name>/evictions.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "Eviction evicts a pod from its node subject to certain policies and safety constraints. This is a subresource of Pod.  A request to cause such an eviction is created by POSTing to .../pods/<pod name>/evictions.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1Eviction implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
-
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_DELETE_OPTIONS = "deleteOptions";
-
   @SerializedName(SERIALIZED_NAME_DELETE_OPTIONS)
   private V1DeleteOptions deleteOptions;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
-
   @SerializedName(SERIALIZED_NAME_KIND)
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
-
   @SerializedName(SERIALIZED_NAME_METADATA)
   private V1ObjectMeta metadata;
+
 
   public V1Eviction apiVersion(String apiVersion) {
 
@@ -55,25 +54,22 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
     return this;
   }
 
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should
-   * convert recognized schemas to the latest internal value, and may reject unrecognized values.
-   * More info:
-   * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   *
+   /**
+   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
+  @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
+
   public String getApiVersion() {
     return apiVersion;
   }
 
+
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
+
 
   public V1Eviction deleteOptions(V1DeleteOptions deleteOptions) {
 
@@ -81,20 +77,22 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
     return this;
   }
 
-  /**
+   /**
    * Get deleteOptions
-   *
    * @return deleteOptions
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1DeleteOptions getDeleteOptions() {
     return deleteOptions;
   }
 
+
   public void setDeleteOptions(V1DeleteOptions deleteOptions) {
     this.deleteOptions = deleteOptions;
   }
+
 
   public V1Eviction kind(String kind) {
 
@@ -102,25 +100,22 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
     return this;
   }
 
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer
-   * this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More
-   * info:
-   * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   *
+   /**
+   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
+  @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
+
   public String getKind() {
     return kind;
   }
 
+
   public void setKind(String kind) {
     this.kind = kind;
   }
+
 
   public V1Eviction metadata(V1ObjectMeta metadata) {
 
@@ -128,20 +123,22 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
     return this;
   }
 
-  /**
+   /**
    * Get metadata
-   *
    * @return metadata
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
 
+
   public void setMetadata(V1ObjectMeta metadata) {
     this.metadata = metadata;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -152,16 +149,17 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
       return false;
     }
     V1Eviction v1Eviction = (V1Eviction) o;
-    return Objects.equals(this.apiVersion, v1Eviction.apiVersion)
-        && Objects.equals(this.deleteOptions, v1Eviction.deleteOptions)
-        && Objects.equals(this.kind, v1Eviction.kind)
-        && Objects.equals(this.metadata, v1Eviction.metadata);
+    return Objects.equals(this.apiVersion, v1Eviction.apiVersion) &&
+        Objects.equals(this.deleteOptions, v1Eviction.deleteOptions) &&
+        Objects.equals(this.kind, v1Eviction.kind) &&
+        Objects.equals(this.metadata, v1Eviction.metadata);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(apiVersion, deleteOptions, kind, metadata);
   }
+
 
   @Override
   public String toString() {
@@ -176,7 +174,8 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -184,4 +183,5 @@ public class V1Eviction implements io.kubernetes.client.common.KubernetesObject 
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

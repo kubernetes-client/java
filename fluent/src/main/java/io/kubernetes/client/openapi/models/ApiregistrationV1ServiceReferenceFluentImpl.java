@@ -15,12 +15,11 @@ import java.lang.Boolean;
   public ApiregistrationV1ServiceReferenceFluentImpl() {
   }
   public ApiregistrationV1ServiceReferenceFluentImpl(ApiregistrationV1ServiceReference instance) {
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withPort(instance.getPort());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withPort(instance.getPort());
+    }
   }
   private String name;
   private String namespace;
@@ -55,10 +54,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     ApiregistrationV1ServiceReferenceFluentImpl that = (ApiregistrationV1ServiceReferenceFluentImpl) o;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (namespace != null ? !namespace.equals(that.namespace) :that.namespace != null) return false;
-    if (port != null ? !port.equals(that.port) :that.port != null) return false;
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
+
+    if (!java.util.Objects.equals(port, that.port)) return false;
+
     return true;
   }
   public int hashCode() {

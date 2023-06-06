@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,19 +18,19 @@ import java.lang.Boolean;
   public V1UncountedTerminatedPodsFluentImpl() {
   }
   public V1UncountedTerminatedPodsFluentImpl(V1UncountedTerminatedPods instance) {
-    this.withFailed(instance.getFailed());
-
-    this.withSucceeded(instance.getSucceeded());
-
+    if (instance != null) {
+      this.withFailed(instance.getFailed());
+      this.withSucceeded(instance.getSucceeded());
+    }
   }
   private List<String> failed;
   private List<String> succeeded;
-  public A addToFailed(Integer index,String item) {
+  public A addToFailed(int index,String item) {
     if (this.failed == null) {this.failed = new ArrayList<String>();}
     this.failed.add(index, item);
     return (A)this;
   }
-  public A setToFailed(Integer index,String item) {
+  public A setToFailed(int index,String item) {
     if (this.failed == null) {this.failed = new ArrayList<String>();}
     this.failed.set(index, item); return (A)this;
   }
@@ -52,7 +51,7 @@ import java.lang.Boolean;
   public List<String> getFailed() {
     return this.failed;
   }
-  public String getFailed(Integer index) {
+  public String getFailed(int index) {
     return this.failed.get(index);
   }
   public String getFirstFailed() {
@@ -71,18 +70,18 @@ import java.lang.Boolean;
     if (failed != null) {this.failed = new ArrayList(); for (String item : failed){this.addToFailed(item);}} else { this.failed = null;} return (A) this;
   }
   public A withFailed(java.lang.String... failed) {
-    if (this.failed != null) {this.failed.clear();}
+    if (this.failed != null) {this.failed.clear(); _visitables.remove("failed"); }
     if (failed != null) {for (String item :failed){ this.addToFailed(item);}} return (A) this;
   }
   public Boolean hasFailed() {
     return failed != null && !failed.isEmpty();
   }
-  public A addToSucceeded(Integer index,String item) {
+  public A addToSucceeded(int index,String item) {
     if (this.succeeded == null) {this.succeeded = new ArrayList<String>();}
     this.succeeded.add(index, item);
     return (A)this;
   }
-  public A setToSucceeded(Integer index,String item) {
+  public A setToSucceeded(int index,String item) {
     if (this.succeeded == null) {this.succeeded = new ArrayList<String>();}
     this.succeeded.set(index, item); return (A)this;
   }
@@ -103,7 +102,7 @@ import java.lang.Boolean;
   public List<String> getSucceeded() {
     return this.succeeded;
   }
-  public String getSucceeded(Integer index) {
+  public String getSucceeded(int index) {
     return this.succeeded.get(index);
   }
   public String getFirstSucceeded() {
@@ -122,7 +121,7 @@ import java.lang.Boolean;
     if (succeeded != null) {this.succeeded = new ArrayList(); for (String item : succeeded){this.addToSucceeded(item);}} else { this.succeeded = null;} return (A) this;
   }
   public A withSucceeded(java.lang.String... succeeded) {
-    if (this.succeeded != null) {this.succeeded.clear();}
+    if (this.succeeded != null) {this.succeeded.clear(); _visitables.remove("succeeded"); }
     if (succeeded != null) {for (String item :succeeded){ this.addToSucceeded(item);}} return (A) this;
   }
   public Boolean hasSucceeded() {
@@ -131,9 +130,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1UncountedTerminatedPodsFluentImpl that = (V1UncountedTerminatedPodsFluentImpl) o;
-    if (failed != null ? !failed.equals(that.failed) :that.failed != null) return false;
-    if (succeeded != null ? !succeeded.equals(that.succeeded) :that.succeeded != null) return false;
+    if (!java.util.Objects.equals(failed, that.failed)) return false;
+
+    if (!java.util.Objects.equals(succeeded, that.succeeded)) return false;
+
     return true;
   }
   public int hashCode() {

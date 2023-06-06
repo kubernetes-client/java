@@ -20,12 +20,11 @@ public class V1ResourceFieldSelectorBuilder extends V1ResourceFieldSelectorFluen
   }
   public V1ResourceFieldSelectorBuilder(V1ResourceFieldSelectorFluent<?> fluent,V1ResourceFieldSelector instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withContainerName(instance.getContainerName());
-
-    fluent.withDivisor(instance.getDivisor());
-
-    fluent.withResource(instance.getResource());
-
+    if (instance != null) {
+      fluent.withContainerName(instance.getContainerName());
+      fluent.withDivisor(instance.getDivisor());
+      fluent.withResource(instance.getResource());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ResourceFieldSelectorBuilder(V1ResourceFieldSelector instance) {
@@ -33,12 +32,11 @@ public class V1ResourceFieldSelectorBuilder extends V1ResourceFieldSelectorFluen
   }
   public V1ResourceFieldSelectorBuilder(V1ResourceFieldSelector instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withContainerName(instance.getContainerName());
-
-    this.withDivisor(instance.getDivisor());
-
-    this.withResource(instance.getResource());
-
+    if (instance != null) {
+      this.withContainerName(instance.getContainerName());
+      this.withDivisor(instance.getDivisor());
+      this.withResource(instance.getResource());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ResourceFieldSelectorFluent<?> fluent;

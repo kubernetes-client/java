@@ -7,7 +7,7 @@ HTTPIngressRuleValue is a list of http selectors pointing to backends. In the ex
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**paths** | [**List&lt;V1HTTPIngressPath&gt;**](V1HTTPIngressPath.md) | A collection of paths that map requests to backends. | 
+**paths** | [**List&lt;V1HTTPIngressPath&gt;**](V1HTTPIngressPath.md) | paths is a collection of paths that map requests to backends. | 
 
 
 

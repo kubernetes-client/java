@@ -1,6 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,14 +13,14 @@ import java.util.function.Predicate;
   * Generated
   */
 public interface V1HostAliasFluent<A extends V1HostAliasFluent<A>> extends Fluent<A>{
-  public A addToHostnames(Integer index,String item);
-  public A setToHostnames(Integer index,String item);
+  public A addToHostnames(int index,String item);
+  public A setToHostnames(int index,String item);
   public A addToHostnames(java.lang.String... items);
   public A addAllToHostnames(Collection<String> items);
   public A removeFromHostnames(java.lang.String... items);
   public A removeAllFromHostnames(Collection<String> items);
   public List<String> getHostnames();
-  public String getHostname(Integer index);
+  public String getHostname(int index);
   public String getFirstHostname();
   public String getLastHostname();
   public String getMatchingHostname(Predicate<String> predicate);

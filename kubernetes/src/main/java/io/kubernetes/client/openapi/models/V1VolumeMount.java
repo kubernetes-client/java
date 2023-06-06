@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,46 +12,47 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** VolumeMount describes a mounting of a Volume within a container. */
+/**
+ * VolumeMount describes a mounting of a Volume within a container.
+ */
 @ApiModel(description = "VolumeMount describes a mounting of a Volume within a container.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1VolumeMount {
   public static final String SERIALIZED_NAME_MOUNT_PATH = "mountPath";
-
   @SerializedName(SERIALIZED_NAME_MOUNT_PATH)
   private String mountPath;
 
   public static final String SERIALIZED_NAME_MOUNT_PROPAGATION = "mountPropagation";
-
   @SerializedName(SERIALIZED_NAME_MOUNT_PROPAGATION)
   private String mountPropagation;
 
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
-
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
   private Boolean readOnly;
 
   public static final String SERIALIZED_NAME_SUB_PATH = "subPath";
-
   @SerializedName(SERIALIZED_NAME_SUB_PATH)
   private String subPath;
 
   public static final String SERIALIZED_NAME_SUB_PATH_EXPR = "subPathExpr";
-
   @SerializedName(SERIALIZED_NAME_SUB_PATH_EXPR)
   private String subPathExpr;
+
 
   public V1VolumeMount mountPath(String mountPath) {
 
@@ -59,22 +60,21 @@ public class V1VolumeMount {
     return this;
   }
 
-  /**
-   * Path within the container at which the volume should be mounted. Must not contain &#39;:&#39;.
-   *
+   /**
+   * Path within the container at which the volume should be mounted.  Must not contain &#39;:&#39;.
    * @return mountPath
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Path within the container at which the volume should be mounted.  Must not contain ':'.")
+  **/
+  @ApiModelProperty(required = true, value = "Path within the container at which the volume should be mounted.  Must not contain ':'.")
+
   public String getMountPath() {
     return mountPath;
   }
 
+
   public void setMountPath(String mountPath) {
     this.mountPath = mountPath;
   }
+
 
   public V1VolumeMount mountPropagation(String mountPropagation) {
 
@@ -82,23 +82,22 @@ public class V1VolumeMount {
     return this;
   }
 
-  /**
-   * mountPropagation determines how mounts are propagated from the host to container and the other
-   * way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
-   *
+   /**
+   * mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.
    * @return mountPropagation
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.")
+  @ApiModelProperty(value = "mountPropagation determines how mounts are propagated from the host to container and the other way around. When not set, MountPropagationNone is used. This field is beta in 1.10.")
+
   public String getMountPropagation() {
     return mountPropagation;
   }
 
+
   public void setMountPropagation(String mountPropagation) {
     this.mountPropagation = mountPropagation;
   }
+
 
   public V1VolumeMount name(String name) {
 
@@ -106,19 +105,21 @@ public class V1VolumeMount {
     return this;
   }
 
-  /**
+   /**
    * This must match the Name of a Volume.
-   *
    * @return name
-   */
+  **/
   @ApiModelProperty(required = true, value = "This must match the Name of a Volume.")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public V1VolumeMount readOnly(Boolean readOnly) {
 
@@ -126,22 +127,22 @@ public class V1VolumeMount {
     return this;
   }
 
-  /**
+   /**
    * Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.
-   *
    * @return readOnly
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.")
+  @ApiModelProperty(value = "Mounted read-only if true, read-write otherwise (false or unspecified). Defaults to false.")
+
   public Boolean getReadOnly() {
     return readOnly;
   }
 
+
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
   }
+
 
   public V1VolumeMount subPath(String subPath) {
 
@@ -149,23 +150,22 @@ public class V1VolumeMount {
     return this;
   }
 
-  /**
-   * Path within the volume from which the container&#39;s volume should be mounted. Defaults to
-   * \&quot;\&quot; (volume&#39;s root).
-   *
+   /**
+   * Path within the volume from which the container&#39;s volume should be mounted. Defaults to \&quot;\&quot; (volume&#39;s root).
    * @return subPath
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).")
+  @ApiModelProperty(value = "Path within the volume from which the container's volume should be mounted. Defaults to \"\" (volume's root).")
+
   public String getSubPath() {
     return subPath;
   }
 
+
   public void setSubPath(String subPath) {
     this.subPath = subPath;
   }
+
 
   public V1VolumeMount subPathExpr(String subPathExpr) {
 
@@ -173,25 +173,22 @@ public class V1VolumeMount {
     return this;
   }
 
-  /**
-   * Expanded path within the volume from which the container&#39;s volume should be mounted.
-   * Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using
-   * the container&#39;s environment. Defaults to \&quot;\&quot; (volume&#39;s root). SubPathExpr
-   * and SubPath are mutually exclusive.
-   *
+   /**
+   * Expanded path within the volume from which the container&#39;s volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container&#39;s environment. Defaults to \&quot;\&quot; (volume&#39;s root). SubPathExpr and SubPath are mutually exclusive.
    * @return subPathExpr
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to \"\" (volume's root). SubPathExpr and SubPath are mutually exclusive.")
+  @ApiModelProperty(value = "Expanded path within the volume from which the container's volume should be mounted. Behaves similarly to SubPath but environment variable references $(VAR_NAME) are expanded using the container's environment. Defaults to \"\" (volume's root). SubPathExpr and SubPath are mutually exclusive.")
+
   public String getSubPathExpr() {
     return subPathExpr;
   }
 
+
   public void setSubPathExpr(String subPathExpr) {
     this.subPathExpr = subPathExpr;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -202,18 +199,19 @@ public class V1VolumeMount {
       return false;
     }
     V1VolumeMount v1VolumeMount = (V1VolumeMount) o;
-    return Objects.equals(this.mountPath, v1VolumeMount.mountPath)
-        && Objects.equals(this.mountPropagation, v1VolumeMount.mountPropagation)
-        && Objects.equals(this.name, v1VolumeMount.name)
-        && Objects.equals(this.readOnly, v1VolumeMount.readOnly)
-        && Objects.equals(this.subPath, v1VolumeMount.subPath)
-        && Objects.equals(this.subPathExpr, v1VolumeMount.subPathExpr);
+    return Objects.equals(this.mountPath, v1VolumeMount.mountPath) &&
+        Objects.equals(this.mountPropagation, v1VolumeMount.mountPropagation) &&
+        Objects.equals(this.name, v1VolumeMount.name) &&
+        Objects.equals(this.readOnly, v1VolumeMount.readOnly) &&
+        Objects.equals(this.subPath, v1VolumeMount.subPath) &&
+        Objects.equals(this.subPathExpr, v1VolumeMount.subPathExpr);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(mountPath, mountPropagation, name, readOnly, subPath, subPathExpr);
   }
+
 
   @Override
   public String toString() {
@@ -230,7 +228,8 @@ public class V1VolumeMount {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -238,4 +237,5 @@ public class V1VolumeMount {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

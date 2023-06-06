@@ -14,14 +14,12 @@ import java.lang.Boolean;
   public V1SubjectAccessReviewStatusFluentImpl() {
   }
   public V1SubjectAccessReviewStatusFluentImpl(V1SubjectAccessReviewStatus instance) {
-    this.withAllowed(instance.getAllowed());
-
-    this.withDenied(instance.getDenied());
-
-    this.withEvaluationError(instance.getEvaluationError());
-
-    this.withReason(instance.getReason());
-
+    if (instance != null) {
+      this.withAllowed(instance.getAllowed());
+      this.withDenied(instance.getDenied());
+      this.withEvaluationError(instance.getEvaluationError());
+      this.withReason(instance.getReason());
+    }
   }
   private Boolean allowed;
   private Boolean denied;
@@ -66,11 +64,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SubjectAccessReviewStatusFluentImpl that = (V1SubjectAccessReviewStatusFluentImpl) o;
-    if (allowed != null ? !allowed.equals(that.allowed) :that.allowed != null) return false;
-    if (denied != null ? !denied.equals(that.denied) :that.denied != null) return false;
-    if (evaluationError != null ? !evaluationError.equals(that.evaluationError) :that.evaluationError != null) return false;
-    if (reason != null ? !reason.equals(that.reason) :that.reason != null) return false;
+    if (!java.util.Objects.equals(allowed, that.allowed)) return false;
+
+    if (!java.util.Objects.equals(denied, that.denied)) return false;
+
+    if (!java.util.Objects.equals(evaluationError, that.evaluationError)) return false;
+
+    if (!java.util.Objects.equals(reason, that.reason)) return false;
+
     return true;
   }
   public int hashCode() {

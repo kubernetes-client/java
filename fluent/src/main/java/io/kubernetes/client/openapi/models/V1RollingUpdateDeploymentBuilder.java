@@ -20,10 +20,10 @@ public class V1RollingUpdateDeploymentBuilder extends V1RollingUpdateDeploymentF
   }
   public V1RollingUpdateDeploymentBuilder(V1RollingUpdateDeploymentFluent<?> fluent,V1RollingUpdateDeployment instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMaxSurge(instance.getMaxSurge());
-
-    fluent.withMaxUnavailable(instance.getMaxUnavailable());
-
+    if (instance != null) {
+      fluent.withMaxSurge(instance.getMaxSurge());
+      fluent.withMaxUnavailable(instance.getMaxUnavailable());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1RollingUpdateDeploymentBuilder(V1RollingUpdateDeployment instance) {
@@ -31,10 +31,10 @@ public class V1RollingUpdateDeploymentBuilder extends V1RollingUpdateDeploymentF
   }
   public V1RollingUpdateDeploymentBuilder(V1RollingUpdateDeployment instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMaxSurge(instance.getMaxSurge());
-
-    this.withMaxUnavailable(instance.getMaxUnavailable());
-
+    if (instance != null) {
+      this.withMaxSurge(instance.getMaxSurge());
+      this.withMaxUnavailable(instance.getMaxUnavailable());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1RollingUpdateDeploymentFluent<?> fluent;

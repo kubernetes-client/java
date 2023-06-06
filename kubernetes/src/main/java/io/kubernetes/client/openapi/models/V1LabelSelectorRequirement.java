@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,38 +12,37 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * A label selector requirement is a selector that contains values, a key, and an operator that
- * relates the key and values.
+ * A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
  */
-@ApiModel(
-    description =
-        "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1LabelSelectorRequirement {
   public static final String SERIALIZED_NAME_KEY = "key";
-
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
   public static final String SERIALIZED_NAME_OPERATOR = "operator";
-
   @SerializedName(SERIALIZED_NAME_OPERATOR)
   private String operator;
 
   public static final String SERIALIZED_NAME_VALUES = "values";
-
   @SerializedName(SERIALIZED_NAME_VALUES)
   private List<String> values = null;
+
 
   public V1LabelSelectorRequirement key(String key) {
 
@@ -51,19 +50,21 @@ public class V1LabelSelectorRequirement {
     return this;
   }
 
-  /**
+   /**
    * key is the label key that the selector applies to.
-   *
    * @return key
-   */
+  **/
   @ApiModelProperty(required = true, value = "key is the label key that the selector applies to.")
+
   public String getKey() {
     return key;
   }
 
+
   public void setKey(String key) {
     this.key = key;
   }
+
 
   public V1LabelSelectorRequirement operator(String operator) {
 
@@ -71,23 +72,21 @@ public class V1LabelSelectorRequirement {
     return this;
   }
 
-  /**
-   * operator represents a key&#39;s relationship to a set of values. Valid operators are In, NotIn,
-   * Exists and DoesNotExist.
-   *
+   /**
+   * operator represents a key&#39;s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
    * @return operator
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.")
+  **/
+  @ApiModelProperty(required = true, value = "operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.")
+
   public String getOperator() {
     return operator;
   }
 
+
   public void setOperator(String operator) {
     this.operator = operator;
   }
+
 
   public V1LabelSelectorRequirement values(List<String> values) {
 
@@ -103,24 +102,22 @@ public class V1LabelSelectorRequirement {
     return this;
   }
 
-  /**
-   * values is an array of string values. If the operator is In or NotIn, the values array must be
-   * non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This
-   * array is replaced during a strategic merge patch.
-   *
+   /**
+   * values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
    * @return values
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.")
+  @ApiModelProperty(value = "values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.")
+
   public List<String> getValues() {
     return values;
   }
 
+
   public void setValues(List<String> values) {
     this.values = values;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,15 +128,16 @@ public class V1LabelSelectorRequirement {
       return false;
     }
     V1LabelSelectorRequirement v1LabelSelectorRequirement = (V1LabelSelectorRequirement) o;
-    return Objects.equals(this.key, v1LabelSelectorRequirement.key)
-        && Objects.equals(this.operator, v1LabelSelectorRequirement.operator)
-        && Objects.equals(this.values, v1LabelSelectorRequirement.values);
+    return Objects.equals(this.key, v1LabelSelectorRequirement.key) &&
+        Objects.equals(this.operator, v1LabelSelectorRequirement.operator) &&
+        Objects.equals(this.values, v1LabelSelectorRequirement.values);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(key, operator, values);
   }
+
 
   @Override
   public String toString() {
@@ -153,7 +151,8 @@ public class V1LabelSelectorRequirement {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -161,4 +160,5 @@ public class V1LabelSelectorRequirement {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

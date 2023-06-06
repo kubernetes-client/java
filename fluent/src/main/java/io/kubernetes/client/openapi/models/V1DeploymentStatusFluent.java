@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -23,8 +24,8 @@ public interface V1DeploymentStatusFluent<A extends V1DeploymentStatusFluent<A>>
   public Integer getCollisionCount();
   public A withCollisionCount(Integer collisionCount);
   public Boolean hasCollisionCount();
-  public A addToConditions(Integer index,V1DeploymentCondition item);
-  public A setToConditions(Integer index,V1DeploymentCondition item);
+  public A addToConditions(int index,V1DeploymentCondition item);
+  public A setToConditions(int index,V1DeploymentCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1DeploymentCondition... items);
   public A addAllToConditions(Collection<V1DeploymentCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1DeploymentCondition... items);
@@ -38,7 +39,7 @@ public interface V1DeploymentStatusFluent<A extends V1DeploymentStatusFluent<A>>
   @Deprecated
   public List<V1DeploymentCondition> getConditions();
   public List<V1DeploymentCondition> buildConditions();
-  public V1DeploymentCondition buildCondition(Integer index);
+  public V1DeploymentCondition buildCondition(int index);
   public V1DeploymentCondition buildFirstCondition();
   public V1DeploymentCondition buildLastCondition();
   public V1DeploymentCondition buildMatchingCondition(Predicate<V1DeploymentConditionBuilder> predicate);
@@ -48,8 +49,8 @@ public interface V1DeploymentStatusFluent<A extends V1DeploymentStatusFluent<A>>
   public Boolean hasConditions();
   public V1DeploymentStatusFluent.ConditionsNested<A> addNewCondition();
   public V1DeploymentStatusFluent.ConditionsNested<A> addNewConditionLike(V1DeploymentCondition item);
-  public V1DeploymentStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1DeploymentCondition item);
-  public V1DeploymentStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1DeploymentStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1DeploymentCondition item);
+  public V1DeploymentStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1DeploymentStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1DeploymentStatusFluent.ConditionsNested<A> editLastCondition();
   public V1DeploymentStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1DeploymentConditionBuilder> predicate);

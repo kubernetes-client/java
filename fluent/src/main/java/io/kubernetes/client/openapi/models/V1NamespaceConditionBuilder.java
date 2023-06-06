@@ -20,16 +20,13 @@ public class V1NamespaceConditionBuilder extends V1NamespaceConditionFluentImpl<
   }
   public V1NamespaceConditionBuilder(V1NamespaceConditionFluent<?> fluent,V1NamespaceCondition instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLastTransitionTime(instance.getLastTransitionTime());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withReason(instance.getReason());
-
-    fluent.withStatus(instance.getStatus());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withLastTransitionTime(instance.getLastTransitionTime());
+      fluent.withMessage(instance.getMessage());
+      fluent.withReason(instance.getReason());
+      fluent.withStatus(instance.getStatus());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NamespaceConditionBuilder(V1NamespaceCondition instance) {
@@ -37,16 +34,13 @@ public class V1NamespaceConditionBuilder extends V1NamespaceConditionFluentImpl<
   }
   public V1NamespaceConditionBuilder(V1NamespaceCondition instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLastTransitionTime(instance.getLastTransitionTime());
-
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLastTransitionTime(instance.getLastTransitionTime());
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NamespaceConditionFluent<?> fluent;

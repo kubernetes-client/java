@@ -20,10 +20,10 @@ public class V1JobTemplateSpecBuilder extends V1JobTemplateSpecFluentImpl<V1JobT
   }
   public V1JobTemplateSpecBuilder(V1JobTemplateSpecFluent<?> fluent,V1JobTemplateSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1JobTemplateSpecBuilder(V1JobTemplateSpec instance) {
@@ -31,10 +31,10 @@ public class V1JobTemplateSpecBuilder extends V1JobTemplateSpecFluentImpl<V1JobT
   }
   public V1JobTemplateSpecBuilder(V1JobTemplateSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1JobTemplateSpecFluent<?> fluent;

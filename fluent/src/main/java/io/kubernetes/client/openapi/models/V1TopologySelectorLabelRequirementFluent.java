@@ -1,6 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,14 +16,14 @@ public interface V1TopologySelectorLabelRequirementFluent<A extends V1TopologySe
   public String getKey();
   public A withKey(String key);
   public Boolean hasKey();
-  public A addToValues(Integer index,String item);
-  public A setToValues(Integer index,String item);
+  public A addToValues(int index,String item);
+  public A setToValues(int index,String item);
   public A addToValues(java.lang.String... items);
   public A addAllToValues(Collection<String> items);
   public A removeFromValues(java.lang.String... items);
   public A removeAllFromValues(Collection<String> items);
   public List<String> getValues();
-  public String getValue(Integer index);
+  public String getValue(int index);
   public String getFirstValue();
   public String getLastValue();
   public String getMatchingValue(Predicate<String> predicate);

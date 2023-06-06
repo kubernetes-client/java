@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,38 +12,38 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta2PriorityLevelConfigurationCondition;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * PriorityLevelConfigurationStatus represents the current state of a
- * \&quot;request-priority\&quot;.
+ * PriorityLevelConfigurationStatus represents the current state of a \&quot;request-priority\&quot;.
  */
-@ApiModel(
-    description =
-        "PriorityLevelConfigurationStatus represents the current state of a \"request-priority\".")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "PriorityLevelConfigurationStatus represents the current state of a \"request-priority\".")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1beta2PriorityLevelConfigurationStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
-
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private List<V1beta2PriorityLevelConfigurationCondition> conditions = null;
 
-  public V1beta2PriorityLevelConfigurationStatus conditions(
-      List<V1beta2PriorityLevelConfigurationCondition> conditions) {
+
+  public V1beta2PriorityLevelConfigurationStatus conditions(List<V1beta2PriorityLevelConfigurationCondition> conditions) {
 
     this.conditions = conditions;
     return this;
   }
 
-  public V1beta2PriorityLevelConfigurationStatus addConditionsItem(
-      V1beta2PriorityLevelConfigurationCondition conditionsItem) {
+  public V1beta2PriorityLevelConfigurationStatus addConditionsItem(V1beta2PriorityLevelConfigurationCondition conditionsItem) {
     if (this.conditions == null) {
       this.conditions = new ArrayList<>();
     }
@@ -51,20 +51,22 @@ public class V1beta2PriorityLevelConfigurationStatus {
     return this;
   }
 
-  /**
+   /**
    * &#x60;conditions&#x60; is the current state of \&quot;request-priority\&quot;.
-   *
    * @return conditions
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "`conditions` is the current state of \"request-priority\".")
+
   public List<V1beta2PriorityLevelConfigurationCondition> getConditions() {
     return conditions;
   }
 
+
   public void setConditions(List<V1beta2PriorityLevelConfigurationCondition> conditions) {
     this.conditions = conditions;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -74,8 +76,7 @@ public class V1beta2PriorityLevelConfigurationStatus {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1beta2PriorityLevelConfigurationStatus v1beta2PriorityLevelConfigurationStatus =
-        (V1beta2PriorityLevelConfigurationStatus) o;
+    V1beta2PriorityLevelConfigurationStatus v1beta2PriorityLevelConfigurationStatus = (V1beta2PriorityLevelConfigurationStatus) o;
     return Objects.equals(this.conditions, v1beta2PriorityLevelConfigurationStatus.conditions);
   }
 
@@ -83,6 +84,7 @@ public class V1beta2PriorityLevelConfigurationStatus {
   public int hashCode() {
     return Objects.hash(conditions);
   }
+
 
   @Override
   public String toString() {
@@ -94,7 +96,8 @@ public class V1beta2PriorityLevelConfigurationStatus {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -102,4 +105,5 @@ public class V1beta2PriorityLevelConfigurationStatus {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

@@ -20,10 +20,10 @@ public class V1PersistentVolumeClaimVolumeSourceBuilder extends V1PersistentVolu
   }
   public V1PersistentVolumeClaimVolumeSourceBuilder(V1PersistentVolumeClaimVolumeSourceFluent<?> fluent,V1PersistentVolumeClaimVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withClaimName(instance.getClaimName());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      fluent.withClaimName(instance.getClaimName());
+      fluent.withReadOnly(instance.getReadOnly());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PersistentVolumeClaimVolumeSourceBuilder(V1PersistentVolumeClaimVolumeSource instance) {
@@ -31,10 +31,10 @@ public class V1PersistentVolumeClaimVolumeSourceBuilder extends V1PersistentVolu
   }
   public V1PersistentVolumeClaimVolumeSourceBuilder(V1PersistentVolumeClaimVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withClaimName(instance.getClaimName());
-
-    this.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      this.withClaimName(instance.getClaimName());
+      this.withReadOnly(instance.getReadOnly());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PersistentVolumeClaimVolumeSourceFluent<?> fluent;

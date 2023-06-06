@@ -15,20 +15,15 @@ import java.lang.Boolean;
   public V1ManagedFieldsEntryFluentImpl() {
   }
   public V1ManagedFieldsEntryFluentImpl(V1ManagedFieldsEntry instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withFieldsType(instance.getFieldsType());
-
-    this.withFieldsV1(instance.getFieldsV1());
-
-    this.withManager(instance.getManager());
-
-    this.withOperation(instance.getOperation());
-
-    this.withSubresource(instance.getSubresource());
-
-    this.withTime(instance.getTime());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withFieldsType(instance.getFieldsType());
+      this.withFieldsV1(instance.getFieldsV1());
+      this.withManager(instance.getManager());
+      this.withOperation(instance.getOperation());
+      this.withSubresource(instance.getSubresource());
+      this.withTime(instance.getTime());
+    }
   }
   private String apiVersion;
   private String fieldsType;
@@ -103,14 +98,22 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ManagedFieldsEntryFluentImpl that = (V1ManagedFieldsEntryFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (fieldsType != null ? !fieldsType.equals(that.fieldsType) :that.fieldsType != null) return false;
-    if (fieldsV1 != null ? !fieldsV1.equals(that.fieldsV1) :that.fieldsV1 != null) return false;
-    if (manager != null ? !manager.equals(that.manager) :that.manager != null) return false;
-    if (operation != null ? !operation.equals(that.operation) :that.operation != null) return false;
-    if (subresource != null ? !subresource.equals(that.subresource) :that.subresource != null) return false;
-    if (time != null ? !time.equals(that.time) :that.time != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(fieldsType, that.fieldsType)) return false;
+
+    if (!java.util.Objects.equals(fieldsV1, that.fieldsV1)) return false;
+
+    if (!java.util.Objects.equals(manager, that.manager)) return false;
+
+    if (!java.util.Objects.equals(operation, that.operation)) return false;
+
+    if (!java.util.Objects.equals(subresource, that.subresource)) return false;
+
+    if (!java.util.Objects.equals(time, that.time)) return false;
+
     return true;
   }
   public int hashCode() {

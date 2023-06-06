@@ -20,8 +20,9 @@ public class V1ExecActionBuilder extends V1ExecActionFluentImpl<V1ExecActionBuil
   }
   public V1ExecActionBuilder(V1ExecActionFluent<?> fluent,V1ExecAction instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCommand(instance.getCommand());
-
+    if (instance != null) {
+      fluent.withCommand(instance.getCommand());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ExecActionBuilder(V1ExecAction instance) {
@@ -29,8 +30,9 @@ public class V1ExecActionBuilder extends V1ExecActionFluentImpl<V1ExecActionBuil
   }
   public V1ExecActionBuilder(V1ExecAction instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCommand(instance.getCommand());
-
+    if (instance != null) {
+      this.withCommand(instance.getCommand());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ExecActionFluent<?> fluent;

@@ -4,7 +4,6 @@ import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.lang.Byte;
 import io.kubernetes.client.fluent.BaseFluent;
@@ -21,18 +20,17 @@ import java.lang.Boolean;
   public ApiextensionsV1WebhookClientConfigFluentImpl() {
   }
   public ApiextensionsV1WebhookClientConfigFluentImpl(ApiextensionsV1WebhookClientConfig instance) {
-    this.withCaBundle(instance.getCaBundle());
-
-    this.withService(instance.getService());
-
-    this.withUrl(instance.getUrl());
-
+    if (instance != null) {
+      this.withCaBundle(instance.getCaBundle());
+      this.withService(instance.getService());
+      this.withUrl(instance.getUrl());
+    }
   }
   private List<Byte> caBundle;
   private ApiextensionsV1ServiceReferenceBuilder service;
   private String url;
   public A withCaBundle(byte... caBundle) {
-    if (this.caBundle != null) {this.caBundle.clear();}
+    if (this.caBundle != null) {this.caBundle.clear(); _visitables.remove("caBundle"); }
     if (caBundle != null) {for (byte item :caBundle){ this.addToCaBundle(item);}} return (A) this;
   }
   public byte[] getCaBundle() {
@@ -49,12 +47,12 @@ for (byte item : caBundle) {
 return result;
 
   }
-  public A addToCaBundle(Integer index,Byte item) {
+  public A addToCaBundle(int index,Byte item) {
     if (this.caBundle == null) {this.caBundle =  new ArrayList<Byte>();}
     this.caBundle.add(index, item);
     return (A)this;
   }
-  public A setToCaBundle(Integer index,Byte item) {
+  public A setToCaBundle(int index,Byte item) {
     if (this.caBundle == null) {this.caBundle =  new ArrayList<Byte>();}
     this.caBundle.set(index, item); return (A)this;
   }
@@ -94,19 +92,19 @@ return result;
   public Boolean hasService() {
     return this.service != null;
   }
-  public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> withNewService() {
+  public ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNested<A> withNewService() {
     return new ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNestedImpl();
   }
-  public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> withNewServiceLike(ApiextensionsV1ServiceReference item) {
+  public ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNested<A> withNewServiceLike(ApiextensionsV1ServiceReference item) {
     return new ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNestedImpl(item);
   }
-  public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> editService() {
+  public ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNested<A> editService() {
     return withNewServiceLike(getService());
   }
-  public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> editOrNewService() {
+  public ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNested<A> editOrNewService() {
     return withNewServiceLike(getService() != null ? getService(): new ApiextensionsV1ServiceReferenceBuilder().build());
   }
-  public ApiextensionsV1WebhookClientConfigFluent.ServiceNested<A> editOrNewServiceLike(ApiextensionsV1ServiceReference item) {
+  public ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNested<A> editOrNewServiceLike(ApiextensionsV1ServiceReference item) {
     return withNewServiceLike(getService() != null ? getService(): item);
   }
   public String getUrl() {
@@ -121,10 +119,14 @@ return result;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     ApiextensionsV1WebhookClientConfigFluentImpl that = (ApiextensionsV1WebhookClientConfigFluentImpl) o;
-    if (caBundle != null ? !caBundle.equals(that.caBundle) :that.caBundle != null) return false;
-    if (service != null ? !service.equals(that.service) :that.service != null) return false;
-    if (url != null ? !url.equals(that.url) :that.url != null) return false;
+    if (!java.util.Objects.equals(caBundle, that.caBundle)) return false;
+
+    if (!java.util.Objects.equals(service, that.service)) return false;
+
+    if (!java.util.Objects.equals(url, that.url)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -139,7 +141,7 @@ return result;
     sb.append("}");
     return sb.toString();
   }
-  class ServiceNestedImpl<N> extends ApiextensionsV1ServiceReferenceFluentImpl<ApiextensionsV1WebhookClientConfigFluent.ServiceNested<N>> implements ApiextensionsV1WebhookClientConfigFluent.ServiceNested<N>,Nested<N>{
+  class ServiceNestedImpl<N> extends ApiextensionsV1ServiceReferenceFluentImpl<ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNested<N>> implements ApiextensionsV1WebhookClientConfigFluentImpl.ServiceNested<N>,Nested<N>{
     ServiceNestedImpl(ApiextensionsV1ServiceReference item) {
       this.builder = new ApiextensionsV1ServiceReferenceBuilder(this, item);
     }

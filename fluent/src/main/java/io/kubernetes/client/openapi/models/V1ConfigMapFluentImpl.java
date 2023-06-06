@@ -18,18 +18,14 @@ import java.util.Map;
   public V1ConfigMapFluentImpl() {
   }
   public V1ConfigMapFluentImpl(V1ConfigMap instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withBinaryData(instance.getBinaryData());
-
-    this.withData(instance.getData());
-
-    this.withImmutable(instance.getImmutable());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withBinaryData(instance.getBinaryData());
+      this.withData(instance.getData());
+      this.withImmutable(instance.getImmutable());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
   }
   private String apiVersion;
   private Map<String,byte[]> binaryData;
@@ -133,31 +129,38 @@ import java.util.Map;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1ConfigMapFluent.MetadataNested<A> withNewMetadata() {
+  public V1ConfigMapFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1ConfigMapFluentImpl.MetadataNestedImpl();
   }
-  public V1ConfigMapFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1ConfigMapFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1ConfigMapFluentImpl.MetadataNestedImpl(item);
   }
-  public V1ConfigMapFluent.MetadataNested<A> editMetadata() {
+  public V1ConfigMapFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1ConfigMapFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1ConfigMapFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1ConfigMapFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1ConfigMapFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ConfigMapFluentImpl that = (V1ConfigMapFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (binaryData != null ? !binaryData.equals(that.binaryData) :that.binaryData != null) return false;
-    if (data != null ? !data.equals(that.data) :that.data != null) return false;
-    if (immutable != null ? !immutable.equals(that.immutable) :that.immutable != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(binaryData, that.binaryData)) return false;
+
+    if (!java.util.Objects.equals(data, that.data)) return false;
+
+    if (!java.util.Objects.equals(immutable, that.immutable)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -178,7 +181,7 @@ import java.util.Map;
   public A withImmutable() {
     return withImmutable(true);
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ConfigMapFluent.MetadataNested<N>> implements V1ConfigMapFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ConfigMapFluentImpl.MetadataNested<N>> implements V1ConfigMapFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }

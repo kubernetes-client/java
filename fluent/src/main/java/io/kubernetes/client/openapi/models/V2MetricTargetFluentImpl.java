@@ -16,14 +16,12 @@ import java.lang.Boolean;
   public V2MetricTargetFluentImpl() {
   }
   public V2MetricTargetFluentImpl(V2MetricTarget instance) {
-    this.withAverageUtilization(instance.getAverageUtilization());
-
-    this.withAverageValue(instance.getAverageValue());
-
-    this.withType(instance.getType());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withAverageUtilization(instance.getAverageUtilization());
+      this.withAverageValue(instance.getAverageValue());
+      this.withType(instance.getType());
+      this.withValue(instance.getValue());
+    }
   }
   private Integer averageUtilization;
   private Quantity averageValue;
@@ -74,11 +72,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2MetricTargetFluentImpl that = (V2MetricTargetFluentImpl) o;
-    if (averageUtilization != null ? !averageUtilization.equals(that.averageUtilization) :that.averageUtilization != null) return false;
-    if (averageValue != null ? !averageValue.equals(that.averageValue) :that.averageValue != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
-    if (value != null ? !value.equals(that.value) :that.value != null) return false;
+    if (!java.util.Objects.equals(averageUtilization, that.averageUtilization)) return false;
+
+    if (!java.util.Objects.equals(averageValue, that.averageValue)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
+    if (!java.util.Objects.equals(value, that.value)) return false;
+
     return true;
   }
   public int hashCode() {

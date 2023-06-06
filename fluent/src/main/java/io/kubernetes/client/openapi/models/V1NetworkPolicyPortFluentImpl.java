@@ -16,12 +16,11 @@ import java.lang.Boolean;
   public V1NetworkPolicyPortFluentImpl() {
   }
   public V1NetworkPolicyPortFluentImpl(V1NetworkPolicyPort instance) {
-    this.withEndPort(instance.getEndPort());
-
-    this.withPort(instance.getPort());
-
-    this.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      this.withEndPort(instance.getEndPort());
+      this.withPort(instance.getPort());
+      this.withProtocol(instance.getProtocol());
+    }
   }
   private Integer endPort;
   private IntOrString port;
@@ -62,10 +61,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NetworkPolicyPortFluentImpl that = (V1NetworkPolicyPortFluentImpl) o;
-    if (endPort != null ? !endPort.equals(that.endPort) :that.endPort != null) return false;
-    if (port != null ? !port.equals(that.port) :that.port != null) return false;
-    if (protocol != null ? !protocol.equals(that.protocol) :that.protocol != null) return false;
+    if (!java.util.Objects.equals(endPort, that.endPort)) return false;
+
+    if (!java.util.Objects.equals(port, that.port)) return false;
+
+    if (!java.util.Objects.equals(protocol, that.protocol)) return false;
+
     return true;
   }
   public int hashCode() {

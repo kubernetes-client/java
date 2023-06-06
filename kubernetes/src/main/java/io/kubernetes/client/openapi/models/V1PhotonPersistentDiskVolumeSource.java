@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** Represents a Photon Controller persistent disk resource. */
+/**
+ * Represents a Photon Controller persistent disk resource.
+ */
 @ApiModel(description = "Represents a Photon Controller persistent disk resource.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1PhotonPersistentDiskVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
-
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
   private String fsType;
 
   public static final String SERIALIZED_NAME_PD_I_D = "pdID";
-
   @SerializedName(SERIALIZED_NAME_PD_I_D)
   private String pdID;
+
 
   public V1PhotonPersistentDiskVolumeSource fsType(String fsType) {
 
@@ -39,24 +44,22 @@ public class V1PhotonPersistentDiskVolumeSource {
     return this;
   }
 
-  /**
-   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host
-   * operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly
-   * inferred to be \&quot;ext4\&quot; if unspecified.
-   *
+   /**
+   * fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified.
    * @return fsType
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
+  @ApiModelProperty(value = "fsType is the filesystem type to mount. Must be a filesystem type supported by the host operating system. Ex. \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified.")
+
   public String getFsType() {
     return fsType;
   }
 
+
   public void setFsType(String fsType) {
     this.fsType = fsType;
   }
+
 
   public V1PhotonPersistentDiskVolumeSource pdID(String pdID) {
 
@@ -64,21 +67,21 @@ public class V1PhotonPersistentDiskVolumeSource {
     return this;
   }
 
-  /**
+   /**
    * pdID is the ID that identifies Photon Controller persistent disk
-   *
    * @return pdID
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "pdID is the ID that identifies Photon Controller persistent disk")
+  **/
+  @ApiModelProperty(required = true, value = "pdID is the ID that identifies Photon Controller persistent disk")
+
   public String getPdID() {
     return pdID;
   }
 
+
   public void setPdID(String pdID) {
     this.pdID = pdID;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -88,16 +91,16 @@ public class V1PhotonPersistentDiskVolumeSource {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1PhotonPersistentDiskVolumeSource v1PhotonPersistentDiskVolumeSource =
-        (V1PhotonPersistentDiskVolumeSource) o;
-    return Objects.equals(this.fsType, v1PhotonPersistentDiskVolumeSource.fsType)
-        && Objects.equals(this.pdID, v1PhotonPersistentDiskVolumeSource.pdID);
+    V1PhotonPersistentDiskVolumeSource v1PhotonPersistentDiskVolumeSource = (V1PhotonPersistentDiskVolumeSource) o;
+    return Objects.equals(this.fsType, v1PhotonPersistentDiskVolumeSource.fsType) &&
+        Objects.equals(this.pdID, v1PhotonPersistentDiskVolumeSource.pdID);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(fsType, pdID);
   }
+
 
   @Override
   public String toString() {
@@ -110,7 +113,8 @@ public class V1PhotonPersistentDiskVolumeSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -118,4 +122,5 @@ public class V1PhotonPersistentDiskVolumeSource {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

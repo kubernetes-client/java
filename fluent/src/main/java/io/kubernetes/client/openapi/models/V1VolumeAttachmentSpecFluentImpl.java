@@ -16,12 +16,11 @@ import java.lang.Boolean;
   public V1VolumeAttachmentSpecFluentImpl() {
   }
   public V1VolumeAttachmentSpecFluentImpl(V1VolumeAttachmentSpec instance) {
-    this.withAttacher(instance.getAttacher());
-
-    this.withNodeName(instance.getNodeName());
-
-    this.withSource(instance.getSource());
-
+    if (instance != null) {
+      this.withAttacher(instance.getAttacher());
+      this.withNodeName(instance.getNodeName());
+      this.withSource(instance.getSource());
+    }
   }
   private String attacher;
   private String nodeName;
@@ -63,28 +62,32 @@ import java.lang.Boolean;
   public Boolean hasSource() {
     return this.source != null;
   }
-  public V1VolumeAttachmentSpecFluent.SourceNested<A> withNewSource() {
+  public V1VolumeAttachmentSpecFluentImpl.SourceNested<A> withNewSource() {
     return new V1VolumeAttachmentSpecFluentImpl.SourceNestedImpl();
   }
-  public V1VolumeAttachmentSpecFluent.SourceNested<A> withNewSourceLike(V1VolumeAttachmentSource item) {
+  public V1VolumeAttachmentSpecFluentImpl.SourceNested<A> withNewSourceLike(V1VolumeAttachmentSource item) {
     return new V1VolumeAttachmentSpecFluentImpl.SourceNestedImpl(item);
   }
-  public V1VolumeAttachmentSpecFluent.SourceNested<A> editSource() {
+  public V1VolumeAttachmentSpecFluentImpl.SourceNested<A> editSource() {
     return withNewSourceLike(getSource());
   }
-  public V1VolumeAttachmentSpecFluent.SourceNested<A> editOrNewSource() {
+  public V1VolumeAttachmentSpecFluentImpl.SourceNested<A> editOrNewSource() {
     return withNewSourceLike(getSource() != null ? getSource(): new V1VolumeAttachmentSourceBuilder().build());
   }
-  public V1VolumeAttachmentSpecFluent.SourceNested<A> editOrNewSourceLike(V1VolumeAttachmentSource item) {
+  public V1VolumeAttachmentSpecFluentImpl.SourceNested<A> editOrNewSourceLike(V1VolumeAttachmentSource item) {
     return withNewSourceLike(getSource() != null ? getSource(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1VolumeAttachmentSpecFluentImpl that = (V1VolumeAttachmentSpecFluentImpl) o;
-    if (attacher != null ? !attacher.equals(that.attacher) :that.attacher != null) return false;
-    if (nodeName != null ? !nodeName.equals(that.nodeName) :that.nodeName != null) return false;
-    if (source != null ? !source.equals(that.source) :that.source != null) return false;
+    if (!java.util.Objects.equals(attacher, that.attacher)) return false;
+
+    if (!java.util.Objects.equals(nodeName, that.nodeName)) return false;
+
+    if (!java.util.Objects.equals(source, that.source)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -99,7 +102,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class SourceNestedImpl<N> extends V1VolumeAttachmentSourceFluentImpl<V1VolumeAttachmentSpecFluent.SourceNested<N>> implements V1VolumeAttachmentSpecFluent.SourceNested<N>,Nested<N>{
+  class SourceNestedImpl<N> extends V1VolumeAttachmentSourceFluentImpl<V1VolumeAttachmentSpecFluentImpl.SourceNested<N>> implements V1VolumeAttachmentSpecFluentImpl.SourceNested<N>,Nested<N>{
     SourceNestedImpl(V1VolumeAttachmentSource item) {
       this.builder = new V1VolumeAttachmentSourceBuilder(this, item);
     }

@@ -20,12 +20,11 @@ public class V1EndpointConditionsBuilder extends V1EndpointConditionsFluentImpl<
   }
   public V1EndpointConditionsBuilder(V1EndpointConditionsFluent<?> fluent,V1EndpointConditions instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withReady(instance.getReady());
-
-    fluent.withServing(instance.getServing());
-
-    fluent.withTerminating(instance.getTerminating());
-
+    if (instance != null) {
+      fluent.withReady(instance.getReady());
+      fluent.withServing(instance.getServing());
+      fluent.withTerminating(instance.getTerminating());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EndpointConditionsBuilder(V1EndpointConditions instance) {
@@ -33,12 +32,11 @@ public class V1EndpointConditionsBuilder extends V1EndpointConditionsFluentImpl<
   }
   public V1EndpointConditionsBuilder(V1EndpointConditions instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withReady(instance.getReady());
-
-    this.withServing(instance.getServing());
-
-    this.withTerminating(instance.getTerminating());
-
+    if (instance != null) {
+      this.withReady(instance.getReady());
+      this.withServing(instance.getServing());
+      this.withTerminating(instance.getTerminating());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EndpointConditionsFluent<?> fluent;

@@ -16,8 +16,9 @@ import java.lang.Boolean;
   public V1CustomResourceValidationFluentImpl() {
   }
   public V1CustomResourceValidationFluentImpl(V1CustomResourceValidation instance) {
-    this.withOpenAPIV3Schema(instance.getOpenAPIV3Schema());
-
+    if (instance != null) {
+      this.withOpenAPIV3Schema(instance.getOpenAPIV3Schema());
+    }
   }
   private V1JSONSchemaPropsBuilder openAPIV3Schema;
   
@@ -39,26 +40,28 @@ import java.lang.Boolean;
   public Boolean hasOpenAPIV3Schema() {
     return this.openAPIV3Schema != null;
   }
-  public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> withNewOpenAPIV3Schema() {
+  public V1CustomResourceValidationFluentImpl.OpenAPIV3SchemaNested<A> withNewOpenAPIV3Schema() {
     return new V1CustomResourceValidationFluentImpl.OpenAPIV3SchemaNestedImpl();
   }
-  public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> withNewOpenAPIV3SchemaLike(V1JSONSchemaProps item) {
+  public V1CustomResourceValidationFluentImpl.OpenAPIV3SchemaNested<A> withNewOpenAPIV3SchemaLike(V1JSONSchemaProps item) {
     return new V1CustomResourceValidationFluentImpl.OpenAPIV3SchemaNestedImpl(item);
   }
-  public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> editOpenAPIV3Schema() {
+  public V1CustomResourceValidationFluentImpl.OpenAPIV3SchemaNested<A> editOpenAPIV3Schema() {
     return withNewOpenAPIV3SchemaLike(getOpenAPIV3Schema());
   }
-  public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> editOrNewOpenAPIV3Schema() {
+  public V1CustomResourceValidationFluentImpl.OpenAPIV3SchemaNested<A> editOrNewOpenAPIV3Schema() {
     return withNewOpenAPIV3SchemaLike(getOpenAPIV3Schema() != null ? getOpenAPIV3Schema(): new V1JSONSchemaPropsBuilder().build());
   }
-  public V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<A> editOrNewOpenAPIV3SchemaLike(V1JSONSchemaProps item) {
+  public V1CustomResourceValidationFluentImpl.OpenAPIV3SchemaNested<A> editOrNewOpenAPIV3SchemaLike(V1JSONSchemaProps item) {
     return withNewOpenAPIV3SchemaLike(getOpenAPIV3Schema() != null ? getOpenAPIV3Schema(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CustomResourceValidationFluentImpl that = (V1CustomResourceValidationFluentImpl) o;
-    if (openAPIV3Schema != null ? !openAPIV3Schema.equals(that.openAPIV3Schema) :that.openAPIV3Schema != null) return false;
+    if (!java.util.Objects.equals(openAPIV3Schema, that.openAPIV3Schema)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -71,7 +74,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class OpenAPIV3SchemaNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<N>> implements V1CustomResourceValidationFluent.OpenAPIV3SchemaNested<N>,Nested<N>{
+  class OpenAPIV3SchemaNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1CustomResourceValidationFluentImpl.OpenAPIV3SchemaNested<N>> implements V1CustomResourceValidationFluentImpl.OpenAPIV3SchemaNested<N>,Nested<N>{
     OpenAPIV3SchemaNestedImpl(V1JSONSchemaProps item) {
       this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }

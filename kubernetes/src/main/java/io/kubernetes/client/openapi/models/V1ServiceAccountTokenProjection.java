@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,37 +12,35 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * ServiceAccountTokenProjection represents a projected service account token volume. This
- * projection can be used to insert a service account token into the pods runtime filesystem for use
- * against APIs (Kubernetes API Server or otherwise).
+ * ServiceAccountTokenProjection represents a projected service account token volume. This projection can be used to insert a service account token into the pods runtime filesystem for use against APIs (Kubernetes API Server or otherwise).
  */
-@ApiModel(
-    description =
-        "ServiceAccountTokenProjection represents a projected service account token volume. This projection can be used to insert a service account token into the pods runtime filesystem for use against APIs (Kubernetes API Server or otherwise).")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "ServiceAccountTokenProjection represents a projected service account token volume. This projection can be used to insert a service account token into the pods runtime filesystem for use against APIs (Kubernetes API Server or otherwise).")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1ServiceAccountTokenProjection {
   public static final String SERIALIZED_NAME_AUDIENCE = "audience";
-
   @SerializedName(SERIALIZED_NAME_AUDIENCE)
   private String audience;
 
   public static final String SERIALIZED_NAME_EXPIRATION_SECONDS = "expirationSeconds";
-
   @SerializedName(SERIALIZED_NAME_EXPIRATION_SECONDS)
   private Long expirationSeconds;
 
   public static final String SERIALIZED_NAME_PATH = "path";
-
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
+
 
   public V1ServiceAccountTokenProjection audience(String audience) {
 
@@ -50,24 +48,22 @@ public class V1ServiceAccountTokenProjection {
     return this;
   }
 
-  /**
-   * audience is the intended audience of the token. A recipient of a token must identify itself
-   * with an identifier specified in the audience of the token, and otherwise should reject the
-   * token. The audience defaults to the identifier of the apiserver.
-   *
+   /**
+   * audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.
    * @return audience
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.")
+  @ApiModelProperty(value = "audience is the intended audience of the token. A recipient of a token must identify itself with an identifier specified in the audience of the token, and otherwise should reject the token. The audience defaults to the identifier of the apiserver.")
+
   public String getAudience() {
     return audience;
   }
 
+
   public void setAudience(String audience) {
     this.audience = audience;
   }
+
 
   public V1ServiceAccountTokenProjection expirationSeconds(Long expirationSeconds) {
 
@@ -75,26 +71,22 @@ public class V1ServiceAccountTokenProjection {
     return this;
   }
 
-  /**
-   * expirationSeconds is the requested duration of validity of the service account token. As the
-   * token approaches expiration, the kubelet volume plugin will proactively rotate the service
-   * account token. The kubelet will start trying to rotate the token if the token is older than 80
-   * percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must
-   * be at least 10 minutes.
-   *
+   /**
+   * expirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.
    * @return expirationSeconds
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "expirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.")
+  @ApiModelProperty(value = "expirationSeconds is the requested duration of validity of the service account token. As the token approaches expiration, the kubelet volume plugin will proactively rotate the service account token. The kubelet will start trying to rotate the token if the token is older than 80 percent of its time to live or if the token is older than 24 hours.Defaults to 1 hour and must be at least 10 minutes.")
+
   public Long getExpirationSeconds() {
     return expirationSeconds;
   }
 
+
   public void setExpirationSeconds(Long expirationSeconds) {
     this.expirationSeconds = expirationSeconds;
   }
+
 
   public V1ServiceAccountTokenProjection path(String path) {
 
@@ -102,21 +94,21 @@ public class V1ServiceAccountTokenProjection {
     return this;
   }
 
-  /**
+   /**
    * path is the path relative to the mount point of the file to project the token into.
-   *
    * @return path
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "path is the path relative to the mount point of the file to project the token into.")
+  **/
+  @ApiModelProperty(required = true, value = "path is the path relative to the mount point of the file to project the token into.")
+
   public String getPath() {
     return path;
   }
 
+
   public void setPath(String path) {
     this.path = path;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -126,17 +118,17 @@ public class V1ServiceAccountTokenProjection {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    V1ServiceAccountTokenProjection v1ServiceAccountTokenProjection =
-        (V1ServiceAccountTokenProjection) o;
-    return Objects.equals(this.audience, v1ServiceAccountTokenProjection.audience)
-        && Objects.equals(this.expirationSeconds, v1ServiceAccountTokenProjection.expirationSeconds)
-        && Objects.equals(this.path, v1ServiceAccountTokenProjection.path);
+    V1ServiceAccountTokenProjection v1ServiceAccountTokenProjection = (V1ServiceAccountTokenProjection) o;
+    return Objects.equals(this.audience, v1ServiceAccountTokenProjection.audience) &&
+        Objects.equals(this.expirationSeconds, v1ServiceAccountTokenProjection.expirationSeconds) &&
+        Objects.equals(this.path, v1ServiceAccountTokenProjection.path);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(audience, expirationSeconds, path);
   }
+
 
   @Override
   public String toString() {
@@ -150,7 +142,8 @@ public class V1ServiceAccountTokenProjection {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -158,4 +151,5 @@ public class V1ServiceAccountTokenProjection {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

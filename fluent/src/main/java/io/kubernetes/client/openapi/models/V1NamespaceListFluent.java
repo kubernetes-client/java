@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1NamespaceListFluent<A extends V1NamespaceListFluent<A>> exten
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1Namespace item);
-  public A setToItems(Integer index,V1Namespace item);
+  public A addToItems(int index,V1Namespace item);
+  public A setToItems(int index,V1Namespace item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Namespace... items);
   public A addAllToItems(Collection<V1Namespace> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Namespace... items);
@@ -35,7 +35,7 @@ public interface V1NamespaceListFluent<A extends V1NamespaceListFluent<A>> exten
   @Deprecated
   public List<V1Namespace> getItems();
   public List<V1Namespace> buildItems();
-  public V1Namespace buildItem(Integer index);
+  public V1Namespace buildItem(int index);
   public V1Namespace buildFirstItem();
   public V1Namespace buildLastItem();
   public V1Namespace buildMatchingItem(Predicate<V1NamespaceBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1NamespaceListFluent<A extends V1NamespaceListFluent<A>> exten
   public Boolean hasItems();
   public V1NamespaceListFluent.ItemsNested<A> addNewItem();
   public V1NamespaceListFluent.ItemsNested<A> addNewItemLike(V1Namespace item);
-  public V1NamespaceListFluent.ItemsNested<A> setNewItemLike(Integer index,V1Namespace item);
-  public V1NamespaceListFluent.ItemsNested<A> editItem(Integer index);
+  public V1NamespaceListFluent.ItemsNested<A> setNewItemLike(int index,V1Namespace item);
+  public V1NamespaceListFluent.ItemsNested<A> editItem(int index);
   public V1NamespaceListFluent.ItemsNested<A> editFirstItem();
   public V1NamespaceListFluent.ItemsNested<A> editLastItem();
   public V1NamespaceListFluent.ItemsNested<A> editMatchingItem(Predicate<V1NamespaceBuilder> predicate);

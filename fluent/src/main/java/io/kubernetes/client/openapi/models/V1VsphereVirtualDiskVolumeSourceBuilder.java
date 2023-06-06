@@ -20,14 +20,12 @@ public class V1VsphereVirtualDiskVolumeSourceBuilder extends V1VsphereVirtualDis
   }
   public V1VsphereVirtualDiskVolumeSourceBuilder(V1VsphereVirtualDiskVolumeSourceFluent<?> fluent,V1VsphereVirtualDiskVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withStoragePolicyID(instance.getStoragePolicyID());
-
-    fluent.withStoragePolicyName(instance.getStoragePolicyName());
-
-    fluent.withVolumePath(instance.getVolumePath());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withStoragePolicyID(instance.getStoragePolicyID());
+      fluent.withStoragePolicyName(instance.getStoragePolicyName());
+      fluent.withVolumePath(instance.getVolumePath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VsphereVirtualDiskVolumeSourceBuilder(V1VsphereVirtualDiskVolumeSource instance) {
@@ -35,14 +33,12 @@ public class V1VsphereVirtualDiskVolumeSourceBuilder extends V1VsphereVirtualDis
   }
   public V1VsphereVirtualDiskVolumeSourceBuilder(V1VsphereVirtualDiskVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withStoragePolicyID(instance.getStoragePolicyID());
-
-    this.withStoragePolicyName(instance.getStoragePolicyName());
-
-    this.withVolumePath(instance.getVolumePath());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withStoragePolicyID(instance.getStoragePolicyID());
+      this.withStoragePolicyName(instance.getStoragePolicyName());
+      this.withVolumePath(instance.getVolumePath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VsphereVirtualDiskVolumeSourceFluent<?> fluent;

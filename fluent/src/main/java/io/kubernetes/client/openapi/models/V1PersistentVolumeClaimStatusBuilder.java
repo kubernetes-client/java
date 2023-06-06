@@ -20,18 +20,14 @@ public class V1PersistentVolumeClaimStatusBuilder extends V1PersistentVolumeClai
   }
   public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatusFluent<?> fluent,V1PersistentVolumeClaimStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAccessModes(instance.getAccessModes());
-
-    fluent.withAllocatedResources(instance.getAllocatedResources());
-
-    fluent.withCapacity(instance.getCapacity());
-
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withPhase(instance.getPhase());
-
-    fluent.withResizeStatus(instance.getResizeStatus());
-
+    if (instance != null) {
+      fluent.withAccessModes(instance.getAccessModes());
+      fluent.withAllocatedResources(instance.getAllocatedResources());
+      fluent.withCapacity(instance.getCapacity());
+      fluent.withConditions(instance.getConditions());
+      fluent.withPhase(instance.getPhase());
+      fluent.withResizeStatus(instance.getResizeStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatus instance) {
@@ -39,18 +35,14 @@ public class V1PersistentVolumeClaimStatusBuilder extends V1PersistentVolumeClai
   }
   public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAccessModes(instance.getAccessModes());
-
-    this.withAllocatedResources(instance.getAllocatedResources());
-
-    this.withCapacity(instance.getCapacity());
-
-    this.withConditions(instance.getConditions());
-
-    this.withPhase(instance.getPhase());
-
-    this.withResizeStatus(instance.getResizeStatus());
-
+    if (instance != null) {
+      this.withAccessModes(instance.getAccessModes());
+      this.withAllocatedResources(instance.getAllocatedResources());
+      this.withCapacity(instance.getCapacity());
+      this.withConditions(instance.getConditions());
+      this.withPhase(instance.getPhase());
+      this.withResizeStatus(instance.getResizeStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PersistentVolumeClaimStatusFluent<?> fluent;

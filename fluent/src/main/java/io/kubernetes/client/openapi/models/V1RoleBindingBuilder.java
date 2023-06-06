@@ -20,16 +20,13 @@ public class V1RoleBindingBuilder extends V1RoleBindingFluentImpl<V1RoleBindingB
   }
   public V1RoleBindingBuilder(V1RoleBindingFluent<?> fluent,V1RoleBinding instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withRoleRef(instance.getRoleRef());
-
-    fluent.withSubjects(instance.getSubjects());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withRoleRef(instance.getRoleRef());
+      fluent.withSubjects(instance.getSubjects());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1RoleBindingBuilder(V1RoleBinding instance) {
@@ -37,16 +34,13 @@ public class V1RoleBindingBuilder extends V1RoleBindingFluentImpl<V1RoleBindingB
   }
   public V1RoleBindingBuilder(V1RoleBinding instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withRoleRef(instance.getRoleRef());
-
-    this.withSubjects(instance.getSubjects());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withRoleRef(instance.getRoleRef());
+      this.withSubjects(instance.getSubjects());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1RoleBindingFluent<?> fluent;

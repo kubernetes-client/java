@@ -16,14 +16,12 @@ import java.lang.Boolean;
   public V1PodTemplateFluentImpl() {
   }
   public V1PodTemplateFluentImpl(V1PodTemplate instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withTemplate(instance.getTemplate());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withTemplate(instance.getTemplate());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -66,19 +64,19 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1PodTemplateFluent.MetadataNested<A> withNewMetadata() {
+  public V1PodTemplateFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1PodTemplateFluentImpl.MetadataNestedImpl();
   }
-  public V1PodTemplateFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1PodTemplateFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1PodTemplateFluentImpl.MetadataNestedImpl(item);
   }
-  public V1PodTemplateFluent.MetadataNested<A> editMetadata() {
+  public V1PodTemplateFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1PodTemplateFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1PodTemplateFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1PodTemplateFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1PodTemplateFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -100,29 +98,34 @@ import java.lang.Boolean;
   public Boolean hasTemplate() {
     return this.template != null;
   }
-  public V1PodTemplateFluent.TemplateNested<A> withNewTemplate() {
+  public V1PodTemplateFluentImpl.TemplateNested<A> withNewTemplate() {
     return new V1PodTemplateFluentImpl.TemplateNestedImpl();
   }
-  public V1PodTemplateFluent.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
+  public V1PodTemplateFluentImpl.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
     return new V1PodTemplateFluentImpl.TemplateNestedImpl(item);
   }
-  public V1PodTemplateFluent.TemplateNested<A> editTemplate() {
+  public V1PodTemplateFluentImpl.TemplateNested<A> editTemplate() {
     return withNewTemplateLike(getTemplate());
   }
-  public V1PodTemplateFluent.TemplateNested<A> editOrNewTemplate() {
+  public V1PodTemplateFluentImpl.TemplateNested<A> editOrNewTemplate() {
     return withNewTemplateLike(getTemplate() != null ? getTemplate(): new V1PodTemplateSpecBuilder().build());
   }
-  public V1PodTemplateFluent.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
+  public V1PodTemplateFluentImpl.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
     return withNewTemplateLike(getTemplate() != null ? getTemplate(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodTemplateFluentImpl that = (V1PodTemplateFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (template != null ? !template.equals(that.template) :that.template != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(template, that.template)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -138,7 +141,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1PodTemplateFluent.MetadataNested<N>> implements V1PodTemplateFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1PodTemplateFluentImpl.MetadataNested<N>> implements V1PodTemplateFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -154,7 +157,7 @@ import java.lang.Boolean;
     }
     
   }
-  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1PodTemplateFluent.TemplateNested<N>> implements V1PodTemplateFluent.TemplateNested<N>,Nested<N>{
+  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1PodTemplateFluentImpl.TemplateNested<N>> implements V1PodTemplateFluentImpl.TemplateNested<N>,Nested<N>{
     TemplateNestedImpl(V1PodTemplateSpec item) {
       this.builder = new V1PodTemplateSpecBuilder(this, item);
     }

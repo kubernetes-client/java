@@ -16,14 +16,12 @@ import java.lang.Boolean;
   public V1EndpointAddressFluentImpl() {
   }
   public V1EndpointAddressFluentImpl(V1EndpointAddress instance) {
-    this.withHostname(instance.getHostname());
-
-    this.withIp(instance.getIp());
-
-    this.withNodeName(instance.getNodeName());
-
-    this.withTargetRef(instance.getTargetRef());
-
+    if (instance != null) {
+      this.withHostname(instance.getHostname());
+      this.withIp(instance.getIp());
+      this.withNodeName(instance.getNodeName());
+      this.withTargetRef(instance.getTargetRef());
+    }
   }
   private String hostname;
   private String ip;
@@ -75,29 +73,34 @@ import java.lang.Boolean;
   public Boolean hasTargetRef() {
     return this.targetRef != null;
   }
-  public V1EndpointAddressFluent.TargetRefNested<A> withNewTargetRef() {
+  public V1EndpointAddressFluentImpl.TargetRefNested<A> withNewTargetRef() {
     return new V1EndpointAddressFluentImpl.TargetRefNestedImpl();
   }
-  public V1EndpointAddressFluent.TargetRefNested<A> withNewTargetRefLike(V1ObjectReference item) {
+  public V1EndpointAddressFluentImpl.TargetRefNested<A> withNewTargetRefLike(V1ObjectReference item) {
     return new V1EndpointAddressFluentImpl.TargetRefNestedImpl(item);
   }
-  public V1EndpointAddressFluent.TargetRefNested<A> editTargetRef() {
+  public V1EndpointAddressFluentImpl.TargetRefNested<A> editTargetRef() {
     return withNewTargetRefLike(getTargetRef());
   }
-  public V1EndpointAddressFluent.TargetRefNested<A> editOrNewTargetRef() {
+  public V1EndpointAddressFluentImpl.TargetRefNested<A> editOrNewTargetRef() {
     return withNewTargetRefLike(getTargetRef() != null ? getTargetRef(): new V1ObjectReferenceBuilder().build());
   }
-  public V1EndpointAddressFluent.TargetRefNested<A> editOrNewTargetRefLike(V1ObjectReference item) {
+  public V1EndpointAddressFluentImpl.TargetRefNested<A> editOrNewTargetRefLike(V1ObjectReference item) {
     return withNewTargetRefLike(getTargetRef() != null ? getTargetRef(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EndpointAddressFluentImpl that = (V1EndpointAddressFluentImpl) o;
-    if (hostname != null ? !hostname.equals(that.hostname) :that.hostname != null) return false;
-    if (ip != null ? !ip.equals(that.ip) :that.ip != null) return false;
-    if (nodeName != null ? !nodeName.equals(that.nodeName) :that.nodeName != null) return false;
-    if (targetRef != null ? !targetRef.equals(that.targetRef) :that.targetRef != null) return false;
+    if (!java.util.Objects.equals(hostname, that.hostname)) return false;
+
+    if (!java.util.Objects.equals(ip, that.ip)) return false;
+
+    if (!java.util.Objects.equals(nodeName, that.nodeName)) return false;
+
+    if (!java.util.Objects.equals(targetRef, that.targetRef)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -113,7 +116,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class TargetRefNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1EndpointAddressFluent.TargetRefNested<N>> implements V1EndpointAddressFluent.TargetRefNested<N>,Nested<N>{
+  class TargetRefNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1EndpointAddressFluentImpl.TargetRefNested<N>> implements V1EndpointAddressFluentImpl.TargetRefNested<N>,Nested<N>{
     TargetRefNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }

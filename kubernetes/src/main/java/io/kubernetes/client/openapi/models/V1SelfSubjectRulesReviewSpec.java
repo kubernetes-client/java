@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,23 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview. */
-@ApiModel(
-    description =
-        "SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.
+ */
+@ApiModel(description = "SelfSubjectRulesReviewSpec defines the specification for SelfSubjectRulesReview.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1SelfSubjectRulesReviewSpec {
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
-
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
   private String namespace;
+
 
   public V1SelfSubjectRulesReviewSpec namespace(String namespace) {
 
@@ -36,20 +40,22 @@ public class V1SelfSubjectRulesReviewSpec {
     return this;
   }
 
-  /**
+   /**
    * Namespace to evaluate rules for. Required.
-   *
    * @return namespace
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Namespace to evaluate rules for. Required.")
+
   public String getNamespace() {
     return namespace;
   }
 
+
   public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -68,6 +74,7 @@ public class V1SelfSubjectRulesReviewSpec {
     return Objects.hash(namespace);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -78,7 +85,8 @@ public class V1SelfSubjectRulesReviewSpec {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -86,4 +94,5 @@ public class V1SelfSubjectRulesReviewSpec {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

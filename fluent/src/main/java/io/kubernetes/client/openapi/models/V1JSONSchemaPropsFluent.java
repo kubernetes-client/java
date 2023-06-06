@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
@@ -12,7 +13,6 @@ import java.util.List;
 import java.lang.Boolean;
 import io.kubernetes.client.fluent.Fluent;
 import java.lang.Double;
-import java.lang.Integer;
 import java.lang.Long;
 import java.util.Collection;
 import java.lang.Object;
@@ -34,8 +34,8 @@ public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> e
   public Object getAdditionalProperties();
   public A withAdditionalProperties(Object additionalProperties);
   public Boolean hasAdditionalProperties();
-  public A addToAllOf(Integer index,V1JSONSchemaProps item);
-  public A setToAllOf(Integer index,V1JSONSchemaProps item);
+  public A addToAllOf(int index,V1JSONSchemaProps item);
+  public A setToAllOf(int index,V1JSONSchemaProps item);
   public A addToAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items);
   public A addAllToAllOf(Collection<V1JSONSchemaProps> items);
   public A removeFromAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items);
@@ -49,7 +49,7 @@ public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> e
   @Deprecated
   public List<V1JSONSchemaProps> getAllOf();
   public List<V1JSONSchemaProps> buildAllOf();
-  public V1JSONSchemaProps buildAllOf(Integer index);
+  public V1JSONSchemaProps buildAllOf(int index);
   public V1JSONSchemaProps buildFirstAllOf();
   public V1JSONSchemaProps buildLastAllOf();
   public V1JSONSchemaProps buildMatchingAllOf(Predicate<V1JSONSchemaPropsBuilder> predicate);
@@ -59,13 +59,13 @@ public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> e
   public Boolean hasAllOf();
   public V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOf();
   public V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOfLike(V1JSONSchemaProps item);
-  public V1JSONSchemaPropsFluent.AllOfNested<A> setNewAllOfLike(Integer index,V1JSONSchemaProps item);
-  public V1JSONSchemaPropsFluent.AllOfNested<A> editAllOf(Integer index);
+  public V1JSONSchemaPropsFluent.AllOfNested<A> setNewAllOfLike(int index,V1JSONSchemaProps item);
+  public V1JSONSchemaPropsFluent.AllOfNested<A> editAllOf(int index);
   public V1JSONSchemaPropsFluent.AllOfNested<A> editFirstAllOf();
   public V1JSONSchemaPropsFluent.AllOfNested<A> editLastAllOf();
   public V1JSONSchemaPropsFluent.AllOfNested<A> editMatchingAllOf(Predicate<V1JSONSchemaPropsBuilder> predicate);
-  public A addToAnyOf(Integer index,V1JSONSchemaProps item);
-  public A setToAnyOf(Integer index,V1JSONSchemaProps item);
+  public A addToAnyOf(int index,V1JSONSchemaProps item);
+  public A setToAnyOf(int index,V1JSONSchemaProps item);
   public A addToAnyOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items);
   public A addAllToAnyOf(Collection<V1JSONSchemaProps> items);
   public A removeFromAnyOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items);
@@ -79,7 +79,7 @@ public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> e
   @Deprecated
   public List<V1JSONSchemaProps> getAnyOf();
   public List<V1JSONSchemaProps> buildAnyOf();
-  public V1JSONSchemaProps buildAnyOf(Integer index);
+  public V1JSONSchemaProps buildAnyOf(int index);
   public V1JSONSchemaProps buildFirstAnyOf();
   public V1JSONSchemaProps buildLastAnyOf();
   public V1JSONSchemaProps buildMatchingAnyOf(Predicate<V1JSONSchemaPropsBuilder> predicate);
@@ -89,8 +89,8 @@ public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> e
   public Boolean hasAnyOf();
   public V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOf();
   public V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOfLike(V1JSONSchemaProps item);
-  public V1JSONSchemaPropsFluent.AnyOfNested<A> setNewAnyOfLike(Integer index,V1JSONSchemaProps item);
-  public V1JSONSchemaPropsFluent.AnyOfNested<A> editAnyOf(Integer index);
+  public V1JSONSchemaPropsFluent.AnyOfNested<A> setNewAnyOfLike(int index,V1JSONSchemaProps item);
+  public V1JSONSchemaPropsFluent.AnyOfNested<A> editAnyOf(int index);
   public V1JSONSchemaPropsFluent.AnyOfNested<A> editFirstAnyOf();
   public V1JSONSchemaPropsFluent.AnyOfNested<A> editLastAnyOf();
   public V1JSONSchemaPropsFluent.AnyOfNested<A> editMatchingAnyOf(Predicate<V1JSONSchemaPropsBuilder> predicate);
@@ -114,14 +114,14 @@ public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> e
   public String getDescription();
   public A withDescription(String description);
   public Boolean hasDescription();
-  public A addToEnum(Integer index,Object item);
-  public A setToEnum(Integer index,Object item);
+  public A addToEnum(int index,Object item);
+  public A setToEnum(int index,Object item);
   public A addToEnum(java.lang.Object... items);
   public A addAllToEnum(Collection<Object> items);
   public A removeFromEnum(java.lang.Object... items);
   public A removeAllFromEnum(Collection<Object> items);
   public List<Object> getEnum();
-  public Object getEnum(Integer index);
+  public Object getEnum(int index);
   public Object getFirstEnum();
   public Object getLastEnum();
   public Object getMatchingEnum(Predicate<Object> predicate);
@@ -207,8 +207,8 @@ public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> e
   public Boolean getNullable();
   public A withNullable(Boolean nullable);
   public Boolean hasNullable();
-  public A addToOneOf(Integer index,V1JSONSchemaProps item);
-  public A setToOneOf(Integer index,V1JSONSchemaProps item);
+  public A addToOneOf(int index,V1JSONSchemaProps item);
+  public A setToOneOf(int index,V1JSONSchemaProps item);
   public A addToOneOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items);
   public A addAllToOneOf(Collection<V1JSONSchemaProps> items);
   public A removeFromOneOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items);
@@ -222,7 +222,7 @@ public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> e
   @Deprecated
   public List<V1JSONSchemaProps> getOneOf();
   public List<V1JSONSchemaProps> buildOneOf();
-  public V1JSONSchemaProps buildOneOf(Integer index);
+  public V1JSONSchemaProps buildOneOf(int index);
   public V1JSONSchemaProps buildFirstOneOf();
   public V1JSONSchemaProps buildLastOneOf();
   public V1JSONSchemaProps buildMatchingOneOf(Predicate<V1JSONSchemaPropsBuilder> predicate);
@@ -232,8 +232,8 @@ public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> e
   public Boolean hasOneOf();
   public V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOf();
   public V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOfLike(V1JSONSchemaProps item);
-  public V1JSONSchemaPropsFluent.OneOfNested<A> setNewOneOfLike(Integer index,V1JSONSchemaProps item);
-  public V1JSONSchemaPropsFluent.OneOfNested<A> editOneOf(Integer index);
+  public V1JSONSchemaPropsFluent.OneOfNested<A> setNewOneOfLike(int index,V1JSONSchemaProps item);
+  public V1JSONSchemaPropsFluent.OneOfNested<A> editOneOf(int index);
   public V1JSONSchemaPropsFluent.OneOfNested<A> editFirstOneOf();
   public V1JSONSchemaPropsFluent.OneOfNested<A> editLastOneOf();
   public V1JSONSchemaPropsFluent.OneOfNested<A> editMatchingOneOf(Predicate<V1JSONSchemaPropsBuilder> predicate);
@@ -254,14 +254,14 @@ public interface V1JSONSchemaPropsFluent<A extends V1JSONSchemaPropsFluent<A>> e
   public Map<String,V1JSONSchemaProps> getProperties();
   public <K,V>A withProperties(Map<String,V1JSONSchemaProps> properties);
   public Boolean hasProperties();
-  public A addToRequired(Integer index,String item);
-  public A setToRequired(Integer index,String item);
+  public A addToRequired(int index,String item);
+  public A setToRequired(int index,String item);
   public A addToRequired(java.lang.String... items);
   public A addAllToRequired(Collection<String> items);
   public A removeFromRequired(java.lang.String... items);
   public A removeAllFromRequired(Collection<String> items);
   public List<String> getRequired();
-  public String getRequired(Integer index);
+  public String getRequired(int index);
   public String getFirstRequired();
   public String getLastRequired();
   public String getMatchingRequired(Predicate<String> predicate);

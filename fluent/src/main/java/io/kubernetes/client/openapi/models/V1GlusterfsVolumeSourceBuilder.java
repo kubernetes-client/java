@@ -20,12 +20,11 @@ public class V1GlusterfsVolumeSourceBuilder extends V1GlusterfsVolumeSourceFluen
   }
   public V1GlusterfsVolumeSourceBuilder(V1GlusterfsVolumeSourceFluent<?> fluent,V1GlusterfsVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withEndpoints(instance.getEndpoints());
-
-    fluent.withPath(instance.getPath());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      fluent.withEndpoints(instance.getEndpoints());
+      fluent.withPath(instance.getPath());
+      fluent.withReadOnly(instance.getReadOnly());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1GlusterfsVolumeSourceBuilder(V1GlusterfsVolumeSource instance) {
@@ -33,12 +32,11 @@ public class V1GlusterfsVolumeSourceBuilder extends V1GlusterfsVolumeSourceFluen
   }
   public V1GlusterfsVolumeSourceBuilder(V1GlusterfsVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withEndpoints(instance.getEndpoints());
-
-    this.withPath(instance.getPath());
-
-    this.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      this.withEndpoints(instance.getEndpoints());
+      this.withPath(instance.getPath());
+      this.withReadOnly(instance.getReadOnly());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1GlusterfsVolumeSourceFluent<?> fluent;

@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,32 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1IngressClassParametersReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** IngressClassSpec provides information about the class of an Ingress. */
+/**
+ * IngressClassSpec provides information about the class of an Ingress.
+ */
 @ApiModel(description = "IngressClassSpec provides information about the class of an Ingress.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1IngressClassSpec {
   public static final String SERIALIZED_NAME_CONTROLLER = "controller";
-
   @SerializedName(SERIALIZED_NAME_CONTROLLER)
   private String controller;
 
   public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
-
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private V1IngressClassParametersReference parameters;
+
 
   public V1IngressClassSpec controller(String controller) {
 
@@ -39,26 +45,22 @@ public class V1IngressClassSpec {
     return this;
   }
 
-  /**
-   * Controller refers to the name of the controller that should handle this class. This allows for
-   * different \&quot;flavors\&quot; that are controlled by the same controller. For example, you
-   * may have different Parameters for the same implementing controller. This should be specified as
-   * a domain-prefixed path no more than 250 characters in length, e.g.
-   * \&quot;acme.io/ingress-controller\&quot;. This field is immutable.
-   *
+   /**
+   * controller refers to the name of the controller that should handle this class. This allows for different \&quot;flavors\&quot; that are controlled by the same controller. For example, you may have different parameters for the same implementing controller. This should be specified as a domain-prefixed path no more than 250 characters in length, e.g. \&quot;acme.io/ingress-controller\&quot;. This field is immutable.
    * @return controller
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Controller refers to the name of the controller that should handle this class. This allows for different \"flavors\" that are controlled by the same controller. For example, you may have different Parameters for the same implementing controller. This should be specified as a domain-prefixed path no more than 250 characters in length, e.g. \"acme.io/ingress-controller\". This field is immutable.")
+  @ApiModelProperty(value = "controller refers to the name of the controller that should handle this class. This allows for different \"flavors\" that are controlled by the same controller. For example, you may have different parameters for the same implementing controller. This should be specified as a domain-prefixed path no more than 250 characters in length, e.g. \"acme.io/ingress-controller\". This field is immutable.")
+
   public String getController() {
     return controller;
   }
 
+
   public void setController(String controller) {
     this.controller = controller;
   }
+
 
   public V1IngressClassSpec parameters(V1IngressClassParametersReference parameters) {
 
@@ -66,20 +68,22 @@ public class V1IngressClassSpec {
     return this;
   }
 
-  /**
+   /**
    * Get parameters
-   *
    * @return parameters
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1IngressClassParametersReference getParameters() {
     return parameters;
   }
 
+
   public void setParameters(V1IngressClassParametersReference parameters) {
     this.parameters = parameters;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -90,14 +94,15 @@ public class V1IngressClassSpec {
       return false;
     }
     V1IngressClassSpec v1IngressClassSpec = (V1IngressClassSpec) o;
-    return Objects.equals(this.controller, v1IngressClassSpec.controller)
-        && Objects.equals(this.parameters, v1IngressClassSpec.parameters);
+    return Objects.equals(this.controller, v1IngressClassSpec.controller) &&
+        Objects.equals(this.parameters, v1IngressClassSpec.parameters);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(controller, parameters);
   }
+
 
   @Override
   public String toString() {
@@ -110,7 +115,8 @@ public class V1IngressClassSpec {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -118,4 +124,5 @@ public class V1IngressClassSpec {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

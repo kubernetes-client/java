@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,24 +12,30 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1ForZone;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** EndpointHints provides hints describing how an endpoint should be consumed. */
-@ApiModel(
-    description = "EndpointHints provides hints describing how an endpoint should be consumed.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * EndpointHints provides hints describing how an endpoint should be consumed.
+ */
+@ApiModel(description = "EndpointHints provides hints describing how an endpoint should be consumed.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1EndpointHints {
   public static final String SERIALIZED_NAME_FOR_ZONES = "forZones";
-
   @SerializedName(SERIALIZED_NAME_FOR_ZONES)
   private List<V1ForZone> forZones = null;
+
 
   public V1EndpointHints forZones(List<V1ForZone> forZones) {
 
@@ -45,23 +51,22 @@ public class V1EndpointHints {
     return this;
   }
 
-  /**
-   * forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware
-   * routing.
-   *
+   /**
+   * forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.
    * @return forZones
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.")
+  @ApiModelProperty(value = "forZones indicates the zone(s) this endpoint should be consumed by to enable topology aware routing.")
+
   public List<V1ForZone> getForZones() {
     return forZones;
   }
 
+
   public void setForZones(List<V1ForZone> forZones) {
     this.forZones = forZones;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,6 +85,7 @@ public class V1EndpointHints {
     return Objects.hash(forZones);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -90,7 +96,8 @@ public class V1EndpointHints {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -98,4 +105,5 @@ public class V1EndpointHints {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

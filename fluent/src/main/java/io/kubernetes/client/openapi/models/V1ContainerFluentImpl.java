@@ -13,7 +13,6 @@ import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.Deprecated;
 import java.util.Iterator;
-import java.lang.Integer;
 
  /**
   * Generated
@@ -23,50 +22,31 @@ import java.lang.Integer;
   public V1ContainerFluentImpl() {
   }
   public V1ContainerFluentImpl(V1Container instance) {
-    this.withArgs(instance.getArgs());
-
-    this.withCommand(instance.getCommand());
-
-    this.withEnv(instance.getEnv());
-
-    this.withEnvFrom(instance.getEnvFrom());
-
-    this.withImage(instance.getImage());
-
-    this.withImagePullPolicy(instance.getImagePullPolicy());
-
-    this.withLifecycle(instance.getLifecycle());
-
-    this.withLivenessProbe(instance.getLivenessProbe());
-
-    this.withName(instance.getName());
-
-    this.withPorts(instance.getPorts());
-
-    this.withReadinessProbe(instance.getReadinessProbe());
-
-    this.withResources(instance.getResources());
-
-    this.withSecurityContext(instance.getSecurityContext());
-
-    this.withStartupProbe(instance.getStartupProbe());
-
-    this.withStdin(instance.getStdin());
-
-    this.withStdinOnce(instance.getStdinOnce());
-
-    this.withTerminationMessagePath(instance.getTerminationMessagePath());
-
-    this.withTerminationMessagePolicy(instance.getTerminationMessagePolicy());
-
-    this.withTty(instance.getTty());
-
-    this.withVolumeDevices(instance.getVolumeDevices());
-
-    this.withVolumeMounts(instance.getVolumeMounts());
-
-    this.withWorkingDir(instance.getWorkingDir());
-
+    if (instance != null) {
+      this.withArgs(instance.getArgs());
+      this.withCommand(instance.getCommand());
+      this.withEnv(instance.getEnv());
+      this.withEnvFrom(instance.getEnvFrom());
+      this.withImage(instance.getImage());
+      this.withImagePullPolicy(instance.getImagePullPolicy());
+      this.withLifecycle(instance.getLifecycle());
+      this.withLivenessProbe(instance.getLivenessProbe());
+      this.withName(instance.getName());
+      this.withPorts(instance.getPorts());
+      this.withReadinessProbe(instance.getReadinessProbe());
+      this.withResizePolicy(instance.getResizePolicy());
+      this.withResources(instance.getResources());
+      this.withSecurityContext(instance.getSecurityContext());
+      this.withStartupProbe(instance.getStartupProbe());
+      this.withStdin(instance.getStdin());
+      this.withStdinOnce(instance.getStdinOnce());
+      this.withTerminationMessagePath(instance.getTerminationMessagePath());
+      this.withTerminationMessagePolicy(instance.getTerminationMessagePolicy());
+      this.withTty(instance.getTty());
+      this.withVolumeDevices(instance.getVolumeDevices());
+      this.withVolumeMounts(instance.getVolumeMounts());
+      this.withWorkingDir(instance.getWorkingDir());
+    }
   }
   private List<String> args;
   private List<String> command;
@@ -79,6 +59,7 @@ import java.lang.Integer;
   private String name;
   private ArrayList<V1ContainerPortBuilder> ports;
   private V1ProbeBuilder readinessProbe;
+  private ArrayList<V1ContainerResizePolicyBuilder> resizePolicy;
   private V1ResourceRequirementsBuilder resources;
   private V1SecurityContextBuilder securityContext;
   private V1ProbeBuilder startupProbe;
@@ -90,12 +71,12 @@ import java.lang.Integer;
   private ArrayList<V1VolumeDeviceBuilder> volumeDevices;
   private ArrayList<V1VolumeMountBuilder> volumeMounts;
   private String workingDir;
-  public A addToArgs(Integer index,String item) {
+  public A addToArgs(int index,String item) {
     if (this.args == null) {this.args = new ArrayList<String>();}
     this.args.add(index, item);
     return (A)this;
   }
-  public A setToArgs(Integer index,String item) {
+  public A setToArgs(int index,String item) {
     if (this.args == null) {this.args = new ArrayList<String>();}
     this.args.set(index, item); return (A)this;
   }
@@ -116,7 +97,7 @@ import java.lang.Integer;
   public List<String> getArgs() {
     return this.args;
   }
-  public String getArg(Integer index) {
+  public String getArg(int index) {
     return this.args.get(index);
   }
   public String getFirstArg() {
@@ -135,18 +116,18 @@ import java.lang.Integer;
     if (args != null) {this.args = new ArrayList(); for (String item : args){this.addToArgs(item);}} else { this.args = null;} return (A) this;
   }
   public A withArgs(java.lang.String... args) {
-    if (this.args != null) {this.args.clear();}
+    if (this.args != null) {this.args.clear(); _visitables.remove("args"); }
     if (args != null) {for (String item :args){ this.addToArgs(item);}} return (A) this;
   }
   public Boolean hasArgs() {
     return args != null && !args.isEmpty();
   }
-  public A addToCommand(Integer index,String item) {
+  public A addToCommand(int index,String item) {
     if (this.command == null) {this.command = new ArrayList<String>();}
     this.command.add(index, item);
     return (A)this;
   }
-  public A setToCommand(Integer index,String item) {
+  public A setToCommand(int index,String item) {
     if (this.command == null) {this.command = new ArrayList<String>();}
     this.command.set(index, item); return (A)this;
   }
@@ -167,7 +148,7 @@ import java.lang.Integer;
   public List<String> getCommand() {
     return this.command;
   }
-  public String getCommand(Integer index) {
+  public String getCommand(int index) {
     return this.command.get(index);
   }
   public String getFirstCommand() {
@@ -186,22 +167,23 @@ import java.lang.Integer;
     if (command != null) {this.command = new ArrayList(); for (String item : command){this.addToCommand(item);}} else { this.command = null;} return (A) this;
   }
   public A withCommand(java.lang.String... command) {
-    if (this.command != null) {this.command.clear();}
+    if (this.command != null) {this.command.clear(); _visitables.remove("command"); }
     if (command != null) {for (String item :command){ this.addToCommand(item);}} return (A) this;
   }
   public Boolean hasCommand() {
     return command != null && !command.isEmpty();
   }
-  public A addToEnv(Integer index,V1EnvVar item) {
-    if (this.env == null) {this.env = new ArrayList<V1EnvVarBuilder>();}
-    V1EnvVarBuilder builder = new V1EnvVarBuilder(item);_visitables.get("env").add(index >= 0 ? index : _visitables.get("env").size(), builder);this.env.add(index >= 0 ? index : env.size(), builder); return (A)this;
-  }
-  public A setToEnv(Integer index,V1EnvVar item) {
+  public A addToEnv(int index,V1EnvVar item) {
     if (this.env == null) {this.env = new ArrayList<V1EnvVarBuilder>();}
     V1EnvVarBuilder builder = new V1EnvVarBuilder(item);
-    if (index < 0 || index >= _visitables.get("env").size()) { _visitables.get("env").add(builder); } else { _visitables.get("env").set(index, builder);}
-    if (index < 0 || index >= env.size()) { env.add(builder); } else { env.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= env.size()) { _visitables.get("env").add(builder); env.add(builder); } else { _visitables.get("env").add(index, builder); env.add(index, builder);}
+    return (A)this;
+  }
+  public A setToEnv(int index,V1EnvVar item) {
+    if (this.env == null) {this.env = new ArrayList<V1EnvVarBuilder>();}
+    V1EnvVarBuilder builder = new V1EnvVarBuilder(item);
+    if (index < 0 || index >= env.size()) { _visitables.get("env").add(builder); env.add(builder); } else { _visitables.get("env").set(index, builder); env.set(index, builder);}
+    return (A)this;
   }
   public A addToEnv(io.kubernetes.client.openapi.models.V1EnvVar... items) {
     if (this.env == null) {this.env = new ArrayList<V1EnvVarBuilder>();}
@@ -242,7 +224,7 @@ import java.lang.Integer;
   public List<V1EnvVar> buildEnv() {
     return env != null ? build(env) : null;
   }
-  public V1EnvVar buildEnv(Integer index) {
+  public V1EnvVar buildEnv(int index) {
     return this.env.get(index).build();
   }
   public V1EnvVar buildFirstEnv() {
@@ -258,39 +240,39 @@ import java.lang.Integer;
     for (V1EnvVarBuilder item: env) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withEnv(List<V1EnvVar> env) {
-    if (this.env != null) { _visitables.get("env").removeAll(this.env);}
+    if (this.env != null) { _visitables.get("env").clear();}
     if (env != null) {this.env = new ArrayList(); for (V1EnvVar item : env){this.addToEnv(item);}} else { this.env = null;} return (A) this;
   }
   public A withEnv(io.kubernetes.client.openapi.models.V1EnvVar... env) {
-    if (this.env != null) {this.env.clear();}
+    if (this.env != null) {this.env.clear(); _visitables.remove("env"); }
     if (env != null) {for (V1EnvVar item :env){ this.addToEnv(item);}} return (A) this;
   }
   public Boolean hasEnv() {
     return env != null && !env.isEmpty();
   }
-  public V1ContainerFluent.EnvNested<A> addNewEnv() {
+  public V1ContainerFluentImpl.EnvNested<A> addNewEnv() {
     return new V1ContainerFluentImpl.EnvNestedImpl();
   }
-  public V1ContainerFluent.EnvNested<A> addNewEnvLike(V1EnvVar item) {
+  public V1ContainerFluentImpl.EnvNested<A> addNewEnvLike(V1EnvVar item) {
     return new V1ContainerFluentImpl.EnvNestedImpl(-1, item);
   }
-  public V1ContainerFluent.EnvNested<A> setNewEnvLike(Integer index,V1EnvVar item) {
+  public V1ContainerFluentImpl.EnvNested<A> setNewEnvLike(int index,V1EnvVar item) {
     return new V1ContainerFluentImpl.EnvNestedImpl(index, item);
   }
-  public V1ContainerFluent.EnvNested<A> editEnv(Integer index) {
+  public V1ContainerFluentImpl.EnvNested<A> editEnv(int index) {
     if (env.size() <= index) throw new RuntimeException("Can't edit env. Index exceeds size.");
     return setNewEnvLike(index, buildEnv(index));
   }
-  public V1ContainerFluent.EnvNested<A> editFirstEnv() {
+  public V1ContainerFluentImpl.EnvNested<A> editFirstEnv() {
     if (env.size() == 0) throw new RuntimeException("Can't edit first env. The list is empty.");
     return setNewEnvLike(0, buildEnv(0));
   }
-  public V1ContainerFluent.EnvNested<A> editLastEnv() {
+  public V1ContainerFluentImpl.EnvNested<A> editLastEnv() {
     int index = env.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last env. The list is empty.");
     return setNewEnvLike(index, buildEnv(index));
   }
-  public V1ContainerFluent.EnvNested<A> editMatchingEnv(Predicate<V1EnvVarBuilder> predicate) {
+  public V1ContainerFluentImpl.EnvNested<A> editMatchingEnv(Predicate<V1EnvVarBuilder> predicate) {
     int index = -1;
     for (int i=0;i<env.size();i++) { 
     if (predicate.test(env.get(i))) {index = i; break;}
@@ -298,16 +280,17 @@ import java.lang.Integer;
     if (index < 0) throw new RuntimeException("Can't edit matching env. No match found.");
     return setNewEnvLike(index, buildEnv(index));
   }
-  public A addToEnvFrom(Integer index,V1EnvFromSource item) {
-    if (this.envFrom == null) {this.envFrom = new ArrayList<V1EnvFromSourceBuilder>();}
-    V1EnvFromSourceBuilder builder = new V1EnvFromSourceBuilder(item);_visitables.get("envFrom").add(index >= 0 ? index : _visitables.get("envFrom").size(), builder);this.envFrom.add(index >= 0 ? index : envFrom.size(), builder); return (A)this;
-  }
-  public A setToEnvFrom(Integer index,V1EnvFromSource item) {
+  public A addToEnvFrom(int index,V1EnvFromSource item) {
     if (this.envFrom == null) {this.envFrom = new ArrayList<V1EnvFromSourceBuilder>();}
     V1EnvFromSourceBuilder builder = new V1EnvFromSourceBuilder(item);
-    if (index < 0 || index >= _visitables.get("envFrom").size()) { _visitables.get("envFrom").add(builder); } else { _visitables.get("envFrom").set(index, builder);}
-    if (index < 0 || index >= envFrom.size()) { envFrom.add(builder); } else { envFrom.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= envFrom.size()) { _visitables.get("envFrom").add(builder); envFrom.add(builder); } else { _visitables.get("envFrom").add(index, builder); envFrom.add(index, builder);}
+    return (A)this;
+  }
+  public A setToEnvFrom(int index,V1EnvFromSource item) {
+    if (this.envFrom == null) {this.envFrom = new ArrayList<V1EnvFromSourceBuilder>();}
+    V1EnvFromSourceBuilder builder = new V1EnvFromSourceBuilder(item);
+    if (index < 0 || index >= envFrom.size()) { _visitables.get("envFrom").add(builder); envFrom.add(builder); } else { _visitables.get("envFrom").set(index, builder); envFrom.set(index, builder);}
+    return (A)this;
   }
   public A addToEnvFrom(io.kubernetes.client.openapi.models.V1EnvFromSource... items) {
     if (this.envFrom == null) {this.envFrom = new ArrayList<V1EnvFromSourceBuilder>();}
@@ -348,7 +331,7 @@ import java.lang.Integer;
   public List<V1EnvFromSource> buildEnvFrom() {
     return envFrom != null ? build(envFrom) : null;
   }
-  public V1EnvFromSource buildEnvFrom(Integer index) {
+  public V1EnvFromSource buildEnvFrom(int index) {
     return this.envFrom.get(index).build();
   }
   public V1EnvFromSource buildFirstEnvFrom() {
@@ -364,39 +347,39 @@ import java.lang.Integer;
     for (V1EnvFromSourceBuilder item: envFrom) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withEnvFrom(List<V1EnvFromSource> envFrom) {
-    if (this.envFrom != null) { _visitables.get("envFrom").removeAll(this.envFrom);}
+    if (this.envFrom != null) { _visitables.get("envFrom").clear();}
     if (envFrom != null) {this.envFrom = new ArrayList(); for (V1EnvFromSource item : envFrom){this.addToEnvFrom(item);}} else { this.envFrom = null;} return (A) this;
   }
   public A withEnvFrom(io.kubernetes.client.openapi.models.V1EnvFromSource... envFrom) {
-    if (this.envFrom != null) {this.envFrom.clear();}
+    if (this.envFrom != null) {this.envFrom.clear(); _visitables.remove("envFrom"); }
     if (envFrom != null) {for (V1EnvFromSource item :envFrom){ this.addToEnvFrom(item);}} return (A) this;
   }
   public Boolean hasEnvFrom() {
     return envFrom != null && !envFrom.isEmpty();
   }
-  public V1ContainerFluent.EnvFromNested<A> addNewEnvFrom() {
+  public V1ContainerFluentImpl.EnvFromNested<A> addNewEnvFrom() {
     return new V1ContainerFluentImpl.EnvFromNestedImpl();
   }
-  public V1ContainerFluent.EnvFromNested<A> addNewEnvFromLike(V1EnvFromSource item) {
+  public V1ContainerFluentImpl.EnvFromNested<A> addNewEnvFromLike(V1EnvFromSource item) {
     return new V1ContainerFluentImpl.EnvFromNestedImpl(-1, item);
   }
-  public V1ContainerFluent.EnvFromNested<A> setNewEnvFromLike(Integer index,V1EnvFromSource item) {
+  public V1ContainerFluentImpl.EnvFromNested<A> setNewEnvFromLike(int index,V1EnvFromSource item) {
     return new V1ContainerFluentImpl.EnvFromNestedImpl(index, item);
   }
-  public V1ContainerFluent.EnvFromNested<A> editEnvFrom(Integer index) {
+  public V1ContainerFluentImpl.EnvFromNested<A> editEnvFrom(int index) {
     if (envFrom.size() <= index) throw new RuntimeException("Can't edit envFrom. Index exceeds size.");
     return setNewEnvFromLike(index, buildEnvFrom(index));
   }
-  public V1ContainerFluent.EnvFromNested<A> editFirstEnvFrom() {
+  public V1ContainerFluentImpl.EnvFromNested<A> editFirstEnvFrom() {
     if (envFrom.size() == 0) throw new RuntimeException("Can't edit first envFrom. The list is empty.");
     return setNewEnvFromLike(0, buildEnvFrom(0));
   }
-  public V1ContainerFluent.EnvFromNested<A> editLastEnvFrom() {
+  public V1ContainerFluentImpl.EnvFromNested<A> editLastEnvFrom() {
     int index = envFrom.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last envFrom. The list is empty.");
     return setNewEnvFromLike(index, buildEnvFrom(index));
   }
-  public V1ContainerFluent.EnvFromNested<A> editMatchingEnvFrom(Predicate<V1EnvFromSourceBuilder> predicate) {
+  public V1ContainerFluentImpl.EnvFromNested<A> editMatchingEnvFrom(Predicate<V1EnvFromSourceBuilder> predicate) {
     int index = -1;
     for (int i=0;i<envFrom.size();i++) { 
     if (predicate.test(envFrom.get(i))) {index = i; break;}
@@ -441,19 +424,19 @@ import java.lang.Integer;
   public Boolean hasLifecycle() {
     return this.lifecycle != null;
   }
-  public V1ContainerFluent.LifecycleNested<A> withNewLifecycle() {
+  public V1ContainerFluentImpl.LifecycleNested<A> withNewLifecycle() {
     return new V1ContainerFluentImpl.LifecycleNestedImpl();
   }
-  public V1ContainerFluent.LifecycleNested<A> withNewLifecycleLike(V1Lifecycle item) {
+  public V1ContainerFluentImpl.LifecycleNested<A> withNewLifecycleLike(V1Lifecycle item) {
     return new V1ContainerFluentImpl.LifecycleNestedImpl(item);
   }
-  public V1ContainerFluent.LifecycleNested<A> editLifecycle() {
+  public V1ContainerFluentImpl.LifecycleNested<A> editLifecycle() {
     return withNewLifecycleLike(getLifecycle());
   }
-  public V1ContainerFluent.LifecycleNested<A> editOrNewLifecycle() {
+  public V1ContainerFluentImpl.LifecycleNested<A> editOrNewLifecycle() {
     return withNewLifecycleLike(getLifecycle() != null ? getLifecycle(): new V1LifecycleBuilder().build());
   }
-  public V1ContainerFluent.LifecycleNested<A> editOrNewLifecycleLike(V1Lifecycle item) {
+  public V1ContainerFluentImpl.LifecycleNested<A> editOrNewLifecycleLike(V1Lifecycle item) {
     return withNewLifecycleLike(getLifecycle() != null ? getLifecycle(): item);
   }
   
@@ -475,19 +458,19 @@ import java.lang.Integer;
   public Boolean hasLivenessProbe() {
     return this.livenessProbe != null;
   }
-  public V1ContainerFluent.LivenessProbeNested<A> withNewLivenessProbe() {
+  public V1ContainerFluentImpl.LivenessProbeNested<A> withNewLivenessProbe() {
     return new V1ContainerFluentImpl.LivenessProbeNestedImpl();
   }
-  public V1ContainerFluent.LivenessProbeNested<A> withNewLivenessProbeLike(V1Probe item) {
+  public V1ContainerFluentImpl.LivenessProbeNested<A> withNewLivenessProbeLike(V1Probe item) {
     return new V1ContainerFluentImpl.LivenessProbeNestedImpl(item);
   }
-  public V1ContainerFluent.LivenessProbeNested<A> editLivenessProbe() {
+  public V1ContainerFluentImpl.LivenessProbeNested<A> editLivenessProbe() {
     return withNewLivenessProbeLike(getLivenessProbe());
   }
-  public V1ContainerFluent.LivenessProbeNested<A> editOrNewLivenessProbe() {
+  public V1ContainerFluentImpl.LivenessProbeNested<A> editOrNewLivenessProbe() {
     return withNewLivenessProbeLike(getLivenessProbe() != null ? getLivenessProbe(): new V1ProbeBuilder().build());
   }
-  public V1ContainerFluent.LivenessProbeNested<A> editOrNewLivenessProbeLike(V1Probe item) {
+  public V1ContainerFluentImpl.LivenessProbeNested<A> editOrNewLivenessProbeLike(V1Probe item) {
     return withNewLivenessProbeLike(getLivenessProbe() != null ? getLivenessProbe(): item);
   }
   public String getName() {
@@ -499,16 +482,17 @@ import java.lang.Integer;
   public Boolean hasName() {
     return this.name != null;
   }
-  public A addToPorts(Integer index,V1ContainerPort item) {
-    if (this.ports == null) {this.ports = new ArrayList<V1ContainerPortBuilder>();}
-    V1ContainerPortBuilder builder = new V1ContainerPortBuilder(item);_visitables.get("ports").add(index >= 0 ? index : _visitables.get("ports").size(), builder);this.ports.add(index >= 0 ? index : ports.size(), builder); return (A)this;
-  }
-  public A setToPorts(Integer index,V1ContainerPort item) {
+  public A addToPorts(int index,V1ContainerPort item) {
     if (this.ports == null) {this.ports = new ArrayList<V1ContainerPortBuilder>();}
     V1ContainerPortBuilder builder = new V1ContainerPortBuilder(item);
-    if (index < 0 || index >= _visitables.get("ports").size()) { _visitables.get("ports").add(builder); } else { _visitables.get("ports").set(index, builder);}
-    if (index < 0 || index >= ports.size()) { ports.add(builder); } else { ports.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").add(index, builder); ports.add(index, builder);}
+    return (A)this;
+  }
+  public A setToPorts(int index,V1ContainerPort item) {
+    if (this.ports == null) {this.ports = new ArrayList<V1ContainerPortBuilder>();}
+    V1ContainerPortBuilder builder = new V1ContainerPortBuilder(item);
+    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").set(index, builder); ports.set(index, builder);}
+    return (A)this;
   }
   public A addToPorts(io.kubernetes.client.openapi.models.V1ContainerPort... items) {
     if (this.ports == null) {this.ports = new ArrayList<V1ContainerPortBuilder>();}
@@ -549,7 +533,7 @@ import java.lang.Integer;
   public List<V1ContainerPort> buildPorts() {
     return ports != null ? build(ports) : null;
   }
-  public V1ContainerPort buildPort(Integer index) {
+  public V1ContainerPort buildPort(int index) {
     return this.ports.get(index).build();
   }
   public V1ContainerPort buildFirstPort() {
@@ -565,39 +549,39 @@ import java.lang.Integer;
     for (V1ContainerPortBuilder item: ports) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withPorts(List<V1ContainerPort> ports) {
-    if (this.ports != null) { _visitables.get("ports").removeAll(this.ports);}
+    if (this.ports != null) { _visitables.get("ports").clear();}
     if (ports != null) {this.ports = new ArrayList(); for (V1ContainerPort item : ports){this.addToPorts(item);}} else { this.ports = null;} return (A) this;
   }
   public A withPorts(io.kubernetes.client.openapi.models.V1ContainerPort... ports) {
-    if (this.ports != null) {this.ports.clear();}
+    if (this.ports != null) {this.ports.clear(); _visitables.remove("ports"); }
     if (ports != null) {for (V1ContainerPort item :ports){ this.addToPorts(item);}} return (A) this;
   }
   public Boolean hasPorts() {
     return ports != null && !ports.isEmpty();
   }
-  public V1ContainerFluent.PortsNested<A> addNewPort() {
+  public V1ContainerFluentImpl.PortsNested<A> addNewPort() {
     return new V1ContainerFluentImpl.PortsNestedImpl();
   }
-  public V1ContainerFluent.PortsNested<A> addNewPortLike(V1ContainerPort item) {
+  public V1ContainerFluentImpl.PortsNested<A> addNewPortLike(V1ContainerPort item) {
     return new V1ContainerFluentImpl.PortsNestedImpl(-1, item);
   }
-  public V1ContainerFluent.PortsNested<A> setNewPortLike(Integer index,V1ContainerPort item) {
+  public V1ContainerFluentImpl.PortsNested<A> setNewPortLike(int index,V1ContainerPort item) {
     return new V1ContainerFluentImpl.PortsNestedImpl(index, item);
   }
-  public V1ContainerFluent.PortsNested<A> editPort(Integer index) {
+  public V1ContainerFluentImpl.PortsNested<A> editPort(int index) {
     if (ports.size() <= index) throw new RuntimeException("Can't edit ports. Index exceeds size.");
     return setNewPortLike(index, buildPort(index));
   }
-  public V1ContainerFluent.PortsNested<A> editFirstPort() {
+  public V1ContainerFluentImpl.PortsNested<A> editFirstPort() {
     if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
     return setNewPortLike(0, buildPort(0));
   }
-  public V1ContainerFluent.PortsNested<A> editLastPort() {
+  public V1ContainerFluentImpl.PortsNested<A> editLastPort() {
     int index = ports.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last ports. The list is empty.");
     return setNewPortLike(index, buildPort(index));
   }
-  public V1ContainerFluent.PortsNested<A> editMatchingPort(Predicate<V1ContainerPortBuilder> predicate) {
+  public V1ContainerFluentImpl.PortsNested<A> editMatchingPort(Predicate<V1ContainerPortBuilder> predicate) {
     int index = -1;
     for (int i=0;i<ports.size();i++) { 
     if (predicate.test(ports.get(i))) {index = i; break;}
@@ -624,20 +608,127 @@ import java.lang.Integer;
   public Boolean hasReadinessProbe() {
     return this.readinessProbe != null;
   }
-  public V1ContainerFluent.ReadinessProbeNested<A> withNewReadinessProbe() {
+  public V1ContainerFluentImpl.ReadinessProbeNested<A> withNewReadinessProbe() {
     return new V1ContainerFluentImpl.ReadinessProbeNestedImpl();
   }
-  public V1ContainerFluent.ReadinessProbeNested<A> withNewReadinessProbeLike(V1Probe item) {
+  public V1ContainerFluentImpl.ReadinessProbeNested<A> withNewReadinessProbeLike(V1Probe item) {
     return new V1ContainerFluentImpl.ReadinessProbeNestedImpl(item);
   }
-  public V1ContainerFluent.ReadinessProbeNested<A> editReadinessProbe() {
+  public V1ContainerFluentImpl.ReadinessProbeNested<A> editReadinessProbe() {
     return withNewReadinessProbeLike(getReadinessProbe());
   }
-  public V1ContainerFluent.ReadinessProbeNested<A> editOrNewReadinessProbe() {
+  public V1ContainerFluentImpl.ReadinessProbeNested<A> editOrNewReadinessProbe() {
     return withNewReadinessProbeLike(getReadinessProbe() != null ? getReadinessProbe(): new V1ProbeBuilder().build());
   }
-  public V1ContainerFluent.ReadinessProbeNested<A> editOrNewReadinessProbeLike(V1Probe item) {
+  public V1ContainerFluentImpl.ReadinessProbeNested<A> editOrNewReadinessProbeLike(V1Probe item) {
     return withNewReadinessProbeLike(getReadinessProbe() != null ? getReadinessProbe(): item);
+  }
+  public A addToResizePolicy(int index,V1ContainerResizePolicy item) {
+    if (this.resizePolicy == null) {this.resizePolicy = new ArrayList<V1ContainerResizePolicyBuilder>();}
+    V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);
+    if (index < 0 || index >= resizePolicy.size()) { _visitables.get("resizePolicy").add(builder); resizePolicy.add(builder); } else { _visitables.get("resizePolicy").add(index, builder); resizePolicy.add(index, builder);}
+    return (A)this;
+  }
+  public A setToResizePolicy(int index,V1ContainerResizePolicy item) {
+    if (this.resizePolicy == null) {this.resizePolicy = new ArrayList<V1ContainerResizePolicyBuilder>();}
+    V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);
+    if (index < 0 || index >= resizePolicy.size()) { _visitables.get("resizePolicy").add(builder); resizePolicy.add(builder); } else { _visitables.get("resizePolicy").set(index, builder); resizePolicy.set(index, builder);}
+    return (A)this;
+  }
+  public A addToResizePolicy(io.kubernetes.client.openapi.models.V1ContainerResizePolicy... items) {
+    if (this.resizePolicy == null) {this.resizePolicy = new ArrayList<V1ContainerResizePolicyBuilder>();}
+    for (V1ContainerResizePolicy item : items) {V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);_visitables.get("resizePolicy").add(builder);this.resizePolicy.add(builder);} return (A)this;
+  }
+  public A addAllToResizePolicy(Collection<V1ContainerResizePolicy> items) {
+    if (this.resizePolicy == null) {this.resizePolicy = new ArrayList<V1ContainerResizePolicyBuilder>();}
+    for (V1ContainerResizePolicy item : items) {V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);_visitables.get("resizePolicy").add(builder);this.resizePolicy.add(builder);} return (A)this;
+  }
+  public A removeFromResizePolicy(io.kubernetes.client.openapi.models.V1ContainerResizePolicy... items) {
+    for (V1ContainerResizePolicy item : items) {V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);_visitables.get("resizePolicy").remove(builder);if (this.resizePolicy != null) {this.resizePolicy.remove(builder);}} return (A)this;
+  }
+  public A removeAllFromResizePolicy(Collection<V1ContainerResizePolicy> items) {
+    for (V1ContainerResizePolicy item : items) {V1ContainerResizePolicyBuilder builder = new V1ContainerResizePolicyBuilder(item);_visitables.get("resizePolicy").remove(builder);if (this.resizePolicy != null) {this.resizePolicy.remove(builder);}} return (A)this;
+  }
+  public A removeMatchingFromResizePolicy(Predicate<V1ContainerResizePolicyBuilder> predicate) {
+    if (resizePolicy == null) return (A) this;
+    final Iterator<V1ContainerResizePolicyBuilder> each = resizePolicy.iterator();
+    final List visitables = _visitables.get("resizePolicy");
+    while (each.hasNext()) {
+      V1ContainerResizePolicyBuilder builder = each.next();
+      if (predicate.test(builder)) {
+        visitables.remove(builder);
+        each.remove();
+      }
+    }
+    return (A)this;
+  }
+  
+  /**
+   * This method has been deprecated, please use method buildResizePolicy instead.
+   * @return The buildable object.
+   */
+  @Deprecated
+  public List<V1ContainerResizePolicy> getResizePolicy() {
+    return resizePolicy != null ? build(resizePolicy) : null;
+  }
+  public List<V1ContainerResizePolicy> buildResizePolicy() {
+    return resizePolicy != null ? build(resizePolicy) : null;
+  }
+  public V1ContainerResizePolicy buildResizePolicy(int index) {
+    return this.resizePolicy.get(index).build();
+  }
+  public V1ContainerResizePolicy buildFirstResizePolicy() {
+    return this.resizePolicy.get(0).build();
+  }
+  public V1ContainerResizePolicy buildLastResizePolicy() {
+    return this.resizePolicy.get(resizePolicy.size() - 1).build();
+  }
+  public V1ContainerResizePolicy buildMatchingResizePolicy(Predicate<V1ContainerResizePolicyBuilder> predicate) {
+    for (V1ContainerResizePolicyBuilder item: resizePolicy) { if(predicate.test(item)){ return item.build();} } return null;
+  }
+  public Boolean hasMatchingResizePolicy(Predicate<V1ContainerResizePolicyBuilder> predicate) {
+    for (V1ContainerResizePolicyBuilder item: resizePolicy) { if(predicate.test(item)){ return true;} } return false;
+  }
+  public A withResizePolicy(List<V1ContainerResizePolicy> resizePolicy) {
+    if (this.resizePolicy != null) { _visitables.get("resizePolicy").clear();}
+    if (resizePolicy != null) {this.resizePolicy = new ArrayList(); for (V1ContainerResizePolicy item : resizePolicy){this.addToResizePolicy(item);}} else { this.resizePolicy = null;} return (A) this;
+  }
+  public A withResizePolicy(io.kubernetes.client.openapi.models.V1ContainerResizePolicy... resizePolicy) {
+    if (this.resizePolicy != null) {this.resizePolicy.clear(); _visitables.remove("resizePolicy"); }
+    if (resizePolicy != null) {for (V1ContainerResizePolicy item :resizePolicy){ this.addToResizePolicy(item);}} return (A) this;
+  }
+  public Boolean hasResizePolicy() {
+    return resizePolicy != null && !resizePolicy.isEmpty();
+  }
+  public V1ContainerFluentImpl.ResizePolicyNested<A> addNewResizePolicy() {
+    return new V1ContainerFluentImpl.ResizePolicyNestedImpl();
+  }
+  public V1ContainerFluentImpl.ResizePolicyNested<A> addNewResizePolicyLike(V1ContainerResizePolicy item) {
+    return new V1ContainerFluentImpl.ResizePolicyNestedImpl(-1, item);
+  }
+  public V1ContainerFluentImpl.ResizePolicyNested<A> setNewResizePolicyLike(int index,V1ContainerResizePolicy item) {
+    return new V1ContainerFluentImpl.ResizePolicyNestedImpl(index, item);
+  }
+  public V1ContainerFluentImpl.ResizePolicyNested<A> editResizePolicy(int index) {
+    if (resizePolicy.size() <= index) throw new RuntimeException("Can't edit resizePolicy. Index exceeds size.");
+    return setNewResizePolicyLike(index, buildResizePolicy(index));
+  }
+  public V1ContainerFluentImpl.ResizePolicyNested<A> editFirstResizePolicy() {
+    if (resizePolicy.size() == 0) throw new RuntimeException("Can't edit first resizePolicy. The list is empty.");
+    return setNewResizePolicyLike(0, buildResizePolicy(0));
+  }
+  public V1ContainerFluentImpl.ResizePolicyNested<A> editLastResizePolicy() {
+    int index = resizePolicy.size() - 1;
+    if (index < 0) throw new RuntimeException("Can't edit last resizePolicy. The list is empty.");
+    return setNewResizePolicyLike(index, buildResizePolicy(index));
+  }
+  public V1ContainerFluentImpl.ResizePolicyNested<A> editMatchingResizePolicy(Predicate<V1ContainerResizePolicyBuilder> predicate) {
+    int index = -1;
+    for (int i=0;i<resizePolicy.size();i++) { 
+    if (predicate.test(resizePolicy.get(i))) {index = i; break;}
+    } 
+    if (index < 0) throw new RuntimeException("Can't edit matching resizePolicy. No match found.");
+    return setNewResizePolicyLike(index, buildResizePolicy(index));
   }
   
   /**
@@ -658,19 +749,19 @@ import java.lang.Integer;
   public Boolean hasResources() {
     return this.resources != null;
   }
-  public V1ContainerFluent.ResourcesNested<A> withNewResources() {
+  public V1ContainerFluentImpl.ResourcesNested<A> withNewResources() {
     return new V1ContainerFluentImpl.ResourcesNestedImpl();
   }
-  public V1ContainerFluent.ResourcesNested<A> withNewResourcesLike(V1ResourceRequirements item) {
+  public V1ContainerFluentImpl.ResourcesNested<A> withNewResourcesLike(V1ResourceRequirements item) {
     return new V1ContainerFluentImpl.ResourcesNestedImpl(item);
   }
-  public V1ContainerFluent.ResourcesNested<A> editResources() {
+  public V1ContainerFluentImpl.ResourcesNested<A> editResources() {
     return withNewResourcesLike(getResources());
   }
-  public V1ContainerFluent.ResourcesNested<A> editOrNewResources() {
+  public V1ContainerFluentImpl.ResourcesNested<A> editOrNewResources() {
     return withNewResourcesLike(getResources() != null ? getResources(): new V1ResourceRequirementsBuilder().build());
   }
-  public V1ContainerFluent.ResourcesNested<A> editOrNewResourcesLike(V1ResourceRequirements item) {
+  public V1ContainerFluentImpl.ResourcesNested<A> editOrNewResourcesLike(V1ResourceRequirements item) {
     return withNewResourcesLike(getResources() != null ? getResources(): item);
   }
   
@@ -692,19 +783,19 @@ import java.lang.Integer;
   public Boolean hasSecurityContext() {
     return this.securityContext != null;
   }
-  public V1ContainerFluent.SecurityContextNested<A> withNewSecurityContext() {
+  public V1ContainerFluentImpl.SecurityContextNested<A> withNewSecurityContext() {
     return new V1ContainerFluentImpl.SecurityContextNestedImpl();
   }
-  public V1ContainerFluent.SecurityContextNested<A> withNewSecurityContextLike(V1SecurityContext item) {
+  public V1ContainerFluentImpl.SecurityContextNested<A> withNewSecurityContextLike(V1SecurityContext item) {
     return new V1ContainerFluentImpl.SecurityContextNestedImpl(item);
   }
-  public V1ContainerFluent.SecurityContextNested<A> editSecurityContext() {
+  public V1ContainerFluentImpl.SecurityContextNested<A> editSecurityContext() {
     return withNewSecurityContextLike(getSecurityContext());
   }
-  public V1ContainerFluent.SecurityContextNested<A> editOrNewSecurityContext() {
+  public V1ContainerFluentImpl.SecurityContextNested<A> editOrNewSecurityContext() {
     return withNewSecurityContextLike(getSecurityContext() != null ? getSecurityContext(): new V1SecurityContextBuilder().build());
   }
-  public V1ContainerFluent.SecurityContextNested<A> editOrNewSecurityContextLike(V1SecurityContext item) {
+  public V1ContainerFluentImpl.SecurityContextNested<A> editOrNewSecurityContextLike(V1SecurityContext item) {
     return withNewSecurityContextLike(getSecurityContext() != null ? getSecurityContext(): item);
   }
   
@@ -726,19 +817,19 @@ import java.lang.Integer;
   public Boolean hasStartupProbe() {
     return this.startupProbe != null;
   }
-  public V1ContainerFluent.StartupProbeNested<A> withNewStartupProbe() {
+  public V1ContainerFluentImpl.StartupProbeNested<A> withNewStartupProbe() {
     return new V1ContainerFluentImpl.StartupProbeNestedImpl();
   }
-  public V1ContainerFluent.StartupProbeNested<A> withNewStartupProbeLike(V1Probe item) {
+  public V1ContainerFluentImpl.StartupProbeNested<A> withNewStartupProbeLike(V1Probe item) {
     return new V1ContainerFluentImpl.StartupProbeNestedImpl(item);
   }
-  public V1ContainerFluent.StartupProbeNested<A> editStartupProbe() {
+  public V1ContainerFluentImpl.StartupProbeNested<A> editStartupProbe() {
     return withNewStartupProbeLike(getStartupProbe());
   }
-  public V1ContainerFluent.StartupProbeNested<A> editOrNewStartupProbe() {
+  public V1ContainerFluentImpl.StartupProbeNested<A> editOrNewStartupProbe() {
     return withNewStartupProbeLike(getStartupProbe() != null ? getStartupProbe(): new V1ProbeBuilder().build());
   }
-  public V1ContainerFluent.StartupProbeNested<A> editOrNewStartupProbeLike(V1Probe item) {
+  public V1ContainerFluentImpl.StartupProbeNested<A> editOrNewStartupProbeLike(V1Probe item) {
     return withNewStartupProbeLike(getStartupProbe() != null ? getStartupProbe(): item);
   }
   public Boolean getStdin() {
@@ -786,16 +877,17 @@ import java.lang.Integer;
   public Boolean hasTty() {
     return this.tty != null;
   }
-  public A addToVolumeDevices(Integer index,V1VolumeDevice item) {
-    if (this.volumeDevices == null) {this.volumeDevices = new ArrayList<V1VolumeDeviceBuilder>();}
-    V1VolumeDeviceBuilder builder = new V1VolumeDeviceBuilder(item);_visitables.get("volumeDevices").add(index >= 0 ? index : _visitables.get("volumeDevices").size(), builder);this.volumeDevices.add(index >= 0 ? index : volumeDevices.size(), builder); return (A)this;
-  }
-  public A setToVolumeDevices(Integer index,V1VolumeDevice item) {
+  public A addToVolumeDevices(int index,V1VolumeDevice item) {
     if (this.volumeDevices == null) {this.volumeDevices = new ArrayList<V1VolumeDeviceBuilder>();}
     V1VolumeDeviceBuilder builder = new V1VolumeDeviceBuilder(item);
-    if (index < 0 || index >= _visitables.get("volumeDevices").size()) { _visitables.get("volumeDevices").add(builder); } else { _visitables.get("volumeDevices").set(index, builder);}
-    if (index < 0 || index >= volumeDevices.size()) { volumeDevices.add(builder); } else { volumeDevices.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= volumeDevices.size()) { _visitables.get("volumeDevices").add(builder); volumeDevices.add(builder); } else { _visitables.get("volumeDevices").add(index, builder); volumeDevices.add(index, builder);}
+    return (A)this;
+  }
+  public A setToVolumeDevices(int index,V1VolumeDevice item) {
+    if (this.volumeDevices == null) {this.volumeDevices = new ArrayList<V1VolumeDeviceBuilder>();}
+    V1VolumeDeviceBuilder builder = new V1VolumeDeviceBuilder(item);
+    if (index < 0 || index >= volumeDevices.size()) { _visitables.get("volumeDevices").add(builder); volumeDevices.add(builder); } else { _visitables.get("volumeDevices").set(index, builder); volumeDevices.set(index, builder);}
+    return (A)this;
   }
   public A addToVolumeDevices(io.kubernetes.client.openapi.models.V1VolumeDevice... items) {
     if (this.volumeDevices == null) {this.volumeDevices = new ArrayList<V1VolumeDeviceBuilder>();}
@@ -836,7 +928,7 @@ import java.lang.Integer;
   public List<V1VolumeDevice> buildVolumeDevices() {
     return volumeDevices != null ? build(volumeDevices) : null;
   }
-  public V1VolumeDevice buildVolumeDevice(Integer index) {
+  public V1VolumeDevice buildVolumeDevice(int index) {
     return this.volumeDevices.get(index).build();
   }
   public V1VolumeDevice buildFirstVolumeDevice() {
@@ -852,39 +944,39 @@ import java.lang.Integer;
     for (V1VolumeDeviceBuilder item: volumeDevices) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withVolumeDevices(List<V1VolumeDevice> volumeDevices) {
-    if (this.volumeDevices != null) { _visitables.get("volumeDevices").removeAll(this.volumeDevices);}
+    if (this.volumeDevices != null) { _visitables.get("volumeDevices").clear();}
     if (volumeDevices != null) {this.volumeDevices = new ArrayList(); for (V1VolumeDevice item : volumeDevices){this.addToVolumeDevices(item);}} else { this.volumeDevices = null;} return (A) this;
   }
   public A withVolumeDevices(io.kubernetes.client.openapi.models.V1VolumeDevice... volumeDevices) {
-    if (this.volumeDevices != null) {this.volumeDevices.clear();}
+    if (this.volumeDevices != null) {this.volumeDevices.clear(); _visitables.remove("volumeDevices"); }
     if (volumeDevices != null) {for (V1VolumeDevice item :volumeDevices){ this.addToVolumeDevices(item);}} return (A) this;
   }
   public Boolean hasVolumeDevices() {
     return volumeDevices != null && !volumeDevices.isEmpty();
   }
-  public V1ContainerFluent.VolumeDevicesNested<A> addNewVolumeDevice() {
+  public V1ContainerFluentImpl.VolumeDevicesNested<A> addNewVolumeDevice() {
     return new V1ContainerFluentImpl.VolumeDevicesNestedImpl();
   }
-  public V1ContainerFluent.VolumeDevicesNested<A> addNewVolumeDeviceLike(V1VolumeDevice item) {
+  public V1ContainerFluentImpl.VolumeDevicesNested<A> addNewVolumeDeviceLike(V1VolumeDevice item) {
     return new V1ContainerFluentImpl.VolumeDevicesNestedImpl(-1, item);
   }
-  public V1ContainerFluent.VolumeDevicesNested<A> setNewVolumeDeviceLike(Integer index,V1VolumeDevice item) {
+  public V1ContainerFluentImpl.VolumeDevicesNested<A> setNewVolumeDeviceLike(int index,V1VolumeDevice item) {
     return new V1ContainerFluentImpl.VolumeDevicesNestedImpl(index, item);
   }
-  public V1ContainerFluent.VolumeDevicesNested<A> editVolumeDevice(Integer index) {
+  public V1ContainerFluentImpl.VolumeDevicesNested<A> editVolumeDevice(int index) {
     if (volumeDevices.size() <= index) throw new RuntimeException("Can't edit volumeDevices. Index exceeds size.");
     return setNewVolumeDeviceLike(index, buildVolumeDevice(index));
   }
-  public V1ContainerFluent.VolumeDevicesNested<A> editFirstVolumeDevice() {
+  public V1ContainerFluentImpl.VolumeDevicesNested<A> editFirstVolumeDevice() {
     if (volumeDevices.size() == 0) throw new RuntimeException("Can't edit first volumeDevices. The list is empty.");
     return setNewVolumeDeviceLike(0, buildVolumeDevice(0));
   }
-  public V1ContainerFluent.VolumeDevicesNested<A> editLastVolumeDevice() {
+  public V1ContainerFluentImpl.VolumeDevicesNested<A> editLastVolumeDevice() {
     int index = volumeDevices.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last volumeDevices. The list is empty.");
     return setNewVolumeDeviceLike(index, buildVolumeDevice(index));
   }
-  public V1ContainerFluent.VolumeDevicesNested<A> editMatchingVolumeDevice(Predicate<V1VolumeDeviceBuilder> predicate) {
+  public V1ContainerFluentImpl.VolumeDevicesNested<A> editMatchingVolumeDevice(Predicate<V1VolumeDeviceBuilder> predicate) {
     int index = -1;
     for (int i=0;i<volumeDevices.size();i++) { 
     if (predicate.test(volumeDevices.get(i))) {index = i; break;}
@@ -892,16 +984,17 @@ import java.lang.Integer;
     if (index < 0) throw new RuntimeException("Can't edit matching volumeDevices. No match found.");
     return setNewVolumeDeviceLike(index, buildVolumeDevice(index));
   }
-  public A addToVolumeMounts(Integer index,V1VolumeMount item) {
-    if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountBuilder>();}
-    V1VolumeMountBuilder builder = new V1VolumeMountBuilder(item);_visitables.get("volumeMounts").add(index >= 0 ? index : _visitables.get("volumeMounts").size(), builder);this.volumeMounts.add(index >= 0 ? index : volumeMounts.size(), builder); return (A)this;
-  }
-  public A setToVolumeMounts(Integer index,V1VolumeMount item) {
+  public A addToVolumeMounts(int index,V1VolumeMount item) {
     if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountBuilder>();}
     V1VolumeMountBuilder builder = new V1VolumeMountBuilder(item);
-    if (index < 0 || index >= _visitables.get("volumeMounts").size()) { _visitables.get("volumeMounts").add(builder); } else { _visitables.get("volumeMounts").set(index, builder);}
-    if (index < 0 || index >= volumeMounts.size()) { volumeMounts.add(builder); } else { volumeMounts.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= volumeMounts.size()) { _visitables.get("volumeMounts").add(builder); volumeMounts.add(builder); } else { _visitables.get("volumeMounts").add(index, builder); volumeMounts.add(index, builder);}
+    return (A)this;
+  }
+  public A setToVolumeMounts(int index,V1VolumeMount item) {
+    if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountBuilder>();}
+    V1VolumeMountBuilder builder = new V1VolumeMountBuilder(item);
+    if (index < 0 || index >= volumeMounts.size()) { _visitables.get("volumeMounts").add(builder); volumeMounts.add(builder); } else { _visitables.get("volumeMounts").set(index, builder); volumeMounts.set(index, builder);}
+    return (A)this;
   }
   public A addToVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMount... items) {
     if (this.volumeMounts == null) {this.volumeMounts = new ArrayList<V1VolumeMountBuilder>();}
@@ -942,7 +1035,7 @@ import java.lang.Integer;
   public List<V1VolumeMount> buildVolumeMounts() {
     return volumeMounts != null ? build(volumeMounts) : null;
   }
-  public V1VolumeMount buildVolumeMount(Integer index) {
+  public V1VolumeMount buildVolumeMount(int index) {
     return this.volumeMounts.get(index).build();
   }
   public V1VolumeMount buildFirstVolumeMount() {
@@ -958,39 +1051,39 @@ import java.lang.Integer;
     for (V1VolumeMountBuilder item: volumeMounts) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withVolumeMounts(List<V1VolumeMount> volumeMounts) {
-    if (this.volumeMounts != null) { _visitables.get("volumeMounts").removeAll(this.volumeMounts);}
+    if (this.volumeMounts != null) { _visitables.get("volumeMounts").clear();}
     if (volumeMounts != null) {this.volumeMounts = new ArrayList(); for (V1VolumeMount item : volumeMounts){this.addToVolumeMounts(item);}} else { this.volumeMounts = null;} return (A) this;
   }
   public A withVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMount... volumeMounts) {
-    if (this.volumeMounts != null) {this.volumeMounts.clear();}
+    if (this.volumeMounts != null) {this.volumeMounts.clear(); _visitables.remove("volumeMounts"); }
     if (volumeMounts != null) {for (V1VolumeMount item :volumeMounts){ this.addToVolumeMounts(item);}} return (A) this;
   }
   public Boolean hasVolumeMounts() {
     return volumeMounts != null && !volumeMounts.isEmpty();
   }
-  public V1ContainerFluent.VolumeMountsNested<A> addNewVolumeMount() {
+  public V1ContainerFluentImpl.VolumeMountsNested<A> addNewVolumeMount() {
     return new V1ContainerFluentImpl.VolumeMountsNestedImpl();
   }
-  public V1ContainerFluent.VolumeMountsNested<A> addNewVolumeMountLike(V1VolumeMount item) {
+  public V1ContainerFluentImpl.VolumeMountsNested<A> addNewVolumeMountLike(V1VolumeMount item) {
     return new V1ContainerFluentImpl.VolumeMountsNestedImpl(-1, item);
   }
-  public V1ContainerFluent.VolumeMountsNested<A> setNewVolumeMountLike(Integer index,V1VolumeMount item) {
+  public V1ContainerFluentImpl.VolumeMountsNested<A> setNewVolumeMountLike(int index,V1VolumeMount item) {
     return new V1ContainerFluentImpl.VolumeMountsNestedImpl(index, item);
   }
-  public V1ContainerFluent.VolumeMountsNested<A> editVolumeMount(Integer index) {
+  public V1ContainerFluentImpl.VolumeMountsNested<A> editVolumeMount(int index) {
     if (volumeMounts.size() <= index) throw new RuntimeException("Can't edit volumeMounts. Index exceeds size.");
     return setNewVolumeMountLike(index, buildVolumeMount(index));
   }
-  public V1ContainerFluent.VolumeMountsNested<A> editFirstVolumeMount() {
+  public V1ContainerFluentImpl.VolumeMountsNested<A> editFirstVolumeMount() {
     if (volumeMounts.size() == 0) throw new RuntimeException("Can't edit first volumeMounts. The list is empty.");
     return setNewVolumeMountLike(0, buildVolumeMount(0));
   }
-  public V1ContainerFluent.VolumeMountsNested<A> editLastVolumeMount() {
+  public V1ContainerFluentImpl.VolumeMountsNested<A> editLastVolumeMount() {
     int index = volumeMounts.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last volumeMounts. The list is empty.");
     return setNewVolumeMountLike(index, buildVolumeMount(index));
   }
-  public V1ContainerFluent.VolumeMountsNested<A> editMatchingVolumeMount(Predicate<V1VolumeMountBuilder> predicate) {
+  public V1ContainerFluentImpl.VolumeMountsNested<A> editMatchingVolumeMount(Predicate<V1VolumeMountBuilder> predicate) {
     int index = -1;
     for (int i=0;i<volumeMounts.size();i++) { 
     if (predicate.test(volumeMounts.get(i))) {index = i; break;}
@@ -1010,48 +1103,74 @@ import java.lang.Integer;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ContainerFluentImpl that = (V1ContainerFluentImpl) o;
-    if (args != null ? !args.equals(that.args) :that.args != null) return false;
-    if (command != null ? !command.equals(that.command) :that.command != null) return false;
-    if (env != null ? !env.equals(that.env) :that.env != null) return false;
-    if (envFrom != null ? !envFrom.equals(that.envFrom) :that.envFrom != null) return false;
-    if (image != null ? !image.equals(that.image) :that.image != null) return false;
-    if (imagePullPolicy != null ? !imagePullPolicy.equals(that.imagePullPolicy) :that.imagePullPolicy != null) return false;
-    if (lifecycle != null ? !lifecycle.equals(that.lifecycle) :that.lifecycle != null) return false;
-    if (livenessProbe != null ? !livenessProbe.equals(that.livenessProbe) :that.livenessProbe != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (ports != null ? !ports.equals(that.ports) :that.ports != null) return false;
-    if (readinessProbe != null ? !readinessProbe.equals(that.readinessProbe) :that.readinessProbe != null) return false;
-    if (resources != null ? !resources.equals(that.resources) :that.resources != null) return false;
-    if (securityContext != null ? !securityContext.equals(that.securityContext) :that.securityContext != null) return false;
-    if (startupProbe != null ? !startupProbe.equals(that.startupProbe) :that.startupProbe != null) return false;
-    if (stdin != null ? !stdin.equals(that.stdin) :that.stdin != null) return false;
-    if (stdinOnce != null ? !stdinOnce.equals(that.stdinOnce) :that.stdinOnce != null) return false;
-    if (terminationMessagePath != null ? !terminationMessagePath.equals(that.terminationMessagePath) :that.terminationMessagePath != null) return false;
-    if (terminationMessagePolicy != null ? !terminationMessagePolicy.equals(that.terminationMessagePolicy) :that.terminationMessagePolicy != null) return false;
-    if (tty != null ? !tty.equals(that.tty) :that.tty != null) return false;
-    if (volumeDevices != null ? !volumeDevices.equals(that.volumeDevices) :that.volumeDevices != null) return false;
-    if (volumeMounts != null ? !volumeMounts.equals(that.volumeMounts) :that.volumeMounts != null) return false;
-    if (workingDir != null ? !workingDir.equals(that.workingDir) :that.workingDir != null) return false;
+    if (!java.util.Objects.equals(args, that.args)) return false;
+
+    if (!java.util.Objects.equals(command, that.command)) return false;
+
+    if (!java.util.Objects.equals(env, that.env)) return false;
+
+    if (!java.util.Objects.equals(envFrom, that.envFrom)) return false;
+
+    if (!java.util.Objects.equals(image, that.image)) return false;
+
+    if (!java.util.Objects.equals(imagePullPolicy, that.imagePullPolicy)) return false;
+
+    if (!java.util.Objects.equals(lifecycle, that.lifecycle)) return false;
+
+    if (!java.util.Objects.equals(livenessProbe, that.livenessProbe)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(ports, that.ports)) return false;
+
+    if (!java.util.Objects.equals(readinessProbe, that.readinessProbe)) return false;
+
+    if (!java.util.Objects.equals(resizePolicy, that.resizePolicy)) return false;
+
+    if (!java.util.Objects.equals(resources, that.resources)) return false;
+
+    if (!java.util.Objects.equals(securityContext, that.securityContext)) return false;
+
+    if (!java.util.Objects.equals(startupProbe, that.startupProbe)) return false;
+
+    if (!java.util.Objects.equals(stdin, that.stdin)) return false;
+
+    if (!java.util.Objects.equals(stdinOnce, that.stdinOnce)) return false;
+
+    if (!java.util.Objects.equals(terminationMessagePath, that.terminationMessagePath)) return false;
+
+    if (!java.util.Objects.equals(terminationMessagePolicy, that.terminationMessagePolicy)) return false;
+
+    if (!java.util.Objects.equals(tty, that.tty)) return false;
+
+    if (!java.util.Objects.equals(volumeDevices, that.volumeDevices)) return false;
+
+    if (!java.util.Objects.equals(volumeMounts, that.volumeMounts)) return false;
+
+    if (!java.util.Objects.equals(workingDir, that.workingDir)) return false;
+
     return true;
   }
   public int hashCode() {
-    return java.util.Objects.hash(args,  command,  env,  envFrom,  image,  imagePullPolicy,  lifecycle,  livenessProbe,  name,  ports,  readinessProbe,  resources,  securityContext,  startupProbe,  stdin,  stdinOnce,  terminationMessagePath,  terminationMessagePolicy,  tty,  volumeDevices,  volumeMounts,  workingDir,  super.hashCode());
+    return java.util.Objects.hash(args,  command,  env,  envFrom,  image,  imagePullPolicy,  lifecycle,  livenessProbe,  name,  ports,  readinessProbe,  resizePolicy,  resources,  securityContext,  startupProbe,  stdin,  stdinOnce,  terminationMessagePath,  terminationMessagePolicy,  tty,  volumeDevices,  volumeMounts,  workingDir,  super.hashCode());
   }
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (args != null && !args.isEmpty()) { sb.append("args:"); sb.append(args + ","); }
     if (command != null && !command.isEmpty()) { sb.append("command:"); sb.append(command + ","); }
-    if (env != null && !env.isEmpty()) { sb.append("env:"); sb.append(env + ","); }
-    if (envFrom != null && !envFrom.isEmpty()) { sb.append("envFrom:"); sb.append(envFrom + ","); }
+    if (env != null) { sb.append("env:"); sb.append(env + ","); }
+    if (envFrom != null) { sb.append("envFrom:"); sb.append(envFrom + ","); }
     if (image != null) { sb.append("image:"); sb.append(image + ","); }
     if (imagePullPolicy != null) { sb.append("imagePullPolicy:"); sb.append(imagePullPolicy + ","); }
     if (lifecycle != null) { sb.append("lifecycle:"); sb.append(lifecycle + ","); }
     if (livenessProbe != null) { sb.append("livenessProbe:"); sb.append(livenessProbe + ","); }
     if (name != null) { sb.append("name:"); sb.append(name + ","); }
-    if (ports != null && !ports.isEmpty()) { sb.append("ports:"); sb.append(ports + ","); }
+    if (ports != null) { sb.append("ports:"); sb.append(ports + ","); }
     if (readinessProbe != null) { sb.append("readinessProbe:"); sb.append(readinessProbe + ","); }
+    if (resizePolicy != null) { sb.append("resizePolicy:"); sb.append(resizePolicy + ","); }
     if (resources != null) { sb.append("resources:"); sb.append(resources + ","); }
     if (securityContext != null) { sb.append("securityContext:"); sb.append(securityContext + ","); }
     if (startupProbe != null) { sb.append("startupProbe:"); sb.append(startupProbe + ","); }
@@ -1060,8 +1179,8 @@ import java.lang.Integer;
     if (terminationMessagePath != null) { sb.append("terminationMessagePath:"); sb.append(terminationMessagePath + ","); }
     if (terminationMessagePolicy != null) { sb.append("terminationMessagePolicy:"); sb.append(terminationMessagePolicy + ","); }
     if (tty != null) { sb.append("tty:"); sb.append(tty + ","); }
-    if (volumeDevices != null && !volumeDevices.isEmpty()) { sb.append("volumeDevices:"); sb.append(volumeDevices + ","); }
-    if (volumeMounts != null && !volumeMounts.isEmpty()) { sb.append("volumeMounts:"); sb.append(volumeMounts + ","); }
+    if (volumeDevices != null) { sb.append("volumeDevices:"); sb.append(volumeDevices + ","); }
+    if (volumeMounts != null) { sb.append("volumeMounts:"); sb.append(volumeMounts + ","); }
     if (workingDir != null) { sb.append("workingDir:"); sb.append(workingDir); }
     sb.append("}");
     return sb.toString();
@@ -1075,8 +1194,8 @@ import java.lang.Integer;
   public A withTty() {
     return withTty(true);
   }
-  class EnvNestedImpl<N> extends V1EnvVarFluentImpl<V1ContainerFluent.EnvNested<N>> implements V1ContainerFluent.EnvNested<N>,Nested<N>{
-    EnvNestedImpl(Integer index,V1EnvVar item) {
+  class EnvNestedImpl<N> extends V1EnvVarFluentImpl<V1ContainerFluentImpl.EnvNested<N>> implements V1ContainerFluentImpl.EnvNested<N>,Nested<N>{
+    EnvNestedImpl(int index,V1EnvVar item) {
       this.index = index;
       this.builder = new V1EnvVarBuilder(this, item);
     }
@@ -1085,7 +1204,7 @@ import java.lang.Integer;
       this.builder = new V1EnvVarBuilder(this);
     }
     V1EnvVarBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ContainerFluentImpl.this.setToEnv(index,builder.build());
     }
@@ -1094,8 +1213,8 @@ import java.lang.Integer;
     }
     
   }
-  class EnvFromNestedImpl<N> extends V1EnvFromSourceFluentImpl<V1ContainerFluent.EnvFromNested<N>> implements V1ContainerFluent.EnvFromNested<N>,Nested<N>{
-    EnvFromNestedImpl(Integer index,V1EnvFromSource item) {
+  class EnvFromNestedImpl<N> extends V1EnvFromSourceFluentImpl<V1ContainerFluentImpl.EnvFromNested<N>> implements V1ContainerFluentImpl.EnvFromNested<N>,Nested<N>{
+    EnvFromNestedImpl(int index,V1EnvFromSource item) {
       this.index = index;
       this.builder = new V1EnvFromSourceBuilder(this, item);
     }
@@ -1104,7 +1223,7 @@ import java.lang.Integer;
       this.builder = new V1EnvFromSourceBuilder(this);
     }
     V1EnvFromSourceBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ContainerFluentImpl.this.setToEnvFrom(index,builder.build());
     }
@@ -1113,7 +1232,7 @@ import java.lang.Integer;
     }
     
   }
-  class LifecycleNestedImpl<N> extends V1LifecycleFluentImpl<V1ContainerFluent.LifecycleNested<N>> implements V1ContainerFluent.LifecycleNested<N>,Nested<N>{
+  class LifecycleNestedImpl<N> extends V1LifecycleFluentImpl<V1ContainerFluentImpl.LifecycleNested<N>> implements V1ContainerFluentImpl.LifecycleNested<N>,Nested<N>{
     LifecycleNestedImpl(V1Lifecycle item) {
       this.builder = new V1LifecycleBuilder(this, item);
     }
@@ -1129,7 +1248,7 @@ import java.lang.Integer;
     }
     
   }
-  class LivenessProbeNestedImpl<N> extends V1ProbeFluentImpl<V1ContainerFluent.LivenessProbeNested<N>> implements V1ContainerFluent.LivenessProbeNested<N>,Nested<N>{
+  class LivenessProbeNestedImpl<N> extends V1ProbeFluentImpl<V1ContainerFluentImpl.LivenessProbeNested<N>> implements V1ContainerFluentImpl.LivenessProbeNested<N>,Nested<N>{
     LivenessProbeNestedImpl(V1Probe item) {
       this.builder = new V1ProbeBuilder(this, item);
     }
@@ -1145,8 +1264,8 @@ import java.lang.Integer;
     }
     
   }
-  class PortsNestedImpl<N> extends V1ContainerPortFluentImpl<V1ContainerFluent.PortsNested<N>> implements V1ContainerFluent.PortsNested<N>,Nested<N>{
-    PortsNestedImpl(Integer index,V1ContainerPort item) {
+  class PortsNestedImpl<N> extends V1ContainerPortFluentImpl<V1ContainerFluentImpl.PortsNested<N>> implements V1ContainerFluentImpl.PortsNested<N>,Nested<N>{
+    PortsNestedImpl(int index,V1ContainerPort item) {
       this.index = index;
       this.builder = new V1ContainerPortBuilder(this, item);
     }
@@ -1155,7 +1274,7 @@ import java.lang.Integer;
       this.builder = new V1ContainerPortBuilder(this);
     }
     V1ContainerPortBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ContainerFluentImpl.this.setToPorts(index,builder.build());
     }
@@ -1164,7 +1283,7 @@ import java.lang.Integer;
     }
     
   }
-  class ReadinessProbeNestedImpl<N> extends V1ProbeFluentImpl<V1ContainerFluent.ReadinessProbeNested<N>> implements V1ContainerFluent.ReadinessProbeNested<N>,Nested<N>{
+  class ReadinessProbeNestedImpl<N> extends V1ProbeFluentImpl<V1ContainerFluentImpl.ReadinessProbeNested<N>> implements V1ContainerFluentImpl.ReadinessProbeNested<N>,Nested<N>{
     ReadinessProbeNestedImpl(V1Probe item) {
       this.builder = new V1ProbeBuilder(this, item);
     }
@@ -1180,7 +1299,26 @@ import java.lang.Integer;
     }
     
   }
-  class ResourcesNestedImpl<N> extends V1ResourceRequirementsFluentImpl<V1ContainerFluent.ResourcesNested<N>> implements V1ContainerFluent.ResourcesNested<N>,Nested<N>{
+  class ResizePolicyNestedImpl<N> extends V1ContainerResizePolicyFluentImpl<V1ContainerFluentImpl.ResizePolicyNested<N>> implements V1ContainerFluentImpl.ResizePolicyNested<N>,Nested<N>{
+    ResizePolicyNestedImpl(int index,V1ContainerResizePolicy item) {
+      this.index = index;
+      this.builder = new V1ContainerResizePolicyBuilder(this, item);
+    }
+    ResizePolicyNestedImpl() {
+      this.index = -1;
+      this.builder = new V1ContainerResizePolicyBuilder(this);
+    }
+    V1ContainerResizePolicyBuilder builder;
+    int index;
+    public N and() {
+      return (N) V1ContainerFluentImpl.this.setToResizePolicy(index,builder.build());
+    }
+    public N endResizePolicy() {
+      return and();
+    }
+    
+  }
+  class ResourcesNestedImpl<N> extends V1ResourceRequirementsFluentImpl<V1ContainerFluentImpl.ResourcesNested<N>> implements V1ContainerFluentImpl.ResourcesNested<N>,Nested<N>{
     ResourcesNestedImpl(V1ResourceRequirements item) {
       this.builder = new V1ResourceRequirementsBuilder(this, item);
     }
@@ -1196,7 +1334,7 @@ import java.lang.Integer;
     }
     
   }
-  class SecurityContextNestedImpl<N> extends V1SecurityContextFluentImpl<V1ContainerFluent.SecurityContextNested<N>> implements V1ContainerFluent.SecurityContextNested<N>,Nested<N>{
+  class SecurityContextNestedImpl<N> extends V1SecurityContextFluentImpl<V1ContainerFluentImpl.SecurityContextNested<N>> implements V1ContainerFluentImpl.SecurityContextNested<N>,Nested<N>{
     SecurityContextNestedImpl(V1SecurityContext item) {
       this.builder = new V1SecurityContextBuilder(this, item);
     }
@@ -1212,7 +1350,7 @@ import java.lang.Integer;
     }
     
   }
-  class StartupProbeNestedImpl<N> extends V1ProbeFluentImpl<V1ContainerFluent.StartupProbeNested<N>> implements V1ContainerFluent.StartupProbeNested<N>,Nested<N>{
+  class StartupProbeNestedImpl<N> extends V1ProbeFluentImpl<V1ContainerFluentImpl.StartupProbeNested<N>> implements V1ContainerFluentImpl.StartupProbeNested<N>,Nested<N>{
     StartupProbeNestedImpl(V1Probe item) {
       this.builder = new V1ProbeBuilder(this, item);
     }
@@ -1228,8 +1366,8 @@ import java.lang.Integer;
     }
     
   }
-  class VolumeDevicesNestedImpl<N> extends V1VolumeDeviceFluentImpl<V1ContainerFluent.VolumeDevicesNested<N>> implements V1ContainerFluent.VolumeDevicesNested<N>,Nested<N>{
-    VolumeDevicesNestedImpl(Integer index,V1VolumeDevice item) {
+  class VolumeDevicesNestedImpl<N> extends V1VolumeDeviceFluentImpl<V1ContainerFluentImpl.VolumeDevicesNested<N>> implements V1ContainerFluentImpl.VolumeDevicesNested<N>,Nested<N>{
+    VolumeDevicesNestedImpl(int index,V1VolumeDevice item) {
       this.index = index;
       this.builder = new V1VolumeDeviceBuilder(this, item);
     }
@@ -1238,7 +1376,7 @@ import java.lang.Integer;
       this.builder = new V1VolumeDeviceBuilder(this);
     }
     V1VolumeDeviceBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ContainerFluentImpl.this.setToVolumeDevices(index,builder.build());
     }
@@ -1247,8 +1385,8 @@ import java.lang.Integer;
     }
     
   }
-  class VolumeMountsNestedImpl<N> extends V1VolumeMountFluentImpl<V1ContainerFluent.VolumeMountsNested<N>> implements V1ContainerFluent.VolumeMountsNested<N>,Nested<N>{
-    VolumeMountsNestedImpl(Integer index,V1VolumeMount item) {
+  class VolumeMountsNestedImpl<N> extends V1VolumeMountFluentImpl<V1ContainerFluentImpl.VolumeMountsNested<N>> implements V1ContainerFluentImpl.VolumeMountsNested<N>,Nested<N>{
+    VolumeMountsNestedImpl(int index,V1VolumeMount item) {
       this.index = index;
       this.builder = new V1VolumeMountBuilder(this, item);
     }
@@ -1257,7 +1395,7 @@ import java.lang.Integer;
       this.builder = new V1VolumeMountBuilder(this);
     }
     V1VolumeMountBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ContainerFluentImpl.this.setToVolumeMounts(index,builder.build());
     }

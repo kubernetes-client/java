@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,63 +12,61 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1LabelSelector;
+import io.kubernetes.client.openapi.models.V1ResourceRequirements;
+import io.kubernetes.client.openapi.models.V1TypedLocalObjectReference;
+import io.kubernetes.client.openapi.models.V1TypedObjectReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source
- * for provider-specific attributes
+ * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes
  */
-@ApiModel(
-    description =
-        "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1PersistentVolumeClaimSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
-
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
   private List<String> accessModes = null;
 
   public static final String SERIALIZED_NAME_DATA_SOURCE = "dataSource";
-
   @SerializedName(SERIALIZED_NAME_DATA_SOURCE)
   private V1TypedLocalObjectReference dataSource;
 
   public static final String SERIALIZED_NAME_DATA_SOURCE_REF = "dataSourceRef";
-
   @SerializedName(SERIALIZED_NAME_DATA_SOURCE_REF)
-  private V1TypedLocalObjectReference dataSourceRef;
+  private V1TypedObjectReference dataSourceRef;
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
-
   @SerializedName(SERIALIZED_NAME_RESOURCES)
   private V1ResourceRequirements resources;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
-
   @SerializedName(SERIALIZED_NAME_SELECTOR)
   private V1LabelSelector selector;
 
   public static final String SERIALIZED_NAME_STORAGE_CLASS_NAME = "storageClassName";
-
   @SerializedName(SERIALIZED_NAME_STORAGE_CLASS_NAME)
   private String storageClassName;
 
   public static final String SERIALIZED_NAME_VOLUME_MODE = "volumeMode";
-
   @SerializedName(SERIALIZED_NAME_VOLUME_MODE)
   private String volumeMode;
 
   public static final String SERIALIZED_NAME_VOLUME_NAME = "volumeName";
-
   @SerializedName(SERIALIZED_NAME_VOLUME_NAME)
   private String volumeName;
+
 
   public V1PersistentVolumeClaimSpec accessModes(List<String> accessModes) {
 
@@ -84,23 +82,22 @@ public class V1PersistentVolumeClaimSpec {
     return this;
   }
 
-  /**
-   * accessModes contains the desired access modes the volume should have. More info:
-   * https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
-   *
+   /**
+   * accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
    * @return accessModes
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1")
+  @ApiModelProperty(value = "accessModes contains the desired access modes the volume should have. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1")
+
   public List<String> getAccessModes() {
     return accessModes;
   }
 
+
   public void setAccessModes(List<String> accessModes) {
     this.accessModes = accessModes;
   }
+
 
   public V1PersistentVolumeClaimSpec dataSource(V1TypedLocalObjectReference dataSource) {
 
@@ -108,41 +105,45 @@ public class V1PersistentVolumeClaimSpec {
     return this;
   }
 
-  /**
+   /**
    * Get dataSource
-   *
    * @return dataSource
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1TypedLocalObjectReference getDataSource() {
     return dataSource;
   }
+
 
   public void setDataSource(V1TypedLocalObjectReference dataSource) {
     this.dataSource = dataSource;
   }
 
-  public V1PersistentVolumeClaimSpec dataSourceRef(V1TypedLocalObjectReference dataSourceRef) {
+
+  public V1PersistentVolumeClaimSpec dataSourceRef(V1TypedObjectReference dataSourceRef) {
 
     this.dataSourceRef = dataSourceRef;
     return this;
   }
 
-  /**
+   /**
    * Get dataSourceRef
-   *
    * @return dataSourceRef
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  public V1TypedLocalObjectReference getDataSourceRef() {
+
+  public V1TypedObjectReference getDataSourceRef() {
     return dataSourceRef;
   }
 
-  public void setDataSourceRef(V1TypedLocalObjectReference dataSourceRef) {
+
+  public void setDataSourceRef(V1TypedObjectReference dataSourceRef) {
     this.dataSourceRef = dataSourceRef;
   }
+
 
   public V1PersistentVolumeClaimSpec resources(V1ResourceRequirements resources) {
 
@@ -150,20 +151,22 @@ public class V1PersistentVolumeClaimSpec {
     return this;
   }
 
-  /**
+   /**
    * Get resources
-   *
    * @return resources
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1ResourceRequirements getResources() {
     return resources;
   }
 
+
   public void setResources(V1ResourceRequirements resources) {
     this.resources = resources;
   }
+
 
   public V1PersistentVolumeClaimSpec selector(V1LabelSelector selector) {
 
@@ -171,20 +174,22 @@ public class V1PersistentVolumeClaimSpec {
     return this;
   }
 
-  /**
+   /**
    * Get selector
-   *
    * @return selector
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1LabelSelector getSelector() {
     return selector;
   }
 
+
   public void setSelector(V1LabelSelector selector) {
     this.selector = selector;
   }
+
 
   public V1PersistentVolumeClaimSpec storageClassName(String storageClassName) {
 
@@ -192,23 +197,22 @@ public class V1PersistentVolumeClaimSpec {
     return this;
   }
 
-  /**
-   * storageClassName is the name of the StorageClass required by the claim. More info:
-   * https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
-   *
+   /**
+   * storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1
    * @return storageClassName
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1")
+  @ApiModelProperty(value = "storageClassName is the name of the StorageClass required by the claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1")
+
   public String getStorageClassName() {
     return storageClassName;
   }
 
+
   public void setStorageClassName(String storageClassName) {
     this.storageClassName = storageClassName;
   }
+
 
   public V1PersistentVolumeClaimSpec volumeMode(String volumeMode) {
 
@@ -216,23 +220,22 @@ public class V1PersistentVolumeClaimSpec {
     return this;
   }
 
-  /**
-   * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied
-   * when not included in claim spec.
-   *
+   /**
+   * volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.
    * @return volumeMode
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.")
+  @ApiModelProperty(value = "volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.")
+
   public String getVolumeMode() {
     return volumeMode;
   }
 
+
   public void setVolumeMode(String volumeMode) {
     this.volumeMode = volumeMode;
   }
+
 
   public V1PersistentVolumeClaimSpec volumeName(String volumeName) {
 
@@ -240,21 +243,22 @@ public class V1PersistentVolumeClaimSpec {
     return this;
   }
 
-  /**
+   /**
    * volumeName is the binding reference to the PersistentVolume backing this claim.
-   *
    * @return volumeName
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "volumeName is the binding reference to the PersistentVolume backing this claim.")
+  @ApiModelProperty(value = "volumeName is the binding reference to the PersistentVolume backing this claim.")
+
   public String getVolumeName() {
     return volumeName;
   }
 
+
   public void setVolumeName(String volumeName) {
     this.volumeName = volumeName;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -265,28 +269,21 @@ public class V1PersistentVolumeClaimSpec {
       return false;
     }
     V1PersistentVolumeClaimSpec v1PersistentVolumeClaimSpec = (V1PersistentVolumeClaimSpec) o;
-    return Objects.equals(this.accessModes, v1PersistentVolumeClaimSpec.accessModes)
-        && Objects.equals(this.dataSource, v1PersistentVolumeClaimSpec.dataSource)
-        && Objects.equals(this.dataSourceRef, v1PersistentVolumeClaimSpec.dataSourceRef)
-        && Objects.equals(this.resources, v1PersistentVolumeClaimSpec.resources)
-        && Objects.equals(this.selector, v1PersistentVolumeClaimSpec.selector)
-        && Objects.equals(this.storageClassName, v1PersistentVolumeClaimSpec.storageClassName)
-        && Objects.equals(this.volumeMode, v1PersistentVolumeClaimSpec.volumeMode)
-        && Objects.equals(this.volumeName, v1PersistentVolumeClaimSpec.volumeName);
+    return Objects.equals(this.accessModes, v1PersistentVolumeClaimSpec.accessModes) &&
+        Objects.equals(this.dataSource, v1PersistentVolumeClaimSpec.dataSource) &&
+        Objects.equals(this.dataSourceRef, v1PersistentVolumeClaimSpec.dataSourceRef) &&
+        Objects.equals(this.resources, v1PersistentVolumeClaimSpec.resources) &&
+        Objects.equals(this.selector, v1PersistentVolumeClaimSpec.selector) &&
+        Objects.equals(this.storageClassName, v1PersistentVolumeClaimSpec.storageClassName) &&
+        Objects.equals(this.volumeMode, v1PersistentVolumeClaimSpec.volumeMode) &&
+        Objects.equals(this.volumeName, v1PersistentVolumeClaimSpec.volumeName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        accessModes,
-        dataSource,
-        dataSourceRef,
-        resources,
-        selector,
-        storageClassName,
-        volumeMode,
-        volumeName);
+    return Objects.hash(accessModes, dataSource, dataSourceRef, resources, selector, storageClassName, volumeMode, volumeName);
   }
+
 
   @Override
   public String toString() {
@@ -305,7 +302,8 @@ public class V1PersistentVolumeClaimSpec {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -313,4 +311,5 @@ public class V1PersistentVolumeClaimSpec {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

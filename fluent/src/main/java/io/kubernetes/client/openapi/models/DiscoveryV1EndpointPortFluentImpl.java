@@ -15,14 +15,12 @@ import java.lang.Boolean;
   public DiscoveryV1EndpointPortFluentImpl() {
   }
   public DiscoveryV1EndpointPortFluentImpl(DiscoveryV1EndpointPort instance) {
-    this.withAppProtocol(instance.getAppProtocol());
-
-    this.withName(instance.getName());
-
-    this.withPort(instance.getPort());
-
-    this.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      this.withAppProtocol(instance.getAppProtocol());
+      this.withName(instance.getName());
+      this.withPort(instance.getPort());
+      this.withProtocol(instance.getProtocol());
+    }
   }
   private String appProtocol;
   private String name;
@@ -67,11 +65,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     DiscoveryV1EndpointPortFluentImpl that = (DiscoveryV1EndpointPortFluentImpl) o;
-    if (appProtocol != null ? !appProtocol.equals(that.appProtocol) :that.appProtocol != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (port != null ? !port.equals(that.port) :that.port != null) return false;
-    if (protocol != null ? !protocol.equals(that.protocol) :that.protocol != null) return false;
+    if (!java.util.Objects.equals(appProtocol, that.appProtocol)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(port, that.port)) return false;
+
+    if (!java.util.Objects.equals(protocol, that.protocol)) return false;
+
     return true;
   }
   public int hashCode() {

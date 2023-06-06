@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -36,14 +37,14 @@ public interface V1ISCSIVolumeSourceFluent<A extends V1ISCSIVolumeSourceFluent<A
   public Integer getLun();
   public A withLun(Integer lun);
   public Boolean hasLun();
-  public A addToPortals(Integer index,String item);
-  public A setToPortals(Integer index,String item);
+  public A addToPortals(int index,String item);
+  public A setToPortals(int index,String item);
   public A addToPortals(java.lang.String... items);
   public A addAllToPortals(Collection<String> items);
   public A removeFromPortals(java.lang.String... items);
   public A removeAllFromPortals(Collection<String> items);
   public List<String> getPortals();
-  public String getPortal(Integer index);
+  public String getPortal(int index);
   public String getFirstPortal();
   public String getLastPortal();
   public String getMatchingPortal(Predicate<String> predicate);

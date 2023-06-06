@@ -6,7 +6,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -23,20 +22,22 @@ import java.lang.Boolean;
   public V1LoadBalancerStatusFluentImpl() {
   }
   public V1LoadBalancerStatusFluentImpl(V1LoadBalancerStatus instance) {
-    this.withIngress(instance.getIngress());
-
+    if (instance != null) {
+      this.withIngress(instance.getIngress());
+    }
   }
   private ArrayList<V1LoadBalancerIngressBuilder> ingress;
-  public A addToIngress(Integer index,V1LoadBalancerIngress item) {
-    if (this.ingress == null) {this.ingress = new ArrayList<V1LoadBalancerIngressBuilder>();}
-    V1LoadBalancerIngressBuilder builder = new V1LoadBalancerIngressBuilder(item);_visitables.get("ingress").add(index >= 0 ? index : _visitables.get("ingress").size(), builder);this.ingress.add(index >= 0 ? index : ingress.size(), builder); return (A)this;
-  }
-  public A setToIngress(Integer index,V1LoadBalancerIngress item) {
+  public A addToIngress(int index,V1LoadBalancerIngress item) {
     if (this.ingress == null) {this.ingress = new ArrayList<V1LoadBalancerIngressBuilder>();}
     V1LoadBalancerIngressBuilder builder = new V1LoadBalancerIngressBuilder(item);
-    if (index < 0 || index >= _visitables.get("ingress").size()) { _visitables.get("ingress").add(builder); } else { _visitables.get("ingress").set(index, builder);}
-    if (index < 0 || index >= ingress.size()) { ingress.add(builder); } else { ingress.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= ingress.size()) { _visitables.get("ingress").add(builder); ingress.add(builder); } else { _visitables.get("ingress").add(index, builder); ingress.add(index, builder);}
+    return (A)this;
+  }
+  public A setToIngress(int index,V1LoadBalancerIngress item) {
+    if (this.ingress == null) {this.ingress = new ArrayList<V1LoadBalancerIngressBuilder>();}
+    V1LoadBalancerIngressBuilder builder = new V1LoadBalancerIngressBuilder(item);
+    if (index < 0 || index >= ingress.size()) { _visitables.get("ingress").add(builder); ingress.add(builder); } else { _visitables.get("ingress").set(index, builder); ingress.set(index, builder);}
+    return (A)this;
   }
   public A addToIngress(io.kubernetes.client.openapi.models.V1LoadBalancerIngress... items) {
     if (this.ingress == null) {this.ingress = new ArrayList<V1LoadBalancerIngressBuilder>();}
@@ -77,7 +78,7 @@ import java.lang.Boolean;
   public List<V1LoadBalancerIngress> buildIngress() {
     return ingress != null ? build(ingress) : null;
   }
-  public V1LoadBalancerIngress buildIngress(Integer index) {
+  public V1LoadBalancerIngress buildIngress(int index) {
     return this.ingress.get(index).build();
   }
   public V1LoadBalancerIngress buildFirstIngress() {
@@ -93,39 +94,39 @@ import java.lang.Boolean;
     for (V1LoadBalancerIngressBuilder item: ingress) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withIngress(List<V1LoadBalancerIngress> ingress) {
-    if (this.ingress != null) { _visitables.get("ingress").removeAll(this.ingress);}
+    if (this.ingress != null) { _visitables.get("ingress").clear();}
     if (ingress != null) {this.ingress = new ArrayList(); for (V1LoadBalancerIngress item : ingress){this.addToIngress(item);}} else { this.ingress = null;} return (A) this;
   }
   public A withIngress(io.kubernetes.client.openapi.models.V1LoadBalancerIngress... ingress) {
-    if (this.ingress != null) {this.ingress.clear();}
+    if (this.ingress != null) {this.ingress.clear(); _visitables.remove("ingress"); }
     if (ingress != null) {for (V1LoadBalancerIngress item :ingress){ this.addToIngress(item);}} return (A) this;
   }
   public Boolean hasIngress() {
     return ingress != null && !ingress.isEmpty();
   }
-  public V1LoadBalancerStatusFluent.IngressNested<A> addNewIngress() {
+  public V1LoadBalancerStatusFluentImpl.IngressNested<A> addNewIngress() {
     return new V1LoadBalancerStatusFluentImpl.IngressNestedImpl();
   }
-  public V1LoadBalancerStatusFluent.IngressNested<A> addNewIngressLike(V1LoadBalancerIngress item) {
+  public V1LoadBalancerStatusFluentImpl.IngressNested<A> addNewIngressLike(V1LoadBalancerIngress item) {
     return new V1LoadBalancerStatusFluentImpl.IngressNestedImpl(-1, item);
   }
-  public V1LoadBalancerStatusFluent.IngressNested<A> setNewIngressLike(Integer index,V1LoadBalancerIngress item) {
+  public V1LoadBalancerStatusFluentImpl.IngressNested<A> setNewIngressLike(int index,V1LoadBalancerIngress item) {
     return new V1LoadBalancerStatusFluentImpl.IngressNestedImpl(index, item);
   }
-  public V1LoadBalancerStatusFluent.IngressNested<A> editIngress(Integer index) {
+  public V1LoadBalancerStatusFluentImpl.IngressNested<A> editIngress(int index) {
     if (ingress.size() <= index) throw new RuntimeException("Can't edit ingress. Index exceeds size.");
     return setNewIngressLike(index, buildIngress(index));
   }
-  public V1LoadBalancerStatusFluent.IngressNested<A> editFirstIngress() {
+  public V1LoadBalancerStatusFluentImpl.IngressNested<A> editFirstIngress() {
     if (ingress.size() == 0) throw new RuntimeException("Can't edit first ingress. The list is empty.");
     return setNewIngressLike(0, buildIngress(0));
   }
-  public V1LoadBalancerStatusFluent.IngressNested<A> editLastIngress() {
+  public V1LoadBalancerStatusFluentImpl.IngressNested<A> editLastIngress() {
     int index = ingress.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last ingress. The list is empty.");
     return setNewIngressLike(index, buildIngress(index));
   }
-  public V1LoadBalancerStatusFluent.IngressNested<A> editMatchingIngress(Predicate<V1LoadBalancerIngressBuilder> predicate) {
+  public V1LoadBalancerStatusFluentImpl.IngressNested<A> editMatchingIngress(Predicate<V1LoadBalancerIngressBuilder> predicate) {
     int index = -1;
     for (int i=0;i<ingress.size();i++) { 
     if (predicate.test(ingress.get(i))) {index = i; break;}
@@ -136,8 +137,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1LoadBalancerStatusFluentImpl that = (V1LoadBalancerStatusFluentImpl) o;
-    if (ingress != null ? !ingress.equals(that.ingress) :that.ingress != null) return false;
+    if (!java.util.Objects.equals(ingress, that.ingress)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -146,12 +149,12 @@ import java.lang.Boolean;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (ingress != null && !ingress.isEmpty()) { sb.append("ingress:"); sb.append(ingress); }
+    if (ingress != null) { sb.append("ingress:"); sb.append(ingress); }
     sb.append("}");
     return sb.toString();
   }
-  class IngressNestedImpl<N> extends V1LoadBalancerIngressFluentImpl<V1LoadBalancerStatusFluent.IngressNested<N>> implements V1LoadBalancerStatusFluent.IngressNested<N>,Nested<N>{
-    IngressNestedImpl(Integer index,V1LoadBalancerIngress item) {
+  class IngressNestedImpl<N> extends V1LoadBalancerIngressFluentImpl<V1LoadBalancerStatusFluentImpl.IngressNested<N>> implements V1LoadBalancerStatusFluentImpl.IngressNested<N>,Nested<N>{
+    IngressNestedImpl(int index,V1LoadBalancerIngress item) {
       this.index = index;
       this.builder = new V1LoadBalancerIngressBuilder(this, item);
     }
@@ -160,7 +163,7 @@ import java.lang.Boolean;
       this.builder = new V1LoadBalancerIngressBuilder(this);
     }
     V1LoadBalancerIngressBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1LoadBalancerStatusFluentImpl.this.setToIngress(index,builder.build());
     }

@@ -20,14 +20,12 @@ public class V1CinderPersistentVolumeSourceBuilder extends V1CinderPersistentVol
   }
   public V1CinderPersistentVolumeSourceBuilder(V1CinderPersistentVolumeSourceFluent<?> fluent,V1CinderPersistentVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withSecretRef(instance.getSecretRef());
-
-    fluent.withVolumeID(instance.getVolumeID());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withSecretRef(instance.getSecretRef());
+      fluent.withVolumeID(instance.getVolumeID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CinderPersistentVolumeSourceBuilder(V1CinderPersistentVolumeSource instance) {
@@ -35,14 +33,12 @@ public class V1CinderPersistentVolumeSourceBuilder extends V1CinderPersistentVol
   }
   public V1CinderPersistentVolumeSourceBuilder(V1CinderPersistentVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withVolumeID(instance.getVolumeID());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+      this.withVolumeID(instance.getVolumeID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CinderPersistentVolumeSourceFluent<?> fluent;

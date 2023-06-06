@@ -20,20 +20,15 @@ public class V1PodDisruptionBudgetStatusBuilder extends V1PodDisruptionBudgetSta
   }
   public V1PodDisruptionBudgetStatusBuilder(V1PodDisruptionBudgetStatusFluent<?> fluent,V1PodDisruptionBudgetStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withCurrentHealthy(instance.getCurrentHealthy());
-
-    fluent.withDesiredHealthy(instance.getDesiredHealthy());
-
-    fluent.withDisruptedPods(instance.getDisruptedPods());
-
-    fluent.withDisruptionsAllowed(instance.getDisruptionsAllowed());
-
-    fluent.withExpectedPods(instance.getExpectedPods());
-
-    fluent.withObservedGeneration(instance.getObservedGeneration());
-
+    if (instance != null) {
+      fluent.withConditions(instance.getConditions());
+      fluent.withCurrentHealthy(instance.getCurrentHealthy());
+      fluent.withDesiredHealthy(instance.getDesiredHealthy());
+      fluent.withDisruptedPods(instance.getDisruptedPods());
+      fluent.withDisruptionsAllowed(instance.getDisruptionsAllowed());
+      fluent.withExpectedPods(instance.getExpectedPods());
+      fluent.withObservedGeneration(instance.getObservedGeneration());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodDisruptionBudgetStatusBuilder(V1PodDisruptionBudgetStatus instance) {
@@ -41,20 +36,15 @@ public class V1PodDisruptionBudgetStatusBuilder extends V1PodDisruptionBudgetSta
   }
   public V1PodDisruptionBudgetStatusBuilder(V1PodDisruptionBudgetStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConditions(instance.getConditions());
-
-    this.withCurrentHealthy(instance.getCurrentHealthy());
-
-    this.withDesiredHealthy(instance.getDesiredHealthy());
-
-    this.withDisruptedPods(instance.getDisruptedPods());
-
-    this.withDisruptionsAllowed(instance.getDisruptionsAllowed());
-
-    this.withExpectedPods(instance.getExpectedPods());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+      this.withCurrentHealthy(instance.getCurrentHealthy());
+      this.withDesiredHealthy(instance.getDesiredHealthy());
+      this.withDisruptedPods(instance.getDisruptedPods());
+      this.withDisruptionsAllowed(instance.getDisruptionsAllowed());
+      this.withExpectedPods(instance.getExpectedPods());
+      this.withObservedGeneration(instance.getObservedGeneration());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodDisruptionBudgetStatusFluent<?> fluent;

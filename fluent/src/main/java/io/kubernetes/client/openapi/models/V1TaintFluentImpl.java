@@ -15,14 +15,12 @@ import java.lang.Boolean;
   public V1TaintFluentImpl() {
   }
   public V1TaintFluentImpl(V1Taint instance) {
-    this.withEffect(instance.getEffect());
-
-    this.withKey(instance.getKey());
-
-    this.withTimeAdded(instance.getTimeAdded());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withEffect(instance.getEffect());
+      this.withKey(instance.getKey());
+      this.withTimeAdded(instance.getTimeAdded());
+      this.withValue(instance.getValue());
+    }
   }
   private String effect;
   private String key;
@@ -67,11 +65,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1TaintFluentImpl that = (V1TaintFluentImpl) o;
-    if (effect != null ? !effect.equals(that.effect) :that.effect != null) return false;
-    if (key != null ? !key.equals(that.key) :that.key != null) return false;
-    if (timeAdded != null ? !timeAdded.equals(that.timeAdded) :that.timeAdded != null) return false;
-    if (value != null ? !value.equals(that.value) :that.value != null) return false;
+    if (!java.util.Objects.equals(effect, that.effect)) return false;
+
+    if (!java.util.Objects.equals(key, that.key)) return false;
+
+    if (!java.util.Objects.equals(timeAdded, that.timeAdded)) return false;
+
+    if (!java.util.Objects.equals(value, that.value)) return false;
+
     return true;
   }
   public int hashCode() {

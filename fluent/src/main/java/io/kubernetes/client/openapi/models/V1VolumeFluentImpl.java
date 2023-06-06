@@ -16,66 +16,38 @@ import io.kubernetes.client.fluent.Nested;
   public V1VolumeFluentImpl() {
   }
   public V1VolumeFluentImpl(V1Volume instance) {
-    this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
-
-    this.withAzureDisk(instance.getAzureDisk());
-
-    this.withAzureFile(instance.getAzureFile());
-
-    this.withCephfs(instance.getCephfs());
-
-    this.withCinder(instance.getCinder());
-
-    this.withConfigMap(instance.getConfigMap());
-
-    this.withCsi(instance.getCsi());
-
-    this.withDownwardAPI(instance.getDownwardAPI());
-
-    this.withEmptyDir(instance.getEmptyDir());
-
-    this.withEphemeral(instance.getEphemeral());
-
-    this.withFc(instance.getFc());
-
-    this.withFlexVolume(instance.getFlexVolume());
-
-    this.withFlocker(instance.getFlocker());
-
-    this.withGcePersistentDisk(instance.getGcePersistentDisk());
-
-    this.withGitRepo(instance.getGitRepo());
-
-    this.withGlusterfs(instance.getGlusterfs());
-
-    this.withHostPath(instance.getHostPath());
-
-    this.withIscsi(instance.getIscsi());
-
-    this.withName(instance.getName());
-
-    this.withNfs(instance.getNfs());
-
-    this.withPersistentVolumeClaim(instance.getPersistentVolumeClaim());
-
-    this.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
-
-    this.withPortworxVolume(instance.getPortworxVolume());
-
-    this.withProjected(instance.getProjected());
-
-    this.withQuobyte(instance.getQuobyte());
-
-    this.withRbd(instance.getRbd());
-
-    this.withScaleIO(instance.getScaleIO());
-
-    this.withSecret(instance.getSecret());
-
-    this.withStorageos(instance.getStorageos());
-
-    this.withVsphereVolume(instance.getVsphereVolume());
-
+    if (instance != null) {
+      this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
+      this.withAzureDisk(instance.getAzureDisk());
+      this.withAzureFile(instance.getAzureFile());
+      this.withCephfs(instance.getCephfs());
+      this.withCinder(instance.getCinder());
+      this.withConfigMap(instance.getConfigMap());
+      this.withCsi(instance.getCsi());
+      this.withDownwardAPI(instance.getDownwardAPI());
+      this.withEmptyDir(instance.getEmptyDir());
+      this.withEphemeral(instance.getEphemeral());
+      this.withFc(instance.getFc());
+      this.withFlexVolume(instance.getFlexVolume());
+      this.withFlocker(instance.getFlocker());
+      this.withGcePersistentDisk(instance.getGcePersistentDisk());
+      this.withGitRepo(instance.getGitRepo());
+      this.withGlusterfs(instance.getGlusterfs());
+      this.withHostPath(instance.getHostPath());
+      this.withIscsi(instance.getIscsi());
+      this.withName(instance.getName());
+      this.withNfs(instance.getNfs());
+      this.withPersistentVolumeClaim(instance.getPersistentVolumeClaim());
+      this.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
+      this.withPortworxVolume(instance.getPortworxVolume());
+      this.withProjected(instance.getProjected());
+      this.withQuobyte(instance.getQuobyte());
+      this.withRbd(instance.getRbd());
+      this.withScaleIO(instance.getScaleIO());
+      this.withSecret(instance.getSecret());
+      this.withStorageos(instance.getStorageos());
+      this.withVsphereVolume(instance.getVsphereVolume());
+    }
   }
   private V1AWSElasticBlockStoreVolumeSourceBuilder awsElasticBlockStore;
   private V1AzureDiskVolumeSourceBuilder azureDisk;
@@ -126,19 +98,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasAwsElasticBlockStore() {
     return this.awsElasticBlockStore != null;
   }
-  public V1VolumeFluent.AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStore() {
+  public V1VolumeFluentImpl.AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStore() {
     return new V1VolumeFluentImpl.AwsElasticBlockStoreNestedImpl();
   }
-  public V1VolumeFluent.AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStoreLike(V1AWSElasticBlockStoreVolumeSource item) {
+  public V1VolumeFluentImpl.AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStoreLike(V1AWSElasticBlockStoreVolumeSource item) {
     return new V1VolumeFluentImpl.AwsElasticBlockStoreNestedImpl(item);
   }
-  public V1VolumeFluent.AwsElasticBlockStoreNested<A> editAwsElasticBlockStore() {
+  public V1VolumeFluentImpl.AwsElasticBlockStoreNested<A> editAwsElasticBlockStore() {
     return withNewAwsElasticBlockStoreLike(getAwsElasticBlockStore());
   }
-  public V1VolumeFluent.AwsElasticBlockStoreNested<A> editOrNewAwsElasticBlockStore() {
+  public V1VolumeFluentImpl.AwsElasticBlockStoreNested<A> editOrNewAwsElasticBlockStore() {
     return withNewAwsElasticBlockStoreLike(getAwsElasticBlockStore() != null ? getAwsElasticBlockStore(): new V1AWSElasticBlockStoreVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.AwsElasticBlockStoreNested<A> editOrNewAwsElasticBlockStoreLike(V1AWSElasticBlockStoreVolumeSource item) {
+  public V1VolumeFluentImpl.AwsElasticBlockStoreNested<A> editOrNewAwsElasticBlockStoreLike(V1AWSElasticBlockStoreVolumeSource item) {
     return withNewAwsElasticBlockStoreLike(getAwsElasticBlockStore() != null ? getAwsElasticBlockStore(): item);
   }
   
@@ -160,19 +132,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasAzureDisk() {
     return this.azureDisk != null;
   }
-  public V1VolumeFluent.AzureDiskNested<A> withNewAzureDisk() {
+  public V1VolumeFluentImpl.AzureDiskNested<A> withNewAzureDisk() {
     return new V1VolumeFluentImpl.AzureDiskNestedImpl();
   }
-  public V1VolumeFluent.AzureDiskNested<A> withNewAzureDiskLike(V1AzureDiskVolumeSource item) {
+  public V1VolumeFluentImpl.AzureDiskNested<A> withNewAzureDiskLike(V1AzureDiskVolumeSource item) {
     return new V1VolumeFluentImpl.AzureDiskNestedImpl(item);
   }
-  public V1VolumeFluent.AzureDiskNested<A> editAzureDisk() {
+  public V1VolumeFluentImpl.AzureDiskNested<A> editAzureDisk() {
     return withNewAzureDiskLike(getAzureDisk());
   }
-  public V1VolumeFluent.AzureDiskNested<A> editOrNewAzureDisk() {
+  public V1VolumeFluentImpl.AzureDiskNested<A> editOrNewAzureDisk() {
     return withNewAzureDiskLike(getAzureDisk() != null ? getAzureDisk(): new V1AzureDiskVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.AzureDiskNested<A> editOrNewAzureDiskLike(V1AzureDiskVolumeSource item) {
+  public V1VolumeFluentImpl.AzureDiskNested<A> editOrNewAzureDiskLike(V1AzureDiskVolumeSource item) {
     return withNewAzureDiskLike(getAzureDisk() != null ? getAzureDisk(): item);
   }
   
@@ -194,19 +166,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasAzureFile() {
     return this.azureFile != null;
   }
-  public V1VolumeFluent.AzureFileNested<A> withNewAzureFile() {
+  public V1VolumeFluentImpl.AzureFileNested<A> withNewAzureFile() {
     return new V1VolumeFluentImpl.AzureFileNestedImpl();
   }
-  public V1VolumeFluent.AzureFileNested<A> withNewAzureFileLike(V1AzureFileVolumeSource item) {
+  public V1VolumeFluentImpl.AzureFileNested<A> withNewAzureFileLike(V1AzureFileVolumeSource item) {
     return new V1VolumeFluentImpl.AzureFileNestedImpl(item);
   }
-  public V1VolumeFluent.AzureFileNested<A> editAzureFile() {
+  public V1VolumeFluentImpl.AzureFileNested<A> editAzureFile() {
     return withNewAzureFileLike(getAzureFile());
   }
-  public V1VolumeFluent.AzureFileNested<A> editOrNewAzureFile() {
+  public V1VolumeFluentImpl.AzureFileNested<A> editOrNewAzureFile() {
     return withNewAzureFileLike(getAzureFile() != null ? getAzureFile(): new V1AzureFileVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.AzureFileNested<A> editOrNewAzureFileLike(V1AzureFileVolumeSource item) {
+  public V1VolumeFluentImpl.AzureFileNested<A> editOrNewAzureFileLike(V1AzureFileVolumeSource item) {
     return withNewAzureFileLike(getAzureFile() != null ? getAzureFile(): item);
   }
   
@@ -228,19 +200,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasCephfs() {
     return this.cephfs != null;
   }
-  public V1VolumeFluent.CephfsNested<A> withNewCephfs() {
+  public V1VolumeFluentImpl.CephfsNested<A> withNewCephfs() {
     return new V1VolumeFluentImpl.CephfsNestedImpl();
   }
-  public V1VolumeFluent.CephfsNested<A> withNewCephfsLike(V1CephFSVolumeSource item) {
+  public V1VolumeFluentImpl.CephfsNested<A> withNewCephfsLike(V1CephFSVolumeSource item) {
     return new V1VolumeFluentImpl.CephfsNestedImpl(item);
   }
-  public V1VolumeFluent.CephfsNested<A> editCephfs() {
+  public V1VolumeFluentImpl.CephfsNested<A> editCephfs() {
     return withNewCephfsLike(getCephfs());
   }
-  public V1VolumeFluent.CephfsNested<A> editOrNewCephfs() {
+  public V1VolumeFluentImpl.CephfsNested<A> editOrNewCephfs() {
     return withNewCephfsLike(getCephfs() != null ? getCephfs(): new V1CephFSVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.CephfsNested<A> editOrNewCephfsLike(V1CephFSVolumeSource item) {
+  public V1VolumeFluentImpl.CephfsNested<A> editOrNewCephfsLike(V1CephFSVolumeSource item) {
     return withNewCephfsLike(getCephfs() != null ? getCephfs(): item);
   }
   
@@ -262,19 +234,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasCinder() {
     return this.cinder != null;
   }
-  public V1VolumeFluent.CinderNested<A> withNewCinder() {
+  public V1VolumeFluentImpl.CinderNested<A> withNewCinder() {
     return new V1VolumeFluentImpl.CinderNestedImpl();
   }
-  public V1VolumeFluent.CinderNested<A> withNewCinderLike(V1CinderVolumeSource item) {
+  public V1VolumeFluentImpl.CinderNested<A> withNewCinderLike(V1CinderVolumeSource item) {
     return new V1VolumeFluentImpl.CinderNestedImpl(item);
   }
-  public V1VolumeFluent.CinderNested<A> editCinder() {
+  public V1VolumeFluentImpl.CinderNested<A> editCinder() {
     return withNewCinderLike(getCinder());
   }
-  public V1VolumeFluent.CinderNested<A> editOrNewCinder() {
+  public V1VolumeFluentImpl.CinderNested<A> editOrNewCinder() {
     return withNewCinderLike(getCinder() != null ? getCinder(): new V1CinderVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.CinderNested<A> editOrNewCinderLike(V1CinderVolumeSource item) {
+  public V1VolumeFluentImpl.CinderNested<A> editOrNewCinderLike(V1CinderVolumeSource item) {
     return withNewCinderLike(getCinder() != null ? getCinder(): item);
   }
   
@@ -296,19 +268,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasConfigMap() {
     return this.configMap != null;
   }
-  public V1VolumeFluent.ConfigMapNested<A> withNewConfigMap() {
+  public V1VolumeFluentImpl.ConfigMapNested<A> withNewConfigMap() {
     return new V1VolumeFluentImpl.ConfigMapNestedImpl();
   }
-  public V1VolumeFluent.ConfigMapNested<A> withNewConfigMapLike(V1ConfigMapVolumeSource item) {
+  public V1VolumeFluentImpl.ConfigMapNested<A> withNewConfigMapLike(V1ConfigMapVolumeSource item) {
     return new V1VolumeFluentImpl.ConfigMapNestedImpl(item);
   }
-  public V1VolumeFluent.ConfigMapNested<A> editConfigMap() {
+  public V1VolumeFluentImpl.ConfigMapNested<A> editConfigMap() {
     return withNewConfigMapLike(getConfigMap());
   }
-  public V1VolumeFluent.ConfigMapNested<A> editOrNewConfigMap() {
+  public V1VolumeFluentImpl.ConfigMapNested<A> editOrNewConfigMap() {
     return withNewConfigMapLike(getConfigMap() != null ? getConfigMap(): new V1ConfigMapVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.ConfigMapNested<A> editOrNewConfigMapLike(V1ConfigMapVolumeSource item) {
+  public V1VolumeFluentImpl.ConfigMapNested<A> editOrNewConfigMapLike(V1ConfigMapVolumeSource item) {
     return withNewConfigMapLike(getConfigMap() != null ? getConfigMap(): item);
   }
   
@@ -330,19 +302,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasCsi() {
     return this.csi != null;
   }
-  public V1VolumeFluent.CsiNested<A> withNewCsi() {
+  public V1VolumeFluentImpl.CsiNested<A> withNewCsi() {
     return new V1VolumeFluentImpl.CsiNestedImpl();
   }
-  public V1VolumeFluent.CsiNested<A> withNewCsiLike(V1CSIVolumeSource item) {
+  public V1VolumeFluentImpl.CsiNested<A> withNewCsiLike(V1CSIVolumeSource item) {
     return new V1VolumeFluentImpl.CsiNestedImpl(item);
   }
-  public V1VolumeFluent.CsiNested<A> editCsi() {
+  public V1VolumeFluentImpl.CsiNested<A> editCsi() {
     return withNewCsiLike(getCsi());
   }
-  public V1VolumeFluent.CsiNested<A> editOrNewCsi() {
+  public V1VolumeFluentImpl.CsiNested<A> editOrNewCsi() {
     return withNewCsiLike(getCsi() != null ? getCsi(): new V1CSIVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.CsiNested<A> editOrNewCsiLike(V1CSIVolumeSource item) {
+  public V1VolumeFluentImpl.CsiNested<A> editOrNewCsiLike(V1CSIVolumeSource item) {
     return withNewCsiLike(getCsi() != null ? getCsi(): item);
   }
   
@@ -364,19 +336,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasDownwardAPI() {
     return this.downwardAPI != null;
   }
-  public V1VolumeFluent.DownwardAPINested<A> withNewDownwardAPI() {
+  public V1VolumeFluentImpl.DownwardAPINested<A> withNewDownwardAPI() {
     return new V1VolumeFluentImpl.DownwardAPINestedImpl();
   }
-  public V1VolumeFluent.DownwardAPINested<A> withNewDownwardAPILike(V1DownwardAPIVolumeSource item) {
+  public V1VolumeFluentImpl.DownwardAPINested<A> withNewDownwardAPILike(V1DownwardAPIVolumeSource item) {
     return new V1VolumeFluentImpl.DownwardAPINestedImpl(item);
   }
-  public V1VolumeFluent.DownwardAPINested<A> editDownwardAPI() {
+  public V1VolumeFluentImpl.DownwardAPINested<A> editDownwardAPI() {
     return withNewDownwardAPILike(getDownwardAPI());
   }
-  public V1VolumeFluent.DownwardAPINested<A> editOrNewDownwardAPI() {
+  public V1VolumeFluentImpl.DownwardAPINested<A> editOrNewDownwardAPI() {
     return withNewDownwardAPILike(getDownwardAPI() != null ? getDownwardAPI(): new V1DownwardAPIVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.DownwardAPINested<A> editOrNewDownwardAPILike(V1DownwardAPIVolumeSource item) {
+  public V1VolumeFluentImpl.DownwardAPINested<A> editOrNewDownwardAPILike(V1DownwardAPIVolumeSource item) {
     return withNewDownwardAPILike(getDownwardAPI() != null ? getDownwardAPI(): item);
   }
   
@@ -398,19 +370,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasEmptyDir() {
     return this.emptyDir != null;
   }
-  public V1VolumeFluent.EmptyDirNested<A> withNewEmptyDir() {
+  public V1VolumeFluentImpl.EmptyDirNested<A> withNewEmptyDir() {
     return new V1VolumeFluentImpl.EmptyDirNestedImpl();
   }
-  public V1VolumeFluent.EmptyDirNested<A> withNewEmptyDirLike(V1EmptyDirVolumeSource item) {
+  public V1VolumeFluentImpl.EmptyDirNested<A> withNewEmptyDirLike(V1EmptyDirVolumeSource item) {
     return new V1VolumeFluentImpl.EmptyDirNestedImpl(item);
   }
-  public V1VolumeFluent.EmptyDirNested<A> editEmptyDir() {
+  public V1VolumeFluentImpl.EmptyDirNested<A> editEmptyDir() {
     return withNewEmptyDirLike(getEmptyDir());
   }
-  public V1VolumeFluent.EmptyDirNested<A> editOrNewEmptyDir() {
+  public V1VolumeFluentImpl.EmptyDirNested<A> editOrNewEmptyDir() {
     return withNewEmptyDirLike(getEmptyDir() != null ? getEmptyDir(): new V1EmptyDirVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.EmptyDirNested<A> editOrNewEmptyDirLike(V1EmptyDirVolumeSource item) {
+  public V1VolumeFluentImpl.EmptyDirNested<A> editOrNewEmptyDirLike(V1EmptyDirVolumeSource item) {
     return withNewEmptyDirLike(getEmptyDir() != null ? getEmptyDir(): item);
   }
   
@@ -432,19 +404,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasEphemeral() {
     return this.ephemeral != null;
   }
-  public V1VolumeFluent.EphemeralNested<A> withNewEphemeral() {
+  public V1VolumeFluentImpl.EphemeralNested<A> withNewEphemeral() {
     return new V1VolumeFluentImpl.EphemeralNestedImpl();
   }
-  public V1VolumeFluent.EphemeralNested<A> withNewEphemeralLike(V1EphemeralVolumeSource item) {
+  public V1VolumeFluentImpl.EphemeralNested<A> withNewEphemeralLike(V1EphemeralVolumeSource item) {
     return new V1VolumeFluentImpl.EphemeralNestedImpl(item);
   }
-  public V1VolumeFluent.EphemeralNested<A> editEphemeral() {
+  public V1VolumeFluentImpl.EphemeralNested<A> editEphemeral() {
     return withNewEphemeralLike(getEphemeral());
   }
-  public V1VolumeFluent.EphemeralNested<A> editOrNewEphemeral() {
+  public V1VolumeFluentImpl.EphemeralNested<A> editOrNewEphemeral() {
     return withNewEphemeralLike(getEphemeral() != null ? getEphemeral(): new V1EphemeralVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.EphemeralNested<A> editOrNewEphemeralLike(V1EphemeralVolumeSource item) {
+  public V1VolumeFluentImpl.EphemeralNested<A> editOrNewEphemeralLike(V1EphemeralVolumeSource item) {
     return withNewEphemeralLike(getEphemeral() != null ? getEphemeral(): item);
   }
   
@@ -466,19 +438,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasFc() {
     return this.fc != null;
   }
-  public V1VolumeFluent.FcNested<A> withNewFc() {
+  public V1VolumeFluentImpl.FcNested<A> withNewFc() {
     return new V1VolumeFluentImpl.FcNestedImpl();
   }
-  public V1VolumeFluent.FcNested<A> withNewFcLike(V1FCVolumeSource item) {
+  public V1VolumeFluentImpl.FcNested<A> withNewFcLike(V1FCVolumeSource item) {
     return new V1VolumeFluentImpl.FcNestedImpl(item);
   }
-  public V1VolumeFluent.FcNested<A> editFc() {
+  public V1VolumeFluentImpl.FcNested<A> editFc() {
     return withNewFcLike(getFc());
   }
-  public V1VolumeFluent.FcNested<A> editOrNewFc() {
+  public V1VolumeFluentImpl.FcNested<A> editOrNewFc() {
     return withNewFcLike(getFc() != null ? getFc(): new V1FCVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.FcNested<A> editOrNewFcLike(V1FCVolumeSource item) {
+  public V1VolumeFluentImpl.FcNested<A> editOrNewFcLike(V1FCVolumeSource item) {
     return withNewFcLike(getFc() != null ? getFc(): item);
   }
   
@@ -500,19 +472,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasFlexVolume() {
     return this.flexVolume != null;
   }
-  public V1VolumeFluent.FlexVolumeNested<A> withNewFlexVolume() {
+  public V1VolumeFluentImpl.FlexVolumeNested<A> withNewFlexVolume() {
     return new V1VolumeFluentImpl.FlexVolumeNestedImpl();
   }
-  public V1VolumeFluent.FlexVolumeNested<A> withNewFlexVolumeLike(V1FlexVolumeSource item) {
+  public V1VolumeFluentImpl.FlexVolumeNested<A> withNewFlexVolumeLike(V1FlexVolumeSource item) {
     return new V1VolumeFluentImpl.FlexVolumeNestedImpl(item);
   }
-  public V1VolumeFluent.FlexVolumeNested<A> editFlexVolume() {
+  public V1VolumeFluentImpl.FlexVolumeNested<A> editFlexVolume() {
     return withNewFlexVolumeLike(getFlexVolume());
   }
-  public V1VolumeFluent.FlexVolumeNested<A> editOrNewFlexVolume() {
+  public V1VolumeFluentImpl.FlexVolumeNested<A> editOrNewFlexVolume() {
     return withNewFlexVolumeLike(getFlexVolume() != null ? getFlexVolume(): new V1FlexVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.FlexVolumeNested<A> editOrNewFlexVolumeLike(V1FlexVolumeSource item) {
+  public V1VolumeFluentImpl.FlexVolumeNested<A> editOrNewFlexVolumeLike(V1FlexVolumeSource item) {
     return withNewFlexVolumeLike(getFlexVolume() != null ? getFlexVolume(): item);
   }
   
@@ -534,19 +506,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasFlocker() {
     return this.flocker != null;
   }
-  public V1VolumeFluent.FlockerNested<A> withNewFlocker() {
+  public V1VolumeFluentImpl.FlockerNested<A> withNewFlocker() {
     return new V1VolumeFluentImpl.FlockerNestedImpl();
   }
-  public V1VolumeFluent.FlockerNested<A> withNewFlockerLike(V1FlockerVolumeSource item) {
+  public V1VolumeFluentImpl.FlockerNested<A> withNewFlockerLike(V1FlockerVolumeSource item) {
     return new V1VolumeFluentImpl.FlockerNestedImpl(item);
   }
-  public V1VolumeFluent.FlockerNested<A> editFlocker() {
+  public V1VolumeFluentImpl.FlockerNested<A> editFlocker() {
     return withNewFlockerLike(getFlocker());
   }
-  public V1VolumeFluent.FlockerNested<A> editOrNewFlocker() {
+  public V1VolumeFluentImpl.FlockerNested<A> editOrNewFlocker() {
     return withNewFlockerLike(getFlocker() != null ? getFlocker(): new V1FlockerVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.FlockerNested<A> editOrNewFlockerLike(V1FlockerVolumeSource item) {
+  public V1VolumeFluentImpl.FlockerNested<A> editOrNewFlockerLike(V1FlockerVolumeSource item) {
     return withNewFlockerLike(getFlocker() != null ? getFlocker(): item);
   }
   
@@ -568,19 +540,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasGcePersistentDisk() {
     return this.gcePersistentDisk != null;
   }
-  public V1VolumeFluent.GcePersistentDiskNested<A> withNewGcePersistentDisk() {
+  public V1VolumeFluentImpl.GcePersistentDiskNested<A> withNewGcePersistentDisk() {
     return new V1VolumeFluentImpl.GcePersistentDiskNestedImpl();
   }
-  public V1VolumeFluent.GcePersistentDiskNested<A> withNewGcePersistentDiskLike(V1GCEPersistentDiskVolumeSource item) {
+  public V1VolumeFluentImpl.GcePersistentDiskNested<A> withNewGcePersistentDiskLike(V1GCEPersistentDiskVolumeSource item) {
     return new V1VolumeFluentImpl.GcePersistentDiskNestedImpl(item);
   }
-  public V1VolumeFluent.GcePersistentDiskNested<A> editGcePersistentDisk() {
+  public V1VolumeFluentImpl.GcePersistentDiskNested<A> editGcePersistentDisk() {
     return withNewGcePersistentDiskLike(getGcePersistentDisk());
   }
-  public V1VolumeFluent.GcePersistentDiskNested<A> editOrNewGcePersistentDisk() {
+  public V1VolumeFluentImpl.GcePersistentDiskNested<A> editOrNewGcePersistentDisk() {
     return withNewGcePersistentDiskLike(getGcePersistentDisk() != null ? getGcePersistentDisk(): new V1GCEPersistentDiskVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.GcePersistentDiskNested<A> editOrNewGcePersistentDiskLike(V1GCEPersistentDiskVolumeSource item) {
+  public V1VolumeFluentImpl.GcePersistentDiskNested<A> editOrNewGcePersistentDiskLike(V1GCEPersistentDiskVolumeSource item) {
     return withNewGcePersistentDiskLike(getGcePersistentDisk() != null ? getGcePersistentDisk(): item);
   }
   
@@ -602,19 +574,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasGitRepo() {
     return this.gitRepo != null;
   }
-  public V1VolumeFluent.GitRepoNested<A> withNewGitRepo() {
+  public V1VolumeFluentImpl.GitRepoNested<A> withNewGitRepo() {
     return new V1VolumeFluentImpl.GitRepoNestedImpl();
   }
-  public V1VolumeFluent.GitRepoNested<A> withNewGitRepoLike(V1GitRepoVolumeSource item) {
+  public V1VolumeFluentImpl.GitRepoNested<A> withNewGitRepoLike(V1GitRepoVolumeSource item) {
     return new V1VolumeFluentImpl.GitRepoNestedImpl(item);
   }
-  public V1VolumeFluent.GitRepoNested<A> editGitRepo() {
+  public V1VolumeFluentImpl.GitRepoNested<A> editGitRepo() {
     return withNewGitRepoLike(getGitRepo());
   }
-  public V1VolumeFluent.GitRepoNested<A> editOrNewGitRepo() {
+  public V1VolumeFluentImpl.GitRepoNested<A> editOrNewGitRepo() {
     return withNewGitRepoLike(getGitRepo() != null ? getGitRepo(): new V1GitRepoVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.GitRepoNested<A> editOrNewGitRepoLike(V1GitRepoVolumeSource item) {
+  public V1VolumeFluentImpl.GitRepoNested<A> editOrNewGitRepoLike(V1GitRepoVolumeSource item) {
     return withNewGitRepoLike(getGitRepo() != null ? getGitRepo(): item);
   }
   
@@ -636,19 +608,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasGlusterfs() {
     return this.glusterfs != null;
   }
-  public V1VolumeFluent.GlusterfsNested<A> withNewGlusterfs() {
+  public V1VolumeFluentImpl.GlusterfsNested<A> withNewGlusterfs() {
     return new V1VolumeFluentImpl.GlusterfsNestedImpl();
   }
-  public V1VolumeFluent.GlusterfsNested<A> withNewGlusterfsLike(V1GlusterfsVolumeSource item) {
+  public V1VolumeFluentImpl.GlusterfsNested<A> withNewGlusterfsLike(V1GlusterfsVolumeSource item) {
     return new V1VolumeFluentImpl.GlusterfsNestedImpl(item);
   }
-  public V1VolumeFluent.GlusterfsNested<A> editGlusterfs() {
+  public V1VolumeFluentImpl.GlusterfsNested<A> editGlusterfs() {
     return withNewGlusterfsLike(getGlusterfs());
   }
-  public V1VolumeFluent.GlusterfsNested<A> editOrNewGlusterfs() {
+  public V1VolumeFluentImpl.GlusterfsNested<A> editOrNewGlusterfs() {
     return withNewGlusterfsLike(getGlusterfs() != null ? getGlusterfs(): new V1GlusterfsVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.GlusterfsNested<A> editOrNewGlusterfsLike(V1GlusterfsVolumeSource item) {
+  public V1VolumeFluentImpl.GlusterfsNested<A> editOrNewGlusterfsLike(V1GlusterfsVolumeSource item) {
     return withNewGlusterfsLike(getGlusterfs() != null ? getGlusterfs(): item);
   }
   
@@ -670,19 +642,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasHostPath() {
     return this.hostPath != null;
   }
-  public V1VolumeFluent.HostPathNested<A> withNewHostPath() {
+  public V1VolumeFluentImpl.HostPathNested<A> withNewHostPath() {
     return new V1VolumeFluentImpl.HostPathNestedImpl();
   }
-  public V1VolumeFluent.HostPathNested<A> withNewHostPathLike(V1HostPathVolumeSource item) {
+  public V1VolumeFluentImpl.HostPathNested<A> withNewHostPathLike(V1HostPathVolumeSource item) {
     return new V1VolumeFluentImpl.HostPathNestedImpl(item);
   }
-  public V1VolumeFluent.HostPathNested<A> editHostPath() {
+  public V1VolumeFluentImpl.HostPathNested<A> editHostPath() {
     return withNewHostPathLike(getHostPath());
   }
-  public V1VolumeFluent.HostPathNested<A> editOrNewHostPath() {
+  public V1VolumeFluentImpl.HostPathNested<A> editOrNewHostPath() {
     return withNewHostPathLike(getHostPath() != null ? getHostPath(): new V1HostPathVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.HostPathNested<A> editOrNewHostPathLike(V1HostPathVolumeSource item) {
+  public V1VolumeFluentImpl.HostPathNested<A> editOrNewHostPathLike(V1HostPathVolumeSource item) {
     return withNewHostPathLike(getHostPath() != null ? getHostPath(): item);
   }
   
@@ -704,19 +676,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasIscsi() {
     return this.iscsi != null;
   }
-  public V1VolumeFluent.IscsiNested<A> withNewIscsi() {
+  public V1VolumeFluentImpl.IscsiNested<A> withNewIscsi() {
     return new V1VolumeFluentImpl.IscsiNestedImpl();
   }
-  public V1VolumeFluent.IscsiNested<A> withNewIscsiLike(V1ISCSIVolumeSource item) {
+  public V1VolumeFluentImpl.IscsiNested<A> withNewIscsiLike(V1ISCSIVolumeSource item) {
     return new V1VolumeFluentImpl.IscsiNestedImpl(item);
   }
-  public V1VolumeFluent.IscsiNested<A> editIscsi() {
+  public V1VolumeFluentImpl.IscsiNested<A> editIscsi() {
     return withNewIscsiLike(getIscsi());
   }
-  public V1VolumeFluent.IscsiNested<A> editOrNewIscsi() {
+  public V1VolumeFluentImpl.IscsiNested<A> editOrNewIscsi() {
     return withNewIscsiLike(getIscsi() != null ? getIscsi(): new V1ISCSIVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.IscsiNested<A> editOrNewIscsiLike(V1ISCSIVolumeSource item) {
+  public V1VolumeFluentImpl.IscsiNested<A> editOrNewIscsiLike(V1ISCSIVolumeSource item) {
     return withNewIscsiLike(getIscsi() != null ? getIscsi(): item);
   }
   public String getName() {
@@ -747,19 +719,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasNfs() {
     return this.nfs != null;
   }
-  public V1VolumeFluent.NfsNested<A> withNewNfs() {
+  public V1VolumeFluentImpl.NfsNested<A> withNewNfs() {
     return new V1VolumeFluentImpl.NfsNestedImpl();
   }
-  public V1VolumeFluent.NfsNested<A> withNewNfsLike(V1NFSVolumeSource item) {
+  public V1VolumeFluentImpl.NfsNested<A> withNewNfsLike(V1NFSVolumeSource item) {
     return new V1VolumeFluentImpl.NfsNestedImpl(item);
   }
-  public V1VolumeFluent.NfsNested<A> editNfs() {
+  public V1VolumeFluentImpl.NfsNested<A> editNfs() {
     return withNewNfsLike(getNfs());
   }
-  public V1VolumeFluent.NfsNested<A> editOrNewNfs() {
+  public V1VolumeFluentImpl.NfsNested<A> editOrNewNfs() {
     return withNewNfsLike(getNfs() != null ? getNfs(): new V1NFSVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.NfsNested<A> editOrNewNfsLike(V1NFSVolumeSource item) {
+  public V1VolumeFluentImpl.NfsNested<A> editOrNewNfsLike(V1NFSVolumeSource item) {
     return withNewNfsLike(getNfs() != null ? getNfs(): item);
   }
   
@@ -781,19 +753,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasPersistentVolumeClaim() {
     return this.persistentVolumeClaim != null;
   }
-  public V1VolumeFluent.PersistentVolumeClaimNested<A> withNewPersistentVolumeClaim() {
+  public V1VolumeFluentImpl.PersistentVolumeClaimNested<A> withNewPersistentVolumeClaim() {
     return new V1VolumeFluentImpl.PersistentVolumeClaimNestedImpl();
   }
-  public V1VolumeFluent.PersistentVolumeClaimNested<A> withNewPersistentVolumeClaimLike(V1PersistentVolumeClaimVolumeSource item) {
+  public V1VolumeFluentImpl.PersistentVolumeClaimNested<A> withNewPersistentVolumeClaimLike(V1PersistentVolumeClaimVolumeSource item) {
     return new V1VolumeFluentImpl.PersistentVolumeClaimNestedImpl(item);
   }
-  public V1VolumeFluent.PersistentVolumeClaimNested<A> editPersistentVolumeClaim() {
+  public V1VolumeFluentImpl.PersistentVolumeClaimNested<A> editPersistentVolumeClaim() {
     return withNewPersistentVolumeClaimLike(getPersistentVolumeClaim());
   }
-  public V1VolumeFluent.PersistentVolumeClaimNested<A> editOrNewPersistentVolumeClaim() {
+  public V1VolumeFluentImpl.PersistentVolumeClaimNested<A> editOrNewPersistentVolumeClaim() {
     return withNewPersistentVolumeClaimLike(getPersistentVolumeClaim() != null ? getPersistentVolumeClaim(): new V1PersistentVolumeClaimVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.PersistentVolumeClaimNested<A> editOrNewPersistentVolumeClaimLike(V1PersistentVolumeClaimVolumeSource item) {
+  public V1VolumeFluentImpl.PersistentVolumeClaimNested<A> editOrNewPersistentVolumeClaimLike(V1PersistentVolumeClaimVolumeSource item) {
     return withNewPersistentVolumeClaimLike(getPersistentVolumeClaim() != null ? getPersistentVolumeClaim(): item);
   }
   
@@ -815,19 +787,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasPhotonPersistentDisk() {
     return this.photonPersistentDisk != null;
   }
-  public V1VolumeFluent.PhotonPersistentDiskNested<A> withNewPhotonPersistentDisk() {
+  public V1VolumeFluentImpl.PhotonPersistentDiskNested<A> withNewPhotonPersistentDisk() {
     return new V1VolumeFluentImpl.PhotonPersistentDiskNestedImpl();
   }
-  public V1VolumeFluent.PhotonPersistentDiskNested<A> withNewPhotonPersistentDiskLike(V1PhotonPersistentDiskVolumeSource item) {
+  public V1VolumeFluentImpl.PhotonPersistentDiskNested<A> withNewPhotonPersistentDiskLike(V1PhotonPersistentDiskVolumeSource item) {
     return new V1VolumeFluentImpl.PhotonPersistentDiskNestedImpl(item);
   }
-  public V1VolumeFluent.PhotonPersistentDiskNested<A> editPhotonPersistentDisk() {
+  public V1VolumeFluentImpl.PhotonPersistentDiskNested<A> editPhotonPersistentDisk() {
     return withNewPhotonPersistentDiskLike(getPhotonPersistentDisk());
   }
-  public V1VolumeFluent.PhotonPersistentDiskNested<A> editOrNewPhotonPersistentDisk() {
+  public V1VolumeFluentImpl.PhotonPersistentDiskNested<A> editOrNewPhotonPersistentDisk() {
     return withNewPhotonPersistentDiskLike(getPhotonPersistentDisk() != null ? getPhotonPersistentDisk(): new V1PhotonPersistentDiskVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.PhotonPersistentDiskNested<A> editOrNewPhotonPersistentDiskLike(V1PhotonPersistentDiskVolumeSource item) {
+  public V1VolumeFluentImpl.PhotonPersistentDiskNested<A> editOrNewPhotonPersistentDiskLike(V1PhotonPersistentDiskVolumeSource item) {
     return withNewPhotonPersistentDiskLike(getPhotonPersistentDisk() != null ? getPhotonPersistentDisk(): item);
   }
   
@@ -849,19 +821,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasPortworxVolume() {
     return this.portworxVolume != null;
   }
-  public V1VolumeFluent.PortworxVolumeNested<A> withNewPortworxVolume() {
+  public V1VolumeFluentImpl.PortworxVolumeNested<A> withNewPortworxVolume() {
     return new V1VolumeFluentImpl.PortworxVolumeNestedImpl();
   }
-  public V1VolumeFluent.PortworxVolumeNested<A> withNewPortworxVolumeLike(V1PortworxVolumeSource item) {
+  public V1VolumeFluentImpl.PortworxVolumeNested<A> withNewPortworxVolumeLike(V1PortworxVolumeSource item) {
     return new V1VolumeFluentImpl.PortworxVolumeNestedImpl(item);
   }
-  public V1VolumeFluent.PortworxVolumeNested<A> editPortworxVolume() {
+  public V1VolumeFluentImpl.PortworxVolumeNested<A> editPortworxVolume() {
     return withNewPortworxVolumeLike(getPortworxVolume());
   }
-  public V1VolumeFluent.PortworxVolumeNested<A> editOrNewPortworxVolume() {
+  public V1VolumeFluentImpl.PortworxVolumeNested<A> editOrNewPortworxVolume() {
     return withNewPortworxVolumeLike(getPortworxVolume() != null ? getPortworxVolume(): new V1PortworxVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.PortworxVolumeNested<A> editOrNewPortworxVolumeLike(V1PortworxVolumeSource item) {
+  public V1VolumeFluentImpl.PortworxVolumeNested<A> editOrNewPortworxVolumeLike(V1PortworxVolumeSource item) {
     return withNewPortworxVolumeLike(getPortworxVolume() != null ? getPortworxVolume(): item);
   }
   
@@ -883,19 +855,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasProjected() {
     return this.projected != null;
   }
-  public V1VolumeFluent.ProjectedNested<A> withNewProjected() {
+  public V1VolumeFluentImpl.ProjectedNested<A> withNewProjected() {
     return new V1VolumeFluentImpl.ProjectedNestedImpl();
   }
-  public V1VolumeFluent.ProjectedNested<A> withNewProjectedLike(V1ProjectedVolumeSource item) {
+  public V1VolumeFluentImpl.ProjectedNested<A> withNewProjectedLike(V1ProjectedVolumeSource item) {
     return new V1VolumeFluentImpl.ProjectedNestedImpl(item);
   }
-  public V1VolumeFluent.ProjectedNested<A> editProjected() {
+  public V1VolumeFluentImpl.ProjectedNested<A> editProjected() {
     return withNewProjectedLike(getProjected());
   }
-  public V1VolumeFluent.ProjectedNested<A> editOrNewProjected() {
+  public V1VolumeFluentImpl.ProjectedNested<A> editOrNewProjected() {
     return withNewProjectedLike(getProjected() != null ? getProjected(): new V1ProjectedVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.ProjectedNested<A> editOrNewProjectedLike(V1ProjectedVolumeSource item) {
+  public V1VolumeFluentImpl.ProjectedNested<A> editOrNewProjectedLike(V1ProjectedVolumeSource item) {
     return withNewProjectedLike(getProjected() != null ? getProjected(): item);
   }
   
@@ -917,19 +889,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasQuobyte() {
     return this.quobyte != null;
   }
-  public V1VolumeFluent.QuobyteNested<A> withNewQuobyte() {
+  public V1VolumeFluentImpl.QuobyteNested<A> withNewQuobyte() {
     return new V1VolumeFluentImpl.QuobyteNestedImpl();
   }
-  public V1VolumeFluent.QuobyteNested<A> withNewQuobyteLike(V1QuobyteVolumeSource item) {
+  public V1VolumeFluentImpl.QuobyteNested<A> withNewQuobyteLike(V1QuobyteVolumeSource item) {
     return new V1VolumeFluentImpl.QuobyteNestedImpl(item);
   }
-  public V1VolumeFluent.QuobyteNested<A> editQuobyte() {
+  public V1VolumeFluentImpl.QuobyteNested<A> editQuobyte() {
     return withNewQuobyteLike(getQuobyte());
   }
-  public V1VolumeFluent.QuobyteNested<A> editOrNewQuobyte() {
+  public V1VolumeFluentImpl.QuobyteNested<A> editOrNewQuobyte() {
     return withNewQuobyteLike(getQuobyte() != null ? getQuobyte(): new V1QuobyteVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.QuobyteNested<A> editOrNewQuobyteLike(V1QuobyteVolumeSource item) {
+  public V1VolumeFluentImpl.QuobyteNested<A> editOrNewQuobyteLike(V1QuobyteVolumeSource item) {
     return withNewQuobyteLike(getQuobyte() != null ? getQuobyte(): item);
   }
   
@@ -951,19 +923,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasRbd() {
     return this.rbd != null;
   }
-  public V1VolumeFluent.RbdNested<A> withNewRbd() {
+  public V1VolumeFluentImpl.RbdNested<A> withNewRbd() {
     return new V1VolumeFluentImpl.RbdNestedImpl();
   }
-  public V1VolumeFluent.RbdNested<A> withNewRbdLike(V1RBDVolumeSource item) {
+  public V1VolumeFluentImpl.RbdNested<A> withNewRbdLike(V1RBDVolumeSource item) {
     return new V1VolumeFluentImpl.RbdNestedImpl(item);
   }
-  public V1VolumeFluent.RbdNested<A> editRbd() {
+  public V1VolumeFluentImpl.RbdNested<A> editRbd() {
     return withNewRbdLike(getRbd());
   }
-  public V1VolumeFluent.RbdNested<A> editOrNewRbd() {
+  public V1VolumeFluentImpl.RbdNested<A> editOrNewRbd() {
     return withNewRbdLike(getRbd() != null ? getRbd(): new V1RBDVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.RbdNested<A> editOrNewRbdLike(V1RBDVolumeSource item) {
+  public V1VolumeFluentImpl.RbdNested<A> editOrNewRbdLike(V1RBDVolumeSource item) {
     return withNewRbdLike(getRbd() != null ? getRbd(): item);
   }
   
@@ -985,19 +957,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasScaleIO() {
     return this.scaleIO != null;
   }
-  public V1VolumeFluent.ScaleIONested<A> withNewScaleIO() {
+  public V1VolumeFluentImpl.ScaleIONested<A> withNewScaleIO() {
     return new V1VolumeFluentImpl.ScaleIONestedImpl();
   }
-  public V1VolumeFluent.ScaleIONested<A> withNewScaleIOLike(V1ScaleIOVolumeSource item) {
+  public V1VolumeFluentImpl.ScaleIONested<A> withNewScaleIOLike(V1ScaleIOVolumeSource item) {
     return new V1VolumeFluentImpl.ScaleIONestedImpl(item);
   }
-  public V1VolumeFluent.ScaleIONested<A> editScaleIO() {
+  public V1VolumeFluentImpl.ScaleIONested<A> editScaleIO() {
     return withNewScaleIOLike(getScaleIO());
   }
-  public V1VolumeFluent.ScaleIONested<A> editOrNewScaleIO() {
+  public V1VolumeFluentImpl.ScaleIONested<A> editOrNewScaleIO() {
     return withNewScaleIOLike(getScaleIO() != null ? getScaleIO(): new V1ScaleIOVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.ScaleIONested<A> editOrNewScaleIOLike(V1ScaleIOVolumeSource item) {
+  public V1VolumeFluentImpl.ScaleIONested<A> editOrNewScaleIOLike(V1ScaleIOVolumeSource item) {
     return withNewScaleIOLike(getScaleIO() != null ? getScaleIO(): item);
   }
   
@@ -1019,19 +991,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasSecret() {
     return this.secret != null;
   }
-  public V1VolumeFluent.SecretNested<A> withNewSecret() {
+  public V1VolumeFluentImpl.SecretNested<A> withNewSecret() {
     return new V1VolumeFluentImpl.SecretNestedImpl();
   }
-  public V1VolumeFluent.SecretNested<A> withNewSecretLike(V1SecretVolumeSource item) {
+  public V1VolumeFluentImpl.SecretNested<A> withNewSecretLike(V1SecretVolumeSource item) {
     return new V1VolumeFluentImpl.SecretNestedImpl(item);
   }
-  public V1VolumeFluent.SecretNested<A> editSecret() {
+  public V1VolumeFluentImpl.SecretNested<A> editSecret() {
     return withNewSecretLike(getSecret());
   }
-  public V1VolumeFluent.SecretNested<A> editOrNewSecret() {
+  public V1VolumeFluentImpl.SecretNested<A> editOrNewSecret() {
     return withNewSecretLike(getSecret() != null ? getSecret(): new V1SecretVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.SecretNested<A> editOrNewSecretLike(V1SecretVolumeSource item) {
+  public V1VolumeFluentImpl.SecretNested<A> editOrNewSecretLike(V1SecretVolumeSource item) {
     return withNewSecretLike(getSecret() != null ? getSecret(): item);
   }
   
@@ -1053,19 +1025,19 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasStorageos() {
     return this.storageos != null;
   }
-  public V1VolumeFluent.StorageosNested<A> withNewStorageos() {
+  public V1VolumeFluentImpl.StorageosNested<A> withNewStorageos() {
     return new V1VolumeFluentImpl.StorageosNestedImpl();
   }
-  public V1VolumeFluent.StorageosNested<A> withNewStorageosLike(V1StorageOSVolumeSource item) {
+  public V1VolumeFluentImpl.StorageosNested<A> withNewStorageosLike(V1StorageOSVolumeSource item) {
     return new V1VolumeFluentImpl.StorageosNestedImpl(item);
   }
-  public V1VolumeFluent.StorageosNested<A> editStorageos() {
+  public V1VolumeFluentImpl.StorageosNested<A> editStorageos() {
     return withNewStorageosLike(getStorageos());
   }
-  public V1VolumeFluent.StorageosNested<A> editOrNewStorageos() {
+  public V1VolumeFluentImpl.StorageosNested<A> editOrNewStorageos() {
     return withNewStorageosLike(getStorageos() != null ? getStorageos(): new V1StorageOSVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.StorageosNested<A> editOrNewStorageosLike(V1StorageOSVolumeSource item) {
+  public V1VolumeFluentImpl.StorageosNested<A> editOrNewStorageosLike(V1StorageOSVolumeSource item) {
     return withNewStorageosLike(getStorageos() != null ? getStorageos(): item);
   }
   
@@ -1087,55 +1059,86 @@ import io.kubernetes.client.fluent.Nested;
   public Boolean hasVsphereVolume() {
     return this.vsphereVolume != null;
   }
-  public V1VolumeFluent.VsphereVolumeNested<A> withNewVsphereVolume() {
+  public V1VolumeFluentImpl.VsphereVolumeNested<A> withNewVsphereVolume() {
     return new V1VolumeFluentImpl.VsphereVolumeNestedImpl();
   }
-  public V1VolumeFluent.VsphereVolumeNested<A> withNewVsphereVolumeLike(V1VsphereVirtualDiskVolumeSource item) {
+  public V1VolumeFluentImpl.VsphereVolumeNested<A> withNewVsphereVolumeLike(V1VsphereVirtualDiskVolumeSource item) {
     return new V1VolumeFluentImpl.VsphereVolumeNestedImpl(item);
   }
-  public V1VolumeFluent.VsphereVolumeNested<A> editVsphereVolume() {
+  public V1VolumeFluentImpl.VsphereVolumeNested<A> editVsphereVolume() {
     return withNewVsphereVolumeLike(getVsphereVolume());
   }
-  public V1VolumeFluent.VsphereVolumeNested<A> editOrNewVsphereVolume() {
+  public V1VolumeFluentImpl.VsphereVolumeNested<A> editOrNewVsphereVolume() {
     return withNewVsphereVolumeLike(getVsphereVolume() != null ? getVsphereVolume(): new V1VsphereVirtualDiskVolumeSourceBuilder().build());
   }
-  public V1VolumeFluent.VsphereVolumeNested<A> editOrNewVsphereVolumeLike(V1VsphereVirtualDiskVolumeSource item) {
+  public V1VolumeFluentImpl.VsphereVolumeNested<A> editOrNewVsphereVolumeLike(V1VsphereVirtualDiskVolumeSource item) {
     return withNewVsphereVolumeLike(getVsphereVolume() != null ? getVsphereVolume(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1VolumeFluentImpl that = (V1VolumeFluentImpl) o;
-    if (awsElasticBlockStore != null ? !awsElasticBlockStore.equals(that.awsElasticBlockStore) :that.awsElasticBlockStore != null) return false;
-    if (azureDisk != null ? !azureDisk.equals(that.azureDisk) :that.azureDisk != null) return false;
-    if (azureFile != null ? !azureFile.equals(that.azureFile) :that.azureFile != null) return false;
-    if (cephfs != null ? !cephfs.equals(that.cephfs) :that.cephfs != null) return false;
-    if (cinder != null ? !cinder.equals(that.cinder) :that.cinder != null) return false;
-    if (configMap != null ? !configMap.equals(that.configMap) :that.configMap != null) return false;
-    if (csi != null ? !csi.equals(that.csi) :that.csi != null) return false;
-    if (downwardAPI != null ? !downwardAPI.equals(that.downwardAPI) :that.downwardAPI != null) return false;
-    if (emptyDir != null ? !emptyDir.equals(that.emptyDir) :that.emptyDir != null) return false;
-    if (ephemeral != null ? !ephemeral.equals(that.ephemeral) :that.ephemeral != null) return false;
-    if (fc != null ? !fc.equals(that.fc) :that.fc != null) return false;
-    if (flexVolume != null ? !flexVolume.equals(that.flexVolume) :that.flexVolume != null) return false;
-    if (flocker != null ? !flocker.equals(that.flocker) :that.flocker != null) return false;
-    if (gcePersistentDisk != null ? !gcePersistentDisk.equals(that.gcePersistentDisk) :that.gcePersistentDisk != null) return false;
-    if (gitRepo != null ? !gitRepo.equals(that.gitRepo) :that.gitRepo != null) return false;
-    if (glusterfs != null ? !glusterfs.equals(that.glusterfs) :that.glusterfs != null) return false;
-    if (hostPath != null ? !hostPath.equals(that.hostPath) :that.hostPath != null) return false;
-    if (iscsi != null ? !iscsi.equals(that.iscsi) :that.iscsi != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (nfs != null ? !nfs.equals(that.nfs) :that.nfs != null) return false;
-    if (persistentVolumeClaim != null ? !persistentVolumeClaim.equals(that.persistentVolumeClaim) :that.persistentVolumeClaim != null) return false;
-    if (photonPersistentDisk != null ? !photonPersistentDisk.equals(that.photonPersistentDisk) :that.photonPersistentDisk != null) return false;
-    if (portworxVolume != null ? !portworxVolume.equals(that.portworxVolume) :that.portworxVolume != null) return false;
-    if (projected != null ? !projected.equals(that.projected) :that.projected != null) return false;
-    if (quobyte != null ? !quobyte.equals(that.quobyte) :that.quobyte != null) return false;
-    if (rbd != null ? !rbd.equals(that.rbd) :that.rbd != null) return false;
-    if (scaleIO != null ? !scaleIO.equals(that.scaleIO) :that.scaleIO != null) return false;
-    if (secret != null ? !secret.equals(that.secret) :that.secret != null) return false;
-    if (storageos != null ? !storageos.equals(that.storageos) :that.storageos != null) return false;
-    if (vsphereVolume != null ? !vsphereVolume.equals(that.vsphereVolume) :that.vsphereVolume != null) return false;
+    if (!java.util.Objects.equals(awsElasticBlockStore, that.awsElasticBlockStore)) return false;
+
+    if (!java.util.Objects.equals(azureDisk, that.azureDisk)) return false;
+
+    if (!java.util.Objects.equals(azureFile, that.azureFile)) return false;
+
+    if (!java.util.Objects.equals(cephfs, that.cephfs)) return false;
+
+    if (!java.util.Objects.equals(cinder, that.cinder)) return false;
+
+    if (!java.util.Objects.equals(configMap, that.configMap)) return false;
+
+    if (!java.util.Objects.equals(csi, that.csi)) return false;
+
+    if (!java.util.Objects.equals(downwardAPI, that.downwardAPI)) return false;
+
+    if (!java.util.Objects.equals(emptyDir, that.emptyDir)) return false;
+
+    if (!java.util.Objects.equals(ephemeral, that.ephemeral)) return false;
+
+    if (!java.util.Objects.equals(fc, that.fc)) return false;
+
+    if (!java.util.Objects.equals(flexVolume, that.flexVolume)) return false;
+
+    if (!java.util.Objects.equals(flocker, that.flocker)) return false;
+
+    if (!java.util.Objects.equals(gcePersistentDisk, that.gcePersistentDisk)) return false;
+
+    if (!java.util.Objects.equals(gitRepo, that.gitRepo)) return false;
+
+    if (!java.util.Objects.equals(glusterfs, that.glusterfs)) return false;
+
+    if (!java.util.Objects.equals(hostPath, that.hostPath)) return false;
+
+    if (!java.util.Objects.equals(iscsi, that.iscsi)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(nfs, that.nfs)) return false;
+
+    if (!java.util.Objects.equals(persistentVolumeClaim, that.persistentVolumeClaim)) return false;
+
+    if (!java.util.Objects.equals(photonPersistentDisk, that.photonPersistentDisk)) return false;
+
+    if (!java.util.Objects.equals(portworxVolume, that.portworxVolume)) return false;
+
+    if (!java.util.Objects.equals(projected, that.projected)) return false;
+
+    if (!java.util.Objects.equals(quobyte, that.quobyte)) return false;
+
+    if (!java.util.Objects.equals(rbd, that.rbd)) return false;
+
+    if (!java.util.Objects.equals(scaleIO, that.scaleIO)) return false;
+
+    if (!java.util.Objects.equals(secret, that.secret)) return false;
+
+    if (!java.util.Objects.equals(storageos, that.storageos)) return false;
+
+    if (!java.util.Objects.equals(vsphereVolume, that.vsphereVolume)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -1177,7 +1180,7 @@ import io.kubernetes.client.fluent.Nested;
     sb.append("}");
     return sb.toString();
   }
-  class AwsElasticBlockStoreNestedImpl<N> extends V1AWSElasticBlockStoreVolumeSourceFluentImpl<V1VolumeFluent.AwsElasticBlockStoreNested<N>> implements V1VolumeFluent.AwsElasticBlockStoreNested<N>,Nested<N>{
+  class AwsElasticBlockStoreNestedImpl<N> extends V1AWSElasticBlockStoreVolumeSourceFluentImpl<V1VolumeFluentImpl.AwsElasticBlockStoreNested<N>> implements V1VolumeFluentImpl.AwsElasticBlockStoreNested<N>,Nested<N>{
     AwsElasticBlockStoreNestedImpl(V1AWSElasticBlockStoreVolumeSource item) {
       this.builder = new V1AWSElasticBlockStoreVolumeSourceBuilder(this, item);
     }
@@ -1193,7 +1196,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class AzureDiskNestedImpl<N> extends V1AzureDiskVolumeSourceFluentImpl<V1VolumeFluent.AzureDiskNested<N>> implements V1VolumeFluent.AzureDiskNested<N>,Nested<N>{
+  class AzureDiskNestedImpl<N> extends V1AzureDiskVolumeSourceFluentImpl<V1VolumeFluentImpl.AzureDiskNested<N>> implements V1VolumeFluentImpl.AzureDiskNested<N>,Nested<N>{
     AzureDiskNestedImpl(V1AzureDiskVolumeSource item) {
       this.builder = new V1AzureDiskVolumeSourceBuilder(this, item);
     }
@@ -1209,7 +1212,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class AzureFileNestedImpl<N> extends V1AzureFileVolumeSourceFluentImpl<V1VolumeFluent.AzureFileNested<N>> implements V1VolumeFluent.AzureFileNested<N>,Nested<N>{
+  class AzureFileNestedImpl<N> extends V1AzureFileVolumeSourceFluentImpl<V1VolumeFluentImpl.AzureFileNested<N>> implements V1VolumeFluentImpl.AzureFileNested<N>,Nested<N>{
     AzureFileNestedImpl(V1AzureFileVolumeSource item) {
       this.builder = new V1AzureFileVolumeSourceBuilder(this, item);
     }
@@ -1225,7 +1228,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class CephfsNestedImpl<N> extends V1CephFSVolumeSourceFluentImpl<V1VolumeFluent.CephfsNested<N>> implements V1VolumeFluent.CephfsNested<N>,Nested<N>{
+  class CephfsNestedImpl<N> extends V1CephFSVolumeSourceFluentImpl<V1VolumeFluentImpl.CephfsNested<N>> implements V1VolumeFluentImpl.CephfsNested<N>,Nested<N>{
     CephfsNestedImpl(V1CephFSVolumeSource item) {
       this.builder = new V1CephFSVolumeSourceBuilder(this, item);
     }
@@ -1241,7 +1244,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class CinderNestedImpl<N> extends V1CinderVolumeSourceFluentImpl<V1VolumeFluent.CinderNested<N>> implements V1VolumeFluent.CinderNested<N>,Nested<N>{
+  class CinderNestedImpl<N> extends V1CinderVolumeSourceFluentImpl<V1VolumeFluentImpl.CinderNested<N>> implements V1VolumeFluentImpl.CinderNested<N>,Nested<N>{
     CinderNestedImpl(V1CinderVolumeSource item) {
       this.builder = new V1CinderVolumeSourceBuilder(this, item);
     }
@@ -1257,7 +1260,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class ConfigMapNestedImpl<N> extends V1ConfigMapVolumeSourceFluentImpl<V1VolumeFluent.ConfigMapNested<N>> implements V1VolumeFluent.ConfigMapNested<N>,Nested<N>{
+  class ConfigMapNestedImpl<N> extends V1ConfigMapVolumeSourceFluentImpl<V1VolumeFluentImpl.ConfigMapNested<N>> implements V1VolumeFluentImpl.ConfigMapNested<N>,Nested<N>{
     ConfigMapNestedImpl(V1ConfigMapVolumeSource item) {
       this.builder = new V1ConfigMapVolumeSourceBuilder(this, item);
     }
@@ -1273,7 +1276,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class CsiNestedImpl<N> extends V1CSIVolumeSourceFluentImpl<V1VolumeFluent.CsiNested<N>> implements V1VolumeFluent.CsiNested<N>,Nested<N>{
+  class CsiNestedImpl<N> extends V1CSIVolumeSourceFluentImpl<V1VolumeFluentImpl.CsiNested<N>> implements V1VolumeFluentImpl.CsiNested<N>,Nested<N>{
     CsiNestedImpl(V1CSIVolumeSource item) {
       this.builder = new V1CSIVolumeSourceBuilder(this, item);
     }
@@ -1289,7 +1292,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class DownwardAPINestedImpl<N> extends V1DownwardAPIVolumeSourceFluentImpl<V1VolumeFluent.DownwardAPINested<N>> implements V1VolumeFluent.DownwardAPINested<N>,Nested<N>{
+  class DownwardAPINestedImpl<N> extends V1DownwardAPIVolumeSourceFluentImpl<V1VolumeFluentImpl.DownwardAPINested<N>> implements V1VolumeFluentImpl.DownwardAPINested<N>,Nested<N>{
     DownwardAPINestedImpl(V1DownwardAPIVolumeSource item) {
       this.builder = new V1DownwardAPIVolumeSourceBuilder(this, item);
     }
@@ -1305,7 +1308,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class EmptyDirNestedImpl<N> extends V1EmptyDirVolumeSourceFluentImpl<V1VolumeFluent.EmptyDirNested<N>> implements V1VolumeFluent.EmptyDirNested<N>,Nested<N>{
+  class EmptyDirNestedImpl<N> extends V1EmptyDirVolumeSourceFluentImpl<V1VolumeFluentImpl.EmptyDirNested<N>> implements V1VolumeFluentImpl.EmptyDirNested<N>,Nested<N>{
     EmptyDirNestedImpl(V1EmptyDirVolumeSource item) {
       this.builder = new V1EmptyDirVolumeSourceBuilder(this, item);
     }
@@ -1321,7 +1324,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class EphemeralNestedImpl<N> extends V1EphemeralVolumeSourceFluentImpl<V1VolumeFluent.EphemeralNested<N>> implements V1VolumeFluent.EphemeralNested<N>,Nested<N>{
+  class EphemeralNestedImpl<N> extends V1EphemeralVolumeSourceFluentImpl<V1VolumeFluentImpl.EphemeralNested<N>> implements V1VolumeFluentImpl.EphemeralNested<N>,Nested<N>{
     EphemeralNestedImpl(V1EphemeralVolumeSource item) {
       this.builder = new V1EphemeralVolumeSourceBuilder(this, item);
     }
@@ -1337,7 +1340,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class FcNestedImpl<N> extends V1FCVolumeSourceFluentImpl<V1VolumeFluent.FcNested<N>> implements V1VolumeFluent.FcNested<N>,Nested<N>{
+  class FcNestedImpl<N> extends V1FCVolumeSourceFluentImpl<V1VolumeFluentImpl.FcNested<N>> implements V1VolumeFluentImpl.FcNested<N>,Nested<N>{
     FcNestedImpl(V1FCVolumeSource item) {
       this.builder = new V1FCVolumeSourceBuilder(this, item);
     }
@@ -1353,7 +1356,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class FlexVolumeNestedImpl<N> extends V1FlexVolumeSourceFluentImpl<V1VolumeFluent.FlexVolumeNested<N>> implements V1VolumeFluent.FlexVolumeNested<N>,Nested<N>{
+  class FlexVolumeNestedImpl<N> extends V1FlexVolumeSourceFluentImpl<V1VolumeFluentImpl.FlexVolumeNested<N>> implements V1VolumeFluentImpl.FlexVolumeNested<N>,Nested<N>{
     FlexVolumeNestedImpl(V1FlexVolumeSource item) {
       this.builder = new V1FlexVolumeSourceBuilder(this, item);
     }
@@ -1369,7 +1372,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class FlockerNestedImpl<N> extends V1FlockerVolumeSourceFluentImpl<V1VolumeFluent.FlockerNested<N>> implements V1VolumeFluent.FlockerNested<N>,Nested<N>{
+  class FlockerNestedImpl<N> extends V1FlockerVolumeSourceFluentImpl<V1VolumeFluentImpl.FlockerNested<N>> implements V1VolumeFluentImpl.FlockerNested<N>,Nested<N>{
     FlockerNestedImpl(V1FlockerVolumeSource item) {
       this.builder = new V1FlockerVolumeSourceBuilder(this, item);
     }
@@ -1385,7 +1388,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class GcePersistentDiskNestedImpl<N> extends V1GCEPersistentDiskVolumeSourceFluentImpl<V1VolumeFluent.GcePersistentDiskNested<N>> implements V1VolumeFluent.GcePersistentDiskNested<N>,Nested<N>{
+  class GcePersistentDiskNestedImpl<N> extends V1GCEPersistentDiskVolumeSourceFluentImpl<V1VolumeFluentImpl.GcePersistentDiskNested<N>> implements V1VolumeFluentImpl.GcePersistentDiskNested<N>,Nested<N>{
     GcePersistentDiskNestedImpl(V1GCEPersistentDiskVolumeSource item) {
       this.builder = new V1GCEPersistentDiskVolumeSourceBuilder(this, item);
     }
@@ -1401,7 +1404,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class GitRepoNestedImpl<N> extends V1GitRepoVolumeSourceFluentImpl<V1VolumeFluent.GitRepoNested<N>> implements V1VolumeFluent.GitRepoNested<N>,Nested<N>{
+  class GitRepoNestedImpl<N> extends V1GitRepoVolumeSourceFluentImpl<V1VolumeFluentImpl.GitRepoNested<N>> implements V1VolumeFluentImpl.GitRepoNested<N>,Nested<N>{
     GitRepoNestedImpl(V1GitRepoVolumeSource item) {
       this.builder = new V1GitRepoVolumeSourceBuilder(this, item);
     }
@@ -1417,7 +1420,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class GlusterfsNestedImpl<N> extends V1GlusterfsVolumeSourceFluentImpl<V1VolumeFluent.GlusterfsNested<N>> implements V1VolumeFluent.GlusterfsNested<N>,Nested<N>{
+  class GlusterfsNestedImpl<N> extends V1GlusterfsVolumeSourceFluentImpl<V1VolumeFluentImpl.GlusterfsNested<N>> implements V1VolumeFluentImpl.GlusterfsNested<N>,Nested<N>{
     GlusterfsNestedImpl(V1GlusterfsVolumeSource item) {
       this.builder = new V1GlusterfsVolumeSourceBuilder(this, item);
     }
@@ -1433,7 +1436,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class HostPathNestedImpl<N> extends V1HostPathVolumeSourceFluentImpl<V1VolumeFluent.HostPathNested<N>> implements V1VolumeFluent.HostPathNested<N>,Nested<N>{
+  class HostPathNestedImpl<N> extends V1HostPathVolumeSourceFluentImpl<V1VolumeFluentImpl.HostPathNested<N>> implements V1VolumeFluentImpl.HostPathNested<N>,Nested<N>{
     HostPathNestedImpl(V1HostPathVolumeSource item) {
       this.builder = new V1HostPathVolumeSourceBuilder(this, item);
     }
@@ -1449,7 +1452,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class IscsiNestedImpl<N> extends V1ISCSIVolumeSourceFluentImpl<V1VolumeFluent.IscsiNested<N>> implements V1VolumeFluent.IscsiNested<N>,Nested<N>{
+  class IscsiNestedImpl<N> extends V1ISCSIVolumeSourceFluentImpl<V1VolumeFluentImpl.IscsiNested<N>> implements V1VolumeFluentImpl.IscsiNested<N>,Nested<N>{
     IscsiNestedImpl(V1ISCSIVolumeSource item) {
       this.builder = new V1ISCSIVolumeSourceBuilder(this, item);
     }
@@ -1465,7 +1468,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class NfsNestedImpl<N> extends V1NFSVolumeSourceFluentImpl<V1VolumeFluent.NfsNested<N>> implements V1VolumeFluent.NfsNested<N>,Nested<N>{
+  class NfsNestedImpl<N> extends V1NFSVolumeSourceFluentImpl<V1VolumeFluentImpl.NfsNested<N>> implements V1VolumeFluentImpl.NfsNested<N>,Nested<N>{
     NfsNestedImpl(V1NFSVolumeSource item) {
       this.builder = new V1NFSVolumeSourceBuilder(this, item);
     }
@@ -1481,7 +1484,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class PersistentVolumeClaimNestedImpl<N> extends V1PersistentVolumeClaimVolumeSourceFluentImpl<V1VolumeFluent.PersistentVolumeClaimNested<N>> implements V1VolumeFluent.PersistentVolumeClaimNested<N>,Nested<N>{
+  class PersistentVolumeClaimNestedImpl<N> extends V1PersistentVolumeClaimVolumeSourceFluentImpl<V1VolumeFluentImpl.PersistentVolumeClaimNested<N>> implements V1VolumeFluentImpl.PersistentVolumeClaimNested<N>,Nested<N>{
     PersistentVolumeClaimNestedImpl(V1PersistentVolumeClaimVolumeSource item) {
       this.builder = new V1PersistentVolumeClaimVolumeSourceBuilder(this, item);
     }
@@ -1497,7 +1500,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class PhotonPersistentDiskNestedImpl<N> extends V1PhotonPersistentDiskVolumeSourceFluentImpl<V1VolumeFluent.PhotonPersistentDiskNested<N>> implements V1VolumeFluent.PhotonPersistentDiskNested<N>,Nested<N>{
+  class PhotonPersistentDiskNestedImpl<N> extends V1PhotonPersistentDiskVolumeSourceFluentImpl<V1VolumeFluentImpl.PhotonPersistentDiskNested<N>> implements V1VolumeFluentImpl.PhotonPersistentDiskNested<N>,Nested<N>{
     PhotonPersistentDiskNestedImpl(V1PhotonPersistentDiskVolumeSource item) {
       this.builder = new V1PhotonPersistentDiskVolumeSourceBuilder(this, item);
     }
@@ -1513,7 +1516,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class PortworxVolumeNestedImpl<N> extends V1PortworxVolumeSourceFluentImpl<V1VolumeFluent.PortworxVolumeNested<N>> implements V1VolumeFluent.PortworxVolumeNested<N>,Nested<N>{
+  class PortworxVolumeNestedImpl<N> extends V1PortworxVolumeSourceFluentImpl<V1VolumeFluentImpl.PortworxVolumeNested<N>> implements V1VolumeFluentImpl.PortworxVolumeNested<N>,Nested<N>{
     PortworxVolumeNestedImpl(V1PortworxVolumeSource item) {
       this.builder = new V1PortworxVolumeSourceBuilder(this, item);
     }
@@ -1529,7 +1532,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class ProjectedNestedImpl<N> extends V1ProjectedVolumeSourceFluentImpl<V1VolumeFluent.ProjectedNested<N>> implements V1VolumeFluent.ProjectedNested<N>,Nested<N>{
+  class ProjectedNestedImpl<N> extends V1ProjectedVolumeSourceFluentImpl<V1VolumeFluentImpl.ProjectedNested<N>> implements V1VolumeFluentImpl.ProjectedNested<N>,Nested<N>{
     ProjectedNestedImpl(V1ProjectedVolumeSource item) {
       this.builder = new V1ProjectedVolumeSourceBuilder(this, item);
     }
@@ -1545,7 +1548,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class QuobyteNestedImpl<N> extends V1QuobyteVolumeSourceFluentImpl<V1VolumeFluent.QuobyteNested<N>> implements V1VolumeFluent.QuobyteNested<N>,Nested<N>{
+  class QuobyteNestedImpl<N> extends V1QuobyteVolumeSourceFluentImpl<V1VolumeFluentImpl.QuobyteNested<N>> implements V1VolumeFluentImpl.QuobyteNested<N>,Nested<N>{
     QuobyteNestedImpl(V1QuobyteVolumeSource item) {
       this.builder = new V1QuobyteVolumeSourceBuilder(this, item);
     }
@@ -1561,7 +1564,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class RbdNestedImpl<N> extends V1RBDVolumeSourceFluentImpl<V1VolumeFluent.RbdNested<N>> implements V1VolumeFluent.RbdNested<N>,Nested<N>{
+  class RbdNestedImpl<N> extends V1RBDVolumeSourceFluentImpl<V1VolumeFluentImpl.RbdNested<N>> implements V1VolumeFluentImpl.RbdNested<N>,Nested<N>{
     RbdNestedImpl(V1RBDVolumeSource item) {
       this.builder = new V1RBDVolumeSourceBuilder(this, item);
     }
@@ -1577,7 +1580,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class ScaleIONestedImpl<N> extends V1ScaleIOVolumeSourceFluentImpl<V1VolumeFluent.ScaleIONested<N>> implements V1VolumeFluent.ScaleIONested<N>,Nested<N>{
+  class ScaleIONestedImpl<N> extends V1ScaleIOVolumeSourceFluentImpl<V1VolumeFluentImpl.ScaleIONested<N>> implements V1VolumeFluentImpl.ScaleIONested<N>,Nested<N>{
     ScaleIONestedImpl(V1ScaleIOVolumeSource item) {
       this.builder = new V1ScaleIOVolumeSourceBuilder(this, item);
     }
@@ -1593,7 +1596,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class SecretNestedImpl<N> extends V1SecretVolumeSourceFluentImpl<V1VolumeFluent.SecretNested<N>> implements V1VolumeFluent.SecretNested<N>,Nested<N>{
+  class SecretNestedImpl<N> extends V1SecretVolumeSourceFluentImpl<V1VolumeFluentImpl.SecretNested<N>> implements V1VolumeFluentImpl.SecretNested<N>,Nested<N>{
     SecretNestedImpl(V1SecretVolumeSource item) {
       this.builder = new V1SecretVolumeSourceBuilder(this, item);
     }
@@ -1609,7 +1612,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class StorageosNestedImpl<N> extends V1StorageOSVolumeSourceFluentImpl<V1VolumeFluent.StorageosNested<N>> implements V1VolumeFluent.StorageosNested<N>,Nested<N>{
+  class StorageosNestedImpl<N> extends V1StorageOSVolumeSourceFluentImpl<V1VolumeFluentImpl.StorageosNested<N>> implements V1VolumeFluentImpl.StorageosNested<N>,Nested<N>{
     StorageosNestedImpl(V1StorageOSVolumeSource item) {
       this.builder = new V1StorageOSVolumeSourceBuilder(this, item);
     }
@@ -1625,7 +1628,7 @@ import io.kubernetes.client.fluent.Nested;
     }
     
   }
-  class VsphereVolumeNestedImpl<N> extends V1VsphereVirtualDiskVolumeSourceFluentImpl<V1VolumeFluent.VsphereVolumeNested<N>> implements V1VolumeFluent.VsphereVolumeNested<N>,Nested<N>{
+  class VsphereVolumeNestedImpl<N> extends V1VsphereVirtualDiskVolumeSourceFluentImpl<V1VolumeFluentImpl.VsphereVolumeNested<N>> implements V1VolumeFluentImpl.VsphereVolumeNested<N>,Nested<N>{
     VsphereVolumeNestedImpl(V1VsphereVirtualDiskVolumeSource item) {
       this.builder = new V1VsphereVirtualDiskVolumeSourceBuilder(this, item);
     }

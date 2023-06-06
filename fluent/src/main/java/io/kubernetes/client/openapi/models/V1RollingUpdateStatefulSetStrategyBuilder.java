@@ -20,10 +20,10 @@ public class V1RollingUpdateStatefulSetStrategyBuilder extends V1RollingUpdateSt
   }
   public V1RollingUpdateStatefulSetStrategyBuilder(V1RollingUpdateStatefulSetStrategyFluent<?> fluent,V1RollingUpdateStatefulSetStrategy instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMaxUnavailable(instance.getMaxUnavailable());
-
-    fluent.withPartition(instance.getPartition());
-
+    if (instance != null) {
+      fluent.withMaxUnavailable(instance.getMaxUnavailable());
+      fluent.withPartition(instance.getPartition());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1RollingUpdateStatefulSetStrategyBuilder(V1RollingUpdateStatefulSetStrategy instance) {
@@ -31,10 +31,10 @@ public class V1RollingUpdateStatefulSetStrategyBuilder extends V1RollingUpdateSt
   }
   public V1RollingUpdateStatefulSetStrategyBuilder(V1RollingUpdateStatefulSetStrategy instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMaxUnavailable(instance.getMaxUnavailable());
-
-    this.withPartition(instance.getPartition());
-
+    if (instance != null) {
+      this.withMaxUnavailable(instance.getMaxUnavailable());
+      this.withPartition(instance.getPartition());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1RollingUpdateStatefulSetStrategyFluent<?> fluent;

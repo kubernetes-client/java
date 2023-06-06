@@ -20,10 +20,10 @@ public class V1IngressRuleBuilder extends V1IngressRuleFluentImpl<V1IngressRuleB
   }
   public V1IngressRuleBuilder(V1IngressRuleFluent<?> fluent,V1IngressRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withHost(instance.getHost());
-
-    fluent.withHttp(instance.getHttp());
-
+    if (instance != null) {
+      fluent.withHost(instance.getHost());
+      fluent.withHttp(instance.getHttp());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1IngressRuleBuilder(V1IngressRule instance) {
@@ -31,10 +31,10 @@ public class V1IngressRuleBuilder extends V1IngressRuleFluentImpl<V1IngressRuleB
   }
   public V1IngressRuleBuilder(V1IngressRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withHost(instance.getHost());
-
-    this.withHttp(instance.getHttp());
-
+    if (instance != null) {
+      this.withHost(instance.getHost());
+      this.withHttp(instance.getHttp());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1IngressRuleFluent<?> fluent;

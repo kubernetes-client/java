@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **fullyLabeledReplicas** | **Integer** | The number of pods that have labels matching the labels of the pod template of the replicaset. |  [optional]
 **observedGeneration** | **Long** | ObservedGeneration reflects the generation of the most recently observed ReplicaSet. |  [optional]
 **readyReplicas** | **Integer** | readyReplicas is the number of pods targeted by this ReplicaSet with a Ready Condition. |  [optional]
-**replicas** | **Integer** | Replicas is the most recently oberved number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller | 
+**replicas** | **Integer** | Replicas is the most recently observed number of replicas. More info: https://kubernetes.io/docs/concepts/workloads/controllers/replicationcontroller/#what-is-a-replicationcontroller | 
 
 
 

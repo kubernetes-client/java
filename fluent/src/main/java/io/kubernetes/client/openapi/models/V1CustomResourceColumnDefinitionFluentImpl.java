@@ -15,18 +15,14 @@ import java.lang.Boolean;
   public V1CustomResourceColumnDefinitionFluentImpl() {
   }
   public V1CustomResourceColumnDefinitionFluentImpl(V1CustomResourceColumnDefinition instance) {
-    this.withDescription(instance.getDescription());
-
-    this.withFormat(instance.getFormat());
-
-    this.withJsonPath(instance.getJsonPath());
-
-    this.withName(instance.getName());
-
-    this.withPriority(instance.getPriority());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withDescription(instance.getDescription());
+      this.withFormat(instance.getFormat());
+      this.withJsonPath(instance.getJsonPath());
+      this.withName(instance.getName());
+      this.withPriority(instance.getPriority());
+      this.withType(instance.getType());
+    }
   }
   private String description;
   private String format;
@@ -91,13 +87,20 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CustomResourceColumnDefinitionFluentImpl that = (V1CustomResourceColumnDefinitionFluentImpl) o;
-    if (description != null ? !description.equals(that.description) :that.description != null) return false;
-    if (format != null ? !format.equals(that.format) :that.format != null) return false;
-    if (jsonPath != null ? !jsonPath.equals(that.jsonPath) :that.jsonPath != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (priority != null ? !priority.equals(that.priority) :that.priority != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(description, that.description)) return false;
+
+    if (!java.util.Objects.equals(format, that.format)) return false;
+
+    if (!java.util.Objects.equals(jsonPath, that.jsonPath)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(priority, that.priority)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {

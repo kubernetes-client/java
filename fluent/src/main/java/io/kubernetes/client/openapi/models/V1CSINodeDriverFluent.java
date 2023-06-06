@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Collection;
 import java.util.List;
@@ -36,14 +36,14 @@ public interface V1CSINodeDriverFluent<A extends V1CSINodeDriverFluent<A>> exten
   public String getNodeID();
   public A withNodeID(String nodeID);
   public Boolean hasNodeID();
-  public A addToTopologyKeys(Integer index,String item);
-  public A setToTopologyKeys(Integer index,String item);
+  public A addToTopologyKeys(int index,String item);
+  public A setToTopologyKeys(int index,String item);
   public A addToTopologyKeys(java.lang.String... items);
   public A addAllToTopologyKeys(Collection<String> items);
   public A removeFromTopologyKeys(java.lang.String... items);
   public A removeAllFromTopologyKeys(Collection<String> items);
   public List<String> getTopologyKeys();
-  public String getTopologyKey(Integer index);
+  public String getTopologyKey(int index);
   public String getFirstTopologyKey();
   public String getLastTopologyKey();
   public String getMatchingTopologyKey(Predicate<String> predicate);

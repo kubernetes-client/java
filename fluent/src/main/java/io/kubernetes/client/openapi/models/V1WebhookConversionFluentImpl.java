@@ -5,7 +5,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Collection;
@@ -21,10 +20,10 @@ import java.lang.Boolean;
   public V1WebhookConversionFluentImpl() {
   }
   public V1WebhookConversionFluentImpl(V1WebhookConversion instance) {
-    this.withClientConfig(instance.getClientConfig());
-
-    this.withConversionReviewVersions(instance.getConversionReviewVersions());
-
+    if (instance != null) {
+      this.withClientConfig(instance.getClientConfig());
+      this.withConversionReviewVersions(instance.getConversionReviewVersions());
+    }
   }
   private ApiextensionsV1WebhookClientConfigBuilder clientConfig;
   private List<String> conversionReviewVersions;
@@ -47,27 +46,27 @@ import java.lang.Boolean;
   public Boolean hasClientConfig() {
     return this.clientConfig != null;
   }
-  public V1WebhookConversionFluent.ClientConfigNested<A> withNewClientConfig() {
+  public V1WebhookConversionFluentImpl.ClientConfigNested<A> withNewClientConfig() {
     return new V1WebhookConversionFluentImpl.ClientConfigNestedImpl();
   }
-  public V1WebhookConversionFluent.ClientConfigNested<A> withNewClientConfigLike(ApiextensionsV1WebhookClientConfig item) {
+  public V1WebhookConversionFluentImpl.ClientConfigNested<A> withNewClientConfigLike(ApiextensionsV1WebhookClientConfig item) {
     return new V1WebhookConversionFluentImpl.ClientConfigNestedImpl(item);
   }
-  public V1WebhookConversionFluent.ClientConfigNested<A> editClientConfig() {
+  public V1WebhookConversionFluentImpl.ClientConfigNested<A> editClientConfig() {
     return withNewClientConfigLike(getClientConfig());
   }
-  public V1WebhookConversionFluent.ClientConfigNested<A> editOrNewClientConfig() {
+  public V1WebhookConversionFluentImpl.ClientConfigNested<A> editOrNewClientConfig() {
     return withNewClientConfigLike(getClientConfig() != null ? getClientConfig(): new ApiextensionsV1WebhookClientConfigBuilder().build());
   }
-  public V1WebhookConversionFluent.ClientConfigNested<A> editOrNewClientConfigLike(ApiextensionsV1WebhookClientConfig item) {
+  public V1WebhookConversionFluentImpl.ClientConfigNested<A> editOrNewClientConfigLike(ApiextensionsV1WebhookClientConfig item) {
     return withNewClientConfigLike(getClientConfig() != null ? getClientConfig(): item);
   }
-  public A addToConversionReviewVersions(Integer index,String item) {
+  public A addToConversionReviewVersions(int index,String item) {
     if (this.conversionReviewVersions == null) {this.conversionReviewVersions = new ArrayList<String>();}
     this.conversionReviewVersions.add(index, item);
     return (A)this;
   }
-  public A setToConversionReviewVersions(Integer index,String item) {
+  public A setToConversionReviewVersions(int index,String item) {
     if (this.conversionReviewVersions == null) {this.conversionReviewVersions = new ArrayList<String>();}
     this.conversionReviewVersions.set(index, item); return (A)this;
   }
@@ -88,7 +87,7 @@ import java.lang.Boolean;
   public List<String> getConversionReviewVersions() {
     return this.conversionReviewVersions;
   }
-  public String getConversionReviewVersion(Integer index) {
+  public String getConversionReviewVersion(int index) {
     return this.conversionReviewVersions.get(index);
   }
   public String getFirstConversionReviewVersion() {
@@ -107,7 +106,7 @@ import java.lang.Boolean;
     if (conversionReviewVersions != null) {this.conversionReviewVersions = new ArrayList(); for (String item : conversionReviewVersions){this.addToConversionReviewVersions(item);}} else { this.conversionReviewVersions = null;} return (A) this;
   }
   public A withConversionReviewVersions(java.lang.String... conversionReviewVersions) {
-    if (this.conversionReviewVersions != null) {this.conversionReviewVersions.clear();}
+    if (this.conversionReviewVersions != null) {this.conversionReviewVersions.clear(); _visitables.remove("conversionReviewVersions"); }
     if (conversionReviewVersions != null) {for (String item :conversionReviewVersions){ this.addToConversionReviewVersions(item);}} return (A) this;
   }
   public Boolean hasConversionReviewVersions() {
@@ -116,9 +115,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1WebhookConversionFluentImpl that = (V1WebhookConversionFluentImpl) o;
-    if (clientConfig != null ? !clientConfig.equals(that.clientConfig) :that.clientConfig != null) return false;
-    if (conversionReviewVersions != null ? !conversionReviewVersions.equals(that.conversionReviewVersions) :that.conversionReviewVersions != null) return false;
+    if (!java.util.Objects.equals(clientConfig, that.clientConfig)) return false;
+
+    if (!java.util.Objects.equals(conversionReviewVersions, that.conversionReviewVersions)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -132,7 +134,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ClientConfigNestedImpl<N> extends ApiextensionsV1WebhookClientConfigFluentImpl<V1WebhookConversionFluent.ClientConfigNested<N>> implements V1WebhookConversionFluent.ClientConfigNested<N>,Nested<N>{
+  class ClientConfigNestedImpl<N> extends ApiextensionsV1WebhookClientConfigFluentImpl<V1WebhookConversionFluentImpl.ClientConfigNested<N>> implements V1WebhookConversionFluentImpl.ClientConfigNested<N>,Nested<N>{
     ClientConfigNestedImpl(ApiextensionsV1WebhookClientConfig item) {
       this.builder = new ApiextensionsV1WebhookClientConfigBuilder(this, item);
     }

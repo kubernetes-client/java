@@ -14,12 +14,11 @@ import java.lang.Boolean;
   public V1GitRepoVolumeSourceFluentImpl() {
   }
   public V1GitRepoVolumeSourceFluentImpl(V1GitRepoVolumeSource instance) {
-    this.withDirectory(instance.getDirectory());
-
-    this.withRepository(instance.getRepository());
-
-    this.withRevision(instance.getRevision());
-
+    if (instance != null) {
+      this.withDirectory(instance.getDirectory());
+      this.withRepository(instance.getRepository());
+      this.withRevision(instance.getRevision());
+    }
   }
   private String directory;
   private String repository;
@@ -54,10 +53,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1GitRepoVolumeSourceFluentImpl that = (V1GitRepoVolumeSourceFluentImpl) o;
-    if (directory != null ? !directory.equals(that.directory) :that.directory != null) return false;
-    if (repository != null ? !repository.equals(that.repository) :that.repository != null) return false;
-    if (revision != null ? !revision.equals(that.revision) :that.revision != null) return false;
+    if (!java.util.Objects.equals(directory, that.directory)) return false;
+
+    if (!java.util.Objects.equals(repository, that.repository)) return false;
+
+    if (!java.util.Objects.equals(revision, that.revision)) return false;
+
     return true;
   }
   public int hashCode() {

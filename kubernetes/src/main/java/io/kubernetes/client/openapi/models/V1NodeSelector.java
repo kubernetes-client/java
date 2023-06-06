@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,28 +12,30 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1NodeSelectorTerm;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * A node selector represents the union of the results of one or more label queries over a set of
- * nodes; that is, it represents the OR of the selectors represented by the node selector terms.
+ * A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.
  */
-@ApiModel(
-    description =
-        "A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "A node selector represents the union of the results of one or more label queries over a set of nodes; that is, it represents the OR of the selectors represented by the node selector terms.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1NodeSelector {
   public static final String SERIALIZED_NAME_NODE_SELECTOR_TERMS = "nodeSelectorTerms";
-
   @SerializedName(SERIALIZED_NAME_NODE_SELECTOR_TERMS)
   private List<V1NodeSelectorTerm> nodeSelectorTerms = new ArrayList<>();
+
 
   public V1NodeSelector nodeSelectorTerms(List<V1NodeSelectorTerm> nodeSelectorTerms) {
 
@@ -46,21 +48,21 @@ public class V1NodeSelector {
     return this;
   }
 
-  /**
+   /**
    * Required. A list of node selector terms. The terms are ORed.
-   *
    * @return nodeSelectorTerms
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "Required. A list of node selector terms. The terms are ORed.")
+  **/
+  @ApiModelProperty(required = true, value = "Required. A list of node selector terms. The terms are ORed.")
+
   public List<V1NodeSelectorTerm> getNodeSelectorTerms() {
     return nodeSelectorTerms;
   }
 
+
   public void setNodeSelectorTerms(List<V1NodeSelectorTerm> nodeSelectorTerms) {
     this.nodeSelectorTerms = nodeSelectorTerms;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -79,6 +81,7 @@ public class V1NodeSelector {
     return Objects.hash(nodeSelectorTerms);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -89,7 +92,8 @@ public class V1NodeSelector {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -97,4 +101,5 @@ public class V1NodeSelector {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

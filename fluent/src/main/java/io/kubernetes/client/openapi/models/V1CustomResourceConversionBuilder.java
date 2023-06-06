@@ -20,10 +20,10 @@ public class V1CustomResourceConversionBuilder extends V1CustomResourceConversio
   }
   public V1CustomResourceConversionBuilder(V1CustomResourceConversionFluent<?> fluent,V1CustomResourceConversion instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withStrategy(instance.getStrategy());
-
-    fluent.withWebhook(instance.getWebhook());
-
+    if (instance != null) {
+      fluent.withStrategy(instance.getStrategy());
+      fluent.withWebhook(instance.getWebhook());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CustomResourceConversionBuilder(V1CustomResourceConversion instance) {
@@ -31,10 +31,10 @@ public class V1CustomResourceConversionBuilder extends V1CustomResourceConversio
   }
   public V1CustomResourceConversionBuilder(V1CustomResourceConversion instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withStrategy(instance.getStrategy());
-
-    this.withWebhook(instance.getWebhook());
-
+    if (instance != null) {
+      this.withStrategy(instance.getStrategy());
+      this.withWebhook(instance.getWebhook());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CustomResourceConversionFluent<?> fluent;

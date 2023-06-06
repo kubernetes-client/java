@@ -20,16 +20,13 @@ public class V1ControllerRevisionBuilder extends V1ControllerRevisionFluentImpl<
   }
   public V1ControllerRevisionBuilder(V1ControllerRevisionFluent<?> fluent,V1ControllerRevision instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withData(instance.getData());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withRevision(instance.getRevision());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withData(instance.getData());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withRevision(instance.getRevision());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ControllerRevisionBuilder(V1ControllerRevision instance) {
@@ -37,16 +34,13 @@ public class V1ControllerRevisionBuilder extends V1ControllerRevisionFluentImpl<
   }
   public V1ControllerRevisionBuilder(V1ControllerRevision instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withData(instance.getData());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withRevision(instance.getRevision());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withData(instance.getData());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withRevision(instance.getRevision());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ControllerRevisionFluent<?> fluent;

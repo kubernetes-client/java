@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,36 +12,39 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** SELinuxOptions are the labels to be applied to the container */
+/**
+ * SELinuxOptions are the labels to be applied to the container
+ */
 @ApiModel(description = "SELinuxOptions are the labels to be applied to the container")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1SELinuxOptions {
   public static final String SERIALIZED_NAME_LEVEL = "level";
-
   @SerializedName(SERIALIZED_NAME_LEVEL)
   private String level;
 
   public static final String SERIALIZED_NAME_ROLE = "role";
-
   @SerializedName(SERIALIZED_NAME_ROLE)
   private String role;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
-
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
   public static final String SERIALIZED_NAME_USER = "user";
-
   @SerializedName(SERIALIZED_NAME_USER)
   private String user;
+
 
   public V1SELinuxOptions level(String level) {
 
@@ -49,20 +52,22 @@ public class V1SELinuxOptions {
     return this;
   }
 
-  /**
+   /**
    * Level is SELinux level label that applies to the container.
-   *
    * @return level
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Level is SELinux level label that applies to the container.")
+
   public String getLevel() {
     return level;
   }
 
+
   public void setLevel(String level) {
     this.level = level;
   }
+
 
   public V1SELinuxOptions role(String role) {
 
@@ -70,20 +75,22 @@ public class V1SELinuxOptions {
     return this;
   }
 
-  /**
+   /**
    * Role is a SELinux role label that applies to the container.
-   *
    * @return role
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Role is a SELinux role label that applies to the container.")
+
   public String getRole() {
     return role;
   }
 
+
   public void setRole(String role) {
     this.role = role;
   }
+
 
   public V1SELinuxOptions type(String type) {
 
@@ -91,20 +98,22 @@ public class V1SELinuxOptions {
     return this;
   }
 
-  /**
+   /**
    * Type is a SELinux type label that applies to the container.
-   *
    * @return type
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Type is a SELinux type label that applies to the container.")
+
   public String getType() {
     return type;
   }
 
+
   public void setType(String type) {
     this.type = type;
   }
+
 
   public V1SELinuxOptions user(String user) {
 
@@ -112,20 +121,22 @@ public class V1SELinuxOptions {
     return this;
   }
 
-  /**
+   /**
    * User is a SELinux user label that applies to the container.
-   *
    * @return user
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "User is a SELinux user label that applies to the container.")
+
   public String getUser() {
     return user;
   }
 
+
   public void setUser(String user) {
     this.user = user;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -136,16 +147,17 @@ public class V1SELinuxOptions {
       return false;
     }
     V1SELinuxOptions v1SELinuxOptions = (V1SELinuxOptions) o;
-    return Objects.equals(this.level, v1SELinuxOptions.level)
-        && Objects.equals(this.role, v1SELinuxOptions.role)
-        && Objects.equals(this.type, v1SELinuxOptions.type)
-        && Objects.equals(this.user, v1SELinuxOptions.user);
+    return Objects.equals(this.level, v1SELinuxOptions.level) &&
+        Objects.equals(this.role, v1SELinuxOptions.role) &&
+        Objects.equals(this.type, v1SELinuxOptions.type) &&
+        Objects.equals(this.user, v1SELinuxOptions.user);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(level, role, type, user);
   }
+
 
   @Override
   public String toString() {
@@ -160,7 +172,8 @@ public class V1SELinuxOptions {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -168,4 +181,5 @@ public class V1SELinuxOptions {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

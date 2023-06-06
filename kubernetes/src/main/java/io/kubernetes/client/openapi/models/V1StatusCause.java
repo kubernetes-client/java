@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,36 +12,35 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * StatusCause provides more information about an api.Status failure, including cases when multiple
- * errors are encountered.
+ * StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.
  */
-@ApiModel(
-    description =
-        "StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "StatusCause provides more information about an api.Status failure, including cases when multiple errors are encountered.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1StatusCause {
   public static final String SERIALIZED_NAME_FIELD = "field";
-
   @SerializedName(SERIALIZED_NAME_FIELD)
   private String field;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
-
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
-
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
+
 
   public V1StatusCause field(String field) {
 
@@ -49,27 +48,22 @@ public class V1StatusCause {
     return this;
   }
 
-  /**
-   * The field of the resource that has caused this error, as named by its JSON serialization. May
-   * include dot and postfix notation for nested attributes. Arrays are zero-indexed. Fields may
-   * appear more than once in an array of causes due to fields having multiple errors. Optional.
-   * Examples: \&quot;name\&quot; - the field \&quot;name\&quot; on the current resource
-   * \&quot;items[0].name\&quot; - the field \&quot;name\&quot; on the first array entry in
-   * \&quot;items\&quot;
-   *
+   /**
+   * The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.  Examples:   \&quot;name\&quot; - the field \&quot;name\&quot; on the current resource   \&quot;items[0].name\&quot; - the field \&quot;name\&quot; on the first array entry in \&quot;items\&quot;
    * @return field
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.  Examples:   \"name\" - the field \"name\" on the current resource   \"items[0].name\" - the field \"name\" on the first array entry in \"items\"")
+  @ApiModelProperty(value = "The field of the resource that has caused this error, as named by its JSON serialization. May include dot and postfix notation for nested attributes. Arrays are zero-indexed.  Fields may appear more than once in an array of causes due to fields having multiple errors. Optional.  Examples:   \"name\" - the field \"name\" on the current resource   \"items[0].name\" - the field \"name\" on the first array entry in \"items\"")
+
   public String getField() {
     return field;
   }
 
+
   public void setField(String field) {
     this.field = field;
   }
+
 
   public V1StatusCause message(String message) {
 
@@ -77,23 +71,22 @@ public class V1StatusCause {
     return this;
   }
 
-  /**
-   * A human-readable description of the cause of the error. This field may be presented as-is to a
-   * reader.
-   *
+   /**
+   * A human-readable description of the cause of the error.  This field may be presented as-is to a reader.
    * @return message
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A human-readable description of the cause of the error.  This field may be presented as-is to a reader.")
+  @ApiModelProperty(value = "A human-readable description of the cause of the error.  This field may be presented as-is to a reader.")
+
   public String getMessage() {
     return message;
   }
 
+
   public void setMessage(String message) {
     this.message = message;
   }
+
 
   public V1StatusCause reason(String reason) {
 
@@ -101,23 +94,22 @@ public class V1StatusCause {
     return this;
   }
 
-  /**
-   * A machine-readable description of the cause of the error. If this value is empty there is no
-   * information available.
-   *
+   /**
+   * A machine-readable description of the cause of the error. If this value is empty there is no information available.
    * @return reason
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "A machine-readable description of the cause of the error. If this value is empty there is no information available.")
+  @ApiModelProperty(value = "A machine-readable description of the cause of the error. If this value is empty there is no information available.")
+
   public String getReason() {
     return reason;
   }
 
+
   public void setReason(String reason) {
     this.reason = reason;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -128,15 +120,16 @@ public class V1StatusCause {
       return false;
     }
     V1StatusCause v1StatusCause = (V1StatusCause) o;
-    return Objects.equals(this.field, v1StatusCause.field)
-        && Objects.equals(this.message, v1StatusCause.message)
-        && Objects.equals(this.reason, v1StatusCause.reason);
+    return Objects.equals(this.field, v1StatusCause.field) &&
+        Objects.equals(this.message, v1StatusCause.message) &&
+        Objects.equals(this.reason, v1StatusCause.reason);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(field, message, reason);
   }
+
 
   @Override
   public String toString() {
@@ -150,7 +143,8 @@ public class V1StatusCause {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -158,4 +152,5 @@ public class V1StatusCause {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

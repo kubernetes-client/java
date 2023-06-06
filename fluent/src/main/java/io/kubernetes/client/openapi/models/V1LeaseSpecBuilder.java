@@ -20,16 +20,13 @@ public class V1LeaseSpecBuilder extends V1LeaseSpecFluentImpl<V1LeaseSpecBuilder
   }
   public V1LeaseSpecBuilder(V1LeaseSpecFluent<?> fluent,V1LeaseSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAcquireTime(instance.getAcquireTime());
-
-    fluent.withHolderIdentity(instance.getHolderIdentity());
-
-    fluent.withLeaseDurationSeconds(instance.getLeaseDurationSeconds());
-
-    fluent.withLeaseTransitions(instance.getLeaseTransitions());
-
-    fluent.withRenewTime(instance.getRenewTime());
-
+    if (instance != null) {
+      fluent.withAcquireTime(instance.getAcquireTime());
+      fluent.withHolderIdentity(instance.getHolderIdentity());
+      fluent.withLeaseDurationSeconds(instance.getLeaseDurationSeconds());
+      fluent.withLeaseTransitions(instance.getLeaseTransitions());
+      fluent.withRenewTime(instance.getRenewTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LeaseSpecBuilder(V1LeaseSpec instance) {
@@ -37,16 +34,13 @@ public class V1LeaseSpecBuilder extends V1LeaseSpecFluentImpl<V1LeaseSpecBuilder
   }
   public V1LeaseSpecBuilder(V1LeaseSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAcquireTime(instance.getAcquireTime());
-
-    this.withHolderIdentity(instance.getHolderIdentity());
-
-    this.withLeaseDurationSeconds(instance.getLeaseDurationSeconds());
-
-    this.withLeaseTransitions(instance.getLeaseTransitions());
-
-    this.withRenewTime(instance.getRenewTime());
-
+    if (instance != null) {
+      this.withAcquireTime(instance.getAcquireTime());
+      this.withHolderIdentity(instance.getHolderIdentity());
+      this.withLeaseDurationSeconds(instance.getLeaseDurationSeconds());
+      this.withLeaseTransitions(instance.getLeaseTransitions());
+      this.withRenewTime(instance.getRenewTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LeaseSpecFluent<?> fluent;

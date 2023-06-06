@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1SeccompProfileFluentImpl() {
   }
   public V1SeccompProfileFluentImpl(V1SeccompProfile instance) {
-    this.withLocalhostProfile(instance.getLocalhostProfile());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLocalhostProfile(instance.getLocalhostProfile());
+      this.withType(instance.getType());
+    }
   }
   private String localhostProfile;
   private String type;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SeccompProfileFluentImpl that = (V1SeccompProfileFluentImpl) o;
-    if (localhostProfile != null ? !localhostProfile.equals(that.localhostProfile) :that.localhostProfile != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(localhostProfile, that.localhostProfile)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {

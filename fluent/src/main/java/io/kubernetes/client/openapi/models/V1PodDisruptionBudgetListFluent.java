@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1PodDisruptionBudgetListFluent<A extends V1PodDisruptionBudget
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1PodDisruptionBudget item);
-  public A setToItems(Integer index,V1PodDisruptionBudget item);
+  public A addToItems(int index,V1PodDisruptionBudget item);
+  public A setToItems(int index,V1PodDisruptionBudget item);
   public A addToItems(io.kubernetes.client.openapi.models.V1PodDisruptionBudget... items);
   public A addAllToItems(Collection<V1PodDisruptionBudget> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1PodDisruptionBudget... items);
@@ -35,7 +35,7 @@ public interface V1PodDisruptionBudgetListFluent<A extends V1PodDisruptionBudget
   @Deprecated
   public List<V1PodDisruptionBudget> getItems();
   public List<V1PodDisruptionBudget> buildItems();
-  public V1PodDisruptionBudget buildItem(Integer index);
+  public V1PodDisruptionBudget buildItem(int index);
   public V1PodDisruptionBudget buildFirstItem();
   public V1PodDisruptionBudget buildLastItem();
   public V1PodDisruptionBudget buildMatchingItem(Predicate<V1PodDisruptionBudgetBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1PodDisruptionBudgetListFluent<A extends V1PodDisruptionBudget
   public Boolean hasItems();
   public V1PodDisruptionBudgetListFluent.ItemsNested<A> addNewItem();
   public V1PodDisruptionBudgetListFluent.ItemsNested<A> addNewItemLike(V1PodDisruptionBudget item);
-  public V1PodDisruptionBudgetListFluent.ItemsNested<A> setNewItemLike(Integer index,V1PodDisruptionBudget item);
-  public V1PodDisruptionBudgetListFluent.ItemsNested<A> editItem(Integer index);
+  public V1PodDisruptionBudgetListFluent.ItemsNested<A> setNewItemLike(int index,V1PodDisruptionBudget item);
+  public V1PodDisruptionBudgetListFluent.ItemsNested<A> editItem(int index);
   public V1PodDisruptionBudgetListFluent.ItemsNested<A> editFirstItem();
   public V1PodDisruptionBudgetListFluent.ItemsNested<A> editLastItem();
   public V1PodDisruptionBudgetListFluent.ItemsNested<A> editMatchingItem(Predicate<V1PodDisruptionBudgetBuilder> predicate);

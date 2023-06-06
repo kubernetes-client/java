@@ -14,24 +14,17 @@ import java.lang.Boolean;
   public VersionInfoFluentImpl() {
   }
   public VersionInfoFluentImpl(VersionInfo instance) {
-    this.withBuildDate(instance.getBuildDate());
-
-    this.withCompiler(instance.getCompiler());
-
-    this.withGitCommit(instance.getGitCommit());
-
-    this.withGitTreeState(instance.getGitTreeState());
-
-    this.withGitVersion(instance.getGitVersion());
-
-    this.withGoVersion(instance.getGoVersion());
-
-    this.withMajor(instance.getMajor());
-
-    this.withMinor(instance.getMinor());
-
-    this.withPlatform(instance.getPlatform());
-
+    if (instance != null) {
+      this.withBuildDate(instance.getBuildDate());
+      this.withCompiler(instance.getCompiler());
+      this.withGitCommit(instance.getGitCommit());
+      this.withGitTreeState(instance.getGitTreeState());
+      this.withGitVersion(instance.getGitVersion());
+      this.withGoVersion(instance.getGoVersion());
+      this.withMajor(instance.getMajor());
+      this.withMinor(instance.getMinor());
+      this.withPlatform(instance.getPlatform());
+    }
   }
   private String buildDate;
   private String compiler;
@@ -126,16 +119,26 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     VersionInfoFluentImpl that = (VersionInfoFluentImpl) o;
-    if (buildDate != null ? !buildDate.equals(that.buildDate) :that.buildDate != null) return false;
-    if (compiler != null ? !compiler.equals(that.compiler) :that.compiler != null) return false;
-    if (gitCommit != null ? !gitCommit.equals(that.gitCommit) :that.gitCommit != null) return false;
-    if (gitTreeState != null ? !gitTreeState.equals(that.gitTreeState) :that.gitTreeState != null) return false;
-    if (gitVersion != null ? !gitVersion.equals(that.gitVersion) :that.gitVersion != null) return false;
-    if (goVersion != null ? !goVersion.equals(that.goVersion) :that.goVersion != null) return false;
-    if (major != null ? !major.equals(that.major) :that.major != null) return false;
-    if (minor != null ? !minor.equals(that.minor) :that.minor != null) return false;
-    if (platform != null ? !platform.equals(that.platform) :that.platform != null) return false;
+    if (!java.util.Objects.equals(buildDate, that.buildDate)) return false;
+
+    if (!java.util.Objects.equals(compiler, that.compiler)) return false;
+
+    if (!java.util.Objects.equals(gitCommit, that.gitCommit)) return false;
+
+    if (!java.util.Objects.equals(gitTreeState, that.gitTreeState)) return false;
+
+    if (!java.util.Objects.equals(gitVersion, that.gitVersion)) return false;
+
+    if (!java.util.Objects.equals(goVersion, that.goVersion)) return false;
+
+    if (!java.util.Objects.equals(major, that.major)) return false;
+
+    if (!java.util.Objects.equals(minor, that.minor)) return false;
+
+    if (!java.util.Objects.equals(platform, that.platform)) return false;
+
     return true;
   }
   public int hashCode() {

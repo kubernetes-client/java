@@ -14,14 +14,12 @@ import java.lang.Boolean;
   public V1WindowsSecurityContextOptionsFluentImpl() {
   }
   public V1WindowsSecurityContextOptionsFluentImpl(V1WindowsSecurityContextOptions instance) {
-    this.withGmsaCredentialSpec(instance.getGmsaCredentialSpec());
-
-    this.withGmsaCredentialSpecName(instance.getGmsaCredentialSpecName());
-
-    this.withHostProcess(instance.getHostProcess());
-
-    this.withRunAsUserName(instance.getRunAsUserName());
-
+    if (instance != null) {
+      this.withGmsaCredentialSpec(instance.getGmsaCredentialSpec());
+      this.withGmsaCredentialSpecName(instance.getGmsaCredentialSpecName());
+      this.withHostProcess(instance.getHostProcess());
+      this.withRunAsUserName(instance.getRunAsUserName());
+    }
   }
   private String gmsaCredentialSpec;
   private String gmsaCredentialSpecName;
@@ -66,11 +64,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1WindowsSecurityContextOptionsFluentImpl that = (V1WindowsSecurityContextOptionsFluentImpl) o;
-    if (gmsaCredentialSpec != null ? !gmsaCredentialSpec.equals(that.gmsaCredentialSpec) :that.gmsaCredentialSpec != null) return false;
-    if (gmsaCredentialSpecName != null ? !gmsaCredentialSpecName.equals(that.gmsaCredentialSpecName) :that.gmsaCredentialSpecName != null) return false;
-    if (hostProcess != null ? !hostProcess.equals(that.hostProcess) :that.hostProcess != null) return false;
-    if (runAsUserName != null ? !runAsUserName.equals(that.runAsUserName) :that.runAsUserName != null) return false;
+    if (!java.util.Objects.equals(gmsaCredentialSpec, that.gmsaCredentialSpec)) return false;
+
+    if (!java.util.Objects.equals(gmsaCredentialSpecName, that.gmsaCredentialSpecName)) return false;
+
+    if (!java.util.Objects.equals(hostProcess, that.hostProcess)) return false;
+
+    if (!java.util.Objects.equals(runAsUserName, that.runAsUserName)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1HostPathVolumeSourceFluentImpl() {
   }
   public V1HostPathVolumeSourceFluentImpl(V1HostPathVolumeSource instance) {
-    this.withPath(instance.getPath());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withPath(instance.getPath());
+      this.withType(instance.getType());
+    }
   }
   private String path;
   private String type;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1HostPathVolumeSourceFluentImpl that = (V1HostPathVolumeSourceFluentImpl) o;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {

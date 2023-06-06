@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,36 +12,38 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1ContainerStateRunning;
+import io.kubernetes.client.openapi.models.V1ContainerStateTerminated;
+import io.kubernetes.client.openapi.models.V1ContainerStateWaiting;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * ContainerState holds a possible state of container. Only one of its members may be specified. If
- * none of them is specified, the default one is ContainerStateWaiting.
+ * ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.
  */
-@ApiModel(
-    description =
-        "ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "ContainerState holds a possible state of container. Only one of its members may be specified. If none of them is specified, the default one is ContainerStateWaiting.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1ContainerState {
   public static final String SERIALIZED_NAME_RUNNING = "running";
-
   @SerializedName(SERIALIZED_NAME_RUNNING)
   private V1ContainerStateRunning running;
 
   public static final String SERIALIZED_NAME_TERMINATED = "terminated";
-
   @SerializedName(SERIALIZED_NAME_TERMINATED)
   private V1ContainerStateTerminated terminated;
 
   public static final String SERIALIZED_NAME_WAITING = "waiting";
-
   @SerializedName(SERIALIZED_NAME_WAITING)
   private V1ContainerStateWaiting waiting;
+
 
   public V1ContainerState running(V1ContainerStateRunning running) {
 
@@ -49,20 +51,22 @@ public class V1ContainerState {
     return this;
   }
 
-  /**
+   /**
    * Get running
-   *
    * @return running
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1ContainerStateRunning getRunning() {
     return running;
   }
 
+
   public void setRunning(V1ContainerStateRunning running) {
     this.running = running;
   }
+
 
   public V1ContainerState terminated(V1ContainerStateTerminated terminated) {
 
@@ -70,20 +74,22 @@ public class V1ContainerState {
     return this;
   }
 
-  /**
+   /**
    * Get terminated
-   *
    * @return terminated
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1ContainerStateTerminated getTerminated() {
     return terminated;
   }
 
+
   public void setTerminated(V1ContainerStateTerminated terminated) {
     this.terminated = terminated;
   }
+
 
   public V1ContainerState waiting(V1ContainerStateWaiting waiting) {
 
@@ -91,20 +97,22 @@ public class V1ContainerState {
     return this;
   }
 
-  /**
+   /**
    * Get waiting
-   *
    * @return waiting
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1ContainerStateWaiting getWaiting() {
     return waiting;
   }
 
+
   public void setWaiting(V1ContainerStateWaiting waiting) {
     this.waiting = waiting;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -115,15 +123,16 @@ public class V1ContainerState {
       return false;
     }
     V1ContainerState v1ContainerState = (V1ContainerState) o;
-    return Objects.equals(this.running, v1ContainerState.running)
-        && Objects.equals(this.terminated, v1ContainerState.terminated)
-        && Objects.equals(this.waiting, v1ContainerState.waiting);
+    return Objects.equals(this.running, v1ContainerState.running) &&
+        Objects.equals(this.terminated, v1ContainerState.terminated) &&
+        Objects.equals(this.waiting, v1ContainerState.waiting);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(running, terminated, waiting);
   }
+
 
   @Override
   public String toString() {
@@ -137,7 +146,8 @@ public class V1ContainerState {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -145,4 +155,5 @@ public class V1ContainerState {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

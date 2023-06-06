@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
@@ -42,8 +43,8 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean getAutomountServiceAccountToken();
   public A withAutomountServiceAccountToken(Boolean automountServiceAccountToken);
   public Boolean hasAutomountServiceAccountToken();
-  public A addToContainers(Integer index,V1Container item);
-  public A setToContainers(Integer index,V1Container item);
+  public A addToContainers(int index,V1Container item);
+  public A setToContainers(int index,V1Container item);
   public A addToContainers(io.kubernetes.client.openapi.models.V1Container... items);
   public A addAllToContainers(Collection<V1Container> items);
   public A removeFromContainers(io.kubernetes.client.openapi.models.V1Container... items);
@@ -57,7 +58,7 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1Container> getContainers();
   public List<V1Container> buildContainers();
-  public V1Container buildContainer(Integer index);
+  public V1Container buildContainer(int index);
   public V1Container buildFirstContainer();
   public V1Container buildLastContainer();
   public V1Container buildMatchingContainer(Predicate<V1ContainerBuilder> predicate);
@@ -67,8 +68,8 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean hasContainers();
   public V1PodSpecFluent.ContainersNested<A> addNewContainer();
   public V1PodSpecFluent.ContainersNested<A> addNewContainerLike(V1Container item);
-  public V1PodSpecFluent.ContainersNested<A> setNewContainerLike(Integer index,V1Container item);
-  public V1PodSpecFluent.ContainersNested<A> editContainer(Integer index);
+  public V1PodSpecFluent.ContainersNested<A> setNewContainerLike(int index,V1Container item);
+  public V1PodSpecFluent.ContainersNested<A> editContainer(int index);
   public V1PodSpecFluent.ContainersNested<A> editFirstContainer();
   public V1PodSpecFluent.ContainersNested<A> editLastContainer();
   public V1PodSpecFluent.ContainersNested<A> editMatchingContainer(Predicate<V1ContainerBuilder> predicate);
@@ -93,8 +94,8 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean getEnableServiceLinks();
   public A withEnableServiceLinks(Boolean enableServiceLinks);
   public Boolean hasEnableServiceLinks();
-  public A addToEphemeralContainers(Integer index,V1EphemeralContainer item);
-  public A setToEphemeralContainers(Integer index,V1EphemeralContainer item);
+  public A addToEphemeralContainers(int index,V1EphemeralContainer item);
+  public A setToEphemeralContainers(int index,V1EphemeralContainer item);
   public A addToEphemeralContainers(io.kubernetes.client.openapi.models.V1EphemeralContainer... items);
   public A addAllToEphemeralContainers(Collection<V1EphemeralContainer> items);
   public A removeFromEphemeralContainers(io.kubernetes.client.openapi.models.V1EphemeralContainer... items);
@@ -108,7 +109,7 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1EphemeralContainer> getEphemeralContainers();
   public List<V1EphemeralContainer> buildEphemeralContainers();
-  public V1EphemeralContainer buildEphemeralContainer(Integer index);
+  public V1EphemeralContainer buildEphemeralContainer(int index);
   public V1EphemeralContainer buildFirstEphemeralContainer();
   public V1EphemeralContainer buildLastEphemeralContainer();
   public V1EphemeralContainer buildMatchingEphemeralContainer(Predicate<V1EphemeralContainerBuilder> predicate);
@@ -118,13 +119,13 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean hasEphemeralContainers();
   public V1PodSpecFluent.EphemeralContainersNested<A> addNewEphemeralContainer();
   public V1PodSpecFluent.EphemeralContainersNested<A> addNewEphemeralContainerLike(V1EphemeralContainer item);
-  public V1PodSpecFluent.EphemeralContainersNested<A> setNewEphemeralContainerLike(Integer index,V1EphemeralContainer item);
-  public V1PodSpecFluent.EphemeralContainersNested<A> editEphemeralContainer(Integer index);
+  public V1PodSpecFluent.EphemeralContainersNested<A> setNewEphemeralContainerLike(int index,V1EphemeralContainer item);
+  public V1PodSpecFluent.EphemeralContainersNested<A> editEphemeralContainer(int index);
   public V1PodSpecFluent.EphemeralContainersNested<A> editFirstEphemeralContainer();
   public V1PodSpecFluent.EphemeralContainersNested<A> editLastEphemeralContainer();
   public V1PodSpecFluent.EphemeralContainersNested<A> editMatchingEphemeralContainer(Predicate<V1EphemeralContainerBuilder> predicate);
-  public A addToHostAliases(Integer index,V1HostAlias item);
-  public A setToHostAliases(Integer index,V1HostAlias item);
+  public A addToHostAliases(int index,V1HostAlias item);
+  public A setToHostAliases(int index,V1HostAlias item);
   public A addToHostAliases(io.kubernetes.client.openapi.models.V1HostAlias... items);
   public A addAllToHostAliases(Collection<V1HostAlias> items);
   public A removeFromHostAliases(io.kubernetes.client.openapi.models.V1HostAlias... items);
@@ -138,7 +139,7 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1HostAlias> getHostAliases();
   public List<V1HostAlias> buildHostAliases();
-  public V1HostAlias buildHostAlias(Integer index);
+  public V1HostAlias buildHostAlias(int index);
   public V1HostAlias buildFirstHostAlias();
   public V1HostAlias buildLastHostAlias();
   public V1HostAlias buildMatchingHostAlias(Predicate<V1HostAliasBuilder> predicate);
@@ -148,8 +149,8 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean hasHostAliases();
   public V1PodSpecFluent.HostAliasesNested<A> addNewHostAlias();
   public V1PodSpecFluent.HostAliasesNested<A> addNewHostAliasLike(V1HostAlias item);
-  public V1PodSpecFluent.HostAliasesNested<A> setNewHostAliasLike(Integer index,V1HostAlias item);
-  public V1PodSpecFluent.HostAliasesNested<A> editHostAlias(Integer index);
+  public V1PodSpecFluent.HostAliasesNested<A> setNewHostAliasLike(int index,V1HostAlias item);
+  public V1PodSpecFluent.HostAliasesNested<A> editHostAlias(int index);
   public V1PodSpecFluent.HostAliasesNested<A> editFirstHostAlias();
   public V1PodSpecFluent.HostAliasesNested<A> editLastHostAlias();
   public V1PodSpecFluent.HostAliasesNested<A> editMatchingHostAlias(Predicate<V1HostAliasBuilder> predicate);
@@ -168,8 +169,8 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public String getHostname();
   public A withHostname(String hostname);
   public Boolean hasHostname();
-  public A addToImagePullSecrets(Integer index,V1LocalObjectReference item);
-  public A setToImagePullSecrets(Integer index,V1LocalObjectReference item);
+  public A addToImagePullSecrets(int index,V1LocalObjectReference item);
+  public A setToImagePullSecrets(int index,V1LocalObjectReference item);
   public A addToImagePullSecrets(io.kubernetes.client.openapi.models.V1LocalObjectReference... items);
   public A addAllToImagePullSecrets(Collection<V1LocalObjectReference> items);
   public A removeFromImagePullSecrets(io.kubernetes.client.openapi.models.V1LocalObjectReference... items);
@@ -183,7 +184,7 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1LocalObjectReference> getImagePullSecrets();
   public List<V1LocalObjectReference> buildImagePullSecrets();
-  public V1LocalObjectReference buildImagePullSecret(Integer index);
+  public V1LocalObjectReference buildImagePullSecret(int index);
   public V1LocalObjectReference buildFirstImagePullSecret();
   public V1LocalObjectReference buildLastImagePullSecret();
   public V1LocalObjectReference buildMatchingImagePullSecret(Predicate<V1LocalObjectReferenceBuilder> predicate);
@@ -193,13 +194,13 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean hasImagePullSecrets();
   public V1PodSpecFluent.ImagePullSecretsNested<A> addNewImagePullSecret();
   public V1PodSpecFluent.ImagePullSecretsNested<A> addNewImagePullSecretLike(V1LocalObjectReference item);
-  public V1PodSpecFluent.ImagePullSecretsNested<A> setNewImagePullSecretLike(Integer index,V1LocalObjectReference item);
-  public V1PodSpecFluent.ImagePullSecretsNested<A> editImagePullSecret(Integer index);
+  public V1PodSpecFluent.ImagePullSecretsNested<A> setNewImagePullSecretLike(int index,V1LocalObjectReference item);
+  public V1PodSpecFluent.ImagePullSecretsNested<A> editImagePullSecret(int index);
   public V1PodSpecFluent.ImagePullSecretsNested<A> editFirstImagePullSecret();
   public V1PodSpecFluent.ImagePullSecretsNested<A> editLastImagePullSecret();
   public V1PodSpecFluent.ImagePullSecretsNested<A> editMatchingImagePullSecret(Predicate<V1LocalObjectReferenceBuilder> predicate);
-  public A addToInitContainers(Integer index,V1Container item);
-  public A setToInitContainers(Integer index,V1Container item);
+  public A addToInitContainers(int index,V1Container item);
+  public A setToInitContainers(int index,V1Container item);
   public A addToInitContainers(io.kubernetes.client.openapi.models.V1Container... items);
   public A addAllToInitContainers(Collection<V1Container> items);
   public A removeFromInitContainers(io.kubernetes.client.openapi.models.V1Container... items);
@@ -213,7 +214,7 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1Container> getInitContainers();
   public List<V1Container> buildInitContainers();
-  public V1Container buildInitContainer(Integer index);
+  public V1Container buildInitContainer(int index);
   public V1Container buildFirstInitContainer();
   public V1Container buildLastInitContainer();
   public V1Container buildMatchingInitContainer(Predicate<V1ContainerBuilder> predicate);
@@ -223,8 +224,8 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean hasInitContainers();
   public V1PodSpecFluent.InitContainersNested<A> addNewInitContainer();
   public V1PodSpecFluent.InitContainersNested<A> addNewInitContainerLike(V1Container item);
-  public V1PodSpecFluent.InitContainersNested<A> setNewInitContainerLike(Integer index,V1Container item);
-  public V1PodSpecFluent.InitContainersNested<A> editInitContainer(Integer index);
+  public V1PodSpecFluent.InitContainersNested<A> setNewInitContainerLike(int index,V1Container item);
+  public V1PodSpecFluent.InitContainersNested<A> editInitContainer(int index);
   public V1PodSpecFluent.InitContainersNested<A> editFirstInitContainer();
   public V1PodSpecFluent.InitContainersNested<A> editLastInitContainer();
   public V1PodSpecFluent.InitContainersNested<A> editMatchingInitContainer(Predicate<V1ContainerBuilder> predicate);
@@ -269,8 +270,8 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public String getPriorityClassName();
   public A withPriorityClassName(String priorityClassName);
   public Boolean hasPriorityClassName();
-  public A addToReadinessGates(Integer index,V1PodReadinessGate item);
-  public A setToReadinessGates(Integer index,V1PodReadinessGate item);
+  public A addToReadinessGates(int index,V1PodReadinessGate item);
+  public A setToReadinessGates(int index,V1PodReadinessGate item);
   public A addToReadinessGates(io.kubernetes.client.openapi.models.V1PodReadinessGate... items);
   public A addAllToReadinessGates(Collection<V1PodReadinessGate> items);
   public A removeFromReadinessGates(io.kubernetes.client.openapi.models.V1PodReadinessGate... items);
@@ -284,7 +285,7 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1PodReadinessGate> getReadinessGates();
   public List<V1PodReadinessGate> buildReadinessGates();
-  public V1PodReadinessGate buildReadinessGate(Integer index);
+  public V1PodReadinessGate buildReadinessGate(int index);
   public V1PodReadinessGate buildFirstReadinessGate();
   public V1PodReadinessGate buildLastReadinessGate();
   public V1PodReadinessGate buildMatchingReadinessGate(Predicate<V1PodReadinessGateBuilder> predicate);
@@ -294,11 +295,41 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean hasReadinessGates();
   public V1PodSpecFluent.ReadinessGatesNested<A> addNewReadinessGate();
   public V1PodSpecFluent.ReadinessGatesNested<A> addNewReadinessGateLike(V1PodReadinessGate item);
-  public V1PodSpecFluent.ReadinessGatesNested<A> setNewReadinessGateLike(Integer index,V1PodReadinessGate item);
-  public V1PodSpecFluent.ReadinessGatesNested<A> editReadinessGate(Integer index);
+  public V1PodSpecFluent.ReadinessGatesNested<A> setNewReadinessGateLike(int index,V1PodReadinessGate item);
+  public V1PodSpecFluent.ReadinessGatesNested<A> editReadinessGate(int index);
   public V1PodSpecFluent.ReadinessGatesNested<A> editFirstReadinessGate();
   public V1PodSpecFluent.ReadinessGatesNested<A> editLastReadinessGate();
   public V1PodSpecFluent.ReadinessGatesNested<A> editMatchingReadinessGate(Predicate<V1PodReadinessGateBuilder> predicate);
+  public A addToResourceClaims(int index,V1PodResourceClaim item);
+  public A setToResourceClaims(int index,V1PodResourceClaim item);
+  public A addToResourceClaims(io.kubernetes.client.openapi.models.V1PodResourceClaim... items);
+  public A addAllToResourceClaims(Collection<V1PodResourceClaim> items);
+  public A removeFromResourceClaims(io.kubernetes.client.openapi.models.V1PodResourceClaim... items);
+  public A removeAllFromResourceClaims(Collection<V1PodResourceClaim> items);
+  public A removeMatchingFromResourceClaims(Predicate<V1PodResourceClaimBuilder> predicate);
+  
+  /**
+   * This method has been deprecated, please use method buildResourceClaims instead.
+   * @return The buildable object.
+   */
+  @Deprecated
+  public List<V1PodResourceClaim> getResourceClaims();
+  public List<V1PodResourceClaim> buildResourceClaims();
+  public V1PodResourceClaim buildResourceClaim(int index);
+  public V1PodResourceClaim buildFirstResourceClaim();
+  public V1PodResourceClaim buildLastResourceClaim();
+  public V1PodResourceClaim buildMatchingResourceClaim(Predicate<V1PodResourceClaimBuilder> predicate);
+  public Boolean hasMatchingResourceClaim(Predicate<V1PodResourceClaimBuilder> predicate);
+  public A withResourceClaims(List<V1PodResourceClaim> resourceClaims);
+  public A withResourceClaims(io.kubernetes.client.openapi.models.V1PodResourceClaim... resourceClaims);
+  public Boolean hasResourceClaims();
+  public V1PodSpecFluent.ResourceClaimsNested<A> addNewResourceClaim();
+  public V1PodSpecFluent.ResourceClaimsNested<A> addNewResourceClaimLike(V1PodResourceClaim item);
+  public V1PodSpecFluent.ResourceClaimsNested<A> setNewResourceClaimLike(int index,V1PodResourceClaim item);
+  public V1PodSpecFluent.ResourceClaimsNested<A> editResourceClaim(int index);
+  public V1PodSpecFluent.ResourceClaimsNested<A> editFirstResourceClaim();
+  public V1PodSpecFluent.ResourceClaimsNested<A> editLastResourceClaim();
+  public V1PodSpecFluent.ResourceClaimsNested<A> editMatchingResourceClaim(Predicate<V1PodResourceClaimBuilder> predicate);
   public String getRestartPolicy();
   public A withRestartPolicy(String restartPolicy);
   public Boolean hasRestartPolicy();
@@ -308,6 +339,36 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public String getSchedulerName();
   public A withSchedulerName(String schedulerName);
   public Boolean hasSchedulerName();
+  public A addToSchedulingGates(int index,V1PodSchedulingGate item);
+  public A setToSchedulingGates(int index,V1PodSchedulingGate item);
+  public A addToSchedulingGates(io.kubernetes.client.openapi.models.V1PodSchedulingGate... items);
+  public A addAllToSchedulingGates(Collection<V1PodSchedulingGate> items);
+  public A removeFromSchedulingGates(io.kubernetes.client.openapi.models.V1PodSchedulingGate... items);
+  public A removeAllFromSchedulingGates(Collection<V1PodSchedulingGate> items);
+  public A removeMatchingFromSchedulingGates(Predicate<V1PodSchedulingGateBuilder> predicate);
+  
+  /**
+   * This method has been deprecated, please use method buildSchedulingGates instead.
+   * @return The buildable object.
+   */
+  @Deprecated
+  public List<V1PodSchedulingGate> getSchedulingGates();
+  public List<V1PodSchedulingGate> buildSchedulingGates();
+  public V1PodSchedulingGate buildSchedulingGate(int index);
+  public V1PodSchedulingGate buildFirstSchedulingGate();
+  public V1PodSchedulingGate buildLastSchedulingGate();
+  public V1PodSchedulingGate buildMatchingSchedulingGate(Predicate<V1PodSchedulingGateBuilder> predicate);
+  public Boolean hasMatchingSchedulingGate(Predicate<V1PodSchedulingGateBuilder> predicate);
+  public A withSchedulingGates(List<V1PodSchedulingGate> schedulingGates);
+  public A withSchedulingGates(io.kubernetes.client.openapi.models.V1PodSchedulingGate... schedulingGates);
+  public Boolean hasSchedulingGates();
+  public V1PodSpecFluent.SchedulingGatesNested<A> addNewSchedulingGate();
+  public V1PodSpecFluent.SchedulingGatesNested<A> addNewSchedulingGateLike(V1PodSchedulingGate item);
+  public V1PodSpecFluent.SchedulingGatesNested<A> setNewSchedulingGateLike(int index,V1PodSchedulingGate item);
+  public V1PodSpecFluent.SchedulingGatesNested<A> editSchedulingGate(int index);
+  public V1PodSpecFluent.SchedulingGatesNested<A> editFirstSchedulingGate();
+  public V1PodSpecFluent.SchedulingGatesNested<A> editLastSchedulingGate();
+  public V1PodSpecFluent.SchedulingGatesNested<A> editMatchingSchedulingGate(Predicate<V1PodSchedulingGateBuilder> predicate);
   
   /**
    * This method has been deprecated, please use method buildSecurityContext instead.
@@ -341,8 +402,8 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Long getTerminationGracePeriodSeconds();
   public A withTerminationGracePeriodSeconds(Long terminationGracePeriodSeconds);
   public Boolean hasTerminationGracePeriodSeconds();
-  public A addToTolerations(Integer index,V1Toleration item);
-  public A setToTolerations(Integer index,V1Toleration item);
+  public A addToTolerations(int index,V1Toleration item);
+  public A setToTolerations(int index,V1Toleration item);
   public A addToTolerations(io.kubernetes.client.openapi.models.V1Toleration... items);
   public A addAllToTolerations(Collection<V1Toleration> items);
   public A removeFromTolerations(io.kubernetes.client.openapi.models.V1Toleration... items);
@@ -356,7 +417,7 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1Toleration> getTolerations();
   public List<V1Toleration> buildTolerations();
-  public V1Toleration buildToleration(Integer index);
+  public V1Toleration buildToleration(int index);
   public V1Toleration buildFirstToleration();
   public V1Toleration buildLastToleration();
   public V1Toleration buildMatchingToleration(Predicate<V1TolerationBuilder> predicate);
@@ -366,13 +427,13 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean hasTolerations();
   public V1PodSpecFluent.TolerationsNested<A> addNewToleration();
   public V1PodSpecFluent.TolerationsNested<A> addNewTolerationLike(V1Toleration item);
-  public V1PodSpecFluent.TolerationsNested<A> setNewTolerationLike(Integer index,V1Toleration item);
-  public V1PodSpecFluent.TolerationsNested<A> editToleration(Integer index);
+  public V1PodSpecFluent.TolerationsNested<A> setNewTolerationLike(int index,V1Toleration item);
+  public V1PodSpecFluent.TolerationsNested<A> editToleration(int index);
   public V1PodSpecFluent.TolerationsNested<A> editFirstToleration();
   public V1PodSpecFluent.TolerationsNested<A> editLastToleration();
   public V1PodSpecFluent.TolerationsNested<A> editMatchingToleration(Predicate<V1TolerationBuilder> predicate);
-  public A addToTopologySpreadConstraints(Integer index,V1TopologySpreadConstraint item);
-  public A setToTopologySpreadConstraints(Integer index,V1TopologySpreadConstraint item);
+  public A addToTopologySpreadConstraints(int index,V1TopologySpreadConstraint item);
+  public A setToTopologySpreadConstraints(int index,V1TopologySpreadConstraint item);
   public A addToTopologySpreadConstraints(io.kubernetes.client.openapi.models.V1TopologySpreadConstraint... items);
   public A addAllToTopologySpreadConstraints(Collection<V1TopologySpreadConstraint> items);
   public A removeFromTopologySpreadConstraints(io.kubernetes.client.openapi.models.V1TopologySpreadConstraint... items);
@@ -386,7 +447,7 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1TopologySpreadConstraint> getTopologySpreadConstraints();
   public List<V1TopologySpreadConstraint> buildTopologySpreadConstraints();
-  public V1TopologySpreadConstraint buildTopologySpreadConstraint(Integer index);
+  public V1TopologySpreadConstraint buildTopologySpreadConstraint(int index);
   public V1TopologySpreadConstraint buildFirstTopologySpreadConstraint();
   public V1TopologySpreadConstraint buildLastTopologySpreadConstraint();
   public V1TopologySpreadConstraint buildMatchingTopologySpreadConstraint(Predicate<V1TopologySpreadConstraintBuilder> predicate);
@@ -396,13 +457,13 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean hasTopologySpreadConstraints();
   public V1PodSpecFluent.TopologySpreadConstraintsNested<A> addNewTopologySpreadConstraint();
   public V1PodSpecFluent.TopologySpreadConstraintsNested<A> addNewTopologySpreadConstraintLike(V1TopologySpreadConstraint item);
-  public V1PodSpecFluent.TopologySpreadConstraintsNested<A> setNewTopologySpreadConstraintLike(Integer index,V1TopologySpreadConstraint item);
-  public V1PodSpecFluent.TopologySpreadConstraintsNested<A> editTopologySpreadConstraint(Integer index);
+  public V1PodSpecFluent.TopologySpreadConstraintsNested<A> setNewTopologySpreadConstraintLike(int index,V1TopologySpreadConstraint item);
+  public V1PodSpecFluent.TopologySpreadConstraintsNested<A> editTopologySpreadConstraint(int index);
   public V1PodSpecFluent.TopologySpreadConstraintsNested<A> editFirstTopologySpreadConstraint();
   public V1PodSpecFluent.TopologySpreadConstraintsNested<A> editLastTopologySpreadConstraint();
   public V1PodSpecFluent.TopologySpreadConstraintsNested<A> editMatchingTopologySpreadConstraint(Predicate<V1TopologySpreadConstraintBuilder> predicate);
-  public A addToVolumes(Integer index,V1Volume item);
-  public A setToVolumes(Integer index,V1Volume item);
+  public A addToVolumes(int index,V1Volume item);
+  public A setToVolumes(int index,V1Volume item);
   public A addToVolumes(io.kubernetes.client.openapi.models.V1Volume... items);
   public A addAllToVolumes(Collection<V1Volume> items);
   public A removeFromVolumes(io.kubernetes.client.openapi.models.V1Volume... items);
@@ -416,7 +477,7 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1Volume> getVolumes();
   public List<V1Volume> buildVolumes();
-  public V1Volume buildVolume(Integer index);
+  public V1Volume buildVolume(int index);
   public V1Volume buildFirstVolume();
   public V1Volume buildLastVolume();
   public V1Volume buildMatchingVolume(Predicate<V1VolumeBuilder> predicate);
@@ -426,8 +487,8 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public Boolean hasVolumes();
   public V1PodSpecFluent.VolumesNested<A> addNewVolume();
   public V1PodSpecFluent.VolumesNested<A> addNewVolumeLike(V1Volume item);
-  public V1PodSpecFluent.VolumesNested<A> setNewVolumeLike(Integer index,V1Volume item);
-  public V1PodSpecFluent.VolumesNested<A> editVolume(Integer index);
+  public V1PodSpecFluent.VolumesNested<A> setNewVolumeLike(int index,V1Volume item);
+  public V1PodSpecFluent.VolumesNested<A> editVolume(int index);
   public V1PodSpecFluent.VolumesNested<A> editFirstVolume();
   public V1PodSpecFluent.VolumesNested<A> editLastVolume();
   public V1PodSpecFluent.VolumesNested<A> editMatchingVolume(Predicate<V1VolumeBuilder> predicate);
@@ -482,6 +543,16 @@ public interface V1PodSpecFluent<A extends V1PodSpecFluent<A>> extends Fluent<A>
   public interface ReadinessGatesNested<N> extends Nested<N>,V1PodReadinessGateFluent<V1PodSpecFluent.ReadinessGatesNested<N>>{
     public N and();
     public N endReadinessGate();
+    
+  }
+  public interface ResourceClaimsNested<N> extends Nested<N>,V1PodResourceClaimFluent<V1PodSpecFluent.ResourceClaimsNested<N>>{
+    public N and();
+    public N endResourceClaim();
+    
+  }
+  public interface SchedulingGatesNested<N> extends Nested<N>,V1PodSchedulingGateFluent<V1PodSpecFluent.SchedulingGatesNested<N>>{
+    public N and();
+    public N endSchedulingGate();
     
   }
   public interface SecurityContextNested<N> extends Nested<N>,V1PodSecurityContextFluent<V1PodSpecFluent.SecurityContextNested<N>>{

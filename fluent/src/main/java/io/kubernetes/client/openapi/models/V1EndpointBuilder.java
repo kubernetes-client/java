@@ -20,22 +20,16 @@ public class V1EndpointBuilder extends V1EndpointFluentImpl<V1EndpointBuilder> i
   }
   public V1EndpointBuilder(V1EndpointFluent<?> fluent,V1Endpoint instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAddresses(instance.getAddresses());
-
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withDeprecatedTopology(instance.getDeprecatedTopology());
-
-    fluent.withHints(instance.getHints());
-
-    fluent.withHostname(instance.getHostname());
-
-    fluent.withNodeName(instance.getNodeName());
-
-    fluent.withTargetRef(instance.getTargetRef());
-
-    fluent.withZone(instance.getZone());
-
+    if (instance != null) {
+      fluent.withAddresses(instance.getAddresses());
+      fluent.withConditions(instance.getConditions());
+      fluent.withDeprecatedTopology(instance.getDeprecatedTopology());
+      fluent.withHints(instance.getHints());
+      fluent.withHostname(instance.getHostname());
+      fluent.withNodeName(instance.getNodeName());
+      fluent.withTargetRef(instance.getTargetRef());
+      fluent.withZone(instance.getZone());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EndpointBuilder(V1Endpoint instance) {
@@ -43,22 +37,16 @@ public class V1EndpointBuilder extends V1EndpointFluentImpl<V1EndpointBuilder> i
   }
   public V1EndpointBuilder(V1Endpoint instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAddresses(instance.getAddresses());
-
-    this.withConditions(instance.getConditions());
-
-    this.withDeprecatedTopology(instance.getDeprecatedTopology());
-
-    this.withHints(instance.getHints());
-
-    this.withHostname(instance.getHostname());
-
-    this.withNodeName(instance.getNodeName());
-
-    this.withTargetRef(instance.getTargetRef());
-
-    this.withZone(instance.getZone());
-
+    if (instance != null) {
+      this.withAddresses(instance.getAddresses());
+      this.withConditions(instance.getConditions());
+      this.withDeprecatedTopology(instance.getDeprecatedTopology());
+      this.withHints(instance.getHints());
+      this.withHostname(instance.getHostname());
+      this.withNodeName(instance.getNodeName());
+      this.withTargetRef(instance.getTargetRef());
+      this.withZone(instance.getZone());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EndpointFluent<?> fluent;

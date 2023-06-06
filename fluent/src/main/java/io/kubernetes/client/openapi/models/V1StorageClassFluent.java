@@ -1,13 +1,13 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -22,8 +22,8 @@ public interface V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends
   public Boolean getAllowVolumeExpansion();
   public A withAllowVolumeExpansion(Boolean allowVolumeExpansion);
   public Boolean hasAllowVolumeExpansion();
-  public A addToAllowedTopologies(Integer index,V1TopologySelectorTerm item);
-  public A setToAllowedTopologies(Integer index,V1TopologySelectorTerm item);
+  public A addToAllowedTopologies(int index,V1TopologySelectorTerm item);
+  public A setToAllowedTopologies(int index,V1TopologySelectorTerm item);
   public A addToAllowedTopologies(io.kubernetes.client.openapi.models.V1TopologySelectorTerm... items);
   public A addAllToAllowedTopologies(Collection<V1TopologySelectorTerm> items);
   public A removeFromAllowedTopologies(io.kubernetes.client.openapi.models.V1TopologySelectorTerm... items);
@@ -37,7 +37,7 @@ public interface V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends
   @Deprecated
   public List<V1TopologySelectorTerm> getAllowedTopologies();
   public List<V1TopologySelectorTerm> buildAllowedTopologies();
-  public V1TopologySelectorTerm buildAllowedTopology(Integer index);
+  public V1TopologySelectorTerm buildAllowedTopology(int index);
   public V1TopologySelectorTerm buildFirstAllowedTopology();
   public V1TopologySelectorTerm buildLastAllowedTopology();
   public V1TopologySelectorTerm buildMatchingAllowedTopology(Predicate<V1TopologySelectorTermBuilder> predicate);
@@ -47,8 +47,8 @@ public interface V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends
   public Boolean hasAllowedTopologies();
   public V1StorageClassFluent.AllowedTopologiesNested<A> addNewAllowedTopology();
   public V1StorageClassFluent.AllowedTopologiesNested<A> addNewAllowedTopologyLike(V1TopologySelectorTerm item);
-  public V1StorageClassFluent.AllowedTopologiesNested<A> setNewAllowedTopologyLike(Integer index,V1TopologySelectorTerm item);
-  public V1StorageClassFluent.AllowedTopologiesNested<A> editAllowedTopology(Integer index);
+  public V1StorageClassFluent.AllowedTopologiesNested<A> setNewAllowedTopologyLike(int index,V1TopologySelectorTerm item);
+  public V1StorageClassFluent.AllowedTopologiesNested<A> editAllowedTopology(int index);
   public V1StorageClassFluent.AllowedTopologiesNested<A> editFirstAllowedTopology();
   public V1StorageClassFluent.AllowedTopologiesNested<A> editLastAllowedTopology();
   public V1StorageClassFluent.AllowedTopologiesNested<A> editMatchingAllowedTopology(Predicate<V1TopologySelectorTermBuilder> predicate);
@@ -73,14 +73,14 @@ public interface V1StorageClassFluent<A extends V1StorageClassFluent<A>> extends
   public V1StorageClassFluent.MetadataNested<A> editMetadata();
   public V1StorageClassFluent.MetadataNested<A> editOrNewMetadata();
   public V1StorageClassFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
-  public A addToMountOptions(Integer index,String item);
-  public A setToMountOptions(Integer index,String item);
+  public A addToMountOptions(int index,String item);
+  public A setToMountOptions(int index,String item);
   public A addToMountOptions(java.lang.String... items);
   public A addAllToMountOptions(Collection<String> items);
   public A removeFromMountOptions(java.lang.String... items);
   public A removeAllFromMountOptions(Collection<String> items);
   public List<String> getMountOptions();
-  public String getMountOption(Integer index);
+  public String getMountOption(int index);
   public String getFirstMountOption();
   public String getLastMountOption();
   public String getMatchingMountOption(Predicate<String> predicate);

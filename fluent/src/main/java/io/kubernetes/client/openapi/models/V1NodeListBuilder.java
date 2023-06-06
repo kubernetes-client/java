@@ -20,14 +20,12 @@ public class V1NodeListBuilder extends V1NodeListFluentImpl<V1NodeListBuilder> i
   }
   public V1NodeListBuilder(V1NodeListFluent<?> fluent,V1NodeList instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withItems(instance.getItems());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withItems(instance.getItems());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeListBuilder(V1NodeList instance) {
@@ -35,14 +33,12 @@ public class V1NodeListBuilder extends V1NodeListFluentImpl<V1NodeListBuilder> i
   }
   public V1NodeListBuilder(V1NodeList instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withItems(instance.getItems());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withItems(instance.getItems());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeListFluent<?> fluent;

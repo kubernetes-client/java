@@ -20,14 +20,12 @@ public class V1ComponentStatusBuilder extends V1ComponentStatusFluentImpl<V1Comp
   }
   public V1ComponentStatusBuilder(V1ComponentStatusFluent<?> fluent,V1ComponentStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withConditions(instance.getConditions());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ComponentStatusBuilder(V1ComponentStatus instance) {
@@ -35,14 +33,12 @@ public class V1ComponentStatusBuilder extends V1ComponentStatusFluentImpl<V1Comp
   }
   public V1ComponentStatusBuilder(V1ComponentStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withConditions(instance.getConditions());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withConditions(instance.getConditions());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ComponentStatusFluent<?> fluent;

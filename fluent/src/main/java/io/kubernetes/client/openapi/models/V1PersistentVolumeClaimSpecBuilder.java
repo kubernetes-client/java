@@ -20,22 +20,16 @@ public class V1PersistentVolumeClaimSpecBuilder extends V1PersistentVolumeClaimS
   }
   public V1PersistentVolumeClaimSpecBuilder(V1PersistentVolumeClaimSpecFluent<?> fluent,V1PersistentVolumeClaimSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAccessModes(instance.getAccessModes());
-
-    fluent.withDataSource(instance.getDataSource());
-
-    fluent.withDataSourceRef(instance.getDataSourceRef());
-
-    fluent.withResources(instance.getResources());
-
-    fluent.withSelector(instance.getSelector());
-
-    fluent.withStorageClassName(instance.getStorageClassName());
-
-    fluent.withVolumeMode(instance.getVolumeMode());
-
-    fluent.withVolumeName(instance.getVolumeName());
-
+    if (instance != null) {
+      fluent.withAccessModes(instance.getAccessModes());
+      fluent.withDataSource(instance.getDataSource());
+      fluent.withDataSourceRef(instance.getDataSourceRef());
+      fluent.withResources(instance.getResources());
+      fluent.withSelector(instance.getSelector());
+      fluent.withStorageClassName(instance.getStorageClassName());
+      fluent.withVolumeMode(instance.getVolumeMode());
+      fluent.withVolumeName(instance.getVolumeName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PersistentVolumeClaimSpecBuilder(V1PersistentVolumeClaimSpec instance) {
@@ -43,22 +37,16 @@ public class V1PersistentVolumeClaimSpecBuilder extends V1PersistentVolumeClaimS
   }
   public V1PersistentVolumeClaimSpecBuilder(V1PersistentVolumeClaimSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAccessModes(instance.getAccessModes());
-
-    this.withDataSource(instance.getDataSource());
-
-    this.withDataSourceRef(instance.getDataSourceRef());
-
-    this.withResources(instance.getResources());
-
-    this.withSelector(instance.getSelector());
-
-    this.withStorageClassName(instance.getStorageClassName());
-
-    this.withVolumeMode(instance.getVolumeMode());
-
-    this.withVolumeName(instance.getVolumeName());
-
+    if (instance != null) {
+      this.withAccessModes(instance.getAccessModes());
+      this.withDataSource(instance.getDataSource());
+      this.withDataSourceRef(instance.getDataSourceRef());
+      this.withResources(instance.getResources());
+      this.withSelector(instance.getSelector());
+      this.withStorageClassName(instance.getStorageClassName());
+      this.withVolumeMode(instance.getVolumeMode());
+      this.withVolumeName(instance.getVolumeName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PersistentVolumeClaimSpecFluent<?> fluent;

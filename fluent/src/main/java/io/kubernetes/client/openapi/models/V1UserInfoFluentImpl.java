@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Collection;
 import java.lang.Object;
@@ -21,14 +20,12 @@ import java.util.Map;
   public V1UserInfoFluentImpl() {
   }
   public V1UserInfoFluentImpl(V1UserInfo instance) {
-    this.withExtra(instance.getExtra());
-
-    this.withGroups(instance.getGroups());
-
-    this.withUid(instance.getUid());
-
-    this.withUsername(instance.getUsername());
-
+    if (instance != null) {
+      this.withExtra(instance.getExtra());
+      this.withGroups(instance.getGroups());
+      this.withUid(instance.getUid());
+      this.withUsername(instance.getUsername());
+    }
   }
   private Map<String,List<String>> extra;
   private List<String> groups;
@@ -59,12 +56,12 @@ import java.util.Map;
   public Boolean hasExtra() {
     return this.extra != null;
   }
-  public A addToGroups(Integer index,String item) {
+  public A addToGroups(int index,String item) {
     if (this.groups == null) {this.groups = new ArrayList<String>();}
     this.groups.add(index, item);
     return (A)this;
   }
-  public A setToGroups(Integer index,String item) {
+  public A setToGroups(int index,String item) {
     if (this.groups == null) {this.groups = new ArrayList<String>();}
     this.groups.set(index, item); return (A)this;
   }
@@ -85,7 +82,7 @@ import java.util.Map;
   public List<String> getGroups() {
     return this.groups;
   }
-  public String getGroup(Integer index) {
+  public String getGroup(int index) {
     return this.groups.get(index);
   }
   public String getFirstGroup() {
@@ -104,7 +101,7 @@ import java.util.Map;
     if (groups != null) {this.groups = new ArrayList(); for (String item : groups){this.addToGroups(item);}} else { this.groups = null;} return (A) this;
   }
   public A withGroups(java.lang.String... groups) {
-    if (this.groups != null) {this.groups.clear();}
+    if (this.groups != null) {this.groups.clear(); _visitables.remove("groups"); }
     if (groups != null) {for (String item :groups){ this.addToGroups(item);}} return (A) this;
   }
   public Boolean hasGroups() {
@@ -131,11 +128,16 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1UserInfoFluentImpl that = (V1UserInfoFluentImpl) o;
-    if (extra != null ? !extra.equals(that.extra) :that.extra != null) return false;
-    if (groups != null ? !groups.equals(that.groups) :that.groups != null) return false;
-    if (uid != null ? !uid.equals(that.uid) :that.uid != null) return false;
-    if (username != null ? !username.equals(that.username) :that.username != null) return false;
+    if (!java.util.Objects.equals(extra, that.extra)) return false;
+
+    if (!java.util.Objects.equals(groups, that.groups)) return false;
+
+    if (!java.util.Objects.equals(uid, that.uid)) return false;
+
+    if (!java.util.Objects.equals(username, that.username)) return false;
+
     return true;
   }
   public int hashCode() {

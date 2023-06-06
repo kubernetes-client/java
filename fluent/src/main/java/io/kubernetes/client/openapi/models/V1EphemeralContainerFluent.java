@@ -1,30 +1,30 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import io.kubernetes.client.fluent.Nested;
+import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Deprecated;
-import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
 import io.kubernetes.client.fluent.Fluent;
-import java.lang.Integer;
 import java.util.Collection;
+import io.kubernetes.client.fluent.Nested;
+import java.lang.Deprecated;
+import java.util.Iterator;
 
  /**
   * Generated
   */
 public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent<A>> extends Fluent<A>{
-  public A addToArgs(Integer index,String item);
-  public A setToArgs(Integer index,String item);
+  public A addToArgs(int index,String item);
+  public A setToArgs(int index,String item);
   public A addToArgs(java.lang.String... items);
   public A addAllToArgs(Collection<String> items);
   public A removeFromArgs(java.lang.String... items);
   public A removeAllFromArgs(Collection<String> items);
   public List<String> getArgs();
-  public String getArg(Integer index);
+  public String getArg(int index);
   public String getFirstArg();
   public String getLastArg();
   public String getMatchingArg(Predicate<String> predicate);
@@ -32,14 +32,14 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public A withArgs(List<String> args);
   public A withArgs(java.lang.String... args);
   public Boolean hasArgs();
-  public A addToCommand(Integer index,String item);
-  public A setToCommand(Integer index,String item);
+  public A addToCommand(int index,String item);
+  public A setToCommand(int index,String item);
   public A addToCommand(java.lang.String... items);
   public A addAllToCommand(Collection<String> items);
   public A removeFromCommand(java.lang.String... items);
   public A removeAllFromCommand(Collection<String> items);
   public List<String> getCommand();
-  public String getCommand(Integer index);
+  public String getCommand(int index);
   public String getFirstCommand();
   public String getLastCommand();
   public String getMatchingCommand(Predicate<String> predicate);
@@ -47,8 +47,8 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public A withCommand(List<String> command);
   public A withCommand(java.lang.String... command);
   public Boolean hasCommand();
-  public A addToEnv(Integer index,V1EnvVar item);
-  public A setToEnv(Integer index,V1EnvVar item);
+  public A addToEnv(int index,V1EnvVar item);
+  public A setToEnv(int index,V1EnvVar item);
   public A addToEnv(io.kubernetes.client.openapi.models.V1EnvVar... items);
   public A addAllToEnv(Collection<V1EnvVar> items);
   public A removeFromEnv(io.kubernetes.client.openapi.models.V1EnvVar... items);
@@ -62,7 +62,7 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   @Deprecated
   public List<V1EnvVar> getEnv();
   public List<V1EnvVar> buildEnv();
-  public V1EnvVar buildEnv(Integer index);
+  public V1EnvVar buildEnv(int index);
   public V1EnvVar buildFirstEnv();
   public V1EnvVar buildLastEnv();
   public V1EnvVar buildMatchingEnv(Predicate<V1EnvVarBuilder> predicate);
@@ -72,13 +72,13 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public Boolean hasEnv();
   public V1EphemeralContainerFluent.EnvNested<A> addNewEnv();
   public V1EphemeralContainerFluent.EnvNested<A> addNewEnvLike(V1EnvVar item);
-  public V1EphemeralContainerFluent.EnvNested<A> setNewEnvLike(Integer index,V1EnvVar item);
-  public V1EphemeralContainerFluent.EnvNested<A> editEnv(Integer index);
+  public V1EphemeralContainerFluent.EnvNested<A> setNewEnvLike(int index,V1EnvVar item);
+  public V1EphemeralContainerFluent.EnvNested<A> editEnv(int index);
   public V1EphemeralContainerFluent.EnvNested<A> editFirstEnv();
   public V1EphemeralContainerFluent.EnvNested<A> editLastEnv();
   public V1EphemeralContainerFluent.EnvNested<A> editMatchingEnv(Predicate<V1EnvVarBuilder> predicate);
-  public A addToEnvFrom(Integer index,V1EnvFromSource item);
-  public A setToEnvFrom(Integer index,V1EnvFromSource item);
+  public A addToEnvFrom(int index,V1EnvFromSource item);
+  public A setToEnvFrom(int index,V1EnvFromSource item);
   public A addToEnvFrom(io.kubernetes.client.openapi.models.V1EnvFromSource... items);
   public A addAllToEnvFrom(Collection<V1EnvFromSource> items);
   public A removeFromEnvFrom(io.kubernetes.client.openapi.models.V1EnvFromSource... items);
@@ -92,7 +92,7 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   @Deprecated
   public List<V1EnvFromSource> getEnvFrom();
   public List<V1EnvFromSource> buildEnvFrom();
-  public V1EnvFromSource buildEnvFrom(Integer index);
+  public V1EnvFromSource buildEnvFrom(int index);
   public V1EnvFromSource buildFirstEnvFrom();
   public V1EnvFromSource buildLastEnvFrom();
   public V1EnvFromSource buildMatchingEnvFrom(Predicate<V1EnvFromSourceBuilder> predicate);
@@ -102,8 +102,8 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public Boolean hasEnvFrom();
   public V1EphemeralContainerFluent.EnvFromNested<A> addNewEnvFrom();
   public V1EphemeralContainerFluent.EnvFromNested<A> addNewEnvFromLike(V1EnvFromSource item);
-  public V1EphemeralContainerFluent.EnvFromNested<A> setNewEnvFromLike(Integer index,V1EnvFromSource item);
-  public V1EphemeralContainerFluent.EnvFromNested<A> editEnvFrom(Integer index);
+  public V1EphemeralContainerFluent.EnvFromNested<A> setNewEnvFromLike(int index,V1EnvFromSource item);
+  public V1EphemeralContainerFluent.EnvFromNested<A> editEnvFrom(int index);
   public V1EphemeralContainerFluent.EnvFromNested<A> editFirstEnvFrom();
   public V1EphemeralContainerFluent.EnvFromNested<A> editLastEnvFrom();
   public V1EphemeralContainerFluent.EnvFromNested<A> editMatchingEnvFrom(Predicate<V1EnvFromSourceBuilder> predicate);
@@ -146,8 +146,8 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public String getName();
   public A withName(String name);
   public Boolean hasName();
-  public A addToPorts(Integer index,V1ContainerPort item);
-  public A setToPorts(Integer index,V1ContainerPort item);
+  public A addToPorts(int index,V1ContainerPort item);
+  public A setToPorts(int index,V1ContainerPort item);
   public A addToPorts(io.kubernetes.client.openapi.models.V1ContainerPort... items);
   public A addAllToPorts(Collection<V1ContainerPort> items);
   public A removeFromPorts(io.kubernetes.client.openapi.models.V1ContainerPort... items);
@@ -161,7 +161,7 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   @Deprecated
   public List<V1ContainerPort> getPorts();
   public List<V1ContainerPort> buildPorts();
-  public V1ContainerPort buildPort(Integer index);
+  public V1ContainerPort buildPort(int index);
   public V1ContainerPort buildFirstPort();
   public V1ContainerPort buildLastPort();
   public V1ContainerPort buildMatchingPort(Predicate<V1ContainerPortBuilder> predicate);
@@ -171,8 +171,8 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public Boolean hasPorts();
   public V1EphemeralContainerFluent.PortsNested<A> addNewPort();
   public V1EphemeralContainerFluent.PortsNested<A> addNewPortLike(V1ContainerPort item);
-  public V1EphemeralContainerFluent.PortsNested<A> setNewPortLike(Integer index,V1ContainerPort item);
-  public V1EphemeralContainerFluent.PortsNested<A> editPort(Integer index);
+  public V1EphemeralContainerFluent.PortsNested<A> setNewPortLike(int index,V1ContainerPort item);
+  public V1EphemeralContainerFluent.PortsNested<A> editPort(int index);
   public V1EphemeralContainerFluent.PortsNested<A> editFirstPort();
   public V1EphemeralContainerFluent.PortsNested<A> editLastPort();
   public V1EphemeralContainerFluent.PortsNested<A> editMatchingPort(Predicate<V1ContainerPortBuilder> predicate);
@@ -191,6 +191,36 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public V1EphemeralContainerFluent.ReadinessProbeNested<A> editReadinessProbe();
   public V1EphemeralContainerFluent.ReadinessProbeNested<A> editOrNewReadinessProbe();
   public V1EphemeralContainerFluent.ReadinessProbeNested<A> editOrNewReadinessProbeLike(V1Probe item);
+  public A addToResizePolicy(int index,V1ContainerResizePolicy item);
+  public A setToResizePolicy(int index,V1ContainerResizePolicy item);
+  public A addToResizePolicy(io.kubernetes.client.openapi.models.V1ContainerResizePolicy... items);
+  public A addAllToResizePolicy(Collection<V1ContainerResizePolicy> items);
+  public A removeFromResizePolicy(io.kubernetes.client.openapi.models.V1ContainerResizePolicy... items);
+  public A removeAllFromResizePolicy(Collection<V1ContainerResizePolicy> items);
+  public A removeMatchingFromResizePolicy(Predicate<V1ContainerResizePolicyBuilder> predicate);
+  
+  /**
+   * This method has been deprecated, please use method buildResizePolicy instead.
+   * @return The buildable object.
+   */
+  @Deprecated
+  public List<V1ContainerResizePolicy> getResizePolicy();
+  public List<V1ContainerResizePolicy> buildResizePolicy();
+  public V1ContainerResizePolicy buildResizePolicy(int index);
+  public V1ContainerResizePolicy buildFirstResizePolicy();
+  public V1ContainerResizePolicy buildLastResizePolicy();
+  public V1ContainerResizePolicy buildMatchingResizePolicy(Predicate<V1ContainerResizePolicyBuilder> predicate);
+  public Boolean hasMatchingResizePolicy(Predicate<V1ContainerResizePolicyBuilder> predicate);
+  public A withResizePolicy(List<V1ContainerResizePolicy> resizePolicy);
+  public A withResizePolicy(io.kubernetes.client.openapi.models.V1ContainerResizePolicy... resizePolicy);
+  public Boolean hasResizePolicy();
+  public V1EphemeralContainerFluent.ResizePolicyNested<A> addNewResizePolicy();
+  public V1EphemeralContainerFluent.ResizePolicyNested<A> addNewResizePolicyLike(V1ContainerResizePolicy item);
+  public V1EphemeralContainerFluent.ResizePolicyNested<A> setNewResizePolicyLike(int index,V1ContainerResizePolicy item);
+  public V1EphemeralContainerFluent.ResizePolicyNested<A> editResizePolicy(int index);
+  public V1EphemeralContainerFluent.ResizePolicyNested<A> editFirstResizePolicy();
+  public V1EphemeralContainerFluent.ResizePolicyNested<A> editLastResizePolicy();
+  public V1EphemeralContainerFluent.ResizePolicyNested<A> editMatchingResizePolicy(Predicate<V1ContainerResizePolicyBuilder> predicate);
   
   /**
    * This method has been deprecated, please use method buildResources instead.
@@ -254,8 +284,8 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public Boolean getTty();
   public A withTty(Boolean tty);
   public Boolean hasTty();
-  public A addToVolumeDevices(Integer index,V1VolumeDevice item);
-  public A setToVolumeDevices(Integer index,V1VolumeDevice item);
+  public A addToVolumeDevices(int index,V1VolumeDevice item);
+  public A setToVolumeDevices(int index,V1VolumeDevice item);
   public A addToVolumeDevices(io.kubernetes.client.openapi.models.V1VolumeDevice... items);
   public A addAllToVolumeDevices(Collection<V1VolumeDevice> items);
   public A removeFromVolumeDevices(io.kubernetes.client.openapi.models.V1VolumeDevice... items);
@@ -269,7 +299,7 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   @Deprecated
   public List<V1VolumeDevice> getVolumeDevices();
   public List<V1VolumeDevice> buildVolumeDevices();
-  public V1VolumeDevice buildVolumeDevice(Integer index);
+  public V1VolumeDevice buildVolumeDevice(int index);
   public V1VolumeDevice buildFirstVolumeDevice();
   public V1VolumeDevice buildLastVolumeDevice();
   public V1VolumeDevice buildMatchingVolumeDevice(Predicate<V1VolumeDeviceBuilder> predicate);
@@ -279,13 +309,13 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public Boolean hasVolumeDevices();
   public V1EphemeralContainerFluent.VolumeDevicesNested<A> addNewVolumeDevice();
   public V1EphemeralContainerFluent.VolumeDevicesNested<A> addNewVolumeDeviceLike(V1VolumeDevice item);
-  public V1EphemeralContainerFluent.VolumeDevicesNested<A> setNewVolumeDeviceLike(Integer index,V1VolumeDevice item);
-  public V1EphemeralContainerFluent.VolumeDevicesNested<A> editVolumeDevice(Integer index);
+  public V1EphemeralContainerFluent.VolumeDevicesNested<A> setNewVolumeDeviceLike(int index,V1VolumeDevice item);
+  public V1EphemeralContainerFluent.VolumeDevicesNested<A> editVolumeDevice(int index);
   public V1EphemeralContainerFluent.VolumeDevicesNested<A> editFirstVolumeDevice();
   public V1EphemeralContainerFluent.VolumeDevicesNested<A> editLastVolumeDevice();
   public V1EphemeralContainerFluent.VolumeDevicesNested<A> editMatchingVolumeDevice(Predicate<V1VolumeDeviceBuilder> predicate);
-  public A addToVolumeMounts(Integer index,V1VolumeMount item);
-  public A setToVolumeMounts(Integer index,V1VolumeMount item);
+  public A addToVolumeMounts(int index,V1VolumeMount item);
+  public A setToVolumeMounts(int index,V1VolumeMount item);
   public A addToVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMount... items);
   public A addAllToVolumeMounts(Collection<V1VolumeMount> items);
   public A removeFromVolumeMounts(io.kubernetes.client.openapi.models.V1VolumeMount... items);
@@ -299,7 +329,7 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   @Deprecated
   public List<V1VolumeMount> getVolumeMounts();
   public List<V1VolumeMount> buildVolumeMounts();
-  public V1VolumeMount buildVolumeMount(Integer index);
+  public V1VolumeMount buildVolumeMount(int index);
   public V1VolumeMount buildFirstVolumeMount();
   public V1VolumeMount buildLastVolumeMount();
   public V1VolumeMount buildMatchingVolumeMount(Predicate<V1VolumeMountBuilder> predicate);
@@ -309,8 +339,8 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public Boolean hasVolumeMounts();
   public V1EphemeralContainerFluent.VolumeMountsNested<A> addNewVolumeMount();
   public V1EphemeralContainerFluent.VolumeMountsNested<A> addNewVolumeMountLike(V1VolumeMount item);
-  public V1EphemeralContainerFluent.VolumeMountsNested<A> setNewVolumeMountLike(Integer index,V1VolumeMount item);
-  public V1EphemeralContainerFluent.VolumeMountsNested<A> editVolumeMount(Integer index);
+  public V1EphemeralContainerFluent.VolumeMountsNested<A> setNewVolumeMountLike(int index,V1VolumeMount item);
+  public V1EphemeralContainerFluent.VolumeMountsNested<A> editVolumeMount(int index);
   public V1EphemeralContainerFluent.VolumeMountsNested<A> editFirstVolumeMount();
   public V1EphemeralContainerFluent.VolumeMountsNested<A> editLastVolumeMount();
   public V1EphemeralContainerFluent.VolumeMountsNested<A> editMatchingVolumeMount(Predicate<V1VolumeMountBuilder> predicate);
@@ -348,6 +378,11 @@ public interface V1EphemeralContainerFluent<A extends V1EphemeralContainerFluent
   public interface ReadinessProbeNested<N> extends Nested<N>,V1ProbeFluent<V1EphemeralContainerFluent.ReadinessProbeNested<N>>{
     public N and();
     public N endReadinessProbe();
+    
+  }
+  public interface ResizePolicyNested<N> extends Nested<N>,V1ContainerResizePolicyFluent<V1EphemeralContainerFluent.ResizePolicyNested<N>>{
+    public N and();
+    public N endResizePolicy();
     
   }
   public interface ResourcesNested<N> extends Nested<N>,V1ResourceRequirementsFluent<V1EphemeralContainerFluent.ResourcesNested<N>>{

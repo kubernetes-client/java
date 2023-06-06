@@ -1,6 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,14 +16,14 @@ public interface V1alpha1ServerStorageVersionFluent<A extends V1alpha1ServerStor
   public String getApiServerID();
   public A withApiServerID(String apiServerID);
   public Boolean hasApiServerID();
-  public A addToDecodableVersions(Integer index,String item);
-  public A setToDecodableVersions(Integer index,String item);
+  public A addToDecodableVersions(int index,String item);
+  public A setToDecodableVersions(int index,String item);
   public A addToDecodableVersions(java.lang.String... items);
   public A addAllToDecodableVersions(Collection<String> items);
   public A removeFromDecodableVersions(java.lang.String... items);
   public A removeAllFromDecodableVersions(Collection<String> items);
   public List<String> getDecodableVersions();
-  public String getDecodableVersion(Integer index);
+  public String getDecodableVersion(int index);
   public String getFirstDecodableVersion();
   public String getLastDecodableVersion();
   public String getMatchingDecodableVersion(Predicate<String> predicate);

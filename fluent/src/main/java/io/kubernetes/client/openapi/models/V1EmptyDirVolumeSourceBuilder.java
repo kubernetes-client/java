@@ -20,10 +20,10 @@ public class V1EmptyDirVolumeSourceBuilder extends V1EmptyDirVolumeSourceFluentI
   }
   public V1EmptyDirVolumeSourceBuilder(V1EmptyDirVolumeSourceFluent<?> fluent,V1EmptyDirVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMedium(instance.getMedium());
-
-    fluent.withSizeLimit(instance.getSizeLimit());
-
+    if (instance != null) {
+      fluent.withMedium(instance.getMedium());
+      fluent.withSizeLimit(instance.getSizeLimit());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EmptyDirVolumeSourceBuilder(V1EmptyDirVolumeSource instance) {
@@ -31,10 +31,10 @@ public class V1EmptyDirVolumeSourceBuilder extends V1EmptyDirVolumeSourceFluentI
   }
   public V1EmptyDirVolumeSourceBuilder(V1EmptyDirVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMedium(instance.getMedium());
-
-    this.withSizeLimit(instance.getSizeLimit());
-
+    if (instance != null) {
+      this.withMedium(instance.getMedium());
+      this.withSizeLimit(instance.getSizeLimit());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EmptyDirVolumeSourceFluent<?> fluent;

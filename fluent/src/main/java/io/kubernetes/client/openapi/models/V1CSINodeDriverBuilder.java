@@ -20,14 +20,12 @@ public class V1CSINodeDriverBuilder extends V1CSINodeDriverFluentImpl<V1CSINodeD
   }
   public V1CSINodeDriverBuilder(V1CSINodeDriverFluent<?> fluent,V1CSINodeDriver instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAllocatable(instance.getAllocatable());
-
-    fluent.withName(instance.getName());
-
-    fluent.withNodeID(instance.getNodeID());
-
-    fluent.withTopologyKeys(instance.getTopologyKeys());
-
+    if (instance != null) {
+      fluent.withAllocatable(instance.getAllocatable());
+      fluent.withName(instance.getName());
+      fluent.withNodeID(instance.getNodeID());
+      fluent.withTopologyKeys(instance.getTopologyKeys());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CSINodeDriverBuilder(V1CSINodeDriver instance) {
@@ -35,14 +33,12 @@ public class V1CSINodeDriverBuilder extends V1CSINodeDriverFluentImpl<V1CSINodeD
   }
   public V1CSINodeDriverBuilder(V1CSINodeDriver instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAllocatable(instance.getAllocatable());
-
-    this.withName(instance.getName());
-
-    this.withNodeID(instance.getNodeID());
-
-    this.withTopologyKeys(instance.getTopologyKeys());
-
+    if (instance != null) {
+      this.withAllocatable(instance.getAllocatable());
+      this.withName(instance.getName());
+      this.withNodeID(instance.getNodeID());
+      this.withTopologyKeys(instance.getTopologyKeys());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CSINodeDriverFluent<?> fluent;

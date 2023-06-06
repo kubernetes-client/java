@@ -16,49 +16,52 @@ import java.lang.Boolean;
   public V1IngressStatusFluentImpl() {
   }
   public V1IngressStatusFluentImpl(V1IngressStatus instance) {
-    this.withLoadBalancer(instance.getLoadBalancer());
-
+    if (instance != null) {
+      this.withLoadBalancer(instance.getLoadBalancer());
+    }
   }
-  private V1LoadBalancerStatusBuilder loadBalancer;
+  private V1IngressLoadBalancerStatusBuilder loadBalancer;
   
   /**
    * This method has been deprecated, please use method buildLoadBalancer instead.
    * @return The buildable object.
    */
   @Deprecated
-  public V1LoadBalancerStatus getLoadBalancer() {
+  public V1IngressLoadBalancerStatus getLoadBalancer() {
     return this.loadBalancer!=null ?this.loadBalancer.build():null;
   }
-  public V1LoadBalancerStatus buildLoadBalancer() {
+  public V1IngressLoadBalancerStatus buildLoadBalancer() {
     return this.loadBalancer!=null ?this.loadBalancer.build():null;
   }
-  public A withLoadBalancer(V1LoadBalancerStatus loadBalancer) {
+  public A withLoadBalancer(V1IngressLoadBalancerStatus loadBalancer) {
     _visitables.get("loadBalancer").remove(this.loadBalancer);
-    if (loadBalancer!=null){ this.loadBalancer= new V1LoadBalancerStatusBuilder(loadBalancer); _visitables.get("loadBalancer").add(this.loadBalancer);} else { this.loadBalancer = null; _visitables.get("loadBalancer").remove(this.loadBalancer); } return (A) this;
+    if (loadBalancer!=null){ this.loadBalancer= new V1IngressLoadBalancerStatusBuilder(loadBalancer); _visitables.get("loadBalancer").add(this.loadBalancer);} else { this.loadBalancer = null; _visitables.get("loadBalancer").remove(this.loadBalancer); } return (A) this;
   }
   public Boolean hasLoadBalancer() {
     return this.loadBalancer != null;
   }
-  public V1IngressStatusFluent.LoadBalancerNested<A> withNewLoadBalancer() {
+  public V1IngressStatusFluentImpl.LoadBalancerNested<A> withNewLoadBalancer() {
     return new V1IngressStatusFluentImpl.LoadBalancerNestedImpl();
   }
-  public V1IngressStatusFluent.LoadBalancerNested<A> withNewLoadBalancerLike(V1LoadBalancerStatus item) {
+  public V1IngressStatusFluentImpl.LoadBalancerNested<A> withNewLoadBalancerLike(V1IngressLoadBalancerStatus item) {
     return new V1IngressStatusFluentImpl.LoadBalancerNestedImpl(item);
   }
-  public V1IngressStatusFluent.LoadBalancerNested<A> editLoadBalancer() {
+  public V1IngressStatusFluentImpl.LoadBalancerNested<A> editLoadBalancer() {
     return withNewLoadBalancerLike(getLoadBalancer());
   }
-  public V1IngressStatusFluent.LoadBalancerNested<A> editOrNewLoadBalancer() {
-    return withNewLoadBalancerLike(getLoadBalancer() != null ? getLoadBalancer(): new V1LoadBalancerStatusBuilder().build());
+  public V1IngressStatusFluentImpl.LoadBalancerNested<A> editOrNewLoadBalancer() {
+    return withNewLoadBalancerLike(getLoadBalancer() != null ? getLoadBalancer(): new V1IngressLoadBalancerStatusBuilder().build());
   }
-  public V1IngressStatusFluent.LoadBalancerNested<A> editOrNewLoadBalancerLike(V1LoadBalancerStatus item) {
+  public V1IngressStatusFluentImpl.LoadBalancerNested<A> editOrNewLoadBalancerLike(V1IngressLoadBalancerStatus item) {
     return withNewLoadBalancerLike(getLoadBalancer() != null ? getLoadBalancer(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1IngressStatusFluentImpl that = (V1IngressStatusFluentImpl) o;
-    if (loadBalancer != null ? !loadBalancer.equals(that.loadBalancer) :that.loadBalancer != null) return false;
+    if (!java.util.Objects.equals(loadBalancer, that.loadBalancer)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -71,14 +74,14 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class LoadBalancerNestedImpl<N> extends V1LoadBalancerStatusFluentImpl<V1IngressStatusFluent.LoadBalancerNested<N>> implements V1IngressStatusFluent.LoadBalancerNested<N>,Nested<N>{
-    LoadBalancerNestedImpl(V1LoadBalancerStatus item) {
-      this.builder = new V1LoadBalancerStatusBuilder(this, item);
+  class LoadBalancerNestedImpl<N> extends V1IngressLoadBalancerStatusFluentImpl<V1IngressStatusFluentImpl.LoadBalancerNested<N>> implements V1IngressStatusFluentImpl.LoadBalancerNested<N>,Nested<N>{
+    LoadBalancerNestedImpl(V1IngressLoadBalancerStatus item) {
+      this.builder = new V1IngressLoadBalancerStatusBuilder(this, item);
     }
     LoadBalancerNestedImpl() {
-      this.builder = new V1LoadBalancerStatusBuilder(this);
+      this.builder = new V1IngressLoadBalancerStatusBuilder(this);
     }
-    V1LoadBalancerStatusBuilder builder;
+    V1IngressLoadBalancerStatusBuilder builder;
     public N and() {
       return (N) V1IngressStatusFluentImpl.this.withLoadBalancer(builder.build());
     }

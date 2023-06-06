@@ -20,14 +20,12 @@ public class V1BindingBuilder extends V1BindingFluentImpl<V1BindingBuilder> impl
   }
   public V1BindingBuilder(V1BindingFluent<?> fluent,V1Binding instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withTarget(instance.getTarget());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1BindingBuilder(V1Binding instance) {
@@ -35,14 +33,12 @@ public class V1BindingBuilder extends V1BindingFluentImpl<V1BindingBuilder> impl
   }
   public V1BindingBuilder(V1Binding instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withTarget(instance.getTarget());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1BindingFluent<?> fluent;

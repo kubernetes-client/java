@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,51 +12,49 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi;
 
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class Pair {
-  private String name = "";
-  private String value = "";
+    private String name = "";
+    private String value = "";
 
-  public Pair(String name, String value) {
-    setName(name);
-    setValue(value);
-  }
-
-  private void setName(String name) {
-    if (!isValidString(name)) {
-      return;
+    public Pair (String name, String value) {
+        setName(name);
+        setValue(value);
     }
 
-    this.name = name;
-  }
+    private void setName(String name) {
+        if (!isValidString(name)) {
+            return;
+        }
 
-  private void setValue(String value) {
-    if (!isValidString(value)) {
-      return;
+        this.name = name;
     }
 
-    this.value = value;
-  }
+    private void setValue(String value) {
+        if (!isValidString(value)) {
+            return;
+        }
 
-  public String getName() {
-    return this.name;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  private boolean isValidString(String arg) {
-    if (arg == null) {
-      return false;
+        this.value = value;
     }
 
-    if (arg.trim().isEmpty()) {
-      return false;
+    public String getName() {
+        return this.name;
     }
 
-    return true;
-  }
+    public String getValue() {
+        return this.value;
+    }
+
+    private boolean isValidString(String arg) {
+        if (arg == null) {
+            return false;
+        }
+
+        if (arg.trim().isEmpty()) {
+            return false;
+        }
+
+        return true;
+    }
 }

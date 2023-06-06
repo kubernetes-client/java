@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,28 +12,33 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** Describe a container image */
+/**
+ * Describe a container image
+ */
 @ApiModel(description = "Describe a container image")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1ContainerImage {
   public static final String SERIALIZED_NAME_NAMES = "names";
-
   @SerializedName(SERIALIZED_NAME_NAMES)
   private List<String> names = null;
 
   public static final String SERIALIZED_NAME_SIZE_BYTES = "sizeBytes";
-
   @SerializedName(SERIALIZED_NAME_SIZE_BYTES)
   private Long sizeBytes;
+
 
   public V1ContainerImage names(List<String> names) {
 
@@ -49,23 +54,22 @@ public class V1ContainerImage {
     return this;
   }
 
-  /**
-   * Names by which this image is known. e.g. [\&quot;kubernetes.example/hyperkube:v1.0.7\&quot;,
-   * \&quot;cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7\&quot;]
-   *
+   /**
+   * Names by which this image is known. e.g. [\&quot;kubernetes.example/hyperkube:v1.0.7\&quot;, \&quot;cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7\&quot;]
    * @return names
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Names by which this image is known. e.g. [\"kubernetes.example/hyperkube:v1.0.7\", \"cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7\"]")
+  @ApiModelProperty(value = "Names by which this image is known. e.g. [\"kubernetes.example/hyperkube:v1.0.7\", \"cloud-vendor.registry.example/cloud-vendor/hyperkube:v1.0.7\"]")
+
   public List<String> getNames() {
     return names;
   }
 
+
   public void setNames(List<String> names) {
     this.names = names;
   }
+
 
   public V1ContainerImage sizeBytes(Long sizeBytes) {
 
@@ -73,20 +77,22 @@ public class V1ContainerImage {
     return this;
   }
 
-  /**
+   /**
    * The size of the image in bytes.
-   *
    * @return sizeBytes
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The size of the image in bytes.")
+
   public Long getSizeBytes() {
     return sizeBytes;
   }
 
+
   public void setSizeBytes(Long sizeBytes) {
     this.sizeBytes = sizeBytes;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -97,14 +103,15 @@ public class V1ContainerImage {
       return false;
     }
     V1ContainerImage v1ContainerImage = (V1ContainerImage) o;
-    return Objects.equals(this.names, v1ContainerImage.names)
-        && Objects.equals(this.sizeBytes, v1ContainerImage.sizeBytes);
+    return Objects.equals(this.names, v1ContainerImage.names) &&
+        Objects.equals(this.sizeBytes, v1ContainerImage.sizeBytes);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(names, sizeBytes);
   }
+
 
   @Override
   public String toString() {
@@ -117,7 +124,8 @@ public class V1ContainerImage {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -125,4 +133,5 @@ public class V1ContainerImage {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

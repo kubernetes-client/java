@@ -14,8 +14,9 @@ import java.lang.Boolean;
   public V1SelfSubjectRulesReviewSpecFluentImpl() {
   }
   public V1SelfSubjectRulesReviewSpecFluentImpl(V1SelfSubjectRulesReviewSpec instance) {
-    this.withNamespace(instance.getNamespace());
-
+    if (instance != null) {
+      this.withNamespace(instance.getNamespace());
+    }
   }
   private String namespace;
   public String getNamespace() {
@@ -30,8 +31,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SelfSubjectRulesReviewSpecFluentImpl that = (V1SelfSubjectRulesReviewSpecFluentImpl) o;
-    if (namespace != null ? !namespace.equals(that.namespace) :that.namespace != null) return false;
+    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
+
     return true;
   }
   public int hashCode() {

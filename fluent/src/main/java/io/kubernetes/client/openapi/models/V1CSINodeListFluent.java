@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1CSINodeListFluent<A extends V1CSINodeListFluent<A>> extends F
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1CSINode item);
-  public A setToItems(Integer index,V1CSINode item);
+  public A addToItems(int index,V1CSINode item);
+  public A setToItems(int index,V1CSINode item);
   public A addToItems(io.kubernetes.client.openapi.models.V1CSINode... items);
   public A addAllToItems(Collection<V1CSINode> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1CSINode... items);
@@ -35,7 +35,7 @@ public interface V1CSINodeListFluent<A extends V1CSINodeListFluent<A>> extends F
   @Deprecated
   public List<V1CSINode> getItems();
   public List<V1CSINode> buildItems();
-  public V1CSINode buildItem(Integer index);
+  public V1CSINode buildItem(int index);
   public V1CSINode buildFirstItem();
   public V1CSINode buildLastItem();
   public V1CSINode buildMatchingItem(Predicate<V1CSINodeBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1CSINodeListFluent<A extends V1CSINodeListFluent<A>> extends F
   public Boolean hasItems();
   public V1CSINodeListFluent.ItemsNested<A> addNewItem();
   public V1CSINodeListFluent.ItemsNested<A> addNewItemLike(V1CSINode item);
-  public V1CSINodeListFluent.ItemsNested<A> setNewItemLike(Integer index,V1CSINode item);
-  public V1CSINodeListFluent.ItemsNested<A> editItem(Integer index);
+  public V1CSINodeListFluent.ItemsNested<A> setNewItemLike(int index,V1CSINode item);
+  public V1CSINodeListFluent.ItemsNested<A> editItem(int index);
   public V1CSINodeListFluent.ItemsNested<A> editFirstItem();
   public V1CSINodeListFluent.ItemsNested<A> editLastItem();
   public V1CSINodeListFluent.ItemsNested<A> editMatchingItem(Predicate<V1CSINodeBuilder> predicate);

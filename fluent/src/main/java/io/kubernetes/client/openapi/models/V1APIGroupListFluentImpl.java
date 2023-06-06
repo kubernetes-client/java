@@ -6,7 +6,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -23,12 +22,11 @@ import java.lang.Boolean;
   public V1APIGroupListFluentImpl() {
   }
   public V1APIGroupListFluentImpl(V1APIGroupList instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withGroups(instance.getGroups());
-
-    this.withKind(instance.getKind());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withGroups(instance.getGroups());
+      this.withKind(instance.getKind());
+    }
   }
   private String apiVersion;
   private ArrayList<V1APIGroupBuilder> groups;
@@ -42,16 +40,17 @@ import java.lang.Boolean;
   public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
-  public A addToGroups(Integer index,V1APIGroup item) {
-    if (this.groups == null) {this.groups = new ArrayList<V1APIGroupBuilder>();}
-    V1APIGroupBuilder builder = new V1APIGroupBuilder(item);_visitables.get("groups").add(index >= 0 ? index : _visitables.get("groups").size(), builder);this.groups.add(index >= 0 ? index : groups.size(), builder); return (A)this;
-  }
-  public A setToGroups(Integer index,V1APIGroup item) {
+  public A addToGroups(int index,V1APIGroup item) {
     if (this.groups == null) {this.groups = new ArrayList<V1APIGroupBuilder>();}
     V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
-    if (index < 0 || index >= _visitables.get("groups").size()) { _visitables.get("groups").add(builder); } else { _visitables.get("groups").set(index, builder);}
-    if (index < 0 || index >= groups.size()) { groups.add(builder); } else { groups.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= groups.size()) { _visitables.get("groups").add(builder); groups.add(builder); } else { _visitables.get("groups").add(index, builder); groups.add(index, builder);}
+    return (A)this;
+  }
+  public A setToGroups(int index,V1APIGroup item) {
+    if (this.groups == null) {this.groups = new ArrayList<V1APIGroupBuilder>();}
+    V1APIGroupBuilder builder = new V1APIGroupBuilder(item);
+    if (index < 0 || index >= groups.size()) { _visitables.get("groups").add(builder); groups.add(builder); } else { _visitables.get("groups").set(index, builder); groups.set(index, builder);}
+    return (A)this;
   }
   public A addToGroups(io.kubernetes.client.openapi.models.V1APIGroup... items) {
     if (this.groups == null) {this.groups = new ArrayList<V1APIGroupBuilder>();}
@@ -92,7 +91,7 @@ import java.lang.Boolean;
   public List<V1APIGroup> buildGroups() {
     return groups != null ? build(groups) : null;
   }
-  public V1APIGroup buildGroup(Integer index) {
+  public V1APIGroup buildGroup(int index) {
     return this.groups.get(index).build();
   }
   public V1APIGroup buildFirstGroup() {
@@ -108,39 +107,39 @@ import java.lang.Boolean;
     for (V1APIGroupBuilder item: groups) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withGroups(List<V1APIGroup> groups) {
-    if (this.groups != null) { _visitables.get("groups").removeAll(this.groups);}
+    if (this.groups != null) { _visitables.get("groups").clear();}
     if (groups != null) {this.groups = new ArrayList(); for (V1APIGroup item : groups){this.addToGroups(item);}} else { this.groups = null;} return (A) this;
   }
   public A withGroups(io.kubernetes.client.openapi.models.V1APIGroup... groups) {
-    if (this.groups != null) {this.groups.clear();}
+    if (this.groups != null) {this.groups.clear(); _visitables.remove("groups"); }
     if (groups != null) {for (V1APIGroup item :groups){ this.addToGroups(item);}} return (A) this;
   }
   public Boolean hasGroups() {
     return groups != null && !groups.isEmpty();
   }
-  public V1APIGroupListFluent.GroupsNested<A> addNewGroup() {
+  public V1APIGroupListFluentImpl.GroupsNested<A> addNewGroup() {
     return new V1APIGroupListFluentImpl.GroupsNestedImpl();
   }
-  public V1APIGroupListFluent.GroupsNested<A> addNewGroupLike(V1APIGroup item) {
+  public V1APIGroupListFluentImpl.GroupsNested<A> addNewGroupLike(V1APIGroup item) {
     return new V1APIGroupListFluentImpl.GroupsNestedImpl(-1, item);
   }
-  public V1APIGroupListFluent.GroupsNested<A> setNewGroupLike(Integer index,V1APIGroup item) {
+  public V1APIGroupListFluentImpl.GroupsNested<A> setNewGroupLike(int index,V1APIGroup item) {
     return new V1APIGroupListFluentImpl.GroupsNestedImpl(index, item);
   }
-  public V1APIGroupListFluent.GroupsNested<A> editGroup(Integer index) {
+  public V1APIGroupListFluentImpl.GroupsNested<A> editGroup(int index) {
     if (groups.size() <= index) throw new RuntimeException("Can't edit groups. Index exceeds size.");
     return setNewGroupLike(index, buildGroup(index));
   }
-  public V1APIGroupListFluent.GroupsNested<A> editFirstGroup() {
+  public V1APIGroupListFluentImpl.GroupsNested<A> editFirstGroup() {
     if (groups.size() == 0) throw new RuntimeException("Can't edit first groups. The list is empty.");
     return setNewGroupLike(0, buildGroup(0));
   }
-  public V1APIGroupListFluent.GroupsNested<A> editLastGroup() {
+  public V1APIGroupListFluentImpl.GroupsNested<A> editLastGroup() {
     int index = groups.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last groups. The list is empty.");
     return setNewGroupLike(index, buildGroup(index));
   }
-  public V1APIGroupListFluent.GroupsNested<A> editMatchingGroup(Predicate<V1APIGroupBuilder> predicate) {
+  public V1APIGroupListFluentImpl.GroupsNested<A> editMatchingGroup(Predicate<V1APIGroupBuilder> predicate) {
     int index = -1;
     for (int i=0;i<groups.size();i++) { 
     if (predicate.test(groups.get(i))) {index = i; break;}
@@ -160,10 +159,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1APIGroupListFluentImpl that = (V1APIGroupListFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (groups != null ? !groups.equals(that.groups) :that.groups != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(groups, that.groups)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -173,13 +176,13 @@ import java.lang.Boolean;
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (groups != null && !groups.isEmpty()) { sb.append("groups:"); sb.append(groups + ","); }
+    if (groups != null) { sb.append("groups:"); sb.append(groups + ","); }
     if (kind != null) { sb.append("kind:"); sb.append(kind); }
     sb.append("}");
     return sb.toString();
   }
-  class GroupsNestedImpl<N> extends V1APIGroupFluentImpl<V1APIGroupListFluent.GroupsNested<N>> implements V1APIGroupListFluent.GroupsNested<N>,Nested<N>{
-    GroupsNestedImpl(Integer index,V1APIGroup item) {
+  class GroupsNestedImpl<N> extends V1APIGroupFluentImpl<V1APIGroupListFluentImpl.GroupsNested<N>> implements V1APIGroupListFluentImpl.GroupsNested<N>,Nested<N>{
+    GroupsNestedImpl(int index,V1APIGroup item) {
       this.index = index;
       this.builder = new V1APIGroupBuilder(this, item);
     }
@@ -188,7 +191,7 @@ import java.lang.Boolean;
       this.builder = new V1APIGroupBuilder(this);
     }
     V1APIGroupBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1APIGroupListFluentImpl.this.setToGroups(index,builder.build());
     }

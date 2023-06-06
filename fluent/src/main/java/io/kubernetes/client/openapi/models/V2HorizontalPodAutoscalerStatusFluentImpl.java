@@ -25,18 +25,14 @@ import java.lang.Object;
   public V2HorizontalPodAutoscalerStatusFluentImpl() {
   }
   public V2HorizontalPodAutoscalerStatusFluentImpl(V2HorizontalPodAutoscalerStatus instance) {
-    this.withConditions(instance.getConditions());
-
-    this.withCurrentMetrics(instance.getCurrentMetrics());
-
-    this.withCurrentReplicas(instance.getCurrentReplicas());
-
-    this.withDesiredReplicas(instance.getDesiredReplicas());
-
-    this.withLastScaleTime(instance.getLastScaleTime());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+      this.withCurrentMetrics(instance.getCurrentMetrics());
+      this.withCurrentReplicas(instance.getCurrentReplicas());
+      this.withDesiredReplicas(instance.getDesiredReplicas());
+      this.withLastScaleTime(instance.getLastScaleTime());
+      this.withObservedGeneration(instance.getObservedGeneration());
+    }
   }
   private ArrayList<V2HorizontalPodAutoscalerConditionBuilder> conditions;
   private ArrayList<V2MetricStatusBuilder> currentMetrics;
@@ -44,16 +40,17 @@ import java.lang.Object;
   private Integer desiredReplicas;
   private OffsetDateTime lastScaleTime;
   private Long observedGeneration;
-  public A addToConditions(Integer index,V2HorizontalPodAutoscalerCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V2HorizontalPodAutoscalerConditionBuilder>();}
-    V2HorizontalPodAutoscalerConditionBuilder builder = new V2HorizontalPodAutoscalerConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
-  }
-  public A setToConditions(Integer index,V2HorizontalPodAutoscalerCondition item) {
+  public A addToConditions(int index,V2HorizontalPodAutoscalerCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V2HorizontalPodAutoscalerConditionBuilder>();}
     V2HorizontalPodAutoscalerConditionBuilder builder = new V2HorizontalPodAutoscalerConditionBuilder(item);
-    if (index < 0 || index >= _visitables.get("conditions").size()) { _visitables.get("conditions").add(builder); } else { _visitables.get("conditions").set(index, builder);}
-    if (index < 0 || index >= conditions.size()) { conditions.add(builder); } else { conditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToConditions(int index,V2HorizontalPodAutoscalerCondition item) {
+    if (this.conditions == null) {this.conditions = new ArrayList<V2HorizontalPodAutoscalerConditionBuilder>();}
+    V2HorizontalPodAutoscalerConditionBuilder builder = new V2HorizontalPodAutoscalerConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    return (A)this;
   }
   public A addToConditions(io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition... items) {
     if (this.conditions == null) {this.conditions = new ArrayList<V2HorizontalPodAutoscalerConditionBuilder>();}
@@ -94,7 +91,7 @@ import java.lang.Object;
   public List<V2HorizontalPodAutoscalerCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
-  public V2HorizontalPodAutoscalerCondition buildCondition(Integer index) {
+  public V2HorizontalPodAutoscalerCondition buildCondition(int index) {
     return this.conditions.get(index).build();
   }
   public V2HorizontalPodAutoscalerCondition buildFirstCondition() {
@@ -110,39 +107,39 @@ import java.lang.Object;
     for (V2HorizontalPodAutoscalerConditionBuilder item: conditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withConditions(List<V2HorizontalPodAutoscalerCondition> conditions) {
-    if (this.conditions != null) { _visitables.get("conditions").removeAll(this.conditions);}
+    if (this.conditions != null) { _visitables.get("conditions").clear();}
     if (conditions != null) {this.conditions = new ArrayList(); for (V2HorizontalPodAutoscalerCondition item : conditions){this.addToConditions(item);}} else { this.conditions = null;} return (A) this;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition... conditions) {
-    if (this.conditions != null) {this.conditions.clear();}
+    if (this.conditions != null) {this.conditions.clear(); _visitables.remove("conditions"); }
     if (conditions != null) {for (V2HorizontalPodAutoscalerCondition item :conditions){ this.addToConditions(item);}} return (A) this;
   }
   public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
-  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> addNewCondition() {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNested<A> addNewCondition() {
     return new V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNestedImpl();
   }
-  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> addNewConditionLike(V2HorizontalPodAutoscalerCondition item) {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNested<A> addNewConditionLike(V2HorizontalPodAutoscalerCondition item) {
     return new V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
-  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V2HorizontalPodAutoscalerCondition item) {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNested<A> setNewConditionLike(int index,V2HorizontalPodAutoscalerCondition item) {
     return new V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
-  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> editCondition(Integer index) {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNested<A> editCondition(int index) {
     if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> editFirstCondition() {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
-  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> editLastCondition() {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V2HorizontalPodAutoscalerConditionBuilder> predicate) {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNested<A> editMatchingCondition(Predicate<V2HorizontalPodAutoscalerConditionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<conditions.size();i++) { 
     if (predicate.test(conditions.get(i))) {index = i; break;}
@@ -150,16 +147,17 @@ import java.lang.Object;
     if (index < 0) throw new RuntimeException("Can't edit matching conditions. No match found.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public A addToCurrentMetrics(Integer index,V2MetricStatus item) {
-    if (this.currentMetrics == null) {this.currentMetrics = new ArrayList<V2MetricStatusBuilder>();}
-    V2MetricStatusBuilder builder = new V2MetricStatusBuilder(item);_visitables.get("currentMetrics").add(index >= 0 ? index : _visitables.get("currentMetrics").size(), builder);this.currentMetrics.add(index >= 0 ? index : currentMetrics.size(), builder); return (A)this;
-  }
-  public A setToCurrentMetrics(Integer index,V2MetricStatus item) {
+  public A addToCurrentMetrics(int index,V2MetricStatus item) {
     if (this.currentMetrics == null) {this.currentMetrics = new ArrayList<V2MetricStatusBuilder>();}
     V2MetricStatusBuilder builder = new V2MetricStatusBuilder(item);
-    if (index < 0 || index >= _visitables.get("currentMetrics").size()) { _visitables.get("currentMetrics").add(builder); } else { _visitables.get("currentMetrics").set(index, builder);}
-    if (index < 0 || index >= currentMetrics.size()) { currentMetrics.add(builder); } else { currentMetrics.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= currentMetrics.size()) { _visitables.get("currentMetrics").add(builder); currentMetrics.add(builder); } else { _visitables.get("currentMetrics").add(index, builder); currentMetrics.add(index, builder);}
+    return (A)this;
+  }
+  public A setToCurrentMetrics(int index,V2MetricStatus item) {
+    if (this.currentMetrics == null) {this.currentMetrics = new ArrayList<V2MetricStatusBuilder>();}
+    V2MetricStatusBuilder builder = new V2MetricStatusBuilder(item);
+    if (index < 0 || index >= currentMetrics.size()) { _visitables.get("currentMetrics").add(builder); currentMetrics.add(builder); } else { _visitables.get("currentMetrics").set(index, builder); currentMetrics.set(index, builder);}
+    return (A)this;
   }
   public A addToCurrentMetrics(io.kubernetes.client.openapi.models.V2MetricStatus... items) {
     if (this.currentMetrics == null) {this.currentMetrics = new ArrayList<V2MetricStatusBuilder>();}
@@ -200,7 +198,7 @@ import java.lang.Object;
   public List<V2MetricStatus> buildCurrentMetrics() {
     return currentMetrics != null ? build(currentMetrics) : null;
   }
-  public V2MetricStatus buildCurrentMetric(Integer index) {
+  public V2MetricStatus buildCurrentMetric(int index) {
     return this.currentMetrics.get(index).build();
   }
   public V2MetricStatus buildFirstCurrentMetric() {
@@ -216,39 +214,39 @@ import java.lang.Object;
     for (V2MetricStatusBuilder item: currentMetrics) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withCurrentMetrics(List<V2MetricStatus> currentMetrics) {
-    if (this.currentMetrics != null) { _visitables.get("currentMetrics").removeAll(this.currentMetrics);}
+    if (this.currentMetrics != null) { _visitables.get("currentMetrics").clear();}
     if (currentMetrics != null) {this.currentMetrics = new ArrayList(); for (V2MetricStatus item : currentMetrics){this.addToCurrentMetrics(item);}} else { this.currentMetrics = null;} return (A) this;
   }
   public A withCurrentMetrics(io.kubernetes.client.openapi.models.V2MetricStatus... currentMetrics) {
-    if (this.currentMetrics != null) {this.currentMetrics.clear();}
+    if (this.currentMetrics != null) {this.currentMetrics.clear(); _visitables.remove("currentMetrics"); }
     if (currentMetrics != null) {for (V2MetricStatus item :currentMetrics){ this.addToCurrentMetrics(item);}} return (A) this;
   }
   public Boolean hasCurrentMetrics() {
     return currentMetrics != null && !currentMetrics.isEmpty();
   }
-  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> addNewCurrentMetric() {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNested<A> addNewCurrentMetric() {
     return new V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNestedImpl();
   }
-  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> addNewCurrentMetricLike(V2MetricStatus item) {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNested<A> addNewCurrentMetricLike(V2MetricStatus item) {
     return new V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNestedImpl(-1, item);
   }
-  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> setNewCurrentMetricLike(Integer index,V2MetricStatus item) {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNested<A> setNewCurrentMetricLike(int index,V2MetricStatus item) {
     return new V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNestedImpl(index, item);
   }
-  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> editCurrentMetric(Integer index) {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNested<A> editCurrentMetric(int index) {
     if (currentMetrics.size() <= index) throw new RuntimeException("Can't edit currentMetrics. Index exceeds size.");
     return setNewCurrentMetricLike(index, buildCurrentMetric(index));
   }
-  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> editFirstCurrentMetric() {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNested<A> editFirstCurrentMetric() {
     if (currentMetrics.size() == 0) throw new RuntimeException("Can't edit first currentMetrics. The list is empty.");
     return setNewCurrentMetricLike(0, buildCurrentMetric(0));
   }
-  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> editLastCurrentMetric() {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNested<A> editLastCurrentMetric() {
     int index = currentMetrics.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last currentMetrics. The list is empty.");
     return setNewCurrentMetricLike(index, buildCurrentMetric(index));
   }
-  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> editMatchingCurrentMetric(Predicate<V2MetricStatusBuilder> predicate) {
+  public V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNested<A> editMatchingCurrentMetric(Predicate<V2MetricStatusBuilder> predicate) {
     int index = -1;
     for (int i=0;i<currentMetrics.size();i++) { 
     if (predicate.test(currentMetrics.get(i))) {index = i; break;}
@@ -295,13 +293,20 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2HorizontalPodAutoscalerStatusFluentImpl that = (V2HorizontalPodAutoscalerStatusFluentImpl) o;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
-    if (currentMetrics != null ? !currentMetrics.equals(that.currentMetrics) :that.currentMetrics != null) return false;
-    if (currentReplicas != null ? !currentReplicas.equals(that.currentReplicas) :that.currentReplicas != null) return false;
-    if (desiredReplicas != null ? !desiredReplicas.equals(that.desiredReplicas) :that.desiredReplicas != null) return false;
-    if (lastScaleTime != null ? !lastScaleTime.equals(that.lastScaleTime) :that.lastScaleTime != null) return false;
-    if (observedGeneration != null ? !observedGeneration.equals(that.observedGeneration) :that.observedGeneration != null) return false;
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
+    if (!java.util.Objects.equals(currentMetrics, that.currentMetrics)) return false;
+
+    if (!java.util.Objects.equals(currentReplicas, that.currentReplicas)) return false;
+
+    if (!java.util.Objects.equals(desiredReplicas, that.desiredReplicas)) return false;
+
+    if (!java.util.Objects.equals(lastScaleTime, that.lastScaleTime)) return false;
+
+    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -310,8 +315,8 @@ import java.lang.Object;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
-    if (currentMetrics != null && !currentMetrics.isEmpty()) { sb.append("currentMetrics:"); sb.append(currentMetrics + ","); }
+    if (conditions != null) { sb.append("conditions:"); sb.append(conditions + ","); }
+    if (currentMetrics != null) { sb.append("currentMetrics:"); sb.append(currentMetrics + ","); }
     if (currentReplicas != null) { sb.append("currentReplicas:"); sb.append(currentReplicas + ","); }
     if (desiredReplicas != null) { sb.append("desiredReplicas:"); sb.append(desiredReplicas + ","); }
     if (lastScaleTime != null) { sb.append("lastScaleTime:"); sb.append(lastScaleTime + ","); }
@@ -319,8 +324,8 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class ConditionsNestedImpl<N> extends V2HorizontalPodAutoscalerConditionFluentImpl<V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<N>> implements V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<N>,Nested<N>{
-    ConditionsNestedImpl(Integer index,V2HorizontalPodAutoscalerCondition item) {
+  class ConditionsNestedImpl<N> extends V2HorizontalPodAutoscalerConditionFluentImpl<V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNested<N>> implements V2HorizontalPodAutoscalerStatusFluentImpl.ConditionsNested<N>,Nested<N>{
+    ConditionsNestedImpl(int index,V2HorizontalPodAutoscalerCondition item) {
       this.index = index;
       this.builder = new V2HorizontalPodAutoscalerConditionBuilder(this, item);
     }
@@ -329,7 +334,7 @@ import java.lang.Object;
       this.builder = new V2HorizontalPodAutoscalerConditionBuilder(this);
     }
     V2HorizontalPodAutoscalerConditionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V2HorizontalPodAutoscalerStatusFluentImpl.this.setToConditions(index,builder.build());
     }
@@ -338,8 +343,8 @@ import java.lang.Object;
     }
     
   }
-  class CurrentMetricsNestedImpl<N> extends V2MetricStatusFluentImpl<V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<N>> implements V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<N>,Nested<N>{
-    CurrentMetricsNestedImpl(Integer index,V2MetricStatus item) {
+  class CurrentMetricsNestedImpl<N> extends V2MetricStatusFluentImpl<V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNested<N>> implements V2HorizontalPodAutoscalerStatusFluentImpl.CurrentMetricsNested<N>,Nested<N>{
+    CurrentMetricsNestedImpl(int index,V2MetricStatus item) {
       this.index = index;
       this.builder = new V2MetricStatusBuilder(this, item);
     }
@@ -348,7 +353,7 @@ import java.lang.Object;
       this.builder = new V2MetricStatusBuilder(this);
     }
     V2MetricStatusBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V2HorizontalPodAutoscalerStatusFluentImpl.this.setToCurrentMetrics(index,builder.build());
     }

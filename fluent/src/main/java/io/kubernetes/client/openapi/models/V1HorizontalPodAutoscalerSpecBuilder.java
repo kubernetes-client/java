@@ -20,14 +20,12 @@ public class V1HorizontalPodAutoscalerSpecBuilder extends V1HorizontalPodAutosca
   }
   public V1HorizontalPodAutoscalerSpecBuilder(V1HorizontalPodAutoscalerSpecFluent<?> fluent,V1HorizontalPodAutoscalerSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMaxReplicas(instance.getMaxReplicas());
-
-    fluent.withMinReplicas(instance.getMinReplicas());
-
-    fluent.withScaleTargetRef(instance.getScaleTargetRef());
-
-    fluent.withTargetCPUUtilizationPercentage(instance.getTargetCPUUtilizationPercentage());
-
+    if (instance != null) {
+      fluent.withMaxReplicas(instance.getMaxReplicas());
+      fluent.withMinReplicas(instance.getMinReplicas());
+      fluent.withScaleTargetRef(instance.getScaleTargetRef());
+      fluent.withTargetCPUUtilizationPercentage(instance.getTargetCPUUtilizationPercentage());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1HorizontalPodAutoscalerSpecBuilder(V1HorizontalPodAutoscalerSpec instance) {
@@ -35,14 +33,12 @@ public class V1HorizontalPodAutoscalerSpecBuilder extends V1HorizontalPodAutosca
   }
   public V1HorizontalPodAutoscalerSpecBuilder(V1HorizontalPodAutoscalerSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMaxReplicas(instance.getMaxReplicas());
-
-    this.withMinReplicas(instance.getMinReplicas());
-
-    this.withScaleTargetRef(instance.getScaleTargetRef());
-
-    this.withTargetCPUUtilizationPercentage(instance.getTargetCPUUtilizationPercentage());
-
+    if (instance != null) {
+      this.withMaxReplicas(instance.getMaxReplicas());
+      this.withMinReplicas(instance.getMinReplicas());
+      this.withScaleTargetRef(instance.getScaleTargetRef());
+      this.withTargetCPUUtilizationPercentage(instance.getTargetCPUUtilizationPercentage());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1HorizontalPodAutoscalerSpecFluent<?> fluent;

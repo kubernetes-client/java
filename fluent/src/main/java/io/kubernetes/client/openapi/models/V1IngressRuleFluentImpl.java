@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1IngressRuleFluentImpl() {
   }
   public V1IngressRuleFluentImpl(V1IngressRule instance) {
-    this.withHost(instance.getHost());
-
-    this.withHttp(instance.getHttp());
-
+    if (instance != null) {
+      this.withHost(instance.getHost());
+      this.withHttp(instance.getHttp());
+    }
   }
   private String host;
   private V1HTTPIngressRuleValueBuilder http;
@@ -51,27 +51,30 @@ import java.lang.Boolean;
   public Boolean hasHttp() {
     return this.http != null;
   }
-  public V1IngressRuleFluent.HttpNested<A> withNewHttp() {
+  public V1IngressRuleFluentImpl.HttpNested<A> withNewHttp() {
     return new V1IngressRuleFluentImpl.HttpNestedImpl();
   }
-  public V1IngressRuleFluent.HttpNested<A> withNewHttpLike(V1HTTPIngressRuleValue item) {
+  public V1IngressRuleFluentImpl.HttpNested<A> withNewHttpLike(V1HTTPIngressRuleValue item) {
     return new V1IngressRuleFluentImpl.HttpNestedImpl(item);
   }
-  public V1IngressRuleFluent.HttpNested<A> editHttp() {
+  public V1IngressRuleFluentImpl.HttpNested<A> editHttp() {
     return withNewHttpLike(getHttp());
   }
-  public V1IngressRuleFluent.HttpNested<A> editOrNewHttp() {
+  public V1IngressRuleFluentImpl.HttpNested<A> editOrNewHttp() {
     return withNewHttpLike(getHttp() != null ? getHttp(): new V1HTTPIngressRuleValueBuilder().build());
   }
-  public V1IngressRuleFluent.HttpNested<A> editOrNewHttpLike(V1HTTPIngressRuleValue item) {
+  public V1IngressRuleFluentImpl.HttpNested<A> editOrNewHttpLike(V1HTTPIngressRuleValue item) {
     return withNewHttpLike(getHttp() != null ? getHttp(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1IngressRuleFluentImpl that = (V1IngressRuleFluentImpl) o;
-    if (host != null ? !host.equals(that.host) :that.host != null) return false;
-    if (http != null ? !http.equals(that.http) :that.http != null) return false;
+    if (!java.util.Objects.equals(host, that.host)) return false;
+
+    if (!java.util.Objects.equals(http, that.http)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -85,7 +88,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class HttpNestedImpl<N> extends V1HTTPIngressRuleValueFluentImpl<V1IngressRuleFluent.HttpNested<N>> implements V1IngressRuleFluent.HttpNested<N>,Nested<N>{
+  class HttpNestedImpl<N> extends V1HTTPIngressRuleValueFluentImpl<V1IngressRuleFluentImpl.HttpNested<N>> implements V1IngressRuleFluentImpl.HttpNested<N>,Nested<N>{
     HttpNestedImpl(V1HTTPIngressRuleValue item) {
       this.builder = new V1HTTPIngressRuleValueBuilder(this, item);
     }

@@ -14,8 +14,9 @@ import java.lang.Boolean;
   public V1LocalObjectReferenceFluentImpl() {
   }
   public V1LocalObjectReferenceFluentImpl(V1LocalObjectReference instance) {
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+    }
   }
   private String name;
   public String getName() {
@@ -30,8 +31,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1LocalObjectReferenceFluentImpl that = (V1LocalObjectReferenceFluentImpl) o;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
     return true;
   }
   public int hashCode() {

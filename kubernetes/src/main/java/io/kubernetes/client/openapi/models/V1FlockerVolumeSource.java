@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,32 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and
- * datasetUUID should be set. Flocker volumes do not support ownership management or SELinux
- * relabeling.
+ * Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.
  */
-@ApiModel(
-    description =
-        "Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "Represents a Flocker volume mounted by the Flocker agent. One and only one of datasetName and datasetUUID should be set. Flocker volumes do not support ownership management or SELinux relabeling.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1FlockerVolumeSource {
   public static final String SERIALIZED_NAME_DATASET_NAME = "datasetName";
-
   @SerializedName(SERIALIZED_NAME_DATASET_NAME)
   private String datasetName;
 
   public static final String SERIALIZED_NAME_DATASET_U_U_I_D = "datasetUUID";
-
   @SerializedName(SERIALIZED_NAME_DATASET_U_U_I_D)
   private String datasetUUID;
+
 
   public V1FlockerVolumeSource datasetName(String datasetName) {
 
@@ -45,23 +44,22 @@ public class V1FlockerVolumeSource {
     return this;
   }
 
-  /**
-   * datasetName is Name of the dataset stored as metadata -&gt; name on the dataset for Flocker
-   * should be considered as deprecated
-   *
+   /**
+   * datasetName is Name of the dataset stored as metadata -&gt; name on the dataset for Flocker should be considered as deprecated
    * @return datasetName
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "datasetName is Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated")
+  @ApiModelProperty(value = "datasetName is Name of the dataset stored as metadata -> name on the dataset for Flocker should be considered as deprecated")
+
   public String getDatasetName() {
     return datasetName;
   }
 
+
   public void setDatasetName(String datasetName) {
     this.datasetName = datasetName;
   }
+
 
   public V1FlockerVolumeSource datasetUUID(String datasetUUID) {
 
@@ -69,22 +67,22 @@ public class V1FlockerVolumeSource {
     return this;
   }
 
-  /**
+   /**
    * datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset
-   *
    * @return datasetUUID
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset")
+  @ApiModelProperty(value = "datasetUUID is the UUID of the dataset. This is unique identifier of a Flocker dataset")
+
   public String getDatasetUUID() {
     return datasetUUID;
   }
 
+
   public void setDatasetUUID(String datasetUUID) {
     this.datasetUUID = datasetUUID;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -95,14 +93,15 @@ public class V1FlockerVolumeSource {
       return false;
     }
     V1FlockerVolumeSource v1FlockerVolumeSource = (V1FlockerVolumeSource) o;
-    return Objects.equals(this.datasetName, v1FlockerVolumeSource.datasetName)
-        && Objects.equals(this.datasetUUID, v1FlockerVolumeSource.datasetUUID);
+    return Objects.equals(this.datasetName, v1FlockerVolumeSource.datasetName) &&
+        Objects.equals(this.datasetUUID, v1FlockerVolumeSource.datasetUUID);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(datasetName, datasetUUID);
   }
+
 
   @Override
   public String toString() {
@@ -115,7 +114,8 @@ public class V1FlockerVolumeSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -123,4 +123,5 @@ public class V1FlockerVolumeSource {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

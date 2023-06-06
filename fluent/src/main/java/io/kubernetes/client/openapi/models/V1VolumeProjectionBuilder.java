@@ -20,14 +20,12 @@ public class V1VolumeProjectionBuilder extends V1VolumeProjectionFluentImpl<V1Vo
   }
   public V1VolumeProjectionBuilder(V1VolumeProjectionFluent<?> fluent,V1VolumeProjection instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConfigMap(instance.getConfigMap());
-
-    fluent.withDownwardAPI(instance.getDownwardAPI());
-
-    fluent.withSecret(instance.getSecret());
-
-    fluent.withServiceAccountToken(instance.getServiceAccountToken());
-
+    if (instance != null) {
+      fluent.withConfigMap(instance.getConfigMap());
+      fluent.withDownwardAPI(instance.getDownwardAPI());
+      fluent.withSecret(instance.getSecret());
+      fluent.withServiceAccountToken(instance.getServiceAccountToken());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeProjectionBuilder(V1VolumeProjection instance) {
@@ -35,14 +33,12 @@ public class V1VolumeProjectionBuilder extends V1VolumeProjectionFluentImpl<V1Vo
   }
   public V1VolumeProjectionBuilder(V1VolumeProjection instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConfigMap(instance.getConfigMap());
-
-    this.withDownwardAPI(instance.getDownwardAPI());
-
-    this.withSecret(instance.getSecret());
-
-    this.withServiceAccountToken(instance.getServiceAccountToken());
-
+    if (instance != null) {
+      this.withConfigMap(instance.getConfigMap());
+      this.withDownwardAPI(instance.getDownwardAPI());
+      this.withSecret(instance.getSecret());
+      this.withServiceAccountToken(instance.getServiceAccountToken());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeProjectionFluent<?> fluent;

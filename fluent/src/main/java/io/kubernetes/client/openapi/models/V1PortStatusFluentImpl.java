@@ -15,12 +15,11 @@ import java.lang.Boolean;
   public V1PortStatusFluentImpl() {
   }
   public V1PortStatusFluentImpl(V1PortStatus instance) {
-    this.withError(instance.getError());
-
-    this.withPort(instance.getPort());
-
-    this.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      this.withError(instance.getError());
+      this.withPort(instance.getPort());
+      this.withProtocol(instance.getProtocol());
+    }
   }
   private String error;
   private Integer port;
@@ -55,10 +54,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PortStatusFluentImpl that = (V1PortStatusFluentImpl) o;
-    if (error != null ? !error.equals(that.error) :that.error != null) return false;
-    if (port != null ? !port.equals(that.port) :that.port != null) return false;
-    if (protocol != null ? !protocol.equals(that.protocol) :that.protocol != null) return false;
+    if (!java.util.Objects.equals(error, that.error)) return false;
+
+    if (!java.util.Objects.equals(port, that.port)) return false;
+
+    if (!java.util.Objects.equals(protocol, that.protocol)) return false;
+
     return true;
   }
   public int hashCode() {

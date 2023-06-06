@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -23,8 +23,8 @@ public interface V1SubjectRulesReviewStatusFluent<A extends V1SubjectRulesReview
   public Boolean getIncomplete();
   public A withIncomplete(Boolean incomplete);
   public Boolean hasIncomplete();
-  public A addToNonResourceRules(Integer index,V1NonResourceRule item);
-  public A setToNonResourceRules(Integer index,V1NonResourceRule item);
+  public A addToNonResourceRules(int index,V1NonResourceRule item);
+  public A setToNonResourceRules(int index,V1NonResourceRule item);
   public A addToNonResourceRules(io.kubernetes.client.openapi.models.V1NonResourceRule... items);
   public A addAllToNonResourceRules(Collection<V1NonResourceRule> items);
   public A removeFromNonResourceRules(io.kubernetes.client.openapi.models.V1NonResourceRule... items);
@@ -38,7 +38,7 @@ public interface V1SubjectRulesReviewStatusFluent<A extends V1SubjectRulesReview
   @Deprecated
   public List<V1NonResourceRule> getNonResourceRules();
   public List<V1NonResourceRule> buildNonResourceRules();
-  public V1NonResourceRule buildNonResourceRule(Integer index);
+  public V1NonResourceRule buildNonResourceRule(int index);
   public V1NonResourceRule buildFirstNonResourceRule();
   public V1NonResourceRule buildLastNonResourceRule();
   public V1NonResourceRule buildMatchingNonResourceRule(Predicate<V1NonResourceRuleBuilder> predicate);
@@ -48,13 +48,13 @@ public interface V1SubjectRulesReviewStatusFluent<A extends V1SubjectRulesReview
   public Boolean hasNonResourceRules();
   public V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<A> addNewNonResourceRule();
   public V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<A> addNewNonResourceRuleLike(V1NonResourceRule item);
-  public V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<A> setNewNonResourceRuleLike(Integer index,V1NonResourceRule item);
-  public V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<A> editNonResourceRule(Integer index);
+  public V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<A> setNewNonResourceRuleLike(int index,V1NonResourceRule item);
+  public V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<A> editNonResourceRule(int index);
   public V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<A> editFirstNonResourceRule();
   public V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<A> editLastNonResourceRule();
   public V1SubjectRulesReviewStatusFluent.NonResourceRulesNested<A> editMatchingNonResourceRule(Predicate<V1NonResourceRuleBuilder> predicate);
-  public A addToResourceRules(Integer index,V1ResourceRule item);
-  public A setToResourceRules(Integer index,V1ResourceRule item);
+  public A addToResourceRules(int index,V1ResourceRule item);
+  public A setToResourceRules(int index,V1ResourceRule item);
   public A addToResourceRules(io.kubernetes.client.openapi.models.V1ResourceRule... items);
   public A addAllToResourceRules(Collection<V1ResourceRule> items);
   public A removeFromResourceRules(io.kubernetes.client.openapi.models.V1ResourceRule... items);
@@ -68,7 +68,7 @@ public interface V1SubjectRulesReviewStatusFluent<A extends V1SubjectRulesReview
   @Deprecated
   public List<V1ResourceRule> getResourceRules();
   public List<V1ResourceRule> buildResourceRules();
-  public V1ResourceRule buildResourceRule(Integer index);
+  public V1ResourceRule buildResourceRule(int index);
   public V1ResourceRule buildFirstResourceRule();
   public V1ResourceRule buildLastResourceRule();
   public V1ResourceRule buildMatchingResourceRule(Predicate<V1ResourceRuleBuilder> predicate);
@@ -78,8 +78,8 @@ public interface V1SubjectRulesReviewStatusFluent<A extends V1SubjectRulesReview
   public Boolean hasResourceRules();
   public V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A> addNewResourceRule();
   public V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A> addNewResourceRuleLike(V1ResourceRule item);
-  public V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A> setNewResourceRuleLike(Integer index,V1ResourceRule item);
-  public V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A> editResourceRule(Integer index);
+  public V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A> setNewResourceRuleLike(int index,V1ResourceRule item);
+  public V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A> editResourceRule(int index);
   public V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A> editFirstResourceRule();
   public V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A> editLastResourceRule();
   public V1SubjectRulesReviewStatusFluent.ResourceRulesNested<A> editMatchingResourceRule(Predicate<V1ResourceRuleBuilder> predicate);

@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1SysctlFluentImpl() {
   }
   public V1SysctlFluentImpl(V1Sysctl instance) {
-    this.withName(instance.getName());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withValue(instance.getValue());
+    }
   }
   private String name;
   private String value;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SysctlFluentImpl that = (V1SysctlFluentImpl) o;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (value != null ? !value.equals(that.value) :that.value != null) return false;
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(value, that.value)) return false;
+
     return true;
   }
   public int hashCode() {

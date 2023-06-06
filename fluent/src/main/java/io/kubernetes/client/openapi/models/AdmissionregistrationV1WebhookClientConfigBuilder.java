@@ -20,12 +20,11 @@ public class AdmissionregistrationV1WebhookClientConfigBuilder extends Admission
   }
   public AdmissionregistrationV1WebhookClientConfigBuilder(AdmissionregistrationV1WebhookClientConfigFluent<?> fluent,AdmissionregistrationV1WebhookClientConfig instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCaBundle(instance.getCaBundle());
-
-    fluent.withService(instance.getService());
-
-    fluent.withUrl(instance.getUrl());
-
+    if (instance != null) {
+      fluent.withCaBundle(instance.getCaBundle());
+      fluent.withService(instance.getService());
+      fluent.withUrl(instance.getUrl());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public AdmissionregistrationV1WebhookClientConfigBuilder(AdmissionregistrationV1WebhookClientConfig instance) {
@@ -33,12 +32,11 @@ public class AdmissionregistrationV1WebhookClientConfigBuilder extends Admission
   }
   public AdmissionregistrationV1WebhookClientConfigBuilder(AdmissionregistrationV1WebhookClientConfig instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCaBundle(instance.getCaBundle());
-
-    this.withService(instance.getService());
-
-    this.withUrl(instance.getUrl());
-
+    if (instance != null) {
+      this.withCaBundle(instance.getCaBundle());
+      this.withService(instance.getService());
+      this.withUrl(instance.getUrl());
+    }
     this.validationEnabled = validationEnabled; 
   }
   AdmissionregistrationV1WebhookClientConfigFluent<?> fluent;

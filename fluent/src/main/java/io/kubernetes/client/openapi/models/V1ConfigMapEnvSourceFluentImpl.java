@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1ConfigMapEnvSourceFluentImpl() {
   }
   public V1ConfigMapEnvSourceFluentImpl(V1ConfigMapEnvSource instance) {
-    this.withName(instance.getName());
-
-    this.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withOptional(instance.getOptional());
+    }
   }
   private String name;
   private Boolean optional;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ConfigMapEnvSourceFluentImpl that = (V1ConfigMapEnvSourceFluentImpl) o;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (optional != null ? !optional.equals(that.optional) :that.optional != null) return false;
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(optional, that.optional)) return false;
+
     return true;
   }
   public int hashCode() {

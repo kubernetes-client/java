@@ -16,12 +16,11 @@ import java.lang.Object;
   public V2ObjectMetricStatusFluentImpl() {
   }
   public V2ObjectMetricStatusFluentImpl(V2ObjectMetricStatus instance) {
-    this.withCurrent(instance.getCurrent());
-
-    this.withDescribedObject(instance.getDescribedObject());
-
-    this.withMetric(instance.getMetric());
-
+    if (instance != null) {
+      this.withCurrent(instance.getCurrent());
+      this.withDescribedObject(instance.getDescribedObject());
+      this.withMetric(instance.getMetric());
+    }
   }
   private V2MetricValueStatusBuilder current;
   private V2CrossVersionObjectReferenceBuilder describedObject;
@@ -45,19 +44,19 @@ import java.lang.Object;
   public Boolean hasCurrent() {
     return this.current != null;
   }
-  public V2ObjectMetricStatusFluent.CurrentNested<A> withNewCurrent() {
+  public V2ObjectMetricStatusFluentImpl.CurrentNested<A> withNewCurrent() {
     return new V2ObjectMetricStatusFluentImpl.CurrentNestedImpl();
   }
-  public V2ObjectMetricStatusFluent.CurrentNested<A> withNewCurrentLike(V2MetricValueStatus item) {
+  public V2ObjectMetricStatusFluentImpl.CurrentNested<A> withNewCurrentLike(V2MetricValueStatus item) {
     return new V2ObjectMetricStatusFluentImpl.CurrentNestedImpl(item);
   }
-  public V2ObjectMetricStatusFluent.CurrentNested<A> editCurrent() {
+  public V2ObjectMetricStatusFluentImpl.CurrentNested<A> editCurrent() {
     return withNewCurrentLike(getCurrent());
   }
-  public V2ObjectMetricStatusFluent.CurrentNested<A> editOrNewCurrent() {
+  public V2ObjectMetricStatusFluentImpl.CurrentNested<A> editOrNewCurrent() {
     return withNewCurrentLike(getCurrent() != null ? getCurrent(): new V2MetricValueStatusBuilder().build());
   }
-  public V2ObjectMetricStatusFluent.CurrentNested<A> editOrNewCurrentLike(V2MetricValueStatus item) {
+  public V2ObjectMetricStatusFluentImpl.CurrentNested<A> editOrNewCurrentLike(V2MetricValueStatus item) {
     return withNewCurrentLike(getCurrent() != null ? getCurrent(): item);
   }
   
@@ -79,19 +78,19 @@ import java.lang.Object;
   public Boolean hasDescribedObject() {
     return this.describedObject != null;
   }
-  public V2ObjectMetricStatusFluent.DescribedObjectNested<A> withNewDescribedObject() {
+  public V2ObjectMetricStatusFluentImpl.DescribedObjectNested<A> withNewDescribedObject() {
     return new V2ObjectMetricStatusFluentImpl.DescribedObjectNestedImpl();
   }
-  public V2ObjectMetricStatusFluent.DescribedObjectNested<A> withNewDescribedObjectLike(V2CrossVersionObjectReference item) {
+  public V2ObjectMetricStatusFluentImpl.DescribedObjectNested<A> withNewDescribedObjectLike(V2CrossVersionObjectReference item) {
     return new V2ObjectMetricStatusFluentImpl.DescribedObjectNestedImpl(item);
   }
-  public V2ObjectMetricStatusFluent.DescribedObjectNested<A> editDescribedObject() {
+  public V2ObjectMetricStatusFluentImpl.DescribedObjectNested<A> editDescribedObject() {
     return withNewDescribedObjectLike(getDescribedObject());
   }
-  public V2ObjectMetricStatusFluent.DescribedObjectNested<A> editOrNewDescribedObject() {
+  public V2ObjectMetricStatusFluentImpl.DescribedObjectNested<A> editOrNewDescribedObject() {
     return withNewDescribedObjectLike(getDescribedObject() != null ? getDescribedObject(): new V2CrossVersionObjectReferenceBuilder().build());
   }
-  public V2ObjectMetricStatusFluent.DescribedObjectNested<A> editOrNewDescribedObjectLike(V2CrossVersionObjectReference item) {
+  public V2ObjectMetricStatusFluentImpl.DescribedObjectNested<A> editOrNewDescribedObjectLike(V2CrossVersionObjectReference item) {
     return withNewDescribedObjectLike(getDescribedObject() != null ? getDescribedObject(): item);
   }
   
@@ -113,28 +112,32 @@ import java.lang.Object;
   public Boolean hasMetric() {
     return this.metric != null;
   }
-  public V2ObjectMetricStatusFluent.MetricNested<A> withNewMetric() {
+  public V2ObjectMetricStatusFluentImpl.MetricNested<A> withNewMetric() {
     return new V2ObjectMetricStatusFluentImpl.MetricNestedImpl();
   }
-  public V2ObjectMetricStatusFluent.MetricNested<A> withNewMetricLike(V2MetricIdentifier item) {
+  public V2ObjectMetricStatusFluentImpl.MetricNested<A> withNewMetricLike(V2MetricIdentifier item) {
     return new V2ObjectMetricStatusFluentImpl.MetricNestedImpl(item);
   }
-  public V2ObjectMetricStatusFluent.MetricNested<A> editMetric() {
+  public V2ObjectMetricStatusFluentImpl.MetricNested<A> editMetric() {
     return withNewMetricLike(getMetric());
   }
-  public V2ObjectMetricStatusFluent.MetricNested<A> editOrNewMetric() {
+  public V2ObjectMetricStatusFluentImpl.MetricNested<A> editOrNewMetric() {
     return withNewMetricLike(getMetric() != null ? getMetric(): new V2MetricIdentifierBuilder().build());
   }
-  public V2ObjectMetricStatusFluent.MetricNested<A> editOrNewMetricLike(V2MetricIdentifier item) {
+  public V2ObjectMetricStatusFluentImpl.MetricNested<A> editOrNewMetricLike(V2MetricIdentifier item) {
     return withNewMetricLike(getMetric() != null ? getMetric(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2ObjectMetricStatusFluentImpl that = (V2ObjectMetricStatusFluentImpl) o;
-    if (current != null ? !current.equals(that.current) :that.current != null) return false;
-    if (describedObject != null ? !describedObject.equals(that.describedObject) :that.describedObject != null) return false;
-    if (metric != null ? !metric.equals(that.metric) :that.metric != null) return false;
+    if (!java.util.Objects.equals(current, that.current)) return false;
+
+    if (!java.util.Objects.equals(describedObject, that.describedObject)) return false;
+
+    if (!java.util.Objects.equals(metric, that.metric)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -149,7 +152,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class CurrentNestedImpl<N> extends V2MetricValueStatusFluentImpl<V2ObjectMetricStatusFluent.CurrentNested<N>> implements V2ObjectMetricStatusFluent.CurrentNested<N>,Nested<N>{
+  class CurrentNestedImpl<N> extends V2MetricValueStatusFluentImpl<V2ObjectMetricStatusFluentImpl.CurrentNested<N>> implements V2ObjectMetricStatusFluentImpl.CurrentNested<N>,Nested<N>{
     CurrentNestedImpl(V2MetricValueStatus item) {
       this.builder = new V2MetricValueStatusBuilder(this, item);
     }
@@ -165,7 +168,7 @@ import java.lang.Object;
     }
     
   }
-  class DescribedObjectNestedImpl<N> extends V2CrossVersionObjectReferenceFluentImpl<V2ObjectMetricStatusFluent.DescribedObjectNested<N>> implements V2ObjectMetricStatusFluent.DescribedObjectNested<N>,Nested<N>{
+  class DescribedObjectNestedImpl<N> extends V2CrossVersionObjectReferenceFluentImpl<V2ObjectMetricStatusFluentImpl.DescribedObjectNested<N>> implements V2ObjectMetricStatusFluentImpl.DescribedObjectNested<N>,Nested<N>{
     DescribedObjectNestedImpl(V2CrossVersionObjectReference item) {
       this.builder = new V2CrossVersionObjectReferenceBuilder(this, item);
     }
@@ -181,7 +184,7 @@ import java.lang.Object;
     }
     
   }
-  class MetricNestedImpl<N> extends V2MetricIdentifierFluentImpl<V2ObjectMetricStatusFluent.MetricNested<N>> implements V2ObjectMetricStatusFluent.MetricNested<N>,Nested<N>{
+  class MetricNestedImpl<N> extends V2MetricIdentifierFluentImpl<V2ObjectMetricStatusFluentImpl.MetricNested<N>> implements V2ObjectMetricStatusFluentImpl.MetricNested<N>,Nested<N>{
     MetricNestedImpl(V2MetricIdentifier item) {
       this.builder = new V2MetricIdentifierBuilder(this, item);
     }

@@ -20,14 +20,12 @@ public class V1WindowsSecurityContextOptionsBuilder extends V1WindowsSecurityCon
   }
   public V1WindowsSecurityContextOptionsBuilder(V1WindowsSecurityContextOptionsFluent<?> fluent,V1WindowsSecurityContextOptions instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withGmsaCredentialSpec(instance.getGmsaCredentialSpec());
-
-    fluent.withGmsaCredentialSpecName(instance.getGmsaCredentialSpecName());
-
-    fluent.withHostProcess(instance.getHostProcess());
-
-    fluent.withRunAsUserName(instance.getRunAsUserName());
-
+    if (instance != null) {
+      fluent.withGmsaCredentialSpec(instance.getGmsaCredentialSpec());
+      fluent.withGmsaCredentialSpecName(instance.getGmsaCredentialSpecName());
+      fluent.withHostProcess(instance.getHostProcess());
+      fluent.withRunAsUserName(instance.getRunAsUserName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1WindowsSecurityContextOptionsBuilder(V1WindowsSecurityContextOptions instance) {
@@ -35,14 +33,12 @@ public class V1WindowsSecurityContextOptionsBuilder extends V1WindowsSecurityCon
   }
   public V1WindowsSecurityContextOptionsBuilder(V1WindowsSecurityContextOptions instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withGmsaCredentialSpec(instance.getGmsaCredentialSpec());
-
-    this.withGmsaCredentialSpecName(instance.getGmsaCredentialSpecName());
-
-    this.withHostProcess(instance.getHostProcess());
-
-    this.withRunAsUserName(instance.getRunAsUserName());
-
+    if (instance != null) {
+      this.withGmsaCredentialSpec(instance.getGmsaCredentialSpec());
+      this.withGmsaCredentialSpecName(instance.getGmsaCredentialSpecName());
+      this.withHostProcess(instance.getHostProcess());
+      this.withRunAsUserName(instance.getRunAsUserName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1WindowsSecurityContextOptionsFluent<?> fluent;

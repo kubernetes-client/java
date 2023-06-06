@@ -8,7 +8,7 @@ ResourceMetricStatus indicates the current value of a resource metric known to K
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **current** | [**V2MetricValueStatus**](V2MetricValueStatus.md) |  | 
-**name** | **String** | Name is the name of the resource in question. | 
+**name** | **String** | name is the name of the resource in question. | 
 
 
 

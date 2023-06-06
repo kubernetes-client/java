@@ -20,8 +20,9 @@ public class V1LocalObjectReferenceBuilder extends V1LocalObjectReferenceFluentI
   }
   public V1LocalObjectReferenceBuilder(V1LocalObjectReferenceFluent<?> fluent,V1LocalObjectReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LocalObjectReferenceBuilder(V1LocalObjectReference instance) {
@@ -29,8 +30,9 @@ public class V1LocalObjectReferenceBuilder extends V1LocalObjectReferenceFluentI
   }
   public V1LocalObjectReferenceBuilder(V1LocalObjectReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LocalObjectReferenceFluent<?> fluent;

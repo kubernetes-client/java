@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1ControllerRevisionListFluent<A extends V1ControllerRevisionLi
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1ControllerRevision item);
-  public A setToItems(Integer index,V1ControllerRevision item);
+  public A addToItems(int index,V1ControllerRevision item);
+  public A setToItems(int index,V1ControllerRevision item);
   public A addToItems(io.kubernetes.client.openapi.models.V1ControllerRevision... items);
   public A addAllToItems(Collection<V1ControllerRevision> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1ControllerRevision... items);
@@ -35,7 +35,7 @@ public interface V1ControllerRevisionListFluent<A extends V1ControllerRevisionLi
   @Deprecated
   public List<V1ControllerRevision> getItems();
   public List<V1ControllerRevision> buildItems();
-  public V1ControllerRevision buildItem(Integer index);
+  public V1ControllerRevision buildItem(int index);
   public V1ControllerRevision buildFirstItem();
   public V1ControllerRevision buildLastItem();
   public V1ControllerRevision buildMatchingItem(Predicate<V1ControllerRevisionBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1ControllerRevisionListFluent<A extends V1ControllerRevisionLi
   public Boolean hasItems();
   public V1ControllerRevisionListFluent.ItemsNested<A> addNewItem();
   public V1ControllerRevisionListFluent.ItemsNested<A> addNewItemLike(V1ControllerRevision item);
-  public V1ControllerRevisionListFluent.ItemsNested<A> setNewItemLike(Integer index,V1ControllerRevision item);
-  public V1ControllerRevisionListFluent.ItemsNested<A> editItem(Integer index);
+  public V1ControllerRevisionListFluent.ItemsNested<A> setNewItemLike(int index,V1ControllerRevision item);
+  public V1ControllerRevisionListFluent.ItemsNested<A> editItem(int index);
   public V1ControllerRevisionListFluent.ItemsNested<A> editFirstItem();
   public V1ControllerRevisionListFluent.ItemsNested<A> editLastItem();
   public V1ControllerRevisionListFluent.ItemsNested<A> editMatchingItem(Predicate<V1ControllerRevisionBuilder> predicate);

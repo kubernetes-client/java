@@ -20,12 +20,11 @@ public class V1CronJobStatusBuilder extends V1CronJobStatusFluentImpl<V1CronJobS
   }
   public V1CronJobStatusBuilder(V1CronJobStatusFluent<?> fluent,V1CronJobStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withActive(instance.getActive());
-
-    fluent.withLastScheduleTime(instance.getLastScheduleTime());
-
-    fluent.withLastSuccessfulTime(instance.getLastSuccessfulTime());
-
+    if (instance != null) {
+      fluent.withActive(instance.getActive());
+      fluent.withLastScheduleTime(instance.getLastScheduleTime());
+      fluent.withLastSuccessfulTime(instance.getLastSuccessfulTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CronJobStatusBuilder(V1CronJobStatus instance) {
@@ -33,12 +32,11 @@ public class V1CronJobStatusBuilder extends V1CronJobStatusFluentImpl<V1CronJobS
   }
   public V1CronJobStatusBuilder(V1CronJobStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withActive(instance.getActive());
-
-    this.withLastScheduleTime(instance.getLastScheduleTime());
-
-    this.withLastSuccessfulTime(instance.getLastSuccessfulTime());
-
+    if (instance != null) {
+      this.withActive(instance.getActive());
+      this.withLastScheduleTime(instance.getLastScheduleTime());
+      this.withLastSuccessfulTime(instance.getLastSuccessfulTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CronJobStatusFluent<?> fluent;

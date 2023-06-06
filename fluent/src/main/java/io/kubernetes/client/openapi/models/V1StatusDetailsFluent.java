@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -17,8 +18,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> extends Fluent<A>{
-  public A addToCauses(Integer index,V1StatusCause item);
-  public A setToCauses(Integer index,V1StatusCause item);
+  public A addToCauses(int index,V1StatusCause item);
+  public A setToCauses(int index,V1StatusCause item);
   public A addToCauses(io.kubernetes.client.openapi.models.V1StatusCause... items);
   public A addAllToCauses(Collection<V1StatusCause> items);
   public A removeFromCauses(io.kubernetes.client.openapi.models.V1StatusCause... items);
@@ -32,7 +33,7 @@ public interface V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> exten
   @Deprecated
   public List<V1StatusCause> getCauses();
   public List<V1StatusCause> buildCauses();
-  public V1StatusCause buildCause(Integer index);
+  public V1StatusCause buildCause(int index);
   public V1StatusCause buildFirstCause();
   public V1StatusCause buildLastCause();
   public V1StatusCause buildMatchingCause(Predicate<V1StatusCauseBuilder> predicate);
@@ -42,8 +43,8 @@ public interface V1StatusDetailsFluent<A extends V1StatusDetailsFluent<A>> exten
   public Boolean hasCauses();
   public V1StatusDetailsFluent.CausesNested<A> addNewCause();
   public V1StatusDetailsFluent.CausesNested<A> addNewCauseLike(V1StatusCause item);
-  public V1StatusDetailsFluent.CausesNested<A> setNewCauseLike(Integer index,V1StatusCause item);
-  public V1StatusDetailsFluent.CausesNested<A> editCause(Integer index);
+  public V1StatusDetailsFluent.CausesNested<A> setNewCauseLike(int index,V1StatusCause item);
+  public V1StatusDetailsFluent.CausesNested<A> editCause(int index);
   public V1StatusDetailsFluent.CausesNested<A> editFirstCause();
   public V1StatusDetailsFluent.CausesNested<A> editLastCause();
   public V1StatusDetailsFluent.CausesNested<A> editMatchingCause(Predicate<V1StatusCauseBuilder> predicate);

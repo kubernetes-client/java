@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,28 +12,34 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1NamespaceCondition;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** NamespaceStatus is information about the current status of a Namespace. */
+/**
+ * NamespaceStatus is information about the current status of a Namespace.
+ */
 @ApiModel(description = "NamespaceStatus is information about the current status of a Namespace.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1NamespaceStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
-
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private List<V1NamespaceCondition> conditions = null;
 
   public static final String SERIALIZED_NAME_PHASE = "phase";
-
   @SerializedName(SERIALIZED_NAME_PHASE)
   private String phase;
+
 
   public V1NamespaceStatus conditions(List<V1NamespaceCondition> conditions) {
 
@@ -49,21 +55,22 @@ public class V1NamespaceStatus {
     return this;
   }
 
-  /**
+   /**
    * Represents the latest available observations of a namespace&#39;s current state.
-   *
    * @return conditions
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Represents the latest available observations of a namespace's current state.")
+  @ApiModelProperty(value = "Represents the latest available observations of a namespace's current state.")
+
   public List<V1NamespaceCondition> getConditions() {
     return conditions;
   }
 
+
   public void setConditions(List<V1NamespaceCondition> conditions) {
     this.conditions = conditions;
   }
+
 
   public V1NamespaceStatus phase(String phase) {
 
@@ -71,23 +78,22 @@ public class V1NamespaceStatus {
     return this;
   }
 
-  /**
-   * Phase is the current lifecycle phase of the namespace. More info:
-   * https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
-   *
+   /**
+   * Phase is the current lifecycle phase of the namespace. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/
    * @return phase
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Phase is the current lifecycle phase of the namespace. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/  ")
+  @ApiModelProperty(value = "Phase is the current lifecycle phase of the namespace. More info: https://kubernetes.io/docs/tasks/administer-cluster/namespaces/")
+
   public String getPhase() {
     return phase;
   }
 
+
   public void setPhase(String phase) {
     this.phase = phase;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -98,14 +104,15 @@ public class V1NamespaceStatus {
       return false;
     }
     V1NamespaceStatus v1NamespaceStatus = (V1NamespaceStatus) o;
-    return Objects.equals(this.conditions, v1NamespaceStatus.conditions)
-        && Objects.equals(this.phase, v1NamespaceStatus.phase);
+    return Objects.equals(this.conditions, v1NamespaceStatus.conditions) &&
+        Objects.equals(this.phase, v1NamespaceStatus.phase);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(conditions, phase);
   }
+
 
   @Override
   public String toString() {
@@ -118,7 +125,8 @@ public class V1NamespaceStatus {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -126,4 +134,5 @@ public class V1NamespaceStatus {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

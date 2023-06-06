@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,38 +12,37 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * An API server instance reports the version it can decode and the version it encodes objects to
- * when persisting objects in the backend.
+ * An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.
  */
-@ApiModel(
-    description =
-        "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1alpha1ServerStorageVersion {
   public static final String SERIALIZED_NAME_API_SERVER_I_D = "apiServerID";
-
   @SerializedName(SERIALIZED_NAME_API_SERVER_I_D)
   private String apiServerID;
 
   public static final String SERIALIZED_NAME_DECODABLE_VERSIONS = "decodableVersions";
-
   @SerializedName(SERIALIZED_NAME_DECODABLE_VERSIONS)
   private List<String> decodableVersions = null;
 
   public static final String SERIALIZED_NAME_ENCODING_VERSION = "encodingVersion";
-
   @SerializedName(SERIALIZED_NAME_ENCODING_VERSION)
   private String encodingVersion;
+
 
   public V1alpha1ServerStorageVersion apiServerID(String apiServerID) {
 
@@ -51,20 +50,22 @@ public class V1alpha1ServerStorageVersion {
     return this;
   }
 
-  /**
+   /**
    * The ID of the reporting API server.
-   *
    * @return apiServerID
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "The ID of the reporting API server.")
+
   public String getApiServerID() {
     return apiServerID;
   }
 
+
   public void setApiServerID(String apiServerID) {
     this.apiServerID = apiServerID;
   }
+
 
   public V1alpha1ServerStorageVersion decodableVersions(List<String> decodableVersions) {
 
@@ -80,23 +81,22 @@ public class V1alpha1ServerStorageVersion {
     return this;
   }
 
-  /**
-   * The API server can decode objects encoded in these versions. The encodingVersion must be
-   * included in the decodableVersions.
-   *
+   /**
+   * The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.
    * @return decodableVersions
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.")
+  @ApiModelProperty(value = "The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.")
+
   public List<String> getDecodableVersions() {
     return decodableVersions;
   }
 
+
   public void setDecodableVersions(List<String> decodableVersions) {
     this.decodableVersions = decodableVersions;
   }
+
 
   public V1alpha1ServerStorageVersion encodingVersion(String encodingVersion) {
 
@@ -104,23 +104,22 @@ public class V1alpha1ServerStorageVersion {
     return this;
   }
 
-  /**
-   * The API server encodes the object to this version when persisting it in the backend (e.g.,
-   * etcd).
-   *
+   /**
+   * The API server encodes the object to this version when persisting it in the backend (e.g., etcd).
    * @return encodingVersion
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The API server encodes the object to this version when persisting it in the backend (e.g., etcd).")
+  @ApiModelProperty(value = "The API server encodes the object to this version when persisting it in the backend (e.g., etcd).")
+
   public String getEncodingVersion() {
     return encodingVersion;
   }
 
+
   public void setEncodingVersion(String encodingVersion) {
     this.encodingVersion = encodingVersion;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -131,15 +130,16 @@ public class V1alpha1ServerStorageVersion {
       return false;
     }
     V1alpha1ServerStorageVersion v1alpha1ServerStorageVersion = (V1alpha1ServerStorageVersion) o;
-    return Objects.equals(this.apiServerID, v1alpha1ServerStorageVersion.apiServerID)
-        && Objects.equals(this.decodableVersions, v1alpha1ServerStorageVersion.decodableVersions)
-        && Objects.equals(this.encodingVersion, v1alpha1ServerStorageVersion.encodingVersion);
+    return Objects.equals(this.apiServerID, v1alpha1ServerStorageVersion.apiServerID) &&
+        Objects.equals(this.decodableVersions, v1alpha1ServerStorageVersion.decodableVersions) &&
+        Objects.equals(this.encodingVersion, v1alpha1ServerStorageVersion.encodingVersion);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(apiServerID, decodableVersions, encodingVersion);
   }
+
 
   @Override
   public String toString() {
@@ -153,7 +153,8 @@ public class V1alpha1ServerStorageVersion {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -161,4 +162,5 @@ public class V1alpha1ServerStorageVersion {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

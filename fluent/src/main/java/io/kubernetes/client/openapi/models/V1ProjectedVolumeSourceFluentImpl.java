@@ -23,10 +23,10 @@ import java.lang.Boolean;
   public V1ProjectedVolumeSourceFluentImpl() {
   }
   public V1ProjectedVolumeSourceFluentImpl(V1ProjectedVolumeSource instance) {
-    this.withDefaultMode(instance.getDefaultMode());
-
-    this.withSources(instance.getSources());
-
+    if (instance != null) {
+      this.withDefaultMode(instance.getDefaultMode());
+      this.withSources(instance.getSources());
+    }
   }
   private Integer defaultMode;
   private ArrayList<V1VolumeProjectionBuilder> sources;
@@ -39,16 +39,17 @@ import java.lang.Boolean;
   public Boolean hasDefaultMode() {
     return this.defaultMode != null;
   }
-  public A addToSources(Integer index,V1VolumeProjection item) {
-    if (this.sources == null) {this.sources = new ArrayList<V1VolumeProjectionBuilder>();}
-    V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);_visitables.get("sources").add(index >= 0 ? index : _visitables.get("sources").size(), builder);this.sources.add(index >= 0 ? index : sources.size(), builder); return (A)this;
-  }
-  public A setToSources(Integer index,V1VolumeProjection item) {
+  public A addToSources(int index,V1VolumeProjection item) {
     if (this.sources == null) {this.sources = new ArrayList<V1VolumeProjectionBuilder>();}
     V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
-    if (index < 0 || index >= _visitables.get("sources").size()) { _visitables.get("sources").add(builder); } else { _visitables.get("sources").set(index, builder);}
-    if (index < 0 || index >= sources.size()) { sources.add(builder); } else { sources.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= sources.size()) { _visitables.get("sources").add(builder); sources.add(builder); } else { _visitables.get("sources").add(index, builder); sources.add(index, builder);}
+    return (A)this;
+  }
+  public A setToSources(int index,V1VolumeProjection item) {
+    if (this.sources == null) {this.sources = new ArrayList<V1VolumeProjectionBuilder>();}
+    V1VolumeProjectionBuilder builder = new V1VolumeProjectionBuilder(item);
+    if (index < 0 || index >= sources.size()) { _visitables.get("sources").add(builder); sources.add(builder); } else { _visitables.get("sources").set(index, builder); sources.set(index, builder);}
+    return (A)this;
   }
   public A addToSources(io.kubernetes.client.openapi.models.V1VolumeProjection... items) {
     if (this.sources == null) {this.sources = new ArrayList<V1VolumeProjectionBuilder>();}
@@ -89,7 +90,7 @@ import java.lang.Boolean;
   public List<V1VolumeProjection> buildSources() {
     return sources != null ? build(sources) : null;
   }
-  public V1VolumeProjection buildSource(Integer index) {
+  public V1VolumeProjection buildSource(int index) {
     return this.sources.get(index).build();
   }
   public V1VolumeProjection buildFirstSource() {
@@ -105,39 +106,39 @@ import java.lang.Boolean;
     for (V1VolumeProjectionBuilder item: sources) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withSources(List<V1VolumeProjection> sources) {
-    if (this.sources != null) { _visitables.get("sources").removeAll(this.sources);}
+    if (this.sources != null) { _visitables.get("sources").clear();}
     if (sources != null) {this.sources = new ArrayList(); for (V1VolumeProjection item : sources){this.addToSources(item);}} else { this.sources = null;} return (A) this;
   }
   public A withSources(io.kubernetes.client.openapi.models.V1VolumeProjection... sources) {
-    if (this.sources != null) {this.sources.clear();}
+    if (this.sources != null) {this.sources.clear(); _visitables.remove("sources"); }
     if (sources != null) {for (V1VolumeProjection item :sources){ this.addToSources(item);}} return (A) this;
   }
   public Boolean hasSources() {
     return sources != null && !sources.isEmpty();
   }
-  public V1ProjectedVolumeSourceFluent.SourcesNested<A> addNewSource() {
+  public V1ProjectedVolumeSourceFluentImpl.SourcesNested<A> addNewSource() {
     return new V1ProjectedVolumeSourceFluentImpl.SourcesNestedImpl();
   }
-  public V1ProjectedVolumeSourceFluent.SourcesNested<A> addNewSourceLike(V1VolumeProjection item) {
+  public V1ProjectedVolumeSourceFluentImpl.SourcesNested<A> addNewSourceLike(V1VolumeProjection item) {
     return new V1ProjectedVolumeSourceFluentImpl.SourcesNestedImpl(-1, item);
   }
-  public V1ProjectedVolumeSourceFluent.SourcesNested<A> setNewSourceLike(Integer index,V1VolumeProjection item) {
+  public V1ProjectedVolumeSourceFluentImpl.SourcesNested<A> setNewSourceLike(int index,V1VolumeProjection item) {
     return new V1ProjectedVolumeSourceFluentImpl.SourcesNestedImpl(index, item);
   }
-  public V1ProjectedVolumeSourceFluent.SourcesNested<A> editSource(Integer index) {
+  public V1ProjectedVolumeSourceFluentImpl.SourcesNested<A> editSource(int index) {
     if (sources.size() <= index) throw new RuntimeException("Can't edit sources. Index exceeds size.");
     return setNewSourceLike(index, buildSource(index));
   }
-  public V1ProjectedVolumeSourceFluent.SourcesNested<A> editFirstSource() {
+  public V1ProjectedVolumeSourceFluentImpl.SourcesNested<A> editFirstSource() {
     if (sources.size() == 0) throw new RuntimeException("Can't edit first sources. The list is empty.");
     return setNewSourceLike(0, buildSource(0));
   }
-  public V1ProjectedVolumeSourceFluent.SourcesNested<A> editLastSource() {
+  public V1ProjectedVolumeSourceFluentImpl.SourcesNested<A> editLastSource() {
     int index = sources.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last sources. The list is empty.");
     return setNewSourceLike(index, buildSource(index));
   }
-  public V1ProjectedVolumeSourceFluent.SourcesNested<A> editMatchingSource(Predicate<V1VolumeProjectionBuilder> predicate) {
+  public V1ProjectedVolumeSourceFluentImpl.SourcesNested<A> editMatchingSource(Predicate<V1VolumeProjectionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<sources.size();i++) { 
     if (predicate.test(sources.get(i))) {index = i; break;}
@@ -148,9 +149,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ProjectedVolumeSourceFluentImpl that = (V1ProjectedVolumeSourceFluentImpl) o;
-    if (defaultMode != null ? !defaultMode.equals(that.defaultMode) :that.defaultMode != null) return false;
-    if (sources != null ? !sources.equals(that.sources) :that.sources != null) return false;
+    if (!java.util.Objects.equals(defaultMode, that.defaultMode)) return false;
+
+    if (!java.util.Objects.equals(sources, that.sources)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -160,12 +164,12 @@ import java.lang.Boolean;
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (defaultMode != null) { sb.append("defaultMode:"); sb.append(defaultMode + ","); }
-    if (sources != null && !sources.isEmpty()) { sb.append("sources:"); sb.append(sources); }
+    if (sources != null) { sb.append("sources:"); sb.append(sources); }
     sb.append("}");
     return sb.toString();
   }
-  class SourcesNestedImpl<N> extends V1VolumeProjectionFluentImpl<V1ProjectedVolumeSourceFluent.SourcesNested<N>> implements V1ProjectedVolumeSourceFluent.SourcesNested<N>,Nested<N>{
-    SourcesNestedImpl(Integer index,V1VolumeProjection item) {
+  class SourcesNestedImpl<N> extends V1VolumeProjectionFluentImpl<V1ProjectedVolumeSourceFluentImpl.SourcesNested<N>> implements V1ProjectedVolumeSourceFluentImpl.SourcesNested<N>,Nested<N>{
+    SourcesNestedImpl(int index,V1VolumeProjection item) {
       this.index = index;
       this.builder = new V1VolumeProjectionBuilder(this, item);
     }
@@ -174,7 +178,7 @@ import java.lang.Boolean;
       this.builder = new V1VolumeProjectionBuilder(this);
     }
     V1VolumeProjectionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ProjectedVolumeSourceFluentImpl.this.setToSources(index,builder.build());
     }

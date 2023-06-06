@@ -20,8 +20,9 @@ public class V1beta2GroupSubjectBuilder extends V1beta2GroupSubjectFluentImpl<V1
   }
   public V1beta2GroupSubjectBuilder(V1beta2GroupSubjectFluent<?> fluent,V1beta2GroupSubject instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2GroupSubjectBuilder(V1beta2GroupSubject instance) {
@@ -29,8 +30,9 @@ public class V1beta2GroupSubjectBuilder extends V1beta2GroupSubjectFluentImpl<V1
   }
   public V1beta2GroupSubjectBuilder(V1beta2GroupSubject instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2GroupSubjectFluent<?> fluent;

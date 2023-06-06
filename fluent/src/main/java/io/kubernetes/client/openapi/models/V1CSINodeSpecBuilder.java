@@ -20,8 +20,9 @@ public class V1CSINodeSpecBuilder extends V1CSINodeSpecFluentImpl<V1CSINodeSpecB
   }
   public V1CSINodeSpecBuilder(V1CSINodeSpecFluent<?> fluent,V1CSINodeSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDrivers(instance.getDrivers());
-
+    if (instance != null) {
+      fluent.withDrivers(instance.getDrivers());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CSINodeSpecBuilder(V1CSINodeSpec instance) {
@@ -29,8 +30,9 @@ public class V1CSINodeSpecBuilder extends V1CSINodeSpecFluentImpl<V1CSINodeSpecB
   }
   public V1CSINodeSpecBuilder(V1CSINodeSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDrivers(instance.getDrivers());
-
+    if (instance != null) {
+      this.withDrivers(instance.getDrivers());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CSINodeSpecFluent<?> fluent;

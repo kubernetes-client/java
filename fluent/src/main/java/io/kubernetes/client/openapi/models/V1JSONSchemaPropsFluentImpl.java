@@ -13,7 +13,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
 import java.lang.Double;
-import java.lang.Integer;
 import java.lang.Long;
 import java.util.Collection;
 import java.lang.Object;
@@ -27,80 +26,45 @@ import java.util.Map;
   public V1JSONSchemaPropsFluentImpl() {
   }
   public V1JSONSchemaPropsFluentImpl(V1JSONSchemaProps instance) {
-    this.withRef(instance.get$Ref());
-
-    this.withSchema(instance.get$Schema());
-
-    this.withAdditionalItems(instance.getAdditionalItems());
-
-    this.withAdditionalProperties(instance.getAdditionalProperties());
-
-    this.withAllOf(instance.getAllOf());
-
-    this.withAnyOf(instance.getAnyOf());
-
-    this.withDefault(instance.getDefault());
-
-    this.withDefinitions(instance.getDefinitions());
-
-    this.withDependencies(instance.getDependencies());
-
-    this.withDescription(instance.getDescription());
-
-    this.withEnum(instance.getEnum());
-
-    this.withExample(instance.getExample());
-
-    this.withExclusiveMaximum(instance.getExclusiveMaximum());
-
-    this.withExclusiveMinimum(instance.getExclusiveMinimum());
-
-    this.withExternalDocs(instance.getExternalDocs());
-
-    this.withFormat(instance.getFormat());
-
-    this.withId(instance.getId());
-
-    this.withItems(instance.getItems());
-
-    this.withMaxItems(instance.getMaxItems());
-
-    this.withMaxLength(instance.getMaxLength());
-
-    this.withMaxProperties(instance.getMaxProperties());
-
-    this.withMaximum(instance.getMaximum());
-
-    this.withMinItems(instance.getMinItems());
-
-    this.withMinLength(instance.getMinLength());
-
-    this.withMinProperties(instance.getMinProperties());
-
-    this.withMinimum(instance.getMinimum());
-
-    this.withMultipleOf(instance.getMultipleOf());
-
-    this.withNot(instance.getNot());
-
-    this.withNullable(instance.getNullable());
-
-    this.withOneOf(instance.getOneOf());
-
-    this.withPattern(instance.getPattern());
-
-    this.withPatternProperties(instance.getPatternProperties());
-
-    this.withProperties(instance.getProperties());
-
-    this.withRequired(instance.getRequired());
-
-    this.withTitle(instance.getTitle());
-
-    this.withType(instance.getType());
-
-    this.withUniqueItems(instance.getUniqueItems());
-
+    if (instance != null) {
+      this.withRef(instance.get$Ref());
+      this.withSchema(instance.get$Schema());
+      this.withAdditionalItems(instance.getAdditionalItems());
+      this.withAdditionalProperties(instance.getAdditionalProperties());
+      this.withAllOf(instance.getAllOf());
+      this.withAnyOf(instance.getAnyOf());
+      this.withDefault(instance.getDefault());
+      this.withDefinitions(instance.getDefinitions());
+      this.withDependencies(instance.getDependencies());
+      this.withDescription(instance.getDescription());
+      this.withEnum(instance.getEnum());
+      this.withExample(instance.getExample());
+      this.withExclusiveMaximum(instance.getExclusiveMaximum());
+      this.withExclusiveMinimum(instance.getExclusiveMinimum());
+      this.withExternalDocs(instance.getExternalDocs());
+      this.withFormat(instance.getFormat());
+      this.withId(instance.getId());
+      this.withItems(instance.getItems());
+      this.withMaxItems(instance.getMaxItems());
+      this.withMaxLength(instance.getMaxLength());
+      this.withMaxProperties(instance.getMaxProperties());
+      this.withMaximum(instance.getMaximum());
+      this.withMinItems(instance.getMinItems());
+      this.withMinLength(instance.getMinLength());
+      this.withMinProperties(instance.getMinProperties());
+      this.withMinimum(instance.getMinimum());
+      this.withMultipleOf(instance.getMultipleOf());
+      this.withNot(instance.getNot());
+      this.withNullable(instance.getNullable());
+      this.withOneOf(instance.getOneOf());
+      this.withPattern(instance.getPattern());
+      this.withPatternProperties(instance.getPatternProperties());
+      this.withProperties(instance.getProperties());
+      this.withRequired(instance.getRequired());
+      this.withTitle(instance.getTitle());
+      this.withType(instance.getType());
+      this.withUniqueItems(instance.getUniqueItems());
+    }
   }
   private String $ref;
   private String $schema;
@@ -175,16 +139,17 @@ import java.util.Map;
   public Boolean hasAdditionalProperties() {
     return this.additionalProperties != null;
   }
-  public A addToAllOf(Integer index,V1JSONSchemaProps item) {
-    if (this.allOf == null) {this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
-    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("allOf").add(index >= 0 ? index : _visitables.get("allOf").size(), builder);this.allOf.add(index >= 0 ? index : allOf.size(), builder); return (A)this;
-  }
-  public A setToAllOf(Integer index,V1JSONSchemaProps item) {
+  public A addToAllOf(int index,V1JSONSchemaProps item) {
     if (this.allOf == null) {this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= _visitables.get("allOf").size()) { _visitables.get("allOf").add(builder); } else { _visitables.get("allOf").set(index, builder);}
-    if (index < 0 || index >= allOf.size()) { allOf.add(builder); } else { allOf.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= allOf.size()) { _visitables.get("allOf").add(builder); allOf.add(builder); } else { _visitables.get("allOf").add(index, builder); allOf.add(index, builder);}
+    return (A)this;
+  }
+  public A setToAllOf(int index,V1JSONSchemaProps item) {
+    if (this.allOf == null) {this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
+    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+    if (index < 0 || index >= allOf.size()) { _visitables.get("allOf").add(builder); allOf.add(builder); } else { _visitables.get("allOf").set(index, builder); allOf.set(index, builder);}
+    return (A)this;
   }
   public A addToAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
     if (this.allOf == null) {this.allOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
@@ -225,7 +190,7 @@ import java.util.Map;
   public List<V1JSONSchemaProps> buildAllOf() {
     return allOf != null ? build(allOf) : null;
   }
-  public V1JSONSchemaProps buildAllOf(Integer index) {
+  public V1JSONSchemaProps buildAllOf(int index) {
     return this.allOf.get(index).build();
   }
   public V1JSONSchemaProps buildFirstAllOf() {
@@ -241,39 +206,39 @@ import java.util.Map;
     for (V1JSONSchemaPropsBuilder item: allOf) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withAllOf(List<V1JSONSchemaProps> allOf) {
-    if (this.allOf != null) { _visitables.get("allOf").removeAll(this.allOf);}
+    if (this.allOf != null) { _visitables.get("allOf").clear();}
     if (allOf != null) {this.allOf = new ArrayList(); for (V1JSONSchemaProps item : allOf){this.addToAllOf(item);}} else { this.allOf = null;} return (A) this;
   }
   public A withAllOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... allOf) {
-    if (this.allOf != null) {this.allOf.clear();}
+    if (this.allOf != null) {this.allOf.clear(); _visitables.remove("allOf"); }
     if (allOf != null) {for (V1JSONSchemaProps item :allOf){ this.addToAllOf(item);}} return (A) this;
   }
   public Boolean hasAllOf() {
     return allOf != null && !allOf.isEmpty();
   }
-  public V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOf() {
+  public V1JSONSchemaPropsFluentImpl.AllOfNested<A> addNewAllOf() {
     return new V1JSONSchemaPropsFluentImpl.AllOfNestedImpl();
   }
-  public V1JSONSchemaPropsFluent.AllOfNested<A> addNewAllOfLike(V1JSONSchemaProps item) {
+  public V1JSONSchemaPropsFluentImpl.AllOfNested<A> addNewAllOfLike(V1JSONSchemaProps item) {
     return new V1JSONSchemaPropsFluentImpl.AllOfNestedImpl(-1, item);
   }
-  public V1JSONSchemaPropsFluent.AllOfNested<A> setNewAllOfLike(Integer index,V1JSONSchemaProps item) {
+  public V1JSONSchemaPropsFluentImpl.AllOfNested<A> setNewAllOfLike(int index,V1JSONSchemaProps item) {
     return new V1JSONSchemaPropsFluentImpl.AllOfNestedImpl(index, item);
   }
-  public V1JSONSchemaPropsFluent.AllOfNested<A> editAllOf(Integer index) {
+  public V1JSONSchemaPropsFluentImpl.AllOfNested<A> editAllOf(int index) {
     if (allOf.size() <= index) throw new RuntimeException("Can't edit allOf. Index exceeds size.");
     return setNewAllOfLike(index, buildAllOf(index));
   }
-  public V1JSONSchemaPropsFluent.AllOfNested<A> editFirstAllOf() {
+  public V1JSONSchemaPropsFluentImpl.AllOfNested<A> editFirstAllOf() {
     if (allOf.size() == 0) throw new RuntimeException("Can't edit first allOf. The list is empty.");
     return setNewAllOfLike(0, buildAllOf(0));
   }
-  public V1JSONSchemaPropsFluent.AllOfNested<A> editLastAllOf() {
+  public V1JSONSchemaPropsFluentImpl.AllOfNested<A> editLastAllOf() {
     int index = allOf.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last allOf. The list is empty.");
     return setNewAllOfLike(index, buildAllOf(index));
   }
-  public V1JSONSchemaPropsFluent.AllOfNested<A> editMatchingAllOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
+  public V1JSONSchemaPropsFluentImpl.AllOfNested<A> editMatchingAllOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
     int index = -1;
     for (int i=0;i<allOf.size();i++) { 
     if (predicate.test(allOf.get(i))) {index = i; break;}
@@ -281,16 +246,17 @@ import java.util.Map;
     if (index < 0) throw new RuntimeException("Can't edit matching allOf. No match found.");
     return setNewAllOfLike(index, buildAllOf(index));
   }
-  public A addToAnyOf(Integer index,V1JSONSchemaProps item) {
-    if (this.anyOf == null) {this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
-    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("anyOf").add(index >= 0 ? index : _visitables.get("anyOf").size(), builder);this.anyOf.add(index >= 0 ? index : anyOf.size(), builder); return (A)this;
-  }
-  public A setToAnyOf(Integer index,V1JSONSchemaProps item) {
+  public A addToAnyOf(int index,V1JSONSchemaProps item) {
     if (this.anyOf == null) {this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= _visitables.get("anyOf").size()) { _visitables.get("anyOf").add(builder); } else { _visitables.get("anyOf").set(index, builder);}
-    if (index < 0 || index >= anyOf.size()) { anyOf.add(builder); } else { anyOf.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= anyOf.size()) { _visitables.get("anyOf").add(builder); anyOf.add(builder); } else { _visitables.get("anyOf").add(index, builder); anyOf.add(index, builder);}
+    return (A)this;
+  }
+  public A setToAnyOf(int index,V1JSONSchemaProps item) {
+    if (this.anyOf == null) {this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
+    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+    if (index < 0 || index >= anyOf.size()) { _visitables.get("anyOf").add(builder); anyOf.add(builder); } else { _visitables.get("anyOf").set(index, builder); anyOf.set(index, builder);}
+    return (A)this;
   }
   public A addToAnyOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
     if (this.anyOf == null) {this.anyOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
@@ -331,7 +297,7 @@ import java.util.Map;
   public List<V1JSONSchemaProps> buildAnyOf() {
     return anyOf != null ? build(anyOf) : null;
   }
-  public V1JSONSchemaProps buildAnyOf(Integer index) {
+  public V1JSONSchemaProps buildAnyOf(int index) {
     return this.anyOf.get(index).build();
   }
   public V1JSONSchemaProps buildFirstAnyOf() {
@@ -347,39 +313,39 @@ import java.util.Map;
     for (V1JSONSchemaPropsBuilder item: anyOf) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withAnyOf(List<V1JSONSchemaProps> anyOf) {
-    if (this.anyOf != null) { _visitables.get("anyOf").removeAll(this.anyOf);}
+    if (this.anyOf != null) { _visitables.get("anyOf").clear();}
     if (anyOf != null) {this.anyOf = new ArrayList(); for (V1JSONSchemaProps item : anyOf){this.addToAnyOf(item);}} else { this.anyOf = null;} return (A) this;
   }
   public A withAnyOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... anyOf) {
-    if (this.anyOf != null) {this.anyOf.clear();}
+    if (this.anyOf != null) {this.anyOf.clear(); _visitables.remove("anyOf"); }
     if (anyOf != null) {for (V1JSONSchemaProps item :anyOf){ this.addToAnyOf(item);}} return (A) this;
   }
   public Boolean hasAnyOf() {
     return anyOf != null && !anyOf.isEmpty();
   }
-  public V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOf() {
+  public V1JSONSchemaPropsFluentImpl.AnyOfNested<A> addNewAnyOf() {
     return new V1JSONSchemaPropsFluentImpl.AnyOfNestedImpl();
   }
-  public V1JSONSchemaPropsFluent.AnyOfNested<A> addNewAnyOfLike(V1JSONSchemaProps item) {
+  public V1JSONSchemaPropsFluentImpl.AnyOfNested<A> addNewAnyOfLike(V1JSONSchemaProps item) {
     return new V1JSONSchemaPropsFluentImpl.AnyOfNestedImpl(-1, item);
   }
-  public V1JSONSchemaPropsFluent.AnyOfNested<A> setNewAnyOfLike(Integer index,V1JSONSchemaProps item) {
+  public V1JSONSchemaPropsFluentImpl.AnyOfNested<A> setNewAnyOfLike(int index,V1JSONSchemaProps item) {
     return new V1JSONSchemaPropsFluentImpl.AnyOfNestedImpl(index, item);
   }
-  public V1JSONSchemaPropsFluent.AnyOfNested<A> editAnyOf(Integer index) {
+  public V1JSONSchemaPropsFluentImpl.AnyOfNested<A> editAnyOf(int index) {
     if (anyOf.size() <= index) throw new RuntimeException("Can't edit anyOf. Index exceeds size.");
     return setNewAnyOfLike(index, buildAnyOf(index));
   }
-  public V1JSONSchemaPropsFluent.AnyOfNested<A> editFirstAnyOf() {
+  public V1JSONSchemaPropsFluentImpl.AnyOfNested<A> editFirstAnyOf() {
     if (anyOf.size() == 0) throw new RuntimeException("Can't edit first anyOf. The list is empty.");
     return setNewAnyOfLike(0, buildAnyOf(0));
   }
-  public V1JSONSchemaPropsFluent.AnyOfNested<A> editLastAnyOf() {
+  public V1JSONSchemaPropsFluentImpl.AnyOfNested<A> editLastAnyOf() {
     int index = anyOf.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last anyOf. The list is empty.");
     return setNewAnyOfLike(index, buildAnyOf(index));
   }
-  public V1JSONSchemaPropsFluent.AnyOfNested<A> editMatchingAnyOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
+  public V1JSONSchemaPropsFluentImpl.AnyOfNested<A> editMatchingAnyOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
     int index = -1;
     for (int i=0;i<anyOf.size();i++) { 
     if (predicate.test(anyOf.get(i))) {index = i; break;}
@@ -455,12 +421,12 @@ import java.util.Map;
   public Boolean hasDescription() {
     return this.description != null;
   }
-  public A addToEnum(Integer index,Object item) {
+  public A addToEnum(int index,Object item) {
     if (this._enum == null) {this._enum = new ArrayList<Object>();}
     this._enum.add(index, item);
     return (A)this;
   }
-  public A setToEnum(Integer index,Object item) {
+  public A setToEnum(int index,Object item) {
     if (this._enum == null) {this._enum = new ArrayList<Object>();}
     this._enum.set(index, item); return (A)this;
   }
@@ -481,7 +447,7 @@ import java.util.Map;
   public List<Object> getEnum() {
     return this._enum;
   }
-  public Object getEnum(Integer index) {
+  public Object getEnum(int index) {
     return this._enum.get(index);
   }
   public Object getFirstEnum() {
@@ -500,7 +466,7 @@ import java.util.Map;
     if (_enum != null) {this._enum = new ArrayList(); for (Object item : _enum){this.addToEnum(item);}} else { this._enum = null;} return (A) this;
   }
   public A withEnum(java.lang.Object... _enum) {
-    if (this._enum != null) {this._enum.clear();}
+    if (this._enum != null) {this._enum.clear(); _visitables.remove("_enum"); }
     if (_enum != null) {for (Object item :_enum){ this.addToEnum(item);}} return (A) this;
   }
   public Boolean hasEnum() {
@@ -552,19 +518,19 @@ import java.util.Map;
   public Boolean hasExternalDocs() {
     return this.externalDocs != null;
   }
-  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> withNewExternalDocs() {
+  public V1JSONSchemaPropsFluentImpl.ExternalDocsNested<A> withNewExternalDocs() {
     return new V1JSONSchemaPropsFluentImpl.ExternalDocsNestedImpl();
   }
-  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> withNewExternalDocsLike(V1ExternalDocumentation item) {
+  public V1JSONSchemaPropsFluentImpl.ExternalDocsNested<A> withNewExternalDocsLike(V1ExternalDocumentation item) {
     return new V1JSONSchemaPropsFluentImpl.ExternalDocsNestedImpl(item);
   }
-  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> editExternalDocs() {
+  public V1JSONSchemaPropsFluentImpl.ExternalDocsNested<A> editExternalDocs() {
     return withNewExternalDocsLike(getExternalDocs());
   }
-  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> editOrNewExternalDocs() {
+  public V1JSONSchemaPropsFluentImpl.ExternalDocsNested<A> editOrNewExternalDocs() {
     return withNewExternalDocsLike(getExternalDocs() != null ? getExternalDocs(): new V1ExternalDocumentationBuilder().build());
   }
-  public V1JSONSchemaPropsFluent.ExternalDocsNested<A> editOrNewExternalDocsLike(V1ExternalDocumentation item) {
+  public V1JSONSchemaPropsFluentImpl.ExternalDocsNested<A> editOrNewExternalDocsLike(V1ExternalDocumentation item) {
     return withNewExternalDocsLike(getExternalDocs() != null ? getExternalDocs(): item);
   }
   public String getFormat() {
@@ -694,19 +660,19 @@ import java.util.Map;
   public Boolean hasNot() {
     return this.not != null;
   }
-  public V1JSONSchemaPropsFluent.NotNested<A> withNewNot() {
+  public V1JSONSchemaPropsFluentImpl.NotNested<A> withNewNot() {
     return new V1JSONSchemaPropsFluentImpl.NotNestedImpl();
   }
-  public V1JSONSchemaPropsFluent.NotNested<A> withNewNotLike(V1JSONSchemaProps item) {
+  public V1JSONSchemaPropsFluentImpl.NotNested<A> withNewNotLike(V1JSONSchemaProps item) {
     return new V1JSONSchemaPropsFluentImpl.NotNestedImpl(item);
   }
-  public V1JSONSchemaPropsFluent.NotNested<A> editNot() {
+  public V1JSONSchemaPropsFluentImpl.NotNested<A> editNot() {
     return withNewNotLike(getNot());
   }
-  public V1JSONSchemaPropsFluent.NotNested<A> editOrNewNot() {
+  public V1JSONSchemaPropsFluentImpl.NotNested<A> editOrNewNot() {
     return withNewNotLike(getNot() != null ? getNot(): new V1JSONSchemaPropsBuilder().build());
   }
-  public V1JSONSchemaPropsFluent.NotNested<A> editOrNewNotLike(V1JSONSchemaProps item) {
+  public V1JSONSchemaPropsFluentImpl.NotNested<A> editOrNewNotLike(V1JSONSchemaProps item) {
     return withNewNotLike(getNot() != null ? getNot(): item);
   }
   public Boolean getNullable() {
@@ -718,16 +684,17 @@ import java.util.Map;
   public Boolean hasNullable() {
     return this.nullable != null;
   }
-  public A addToOneOf(Integer index,V1JSONSchemaProps item) {
-    if (this.oneOf == null) {this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
-    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);_visitables.get("oneOf").add(index >= 0 ? index : _visitables.get("oneOf").size(), builder);this.oneOf.add(index >= 0 ? index : oneOf.size(), builder); return (A)this;
-  }
-  public A setToOneOf(Integer index,V1JSONSchemaProps item) {
+  public A addToOneOf(int index,V1JSONSchemaProps item) {
     if (this.oneOf == null) {this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
     V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
-    if (index < 0 || index >= _visitables.get("oneOf").size()) { _visitables.get("oneOf").add(builder); } else { _visitables.get("oneOf").set(index, builder);}
-    if (index < 0 || index >= oneOf.size()) { oneOf.add(builder); } else { oneOf.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= oneOf.size()) { _visitables.get("oneOf").add(builder); oneOf.add(builder); } else { _visitables.get("oneOf").add(index, builder); oneOf.add(index, builder);}
+    return (A)this;
+  }
+  public A setToOneOf(int index,V1JSONSchemaProps item) {
+    if (this.oneOf == null) {this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
+    V1JSONSchemaPropsBuilder builder = new V1JSONSchemaPropsBuilder(item);
+    if (index < 0 || index >= oneOf.size()) { _visitables.get("oneOf").add(builder); oneOf.add(builder); } else { _visitables.get("oneOf").set(index, builder); oneOf.set(index, builder);}
+    return (A)this;
   }
   public A addToOneOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... items) {
     if (this.oneOf == null) {this.oneOf = new ArrayList<V1JSONSchemaPropsBuilder>();}
@@ -768,7 +735,7 @@ import java.util.Map;
   public List<V1JSONSchemaProps> buildOneOf() {
     return oneOf != null ? build(oneOf) : null;
   }
-  public V1JSONSchemaProps buildOneOf(Integer index) {
+  public V1JSONSchemaProps buildOneOf(int index) {
     return this.oneOf.get(index).build();
   }
   public V1JSONSchemaProps buildFirstOneOf() {
@@ -784,39 +751,39 @@ import java.util.Map;
     for (V1JSONSchemaPropsBuilder item: oneOf) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withOneOf(List<V1JSONSchemaProps> oneOf) {
-    if (this.oneOf != null) { _visitables.get("oneOf").removeAll(this.oneOf);}
+    if (this.oneOf != null) { _visitables.get("oneOf").clear();}
     if (oneOf != null) {this.oneOf = new ArrayList(); for (V1JSONSchemaProps item : oneOf){this.addToOneOf(item);}} else { this.oneOf = null;} return (A) this;
   }
   public A withOneOf(io.kubernetes.client.openapi.models.V1JSONSchemaProps... oneOf) {
-    if (this.oneOf != null) {this.oneOf.clear();}
+    if (this.oneOf != null) {this.oneOf.clear(); _visitables.remove("oneOf"); }
     if (oneOf != null) {for (V1JSONSchemaProps item :oneOf){ this.addToOneOf(item);}} return (A) this;
   }
   public Boolean hasOneOf() {
     return oneOf != null && !oneOf.isEmpty();
   }
-  public V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOf() {
+  public V1JSONSchemaPropsFluentImpl.OneOfNested<A> addNewOneOf() {
     return new V1JSONSchemaPropsFluentImpl.OneOfNestedImpl();
   }
-  public V1JSONSchemaPropsFluent.OneOfNested<A> addNewOneOfLike(V1JSONSchemaProps item) {
+  public V1JSONSchemaPropsFluentImpl.OneOfNested<A> addNewOneOfLike(V1JSONSchemaProps item) {
     return new V1JSONSchemaPropsFluentImpl.OneOfNestedImpl(-1, item);
   }
-  public V1JSONSchemaPropsFluent.OneOfNested<A> setNewOneOfLike(Integer index,V1JSONSchemaProps item) {
+  public V1JSONSchemaPropsFluentImpl.OneOfNested<A> setNewOneOfLike(int index,V1JSONSchemaProps item) {
     return new V1JSONSchemaPropsFluentImpl.OneOfNestedImpl(index, item);
   }
-  public V1JSONSchemaPropsFluent.OneOfNested<A> editOneOf(Integer index) {
+  public V1JSONSchemaPropsFluentImpl.OneOfNested<A> editOneOf(int index) {
     if (oneOf.size() <= index) throw new RuntimeException("Can't edit oneOf. Index exceeds size.");
     return setNewOneOfLike(index, buildOneOf(index));
   }
-  public V1JSONSchemaPropsFluent.OneOfNested<A> editFirstOneOf() {
+  public V1JSONSchemaPropsFluentImpl.OneOfNested<A> editFirstOneOf() {
     if (oneOf.size() == 0) throw new RuntimeException("Can't edit first oneOf. The list is empty.");
     return setNewOneOfLike(0, buildOneOf(0));
   }
-  public V1JSONSchemaPropsFluent.OneOfNested<A> editLastOneOf() {
+  public V1JSONSchemaPropsFluentImpl.OneOfNested<A> editLastOneOf() {
     int index = oneOf.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last oneOf. The list is empty.");
     return setNewOneOfLike(index, buildOneOf(index));
   }
-  public V1JSONSchemaPropsFluent.OneOfNested<A> editMatchingOneOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
+  public V1JSONSchemaPropsFluentImpl.OneOfNested<A> editMatchingOneOf(Predicate<V1JSONSchemaPropsBuilder> predicate) {
     int index = -1;
     for (int i=0;i<oneOf.size();i++) { 
     if (predicate.test(oneOf.get(i))) {index = i; break;}
@@ -883,12 +850,12 @@ import java.util.Map;
   public Boolean hasProperties() {
     return this.properties != null;
   }
-  public A addToRequired(Integer index,String item) {
+  public A addToRequired(int index,String item) {
     if (this.required == null) {this.required = new ArrayList<String>();}
     this.required.add(index, item);
     return (A)this;
   }
-  public A setToRequired(Integer index,String item) {
+  public A setToRequired(int index,String item) {
     if (this.required == null) {this.required = new ArrayList<String>();}
     this.required.set(index, item); return (A)this;
   }
@@ -909,7 +876,7 @@ import java.util.Map;
   public List<String> getRequired() {
     return this.required;
   }
-  public String getRequired(Integer index) {
+  public String getRequired(int index) {
     return this.required.get(index);
   }
   public String getFirstRequired() {
@@ -928,7 +895,7 @@ import java.util.Map;
     if (required != null) {this.required = new ArrayList(); for (String item : required){this.addToRequired(item);}} else { this.required = null;} return (A) this;
   }
   public A withRequired(java.lang.String... required) {
-    if (this.required != null) {this.required.clear();}
+    if (this.required != null) {this.required.clear(); _visitables.remove("required"); }
     if (required != null) {for (String item :required){ this.addToRequired(item);}} return (A) this;
   }
   public Boolean hasRequired() {
@@ -964,44 +931,82 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1JSONSchemaPropsFluentImpl that = (V1JSONSchemaPropsFluentImpl) o;
-    if ($ref != null ? !$ref.equals(that.$ref) :that.$ref != null) return false;
-    if ($schema != null ? !$schema.equals(that.$schema) :that.$schema != null) return false;
-    if (additionalItems != null ? !additionalItems.equals(that.additionalItems) :that.additionalItems != null) return false;
-    if (additionalProperties != null ? !additionalProperties.equals(that.additionalProperties) :that.additionalProperties != null) return false;
-    if (allOf != null ? !allOf.equals(that.allOf) :that.allOf != null) return false;
-    if (anyOf != null ? !anyOf.equals(that.anyOf) :that.anyOf != null) return false;
-    if (_default != null ? !_default.equals(that._default) :that._default != null) return false;
-    if (definitions != null ? !definitions.equals(that.definitions) :that.definitions != null) return false;
-    if (dependencies != null ? !dependencies.equals(that.dependencies) :that.dependencies != null) return false;
-    if (description != null ? !description.equals(that.description) :that.description != null) return false;
-    if (_enum != null ? !_enum.equals(that._enum) :that._enum != null) return false;
-    if (example != null ? !example.equals(that.example) :that.example != null) return false;
-    if (exclusiveMaximum != null ? !exclusiveMaximum.equals(that.exclusiveMaximum) :that.exclusiveMaximum != null) return false;
-    if (exclusiveMinimum != null ? !exclusiveMinimum.equals(that.exclusiveMinimum) :that.exclusiveMinimum != null) return false;
-    if (externalDocs != null ? !externalDocs.equals(that.externalDocs) :that.externalDocs != null) return false;
-    if (format != null ? !format.equals(that.format) :that.format != null) return false;
-    if (id != null ? !id.equals(that.id) :that.id != null) return false;
-    if (items != null ? !items.equals(that.items) :that.items != null) return false;
-    if (maxItems != null ? !maxItems.equals(that.maxItems) :that.maxItems != null) return false;
-    if (maxLength != null ? !maxLength.equals(that.maxLength) :that.maxLength != null) return false;
-    if (maxProperties != null ? !maxProperties.equals(that.maxProperties) :that.maxProperties != null) return false;
-    if (maximum != null ? !maximum.equals(that.maximum) :that.maximum != null) return false;
-    if (minItems != null ? !minItems.equals(that.minItems) :that.minItems != null) return false;
-    if (minLength != null ? !minLength.equals(that.minLength) :that.minLength != null) return false;
-    if (minProperties != null ? !minProperties.equals(that.minProperties) :that.minProperties != null) return false;
-    if (minimum != null ? !minimum.equals(that.minimum) :that.minimum != null) return false;
-    if (multipleOf != null ? !multipleOf.equals(that.multipleOf) :that.multipleOf != null) return false;
-    if (not != null ? !not.equals(that.not) :that.not != null) return false;
-    if (nullable != null ? !nullable.equals(that.nullable) :that.nullable != null) return false;
-    if (oneOf != null ? !oneOf.equals(that.oneOf) :that.oneOf != null) return false;
-    if (pattern != null ? !pattern.equals(that.pattern) :that.pattern != null) return false;
-    if (patternProperties != null ? !patternProperties.equals(that.patternProperties) :that.patternProperties != null) return false;
-    if (properties != null ? !properties.equals(that.properties) :that.properties != null) return false;
-    if (required != null ? !required.equals(that.required) :that.required != null) return false;
-    if (title != null ? !title.equals(that.title) :that.title != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
-    if (uniqueItems != null ? !uniqueItems.equals(that.uniqueItems) :that.uniqueItems != null) return false;
+    if (!java.util.Objects.equals($ref, that.$ref)) return false;
+
+    if (!java.util.Objects.equals($schema, that.$schema)) return false;
+
+    if (!java.util.Objects.equals(additionalItems, that.additionalItems)) return false;
+
+    if (!java.util.Objects.equals(additionalProperties, that.additionalProperties)) return false;
+
+    if (!java.util.Objects.equals(allOf, that.allOf)) return false;
+
+    if (!java.util.Objects.equals(anyOf, that.anyOf)) return false;
+
+    if (!java.util.Objects.equals(_default, that._default)) return false;
+
+    if (!java.util.Objects.equals(definitions, that.definitions)) return false;
+
+    if (!java.util.Objects.equals(dependencies, that.dependencies)) return false;
+
+    if (!java.util.Objects.equals(description, that.description)) return false;
+
+    if (!java.util.Objects.equals(_enum, that._enum)) return false;
+
+    if (!java.util.Objects.equals(example, that.example)) return false;
+
+    if (!java.util.Objects.equals(exclusiveMaximum, that.exclusiveMaximum)) return false;
+
+    if (!java.util.Objects.equals(exclusiveMinimum, that.exclusiveMinimum)) return false;
+
+    if (!java.util.Objects.equals(externalDocs, that.externalDocs)) return false;
+
+    if (!java.util.Objects.equals(format, that.format)) return false;
+
+    if (!java.util.Objects.equals(id, that.id)) return false;
+
+    if (!java.util.Objects.equals(items, that.items)) return false;
+
+    if (!java.util.Objects.equals(maxItems, that.maxItems)) return false;
+
+    if (!java.util.Objects.equals(maxLength, that.maxLength)) return false;
+
+    if (!java.util.Objects.equals(maxProperties, that.maxProperties)) return false;
+
+    if (!java.util.Objects.equals(maximum, that.maximum)) return false;
+
+    if (!java.util.Objects.equals(minItems, that.minItems)) return false;
+
+    if (!java.util.Objects.equals(minLength, that.minLength)) return false;
+
+    if (!java.util.Objects.equals(minProperties, that.minProperties)) return false;
+
+    if (!java.util.Objects.equals(minimum, that.minimum)) return false;
+
+    if (!java.util.Objects.equals(multipleOf, that.multipleOf)) return false;
+
+    if (!java.util.Objects.equals(not, that.not)) return false;
+
+    if (!java.util.Objects.equals(nullable, that.nullable)) return false;
+
+    if (!java.util.Objects.equals(oneOf, that.oneOf)) return false;
+
+    if (!java.util.Objects.equals(pattern, that.pattern)) return false;
+
+    if (!java.util.Objects.equals(patternProperties, that.patternProperties)) return false;
+
+    if (!java.util.Objects.equals(properties, that.properties)) return false;
+
+    if (!java.util.Objects.equals(required, that.required)) return false;
+
+    if (!java.util.Objects.equals(title, that.title)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
+    if (!java.util.Objects.equals(uniqueItems, that.uniqueItems)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -1014,8 +1019,8 @@ import java.util.Map;
     if ($schema != null) { sb.append("$schema:"); sb.append($schema + ","); }
     if (additionalItems != null) { sb.append("additionalItems:"); sb.append(additionalItems + ","); }
     if (additionalProperties != null) { sb.append("additionalProperties:"); sb.append(additionalProperties + ","); }
-    if (allOf != null && !allOf.isEmpty()) { sb.append("allOf:"); sb.append(allOf + ","); }
-    if (anyOf != null && !anyOf.isEmpty()) { sb.append("anyOf:"); sb.append(anyOf + ","); }
+    if (allOf != null) { sb.append("allOf:"); sb.append(allOf + ","); }
+    if (anyOf != null) { sb.append("anyOf:"); sb.append(anyOf + ","); }
     if (_default != null) { sb.append("_default:"); sb.append(_default + ","); }
     if (definitions != null && !definitions.isEmpty()) { sb.append("definitions:"); sb.append(definitions + ","); }
     if (dependencies != null && !dependencies.isEmpty()) { sb.append("dependencies:"); sb.append(dependencies + ","); }
@@ -1039,7 +1044,7 @@ import java.util.Map;
     if (multipleOf != null) { sb.append("multipleOf:"); sb.append(multipleOf + ","); }
     if (not != null) { sb.append("not:"); sb.append(not + ","); }
     if (nullable != null) { sb.append("nullable:"); sb.append(nullable + ","); }
-    if (oneOf != null && !oneOf.isEmpty()) { sb.append("oneOf:"); sb.append(oneOf + ","); }
+    if (oneOf != null) { sb.append("oneOf:"); sb.append(oneOf + ","); }
     if (pattern != null) { sb.append("pattern:"); sb.append(pattern + ","); }
     if (patternProperties != null && !patternProperties.isEmpty()) { sb.append("patternProperties:"); sb.append(patternProperties + ","); }
     if (properties != null && !properties.isEmpty()) { sb.append("properties:"); sb.append(properties + ","); }
@@ -1062,8 +1067,8 @@ import java.util.Map;
   public A withUniqueItems() {
     return withUniqueItems(true);
   }
-  class AllOfNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.AllOfNested<N>> implements V1JSONSchemaPropsFluent.AllOfNested<N>,Nested<N>{
-    AllOfNestedImpl(Integer index,V1JSONSchemaProps item) {
+  class AllOfNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluentImpl.AllOfNested<N>> implements V1JSONSchemaPropsFluentImpl.AllOfNested<N>,Nested<N>{
+    AllOfNestedImpl(int index,V1JSONSchemaProps item) {
       this.index = index;
       this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
@@ -1072,7 +1077,7 @@ import java.util.Map;
       this.builder = new V1JSONSchemaPropsBuilder(this);
     }
     V1JSONSchemaPropsBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1JSONSchemaPropsFluentImpl.this.setToAllOf(index,builder.build());
     }
@@ -1081,8 +1086,8 @@ import java.util.Map;
     }
     
   }
-  class AnyOfNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.AnyOfNested<N>> implements V1JSONSchemaPropsFluent.AnyOfNested<N>,Nested<N>{
-    AnyOfNestedImpl(Integer index,V1JSONSchemaProps item) {
+  class AnyOfNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluentImpl.AnyOfNested<N>> implements V1JSONSchemaPropsFluentImpl.AnyOfNested<N>,Nested<N>{
+    AnyOfNestedImpl(int index,V1JSONSchemaProps item) {
       this.index = index;
       this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
@@ -1091,7 +1096,7 @@ import java.util.Map;
       this.builder = new V1JSONSchemaPropsBuilder(this);
     }
     V1JSONSchemaPropsBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1JSONSchemaPropsFluentImpl.this.setToAnyOf(index,builder.build());
     }
@@ -1100,7 +1105,7 @@ import java.util.Map;
     }
     
   }
-  class ExternalDocsNestedImpl<N> extends V1ExternalDocumentationFluentImpl<V1JSONSchemaPropsFluent.ExternalDocsNested<N>> implements V1JSONSchemaPropsFluent.ExternalDocsNested<N>,Nested<N>{
+  class ExternalDocsNestedImpl<N> extends V1ExternalDocumentationFluentImpl<V1JSONSchemaPropsFluentImpl.ExternalDocsNested<N>> implements V1JSONSchemaPropsFluentImpl.ExternalDocsNested<N>,Nested<N>{
     ExternalDocsNestedImpl(V1ExternalDocumentation item) {
       this.builder = new V1ExternalDocumentationBuilder(this, item);
     }
@@ -1116,7 +1121,7 @@ import java.util.Map;
     }
     
   }
-  class NotNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.NotNested<N>> implements V1JSONSchemaPropsFluent.NotNested<N>,Nested<N>{
+  class NotNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluentImpl.NotNested<N>> implements V1JSONSchemaPropsFluentImpl.NotNested<N>,Nested<N>{
     NotNestedImpl(V1JSONSchemaProps item) {
       this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
@@ -1132,8 +1137,8 @@ import java.util.Map;
     }
     
   }
-  class OneOfNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluent.OneOfNested<N>> implements V1JSONSchemaPropsFluent.OneOfNested<N>,Nested<N>{
-    OneOfNestedImpl(Integer index,V1JSONSchemaProps item) {
+  class OneOfNestedImpl<N> extends V1JSONSchemaPropsFluentImpl<V1JSONSchemaPropsFluentImpl.OneOfNested<N>> implements V1JSONSchemaPropsFluentImpl.OneOfNested<N>,Nested<N>{
+    OneOfNestedImpl(int index,V1JSONSchemaProps item) {
       this.index = index;
       this.builder = new V1JSONSchemaPropsBuilder(this, item);
     }
@@ -1142,7 +1147,7 @@ import java.util.Map;
       this.builder = new V1JSONSchemaPropsBuilder(this);
     }
     V1JSONSchemaPropsBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1JSONSchemaPropsFluentImpl.this.setToOneOf(index,builder.build());
     }

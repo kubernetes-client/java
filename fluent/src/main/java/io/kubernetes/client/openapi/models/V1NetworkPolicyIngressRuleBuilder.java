@@ -20,10 +20,10 @@ public class V1NetworkPolicyIngressRuleBuilder extends V1NetworkPolicyIngressRul
   }
   public V1NetworkPolicyIngressRuleBuilder(V1NetworkPolicyIngressRuleFluent<?> fluent,V1NetworkPolicyIngressRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFrom(instance.getFrom());
-
-    fluent.withPorts(instance.getPorts());
-
+    if (instance != null) {
+      fluent.withFrom(instance.getFrom());
+      fluent.withPorts(instance.getPorts());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NetworkPolicyIngressRuleBuilder(V1NetworkPolicyIngressRule instance) {
@@ -31,10 +31,10 @@ public class V1NetworkPolicyIngressRuleBuilder extends V1NetworkPolicyIngressRul
   }
   public V1NetworkPolicyIngressRuleBuilder(V1NetworkPolicyIngressRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFrom(instance.getFrom());
-
-    this.withPorts(instance.getPorts());
-
+    if (instance != null) {
+      this.withFrom(instance.getFrom());
+      this.withPorts(instance.getPorts());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NetworkPolicyIngressRuleFluent<?> fluent;

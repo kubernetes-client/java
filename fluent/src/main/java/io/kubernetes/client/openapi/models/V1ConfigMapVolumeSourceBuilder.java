@@ -20,14 +20,12 @@ public class V1ConfigMapVolumeSourceBuilder extends V1ConfigMapVolumeSourceFluen
   }
   public V1ConfigMapVolumeSourceBuilder(V1ConfigMapVolumeSourceFluent<?> fluent,V1ConfigMapVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDefaultMode(instance.getDefaultMode());
-
-    fluent.withItems(instance.getItems());
-
-    fluent.withName(instance.getName());
-
-    fluent.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      fluent.withDefaultMode(instance.getDefaultMode());
+      fluent.withItems(instance.getItems());
+      fluent.withName(instance.getName());
+      fluent.withOptional(instance.getOptional());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ConfigMapVolumeSourceBuilder(V1ConfigMapVolumeSource instance) {
@@ -35,14 +33,12 @@ public class V1ConfigMapVolumeSourceBuilder extends V1ConfigMapVolumeSourceFluen
   }
   public V1ConfigMapVolumeSourceBuilder(V1ConfigMapVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDefaultMode(instance.getDefaultMode());
-
-    this.withItems(instance.getItems());
-
-    this.withName(instance.getName());
-
-    this.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      this.withDefaultMode(instance.getDefaultMode());
+      this.withItems(instance.getItems());
+      this.withName(instance.getName());
+      this.withOptional(instance.getOptional());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ConfigMapVolumeSourceFluent<?> fluent;

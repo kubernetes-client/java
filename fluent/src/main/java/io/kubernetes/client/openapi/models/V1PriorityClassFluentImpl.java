@@ -17,20 +17,15 @@ import java.lang.Boolean;
   public V1PriorityClassFluentImpl() {
   }
   public V1PriorityClassFluentImpl(V1PriorityClass instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withDescription(instance.getDescription());
-
-    this.withGlobalDefault(instance.getGlobalDefault());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withPreemptionPolicy(instance.getPreemptionPolicy());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withDescription(instance.getDescription());
+      this.withGlobalDefault(instance.getGlobalDefault());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withPreemptionPolicy(instance.getPreemptionPolicy());
+      this.withValue(instance.getValue());
+    }
   }
   private String apiVersion;
   private String description;
@@ -94,19 +89,19 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1PriorityClassFluent.MetadataNested<A> withNewMetadata() {
+  public V1PriorityClassFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1PriorityClassFluentImpl.MetadataNestedImpl();
   }
-  public V1PriorityClassFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1PriorityClassFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1PriorityClassFluentImpl.MetadataNestedImpl(item);
   }
-  public V1PriorityClassFluent.MetadataNested<A> editMetadata() {
+  public V1PriorityClassFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1PriorityClassFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1PriorityClassFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1PriorityClassFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1PriorityClassFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   public String getPreemptionPolicy() {
@@ -130,14 +125,22 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PriorityClassFluentImpl that = (V1PriorityClassFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (description != null ? !description.equals(that.description) :that.description != null) return false;
-    if (globalDefault != null ? !globalDefault.equals(that.globalDefault) :that.globalDefault != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (preemptionPolicy != null ? !preemptionPolicy.equals(that.preemptionPolicy) :that.preemptionPolicy != null) return false;
-    if (value != null ? !value.equals(that.value) :that.value != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(description, that.description)) return false;
+
+    if (!java.util.Objects.equals(globalDefault, that.globalDefault)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(preemptionPolicy, that.preemptionPolicy)) return false;
+
+    if (!java.util.Objects.equals(value, that.value)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -159,7 +162,7 @@ import java.lang.Boolean;
   public A withGlobalDefault() {
     return withGlobalDefault(true);
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1PriorityClassFluent.MetadataNested<N>> implements V1PriorityClassFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1PriorityClassFluentImpl.MetadataNested<N>> implements V1PriorityClassFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }

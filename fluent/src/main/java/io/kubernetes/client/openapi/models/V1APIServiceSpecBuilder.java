@@ -20,20 +20,15 @@ public class V1APIServiceSpecBuilder extends V1APIServiceSpecFluentImpl<V1APISer
   }
   public V1APIServiceSpecBuilder(V1APIServiceSpecFluent<?> fluent,V1APIServiceSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCaBundle(instance.getCaBundle());
-
-    fluent.withGroup(instance.getGroup());
-
-    fluent.withGroupPriorityMinimum(instance.getGroupPriorityMinimum());
-
-    fluent.withInsecureSkipTLSVerify(instance.getInsecureSkipTLSVerify());
-
-    fluent.withService(instance.getService());
-
-    fluent.withVersion(instance.getVersion());
-
-    fluent.withVersionPriority(instance.getVersionPriority());
-
+    if (instance != null) {
+      fluent.withCaBundle(instance.getCaBundle());
+      fluent.withGroup(instance.getGroup());
+      fluent.withGroupPriorityMinimum(instance.getGroupPriorityMinimum());
+      fluent.withInsecureSkipTLSVerify(instance.getInsecureSkipTLSVerify());
+      fluent.withService(instance.getService());
+      fluent.withVersion(instance.getVersion());
+      fluent.withVersionPriority(instance.getVersionPriority());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1APIServiceSpecBuilder(V1APIServiceSpec instance) {
@@ -41,20 +36,15 @@ public class V1APIServiceSpecBuilder extends V1APIServiceSpecFluentImpl<V1APISer
   }
   public V1APIServiceSpecBuilder(V1APIServiceSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCaBundle(instance.getCaBundle());
-
-    this.withGroup(instance.getGroup());
-
-    this.withGroupPriorityMinimum(instance.getGroupPriorityMinimum());
-
-    this.withInsecureSkipTLSVerify(instance.getInsecureSkipTLSVerify());
-
-    this.withService(instance.getService());
-
-    this.withVersion(instance.getVersion());
-
-    this.withVersionPriority(instance.getVersionPriority());
-
+    if (instance != null) {
+      this.withCaBundle(instance.getCaBundle());
+      this.withGroup(instance.getGroup());
+      this.withGroupPriorityMinimum(instance.getGroupPriorityMinimum());
+      this.withInsecureSkipTLSVerify(instance.getInsecureSkipTLSVerify());
+      this.withService(instance.getService());
+      this.withVersion(instance.getVersion());
+      this.withVersionPriority(instance.getVersionPriority());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1APIServiceSpecFluent<?> fluent;

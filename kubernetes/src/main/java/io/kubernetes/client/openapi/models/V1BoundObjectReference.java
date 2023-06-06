@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,37 +12,39 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** BoundObjectReference is a reference to an object that a token is bound to. */
-@ApiModel(
-    description = "BoundObjectReference is a reference to an object that a token is bound to.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * BoundObjectReference is a reference to an object that a token is bound to.
+ */
+@ApiModel(description = "BoundObjectReference is a reference to an object that a token is bound to.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1BoundObjectReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
-
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
-
   @SerializedName(SERIALIZED_NAME_KIND)
   private String kind;
 
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_UID = "uid";
-
   @SerializedName(SERIALIZED_NAME_UID)
   private String uid;
+
 
   public V1BoundObjectReference apiVersion(String apiVersion) {
 
@@ -50,20 +52,22 @@ public class V1BoundObjectReference {
     return this;
   }
 
-  /**
+   /**
    * API version of the referent.
-   *
    * @return apiVersion
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "API version of the referent.")
+
   public String getApiVersion() {
     return apiVersion;
   }
 
+
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
+
 
   public V1BoundObjectReference kind(String kind) {
 
@@ -71,20 +75,22 @@ public class V1BoundObjectReference {
     return this;
   }
 
-  /**
+   /**
    * Kind of the referent. Valid kinds are &#39;Pod&#39; and &#39;Secret&#39;.
-   *
    * @return kind
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Kind of the referent. Valid kinds are 'Pod' and 'Secret'.")
+
   public String getKind() {
     return kind;
   }
 
+
   public void setKind(String kind) {
     this.kind = kind;
   }
+
 
   public V1BoundObjectReference name(String name) {
 
@@ -92,20 +98,22 @@ public class V1BoundObjectReference {
     return this;
   }
 
-  /**
+   /**
    * Name of the referent.
-   *
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Name of the referent.")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public V1BoundObjectReference uid(String uid) {
 
@@ -113,20 +121,22 @@ public class V1BoundObjectReference {
     return this;
   }
 
-  /**
+   /**
    * UID of the referent.
-   *
    * @return uid
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "UID of the referent.")
+
   public String getUid() {
     return uid;
   }
 
+
   public void setUid(String uid) {
     this.uid = uid;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -137,16 +147,17 @@ public class V1BoundObjectReference {
       return false;
     }
     V1BoundObjectReference v1BoundObjectReference = (V1BoundObjectReference) o;
-    return Objects.equals(this.apiVersion, v1BoundObjectReference.apiVersion)
-        && Objects.equals(this.kind, v1BoundObjectReference.kind)
-        && Objects.equals(this.name, v1BoundObjectReference.name)
-        && Objects.equals(this.uid, v1BoundObjectReference.uid);
+    return Objects.equals(this.apiVersion, v1BoundObjectReference.apiVersion) &&
+        Objects.equals(this.kind, v1BoundObjectReference.kind) &&
+        Objects.equals(this.name, v1BoundObjectReference.name) &&
+        Objects.equals(this.uid, v1BoundObjectReference.uid);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(apiVersion, kind, name, uid);
   }
+
 
   @Override
   public String toString() {
@@ -161,7 +172,8 @@ public class V1BoundObjectReference {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -169,4 +181,5 @@ public class V1BoundObjectReference {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

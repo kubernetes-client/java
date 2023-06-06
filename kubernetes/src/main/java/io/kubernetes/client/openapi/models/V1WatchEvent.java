@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** Event represents a single event to a watched resource. */
+/**
+ * Event represents a single event to a watched resource.
+ */
 @ApiModel(description = "Event represents a single event to a watched resource.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1WatchEvent {
   public static final String SERIALIZED_NAME_OBJECT = "object";
-
   @SerializedName(SERIALIZED_NAME_OBJECT)
   private Object _object;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
-
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+
 
   public V1WatchEvent _object(Object _object) {
 
@@ -39,24 +44,21 @@ public class V1WatchEvent {
     return this;
   }
 
-  /**
-   * Object is: * If Type is Added or Modified: the new state of the object. * If Type is Deleted:
-   * the state of the object immediately before deletion. * If Type is Error: *Status is
-   * recommended; other types may make sense depending on context.
-   *
+   /**
+   * Object is:  * If Type is Added or Modified: the new state of the object.  * If Type is Deleted: the state of the object immediately before deletion.  * If Type is Error: *Status is recommended; other types may make sense    depending on context.
    * @return _object
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Object is:  * If Type is Added or Modified: the new state of the object.  * If Type is Deleted: the state of the object immediately before deletion.  * If Type is Error: *Status is recommended; other types may make sense    depending on context.")
+  **/
+  @ApiModelProperty(required = true, value = "Object is:  * If Type is Added or Modified: the new state of the object.  * If Type is Deleted: the state of the object immediately before deletion.  * If Type is Error: *Status is recommended; other types may make sense    depending on context.")
+
   public Object getObject() {
     return _object;
   }
 
+
   public void setObject(Object _object) {
     this._object = _object;
   }
+
 
   public V1WatchEvent type(String type) {
 
@@ -64,19 +66,21 @@ public class V1WatchEvent {
     return this;
   }
 
-  /**
+   /**
    * Get type
-   *
    * @return type
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
+
   public String getType() {
     return type;
   }
 
+
   public void setType(String type) {
     this.type = type;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,14 +91,15 @@ public class V1WatchEvent {
       return false;
     }
     V1WatchEvent v1WatchEvent = (V1WatchEvent) o;
-    return Objects.equals(this._object, v1WatchEvent._object)
-        && Objects.equals(this.type, v1WatchEvent.type);
+    return Objects.equals(this._object, v1WatchEvent._object) &&
+        Objects.equals(this.type, v1WatchEvent.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(_object, type);
   }
+
 
   @Override
   public String toString() {
@@ -107,7 +112,8 @@ public class V1WatchEvent {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -115,4 +121,5 @@ public class V1WatchEvent {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

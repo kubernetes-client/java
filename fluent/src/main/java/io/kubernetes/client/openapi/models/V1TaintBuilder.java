@@ -20,14 +20,12 @@ public class V1TaintBuilder extends V1TaintFluentImpl<V1TaintBuilder> implements
   }
   public V1TaintBuilder(V1TaintFluent<?> fluent,V1Taint instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withEffect(instance.getEffect());
-
-    fluent.withKey(instance.getKey());
-
-    fluent.withTimeAdded(instance.getTimeAdded());
-
-    fluent.withValue(instance.getValue());
-
+    if (instance != null) {
+      fluent.withEffect(instance.getEffect());
+      fluent.withKey(instance.getKey());
+      fluent.withTimeAdded(instance.getTimeAdded());
+      fluent.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TaintBuilder(V1Taint instance) {
@@ -35,14 +33,12 @@ public class V1TaintBuilder extends V1TaintFluentImpl<V1TaintBuilder> implements
   }
   public V1TaintBuilder(V1Taint instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withEffect(instance.getEffect());
-
-    this.withKey(instance.getKey());
-
-    this.withTimeAdded(instance.getTimeAdded());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withEffect(instance.getEffect());
+      this.withKey(instance.getKey());
+      this.withTimeAdded(instance.getTimeAdded());
+      this.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TaintFluent<?> fluent;

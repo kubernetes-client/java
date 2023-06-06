@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -17,8 +17,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1SecretProjectionFluent<A extends V1SecretProjectionFluent<A>> extends Fluent<A>{
-  public A addToItems(Integer index,V1KeyToPath item);
-  public A setToItems(Integer index,V1KeyToPath item);
+  public A addToItems(int index,V1KeyToPath item);
+  public A setToItems(int index,V1KeyToPath item);
   public A addToItems(io.kubernetes.client.openapi.models.V1KeyToPath... items);
   public A addAllToItems(Collection<V1KeyToPath> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1KeyToPath... items);
@@ -32,7 +32,7 @@ public interface V1SecretProjectionFluent<A extends V1SecretProjectionFluent<A>>
   @Deprecated
   public List<V1KeyToPath> getItems();
   public List<V1KeyToPath> buildItems();
-  public V1KeyToPath buildItem(Integer index);
+  public V1KeyToPath buildItem(int index);
   public V1KeyToPath buildFirstItem();
   public V1KeyToPath buildLastItem();
   public V1KeyToPath buildMatchingItem(Predicate<V1KeyToPathBuilder> predicate);
@@ -42,8 +42,8 @@ public interface V1SecretProjectionFluent<A extends V1SecretProjectionFluent<A>>
   public Boolean hasItems();
   public V1SecretProjectionFluent.ItemsNested<A> addNewItem();
   public V1SecretProjectionFluent.ItemsNested<A> addNewItemLike(V1KeyToPath item);
-  public V1SecretProjectionFluent.ItemsNested<A> setNewItemLike(Integer index,V1KeyToPath item);
-  public V1SecretProjectionFluent.ItemsNested<A> editItem(Integer index);
+  public V1SecretProjectionFluent.ItemsNested<A> setNewItemLike(int index,V1KeyToPath item);
+  public V1SecretProjectionFluent.ItemsNested<A> editItem(int index);
   public V1SecretProjectionFluent.ItemsNested<A> editFirstItem();
   public V1SecretProjectionFluent.ItemsNested<A> editLastItem();
   public V1SecretProjectionFluent.ItemsNested<A> editMatchingItem(Predicate<V1KeyToPathBuilder> predicate);

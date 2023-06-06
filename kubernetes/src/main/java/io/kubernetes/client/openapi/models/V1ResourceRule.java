@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,43 +12,41 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * ResourceRule is the list of actions the subject is allowed to perform on resources. The list
- * ordering isn&#39;t significant, may contain duplicates, and possibly be incomplete.
+ * ResourceRule is the list of actions the subject is allowed to perform on resources. The list ordering isn&#39;t significant, may contain duplicates, and possibly be incomplete.
  */
-@ApiModel(
-    description =
-        "ResourceRule is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "ResourceRule is the list of actions the subject is allowed to perform on resources. The list ordering isn't significant, may contain duplicates, and possibly be incomplete.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1ResourceRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
-
   @SerializedName(SERIALIZED_NAME_API_GROUPS)
   private List<String> apiGroups = null;
 
   public static final String SERIALIZED_NAME_RESOURCE_NAMES = "resourceNames";
-
   @SerializedName(SERIALIZED_NAME_RESOURCE_NAMES)
   private List<String> resourceNames = null;
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
-
   @SerializedName(SERIALIZED_NAME_RESOURCES)
   private List<String> resources = null;
 
   public static final String SERIALIZED_NAME_VERBS = "verbs";
-
   @SerializedName(SERIALIZED_NAME_VERBS)
   private List<String> verbs = new ArrayList<>();
+
 
   public V1ResourceRule apiGroups(List<String> apiGroups) {
 
@@ -64,24 +62,22 @@ public class V1ResourceRule {
     return this;
   }
 
-  /**
-   * APIGroups is the name of the APIGroup that contains the resources. If multiple API groups are
-   * specified, any action requested against one of the enumerated resources in any API group will
-   * be allowed. \&quot;*\&quot; means all.
-   *
+   /**
+   * APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.  \&quot;*\&quot; means all.
    * @return apiGroups
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.  \"*\" means all.")
+  @ApiModelProperty(value = "APIGroups is the name of the APIGroup that contains the resources.  If multiple API groups are specified, any action requested against one of the enumerated resources in any API group will be allowed.  \"*\" means all.")
+
   public List<String> getApiGroups() {
     return apiGroups;
   }
 
+
   public void setApiGroups(List<String> apiGroups) {
     this.apiGroups = apiGroups;
   }
+
 
   public V1ResourceRule resourceNames(List<String> resourceNames) {
 
@@ -97,23 +93,22 @@ public class V1ResourceRule {
     return this;
   }
 
-  /**
-   * ResourceNames is an optional white list of names that the rule applies to. An empty set means
-   * that everything is allowed. \&quot;*\&quot; means all.
-   *
+   /**
+   * ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  \&quot;*\&quot; means all.
    * @return resourceNames
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  \"*\" means all.")
+  @ApiModelProperty(value = "ResourceNames is an optional white list of names that the rule applies to.  An empty set means that everything is allowed.  \"*\" means all.")
+
   public List<String> getResourceNames() {
     return resourceNames;
   }
 
+
   public void setResourceNames(List<String> resourceNames) {
     this.resourceNames = resourceNames;
   }
+
 
   public V1ResourceRule resources(List<String> resources) {
 
@@ -129,24 +124,22 @@ public class V1ResourceRule {
     return this;
   }
 
-  /**
-   * Resources is a list of resources this rule applies to. \&quot;*\&quot; means all in the
-   * specified apiGroups. \&quot;*_/foo\&quot; represents the subresource &#39;foo&#39; for all
-   * resources in the specified apiGroups.
-   *
+   /**
+   * Resources is a list of resources this rule applies to.  \&quot;*\&quot; means all in the specified apiGroups.  \&quot;*_/foo\&quot; represents the subresource &#39;foo&#39; for all resources in the specified apiGroups.
    * @return resources
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Resources is a list of resources this rule applies to.  \"*\" means all in the specified apiGroups.  \"*_/foo\" represents the subresource 'foo' for all resources in the specified apiGroups.")
+  @ApiModelProperty(value = "Resources is a list of resources this rule applies to.  \"*\" means all in the specified apiGroups.  \"*_/foo\" represents the subresource 'foo' for all resources in the specified apiGroups.")
+
   public List<String> getResources() {
     return resources;
   }
 
+
   public void setResources(List<String> resources) {
     this.resources = resources;
   }
+
 
   public V1ResourceRule verbs(List<String> verbs) {
 
@@ -159,23 +152,21 @@ public class V1ResourceRule {
     return this;
   }
 
-  /**
-   * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update,
-   * delete, proxy. \&quot;*\&quot; means all.
-   *
+   /**
+   * Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  \&quot;*\&quot; means all.
    * @return verbs
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.")
+  **/
+  @ApiModelProperty(required = true, value = "Verb is a list of kubernetes resource API verbs, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.")
+
   public List<String> getVerbs() {
     return verbs;
   }
 
+
   public void setVerbs(List<String> verbs) {
     this.verbs = verbs;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -186,16 +177,17 @@ public class V1ResourceRule {
       return false;
     }
     V1ResourceRule v1ResourceRule = (V1ResourceRule) o;
-    return Objects.equals(this.apiGroups, v1ResourceRule.apiGroups)
-        && Objects.equals(this.resourceNames, v1ResourceRule.resourceNames)
-        && Objects.equals(this.resources, v1ResourceRule.resources)
-        && Objects.equals(this.verbs, v1ResourceRule.verbs);
+    return Objects.equals(this.apiGroups, v1ResourceRule.apiGroups) &&
+        Objects.equals(this.resourceNames, v1ResourceRule.resourceNames) &&
+        Objects.equals(this.resources, v1ResourceRule.resources) &&
+        Objects.equals(this.verbs, v1ResourceRule.verbs);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(apiGroups, resourceNames, resources, verbs);
   }
+
 
   @Override
   public String toString() {
@@ -210,7 +202,8 @@ public class V1ResourceRule {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -218,4 +211,5 @@ public class V1ResourceRule {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

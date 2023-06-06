@@ -20,10 +20,10 @@ public class V1NodeAffinityBuilder extends V1NodeAffinityFluentImpl<V1NodeAffini
   }
   public V1NodeAffinityBuilder(V1NodeAffinityFluent<?> fluent,V1NodeAffinity instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
-
-    fluent.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
-
+    if (instance != null) {
+      fluent.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
+      fluent.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeAffinityBuilder(V1NodeAffinity instance) {
@@ -31,10 +31,10 @@ public class V1NodeAffinityBuilder extends V1NodeAffinityFluentImpl<V1NodeAffini
   }
   public V1NodeAffinityBuilder(V1NodeAffinity instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
-
-    this.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
-
+    if (instance != null) {
+      this.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
+      this.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeAffinityFluent<?> fluent;

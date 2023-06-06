@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -49,8 +50,8 @@ public interface V1beta2FlowSchemaSpecFluent<A extends V1beta2FlowSchemaSpecFlue
   public V1beta2FlowSchemaSpecFluent.PriorityLevelConfigurationNested<A> editPriorityLevelConfiguration();
   public V1beta2FlowSchemaSpecFluent.PriorityLevelConfigurationNested<A> editOrNewPriorityLevelConfiguration();
   public V1beta2FlowSchemaSpecFluent.PriorityLevelConfigurationNested<A> editOrNewPriorityLevelConfigurationLike(V1beta2PriorityLevelConfigurationReference item);
-  public A addToRules(Integer index,V1beta2PolicyRulesWithSubjects item);
-  public A setToRules(Integer index,V1beta2PolicyRulesWithSubjects item);
+  public A addToRules(int index,V1beta2PolicyRulesWithSubjects item);
+  public A setToRules(int index,V1beta2PolicyRulesWithSubjects item);
   public A addToRules(io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects... items);
   public A addAllToRules(Collection<V1beta2PolicyRulesWithSubjects> items);
   public A removeFromRules(io.kubernetes.client.openapi.models.V1beta2PolicyRulesWithSubjects... items);
@@ -64,7 +65,7 @@ public interface V1beta2FlowSchemaSpecFluent<A extends V1beta2FlowSchemaSpecFlue
   @Deprecated
   public List<V1beta2PolicyRulesWithSubjects> getRules();
   public List<V1beta2PolicyRulesWithSubjects> buildRules();
-  public V1beta2PolicyRulesWithSubjects buildRule(Integer index);
+  public V1beta2PolicyRulesWithSubjects buildRule(int index);
   public V1beta2PolicyRulesWithSubjects buildFirstRule();
   public V1beta2PolicyRulesWithSubjects buildLastRule();
   public V1beta2PolicyRulesWithSubjects buildMatchingRule(Predicate<V1beta2PolicyRulesWithSubjectsBuilder> predicate);
@@ -74,8 +75,8 @@ public interface V1beta2FlowSchemaSpecFluent<A extends V1beta2FlowSchemaSpecFlue
   public Boolean hasRules();
   public V1beta2FlowSchemaSpecFluent.RulesNested<A> addNewRule();
   public V1beta2FlowSchemaSpecFluent.RulesNested<A> addNewRuleLike(V1beta2PolicyRulesWithSubjects item);
-  public V1beta2FlowSchemaSpecFluent.RulesNested<A> setNewRuleLike(Integer index,V1beta2PolicyRulesWithSubjects item);
-  public V1beta2FlowSchemaSpecFluent.RulesNested<A> editRule(Integer index);
+  public V1beta2FlowSchemaSpecFluent.RulesNested<A> setNewRuleLike(int index,V1beta2PolicyRulesWithSubjects item);
+  public V1beta2FlowSchemaSpecFluent.RulesNested<A> editRule(int index);
   public V1beta2FlowSchemaSpecFluent.RulesNested<A> editFirstRule();
   public V1beta2FlowSchemaSpecFluent.RulesNested<A> editLastRule();
   public V1beta2FlowSchemaSpecFluent.RulesNested<A> editMatchingRule(Predicate<V1beta2PolicyRulesWithSubjectsBuilder> predicate);

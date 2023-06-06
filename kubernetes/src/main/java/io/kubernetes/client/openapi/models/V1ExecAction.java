@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,23 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** ExecAction describes a \&quot;run in container\&quot; action. */
+/**
+ * ExecAction describes a \&quot;run in container\&quot; action.
+ */
 @ApiModel(description = "ExecAction describes a \"run in container\" action.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1ExecAction {
   public static final String SERIALIZED_NAME_COMMAND = "command";
-
   @SerializedName(SERIALIZED_NAME_COMMAND)
   private List<String> command = null;
+
 
   public V1ExecAction command(List<String> command) {
 
@@ -44,26 +50,22 @@ public class V1ExecAction {
     return this;
   }
 
-  /**
-   * Command is the command line to execute inside the container, the working directory for the
-   * command is root (&#39;/&#39;) in the container&#39;s filesystem. The command is simply
-   * exec&#39;d, it is not run inside a shell, so traditional shell instructions (&#39;|&#39;, etc)
-   * won&#39;t work. To use a shell, you need to explicitly call out to that shell. Exit status of 0
-   * is treated as live/healthy and non-zero is unhealthy.
-   *
+   /**
+   * Command is the command line to execute inside the container, the working directory for the command  is root (&#39;/&#39;) in the container&#39;s filesystem. The command is simply exec&#39;d, it is not run inside a shell, so traditional shell instructions (&#39;|&#39;, etc) won&#39;t work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.
    * @return command
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.")
+  @ApiModelProperty(value = "Command is the command line to execute inside the container, the working directory for the command  is root ('/') in the container's filesystem. The command is simply exec'd, it is not run inside a shell, so traditional shell instructions ('|', etc) won't work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.")
+
   public List<String> getCommand() {
     return command;
   }
 
+
   public void setCommand(List<String> command) {
     this.command = command;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -82,6 +84,7 @@ public class V1ExecAction {
     return Objects.hash(command);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -92,7 +95,8 @@ public class V1ExecAction {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -100,4 +104,5 @@ public class V1ExecAction {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

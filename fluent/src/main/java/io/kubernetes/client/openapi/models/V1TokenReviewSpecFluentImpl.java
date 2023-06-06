@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,19 +18,19 @@ import java.lang.Boolean;
   public V1TokenReviewSpecFluentImpl() {
   }
   public V1TokenReviewSpecFluentImpl(V1TokenReviewSpec instance) {
-    this.withAudiences(instance.getAudiences());
-
-    this.withToken(instance.getToken());
-
+    if (instance != null) {
+      this.withAudiences(instance.getAudiences());
+      this.withToken(instance.getToken());
+    }
   }
   private List<String> audiences;
   private String token;
-  public A addToAudiences(Integer index,String item) {
+  public A addToAudiences(int index,String item) {
     if (this.audiences == null) {this.audiences = new ArrayList<String>();}
     this.audiences.add(index, item);
     return (A)this;
   }
-  public A setToAudiences(Integer index,String item) {
+  public A setToAudiences(int index,String item) {
     if (this.audiences == null) {this.audiences = new ArrayList<String>();}
     this.audiences.set(index, item); return (A)this;
   }
@@ -52,7 +51,7 @@ import java.lang.Boolean;
   public List<String> getAudiences() {
     return this.audiences;
   }
-  public String getAudience(Integer index) {
+  public String getAudience(int index) {
     return this.audiences.get(index);
   }
   public String getFirstAudience() {
@@ -71,7 +70,7 @@ import java.lang.Boolean;
     if (audiences != null) {this.audiences = new ArrayList(); for (String item : audiences){this.addToAudiences(item);}} else { this.audiences = null;} return (A) this;
   }
   public A withAudiences(java.lang.String... audiences) {
-    if (this.audiences != null) {this.audiences.clear();}
+    if (this.audiences != null) {this.audiences.clear(); _visitables.remove("audiences"); }
     if (audiences != null) {for (String item :audiences){ this.addToAudiences(item);}} return (A) this;
   }
   public Boolean hasAudiences() {
@@ -89,9 +88,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1TokenReviewSpecFluentImpl that = (V1TokenReviewSpecFluentImpl) o;
-    if (audiences != null ? !audiences.equals(that.audiences) :that.audiences != null) return false;
-    if (token != null ? !token.equals(that.token) :that.token != null) return false;
+    if (!java.util.Objects.equals(audiences, that.audiences)) return false;
+
+    if (!java.util.Objects.equals(token, that.token)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -20,8 +20,9 @@ public class V1ScaleSpecBuilder extends V1ScaleSpecFluentImpl<V1ScaleSpecBuilder
   }
   public V1ScaleSpecBuilder(V1ScaleSpecFluent<?> fluent,V1ScaleSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withReplicas(instance.getReplicas());
-
+    if (instance != null) {
+      fluent.withReplicas(instance.getReplicas());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ScaleSpecBuilder(V1ScaleSpec instance) {
@@ -29,8 +30,9 @@ public class V1ScaleSpecBuilder extends V1ScaleSpecFluentImpl<V1ScaleSpecBuilder
   }
   public V1ScaleSpecBuilder(V1ScaleSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withReplicas(instance.getReplicas());
-
+    if (instance != null) {
+      this.withReplicas(instance.getReplicas());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ScaleSpecFluent<?> fluent;

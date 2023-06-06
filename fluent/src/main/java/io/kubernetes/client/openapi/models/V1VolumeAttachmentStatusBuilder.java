@@ -20,14 +20,12 @@ public class V1VolumeAttachmentStatusBuilder extends V1VolumeAttachmentStatusFlu
   }
   public V1VolumeAttachmentStatusBuilder(V1VolumeAttachmentStatusFluent<?> fluent,V1VolumeAttachmentStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAttachError(instance.getAttachError());
-
-    fluent.withAttached(instance.getAttached());
-
-    fluent.withAttachmentMetadata(instance.getAttachmentMetadata());
-
-    fluent.withDetachError(instance.getDetachError());
-
+    if (instance != null) {
+      fluent.withAttachError(instance.getAttachError());
+      fluent.withAttached(instance.getAttached());
+      fluent.withAttachmentMetadata(instance.getAttachmentMetadata());
+      fluent.withDetachError(instance.getDetachError());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeAttachmentStatusBuilder(V1VolumeAttachmentStatus instance) {
@@ -35,14 +33,12 @@ public class V1VolumeAttachmentStatusBuilder extends V1VolumeAttachmentStatusFlu
   }
   public V1VolumeAttachmentStatusBuilder(V1VolumeAttachmentStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAttachError(instance.getAttachError());
-
-    this.withAttached(instance.getAttached());
-
-    this.withAttachmentMetadata(instance.getAttachmentMetadata());
-
-    this.withDetachError(instance.getDetachError());
-
+    if (instance != null) {
+      this.withAttachError(instance.getAttachError());
+      this.withAttached(instance.getAttached());
+      this.withAttachmentMetadata(instance.getAttachmentMetadata());
+      this.withDetachError(instance.getDetachError());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeAttachmentStatusFluent<?> fluent;

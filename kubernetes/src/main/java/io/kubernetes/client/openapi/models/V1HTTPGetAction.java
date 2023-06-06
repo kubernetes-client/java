@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,44 +12,47 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.IntOrString;
+import io.kubernetes.client.openapi.models.V1HTTPHeader;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** HTTPGetAction describes an action based on HTTP Get requests. */
+/**
+ * HTTPGetAction describes an action based on HTTP Get requests.
+ */
 @ApiModel(description = "HTTPGetAction describes an action based on HTTP Get requests.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1HTTPGetAction {
   public static final String SERIALIZED_NAME_HOST = "host";
-
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
 
   public static final String SERIALIZED_NAME_HTTP_HEADERS = "httpHeaders";
-
   @SerializedName(SERIALIZED_NAME_HTTP_HEADERS)
   private List<V1HTTPHeader> httpHeaders = null;
 
   public static final String SERIALIZED_NAME_PATH = "path";
-
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
   public static final String SERIALIZED_NAME_PORT = "port";
-
   @SerializedName(SERIALIZED_NAME_PORT)
   private IntOrString port;
 
   public static final String SERIALIZED_NAME_SCHEME = "scheme";
-
   @SerializedName(SERIALIZED_NAME_SCHEME)
   private String scheme;
+
 
   public V1HTTPGetAction host(String host) {
 
@@ -57,23 +60,22 @@ public class V1HTTPGetAction {
     return this;
   }
 
-  /**
-   * Host name to connect to, defaults to the pod IP. You probably want to set \&quot;Host\&quot; in
-   * httpHeaders instead.
-   *
+   /**
+   * Host name to connect to, defaults to the pod IP. You probably want to set \&quot;Host\&quot; in httpHeaders instead.
    * @return host
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.")
+  @ApiModelProperty(value = "Host name to connect to, defaults to the pod IP. You probably want to set \"Host\" in httpHeaders instead.")
+
   public String getHost() {
     return host;
   }
 
+
   public void setHost(String host) {
     this.host = host;
   }
+
 
   public V1HTTPGetAction httpHeaders(List<V1HTTPHeader> httpHeaders) {
 
@@ -89,20 +91,22 @@ public class V1HTTPGetAction {
     return this;
   }
 
-  /**
+   /**
    * Custom headers to set in the request. HTTP allows repeated headers.
-   *
    * @return httpHeaders
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Custom headers to set in the request. HTTP allows repeated headers.")
+
   public List<V1HTTPHeader> getHttpHeaders() {
     return httpHeaders;
   }
 
+
   public void setHttpHeaders(List<V1HTTPHeader> httpHeaders) {
     this.httpHeaders = httpHeaders;
   }
+
 
   public V1HTTPGetAction path(String path) {
 
@@ -110,20 +114,22 @@ public class V1HTTPGetAction {
     return this;
   }
 
-  /**
+   /**
    * Path to access on the HTTP server.
-   *
    * @return path
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Path to access on the HTTP server.")
+
   public String getPath() {
     return path;
   }
 
+
   public void setPath(String path) {
     this.path = path;
   }
+
 
   public V1HTTPGetAction port(IntOrString port) {
 
@@ -131,24 +137,21 @@ public class V1HTTPGetAction {
     return this;
   }
 
-  /**
-   * IntOrString is a type that can hold an int32 or a string. When used in JSON or YAML marshalling
-   * and unmarshalling, it produces or consumes the inner type. This allows you to have, for
-   * example, a JSON field that can accept a name or number.
-   *
+   /**
+   * IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.
    * @return port
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
+  **/
+  @ApiModelProperty(required = true, value = "IntOrString is a type that can hold an int32 or a string.  When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type.  This allows you to have, for example, a JSON field that can accept a name or number.")
+
   public IntOrString getPort() {
     return port;
   }
 
+
   public void setPort(IntOrString port) {
     this.port = port;
   }
+
 
   public V1HTTPGetAction scheme(String scheme) {
 
@@ -156,20 +159,22 @@ public class V1HTTPGetAction {
     return this;
   }
 
-  /**
+   /**
    * Scheme to use for connecting to the host. Defaults to HTTP.
-   *
    * @return scheme
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Scheme to use for connecting to the host. Defaults to HTTP.  ")
+  @ApiModelProperty(value = "Scheme to use for connecting to the host. Defaults to HTTP.")
+
   public String getScheme() {
     return scheme;
   }
 
+
   public void setScheme(String scheme) {
     this.scheme = scheme;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -180,17 +185,18 @@ public class V1HTTPGetAction {
       return false;
     }
     V1HTTPGetAction v1HTTPGetAction = (V1HTTPGetAction) o;
-    return Objects.equals(this.host, v1HTTPGetAction.host)
-        && Objects.equals(this.httpHeaders, v1HTTPGetAction.httpHeaders)
-        && Objects.equals(this.path, v1HTTPGetAction.path)
-        && Objects.equals(this.port, v1HTTPGetAction.port)
-        && Objects.equals(this.scheme, v1HTTPGetAction.scheme);
+    return Objects.equals(this.host, v1HTTPGetAction.host) &&
+        Objects.equals(this.httpHeaders, v1HTTPGetAction.httpHeaders) &&
+        Objects.equals(this.path, v1HTTPGetAction.path) &&
+        Objects.equals(this.port, v1HTTPGetAction.port) &&
+        Objects.equals(this.scheme, v1HTTPGetAction.scheme);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(host, httpHeaders, path, port, scheme);
   }
+
 
   @Override
   public String toString() {
@@ -206,7 +212,8 @@ public class V1HTTPGetAction {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -214,4 +221,5 @@ public class V1HTTPGetAction {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

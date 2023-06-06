@@ -15,14 +15,12 @@ import java.lang.Boolean;
   public V1AWSElasticBlockStoreVolumeSourceFluentImpl() {
   }
   public V1AWSElasticBlockStoreVolumeSourceFluentImpl(V1AWSElasticBlockStoreVolumeSource instance) {
-    this.withFsType(instance.getFsType());
-
-    this.withPartition(instance.getPartition());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withVolumeID(instance.getVolumeID());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withPartition(instance.getPartition());
+      this.withReadOnly(instance.getReadOnly());
+      this.withVolumeID(instance.getVolumeID());
+    }
   }
   private String fsType;
   private Integer partition;
@@ -67,11 +65,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1AWSElasticBlockStoreVolumeSourceFluentImpl that = (V1AWSElasticBlockStoreVolumeSourceFluentImpl) o;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (partition != null ? !partition.equals(that.partition) :that.partition != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (volumeID != null ? !volumeID.equals(that.volumeID) :that.volumeID != null) return false;
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(partition, that.partition)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(volumeID, that.volumeID)) return false;
+
     return true;
   }
   public int hashCode() {

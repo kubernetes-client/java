@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1ServerAddressByClientCIDRFluentImpl() {
   }
   public V1ServerAddressByClientCIDRFluentImpl(V1ServerAddressByClientCIDR instance) {
-    this.withClientCIDR(instance.getClientCIDR());
-
-    this.withServerAddress(instance.getServerAddress());
-
+    if (instance != null) {
+      this.withClientCIDR(instance.getClientCIDR());
+      this.withServerAddress(instance.getServerAddress());
+    }
   }
   private String clientCIDR;
   private String serverAddress;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ServerAddressByClientCIDRFluentImpl that = (V1ServerAddressByClientCIDRFluentImpl) o;
-    if (clientCIDR != null ? !clientCIDR.equals(that.clientCIDR) :that.clientCIDR != null) return false;
-    if (serverAddress != null ? !serverAddress.equals(that.serverAddress) :that.serverAddress != null) return false;
+    if (!java.util.Objects.equals(clientCIDR, that.clientCIDR)) return false;
+
+    if (!java.util.Objects.equals(serverAddress, that.serverAddress)) return false;
+
     return true;
   }
   public int hashCode() {

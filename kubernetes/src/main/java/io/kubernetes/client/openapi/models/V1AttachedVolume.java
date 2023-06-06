@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** AttachedVolume describes a volume attached to a node */
+/**
+ * AttachedVolume describes a volume attached to a node
+ */
 @ApiModel(description = "AttachedVolume describes a volume attached to a node")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-06T21:27:39.914087Z[Etc/UTC]")
 public class V1AttachedVolume {
   public static final String SERIALIZED_NAME_DEVICE_PATH = "devicePath";
-
   @SerializedName(SERIALIZED_NAME_DEVICE_PATH)
   private String devicePath;
 
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
 
   public V1AttachedVolume devicePath(String devicePath) {
 
@@ -39,21 +44,21 @@ public class V1AttachedVolume {
     return this;
   }
 
-  /**
+   /**
    * DevicePath represents the device path where the volume should be available
-   *
    * @return devicePath
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "DevicePath represents the device path where the volume should be available")
+  **/
+  @ApiModelProperty(required = true, value = "DevicePath represents the device path where the volume should be available")
+
   public String getDevicePath() {
     return devicePath;
   }
 
+
   public void setDevicePath(String devicePath) {
     this.devicePath = devicePath;
   }
+
 
   public V1AttachedVolume name(String name) {
 
@@ -61,19 +66,21 @@ public class V1AttachedVolume {
     return this;
   }
 
-  /**
+   /**
    * Name of the attached volume
-   *
    * @return name
-   */
+  **/
   @ApiModelProperty(required = true, value = "Name of the attached volume")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,14 +91,15 @@ public class V1AttachedVolume {
       return false;
     }
     V1AttachedVolume v1AttachedVolume = (V1AttachedVolume) o;
-    return Objects.equals(this.devicePath, v1AttachedVolume.devicePath)
-        && Objects.equals(this.name, v1AttachedVolume.name);
+    return Objects.equals(this.devicePath, v1AttachedVolume.devicePath) &&
+        Objects.equals(this.name, v1AttachedVolume.name);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(devicePath, name);
   }
+
 
   @Override
   public String toString() {
@@ -104,7 +112,8 @@ public class V1AttachedVolume {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -112,4 +121,5 @@ public class V1AttachedVolume {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

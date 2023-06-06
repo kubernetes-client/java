@@ -25,44 +25,27 @@ import java.util.Map;
   public V1ServiceSpecFluentImpl() {
   }
   public V1ServiceSpecFluentImpl(V1ServiceSpec instance) {
-    this.withAllocateLoadBalancerNodePorts(instance.getAllocateLoadBalancerNodePorts());
-
-    this.withClusterIP(instance.getClusterIP());
-
-    this.withClusterIPs(instance.getClusterIPs());
-
-    this.withExternalIPs(instance.getExternalIPs());
-
-    this.withExternalName(instance.getExternalName());
-
-    this.withExternalTrafficPolicy(instance.getExternalTrafficPolicy());
-
-    this.withHealthCheckNodePort(instance.getHealthCheckNodePort());
-
-    this.withInternalTrafficPolicy(instance.getInternalTrafficPolicy());
-
-    this.withIpFamilies(instance.getIpFamilies());
-
-    this.withIpFamilyPolicy(instance.getIpFamilyPolicy());
-
-    this.withLoadBalancerClass(instance.getLoadBalancerClass());
-
-    this.withLoadBalancerIP(instance.getLoadBalancerIP());
-
-    this.withLoadBalancerSourceRanges(instance.getLoadBalancerSourceRanges());
-
-    this.withPorts(instance.getPorts());
-
-    this.withPublishNotReadyAddresses(instance.getPublishNotReadyAddresses());
-
-    this.withSelector(instance.getSelector());
-
-    this.withSessionAffinity(instance.getSessionAffinity());
-
-    this.withSessionAffinityConfig(instance.getSessionAffinityConfig());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withAllocateLoadBalancerNodePorts(instance.getAllocateLoadBalancerNodePorts());
+      this.withClusterIP(instance.getClusterIP());
+      this.withClusterIPs(instance.getClusterIPs());
+      this.withExternalIPs(instance.getExternalIPs());
+      this.withExternalName(instance.getExternalName());
+      this.withExternalTrafficPolicy(instance.getExternalTrafficPolicy());
+      this.withHealthCheckNodePort(instance.getHealthCheckNodePort());
+      this.withInternalTrafficPolicy(instance.getInternalTrafficPolicy());
+      this.withIpFamilies(instance.getIpFamilies());
+      this.withIpFamilyPolicy(instance.getIpFamilyPolicy());
+      this.withLoadBalancerClass(instance.getLoadBalancerClass());
+      this.withLoadBalancerIP(instance.getLoadBalancerIP());
+      this.withLoadBalancerSourceRanges(instance.getLoadBalancerSourceRanges());
+      this.withPorts(instance.getPorts());
+      this.withPublishNotReadyAddresses(instance.getPublishNotReadyAddresses());
+      this.withSelector(instance.getSelector());
+      this.withSessionAffinity(instance.getSessionAffinity());
+      this.withSessionAffinityConfig(instance.getSessionAffinityConfig());
+      this.withType(instance.getType());
+    }
   }
   private Boolean allocateLoadBalancerNodePorts;
   private String clusterIP;
@@ -101,12 +84,12 @@ import java.util.Map;
   public Boolean hasClusterIP() {
     return this.clusterIP != null;
   }
-  public A addToClusterIPs(Integer index,String item) {
+  public A addToClusterIPs(int index,String item) {
     if (this.clusterIPs == null) {this.clusterIPs = new ArrayList<String>();}
     this.clusterIPs.add(index, item);
     return (A)this;
   }
-  public A setToClusterIPs(Integer index,String item) {
+  public A setToClusterIPs(int index,String item) {
     if (this.clusterIPs == null) {this.clusterIPs = new ArrayList<String>();}
     this.clusterIPs.set(index, item); return (A)this;
   }
@@ -127,7 +110,7 @@ import java.util.Map;
   public List<String> getClusterIPs() {
     return this.clusterIPs;
   }
-  public String getClusterIP(Integer index) {
+  public String getClusterIP(int index) {
     return this.clusterIPs.get(index);
   }
   public String getFirstClusterIP() {
@@ -146,18 +129,18 @@ import java.util.Map;
     if (clusterIPs != null) {this.clusterIPs = new ArrayList(); for (String item : clusterIPs){this.addToClusterIPs(item);}} else { this.clusterIPs = null;} return (A) this;
   }
   public A withClusterIPs(java.lang.String... clusterIPs) {
-    if (this.clusterIPs != null) {this.clusterIPs.clear();}
+    if (this.clusterIPs != null) {this.clusterIPs.clear(); _visitables.remove("clusterIPs"); }
     if (clusterIPs != null) {for (String item :clusterIPs){ this.addToClusterIPs(item);}} return (A) this;
   }
   public Boolean hasClusterIPs() {
     return clusterIPs != null && !clusterIPs.isEmpty();
   }
-  public A addToExternalIPs(Integer index,String item) {
+  public A addToExternalIPs(int index,String item) {
     if (this.externalIPs == null) {this.externalIPs = new ArrayList<String>();}
     this.externalIPs.add(index, item);
     return (A)this;
   }
-  public A setToExternalIPs(Integer index,String item) {
+  public A setToExternalIPs(int index,String item) {
     if (this.externalIPs == null) {this.externalIPs = new ArrayList<String>();}
     this.externalIPs.set(index, item); return (A)this;
   }
@@ -178,7 +161,7 @@ import java.util.Map;
   public List<String> getExternalIPs() {
     return this.externalIPs;
   }
-  public String getExternalIP(Integer index) {
+  public String getExternalIP(int index) {
     return this.externalIPs.get(index);
   }
   public String getFirstExternalIP() {
@@ -197,7 +180,7 @@ import java.util.Map;
     if (externalIPs != null) {this.externalIPs = new ArrayList(); for (String item : externalIPs){this.addToExternalIPs(item);}} else { this.externalIPs = null;} return (A) this;
   }
   public A withExternalIPs(java.lang.String... externalIPs) {
-    if (this.externalIPs != null) {this.externalIPs.clear();}
+    if (this.externalIPs != null) {this.externalIPs.clear(); _visitables.remove("externalIPs"); }
     if (externalIPs != null) {for (String item :externalIPs){ this.addToExternalIPs(item);}} return (A) this;
   }
   public Boolean hasExternalIPs() {
@@ -239,12 +222,12 @@ import java.util.Map;
   public Boolean hasInternalTrafficPolicy() {
     return this.internalTrafficPolicy != null;
   }
-  public A addToIpFamilies(Integer index,String item) {
+  public A addToIpFamilies(int index,String item) {
     if (this.ipFamilies == null) {this.ipFamilies = new ArrayList<String>();}
     this.ipFamilies.add(index, item);
     return (A)this;
   }
-  public A setToIpFamilies(Integer index,String item) {
+  public A setToIpFamilies(int index,String item) {
     if (this.ipFamilies == null) {this.ipFamilies = new ArrayList<String>();}
     this.ipFamilies.set(index, item); return (A)this;
   }
@@ -265,7 +248,7 @@ import java.util.Map;
   public List<String> getIpFamilies() {
     return this.ipFamilies;
   }
-  public String getIpFamily(Integer index) {
+  public String getIpFamily(int index) {
     return this.ipFamilies.get(index);
   }
   public String getFirstIpFamily() {
@@ -284,7 +267,7 @@ import java.util.Map;
     if (ipFamilies != null) {this.ipFamilies = new ArrayList(); for (String item : ipFamilies){this.addToIpFamilies(item);}} else { this.ipFamilies = null;} return (A) this;
   }
   public A withIpFamilies(java.lang.String... ipFamilies) {
-    if (this.ipFamilies != null) {this.ipFamilies.clear();}
+    if (this.ipFamilies != null) {this.ipFamilies.clear(); _visitables.remove("ipFamilies"); }
     if (ipFamilies != null) {for (String item :ipFamilies){ this.addToIpFamilies(item);}} return (A) this;
   }
   public Boolean hasIpFamilies() {
@@ -317,12 +300,12 @@ import java.util.Map;
   public Boolean hasLoadBalancerIP() {
     return this.loadBalancerIP != null;
   }
-  public A addToLoadBalancerSourceRanges(Integer index,String item) {
+  public A addToLoadBalancerSourceRanges(int index,String item) {
     if (this.loadBalancerSourceRanges == null) {this.loadBalancerSourceRanges = new ArrayList<String>();}
     this.loadBalancerSourceRanges.add(index, item);
     return (A)this;
   }
-  public A setToLoadBalancerSourceRanges(Integer index,String item) {
+  public A setToLoadBalancerSourceRanges(int index,String item) {
     if (this.loadBalancerSourceRanges == null) {this.loadBalancerSourceRanges = new ArrayList<String>();}
     this.loadBalancerSourceRanges.set(index, item); return (A)this;
   }
@@ -343,7 +326,7 @@ import java.util.Map;
   public List<String> getLoadBalancerSourceRanges() {
     return this.loadBalancerSourceRanges;
   }
-  public String getLoadBalancerSourceRange(Integer index) {
+  public String getLoadBalancerSourceRange(int index) {
     return this.loadBalancerSourceRanges.get(index);
   }
   public String getFirstLoadBalancerSourceRange() {
@@ -362,22 +345,23 @@ import java.util.Map;
     if (loadBalancerSourceRanges != null) {this.loadBalancerSourceRanges = new ArrayList(); for (String item : loadBalancerSourceRanges){this.addToLoadBalancerSourceRanges(item);}} else { this.loadBalancerSourceRanges = null;} return (A) this;
   }
   public A withLoadBalancerSourceRanges(java.lang.String... loadBalancerSourceRanges) {
-    if (this.loadBalancerSourceRanges != null) {this.loadBalancerSourceRanges.clear();}
+    if (this.loadBalancerSourceRanges != null) {this.loadBalancerSourceRanges.clear(); _visitables.remove("loadBalancerSourceRanges"); }
     if (loadBalancerSourceRanges != null) {for (String item :loadBalancerSourceRanges){ this.addToLoadBalancerSourceRanges(item);}} return (A) this;
   }
   public Boolean hasLoadBalancerSourceRanges() {
     return loadBalancerSourceRanges != null && !loadBalancerSourceRanges.isEmpty();
   }
-  public A addToPorts(Integer index,V1ServicePort item) {
-    if (this.ports == null) {this.ports = new ArrayList<V1ServicePortBuilder>();}
-    V1ServicePortBuilder builder = new V1ServicePortBuilder(item);_visitables.get("ports").add(index >= 0 ? index : _visitables.get("ports").size(), builder);this.ports.add(index >= 0 ? index : ports.size(), builder); return (A)this;
-  }
-  public A setToPorts(Integer index,V1ServicePort item) {
+  public A addToPorts(int index,V1ServicePort item) {
     if (this.ports == null) {this.ports = new ArrayList<V1ServicePortBuilder>();}
     V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
-    if (index < 0 || index >= _visitables.get("ports").size()) { _visitables.get("ports").add(builder); } else { _visitables.get("ports").set(index, builder);}
-    if (index < 0 || index >= ports.size()) { ports.add(builder); } else { ports.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").add(index, builder); ports.add(index, builder);}
+    return (A)this;
+  }
+  public A setToPorts(int index,V1ServicePort item) {
+    if (this.ports == null) {this.ports = new ArrayList<V1ServicePortBuilder>();}
+    V1ServicePortBuilder builder = new V1ServicePortBuilder(item);
+    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").set(index, builder); ports.set(index, builder);}
+    return (A)this;
   }
   public A addToPorts(io.kubernetes.client.openapi.models.V1ServicePort... items) {
     if (this.ports == null) {this.ports = new ArrayList<V1ServicePortBuilder>();}
@@ -418,7 +402,7 @@ import java.util.Map;
   public List<V1ServicePort> buildPorts() {
     return ports != null ? build(ports) : null;
   }
-  public V1ServicePort buildPort(Integer index) {
+  public V1ServicePort buildPort(int index) {
     return this.ports.get(index).build();
   }
   public V1ServicePort buildFirstPort() {
@@ -434,39 +418,39 @@ import java.util.Map;
     for (V1ServicePortBuilder item: ports) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withPorts(List<V1ServicePort> ports) {
-    if (this.ports != null) { _visitables.get("ports").removeAll(this.ports);}
+    if (this.ports != null) { _visitables.get("ports").clear();}
     if (ports != null) {this.ports = new ArrayList(); for (V1ServicePort item : ports){this.addToPorts(item);}} else { this.ports = null;} return (A) this;
   }
   public A withPorts(io.kubernetes.client.openapi.models.V1ServicePort... ports) {
-    if (this.ports != null) {this.ports.clear();}
+    if (this.ports != null) {this.ports.clear(); _visitables.remove("ports"); }
     if (ports != null) {for (V1ServicePort item :ports){ this.addToPorts(item);}} return (A) this;
   }
   public Boolean hasPorts() {
     return ports != null && !ports.isEmpty();
   }
-  public V1ServiceSpecFluent.PortsNested<A> addNewPort() {
+  public V1ServiceSpecFluentImpl.PortsNested<A> addNewPort() {
     return new V1ServiceSpecFluentImpl.PortsNestedImpl();
   }
-  public V1ServiceSpecFluent.PortsNested<A> addNewPortLike(V1ServicePort item) {
+  public V1ServiceSpecFluentImpl.PortsNested<A> addNewPortLike(V1ServicePort item) {
     return new V1ServiceSpecFluentImpl.PortsNestedImpl(-1, item);
   }
-  public V1ServiceSpecFluent.PortsNested<A> setNewPortLike(Integer index,V1ServicePort item) {
+  public V1ServiceSpecFluentImpl.PortsNested<A> setNewPortLike(int index,V1ServicePort item) {
     return new V1ServiceSpecFluentImpl.PortsNestedImpl(index, item);
   }
-  public V1ServiceSpecFluent.PortsNested<A> editPort(Integer index) {
+  public V1ServiceSpecFluentImpl.PortsNested<A> editPort(int index) {
     if (ports.size() <= index) throw new RuntimeException("Can't edit ports. Index exceeds size.");
     return setNewPortLike(index, buildPort(index));
   }
-  public V1ServiceSpecFluent.PortsNested<A> editFirstPort() {
+  public V1ServiceSpecFluentImpl.PortsNested<A> editFirstPort() {
     if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
     return setNewPortLike(0, buildPort(0));
   }
-  public V1ServiceSpecFluent.PortsNested<A> editLastPort() {
+  public V1ServiceSpecFluentImpl.PortsNested<A> editLastPort() {
     int index = ports.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last ports. The list is empty.");
     return setNewPortLike(index, buildPort(index));
   }
-  public V1ServiceSpecFluent.PortsNested<A> editMatchingPort(Predicate<V1ServicePortBuilder> predicate) {
+  public V1ServiceSpecFluentImpl.PortsNested<A> editMatchingPort(Predicate<V1ServicePortBuilder> predicate) {
     int index = -1;
     for (int i=0;i<ports.size();i++) { 
     if (predicate.test(ports.get(i))) {index = i; break;}
@@ -536,19 +520,19 @@ import java.util.Map;
   public Boolean hasSessionAffinityConfig() {
     return this.sessionAffinityConfig != null;
   }
-  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> withNewSessionAffinityConfig() {
+  public V1ServiceSpecFluentImpl.SessionAffinityConfigNested<A> withNewSessionAffinityConfig() {
     return new V1ServiceSpecFluentImpl.SessionAffinityConfigNestedImpl();
   }
-  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> withNewSessionAffinityConfigLike(V1SessionAffinityConfig item) {
+  public V1ServiceSpecFluentImpl.SessionAffinityConfigNested<A> withNewSessionAffinityConfigLike(V1SessionAffinityConfig item) {
     return new V1ServiceSpecFluentImpl.SessionAffinityConfigNestedImpl(item);
   }
-  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> editSessionAffinityConfig() {
+  public V1ServiceSpecFluentImpl.SessionAffinityConfigNested<A> editSessionAffinityConfig() {
     return withNewSessionAffinityConfigLike(getSessionAffinityConfig());
   }
-  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> editOrNewSessionAffinityConfig() {
+  public V1ServiceSpecFluentImpl.SessionAffinityConfigNested<A> editOrNewSessionAffinityConfig() {
     return withNewSessionAffinityConfigLike(getSessionAffinityConfig() != null ? getSessionAffinityConfig(): new V1SessionAffinityConfigBuilder().build());
   }
-  public V1ServiceSpecFluent.SessionAffinityConfigNested<A> editOrNewSessionAffinityConfigLike(V1SessionAffinityConfig item) {
+  public V1ServiceSpecFluentImpl.SessionAffinityConfigNested<A> editOrNewSessionAffinityConfigLike(V1SessionAffinityConfig item) {
     return withNewSessionAffinityConfigLike(getSessionAffinityConfig() != null ? getSessionAffinityConfig(): item);
   }
   public String getType() {
@@ -563,26 +547,46 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ServiceSpecFluentImpl that = (V1ServiceSpecFluentImpl) o;
-    if (allocateLoadBalancerNodePorts != null ? !allocateLoadBalancerNodePorts.equals(that.allocateLoadBalancerNodePorts) :that.allocateLoadBalancerNodePorts != null) return false;
-    if (clusterIP != null ? !clusterIP.equals(that.clusterIP) :that.clusterIP != null) return false;
-    if (clusterIPs != null ? !clusterIPs.equals(that.clusterIPs) :that.clusterIPs != null) return false;
-    if (externalIPs != null ? !externalIPs.equals(that.externalIPs) :that.externalIPs != null) return false;
-    if (externalName != null ? !externalName.equals(that.externalName) :that.externalName != null) return false;
-    if (externalTrafficPolicy != null ? !externalTrafficPolicy.equals(that.externalTrafficPolicy) :that.externalTrafficPolicy != null) return false;
-    if (healthCheckNodePort != null ? !healthCheckNodePort.equals(that.healthCheckNodePort) :that.healthCheckNodePort != null) return false;
-    if (internalTrafficPolicy != null ? !internalTrafficPolicy.equals(that.internalTrafficPolicy) :that.internalTrafficPolicy != null) return false;
-    if (ipFamilies != null ? !ipFamilies.equals(that.ipFamilies) :that.ipFamilies != null) return false;
-    if (ipFamilyPolicy != null ? !ipFamilyPolicy.equals(that.ipFamilyPolicy) :that.ipFamilyPolicy != null) return false;
-    if (loadBalancerClass != null ? !loadBalancerClass.equals(that.loadBalancerClass) :that.loadBalancerClass != null) return false;
-    if (loadBalancerIP != null ? !loadBalancerIP.equals(that.loadBalancerIP) :that.loadBalancerIP != null) return false;
-    if (loadBalancerSourceRanges != null ? !loadBalancerSourceRanges.equals(that.loadBalancerSourceRanges) :that.loadBalancerSourceRanges != null) return false;
-    if (ports != null ? !ports.equals(that.ports) :that.ports != null) return false;
-    if (publishNotReadyAddresses != null ? !publishNotReadyAddresses.equals(that.publishNotReadyAddresses) :that.publishNotReadyAddresses != null) return false;
-    if (selector != null ? !selector.equals(that.selector) :that.selector != null) return false;
-    if (sessionAffinity != null ? !sessionAffinity.equals(that.sessionAffinity) :that.sessionAffinity != null) return false;
-    if (sessionAffinityConfig != null ? !sessionAffinityConfig.equals(that.sessionAffinityConfig) :that.sessionAffinityConfig != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(allocateLoadBalancerNodePorts, that.allocateLoadBalancerNodePorts)) return false;
+
+    if (!java.util.Objects.equals(clusterIP, that.clusterIP)) return false;
+
+    if (!java.util.Objects.equals(clusterIPs, that.clusterIPs)) return false;
+
+    if (!java.util.Objects.equals(externalIPs, that.externalIPs)) return false;
+
+    if (!java.util.Objects.equals(externalName, that.externalName)) return false;
+
+    if (!java.util.Objects.equals(externalTrafficPolicy, that.externalTrafficPolicy)) return false;
+
+    if (!java.util.Objects.equals(healthCheckNodePort, that.healthCheckNodePort)) return false;
+
+    if (!java.util.Objects.equals(internalTrafficPolicy, that.internalTrafficPolicy)) return false;
+
+    if (!java.util.Objects.equals(ipFamilies, that.ipFamilies)) return false;
+
+    if (!java.util.Objects.equals(ipFamilyPolicy, that.ipFamilyPolicy)) return false;
+
+    if (!java.util.Objects.equals(loadBalancerClass, that.loadBalancerClass)) return false;
+
+    if (!java.util.Objects.equals(loadBalancerIP, that.loadBalancerIP)) return false;
+
+    if (!java.util.Objects.equals(loadBalancerSourceRanges, that.loadBalancerSourceRanges)) return false;
+
+    if (!java.util.Objects.equals(ports, that.ports)) return false;
+
+    if (!java.util.Objects.equals(publishNotReadyAddresses, that.publishNotReadyAddresses)) return false;
+
+    if (!java.util.Objects.equals(selector, that.selector)) return false;
+
+    if (!java.util.Objects.equals(sessionAffinity, that.sessionAffinity)) return false;
+
+    if (!java.util.Objects.equals(sessionAffinityConfig, that.sessionAffinityConfig)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -604,7 +608,7 @@ import java.util.Map;
     if (loadBalancerClass != null) { sb.append("loadBalancerClass:"); sb.append(loadBalancerClass + ","); }
     if (loadBalancerIP != null) { sb.append("loadBalancerIP:"); sb.append(loadBalancerIP + ","); }
     if (loadBalancerSourceRanges != null && !loadBalancerSourceRanges.isEmpty()) { sb.append("loadBalancerSourceRanges:"); sb.append(loadBalancerSourceRanges + ","); }
-    if (ports != null && !ports.isEmpty()) { sb.append("ports:"); sb.append(ports + ","); }
+    if (ports != null) { sb.append("ports:"); sb.append(ports + ","); }
     if (publishNotReadyAddresses != null) { sb.append("publishNotReadyAddresses:"); sb.append(publishNotReadyAddresses + ","); }
     if (selector != null && !selector.isEmpty()) { sb.append("selector:"); sb.append(selector + ","); }
     if (sessionAffinity != null) { sb.append("sessionAffinity:"); sb.append(sessionAffinity + ","); }
@@ -619,8 +623,8 @@ import java.util.Map;
   public A withPublishNotReadyAddresses() {
     return withPublishNotReadyAddresses(true);
   }
-  class PortsNestedImpl<N> extends V1ServicePortFluentImpl<V1ServiceSpecFluent.PortsNested<N>> implements V1ServiceSpecFluent.PortsNested<N>,Nested<N>{
-    PortsNestedImpl(Integer index,V1ServicePort item) {
+  class PortsNestedImpl<N> extends V1ServicePortFluentImpl<V1ServiceSpecFluentImpl.PortsNested<N>> implements V1ServiceSpecFluentImpl.PortsNested<N>,Nested<N>{
+    PortsNestedImpl(int index,V1ServicePort item) {
       this.index = index;
       this.builder = new V1ServicePortBuilder(this, item);
     }
@@ -629,7 +633,7 @@ import java.util.Map;
       this.builder = new V1ServicePortBuilder(this);
     }
     V1ServicePortBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ServiceSpecFluentImpl.this.setToPorts(index,builder.build());
     }
@@ -638,7 +642,7 @@ import java.util.Map;
     }
     
   }
-  class SessionAffinityConfigNestedImpl<N> extends V1SessionAffinityConfigFluentImpl<V1ServiceSpecFluent.SessionAffinityConfigNested<N>> implements V1ServiceSpecFluent.SessionAffinityConfigNested<N>,Nested<N>{
+  class SessionAffinityConfigNestedImpl<N> extends V1SessionAffinityConfigFluentImpl<V1ServiceSpecFluentImpl.SessionAffinityConfigNested<N>> implements V1ServiceSpecFluentImpl.SessionAffinityConfigNested<N>,Nested<N>{
     SessionAffinityConfigNestedImpl(V1SessionAffinityConfig item) {
       this.builder = new V1SessionAffinityConfigBuilder(this, item);
     }
