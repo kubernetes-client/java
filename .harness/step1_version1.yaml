@@ -8,7 +8,7 @@ template:
   tags: {}
   spec:
     type: K8sRollingDeploy
-    timeout: 10m
+    timeout: 10h
     spec:
       skipDryRun: false
       pruningEnabled: false
