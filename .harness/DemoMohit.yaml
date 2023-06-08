@@ -1,5 +1,5 @@
 pipeline:
-  name: DemoMohit
+  name: DemoMohits
   identifier: DemoMohit
   tags: {}
   stages:
