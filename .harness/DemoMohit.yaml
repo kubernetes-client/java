@@ -1,0 +1,49 @@
+pipeline:
+  name: DemoMohit
+  identifier: DemoMohit
+  tags: {}
+  stages:
+    - stage:
+        name: stage1
+        identifier: stage1
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: svc22
+          environment:
+            environmentRef: env1
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: infra1
+          execution:
+            steps:
+              - step:
+                  type: Wait
+                  name: Wait_1
+                  identifier: Wait_1
+                  spec:
+                    duration: 10m
+              - step:
+                  name: tw3
+                  identifier: tw3
+                  template:
+                    templateRef: step1
+                    versionLabel: version1
+            rollbackSteps:
+              - step:
+                  type: Wait
+                  name: Wait_2
+                  identifier: Wait_2
+                  spec:
+                    duration: 10m
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
+  projectIdentifier: sahiltest
+  orgIdentifier: default
