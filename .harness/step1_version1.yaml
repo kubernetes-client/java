@@ -1,0 +1,14 @@
+template:
+  name: step1
+  identifier: step1
+  versionLabel: version1
+  type: Step
+  projectIdentifier: sahiltest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: K8sRollingDeploy
+    timeout: 10m
+    spec:
+      skipDryRun: false
+      pruningEnabled: false
