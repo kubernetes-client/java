@@ -14,6 +14,8 @@ package io.kubernetes.client.extended.workqueue;
 
 import io.kubernetes.client.extended.workqueue.ratelimiter.DefaultControllerRateLimiter;
 import io.kubernetes.client.extended.workqueue.ratelimiter.RateLimiter;
+
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -49,5 +51,11 @@ public class DefaultRateLimitingQueue<T> extends DefaultDelayingQueue<T>
   @Override
   public void addRateLimited(T item) {
     super.addAfter(item, rateLimiter.when(item));
+  }
+
+
+  @Override
+  public Set<T> getItemsNeedToBeProcessed() {
+    return getDirtySet();
   }
 }
