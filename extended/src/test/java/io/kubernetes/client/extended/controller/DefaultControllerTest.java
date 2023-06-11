@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.extended.controller;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
@@ -64,7 +65,7 @@ public class DefaultControllerTest {
   @Test(timeout = 90000)
   public void testStartingStoppingController() throws InterruptedException {
 
-    DefaultController testController = new DefaultController("", mockReconciler, workQueue);
+    DefaultController testController = new DefaultController("", mockReconciler, workQueue, null);
 
     testController.setWorkerCount(1);
     testController.setWorkerThreadPool(Executors.newScheduledThreadPool(1));
@@ -120,7 +121,7 @@ public class DefaultControllerTest {
     latch.acquire();
     AtomicBoolean ready = new AtomicBoolean(false);
     DefaultController testController =
-        new DefaultController("", mockReconciler, workQueue, () -> ready.get());
+        new DefaultController("", mockReconciler, workQueue, null, (Runnable) null, () -> ready.get());
     testController.setWorkerCount(1);
     testController.setWorkerThreadPool(Executors.newScheduledThreadPool(1));
     testController.setReadyCheckInternal(Duration.ofMillis(100));
@@ -164,7 +165,8 @@ public class DefaultControllerTest {
                 }
               }
             },
-            workQueue);
+            workQueue,
+            null);
     testController.setWorkerCount(1);
     testController.setWorkerThreadPool(Executors.newScheduledThreadPool(1));
 
@@ -184,4 +186,63 @@ public class DefaultControllerTest {
     assertTrue(resumed.get());
     assertTrue(finishedRequests.size() >= 1);
   }
+
+  @Test(timeout = 90000)
+  public void testControllerTriggersInitialCatchUpCompleteHandlerWhenReconcilerCaughtUp()
+          throws InterruptedException {
+    final Semaphore handlerLatch = new Semaphore(1);
+    Runnable initialCatchUpCompleteHandler = spy(new Runnable() {
+      @Override
+      public void run() {
+        handlerLatch.release();
+      }
+    });
+    handlerLatch.acquire();
+
+    DefaultController testController = new DefaultController("", mockReconciler, workQueue,
+                                                             initialCatchUpCompleteHandler);
+
+    testController.setWorkerCount(1);
+    testController.setWorkerThreadPool(Executors.newScheduledThreadPool(1));
+
+    Request request1 = new Request("test1");
+    final Semaphore latch = new Semaphore(1);
+    latch.acquire();
+    when(mockReconciler.reconcile(any()))
+            .thenAnswer(
+                    (Answer<Result>) invocation -> {
+                      latch.release();
+                      return new Result(false);
+                    });
+
+    workQueue.add(request1);
+    verify(mockReconciler, times(0)).reconcile(request1);
+    verify(initialCatchUpCompleteHandler, times(0)).run();
+
+    controllerThead.submit(testController::run);
+    latch.acquire();
+    verify(mockReconciler, times(1)).reconcile(request1);
+
+    handlerLatch.acquire();
+    verify(initialCatchUpCompleteHandler, times(1)).run();
+    reset(initialCatchUpCompleteHandler);
+
+    Request request2 = new Request("test2");
+    verify(mockReconciler, times(0)).reconcile(request2);
+    workQueue.add(request2);
+
+    verify(mockReconciler, times(1)).reconcile(request2);
+    // Sleeps to make sure the handler isn't called.
+    cooldown();
+    verify(initialCatchUpCompleteHandler, times(0)).run();
+
+    testController.shutdown();
+
+    // Make sure the handler is called immediately if there is nothing to reconcile
+    assertEquals(0, workQueue.length());
+    controllerThead.submit(testController::run);
+    handlerLatch.acquire();
+    verify(initialCatchUpCompleteHandler, times(1)).run();
+  }
+
 }
