@@ -59,7 +59,7 @@ public class PatchExample {
               .deserialize(jsonDeploymentStr, V1Deployment.class);
 
       // create a deployment
-      V1Deployment deploy1 = api.createNamespacedDeployment("default", body, null, null, null);
+      V1Deployment deploy1 = api.createNamespacedDeployment("default", body, null, null, null, null);
       System.out.println("original deployment" + deploy1);
 
       // json-patch a deployment
@@ -73,6 +73,7 @@ public class PatchExample {
                       new V1Patch(jsonPatchStr),
                       null,
                       null,
+                          null,
                       null, // field-manager is optional
                       null,
                       null),
@@ -89,6 +90,7 @@ public class PatchExample {
                       "hello-node",
                       "default",
                       new V1Patch(strategicMergePatchStr),
+                      null,
                       null,
                       null,
                       null, // field-manager is optional
@@ -112,8 +114,9 @@ public class PatchExample {
                       null,
                       null,
                       "example-field-manager", // field-manager is required for server-side apply
+                          null,
                       true,
-                      null),
+                          null),
               V1Patch.PATCH_FORMAT_APPLY_YAML,
               api.getApiClient());
       System.out.println("application/apply-patch+yaml deployment" + deploy4);

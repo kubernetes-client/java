@@ -240,7 +240,7 @@ public class ExpandedExample {
             V1DeploymentSpec newSpec = deploy.getSpec().replicas(numberOfReplicas);
             V1Deployment newDeploy = deploy.spec(newSpec);
             appsV1Api.replaceNamespacedDeployment(
-                deploymentName, DEFAULT_NAME_SPACE, newDeploy, null, null, null);
+                deploymentName, DEFAULT_NAME_SPACE, newDeploy, null, null, null, null);
           } catch (ApiException ex) {
             LOGGER.warn("Scale the pod failed for Deployment:" + deploymentName, ex);
           }

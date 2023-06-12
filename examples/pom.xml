@@ -15,9 +15,9 @@
 	<name>client-java-examples-parent</name>
 
 	<modules>
-		<module>examples-release-13</module>
-		<module>examples-release-14</module>
-		<module>examples-release-15</module>
+		<module>examples-release-16</module>
+		<module>examples-release-17</module>
+		<module>examples-release-18</module>
 	</modules>
 
 	<build>

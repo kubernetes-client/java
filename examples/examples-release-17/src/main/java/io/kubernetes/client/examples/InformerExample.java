@@ -93,7 +93,7 @@ public class InformerExample {
     V1ObjectMeta metadata = new V1ObjectMeta();
     metadata.setName("noxu");
     nodeToCreate.setMetadata(metadata);
-    V1Node createdNode = coreV1Api.createNode(nodeToCreate, null, null, null);
+    V1Node createdNode = coreV1Api.createNode(nodeToCreate, null, null, null, null);
     Thread.sleep(3000);
 
     Lister<V1Node> nodeLister = new Lister<V1Node>(nodeInformer.getIndexer());

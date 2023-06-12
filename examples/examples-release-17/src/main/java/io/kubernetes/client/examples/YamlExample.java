@@ -90,11 +90,11 @@ public class YamlExample {
     // Deployment and StatefulSet is defined in apps/v1, so you should use AppsV1Api instead of
     // CoreV1API
     CoreV1Api api = new CoreV1Api();
-    V1Service createResult = api.createNamespacedService("default", yamlSvc, null, null, null);
+    V1Service createResult = api.createNamespacedService("default", yamlSvc, null, null, null, null);
 
     System.out.println(createResult);
 
-    V1Status deleteResult =
+    V1Service deleteResult =
         api.deleteNamespacedService(
             yamlSvc.getMetadata().getName(),
             "default",
