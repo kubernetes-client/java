@@ -29,7 +29,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: echo '<+configFile.getAsString("test")>'
+                        script: echo '<+configFile.getAsString("/test")>'
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
