@@ -20,17 +20,25 @@ pipeline:
           execution:
             steps:
               - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo '<+configFile.getAsString("test")>'
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+              - step:
                   type: Wait
                   name: Wait_1
                   identifier: Wait_1
                   spec:
                     duration: 10m
-              - step:
-                  name: tw3
-                  identifier: tw3
-                  template:
-                    templateRef: step1
-                    versionLabel: version1
             rollbackSteps:
               - step:
                   type: Wait
