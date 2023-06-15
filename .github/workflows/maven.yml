@@ -118,18 +118,12 @@ jobs:
           mvn clean install \
           -q \
           -Dmaven.test.skip=true
-      - name: Version 16
+      - name: Examples
         run: |
-          cd examples/examples-release-16
-          mvn clean install
-      - name: Version 17
-        run: |
-          cd examples/examples-release-17
-          mvn clean install
-      - name: Version 18
-        run: |
-          cd examples/examples-release-18
-          mvn clean install
+          for d in $(find examples* -maxdepth 1 -type d)
+          do
+            mvn clean install
+          done
   codegen:
     runs-on: ubuntu-latest
     services:
