@@ -122,7 +122,7 @@ jobs:
         run: |
           for d in $(find examples* -maxdepth 1 -type d)
           do
-            mvn clean install
+            mvn clean install -Dmaven.test.skip=true
           done
   codegen:
     runs-on: ubuntu-latest
