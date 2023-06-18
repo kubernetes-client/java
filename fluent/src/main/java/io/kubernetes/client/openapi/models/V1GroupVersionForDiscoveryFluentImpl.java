@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1GroupVersionForDiscoveryFluentImpl() {
   }
   public V1GroupVersionForDiscoveryFluentImpl(V1GroupVersionForDiscovery instance) {
-    this.withGroupVersion(instance.getGroupVersion());
-
-    this.withVersion(instance.getVersion());
-
+    if (instance != null) {
+      this.withGroupVersion(instance.getGroupVersion());
+      this.withVersion(instance.getVersion());
+    }
   }
   private String groupVersion;
   private String version;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1GroupVersionForDiscoveryFluentImpl that = (V1GroupVersionForDiscoveryFluentImpl) o;
-    if (groupVersion != null ? !groupVersion.equals(that.groupVersion) :that.groupVersion != null) return false;
-    if (version != null ? !version.equals(that.version) :that.version != null) return false;
+    if (!java.util.Objects.equals(groupVersion, that.groupVersion)) return false;
+
+    if (!java.util.Objects.equals(version, that.version)) return false;
+
     return true;
   }
   public int hashCode() {

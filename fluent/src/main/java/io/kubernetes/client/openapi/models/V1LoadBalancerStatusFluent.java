@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -16,8 +16,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1LoadBalancerStatusFluent<A extends V1LoadBalancerStatusFluent<A>> extends Fluent<A>{
-  public A addToIngress(Integer index,V1LoadBalancerIngress item);
-  public A setToIngress(Integer index,V1LoadBalancerIngress item);
+  public A addToIngress(int index,V1LoadBalancerIngress item);
+  public A setToIngress(int index,V1LoadBalancerIngress item);
   public A addToIngress(io.kubernetes.client.openapi.models.V1LoadBalancerIngress... items);
   public A addAllToIngress(Collection<V1LoadBalancerIngress> items);
   public A removeFromIngress(io.kubernetes.client.openapi.models.V1LoadBalancerIngress... items);
@@ -31,7 +31,7 @@ public interface V1LoadBalancerStatusFluent<A extends V1LoadBalancerStatusFluent
   @Deprecated
   public List<V1LoadBalancerIngress> getIngress();
   public List<V1LoadBalancerIngress> buildIngress();
-  public V1LoadBalancerIngress buildIngress(Integer index);
+  public V1LoadBalancerIngress buildIngress(int index);
   public V1LoadBalancerIngress buildFirstIngress();
   public V1LoadBalancerIngress buildLastIngress();
   public V1LoadBalancerIngress buildMatchingIngress(Predicate<V1LoadBalancerIngressBuilder> predicate);
@@ -41,8 +41,8 @@ public interface V1LoadBalancerStatusFluent<A extends V1LoadBalancerStatusFluent
   public Boolean hasIngress();
   public V1LoadBalancerStatusFluent.IngressNested<A> addNewIngress();
   public V1LoadBalancerStatusFluent.IngressNested<A> addNewIngressLike(V1LoadBalancerIngress item);
-  public V1LoadBalancerStatusFluent.IngressNested<A> setNewIngressLike(Integer index,V1LoadBalancerIngress item);
-  public V1LoadBalancerStatusFluent.IngressNested<A> editIngress(Integer index);
+  public V1LoadBalancerStatusFluent.IngressNested<A> setNewIngressLike(int index,V1LoadBalancerIngress item);
+  public V1LoadBalancerStatusFluent.IngressNested<A> editIngress(int index);
   public V1LoadBalancerStatusFluent.IngressNested<A> editFirstIngress();
   public V1LoadBalancerStatusFluent.IngressNested<A> editLastIngress();
   public V1LoadBalancerStatusFluent.IngressNested<A> editMatchingIngress(Predicate<V1LoadBalancerIngressBuilder> predicate);

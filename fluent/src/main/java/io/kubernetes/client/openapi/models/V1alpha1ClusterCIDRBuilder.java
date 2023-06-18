@@ -20,14 +20,12 @@ public class V1alpha1ClusterCIDRBuilder extends V1alpha1ClusterCIDRFluentImpl<V1
   }
   public V1alpha1ClusterCIDRBuilder(V1alpha1ClusterCIDRFluent<?> fluent,V1alpha1ClusterCIDR instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1alpha1ClusterCIDRBuilder(V1alpha1ClusterCIDR instance) {
@@ -35,14 +33,12 @@ public class V1alpha1ClusterCIDRBuilder extends V1alpha1ClusterCIDRFluentImpl<V1
   }
   public V1alpha1ClusterCIDRBuilder(V1alpha1ClusterCIDR instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1alpha1ClusterCIDRFluent<?> fluent;

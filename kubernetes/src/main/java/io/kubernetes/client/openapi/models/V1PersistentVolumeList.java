@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,38 +12,43 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1ListMeta;
+import io.kubernetes.client.openapi.models.V1PersistentVolume;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** PersistentVolumeList is a list of PersistentVolume items. */
+/**
+ * PersistentVolumeList is a list of PersistentVolume items.
+ */
 @ApiModel(description = "PersistentVolumeList is a list of PersistentVolume items.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1PersistentVolumeList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
-
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
-
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<V1PersistentVolume> items = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_KIND = "kind";
-
   @SerializedName(SERIALIZED_NAME_KIND)
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
-
   @SerializedName(SERIALIZED_NAME_METADATA)
   private V1ListMeta metadata;
+
 
   public V1PersistentVolumeList apiVersion(String apiVersion) {
 
@@ -51,25 +56,22 @@ public class V1PersistentVolumeList implements io.kubernetes.client.common.Kuber
     return this;
   }
 
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should
-   * convert recognized schemas to the latest internal value, and may reject unrecognized values.
-   * More info:
-   * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   *
+   /**
+   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
+  @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
+
   public String getApiVersion() {
     return apiVersion;
   }
 
+
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
+
 
   public V1PersistentVolumeList items(List<V1PersistentVolume> items) {
 
@@ -82,23 +84,21 @@ public class V1PersistentVolumeList implements io.kubernetes.client.common.Kuber
     return this;
   }
 
-  /**
-   * items is a list of persistent volumes. More info:
-   * https://kubernetes.io/docs/concepts/storage/persistent-volumes
-   *
+   /**
+   * items is a list of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes
    * @return items
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "items is a list of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes")
+  **/
+  @ApiModelProperty(required = true, value = "items is a list of persistent volumes. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes")
+
   public List<V1PersistentVolume> getItems() {
     return items;
   }
 
+
   public void setItems(List<V1PersistentVolume> items) {
     this.items = items;
   }
+
 
   public V1PersistentVolumeList kind(String kind) {
 
@@ -106,25 +106,22 @@ public class V1PersistentVolumeList implements io.kubernetes.client.common.Kuber
     return this;
   }
 
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer
-   * this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More
-   * info:
-   * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   *
+   /**
+   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
+  @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
+
   public String getKind() {
     return kind;
   }
 
+
   public void setKind(String kind) {
     this.kind = kind;
   }
+
 
   public V1PersistentVolumeList metadata(V1ListMeta metadata) {
 
@@ -132,20 +129,22 @@ public class V1PersistentVolumeList implements io.kubernetes.client.common.Kuber
     return this;
   }
 
-  /**
+   /**
    * Get metadata
-   *
    * @return metadata
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1ListMeta getMetadata() {
     return metadata;
   }
 
+
   public void setMetadata(V1ListMeta metadata) {
     this.metadata = metadata;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -156,16 +155,17 @@ public class V1PersistentVolumeList implements io.kubernetes.client.common.Kuber
       return false;
     }
     V1PersistentVolumeList v1PersistentVolumeList = (V1PersistentVolumeList) o;
-    return Objects.equals(this.apiVersion, v1PersistentVolumeList.apiVersion)
-        && Objects.equals(this.items, v1PersistentVolumeList.items)
-        && Objects.equals(this.kind, v1PersistentVolumeList.kind)
-        && Objects.equals(this.metadata, v1PersistentVolumeList.metadata);
+    return Objects.equals(this.apiVersion, v1PersistentVolumeList.apiVersion) &&
+        Objects.equals(this.items, v1PersistentVolumeList.items) &&
+        Objects.equals(this.kind, v1PersistentVolumeList.kind) &&
+        Objects.equals(this.metadata, v1PersistentVolumeList.metadata);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(apiVersion, items, kind, metadata);
   }
+
 
   @Override
   public String toString() {
@@ -180,7 +180,8 @@ public class V1PersistentVolumeList implements io.kubernetes.client.common.Kuber
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -188,4 +189,5 @@ public class V1PersistentVolumeList implements io.kubernetes.client.common.Kuber
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

@@ -20,16 +20,13 @@ public class V1StorageOSVolumeSourceBuilder extends V1StorageOSVolumeSourceFluen
   }
   public V1StorageOSVolumeSourceBuilder(V1StorageOSVolumeSourceFluent<?> fluent,V1StorageOSVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withSecretRef(instance.getSecretRef());
-
-    fluent.withVolumeName(instance.getVolumeName());
-
-    fluent.withVolumeNamespace(instance.getVolumeNamespace());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withSecretRef(instance.getSecretRef());
+      fluent.withVolumeName(instance.getVolumeName());
+      fluent.withVolumeNamespace(instance.getVolumeNamespace());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1StorageOSVolumeSourceBuilder(V1StorageOSVolumeSource instance) {
@@ -37,16 +34,13 @@ public class V1StorageOSVolumeSourceBuilder extends V1StorageOSVolumeSourceFluen
   }
   public V1StorageOSVolumeSourceBuilder(V1StorageOSVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withVolumeName(instance.getVolumeName());
-
-    this.withVolumeNamespace(instance.getVolumeNamespace());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+      this.withVolumeName(instance.getVolumeName());
+      this.withVolumeNamespace(instance.getVolumeNamespace());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1StorageOSVolumeSourceFluent<?> fluent;

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -8,7 +9,6 @@ import io.kubernetes.client.custom.Quantity;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,14 +20,14 @@ import java.util.Map;
   * Generated
   */
 public interface V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeClaimStatusFluent<A>> extends Fluent<A>{
-  public A addToAccessModes(Integer index,String item);
-  public A setToAccessModes(Integer index,String item);
+  public A addToAccessModes(int index,String item);
+  public A setToAccessModes(int index,String item);
   public A addToAccessModes(java.lang.String... items);
   public A addAllToAccessModes(Collection<String> items);
   public A removeFromAccessModes(java.lang.String... items);
   public A removeAllFromAccessModes(Collection<String> items);
   public List<String> getAccessModes();
-  public String getAccessMode(Integer index);
+  public String getAccessMode(int index);
   public String getFirstAccessMode();
   public String getLastAccessMode();
   public String getMatchingAccessMode(Predicate<String> predicate);
@@ -49,8 +49,8 @@ public interface V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolum
   public Map<String,Quantity> getCapacity();
   public <K,V>A withCapacity(Map<String,Quantity> capacity);
   public Boolean hasCapacity();
-  public A addToConditions(Integer index,V1PersistentVolumeClaimCondition item);
-  public A setToConditions(Integer index,V1PersistentVolumeClaimCondition item);
+  public A addToConditions(int index,V1PersistentVolumeClaimCondition item);
+  public A setToConditions(int index,V1PersistentVolumeClaimCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition... items);
   public A addAllToConditions(Collection<V1PersistentVolumeClaimCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition... items);
@@ -64,7 +64,7 @@ public interface V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolum
   @Deprecated
   public List<V1PersistentVolumeClaimCondition> getConditions();
   public List<V1PersistentVolumeClaimCondition> buildConditions();
-  public V1PersistentVolumeClaimCondition buildCondition(Integer index);
+  public V1PersistentVolumeClaimCondition buildCondition(int index);
   public V1PersistentVolumeClaimCondition buildFirstCondition();
   public V1PersistentVolumeClaimCondition buildLastCondition();
   public V1PersistentVolumeClaimCondition buildMatchingCondition(Predicate<V1PersistentVolumeClaimConditionBuilder> predicate);
@@ -74,8 +74,8 @@ public interface V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolum
   public Boolean hasConditions();
   public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> addNewCondition();
   public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> addNewConditionLike(V1PersistentVolumeClaimCondition item);
-  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1PersistentVolumeClaimCondition item);
-  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1PersistentVolumeClaimCondition item);
+  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editLastCondition();
   public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1PersistentVolumeClaimConditionBuilder> predicate);

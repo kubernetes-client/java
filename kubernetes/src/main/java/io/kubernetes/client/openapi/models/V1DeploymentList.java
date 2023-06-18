@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,38 +12,43 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1Deployment;
+import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** DeploymentList is a list of Deployments. */
+/**
+ * DeploymentList is a list of Deployments.
+ */
 @ApiModel(description = "DeploymentList is a list of Deployments.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1DeploymentList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
-
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_ITEMS = "items";
-
   @SerializedName(SERIALIZED_NAME_ITEMS)
   private List<V1Deployment> items = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_KIND = "kind";
-
   @SerializedName(SERIALIZED_NAME_KIND)
   private String kind;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
-
   @SerializedName(SERIALIZED_NAME_METADATA)
   private V1ListMeta metadata;
+
 
   public V1DeploymentList apiVersion(String apiVersion) {
 
@@ -51,25 +56,22 @@ public class V1DeploymentList implements io.kubernetes.client.common.KubernetesL
     return this;
   }
 
-  /**
-   * APIVersion defines the versioned schema of this representation of an object. Servers should
-   * convert recognized schemas to the latest internal value, and may reject unrecognized values.
-   * More info:
-   * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
-   *
+   /**
+   * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
+  @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
+
   public String getApiVersion() {
     return apiVersion;
   }
 
+
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
+
 
   public V1DeploymentList items(List<V1Deployment> items) {
 
@@ -82,19 +84,21 @@ public class V1DeploymentList implements io.kubernetes.client.common.KubernetesL
     return this;
   }
 
-  /**
+   /**
    * Items is the list of Deployments.
-   *
    * @return items
-   */
+  **/
   @ApiModelProperty(required = true, value = "Items is the list of Deployments.")
+
   public List<V1Deployment> getItems() {
     return items;
   }
 
+
   public void setItems(List<V1Deployment> items) {
     this.items = items;
   }
+
 
   public V1DeploymentList kind(String kind) {
 
@@ -102,25 +106,22 @@ public class V1DeploymentList implements io.kubernetes.client.common.KubernetesL
     return this;
   }
 
-  /**
-   * Kind is a string value representing the REST resource this object represents. Servers may infer
-   * this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More
-   * info:
-   * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
-   *
+   /**
+   * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
+  @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
+
   public String getKind() {
     return kind;
   }
 
+
   public void setKind(String kind) {
     this.kind = kind;
   }
+
 
   public V1DeploymentList metadata(V1ListMeta metadata) {
 
@@ -128,20 +129,22 @@ public class V1DeploymentList implements io.kubernetes.client.common.KubernetesL
     return this;
   }
 
-  /**
+   /**
    * Get metadata
-   *
    * @return metadata
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1ListMeta getMetadata() {
     return metadata;
   }
 
+
   public void setMetadata(V1ListMeta metadata) {
     this.metadata = metadata;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -152,16 +155,17 @@ public class V1DeploymentList implements io.kubernetes.client.common.KubernetesL
       return false;
     }
     V1DeploymentList v1DeploymentList = (V1DeploymentList) o;
-    return Objects.equals(this.apiVersion, v1DeploymentList.apiVersion)
-        && Objects.equals(this.items, v1DeploymentList.items)
-        && Objects.equals(this.kind, v1DeploymentList.kind)
-        && Objects.equals(this.metadata, v1DeploymentList.metadata);
+    return Objects.equals(this.apiVersion, v1DeploymentList.apiVersion) &&
+        Objects.equals(this.items, v1DeploymentList.items) &&
+        Objects.equals(this.kind, v1DeploymentList.kind) &&
+        Objects.equals(this.metadata, v1DeploymentList.metadata);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(apiVersion, items, kind, metadata);
   }
+
 
   @Override
   public String toString() {
@@ -176,7 +180,8 @@ public class V1DeploymentList implements io.kubernetes.client.common.KubernetesL
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -184,4 +189,5 @@ public class V1DeploymentList implements io.kubernetes.client.common.KubernetesL
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

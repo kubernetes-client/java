@@ -20,12 +20,11 @@ public class V1HTTPIngressPathBuilder extends V1HTTPIngressPathFluentImpl<V1HTTP
   }
   public V1HTTPIngressPathBuilder(V1HTTPIngressPathFluent<?> fluent,V1HTTPIngressPath instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withBackend(instance.getBackend());
-
-    fluent.withPath(instance.getPath());
-
-    fluent.withPathType(instance.getPathType());
-
+    if (instance != null) {
+      fluent.withBackend(instance.getBackend());
+      fluent.withPath(instance.getPath());
+      fluent.withPathType(instance.getPathType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1HTTPIngressPathBuilder(V1HTTPIngressPath instance) {
@@ -33,12 +32,11 @@ public class V1HTTPIngressPathBuilder extends V1HTTPIngressPathFluentImpl<V1HTTP
   }
   public V1HTTPIngressPathBuilder(V1HTTPIngressPath instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withBackend(instance.getBackend());
-
-    this.withPath(instance.getPath());
-
-    this.withPathType(instance.getPathType());
-
+    if (instance != null) {
+      this.withBackend(instance.getBackend());
+      this.withPath(instance.getPath());
+      this.withPathType(instance.getPathType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1HTTPIngressPathFluent<?> fluent;

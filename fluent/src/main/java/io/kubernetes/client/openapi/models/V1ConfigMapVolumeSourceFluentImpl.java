@@ -23,14 +23,12 @@ import java.lang.Boolean;
   public V1ConfigMapVolumeSourceFluentImpl() {
   }
   public V1ConfigMapVolumeSourceFluentImpl(V1ConfigMapVolumeSource instance) {
-    this.withDefaultMode(instance.getDefaultMode());
-
-    this.withItems(instance.getItems());
-
-    this.withName(instance.getName());
-
-    this.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      this.withDefaultMode(instance.getDefaultMode());
+      this.withItems(instance.getItems());
+      this.withName(instance.getName());
+      this.withOptional(instance.getOptional());
+    }
   }
   private Integer defaultMode;
   private ArrayList<V1KeyToPathBuilder> items;
@@ -45,16 +43,17 @@ import java.lang.Boolean;
   public Boolean hasDefaultMode() {
     return this.defaultMode != null;
   }
-  public A addToItems(Integer index,V1KeyToPath item) {
-    if (this.items == null) {this.items = new ArrayList<V1KeyToPathBuilder>();}
-    V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);_visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);this.items.add(index >= 0 ? index : items.size(), builder); return (A)this;
-  }
-  public A setToItems(Integer index,V1KeyToPath item) {
+  public A addToItems(int index,V1KeyToPath item) {
     if (this.items == null) {this.items = new ArrayList<V1KeyToPathBuilder>();}
     V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
-    if (index < 0 || index >= _visitables.get("items").size()) { _visitables.get("items").add(builder); } else { _visitables.get("items").set(index, builder);}
-    if (index < 0 || index >= items.size()) { items.add(builder); } else { items.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    return (A)this;
+  }
+  public A setToItems(int index,V1KeyToPath item) {
+    if (this.items == null) {this.items = new ArrayList<V1KeyToPathBuilder>();}
+    V1KeyToPathBuilder builder = new V1KeyToPathBuilder(item);
+    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    return (A)this;
   }
   public A addToItems(io.kubernetes.client.openapi.models.V1KeyToPath... items) {
     if (this.items == null) {this.items = new ArrayList<V1KeyToPathBuilder>();}
@@ -95,7 +94,7 @@ import java.lang.Boolean;
   public List<V1KeyToPath> buildItems() {
     return items != null ? build(items) : null;
   }
-  public V1KeyToPath buildItem(Integer index) {
+  public V1KeyToPath buildItem(int index) {
     return this.items.get(index).build();
   }
   public V1KeyToPath buildFirstItem() {
@@ -111,39 +110,39 @@ import java.lang.Boolean;
     for (V1KeyToPathBuilder item: items) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withItems(List<V1KeyToPath> items) {
-    if (this.items != null) { _visitables.get("items").removeAll(this.items);}
+    if (this.items != null) { _visitables.get("items").clear();}
     if (items != null) {this.items = new ArrayList(); for (V1KeyToPath item : items){this.addToItems(item);}} else { this.items = null;} return (A) this;
   }
   public A withItems(io.kubernetes.client.openapi.models.V1KeyToPath... items) {
-    if (this.items != null) {this.items.clear();}
+    if (this.items != null) {this.items.clear(); _visitables.remove("items"); }
     if (items != null) {for (V1KeyToPath item :items){ this.addToItems(item);}} return (A) this;
   }
   public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
-  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> addNewItem() {
+  public V1ConfigMapVolumeSourceFluentImpl.ItemsNested<A> addNewItem() {
     return new V1ConfigMapVolumeSourceFluentImpl.ItemsNestedImpl();
   }
-  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> addNewItemLike(V1KeyToPath item) {
+  public V1ConfigMapVolumeSourceFluentImpl.ItemsNested<A> addNewItemLike(V1KeyToPath item) {
     return new V1ConfigMapVolumeSourceFluentImpl.ItemsNestedImpl(-1, item);
   }
-  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> setNewItemLike(Integer index,V1KeyToPath item) {
+  public V1ConfigMapVolumeSourceFluentImpl.ItemsNested<A> setNewItemLike(int index,V1KeyToPath item) {
     return new V1ConfigMapVolumeSourceFluentImpl.ItemsNestedImpl(index, item);
   }
-  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> editItem(Integer index) {
+  public V1ConfigMapVolumeSourceFluentImpl.ItemsNested<A> editItem(int index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
-  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> editFirstItem() {
+  public V1ConfigMapVolumeSourceFluentImpl.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
-  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> editLastItem() {
+  public V1ConfigMapVolumeSourceFluentImpl.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
-  public V1ConfigMapVolumeSourceFluent.ItemsNested<A> editMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
+  public V1ConfigMapVolumeSourceFluentImpl.ItemsNested<A> editMatchingItem(Predicate<V1KeyToPathBuilder> predicate) {
     int index = -1;
     for (int i=0;i<items.size();i++) { 
     if (predicate.test(items.get(i))) {index = i; break;}
@@ -172,11 +171,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ConfigMapVolumeSourceFluentImpl that = (V1ConfigMapVolumeSourceFluentImpl) o;
-    if (defaultMode != null ? !defaultMode.equals(that.defaultMode) :that.defaultMode != null) return false;
-    if (items != null ? !items.equals(that.items) :that.items != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (optional != null ? !optional.equals(that.optional) :that.optional != null) return false;
+    if (!java.util.Objects.equals(defaultMode, that.defaultMode)) return false;
+
+    if (!java.util.Objects.equals(items, that.items)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(optional, that.optional)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -186,7 +190,7 @@ import java.lang.Boolean;
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (defaultMode != null) { sb.append("defaultMode:"); sb.append(defaultMode + ","); }
-    if (items != null && !items.isEmpty()) { sb.append("items:"); sb.append(items + ","); }
+    if (items != null) { sb.append("items:"); sb.append(items + ","); }
     if (name != null) { sb.append("name:"); sb.append(name + ","); }
     if (optional != null) { sb.append("optional:"); sb.append(optional); }
     sb.append("}");
@@ -195,8 +199,8 @@ import java.lang.Boolean;
   public A withOptional() {
     return withOptional(true);
   }
-  class ItemsNestedImpl<N> extends V1KeyToPathFluentImpl<V1ConfigMapVolumeSourceFluent.ItemsNested<N>> implements V1ConfigMapVolumeSourceFluent.ItemsNested<N>,Nested<N>{
-    ItemsNestedImpl(Integer index,V1KeyToPath item) {
+  class ItemsNestedImpl<N> extends V1KeyToPathFluentImpl<V1ConfigMapVolumeSourceFluentImpl.ItemsNested<N>> implements V1ConfigMapVolumeSourceFluentImpl.ItemsNested<N>,Nested<N>{
+    ItemsNestedImpl(int index,V1KeyToPath item) {
       this.index = index;
       this.builder = new V1KeyToPathBuilder(this, item);
     }
@@ -205,7 +209,7 @@ import java.lang.Boolean;
       this.builder = new V1KeyToPathBuilder(this);
     }
     V1KeyToPathBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ConfigMapVolumeSourceFluentImpl.this.setToItems(index,builder.build());
     }

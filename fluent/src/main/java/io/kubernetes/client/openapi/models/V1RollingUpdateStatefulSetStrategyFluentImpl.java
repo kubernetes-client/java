@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1RollingUpdateStatefulSetStrategyFluentImpl() {
   }
   public V1RollingUpdateStatefulSetStrategyFluentImpl(V1RollingUpdateStatefulSetStrategy instance) {
-    this.withMaxUnavailable(instance.getMaxUnavailable());
-
-    this.withPartition(instance.getPartition());
-
+    if (instance != null) {
+      this.withMaxUnavailable(instance.getMaxUnavailable());
+      this.withPartition(instance.getPartition());
+    }
   }
   private IntOrString maxUnavailable;
   private Integer partition;
@@ -50,9 +50,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1RollingUpdateStatefulSetStrategyFluentImpl that = (V1RollingUpdateStatefulSetStrategyFluentImpl) o;
-    if (maxUnavailable != null ? !maxUnavailable.equals(that.maxUnavailable) :that.maxUnavailable != null) return false;
-    if (partition != null ? !partition.equals(that.partition) :that.partition != null) return false;
+    if (!java.util.Objects.equals(maxUnavailable, that.maxUnavailable)) return false;
+
+    if (!java.util.Objects.equals(partition, that.partition)) return false;
+
     return true;
   }
   public int hashCode() {

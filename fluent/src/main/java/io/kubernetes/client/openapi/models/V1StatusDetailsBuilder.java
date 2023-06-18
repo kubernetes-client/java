@@ -20,18 +20,14 @@ public class V1StatusDetailsBuilder extends V1StatusDetailsFluentImpl<V1StatusDe
   }
   public V1StatusDetailsBuilder(V1StatusDetailsFluent<?> fluent,V1StatusDetails instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCauses(instance.getCauses());
-
-    fluent.withGroup(instance.getGroup());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
-    fluent.withRetryAfterSeconds(instance.getRetryAfterSeconds());
-
-    fluent.withUid(instance.getUid());
-
+    if (instance != null) {
+      fluent.withCauses(instance.getCauses());
+      fluent.withGroup(instance.getGroup());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+      fluent.withRetryAfterSeconds(instance.getRetryAfterSeconds());
+      fluent.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1StatusDetailsBuilder(V1StatusDetails instance) {
@@ -39,18 +35,14 @@ public class V1StatusDetailsBuilder extends V1StatusDetailsFluentImpl<V1StatusDe
   }
   public V1StatusDetailsBuilder(V1StatusDetails instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCauses(instance.getCauses());
-
-    this.withGroup(instance.getGroup());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withRetryAfterSeconds(instance.getRetryAfterSeconds());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withCauses(instance.getCauses());
+      this.withGroup(instance.getGroup());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withRetryAfterSeconds(instance.getRetryAfterSeconds());
+      this.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1StatusDetailsFluent<?> fluent;

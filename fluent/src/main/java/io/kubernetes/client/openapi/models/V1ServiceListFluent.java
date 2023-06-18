@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1ServiceListFluent<A extends V1ServiceListFluent<A>> extends F
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1Service item);
-  public A setToItems(Integer index,V1Service item);
+  public A addToItems(int index,V1Service item);
+  public A setToItems(int index,V1Service item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Service... items);
   public A addAllToItems(Collection<V1Service> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Service... items);
@@ -35,7 +35,7 @@ public interface V1ServiceListFluent<A extends V1ServiceListFluent<A>> extends F
   @Deprecated
   public List<V1Service> getItems();
   public List<V1Service> buildItems();
-  public V1Service buildItem(Integer index);
+  public V1Service buildItem(int index);
   public V1Service buildFirstItem();
   public V1Service buildLastItem();
   public V1Service buildMatchingItem(Predicate<V1ServiceBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1ServiceListFluent<A extends V1ServiceListFluent<A>> extends F
   public Boolean hasItems();
   public V1ServiceListFluent.ItemsNested<A> addNewItem();
   public V1ServiceListFluent.ItemsNested<A> addNewItemLike(V1Service item);
-  public V1ServiceListFluent.ItemsNested<A> setNewItemLike(Integer index,V1Service item);
-  public V1ServiceListFluent.ItemsNested<A> editItem(Integer index);
+  public V1ServiceListFluent.ItemsNested<A> setNewItemLike(int index,V1Service item);
+  public V1ServiceListFluent.ItemsNested<A> editItem(int index);
   public V1ServiceListFluent.ItemsNested<A> editFirstItem();
   public V1ServiceListFluent.ItemsNested<A> editLastItem();
   public V1ServiceListFluent.ItemsNested<A> editMatchingItem(Predicate<V1ServiceBuilder> predicate);

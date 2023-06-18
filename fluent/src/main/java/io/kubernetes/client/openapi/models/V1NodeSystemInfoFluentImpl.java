@@ -14,26 +14,18 @@ import java.lang.Boolean;
   public V1NodeSystemInfoFluentImpl() {
   }
   public V1NodeSystemInfoFluentImpl(V1NodeSystemInfo instance) {
-    this.withArchitecture(instance.getArchitecture());
-
-    this.withBootID(instance.getBootID());
-
-    this.withContainerRuntimeVersion(instance.getContainerRuntimeVersion());
-
-    this.withKernelVersion(instance.getKernelVersion());
-
-    this.withKubeProxyVersion(instance.getKubeProxyVersion());
-
-    this.withKubeletVersion(instance.getKubeletVersion());
-
-    this.withMachineID(instance.getMachineID());
-
-    this.withOperatingSystem(instance.getOperatingSystem());
-
-    this.withOsImage(instance.getOsImage());
-
-    this.withSystemUUID(instance.getSystemUUID());
-
+    if (instance != null) {
+      this.withArchitecture(instance.getArchitecture());
+      this.withBootID(instance.getBootID());
+      this.withContainerRuntimeVersion(instance.getContainerRuntimeVersion());
+      this.withKernelVersion(instance.getKernelVersion());
+      this.withKubeProxyVersion(instance.getKubeProxyVersion());
+      this.withKubeletVersion(instance.getKubeletVersion());
+      this.withMachineID(instance.getMachineID());
+      this.withOperatingSystem(instance.getOperatingSystem());
+      this.withOsImage(instance.getOsImage());
+      this.withSystemUUID(instance.getSystemUUID());
+    }
   }
   private String architecture;
   private String bootID;
@@ -138,17 +130,28 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NodeSystemInfoFluentImpl that = (V1NodeSystemInfoFluentImpl) o;
-    if (architecture != null ? !architecture.equals(that.architecture) :that.architecture != null) return false;
-    if (bootID != null ? !bootID.equals(that.bootID) :that.bootID != null) return false;
-    if (containerRuntimeVersion != null ? !containerRuntimeVersion.equals(that.containerRuntimeVersion) :that.containerRuntimeVersion != null) return false;
-    if (kernelVersion != null ? !kernelVersion.equals(that.kernelVersion) :that.kernelVersion != null) return false;
-    if (kubeProxyVersion != null ? !kubeProxyVersion.equals(that.kubeProxyVersion) :that.kubeProxyVersion != null) return false;
-    if (kubeletVersion != null ? !kubeletVersion.equals(that.kubeletVersion) :that.kubeletVersion != null) return false;
-    if (machineID != null ? !machineID.equals(that.machineID) :that.machineID != null) return false;
-    if (operatingSystem != null ? !operatingSystem.equals(that.operatingSystem) :that.operatingSystem != null) return false;
-    if (osImage != null ? !osImage.equals(that.osImage) :that.osImage != null) return false;
-    if (systemUUID != null ? !systemUUID.equals(that.systemUUID) :that.systemUUID != null) return false;
+    if (!java.util.Objects.equals(architecture, that.architecture)) return false;
+
+    if (!java.util.Objects.equals(bootID, that.bootID)) return false;
+
+    if (!java.util.Objects.equals(containerRuntimeVersion, that.containerRuntimeVersion)) return false;
+
+    if (!java.util.Objects.equals(kernelVersion, that.kernelVersion)) return false;
+
+    if (!java.util.Objects.equals(kubeProxyVersion, that.kubeProxyVersion)) return false;
+
+    if (!java.util.Objects.equals(kubeletVersion, that.kubeletVersion)) return false;
+
+    if (!java.util.Objects.equals(machineID, that.machineID)) return false;
+
+    if (!java.util.Objects.equals(operatingSystem, that.operatingSystem)) return false;
+
+    if (!java.util.Objects.equals(osImage, that.osImage)) return false;
+
+    if (!java.util.Objects.equals(systemUUID, that.systemUUID)) return false;
+
     return true;
   }
   public int hashCode() {

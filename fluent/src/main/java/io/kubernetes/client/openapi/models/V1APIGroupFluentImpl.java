@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,18 +22,14 @@ import java.lang.Object;
   public V1APIGroupFluentImpl() {
   }
   public V1APIGroupFluentImpl(V1APIGroup instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withPreferredVersion(instance.getPreferredVersion());
-
-    this.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
-
-    this.withVersions(instance.getVersions());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withPreferredVersion(instance.getPreferredVersion());
+      this.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
+      this.withVersions(instance.getVersions());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -88,31 +83,32 @@ import java.lang.Object;
   public Boolean hasPreferredVersion() {
     return this.preferredVersion != null;
   }
-  public V1APIGroupFluent.PreferredVersionNested<A> withNewPreferredVersion() {
+  public V1APIGroupFluentImpl.PreferredVersionNested<A> withNewPreferredVersion() {
     return new V1APIGroupFluentImpl.PreferredVersionNestedImpl();
   }
-  public V1APIGroupFluent.PreferredVersionNested<A> withNewPreferredVersionLike(V1GroupVersionForDiscovery item) {
+  public V1APIGroupFluentImpl.PreferredVersionNested<A> withNewPreferredVersionLike(V1GroupVersionForDiscovery item) {
     return new V1APIGroupFluentImpl.PreferredVersionNestedImpl(item);
   }
-  public V1APIGroupFluent.PreferredVersionNested<A> editPreferredVersion() {
+  public V1APIGroupFluentImpl.PreferredVersionNested<A> editPreferredVersion() {
     return withNewPreferredVersionLike(getPreferredVersion());
   }
-  public V1APIGroupFluent.PreferredVersionNested<A> editOrNewPreferredVersion() {
+  public V1APIGroupFluentImpl.PreferredVersionNested<A> editOrNewPreferredVersion() {
     return withNewPreferredVersionLike(getPreferredVersion() != null ? getPreferredVersion(): new V1GroupVersionForDiscoveryBuilder().build());
   }
-  public V1APIGroupFluent.PreferredVersionNested<A> editOrNewPreferredVersionLike(V1GroupVersionForDiscovery item) {
+  public V1APIGroupFluentImpl.PreferredVersionNested<A> editOrNewPreferredVersionLike(V1GroupVersionForDiscovery item) {
     return withNewPreferredVersionLike(getPreferredVersion() != null ? getPreferredVersion(): item);
   }
-  public A addToServerAddressByClientCIDRs(Integer index,V1ServerAddressByClientCIDR item) {
-    if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
-    V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);_visitables.get("serverAddressByClientCIDRs").add(index >= 0 ? index : _visitables.get("serverAddressByClientCIDRs").size(), builder);this.serverAddressByClientCIDRs.add(index >= 0 ? index : serverAddressByClientCIDRs.size(), builder); return (A)this;
-  }
-  public A setToServerAddressByClientCIDRs(Integer index,V1ServerAddressByClientCIDR item) {
+  public A addToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
     if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
     V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
-    if (index < 0 || index >= _visitables.get("serverAddressByClientCIDRs").size()) { _visitables.get("serverAddressByClientCIDRs").add(builder); } else { _visitables.get("serverAddressByClientCIDRs").set(index, builder);}
-    if (index < 0 || index >= serverAddressByClientCIDRs.size()) { serverAddressByClientCIDRs.add(builder); } else { serverAddressByClientCIDRs.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= serverAddressByClientCIDRs.size()) { _visitables.get("serverAddressByClientCIDRs").add(builder); serverAddressByClientCIDRs.add(builder); } else { _visitables.get("serverAddressByClientCIDRs").add(index, builder); serverAddressByClientCIDRs.add(index, builder);}
+    return (A)this;
+  }
+  public A setToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item) {
+    if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
+    V1ServerAddressByClientCIDRBuilder builder = new V1ServerAddressByClientCIDRBuilder(item);
+    if (index < 0 || index >= serverAddressByClientCIDRs.size()) { _visitables.get("serverAddressByClientCIDRs").add(builder); serverAddressByClientCIDRs.add(builder); } else { _visitables.get("serverAddressByClientCIDRs").set(index, builder); serverAddressByClientCIDRs.set(index, builder);}
+    return (A)this;
   }
   public A addToServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items) {
     if (this.serverAddressByClientCIDRs == null) {this.serverAddressByClientCIDRs = new ArrayList<V1ServerAddressByClientCIDRBuilder>();}
@@ -153,7 +149,7 @@ import java.lang.Object;
   public List<V1ServerAddressByClientCIDR> buildServerAddressByClientCIDRs() {
     return serverAddressByClientCIDRs != null ? build(serverAddressByClientCIDRs) : null;
   }
-  public V1ServerAddressByClientCIDR buildServerAddressByClientCIDR(Integer index) {
+  public V1ServerAddressByClientCIDR buildServerAddressByClientCIDR(int index) {
     return this.serverAddressByClientCIDRs.get(index).build();
   }
   public V1ServerAddressByClientCIDR buildFirstServerAddressByClientCIDR() {
@@ -169,39 +165,39 @@ import java.lang.Object;
     for (V1ServerAddressByClientCIDRBuilder item: serverAddressByClientCIDRs) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withServerAddressByClientCIDRs(List<V1ServerAddressByClientCIDR> serverAddressByClientCIDRs) {
-    if (this.serverAddressByClientCIDRs != null) { _visitables.get("serverAddressByClientCIDRs").removeAll(this.serverAddressByClientCIDRs);}
+    if (this.serverAddressByClientCIDRs != null) { _visitables.get("serverAddressByClientCIDRs").clear();}
     if (serverAddressByClientCIDRs != null) {this.serverAddressByClientCIDRs = new ArrayList(); for (V1ServerAddressByClientCIDR item : serverAddressByClientCIDRs){this.addToServerAddressByClientCIDRs(item);}} else { this.serverAddressByClientCIDRs = null;} return (A) this;
   }
   public A withServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... serverAddressByClientCIDRs) {
-    if (this.serverAddressByClientCIDRs != null) {this.serverAddressByClientCIDRs.clear();}
+    if (this.serverAddressByClientCIDRs != null) {this.serverAddressByClientCIDRs.clear(); _visitables.remove("serverAddressByClientCIDRs"); }
     if (serverAddressByClientCIDRs != null) {for (V1ServerAddressByClientCIDR item :serverAddressByClientCIDRs){ this.addToServerAddressByClientCIDRs(item);}} return (A) this;
   }
   public Boolean hasServerAddressByClientCIDRs() {
     return serverAddressByClientCIDRs != null && !serverAddressByClientCIDRs.isEmpty();
   }
-  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDR() {
+  public V1APIGroupFluentImpl.ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDR() {
     return new V1APIGroupFluentImpl.ServerAddressByClientCIDRsNestedImpl();
   }
-  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDRLike(V1ServerAddressByClientCIDR item) {
+  public V1APIGroupFluentImpl.ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDRLike(V1ServerAddressByClientCIDR item) {
     return new V1APIGroupFluentImpl.ServerAddressByClientCIDRsNestedImpl(-1, item);
   }
-  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> setNewServerAddressByClientCIDRLike(Integer index,V1ServerAddressByClientCIDR item) {
+  public V1APIGroupFluentImpl.ServerAddressByClientCIDRsNested<A> setNewServerAddressByClientCIDRLike(int index,V1ServerAddressByClientCIDR item) {
     return new V1APIGroupFluentImpl.ServerAddressByClientCIDRsNestedImpl(index, item);
   }
-  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editServerAddressByClientCIDR(Integer index) {
+  public V1APIGroupFluentImpl.ServerAddressByClientCIDRsNested<A> editServerAddressByClientCIDR(int index) {
     if (serverAddressByClientCIDRs.size() <= index) throw new RuntimeException("Can't edit serverAddressByClientCIDRs. Index exceeds size.");
     return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
   }
-  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editFirstServerAddressByClientCIDR() {
+  public V1APIGroupFluentImpl.ServerAddressByClientCIDRsNested<A> editFirstServerAddressByClientCIDR() {
     if (serverAddressByClientCIDRs.size() == 0) throw new RuntimeException("Can't edit first serverAddressByClientCIDRs. The list is empty.");
     return setNewServerAddressByClientCIDRLike(0, buildServerAddressByClientCIDR(0));
   }
-  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editLastServerAddressByClientCIDR() {
+  public V1APIGroupFluentImpl.ServerAddressByClientCIDRsNested<A> editLastServerAddressByClientCIDR() {
     int index = serverAddressByClientCIDRs.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last serverAddressByClientCIDRs. The list is empty.");
     return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
   }
-  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editMatchingServerAddressByClientCIDR(Predicate<V1ServerAddressByClientCIDRBuilder> predicate) {
+  public V1APIGroupFluentImpl.ServerAddressByClientCIDRsNested<A> editMatchingServerAddressByClientCIDR(Predicate<V1ServerAddressByClientCIDRBuilder> predicate) {
     int index = -1;
     for (int i=0;i<serverAddressByClientCIDRs.size();i++) { 
     if (predicate.test(serverAddressByClientCIDRs.get(i))) {index = i; break;}
@@ -209,16 +205,17 @@ import java.lang.Object;
     if (index < 0) throw new RuntimeException("Can't edit matching serverAddressByClientCIDRs. No match found.");
     return setNewServerAddressByClientCIDRLike(index, buildServerAddressByClientCIDR(index));
   }
-  public A addToVersions(Integer index,V1GroupVersionForDiscovery item) {
-    if (this.versions == null) {this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();}
-    V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);_visitables.get("versions").add(index >= 0 ? index : _visitables.get("versions").size(), builder);this.versions.add(index >= 0 ? index : versions.size(), builder); return (A)this;
-  }
-  public A setToVersions(Integer index,V1GroupVersionForDiscovery item) {
+  public A addToVersions(int index,V1GroupVersionForDiscovery item) {
     if (this.versions == null) {this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();}
     V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
-    if (index < 0 || index >= _visitables.get("versions").size()) { _visitables.get("versions").add(builder); } else { _visitables.get("versions").set(index, builder);}
-    if (index < 0 || index >= versions.size()) { versions.add(builder); } else { versions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= versions.size()) { _visitables.get("versions").add(builder); versions.add(builder); } else { _visitables.get("versions").add(index, builder); versions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToVersions(int index,V1GroupVersionForDiscovery item) {
+    if (this.versions == null) {this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();}
+    V1GroupVersionForDiscoveryBuilder builder = new V1GroupVersionForDiscoveryBuilder(item);
+    if (index < 0 || index >= versions.size()) { _visitables.get("versions").add(builder); versions.add(builder); } else { _visitables.get("versions").set(index, builder); versions.set(index, builder);}
+    return (A)this;
   }
   public A addToVersions(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... items) {
     if (this.versions == null) {this.versions = new ArrayList<V1GroupVersionForDiscoveryBuilder>();}
@@ -259,7 +256,7 @@ import java.lang.Object;
   public List<V1GroupVersionForDiscovery> buildVersions() {
     return versions != null ? build(versions) : null;
   }
-  public V1GroupVersionForDiscovery buildVersion(Integer index) {
+  public V1GroupVersionForDiscovery buildVersion(int index) {
     return this.versions.get(index).build();
   }
   public V1GroupVersionForDiscovery buildFirstVersion() {
@@ -275,39 +272,39 @@ import java.lang.Object;
     for (V1GroupVersionForDiscoveryBuilder item: versions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withVersions(List<V1GroupVersionForDiscovery> versions) {
-    if (this.versions != null) { _visitables.get("versions").removeAll(this.versions);}
+    if (this.versions != null) { _visitables.get("versions").clear();}
     if (versions != null) {this.versions = new ArrayList(); for (V1GroupVersionForDiscovery item : versions){this.addToVersions(item);}} else { this.versions = null;} return (A) this;
   }
   public A withVersions(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... versions) {
-    if (this.versions != null) {this.versions.clear();}
+    if (this.versions != null) {this.versions.clear(); _visitables.remove("versions"); }
     if (versions != null) {for (V1GroupVersionForDiscovery item :versions){ this.addToVersions(item);}} return (A) this;
   }
   public Boolean hasVersions() {
     return versions != null && !versions.isEmpty();
   }
-  public V1APIGroupFluent.VersionsNested<A> addNewVersion() {
+  public V1APIGroupFluentImpl.VersionsNested<A> addNewVersion() {
     return new V1APIGroupFluentImpl.VersionsNestedImpl();
   }
-  public V1APIGroupFluent.VersionsNested<A> addNewVersionLike(V1GroupVersionForDiscovery item) {
+  public V1APIGroupFluentImpl.VersionsNested<A> addNewVersionLike(V1GroupVersionForDiscovery item) {
     return new V1APIGroupFluentImpl.VersionsNestedImpl(-1, item);
   }
-  public V1APIGroupFluent.VersionsNested<A> setNewVersionLike(Integer index,V1GroupVersionForDiscovery item) {
+  public V1APIGroupFluentImpl.VersionsNested<A> setNewVersionLike(int index,V1GroupVersionForDiscovery item) {
     return new V1APIGroupFluentImpl.VersionsNestedImpl(index, item);
   }
-  public V1APIGroupFluent.VersionsNested<A> editVersion(Integer index) {
+  public V1APIGroupFluentImpl.VersionsNested<A> editVersion(int index) {
     if (versions.size() <= index) throw new RuntimeException("Can't edit versions. Index exceeds size.");
     return setNewVersionLike(index, buildVersion(index));
   }
-  public V1APIGroupFluent.VersionsNested<A> editFirstVersion() {
+  public V1APIGroupFluentImpl.VersionsNested<A> editFirstVersion() {
     if (versions.size() == 0) throw new RuntimeException("Can't edit first versions. The list is empty.");
     return setNewVersionLike(0, buildVersion(0));
   }
-  public V1APIGroupFluent.VersionsNested<A> editLastVersion() {
+  public V1APIGroupFluentImpl.VersionsNested<A> editLastVersion() {
     int index = versions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last versions. The list is empty.");
     return setNewVersionLike(index, buildVersion(index));
   }
-  public V1APIGroupFluent.VersionsNested<A> editMatchingVersion(Predicate<V1GroupVersionForDiscoveryBuilder> predicate) {
+  public V1APIGroupFluentImpl.VersionsNested<A> editMatchingVersion(Predicate<V1GroupVersionForDiscoveryBuilder> predicate) {
     int index = -1;
     for (int i=0;i<versions.size();i++) { 
     if (predicate.test(versions.get(i))) {index = i; break;}
@@ -318,13 +315,20 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1APIGroupFluentImpl that = (V1APIGroupFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (preferredVersion != null ? !preferredVersion.equals(that.preferredVersion) :that.preferredVersion != null) return false;
-    if (serverAddressByClientCIDRs != null ? !serverAddressByClientCIDRs.equals(that.serverAddressByClientCIDRs) :that.serverAddressByClientCIDRs != null) return false;
-    if (versions != null ? !versions.equals(that.versions) :that.versions != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(preferredVersion, that.preferredVersion)) return false;
+
+    if (!java.util.Objects.equals(serverAddressByClientCIDRs, that.serverAddressByClientCIDRs)) return false;
+
+    if (!java.util.Objects.equals(versions, that.versions)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -337,12 +341,12 @@ import java.lang.Object;
     if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
     if (name != null) { sb.append("name:"); sb.append(name + ","); }
     if (preferredVersion != null) { sb.append("preferredVersion:"); sb.append(preferredVersion + ","); }
-    if (serverAddressByClientCIDRs != null && !serverAddressByClientCIDRs.isEmpty()) { sb.append("serverAddressByClientCIDRs:"); sb.append(serverAddressByClientCIDRs + ","); }
-    if (versions != null && !versions.isEmpty()) { sb.append("versions:"); sb.append(versions); }
+    if (serverAddressByClientCIDRs != null) { sb.append("serverAddressByClientCIDRs:"); sb.append(serverAddressByClientCIDRs + ","); }
+    if (versions != null) { sb.append("versions:"); sb.append(versions); }
     sb.append("}");
     return sb.toString();
   }
-  class PreferredVersionNestedImpl<N> extends V1GroupVersionForDiscoveryFluentImpl<V1APIGroupFluent.PreferredVersionNested<N>> implements V1APIGroupFluent.PreferredVersionNested<N>,Nested<N>{
+  class PreferredVersionNestedImpl<N> extends V1GroupVersionForDiscoveryFluentImpl<V1APIGroupFluentImpl.PreferredVersionNested<N>> implements V1APIGroupFluentImpl.PreferredVersionNested<N>,Nested<N>{
     PreferredVersionNestedImpl(V1GroupVersionForDiscovery item) {
       this.builder = new V1GroupVersionForDiscoveryBuilder(this, item);
     }
@@ -358,8 +362,8 @@ import java.lang.Object;
     }
     
   }
-  class ServerAddressByClientCIDRsNestedImpl<N> extends V1ServerAddressByClientCIDRFluentImpl<V1APIGroupFluent.ServerAddressByClientCIDRsNested<N>> implements V1APIGroupFluent.ServerAddressByClientCIDRsNested<N>,Nested<N>{
-    ServerAddressByClientCIDRsNestedImpl(Integer index,V1ServerAddressByClientCIDR item) {
+  class ServerAddressByClientCIDRsNestedImpl<N> extends V1ServerAddressByClientCIDRFluentImpl<V1APIGroupFluentImpl.ServerAddressByClientCIDRsNested<N>> implements V1APIGroupFluentImpl.ServerAddressByClientCIDRsNested<N>,Nested<N>{
+    ServerAddressByClientCIDRsNestedImpl(int index,V1ServerAddressByClientCIDR item) {
       this.index = index;
       this.builder = new V1ServerAddressByClientCIDRBuilder(this, item);
     }
@@ -368,7 +372,7 @@ import java.lang.Object;
       this.builder = new V1ServerAddressByClientCIDRBuilder(this);
     }
     V1ServerAddressByClientCIDRBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1APIGroupFluentImpl.this.setToServerAddressByClientCIDRs(index,builder.build());
     }
@@ -377,8 +381,8 @@ import java.lang.Object;
     }
     
   }
-  class VersionsNestedImpl<N> extends V1GroupVersionForDiscoveryFluentImpl<V1APIGroupFluent.VersionsNested<N>> implements V1APIGroupFluent.VersionsNested<N>,Nested<N>{
-    VersionsNestedImpl(Integer index,V1GroupVersionForDiscovery item) {
+  class VersionsNestedImpl<N> extends V1GroupVersionForDiscoveryFluentImpl<V1APIGroupFluentImpl.VersionsNested<N>> implements V1APIGroupFluentImpl.VersionsNested<N>,Nested<N>{
+    VersionsNestedImpl(int index,V1GroupVersionForDiscovery item) {
       this.index = index;
       this.builder = new V1GroupVersionForDiscoveryBuilder(this, item);
     }
@@ -387,7 +391,7 @@ import java.lang.Object;
       this.builder = new V1GroupVersionForDiscoveryBuilder(this);
     }
     V1GroupVersionForDiscoveryBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1APIGroupFluentImpl.this.setToVersions(index,builder.build());
     }

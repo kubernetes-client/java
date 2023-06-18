@@ -20,10 +20,10 @@ public class V1ProjectedVolumeSourceBuilder extends V1ProjectedVolumeSourceFluen
   }
   public V1ProjectedVolumeSourceBuilder(V1ProjectedVolumeSourceFluent<?> fluent,V1ProjectedVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDefaultMode(instance.getDefaultMode());
-
-    fluent.withSources(instance.getSources());
-
+    if (instance != null) {
+      fluent.withDefaultMode(instance.getDefaultMode());
+      fluent.withSources(instance.getSources());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ProjectedVolumeSourceBuilder(V1ProjectedVolumeSource instance) {
@@ -31,10 +31,10 @@ public class V1ProjectedVolumeSourceBuilder extends V1ProjectedVolumeSourceFluen
   }
   public V1ProjectedVolumeSourceBuilder(V1ProjectedVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDefaultMode(instance.getDefaultMode());
-
-    this.withSources(instance.getSources());
-
+    if (instance != null) {
+      this.withDefaultMode(instance.getDefaultMode());
+      this.withSources(instance.getSources());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ProjectedVolumeSourceFluent<?> fluent;

@@ -20,18 +20,14 @@ public class V1CustomResourceDefinitionSpecBuilder extends V1CustomResourceDefin
   }
   public V1CustomResourceDefinitionSpecBuilder(V1CustomResourceDefinitionSpecFluent<?> fluent,V1CustomResourceDefinitionSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConversion(instance.getConversion());
-
-    fluent.withGroup(instance.getGroup());
-
-    fluent.withNames(instance.getNames());
-
-    fluent.withPreserveUnknownFields(instance.getPreserveUnknownFields());
-
-    fluent.withScope(instance.getScope());
-
-    fluent.withVersions(instance.getVersions());
-
+    if (instance != null) {
+      fluent.withConversion(instance.getConversion());
+      fluent.withGroup(instance.getGroup());
+      fluent.withNames(instance.getNames());
+      fluent.withPreserveUnknownFields(instance.getPreserveUnknownFields());
+      fluent.withScope(instance.getScope());
+      fluent.withVersions(instance.getVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CustomResourceDefinitionSpecBuilder(V1CustomResourceDefinitionSpec instance) {
@@ -39,18 +35,14 @@ public class V1CustomResourceDefinitionSpecBuilder extends V1CustomResourceDefin
   }
   public V1CustomResourceDefinitionSpecBuilder(V1CustomResourceDefinitionSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConversion(instance.getConversion());
-
-    this.withGroup(instance.getGroup());
-
-    this.withNames(instance.getNames());
-
-    this.withPreserveUnknownFields(instance.getPreserveUnknownFields());
-
-    this.withScope(instance.getScope());
-
-    this.withVersions(instance.getVersions());
-
+    if (instance != null) {
+      this.withConversion(instance.getConversion());
+      this.withGroup(instance.getGroup());
+      this.withNames(instance.getNames());
+      this.withPreserveUnknownFields(instance.getPreserveUnknownFields());
+      this.withScope(instance.getScope());
+      this.withVersions(instance.getVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CustomResourceDefinitionSpecFluent<?> fluent;

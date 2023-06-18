@@ -20,10 +20,10 @@ public class StorageV1TokenRequestBuilder extends StorageV1TokenRequestFluentImp
   }
   public StorageV1TokenRequestBuilder(StorageV1TokenRequestFluent<?> fluent,StorageV1TokenRequest instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAudience(instance.getAudience());
-
-    fluent.withExpirationSeconds(instance.getExpirationSeconds());
-
+    if (instance != null) {
+      fluent.withAudience(instance.getAudience());
+      fluent.withExpirationSeconds(instance.getExpirationSeconds());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public StorageV1TokenRequestBuilder(StorageV1TokenRequest instance) {
@@ -31,10 +31,10 @@ public class StorageV1TokenRequestBuilder extends StorageV1TokenRequestFluentImp
   }
   public StorageV1TokenRequestBuilder(StorageV1TokenRequest instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAudience(instance.getAudience());
-
-    this.withExpirationSeconds(instance.getExpirationSeconds());
-
+    if (instance != null) {
+      this.withAudience(instance.getAudience());
+      this.withExpirationSeconds(instance.getExpirationSeconds());
+    }
     this.validationEnabled = validationEnabled; 
   }
   StorageV1TokenRequestFluent<?> fluent;

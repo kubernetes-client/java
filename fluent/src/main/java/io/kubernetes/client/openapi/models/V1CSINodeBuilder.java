@@ -20,14 +20,12 @@ public class V1CSINodeBuilder extends V1CSINodeFluentImpl<V1CSINodeBuilder> impl
   }
   public V1CSINodeBuilder(V1CSINodeFluent<?> fluent,V1CSINode instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CSINodeBuilder(V1CSINode instance) {
@@ -35,14 +33,12 @@ public class V1CSINodeBuilder extends V1CSINodeFluentImpl<V1CSINodeBuilder> impl
   }
   public V1CSINodeBuilder(V1CSINode instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CSINodeFluent<?> fluent;

@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1PhotonPersistentDiskVolumeSourceFluentImpl() {
   }
   public V1PhotonPersistentDiskVolumeSourceFluentImpl(V1PhotonPersistentDiskVolumeSource instance) {
-    this.withFsType(instance.getFsType());
-
-    this.withPdID(instance.getPdID());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withPdID(instance.getPdID());
+    }
   }
   private String fsType;
   private String pdID;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PhotonPersistentDiskVolumeSourceFluentImpl that = (V1PhotonPersistentDiskVolumeSourceFluentImpl) o;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (pdID != null ? !pdID.equals(that.pdID) :that.pdID != null) return false;
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(pdID, that.pdID)) return false;
+
     return true;
   }
   public int hashCode() {

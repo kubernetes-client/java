@@ -20,14 +20,12 @@ public class V1NodeConfigStatusBuilder extends V1NodeConfigStatusFluentImpl<V1No
   }
   public V1NodeConfigStatusBuilder(V1NodeConfigStatusFluent<?> fluent,V1NodeConfigStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withActive(instance.getActive());
-
-    fluent.withAssigned(instance.getAssigned());
-
-    fluent.withError(instance.getError());
-
-    fluent.withLastKnownGood(instance.getLastKnownGood());
-
+    if (instance != null) {
+      fluent.withActive(instance.getActive());
+      fluent.withAssigned(instance.getAssigned());
+      fluent.withError(instance.getError());
+      fluent.withLastKnownGood(instance.getLastKnownGood());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeConfigStatusBuilder(V1NodeConfigStatus instance) {
@@ -35,14 +33,12 @@ public class V1NodeConfigStatusBuilder extends V1NodeConfigStatusFluentImpl<V1No
   }
   public V1NodeConfigStatusBuilder(V1NodeConfigStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withActive(instance.getActive());
-
-    this.withAssigned(instance.getAssigned());
-
-    this.withError(instance.getError());
-
-    this.withLastKnownGood(instance.getLastKnownGood());
-
+    if (instance != null) {
+      this.withActive(instance.getActive());
+      this.withAssigned(instance.getAssigned());
+      this.withError(instance.getError());
+      this.withLastKnownGood(instance.getLastKnownGood());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeConfigStatusFluent<?> fluent;

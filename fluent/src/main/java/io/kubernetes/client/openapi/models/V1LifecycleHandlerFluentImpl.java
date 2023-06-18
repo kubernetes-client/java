@@ -16,12 +16,11 @@ import java.lang.Object;
   public V1LifecycleHandlerFluentImpl() {
   }
   public V1LifecycleHandlerFluentImpl(V1LifecycleHandler instance) {
-    this.withExec(instance.getExec());
-
-    this.withHttpGet(instance.getHttpGet());
-
-    this.withTcpSocket(instance.getTcpSocket());
-
+    if (instance != null) {
+      this.withExec(instance.getExec());
+      this.withHttpGet(instance.getHttpGet());
+      this.withTcpSocket(instance.getTcpSocket());
+    }
   }
   private V1ExecActionBuilder exec;
   private V1HTTPGetActionBuilder httpGet;
@@ -45,19 +44,19 @@ import java.lang.Object;
   public Boolean hasExec() {
     return this.exec != null;
   }
-  public V1LifecycleHandlerFluent.ExecNested<A> withNewExec() {
+  public V1LifecycleHandlerFluentImpl.ExecNested<A> withNewExec() {
     return new V1LifecycleHandlerFluentImpl.ExecNestedImpl();
   }
-  public V1LifecycleHandlerFluent.ExecNested<A> withNewExecLike(V1ExecAction item) {
+  public V1LifecycleHandlerFluentImpl.ExecNested<A> withNewExecLike(V1ExecAction item) {
     return new V1LifecycleHandlerFluentImpl.ExecNestedImpl(item);
   }
-  public V1LifecycleHandlerFluent.ExecNested<A> editExec() {
+  public V1LifecycleHandlerFluentImpl.ExecNested<A> editExec() {
     return withNewExecLike(getExec());
   }
-  public V1LifecycleHandlerFluent.ExecNested<A> editOrNewExec() {
+  public V1LifecycleHandlerFluentImpl.ExecNested<A> editOrNewExec() {
     return withNewExecLike(getExec() != null ? getExec(): new V1ExecActionBuilder().build());
   }
-  public V1LifecycleHandlerFluent.ExecNested<A> editOrNewExecLike(V1ExecAction item) {
+  public V1LifecycleHandlerFluentImpl.ExecNested<A> editOrNewExecLike(V1ExecAction item) {
     return withNewExecLike(getExec() != null ? getExec(): item);
   }
   
@@ -79,19 +78,19 @@ import java.lang.Object;
   public Boolean hasHttpGet() {
     return this.httpGet != null;
   }
-  public V1LifecycleHandlerFluent.HttpGetNested<A> withNewHttpGet() {
+  public V1LifecycleHandlerFluentImpl.HttpGetNested<A> withNewHttpGet() {
     return new V1LifecycleHandlerFluentImpl.HttpGetNestedImpl();
   }
-  public V1LifecycleHandlerFluent.HttpGetNested<A> withNewHttpGetLike(V1HTTPGetAction item) {
+  public V1LifecycleHandlerFluentImpl.HttpGetNested<A> withNewHttpGetLike(V1HTTPGetAction item) {
     return new V1LifecycleHandlerFluentImpl.HttpGetNestedImpl(item);
   }
-  public V1LifecycleHandlerFluent.HttpGetNested<A> editHttpGet() {
+  public V1LifecycleHandlerFluentImpl.HttpGetNested<A> editHttpGet() {
     return withNewHttpGetLike(getHttpGet());
   }
-  public V1LifecycleHandlerFluent.HttpGetNested<A> editOrNewHttpGet() {
+  public V1LifecycleHandlerFluentImpl.HttpGetNested<A> editOrNewHttpGet() {
     return withNewHttpGetLike(getHttpGet() != null ? getHttpGet(): new V1HTTPGetActionBuilder().build());
   }
-  public V1LifecycleHandlerFluent.HttpGetNested<A> editOrNewHttpGetLike(V1HTTPGetAction item) {
+  public V1LifecycleHandlerFluentImpl.HttpGetNested<A> editOrNewHttpGetLike(V1HTTPGetAction item) {
     return withNewHttpGetLike(getHttpGet() != null ? getHttpGet(): item);
   }
   
@@ -113,28 +112,32 @@ import java.lang.Object;
   public Boolean hasTcpSocket() {
     return this.tcpSocket != null;
   }
-  public V1LifecycleHandlerFluent.TcpSocketNested<A> withNewTcpSocket() {
+  public V1LifecycleHandlerFluentImpl.TcpSocketNested<A> withNewTcpSocket() {
     return new V1LifecycleHandlerFluentImpl.TcpSocketNestedImpl();
   }
-  public V1LifecycleHandlerFluent.TcpSocketNested<A> withNewTcpSocketLike(V1TCPSocketAction item) {
+  public V1LifecycleHandlerFluentImpl.TcpSocketNested<A> withNewTcpSocketLike(V1TCPSocketAction item) {
     return new V1LifecycleHandlerFluentImpl.TcpSocketNestedImpl(item);
   }
-  public V1LifecycleHandlerFluent.TcpSocketNested<A> editTcpSocket() {
+  public V1LifecycleHandlerFluentImpl.TcpSocketNested<A> editTcpSocket() {
     return withNewTcpSocketLike(getTcpSocket());
   }
-  public V1LifecycleHandlerFluent.TcpSocketNested<A> editOrNewTcpSocket() {
+  public V1LifecycleHandlerFluentImpl.TcpSocketNested<A> editOrNewTcpSocket() {
     return withNewTcpSocketLike(getTcpSocket() != null ? getTcpSocket(): new V1TCPSocketActionBuilder().build());
   }
-  public V1LifecycleHandlerFluent.TcpSocketNested<A> editOrNewTcpSocketLike(V1TCPSocketAction item) {
+  public V1LifecycleHandlerFluentImpl.TcpSocketNested<A> editOrNewTcpSocketLike(V1TCPSocketAction item) {
     return withNewTcpSocketLike(getTcpSocket() != null ? getTcpSocket(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1LifecycleHandlerFluentImpl that = (V1LifecycleHandlerFluentImpl) o;
-    if (exec != null ? !exec.equals(that.exec) :that.exec != null) return false;
-    if (httpGet != null ? !httpGet.equals(that.httpGet) :that.httpGet != null) return false;
-    if (tcpSocket != null ? !tcpSocket.equals(that.tcpSocket) :that.tcpSocket != null) return false;
+    if (!java.util.Objects.equals(exec, that.exec)) return false;
+
+    if (!java.util.Objects.equals(httpGet, that.httpGet)) return false;
+
+    if (!java.util.Objects.equals(tcpSocket, that.tcpSocket)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -149,7 +152,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class ExecNestedImpl<N> extends V1ExecActionFluentImpl<V1LifecycleHandlerFluent.ExecNested<N>> implements V1LifecycleHandlerFluent.ExecNested<N>,Nested<N>{
+  class ExecNestedImpl<N> extends V1ExecActionFluentImpl<V1LifecycleHandlerFluentImpl.ExecNested<N>> implements V1LifecycleHandlerFluentImpl.ExecNested<N>,Nested<N>{
     ExecNestedImpl(V1ExecAction item) {
       this.builder = new V1ExecActionBuilder(this, item);
     }
@@ -165,7 +168,7 @@ import java.lang.Object;
     }
     
   }
-  class HttpGetNestedImpl<N> extends V1HTTPGetActionFluentImpl<V1LifecycleHandlerFluent.HttpGetNested<N>> implements V1LifecycleHandlerFluent.HttpGetNested<N>,Nested<N>{
+  class HttpGetNestedImpl<N> extends V1HTTPGetActionFluentImpl<V1LifecycleHandlerFluentImpl.HttpGetNested<N>> implements V1LifecycleHandlerFluentImpl.HttpGetNested<N>,Nested<N>{
     HttpGetNestedImpl(V1HTTPGetAction item) {
       this.builder = new V1HTTPGetActionBuilder(this, item);
     }
@@ -181,7 +184,7 @@ import java.lang.Object;
     }
     
   }
-  class TcpSocketNestedImpl<N> extends V1TCPSocketActionFluentImpl<V1LifecycleHandlerFluent.TcpSocketNested<N>> implements V1LifecycleHandlerFluent.TcpSocketNested<N>,Nested<N>{
+  class TcpSocketNestedImpl<N> extends V1TCPSocketActionFluentImpl<V1LifecycleHandlerFluentImpl.TcpSocketNested<N>> implements V1LifecycleHandlerFluentImpl.TcpSocketNested<N>,Nested<N>{
     TcpSocketNestedImpl(V1TCPSocketAction item) {
       this.builder = new V1TCPSocketActionBuilder(this, item);
     }

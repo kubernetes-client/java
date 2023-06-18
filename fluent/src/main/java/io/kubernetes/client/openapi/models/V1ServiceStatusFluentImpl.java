@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,23 +22,24 @@ import java.lang.Object;
   public V1ServiceStatusFluentImpl() {
   }
   public V1ServiceStatusFluentImpl(V1ServiceStatus instance) {
-    this.withConditions(instance.getConditions());
-
-    this.withLoadBalancer(instance.getLoadBalancer());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+      this.withLoadBalancer(instance.getLoadBalancer());
+    }
   }
   private ArrayList<V1ConditionBuilder> conditions;
   private V1LoadBalancerStatusBuilder loadBalancer;
-  public A addToConditions(Integer index,V1Condition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1ConditionBuilder>();}
-    V1ConditionBuilder builder = new V1ConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
-  }
-  public A setToConditions(Integer index,V1Condition item) {
+  public A addToConditions(int index,V1Condition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1ConditionBuilder>();}
     V1ConditionBuilder builder = new V1ConditionBuilder(item);
-    if (index < 0 || index >= _visitables.get("conditions").size()) { _visitables.get("conditions").add(builder); } else { _visitables.get("conditions").set(index, builder);}
-    if (index < 0 || index >= conditions.size()) { conditions.add(builder); } else { conditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToConditions(int index,V1Condition item) {
+    if (this.conditions == null) {this.conditions = new ArrayList<V1ConditionBuilder>();}
+    V1ConditionBuilder builder = new V1ConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    return (A)this;
   }
   public A addToConditions(io.kubernetes.client.openapi.models.V1Condition... items) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1ConditionBuilder>();}
@@ -80,7 +80,7 @@ import java.lang.Object;
   public List<V1Condition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
-  public V1Condition buildCondition(Integer index) {
+  public V1Condition buildCondition(int index) {
     return this.conditions.get(index).build();
   }
   public V1Condition buildFirstCondition() {
@@ -96,39 +96,39 @@ import java.lang.Object;
     for (V1ConditionBuilder item: conditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withConditions(List<V1Condition> conditions) {
-    if (this.conditions != null) { _visitables.get("conditions").removeAll(this.conditions);}
+    if (this.conditions != null) { _visitables.get("conditions").clear();}
     if (conditions != null) {this.conditions = new ArrayList(); for (V1Condition item : conditions){this.addToConditions(item);}} else { this.conditions = null;} return (A) this;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V1Condition... conditions) {
-    if (this.conditions != null) {this.conditions.clear();}
+    if (this.conditions != null) {this.conditions.clear(); _visitables.remove("conditions"); }
     if (conditions != null) {for (V1Condition item :conditions){ this.addToConditions(item);}} return (A) this;
   }
   public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
-  public V1ServiceStatusFluent.ConditionsNested<A> addNewCondition() {
+  public V1ServiceStatusFluentImpl.ConditionsNested<A> addNewCondition() {
     return new V1ServiceStatusFluentImpl.ConditionsNestedImpl();
   }
-  public V1ServiceStatusFluent.ConditionsNested<A> addNewConditionLike(V1Condition item) {
+  public V1ServiceStatusFluentImpl.ConditionsNested<A> addNewConditionLike(V1Condition item) {
     return new V1ServiceStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
-  public V1ServiceStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1Condition item) {
+  public V1ServiceStatusFluentImpl.ConditionsNested<A> setNewConditionLike(int index,V1Condition item) {
     return new V1ServiceStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
-  public V1ServiceStatusFluent.ConditionsNested<A> editCondition(Integer index) {
+  public V1ServiceStatusFluentImpl.ConditionsNested<A> editCondition(int index) {
     if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1ServiceStatusFluent.ConditionsNested<A> editFirstCondition() {
+  public V1ServiceStatusFluentImpl.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
-  public V1ServiceStatusFluent.ConditionsNested<A> editLastCondition() {
+  public V1ServiceStatusFluentImpl.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1ServiceStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1ConditionBuilder> predicate) {
+  public V1ServiceStatusFluentImpl.ConditionsNested<A> editMatchingCondition(Predicate<V1ConditionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<conditions.size();i++) { 
     if (predicate.test(conditions.get(i))) {index = i; break;}
@@ -155,27 +155,30 @@ import java.lang.Object;
   public Boolean hasLoadBalancer() {
     return this.loadBalancer != null;
   }
-  public V1ServiceStatusFluent.LoadBalancerNested<A> withNewLoadBalancer() {
+  public V1ServiceStatusFluentImpl.LoadBalancerNested<A> withNewLoadBalancer() {
     return new V1ServiceStatusFluentImpl.LoadBalancerNestedImpl();
   }
-  public V1ServiceStatusFluent.LoadBalancerNested<A> withNewLoadBalancerLike(V1LoadBalancerStatus item) {
+  public V1ServiceStatusFluentImpl.LoadBalancerNested<A> withNewLoadBalancerLike(V1LoadBalancerStatus item) {
     return new V1ServiceStatusFluentImpl.LoadBalancerNestedImpl(item);
   }
-  public V1ServiceStatusFluent.LoadBalancerNested<A> editLoadBalancer() {
+  public V1ServiceStatusFluentImpl.LoadBalancerNested<A> editLoadBalancer() {
     return withNewLoadBalancerLike(getLoadBalancer());
   }
-  public V1ServiceStatusFluent.LoadBalancerNested<A> editOrNewLoadBalancer() {
+  public V1ServiceStatusFluentImpl.LoadBalancerNested<A> editOrNewLoadBalancer() {
     return withNewLoadBalancerLike(getLoadBalancer() != null ? getLoadBalancer(): new V1LoadBalancerStatusBuilder().build());
   }
-  public V1ServiceStatusFluent.LoadBalancerNested<A> editOrNewLoadBalancerLike(V1LoadBalancerStatus item) {
+  public V1ServiceStatusFluentImpl.LoadBalancerNested<A> editOrNewLoadBalancerLike(V1LoadBalancerStatus item) {
     return withNewLoadBalancerLike(getLoadBalancer() != null ? getLoadBalancer(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ServiceStatusFluentImpl that = (V1ServiceStatusFluentImpl) o;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
-    if (loadBalancer != null ? !loadBalancer.equals(that.loadBalancer) :that.loadBalancer != null) return false;
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
+    if (!java.util.Objects.equals(loadBalancer, that.loadBalancer)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -184,13 +187,13 @@ import java.lang.Object;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
+    if (conditions != null) { sb.append("conditions:"); sb.append(conditions + ","); }
     if (loadBalancer != null) { sb.append("loadBalancer:"); sb.append(loadBalancer); }
     sb.append("}");
     return sb.toString();
   }
-  class ConditionsNestedImpl<N> extends V1ConditionFluentImpl<V1ServiceStatusFluent.ConditionsNested<N>> implements V1ServiceStatusFluent.ConditionsNested<N>,Nested<N>{
-    ConditionsNestedImpl(Integer index,V1Condition item) {
+  class ConditionsNestedImpl<N> extends V1ConditionFluentImpl<V1ServiceStatusFluentImpl.ConditionsNested<N>> implements V1ServiceStatusFluentImpl.ConditionsNested<N>,Nested<N>{
+    ConditionsNestedImpl(int index,V1Condition item) {
       this.index = index;
       this.builder = new V1ConditionBuilder(this, item);
     }
@@ -199,7 +202,7 @@ import java.lang.Object;
       this.builder = new V1ConditionBuilder(this);
     }
     V1ConditionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ServiceStatusFluentImpl.this.setToConditions(index,builder.build());
     }
@@ -208,7 +211,7 @@ import java.lang.Object;
     }
     
   }
-  class LoadBalancerNestedImpl<N> extends V1LoadBalancerStatusFluentImpl<V1ServiceStatusFluent.LoadBalancerNested<N>> implements V1ServiceStatusFluent.LoadBalancerNested<N>,Nested<N>{
+  class LoadBalancerNestedImpl<N> extends V1LoadBalancerStatusFluentImpl<V1ServiceStatusFluentImpl.LoadBalancerNested<N>> implements V1ServiceStatusFluentImpl.LoadBalancerNested<N>,Nested<N>{
     LoadBalancerNestedImpl(V1LoadBalancerStatus item) {
       this.builder = new V1LoadBalancerStatusBuilder(this, item);
     }

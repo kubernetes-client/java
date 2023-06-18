@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -56,8 +56,8 @@ public interface V1CustomResourceDefinitionSpecFluent<A extends V1CustomResource
   public String getScope();
   public A withScope(String scope);
   public Boolean hasScope();
-  public A addToVersions(Integer index,V1CustomResourceDefinitionVersion item);
-  public A setToVersions(Integer index,V1CustomResourceDefinitionVersion item);
+  public A addToVersions(int index,V1CustomResourceDefinitionVersion item);
+  public A setToVersions(int index,V1CustomResourceDefinitionVersion item);
   public A addToVersions(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion... items);
   public A addAllToVersions(Collection<V1CustomResourceDefinitionVersion> items);
   public A removeFromVersions(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion... items);
@@ -71,7 +71,7 @@ public interface V1CustomResourceDefinitionSpecFluent<A extends V1CustomResource
   @Deprecated
   public List<V1CustomResourceDefinitionVersion> getVersions();
   public List<V1CustomResourceDefinitionVersion> buildVersions();
-  public V1CustomResourceDefinitionVersion buildVersion(Integer index);
+  public V1CustomResourceDefinitionVersion buildVersion(int index);
   public V1CustomResourceDefinitionVersion buildFirstVersion();
   public V1CustomResourceDefinitionVersion buildLastVersion();
   public V1CustomResourceDefinitionVersion buildMatchingVersion(Predicate<V1CustomResourceDefinitionVersionBuilder> predicate);
@@ -81,8 +81,8 @@ public interface V1CustomResourceDefinitionSpecFluent<A extends V1CustomResource
   public Boolean hasVersions();
   public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> addNewVersion();
   public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> addNewVersionLike(V1CustomResourceDefinitionVersion item);
-  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> setNewVersionLike(Integer index,V1CustomResourceDefinitionVersion item);
-  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> editVersion(Integer index);
+  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> setNewVersionLike(int index,V1CustomResourceDefinitionVersion item);
+  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> editVersion(int index);
   public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> editFirstVersion();
   public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> editLastVersion();
   public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> editMatchingVersion(Predicate<V1CustomResourceDefinitionVersionBuilder> predicate);

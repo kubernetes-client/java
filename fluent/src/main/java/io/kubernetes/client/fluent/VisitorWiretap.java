@@ -26,21 +26,32 @@ public final class VisitorWiretap<T> implements Visitor<T>{
     return delegate.getType();
   }
   public void visit(T target) {
-    listeners.forEach(l -> l.beforeVisit(delegate, Collections.emptyList(), target));
+    for (VisitorListener l : listeners) {
+      l.beforeVisit(delegate, Collections.emptyList(), target);
+    }
     delegate.visit(target);
-    listeners.forEach(l -> l.afterVisit(delegate, Collections.emptyList(), target));
+    for (VisitorListener l : listeners) {
+      l.afterVisit(delegate, Collections.emptyList(), target);
+    }
   }
   public int order() {
     return delegate.order();
   }
   public void visit(List<Entry<String,Object>> path,T target) {
-    listeners.forEach(l -> l.beforeVisit(delegate, path, target));
+    for (VisitorListener l : listeners) {
+      l.beforeVisit(delegate, path, target);
+    }
     delegate.visit(path, target);
-    listeners.forEach(l -> l.afterVisit(delegate, path, target));
+    for (VisitorListener l : listeners) {
+      l.afterVisit(delegate, path, target);
+    }
   }
   public <F>Boolean canVisit(List<Entry<String,Object>> path,F target) {
     boolean canVisit = delegate.canVisit(path, target);
-    listeners.forEach(l -> l.onCheck(delegate, canVisit, target));
+    for (VisitorListener l : listeners) {
+      l.onCheck(delegate, canVisit, target);
+    }
+
     return canVisit;
   }
   

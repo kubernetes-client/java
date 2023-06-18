@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,12 +22,11 @@ import java.lang.Object;
   public V1CustomResourceDefinitionStatusFluentImpl() {
   }
   public V1CustomResourceDefinitionStatusFluentImpl(V1CustomResourceDefinitionStatus instance) {
-    this.withAcceptedNames(instance.getAcceptedNames());
-
-    this.withConditions(instance.getConditions());
-
-    this.withStoredVersions(instance.getStoredVersions());
-
+    if (instance != null) {
+      this.withAcceptedNames(instance.getAcceptedNames());
+      this.withConditions(instance.getConditions());
+      this.withStoredVersions(instance.getStoredVersions());
+    }
   }
   private V1CustomResourceDefinitionNamesBuilder acceptedNames;
   private ArrayList<V1CustomResourceDefinitionConditionBuilder> conditions;
@@ -52,31 +50,32 @@ import java.lang.Object;
   public Boolean hasAcceptedNames() {
     return this.acceptedNames != null;
   }
-  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> withNewAcceptedNames() {
+  public V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNested<A> withNewAcceptedNames() {
     return new V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNestedImpl();
   }
-  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> withNewAcceptedNamesLike(V1CustomResourceDefinitionNames item) {
+  public V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNested<A> withNewAcceptedNamesLike(V1CustomResourceDefinitionNames item) {
     return new V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNestedImpl(item);
   }
-  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> editAcceptedNames() {
+  public V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNested<A> editAcceptedNames() {
     return withNewAcceptedNamesLike(getAcceptedNames());
   }
-  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> editOrNewAcceptedNames() {
+  public V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNested<A> editOrNewAcceptedNames() {
     return withNewAcceptedNamesLike(getAcceptedNames() != null ? getAcceptedNames(): new V1CustomResourceDefinitionNamesBuilder().build());
   }
-  public V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<A> editOrNewAcceptedNamesLike(V1CustomResourceDefinitionNames item) {
+  public V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNested<A> editOrNewAcceptedNamesLike(V1CustomResourceDefinitionNames item) {
     return withNewAcceptedNamesLike(getAcceptedNames() != null ? getAcceptedNames(): item);
   }
-  public A addToConditions(Integer index,V1CustomResourceDefinitionCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1CustomResourceDefinitionConditionBuilder>();}
-    V1CustomResourceDefinitionConditionBuilder builder = new V1CustomResourceDefinitionConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
-  }
-  public A setToConditions(Integer index,V1CustomResourceDefinitionCondition item) {
+  public A addToConditions(int index,V1CustomResourceDefinitionCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1CustomResourceDefinitionConditionBuilder>();}
     V1CustomResourceDefinitionConditionBuilder builder = new V1CustomResourceDefinitionConditionBuilder(item);
-    if (index < 0 || index >= _visitables.get("conditions").size()) { _visitables.get("conditions").add(builder); } else { _visitables.get("conditions").set(index, builder);}
-    if (index < 0 || index >= conditions.size()) { conditions.add(builder); } else { conditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToConditions(int index,V1CustomResourceDefinitionCondition item) {
+    if (this.conditions == null) {this.conditions = new ArrayList<V1CustomResourceDefinitionConditionBuilder>();}
+    V1CustomResourceDefinitionConditionBuilder builder = new V1CustomResourceDefinitionConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    return (A)this;
   }
   public A addToConditions(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition... items) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1CustomResourceDefinitionConditionBuilder>();}
@@ -117,7 +116,7 @@ import java.lang.Object;
   public List<V1CustomResourceDefinitionCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
-  public V1CustomResourceDefinitionCondition buildCondition(Integer index) {
+  public V1CustomResourceDefinitionCondition buildCondition(int index) {
     return this.conditions.get(index).build();
   }
   public V1CustomResourceDefinitionCondition buildFirstCondition() {
@@ -133,39 +132,39 @@ import java.lang.Object;
     for (V1CustomResourceDefinitionConditionBuilder item: conditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withConditions(List<V1CustomResourceDefinitionCondition> conditions) {
-    if (this.conditions != null) { _visitables.get("conditions").removeAll(this.conditions);}
+    if (this.conditions != null) { _visitables.get("conditions").clear();}
     if (conditions != null) {this.conditions = new ArrayList(); for (V1CustomResourceDefinitionCondition item : conditions){this.addToConditions(item);}} else { this.conditions = null;} return (A) this;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionCondition... conditions) {
-    if (this.conditions != null) {this.conditions.clear();}
+    if (this.conditions != null) {this.conditions.clear(); _visitables.remove("conditions"); }
     if (conditions != null) {for (V1CustomResourceDefinitionCondition item :conditions){ this.addToConditions(item);}} return (A) this;
   }
   public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
-  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> addNewCondition() {
+  public V1CustomResourceDefinitionStatusFluentImpl.ConditionsNested<A> addNewCondition() {
     return new V1CustomResourceDefinitionStatusFluentImpl.ConditionsNestedImpl();
   }
-  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> addNewConditionLike(V1CustomResourceDefinitionCondition item) {
+  public V1CustomResourceDefinitionStatusFluentImpl.ConditionsNested<A> addNewConditionLike(V1CustomResourceDefinitionCondition item) {
     return new V1CustomResourceDefinitionStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
-  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1CustomResourceDefinitionCondition item) {
+  public V1CustomResourceDefinitionStatusFluentImpl.ConditionsNested<A> setNewConditionLike(int index,V1CustomResourceDefinitionCondition item) {
     return new V1CustomResourceDefinitionStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
-  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> editCondition(Integer index) {
+  public V1CustomResourceDefinitionStatusFluentImpl.ConditionsNested<A> editCondition(int index) {
     if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> editFirstCondition() {
+  public V1CustomResourceDefinitionStatusFluentImpl.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
-  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> editLastCondition() {
+  public V1CustomResourceDefinitionStatusFluentImpl.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1CustomResourceDefinitionStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1CustomResourceDefinitionConditionBuilder> predicate) {
+  public V1CustomResourceDefinitionStatusFluentImpl.ConditionsNested<A> editMatchingCondition(Predicate<V1CustomResourceDefinitionConditionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<conditions.size();i++) { 
     if (predicate.test(conditions.get(i))) {index = i; break;}
@@ -173,12 +172,12 @@ import java.lang.Object;
     if (index < 0) throw new RuntimeException("Can't edit matching conditions. No match found.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public A addToStoredVersions(Integer index,String item) {
+  public A addToStoredVersions(int index,String item) {
     if (this.storedVersions == null) {this.storedVersions = new ArrayList<String>();}
     this.storedVersions.add(index, item);
     return (A)this;
   }
-  public A setToStoredVersions(Integer index,String item) {
+  public A setToStoredVersions(int index,String item) {
     if (this.storedVersions == null) {this.storedVersions = new ArrayList<String>();}
     this.storedVersions.set(index, item); return (A)this;
   }
@@ -199,7 +198,7 @@ import java.lang.Object;
   public List<String> getStoredVersions() {
     return this.storedVersions;
   }
-  public String getStoredVersion(Integer index) {
+  public String getStoredVersion(int index) {
     return this.storedVersions.get(index);
   }
   public String getFirstStoredVersion() {
@@ -218,7 +217,7 @@ import java.lang.Object;
     if (storedVersions != null) {this.storedVersions = new ArrayList(); for (String item : storedVersions){this.addToStoredVersions(item);}} else { this.storedVersions = null;} return (A) this;
   }
   public A withStoredVersions(java.lang.String... storedVersions) {
-    if (this.storedVersions != null) {this.storedVersions.clear();}
+    if (this.storedVersions != null) {this.storedVersions.clear(); _visitables.remove("storedVersions"); }
     if (storedVersions != null) {for (String item :storedVersions){ this.addToStoredVersions(item);}} return (A) this;
   }
   public Boolean hasStoredVersions() {
@@ -227,10 +226,14 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CustomResourceDefinitionStatusFluentImpl that = (V1CustomResourceDefinitionStatusFluentImpl) o;
-    if (acceptedNames != null ? !acceptedNames.equals(that.acceptedNames) :that.acceptedNames != null) return false;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
-    if (storedVersions != null ? !storedVersions.equals(that.storedVersions) :that.storedVersions != null) return false;
+    if (!java.util.Objects.equals(acceptedNames, that.acceptedNames)) return false;
+
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
+    if (!java.util.Objects.equals(storedVersions, that.storedVersions)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -240,12 +243,12 @@ import java.lang.Object;
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (acceptedNames != null) { sb.append("acceptedNames:"); sb.append(acceptedNames + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
+    if (conditions != null) { sb.append("conditions:"); sb.append(conditions + ","); }
     if (storedVersions != null && !storedVersions.isEmpty()) { sb.append("storedVersions:"); sb.append(storedVersions); }
     sb.append("}");
     return sb.toString();
   }
-  class AcceptedNamesNestedImpl<N> extends V1CustomResourceDefinitionNamesFluentImpl<V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<N>> implements V1CustomResourceDefinitionStatusFluent.AcceptedNamesNested<N>,Nested<N>{
+  class AcceptedNamesNestedImpl<N> extends V1CustomResourceDefinitionNamesFluentImpl<V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNested<N>> implements V1CustomResourceDefinitionStatusFluentImpl.AcceptedNamesNested<N>,Nested<N>{
     AcceptedNamesNestedImpl(V1CustomResourceDefinitionNames item) {
       this.builder = new V1CustomResourceDefinitionNamesBuilder(this, item);
     }
@@ -261,8 +264,8 @@ import java.lang.Object;
     }
     
   }
-  class ConditionsNestedImpl<N> extends V1CustomResourceDefinitionConditionFluentImpl<V1CustomResourceDefinitionStatusFluent.ConditionsNested<N>> implements V1CustomResourceDefinitionStatusFluent.ConditionsNested<N>,Nested<N>{
-    ConditionsNestedImpl(Integer index,V1CustomResourceDefinitionCondition item) {
+  class ConditionsNestedImpl<N> extends V1CustomResourceDefinitionConditionFluentImpl<V1CustomResourceDefinitionStatusFluentImpl.ConditionsNested<N>> implements V1CustomResourceDefinitionStatusFluentImpl.ConditionsNested<N>,Nested<N>{
+    ConditionsNestedImpl(int index,V1CustomResourceDefinitionCondition item) {
       this.index = index;
       this.builder = new V1CustomResourceDefinitionConditionBuilder(this, item);
     }
@@ -271,7 +274,7 @@ import java.lang.Object;
       this.builder = new V1CustomResourceDefinitionConditionBuilder(this);
     }
     V1CustomResourceDefinitionConditionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1CustomResourceDefinitionStatusFluentImpl.this.setToConditions(index,builder.build());
     }

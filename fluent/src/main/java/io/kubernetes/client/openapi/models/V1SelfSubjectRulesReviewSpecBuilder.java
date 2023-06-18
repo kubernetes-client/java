@@ -20,8 +20,9 @@ public class V1SelfSubjectRulesReviewSpecBuilder extends V1SelfSubjectRulesRevie
   }
   public V1SelfSubjectRulesReviewSpecBuilder(V1SelfSubjectRulesReviewSpecFluent<?> fluent,V1SelfSubjectRulesReviewSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withNamespace(instance.getNamespace());
-
+    if (instance != null) {
+      fluent.withNamespace(instance.getNamespace());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SelfSubjectRulesReviewSpecBuilder(V1SelfSubjectRulesReviewSpec instance) {
@@ -29,8 +30,9 @@ public class V1SelfSubjectRulesReviewSpecBuilder extends V1SelfSubjectRulesRevie
   }
   public V1SelfSubjectRulesReviewSpecBuilder(V1SelfSubjectRulesReviewSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withNamespace(instance.getNamespace());
-
+    if (instance != null) {
+      this.withNamespace(instance.getNamespace());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SelfSubjectRulesReviewSpecFluent<?> fluent;

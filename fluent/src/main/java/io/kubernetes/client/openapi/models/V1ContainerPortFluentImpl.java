@@ -15,16 +15,13 @@ import java.lang.Boolean;
   public V1ContainerPortFluentImpl() {
   }
   public V1ContainerPortFluentImpl(V1ContainerPort instance) {
-    this.withContainerPort(instance.getContainerPort());
-
-    this.withHostIP(instance.getHostIP());
-
-    this.withHostPort(instance.getHostPort());
-
-    this.withName(instance.getName());
-
-    this.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      this.withContainerPort(instance.getContainerPort());
+      this.withHostIP(instance.getHostIP());
+      this.withHostPort(instance.getHostPort());
+      this.withName(instance.getName());
+      this.withProtocol(instance.getProtocol());
+    }
   }
   private Integer containerPort;
   private String hostIP;
@@ -79,12 +76,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ContainerPortFluentImpl that = (V1ContainerPortFluentImpl) o;
-    if (containerPort != null ? !containerPort.equals(that.containerPort) :that.containerPort != null) return false;
-    if (hostIP != null ? !hostIP.equals(that.hostIP) :that.hostIP != null) return false;
-    if (hostPort != null ? !hostPort.equals(that.hostPort) :that.hostPort != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (protocol != null ? !protocol.equals(that.protocol) :that.protocol != null) return false;
+    if (!java.util.Objects.equals(containerPort, that.containerPort)) return false;
+
+    if (!java.util.Objects.equals(hostIP, that.hostIP)) return false;
+
+    if (!java.util.Objects.equals(hostPort, that.hostPort)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(protocol, that.protocol)) return false;
+
     return true;
   }
   public int hashCode() {

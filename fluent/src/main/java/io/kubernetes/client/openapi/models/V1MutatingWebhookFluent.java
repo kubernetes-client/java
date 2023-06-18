@@ -1,30 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import io.kubernetes.client.fluent.Fluent;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
-import java.util.Collection;
 import java.util.List;
 import java.lang.Boolean;
+import io.kubernetes.client.fluent.Fluent;
+import java.lang.Integer;
+import java.util.Collection;
 
  /**
   * Generated
   */
 public interface V1MutatingWebhookFluent<A extends V1MutatingWebhookFluent<A>> extends Fluent<A>{
-  public A addToAdmissionReviewVersions(Integer index,String item);
-  public A setToAdmissionReviewVersions(Integer index,String item);
+  public A addToAdmissionReviewVersions(int index,String item);
+  public A setToAdmissionReviewVersions(int index,String item);
   public A addToAdmissionReviewVersions(java.lang.String... items);
   public A addAllToAdmissionReviewVersions(Collection<String> items);
   public A removeFromAdmissionReviewVersions(java.lang.String... items);
   public A removeAllFromAdmissionReviewVersions(Collection<String> items);
   public List<String> getAdmissionReviewVersions();
-  public String getAdmissionReviewVersion(Integer index);
+  public String getAdmissionReviewVersion(int index);
   public String getFirstAdmissionReviewVersion();
   public String getLastAdmissionReviewVersion();
   public String getMatchingAdmissionReviewVersion(Predicate<String> predicate);
@@ -50,6 +51,36 @@ public interface V1MutatingWebhookFluent<A extends V1MutatingWebhookFluent<A>> e
   public String getFailurePolicy();
   public A withFailurePolicy(String failurePolicy);
   public Boolean hasFailurePolicy();
+  public A addToMatchConditions(int index,V1MatchCondition item);
+  public A setToMatchConditions(int index,V1MatchCondition item);
+  public A addToMatchConditions(io.kubernetes.client.openapi.models.V1MatchCondition... items);
+  public A addAllToMatchConditions(Collection<V1MatchCondition> items);
+  public A removeFromMatchConditions(io.kubernetes.client.openapi.models.V1MatchCondition... items);
+  public A removeAllFromMatchConditions(Collection<V1MatchCondition> items);
+  public A removeMatchingFromMatchConditions(Predicate<V1MatchConditionBuilder> predicate);
+  
+  /**
+   * This method has been deprecated, please use method buildMatchConditions instead.
+   * @return The buildable object.
+   */
+  @Deprecated
+  public List<V1MatchCondition> getMatchConditions();
+  public List<V1MatchCondition> buildMatchConditions();
+  public V1MatchCondition buildMatchCondition(int index);
+  public V1MatchCondition buildFirstMatchCondition();
+  public V1MatchCondition buildLastMatchCondition();
+  public V1MatchCondition buildMatchingMatchCondition(Predicate<V1MatchConditionBuilder> predicate);
+  public Boolean hasMatchingMatchCondition(Predicate<V1MatchConditionBuilder> predicate);
+  public A withMatchConditions(List<V1MatchCondition> matchConditions);
+  public A withMatchConditions(io.kubernetes.client.openapi.models.V1MatchCondition... matchConditions);
+  public Boolean hasMatchConditions();
+  public V1MutatingWebhookFluent.MatchConditionsNested<A> addNewMatchCondition();
+  public V1MutatingWebhookFluent.MatchConditionsNested<A> addNewMatchConditionLike(V1MatchCondition item);
+  public V1MutatingWebhookFluent.MatchConditionsNested<A> setNewMatchConditionLike(int index,V1MatchCondition item);
+  public V1MutatingWebhookFluent.MatchConditionsNested<A> editMatchCondition(int index);
+  public V1MutatingWebhookFluent.MatchConditionsNested<A> editFirstMatchCondition();
+  public V1MutatingWebhookFluent.MatchConditionsNested<A> editLastMatchCondition();
+  public V1MutatingWebhookFluent.MatchConditionsNested<A> editMatchingMatchCondition(Predicate<V1MatchConditionBuilder> predicate);
   public String getMatchPolicy();
   public A withMatchPolicy(String matchPolicy);
   public Boolean hasMatchPolicy();
@@ -89,8 +120,8 @@ public interface V1MutatingWebhookFluent<A extends V1MutatingWebhookFluent<A>> e
   public String getReinvocationPolicy();
   public A withReinvocationPolicy(String reinvocationPolicy);
   public Boolean hasReinvocationPolicy();
-  public A addToRules(Integer index,V1RuleWithOperations item);
-  public A setToRules(Integer index,V1RuleWithOperations item);
+  public A addToRules(int index,V1RuleWithOperations item);
+  public A setToRules(int index,V1RuleWithOperations item);
   public A addToRules(io.kubernetes.client.openapi.models.V1RuleWithOperations... items);
   public A addAllToRules(Collection<V1RuleWithOperations> items);
   public A removeFromRules(io.kubernetes.client.openapi.models.V1RuleWithOperations... items);
@@ -104,7 +135,7 @@ public interface V1MutatingWebhookFluent<A extends V1MutatingWebhookFluent<A>> e
   @Deprecated
   public List<V1RuleWithOperations> getRules();
   public List<V1RuleWithOperations> buildRules();
-  public V1RuleWithOperations buildRule(Integer index);
+  public V1RuleWithOperations buildRule(int index);
   public V1RuleWithOperations buildFirstRule();
   public V1RuleWithOperations buildLastRule();
   public V1RuleWithOperations buildMatchingRule(Predicate<V1RuleWithOperationsBuilder> predicate);
@@ -114,8 +145,8 @@ public interface V1MutatingWebhookFluent<A extends V1MutatingWebhookFluent<A>> e
   public Boolean hasRules();
   public V1MutatingWebhookFluent.RulesNested<A> addNewRule();
   public V1MutatingWebhookFluent.RulesNested<A> addNewRuleLike(V1RuleWithOperations item);
-  public V1MutatingWebhookFluent.RulesNested<A> setNewRuleLike(Integer index,V1RuleWithOperations item);
-  public V1MutatingWebhookFluent.RulesNested<A> editRule(Integer index);
+  public V1MutatingWebhookFluent.RulesNested<A> setNewRuleLike(int index,V1RuleWithOperations item);
+  public V1MutatingWebhookFluent.RulesNested<A> editRule(int index);
   public V1MutatingWebhookFluent.RulesNested<A> editFirstRule();
   public V1MutatingWebhookFluent.RulesNested<A> editLastRule();
   public V1MutatingWebhookFluent.RulesNested<A> editMatchingRule(Predicate<V1RuleWithOperationsBuilder> predicate);
@@ -128,6 +159,11 @@ public interface V1MutatingWebhookFluent<A extends V1MutatingWebhookFluent<A>> e
   public interface ClientConfigNested<N> extends Nested<N>,AdmissionregistrationV1WebhookClientConfigFluent<V1MutatingWebhookFluent.ClientConfigNested<N>>{
     public N and();
     public N endClientConfig();
+    
+  }
+  public interface MatchConditionsNested<N> extends Nested<N>,V1MatchConditionFluent<V1MutatingWebhookFluent.MatchConditionsNested<N>>{
+    public N and();
+    public N endMatchCondition();
     
   }
   public interface NamespaceSelectorNested<N> extends Nested<N>,V1LabelSelectorFluent<V1MutatingWebhookFluent.NamespaceSelectorNested<N>>{

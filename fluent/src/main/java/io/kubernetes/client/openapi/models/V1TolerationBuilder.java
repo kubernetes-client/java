@@ -20,16 +20,13 @@ public class V1TolerationBuilder extends V1TolerationFluentImpl<V1TolerationBuil
   }
   public V1TolerationBuilder(V1TolerationFluent<?> fluent,V1Toleration instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withEffect(instance.getEffect());
-
-    fluent.withKey(instance.getKey());
-
-    fluent.withOperator(instance.getOperator());
-
-    fluent.withTolerationSeconds(instance.getTolerationSeconds());
-
-    fluent.withValue(instance.getValue());
-
+    if (instance != null) {
+      fluent.withEffect(instance.getEffect());
+      fluent.withKey(instance.getKey());
+      fluent.withOperator(instance.getOperator());
+      fluent.withTolerationSeconds(instance.getTolerationSeconds());
+      fluent.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TolerationBuilder(V1Toleration instance) {
@@ -37,16 +34,13 @@ public class V1TolerationBuilder extends V1TolerationFluentImpl<V1TolerationBuil
   }
   public V1TolerationBuilder(V1Toleration instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withEffect(instance.getEffect());
-
-    this.withKey(instance.getKey());
-
-    this.withOperator(instance.getOperator());
-
-    this.withTolerationSeconds(instance.getTolerationSeconds());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withEffect(instance.getEffect());
+      this.withKey(instance.getKey());
+      this.withOperator(instance.getOperator());
+      this.withTolerationSeconds(instance.getTolerationSeconds());
+      this.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TolerationFluent<?> fluent;

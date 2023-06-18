@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1FlockerVolumeSourceFluentImpl() {
   }
   public V1FlockerVolumeSourceFluentImpl(V1FlockerVolumeSource instance) {
-    this.withDatasetName(instance.getDatasetName());
-
-    this.withDatasetUUID(instance.getDatasetUUID());
-
+    if (instance != null) {
+      this.withDatasetName(instance.getDatasetName());
+      this.withDatasetUUID(instance.getDatasetUUID());
+    }
   }
   private String datasetName;
   private String datasetUUID;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1FlockerVolumeSourceFluentImpl that = (V1FlockerVolumeSourceFluentImpl) o;
-    if (datasetName != null ? !datasetName.equals(that.datasetName) :that.datasetName != null) return false;
-    if (datasetUUID != null ? !datasetUUID.equals(that.datasetUUID) :that.datasetUUID != null) return false;
+    if (!java.util.Objects.equals(datasetName, that.datasetName)) return false;
+
+    if (!java.util.Objects.equals(datasetUUID, that.datasetUUID)) return false;
+
     return true;
   }
   public int hashCode() {

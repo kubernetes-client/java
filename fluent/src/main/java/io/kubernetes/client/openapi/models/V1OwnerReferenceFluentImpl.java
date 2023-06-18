@@ -14,18 +14,14 @@ import java.lang.Boolean;
   public V1OwnerReferenceFluentImpl() {
   }
   public V1OwnerReferenceFluentImpl(V1OwnerReference instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withBlockOwnerDeletion(instance.getBlockOwnerDeletion());
-
-    this.withController(instance.getController());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withBlockOwnerDeletion(instance.getBlockOwnerDeletion());
+      this.withController(instance.getController());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withUid(instance.getUid());
+    }
   }
   private String apiVersion;
   private Boolean blockOwnerDeletion;
@@ -90,13 +86,20 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1OwnerReferenceFluentImpl that = (V1OwnerReferenceFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (blockOwnerDeletion != null ? !blockOwnerDeletion.equals(that.blockOwnerDeletion) :that.blockOwnerDeletion != null) return false;
-    if (controller != null ? !controller.equals(that.controller) :that.controller != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (uid != null ? !uid.equals(that.uid) :that.uid != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(blockOwnerDeletion, that.blockOwnerDeletion)) return false;
+
+    if (!java.util.Objects.equals(controller, that.controller)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(uid, that.uid)) return false;
+
     return true;
   }
   public int hashCode() {

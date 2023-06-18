@@ -18,16 +18,13 @@ import java.util.Map;
   public V1CSIVolumeSourceFluentImpl() {
   }
   public V1CSIVolumeSourceFluentImpl(V1CSIVolumeSource instance) {
-    this.withDriver(instance.getDriver());
-
-    this.withFsType(instance.getFsType());
-
-    this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withVolumeAttributes(instance.getVolumeAttributes());
-
+    if (instance != null) {
+      this.withDriver(instance.getDriver());
+      this.withFsType(instance.getFsType());
+      this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
+      this.withReadOnly(instance.getReadOnly());
+      this.withVolumeAttributes(instance.getVolumeAttributes());
+    }
   }
   private String driver;
   private String fsType;
@@ -71,19 +68,19 @@ import java.util.Map;
   public Boolean hasNodePublishSecretRef() {
     return this.nodePublishSecretRef != null;
   }
-  public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> withNewNodePublishSecretRef() {
+  public V1CSIVolumeSourceFluentImpl.NodePublishSecretRefNested<A> withNewNodePublishSecretRef() {
     return new V1CSIVolumeSourceFluentImpl.NodePublishSecretRefNestedImpl();
   }
-  public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> withNewNodePublishSecretRefLike(V1LocalObjectReference item) {
+  public V1CSIVolumeSourceFluentImpl.NodePublishSecretRefNested<A> withNewNodePublishSecretRefLike(V1LocalObjectReference item) {
     return new V1CSIVolumeSourceFluentImpl.NodePublishSecretRefNestedImpl(item);
   }
-  public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> editNodePublishSecretRef() {
+  public V1CSIVolumeSourceFluentImpl.NodePublishSecretRefNested<A> editNodePublishSecretRef() {
     return withNewNodePublishSecretRefLike(getNodePublishSecretRef());
   }
-  public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> editOrNewNodePublishSecretRef() {
+  public V1CSIVolumeSourceFluentImpl.NodePublishSecretRefNested<A> editOrNewNodePublishSecretRef() {
     return withNewNodePublishSecretRefLike(getNodePublishSecretRef() != null ? getNodePublishSecretRef(): new V1LocalObjectReferenceBuilder().build());
   }
-  public V1CSIVolumeSourceFluent.NodePublishSecretRefNested<A> editOrNewNodePublishSecretRefLike(V1LocalObjectReference item) {
+  public V1CSIVolumeSourceFluentImpl.NodePublishSecretRefNested<A> editOrNewNodePublishSecretRefLike(V1LocalObjectReference item) {
     return withNewNodePublishSecretRefLike(getNodePublishSecretRef() != null ? getNodePublishSecretRef(): item);
   }
   public Boolean getReadOnly() {
@@ -123,12 +120,18 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CSIVolumeSourceFluentImpl that = (V1CSIVolumeSourceFluentImpl) o;
-    if (driver != null ? !driver.equals(that.driver) :that.driver != null) return false;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (nodePublishSecretRef != null ? !nodePublishSecretRef.equals(that.nodePublishSecretRef) :that.nodePublishSecretRef != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (volumeAttributes != null ? !volumeAttributes.equals(that.volumeAttributes) :that.volumeAttributes != null) return false;
+    if (!java.util.Objects.equals(driver, that.driver)) return false;
+
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(nodePublishSecretRef, that.nodePublishSecretRef)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(volumeAttributes, that.volumeAttributes)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -148,7 +151,7 @@ import java.util.Map;
   public A withReadOnly() {
     return withReadOnly(true);
   }
-  class NodePublishSecretRefNestedImpl<N> extends V1LocalObjectReferenceFluentImpl<V1CSIVolumeSourceFluent.NodePublishSecretRefNested<N>> implements V1CSIVolumeSourceFluent.NodePublishSecretRefNested<N>,Nested<N>{
+  class NodePublishSecretRefNestedImpl<N> extends V1LocalObjectReferenceFluentImpl<V1CSIVolumeSourceFluentImpl.NodePublishSecretRefNested<N>> implements V1CSIVolumeSourceFluentImpl.NodePublishSecretRefNested<N>,Nested<N>{
     NodePublishSecretRefNestedImpl(V1LocalObjectReference item) {
       this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }

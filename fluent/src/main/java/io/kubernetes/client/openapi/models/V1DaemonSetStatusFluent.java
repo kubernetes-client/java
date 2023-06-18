@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public interface V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> e
   public Integer getCollisionCount();
   public A withCollisionCount(Integer collisionCount);
   public Boolean hasCollisionCount();
-  public A addToConditions(Integer index,V1DaemonSetCondition item);
-  public A setToConditions(Integer index,V1DaemonSetCondition item);
+  public A addToConditions(int index,V1DaemonSetCondition item);
+  public A setToConditions(int index,V1DaemonSetCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... items);
   public A addAllToConditions(Collection<V1DaemonSetCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... items);
@@ -35,7 +36,7 @@ public interface V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> e
   @Deprecated
   public List<V1DaemonSetCondition> getConditions();
   public List<V1DaemonSetCondition> buildConditions();
-  public V1DaemonSetCondition buildCondition(Integer index);
+  public V1DaemonSetCondition buildCondition(int index);
   public V1DaemonSetCondition buildFirstCondition();
   public V1DaemonSetCondition buildLastCondition();
   public V1DaemonSetCondition buildMatchingCondition(Predicate<V1DaemonSetConditionBuilder> predicate);
@@ -45,8 +46,8 @@ public interface V1DaemonSetStatusFluent<A extends V1DaemonSetStatusFluent<A>> e
   public Boolean hasConditions();
   public V1DaemonSetStatusFluent.ConditionsNested<A> addNewCondition();
   public V1DaemonSetStatusFluent.ConditionsNested<A> addNewConditionLike(V1DaemonSetCondition item);
-  public V1DaemonSetStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1DaemonSetCondition item);
-  public V1DaemonSetStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1DaemonSetStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1DaemonSetCondition item);
+  public V1DaemonSetStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1DaemonSetStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1DaemonSetStatusFluent.ConditionsNested<A> editLastCondition();
   public V1DaemonSetStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1DaemonSetConditionBuilder> predicate);

@@ -16,12 +16,11 @@ import java.lang.Boolean;
   public V2ContainerResourceMetricSourceFluentImpl() {
   }
   public V2ContainerResourceMetricSourceFluentImpl(V2ContainerResourceMetricSource instance) {
-    this.withContainer(instance.getContainer());
-
-    this.withName(instance.getName());
-
-    this.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      this.withContainer(instance.getContainer());
+      this.withName(instance.getName());
+      this.withTarget(instance.getTarget());
+    }
   }
   private String container;
   private String name;
@@ -63,28 +62,32 @@ import java.lang.Boolean;
   public Boolean hasTarget() {
     return this.target != null;
   }
-  public V2ContainerResourceMetricSourceFluent.TargetNested<A> withNewTarget() {
+  public V2ContainerResourceMetricSourceFluentImpl.TargetNested<A> withNewTarget() {
     return new V2ContainerResourceMetricSourceFluentImpl.TargetNestedImpl();
   }
-  public V2ContainerResourceMetricSourceFluent.TargetNested<A> withNewTargetLike(V2MetricTarget item) {
+  public V2ContainerResourceMetricSourceFluentImpl.TargetNested<A> withNewTargetLike(V2MetricTarget item) {
     return new V2ContainerResourceMetricSourceFluentImpl.TargetNestedImpl(item);
   }
-  public V2ContainerResourceMetricSourceFluent.TargetNested<A> editTarget() {
+  public V2ContainerResourceMetricSourceFluentImpl.TargetNested<A> editTarget() {
     return withNewTargetLike(getTarget());
   }
-  public V2ContainerResourceMetricSourceFluent.TargetNested<A> editOrNewTarget() {
+  public V2ContainerResourceMetricSourceFluentImpl.TargetNested<A> editOrNewTarget() {
     return withNewTargetLike(getTarget() != null ? getTarget(): new V2MetricTargetBuilder().build());
   }
-  public V2ContainerResourceMetricSourceFluent.TargetNested<A> editOrNewTargetLike(V2MetricTarget item) {
+  public V2ContainerResourceMetricSourceFluentImpl.TargetNested<A> editOrNewTargetLike(V2MetricTarget item) {
     return withNewTargetLike(getTarget() != null ? getTarget(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2ContainerResourceMetricSourceFluentImpl that = (V2ContainerResourceMetricSourceFluentImpl) o;
-    if (container != null ? !container.equals(that.container) :that.container != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (target != null ? !target.equals(that.target) :that.target != null) return false;
+    if (!java.util.Objects.equals(container, that.container)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(target, that.target)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -99,7 +102,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class TargetNestedImpl<N> extends V2MetricTargetFluentImpl<V2ContainerResourceMetricSourceFluent.TargetNested<N>> implements V2ContainerResourceMetricSourceFluent.TargetNested<N>,Nested<N>{
+  class TargetNestedImpl<N> extends V2MetricTargetFluentImpl<V2ContainerResourceMetricSourceFluentImpl.TargetNested<N>> implements V2ContainerResourceMetricSourceFluentImpl.TargetNested<N>,Nested<N>{
     TargetNestedImpl(V2MetricTarget item) {
       this.builder = new V2MetricTargetBuilder(this, item);
     }

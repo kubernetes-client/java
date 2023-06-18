@@ -20,14 +20,12 @@ public class EventsV1EventListBuilder extends EventsV1EventListFluentImpl<Events
   }
   public EventsV1EventListBuilder(EventsV1EventListFluent<?> fluent,EventsV1EventList instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withItems(instance.getItems());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withItems(instance.getItems());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public EventsV1EventListBuilder(EventsV1EventList instance) {
@@ -35,14 +33,12 @@ public class EventsV1EventListBuilder extends EventsV1EventListFluentImpl<Events
   }
   public EventsV1EventListBuilder(EventsV1EventList instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withItems(instance.getItems());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withItems(instance.getItems());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   EventsV1EventListFluent<?> fluent;

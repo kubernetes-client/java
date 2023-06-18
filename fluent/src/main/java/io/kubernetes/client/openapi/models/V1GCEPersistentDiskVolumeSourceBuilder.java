@@ -20,14 +20,12 @@ public class V1GCEPersistentDiskVolumeSourceBuilder extends V1GCEPersistentDiskV
   }
   public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSourceFluent<?> fluent,V1GCEPersistentDiskVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withPartition(instance.getPartition());
-
-    fluent.withPdName(instance.getPdName());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withPartition(instance.getPartition());
+      fluent.withPdName(instance.getPdName());
+      fluent.withReadOnly(instance.getReadOnly());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSource instance) {
@@ -35,14 +33,12 @@ public class V1GCEPersistentDiskVolumeSourceBuilder extends V1GCEPersistentDiskV
   }
   public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withPartition(instance.getPartition());
-
-    this.withPdName(instance.getPdName());
-
-    this.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withPartition(instance.getPartition());
+      this.withPdName(instance.getPdName());
+      this.withReadOnly(instance.getReadOnly());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1GCEPersistentDiskVolumeSourceFluent<?> fluent;

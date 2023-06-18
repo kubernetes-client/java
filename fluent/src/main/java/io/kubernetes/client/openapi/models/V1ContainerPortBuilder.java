@@ -20,16 +20,13 @@ public class V1ContainerPortBuilder extends V1ContainerPortFluentImpl<V1Containe
   }
   public V1ContainerPortBuilder(V1ContainerPortFluent<?> fluent,V1ContainerPort instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withContainerPort(instance.getContainerPort());
-
-    fluent.withHostIP(instance.getHostIP());
-
-    fluent.withHostPort(instance.getHostPort());
-
-    fluent.withName(instance.getName());
-
-    fluent.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      fluent.withContainerPort(instance.getContainerPort());
+      fluent.withHostIP(instance.getHostIP());
+      fluent.withHostPort(instance.getHostPort());
+      fluent.withName(instance.getName());
+      fluent.withProtocol(instance.getProtocol());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ContainerPortBuilder(V1ContainerPort instance) {
@@ -37,16 +34,13 @@ public class V1ContainerPortBuilder extends V1ContainerPortFluentImpl<V1Containe
   }
   public V1ContainerPortBuilder(V1ContainerPort instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withContainerPort(instance.getContainerPort());
-
-    this.withHostIP(instance.getHostIP());
-
-    this.withHostPort(instance.getHostPort());
-
-    this.withName(instance.getName());
-
-    this.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      this.withContainerPort(instance.getContainerPort());
+      this.withHostIP(instance.getHostIP());
+      this.withHostPort(instance.getHostPort());
+      this.withName(instance.getName());
+      this.withProtocol(instance.getProtocol());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ContainerPortFluent<?> fluent;

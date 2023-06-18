@@ -24,26 +24,18 @@ import java.lang.Boolean;
   public V1StatefulSetStatusFluentImpl() {
   }
   public V1StatefulSetStatusFluentImpl(V1StatefulSetStatus instance) {
-    this.withAvailableReplicas(instance.getAvailableReplicas());
-
-    this.withCollisionCount(instance.getCollisionCount());
-
-    this.withConditions(instance.getConditions());
-
-    this.withCurrentReplicas(instance.getCurrentReplicas());
-
-    this.withCurrentRevision(instance.getCurrentRevision());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
-    this.withReadyReplicas(instance.getReadyReplicas());
-
-    this.withReplicas(instance.getReplicas());
-
-    this.withUpdateRevision(instance.getUpdateRevision());
-
-    this.withUpdatedReplicas(instance.getUpdatedReplicas());
-
+    if (instance != null) {
+      this.withAvailableReplicas(instance.getAvailableReplicas());
+      this.withCollisionCount(instance.getCollisionCount());
+      this.withConditions(instance.getConditions());
+      this.withCurrentReplicas(instance.getCurrentReplicas());
+      this.withCurrentRevision(instance.getCurrentRevision());
+      this.withObservedGeneration(instance.getObservedGeneration());
+      this.withReadyReplicas(instance.getReadyReplicas());
+      this.withReplicas(instance.getReplicas());
+      this.withUpdateRevision(instance.getUpdateRevision());
+      this.withUpdatedReplicas(instance.getUpdatedReplicas());
+    }
   }
   private Integer availableReplicas;
   private Integer collisionCount;
@@ -73,16 +65,17 @@ import java.lang.Boolean;
   public Boolean hasCollisionCount() {
     return this.collisionCount != null;
   }
-  public A addToConditions(Integer index,V1StatefulSetCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1StatefulSetConditionBuilder>();}
-    V1StatefulSetConditionBuilder builder = new V1StatefulSetConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
-  }
-  public A setToConditions(Integer index,V1StatefulSetCondition item) {
+  public A addToConditions(int index,V1StatefulSetCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1StatefulSetConditionBuilder>();}
     V1StatefulSetConditionBuilder builder = new V1StatefulSetConditionBuilder(item);
-    if (index < 0 || index >= _visitables.get("conditions").size()) { _visitables.get("conditions").add(builder); } else { _visitables.get("conditions").set(index, builder);}
-    if (index < 0 || index >= conditions.size()) { conditions.add(builder); } else { conditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToConditions(int index,V1StatefulSetCondition item) {
+    if (this.conditions == null) {this.conditions = new ArrayList<V1StatefulSetConditionBuilder>();}
+    V1StatefulSetConditionBuilder builder = new V1StatefulSetConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    return (A)this;
   }
   public A addToConditions(io.kubernetes.client.openapi.models.V1StatefulSetCondition... items) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1StatefulSetConditionBuilder>();}
@@ -123,7 +116,7 @@ import java.lang.Boolean;
   public List<V1StatefulSetCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
-  public V1StatefulSetCondition buildCondition(Integer index) {
+  public V1StatefulSetCondition buildCondition(int index) {
     return this.conditions.get(index).build();
   }
   public V1StatefulSetCondition buildFirstCondition() {
@@ -139,39 +132,39 @@ import java.lang.Boolean;
     for (V1StatefulSetConditionBuilder item: conditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withConditions(List<V1StatefulSetCondition> conditions) {
-    if (this.conditions != null) { _visitables.get("conditions").removeAll(this.conditions);}
+    if (this.conditions != null) { _visitables.get("conditions").clear();}
     if (conditions != null) {this.conditions = new ArrayList(); for (V1StatefulSetCondition item : conditions){this.addToConditions(item);}} else { this.conditions = null;} return (A) this;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V1StatefulSetCondition... conditions) {
-    if (this.conditions != null) {this.conditions.clear();}
+    if (this.conditions != null) {this.conditions.clear(); _visitables.remove("conditions"); }
     if (conditions != null) {for (V1StatefulSetCondition item :conditions){ this.addToConditions(item);}} return (A) this;
   }
   public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
-  public V1StatefulSetStatusFluent.ConditionsNested<A> addNewCondition() {
+  public V1StatefulSetStatusFluentImpl.ConditionsNested<A> addNewCondition() {
     return new V1StatefulSetStatusFluentImpl.ConditionsNestedImpl();
   }
-  public V1StatefulSetStatusFluent.ConditionsNested<A> addNewConditionLike(V1StatefulSetCondition item) {
+  public V1StatefulSetStatusFluentImpl.ConditionsNested<A> addNewConditionLike(V1StatefulSetCondition item) {
     return new V1StatefulSetStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
-  public V1StatefulSetStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1StatefulSetCondition item) {
+  public V1StatefulSetStatusFluentImpl.ConditionsNested<A> setNewConditionLike(int index,V1StatefulSetCondition item) {
     return new V1StatefulSetStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
-  public V1StatefulSetStatusFluent.ConditionsNested<A> editCondition(Integer index) {
+  public V1StatefulSetStatusFluentImpl.ConditionsNested<A> editCondition(int index) {
     if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1StatefulSetStatusFluent.ConditionsNested<A> editFirstCondition() {
+  public V1StatefulSetStatusFluentImpl.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
-  public V1StatefulSetStatusFluent.ConditionsNested<A> editLastCondition() {
+  public V1StatefulSetStatusFluentImpl.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1StatefulSetStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1StatefulSetConditionBuilder> predicate) {
+  public V1StatefulSetStatusFluentImpl.ConditionsNested<A> editMatchingCondition(Predicate<V1StatefulSetConditionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<conditions.size();i++) { 
     if (predicate.test(conditions.get(i))) {index = i; break;}
@@ -245,17 +238,28 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1StatefulSetStatusFluentImpl that = (V1StatefulSetStatusFluentImpl) o;
-    if (availableReplicas != null ? !availableReplicas.equals(that.availableReplicas) :that.availableReplicas != null) return false;
-    if (collisionCount != null ? !collisionCount.equals(that.collisionCount) :that.collisionCount != null) return false;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
-    if (currentReplicas != null ? !currentReplicas.equals(that.currentReplicas) :that.currentReplicas != null) return false;
-    if (currentRevision != null ? !currentRevision.equals(that.currentRevision) :that.currentRevision != null) return false;
-    if (observedGeneration != null ? !observedGeneration.equals(that.observedGeneration) :that.observedGeneration != null) return false;
-    if (readyReplicas != null ? !readyReplicas.equals(that.readyReplicas) :that.readyReplicas != null) return false;
-    if (replicas != null ? !replicas.equals(that.replicas) :that.replicas != null) return false;
-    if (updateRevision != null ? !updateRevision.equals(that.updateRevision) :that.updateRevision != null) return false;
-    if (updatedReplicas != null ? !updatedReplicas.equals(that.updatedReplicas) :that.updatedReplicas != null) return false;
+    if (!java.util.Objects.equals(availableReplicas, that.availableReplicas)) return false;
+
+    if (!java.util.Objects.equals(collisionCount, that.collisionCount)) return false;
+
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
+    if (!java.util.Objects.equals(currentReplicas, that.currentReplicas)) return false;
+
+    if (!java.util.Objects.equals(currentRevision, that.currentRevision)) return false;
+
+    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
+
+    if (!java.util.Objects.equals(readyReplicas, that.readyReplicas)) return false;
+
+    if (!java.util.Objects.equals(replicas, that.replicas)) return false;
+
+    if (!java.util.Objects.equals(updateRevision, that.updateRevision)) return false;
+
+    if (!java.util.Objects.equals(updatedReplicas, that.updatedReplicas)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -266,7 +270,7 @@ import java.lang.Boolean;
     sb.append("{");
     if (availableReplicas != null) { sb.append("availableReplicas:"); sb.append(availableReplicas + ","); }
     if (collisionCount != null) { sb.append("collisionCount:"); sb.append(collisionCount + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
+    if (conditions != null) { sb.append("conditions:"); sb.append(conditions + ","); }
     if (currentReplicas != null) { sb.append("currentReplicas:"); sb.append(currentReplicas + ","); }
     if (currentRevision != null) { sb.append("currentRevision:"); sb.append(currentRevision + ","); }
     if (observedGeneration != null) { sb.append("observedGeneration:"); sb.append(observedGeneration + ","); }
@@ -277,8 +281,8 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ConditionsNestedImpl<N> extends V1StatefulSetConditionFluentImpl<V1StatefulSetStatusFluent.ConditionsNested<N>> implements V1StatefulSetStatusFluent.ConditionsNested<N>,Nested<N>{
-    ConditionsNestedImpl(Integer index,V1StatefulSetCondition item) {
+  class ConditionsNestedImpl<N> extends V1StatefulSetConditionFluentImpl<V1StatefulSetStatusFluentImpl.ConditionsNested<N>> implements V1StatefulSetStatusFluentImpl.ConditionsNested<N>,Nested<N>{
+    ConditionsNestedImpl(int index,V1StatefulSetCondition item) {
       this.index = index;
       this.builder = new V1StatefulSetConditionBuilder(this, item);
     }
@@ -287,7 +291,7 @@ import java.lang.Boolean;
       this.builder = new V1StatefulSetConditionBuilder(this);
     }
     V1StatefulSetConditionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1StatefulSetStatusFluentImpl.this.setToConditions(index,builder.build());
     }

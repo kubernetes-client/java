@@ -20,26 +20,18 @@ public class V1ScaleIOVolumeSourceBuilder extends V1ScaleIOVolumeSourceFluentImp
   }
   public V1ScaleIOVolumeSourceBuilder(V1ScaleIOVolumeSourceFluent<?> fluent,V1ScaleIOVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withGateway(instance.getGateway());
-
-    fluent.withProtectionDomain(instance.getProtectionDomain());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withSecretRef(instance.getSecretRef());
-
-    fluent.withSslEnabled(instance.getSslEnabled());
-
-    fluent.withStorageMode(instance.getStorageMode());
-
-    fluent.withStoragePool(instance.getStoragePool());
-
-    fluent.withSystem(instance.getSystem());
-
-    fluent.withVolumeName(instance.getVolumeName());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withGateway(instance.getGateway());
+      fluent.withProtectionDomain(instance.getProtectionDomain());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withSecretRef(instance.getSecretRef());
+      fluent.withSslEnabled(instance.getSslEnabled());
+      fluent.withStorageMode(instance.getStorageMode());
+      fluent.withStoragePool(instance.getStoragePool());
+      fluent.withSystem(instance.getSystem());
+      fluent.withVolumeName(instance.getVolumeName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ScaleIOVolumeSourceBuilder(V1ScaleIOVolumeSource instance) {
@@ -47,26 +39,18 @@ public class V1ScaleIOVolumeSourceBuilder extends V1ScaleIOVolumeSourceFluentImp
   }
   public V1ScaleIOVolumeSourceBuilder(V1ScaleIOVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withGateway(instance.getGateway());
-
-    this.withProtectionDomain(instance.getProtectionDomain());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withSslEnabled(instance.getSslEnabled());
-
-    this.withStorageMode(instance.getStorageMode());
-
-    this.withStoragePool(instance.getStoragePool());
-
-    this.withSystem(instance.getSystem());
-
-    this.withVolumeName(instance.getVolumeName());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withGateway(instance.getGateway());
+      this.withProtectionDomain(instance.getProtectionDomain());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+      this.withSslEnabled(instance.getSslEnabled());
+      this.withStorageMode(instance.getStorageMode());
+      this.withStoragePool(instance.getStoragePool());
+      this.withSystem(instance.getSystem());
+      this.withVolumeName(instance.getVolumeName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ScaleIOVolumeSourceFluent<?> fluent;

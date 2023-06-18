@@ -20,8 +20,9 @@ public class V1VolumeNodeAffinityBuilder extends V1VolumeNodeAffinityFluentImpl<
   }
   public V1VolumeNodeAffinityBuilder(V1VolumeNodeAffinityFluent<?> fluent,V1VolumeNodeAffinity instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withRequired(instance.getRequired());
-
+    if (instance != null) {
+      fluent.withRequired(instance.getRequired());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeNodeAffinityBuilder(V1VolumeNodeAffinity instance) {
@@ -29,8 +30,9 @@ public class V1VolumeNodeAffinityBuilder extends V1VolumeNodeAffinityFluentImpl<
   }
   public V1VolumeNodeAffinityBuilder(V1VolumeNodeAffinity instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withRequired(instance.getRequired());
-
+    if (instance != null) {
+      this.withRequired(instance.getRequired());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeNodeAffinityFluent<?> fluent;

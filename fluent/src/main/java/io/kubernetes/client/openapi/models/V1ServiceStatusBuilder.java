@@ -20,10 +20,10 @@ public class V1ServiceStatusBuilder extends V1ServiceStatusFluentImpl<V1ServiceS
   }
   public V1ServiceStatusBuilder(V1ServiceStatusFluent<?> fluent,V1ServiceStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withLoadBalancer(instance.getLoadBalancer());
-
+    if (instance != null) {
+      fluent.withConditions(instance.getConditions());
+      fluent.withLoadBalancer(instance.getLoadBalancer());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ServiceStatusBuilder(V1ServiceStatus instance) {
@@ -31,10 +31,10 @@ public class V1ServiceStatusBuilder extends V1ServiceStatusFluentImpl<V1ServiceS
   }
   public V1ServiceStatusBuilder(V1ServiceStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConditions(instance.getConditions());
-
-    this.withLoadBalancer(instance.getLoadBalancer());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+      this.withLoadBalancer(instance.getLoadBalancer());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ServiceStatusFluent<?> fluent;

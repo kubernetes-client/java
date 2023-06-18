@@ -16,14 +16,12 @@ import java.lang.Boolean;
   public V1CinderPersistentVolumeSourceFluentImpl() {
   }
   public V1CinderPersistentVolumeSourceFluentImpl(V1CinderPersistentVolumeSource instance) {
-    this.withFsType(instance.getFsType());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withVolumeID(instance.getVolumeID());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+      this.withVolumeID(instance.getVolumeID());
+    }
   }
   private String fsType;
   private Boolean readOnly;
@@ -66,19 +64,19 @@ import java.lang.Boolean;
   public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
-  public V1CinderPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRef() {
+  public V1CinderPersistentVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRef() {
     return new V1CinderPersistentVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
-  public V1CinderPersistentVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(V1SecretReference item) {
+  public V1CinderPersistentVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRefLike(V1SecretReference item) {
     return new V1CinderPersistentVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
-  public V1CinderPersistentVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
+  public V1CinderPersistentVolumeSourceFluentImpl.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
-  public V1CinderPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
+  public V1CinderPersistentVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): new V1SecretReferenceBuilder().build());
   }
-  public V1CinderPersistentVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(V1SecretReference item) {
+  public V1CinderPersistentVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRefLike(V1SecretReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): item);
   }
   public String getVolumeID() {
@@ -93,11 +91,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CinderPersistentVolumeSourceFluentImpl that = (V1CinderPersistentVolumeSourceFluentImpl) o;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (secretRef != null ? !secretRef.equals(that.secretRef) :that.secretRef != null) return false;
-    if (volumeID != null ? !volumeID.equals(that.volumeID) :that.volumeID != null) return false;
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
+
+    if (!java.util.Objects.equals(volumeID, that.volumeID)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -116,7 +119,7 @@ import java.lang.Boolean;
   public A withReadOnly() {
     return withReadOnly(true);
   }
-  class SecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CinderPersistentVolumeSourceFluent.SecretRefNested<N>> implements V1CinderPersistentVolumeSourceFluent.SecretRefNested<N>,Nested<N>{
+  class SecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CinderPersistentVolumeSourceFluentImpl.SecretRefNested<N>> implements V1CinderPersistentVolumeSourceFluentImpl.SecretRefNested<N>,Nested<N>{
     SecretRefNestedImpl(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }

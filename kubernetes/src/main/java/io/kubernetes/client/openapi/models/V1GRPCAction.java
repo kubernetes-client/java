@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,24 +12,30 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
-import com.google.gson.annotations.SerializedName;
-import io.swagger.annotations.ApiModelProperty;
 import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 
-/** V1GRPCAction */
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * V1GRPCAction
+ */
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1GRPCAction {
   public static final String SERIALIZED_NAME_PORT = "port";
-
   @SerializedName(SERIALIZED_NAME_PORT)
   private Integer port;
 
   public static final String SERIALIZED_NAME_SERVICE = "service";
-
   @SerializedName(SERIALIZED_NAME_SERVICE)
   private String service;
+
 
   public V1GRPCAction port(Integer port) {
 
@@ -37,21 +43,21 @@ public class V1GRPCAction {
     return this;
   }
 
-  /**
+   /**
    * Port number of the gRPC service. Number must be in the range 1 to 65535.
-   *
    * @return port
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "Port number of the gRPC service. Number must be in the range 1 to 65535.")
+  **/
+  @ApiModelProperty(required = true, value = "Port number of the gRPC service. Number must be in the range 1 to 65535.")
+
   public Integer getPort() {
     return port;
   }
 
+
   public void setPort(Integer port) {
     this.port = port;
   }
+
 
   public V1GRPCAction service(String service) {
 
@@ -59,24 +65,22 @@ public class V1GRPCAction {
     return this;
   }
 
-  /**
-   * Service is the name of the service to place in the gRPC HealthCheckRequest (see
-   * https://github.com/grpc/grpc/blob/master/doc/health-checking.md). If this is not specified, the
-   * default behavior is defined by gRPC.
-   *
+   /**
+   * Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).  If this is not specified, the default behavior is defined by gRPC.
    * @return service
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).  If this is not specified, the default behavior is defined by gRPC.")
+  @ApiModelProperty(value = "Service is the name of the service to place in the gRPC HealthCheckRequest (see https://github.com/grpc/grpc/blob/master/doc/health-checking.md).  If this is not specified, the default behavior is defined by gRPC.")
+
   public String getService() {
     return service;
   }
 
+
   public void setService(String service) {
     this.service = service;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,14 +91,15 @@ public class V1GRPCAction {
       return false;
     }
     V1GRPCAction v1GRPCAction = (V1GRPCAction) o;
-    return Objects.equals(this.port, v1GRPCAction.port)
-        && Objects.equals(this.service, v1GRPCAction.service);
+    return Objects.equals(this.port, v1GRPCAction.port) &&
+        Objects.equals(this.service, v1GRPCAction.service);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(port, service);
   }
+
 
   @Override
   public String toString() {
@@ -107,7 +112,8 @@ public class V1GRPCAction {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -115,4 +121,5 @@ public class V1GRPCAction {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

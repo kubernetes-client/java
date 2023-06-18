@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,22 +22,16 @@ import java.lang.Object;
   public V1CustomResourceDefinitionVersionFluentImpl() {
   }
   public V1CustomResourceDefinitionVersionFluentImpl(V1CustomResourceDefinitionVersion instance) {
-    this.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
-
-    this.withDeprecated(instance.getDeprecated());
-
-    this.withDeprecationWarning(instance.getDeprecationWarning());
-
-    this.withName(instance.getName());
-
-    this.withSchema(instance.getSchema());
-
-    this.withServed(instance.getServed());
-
-    this.withStorage(instance.getStorage());
-
-    this.withSubresources(instance.getSubresources());
-
+    if (instance != null) {
+      this.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
+      this.withDeprecated(instance.getDeprecated());
+      this.withDeprecationWarning(instance.getDeprecationWarning());
+      this.withName(instance.getName());
+      this.withSchema(instance.getSchema());
+      this.withServed(instance.getServed());
+      this.withStorage(instance.getStorage());
+      this.withSubresources(instance.getSubresources());
+    }
   }
   private ArrayList<V1CustomResourceColumnDefinitionBuilder> additionalPrinterColumns;
   private Boolean deprecated;
@@ -48,16 +41,17 @@ import java.lang.Object;
   private Boolean served;
   private Boolean storage;
   private V1CustomResourceSubresourcesBuilder subresources;
-  public A addToAdditionalPrinterColumns(Integer index,V1CustomResourceColumnDefinition item) {
-    if (this.additionalPrinterColumns == null) {this.additionalPrinterColumns = new ArrayList<V1CustomResourceColumnDefinitionBuilder>();}
-    V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);_visitables.get("additionalPrinterColumns").add(index >= 0 ? index : _visitables.get("additionalPrinterColumns").size(), builder);this.additionalPrinterColumns.add(index >= 0 ? index : additionalPrinterColumns.size(), builder); return (A)this;
-  }
-  public A setToAdditionalPrinterColumns(Integer index,V1CustomResourceColumnDefinition item) {
+  public A addToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item) {
     if (this.additionalPrinterColumns == null) {this.additionalPrinterColumns = new ArrayList<V1CustomResourceColumnDefinitionBuilder>();}
     V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
-    if (index < 0 || index >= _visitables.get("additionalPrinterColumns").size()) { _visitables.get("additionalPrinterColumns").add(builder); } else { _visitables.get("additionalPrinterColumns").set(index, builder);}
-    if (index < 0 || index >= additionalPrinterColumns.size()) { additionalPrinterColumns.add(builder); } else { additionalPrinterColumns.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= additionalPrinterColumns.size()) { _visitables.get("additionalPrinterColumns").add(builder); additionalPrinterColumns.add(builder); } else { _visitables.get("additionalPrinterColumns").add(index, builder); additionalPrinterColumns.add(index, builder);}
+    return (A)this;
+  }
+  public A setToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item) {
+    if (this.additionalPrinterColumns == null) {this.additionalPrinterColumns = new ArrayList<V1CustomResourceColumnDefinitionBuilder>();}
+    V1CustomResourceColumnDefinitionBuilder builder = new V1CustomResourceColumnDefinitionBuilder(item);
+    if (index < 0 || index >= additionalPrinterColumns.size()) { _visitables.get("additionalPrinterColumns").add(builder); additionalPrinterColumns.add(builder); } else { _visitables.get("additionalPrinterColumns").set(index, builder); additionalPrinterColumns.set(index, builder);}
+    return (A)this;
   }
   public A addToAdditionalPrinterColumns(io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition... items) {
     if (this.additionalPrinterColumns == null) {this.additionalPrinterColumns = new ArrayList<V1CustomResourceColumnDefinitionBuilder>();}
@@ -98,7 +92,7 @@ import java.lang.Object;
   public List<V1CustomResourceColumnDefinition> buildAdditionalPrinterColumns() {
     return additionalPrinterColumns != null ? build(additionalPrinterColumns) : null;
   }
-  public V1CustomResourceColumnDefinition buildAdditionalPrinterColumn(Integer index) {
+  public V1CustomResourceColumnDefinition buildAdditionalPrinterColumn(int index) {
     return this.additionalPrinterColumns.get(index).build();
   }
   public V1CustomResourceColumnDefinition buildFirstAdditionalPrinterColumn() {
@@ -114,39 +108,39 @@ import java.lang.Object;
     for (V1CustomResourceColumnDefinitionBuilder item: additionalPrinterColumns) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withAdditionalPrinterColumns(List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
-    if (this.additionalPrinterColumns != null) { _visitables.get("additionalPrinterColumns").removeAll(this.additionalPrinterColumns);}
+    if (this.additionalPrinterColumns != null) { _visitables.get("additionalPrinterColumns").clear();}
     if (additionalPrinterColumns != null) {this.additionalPrinterColumns = new ArrayList(); for (V1CustomResourceColumnDefinition item : additionalPrinterColumns){this.addToAdditionalPrinterColumns(item);}} else { this.additionalPrinterColumns = null;} return (A) this;
   }
   public A withAdditionalPrinterColumns(io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition... additionalPrinterColumns) {
-    if (this.additionalPrinterColumns != null) {this.additionalPrinterColumns.clear();}
+    if (this.additionalPrinterColumns != null) {this.additionalPrinterColumns.clear(); _visitables.remove("additionalPrinterColumns"); }
     if (additionalPrinterColumns != null) {for (V1CustomResourceColumnDefinition item :additionalPrinterColumns){ this.addToAdditionalPrinterColumns(item);}} return (A) this;
   }
   public Boolean hasAdditionalPrinterColumns() {
     return additionalPrinterColumns != null && !additionalPrinterColumns.isEmpty();
   }
-  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumn() {
+  public V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumn() {
     return new V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNestedImpl();
   }
-  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumnLike(V1CustomResourceColumnDefinition item) {
+  public V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumnLike(V1CustomResourceColumnDefinition item) {
     return new V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNestedImpl(-1, item);
   }
-  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> setNewAdditionalPrinterColumnLike(Integer index,V1CustomResourceColumnDefinition item) {
+  public V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNested<A> setNewAdditionalPrinterColumnLike(int index,V1CustomResourceColumnDefinition item) {
     return new V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNestedImpl(index, item);
   }
-  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> editAdditionalPrinterColumn(Integer index) {
+  public V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNested<A> editAdditionalPrinterColumn(int index) {
     if (additionalPrinterColumns.size() <= index) throw new RuntimeException("Can't edit additionalPrinterColumns. Index exceeds size.");
     return setNewAdditionalPrinterColumnLike(index, buildAdditionalPrinterColumn(index));
   }
-  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> editFirstAdditionalPrinterColumn() {
+  public V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNested<A> editFirstAdditionalPrinterColumn() {
     if (additionalPrinterColumns.size() == 0) throw new RuntimeException("Can't edit first additionalPrinterColumns. The list is empty.");
     return setNewAdditionalPrinterColumnLike(0, buildAdditionalPrinterColumn(0));
   }
-  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> editLastAdditionalPrinterColumn() {
+  public V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNested<A> editLastAdditionalPrinterColumn() {
     int index = additionalPrinterColumns.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last additionalPrinterColumns. The list is empty.");
     return setNewAdditionalPrinterColumnLike(index, buildAdditionalPrinterColumn(index));
   }
-  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> editMatchingAdditionalPrinterColumn(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
+  public V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNested<A> editMatchingAdditionalPrinterColumn(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<additionalPrinterColumns.size();i++) { 
     if (predicate.test(additionalPrinterColumns.get(i))) {index = i; break;}
@@ -200,19 +194,19 @@ import java.lang.Object;
   public Boolean hasSchema() {
     return this.schema != null;
   }
-  public V1CustomResourceDefinitionVersionFluent.SchemaNested<A> withNewSchema() {
+  public V1CustomResourceDefinitionVersionFluentImpl.SchemaNested<A> withNewSchema() {
     return new V1CustomResourceDefinitionVersionFluentImpl.SchemaNestedImpl();
   }
-  public V1CustomResourceDefinitionVersionFluent.SchemaNested<A> withNewSchemaLike(V1CustomResourceValidation item) {
+  public V1CustomResourceDefinitionVersionFluentImpl.SchemaNested<A> withNewSchemaLike(V1CustomResourceValidation item) {
     return new V1CustomResourceDefinitionVersionFluentImpl.SchemaNestedImpl(item);
   }
-  public V1CustomResourceDefinitionVersionFluent.SchemaNested<A> editSchema() {
+  public V1CustomResourceDefinitionVersionFluentImpl.SchemaNested<A> editSchema() {
     return withNewSchemaLike(getSchema());
   }
-  public V1CustomResourceDefinitionVersionFluent.SchemaNested<A> editOrNewSchema() {
+  public V1CustomResourceDefinitionVersionFluentImpl.SchemaNested<A> editOrNewSchema() {
     return withNewSchemaLike(getSchema() != null ? getSchema(): new V1CustomResourceValidationBuilder().build());
   }
-  public V1CustomResourceDefinitionVersionFluent.SchemaNested<A> editOrNewSchemaLike(V1CustomResourceValidation item) {
+  public V1CustomResourceDefinitionVersionFluentImpl.SchemaNested<A> editOrNewSchemaLike(V1CustomResourceValidation item) {
     return withNewSchemaLike(getSchema() != null ? getSchema(): item);
   }
   public Boolean getServed() {
@@ -252,33 +246,42 @@ import java.lang.Object;
   public Boolean hasSubresources() {
     return this.subresources != null;
   }
-  public V1CustomResourceDefinitionVersionFluent.SubresourcesNested<A> withNewSubresources() {
+  public V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNested<A> withNewSubresources() {
     return new V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNestedImpl();
   }
-  public V1CustomResourceDefinitionVersionFluent.SubresourcesNested<A> withNewSubresourcesLike(V1CustomResourceSubresources item) {
+  public V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNested<A> withNewSubresourcesLike(V1CustomResourceSubresources item) {
     return new V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNestedImpl(item);
   }
-  public V1CustomResourceDefinitionVersionFluent.SubresourcesNested<A> editSubresources() {
+  public V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNested<A> editSubresources() {
     return withNewSubresourcesLike(getSubresources());
   }
-  public V1CustomResourceDefinitionVersionFluent.SubresourcesNested<A> editOrNewSubresources() {
+  public V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNested<A> editOrNewSubresources() {
     return withNewSubresourcesLike(getSubresources() != null ? getSubresources(): new V1CustomResourceSubresourcesBuilder().build());
   }
-  public V1CustomResourceDefinitionVersionFluent.SubresourcesNested<A> editOrNewSubresourcesLike(V1CustomResourceSubresources item) {
+  public V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNested<A> editOrNewSubresourcesLike(V1CustomResourceSubresources item) {
     return withNewSubresourcesLike(getSubresources() != null ? getSubresources(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CustomResourceDefinitionVersionFluentImpl that = (V1CustomResourceDefinitionVersionFluentImpl) o;
-    if (additionalPrinterColumns != null ? !additionalPrinterColumns.equals(that.additionalPrinterColumns) :that.additionalPrinterColumns != null) return false;
-    if (deprecated != null ? !deprecated.equals(that.deprecated) :that.deprecated != null) return false;
-    if (deprecationWarning != null ? !deprecationWarning.equals(that.deprecationWarning) :that.deprecationWarning != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (schema != null ? !schema.equals(that.schema) :that.schema != null) return false;
-    if (served != null ? !served.equals(that.served) :that.served != null) return false;
-    if (storage != null ? !storage.equals(that.storage) :that.storage != null) return false;
-    if (subresources != null ? !subresources.equals(that.subresources) :that.subresources != null) return false;
+    if (!java.util.Objects.equals(additionalPrinterColumns, that.additionalPrinterColumns)) return false;
+
+    if (!java.util.Objects.equals(deprecated, that.deprecated)) return false;
+
+    if (!java.util.Objects.equals(deprecationWarning, that.deprecationWarning)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(schema, that.schema)) return false;
+
+    if (!java.util.Objects.equals(served, that.served)) return false;
+
+    if (!java.util.Objects.equals(storage, that.storage)) return false;
+
+    if (!java.util.Objects.equals(subresources, that.subresources)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -287,7 +290,7 @@ import java.lang.Object;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (additionalPrinterColumns != null && !additionalPrinterColumns.isEmpty()) { sb.append("additionalPrinterColumns:"); sb.append(additionalPrinterColumns + ","); }
+    if (additionalPrinterColumns != null) { sb.append("additionalPrinterColumns:"); sb.append(additionalPrinterColumns + ","); }
     if (deprecated != null) { sb.append("deprecated:"); sb.append(deprecated + ","); }
     if (deprecationWarning != null) { sb.append("deprecationWarning:"); sb.append(deprecationWarning + ","); }
     if (name != null) { sb.append("name:"); sb.append(name + ","); }
@@ -307,8 +310,8 @@ import java.lang.Object;
   public A withStorage() {
     return withStorage(true);
   }
-  class AdditionalPrinterColumnsNestedImpl<N> extends V1CustomResourceColumnDefinitionFluentImpl<V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<N>> implements V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<N>,Nested<N>{
-    AdditionalPrinterColumnsNestedImpl(Integer index,V1CustomResourceColumnDefinition item) {
+  class AdditionalPrinterColumnsNestedImpl<N> extends V1CustomResourceColumnDefinitionFluentImpl<V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNested<N>> implements V1CustomResourceDefinitionVersionFluentImpl.AdditionalPrinterColumnsNested<N>,Nested<N>{
+    AdditionalPrinterColumnsNestedImpl(int index,V1CustomResourceColumnDefinition item) {
       this.index = index;
       this.builder = new V1CustomResourceColumnDefinitionBuilder(this, item);
     }
@@ -317,7 +320,7 @@ import java.lang.Object;
       this.builder = new V1CustomResourceColumnDefinitionBuilder(this);
     }
     V1CustomResourceColumnDefinitionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1CustomResourceDefinitionVersionFluentImpl.this.setToAdditionalPrinterColumns(index,builder.build());
     }
@@ -326,7 +329,7 @@ import java.lang.Object;
     }
     
   }
-  class SchemaNestedImpl<N> extends V1CustomResourceValidationFluentImpl<V1CustomResourceDefinitionVersionFluent.SchemaNested<N>> implements V1CustomResourceDefinitionVersionFluent.SchemaNested<N>,Nested<N>{
+  class SchemaNestedImpl<N> extends V1CustomResourceValidationFluentImpl<V1CustomResourceDefinitionVersionFluentImpl.SchemaNested<N>> implements V1CustomResourceDefinitionVersionFluentImpl.SchemaNested<N>,Nested<N>{
     SchemaNestedImpl(V1CustomResourceValidation item) {
       this.builder = new V1CustomResourceValidationBuilder(this, item);
     }
@@ -342,7 +345,7 @@ import java.lang.Object;
     }
     
   }
-  class SubresourcesNestedImpl<N> extends V1CustomResourceSubresourcesFluentImpl<V1CustomResourceDefinitionVersionFluent.SubresourcesNested<N>> implements V1CustomResourceDefinitionVersionFluent.SubresourcesNested<N>,Nested<N>{
+  class SubresourcesNestedImpl<N> extends V1CustomResourceSubresourcesFluentImpl<V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNested<N>> implements V1CustomResourceDefinitionVersionFluentImpl.SubresourcesNested<N>,Nested<N>{
     SubresourcesNestedImpl(V1CustomResourceSubresources item) {
       this.builder = new V1CustomResourceSubresourcesBuilder(this, item);
     }

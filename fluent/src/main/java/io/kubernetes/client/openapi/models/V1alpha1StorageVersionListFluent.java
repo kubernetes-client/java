@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1alpha1StorageVersionListFluent<A extends V1alpha1StorageVersi
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1alpha1StorageVersion item);
-  public A setToItems(Integer index,V1alpha1StorageVersion item);
+  public A addToItems(int index,V1alpha1StorageVersion item);
+  public A setToItems(int index,V1alpha1StorageVersion item);
   public A addToItems(io.kubernetes.client.openapi.models.V1alpha1StorageVersion... items);
   public A addAllToItems(Collection<V1alpha1StorageVersion> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1alpha1StorageVersion... items);
@@ -35,7 +35,7 @@ public interface V1alpha1StorageVersionListFluent<A extends V1alpha1StorageVersi
   @Deprecated
   public List<V1alpha1StorageVersion> getItems();
   public List<V1alpha1StorageVersion> buildItems();
-  public V1alpha1StorageVersion buildItem(Integer index);
+  public V1alpha1StorageVersion buildItem(int index);
   public V1alpha1StorageVersion buildFirstItem();
   public V1alpha1StorageVersion buildLastItem();
   public V1alpha1StorageVersion buildMatchingItem(Predicate<V1alpha1StorageVersionBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1alpha1StorageVersionListFluent<A extends V1alpha1StorageVersi
   public Boolean hasItems();
   public V1alpha1StorageVersionListFluent.ItemsNested<A> addNewItem();
   public V1alpha1StorageVersionListFluent.ItemsNested<A> addNewItemLike(V1alpha1StorageVersion item);
-  public V1alpha1StorageVersionListFluent.ItemsNested<A> setNewItemLike(Integer index,V1alpha1StorageVersion item);
-  public V1alpha1StorageVersionListFluent.ItemsNested<A> editItem(Integer index);
+  public V1alpha1StorageVersionListFluent.ItemsNested<A> setNewItemLike(int index,V1alpha1StorageVersion item);
+  public V1alpha1StorageVersionListFluent.ItemsNested<A> editItem(int index);
   public V1alpha1StorageVersionListFluent.ItemsNested<A> editFirstItem();
   public V1alpha1StorageVersionListFluent.ItemsNested<A> editLastItem();
   public V1alpha1StorageVersionListFluent.ItemsNested<A> editMatchingItem(Predicate<V1alpha1StorageVersionBuilder> predicate);

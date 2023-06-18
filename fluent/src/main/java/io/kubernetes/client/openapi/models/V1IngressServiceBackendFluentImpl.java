@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1IngressServiceBackendFluentImpl() {
   }
   public V1IngressServiceBackendFluentImpl(V1IngressServiceBackend instance) {
-    this.withName(instance.getName());
-
-    this.withPort(instance.getPort());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withPort(instance.getPort());
+    }
   }
   private String name;
   private V1ServiceBackendPortBuilder port;
@@ -51,27 +51,30 @@ import java.lang.Boolean;
   public Boolean hasPort() {
     return this.port != null;
   }
-  public V1IngressServiceBackendFluent.PortNested<A> withNewPort() {
+  public V1IngressServiceBackendFluentImpl.PortNested<A> withNewPort() {
     return new V1IngressServiceBackendFluentImpl.PortNestedImpl();
   }
-  public V1IngressServiceBackendFluent.PortNested<A> withNewPortLike(V1ServiceBackendPort item) {
+  public V1IngressServiceBackendFluentImpl.PortNested<A> withNewPortLike(V1ServiceBackendPort item) {
     return new V1IngressServiceBackendFluentImpl.PortNestedImpl(item);
   }
-  public V1IngressServiceBackendFluent.PortNested<A> editPort() {
+  public V1IngressServiceBackendFluentImpl.PortNested<A> editPort() {
     return withNewPortLike(getPort());
   }
-  public V1IngressServiceBackendFluent.PortNested<A> editOrNewPort() {
+  public V1IngressServiceBackendFluentImpl.PortNested<A> editOrNewPort() {
     return withNewPortLike(getPort() != null ? getPort(): new V1ServiceBackendPortBuilder().build());
   }
-  public V1IngressServiceBackendFluent.PortNested<A> editOrNewPortLike(V1ServiceBackendPort item) {
+  public V1IngressServiceBackendFluentImpl.PortNested<A> editOrNewPortLike(V1ServiceBackendPort item) {
     return withNewPortLike(getPort() != null ? getPort(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1IngressServiceBackendFluentImpl that = (V1IngressServiceBackendFluentImpl) o;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (port != null ? !port.equals(that.port) :that.port != null) return false;
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(port, that.port)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -85,7 +88,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class PortNestedImpl<N> extends V1ServiceBackendPortFluentImpl<V1IngressServiceBackendFluent.PortNested<N>> implements V1IngressServiceBackendFluent.PortNested<N>,Nested<N>{
+  class PortNestedImpl<N> extends V1ServiceBackendPortFluentImpl<V1IngressServiceBackendFluentImpl.PortNested<N>> implements V1IngressServiceBackendFluentImpl.PortNested<N>,Nested<N>{
     PortNestedImpl(V1ServiceBackendPort item) {
       this.builder = new V1ServiceBackendPortBuilder(this, item);
     }

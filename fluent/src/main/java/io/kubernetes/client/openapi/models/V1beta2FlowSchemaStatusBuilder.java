@@ -20,8 +20,9 @@ public class V1beta2FlowSchemaStatusBuilder extends V1beta2FlowSchemaStatusFluen
   }
   public V1beta2FlowSchemaStatusBuilder(V1beta2FlowSchemaStatusFluent<?> fluent,V1beta2FlowSchemaStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      fluent.withConditions(instance.getConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2FlowSchemaStatusBuilder(V1beta2FlowSchemaStatus instance) {
@@ -29,8 +30,9 @@ public class V1beta2FlowSchemaStatusBuilder extends V1beta2FlowSchemaStatusFluen
   }
   public V1beta2FlowSchemaStatusBuilder(V1beta2FlowSchemaStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2FlowSchemaStatusFluent<?> fluent;

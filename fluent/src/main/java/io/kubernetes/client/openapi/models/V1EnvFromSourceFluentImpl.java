@@ -16,12 +16,11 @@ import java.lang.Boolean;
   public V1EnvFromSourceFluentImpl() {
   }
   public V1EnvFromSourceFluentImpl(V1EnvFromSource instance) {
-    this.withConfigMapRef(instance.getConfigMapRef());
-
-    this.withPrefix(instance.getPrefix());
-
-    this.withSecretRef(instance.getSecretRef());
-
+    if (instance != null) {
+      this.withConfigMapRef(instance.getConfigMapRef());
+      this.withPrefix(instance.getPrefix());
+      this.withSecretRef(instance.getSecretRef());
+    }
   }
   private V1ConfigMapEnvSourceBuilder configMapRef;
   private String prefix;
@@ -45,19 +44,19 @@ import java.lang.Boolean;
   public Boolean hasConfigMapRef() {
     return this.configMapRef != null;
   }
-  public V1EnvFromSourceFluent.ConfigMapRefNested<A> withNewConfigMapRef() {
+  public V1EnvFromSourceFluentImpl.ConfigMapRefNested<A> withNewConfigMapRef() {
     return new V1EnvFromSourceFluentImpl.ConfigMapRefNestedImpl();
   }
-  public V1EnvFromSourceFluent.ConfigMapRefNested<A> withNewConfigMapRefLike(V1ConfigMapEnvSource item) {
+  public V1EnvFromSourceFluentImpl.ConfigMapRefNested<A> withNewConfigMapRefLike(V1ConfigMapEnvSource item) {
     return new V1EnvFromSourceFluentImpl.ConfigMapRefNestedImpl(item);
   }
-  public V1EnvFromSourceFluent.ConfigMapRefNested<A> editConfigMapRef() {
+  public V1EnvFromSourceFluentImpl.ConfigMapRefNested<A> editConfigMapRef() {
     return withNewConfigMapRefLike(getConfigMapRef());
   }
-  public V1EnvFromSourceFluent.ConfigMapRefNested<A> editOrNewConfigMapRef() {
+  public V1EnvFromSourceFluentImpl.ConfigMapRefNested<A> editOrNewConfigMapRef() {
     return withNewConfigMapRefLike(getConfigMapRef() != null ? getConfigMapRef(): new V1ConfigMapEnvSourceBuilder().build());
   }
-  public V1EnvFromSourceFluent.ConfigMapRefNested<A> editOrNewConfigMapRefLike(V1ConfigMapEnvSource item) {
+  public V1EnvFromSourceFluentImpl.ConfigMapRefNested<A> editOrNewConfigMapRefLike(V1ConfigMapEnvSource item) {
     return withNewConfigMapRefLike(getConfigMapRef() != null ? getConfigMapRef(): item);
   }
   public String getPrefix() {
@@ -88,28 +87,32 @@ import java.lang.Boolean;
   public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
-  public V1EnvFromSourceFluent.SecretRefNested<A> withNewSecretRef() {
+  public V1EnvFromSourceFluentImpl.SecretRefNested<A> withNewSecretRef() {
     return new V1EnvFromSourceFluentImpl.SecretRefNestedImpl();
   }
-  public V1EnvFromSourceFluent.SecretRefNested<A> withNewSecretRefLike(V1SecretEnvSource item) {
+  public V1EnvFromSourceFluentImpl.SecretRefNested<A> withNewSecretRefLike(V1SecretEnvSource item) {
     return new V1EnvFromSourceFluentImpl.SecretRefNestedImpl(item);
   }
-  public V1EnvFromSourceFluent.SecretRefNested<A> editSecretRef() {
+  public V1EnvFromSourceFluentImpl.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
-  public V1EnvFromSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
+  public V1EnvFromSourceFluentImpl.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): new V1SecretEnvSourceBuilder().build());
   }
-  public V1EnvFromSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(V1SecretEnvSource item) {
+  public V1EnvFromSourceFluentImpl.SecretRefNested<A> editOrNewSecretRefLike(V1SecretEnvSource item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EnvFromSourceFluentImpl that = (V1EnvFromSourceFluentImpl) o;
-    if (configMapRef != null ? !configMapRef.equals(that.configMapRef) :that.configMapRef != null) return false;
-    if (prefix != null ? !prefix.equals(that.prefix) :that.prefix != null) return false;
-    if (secretRef != null ? !secretRef.equals(that.secretRef) :that.secretRef != null) return false;
+    if (!java.util.Objects.equals(configMapRef, that.configMapRef)) return false;
+
+    if (!java.util.Objects.equals(prefix, that.prefix)) return false;
+
+    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -124,7 +127,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ConfigMapRefNestedImpl<N> extends V1ConfigMapEnvSourceFluentImpl<V1EnvFromSourceFluent.ConfigMapRefNested<N>> implements V1EnvFromSourceFluent.ConfigMapRefNested<N>,Nested<N>{
+  class ConfigMapRefNestedImpl<N> extends V1ConfigMapEnvSourceFluentImpl<V1EnvFromSourceFluentImpl.ConfigMapRefNested<N>> implements V1EnvFromSourceFluentImpl.ConfigMapRefNested<N>,Nested<N>{
     ConfigMapRefNestedImpl(V1ConfigMapEnvSource item) {
       this.builder = new V1ConfigMapEnvSourceBuilder(this, item);
     }
@@ -140,7 +143,7 @@ import java.lang.Boolean;
     }
     
   }
-  class SecretRefNestedImpl<N> extends V1SecretEnvSourceFluentImpl<V1EnvFromSourceFluent.SecretRefNested<N>> implements V1EnvFromSourceFluent.SecretRefNested<N>,Nested<N>{
+  class SecretRefNestedImpl<N> extends V1SecretEnvSourceFluentImpl<V1EnvFromSourceFluentImpl.SecretRefNested<N>> implements V1EnvFromSourceFluentImpl.SecretRefNested<N>,Nested<N>{
     SecretRefNestedImpl(V1SecretEnvSource item) {
       this.builder = new V1SecretEnvSourceBuilder(this, item);
     }

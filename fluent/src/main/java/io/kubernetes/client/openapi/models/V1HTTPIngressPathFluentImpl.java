@@ -16,12 +16,11 @@ import java.lang.Boolean;
   public V1HTTPIngressPathFluentImpl() {
   }
   public V1HTTPIngressPathFluentImpl(V1HTTPIngressPath instance) {
-    this.withBackend(instance.getBackend());
-
-    this.withPath(instance.getPath());
-
-    this.withPathType(instance.getPathType());
-
+    if (instance != null) {
+      this.withBackend(instance.getBackend());
+      this.withPath(instance.getPath());
+      this.withPathType(instance.getPathType());
+    }
   }
   private V1IngressBackendBuilder backend;
   private String path;
@@ -45,19 +44,19 @@ import java.lang.Boolean;
   public Boolean hasBackend() {
     return this.backend != null;
   }
-  public V1HTTPIngressPathFluent.BackendNested<A> withNewBackend() {
+  public V1HTTPIngressPathFluentImpl.BackendNested<A> withNewBackend() {
     return new V1HTTPIngressPathFluentImpl.BackendNestedImpl();
   }
-  public V1HTTPIngressPathFluent.BackendNested<A> withNewBackendLike(V1IngressBackend item) {
+  public V1HTTPIngressPathFluentImpl.BackendNested<A> withNewBackendLike(V1IngressBackend item) {
     return new V1HTTPIngressPathFluentImpl.BackendNestedImpl(item);
   }
-  public V1HTTPIngressPathFluent.BackendNested<A> editBackend() {
+  public V1HTTPIngressPathFluentImpl.BackendNested<A> editBackend() {
     return withNewBackendLike(getBackend());
   }
-  public V1HTTPIngressPathFluent.BackendNested<A> editOrNewBackend() {
+  public V1HTTPIngressPathFluentImpl.BackendNested<A> editOrNewBackend() {
     return withNewBackendLike(getBackend() != null ? getBackend(): new V1IngressBackendBuilder().build());
   }
-  public V1HTTPIngressPathFluent.BackendNested<A> editOrNewBackendLike(V1IngressBackend item) {
+  public V1HTTPIngressPathFluentImpl.BackendNested<A> editOrNewBackendLike(V1IngressBackend item) {
     return withNewBackendLike(getBackend() != null ? getBackend(): item);
   }
   public String getPath() {
@@ -81,10 +80,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1HTTPIngressPathFluentImpl that = (V1HTTPIngressPathFluentImpl) o;
-    if (backend != null ? !backend.equals(that.backend) :that.backend != null) return false;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
-    if (pathType != null ? !pathType.equals(that.pathType) :that.pathType != null) return false;
+    if (!java.util.Objects.equals(backend, that.backend)) return false;
+
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
+    if (!java.util.Objects.equals(pathType, that.pathType)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -99,7 +102,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class BackendNestedImpl<N> extends V1IngressBackendFluentImpl<V1HTTPIngressPathFluent.BackendNested<N>> implements V1HTTPIngressPathFluent.BackendNested<N>,Nested<N>{
+  class BackendNestedImpl<N> extends V1IngressBackendFluentImpl<V1HTTPIngressPathFluentImpl.BackendNested<N>> implements V1HTTPIngressPathFluentImpl.BackendNested<N>,Nested<N>{
     BackendNestedImpl(V1IngressBackend item) {
       this.builder = new V1IngressBackendBuilder(this, item);
     }

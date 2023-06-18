@@ -20,12 +20,11 @@ public class V1ScopedResourceSelectorRequirementBuilder extends V1ScopedResource
   }
   public V1ScopedResourceSelectorRequirementBuilder(V1ScopedResourceSelectorRequirementFluent<?> fluent,V1ScopedResourceSelectorRequirement instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withOperator(instance.getOperator());
-
-    fluent.withScopeName(instance.getScopeName());
-
-    fluent.withValues(instance.getValues());
-
+    if (instance != null) {
+      fluent.withOperator(instance.getOperator());
+      fluent.withScopeName(instance.getScopeName());
+      fluent.withValues(instance.getValues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ScopedResourceSelectorRequirementBuilder(V1ScopedResourceSelectorRequirement instance) {
@@ -33,12 +32,11 @@ public class V1ScopedResourceSelectorRequirementBuilder extends V1ScopedResource
   }
   public V1ScopedResourceSelectorRequirementBuilder(V1ScopedResourceSelectorRequirement instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withOperator(instance.getOperator());
-
-    this.withScopeName(instance.getScopeName());
-
-    this.withValues(instance.getValues());
-
+    if (instance != null) {
+      this.withOperator(instance.getOperator());
+      this.withScopeName(instance.getScopeName());
+      this.withValues(instance.getValues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ScopedResourceSelectorRequirementFluent<?> fluent;

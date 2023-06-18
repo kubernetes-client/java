@@ -20,10 +20,10 @@ public class V1HostPathVolumeSourceBuilder extends V1HostPathVolumeSourceFluentI
   }
   public V1HostPathVolumeSourceBuilder(V1HostPathVolumeSourceFluent<?> fluent,V1HostPathVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPath(instance.getPath());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withPath(instance.getPath());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1HostPathVolumeSourceBuilder(V1HostPathVolumeSource instance) {
@@ -31,10 +31,10 @@ public class V1HostPathVolumeSourceBuilder extends V1HostPathVolumeSourceFluentI
   }
   public V1HostPathVolumeSourceBuilder(V1HostPathVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPath(instance.getPath());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withPath(instance.getPath());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1HostPathVolumeSourceFluent<?> fluent;

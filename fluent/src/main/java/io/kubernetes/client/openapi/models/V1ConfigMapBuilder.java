@@ -20,18 +20,14 @@ public class V1ConfigMapBuilder extends V1ConfigMapFluentImpl<V1ConfigMapBuilder
   }
   public V1ConfigMapBuilder(V1ConfigMapFluent<?> fluent,V1ConfigMap instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withBinaryData(instance.getBinaryData());
-
-    fluent.withData(instance.getData());
-
-    fluent.withImmutable(instance.getImmutable());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withBinaryData(instance.getBinaryData());
+      fluent.withData(instance.getData());
+      fluent.withImmutable(instance.getImmutable());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ConfigMapBuilder(V1ConfigMap instance) {
@@ -39,18 +35,14 @@ public class V1ConfigMapBuilder extends V1ConfigMapFluentImpl<V1ConfigMapBuilder
   }
   public V1ConfigMapBuilder(V1ConfigMap instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withBinaryData(instance.getBinaryData());
-
-    this.withData(instance.getData());
-
-    this.withImmutable(instance.getImmutable());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withBinaryData(instance.getBinaryData());
+      this.withData(instance.getData());
+      this.withImmutable(instance.getImmutable());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ConfigMapFluent<?> fluent;

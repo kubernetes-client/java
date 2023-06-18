@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** ObjectFieldSelector selects an APIVersioned field of an object. */
+/**
+ * ObjectFieldSelector selects an APIVersioned field of an object.
+ */
 @ApiModel(description = "ObjectFieldSelector selects an APIVersioned field of an object.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1ObjectFieldSelector {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
-
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_FIELD_PATH = "fieldPath";
-
   @SerializedName(SERIALIZED_NAME_FIELD_PATH)
   private String fieldPath;
+
 
   public V1ObjectFieldSelector apiVersion(String apiVersion) {
 
@@ -39,21 +44,22 @@ public class V1ObjectFieldSelector {
     return this;
   }
 
-  /**
+   /**
    * Version of the schema the FieldPath is written in terms of, defaults to \&quot;v1\&quot;.
-   *
    * @return apiVersion
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".")
+  @ApiModelProperty(value = "Version of the schema the FieldPath is written in terms of, defaults to \"v1\".")
+
   public String getApiVersion() {
     return apiVersion;
   }
 
+
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
+
 
   public V1ObjectFieldSelector fieldPath(String fieldPath) {
 
@@ -61,21 +67,21 @@ public class V1ObjectFieldSelector {
     return this;
   }
 
-  /**
+   /**
    * Path of the field to select in the specified API version.
-   *
    * @return fieldPath
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "Path of the field to select in the specified API version.")
+  **/
+  @ApiModelProperty(required = true, value = "Path of the field to select in the specified API version.")
+
   public String getFieldPath() {
     return fieldPath;
   }
 
+
   public void setFieldPath(String fieldPath) {
     this.fieldPath = fieldPath;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -86,14 +92,15 @@ public class V1ObjectFieldSelector {
       return false;
     }
     V1ObjectFieldSelector v1ObjectFieldSelector = (V1ObjectFieldSelector) o;
-    return Objects.equals(this.apiVersion, v1ObjectFieldSelector.apiVersion)
-        && Objects.equals(this.fieldPath, v1ObjectFieldSelector.fieldPath);
+    return Objects.equals(this.apiVersion, v1ObjectFieldSelector.apiVersion) &&
+        Objects.equals(this.fieldPath, v1ObjectFieldSelector.fieldPath);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(apiVersion, fieldPath);
   }
+
 
   @Override
   public String toString() {
@@ -106,7 +113,8 @@ public class V1ObjectFieldSelector {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -114,4 +122,5 @@ public class V1ObjectFieldSelector {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

@@ -20,22 +20,16 @@ public class V1DeploymentStatusBuilder extends V1DeploymentStatusFluentImpl<V1De
   }
   public V1DeploymentStatusBuilder(V1DeploymentStatusFluent<?> fluent,V1DeploymentStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAvailableReplicas(instance.getAvailableReplicas());
-
-    fluent.withCollisionCount(instance.getCollisionCount());
-
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withObservedGeneration(instance.getObservedGeneration());
-
-    fluent.withReadyReplicas(instance.getReadyReplicas());
-
-    fluent.withReplicas(instance.getReplicas());
-
-    fluent.withUnavailableReplicas(instance.getUnavailableReplicas());
-
-    fluent.withUpdatedReplicas(instance.getUpdatedReplicas());
-
+    if (instance != null) {
+      fluent.withAvailableReplicas(instance.getAvailableReplicas());
+      fluent.withCollisionCount(instance.getCollisionCount());
+      fluent.withConditions(instance.getConditions());
+      fluent.withObservedGeneration(instance.getObservedGeneration());
+      fluent.withReadyReplicas(instance.getReadyReplicas());
+      fluent.withReplicas(instance.getReplicas());
+      fluent.withUnavailableReplicas(instance.getUnavailableReplicas());
+      fluent.withUpdatedReplicas(instance.getUpdatedReplicas());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1DeploymentStatusBuilder(V1DeploymentStatus instance) {
@@ -43,22 +37,16 @@ public class V1DeploymentStatusBuilder extends V1DeploymentStatusFluentImpl<V1De
   }
   public V1DeploymentStatusBuilder(V1DeploymentStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAvailableReplicas(instance.getAvailableReplicas());
-
-    this.withCollisionCount(instance.getCollisionCount());
-
-    this.withConditions(instance.getConditions());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
-    this.withReadyReplicas(instance.getReadyReplicas());
-
-    this.withReplicas(instance.getReplicas());
-
-    this.withUnavailableReplicas(instance.getUnavailableReplicas());
-
-    this.withUpdatedReplicas(instance.getUpdatedReplicas());
-
+    if (instance != null) {
+      this.withAvailableReplicas(instance.getAvailableReplicas());
+      this.withCollisionCount(instance.getCollisionCount());
+      this.withConditions(instance.getConditions());
+      this.withObservedGeneration(instance.getObservedGeneration());
+      this.withReadyReplicas(instance.getReadyReplicas());
+      this.withReplicas(instance.getReplicas());
+      this.withUnavailableReplicas(instance.getUnavailableReplicas());
+      this.withUpdatedReplicas(instance.getUpdatedReplicas());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1DeploymentStatusFluent<?> fluent;

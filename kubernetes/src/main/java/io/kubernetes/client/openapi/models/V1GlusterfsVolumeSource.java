@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,36 +12,35 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support
- * ownership management or SELinux relabeling.
+ * Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.
  */
-@ApiModel(
-    description =
-        "Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "Represents a Glusterfs mount that lasts the lifetime of a pod. Glusterfs volumes do not support ownership management or SELinux relabeling.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1GlusterfsVolumeSource {
   public static final String SERIALIZED_NAME_ENDPOINTS = "endpoints";
-
   @SerializedName(SERIALIZED_NAME_ENDPOINTS)
   private String endpoints;
 
   public static final String SERIALIZED_NAME_PATH = "path";
-
   @SerializedName(SERIALIZED_NAME_PATH)
   private String path;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
-
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
   private Boolean readOnly;
+
 
   public V1GlusterfsVolumeSource endpoints(String endpoints) {
 
@@ -49,23 +48,21 @@ public class V1GlusterfsVolumeSource {
     return this;
   }
 
-  /**
-   * endpoints is the endpoint name that details Glusterfs topology. More info:
-   * https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
-   *
+   /**
+   * endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    * @return endpoints
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+  **/
+  @ApiModelProperty(required = true, value = "endpoints is the endpoint name that details Glusterfs topology. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+
   public String getEndpoints() {
     return endpoints;
   }
 
+
   public void setEndpoints(String endpoints) {
     this.endpoints = endpoints;
   }
+
 
   public V1GlusterfsVolumeSource path(String path) {
 
@@ -73,23 +70,21 @@ public class V1GlusterfsVolumeSource {
     return this;
   }
 
-  /**
-   * path is the Glusterfs volume path. More info:
-   * https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
-   *
+   /**
+   * path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    * @return path
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+  **/
+  @ApiModelProperty(required = true, value = "path is the Glusterfs volume path. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+
   public String getPath() {
     return path;
   }
 
+
   public void setPath(String path) {
     this.path = path;
   }
+
 
   public V1GlusterfsVolumeSource readOnly(Boolean readOnly) {
 
@@ -97,23 +92,22 @@ public class V1GlusterfsVolumeSource {
     return this;
   }
 
-  /**
-   * readOnly here will force the Glusterfs volume to be mounted with read-only permissions.
-   * Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
-   *
+   /**
+   * readOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod
    * @return readOnly
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "readOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+  @ApiModelProperty(value = "readOnly here will force the Glusterfs volume to be mounted with read-only permissions. Defaults to false. More info: https://examples.k8s.io/volumes/glusterfs/README.md#create-a-pod")
+
   public Boolean getReadOnly() {
     return readOnly;
   }
 
+
   public void setReadOnly(Boolean readOnly) {
     this.readOnly = readOnly;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -124,15 +118,16 @@ public class V1GlusterfsVolumeSource {
       return false;
     }
     V1GlusterfsVolumeSource v1GlusterfsVolumeSource = (V1GlusterfsVolumeSource) o;
-    return Objects.equals(this.endpoints, v1GlusterfsVolumeSource.endpoints)
-        && Objects.equals(this.path, v1GlusterfsVolumeSource.path)
-        && Objects.equals(this.readOnly, v1GlusterfsVolumeSource.readOnly);
+    return Objects.equals(this.endpoints, v1GlusterfsVolumeSource.endpoints) &&
+        Objects.equals(this.path, v1GlusterfsVolumeSource.path) &&
+        Objects.equals(this.readOnly, v1GlusterfsVolumeSource.readOnly);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(endpoints, path, readOnly);
   }
+
 
   @Override
   public String toString() {
@@ -146,7 +141,8 @@ public class V1GlusterfsVolumeSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -154,4 +150,5 @@ public class V1GlusterfsVolumeSource {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

@@ -20,18 +20,14 @@ public class V1ServiceAccountBuilder extends V1ServiceAccountFluentImpl<V1Servic
   }
   public V1ServiceAccountBuilder(V1ServiceAccountFluent<?> fluent,V1ServiceAccount instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withAutomountServiceAccountToken(instance.getAutomountServiceAccountToken());
-
-    fluent.withImagePullSecrets(instance.getImagePullSecrets());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSecrets(instance.getSecrets());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withAutomountServiceAccountToken(instance.getAutomountServiceAccountToken());
+      fluent.withImagePullSecrets(instance.getImagePullSecrets());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSecrets(instance.getSecrets());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ServiceAccountBuilder(V1ServiceAccount instance) {
@@ -39,18 +35,14 @@ public class V1ServiceAccountBuilder extends V1ServiceAccountFluentImpl<V1Servic
   }
   public V1ServiceAccountBuilder(V1ServiceAccount instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withAutomountServiceAccountToken(instance.getAutomountServiceAccountToken());
-
-    this.withImagePullSecrets(instance.getImagePullSecrets());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSecrets(instance.getSecrets());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withAutomountServiceAccountToken(instance.getAutomountServiceAccountToken());
+      this.withImagePullSecrets(instance.getImagePullSecrets());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSecrets(instance.getSecrets());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ServiceAccountFluent<?> fluent;

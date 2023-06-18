@@ -16,16 +16,13 @@ import java.lang.Object;
   public V1SubjectAccessReviewFluentImpl() {
   }
   public V1SubjectAccessReviewFluentImpl(V1SubjectAccessReview instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1SubjectAccessReviewFluent.MetadataNested<A> withNewMetadata() {
+  public V1SubjectAccessReviewFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1SubjectAccessReviewFluentImpl.MetadataNestedImpl();
   }
-  public V1SubjectAccessReviewFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1SubjectAccessReviewFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1SubjectAccessReviewFluentImpl.MetadataNestedImpl(item);
   }
-  public V1SubjectAccessReviewFluent.MetadataNested<A> editMetadata() {
+  public V1SubjectAccessReviewFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1SubjectAccessReviewFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1SubjectAccessReviewFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1SubjectAccessReviewFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1SubjectAccessReviewFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1SubjectAccessReviewFluent.SpecNested<A> withNewSpec() {
+  public V1SubjectAccessReviewFluentImpl.SpecNested<A> withNewSpec() {
     return new V1SubjectAccessReviewFluentImpl.SpecNestedImpl();
   }
-  public V1SubjectAccessReviewFluent.SpecNested<A> withNewSpecLike(V1SubjectAccessReviewSpec item) {
+  public V1SubjectAccessReviewFluentImpl.SpecNested<A> withNewSpecLike(V1SubjectAccessReviewSpec item) {
     return new V1SubjectAccessReviewFluentImpl.SpecNestedImpl(item);
   }
-  public V1SubjectAccessReviewFluent.SpecNested<A> editSpec() {
+  public V1SubjectAccessReviewFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1SubjectAccessReviewFluent.SpecNested<A> editOrNewSpec() {
+  public V1SubjectAccessReviewFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1SubjectAccessReviewSpecBuilder().build());
   }
-  public V1SubjectAccessReviewFluent.SpecNested<A> editOrNewSpecLike(V1SubjectAccessReviewSpec item) {
+  public V1SubjectAccessReviewFluentImpl.SpecNested<A> editOrNewSpecLike(V1SubjectAccessReviewSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1SubjectAccessReviewFluent.StatusNested<A> withNewStatus() {
+  public V1SubjectAccessReviewFluentImpl.StatusNested<A> withNewStatus() {
     return new V1SubjectAccessReviewFluentImpl.StatusNestedImpl();
   }
-  public V1SubjectAccessReviewFluent.StatusNested<A> withNewStatusLike(V1SubjectAccessReviewStatus item) {
+  public V1SubjectAccessReviewFluentImpl.StatusNested<A> withNewStatusLike(V1SubjectAccessReviewStatus item) {
     return new V1SubjectAccessReviewFluentImpl.StatusNestedImpl(item);
   }
-  public V1SubjectAccessReviewFluent.StatusNested<A> editStatus() {
+  public V1SubjectAccessReviewFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1SubjectAccessReviewFluent.StatusNested<A> editOrNewStatus() {
+  public V1SubjectAccessReviewFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1SubjectAccessReviewStatusBuilder().build());
   }
-  public V1SubjectAccessReviewFluent.StatusNested<A> editOrNewStatusLike(V1SubjectAccessReviewStatus item) {
+  public V1SubjectAccessReviewFluentImpl.StatusNested<A> editOrNewStatusLike(V1SubjectAccessReviewStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SubjectAccessReviewFluentImpl that = (V1SubjectAccessReviewFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1SubjectAccessReviewFluent.MetadataNested<N>> implements V1SubjectAccessReviewFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1SubjectAccessReviewFluentImpl.MetadataNested<N>> implements V1SubjectAccessReviewFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1SubjectAccessReviewSpecFluentImpl<V1SubjectAccessReviewFluent.SpecNested<N>> implements V1SubjectAccessReviewFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1SubjectAccessReviewSpecFluentImpl<V1SubjectAccessReviewFluentImpl.SpecNested<N>> implements V1SubjectAccessReviewFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1SubjectAccessReviewSpec item) {
       this.builder = new V1SubjectAccessReviewSpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1SubjectAccessReviewStatusFluentImpl<V1SubjectAccessReviewFluent.StatusNested<N>> implements V1SubjectAccessReviewFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1SubjectAccessReviewStatusFluentImpl<V1SubjectAccessReviewFluentImpl.StatusNested<N>> implements V1SubjectAccessReviewFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1SubjectAccessReviewStatus item) {
       this.builder = new V1SubjectAccessReviewStatusBuilder(this, item);
     }

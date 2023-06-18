@@ -20,12 +20,11 @@ public class V1EnvFromSourceBuilder extends V1EnvFromSourceFluentImpl<V1EnvFromS
   }
   public V1EnvFromSourceBuilder(V1EnvFromSourceFluent<?> fluent,V1EnvFromSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConfigMapRef(instance.getConfigMapRef());
-
-    fluent.withPrefix(instance.getPrefix());
-
-    fluent.withSecretRef(instance.getSecretRef());
-
+    if (instance != null) {
+      fluent.withConfigMapRef(instance.getConfigMapRef());
+      fluent.withPrefix(instance.getPrefix());
+      fluent.withSecretRef(instance.getSecretRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EnvFromSourceBuilder(V1EnvFromSource instance) {
@@ -33,12 +32,11 @@ public class V1EnvFromSourceBuilder extends V1EnvFromSourceFluentImpl<V1EnvFromS
   }
   public V1EnvFromSourceBuilder(V1EnvFromSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConfigMapRef(instance.getConfigMapRef());
-
-    this.withPrefix(instance.getPrefix());
-
-    this.withSecretRef(instance.getSecretRef());
-
+    if (instance != null) {
+      this.withConfigMapRef(instance.getConfigMapRef());
+      this.withPrefix(instance.getPrefix());
+      this.withSecretRef(instance.getSecretRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EnvFromSourceFluent<?> fluent;

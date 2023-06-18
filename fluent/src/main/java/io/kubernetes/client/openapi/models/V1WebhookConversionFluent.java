@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Collection;
 import java.util.List;
@@ -30,14 +30,14 @@ public interface V1WebhookConversionFluent<A extends V1WebhookConversionFluent<A
   public V1WebhookConversionFluent.ClientConfigNested<A> editClientConfig();
   public V1WebhookConversionFluent.ClientConfigNested<A> editOrNewClientConfig();
   public V1WebhookConversionFluent.ClientConfigNested<A> editOrNewClientConfigLike(ApiextensionsV1WebhookClientConfig item);
-  public A addToConversionReviewVersions(Integer index,String item);
-  public A setToConversionReviewVersions(Integer index,String item);
+  public A addToConversionReviewVersions(int index,String item);
+  public A setToConversionReviewVersions(int index,String item);
   public A addToConversionReviewVersions(java.lang.String... items);
   public A addAllToConversionReviewVersions(Collection<String> items);
   public A removeFromConversionReviewVersions(java.lang.String... items);
   public A removeAllFromConversionReviewVersions(Collection<String> items);
   public List<String> getConversionReviewVersions();
-  public String getConversionReviewVersion(Integer index);
+  public String getConversionReviewVersion(int index);
   public String getFirstConversionReviewVersion();
   public String getLastConversionReviewVersion();
   public String getMatchingConversionReviewVersion(Predicate<String> predicate);

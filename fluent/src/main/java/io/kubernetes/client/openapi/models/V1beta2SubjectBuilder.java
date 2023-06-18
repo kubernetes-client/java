@@ -20,14 +20,12 @@ public class V1beta2SubjectBuilder extends V1beta2SubjectFluentImpl<V1beta2Subje
   }
   public V1beta2SubjectBuilder(V1beta2SubjectFluent<?> fluent,V1beta2Subject instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withGroup(instance.getGroup());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withServiceAccount(instance.getServiceAccount());
-
-    fluent.withUser(instance.getUser());
-
+    if (instance != null) {
+      fluent.withGroup(instance.getGroup());
+      fluent.withKind(instance.getKind());
+      fluent.withServiceAccount(instance.getServiceAccount());
+      fluent.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2SubjectBuilder(V1beta2Subject instance) {
@@ -35,14 +33,12 @@ public class V1beta2SubjectBuilder extends V1beta2SubjectFluentImpl<V1beta2Subje
   }
   public V1beta2SubjectBuilder(V1beta2Subject instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withGroup(instance.getGroup());
-
-    this.withKind(instance.getKind());
-
-    this.withServiceAccount(instance.getServiceAccount());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withGroup(instance.getGroup());
+      this.withKind(instance.getKind());
+      this.withServiceAccount(instance.getServiceAccount());
+      this.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2SubjectFluent<?> fluent;

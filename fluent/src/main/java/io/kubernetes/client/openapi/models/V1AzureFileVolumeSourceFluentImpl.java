@@ -14,12 +14,11 @@ import java.lang.Boolean;
   public V1AzureFileVolumeSourceFluentImpl() {
   }
   public V1AzureFileVolumeSourceFluentImpl(V1AzureFileVolumeSource instance) {
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretName(instance.getSecretName());
-
-    this.withShareName(instance.getShareName());
-
+    if (instance != null) {
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretName(instance.getSecretName());
+      this.withShareName(instance.getShareName());
+    }
   }
   private Boolean readOnly;
   private String secretName;
@@ -54,10 +53,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1AzureFileVolumeSourceFluentImpl that = (V1AzureFileVolumeSourceFluentImpl) o;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (secretName != null ? !secretName.equals(that.secretName) :that.secretName != null) return false;
-    if (shareName != null ? !shareName.equals(that.shareName) :that.shareName != null) return false;
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(secretName, that.secretName)) return false;
+
+    if (!java.util.Objects.equals(shareName, that.shareName)) return false;
+
     return true;
   }
   public int hashCode() {

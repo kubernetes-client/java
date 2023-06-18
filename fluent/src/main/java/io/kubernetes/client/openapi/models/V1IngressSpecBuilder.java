@@ -20,14 +20,12 @@ public class V1IngressSpecBuilder extends V1IngressSpecFluentImpl<V1IngressSpecB
   }
   public V1IngressSpecBuilder(V1IngressSpecFluent<?> fluent,V1IngressSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDefaultBackend(instance.getDefaultBackend());
-
-    fluent.withIngressClassName(instance.getIngressClassName());
-
-    fluent.withRules(instance.getRules());
-
-    fluent.withTls(instance.getTls());
-
+    if (instance != null) {
+      fluent.withDefaultBackend(instance.getDefaultBackend());
+      fluent.withIngressClassName(instance.getIngressClassName());
+      fluent.withRules(instance.getRules());
+      fluent.withTls(instance.getTls());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1IngressSpecBuilder(V1IngressSpec instance) {
@@ -35,14 +33,12 @@ public class V1IngressSpecBuilder extends V1IngressSpecFluentImpl<V1IngressSpecB
   }
   public V1IngressSpecBuilder(V1IngressSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDefaultBackend(instance.getDefaultBackend());
-
-    this.withIngressClassName(instance.getIngressClassName());
-
-    this.withRules(instance.getRules());
-
-    this.withTls(instance.getTls());
-
+    if (instance != null) {
+      this.withDefaultBackend(instance.getDefaultBackend());
+      this.withIngressClassName(instance.getIngressClassName());
+      this.withRules(instance.getRules());
+      this.withTls(instance.getTls());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1IngressSpecFluent<?> fluent;

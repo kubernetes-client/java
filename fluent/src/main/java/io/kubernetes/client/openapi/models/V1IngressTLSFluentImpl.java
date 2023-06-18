@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,19 +18,19 @@ import java.lang.Boolean;
   public V1IngressTLSFluentImpl() {
   }
   public V1IngressTLSFluentImpl(V1IngressTLS instance) {
-    this.withHosts(instance.getHosts());
-
-    this.withSecretName(instance.getSecretName());
-
+    if (instance != null) {
+      this.withHosts(instance.getHosts());
+      this.withSecretName(instance.getSecretName());
+    }
   }
   private List<String> hosts;
   private String secretName;
-  public A addToHosts(Integer index,String item) {
+  public A addToHosts(int index,String item) {
     if (this.hosts == null) {this.hosts = new ArrayList<String>();}
     this.hosts.add(index, item);
     return (A)this;
   }
-  public A setToHosts(Integer index,String item) {
+  public A setToHosts(int index,String item) {
     if (this.hosts == null) {this.hosts = new ArrayList<String>();}
     this.hosts.set(index, item); return (A)this;
   }
@@ -52,7 +51,7 @@ import java.lang.Boolean;
   public List<String> getHosts() {
     return this.hosts;
   }
-  public String getHost(Integer index) {
+  public String getHost(int index) {
     return this.hosts.get(index);
   }
   public String getFirstHost() {
@@ -71,7 +70,7 @@ import java.lang.Boolean;
     if (hosts != null) {this.hosts = new ArrayList(); for (String item : hosts){this.addToHosts(item);}} else { this.hosts = null;} return (A) this;
   }
   public A withHosts(java.lang.String... hosts) {
-    if (this.hosts != null) {this.hosts.clear();}
+    if (this.hosts != null) {this.hosts.clear(); _visitables.remove("hosts"); }
     if (hosts != null) {for (String item :hosts){ this.addToHosts(item);}} return (A) this;
   }
   public Boolean hasHosts() {
@@ -89,9 +88,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1IngressTLSFluentImpl that = (V1IngressTLSFluentImpl) o;
-    if (hosts != null ? !hosts.equals(that.hosts) :that.hosts != null) return false;
-    if (secretName != null ? !secretName.equals(that.secretName) :that.secretName != null) return false;
+    if (!java.util.Objects.equals(hosts, that.hosts)) return false;
+
+    if (!java.util.Objects.equals(secretName, that.secretName)) return false;
+
     return true;
   }
   public int hashCode() {

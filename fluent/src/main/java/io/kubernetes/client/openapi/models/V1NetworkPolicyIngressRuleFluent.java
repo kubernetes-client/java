@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -16,8 +16,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngressRuleFluent<A>> extends Fluent<A>{
-  public A addToFrom(Integer index,V1NetworkPolicyPeer item);
-  public A setToFrom(Integer index,V1NetworkPolicyPeer item);
+  public A addToFrom(int index,V1NetworkPolicyPeer item);
+  public A setToFrom(int index,V1NetworkPolicyPeer item);
   public A addToFrom(io.kubernetes.client.openapi.models.V1NetworkPolicyPeer... items);
   public A addAllToFrom(Collection<V1NetworkPolicyPeer> items);
   public A removeFromFrom(io.kubernetes.client.openapi.models.V1NetworkPolicyPeer... items);
@@ -31,7 +31,7 @@ public interface V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngre
   @Deprecated
   public List<V1NetworkPolicyPeer> getFrom();
   public List<V1NetworkPolicyPeer> buildFrom();
-  public V1NetworkPolicyPeer buildFrom(Integer index);
+  public V1NetworkPolicyPeer buildFrom(int index);
   public V1NetworkPolicyPeer buildFirstFrom();
   public V1NetworkPolicyPeer buildLastFrom();
   public V1NetworkPolicyPeer buildMatchingFrom(Predicate<V1NetworkPolicyPeerBuilder> predicate);
@@ -41,13 +41,13 @@ public interface V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngre
   public Boolean hasFrom();
   public V1NetworkPolicyIngressRuleFluent.FromNested<A> addNewFrom();
   public V1NetworkPolicyIngressRuleFluent.FromNested<A> addNewFromLike(V1NetworkPolicyPeer item);
-  public V1NetworkPolicyIngressRuleFluent.FromNested<A> setNewFromLike(Integer index,V1NetworkPolicyPeer item);
-  public V1NetworkPolicyIngressRuleFluent.FromNested<A> editFrom(Integer index);
+  public V1NetworkPolicyIngressRuleFluent.FromNested<A> setNewFromLike(int index,V1NetworkPolicyPeer item);
+  public V1NetworkPolicyIngressRuleFluent.FromNested<A> editFrom(int index);
   public V1NetworkPolicyIngressRuleFluent.FromNested<A> editFirstFrom();
   public V1NetworkPolicyIngressRuleFluent.FromNested<A> editLastFrom();
   public V1NetworkPolicyIngressRuleFluent.FromNested<A> editMatchingFrom(Predicate<V1NetworkPolicyPeerBuilder> predicate);
-  public A addToPorts(Integer index,V1NetworkPolicyPort item);
-  public A setToPorts(Integer index,V1NetworkPolicyPort item);
+  public A addToPorts(int index,V1NetworkPolicyPort item);
+  public A setToPorts(int index,V1NetworkPolicyPort item);
   public A addToPorts(io.kubernetes.client.openapi.models.V1NetworkPolicyPort... items);
   public A addAllToPorts(Collection<V1NetworkPolicyPort> items);
   public A removeFromPorts(io.kubernetes.client.openapi.models.V1NetworkPolicyPort... items);
@@ -61,7 +61,7 @@ public interface V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngre
   @Deprecated
   public List<V1NetworkPolicyPort> getPorts();
   public List<V1NetworkPolicyPort> buildPorts();
-  public V1NetworkPolicyPort buildPort(Integer index);
+  public V1NetworkPolicyPort buildPort(int index);
   public V1NetworkPolicyPort buildFirstPort();
   public V1NetworkPolicyPort buildLastPort();
   public V1NetworkPolicyPort buildMatchingPort(Predicate<V1NetworkPolicyPortBuilder> predicate);
@@ -71,8 +71,8 @@ public interface V1NetworkPolicyIngressRuleFluent<A extends V1NetworkPolicyIngre
   public Boolean hasPorts();
   public V1NetworkPolicyIngressRuleFluent.PortsNested<A> addNewPort();
   public V1NetworkPolicyIngressRuleFluent.PortsNested<A> addNewPortLike(V1NetworkPolicyPort item);
-  public V1NetworkPolicyIngressRuleFluent.PortsNested<A> setNewPortLike(Integer index,V1NetworkPolicyPort item);
-  public V1NetworkPolicyIngressRuleFluent.PortsNested<A> editPort(Integer index);
+  public V1NetworkPolicyIngressRuleFluent.PortsNested<A> setNewPortLike(int index,V1NetworkPolicyPort item);
+  public V1NetworkPolicyIngressRuleFluent.PortsNested<A> editPort(int index);
   public V1NetworkPolicyIngressRuleFluent.PortsNested<A> editFirstPort();
   public V1NetworkPolicyIngressRuleFluent.PortsNested<A> editLastPort();
   public V1NetworkPolicyIngressRuleFluent.PortsNested<A> editMatchingPort(Predicate<V1NetworkPolicyPortBuilder> predicate);

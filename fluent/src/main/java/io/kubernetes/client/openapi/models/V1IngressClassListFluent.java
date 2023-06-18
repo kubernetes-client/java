@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1IngressClassListFluent<A extends V1IngressClassListFluent<A>>
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1IngressClass item);
-  public A setToItems(Integer index,V1IngressClass item);
+  public A addToItems(int index,V1IngressClass item);
+  public A setToItems(int index,V1IngressClass item);
   public A addToItems(io.kubernetes.client.openapi.models.V1IngressClass... items);
   public A addAllToItems(Collection<V1IngressClass> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1IngressClass... items);
@@ -35,7 +35,7 @@ public interface V1IngressClassListFluent<A extends V1IngressClassListFluent<A>>
   @Deprecated
   public List<V1IngressClass> getItems();
   public List<V1IngressClass> buildItems();
-  public V1IngressClass buildItem(Integer index);
+  public V1IngressClass buildItem(int index);
   public V1IngressClass buildFirstItem();
   public V1IngressClass buildLastItem();
   public V1IngressClass buildMatchingItem(Predicate<V1IngressClassBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1IngressClassListFluent<A extends V1IngressClassListFluent<A>>
   public Boolean hasItems();
   public V1IngressClassListFluent.ItemsNested<A> addNewItem();
   public V1IngressClassListFluent.ItemsNested<A> addNewItemLike(V1IngressClass item);
-  public V1IngressClassListFluent.ItemsNested<A> setNewItemLike(Integer index,V1IngressClass item);
-  public V1IngressClassListFluent.ItemsNested<A> editItem(Integer index);
+  public V1IngressClassListFluent.ItemsNested<A> setNewItemLike(int index,V1IngressClass item);
+  public V1IngressClassListFluent.ItemsNested<A> editItem(int index);
   public V1IngressClassListFluent.ItemsNested<A> editFirstItem();
   public V1IngressClassListFluent.ItemsNested<A> editLastItem();
   public V1IngressClassListFluent.ItemsNested<A> editMatchingItem(Predicate<V1IngressClassBuilder> predicate);

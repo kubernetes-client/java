@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1CronJobListFluent<A extends V1CronJobListFluent<A>> extends F
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1CronJob item);
-  public A setToItems(Integer index,V1CronJob item);
+  public A addToItems(int index,V1CronJob item);
+  public A setToItems(int index,V1CronJob item);
   public A addToItems(io.kubernetes.client.openapi.models.V1CronJob... items);
   public A addAllToItems(Collection<V1CronJob> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1CronJob... items);
@@ -35,7 +35,7 @@ public interface V1CronJobListFluent<A extends V1CronJobListFluent<A>> extends F
   @Deprecated
   public List<V1CronJob> getItems();
   public List<V1CronJob> buildItems();
-  public V1CronJob buildItem(Integer index);
+  public V1CronJob buildItem(int index);
   public V1CronJob buildFirstItem();
   public V1CronJob buildLastItem();
   public V1CronJob buildMatchingItem(Predicate<V1CronJobBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1CronJobListFluent<A extends V1CronJobListFluent<A>> extends F
   public Boolean hasItems();
   public V1CronJobListFluent.ItemsNested<A> addNewItem();
   public V1CronJobListFluent.ItemsNested<A> addNewItemLike(V1CronJob item);
-  public V1CronJobListFluent.ItemsNested<A> setNewItemLike(Integer index,V1CronJob item);
-  public V1CronJobListFluent.ItemsNested<A> editItem(Integer index);
+  public V1CronJobListFluent.ItemsNested<A> setNewItemLike(int index,V1CronJob item);
+  public V1CronJobListFluent.ItemsNested<A> editItem(int index);
   public V1CronJobListFluent.ItemsNested<A> editFirstItem();
   public V1CronJobListFluent.ItemsNested<A> editLastItem();
   public V1CronJobListFluent.ItemsNested<A> editMatchingItem(Predicate<V1CronJobBuilder> predicate);

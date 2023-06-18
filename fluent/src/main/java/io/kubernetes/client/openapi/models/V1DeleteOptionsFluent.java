@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.lang.Long;
 import java.util.Collection;
@@ -19,14 +19,14 @@ public interface V1DeleteOptionsFluent<A extends V1DeleteOptionsFluent<A>> exten
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToDryRun(Integer index,String item);
-  public A setToDryRun(Integer index,String item);
+  public A addToDryRun(int index,String item);
+  public A setToDryRun(int index,String item);
   public A addToDryRun(java.lang.String... items);
   public A addAllToDryRun(Collection<String> items);
   public A removeFromDryRun(java.lang.String... items);
   public A removeAllFromDryRun(Collection<String> items);
   public List<String> getDryRun();
-  public String getDryRun(Integer index);
+  public String getDryRun(int index);
   public String getFirstDryRun();
   public String getLastDryRun();
   public String getMatchingDryRun(Predicate<String> predicate);

@@ -20,10 +20,10 @@ public class V1FlockerVolumeSourceBuilder extends V1FlockerVolumeSourceFluentImp
   }
   public V1FlockerVolumeSourceBuilder(V1FlockerVolumeSourceFluent<?> fluent,V1FlockerVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDatasetName(instance.getDatasetName());
-
-    fluent.withDatasetUUID(instance.getDatasetUUID());
-
+    if (instance != null) {
+      fluent.withDatasetName(instance.getDatasetName());
+      fluent.withDatasetUUID(instance.getDatasetUUID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1FlockerVolumeSourceBuilder(V1FlockerVolumeSource instance) {
@@ -31,10 +31,10 @@ public class V1FlockerVolumeSourceBuilder extends V1FlockerVolumeSourceFluentImp
   }
   public V1FlockerVolumeSourceBuilder(V1FlockerVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDatasetName(instance.getDatasetName());
-
-    this.withDatasetUUID(instance.getDatasetUUID());
-
+    if (instance != null) {
+      this.withDatasetName(instance.getDatasetName());
+      this.withDatasetUUID(instance.getDatasetUUID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1FlockerVolumeSourceFluent<?> fluent;

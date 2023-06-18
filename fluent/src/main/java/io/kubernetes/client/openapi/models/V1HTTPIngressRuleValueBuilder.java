@@ -20,8 +20,9 @@ public class V1HTTPIngressRuleValueBuilder extends V1HTTPIngressRuleValueFluentI
   }
   public V1HTTPIngressRuleValueBuilder(V1HTTPIngressRuleValueFluent<?> fluent,V1HTTPIngressRuleValue instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPaths(instance.getPaths());
-
+    if (instance != null) {
+      fluent.withPaths(instance.getPaths());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1HTTPIngressRuleValueBuilder(V1HTTPIngressRuleValue instance) {
@@ -29,8 +30,9 @@ public class V1HTTPIngressRuleValueBuilder extends V1HTTPIngressRuleValueFluentI
   }
   public V1HTTPIngressRuleValueBuilder(V1HTTPIngressRuleValue instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPaths(instance.getPaths());
-
+    if (instance != null) {
+      this.withPaths(instance.getPaths());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1HTTPIngressRuleValueFluent<?> fluent;

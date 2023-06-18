@@ -20,8 +20,9 @@ public class V1ForZoneBuilder extends V1ForZoneFluentImpl<V1ForZoneBuilder> impl
   }
   public V1ForZoneBuilder(V1ForZoneFluent<?> fluent,V1ForZone instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ForZoneBuilder(V1ForZone instance) {
@@ -29,8 +30,9 @@ public class V1ForZoneBuilder extends V1ForZoneFluentImpl<V1ForZoneBuilder> impl
   }
   public V1ForZoneBuilder(V1ForZone instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ForZoneFluent<?> fluent;

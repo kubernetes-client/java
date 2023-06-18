@@ -14,16 +14,13 @@ import java.lang.Boolean;
   public V1IngressClassParametersReferenceFluentImpl() {
   }
   public V1IngressClassParametersReferenceFluentImpl(V1IngressClassParametersReference instance) {
-    this.withApiGroup(instance.getApiGroup());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withScope(instance.getScope());
-
+    if (instance != null) {
+      this.withApiGroup(instance.getApiGroup());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withScope(instance.getScope());
+    }
   }
   private String apiGroup;
   private String kind;
@@ -78,12 +75,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1IngressClassParametersReferenceFluentImpl that = (V1IngressClassParametersReferenceFluentImpl) o;
-    if (apiGroup != null ? !apiGroup.equals(that.apiGroup) :that.apiGroup != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (namespace != null ? !namespace.equals(that.namespace) :that.namespace != null) return false;
-    if (scope != null ? !scope.equals(that.scope) :that.scope != null) return false;
+    if (!java.util.Objects.equals(apiGroup, that.apiGroup)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
+
+    if (!java.util.Objects.equals(scope, that.scope)) return false;
+
     return true;
   }
   public int hashCode() {

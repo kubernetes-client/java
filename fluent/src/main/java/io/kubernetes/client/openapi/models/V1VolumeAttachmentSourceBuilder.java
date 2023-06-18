@@ -20,10 +20,10 @@ public class V1VolumeAttachmentSourceBuilder extends V1VolumeAttachmentSourceFlu
   }
   public V1VolumeAttachmentSourceBuilder(V1VolumeAttachmentSourceFluent<?> fluent,V1VolumeAttachmentSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withInlineVolumeSpec(instance.getInlineVolumeSpec());
-
-    fluent.withPersistentVolumeName(instance.getPersistentVolumeName());
-
+    if (instance != null) {
+      fluent.withInlineVolumeSpec(instance.getInlineVolumeSpec());
+      fluent.withPersistentVolumeName(instance.getPersistentVolumeName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeAttachmentSourceBuilder(V1VolumeAttachmentSource instance) {
@@ -31,10 +31,10 @@ public class V1VolumeAttachmentSourceBuilder extends V1VolumeAttachmentSourceFlu
   }
   public V1VolumeAttachmentSourceBuilder(V1VolumeAttachmentSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withInlineVolumeSpec(instance.getInlineVolumeSpec());
-
-    this.withPersistentVolumeName(instance.getPersistentVolumeName());
-
+    if (instance != null) {
+      this.withInlineVolumeSpec(instance.getInlineVolumeSpec());
+      this.withPersistentVolumeName(instance.getPersistentVolumeName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeAttachmentSourceFluent<?> fluent;

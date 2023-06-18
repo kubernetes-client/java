@@ -20,16 +20,13 @@ public class V2HorizontalPodAutoscalerSpecBuilder extends V2HorizontalPodAutosca
   }
   public V2HorizontalPodAutoscalerSpecBuilder(V2HorizontalPodAutoscalerSpecFluent<?> fluent,V2HorizontalPodAutoscalerSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withBehavior(instance.getBehavior());
-
-    fluent.withMaxReplicas(instance.getMaxReplicas());
-
-    fluent.withMetrics(instance.getMetrics());
-
-    fluent.withMinReplicas(instance.getMinReplicas());
-
-    fluent.withScaleTargetRef(instance.getScaleTargetRef());
-
+    if (instance != null) {
+      fluent.withBehavior(instance.getBehavior());
+      fluent.withMaxReplicas(instance.getMaxReplicas());
+      fluent.withMetrics(instance.getMetrics());
+      fluent.withMinReplicas(instance.getMinReplicas());
+      fluent.withScaleTargetRef(instance.getScaleTargetRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2HorizontalPodAutoscalerSpecBuilder(V2HorizontalPodAutoscalerSpec instance) {
@@ -37,16 +34,13 @@ public class V2HorizontalPodAutoscalerSpecBuilder extends V2HorizontalPodAutosca
   }
   public V2HorizontalPodAutoscalerSpecBuilder(V2HorizontalPodAutoscalerSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withBehavior(instance.getBehavior());
-
-    this.withMaxReplicas(instance.getMaxReplicas());
-
-    this.withMetrics(instance.getMetrics());
-
-    this.withMinReplicas(instance.getMinReplicas());
-
-    this.withScaleTargetRef(instance.getScaleTargetRef());
-
+    if (instance != null) {
+      this.withBehavior(instance.getBehavior());
+      this.withMaxReplicas(instance.getMaxReplicas());
+      this.withMetrics(instance.getMetrics());
+      this.withMinReplicas(instance.getMinReplicas());
+      this.withScaleTargetRef(instance.getScaleTargetRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2HorizontalPodAutoscalerSpecFluent<?> fluent;

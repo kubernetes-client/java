@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public interface V1ReplicationControllerStatusFluent<A extends V1ReplicationCont
   public Integer getAvailableReplicas();
   public A withAvailableReplicas(Integer availableReplicas);
   public Boolean hasAvailableReplicas();
-  public A addToConditions(Integer index,V1ReplicationControllerCondition item);
-  public A setToConditions(Integer index,V1ReplicationControllerCondition item);
+  public A addToConditions(int index,V1ReplicationControllerCondition item);
+  public A setToConditions(int index,V1ReplicationControllerCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1ReplicationControllerCondition... items);
   public A addAllToConditions(Collection<V1ReplicationControllerCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1ReplicationControllerCondition... items);
@@ -35,7 +36,7 @@ public interface V1ReplicationControllerStatusFluent<A extends V1ReplicationCont
   @Deprecated
   public List<V1ReplicationControllerCondition> getConditions();
   public List<V1ReplicationControllerCondition> buildConditions();
-  public V1ReplicationControllerCondition buildCondition(Integer index);
+  public V1ReplicationControllerCondition buildCondition(int index);
   public V1ReplicationControllerCondition buildFirstCondition();
   public V1ReplicationControllerCondition buildLastCondition();
   public V1ReplicationControllerCondition buildMatchingCondition(Predicate<V1ReplicationControllerConditionBuilder> predicate);
@@ -45,8 +46,8 @@ public interface V1ReplicationControllerStatusFluent<A extends V1ReplicationCont
   public Boolean hasConditions();
   public V1ReplicationControllerStatusFluent.ConditionsNested<A> addNewCondition();
   public V1ReplicationControllerStatusFluent.ConditionsNested<A> addNewConditionLike(V1ReplicationControllerCondition item);
-  public V1ReplicationControllerStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1ReplicationControllerCondition item);
-  public V1ReplicationControllerStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1ReplicationControllerStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1ReplicationControllerCondition item);
+  public V1ReplicationControllerStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1ReplicationControllerStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1ReplicationControllerStatusFluent.ConditionsNested<A> editLastCondition();
   public V1ReplicationControllerStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1ReplicationControllerConditionBuilder> predicate);

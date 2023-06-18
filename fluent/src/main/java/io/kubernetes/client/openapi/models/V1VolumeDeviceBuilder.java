@@ -20,10 +20,10 @@ public class V1VolumeDeviceBuilder extends V1VolumeDeviceFluentImpl<V1VolumeDevi
   }
   public V1VolumeDeviceBuilder(V1VolumeDeviceFluent<?> fluent,V1VolumeDevice instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDevicePath(instance.getDevicePath());
-
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withDevicePath(instance.getDevicePath());
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeDeviceBuilder(V1VolumeDevice instance) {
@@ -31,10 +31,10 @@ public class V1VolumeDeviceBuilder extends V1VolumeDeviceFluentImpl<V1VolumeDevi
   }
   public V1VolumeDeviceBuilder(V1VolumeDevice instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDevicePath(instance.getDevicePath());
-
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withDevicePath(instance.getDevicePath());
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeDeviceFluent<?> fluent;

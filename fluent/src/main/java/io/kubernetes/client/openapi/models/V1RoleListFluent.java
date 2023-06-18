@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1RoleListFluent<A extends V1RoleListFluent<A>> extends Fluent<
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1Role item);
-  public A setToItems(Integer index,V1Role item);
+  public A addToItems(int index,V1Role item);
+  public A setToItems(int index,V1Role item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Role... items);
   public A addAllToItems(Collection<V1Role> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Role... items);
@@ -35,7 +35,7 @@ public interface V1RoleListFluent<A extends V1RoleListFluent<A>> extends Fluent<
   @Deprecated
   public List<V1Role> getItems();
   public List<V1Role> buildItems();
-  public V1Role buildItem(Integer index);
+  public V1Role buildItem(int index);
   public V1Role buildFirstItem();
   public V1Role buildLastItem();
   public V1Role buildMatchingItem(Predicate<V1RoleBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1RoleListFluent<A extends V1RoleListFluent<A>> extends Fluent<
   public Boolean hasItems();
   public V1RoleListFluent.ItemsNested<A> addNewItem();
   public V1RoleListFluent.ItemsNested<A> addNewItemLike(V1Role item);
-  public V1RoleListFluent.ItemsNested<A> setNewItemLike(Integer index,V1Role item);
-  public V1RoleListFluent.ItemsNested<A> editItem(Integer index);
+  public V1RoleListFluent.ItemsNested<A> setNewItemLike(int index,V1Role item);
+  public V1RoleListFluent.ItemsNested<A> editItem(int index);
   public V1RoleListFluent.ItemsNested<A> editFirstItem();
   public V1RoleListFluent.ItemsNested<A> editLastItem();
   public V1RoleListFluent.ItemsNested<A> editMatchingItem(Predicate<V1RoleBuilder> predicate);

@@ -16,18 +16,14 @@ import java.lang.Object;
   public V2MetricStatusFluentImpl() {
   }
   public V2MetricStatusFluentImpl(V2MetricStatus instance) {
-    this.withContainerResource(instance.getContainerResource());
-
-    this.withExternal(instance.getExternal());
-
-    this.withObject(instance.getObject());
-
-    this.withPods(instance.getPods());
-
-    this.withResource(instance.getResource());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withContainerResource(instance.getContainerResource());
+      this.withExternal(instance.getExternal());
+      this.withObject(instance.getObject());
+      this.withPods(instance.getPods());
+      this.withResource(instance.getResource());
+      this.withType(instance.getType());
+    }
   }
   private V2ContainerResourceMetricStatusBuilder containerResource;
   private V2ExternalMetricStatusBuilder external;
@@ -54,19 +50,19 @@ import java.lang.Object;
   public Boolean hasContainerResource() {
     return this.containerResource != null;
   }
-  public V2MetricStatusFluent.ContainerResourceNested<A> withNewContainerResource() {
+  public V2MetricStatusFluentImpl.ContainerResourceNested<A> withNewContainerResource() {
     return new V2MetricStatusFluentImpl.ContainerResourceNestedImpl();
   }
-  public V2MetricStatusFluent.ContainerResourceNested<A> withNewContainerResourceLike(V2ContainerResourceMetricStatus item) {
+  public V2MetricStatusFluentImpl.ContainerResourceNested<A> withNewContainerResourceLike(V2ContainerResourceMetricStatus item) {
     return new V2MetricStatusFluentImpl.ContainerResourceNestedImpl(item);
   }
-  public V2MetricStatusFluent.ContainerResourceNested<A> editContainerResource() {
+  public V2MetricStatusFluentImpl.ContainerResourceNested<A> editContainerResource() {
     return withNewContainerResourceLike(getContainerResource());
   }
-  public V2MetricStatusFluent.ContainerResourceNested<A> editOrNewContainerResource() {
+  public V2MetricStatusFluentImpl.ContainerResourceNested<A> editOrNewContainerResource() {
     return withNewContainerResourceLike(getContainerResource() != null ? getContainerResource(): new V2ContainerResourceMetricStatusBuilder().build());
   }
-  public V2MetricStatusFluent.ContainerResourceNested<A> editOrNewContainerResourceLike(V2ContainerResourceMetricStatus item) {
+  public V2MetricStatusFluentImpl.ContainerResourceNested<A> editOrNewContainerResourceLike(V2ContainerResourceMetricStatus item) {
     return withNewContainerResourceLike(getContainerResource() != null ? getContainerResource(): item);
   }
   
@@ -88,19 +84,19 @@ import java.lang.Object;
   public Boolean hasExternal() {
     return this.external != null;
   }
-  public V2MetricStatusFluent.ExternalNested<A> withNewExternal() {
+  public V2MetricStatusFluentImpl.ExternalNested<A> withNewExternal() {
     return new V2MetricStatusFluentImpl.ExternalNestedImpl();
   }
-  public V2MetricStatusFluent.ExternalNested<A> withNewExternalLike(V2ExternalMetricStatus item) {
+  public V2MetricStatusFluentImpl.ExternalNested<A> withNewExternalLike(V2ExternalMetricStatus item) {
     return new V2MetricStatusFluentImpl.ExternalNestedImpl(item);
   }
-  public V2MetricStatusFluent.ExternalNested<A> editExternal() {
+  public V2MetricStatusFluentImpl.ExternalNested<A> editExternal() {
     return withNewExternalLike(getExternal());
   }
-  public V2MetricStatusFluent.ExternalNested<A> editOrNewExternal() {
+  public V2MetricStatusFluentImpl.ExternalNested<A> editOrNewExternal() {
     return withNewExternalLike(getExternal() != null ? getExternal(): new V2ExternalMetricStatusBuilder().build());
   }
-  public V2MetricStatusFluent.ExternalNested<A> editOrNewExternalLike(V2ExternalMetricStatus item) {
+  public V2MetricStatusFluentImpl.ExternalNested<A> editOrNewExternalLike(V2ExternalMetricStatus item) {
     return withNewExternalLike(getExternal() != null ? getExternal(): item);
   }
   
@@ -122,19 +118,19 @@ import java.lang.Object;
   public Boolean hasObject() {
     return this._object != null;
   }
-  public V2MetricStatusFluent.ObjectNested<A> withNewObject() {
+  public V2MetricStatusFluentImpl.ObjectNested<A> withNewObject() {
     return new V2MetricStatusFluentImpl.ObjectNestedImpl();
   }
-  public V2MetricStatusFluent.ObjectNested<A> withNewObjectLike(V2ObjectMetricStatus item) {
+  public V2MetricStatusFluentImpl.ObjectNested<A> withNewObjectLike(V2ObjectMetricStatus item) {
     return new V2MetricStatusFluentImpl.ObjectNestedImpl(item);
   }
-  public V2MetricStatusFluent.ObjectNested<A> editObject() {
+  public V2MetricStatusFluentImpl.ObjectNested<A> editObject() {
     return withNewObjectLike(getObject());
   }
-  public V2MetricStatusFluent.ObjectNested<A> editOrNewObject() {
+  public V2MetricStatusFluentImpl.ObjectNested<A> editOrNewObject() {
     return withNewObjectLike(getObject() != null ? getObject(): new V2ObjectMetricStatusBuilder().build());
   }
-  public V2MetricStatusFluent.ObjectNested<A> editOrNewObjectLike(V2ObjectMetricStatus item) {
+  public V2MetricStatusFluentImpl.ObjectNested<A> editOrNewObjectLike(V2ObjectMetricStatus item) {
     return withNewObjectLike(getObject() != null ? getObject(): item);
   }
   
@@ -156,19 +152,19 @@ import java.lang.Object;
   public Boolean hasPods() {
     return this.pods != null;
   }
-  public V2MetricStatusFluent.PodsNested<A> withNewPods() {
+  public V2MetricStatusFluentImpl.PodsNested<A> withNewPods() {
     return new V2MetricStatusFluentImpl.PodsNestedImpl();
   }
-  public V2MetricStatusFluent.PodsNested<A> withNewPodsLike(V2PodsMetricStatus item) {
+  public V2MetricStatusFluentImpl.PodsNested<A> withNewPodsLike(V2PodsMetricStatus item) {
     return new V2MetricStatusFluentImpl.PodsNestedImpl(item);
   }
-  public V2MetricStatusFluent.PodsNested<A> editPods() {
+  public V2MetricStatusFluentImpl.PodsNested<A> editPods() {
     return withNewPodsLike(getPods());
   }
-  public V2MetricStatusFluent.PodsNested<A> editOrNewPods() {
+  public V2MetricStatusFluentImpl.PodsNested<A> editOrNewPods() {
     return withNewPodsLike(getPods() != null ? getPods(): new V2PodsMetricStatusBuilder().build());
   }
-  public V2MetricStatusFluent.PodsNested<A> editOrNewPodsLike(V2PodsMetricStatus item) {
+  public V2MetricStatusFluentImpl.PodsNested<A> editOrNewPodsLike(V2PodsMetricStatus item) {
     return withNewPodsLike(getPods() != null ? getPods(): item);
   }
   
@@ -190,19 +186,19 @@ import java.lang.Object;
   public Boolean hasResource() {
     return this.resource != null;
   }
-  public V2MetricStatusFluent.ResourceNested<A> withNewResource() {
+  public V2MetricStatusFluentImpl.ResourceNested<A> withNewResource() {
     return new V2MetricStatusFluentImpl.ResourceNestedImpl();
   }
-  public V2MetricStatusFluent.ResourceNested<A> withNewResourceLike(V2ResourceMetricStatus item) {
+  public V2MetricStatusFluentImpl.ResourceNested<A> withNewResourceLike(V2ResourceMetricStatus item) {
     return new V2MetricStatusFluentImpl.ResourceNestedImpl(item);
   }
-  public V2MetricStatusFluent.ResourceNested<A> editResource() {
+  public V2MetricStatusFluentImpl.ResourceNested<A> editResource() {
     return withNewResourceLike(getResource());
   }
-  public V2MetricStatusFluent.ResourceNested<A> editOrNewResource() {
+  public V2MetricStatusFluentImpl.ResourceNested<A> editOrNewResource() {
     return withNewResourceLike(getResource() != null ? getResource(): new V2ResourceMetricStatusBuilder().build());
   }
-  public V2MetricStatusFluent.ResourceNested<A> editOrNewResourceLike(V2ResourceMetricStatus item) {
+  public V2MetricStatusFluentImpl.ResourceNested<A> editOrNewResourceLike(V2ResourceMetricStatus item) {
     return withNewResourceLike(getResource() != null ? getResource(): item);
   }
   public String getType() {
@@ -217,13 +213,20 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2MetricStatusFluentImpl that = (V2MetricStatusFluentImpl) o;
-    if (containerResource != null ? !containerResource.equals(that.containerResource) :that.containerResource != null) return false;
-    if (external != null ? !external.equals(that.external) :that.external != null) return false;
-    if (_object != null ? !_object.equals(that._object) :that._object != null) return false;
-    if (pods != null ? !pods.equals(that.pods) :that.pods != null) return false;
-    if (resource != null ? !resource.equals(that.resource) :that.resource != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(containerResource, that.containerResource)) return false;
+
+    if (!java.util.Objects.equals(external, that.external)) return false;
+
+    if (!java.util.Objects.equals(_object, that._object)) return false;
+
+    if (!java.util.Objects.equals(pods, that.pods)) return false;
+
+    if (!java.util.Objects.equals(resource, that.resource)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -241,7 +244,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class ContainerResourceNestedImpl<N> extends V2ContainerResourceMetricStatusFluentImpl<V2MetricStatusFluent.ContainerResourceNested<N>> implements V2MetricStatusFluent.ContainerResourceNested<N>,Nested<N>{
+  class ContainerResourceNestedImpl<N> extends V2ContainerResourceMetricStatusFluentImpl<V2MetricStatusFluentImpl.ContainerResourceNested<N>> implements V2MetricStatusFluentImpl.ContainerResourceNested<N>,Nested<N>{
     ContainerResourceNestedImpl(V2ContainerResourceMetricStatus item) {
       this.builder = new V2ContainerResourceMetricStatusBuilder(this, item);
     }
@@ -257,7 +260,7 @@ import java.lang.Object;
     }
     
   }
-  class ExternalNestedImpl<N> extends V2ExternalMetricStatusFluentImpl<V2MetricStatusFluent.ExternalNested<N>> implements V2MetricStatusFluent.ExternalNested<N>,Nested<N>{
+  class ExternalNestedImpl<N> extends V2ExternalMetricStatusFluentImpl<V2MetricStatusFluentImpl.ExternalNested<N>> implements V2MetricStatusFluentImpl.ExternalNested<N>,Nested<N>{
     ExternalNestedImpl(V2ExternalMetricStatus item) {
       this.builder = new V2ExternalMetricStatusBuilder(this, item);
     }
@@ -273,7 +276,7 @@ import java.lang.Object;
     }
     
   }
-  class ObjectNestedImpl<N> extends V2ObjectMetricStatusFluentImpl<V2MetricStatusFluent.ObjectNested<N>> implements V2MetricStatusFluent.ObjectNested<N>,Nested<N>{
+  class ObjectNestedImpl<N> extends V2ObjectMetricStatusFluentImpl<V2MetricStatusFluentImpl.ObjectNested<N>> implements V2MetricStatusFluentImpl.ObjectNested<N>,Nested<N>{
     ObjectNestedImpl(V2ObjectMetricStatus item) {
       this.builder = new V2ObjectMetricStatusBuilder(this, item);
     }
@@ -289,7 +292,7 @@ import java.lang.Object;
     }
     
   }
-  class PodsNestedImpl<N> extends V2PodsMetricStatusFluentImpl<V2MetricStatusFluent.PodsNested<N>> implements V2MetricStatusFluent.PodsNested<N>,Nested<N>{
+  class PodsNestedImpl<N> extends V2PodsMetricStatusFluentImpl<V2MetricStatusFluentImpl.PodsNested<N>> implements V2MetricStatusFluentImpl.PodsNested<N>,Nested<N>{
     PodsNestedImpl(V2PodsMetricStatus item) {
       this.builder = new V2PodsMetricStatusBuilder(this, item);
     }
@@ -305,7 +308,7 @@ import java.lang.Object;
     }
     
   }
-  class ResourceNestedImpl<N> extends V2ResourceMetricStatusFluentImpl<V2MetricStatusFluent.ResourceNested<N>> implements V2MetricStatusFluent.ResourceNested<N>,Nested<N>{
+  class ResourceNestedImpl<N> extends V2ResourceMetricStatusFluentImpl<V2MetricStatusFluentImpl.ResourceNested<N>> implements V2MetricStatusFluentImpl.ResourceNested<N>,Nested<N>{
     ResourceNestedImpl(V2ResourceMetricStatus item) {
       this.builder = new V2ResourceMetricStatusBuilder(this, item);
     }

@@ -7,9 +7,9 @@ ContainerResourceMetricStatus indicates the current value of a resource metric k
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**container** | **String** | Container is the name of the container in the pods of the scaling target | 
+**container** | **String** | container is the name of the container in the pods of the scaling target | 
 **current** | [**V2MetricValueStatus**](V2MetricValueStatus.md) |  | 
-**name** | **String** | Name is the name of the resource in question. | 
+**name** | **String** | name is the name of the resource in question. | 
 
 
 

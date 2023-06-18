@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,36 +12,35 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * CrossVersionObjectReference contains enough information to let you identify the referred
- * resource.
+ * CrossVersionObjectReference contains enough information to let you identify the referred resource.
  */
-@ApiModel(
-    description =
-        "CrossVersionObjectReference contains enough information to let you identify the referred resource.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "CrossVersionObjectReference contains enough information to let you identify the referred resource.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V2CrossVersionObjectReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
-
   @SerializedName(SERIALIZED_NAME_API_VERSION)
   private String apiVersion;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
-
   @SerializedName(SERIALIZED_NAME_KIND)
   private String kind;
 
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
 
   public V2CrossVersionObjectReference apiVersion(String apiVersion) {
 
@@ -49,20 +48,22 @@ public class V2CrossVersionObjectReference {
     return this;
   }
 
-  /**
-   * API version of the referent
-   *
+   /**
+   * apiVersion is the API version of the referent
    * @return apiVersion
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "API version of the referent")
+  @ApiModelProperty(value = "apiVersion is the API version of the referent")
+
   public String getApiVersion() {
     return apiVersion;
   }
 
+
   public void setApiVersion(String apiVersion) {
     this.apiVersion = apiVersion;
   }
+
 
   public V2CrossVersionObjectReference kind(String kind) {
 
@@ -70,23 +71,21 @@ public class V2CrossVersionObjectReference {
     return this;
   }
 
-  /**
-   * Kind of the referent; More info:
-   * https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\&quot;
-   *
+   /**
+   * kind is the kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds\"")
+  **/
+  @ApiModelProperty(required = true, value = "kind is the kind of the referent; More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
+
   public String getKind() {
     return kind;
   }
 
+
   public void setKind(String kind) {
     this.kind = kind;
   }
+
 
   public V2CrossVersionObjectReference name(String name) {
 
@@ -94,22 +93,21 @@ public class V2CrossVersionObjectReference {
     return this;
   }
 
-  /**
-   * Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names
-   *
+   /**
+   * name is the name of the referent; More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @return name
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Name of the referent; More info: http://kubernetes.io/docs/user-guide/identifiers#names")
+  **/
+  @ApiModelProperty(required = true, value = "name is the name of the referent; More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -120,15 +118,16 @@ public class V2CrossVersionObjectReference {
       return false;
     }
     V2CrossVersionObjectReference v2CrossVersionObjectReference = (V2CrossVersionObjectReference) o;
-    return Objects.equals(this.apiVersion, v2CrossVersionObjectReference.apiVersion)
-        && Objects.equals(this.kind, v2CrossVersionObjectReference.kind)
-        && Objects.equals(this.name, v2CrossVersionObjectReference.name);
+    return Objects.equals(this.apiVersion, v2CrossVersionObjectReference.apiVersion) &&
+        Objects.equals(this.kind, v2CrossVersionObjectReference.kind) &&
+        Objects.equals(this.name, v2CrossVersionObjectReference.name);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(apiVersion, kind, name);
   }
+
 
   @Override
   public String toString() {
@@ -142,7 +141,8 @@ public class V2CrossVersionObjectReference {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -150,4 +150,5 @@ public class V2CrossVersionObjectReference {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

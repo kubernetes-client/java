@@ -6,7 +6,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -23,20 +22,22 @@ import java.lang.Boolean;
   public V1NodeSelectorFluentImpl() {
   }
   public V1NodeSelectorFluentImpl(V1NodeSelector instance) {
-    this.withNodeSelectorTerms(instance.getNodeSelectorTerms());
-
+    if (instance != null) {
+      this.withNodeSelectorTerms(instance.getNodeSelectorTerms());
+    }
   }
   private ArrayList<V1NodeSelectorTermBuilder> nodeSelectorTerms;
-  public A addToNodeSelectorTerms(Integer index,V1NodeSelectorTerm item) {
-    if (this.nodeSelectorTerms == null) {this.nodeSelectorTerms = new ArrayList<V1NodeSelectorTermBuilder>();}
-    V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);_visitables.get("nodeSelectorTerms").add(index >= 0 ? index : _visitables.get("nodeSelectorTerms").size(), builder);this.nodeSelectorTerms.add(index >= 0 ? index : nodeSelectorTerms.size(), builder); return (A)this;
-  }
-  public A setToNodeSelectorTerms(Integer index,V1NodeSelectorTerm item) {
+  public A addToNodeSelectorTerms(int index,V1NodeSelectorTerm item) {
     if (this.nodeSelectorTerms == null) {this.nodeSelectorTerms = new ArrayList<V1NodeSelectorTermBuilder>();}
     V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
-    if (index < 0 || index >= _visitables.get("nodeSelectorTerms").size()) { _visitables.get("nodeSelectorTerms").add(builder); } else { _visitables.get("nodeSelectorTerms").set(index, builder);}
-    if (index < 0 || index >= nodeSelectorTerms.size()) { nodeSelectorTerms.add(builder); } else { nodeSelectorTerms.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= nodeSelectorTerms.size()) { _visitables.get("nodeSelectorTerms").add(builder); nodeSelectorTerms.add(builder); } else { _visitables.get("nodeSelectorTerms").add(index, builder); nodeSelectorTerms.add(index, builder);}
+    return (A)this;
+  }
+  public A setToNodeSelectorTerms(int index,V1NodeSelectorTerm item) {
+    if (this.nodeSelectorTerms == null) {this.nodeSelectorTerms = new ArrayList<V1NodeSelectorTermBuilder>();}
+    V1NodeSelectorTermBuilder builder = new V1NodeSelectorTermBuilder(item);
+    if (index < 0 || index >= nodeSelectorTerms.size()) { _visitables.get("nodeSelectorTerms").add(builder); nodeSelectorTerms.add(builder); } else { _visitables.get("nodeSelectorTerms").set(index, builder); nodeSelectorTerms.set(index, builder);}
+    return (A)this;
   }
   public A addToNodeSelectorTerms(io.kubernetes.client.openapi.models.V1NodeSelectorTerm... items) {
     if (this.nodeSelectorTerms == null) {this.nodeSelectorTerms = new ArrayList<V1NodeSelectorTermBuilder>();}
@@ -77,7 +78,7 @@ import java.lang.Boolean;
   public List<V1NodeSelectorTerm> buildNodeSelectorTerms() {
     return nodeSelectorTerms != null ? build(nodeSelectorTerms) : null;
   }
-  public V1NodeSelectorTerm buildNodeSelectorTerm(Integer index) {
+  public V1NodeSelectorTerm buildNodeSelectorTerm(int index) {
     return this.nodeSelectorTerms.get(index).build();
   }
   public V1NodeSelectorTerm buildFirstNodeSelectorTerm() {
@@ -93,39 +94,39 @@ import java.lang.Boolean;
     for (V1NodeSelectorTermBuilder item: nodeSelectorTerms) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withNodeSelectorTerms(List<V1NodeSelectorTerm> nodeSelectorTerms) {
-    if (this.nodeSelectorTerms != null) { _visitables.get("nodeSelectorTerms").removeAll(this.nodeSelectorTerms);}
+    if (this.nodeSelectorTerms != null) { _visitables.get("nodeSelectorTerms").clear();}
     if (nodeSelectorTerms != null) {this.nodeSelectorTerms = new ArrayList(); for (V1NodeSelectorTerm item : nodeSelectorTerms){this.addToNodeSelectorTerms(item);}} else { this.nodeSelectorTerms = null;} return (A) this;
   }
   public A withNodeSelectorTerms(io.kubernetes.client.openapi.models.V1NodeSelectorTerm... nodeSelectorTerms) {
-    if (this.nodeSelectorTerms != null) {this.nodeSelectorTerms.clear();}
+    if (this.nodeSelectorTerms != null) {this.nodeSelectorTerms.clear(); _visitables.remove("nodeSelectorTerms"); }
     if (nodeSelectorTerms != null) {for (V1NodeSelectorTerm item :nodeSelectorTerms){ this.addToNodeSelectorTerms(item);}} return (A) this;
   }
   public Boolean hasNodeSelectorTerms() {
     return nodeSelectorTerms != null && !nodeSelectorTerms.isEmpty();
   }
-  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> addNewNodeSelectorTerm() {
+  public V1NodeSelectorFluentImpl.NodeSelectorTermsNested<A> addNewNodeSelectorTerm() {
     return new V1NodeSelectorFluentImpl.NodeSelectorTermsNestedImpl();
   }
-  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> addNewNodeSelectorTermLike(V1NodeSelectorTerm item) {
+  public V1NodeSelectorFluentImpl.NodeSelectorTermsNested<A> addNewNodeSelectorTermLike(V1NodeSelectorTerm item) {
     return new V1NodeSelectorFluentImpl.NodeSelectorTermsNestedImpl(-1, item);
   }
-  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> setNewNodeSelectorTermLike(Integer index,V1NodeSelectorTerm item) {
+  public V1NodeSelectorFluentImpl.NodeSelectorTermsNested<A> setNewNodeSelectorTermLike(int index,V1NodeSelectorTerm item) {
     return new V1NodeSelectorFluentImpl.NodeSelectorTermsNestedImpl(index, item);
   }
-  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editNodeSelectorTerm(Integer index) {
+  public V1NodeSelectorFluentImpl.NodeSelectorTermsNested<A> editNodeSelectorTerm(int index) {
     if (nodeSelectorTerms.size() <= index) throw new RuntimeException("Can't edit nodeSelectorTerms. Index exceeds size.");
     return setNewNodeSelectorTermLike(index, buildNodeSelectorTerm(index));
   }
-  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editFirstNodeSelectorTerm() {
+  public V1NodeSelectorFluentImpl.NodeSelectorTermsNested<A> editFirstNodeSelectorTerm() {
     if (nodeSelectorTerms.size() == 0) throw new RuntimeException("Can't edit first nodeSelectorTerms. The list is empty.");
     return setNewNodeSelectorTermLike(0, buildNodeSelectorTerm(0));
   }
-  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editLastNodeSelectorTerm() {
+  public V1NodeSelectorFluentImpl.NodeSelectorTermsNested<A> editLastNodeSelectorTerm() {
     int index = nodeSelectorTerms.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last nodeSelectorTerms. The list is empty.");
     return setNewNodeSelectorTermLike(index, buildNodeSelectorTerm(index));
   }
-  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editMatchingNodeSelectorTerm(Predicate<V1NodeSelectorTermBuilder> predicate) {
+  public V1NodeSelectorFluentImpl.NodeSelectorTermsNested<A> editMatchingNodeSelectorTerm(Predicate<V1NodeSelectorTermBuilder> predicate) {
     int index = -1;
     for (int i=0;i<nodeSelectorTerms.size();i++) { 
     if (predicate.test(nodeSelectorTerms.get(i))) {index = i; break;}
@@ -136,8 +137,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NodeSelectorFluentImpl that = (V1NodeSelectorFluentImpl) o;
-    if (nodeSelectorTerms != null ? !nodeSelectorTerms.equals(that.nodeSelectorTerms) :that.nodeSelectorTerms != null) return false;
+    if (!java.util.Objects.equals(nodeSelectorTerms, that.nodeSelectorTerms)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -146,12 +149,12 @@ import java.lang.Boolean;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (nodeSelectorTerms != null && !nodeSelectorTerms.isEmpty()) { sb.append("nodeSelectorTerms:"); sb.append(nodeSelectorTerms); }
+    if (nodeSelectorTerms != null) { sb.append("nodeSelectorTerms:"); sb.append(nodeSelectorTerms); }
     sb.append("}");
     return sb.toString();
   }
-  class NodeSelectorTermsNestedImpl<N> extends V1NodeSelectorTermFluentImpl<V1NodeSelectorFluent.NodeSelectorTermsNested<N>> implements V1NodeSelectorFluent.NodeSelectorTermsNested<N>,Nested<N>{
-    NodeSelectorTermsNestedImpl(Integer index,V1NodeSelectorTerm item) {
+  class NodeSelectorTermsNestedImpl<N> extends V1NodeSelectorTermFluentImpl<V1NodeSelectorFluentImpl.NodeSelectorTermsNested<N>> implements V1NodeSelectorFluentImpl.NodeSelectorTermsNested<N>,Nested<N>{
+    NodeSelectorTermsNestedImpl(int index,V1NodeSelectorTerm item) {
       this.index = index;
       this.builder = new V1NodeSelectorTermBuilder(this, item);
     }
@@ -160,7 +163,7 @@ import java.lang.Boolean;
       this.builder = new V1NodeSelectorTermBuilder(this);
     }
     V1NodeSelectorTermBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1NodeSelectorFluentImpl.this.setToNodeSelectorTerms(index,builder.build());
     }

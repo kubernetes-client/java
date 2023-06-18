@@ -20,10 +20,10 @@ public class V2ExternalMetricStatusBuilder extends V2ExternalMetricStatusFluentI
   }
   public V2ExternalMetricStatusBuilder(V2ExternalMetricStatusFluent<?> fluent,V2ExternalMetricStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCurrent(instance.getCurrent());
-
-    fluent.withMetric(instance.getMetric());
-
+    if (instance != null) {
+      fluent.withCurrent(instance.getCurrent());
+      fluent.withMetric(instance.getMetric());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2ExternalMetricStatusBuilder(V2ExternalMetricStatus instance) {
@@ -31,10 +31,10 @@ public class V2ExternalMetricStatusBuilder extends V2ExternalMetricStatusFluentI
   }
   public V2ExternalMetricStatusBuilder(V2ExternalMetricStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCurrent(instance.getCurrent());
-
-    this.withMetric(instance.getMetric());
-
+    if (instance != null) {
+      this.withCurrent(instance.getCurrent());
+      this.withMetric(instance.getMetric());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2ExternalMetricStatusFluent<?> fluent;

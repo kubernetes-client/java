@@ -20,14 +20,12 @@ public class V1SubjectAccessReviewStatusBuilder extends V1SubjectAccessReviewSta
   }
   public V1SubjectAccessReviewStatusBuilder(V1SubjectAccessReviewStatusFluent<?> fluent,V1SubjectAccessReviewStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAllowed(instance.getAllowed());
-
-    fluent.withDenied(instance.getDenied());
-
-    fluent.withEvaluationError(instance.getEvaluationError());
-
-    fluent.withReason(instance.getReason());
-
+    if (instance != null) {
+      fluent.withAllowed(instance.getAllowed());
+      fluent.withDenied(instance.getDenied());
+      fluent.withEvaluationError(instance.getEvaluationError());
+      fluent.withReason(instance.getReason());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SubjectAccessReviewStatusBuilder(V1SubjectAccessReviewStatus instance) {
@@ -35,14 +33,12 @@ public class V1SubjectAccessReviewStatusBuilder extends V1SubjectAccessReviewSta
   }
   public V1SubjectAccessReviewStatusBuilder(V1SubjectAccessReviewStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAllowed(instance.getAllowed());
-
-    this.withDenied(instance.getDenied());
-
-    this.withEvaluationError(instance.getEvaluationError());
-
-    this.withReason(instance.getReason());
-
+    if (instance != null) {
+      this.withAllowed(instance.getAllowed());
+      this.withDenied(instance.getDenied());
+      this.withEvaluationError(instance.getEvaluationError());
+      this.withReason(instance.getReason());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SubjectAccessReviewStatusFluent<?> fluent;

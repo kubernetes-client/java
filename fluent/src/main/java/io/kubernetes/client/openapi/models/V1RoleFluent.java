@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -38,8 +38,8 @@ public interface V1RoleFluent<A extends V1RoleFluent<A>> extends Fluent<A>{
   public V1RoleFluent.MetadataNested<A> editMetadata();
   public V1RoleFluent.MetadataNested<A> editOrNewMetadata();
   public V1RoleFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
-  public A addToRules(Integer index,V1PolicyRule item);
-  public A setToRules(Integer index,V1PolicyRule item);
+  public A addToRules(int index,V1PolicyRule item);
+  public A setToRules(int index,V1PolicyRule item);
   public A addToRules(io.kubernetes.client.openapi.models.V1PolicyRule... items);
   public A addAllToRules(Collection<V1PolicyRule> items);
   public A removeFromRules(io.kubernetes.client.openapi.models.V1PolicyRule... items);
@@ -53,7 +53,7 @@ public interface V1RoleFluent<A extends V1RoleFluent<A>> extends Fluent<A>{
   @Deprecated
   public List<V1PolicyRule> getRules();
   public List<V1PolicyRule> buildRules();
-  public V1PolicyRule buildRule(Integer index);
+  public V1PolicyRule buildRule(int index);
   public V1PolicyRule buildFirstRule();
   public V1PolicyRule buildLastRule();
   public V1PolicyRule buildMatchingRule(Predicate<V1PolicyRuleBuilder> predicate);
@@ -63,8 +63,8 @@ public interface V1RoleFluent<A extends V1RoleFluent<A>> extends Fluent<A>{
   public Boolean hasRules();
   public V1RoleFluent.RulesNested<A> addNewRule();
   public V1RoleFluent.RulesNested<A> addNewRuleLike(V1PolicyRule item);
-  public V1RoleFluent.RulesNested<A> setNewRuleLike(Integer index,V1PolicyRule item);
-  public V1RoleFluent.RulesNested<A> editRule(Integer index);
+  public V1RoleFluent.RulesNested<A> setNewRuleLike(int index,V1PolicyRule item);
+  public V1RoleFluent.RulesNested<A> editRule(int index);
   public V1RoleFluent.RulesNested<A> editFirstRule();
   public V1RoleFluent.RulesNested<A> editLastRule();
   public V1RoleFluent.RulesNested<A> editMatchingRule(Predicate<V1PolicyRuleBuilder> predicate);

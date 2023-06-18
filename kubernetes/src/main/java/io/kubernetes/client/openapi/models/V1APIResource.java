@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,69 +12,65 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** APIResource specifies the name of a resource and whether it is namespaced. */
-@ApiModel(
-    description = "APIResource specifies the name of a resource and whether it is namespaced.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * APIResource specifies the name of a resource and whether it is namespaced.
+ */
+@ApiModel(description = "APIResource specifies the name of a resource and whether it is namespaced.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1APIResource {
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
-
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
   private List<String> categories = null;
 
   public static final String SERIALIZED_NAME_GROUP = "group";
-
   @SerializedName(SERIALIZED_NAME_GROUP)
   private String group;
 
   public static final String SERIALIZED_NAME_KIND = "kind";
-
   @SerializedName(SERIALIZED_NAME_KIND)
   private String kind;
 
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACED = "namespaced";
-
   @SerializedName(SERIALIZED_NAME_NAMESPACED)
   private Boolean namespaced;
 
   public static final String SERIALIZED_NAME_SHORT_NAMES = "shortNames";
-
   @SerializedName(SERIALIZED_NAME_SHORT_NAMES)
   private List<String> shortNames = null;
 
   public static final String SERIALIZED_NAME_SINGULAR_NAME = "singularName";
-
   @SerializedName(SERIALIZED_NAME_SINGULAR_NAME)
   private String singularName;
 
   public static final String SERIALIZED_NAME_STORAGE_VERSION_HASH = "storageVersionHash";
-
   @SerializedName(SERIALIZED_NAME_STORAGE_VERSION_HASH)
   private String storageVersionHash;
 
   public static final String SERIALIZED_NAME_VERBS = "verbs";
-
   @SerializedName(SERIALIZED_NAME_VERBS)
   private List<String> verbs = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VERSION = "version";
-
   @SerializedName(SERIALIZED_NAME_VERSION)
   private String version;
+
 
   public V1APIResource categories(List<String> categories) {
 
@@ -90,21 +86,22 @@ public class V1APIResource {
     return this;
   }
 
-  /**
+   /**
    * categories is a list of the grouped resources this resource belongs to (e.g. &#39;all&#39;)
-   *
    * @return categories
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "categories is a list of the grouped resources this resource belongs to (e.g. 'all')")
+  @ApiModelProperty(value = "categories is a list of the grouped resources this resource belongs to (e.g. 'all')")
+
   public List<String> getCategories() {
     return categories;
   }
 
+
   public void setCategories(List<String> categories) {
     this.categories = categories;
   }
+
 
   public V1APIResource group(String group) {
 
@@ -112,23 +109,22 @@ public class V1APIResource {
     return this;
   }
 
-  /**
-   * group is the preferred group of the resource. Empty implies the group of the containing
-   * resource list. For subresources, this may have a different value, for example: Scale\&quot;.
-   *
+   /**
+   * group is the preferred group of the resource.  Empty implies the group of the containing resource list. For subresources, this may have a different value, for example: Scale\&quot;.
    * @return group
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "group is the preferred group of the resource.  Empty implies the group of the containing resource list. For subresources, this may have a different value, for example: Scale\".")
+  @ApiModelProperty(value = "group is the preferred group of the resource.  Empty implies the group of the containing resource list. For subresources, this may have a different value, for example: Scale\".")
+
   public String getGroup() {
     return group;
   }
 
+
   public void setGroup(String group) {
     this.group = group;
   }
+
 
   public V1APIResource kind(String kind) {
 
@@ -136,21 +132,21 @@ public class V1APIResource {
     return this;
   }
 
-  /**
+   /**
    * kind is the kind for the resource (e.g. &#39;Foo&#39; is the kind for a resource &#39;foo&#39;)
-   *
    * @return kind
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "kind is the kind for the resource (e.g. 'Foo' is the kind for a resource 'foo')")
+  **/
+  @ApiModelProperty(required = true, value = "kind is the kind for the resource (e.g. 'Foo' is the kind for a resource 'foo')")
+
   public String getKind() {
     return kind;
   }
 
+
   public void setKind(String kind) {
     this.kind = kind;
   }
+
 
   public V1APIResource name(String name) {
 
@@ -158,19 +154,21 @@ public class V1APIResource {
     return this;
   }
 
-  /**
+   /**
    * name is the plural name of the resource.
-   *
    * @return name
-   */
+  **/
   @ApiModelProperty(required = true, value = "name is the plural name of the resource.")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public V1APIResource namespaced(Boolean namespaced) {
 
@@ -178,21 +176,21 @@ public class V1APIResource {
     return this;
   }
 
-  /**
+   /**
    * namespaced indicates if a resource is namespaced or not.
-   *
    * @return namespaced
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "namespaced indicates if a resource is namespaced or not.")
+  **/
+  @ApiModelProperty(required = true, value = "namespaced indicates if a resource is namespaced or not.")
+
   public Boolean getNamespaced() {
     return namespaced;
   }
 
+
   public void setNamespaced(Boolean namespaced) {
     this.namespaced = namespaced;
   }
+
 
   public V1APIResource shortNames(List<String> shortNames) {
 
@@ -208,20 +206,22 @@ public class V1APIResource {
     return this;
   }
 
-  /**
+   /**
    * shortNames is a list of suggested short names of the resource.
-   *
    * @return shortNames
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "shortNames is a list of suggested short names of the resource.")
+
   public List<String> getShortNames() {
     return shortNames;
   }
 
+
   public void setShortNames(List<String> shortNames) {
     this.shortNames = shortNames;
   }
+
 
   public V1APIResource singularName(String singularName) {
 
@@ -229,24 +229,21 @@ public class V1APIResource {
     return this;
   }
 
-  /**
-   * singularName is the singular name of the resource. This allows clients to handle plural and
-   * singular opaquely. The singularName is more correct for reporting status on a single item and
-   * both singular and plural are allowed from the kubectl CLI interface.
-   *
+   /**
+   * singularName is the singular name of the resource.  This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface.
    * @return singularName
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "singularName is the singular name of the resource.  This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface.")
+  **/
+  @ApiModelProperty(required = true, value = "singularName is the singular name of the resource.  This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface.")
+
   public String getSingularName() {
     return singularName;
   }
 
+
   public void setSingularName(String singularName) {
     this.singularName = singularName;
   }
+
 
   public V1APIResource storageVersionHash(String storageVersionHash) {
 
@@ -254,26 +251,22 @@ public class V1APIResource {
     return this;
   }
 
-  /**
-   * The hash value of the storage version, the version this resource is converted to when written
-   * to the data store. Value must be treated as opaque by clients. Only equality comparison on the
-   * value is valid. This is an alpha feature and may change or be removed in the future. The field
-   * is populated by the apiserver only if the StorageVersionHash feature gate is enabled. This
-   * field will remain optional even if it graduates.
-   *
+   /**
+   * The hash value of the storage version, the version this resource is converted to when written to the data store. Value must be treated as opaque by clients. Only equality comparison on the value is valid. This is an alpha feature and may change or be removed in the future. The field is populated by the apiserver only if the StorageVersionHash feature gate is enabled. This field will remain optional even if it graduates.
    * @return storageVersionHash
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "The hash value of the storage version, the version this resource is converted to when written to the data store. Value must be treated as opaque by clients. Only equality comparison on the value is valid. This is an alpha feature and may change or be removed in the future. The field is populated by the apiserver only if the StorageVersionHash feature gate is enabled. This field will remain optional even if it graduates.")
+  @ApiModelProperty(value = "The hash value of the storage version, the version this resource is converted to when written to the data store. Value must be treated as opaque by clients. Only equality comparison on the value is valid. This is an alpha feature and may change or be removed in the future. The field is populated by the apiserver only if the StorageVersionHash feature gate is enabled. This field will remain optional even if it graduates.")
+
   public String getStorageVersionHash() {
     return storageVersionHash;
   }
 
+
   public void setStorageVersionHash(String storageVersionHash) {
     this.storageVersionHash = storageVersionHash;
   }
+
 
   public V1APIResource verbs(List<String> verbs) {
 
@@ -286,23 +279,21 @@ public class V1APIResource {
     return this;
   }
 
-  /**
-   * verbs is a list of supported kube verbs (this includes get, list, watch, create, update, patch,
-   * delete, deletecollection, and proxy)
-   *
+   /**
+   * verbs is a list of supported kube verbs (this includes get, list, watch, create, update, patch, delete, deletecollection, and proxy)
    * @return verbs
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "verbs is a list of supported kube verbs (this includes get, list, watch, create, update, patch, delete, deletecollection, and proxy)")
+  **/
+  @ApiModelProperty(required = true, value = "verbs is a list of supported kube verbs (this includes get, list, watch, create, update, patch, delete, deletecollection, and proxy)")
+
   public List<String> getVerbs() {
     return verbs;
   }
 
+
   public void setVerbs(List<String> verbs) {
     this.verbs = verbs;
   }
+
 
   public V1APIResource version(String version) {
 
@@ -310,24 +301,22 @@ public class V1APIResource {
     return this;
   }
 
-  /**
-   * version is the preferred version of the resource. Empty implies the version of the containing
-   * resource list For subresources, this may have a different value, for example: v1 (while inside
-   * a v1beta1 version of the core resource&#39;s group)\&quot;.
-   *
+   /**
+   * version is the preferred version of the resource.  Empty implies the version of the containing resource list For subresources, this may have a different value, for example: v1 (while inside a v1beta1 version of the core resource&#39;s group)\&quot;.
    * @return version
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "version is the preferred version of the resource.  Empty implies the version of the containing resource list For subresources, this may have a different value, for example: v1 (while inside a v1beta1 version of the core resource's group)\".")
+  @ApiModelProperty(value = "version is the preferred version of the resource.  Empty implies the version of the containing resource list For subresources, this may have a different value, for example: v1 (while inside a v1beta1 version of the core resource's group)\".")
+
   public String getVersion() {
     return version;
   }
 
+
   public void setVersion(String version) {
     this.version = version;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -338,32 +327,23 @@ public class V1APIResource {
       return false;
     }
     V1APIResource v1APIResource = (V1APIResource) o;
-    return Objects.equals(this.categories, v1APIResource.categories)
-        && Objects.equals(this.group, v1APIResource.group)
-        && Objects.equals(this.kind, v1APIResource.kind)
-        && Objects.equals(this.name, v1APIResource.name)
-        && Objects.equals(this.namespaced, v1APIResource.namespaced)
-        && Objects.equals(this.shortNames, v1APIResource.shortNames)
-        && Objects.equals(this.singularName, v1APIResource.singularName)
-        && Objects.equals(this.storageVersionHash, v1APIResource.storageVersionHash)
-        && Objects.equals(this.verbs, v1APIResource.verbs)
-        && Objects.equals(this.version, v1APIResource.version);
+    return Objects.equals(this.categories, v1APIResource.categories) &&
+        Objects.equals(this.group, v1APIResource.group) &&
+        Objects.equals(this.kind, v1APIResource.kind) &&
+        Objects.equals(this.name, v1APIResource.name) &&
+        Objects.equals(this.namespaced, v1APIResource.namespaced) &&
+        Objects.equals(this.shortNames, v1APIResource.shortNames) &&
+        Objects.equals(this.singularName, v1APIResource.singularName) &&
+        Objects.equals(this.storageVersionHash, v1APIResource.storageVersionHash) &&
+        Objects.equals(this.verbs, v1APIResource.verbs) &&
+        Objects.equals(this.version, v1APIResource.version);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(
-        categories,
-        group,
-        kind,
-        name,
-        namespaced,
-        shortNames,
-        singularName,
-        storageVersionHash,
-        verbs,
-        version);
+    return Objects.hash(categories, group, kind, name, namespaced, shortNames, singularName, storageVersionHash, verbs, version);
   }
+
 
   @Override
   public String toString() {
@@ -384,7 +364,8 @@ public class V1APIResource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -392,4 +373,5 @@ public class V1APIResource {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

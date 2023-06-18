@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,42 +12,51 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1IngressLoadBalancerStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** IngressStatus describe the current state of the Ingress. */
+/**
+ * IngressStatus describe the current state of the Ingress.
+ */
 @ApiModel(description = "IngressStatus describe the current state of the Ingress.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1IngressStatus {
   public static final String SERIALIZED_NAME_LOAD_BALANCER = "loadBalancer";
-
   @SerializedName(SERIALIZED_NAME_LOAD_BALANCER)
-  private V1LoadBalancerStatus loadBalancer;
+  private V1IngressLoadBalancerStatus loadBalancer;
 
-  public V1IngressStatus loadBalancer(V1LoadBalancerStatus loadBalancer) {
+
+  public V1IngressStatus loadBalancer(V1IngressLoadBalancerStatus loadBalancer) {
 
     this.loadBalancer = loadBalancer;
     return this;
   }
 
-  /**
+   /**
    * Get loadBalancer
-   *
    * @return loadBalancer
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
-  public V1LoadBalancerStatus getLoadBalancer() {
+
+  public V1IngressLoadBalancerStatus getLoadBalancer() {
     return loadBalancer;
   }
 
-  public void setLoadBalancer(V1LoadBalancerStatus loadBalancer) {
+
+  public void setLoadBalancer(V1IngressLoadBalancerStatus loadBalancer) {
     this.loadBalancer = loadBalancer;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -66,6 +75,7 @@ public class V1IngressStatus {
     return Objects.hash(loadBalancer);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -76,7 +86,8 @@ public class V1IngressStatus {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -84,4 +95,5 @@ public class V1IngressStatus {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

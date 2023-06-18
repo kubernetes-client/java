@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -35,8 +35,8 @@ public interface V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> exten
   public Boolean getStorageCapacity();
   public A withStorageCapacity(Boolean storageCapacity);
   public Boolean hasStorageCapacity();
-  public A addToTokenRequests(Integer index,StorageV1TokenRequest item);
-  public A setToTokenRequests(Integer index,StorageV1TokenRequest item);
+  public A addToTokenRequests(int index,StorageV1TokenRequest item);
+  public A setToTokenRequests(int index,StorageV1TokenRequest item);
   public A addToTokenRequests(io.kubernetes.client.openapi.models.StorageV1TokenRequest... items);
   public A addAllToTokenRequests(Collection<StorageV1TokenRequest> items);
   public A removeFromTokenRequests(io.kubernetes.client.openapi.models.StorageV1TokenRequest... items);
@@ -50,7 +50,7 @@ public interface V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> exten
   @Deprecated
   public List<StorageV1TokenRequest> getTokenRequests();
   public List<StorageV1TokenRequest> buildTokenRequests();
-  public StorageV1TokenRequest buildTokenRequest(Integer index);
+  public StorageV1TokenRequest buildTokenRequest(int index);
   public StorageV1TokenRequest buildFirstTokenRequest();
   public StorageV1TokenRequest buildLastTokenRequest();
   public StorageV1TokenRequest buildMatchingTokenRequest(Predicate<StorageV1TokenRequestBuilder> predicate);
@@ -60,19 +60,19 @@ public interface V1CSIDriverSpecFluent<A extends V1CSIDriverSpecFluent<A>> exten
   public Boolean hasTokenRequests();
   public V1CSIDriverSpecFluent.TokenRequestsNested<A> addNewTokenRequest();
   public V1CSIDriverSpecFluent.TokenRequestsNested<A> addNewTokenRequestLike(StorageV1TokenRequest item);
-  public V1CSIDriverSpecFluent.TokenRequestsNested<A> setNewTokenRequestLike(Integer index,StorageV1TokenRequest item);
-  public V1CSIDriverSpecFluent.TokenRequestsNested<A> editTokenRequest(Integer index);
+  public V1CSIDriverSpecFluent.TokenRequestsNested<A> setNewTokenRequestLike(int index,StorageV1TokenRequest item);
+  public V1CSIDriverSpecFluent.TokenRequestsNested<A> editTokenRequest(int index);
   public V1CSIDriverSpecFluent.TokenRequestsNested<A> editFirstTokenRequest();
   public V1CSIDriverSpecFluent.TokenRequestsNested<A> editLastTokenRequest();
   public V1CSIDriverSpecFluent.TokenRequestsNested<A> editMatchingTokenRequest(Predicate<StorageV1TokenRequestBuilder> predicate);
-  public A addToVolumeLifecycleModes(Integer index,String item);
-  public A setToVolumeLifecycleModes(Integer index,String item);
+  public A addToVolumeLifecycleModes(int index,String item);
+  public A setToVolumeLifecycleModes(int index,String item);
   public A addToVolumeLifecycleModes(java.lang.String... items);
   public A addAllToVolumeLifecycleModes(Collection<String> items);
   public A removeFromVolumeLifecycleModes(java.lang.String... items);
   public A removeAllFromVolumeLifecycleModes(Collection<String> items);
   public List<String> getVolumeLifecycleModes();
-  public String getVolumeLifecycleMode(Integer index);
+  public String getVolumeLifecycleMode(int index);
   public String getFirstVolumeLifecycleMode();
   public String getLastVolumeLifecycleMode();
   public String getMatchingVolumeLifecycleMode(Predicate<String> predicate);

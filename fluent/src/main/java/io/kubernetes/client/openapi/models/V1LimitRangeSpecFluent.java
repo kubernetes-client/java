@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -16,8 +16,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> extends Fluent<A>{
-  public A addToLimits(Integer index,V1LimitRangeItem item);
-  public A setToLimits(Integer index,V1LimitRangeItem item);
+  public A addToLimits(int index,V1LimitRangeItem item);
+  public A setToLimits(int index,V1LimitRangeItem item);
   public A addToLimits(io.kubernetes.client.openapi.models.V1LimitRangeItem... items);
   public A addAllToLimits(Collection<V1LimitRangeItem> items);
   public A removeFromLimits(io.kubernetes.client.openapi.models.V1LimitRangeItem... items);
@@ -31,7 +31,7 @@ public interface V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> ext
   @Deprecated
   public List<V1LimitRangeItem> getLimits();
   public List<V1LimitRangeItem> buildLimits();
-  public V1LimitRangeItem buildLimit(Integer index);
+  public V1LimitRangeItem buildLimit(int index);
   public V1LimitRangeItem buildFirstLimit();
   public V1LimitRangeItem buildLastLimit();
   public V1LimitRangeItem buildMatchingLimit(Predicate<V1LimitRangeItemBuilder> predicate);
@@ -41,8 +41,8 @@ public interface V1LimitRangeSpecFluent<A extends V1LimitRangeSpecFluent<A>> ext
   public Boolean hasLimits();
   public V1LimitRangeSpecFluent.LimitsNested<A> addNewLimit();
   public V1LimitRangeSpecFluent.LimitsNested<A> addNewLimitLike(V1LimitRangeItem item);
-  public V1LimitRangeSpecFluent.LimitsNested<A> setNewLimitLike(Integer index,V1LimitRangeItem item);
-  public V1LimitRangeSpecFluent.LimitsNested<A> editLimit(Integer index);
+  public V1LimitRangeSpecFluent.LimitsNested<A> setNewLimitLike(int index,V1LimitRangeItem item);
+  public V1LimitRangeSpecFluent.LimitsNested<A> editLimit(int index);
   public V1LimitRangeSpecFluent.LimitsNested<A> editFirstLimit();
   public V1LimitRangeSpecFluent.LimitsNested<A> editLastLimit();
   public V1LimitRangeSpecFluent.LimitsNested<A> editMatchingLimit(Predicate<V1LimitRangeItemBuilder> predicate);

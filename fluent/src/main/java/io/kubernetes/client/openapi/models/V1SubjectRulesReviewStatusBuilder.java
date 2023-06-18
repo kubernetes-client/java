@@ -20,14 +20,12 @@ public class V1SubjectRulesReviewStatusBuilder extends V1SubjectRulesReviewStatu
   }
   public V1SubjectRulesReviewStatusBuilder(V1SubjectRulesReviewStatusFluent<?> fluent,V1SubjectRulesReviewStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withEvaluationError(instance.getEvaluationError());
-
-    fluent.withIncomplete(instance.getIncomplete());
-
-    fluent.withNonResourceRules(instance.getNonResourceRules());
-
-    fluent.withResourceRules(instance.getResourceRules());
-
+    if (instance != null) {
+      fluent.withEvaluationError(instance.getEvaluationError());
+      fluent.withIncomplete(instance.getIncomplete());
+      fluent.withNonResourceRules(instance.getNonResourceRules());
+      fluent.withResourceRules(instance.getResourceRules());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SubjectRulesReviewStatusBuilder(V1SubjectRulesReviewStatus instance) {
@@ -35,14 +33,12 @@ public class V1SubjectRulesReviewStatusBuilder extends V1SubjectRulesReviewStatu
   }
   public V1SubjectRulesReviewStatusBuilder(V1SubjectRulesReviewStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withEvaluationError(instance.getEvaluationError());
-
-    this.withIncomplete(instance.getIncomplete());
-
-    this.withNonResourceRules(instance.getNonResourceRules());
-
-    this.withResourceRules(instance.getResourceRules());
-
+    if (instance != null) {
+      this.withEvaluationError(instance.getEvaluationError());
+      this.withIncomplete(instance.getIncomplete());
+      this.withNonResourceRules(instance.getNonResourceRules());
+      this.withResourceRules(instance.getResourceRules());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SubjectRulesReviewStatusFluent<?> fluent;

@@ -20,12 +20,11 @@ public class V2ContainerResourceMetricStatusBuilder extends V2ContainerResourceM
   }
   public V2ContainerResourceMetricStatusBuilder(V2ContainerResourceMetricStatusFluent<?> fluent,V2ContainerResourceMetricStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withContainer(instance.getContainer());
-
-    fluent.withCurrent(instance.getCurrent());
-
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withContainer(instance.getContainer());
+      fluent.withCurrent(instance.getCurrent());
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2ContainerResourceMetricStatusBuilder(V2ContainerResourceMetricStatus instance) {
@@ -33,12 +32,11 @@ public class V2ContainerResourceMetricStatusBuilder extends V2ContainerResourceM
   }
   public V2ContainerResourceMetricStatusBuilder(V2ContainerResourceMetricStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withContainer(instance.getContainer());
-
-    this.withCurrent(instance.getCurrent());
-
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withContainer(instance.getContainer());
+      this.withCurrent(instance.getCurrent());
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2ContainerResourceMetricStatusFluent<?> fluent;

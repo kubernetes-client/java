@@ -18,26 +18,18 @@ import java.util.Map;
   public V1CSIPersistentVolumeSourceFluentImpl() {
   }
   public V1CSIPersistentVolumeSourceFluentImpl(V1CSIPersistentVolumeSource instance) {
-    this.withControllerExpandSecretRef(instance.getControllerExpandSecretRef());
-
-    this.withControllerPublishSecretRef(instance.getControllerPublishSecretRef());
-
-    this.withDriver(instance.getDriver());
-
-    this.withFsType(instance.getFsType());
-
-    this.withNodeExpandSecretRef(instance.getNodeExpandSecretRef());
-
-    this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
-
-    this.withNodeStageSecretRef(instance.getNodeStageSecretRef());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withVolumeAttributes(instance.getVolumeAttributes());
-
-    this.withVolumeHandle(instance.getVolumeHandle());
-
+    if (instance != null) {
+      this.withControllerExpandSecretRef(instance.getControllerExpandSecretRef());
+      this.withControllerPublishSecretRef(instance.getControllerPublishSecretRef());
+      this.withDriver(instance.getDriver());
+      this.withFsType(instance.getFsType());
+      this.withNodeExpandSecretRef(instance.getNodeExpandSecretRef());
+      this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
+      this.withNodeStageSecretRef(instance.getNodeStageSecretRef());
+      this.withReadOnly(instance.getReadOnly());
+      this.withVolumeAttributes(instance.getVolumeAttributes());
+      this.withVolumeHandle(instance.getVolumeHandle());
+    }
   }
   private V1SecretReferenceBuilder controllerExpandSecretRef;
   private V1SecretReferenceBuilder controllerPublishSecretRef;
@@ -68,19 +60,19 @@ import java.util.Map;
   public Boolean hasControllerExpandSecretRef() {
     return this.controllerExpandSecretRef != null;
   }
-  public V1CSIPersistentVolumeSourceFluent.ControllerExpandSecretRefNested<A> withNewControllerExpandSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNested<A> withNewControllerExpandSecretRef() {
     return new V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNestedImpl();
   }
-  public V1CSIPersistentVolumeSourceFluent.ControllerExpandSecretRefNested<A> withNewControllerExpandSecretRefLike(V1SecretReference item) {
+  public V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNested<A> withNewControllerExpandSecretRefLike(V1SecretReference item) {
     return new V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNestedImpl(item);
   }
-  public V1CSIPersistentVolumeSourceFluent.ControllerExpandSecretRefNested<A> editControllerExpandSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNested<A> editControllerExpandSecretRef() {
     return withNewControllerExpandSecretRefLike(getControllerExpandSecretRef());
   }
-  public V1CSIPersistentVolumeSourceFluent.ControllerExpandSecretRefNested<A> editOrNewControllerExpandSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNested<A> editOrNewControllerExpandSecretRef() {
     return withNewControllerExpandSecretRefLike(getControllerExpandSecretRef() != null ? getControllerExpandSecretRef(): new V1SecretReferenceBuilder().build());
   }
-  public V1CSIPersistentVolumeSourceFluent.ControllerExpandSecretRefNested<A> editOrNewControllerExpandSecretRefLike(V1SecretReference item) {
+  public V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNested<A> editOrNewControllerExpandSecretRefLike(V1SecretReference item) {
     return withNewControllerExpandSecretRefLike(getControllerExpandSecretRef() != null ? getControllerExpandSecretRef(): item);
   }
   
@@ -102,19 +94,19 @@ import java.util.Map;
   public Boolean hasControllerPublishSecretRef() {
     return this.controllerPublishSecretRef != null;
   }
-  public V1CSIPersistentVolumeSourceFluent.ControllerPublishSecretRefNested<A> withNewControllerPublishSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.ControllerPublishSecretRefNested<A> withNewControllerPublishSecretRef() {
     return new V1CSIPersistentVolumeSourceFluentImpl.ControllerPublishSecretRefNestedImpl();
   }
-  public V1CSIPersistentVolumeSourceFluent.ControllerPublishSecretRefNested<A> withNewControllerPublishSecretRefLike(V1SecretReference item) {
+  public V1CSIPersistentVolumeSourceFluentImpl.ControllerPublishSecretRefNested<A> withNewControllerPublishSecretRefLike(V1SecretReference item) {
     return new V1CSIPersistentVolumeSourceFluentImpl.ControllerPublishSecretRefNestedImpl(item);
   }
-  public V1CSIPersistentVolumeSourceFluent.ControllerPublishSecretRefNested<A> editControllerPublishSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.ControllerPublishSecretRefNested<A> editControllerPublishSecretRef() {
     return withNewControllerPublishSecretRefLike(getControllerPublishSecretRef());
   }
-  public V1CSIPersistentVolumeSourceFluent.ControllerPublishSecretRefNested<A> editOrNewControllerPublishSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.ControllerPublishSecretRefNested<A> editOrNewControllerPublishSecretRef() {
     return withNewControllerPublishSecretRefLike(getControllerPublishSecretRef() != null ? getControllerPublishSecretRef(): new V1SecretReferenceBuilder().build());
   }
-  public V1CSIPersistentVolumeSourceFluent.ControllerPublishSecretRefNested<A> editOrNewControllerPublishSecretRefLike(V1SecretReference item) {
+  public V1CSIPersistentVolumeSourceFluentImpl.ControllerPublishSecretRefNested<A> editOrNewControllerPublishSecretRefLike(V1SecretReference item) {
     return withNewControllerPublishSecretRefLike(getControllerPublishSecretRef() != null ? getControllerPublishSecretRef(): item);
   }
   public String getDriver() {
@@ -154,19 +146,19 @@ import java.util.Map;
   public Boolean hasNodeExpandSecretRef() {
     return this.nodeExpandSecretRef != null;
   }
-  public V1CSIPersistentVolumeSourceFluent.NodeExpandSecretRefNested<A> withNewNodeExpandSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodeExpandSecretRefNested<A> withNewNodeExpandSecretRef() {
     return new V1CSIPersistentVolumeSourceFluentImpl.NodeExpandSecretRefNestedImpl();
   }
-  public V1CSIPersistentVolumeSourceFluent.NodeExpandSecretRefNested<A> withNewNodeExpandSecretRefLike(V1SecretReference item) {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodeExpandSecretRefNested<A> withNewNodeExpandSecretRefLike(V1SecretReference item) {
     return new V1CSIPersistentVolumeSourceFluentImpl.NodeExpandSecretRefNestedImpl(item);
   }
-  public V1CSIPersistentVolumeSourceFluent.NodeExpandSecretRefNested<A> editNodeExpandSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodeExpandSecretRefNested<A> editNodeExpandSecretRef() {
     return withNewNodeExpandSecretRefLike(getNodeExpandSecretRef());
   }
-  public V1CSIPersistentVolumeSourceFluent.NodeExpandSecretRefNested<A> editOrNewNodeExpandSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodeExpandSecretRefNested<A> editOrNewNodeExpandSecretRef() {
     return withNewNodeExpandSecretRefLike(getNodeExpandSecretRef() != null ? getNodeExpandSecretRef(): new V1SecretReferenceBuilder().build());
   }
-  public V1CSIPersistentVolumeSourceFluent.NodeExpandSecretRefNested<A> editOrNewNodeExpandSecretRefLike(V1SecretReference item) {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodeExpandSecretRefNested<A> editOrNewNodeExpandSecretRefLike(V1SecretReference item) {
     return withNewNodeExpandSecretRefLike(getNodeExpandSecretRef() != null ? getNodeExpandSecretRef(): item);
   }
   
@@ -188,19 +180,19 @@ import java.util.Map;
   public Boolean hasNodePublishSecretRef() {
     return this.nodePublishSecretRef != null;
   }
-  public V1CSIPersistentVolumeSourceFluent.NodePublishSecretRefNested<A> withNewNodePublishSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodePublishSecretRefNested<A> withNewNodePublishSecretRef() {
     return new V1CSIPersistentVolumeSourceFluentImpl.NodePublishSecretRefNestedImpl();
   }
-  public V1CSIPersistentVolumeSourceFluent.NodePublishSecretRefNested<A> withNewNodePublishSecretRefLike(V1SecretReference item) {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodePublishSecretRefNested<A> withNewNodePublishSecretRefLike(V1SecretReference item) {
     return new V1CSIPersistentVolumeSourceFluentImpl.NodePublishSecretRefNestedImpl(item);
   }
-  public V1CSIPersistentVolumeSourceFluent.NodePublishSecretRefNested<A> editNodePublishSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodePublishSecretRefNested<A> editNodePublishSecretRef() {
     return withNewNodePublishSecretRefLike(getNodePublishSecretRef());
   }
-  public V1CSIPersistentVolumeSourceFluent.NodePublishSecretRefNested<A> editOrNewNodePublishSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodePublishSecretRefNested<A> editOrNewNodePublishSecretRef() {
     return withNewNodePublishSecretRefLike(getNodePublishSecretRef() != null ? getNodePublishSecretRef(): new V1SecretReferenceBuilder().build());
   }
-  public V1CSIPersistentVolumeSourceFluent.NodePublishSecretRefNested<A> editOrNewNodePublishSecretRefLike(V1SecretReference item) {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodePublishSecretRefNested<A> editOrNewNodePublishSecretRefLike(V1SecretReference item) {
     return withNewNodePublishSecretRefLike(getNodePublishSecretRef() != null ? getNodePublishSecretRef(): item);
   }
   
@@ -222,19 +214,19 @@ import java.util.Map;
   public Boolean hasNodeStageSecretRef() {
     return this.nodeStageSecretRef != null;
   }
-  public V1CSIPersistentVolumeSourceFluent.NodeStageSecretRefNested<A> withNewNodeStageSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodeStageSecretRefNested<A> withNewNodeStageSecretRef() {
     return new V1CSIPersistentVolumeSourceFluentImpl.NodeStageSecretRefNestedImpl();
   }
-  public V1CSIPersistentVolumeSourceFluent.NodeStageSecretRefNested<A> withNewNodeStageSecretRefLike(V1SecretReference item) {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodeStageSecretRefNested<A> withNewNodeStageSecretRefLike(V1SecretReference item) {
     return new V1CSIPersistentVolumeSourceFluentImpl.NodeStageSecretRefNestedImpl(item);
   }
-  public V1CSIPersistentVolumeSourceFluent.NodeStageSecretRefNested<A> editNodeStageSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodeStageSecretRefNested<A> editNodeStageSecretRef() {
     return withNewNodeStageSecretRefLike(getNodeStageSecretRef());
   }
-  public V1CSIPersistentVolumeSourceFluent.NodeStageSecretRefNested<A> editOrNewNodeStageSecretRef() {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodeStageSecretRefNested<A> editOrNewNodeStageSecretRef() {
     return withNewNodeStageSecretRefLike(getNodeStageSecretRef() != null ? getNodeStageSecretRef(): new V1SecretReferenceBuilder().build());
   }
-  public V1CSIPersistentVolumeSourceFluent.NodeStageSecretRefNested<A> editOrNewNodeStageSecretRefLike(V1SecretReference item) {
+  public V1CSIPersistentVolumeSourceFluentImpl.NodeStageSecretRefNested<A> editOrNewNodeStageSecretRefLike(V1SecretReference item) {
     return withNewNodeStageSecretRefLike(getNodeStageSecretRef() != null ? getNodeStageSecretRef(): item);
   }
   public Boolean getReadOnly() {
@@ -283,17 +275,28 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CSIPersistentVolumeSourceFluentImpl that = (V1CSIPersistentVolumeSourceFluentImpl) o;
-    if (controllerExpandSecretRef != null ? !controllerExpandSecretRef.equals(that.controllerExpandSecretRef) :that.controllerExpandSecretRef != null) return false;
-    if (controllerPublishSecretRef != null ? !controllerPublishSecretRef.equals(that.controllerPublishSecretRef) :that.controllerPublishSecretRef != null) return false;
-    if (driver != null ? !driver.equals(that.driver) :that.driver != null) return false;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (nodeExpandSecretRef != null ? !nodeExpandSecretRef.equals(that.nodeExpandSecretRef) :that.nodeExpandSecretRef != null) return false;
-    if (nodePublishSecretRef != null ? !nodePublishSecretRef.equals(that.nodePublishSecretRef) :that.nodePublishSecretRef != null) return false;
-    if (nodeStageSecretRef != null ? !nodeStageSecretRef.equals(that.nodeStageSecretRef) :that.nodeStageSecretRef != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (volumeAttributes != null ? !volumeAttributes.equals(that.volumeAttributes) :that.volumeAttributes != null) return false;
-    if (volumeHandle != null ? !volumeHandle.equals(that.volumeHandle) :that.volumeHandle != null) return false;
+    if (!java.util.Objects.equals(controllerExpandSecretRef, that.controllerExpandSecretRef)) return false;
+
+    if (!java.util.Objects.equals(controllerPublishSecretRef, that.controllerPublishSecretRef)) return false;
+
+    if (!java.util.Objects.equals(driver, that.driver)) return false;
+
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(nodeExpandSecretRef, that.nodeExpandSecretRef)) return false;
+
+    if (!java.util.Objects.equals(nodePublishSecretRef, that.nodePublishSecretRef)) return false;
+
+    if (!java.util.Objects.equals(nodeStageSecretRef, that.nodeStageSecretRef)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(volumeAttributes, that.volumeAttributes)) return false;
+
+    if (!java.util.Objects.equals(volumeHandle, that.volumeHandle)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -318,7 +321,7 @@ import java.util.Map;
   public A withReadOnly() {
     return withReadOnly(true);
   }
-  class ControllerExpandSecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CSIPersistentVolumeSourceFluent.ControllerExpandSecretRefNested<N>> implements V1CSIPersistentVolumeSourceFluent.ControllerExpandSecretRefNested<N>,Nested<N>{
+  class ControllerExpandSecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNested<N>> implements V1CSIPersistentVolumeSourceFluentImpl.ControllerExpandSecretRefNested<N>,Nested<N>{
     ControllerExpandSecretRefNestedImpl(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }
@@ -334,7 +337,7 @@ import java.util.Map;
     }
     
   }
-  class ControllerPublishSecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CSIPersistentVolumeSourceFluent.ControllerPublishSecretRefNested<N>> implements V1CSIPersistentVolumeSourceFluent.ControllerPublishSecretRefNested<N>,Nested<N>{
+  class ControllerPublishSecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CSIPersistentVolumeSourceFluentImpl.ControllerPublishSecretRefNested<N>> implements V1CSIPersistentVolumeSourceFluentImpl.ControllerPublishSecretRefNested<N>,Nested<N>{
     ControllerPublishSecretRefNestedImpl(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }
@@ -350,7 +353,7 @@ import java.util.Map;
     }
     
   }
-  class NodeExpandSecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CSIPersistentVolumeSourceFluent.NodeExpandSecretRefNested<N>> implements V1CSIPersistentVolumeSourceFluent.NodeExpandSecretRefNested<N>,Nested<N>{
+  class NodeExpandSecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CSIPersistentVolumeSourceFluentImpl.NodeExpandSecretRefNested<N>> implements V1CSIPersistentVolumeSourceFluentImpl.NodeExpandSecretRefNested<N>,Nested<N>{
     NodeExpandSecretRefNestedImpl(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }
@@ -366,7 +369,7 @@ import java.util.Map;
     }
     
   }
-  class NodePublishSecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CSIPersistentVolumeSourceFluent.NodePublishSecretRefNested<N>> implements V1CSIPersistentVolumeSourceFluent.NodePublishSecretRefNested<N>,Nested<N>{
+  class NodePublishSecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CSIPersistentVolumeSourceFluentImpl.NodePublishSecretRefNested<N>> implements V1CSIPersistentVolumeSourceFluentImpl.NodePublishSecretRefNested<N>,Nested<N>{
     NodePublishSecretRefNestedImpl(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }
@@ -382,7 +385,7 @@ import java.util.Map;
     }
     
   }
-  class NodeStageSecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CSIPersistentVolumeSourceFluent.NodeStageSecretRefNested<N>> implements V1CSIPersistentVolumeSourceFluent.NodeStageSecretRefNested<N>,Nested<N>{
+  class NodeStageSecretRefNestedImpl<N> extends V1SecretReferenceFluentImpl<V1CSIPersistentVolumeSourceFluentImpl.NodeStageSecretRefNested<N>> implements V1CSIPersistentVolumeSourceFluentImpl.NodeStageSecretRefNested<N>,Nested<N>{
     NodeStageSecretRefNestedImpl(V1SecretReference item) {
       this.builder = new V1SecretReferenceBuilder(this, item);
     }

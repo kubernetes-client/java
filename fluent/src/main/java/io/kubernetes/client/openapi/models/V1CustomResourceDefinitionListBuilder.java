@@ -20,14 +20,12 @@ public class V1CustomResourceDefinitionListBuilder extends V1CustomResourceDefin
   }
   public V1CustomResourceDefinitionListBuilder(V1CustomResourceDefinitionListFluent<?> fluent,V1CustomResourceDefinitionList instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withItems(instance.getItems());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withItems(instance.getItems());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CustomResourceDefinitionListBuilder(V1CustomResourceDefinitionList instance) {
@@ -35,14 +33,12 @@ public class V1CustomResourceDefinitionListBuilder extends V1CustomResourceDefin
   }
   public V1CustomResourceDefinitionListBuilder(V1CustomResourceDefinitionList instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withItems(instance.getItems());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withItems(instance.getItems());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CustomResourceDefinitionListFluent<?> fluent;

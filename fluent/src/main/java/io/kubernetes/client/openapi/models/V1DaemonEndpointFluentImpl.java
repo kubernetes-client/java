@@ -15,8 +15,9 @@ import java.lang.Boolean;
   public V1DaemonEndpointFluentImpl() {
   }
   public V1DaemonEndpointFluentImpl(V1DaemonEndpoint instance) {
-    this.withPort(instance.getPort());
-
+    if (instance != null) {
+      this.withPort(instance.getPort());
+    }
   }
   private Integer port;
   public Integer getPort() {
@@ -31,8 +32,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1DaemonEndpointFluentImpl that = (V1DaemonEndpointFluentImpl) o;
-    if (port != null ? !port.equals(that.port) :that.port != null) return false;
+    if (!java.util.Objects.equals(port, that.port)) return false;
+
     return true;
   }
   public int hashCode() {

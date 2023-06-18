@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1StorageClassListFluent<A extends V1StorageClassListFluent<A>>
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1StorageClass item);
-  public A setToItems(Integer index,V1StorageClass item);
+  public A addToItems(int index,V1StorageClass item);
+  public A setToItems(int index,V1StorageClass item);
   public A addToItems(io.kubernetes.client.openapi.models.V1StorageClass... items);
   public A addAllToItems(Collection<V1StorageClass> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1StorageClass... items);
@@ -35,7 +35,7 @@ public interface V1StorageClassListFluent<A extends V1StorageClassListFluent<A>>
   @Deprecated
   public List<V1StorageClass> getItems();
   public List<V1StorageClass> buildItems();
-  public V1StorageClass buildItem(Integer index);
+  public V1StorageClass buildItem(int index);
   public V1StorageClass buildFirstItem();
   public V1StorageClass buildLastItem();
   public V1StorageClass buildMatchingItem(Predicate<V1StorageClassBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1StorageClassListFluent<A extends V1StorageClassListFluent<A>>
   public Boolean hasItems();
   public V1StorageClassListFluent.ItemsNested<A> addNewItem();
   public V1StorageClassListFluent.ItemsNested<A> addNewItemLike(V1StorageClass item);
-  public V1StorageClassListFluent.ItemsNested<A> setNewItemLike(Integer index,V1StorageClass item);
-  public V1StorageClassListFluent.ItemsNested<A> editItem(Integer index);
+  public V1StorageClassListFluent.ItemsNested<A> setNewItemLike(int index,V1StorageClass item);
+  public V1StorageClassListFluent.ItemsNested<A> editItem(int index);
   public V1StorageClassListFluent.ItemsNested<A> editFirstItem();
   public V1StorageClassListFluent.ItemsNested<A> editLastItem();
   public V1StorageClassListFluent.ItemsNested<A> editMatchingItem(Predicate<V1StorageClassBuilder> predicate);

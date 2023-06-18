@@ -6,7 +6,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -23,20 +22,22 @@ import java.lang.Boolean;
   public V1HTTPIngressRuleValueFluentImpl() {
   }
   public V1HTTPIngressRuleValueFluentImpl(V1HTTPIngressRuleValue instance) {
-    this.withPaths(instance.getPaths());
-
+    if (instance != null) {
+      this.withPaths(instance.getPaths());
+    }
   }
   private ArrayList<V1HTTPIngressPathBuilder> paths;
-  public A addToPaths(Integer index,V1HTTPIngressPath item) {
-    if (this.paths == null) {this.paths = new ArrayList<V1HTTPIngressPathBuilder>();}
-    V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);_visitables.get("paths").add(index >= 0 ? index : _visitables.get("paths").size(), builder);this.paths.add(index >= 0 ? index : paths.size(), builder); return (A)this;
-  }
-  public A setToPaths(Integer index,V1HTTPIngressPath item) {
+  public A addToPaths(int index,V1HTTPIngressPath item) {
     if (this.paths == null) {this.paths = new ArrayList<V1HTTPIngressPathBuilder>();}
     V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
-    if (index < 0 || index >= _visitables.get("paths").size()) { _visitables.get("paths").add(builder); } else { _visitables.get("paths").set(index, builder);}
-    if (index < 0 || index >= paths.size()) { paths.add(builder); } else { paths.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= paths.size()) { _visitables.get("paths").add(builder); paths.add(builder); } else { _visitables.get("paths").add(index, builder); paths.add(index, builder);}
+    return (A)this;
+  }
+  public A setToPaths(int index,V1HTTPIngressPath item) {
+    if (this.paths == null) {this.paths = new ArrayList<V1HTTPIngressPathBuilder>();}
+    V1HTTPIngressPathBuilder builder = new V1HTTPIngressPathBuilder(item);
+    if (index < 0 || index >= paths.size()) { _visitables.get("paths").add(builder); paths.add(builder); } else { _visitables.get("paths").set(index, builder); paths.set(index, builder);}
+    return (A)this;
   }
   public A addToPaths(io.kubernetes.client.openapi.models.V1HTTPIngressPath... items) {
     if (this.paths == null) {this.paths = new ArrayList<V1HTTPIngressPathBuilder>();}
@@ -77,7 +78,7 @@ import java.lang.Boolean;
   public List<V1HTTPIngressPath> buildPaths() {
     return paths != null ? build(paths) : null;
   }
-  public V1HTTPIngressPath buildPath(Integer index) {
+  public V1HTTPIngressPath buildPath(int index) {
     return this.paths.get(index).build();
   }
   public V1HTTPIngressPath buildFirstPath() {
@@ -93,39 +94,39 @@ import java.lang.Boolean;
     for (V1HTTPIngressPathBuilder item: paths) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withPaths(List<V1HTTPIngressPath> paths) {
-    if (this.paths != null) { _visitables.get("paths").removeAll(this.paths);}
+    if (this.paths != null) { _visitables.get("paths").clear();}
     if (paths != null) {this.paths = new ArrayList(); for (V1HTTPIngressPath item : paths){this.addToPaths(item);}} else { this.paths = null;} return (A) this;
   }
   public A withPaths(io.kubernetes.client.openapi.models.V1HTTPIngressPath... paths) {
-    if (this.paths != null) {this.paths.clear();}
+    if (this.paths != null) {this.paths.clear(); _visitables.remove("paths"); }
     if (paths != null) {for (V1HTTPIngressPath item :paths){ this.addToPaths(item);}} return (A) this;
   }
   public Boolean hasPaths() {
     return paths != null && !paths.isEmpty();
   }
-  public V1HTTPIngressRuleValueFluent.PathsNested<A> addNewPath() {
+  public V1HTTPIngressRuleValueFluentImpl.PathsNested<A> addNewPath() {
     return new V1HTTPIngressRuleValueFluentImpl.PathsNestedImpl();
   }
-  public V1HTTPIngressRuleValueFluent.PathsNested<A> addNewPathLike(V1HTTPIngressPath item) {
+  public V1HTTPIngressRuleValueFluentImpl.PathsNested<A> addNewPathLike(V1HTTPIngressPath item) {
     return new V1HTTPIngressRuleValueFluentImpl.PathsNestedImpl(-1, item);
   }
-  public V1HTTPIngressRuleValueFluent.PathsNested<A> setNewPathLike(Integer index,V1HTTPIngressPath item) {
+  public V1HTTPIngressRuleValueFluentImpl.PathsNested<A> setNewPathLike(int index,V1HTTPIngressPath item) {
     return new V1HTTPIngressRuleValueFluentImpl.PathsNestedImpl(index, item);
   }
-  public V1HTTPIngressRuleValueFluent.PathsNested<A> editPath(Integer index) {
+  public V1HTTPIngressRuleValueFluentImpl.PathsNested<A> editPath(int index) {
     if (paths.size() <= index) throw new RuntimeException("Can't edit paths. Index exceeds size.");
     return setNewPathLike(index, buildPath(index));
   }
-  public V1HTTPIngressRuleValueFluent.PathsNested<A> editFirstPath() {
+  public V1HTTPIngressRuleValueFluentImpl.PathsNested<A> editFirstPath() {
     if (paths.size() == 0) throw new RuntimeException("Can't edit first paths. The list is empty.");
     return setNewPathLike(0, buildPath(0));
   }
-  public V1HTTPIngressRuleValueFluent.PathsNested<A> editLastPath() {
+  public V1HTTPIngressRuleValueFluentImpl.PathsNested<A> editLastPath() {
     int index = paths.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last paths. The list is empty.");
     return setNewPathLike(index, buildPath(index));
   }
-  public V1HTTPIngressRuleValueFluent.PathsNested<A> editMatchingPath(Predicate<V1HTTPIngressPathBuilder> predicate) {
+  public V1HTTPIngressRuleValueFluentImpl.PathsNested<A> editMatchingPath(Predicate<V1HTTPIngressPathBuilder> predicate) {
     int index = -1;
     for (int i=0;i<paths.size();i++) { 
     if (predicate.test(paths.get(i))) {index = i; break;}
@@ -136,8 +137,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1HTTPIngressRuleValueFluentImpl that = (V1HTTPIngressRuleValueFluentImpl) o;
-    if (paths != null ? !paths.equals(that.paths) :that.paths != null) return false;
+    if (!java.util.Objects.equals(paths, that.paths)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -146,12 +149,12 @@ import java.lang.Boolean;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (paths != null && !paths.isEmpty()) { sb.append("paths:"); sb.append(paths); }
+    if (paths != null) { sb.append("paths:"); sb.append(paths); }
     sb.append("}");
     return sb.toString();
   }
-  class PathsNestedImpl<N> extends V1HTTPIngressPathFluentImpl<V1HTTPIngressRuleValueFluent.PathsNested<N>> implements V1HTTPIngressRuleValueFluent.PathsNested<N>,Nested<N>{
-    PathsNestedImpl(Integer index,V1HTTPIngressPath item) {
+  class PathsNestedImpl<N> extends V1HTTPIngressPathFluentImpl<V1HTTPIngressRuleValueFluentImpl.PathsNested<N>> implements V1HTTPIngressRuleValueFluentImpl.PathsNested<N>,Nested<N>{
+    PathsNestedImpl(int index,V1HTTPIngressPath item) {
       this.index = index;
       this.builder = new V1HTTPIngressPathBuilder(this, item);
     }
@@ -160,7 +163,7 @@ import java.lang.Boolean;
       this.builder = new V1HTTPIngressPathBuilder(this);
     }
     V1HTTPIngressPathBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1HTTPIngressRuleValueFluentImpl.this.setToPaths(index,builder.build());
     }

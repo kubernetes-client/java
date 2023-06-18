@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1ComponentStatusListFluent<A extends V1ComponentStatusListFlue
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1ComponentStatus item);
-  public A setToItems(Integer index,V1ComponentStatus item);
+  public A addToItems(int index,V1ComponentStatus item);
+  public A setToItems(int index,V1ComponentStatus item);
   public A addToItems(io.kubernetes.client.openapi.models.V1ComponentStatus... items);
   public A addAllToItems(Collection<V1ComponentStatus> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1ComponentStatus... items);
@@ -35,7 +35,7 @@ public interface V1ComponentStatusListFluent<A extends V1ComponentStatusListFlue
   @Deprecated
   public List<V1ComponentStatus> getItems();
   public List<V1ComponentStatus> buildItems();
-  public V1ComponentStatus buildItem(Integer index);
+  public V1ComponentStatus buildItem(int index);
   public V1ComponentStatus buildFirstItem();
   public V1ComponentStatus buildLastItem();
   public V1ComponentStatus buildMatchingItem(Predicate<V1ComponentStatusBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1ComponentStatusListFluent<A extends V1ComponentStatusListFlue
   public Boolean hasItems();
   public V1ComponentStatusListFluent.ItemsNested<A> addNewItem();
   public V1ComponentStatusListFluent.ItemsNested<A> addNewItemLike(V1ComponentStatus item);
-  public V1ComponentStatusListFluent.ItemsNested<A> setNewItemLike(Integer index,V1ComponentStatus item);
-  public V1ComponentStatusListFluent.ItemsNested<A> editItem(Integer index);
+  public V1ComponentStatusListFluent.ItemsNested<A> setNewItemLike(int index,V1ComponentStatus item);
+  public V1ComponentStatusListFluent.ItemsNested<A> editItem(int index);
   public V1ComponentStatusListFluent.ItemsNested<A> editFirstItem();
   public V1ComponentStatusListFluent.ItemsNested<A> editLastItem();
   public V1ComponentStatusListFluent.ItemsNested<A> editMatchingItem(Predicate<V1ComponentStatusBuilder> predicate);

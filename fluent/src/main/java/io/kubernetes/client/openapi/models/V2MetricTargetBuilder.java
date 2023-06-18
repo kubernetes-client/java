@@ -20,14 +20,12 @@ public class V2MetricTargetBuilder extends V2MetricTargetFluentImpl<V2MetricTarg
   }
   public V2MetricTargetBuilder(V2MetricTargetFluent<?> fluent,V2MetricTarget instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAverageUtilization(instance.getAverageUtilization());
-
-    fluent.withAverageValue(instance.getAverageValue());
-
-    fluent.withType(instance.getType());
-
-    fluent.withValue(instance.getValue());
-
+    if (instance != null) {
+      fluent.withAverageUtilization(instance.getAverageUtilization());
+      fluent.withAverageValue(instance.getAverageValue());
+      fluent.withType(instance.getType());
+      fluent.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2MetricTargetBuilder(V2MetricTarget instance) {
@@ -35,14 +33,12 @@ public class V2MetricTargetBuilder extends V2MetricTargetFluentImpl<V2MetricTarg
   }
   public V2MetricTargetBuilder(V2MetricTarget instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAverageUtilization(instance.getAverageUtilization());
-
-    this.withAverageValue(instance.getAverageValue());
-
-    this.withType(instance.getType());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withAverageUtilization(instance.getAverageUtilization());
+      this.withAverageValue(instance.getAverageValue());
+      this.withType(instance.getType());
+      this.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2MetricTargetFluent<?> fluent;

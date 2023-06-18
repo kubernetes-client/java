@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1NonResourceAttributesFluentImpl() {
   }
   public V1NonResourceAttributesFluentImpl(V1NonResourceAttributes instance) {
-    this.withPath(instance.getPath());
-
-    this.withVerb(instance.getVerb());
-
+    if (instance != null) {
+      this.withPath(instance.getPath());
+      this.withVerb(instance.getVerb());
+    }
   }
   private String path;
   private String verb;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NonResourceAttributesFluentImpl that = (V1NonResourceAttributesFluentImpl) o;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
-    if (verb != null ? !verb.equals(that.verb) :that.verb != null) return false;
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
+    if (!java.util.Objects.equals(verb, that.verb)) return false;
+
     return true;
   }
   public int hashCode() {

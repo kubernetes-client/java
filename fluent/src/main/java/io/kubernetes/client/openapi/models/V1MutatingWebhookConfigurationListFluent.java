@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1MutatingWebhookConfigurationListFluent<A extends V1MutatingWe
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1MutatingWebhookConfiguration item);
-  public A setToItems(Integer index,V1MutatingWebhookConfiguration item);
+  public A addToItems(int index,V1MutatingWebhookConfiguration item);
+  public A setToItems(int index,V1MutatingWebhookConfiguration item);
   public A addToItems(io.kubernetes.client.openapi.models.V1MutatingWebhookConfiguration... items);
   public A addAllToItems(Collection<V1MutatingWebhookConfiguration> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1MutatingWebhookConfiguration... items);
@@ -35,7 +35,7 @@ public interface V1MutatingWebhookConfigurationListFluent<A extends V1MutatingWe
   @Deprecated
   public List<V1MutatingWebhookConfiguration> getItems();
   public List<V1MutatingWebhookConfiguration> buildItems();
-  public V1MutatingWebhookConfiguration buildItem(Integer index);
+  public V1MutatingWebhookConfiguration buildItem(int index);
   public V1MutatingWebhookConfiguration buildFirstItem();
   public V1MutatingWebhookConfiguration buildLastItem();
   public V1MutatingWebhookConfiguration buildMatchingItem(Predicate<V1MutatingWebhookConfigurationBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1MutatingWebhookConfigurationListFluent<A extends V1MutatingWe
   public Boolean hasItems();
   public V1MutatingWebhookConfigurationListFluent.ItemsNested<A> addNewItem();
   public V1MutatingWebhookConfigurationListFluent.ItemsNested<A> addNewItemLike(V1MutatingWebhookConfiguration item);
-  public V1MutatingWebhookConfigurationListFluent.ItemsNested<A> setNewItemLike(Integer index,V1MutatingWebhookConfiguration item);
-  public V1MutatingWebhookConfigurationListFluent.ItemsNested<A> editItem(Integer index);
+  public V1MutatingWebhookConfigurationListFluent.ItemsNested<A> setNewItemLike(int index,V1MutatingWebhookConfiguration item);
+  public V1MutatingWebhookConfigurationListFluent.ItemsNested<A> editItem(int index);
   public V1MutatingWebhookConfigurationListFluent.ItemsNested<A> editFirstItem();
   public V1MutatingWebhookConfigurationListFluent.ItemsNested<A> editLastItem();
   public V1MutatingWebhookConfigurationListFluent.ItemsNested<A> editMatchingItem(Predicate<V1MutatingWebhookConfigurationBuilder> predicate);

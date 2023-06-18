@@ -20,10 +20,10 @@ public class V1SchedulingBuilder extends V1SchedulingFluentImpl<V1SchedulingBuil
   }
   public V1SchedulingBuilder(V1SchedulingFluent<?> fluent,V1Scheduling instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withNodeSelector(instance.getNodeSelector());
-
-    fluent.withTolerations(instance.getTolerations());
-
+    if (instance != null) {
+      fluent.withNodeSelector(instance.getNodeSelector());
+      fluent.withTolerations(instance.getTolerations());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SchedulingBuilder(V1Scheduling instance) {
@@ -31,10 +31,10 @@ public class V1SchedulingBuilder extends V1SchedulingFluentImpl<V1SchedulingBuil
   }
   public V1SchedulingBuilder(V1Scheduling instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withNodeSelector(instance.getNodeSelector());
-
-    this.withTolerations(instance.getTolerations());
-
+    if (instance != null) {
+      this.withNodeSelector(instance.getNodeSelector());
+      this.withTolerations(instance.getTolerations());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SchedulingFluent<?> fluent;

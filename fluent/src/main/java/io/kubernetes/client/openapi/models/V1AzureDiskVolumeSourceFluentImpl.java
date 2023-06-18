@@ -14,18 +14,14 @@ import java.lang.Boolean;
   public V1AzureDiskVolumeSourceFluentImpl() {
   }
   public V1AzureDiskVolumeSourceFluentImpl(V1AzureDiskVolumeSource instance) {
-    this.withCachingMode(instance.getCachingMode());
-
-    this.withDiskName(instance.getDiskName());
-
-    this.withDiskURI(instance.getDiskURI());
-
-    this.withFsType(instance.getFsType());
-
-    this.withKind(instance.getKind());
-
-    this.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      this.withCachingMode(instance.getCachingMode());
+      this.withDiskName(instance.getDiskName());
+      this.withDiskURI(instance.getDiskURI());
+      this.withFsType(instance.getFsType());
+      this.withKind(instance.getKind());
+      this.withReadOnly(instance.getReadOnly());
+    }
   }
   private String cachingMode;
   private String diskName;
@@ -90,13 +86,20 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1AzureDiskVolumeSourceFluentImpl that = (V1AzureDiskVolumeSourceFluentImpl) o;
-    if (cachingMode != null ? !cachingMode.equals(that.cachingMode) :that.cachingMode != null) return false;
-    if (diskName != null ? !diskName.equals(that.diskName) :that.diskName != null) return false;
-    if (diskURI != null ? !diskURI.equals(that.diskURI) :that.diskURI != null) return false;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
+    if (!java.util.Objects.equals(cachingMode, that.cachingMode)) return false;
+
+    if (!java.util.Objects.equals(diskName, that.diskName)) return false;
+
+    if (!java.util.Objects.equals(diskURI, that.diskURI)) return false;
+
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
     return true;
   }
   public int hashCode() {

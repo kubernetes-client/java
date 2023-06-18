@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1SelfSubjectAccessReviewSpecFluentImpl() {
   }
   public V1SelfSubjectAccessReviewSpecFluentImpl(V1SelfSubjectAccessReviewSpec instance) {
-    this.withNonResourceAttributes(instance.getNonResourceAttributes());
-
-    this.withResourceAttributes(instance.getResourceAttributes());
-
+    if (instance != null) {
+      this.withNonResourceAttributes(instance.getNonResourceAttributes());
+      this.withResourceAttributes(instance.getResourceAttributes());
+    }
   }
   private V1NonResourceAttributesBuilder nonResourceAttributes;
   private V1ResourceAttributesBuilder resourceAttributes;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasNonResourceAttributes() {
     return this.nonResourceAttributes != null;
   }
-  public V1SelfSubjectAccessReviewSpecFluent.NonResourceAttributesNested<A> withNewNonResourceAttributes() {
+  public V1SelfSubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<A> withNewNonResourceAttributes() {
     return new V1SelfSubjectAccessReviewSpecFluentImpl.NonResourceAttributesNestedImpl();
   }
-  public V1SelfSubjectAccessReviewSpecFluent.NonResourceAttributesNested<A> withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
+  public V1SelfSubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<A> withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
     return new V1SelfSubjectAccessReviewSpecFluentImpl.NonResourceAttributesNestedImpl(item);
   }
-  public V1SelfSubjectAccessReviewSpecFluent.NonResourceAttributesNested<A> editNonResourceAttributes() {
+  public V1SelfSubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<A> editNonResourceAttributes() {
     return withNewNonResourceAttributesLike(getNonResourceAttributes());
   }
-  public V1SelfSubjectAccessReviewSpecFluent.NonResourceAttributesNested<A> editOrNewNonResourceAttributes() {
+  public V1SelfSubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<A> editOrNewNonResourceAttributes() {
     return withNewNonResourceAttributesLike(getNonResourceAttributes() != null ? getNonResourceAttributes(): new V1NonResourceAttributesBuilder().build());
   }
-  public V1SelfSubjectAccessReviewSpecFluent.NonResourceAttributesNested<A> editOrNewNonResourceAttributesLike(V1NonResourceAttributes item) {
+  public V1SelfSubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<A> editOrNewNonResourceAttributesLike(V1NonResourceAttributes item) {
     return withNewNonResourceAttributesLike(getNonResourceAttributes() != null ? getNonResourceAttributes(): item);
   }
   
@@ -76,27 +76,30 @@ import java.lang.Boolean;
   public Boolean hasResourceAttributes() {
     return this.resourceAttributes != null;
   }
-  public V1SelfSubjectAccessReviewSpecFluent.ResourceAttributesNested<A> withNewResourceAttributes() {
+  public V1SelfSubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<A> withNewResourceAttributes() {
     return new V1SelfSubjectAccessReviewSpecFluentImpl.ResourceAttributesNestedImpl();
   }
-  public V1SelfSubjectAccessReviewSpecFluent.ResourceAttributesNested<A> withNewResourceAttributesLike(V1ResourceAttributes item) {
+  public V1SelfSubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<A> withNewResourceAttributesLike(V1ResourceAttributes item) {
     return new V1SelfSubjectAccessReviewSpecFluentImpl.ResourceAttributesNestedImpl(item);
   }
-  public V1SelfSubjectAccessReviewSpecFluent.ResourceAttributesNested<A> editResourceAttributes() {
+  public V1SelfSubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<A> editResourceAttributes() {
     return withNewResourceAttributesLike(getResourceAttributes());
   }
-  public V1SelfSubjectAccessReviewSpecFluent.ResourceAttributesNested<A> editOrNewResourceAttributes() {
+  public V1SelfSubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<A> editOrNewResourceAttributes() {
     return withNewResourceAttributesLike(getResourceAttributes() != null ? getResourceAttributes(): new V1ResourceAttributesBuilder().build());
   }
-  public V1SelfSubjectAccessReviewSpecFluent.ResourceAttributesNested<A> editOrNewResourceAttributesLike(V1ResourceAttributes item) {
+  public V1SelfSubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<A> editOrNewResourceAttributesLike(V1ResourceAttributes item) {
     return withNewResourceAttributesLike(getResourceAttributes() != null ? getResourceAttributes(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SelfSubjectAccessReviewSpecFluentImpl that = (V1SelfSubjectAccessReviewSpecFluentImpl) o;
-    if (nonResourceAttributes != null ? !nonResourceAttributes.equals(that.nonResourceAttributes) :that.nonResourceAttributes != null) return false;
-    if (resourceAttributes != null ? !resourceAttributes.equals(that.resourceAttributes) :that.resourceAttributes != null) return false;
+    if (!java.util.Objects.equals(nonResourceAttributes, that.nonResourceAttributes)) return false;
+
+    if (!java.util.Objects.equals(resourceAttributes, that.resourceAttributes)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -110,7 +113,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class NonResourceAttributesNestedImpl<N> extends V1NonResourceAttributesFluentImpl<V1SelfSubjectAccessReviewSpecFluent.NonResourceAttributesNested<N>> implements V1SelfSubjectAccessReviewSpecFluent.NonResourceAttributesNested<N>,Nested<N>{
+  class NonResourceAttributesNestedImpl<N> extends V1NonResourceAttributesFluentImpl<V1SelfSubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<N>> implements V1SelfSubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<N>,Nested<N>{
     NonResourceAttributesNestedImpl(V1NonResourceAttributes item) {
       this.builder = new V1NonResourceAttributesBuilder(this, item);
     }
@@ -126,7 +129,7 @@ import java.lang.Boolean;
     }
     
   }
-  class ResourceAttributesNestedImpl<N> extends V1ResourceAttributesFluentImpl<V1SelfSubjectAccessReviewSpecFluent.ResourceAttributesNested<N>> implements V1SelfSubjectAccessReviewSpecFluent.ResourceAttributesNested<N>,Nested<N>{
+  class ResourceAttributesNestedImpl<N> extends V1ResourceAttributesFluentImpl<V1SelfSubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<N>> implements V1SelfSubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<N>,Nested<N>{
     ResourceAttributesNestedImpl(V1ResourceAttributes item) {
       this.builder = new V1ResourceAttributesBuilder(this, item);
     }

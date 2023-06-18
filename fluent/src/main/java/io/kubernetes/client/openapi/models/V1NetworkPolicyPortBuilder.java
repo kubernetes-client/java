@@ -20,12 +20,11 @@ public class V1NetworkPolicyPortBuilder extends V1NetworkPolicyPortFluentImpl<V1
   }
   public V1NetworkPolicyPortBuilder(V1NetworkPolicyPortFluent<?> fluent,V1NetworkPolicyPort instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withEndPort(instance.getEndPort());
-
-    fluent.withPort(instance.getPort());
-
-    fluent.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      fluent.withEndPort(instance.getEndPort());
+      fluent.withPort(instance.getPort());
+      fluent.withProtocol(instance.getProtocol());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NetworkPolicyPortBuilder(V1NetworkPolicyPort instance) {
@@ -33,12 +32,11 @@ public class V1NetworkPolicyPortBuilder extends V1NetworkPolicyPortFluentImpl<V1
   }
   public V1NetworkPolicyPortBuilder(V1NetworkPolicyPort instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withEndPort(instance.getEndPort());
-
-    this.withPort(instance.getPort());
-
-    this.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      this.withEndPort(instance.getEndPort());
+      this.withPort(instance.getPort());
+      this.withProtocol(instance.getProtocol());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NetworkPolicyPortFluent<?> fluent;

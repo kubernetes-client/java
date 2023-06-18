@@ -14,12 +14,11 @@ import java.lang.Boolean;
   public V1CrossVersionObjectReferenceFluentImpl() {
   }
   public V1CrossVersionObjectReferenceFluentImpl(V1CrossVersionObjectReference instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -54,10 +53,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CrossVersionObjectReferenceFluentImpl that = (V1CrossVersionObjectReferenceFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -20,22 +20,16 @@ public class V1CSIDriverSpecBuilder extends V1CSIDriverSpecFluentImpl<V1CSIDrive
   }
   public V1CSIDriverSpecBuilder(V1CSIDriverSpecFluent<?> fluent,V1CSIDriverSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAttachRequired(instance.getAttachRequired());
-
-    fluent.withFsGroupPolicy(instance.getFsGroupPolicy());
-
-    fluent.withPodInfoOnMount(instance.getPodInfoOnMount());
-
-    fluent.withRequiresRepublish(instance.getRequiresRepublish());
-
-    fluent.withSeLinuxMount(instance.getSeLinuxMount());
-
-    fluent.withStorageCapacity(instance.getStorageCapacity());
-
-    fluent.withTokenRequests(instance.getTokenRequests());
-
-    fluent.withVolumeLifecycleModes(instance.getVolumeLifecycleModes());
-
+    if (instance != null) {
+      fluent.withAttachRequired(instance.getAttachRequired());
+      fluent.withFsGroupPolicy(instance.getFsGroupPolicy());
+      fluent.withPodInfoOnMount(instance.getPodInfoOnMount());
+      fluent.withRequiresRepublish(instance.getRequiresRepublish());
+      fluent.withSeLinuxMount(instance.getSeLinuxMount());
+      fluent.withStorageCapacity(instance.getStorageCapacity());
+      fluent.withTokenRequests(instance.getTokenRequests());
+      fluent.withVolumeLifecycleModes(instance.getVolumeLifecycleModes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CSIDriverSpecBuilder(V1CSIDriverSpec instance) {
@@ -43,22 +37,16 @@ public class V1CSIDriverSpecBuilder extends V1CSIDriverSpecFluentImpl<V1CSIDrive
   }
   public V1CSIDriverSpecBuilder(V1CSIDriverSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAttachRequired(instance.getAttachRequired());
-
-    this.withFsGroupPolicy(instance.getFsGroupPolicy());
-
-    this.withPodInfoOnMount(instance.getPodInfoOnMount());
-
-    this.withRequiresRepublish(instance.getRequiresRepublish());
-
-    this.withSeLinuxMount(instance.getSeLinuxMount());
-
-    this.withStorageCapacity(instance.getStorageCapacity());
-
-    this.withTokenRequests(instance.getTokenRequests());
-
-    this.withVolumeLifecycleModes(instance.getVolumeLifecycleModes());
-
+    if (instance != null) {
+      this.withAttachRequired(instance.getAttachRequired());
+      this.withFsGroupPolicy(instance.getFsGroupPolicy());
+      this.withPodInfoOnMount(instance.getPodInfoOnMount());
+      this.withRequiresRepublish(instance.getRequiresRepublish());
+      this.withSeLinuxMount(instance.getSeLinuxMount());
+      this.withStorageCapacity(instance.getStorageCapacity());
+      this.withTokenRequests(instance.getTokenRequests());
+      this.withVolumeLifecycleModes(instance.getVolumeLifecycleModes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CSIDriverSpecFluent<?> fluent;

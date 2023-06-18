@@ -20,10 +20,10 @@ public class V1IngressClassSpecBuilder extends V1IngressClassSpecFluentImpl<V1In
   }
   public V1IngressClassSpecBuilder(V1IngressClassSpecFluent<?> fluent,V1IngressClassSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withController(instance.getController());
-
-    fluent.withParameters(instance.getParameters());
-
+    if (instance != null) {
+      fluent.withController(instance.getController());
+      fluent.withParameters(instance.getParameters());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1IngressClassSpecBuilder(V1IngressClassSpec instance) {
@@ -31,10 +31,10 @@ public class V1IngressClassSpecBuilder extends V1IngressClassSpecFluentImpl<V1In
   }
   public V1IngressClassSpecBuilder(V1IngressClassSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withController(instance.getController());
-
-    this.withParameters(instance.getParameters());
-
+    if (instance != null) {
+      this.withController(instance.getController());
+      this.withParameters(instance.getParameters());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1IngressClassSpecFluent<?> fluent;

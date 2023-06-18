@@ -20,10 +20,10 @@ public class CoreV1EventSeriesBuilder extends CoreV1EventSeriesFluentImpl<CoreV1
   }
   public CoreV1EventSeriesBuilder(CoreV1EventSeriesFluent<?> fluent,CoreV1EventSeries instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCount(instance.getCount());
-
-    fluent.withLastObservedTime(instance.getLastObservedTime());
-
+    if (instance != null) {
+      fluent.withCount(instance.getCount());
+      fluent.withLastObservedTime(instance.getLastObservedTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public CoreV1EventSeriesBuilder(CoreV1EventSeries instance) {
@@ -31,10 +31,10 @@ public class CoreV1EventSeriesBuilder extends CoreV1EventSeriesFluentImpl<CoreV1
   }
   public CoreV1EventSeriesBuilder(CoreV1EventSeries instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCount(instance.getCount());
-
-    this.withLastObservedTime(instance.getLastObservedTime());
-
+    if (instance != null) {
+      this.withCount(instance.getCount());
+      this.withLastObservedTime(instance.getLastObservedTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   CoreV1EventSeriesFluent<?> fluent;

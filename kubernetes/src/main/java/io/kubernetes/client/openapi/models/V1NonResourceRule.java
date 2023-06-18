@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,29 +12,33 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** NonResourceRule holds information that describes a rule for the non-resource */
-@ApiModel(
-    description = "NonResourceRule holds information that describes a rule for the non-resource")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * NonResourceRule holds information that describes a rule for the non-resource
+ */
+@ApiModel(description = "NonResourceRule holds information that describes a rule for the non-resource")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1NonResourceRule {
   public static final String SERIALIZED_NAME_NON_RESOURCE_U_R_LS = "nonResourceURLs";
-
   @SerializedName(SERIALIZED_NAME_NON_RESOURCE_U_R_LS)
   private List<String> nonResourceURLs = null;
 
   public static final String SERIALIZED_NAME_VERBS = "verbs";
-
   @SerializedName(SERIALIZED_NAME_VERBS)
   private List<String> verbs = new ArrayList<>();
+
 
   public V1NonResourceRule nonResourceURLs(List<String> nonResourceURLs) {
 
@@ -50,23 +54,22 @@ public class V1NonResourceRule {
     return this;
   }
 
-  /**
-   * NonResourceURLs is a set of partial urls that a user should have access to. *s are allowed, but
-   * only as the full, final step in the path. \&quot;*\&quot; means all.
-   *
+   /**
+   * NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \&quot;*\&quot; means all.
    * @return nonResourceURLs
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \"*\" means all.")
+  @ApiModelProperty(value = "NonResourceURLs is a set of partial urls that a user should have access to.  *s are allowed, but only as the full, final step in the path.  \"*\" means all.")
+
   public List<String> getNonResourceURLs() {
     return nonResourceURLs;
   }
 
+
   public void setNonResourceURLs(List<String> nonResourceURLs) {
     this.nonResourceURLs = nonResourceURLs;
   }
+
 
   public V1NonResourceRule verbs(List<String> verbs) {
 
@@ -79,23 +82,21 @@ public class V1NonResourceRule {
     return this;
   }
 
-  /**
-   * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head,
-   * options. \&quot;*\&quot; means all.
-   *
+   /**
+   * Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \&quot;*\&quot; means all.
    * @return verbs
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \"*\" means all.")
+  **/
+  @ApiModelProperty(required = true, value = "Verb is a list of kubernetes non-resource API verbs, like: get, post, put, delete, patch, head, options.  \"*\" means all.")
+
   public List<String> getVerbs() {
     return verbs;
   }
 
+
   public void setVerbs(List<String> verbs) {
     this.verbs = verbs;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -106,14 +107,15 @@ public class V1NonResourceRule {
       return false;
     }
     V1NonResourceRule v1NonResourceRule = (V1NonResourceRule) o;
-    return Objects.equals(this.nonResourceURLs, v1NonResourceRule.nonResourceURLs)
-        && Objects.equals(this.verbs, v1NonResourceRule.verbs);
+    return Objects.equals(this.nonResourceURLs, v1NonResourceRule.nonResourceURLs) &&
+        Objects.equals(this.verbs, v1NonResourceRule.verbs);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(nonResourceURLs, verbs);
   }
+
 
   @Override
   public String toString() {
@@ -126,7 +128,8 @@ public class V1NonResourceRule {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -134,4 +137,5 @@ public class V1NonResourceRule {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

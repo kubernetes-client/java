@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,23 +12,30 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta2FlowSchemaCondition;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** FlowSchemaStatus represents the current state of a FlowSchema. */
+/**
+ * FlowSchemaStatus represents the current state of a FlowSchema.
+ */
 @ApiModel(description = "FlowSchemaStatus represents the current state of a FlowSchema.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1beta2FlowSchemaStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
-
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private List<V1beta2FlowSchemaCondition> conditions = null;
+
 
   public V1beta2FlowSchemaStatus conditions(List<V1beta2FlowSchemaCondition> conditions) {
 
@@ -44,20 +51,22 @@ public class V1beta2FlowSchemaStatus {
     return this;
   }
 
-  /**
+   /**
    * &#x60;conditions&#x60; is a list of the current states of FlowSchema.
-   *
    * @return conditions
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "`conditions` is a list of the current states of FlowSchema.")
+
   public List<V1beta2FlowSchemaCondition> getConditions() {
     return conditions;
   }
 
+
   public void setConditions(List<V1beta2FlowSchemaCondition> conditions) {
     this.conditions = conditions;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -76,6 +85,7 @@ public class V1beta2FlowSchemaStatus {
     return Objects.hash(conditions);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -86,7 +96,8 @@ public class V1beta2FlowSchemaStatus {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -94,4 +105,5 @@ public class V1beta2FlowSchemaStatus {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

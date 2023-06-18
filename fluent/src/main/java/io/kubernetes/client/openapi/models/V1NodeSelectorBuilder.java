@@ -20,8 +20,9 @@ public class V1NodeSelectorBuilder extends V1NodeSelectorFluentImpl<V1NodeSelect
   }
   public V1NodeSelectorBuilder(V1NodeSelectorFluent<?> fluent,V1NodeSelector instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withNodeSelectorTerms(instance.getNodeSelectorTerms());
-
+    if (instance != null) {
+      fluent.withNodeSelectorTerms(instance.getNodeSelectorTerms());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeSelectorBuilder(V1NodeSelector instance) {
@@ -29,8 +30,9 @@ public class V1NodeSelectorBuilder extends V1NodeSelectorFluentImpl<V1NodeSelect
   }
   public V1NodeSelectorBuilder(V1NodeSelector instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withNodeSelectorTerms(instance.getNodeSelectorTerms());
-
+    if (instance != null) {
+      this.withNodeSelectorTerms(instance.getNodeSelectorTerms());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeSelectorFluent<?> fluent;

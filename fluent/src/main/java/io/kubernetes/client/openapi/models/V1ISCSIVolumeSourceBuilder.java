@@ -20,28 +20,19 @@ public class V1ISCSIVolumeSourceBuilder extends V1ISCSIVolumeSourceFluentImpl<V1
   }
   public V1ISCSIVolumeSourceBuilder(V1ISCSIVolumeSourceFluent<?> fluent,V1ISCSIVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withChapAuthDiscovery(instance.getChapAuthDiscovery());
-
-    fluent.withChapAuthSession(instance.getChapAuthSession());
-
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withInitiatorName(instance.getInitiatorName());
-
-    fluent.withIqn(instance.getIqn());
-
-    fluent.withIscsiInterface(instance.getIscsiInterface());
-
-    fluent.withLun(instance.getLun());
-
-    fluent.withPortals(instance.getPortals());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withSecretRef(instance.getSecretRef());
-
-    fluent.withTargetPortal(instance.getTargetPortal());
-
+    if (instance != null) {
+      fluent.withChapAuthDiscovery(instance.getChapAuthDiscovery());
+      fluent.withChapAuthSession(instance.getChapAuthSession());
+      fluent.withFsType(instance.getFsType());
+      fluent.withInitiatorName(instance.getInitiatorName());
+      fluent.withIqn(instance.getIqn());
+      fluent.withIscsiInterface(instance.getIscsiInterface());
+      fluent.withLun(instance.getLun());
+      fluent.withPortals(instance.getPortals());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withSecretRef(instance.getSecretRef());
+      fluent.withTargetPortal(instance.getTargetPortal());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ISCSIVolumeSourceBuilder(V1ISCSIVolumeSource instance) {
@@ -49,28 +40,19 @@ public class V1ISCSIVolumeSourceBuilder extends V1ISCSIVolumeSourceFluentImpl<V1
   }
   public V1ISCSIVolumeSourceBuilder(V1ISCSIVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withChapAuthDiscovery(instance.getChapAuthDiscovery());
-
-    this.withChapAuthSession(instance.getChapAuthSession());
-
-    this.withFsType(instance.getFsType());
-
-    this.withInitiatorName(instance.getInitiatorName());
-
-    this.withIqn(instance.getIqn());
-
-    this.withIscsiInterface(instance.getIscsiInterface());
-
-    this.withLun(instance.getLun());
-
-    this.withPortals(instance.getPortals());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withTargetPortal(instance.getTargetPortal());
-
+    if (instance != null) {
+      this.withChapAuthDiscovery(instance.getChapAuthDiscovery());
+      this.withChapAuthSession(instance.getChapAuthSession());
+      this.withFsType(instance.getFsType());
+      this.withInitiatorName(instance.getInitiatorName());
+      this.withIqn(instance.getIqn());
+      this.withIscsiInterface(instance.getIscsiInterface());
+      this.withLun(instance.getLun());
+      this.withPortals(instance.getPortals());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+      this.withTargetPortal(instance.getTargetPortal());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ISCSIVolumeSourceFluent<?> fluent;

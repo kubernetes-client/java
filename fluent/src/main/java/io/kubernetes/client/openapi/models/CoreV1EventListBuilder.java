@@ -20,14 +20,12 @@ public class CoreV1EventListBuilder extends CoreV1EventListFluentImpl<CoreV1Even
   }
   public CoreV1EventListBuilder(CoreV1EventListFluent<?> fluent,CoreV1EventList instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withItems(instance.getItems());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withItems(instance.getItems());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public CoreV1EventListBuilder(CoreV1EventList instance) {
@@ -35,14 +33,12 @@ public class CoreV1EventListBuilder extends CoreV1EventListFluentImpl<CoreV1Even
   }
   public CoreV1EventListBuilder(CoreV1EventList instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withItems(instance.getItems());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withItems(instance.getItems());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   CoreV1EventListFluent<?> fluent;

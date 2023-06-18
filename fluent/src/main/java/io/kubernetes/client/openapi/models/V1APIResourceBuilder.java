@@ -20,26 +20,18 @@ public class V1APIResourceBuilder extends V1APIResourceFluentImpl<V1APIResourceB
   }
   public V1APIResourceBuilder(V1APIResourceFluent<?> fluent,V1APIResource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCategories(instance.getCategories());
-
-    fluent.withGroup(instance.getGroup());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
-    fluent.withNamespaced(instance.getNamespaced());
-
-    fluent.withShortNames(instance.getShortNames());
-
-    fluent.withSingularName(instance.getSingularName());
-
-    fluent.withStorageVersionHash(instance.getStorageVersionHash());
-
-    fluent.withVerbs(instance.getVerbs());
-
-    fluent.withVersion(instance.getVersion());
-
+    if (instance != null) {
+      fluent.withCategories(instance.getCategories());
+      fluent.withGroup(instance.getGroup());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+      fluent.withNamespaced(instance.getNamespaced());
+      fluent.withShortNames(instance.getShortNames());
+      fluent.withSingularName(instance.getSingularName());
+      fluent.withStorageVersionHash(instance.getStorageVersionHash());
+      fluent.withVerbs(instance.getVerbs());
+      fluent.withVersion(instance.getVersion());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1APIResourceBuilder(V1APIResource instance) {
@@ -47,26 +39,18 @@ public class V1APIResourceBuilder extends V1APIResourceFluentImpl<V1APIResourceB
   }
   public V1APIResourceBuilder(V1APIResource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCategories(instance.getCategories());
-
-    this.withGroup(instance.getGroup());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withNamespaced(instance.getNamespaced());
-
-    this.withShortNames(instance.getShortNames());
-
-    this.withSingularName(instance.getSingularName());
-
-    this.withStorageVersionHash(instance.getStorageVersionHash());
-
-    this.withVerbs(instance.getVerbs());
-
-    this.withVersion(instance.getVersion());
-
+    if (instance != null) {
+      this.withCategories(instance.getCategories());
+      this.withGroup(instance.getGroup());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withNamespaced(instance.getNamespaced());
+      this.withShortNames(instance.getShortNames());
+      this.withSingularName(instance.getSingularName());
+      this.withStorageVersionHash(instance.getStorageVersionHash());
+      this.withVerbs(instance.getVerbs());
+      this.withVersion(instance.getVersion());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1APIResourceFluent<?> fluent;

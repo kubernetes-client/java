@@ -15,8 +15,9 @@ import java.lang.Boolean;
   public V1ContainerStateRunningFluentImpl() {
   }
   public V1ContainerStateRunningFluentImpl(V1ContainerStateRunning instance) {
-    this.withStartedAt(instance.getStartedAt());
-
+    if (instance != null) {
+      this.withStartedAt(instance.getStartedAt());
+    }
   }
   private OffsetDateTime startedAt;
   public OffsetDateTime getStartedAt() {
@@ -31,8 +32,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ContainerStateRunningFluentImpl that = (V1ContainerStateRunningFluentImpl) o;
-    if (startedAt != null ? !startedAt.equals(that.startedAt) :that.startedAt != null) return false;
+    if (!java.util.Objects.equals(startedAt, that.startedAt)) return false;
+
     return true;
   }
   public int hashCode() {

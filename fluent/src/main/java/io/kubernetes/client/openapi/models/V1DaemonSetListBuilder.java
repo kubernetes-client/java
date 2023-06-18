@@ -20,14 +20,12 @@ public class V1DaemonSetListBuilder extends V1DaemonSetListFluentImpl<V1DaemonSe
   }
   public V1DaemonSetListBuilder(V1DaemonSetListFluent<?> fluent,V1DaemonSetList instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withItems(instance.getItems());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withItems(instance.getItems());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1DaemonSetListBuilder(V1DaemonSetList instance) {
@@ -35,14 +33,12 @@ public class V1DaemonSetListBuilder extends V1DaemonSetListFluentImpl<V1DaemonSe
   }
   public V1DaemonSetListBuilder(V1DaemonSetList instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withItems(instance.getItems());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withItems(instance.getItems());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1DaemonSetListFluent<?> fluent;

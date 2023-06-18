@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Collection;
 import java.util.List;
@@ -15,14 +15,14 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeClaimSpecFluent<A>> extends Fluent<A>{
-  public A addToAccessModes(Integer index,String item);
-  public A setToAccessModes(Integer index,String item);
+  public A addToAccessModes(int index,String item);
+  public A setToAccessModes(int index,String item);
   public A addToAccessModes(java.lang.String... items);
   public A addAllToAccessModes(Collection<String> items);
   public A removeFromAccessModes(java.lang.String... items);
   public A removeAllFromAccessModes(Collection<String> items);
   public List<String> getAccessModes();
-  public String getAccessMode(Integer index);
+  public String getAccessMode(int index);
   public String getFirstAccessMode();
   public String getLastAccessMode();
   public String getMatchingAccessMode(Predicate<String> predicate);
@@ -51,15 +51,15 @@ public interface V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeC
    * @return The buildable object.
    */
   @Deprecated
-  public V1TypedLocalObjectReference getDataSourceRef();
-  public V1TypedLocalObjectReference buildDataSourceRef();
-  public A withDataSourceRef(V1TypedLocalObjectReference dataSourceRef);
+  public V1TypedObjectReference getDataSourceRef();
+  public V1TypedObjectReference buildDataSourceRef();
+  public A withDataSourceRef(V1TypedObjectReference dataSourceRef);
   public Boolean hasDataSourceRef();
   public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> withNewDataSourceRef();
-  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> withNewDataSourceRefLike(V1TypedLocalObjectReference item);
+  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> withNewDataSourceRefLike(V1TypedObjectReference item);
   public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> editDataSourceRef();
   public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> editOrNewDataSourceRef();
-  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> editOrNewDataSourceRefLike(V1TypedLocalObjectReference item);
+  public V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<A> editOrNewDataSourceRefLike(V1TypedObjectReference item);
   
   /**
    * This method has been deprecated, please use method buildResources instead.
@@ -104,7 +104,7 @@ public interface V1PersistentVolumeClaimSpecFluent<A extends V1PersistentVolumeC
     public N endDataSource();
     
   }
-  public interface DataSourceRefNested<N> extends Nested<N>,V1TypedLocalObjectReferenceFluent<V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<N>>{
+  public interface DataSourceRefNested<N> extends Nested<N>,V1TypedObjectReferenceFluent<V1PersistentVolumeClaimSpecFluent.DataSourceRefNested<N>>{
     public N and();
     public N endDataSourceRef();
     

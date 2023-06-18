@@ -15,16 +15,13 @@ import java.lang.Boolean;
   public V1TolerationFluentImpl() {
   }
   public V1TolerationFluentImpl(V1Toleration instance) {
-    this.withEffect(instance.getEffect());
-
-    this.withKey(instance.getKey());
-
-    this.withOperator(instance.getOperator());
-
-    this.withTolerationSeconds(instance.getTolerationSeconds());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withEffect(instance.getEffect());
+      this.withKey(instance.getKey());
+      this.withOperator(instance.getOperator());
+      this.withTolerationSeconds(instance.getTolerationSeconds());
+      this.withValue(instance.getValue());
+    }
   }
   private String effect;
   private String key;
@@ -79,12 +76,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1TolerationFluentImpl that = (V1TolerationFluentImpl) o;
-    if (effect != null ? !effect.equals(that.effect) :that.effect != null) return false;
-    if (key != null ? !key.equals(that.key) :that.key != null) return false;
-    if (operator != null ? !operator.equals(that.operator) :that.operator != null) return false;
-    if (tolerationSeconds != null ? !tolerationSeconds.equals(that.tolerationSeconds) :that.tolerationSeconds != null) return false;
-    if (value != null ? !value.equals(that.value) :that.value != null) return false;
+    if (!java.util.Objects.equals(effect, that.effect)) return false;
+
+    if (!java.util.Objects.equals(key, that.key)) return false;
+
+    if (!java.util.Objects.equals(operator, that.operator)) return false;
+
+    if (!java.util.Objects.equals(tolerationSeconds, that.tolerationSeconds)) return false;
+
+    if (!java.util.Objects.equals(value, that.value)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -16,14 +16,12 @@ import java.lang.Object;
   public V1EnvVarSourceFluentImpl() {
   }
   public V1EnvVarSourceFluentImpl(V1EnvVarSource instance) {
-    this.withConfigMapKeyRef(instance.getConfigMapKeyRef());
-
-    this.withFieldRef(instance.getFieldRef());
-
-    this.withResourceFieldRef(instance.getResourceFieldRef());
-
-    this.withSecretKeyRef(instance.getSecretKeyRef());
-
+    if (instance != null) {
+      this.withConfigMapKeyRef(instance.getConfigMapKeyRef());
+      this.withFieldRef(instance.getFieldRef());
+      this.withResourceFieldRef(instance.getResourceFieldRef());
+      this.withSecretKeyRef(instance.getSecretKeyRef());
+    }
   }
   private V1ConfigMapKeySelectorBuilder configMapKeyRef;
   private V1ObjectFieldSelectorBuilder fieldRef;
@@ -48,19 +46,19 @@ import java.lang.Object;
   public Boolean hasConfigMapKeyRef() {
     return this.configMapKeyRef != null;
   }
-  public V1EnvVarSourceFluent.ConfigMapKeyRefNested<A> withNewConfigMapKeyRef() {
+  public V1EnvVarSourceFluentImpl.ConfigMapKeyRefNested<A> withNewConfigMapKeyRef() {
     return new V1EnvVarSourceFluentImpl.ConfigMapKeyRefNestedImpl();
   }
-  public V1EnvVarSourceFluent.ConfigMapKeyRefNested<A> withNewConfigMapKeyRefLike(V1ConfigMapKeySelector item) {
+  public V1EnvVarSourceFluentImpl.ConfigMapKeyRefNested<A> withNewConfigMapKeyRefLike(V1ConfigMapKeySelector item) {
     return new V1EnvVarSourceFluentImpl.ConfigMapKeyRefNestedImpl(item);
   }
-  public V1EnvVarSourceFluent.ConfigMapKeyRefNested<A> editConfigMapKeyRef() {
+  public V1EnvVarSourceFluentImpl.ConfigMapKeyRefNested<A> editConfigMapKeyRef() {
     return withNewConfigMapKeyRefLike(getConfigMapKeyRef());
   }
-  public V1EnvVarSourceFluent.ConfigMapKeyRefNested<A> editOrNewConfigMapKeyRef() {
+  public V1EnvVarSourceFluentImpl.ConfigMapKeyRefNested<A> editOrNewConfigMapKeyRef() {
     return withNewConfigMapKeyRefLike(getConfigMapKeyRef() != null ? getConfigMapKeyRef(): new V1ConfigMapKeySelectorBuilder().build());
   }
-  public V1EnvVarSourceFluent.ConfigMapKeyRefNested<A> editOrNewConfigMapKeyRefLike(V1ConfigMapKeySelector item) {
+  public V1EnvVarSourceFluentImpl.ConfigMapKeyRefNested<A> editOrNewConfigMapKeyRefLike(V1ConfigMapKeySelector item) {
     return withNewConfigMapKeyRefLike(getConfigMapKeyRef() != null ? getConfigMapKeyRef(): item);
   }
   
@@ -82,19 +80,19 @@ import java.lang.Object;
   public Boolean hasFieldRef() {
     return this.fieldRef != null;
   }
-  public V1EnvVarSourceFluent.FieldRefNested<A> withNewFieldRef() {
+  public V1EnvVarSourceFluentImpl.FieldRefNested<A> withNewFieldRef() {
     return new V1EnvVarSourceFluentImpl.FieldRefNestedImpl();
   }
-  public V1EnvVarSourceFluent.FieldRefNested<A> withNewFieldRefLike(V1ObjectFieldSelector item) {
+  public V1EnvVarSourceFluentImpl.FieldRefNested<A> withNewFieldRefLike(V1ObjectFieldSelector item) {
     return new V1EnvVarSourceFluentImpl.FieldRefNestedImpl(item);
   }
-  public V1EnvVarSourceFluent.FieldRefNested<A> editFieldRef() {
+  public V1EnvVarSourceFluentImpl.FieldRefNested<A> editFieldRef() {
     return withNewFieldRefLike(getFieldRef());
   }
-  public V1EnvVarSourceFluent.FieldRefNested<A> editOrNewFieldRef() {
+  public V1EnvVarSourceFluentImpl.FieldRefNested<A> editOrNewFieldRef() {
     return withNewFieldRefLike(getFieldRef() != null ? getFieldRef(): new V1ObjectFieldSelectorBuilder().build());
   }
-  public V1EnvVarSourceFluent.FieldRefNested<A> editOrNewFieldRefLike(V1ObjectFieldSelector item) {
+  public V1EnvVarSourceFluentImpl.FieldRefNested<A> editOrNewFieldRefLike(V1ObjectFieldSelector item) {
     return withNewFieldRefLike(getFieldRef() != null ? getFieldRef(): item);
   }
   
@@ -116,19 +114,19 @@ import java.lang.Object;
   public Boolean hasResourceFieldRef() {
     return this.resourceFieldRef != null;
   }
-  public V1EnvVarSourceFluent.ResourceFieldRefNested<A> withNewResourceFieldRef() {
+  public V1EnvVarSourceFluentImpl.ResourceFieldRefNested<A> withNewResourceFieldRef() {
     return new V1EnvVarSourceFluentImpl.ResourceFieldRefNestedImpl();
   }
-  public V1EnvVarSourceFluent.ResourceFieldRefNested<A> withNewResourceFieldRefLike(V1ResourceFieldSelector item) {
+  public V1EnvVarSourceFluentImpl.ResourceFieldRefNested<A> withNewResourceFieldRefLike(V1ResourceFieldSelector item) {
     return new V1EnvVarSourceFluentImpl.ResourceFieldRefNestedImpl(item);
   }
-  public V1EnvVarSourceFluent.ResourceFieldRefNested<A> editResourceFieldRef() {
+  public V1EnvVarSourceFluentImpl.ResourceFieldRefNested<A> editResourceFieldRef() {
     return withNewResourceFieldRefLike(getResourceFieldRef());
   }
-  public V1EnvVarSourceFluent.ResourceFieldRefNested<A> editOrNewResourceFieldRef() {
+  public V1EnvVarSourceFluentImpl.ResourceFieldRefNested<A> editOrNewResourceFieldRef() {
     return withNewResourceFieldRefLike(getResourceFieldRef() != null ? getResourceFieldRef(): new V1ResourceFieldSelectorBuilder().build());
   }
-  public V1EnvVarSourceFluent.ResourceFieldRefNested<A> editOrNewResourceFieldRefLike(V1ResourceFieldSelector item) {
+  public V1EnvVarSourceFluentImpl.ResourceFieldRefNested<A> editOrNewResourceFieldRefLike(V1ResourceFieldSelector item) {
     return withNewResourceFieldRefLike(getResourceFieldRef() != null ? getResourceFieldRef(): item);
   }
   
@@ -150,29 +148,34 @@ import java.lang.Object;
   public Boolean hasSecretKeyRef() {
     return this.secretKeyRef != null;
   }
-  public V1EnvVarSourceFluent.SecretKeyRefNested<A> withNewSecretKeyRef() {
+  public V1EnvVarSourceFluentImpl.SecretKeyRefNested<A> withNewSecretKeyRef() {
     return new V1EnvVarSourceFluentImpl.SecretKeyRefNestedImpl();
   }
-  public V1EnvVarSourceFluent.SecretKeyRefNested<A> withNewSecretKeyRefLike(V1SecretKeySelector item) {
+  public V1EnvVarSourceFluentImpl.SecretKeyRefNested<A> withNewSecretKeyRefLike(V1SecretKeySelector item) {
     return new V1EnvVarSourceFluentImpl.SecretKeyRefNestedImpl(item);
   }
-  public V1EnvVarSourceFluent.SecretKeyRefNested<A> editSecretKeyRef() {
+  public V1EnvVarSourceFluentImpl.SecretKeyRefNested<A> editSecretKeyRef() {
     return withNewSecretKeyRefLike(getSecretKeyRef());
   }
-  public V1EnvVarSourceFluent.SecretKeyRefNested<A> editOrNewSecretKeyRef() {
+  public V1EnvVarSourceFluentImpl.SecretKeyRefNested<A> editOrNewSecretKeyRef() {
     return withNewSecretKeyRefLike(getSecretKeyRef() != null ? getSecretKeyRef(): new V1SecretKeySelectorBuilder().build());
   }
-  public V1EnvVarSourceFluent.SecretKeyRefNested<A> editOrNewSecretKeyRefLike(V1SecretKeySelector item) {
+  public V1EnvVarSourceFluentImpl.SecretKeyRefNested<A> editOrNewSecretKeyRefLike(V1SecretKeySelector item) {
     return withNewSecretKeyRefLike(getSecretKeyRef() != null ? getSecretKeyRef(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EnvVarSourceFluentImpl that = (V1EnvVarSourceFluentImpl) o;
-    if (configMapKeyRef != null ? !configMapKeyRef.equals(that.configMapKeyRef) :that.configMapKeyRef != null) return false;
-    if (fieldRef != null ? !fieldRef.equals(that.fieldRef) :that.fieldRef != null) return false;
-    if (resourceFieldRef != null ? !resourceFieldRef.equals(that.resourceFieldRef) :that.resourceFieldRef != null) return false;
-    if (secretKeyRef != null ? !secretKeyRef.equals(that.secretKeyRef) :that.secretKeyRef != null) return false;
+    if (!java.util.Objects.equals(configMapKeyRef, that.configMapKeyRef)) return false;
+
+    if (!java.util.Objects.equals(fieldRef, that.fieldRef)) return false;
+
+    if (!java.util.Objects.equals(resourceFieldRef, that.resourceFieldRef)) return false;
+
+    if (!java.util.Objects.equals(secretKeyRef, that.secretKeyRef)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -188,7 +191,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class ConfigMapKeyRefNestedImpl<N> extends V1ConfigMapKeySelectorFluentImpl<V1EnvVarSourceFluent.ConfigMapKeyRefNested<N>> implements V1EnvVarSourceFluent.ConfigMapKeyRefNested<N>,Nested<N>{
+  class ConfigMapKeyRefNestedImpl<N> extends V1ConfigMapKeySelectorFluentImpl<V1EnvVarSourceFluentImpl.ConfigMapKeyRefNested<N>> implements V1EnvVarSourceFluentImpl.ConfigMapKeyRefNested<N>,Nested<N>{
     ConfigMapKeyRefNestedImpl(V1ConfigMapKeySelector item) {
       this.builder = new V1ConfigMapKeySelectorBuilder(this, item);
     }
@@ -204,7 +207,7 @@ import java.lang.Object;
     }
     
   }
-  class FieldRefNestedImpl<N> extends V1ObjectFieldSelectorFluentImpl<V1EnvVarSourceFluent.FieldRefNested<N>> implements V1EnvVarSourceFluent.FieldRefNested<N>,Nested<N>{
+  class FieldRefNestedImpl<N> extends V1ObjectFieldSelectorFluentImpl<V1EnvVarSourceFluentImpl.FieldRefNested<N>> implements V1EnvVarSourceFluentImpl.FieldRefNested<N>,Nested<N>{
     FieldRefNestedImpl(V1ObjectFieldSelector item) {
       this.builder = new V1ObjectFieldSelectorBuilder(this, item);
     }
@@ -220,7 +223,7 @@ import java.lang.Object;
     }
     
   }
-  class ResourceFieldRefNestedImpl<N> extends V1ResourceFieldSelectorFluentImpl<V1EnvVarSourceFluent.ResourceFieldRefNested<N>> implements V1EnvVarSourceFluent.ResourceFieldRefNested<N>,Nested<N>{
+  class ResourceFieldRefNestedImpl<N> extends V1ResourceFieldSelectorFluentImpl<V1EnvVarSourceFluentImpl.ResourceFieldRefNested<N>> implements V1EnvVarSourceFluentImpl.ResourceFieldRefNested<N>,Nested<N>{
     ResourceFieldRefNestedImpl(V1ResourceFieldSelector item) {
       this.builder = new V1ResourceFieldSelectorBuilder(this, item);
     }
@@ -236,7 +239,7 @@ import java.lang.Object;
     }
     
   }
-  class SecretKeyRefNestedImpl<N> extends V1SecretKeySelectorFluentImpl<V1EnvVarSourceFluent.SecretKeyRefNested<N>> implements V1EnvVarSourceFluent.SecretKeyRefNested<N>,Nested<N>{
+  class SecretKeyRefNestedImpl<N> extends V1SecretKeySelectorFluentImpl<V1EnvVarSourceFluentImpl.SecretKeyRefNested<N>> implements V1EnvVarSourceFluentImpl.SecretKeyRefNested<N>,Nested<N>{
     SecretKeyRefNestedImpl(V1SecretKeySelector item) {
       this.builder = new V1SecretKeySelectorBuilder(this, item);
     }

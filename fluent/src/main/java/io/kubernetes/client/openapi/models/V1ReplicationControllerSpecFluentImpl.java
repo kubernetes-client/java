@@ -19,14 +19,12 @@ import java.util.Map;
   public V1ReplicationControllerSpecFluentImpl() {
   }
   public V1ReplicationControllerSpecFluentImpl(V1ReplicationControllerSpec instance) {
-    this.withMinReadySeconds(instance.getMinReadySeconds());
-
-    this.withReplicas(instance.getReplicas());
-
-    this.withSelector(instance.getSelector());
-
-    this.withTemplate(instance.getTemplate());
-
+    if (instance != null) {
+      this.withMinReadySeconds(instance.getMinReadySeconds());
+      this.withReplicas(instance.getReplicas());
+      this.withSelector(instance.getSelector());
+      this.withTemplate(instance.getTemplate());
+    }
   }
   private Integer minReadySeconds;
   private Integer replicas;
@@ -94,29 +92,34 @@ import java.util.Map;
   public Boolean hasTemplate() {
     return this.template != null;
   }
-  public V1ReplicationControllerSpecFluent.TemplateNested<A> withNewTemplate() {
+  public V1ReplicationControllerSpecFluentImpl.TemplateNested<A> withNewTemplate() {
     return new V1ReplicationControllerSpecFluentImpl.TemplateNestedImpl();
   }
-  public V1ReplicationControllerSpecFluent.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
+  public V1ReplicationControllerSpecFluentImpl.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
     return new V1ReplicationControllerSpecFluentImpl.TemplateNestedImpl(item);
   }
-  public V1ReplicationControllerSpecFluent.TemplateNested<A> editTemplate() {
+  public V1ReplicationControllerSpecFluentImpl.TemplateNested<A> editTemplate() {
     return withNewTemplateLike(getTemplate());
   }
-  public V1ReplicationControllerSpecFluent.TemplateNested<A> editOrNewTemplate() {
+  public V1ReplicationControllerSpecFluentImpl.TemplateNested<A> editOrNewTemplate() {
     return withNewTemplateLike(getTemplate() != null ? getTemplate(): new V1PodTemplateSpecBuilder().build());
   }
-  public V1ReplicationControllerSpecFluent.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
+  public V1ReplicationControllerSpecFluentImpl.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
     return withNewTemplateLike(getTemplate() != null ? getTemplate(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ReplicationControllerSpecFluentImpl that = (V1ReplicationControllerSpecFluentImpl) o;
-    if (minReadySeconds != null ? !minReadySeconds.equals(that.minReadySeconds) :that.minReadySeconds != null) return false;
-    if (replicas != null ? !replicas.equals(that.replicas) :that.replicas != null) return false;
-    if (selector != null ? !selector.equals(that.selector) :that.selector != null) return false;
-    if (template != null ? !template.equals(that.template) :that.template != null) return false;
+    if (!java.util.Objects.equals(minReadySeconds, that.minReadySeconds)) return false;
+
+    if (!java.util.Objects.equals(replicas, that.replicas)) return false;
+
+    if (!java.util.Objects.equals(selector, that.selector)) return false;
+
+    if (!java.util.Objects.equals(template, that.template)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -132,7 +135,7 @@ import java.util.Map;
     sb.append("}");
     return sb.toString();
   }
-  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1ReplicationControllerSpecFluent.TemplateNested<N>> implements V1ReplicationControllerSpecFluent.TemplateNested<N>,Nested<N>{
+  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1ReplicationControllerSpecFluentImpl.TemplateNested<N>> implements V1ReplicationControllerSpecFluentImpl.TemplateNested<N>,Nested<N>{
     TemplateNestedImpl(V1PodTemplateSpec item) {
       this.builder = new V1PodTemplateSpecBuilder(this, item);
     }

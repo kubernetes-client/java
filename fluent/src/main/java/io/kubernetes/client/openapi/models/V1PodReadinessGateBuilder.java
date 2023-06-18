@@ -20,8 +20,9 @@ public class V1PodReadinessGateBuilder extends V1PodReadinessGateFluentImpl<V1Po
   }
   public V1PodReadinessGateBuilder(V1PodReadinessGateFluent<?> fluent,V1PodReadinessGate instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConditionType(instance.getConditionType());
-
+    if (instance != null) {
+      fluent.withConditionType(instance.getConditionType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodReadinessGateBuilder(V1PodReadinessGate instance) {
@@ -29,8 +30,9 @@ public class V1PodReadinessGateBuilder extends V1PodReadinessGateFluentImpl<V1Po
   }
   public V1PodReadinessGateBuilder(V1PodReadinessGate instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConditionType(instance.getConditionType());
-
+    if (instance != null) {
+      this.withConditionType(instance.getConditionType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodReadinessGateFluent<?> fluent;

@@ -20,14 +20,12 @@ public class V1ResourceRuleBuilder extends V1ResourceRuleFluentImpl<V1ResourceRu
   }
   public V1ResourceRuleBuilder(V1ResourceRuleFluent<?> fluent,V1ResourceRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiGroups(instance.getApiGroups());
-
-    fluent.withResourceNames(instance.getResourceNames());
-
-    fluent.withResources(instance.getResources());
-
-    fluent.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      fluent.withApiGroups(instance.getApiGroups());
+      fluent.withResourceNames(instance.getResourceNames());
+      fluent.withResources(instance.getResources());
+      fluent.withVerbs(instance.getVerbs());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ResourceRuleBuilder(V1ResourceRule instance) {
@@ -35,14 +33,12 @@ public class V1ResourceRuleBuilder extends V1ResourceRuleFluentImpl<V1ResourceRu
   }
   public V1ResourceRuleBuilder(V1ResourceRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiGroups(instance.getApiGroups());
-
-    this.withResourceNames(instance.getResourceNames());
-
-    this.withResources(instance.getResources());
-
-    this.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      this.withApiGroups(instance.getApiGroups());
+      this.withResourceNames(instance.getResourceNames());
+      this.withResources(instance.getResources());
+      this.withVerbs(instance.getVerbs());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ResourceRuleFluent<?> fluent;

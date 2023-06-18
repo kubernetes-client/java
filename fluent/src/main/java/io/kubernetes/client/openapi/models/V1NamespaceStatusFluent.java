@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -17,8 +17,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1NamespaceStatusFluent<A extends V1NamespaceStatusFluent<A>> extends Fluent<A>{
-  public A addToConditions(Integer index,V1NamespaceCondition item);
-  public A setToConditions(Integer index,V1NamespaceCondition item);
+  public A addToConditions(int index,V1NamespaceCondition item);
+  public A setToConditions(int index,V1NamespaceCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1NamespaceCondition... items);
   public A addAllToConditions(Collection<V1NamespaceCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1NamespaceCondition... items);
@@ -32,7 +32,7 @@ public interface V1NamespaceStatusFluent<A extends V1NamespaceStatusFluent<A>> e
   @Deprecated
   public List<V1NamespaceCondition> getConditions();
   public List<V1NamespaceCondition> buildConditions();
-  public V1NamespaceCondition buildCondition(Integer index);
+  public V1NamespaceCondition buildCondition(int index);
   public V1NamespaceCondition buildFirstCondition();
   public V1NamespaceCondition buildLastCondition();
   public V1NamespaceCondition buildMatchingCondition(Predicate<V1NamespaceConditionBuilder> predicate);
@@ -42,8 +42,8 @@ public interface V1NamespaceStatusFluent<A extends V1NamespaceStatusFluent<A>> e
   public Boolean hasConditions();
   public V1NamespaceStatusFluent.ConditionsNested<A> addNewCondition();
   public V1NamespaceStatusFluent.ConditionsNested<A> addNewConditionLike(V1NamespaceCondition item);
-  public V1NamespaceStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1NamespaceCondition item);
-  public V1NamespaceStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1NamespaceStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1NamespaceCondition item);
+  public V1NamespaceStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1NamespaceStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1NamespaceStatusFluent.ConditionsNested<A> editLastCondition();
   public V1NamespaceStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1NamespaceConditionBuilder> predicate);

@@ -20,14 +20,12 @@ public class V1AWSElasticBlockStoreVolumeSourceBuilder extends V1AWSElasticBlock
   }
   public V1AWSElasticBlockStoreVolumeSourceBuilder(V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent,V1AWSElasticBlockStoreVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withPartition(instance.getPartition());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withVolumeID(instance.getVolumeID());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withPartition(instance.getPartition());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withVolumeID(instance.getVolumeID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1AWSElasticBlockStoreVolumeSourceBuilder(V1AWSElasticBlockStoreVolumeSource instance) {
@@ -35,14 +33,12 @@ public class V1AWSElasticBlockStoreVolumeSourceBuilder extends V1AWSElasticBlock
   }
   public V1AWSElasticBlockStoreVolumeSourceBuilder(V1AWSElasticBlockStoreVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withPartition(instance.getPartition());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withVolumeID(instance.getVolumeID());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withPartition(instance.getPartition());
+      this.withReadOnly(instance.getReadOnly());
+      this.withVolumeID(instance.getVolumeID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1AWSElasticBlockStoreVolumeSourceFluent<?> fluent;

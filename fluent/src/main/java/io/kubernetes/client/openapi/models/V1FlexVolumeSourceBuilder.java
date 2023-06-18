@@ -20,16 +20,13 @@ public class V1FlexVolumeSourceBuilder extends V1FlexVolumeSourceFluentImpl<V1Fl
   }
   public V1FlexVolumeSourceBuilder(V1FlexVolumeSourceFluent<?> fluent,V1FlexVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDriver(instance.getDriver());
-
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withOptions(instance.getOptions());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withSecretRef(instance.getSecretRef());
-
+    if (instance != null) {
+      fluent.withDriver(instance.getDriver());
+      fluent.withFsType(instance.getFsType());
+      fluent.withOptions(instance.getOptions());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withSecretRef(instance.getSecretRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1FlexVolumeSourceBuilder(V1FlexVolumeSource instance) {
@@ -37,16 +34,13 @@ public class V1FlexVolumeSourceBuilder extends V1FlexVolumeSourceFluentImpl<V1Fl
   }
   public V1FlexVolumeSourceBuilder(V1FlexVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDriver(instance.getDriver());
-
-    this.withFsType(instance.getFsType());
-
-    this.withOptions(instance.getOptions());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
+    if (instance != null) {
+      this.withDriver(instance.getDriver());
+      this.withFsType(instance.getFsType());
+      this.withOptions(instance.getOptions());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1FlexVolumeSourceFluent<?> fluent;

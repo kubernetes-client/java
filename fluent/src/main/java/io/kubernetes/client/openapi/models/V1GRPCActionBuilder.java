@@ -20,10 +20,10 @@ public class V1GRPCActionBuilder extends V1GRPCActionFluentImpl<V1GRPCActionBuil
   }
   public V1GRPCActionBuilder(V1GRPCActionFluent<?> fluent,V1GRPCAction instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPort(instance.getPort());
-
-    fluent.withService(instance.getService());
-
+    if (instance != null) {
+      fluent.withPort(instance.getPort());
+      fluent.withService(instance.getService());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1GRPCActionBuilder(V1GRPCAction instance) {
@@ -31,10 +31,10 @@ public class V1GRPCActionBuilder extends V1GRPCActionFluentImpl<V1GRPCActionBuil
   }
   public V1GRPCActionBuilder(V1GRPCAction instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPort(instance.getPort());
-
-    this.withService(instance.getService());
-
+    if (instance != null) {
+      this.withPort(instance.getPort());
+      this.withService(instance.getService());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1GRPCActionFluent<?> fluent;

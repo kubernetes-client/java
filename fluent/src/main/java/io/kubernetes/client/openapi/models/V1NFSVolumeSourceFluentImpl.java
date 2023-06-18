@@ -14,12 +14,11 @@ import java.lang.Boolean;
   public V1NFSVolumeSourceFluentImpl() {
   }
   public V1NFSVolumeSourceFluentImpl(V1NFSVolumeSource instance) {
-    this.withPath(instance.getPath());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withServer(instance.getServer());
-
+    if (instance != null) {
+      this.withPath(instance.getPath());
+      this.withReadOnly(instance.getReadOnly());
+      this.withServer(instance.getServer());
+    }
   }
   private String path;
   private Boolean readOnly;
@@ -54,10 +53,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NFSVolumeSourceFluentImpl that = (V1NFSVolumeSourceFluentImpl) o;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (server != null ? !server.equals(that.server) :that.server != null) return false;
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(server, that.server)) return false;
+
     return true;
   }
   public int hashCode() {

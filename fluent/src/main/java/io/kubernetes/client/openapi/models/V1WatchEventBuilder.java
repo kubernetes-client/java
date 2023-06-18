@@ -20,10 +20,10 @@ public class V1WatchEventBuilder extends V1WatchEventFluentImpl<V1WatchEventBuil
   }
   public V1WatchEventBuilder(V1WatchEventFluent<?> fluent,V1WatchEvent instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withObject(instance.getObject());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withObject(instance.getObject());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1WatchEventBuilder(V1WatchEvent instance) {
@@ -31,10 +31,10 @@ public class V1WatchEventBuilder extends V1WatchEventFluentImpl<V1WatchEventBuil
   }
   public V1WatchEventBuilder(V1WatchEvent instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withObject(instance.getObject());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withObject(instance.getObject());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1WatchEventFluent<?> fluent;

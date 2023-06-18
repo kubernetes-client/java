@@ -17,14 +17,12 @@ import java.lang.Boolean;
   public V1HorizontalPodAutoscalerSpecFluentImpl() {
   }
   public V1HorizontalPodAutoscalerSpecFluentImpl(V1HorizontalPodAutoscalerSpec instance) {
-    this.withMaxReplicas(instance.getMaxReplicas());
-
-    this.withMinReplicas(instance.getMinReplicas());
-
-    this.withScaleTargetRef(instance.getScaleTargetRef());
-
-    this.withTargetCPUUtilizationPercentage(instance.getTargetCPUUtilizationPercentage());
-
+    if (instance != null) {
+      this.withMaxReplicas(instance.getMaxReplicas());
+      this.withMinReplicas(instance.getMinReplicas());
+      this.withScaleTargetRef(instance.getScaleTargetRef());
+      this.withTargetCPUUtilizationPercentage(instance.getTargetCPUUtilizationPercentage());
+    }
   }
   private Integer maxReplicas;
   private Integer minReplicas;
@@ -67,19 +65,19 @@ import java.lang.Boolean;
   public Boolean hasScaleTargetRef() {
     return this.scaleTargetRef != null;
   }
-  public V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> withNewScaleTargetRef() {
+  public V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNested<A> withNewScaleTargetRef() {
     return new V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNestedImpl();
   }
-  public V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> withNewScaleTargetRefLike(V1CrossVersionObjectReference item) {
+  public V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNested<A> withNewScaleTargetRefLike(V1CrossVersionObjectReference item) {
     return new V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNestedImpl(item);
   }
-  public V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> editScaleTargetRef() {
+  public V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNested<A> editScaleTargetRef() {
     return withNewScaleTargetRefLike(getScaleTargetRef());
   }
-  public V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> editOrNewScaleTargetRef() {
+  public V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNested<A> editOrNewScaleTargetRef() {
     return withNewScaleTargetRefLike(getScaleTargetRef() != null ? getScaleTargetRef(): new V1CrossVersionObjectReferenceBuilder().build());
   }
-  public V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<A> editOrNewScaleTargetRefLike(V1CrossVersionObjectReference item) {
+  public V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNested<A> editOrNewScaleTargetRefLike(V1CrossVersionObjectReference item) {
     return withNewScaleTargetRefLike(getScaleTargetRef() != null ? getScaleTargetRef(): item);
   }
   public Integer getTargetCPUUtilizationPercentage() {
@@ -94,11 +92,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1HorizontalPodAutoscalerSpecFluentImpl that = (V1HorizontalPodAutoscalerSpecFluentImpl) o;
-    if (maxReplicas != null ? !maxReplicas.equals(that.maxReplicas) :that.maxReplicas != null) return false;
-    if (minReplicas != null ? !minReplicas.equals(that.minReplicas) :that.minReplicas != null) return false;
-    if (scaleTargetRef != null ? !scaleTargetRef.equals(that.scaleTargetRef) :that.scaleTargetRef != null) return false;
-    if (targetCPUUtilizationPercentage != null ? !targetCPUUtilizationPercentage.equals(that.targetCPUUtilizationPercentage) :that.targetCPUUtilizationPercentage != null) return false;
+    if (!java.util.Objects.equals(maxReplicas, that.maxReplicas)) return false;
+
+    if (!java.util.Objects.equals(minReplicas, that.minReplicas)) return false;
+
+    if (!java.util.Objects.equals(scaleTargetRef, that.scaleTargetRef)) return false;
+
+    if (!java.util.Objects.equals(targetCPUUtilizationPercentage, that.targetCPUUtilizationPercentage)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -114,7 +117,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ScaleTargetRefNestedImpl<N> extends V1CrossVersionObjectReferenceFluentImpl<V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<N>> implements V1HorizontalPodAutoscalerSpecFluent.ScaleTargetRefNested<N>,Nested<N>{
+  class ScaleTargetRefNestedImpl<N> extends V1CrossVersionObjectReferenceFluentImpl<V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNested<N>> implements V1HorizontalPodAutoscalerSpecFluentImpl.ScaleTargetRefNested<N>,Nested<N>{
     ScaleTargetRefNestedImpl(V1CrossVersionObjectReference item) {
       this.builder = new V1CrossVersionObjectReferenceBuilder(this, item);
     }

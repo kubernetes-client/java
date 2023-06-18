@@ -15,8 +15,9 @@ import java.lang.Boolean;
   public V1ClientIPConfigFluentImpl() {
   }
   public V1ClientIPConfigFluentImpl(V1ClientIPConfig instance) {
-    this.withTimeoutSeconds(instance.getTimeoutSeconds());
-
+    if (instance != null) {
+      this.withTimeoutSeconds(instance.getTimeoutSeconds());
+    }
   }
   private Integer timeoutSeconds;
   public Integer getTimeoutSeconds() {
@@ -31,8 +32,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ClientIPConfigFluentImpl that = (V1ClientIPConfigFluentImpl) o;
-    if (timeoutSeconds != null ? !timeoutSeconds.equals(that.timeoutSeconds) :that.timeoutSeconds != null) return false;
+    if (!java.util.Objects.equals(timeoutSeconds, that.timeoutSeconds)) return false;
+
     return true;
   }
   public int hashCode() {

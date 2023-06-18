@@ -20,20 +20,15 @@ public class V1ContainerStateTerminatedBuilder extends V1ContainerStateTerminate
   }
   public V1ContainerStateTerminatedBuilder(V1ContainerStateTerminatedFluent<?> fluent,V1ContainerStateTerminated instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withContainerID(instance.getContainerID());
-
-    fluent.withExitCode(instance.getExitCode());
-
-    fluent.withFinishedAt(instance.getFinishedAt());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withReason(instance.getReason());
-
-    fluent.withSignal(instance.getSignal());
-
-    fluent.withStartedAt(instance.getStartedAt());
-
+    if (instance != null) {
+      fluent.withContainerID(instance.getContainerID());
+      fluent.withExitCode(instance.getExitCode());
+      fluent.withFinishedAt(instance.getFinishedAt());
+      fluent.withMessage(instance.getMessage());
+      fluent.withReason(instance.getReason());
+      fluent.withSignal(instance.getSignal());
+      fluent.withStartedAt(instance.getStartedAt());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ContainerStateTerminatedBuilder(V1ContainerStateTerminated instance) {
@@ -41,20 +36,15 @@ public class V1ContainerStateTerminatedBuilder extends V1ContainerStateTerminate
   }
   public V1ContainerStateTerminatedBuilder(V1ContainerStateTerminated instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withContainerID(instance.getContainerID());
-
-    this.withExitCode(instance.getExitCode());
-
-    this.withFinishedAt(instance.getFinishedAt());
-
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
-    this.withSignal(instance.getSignal());
-
-    this.withStartedAt(instance.getStartedAt());
-
+    if (instance != null) {
+      this.withContainerID(instance.getContainerID());
+      this.withExitCode(instance.getExitCode());
+      this.withFinishedAt(instance.getFinishedAt());
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+      this.withSignal(instance.getSignal());
+      this.withStartedAt(instance.getStartedAt());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ContainerStateTerminatedFluent<?> fluent;

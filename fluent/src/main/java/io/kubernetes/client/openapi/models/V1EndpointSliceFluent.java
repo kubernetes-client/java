@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -23,8 +23,8 @@ public interface V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> exten
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToEndpoints(Integer index,V1Endpoint item);
-  public A setToEndpoints(Integer index,V1Endpoint item);
+  public A addToEndpoints(int index,V1Endpoint item);
+  public A setToEndpoints(int index,V1Endpoint item);
   public A addToEndpoints(io.kubernetes.client.openapi.models.V1Endpoint... items);
   public A addAllToEndpoints(Collection<V1Endpoint> items);
   public A removeFromEndpoints(io.kubernetes.client.openapi.models.V1Endpoint... items);
@@ -38,7 +38,7 @@ public interface V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> exten
   @Deprecated
   public List<V1Endpoint> getEndpoints();
   public List<V1Endpoint> buildEndpoints();
-  public V1Endpoint buildEndpoint(Integer index);
+  public V1Endpoint buildEndpoint(int index);
   public V1Endpoint buildFirstEndpoint();
   public V1Endpoint buildLastEndpoint();
   public V1Endpoint buildMatchingEndpoint(Predicate<V1EndpointBuilder> predicate);
@@ -48,8 +48,8 @@ public interface V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> exten
   public Boolean hasEndpoints();
   public V1EndpointSliceFluent.EndpointsNested<A> addNewEndpoint();
   public V1EndpointSliceFluent.EndpointsNested<A> addNewEndpointLike(V1Endpoint item);
-  public V1EndpointSliceFluent.EndpointsNested<A> setNewEndpointLike(Integer index,V1Endpoint item);
-  public V1EndpointSliceFluent.EndpointsNested<A> editEndpoint(Integer index);
+  public V1EndpointSliceFluent.EndpointsNested<A> setNewEndpointLike(int index,V1Endpoint item);
+  public V1EndpointSliceFluent.EndpointsNested<A> editEndpoint(int index);
   public V1EndpointSliceFluent.EndpointsNested<A> editFirstEndpoint();
   public V1EndpointSliceFluent.EndpointsNested<A> editLastEndpoint();
   public V1EndpointSliceFluent.EndpointsNested<A> editMatchingEndpoint(Predicate<V1EndpointBuilder> predicate);
@@ -71,8 +71,8 @@ public interface V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> exten
   public V1EndpointSliceFluent.MetadataNested<A> editMetadata();
   public V1EndpointSliceFluent.MetadataNested<A> editOrNewMetadata();
   public V1EndpointSliceFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
-  public A addToPorts(Integer index,DiscoveryV1EndpointPort item);
-  public A setToPorts(Integer index,DiscoveryV1EndpointPort item);
+  public A addToPorts(int index,DiscoveryV1EndpointPort item);
+  public A setToPorts(int index,DiscoveryV1EndpointPort item);
   public A addToPorts(io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort... items);
   public A addAllToPorts(Collection<DiscoveryV1EndpointPort> items);
   public A removeFromPorts(io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort... items);
@@ -86,7 +86,7 @@ public interface V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> exten
   @Deprecated
   public List<DiscoveryV1EndpointPort> getPorts();
   public List<DiscoveryV1EndpointPort> buildPorts();
-  public DiscoveryV1EndpointPort buildPort(Integer index);
+  public DiscoveryV1EndpointPort buildPort(int index);
   public DiscoveryV1EndpointPort buildFirstPort();
   public DiscoveryV1EndpointPort buildLastPort();
   public DiscoveryV1EndpointPort buildMatchingPort(Predicate<DiscoveryV1EndpointPortBuilder> predicate);
@@ -96,8 +96,8 @@ public interface V1EndpointSliceFluent<A extends V1EndpointSliceFluent<A>> exten
   public Boolean hasPorts();
   public V1EndpointSliceFluent.PortsNested<A> addNewPort();
   public V1EndpointSliceFluent.PortsNested<A> addNewPortLike(DiscoveryV1EndpointPort item);
-  public V1EndpointSliceFluent.PortsNested<A> setNewPortLike(Integer index,DiscoveryV1EndpointPort item);
-  public V1EndpointSliceFluent.PortsNested<A> editPort(Integer index);
+  public V1EndpointSliceFluent.PortsNested<A> setNewPortLike(int index,DiscoveryV1EndpointPort item);
+  public V1EndpointSliceFluent.PortsNested<A> editPort(int index);
   public V1EndpointSliceFluent.PortsNested<A> editFirstPort();
   public V1EndpointSliceFluent.PortsNested<A> editLastPort();
   public V1EndpointSliceFluent.PortsNested<A> editMatchingPort(Predicate<DiscoveryV1EndpointPortBuilder> predicate);

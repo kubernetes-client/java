@@ -20,10 +20,12 @@ public class V1beta2LimitedPriorityLevelConfigurationBuilder extends V1beta2Limi
   }
   public V1beta2LimitedPriorityLevelConfigurationBuilder(V1beta2LimitedPriorityLevelConfigurationFluent<?> fluent,V1beta2LimitedPriorityLevelConfiguration instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAssuredConcurrencyShares(instance.getAssuredConcurrencyShares());
-
-    fluent.withLimitResponse(instance.getLimitResponse());
-
+    if (instance != null) {
+      fluent.withAssuredConcurrencyShares(instance.getAssuredConcurrencyShares());
+      fluent.withBorrowingLimitPercent(instance.getBorrowingLimitPercent());
+      fluent.withLendablePercent(instance.getLendablePercent());
+      fluent.withLimitResponse(instance.getLimitResponse());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2LimitedPriorityLevelConfigurationBuilder(V1beta2LimitedPriorityLevelConfiguration instance) {
@@ -31,10 +33,12 @@ public class V1beta2LimitedPriorityLevelConfigurationBuilder extends V1beta2Limi
   }
   public V1beta2LimitedPriorityLevelConfigurationBuilder(V1beta2LimitedPriorityLevelConfiguration instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAssuredConcurrencyShares(instance.getAssuredConcurrencyShares());
-
-    this.withLimitResponse(instance.getLimitResponse());
-
+    if (instance != null) {
+      this.withAssuredConcurrencyShares(instance.getAssuredConcurrencyShares());
+      this.withBorrowingLimitPercent(instance.getBorrowingLimitPercent());
+      this.withLendablePercent(instance.getLendablePercent());
+      this.withLimitResponse(instance.getLimitResponse());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2LimitedPriorityLevelConfigurationFluent<?> fluent;
@@ -42,6 +46,8 @@ public class V1beta2LimitedPriorityLevelConfigurationBuilder extends V1beta2Limi
   public V1beta2LimitedPriorityLevelConfiguration build() {
     V1beta2LimitedPriorityLevelConfiguration buildable = new V1beta2LimitedPriorityLevelConfiguration();
     buildable.setAssuredConcurrencyShares(fluent.getAssuredConcurrencyShares());
+    buildable.setBorrowingLimitPercent(fluent.getBorrowingLimitPercent());
+    buildable.setLendablePercent(fluent.getLendablePercent());
     buildable.setLimitResponse(fluent.getLimitResponse());
     return buildable;
   }

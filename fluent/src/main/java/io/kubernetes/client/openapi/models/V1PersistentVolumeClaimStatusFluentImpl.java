@@ -4,18 +4,17 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
+import io.kubernetes.client.custom.Quantity;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
-import java.util.List;
-import java.lang.Boolean;
-import io.kubernetes.client.custom.Quantity;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
+import java.util.List;
+import java.lang.Boolean;
 import java.util.Map;
 
  /**
@@ -26,18 +25,14 @@ import java.util.Map;
   public V1PersistentVolumeClaimStatusFluentImpl() {
   }
   public V1PersistentVolumeClaimStatusFluentImpl(V1PersistentVolumeClaimStatus instance) {
-    this.withAccessModes(instance.getAccessModes());
-
-    this.withAllocatedResources(instance.getAllocatedResources());
-
-    this.withCapacity(instance.getCapacity());
-
-    this.withConditions(instance.getConditions());
-
-    this.withPhase(instance.getPhase());
-
-    this.withResizeStatus(instance.getResizeStatus());
-
+    if (instance != null) {
+      this.withAccessModes(instance.getAccessModes());
+      this.withAllocatedResources(instance.getAllocatedResources());
+      this.withCapacity(instance.getCapacity());
+      this.withConditions(instance.getConditions());
+      this.withPhase(instance.getPhase());
+      this.withResizeStatus(instance.getResizeStatus());
+    }
   }
   private List<String> accessModes;
   private Map<String,Quantity> allocatedResources;
@@ -45,12 +40,12 @@ import java.util.Map;
   private ArrayList<V1PersistentVolumeClaimConditionBuilder> conditions;
   private String phase;
   private String resizeStatus;
-  public A addToAccessModes(Integer index,String item) {
+  public A addToAccessModes(int index,String item) {
     if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
     this.accessModes.add(index, item);
     return (A)this;
   }
-  public A setToAccessModes(Integer index,String item) {
+  public A setToAccessModes(int index,String item) {
     if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
     this.accessModes.set(index, item); return (A)this;
   }
@@ -71,7 +66,7 @@ import java.util.Map;
   public List<String> getAccessModes() {
     return this.accessModes;
   }
-  public String getAccessMode(Integer index) {
+  public String getAccessMode(int index) {
     return this.accessModes.get(index);
   }
   public String getFirstAccessMode() {
@@ -90,7 +85,7 @@ import java.util.Map;
     if (accessModes != null) {this.accessModes = new ArrayList(); for (String item : accessModes){this.addToAccessModes(item);}} else { this.accessModes = null;} return (A) this;
   }
   public A withAccessModes(java.lang.String... accessModes) {
-    if (this.accessModes != null) {this.accessModes.clear();}
+    if (this.accessModes != null) {this.accessModes.clear(); _visitables.remove("accessModes"); }
     if (accessModes != null) {for (String item :accessModes){ this.addToAccessModes(item);}} return (A) this;
   }
   public Boolean hasAccessModes() {
@@ -146,16 +141,17 @@ import java.util.Map;
   public Boolean hasCapacity() {
     return this.capacity != null;
   }
-  public A addToConditions(Integer index,V1PersistentVolumeClaimCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1PersistentVolumeClaimConditionBuilder>();}
-    V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
-  }
-  public A setToConditions(Integer index,V1PersistentVolumeClaimCondition item) {
+  public A addToConditions(int index,V1PersistentVolumeClaimCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1PersistentVolumeClaimConditionBuilder>();}
     V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
-    if (index < 0 || index >= _visitables.get("conditions").size()) { _visitables.get("conditions").add(builder); } else { _visitables.get("conditions").set(index, builder);}
-    if (index < 0 || index >= conditions.size()) { conditions.add(builder); } else { conditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToConditions(int index,V1PersistentVolumeClaimCondition item) {
+    if (this.conditions == null) {this.conditions = new ArrayList<V1PersistentVolumeClaimConditionBuilder>();}
+    V1PersistentVolumeClaimConditionBuilder builder = new V1PersistentVolumeClaimConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    return (A)this;
   }
   public A addToConditions(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition... items) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1PersistentVolumeClaimConditionBuilder>();}
@@ -196,7 +192,7 @@ import java.util.Map;
   public List<V1PersistentVolumeClaimCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
-  public V1PersistentVolumeClaimCondition buildCondition(Integer index) {
+  public V1PersistentVolumeClaimCondition buildCondition(int index) {
     return this.conditions.get(index).build();
   }
   public V1PersistentVolumeClaimCondition buildFirstCondition() {
@@ -212,39 +208,39 @@ import java.util.Map;
     for (V1PersistentVolumeClaimConditionBuilder item: conditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withConditions(List<V1PersistentVolumeClaimCondition> conditions) {
-    if (this.conditions != null) { _visitables.get("conditions").removeAll(this.conditions);}
+    if (this.conditions != null) { _visitables.get("conditions").clear();}
     if (conditions != null) {this.conditions = new ArrayList(); for (V1PersistentVolumeClaimCondition item : conditions){this.addToConditions(item);}} else { this.conditions = null;} return (A) this;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition... conditions) {
-    if (this.conditions != null) {this.conditions.clear();}
+    if (this.conditions != null) {this.conditions.clear(); _visitables.remove("conditions"); }
     if (conditions != null) {for (V1PersistentVolumeClaimCondition item :conditions){ this.addToConditions(item);}} return (A) this;
   }
   public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
-  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> addNewCondition() {
+  public V1PersistentVolumeClaimStatusFluentImpl.ConditionsNested<A> addNewCondition() {
     return new V1PersistentVolumeClaimStatusFluentImpl.ConditionsNestedImpl();
   }
-  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> addNewConditionLike(V1PersistentVolumeClaimCondition item) {
+  public V1PersistentVolumeClaimStatusFluentImpl.ConditionsNested<A> addNewConditionLike(V1PersistentVolumeClaimCondition item) {
     return new V1PersistentVolumeClaimStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
-  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1PersistentVolumeClaimCondition item) {
+  public V1PersistentVolumeClaimStatusFluentImpl.ConditionsNested<A> setNewConditionLike(int index,V1PersistentVolumeClaimCondition item) {
     return new V1PersistentVolumeClaimStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
-  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editCondition(Integer index) {
+  public V1PersistentVolumeClaimStatusFluentImpl.ConditionsNested<A> editCondition(int index) {
     if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editFirstCondition() {
+  public V1PersistentVolumeClaimStatusFluentImpl.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
-  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editLastCondition() {
+  public V1PersistentVolumeClaimStatusFluentImpl.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1PersistentVolumeClaimStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1PersistentVolumeClaimConditionBuilder> predicate) {
+  public V1PersistentVolumeClaimStatusFluentImpl.ConditionsNested<A> editMatchingCondition(Predicate<V1PersistentVolumeClaimConditionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<conditions.size();i++) { 
     if (predicate.test(conditions.get(i))) {index = i; break;}
@@ -273,13 +269,20 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PersistentVolumeClaimStatusFluentImpl that = (V1PersistentVolumeClaimStatusFluentImpl) o;
-    if (accessModes != null ? !accessModes.equals(that.accessModes) :that.accessModes != null) return false;
-    if (allocatedResources != null ? !allocatedResources.equals(that.allocatedResources) :that.allocatedResources != null) return false;
-    if (capacity != null ? !capacity.equals(that.capacity) :that.capacity != null) return false;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
-    if (phase != null ? !phase.equals(that.phase) :that.phase != null) return false;
-    if (resizeStatus != null ? !resizeStatus.equals(that.resizeStatus) :that.resizeStatus != null) return false;
+    if (!java.util.Objects.equals(accessModes, that.accessModes)) return false;
+
+    if (!java.util.Objects.equals(allocatedResources, that.allocatedResources)) return false;
+
+    if (!java.util.Objects.equals(capacity, that.capacity)) return false;
+
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
+    if (!java.util.Objects.equals(phase, that.phase)) return false;
+
+    if (!java.util.Objects.equals(resizeStatus, that.resizeStatus)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -291,14 +294,14 @@ import java.util.Map;
     if (accessModes != null && !accessModes.isEmpty()) { sb.append("accessModes:"); sb.append(accessModes + ","); }
     if (allocatedResources != null && !allocatedResources.isEmpty()) { sb.append("allocatedResources:"); sb.append(allocatedResources + ","); }
     if (capacity != null && !capacity.isEmpty()) { sb.append("capacity:"); sb.append(capacity + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
+    if (conditions != null) { sb.append("conditions:"); sb.append(conditions + ","); }
     if (phase != null) { sb.append("phase:"); sb.append(phase + ","); }
     if (resizeStatus != null) { sb.append("resizeStatus:"); sb.append(resizeStatus); }
     sb.append("}");
     return sb.toString();
   }
-  class ConditionsNestedImpl<N> extends V1PersistentVolumeClaimConditionFluentImpl<V1PersistentVolumeClaimStatusFluent.ConditionsNested<N>> implements V1PersistentVolumeClaimStatusFluent.ConditionsNested<N>,Nested<N>{
-    ConditionsNestedImpl(Integer index,V1PersistentVolumeClaimCondition item) {
+  class ConditionsNestedImpl<N> extends V1PersistentVolumeClaimConditionFluentImpl<V1PersistentVolumeClaimStatusFluentImpl.ConditionsNested<N>> implements V1PersistentVolumeClaimStatusFluentImpl.ConditionsNested<N>,Nested<N>{
+    ConditionsNestedImpl(int index,V1PersistentVolumeClaimCondition item) {
       this.index = index;
       this.builder = new V1PersistentVolumeClaimConditionBuilder(this, item);
     }
@@ -307,7 +310,7 @@ import java.util.Map;
       this.builder = new V1PersistentVolumeClaimConditionBuilder(this);
     }
     V1PersistentVolumeClaimConditionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1PersistentVolumeClaimStatusFluentImpl.this.setToConditions(index,builder.build());
     }

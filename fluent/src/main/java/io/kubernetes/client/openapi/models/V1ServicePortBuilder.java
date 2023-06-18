@@ -20,18 +20,14 @@ public class V1ServicePortBuilder extends V1ServicePortFluentImpl<V1ServicePortB
   }
   public V1ServicePortBuilder(V1ServicePortFluent<?> fluent,V1ServicePort instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAppProtocol(instance.getAppProtocol());
-
-    fluent.withName(instance.getName());
-
-    fluent.withNodePort(instance.getNodePort());
-
-    fluent.withPort(instance.getPort());
-
-    fluent.withProtocol(instance.getProtocol());
-
-    fluent.withTargetPort(instance.getTargetPort());
-
+    if (instance != null) {
+      fluent.withAppProtocol(instance.getAppProtocol());
+      fluent.withName(instance.getName());
+      fluent.withNodePort(instance.getNodePort());
+      fluent.withPort(instance.getPort());
+      fluent.withProtocol(instance.getProtocol());
+      fluent.withTargetPort(instance.getTargetPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ServicePortBuilder(V1ServicePort instance) {
@@ -39,18 +35,14 @@ public class V1ServicePortBuilder extends V1ServicePortFluentImpl<V1ServicePortB
   }
   public V1ServicePortBuilder(V1ServicePort instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAppProtocol(instance.getAppProtocol());
-
-    this.withName(instance.getName());
-
-    this.withNodePort(instance.getNodePort());
-
-    this.withPort(instance.getPort());
-
-    this.withProtocol(instance.getProtocol());
-
-    this.withTargetPort(instance.getTargetPort());
-
+    if (instance != null) {
+      this.withAppProtocol(instance.getAppProtocol());
+      this.withName(instance.getName());
+      this.withNodePort(instance.getNodePort());
+      this.withPort(instance.getPort());
+      this.withProtocol(instance.getProtocol());
+      this.withTargetPort(instance.getTargetPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ServicePortFluent<?> fluent;

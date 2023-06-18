@@ -16,16 +16,13 @@ import java.lang.Object;
   public V1NetworkPolicyFluentImpl() {
   }
   public V1NetworkPolicyFluentImpl(V1NetworkPolicy instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1NetworkPolicyFluent.MetadataNested<A> withNewMetadata() {
+  public V1NetworkPolicyFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1NetworkPolicyFluentImpl.MetadataNestedImpl();
   }
-  public V1NetworkPolicyFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1NetworkPolicyFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1NetworkPolicyFluentImpl.MetadataNestedImpl(item);
   }
-  public V1NetworkPolicyFluent.MetadataNested<A> editMetadata() {
+  public V1NetworkPolicyFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1NetworkPolicyFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1NetworkPolicyFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1NetworkPolicyFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1NetworkPolicyFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1NetworkPolicyFluent.SpecNested<A> withNewSpec() {
+  public V1NetworkPolicyFluentImpl.SpecNested<A> withNewSpec() {
     return new V1NetworkPolicyFluentImpl.SpecNestedImpl();
   }
-  public V1NetworkPolicyFluent.SpecNested<A> withNewSpecLike(V1NetworkPolicySpec item) {
+  public V1NetworkPolicyFluentImpl.SpecNested<A> withNewSpecLike(V1NetworkPolicySpec item) {
     return new V1NetworkPolicyFluentImpl.SpecNestedImpl(item);
   }
-  public V1NetworkPolicyFluent.SpecNested<A> editSpec() {
+  public V1NetworkPolicyFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1NetworkPolicyFluent.SpecNested<A> editOrNewSpec() {
+  public V1NetworkPolicyFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1NetworkPolicySpecBuilder().build());
   }
-  public V1NetworkPolicyFluent.SpecNested<A> editOrNewSpecLike(V1NetworkPolicySpec item) {
+  public V1NetworkPolicyFluentImpl.SpecNested<A> editOrNewSpecLike(V1NetworkPolicySpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1NetworkPolicyFluent.StatusNested<A> withNewStatus() {
+  public V1NetworkPolicyFluentImpl.StatusNested<A> withNewStatus() {
     return new V1NetworkPolicyFluentImpl.StatusNestedImpl();
   }
-  public V1NetworkPolicyFluent.StatusNested<A> withNewStatusLike(V1NetworkPolicyStatus item) {
+  public V1NetworkPolicyFluentImpl.StatusNested<A> withNewStatusLike(V1NetworkPolicyStatus item) {
     return new V1NetworkPolicyFluentImpl.StatusNestedImpl(item);
   }
-  public V1NetworkPolicyFluent.StatusNested<A> editStatus() {
+  public V1NetworkPolicyFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1NetworkPolicyFluent.StatusNested<A> editOrNewStatus() {
+  public V1NetworkPolicyFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1NetworkPolicyStatusBuilder().build());
   }
-  public V1NetworkPolicyFluent.StatusNested<A> editOrNewStatusLike(V1NetworkPolicyStatus item) {
+  public V1NetworkPolicyFluentImpl.StatusNested<A> editOrNewStatusLike(V1NetworkPolicyStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NetworkPolicyFluentImpl that = (V1NetworkPolicyFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1NetworkPolicyFluent.MetadataNested<N>> implements V1NetworkPolicyFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1NetworkPolicyFluentImpl.MetadataNested<N>> implements V1NetworkPolicyFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1NetworkPolicySpecFluentImpl<V1NetworkPolicyFluent.SpecNested<N>> implements V1NetworkPolicyFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1NetworkPolicySpecFluentImpl<V1NetworkPolicyFluentImpl.SpecNested<N>> implements V1NetworkPolicyFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1NetworkPolicySpec item) {
       this.builder = new V1NetworkPolicySpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1NetworkPolicyStatusFluentImpl<V1NetworkPolicyFluent.StatusNested<N>> implements V1NetworkPolicyFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1NetworkPolicyStatusFluentImpl<V1NetworkPolicyFluentImpl.StatusNested<N>> implements V1NetworkPolicyFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1NetworkPolicyStatus item) {
       this.builder = new V1NetworkPolicyStatusBuilder(this, item);
     }

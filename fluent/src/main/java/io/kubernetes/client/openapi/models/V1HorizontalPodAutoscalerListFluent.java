@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1HorizontalPodAutoscalerListFluent<A extends V1HorizontalPodAu
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1HorizontalPodAutoscaler item);
-  public A setToItems(Integer index,V1HorizontalPodAutoscaler item);
+  public A addToItems(int index,V1HorizontalPodAutoscaler item);
+  public A setToItems(int index,V1HorizontalPodAutoscaler item);
   public A addToItems(io.kubernetes.client.openapi.models.V1HorizontalPodAutoscaler... items);
   public A addAllToItems(Collection<V1HorizontalPodAutoscaler> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1HorizontalPodAutoscaler... items);
@@ -35,7 +35,7 @@ public interface V1HorizontalPodAutoscalerListFluent<A extends V1HorizontalPodAu
   @Deprecated
   public List<V1HorizontalPodAutoscaler> getItems();
   public List<V1HorizontalPodAutoscaler> buildItems();
-  public V1HorizontalPodAutoscaler buildItem(Integer index);
+  public V1HorizontalPodAutoscaler buildItem(int index);
   public V1HorizontalPodAutoscaler buildFirstItem();
   public V1HorizontalPodAutoscaler buildLastItem();
   public V1HorizontalPodAutoscaler buildMatchingItem(Predicate<V1HorizontalPodAutoscalerBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1HorizontalPodAutoscalerListFluent<A extends V1HorizontalPodAu
   public Boolean hasItems();
   public V1HorizontalPodAutoscalerListFluent.ItemsNested<A> addNewItem();
   public V1HorizontalPodAutoscalerListFluent.ItemsNested<A> addNewItemLike(V1HorizontalPodAutoscaler item);
-  public V1HorizontalPodAutoscalerListFluent.ItemsNested<A> setNewItemLike(Integer index,V1HorizontalPodAutoscaler item);
-  public V1HorizontalPodAutoscalerListFluent.ItemsNested<A> editItem(Integer index);
+  public V1HorizontalPodAutoscalerListFluent.ItemsNested<A> setNewItemLike(int index,V1HorizontalPodAutoscaler item);
+  public V1HorizontalPodAutoscalerListFluent.ItemsNested<A> editItem(int index);
   public V1HorizontalPodAutoscalerListFluent.ItemsNested<A> editFirstItem();
   public V1HorizontalPodAutoscalerListFluent.ItemsNested<A> editLastItem();
   public V1HorizontalPodAutoscalerListFluent.ItemsNested<A> editMatchingItem(Predicate<V1HorizontalPodAutoscalerBuilder> predicate);

@@ -20,16 +20,13 @@ public class V1RuleWithOperationsBuilder extends V1RuleWithOperationsFluentImpl<
   }
   public V1RuleWithOperationsBuilder(V1RuleWithOperationsFluent<?> fluent,V1RuleWithOperations instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiGroups(instance.getApiGroups());
-
-    fluent.withApiVersions(instance.getApiVersions());
-
-    fluent.withOperations(instance.getOperations());
-
-    fluent.withResources(instance.getResources());
-
-    fluent.withScope(instance.getScope());
-
+    if (instance != null) {
+      fluent.withApiGroups(instance.getApiGroups());
+      fluent.withApiVersions(instance.getApiVersions());
+      fluent.withOperations(instance.getOperations());
+      fluent.withResources(instance.getResources());
+      fluent.withScope(instance.getScope());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1RuleWithOperationsBuilder(V1RuleWithOperations instance) {
@@ -37,16 +34,13 @@ public class V1RuleWithOperationsBuilder extends V1RuleWithOperationsFluentImpl<
   }
   public V1RuleWithOperationsBuilder(V1RuleWithOperations instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiGroups(instance.getApiGroups());
-
-    this.withApiVersions(instance.getApiVersions());
-
-    this.withOperations(instance.getOperations());
-
-    this.withResources(instance.getResources());
-
-    this.withScope(instance.getScope());
-
+    if (instance != null) {
+      this.withApiGroups(instance.getApiGroups());
+      this.withApiVersions(instance.getApiVersions());
+      this.withOperations(instance.getOperations());
+      this.withResources(instance.getResources());
+      this.withScope(instance.getScope());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1RuleWithOperationsFluent<?> fluent;

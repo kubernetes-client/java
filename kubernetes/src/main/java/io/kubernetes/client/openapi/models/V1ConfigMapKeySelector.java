@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,31 +12,35 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** Selects a key from a ConfigMap. */
+/**
+ * Selects a key from a ConfigMap.
+ */
 @ApiModel(description = "Selects a key from a ConfigMap.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1ConfigMapKeySelector {
   public static final String SERIALIZED_NAME_KEY = "key";
-
   @SerializedName(SERIALIZED_NAME_KEY)
   private String key;
 
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_OPTIONAL = "optional";
-
   @SerializedName(SERIALIZED_NAME_OPTIONAL)
   private Boolean optional;
+
 
   public V1ConfigMapKeySelector key(String key) {
 
@@ -44,19 +48,21 @@ public class V1ConfigMapKeySelector {
     return this;
   }
 
-  /**
+   /**
    * The key to select.
-   *
    * @return key
-   */
+  **/
   @ApiModelProperty(required = true, value = "The key to select.")
+
   public String getKey() {
     return key;
   }
 
+
   public void setKey(String key) {
     this.key = key;
   }
+
 
   public V1ConfigMapKeySelector name(String name) {
 
@@ -64,23 +70,22 @@ public class V1ConfigMapKeySelector {
     return this;
   }
 
-  /**
-   * Name of the referent. More info:
-   * https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
-   *
+   /**
+   * Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
+  @ApiModelProperty(value = "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public V1ConfigMapKeySelector optional(Boolean optional) {
 
@@ -88,20 +93,22 @@ public class V1ConfigMapKeySelector {
     return this;
   }
 
-  /**
+   /**
    * Specify whether the ConfigMap or its key must be defined
-   *
    * @return optional
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Specify whether the ConfigMap or its key must be defined")
+
   public Boolean getOptional() {
     return optional;
   }
 
+
   public void setOptional(Boolean optional) {
     this.optional = optional;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -112,15 +119,16 @@ public class V1ConfigMapKeySelector {
       return false;
     }
     V1ConfigMapKeySelector v1ConfigMapKeySelector = (V1ConfigMapKeySelector) o;
-    return Objects.equals(this.key, v1ConfigMapKeySelector.key)
-        && Objects.equals(this.name, v1ConfigMapKeySelector.name)
-        && Objects.equals(this.optional, v1ConfigMapKeySelector.optional);
+    return Objects.equals(this.key, v1ConfigMapKeySelector.key) &&
+        Objects.equals(this.name, v1ConfigMapKeySelector.name) &&
+        Objects.equals(this.optional, v1ConfigMapKeySelector.optional);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(key, name, optional);
   }
+
 
   @Override
   public String toString() {
@@ -134,7 +142,8 @@ public class V1ConfigMapKeySelector {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -142,4 +151,5 @@ public class V1ConfigMapKeySelector {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

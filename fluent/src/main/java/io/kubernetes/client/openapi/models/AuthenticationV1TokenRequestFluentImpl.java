@@ -16,16 +16,13 @@ import java.lang.Object;
   public AuthenticationV1TokenRequestFluentImpl() {
   }
   public AuthenticationV1TokenRequestFluentImpl(AuthenticationV1TokenRequest instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public AuthenticationV1TokenRequestFluent.MetadataNested<A> withNewMetadata() {
+  public AuthenticationV1TokenRequestFluentImpl.MetadataNested<A> withNewMetadata() {
     return new AuthenticationV1TokenRequestFluentImpl.MetadataNestedImpl();
   }
-  public AuthenticationV1TokenRequestFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public AuthenticationV1TokenRequestFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new AuthenticationV1TokenRequestFluentImpl.MetadataNestedImpl(item);
   }
-  public AuthenticationV1TokenRequestFluent.MetadataNested<A> editMetadata() {
+  public AuthenticationV1TokenRequestFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public AuthenticationV1TokenRequestFluent.MetadataNested<A> editOrNewMetadata() {
+  public AuthenticationV1TokenRequestFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public AuthenticationV1TokenRequestFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public AuthenticationV1TokenRequestFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public AuthenticationV1TokenRequestFluent.SpecNested<A> withNewSpec() {
+  public AuthenticationV1TokenRequestFluentImpl.SpecNested<A> withNewSpec() {
     return new AuthenticationV1TokenRequestFluentImpl.SpecNestedImpl();
   }
-  public AuthenticationV1TokenRequestFluent.SpecNested<A> withNewSpecLike(V1TokenRequestSpec item) {
+  public AuthenticationV1TokenRequestFluentImpl.SpecNested<A> withNewSpecLike(V1TokenRequestSpec item) {
     return new AuthenticationV1TokenRequestFluentImpl.SpecNestedImpl(item);
   }
-  public AuthenticationV1TokenRequestFluent.SpecNested<A> editSpec() {
+  public AuthenticationV1TokenRequestFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public AuthenticationV1TokenRequestFluent.SpecNested<A> editOrNewSpec() {
+  public AuthenticationV1TokenRequestFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1TokenRequestSpecBuilder().build());
   }
-  public AuthenticationV1TokenRequestFluent.SpecNested<A> editOrNewSpecLike(V1TokenRequestSpec item) {
+  public AuthenticationV1TokenRequestFluentImpl.SpecNested<A> editOrNewSpecLike(V1TokenRequestSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public AuthenticationV1TokenRequestFluent.StatusNested<A> withNewStatus() {
+  public AuthenticationV1TokenRequestFluentImpl.StatusNested<A> withNewStatus() {
     return new AuthenticationV1TokenRequestFluentImpl.StatusNestedImpl();
   }
-  public AuthenticationV1TokenRequestFluent.StatusNested<A> withNewStatusLike(V1TokenRequestStatus item) {
+  public AuthenticationV1TokenRequestFluentImpl.StatusNested<A> withNewStatusLike(V1TokenRequestStatus item) {
     return new AuthenticationV1TokenRequestFluentImpl.StatusNestedImpl(item);
   }
-  public AuthenticationV1TokenRequestFluent.StatusNested<A> editStatus() {
+  public AuthenticationV1TokenRequestFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public AuthenticationV1TokenRequestFluent.StatusNested<A> editOrNewStatus() {
+  public AuthenticationV1TokenRequestFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1TokenRequestStatusBuilder().build());
   }
-  public AuthenticationV1TokenRequestFluent.StatusNested<A> editOrNewStatusLike(V1TokenRequestStatus item) {
+  public AuthenticationV1TokenRequestFluentImpl.StatusNested<A> editOrNewStatusLike(V1TokenRequestStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     AuthenticationV1TokenRequestFluentImpl that = (AuthenticationV1TokenRequestFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<AuthenticationV1TokenRequestFluent.MetadataNested<N>> implements AuthenticationV1TokenRequestFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<AuthenticationV1TokenRequestFluentImpl.MetadataNested<N>> implements AuthenticationV1TokenRequestFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1TokenRequestSpecFluentImpl<AuthenticationV1TokenRequestFluent.SpecNested<N>> implements AuthenticationV1TokenRequestFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1TokenRequestSpecFluentImpl<AuthenticationV1TokenRequestFluentImpl.SpecNested<N>> implements AuthenticationV1TokenRequestFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1TokenRequestSpec item) {
       this.builder = new V1TokenRequestSpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1TokenRequestStatusFluentImpl<AuthenticationV1TokenRequestFluent.StatusNested<N>> implements AuthenticationV1TokenRequestFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1TokenRequestStatusFluentImpl<AuthenticationV1TokenRequestFluentImpl.StatusNested<N>> implements AuthenticationV1TokenRequestFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1TokenRequestStatus item) {
       this.builder = new V1TokenRequestStatusBuilder(this, item);
     }

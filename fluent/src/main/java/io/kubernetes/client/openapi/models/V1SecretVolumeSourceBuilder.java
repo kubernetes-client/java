@@ -20,14 +20,12 @@ public class V1SecretVolumeSourceBuilder extends V1SecretVolumeSourceFluentImpl<
   }
   public V1SecretVolumeSourceBuilder(V1SecretVolumeSourceFluent<?> fluent,V1SecretVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDefaultMode(instance.getDefaultMode());
-
-    fluent.withItems(instance.getItems());
-
-    fluent.withOptional(instance.getOptional());
-
-    fluent.withSecretName(instance.getSecretName());
-
+    if (instance != null) {
+      fluent.withDefaultMode(instance.getDefaultMode());
+      fluent.withItems(instance.getItems());
+      fluent.withOptional(instance.getOptional());
+      fluent.withSecretName(instance.getSecretName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SecretVolumeSourceBuilder(V1SecretVolumeSource instance) {
@@ -35,14 +33,12 @@ public class V1SecretVolumeSourceBuilder extends V1SecretVolumeSourceFluentImpl<
   }
   public V1SecretVolumeSourceBuilder(V1SecretVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDefaultMode(instance.getDefaultMode());
-
-    this.withItems(instance.getItems());
-
-    this.withOptional(instance.getOptional());
-
-    this.withSecretName(instance.getSecretName());
-
+    if (instance != null) {
+      this.withDefaultMode(instance.getDefaultMode());
+      this.withItems(instance.getItems());
+      this.withOptional(instance.getOptional());
+      this.withSecretName(instance.getSecretName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SecretVolumeSourceFluent<?> fluent;

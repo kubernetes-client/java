@@ -20,14 +20,12 @@ public class V1EndpointAddressBuilder extends V1EndpointAddressFluentImpl<V1Endp
   }
   public V1EndpointAddressBuilder(V1EndpointAddressFluent<?> fluent,V1EndpointAddress instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withHostname(instance.getHostname());
-
-    fluent.withIp(instance.getIp());
-
-    fluent.withNodeName(instance.getNodeName());
-
-    fluent.withTargetRef(instance.getTargetRef());
-
+    if (instance != null) {
+      fluent.withHostname(instance.getHostname());
+      fluent.withIp(instance.getIp());
+      fluent.withNodeName(instance.getNodeName());
+      fluent.withTargetRef(instance.getTargetRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EndpointAddressBuilder(V1EndpointAddress instance) {
@@ -35,14 +33,12 @@ public class V1EndpointAddressBuilder extends V1EndpointAddressFluentImpl<V1Endp
   }
   public V1EndpointAddressBuilder(V1EndpointAddress instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withHostname(instance.getHostname());
-
-    this.withIp(instance.getIp());
-
-    this.withNodeName(instance.getNodeName());
-
-    this.withTargetRef(instance.getTargetRef());
-
+    if (instance != null) {
+      this.withHostname(instance.getHostname());
+      this.withIp(instance.getIp());
+      this.withNodeName(instance.getNodeName());
+      this.withTargetRef(instance.getTargetRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EndpointAddressFluent<?> fluent;

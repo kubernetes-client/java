@@ -15,10 +15,10 @@ import java.lang.Boolean;
   public StorageV1TokenRequestFluentImpl() {
   }
   public StorageV1TokenRequestFluentImpl(StorageV1TokenRequest instance) {
-    this.withAudience(instance.getAudience());
-
-    this.withExpirationSeconds(instance.getExpirationSeconds());
-
+    if (instance != null) {
+      this.withAudience(instance.getAudience());
+      this.withExpirationSeconds(instance.getExpirationSeconds());
+    }
   }
   private String audience;
   private Long expirationSeconds;
@@ -43,9 +43,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     StorageV1TokenRequestFluentImpl that = (StorageV1TokenRequestFluentImpl) o;
-    if (audience != null ? !audience.equals(that.audience) :that.audience != null) return false;
-    if (expirationSeconds != null ? !expirationSeconds.equals(that.expirationSeconds) :that.expirationSeconds != null) return false;
+    if (!java.util.Objects.equals(audience, that.audience)) return false;
+
+    if (!java.util.Objects.equals(expirationSeconds, that.expirationSeconds)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -20,12 +20,11 @@ public class V1beta2QueuingConfigurationBuilder extends V1beta2QueuingConfigurat
   }
   public V1beta2QueuingConfigurationBuilder(V1beta2QueuingConfigurationFluent<?> fluent,V1beta2QueuingConfiguration instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withHandSize(instance.getHandSize());
-
-    fluent.withQueueLengthLimit(instance.getQueueLengthLimit());
-
-    fluent.withQueues(instance.getQueues());
-
+    if (instance != null) {
+      fluent.withHandSize(instance.getHandSize());
+      fluent.withQueueLengthLimit(instance.getQueueLengthLimit());
+      fluent.withQueues(instance.getQueues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2QueuingConfigurationBuilder(V1beta2QueuingConfiguration instance) {
@@ -33,12 +32,11 @@ public class V1beta2QueuingConfigurationBuilder extends V1beta2QueuingConfigurat
   }
   public V1beta2QueuingConfigurationBuilder(V1beta2QueuingConfiguration instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withHandSize(instance.getHandSize());
-
-    this.withQueueLengthLimit(instance.getQueueLengthLimit());
-
-    this.withQueues(instance.getQueues());
-
+    if (instance != null) {
+      this.withHandSize(instance.getHandSize());
+      this.withQueueLengthLimit(instance.getQueueLengthLimit());
+      this.withQueues(instance.getQueues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2QueuingConfigurationFluent<?> fluent;

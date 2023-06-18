@@ -16,18 +16,14 @@ import java.lang.Boolean;
   public V1alpha1StorageVersionConditionFluentImpl() {
   }
   public V1alpha1StorageVersionConditionFluentImpl(V1alpha1StorageVersionCondition instance) {
-    this.withLastTransitionTime(instance.getLastTransitionTime());
-
-    this.withMessage(instance.getMessage());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
-    this.withReason(instance.getReason());
-
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLastTransitionTime(instance.getLastTransitionTime());
+      this.withMessage(instance.getMessage());
+      this.withObservedGeneration(instance.getObservedGeneration());
+      this.withReason(instance.getReason());
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
   }
   private OffsetDateTime lastTransitionTime;
   private String message;
@@ -92,13 +88,20 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1alpha1StorageVersionConditionFluentImpl that = (V1alpha1StorageVersionConditionFluentImpl) o;
-    if (lastTransitionTime != null ? !lastTransitionTime.equals(that.lastTransitionTime) :that.lastTransitionTime != null) return false;
-    if (message != null ? !message.equals(that.message) :that.message != null) return false;
-    if (observedGeneration != null ? !observedGeneration.equals(that.observedGeneration) :that.observedGeneration != null) return false;
-    if (reason != null ? !reason.equals(that.reason) :that.reason != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(lastTransitionTime, that.lastTransitionTime)) return false;
+
+    if (!java.util.Objects.equals(message, that.message)) return false;
+
+    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
+
+    if (!java.util.Objects.equals(reason, that.reason)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {

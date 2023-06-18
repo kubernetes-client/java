@@ -14,8 +14,9 @@ import java.lang.Boolean;
   public V1beta2FlowDistinguisherMethodFluentImpl() {
   }
   public V1beta2FlowDistinguisherMethodFluentImpl(V1beta2FlowDistinguisherMethod instance) {
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withType(instance.getType());
+    }
   }
   private String type;
   public String getType() {
@@ -30,8 +31,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1beta2FlowDistinguisherMethodFluentImpl that = (V1beta2FlowDistinguisherMethodFluentImpl) o;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -20,20 +20,15 @@ public class V1ManagedFieldsEntryBuilder extends V1ManagedFieldsEntryFluentImpl<
   }
   public V1ManagedFieldsEntryBuilder(V1ManagedFieldsEntryFluent<?> fluent,V1ManagedFieldsEntry instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withFieldsType(instance.getFieldsType());
-
-    fluent.withFieldsV1(instance.getFieldsV1());
-
-    fluent.withManager(instance.getManager());
-
-    fluent.withOperation(instance.getOperation());
-
-    fluent.withSubresource(instance.getSubresource());
-
-    fluent.withTime(instance.getTime());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withFieldsType(instance.getFieldsType());
+      fluent.withFieldsV1(instance.getFieldsV1());
+      fluent.withManager(instance.getManager());
+      fluent.withOperation(instance.getOperation());
+      fluent.withSubresource(instance.getSubresource());
+      fluent.withTime(instance.getTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ManagedFieldsEntryBuilder(V1ManagedFieldsEntry instance) {
@@ -41,20 +36,15 @@ public class V1ManagedFieldsEntryBuilder extends V1ManagedFieldsEntryFluentImpl<
   }
   public V1ManagedFieldsEntryBuilder(V1ManagedFieldsEntry instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withFieldsType(instance.getFieldsType());
-
-    this.withFieldsV1(instance.getFieldsV1());
-
-    this.withManager(instance.getManager());
-
-    this.withOperation(instance.getOperation());
-
-    this.withSubresource(instance.getSubresource());
-
-    this.withTime(instance.getTime());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withFieldsType(instance.getFieldsType());
+      this.withFieldsV1(instance.getFieldsV1());
+      this.withManager(instance.getManager());
+      this.withOperation(instance.getOperation());
+      this.withSubresource(instance.getSubresource());
+      this.withTime(instance.getTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ManagedFieldsEntryFluent<?> fluent;

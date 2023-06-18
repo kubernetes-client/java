@@ -20,10 +20,10 @@ public class V1NodeAddressBuilder extends V1NodeAddressFluentImpl<V1NodeAddressB
   }
   public V1NodeAddressBuilder(V1NodeAddressFluent<?> fluent,V1NodeAddress instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAddress(instance.getAddress());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withAddress(instance.getAddress());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeAddressBuilder(V1NodeAddress instance) {
@@ -31,10 +31,10 @@ public class V1NodeAddressBuilder extends V1NodeAddressFluentImpl<V1NodeAddressB
   }
   public V1NodeAddressBuilder(V1NodeAddress instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAddress(instance.getAddress());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withAddress(instance.getAddress());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeAddressFluent<?> fluent;

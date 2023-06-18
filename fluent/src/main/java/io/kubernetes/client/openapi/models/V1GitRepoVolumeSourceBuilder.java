@@ -20,12 +20,11 @@ public class V1GitRepoVolumeSourceBuilder extends V1GitRepoVolumeSourceFluentImp
   }
   public V1GitRepoVolumeSourceBuilder(V1GitRepoVolumeSourceFluent<?> fluent,V1GitRepoVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDirectory(instance.getDirectory());
-
-    fluent.withRepository(instance.getRepository());
-
-    fluent.withRevision(instance.getRevision());
-
+    if (instance != null) {
+      fluent.withDirectory(instance.getDirectory());
+      fluent.withRepository(instance.getRepository());
+      fluent.withRevision(instance.getRevision());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1GitRepoVolumeSourceBuilder(V1GitRepoVolumeSource instance) {
@@ -33,12 +32,11 @@ public class V1GitRepoVolumeSourceBuilder extends V1GitRepoVolumeSourceFluentImp
   }
   public V1GitRepoVolumeSourceBuilder(V1GitRepoVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDirectory(instance.getDirectory());
-
-    this.withRepository(instance.getRepository());
-
-    this.withRevision(instance.getRevision());
-
+    if (instance != null) {
+      this.withDirectory(instance.getDirectory());
+      this.withRepository(instance.getRepository());
+      this.withRevision(instance.getRevision());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1GitRepoVolumeSourceFluent<?> fluent;

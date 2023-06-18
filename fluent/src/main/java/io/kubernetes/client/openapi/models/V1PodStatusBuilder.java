@@ -20,32 +20,22 @@ public class V1PodStatusBuilder extends V1PodStatusFluentImpl<V1PodStatusBuilder
   }
   public V1PodStatusBuilder(V1PodStatusFluent<?> fluent,V1PodStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withContainerStatuses(instance.getContainerStatuses());
-
-    fluent.withEphemeralContainerStatuses(instance.getEphemeralContainerStatuses());
-
-    fluent.withHostIP(instance.getHostIP());
-
-    fluent.withInitContainerStatuses(instance.getInitContainerStatuses());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withNominatedNodeName(instance.getNominatedNodeName());
-
-    fluent.withPhase(instance.getPhase());
-
-    fluent.withPodIP(instance.getPodIP());
-
-    fluent.withPodIPs(instance.getPodIPs());
-
-    fluent.withQosClass(instance.getQosClass());
-
-    fluent.withReason(instance.getReason());
-
-    fluent.withStartTime(instance.getStartTime());
-
+    if (instance != null) {
+      fluent.withConditions(instance.getConditions());
+      fluent.withContainerStatuses(instance.getContainerStatuses());
+      fluent.withEphemeralContainerStatuses(instance.getEphemeralContainerStatuses());
+      fluent.withHostIP(instance.getHostIP());
+      fluent.withInitContainerStatuses(instance.getInitContainerStatuses());
+      fluent.withMessage(instance.getMessage());
+      fluent.withNominatedNodeName(instance.getNominatedNodeName());
+      fluent.withPhase(instance.getPhase());
+      fluent.withPodIP(instance.getPodIP());
+      fluent.withPodIPs(instance.getPodIPs());
+      fluent.withQosClass(instance.getQosClass());
+      fluent.withReason(instance.getReason());
+      fluent.withResize(instance.getResize());
+      fluent.withStartTime(instance.getStartTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodStatusBuilder(V1PodStatus instance) {
@@ -53,32 +43,22 @@ public class V1PodStatusBuilder extends V1PodStatusFluentImpl<V1PodStatusBuilder
   }
   public V1PodStatusBuilder(V1PodStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConditions(instance.getConditions());
-
-    this.withContainerStatuses(instance.getContainerStatuses());
-
-    this.withEphemeralContainerStatuses(instance.getEphemeralContainerStatuses());
-
-    this.withHostIP(instance.getHostIP());
-
-    this.withInitContainerStatuses(instance.getInitContainerStatuses());
-
-    this.withMessage(instance.getMessage());
-
-    this.withNominatedNodeName(instance.getNominatedNodeName());
-
-    this.withPhase(instance.getPhase());
-
-    this.withPodIP(instance.getPodIP());
-
-    this.withPodIPs(instance.getPodIPs());
-
-    this.withQosClass(instance.getQosClass());
-
-    this.withReason(instance.getReason());
-
-    this.withStartTime(instance.getStartTime());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+      this.withContainerStatuses(instance.getContainerStatuses());
+      this.withEphemeralContainerStatuses(instance.getEphemeralContainerStatuses());
+      this.withHostIP(instance.getHostIP());
+      this.withInitContainerStatuses(instance.getInitContainerStatuses());
+      this.withMessage(instance.getMessage());
+      this.withNominatedNodeName(instance.getNominatedNodeName());
+      this.withPhase(instance.getPhase());
+      this.withPodIP(instance.getPodIP());
+      this.withPodIPs(instance.getPodIPs());
+      this.withQosClass(instance.getQosClass());
+      this.withReason(instance.getReason());
+      this.withResize(instance.getResize());
+      this.withStartTime(instance.getStartTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodStatusFluent<?> fluent;
@@ -97,6 +77,7 @@ public class V1PodStatusBuilder extends V1PodStatusFluentImpl<V1PodStatusBuilder
     buildable.setPodIPs(fluent.getPodIPs());
     buildable.setQosClass(fluent.getQosClass());
     buildable.setReason(fluent.getReason());
+    buildable.setResize(fluent.getResize());
     buildable.setStartTime(fluent.getStartTime());
     return buildable;
   }

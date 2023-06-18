@@ -20,14 +20,12 @@ public class V1ReplicaSetSpecBuilder extends V1ReplicaSetSpecFluentImpl<V1Replic
   }
   public V1ReplicaSetSpecBuilder(V1ReplicaSetSpecFluent<?> fluent,V1ReplicaSetSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMinReadySeconds(instance.getMinReadySeconds());
-
-    fluent.withReplicas(instance.getReplicas());
-
-    fluent.withSelector(instance.getSelector());
-
-    fluent.withTemplate(instance.getTemplate());
-
+    if (instance != null) {
+      fluent.withMinReadySeconds(instance.getMinReadySeconds());
+      fluent.withReplicas(instance.getReplicas());
+      fluent.withSelector(instance.getSelector());
+      fluent.withTemplate(instance.getTemplate());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ReplicaSetSpecBuilder(V1ReplicaSetSpec instance) {
@@ -35,14 +33,12 @@ public class V1ReplicaSetSpecBuilder extends V1ReplicaSetSpecFluentImpl<V1Replic
   }
   public V1ReplicaSetSpecBuilder(V1ReplicaSetSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMinReadySeconds(instance.getMinReadySeconds());
-
-    this.withReplicas(instance.getReplicas());
-
-    this.withSelector(instance.getSelector());
-
-    this.withTemplate(instance.getTemplate());
-
+    if (instance != null) {
+      this.withMinReadySeconds(instance.getMinReadySeconds());
+      this.withReplicas(instance.getReplicas());
+      this.withSelector(instance.getSelector());
+      this.withTemplate(instance.getTemplate());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ReplicaSetSpecFluent<?> fluent;

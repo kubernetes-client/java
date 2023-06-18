@@ -20,8 +20,9 @@ public class V1PodIPBuilder extends V1PodIPFluentImpl<V1PodIPBuilder> implements
   }
   public V1PodIPBuilder(V1PodIPFluent<?> fluent,V1PodIP instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withIp(instance.getIp());
-
+    if (instance != null) {
+      fluent.withIp(instance.getIp());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodIPBuilder(V1PodIP instance) {
@@ -29,8 +30,9 @@ public class V1PodIPBuilder extends V1PodIPFluentImpl<V1PodIPBuilder> implements
   }
   public V1PodIPBuilder(V1PodIP instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withIp(instance.getIp());
-
+    if (instance != null) {
+      this.withIp(instance.getIp());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodIPFluent<?> fluent;

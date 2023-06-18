@@ -20,12 +20,11 @@ public class V1PodDNSConfigBuilder extends V1PodDNSConfigFluentImpl<V1PodDNSConf
   }
   public V1PodDNSConfigBuilder(V1PodDNSConfigFluent<?> fluent,V1PodDNSConfig instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withNameservers(instance.getNameservers());
-
-    fluent.withOptions(instance.getOptions());
-
-    fluent.withSearches(instance.getSearches());
-
+    if (instance != null) {
+      fluent.withNameservers(instance.getNameservers());
+      fluent.withOptions(instance.getOptions());
+      fluent.withSearches(instance.getSearches());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodDNSConfigBuilder(V1PodDNSConfig instance) {
@@ -33,12 +32,11 @@ public class V1PodDNSConfigBuilder extends V1PodDNSConfigFluentImpl<V1PodDNSConf
   }
   public V1PodDNSConfigBuilder(V1PodDNSConfig instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withNameservers(instance.getNameservers());
-
-    this.withOptions(instance.getOptions());
-
-    this.withSearches(instance.getSearches());
-
+    if (instance != null) {
+      this.withNameservers(instance.getNameservers());
+      this.withOptions(instance.getOptions());
+      this.withSearches(instance.getSearches());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodDNSConfigFluent<?> fluent;

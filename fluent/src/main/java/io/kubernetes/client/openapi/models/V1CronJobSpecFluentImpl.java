@@ -18,22 +18,16 @@ import java.lang.Boolean;
   public V1CronJobSpecFluentImpl() {
   }
   public V1CronJobSpecFluentImpl(V1CronJobSpec instance) {
-    this.withConcurrencyPolicy(instance.getConcurrencyPolicy());
-
-    this.withFailedJobsHistoryLimit(instance.getFailedJobsHistoryLimit());
-
-    this.withJobTemplate(instance.getJobTemplate());
-
-    this.withSchedule(instance.getSchedule());
-
-    this.withStartingDeadlineSeconds(instance.getStartingDeadlineSeconds());
-
-    this.withSuccessfulJobsHistoryLimit(instance.getSuccessfulJobsHistoryLimit());
-
-    this.withSuspend(instance.getSuspend());
-
-    this.withTimeZone(instance.getTimeZone());
-
+    if (instance != null) {
+      this.withConcurrencyPolicy(instance.getConcurrencyPolicy());
+      this.withFailedJobsHistoryLimit(instance.getFailedJobsHistoryLimit());
+      this.withJobTemplate(instance.getJobTemplate());
+      this.withSchedule(instance.getSchedule());
+      this.withStartingDeadlineSeconds(instance.getStartingDeadlineSeconds());
+      this.withSuccessfulJobsHistoryLimit(instance.getSuccessfulJobsHistoryLimit());
+      this.withSuspend(instance.getSuspend());
+      this.withTimeZone(instance.getTimeZone());
+    }
   }
   private String concurrencyPolicy;
   private Integer failedJobsHistoryLimit;
@@ -80,19 +74,19 @@ import java.lang.Boolean;
   public Boolean hasJobTemplate() {
     return this.jobTemplate != null;
   }
-  public V1CronJobSpecFluent.JobTemplateNested<A> withNewJobTemplate() {
+  public V1CronJobSpecFluentImpl.JobTemplateNested<A> withNewJobTemplate() {
     return new V1CronJobSpecFluentImpl.JobTemplateNestedImpl();
   }
-  public V1CronJobSpecFluent.JobTemplateNested<A> withNewJobTemplateLike(V1JobTemplateSpec item) {
+  public V1CronJobSpecFluentImpl.JobTemplateNested<A> withNewJobTemplateLike(V1JobTemplateSpec item) {
     return new V1CronJobSpecFluentImpl.JobTemplateNestedImpl(item);
   }
-  public V1CronJobSpecFluent.JobTemplateNested<A> editJobTemplate() {
+  public V1CronJobSpecFluentImpl.JobTemplateNested<A> editJobTemplate() {
     return withNewJobTemplateLike(getJobTemplate());
   }
-  public V1CronJobSpecFluent.JobTemplateNested<A> editOrNewJobTemplate() {
+  public V1CronJobSpecFluentImpl.JobTemplateNested<A> editOrNewJobTemplate() {
     return withNewJobTemplateLike(getJobTemplate() != null ? getJobTemplate(): new V1JobTemplateSpecBuilder().build());
   }
-  public V1CronJobSpecFluent.JobTemplateNested<A> editOrNewJobTemplateLike(V1JobTemplateSpec item) {
+  public V1CronJobSpecFluentImpl.JobTemplateNested<A> editOrNewJobTemplateLike(V1JobTemplateSpec item) {
     return withNewJobTemplateLike(getJobTemplate() != null ? getJobTemplate(): item);
   }
   public String getSchedule() {
@@ -143,15 +137,24 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CronJobSpecFluentImpl that = (V1CronJobSpecFluentImpl) o;
-    if (concurrencyPolicy != null ? !concurrencyPolicy.equals(that.concurrencyPolicy) :that.concurrencyPolicy != null) return false;
-    if (failedJobsHistoryLimit != null ? !failedJobsHistoryLimit.equals(that.failedJobsHistoryLimit) :that.failedJobsHistoryLimit != null) return false;
-    if (jobTemplate != null ? !jobTemplate.equals(that.jobTemplate) :that.jobTemplate != null) return false;
-    if (schedule != null ? !schedule.equals(that.schedule) :that.schedule != null) return false;
-    if (startingDeadlineSeconds != null ? !startingDeadlineSeconds.equals(that.startingDeadlineSeconds) :that.startingDeadlineSeconds != null) return false;
-    if (successfulJobsHistoryLimit != null ? !successfulJobsHistoryLimit.equals(that.successfulJobsHistoryLimit) :that.successfulJobsHistoryLimit != null) return false;
-    if (suspend != null ? !suspend.equals(that.suspend) :that.suspend != null) return false;
-    if (timeZone != null ? !timeZone.equals(that.timeZone) :that.timeZone != null) return false;
+    if (!java.util.Objects.equals(concurrencyPolicy, that.concurrencyPolicy)) return false;
+
+    if (!java.util.Objects.equals(failedJobsHistoryLimit, that.failedJobsHistoryLimit)) return false;
+
+    if (!java.util.Objects.equals(jobTemplate, that.jobTemplate)) return false;
+
+    if (!java.util.Objects.equals(schedule, that.schedule)) return false;
+
+    if (!java.util.Objects.equals(startingDeadlineSeconds, that.startingDeadlineSeconds)) return false;
+
+    if (!java.util.Objects.equals(successfulJobsHistoryLimit, that.successfulJobsHistoryLimit)) return false;
+
+    if (!java.util.Objects.equals(suspend, that.suspend)) return false;
+
+    if (!java.util.Objects.equals(timeZone, that.timeZone)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -174,7 +177,7 @@ import java.lang.Boolean;
   public A withSuspend() {
     return withSuspend(true);
   }
-  class JobTemplateNestedImpl<N> extends V1JobTemplateSpecFluentImpl<V1CronJobSpecFluent.JobTemplateNested<N>> implements V1CronJobSpecFluent.JobTemplateNested<N>,Nested<N>{
+  class JobTemplateNestedImpl<N> extends V1JobTemplateSpecFluentImpl<V1CronJobSpecFluentImpl.JobTemplateNested<N>> implements V1CronJobSpecFluentImpl.JobTemplateNested<N>,Nested<N>{
     JobTemplateNestedImpl(V1JobTemplateSpec item) {
       this.builder = new V1JobTemplateSpecBuilder(this, item);
     }

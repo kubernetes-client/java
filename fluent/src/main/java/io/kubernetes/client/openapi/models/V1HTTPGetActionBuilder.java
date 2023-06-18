@@ -20,16 +20,13 @@ public class V1HTTPGetActionBuilder extends V1HTTPGetActionFluentImpl<V1HTTPGetA
   }
   public V1HTTPGetActionBuilder(V1HTTPGetActionFluent<?> fluent,V1HTTPGetAction instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withHost(instance.getHost());
-
-    fluent.withHttpHeaders(instance.getHttpHeaders());
-
-    fluent.withPath(instance.getPath());
-
-    fluent.withPort(instance.getPort());
-
-    fluent.withScheme(instance.getScheme());
-
+    if (instance != null) {
+      fluent.withHost(instance.getHost());
+      fluent.withHttpHeaders(instance.getHttpHeaders());
+      fluent.withPath(instance.getPath());
+      fluent.withPort(instance.getPort());
+      fluent.withScheme(instance.getScheme());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1HTTPGetActionBuilder(V1HTTPGetAction instance) {
@@ -37,16 +34,13 @@ public class V1HTTPGetActionBuilder extends V1HTTPGetActionFluentImpl<V1HTTPGetA
   }
   public V1HTTPGetActionBuilder(V1HTTPGetAction instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withHost(instance.getHost());
-
-    this.withHttpHeaders(instance.getHttpHeaders());
-
-    this.withPath(instance.getPath());
-
-    this.withPort(instance.getPort());
-
-    this.withScheme(instance.getScheme());
-
+    if (instance != null) {
+      this.withHost(instance.getHost());
+      this.withHttpHeaders(instance.getHttpHeaders());
+      this.withPath(instance.getPath());
+      this.withPort(instance.getPort());
+      this.withScheme(instance.getScheme());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1HTTPGetActionFluent<?> fluent;

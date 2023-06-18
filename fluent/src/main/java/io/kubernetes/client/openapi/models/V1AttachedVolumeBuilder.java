@@ -20,10 +20,10 @@ public class V1AttachedVolumeBuilder extends V1AttachedVolumeFluentImpl<V1Attach
   }
   public V1AttachedVolumeBuilder(V1AttachedVolumeFluent<?> fluent,V1AttachedVolume instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDevicePath(instance.getDevicePath());
-
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withDevicePath(instance.getDevicePath());
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1AttachedVolumeBuilder(V1AttachedVolume instance) {
@@ -31,10 +31,10 @@ public class V1AttachedVolumeBuilder extends V1AttachedVolumeFluentImpl<V1Attach
   }
   public V1AttachedVolumeBuilder(V1AttachedVolume instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDevicePath(instance.getDevicePath());
-
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withDevicePath(instance.getDevicePath());
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1AttachedVolumeFluent<?> fluent;

@@ -20,8 +20,9 @@ public class V1DownwardAPIProjectionBuilder extends V1DownwardAPIProjectionFluen
   }
   public V1DownwardAPIProjectionBuilder(V1DownwardAPIProjectionFluent<?> fluent,V1DownwardAPIProjection instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withItems(instance.getItems());
-
+    if (instance != null) {
+      fluent.withItems(instance.getItems());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1DownwardAPIProjectionBuilder(V1DownwardAPIProjection instance) {
@@ -29,8 +30,9 @@ public class V1DownwardAPIProjectionBuilder extends V1DownwardAPIProjectionFluen
   }
   public V1DownwardAPIProjectionBuilder(V1DownwardAPIProjection instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withItems(instance.getItems());
-
+    if (instance != null) {
+      this.withItems(instance.getItems());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1DownwardAPIProjectionFluent<?> fluent;

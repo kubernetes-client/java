@@ -20,12 +20,11 @@ public class V2ObjectMetricStatusBuilder extends V2ObjectMetricStatusFluentImpl<
   }
   public V2ObjectMetricStatusBuilder(V2ObjectMetricStatusFluent<?> fluent,V2ObjectMetricStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCurrent(instance.getCurrent());
-
-    fluent.withDescribedObject(instance.getDescribedObject());
-
-    fluent.withMetric(instance.getMetric());
-
+    if (instance != null) {
+      fluent.withCurrent(instance.getCurrent());
+      fluent.withDescribedObject(instance.getDescribedObject());
+      fluent.withMetric(instance.getMetric());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2ObjectMetricStatusBuilder(V2ObjectMetricStatus instance) {
@@ -33,12 +32,11 @@ public class V2ObjectMetricStatusBuilder extends V2ObjectMetricStatusFluentImpl<
   }
   public V2ObjectMetricStatusBuilder(V2ObjectMetricStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCurrent(instance.getCurrent());
-
-    this.withDescribedObject(instance.getDescribedObject());
-
-    this.withMetric(instance.getMetric());
-
+    if (instance != null) {
+      this.withCurrent(instance.getCurrent());
+      this.withDescribedObject(instance.getDescribedObject());
+      this.withMetric(instance.getMetric());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2ObjectMetricStatusFluent<?> fluent;

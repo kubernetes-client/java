@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1CSIStorageCapacityListFluent<A extends V1CSIStorageCapacityLi
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1CSIStorageCapacity item);
-  public A setToItems(Integer index,V1CSIStorageCapacity item);
+  public A addToItems(int index,V1CSIStorageCapacity item);
+  public A setToItems(int index,V1CSIStorageCapacity item);
   public A addToItems(io.kubernetes.client.openapi.models.V1CSIStorageCapacity... items);
   public A addAllToItems(Collection<V1CSIStorageCapacity> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1CSIStorageCapacity... items);
@@ -35,7 +35,7 @@ public interface V1CSIStorageCapacityListFluent<A extends V1CSIStorageCapacityLi
   @Deprecated
   public List<V1CSIStorageCapacity> getItems();
   public List<V1CSIStorageCapacity> buildItems();
-  public V1CSIStorageCapacity buildItem(Integer index);
+  public V1CSIStorageCapacity buildItem(int index);
   public V1CSIStorageCapacity buildFirstItem();
   public V1CSIStorageCapacity buildLastItem();
   public V1CSIStorageCapacity buildMatchingItem(Predicate<V1CSIStorageCapacityBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1CSIStorageCapacityListFluent<A extends V1CSIStorageCapacityLi
   public Boolean hasItems();
   public V1CSIStorageCapacityListFluent.ItemsNested<A> addNewItem();
   public V1CSIStorageCapacityListFluent.ItemsNested<A> addNewItemLike(V1CSIStorageCapacity item);
-  public V1CSIStorageCapacityListFluent.ItemsNested<A> setNewItemLike(Integer index,V1CSIStorageCapacity item);
-  public V1CSIStorageCapacityListFluent.ItemsNested<A> editItem(Integer index);
+  public V1CSIStorageCapacityListFluent.ItemsNested<A> setNewItemLike(int index,V1CSIStorageCapacity item);
+  public V1CSIStorageCapacityListFluent.ItemsNested<A> editItem(int index);
   public V1CSIStorageCapacityListFluent.ItemsNested<A> editFirstItem();
   public V1CSIStorageCapacityListFluent.ItemsNested<A> editLastItem();
   public V1CSIStorageCapacityListFluent.ItemsNested<A> editMatchingItem(Predicate<V1CSIStorageCapacityBuilder> predicate);

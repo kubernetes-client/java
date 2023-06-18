@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1beta2LimitResponseFluentImpl() {
   }
   public V1beta2LimitResponseFluentImpl(V1beta2LimitResponse instance) {
-    this.withQueuing(instance.getQueuing());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withQueuing(instance.getQueuing());
+      this.withType(instance.getType());
+    }
   }
   private V1beta2QueuingConfigurationBuilder queuing;
   private String type;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasQueuing() {
     return this.queuing != null;
   }
-  public V1beta2LimitResponseFluent.QueuingNested<A> withNewQueuing() {
+  public V1beta2LimitResponseFluentImpl.QueuingNested<A> withNewQueuing() {
     return new V1beta2LimitResponseFluentImpl.QueuingNestedImpl();
   }
-  public V1beta2LimitResponseFluent.QueuingNested<A> withNewQueuingLike(V1beta2QueuingConfiguration item) {
+  public V1beta2LimitResponseFluentImpl.QueuingNested<A> withNewQueuingLike(V1beta2QueuingConfiguration item) {
     return new V1beta2LimitResponseFluentImpl.QueuingNestedImpl(item);
   }
-  public V1beta2LimitResponseFluent.QueuingNested<A> editQueuing() {
+  public V1beta2LimitResponseFluentImpl.QueuingNested<A> editQueuing() {
     return withNewQueuingLike(getQueuing());
   }
-  public V1beta2LimitResponseFluent.QueuingNested<A> editOrNewQueuing() {
+  public V1beta2LimitResponseFluentImpl.QueuingNested<A> editOrNewQueuing() {
     return withNewQueuingLike(getQueuing() != null ? getQueuing(): new V1beta2QueuingConfigurationBuilder().build());
   }
-  public V1beta2LimitResponseFluent.QueuingNested<A> editOrNewQueuingLike(V1beta2QueuingConfiguration item) {
+  public V1beta2LimitResponseFluentImpl.QueuingNested<A> editOrNewQueuingLike(V1beta2QueuingConfiguration item) {
     return withNewQueuingLike(getQueuing() != null ? getQueuing(): item);
   }
   public String getType() {
@@ -69,9 +69,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1beta2LimitResponseFluentImpl that = (V1beta2LimitResponseFluentImpl) o;
-    if (queuing != null ? !queuing.equals(that.queuing) :that.queuing != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(queuing, that.queuing)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -85,7 +88,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class QueuingNestedImpl<N> extends V1beta2QueuingConfigurationFluentImpl<V1beta2LimitResponseFluent.QueuingNested<N>> implements V1beta2LimitResponseFluent.QueuingNested<N>,Nested<N>{
+  class QueuingNestedImpl<N> extends V1beta2QueuingConfigurationFluentImpl<V1beta2LimitResponseFluentImpl.QueuingNested<N>> implements V1beta2LimitResponseFluentImpl.QueuingNested<N>,Nested<N>{
     QueuingNestedImpl(V1beta2QueuingConfiguration item) {
       this.builder = new V1beta2QueuingConfigurationBuilder(this, item);
     }

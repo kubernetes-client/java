@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1IngressBackendFluentImpl() {
   }
   public V1IngressBackendFluentImpl(V1IngressBackend instance) {
-    this.withResource(instance.getResource());
-
-    this.withService(instance.getService());
-
+    if (instance != null) {
+      this.withResource(instance.getResource());
+      this.withService(instance.getService());
+    }
   }
   private V1TypedLocalObjectReferenceBuilder resource;
   private V1IngressServiceBackendBuilder service;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasResource() {
     return this.resource != null;
   }
-  public V1IngressBackendFluent.ResourceNested<A> withNewResource() {
+  public V1IngressBackendFluentImpl.ResourceNested<A> withNewResource() {
     return new V1IngressBackendFluentImpl.ResourceNestedImpl();
   }
-  public V1IngressBackendFluent.ResourceNested<A> withNewResourceLike(V1TypedLocalObjectReference item) {
+  public V1IngressBackendFluentImpl.ResourceNested<A> withNewResourceLike(V1TypedLocalObjectReference item) {
     return new V1IngressBackendFluentImpl.ResourceNestedImpl(item);
   }
-  public V1IngressBackendFluent.ResourceNested<A> editResource() {
+  public V1IngressBackendFluentImpl.ResourceNested<A> editResource() {
     return withNewResourceLike(getResource());
   }
-  public V1IngressBackendFluent.ResourceNested<A> editOrNewResource() {
+  public V1IngressBackendFluentImpl.ResourceNested<A> editOrNewResource() {
     return withNewResourceLike(getResource() != null ? getResource(): new V1TypedLocalObjectReferenceBuilder().build());
   }
-  public V1IngressBackendFluent.ResourceNested<A> editOrNewResourceLike(V1TypedLocalObjectReference item) {
+  public V1IngressBackendFluentImpl.ResourceNested<A> editOrNewResourceLike(V1TypedLocalObjectReference item) {
     return withNewResourceLike(getResource() != null ? getResource(): item);
   }
   
@@ -76,27 +76,30 @@ import java.lang.Boolean;
   public Boolean hasService() {
     return this.service != null;
   }
-  public V1IngressBackendFluent.ServiceNested<A> withNewService() {
+  public V1IngressBackendFluentImpl.ServiceNested<A> withNewService() {
     return new V1IngressBackendFluentImpl.ServiceNestedImpl();
   }
-  public V1IngressBackendFluent.ServiceNested<A> withNewServiceLike(V1IngressServiceBackend item) {
+  public V1IngressBackendFluentImpl.ServiceNested<A> withNewServiceLike(V1IngressServiceBackend item) {
     return new V1IngressBackendFluentImpl.ServiceNestedImpl(item);
   }
-  public V1IngressBackendFluent.ServiceNested<A> editService() {
+  public V1IngressBackendFluentImpl.ServiceNested<A> editService() {
     return withNewServiceLike(getService());
   }
-  public V1IngressBackendFluent.ServiceNested<A> editOrNewService() {
+  public V1IngressBackendFluentImpl.ServiceNested<A> editOrNewService() {
     return withNewServiceLike(getService() != null ? getService(): new V1IngressServiceBackendBuilder().build());
   }
-  public V1IngressBackendFluent.ServiceNested<A> editOrNewServiceLike(V1IngressServiceBackend item) {
+  public V1IngressBackendFluentImpl.ServiceNested<A> editOrNewServiceLike(V1IngressServiceBackend item) {
     return withNewServiceLike(getService() != null ? getService(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1IngressBackendFluentImpl that = (V1IngressBackendFluentImpl) o;
-    if (resource != null ? !resource.equals(that.resource) :that.resource != null) return false;
-    if (service != null ? !service.equals(that.service) :that.service != null) return false;
+    if (!java.util.Objects.equals(resource, that.resource)) return false;
+
+    if (!java.util.Objects.equals(service, that.service)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -110,7 +113,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ResourceNestedImpl<N> extends V1TypedLocalObjectReferenceFluentImpl<V1IngressBackendFluent.ResourceNested<N>> implements V1IngressBackendFluent.ResourceNested<N>,Nested<N>{
+  class ResourceNestedImpl<N> extends V1TypedLocalObjectReferenceFluentImpl<V1IngressBackendFluentImpl.ResourceNested<N>> implements V1IngressBackendFluentImpl.ResourceNested<N>,Nested<N>{
     ResourceNestedImpl(V1TypedLocalObjectReference item) {
       this.builder = new V1TypedLocalObjectReferenceBuilder(this, item);
     }
@@ -126,7 +129,7 @@ import java.lang.Boolean;
     }
     
   }
-  class ServiceNestedImpl<N> extends V1IngressServiceBackendFluentImpl<V1IngressBackendFluent.ServiceNested<N>> implements V1IngressBackendFluent.ServiceNested<N>,Nested<N>{
+  class ServiceNestedImpl<N> extends V1IngressServiceBackendFluentImpl<V1IngressBackendFluentImpl.ServiceNested<N>> implements V1IngressBackendFluentImpl.ServiceNested<N>,Nested<N>{
     ServiceNestedImpl(V1IngressServiceBackend item) {
       this.builder = new V1IngressServiceBackendBuilder(this, item);
     }

@@ -20,18 +20,14 @@ public class V1ReplicationControllerStatusBuilder extends V1ReplicationControlle
   }
   public V1ReplicationControllerStatusBuilder(V1ReplicationControllerStatusFluent<?> fluent,V1ReplicationControllerStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAvailableReplicas(instance.getAvailableReplicas());
-
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withFullyLabeledReplicas(instance.getFullyLabeledReplicas());
-
-    fluent.withObservedGeneration(instance.getObservedGeneration());
-
-    fluent.withReadyReplicas(instance.getReadyReplicas());
-
-    fluent.withReplicas(instance.getReplicas());
-
+    if (instance != null) {
+      fluent.withAvailableReplicas(instance.getAvailableReplicas());
+      fluent.withConditions(instance.getConditions());
+      fluent.withFullyLabeledReplicas(instance.getFullyLabeledReplicas());
+      fluent.withObservedGeneration(instance.getObservedGeneration());
+      fluent.withReadyReplicas(instance.getReadyReplicas());
+      fluent.withReplicas(instance.getReplicas());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ReplicationControllerStatusBuilder(V1ReplicationControllerStatus instance) {
@@ -39,18 +35,14 @@ public class V1ReplicationControllerStatusBuilder extends V1ReplicationControlle
   }
   public V1ReplicationControllerStatusBuilder(V1ReplicationControllerStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAvailableReplicas(instance.getAvailableReplicas());
-
-    this.withConditions(instance.getConditions());
-
-    this.withFullyLabeledReplicas(instance.getFullyLabeledReplicas());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
-    this.withReadyReplicas(instance.getReadyReplicas());
-
-    this.withReplicas(instance.getReplicas());
-
+    if (instance != null) {
+      this.withAvailableReplicas(instance.getAvailableReplicas());
+      this.withConditions(instance.getConditions());
+      this.withFullyLabeledReplicas(instance.getFullyLabeledReplicas());
+      this.withObservedGeneration(instance.getObservedGeneration());
+      this.withReadyReplicas(instance.getReadyReplicas());
+      this.withReplicas(instance.getReplicas());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ReplicationControllerStatusFluent<?> fluent;

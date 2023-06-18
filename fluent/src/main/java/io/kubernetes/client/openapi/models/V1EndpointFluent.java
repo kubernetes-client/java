@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Collection;
 import java.util.List;
@@ -17,14 +17,14 @@ import java.util.Map;
   * Generated
   */
 public interface V1EndpointFluent<A extends V1EndpointFluent<A>> extends Fluent<A>{
-  public A addToAddresses(Integer index,String item);
-  public A setToAddresses(Integer index,String item);
+  public A addToAddresses(int index,String item);
+  public A setToAddresses(int index,String item);
   public A addToAddresses(java.lang.String... items);
   public A addAllToAddresses(Collection<String> items);
   public A removeFromAddresses(java.lang.String... items);
   public A removeAllFromAddresses(Collection<String> items);
   public List<String> getAddresses();
-  public String getAddress(Integer index);
+  public String getAddress(int index);
   public String getFirstAddress();
   public String getLastAddress();
   public String getMatchingAddress(Predicate<String> predicate);

@@ -14,18 +14,14 @@ import java.lang.Boolean;
   public V1VolumeMountFluentImpl() {
   }
   public V1VolumeMountFluentImpl(V1VolumeMount instance) {
-    this.withMountPath(instance.getMountPath());
-
-    this.withMountPropagation(instance.getMountPropagation());
-
-    this.withName(instance.getName());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSubPath(instance.getSubPath());
-
-    this.withSubPathExpr(instance.getSubPathExpr());
-
+    if (instance != null) {
+      this.withMountPath(instance.getMountPath());
+      this.withMountPropagation(instance.getMountPropagation());
+      this.withName(instance.getName());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSubPath(instance.getSubPath());
+      this.withSubPathExpr(instance.getSubPathExpr());
+    }
   }
   private String mountPath;
   private String mountPropagation;
@@ -90,13 +86,20 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1VolumeMountFluentImpl that = (V1VolumeMountFluentImpl) o;
-    if (mountPath != null ? !mountPath.equals(that.mountPath) :that.mountPath != null) return false;
-    if (mountPropagation != null ? !mountPropagation.equals(that.mountPropagation) :that.mountPropagation != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (subPath != null ? !subPath.equals(that.subPath) :that.subPath != null) return false;
-    if (subPathExpr != null ? !subPathExpr.equals(that.subPathExpr) :that.subPathExpr != null) return false;
+    if (!java.util.Objects.equals(mountPath, that.mountPath)) return false;
+
+    if (!java.util.Objects.equals(mountPropagation, that.mountPropagation)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(subPath, that.subPath)) return false;
+
+    if (!java.util.Objects.equals(subPathExpr, that.subPathExpr)) return false;
+
     return true;
   }
   public int hashCode() {

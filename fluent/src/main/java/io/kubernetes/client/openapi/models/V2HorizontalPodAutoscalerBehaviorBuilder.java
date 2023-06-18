@@ -20,10 +20,10 @@ public class V2HorizontalPodAutoscalerBehaviorBuilder extends V2HorizontalPodAut
   }
   public V2HorizontalPodAutoscalerBehaviorBuilder(V2HorizontalPodAutoscalerBehaviorFluent<?> fluent,V2HorizontalPodAutoscalerBehavior instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withScaleDown(instance.getScaleDown());
-
-    fluent.withScaleUp(instance.getScaleUp());
-
+    if (instance != null) {
+      fluent.withScaleDown(instance.getScaleDown());
+      fluent.withScaleUp(instance.getScaleUp());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2HorizontalPodAutoscalerBehaviorBuilder(V2HorizontalPodAutoscalerBehavior instance) {
@@ -31,10 +31,10 @@ public class V2HorizontalPodAutoscalerBehaviorBuilder extends V2HorizontalPodAut
   }
   public V2HorizontalPodAutoscalerBehaviorBuilder(V2HorizontalPodAutoscalerBehavior instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withScaleDown(instance.getScaleDown());
-
-    this.withScaleUp(instance.getScaleUp());
-
+    if (instance != null) {
+      this.withScaleDown(instance.getScaleDown());
+      this.withScaleUp(instance.getScaleUp());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2HorizontalPodAutoscalerBehaviorFluent<?> fluent;

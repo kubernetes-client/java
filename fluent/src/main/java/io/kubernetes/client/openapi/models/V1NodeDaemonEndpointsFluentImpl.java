@@ -16,8 +16,9 @@ import java.lang.Boolean;
   public V1NodeDaemonEndpointsFluentImpl() {
   }
   public V1NodeDaemonEndpointsFluentImpl(V1NodeDaemonEndpoints instance) {
-    this.withKubeletEndpoint(instance.getKubeletEndpoint());
-
+    if (instance != null) {
+      this.withKubeletEndpoint(instance.getKubeletEndpoint());
+    }
   }
   private V1DaemonEndpointBuilder kubeletEndpoint;
   
@@ -39,26 +40,28 @@ import java.lang.Boolean;
   public Boolean hasKubeletEndpoint() {
     return this.kubeletEndpoint != null;
   }
-  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> withNewKubeletEndpoint() {
+  public V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNested<A> withNewKubeletEndpoint() {
     return new V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNestedImpl();
   }
-  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> withNewKubeletEndpointLike(V1DaemonEndpoint item) {
+  public V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNested<A> withNewKubeletEndpointLike(V1DaemonEndpoint item) {
     return new V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNestedImpl(item);
   }
-  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> editKubeletEndpoint() {
+  public V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNested<A> editKubeletEndpoint() {
     return withNewKubeletEndpointLike(getKubeletEndpoint());
   }
-  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> editOrNewKubeletEndpoint() {
+  public V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNested<A> editOrNewKubeletEndpoint() {
     return withNewKubeletEndpointLike(getKubeletEndpoint() != null ? getKubeletEndpoint(): new V1DaemonEndpointBuilder().build());
   }
-  public V1NodeDaemonEndpointsFluent.KubeletEndpointNested<A> editOrNewKubeletEndpointLike(V1DaemonEndpoint item) {
+  public V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNested<A> editOrNewKubeletEndpointLike(V1DaemonEndpoint item) {
     return withNewKubeletEndpointLike(getKubeletEndpoint() != null ? getKubeletEndpoint(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NodeDaemonEndpointsFluentImpl that = (V1NodeDaemonEndpointsFluentImpl) o;
-    if (kubeletEndpoint != null ? !kubeletEndpoint.equals(that.kubeletEndpoint) :that.kubeletEndpoint != null) return false;
+    if (!java.util.Objects.equals(kubeletEndpoint, that.kubeletEndpoint)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -71,7 +74,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class KubeletEndpointNestedImpl<N> extends V1DaemonEndpointFluentImpl<V1NodeDaemonEndpointsFluent.KubeletEndpointNested<N>> implements V1NodeDaemonEndpointsFluent.KubeletEndpointNested<N>,Nested<N>{
+  class KubeletEndpointNestedImpl<N> extends V1DaemonEndpointFluentImpl<V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNested<N>> implements V1NodeDaemonEndpointsFluentImpl.KubeletEndpointNested<N>,Nested<N>{
     KubeletEndpointNestedImpl(V1DaemonEndpoint item) {
       this.builder = new V1DaemonEndpointBuilder(this, item);
     }

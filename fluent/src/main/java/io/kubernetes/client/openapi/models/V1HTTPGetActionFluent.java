@@ -2,12 +2,12 @@ package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
 import io.kubernetes.client.custom.IntOrString;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -21,8 +21,8 @@ public interface V1HTTPGetActionFluent<A extends V1HTTPGetActionFluent<A>> exten
   public String getHost();
   public A withHost(String host);
   public Boolean hasHost();
-  public A addToHttpHeaders(Integer index,V1HTTPHeader item);
-  public A setToHttpHeaders(Integer index,V1HTTPHeader item);
+  public A addToHttpHeaders(int index,V1HTTPHeader item);
+  public A setToHttpHeaders(int index,V1HTTPHeader item);
   public A addToHttpHeaders(io.kubernetes.client.openapi.models.V1HTTPHeader... items);
   public A addAllToHttpHeaders(Collection<V1HTTPHeader> items);
   public A removeFromHttpHeaders(io.kubernetes.client.openapi.models.V1HTTPHeader... items);
@@ -36,7 +36,7 @@ public interface V1HTTPGetActionFluent<A extends V1HTTPGetActionFluent<A>> exten
   @Deprecated
   public List<V1HTTPHeader> getHttpHeaders();
   public List<V1HTTPHeader> buildHttpHeaders();
-  public V1HTTPHeader buildHttpHeader(Integer index);
+  public V1HTTPHeader buildHttpHeader(int index);
   public V1HTTPHeader buildFirstHttpHeader();
   public V1HTTPHeader buildLastHttpHeader();
   public V1HTTPHeader buildMatchingHttpHeader(Predicate<V1HTTPHeaderBuilder> predicate);
@@ -46,8 +46,8 @@ public interface V1HTTPGetActionFluent<A extends V1HTTPGetActionFluent<A>> exten
   public Boolean hasHttpHeaders();
   public V1HTTPGetActionFluent.HttpHeadersNested<A> addNewHttpHeader();
   public V1HTTPGetActionFluent.HttpHeadersNested<A> addNewHttpHeaderLike(V1HTTPHeader item);
-  public V1HTTPGetActionFluent.HttpHeadersNested<A> setNewHttpHeaderLike(Integer index,V1HTTPHeader item);
-  public V1HTTPGetActionFluent.HttpHeadersNested<A> editHttpHeader(Integer index);
+  public V1HTTPGetActionFluent.HttpHeadersNested<A> setNewHttpHeaderLike(int index,V1HTTPHeader item);
+  public V1HTTPGetActionFluent.HttpHeadersNested<A> editHttpHeader(int index);
   public V1HTTPGetActionFluent.HttpHeadersNested<A> editFirstHttpHeader();
   public V1HTTPGetActionFluent.HttpHeadersNested<A> editLastHttpHeader();
   public V1HTTPGetActionFluent.HttpHeadersNested<A> editMatchingHttpHeader(Predicate<V1HTTPHeaderBuilder> predicate);

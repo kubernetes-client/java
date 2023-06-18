@@ -2,6 +2,7 @@ package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
 import java.lang.Deprecated;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.Boolean;
@@ -13,6 +14,12 @@ public interface V1beta2LimitedPriorityLevelConfigurationFluent<A extends V1beta
   public Integer getAssuredConcurrencyShares();
   public A withAssuredConcurrencyShares(Integer assuredConcurrencyShares);
   public Boolean hasAssuredConcurrencyShares();
+  public Integer getBorrowingLimitPercent();
+  public A withBorrowingLimitPercent(Integer borrowingLimitPercent);
+  public Boolean hasBorrowingLimitPercent();
+  public Integer getLendablePercent();
+  public A withLendablePercent(Integer lendablePercent);
+  public Boolean hasLendablePercent();
   
   /**
    * This method has been deprecated, please use method buildLimitResponse instead.

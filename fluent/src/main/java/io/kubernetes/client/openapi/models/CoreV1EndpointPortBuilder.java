@@ -20,14 +20,12 @@ public class CoreV1EndpointPortBuilder extends CoreV1EndpointPortFluentImpl<Core
   }
   public CoreV1EndpointPortBuilder(CoreV1EndpointPortFluent<?> fluent,CoreV1EndpointPort instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAppProtocol(instance.getAppProtocol());
-
-    fluent.withName(instance.getName());
-
-    fluent.withPort(instance.getPort());
-
-    fluent.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      fluent.withAppProtocol(instance.getAppProtocol());
+      fluent.withName(instance.getName());
+      fluent.withPort(instance.getPort());
+      fluent.withProtocol(instance.getProtocol());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public CoreV1EndpointPortBuilder(CoreV1EndpointPort instance) {
@@ -35,14 +33,12 @@ public class CoreV1EndpointPortBuilder extends CoreV1EndpointPortFluentImpl<Core
   }
   public CoreV1EndpointPortBuilder(CoreV1EndpointPort instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAppProtocol(instance.getAppProtocol());
-
-    this.withName(instance.getName());
-
-    this.withPort(instance.getPort());
-
-    this.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      this.withAppProtocol(instance.getAppProtocol());
+      this.withName(instance.getName());
+      this.withPort(instance.getPort());
+      this.withProtocol(instance.getProtocol());
+    }
     this.validationEnabled = validationEnabled; 
   }
   CoreV1EndpointPortFluent<?> fluent;

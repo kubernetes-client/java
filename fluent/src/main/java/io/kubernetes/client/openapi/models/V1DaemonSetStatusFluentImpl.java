@@ -24,26 +24,18 @@ import java.lang.Boolean;
   public V1DaemonSetStatusFluentImpl() {
   }
   public V1DaemonSetStatusFluentImpl(V1DaemonSetStatus instance) {
-    this.withCollisionCount(instance.getCollisionCount());
-
-    this.withConditions(instance.getConditions());
-
-    this.withCurrentNumberScheduled(instance.getCurrentNumberScheduled());
-
-    this.withDesiredNumberScheduled(instance.getDesiredNumberScheduled());
-
-    this.withNumberAvailable(instance.getNumberAvailable());
-
-    this.withNumberMisscheduled(instance.getNumberMisscheduled());
-
-    this.withNumberReady(instance.getNumberReady());
-
-    this.withNumberUnavailable(instance.getNumberUnavailable());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
-    this.withUpdatedNumberScheduled(instance.getUpdatedNumberScheduled());
-
+    if (instance != null) {
+      this.withCollisionCount(instance.getCollisionCount());
+      this.withConditions(instance.getConditions());
+      this.withCurrentNumberScheduled(instance.getCurrentNumberScheduled());
+      this.withDesiredNumberScheduled(instance.getDesiredNumberScheduled());
+      this.withNumberAvailable(instance.getNumberAvailable());
+      this.withNumberMisscheduled(instance.getNumberMisscheduled());
+      this.withNumberReady(instance.getNumberReady());
+      this.withNumberUnavailable(instance.getNumberUnavailable());
+      this.withObservedGeneration(instance.getObservedGeneration());
+      this.withUpdatedNumberScheduled(instance.getUpdatedNumberScheduled());
+    }
   }
   private Integer collisionCount;
   private ArrayList<V1DaemonSetConditionBuilder> conditions;
@@ -64,16 +56,17 @@ import java.lang.Boolean;
   public Boolean hasCollisionCount() {
     return this.collisionCount != null;
   }
-  public A addToConditions(Integer index,V1DaemonSetCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1DaemonSetConditionBuilder>();}
-    V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
-  }
-  public A setToConditions(Integer index,V1DaemonSetCondition item) {
+  public A addToConditions(int index,V1DaemonSetCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1DaemonSetConditionBuilder>();}
     V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
-    if (index < 0 || index >= _visitables.get("conditions").size()) { _visitables.get("conditions").add(builder); } else { _visitables.get("conditions").set(index, builder);}
-    if (index < 0 || index >= conditions.size()) { conditions.add(builder); } else { conditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToConditions(int index,V1DaemonSetCondition item) {
+    if (this.conditions == null) {this.conditions = new ArrayList<V1DaemonSetConditionBuilder>();}
+    V1DaemonSetConditionBuilder builder = new V1DaemonSetConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    return (A)this;
   }
   public A addToConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... items) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1DaemonSetConditionBuilder>();}
@@ -114,7 +107,7 @@ import java.lang.Boolean;
   public List<V1DaemonSetCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
-  public V1DaemonSetCondition buildCondition(Integer index) {
+  public V1DaemonSetCondition buildCondition(int index) {
     return this.conditions.get(index).build();
   }
   public V1DaemonSetCondition buildFirstCondition() {
@@ -130,39 +123,39 @@ import java.lang.Boolean;
     for (V1DaemonSetConditionBuilder item: conditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withConditions(List<V1DaemonSetCondition> conditions) {
-    if (this.conditions != null) { _visitables.get("conditions").removeAll(this.conditions);}
+    if (this.conditions != null) { _visitables.get("conditions").clear();}
     if (conditions != null) {this.conditions = new ArrayList(); for (V1DaemonSetCondition item : conditions){this.addToConditions(item);}} else { this.conditions = null;} return (A) this;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V1DaemonSetCondition... conditions) {
-    if (this.conditions != null) {this.conditions.clear();}
+    if (this.conditions != null) {this.conditions.clear(); _visitables.remove("conditions"); }
     if (conditions != null) {for (V1DaemonSetCondition item :conditions){ this.addToConditions(item);}} return (A) this;
   }
   public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
-  public V1DaemonSetStatusFluent.ConditionsNested<A> addNewCondition() {
+  public V1DaemonSetStatusFluentImpl.ConditionsNested<A> addNewCondition() {
     return new V1DaemonSetStatusFluentImpl.ConditionsNestedImpl();
   }
-  public V1DaemonSetStatusFluent.ConditionsNested<A> addNewConditionLike(V1DaemonSetCondition item) {
+  public V1DaemonSetStatusFluentImpl.ConditionsNested<A> addNewConditionLike(V1DaemonSetCondition item) {
     return new V1DaemonSetStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
-  public V1DaemonSetStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1DaemonSetCondition item) {
+  public V1DaemonSetStatusFluentImpl.ConditionsNested<A> setNewConditionLike(int index,V1DaemonSetCondition item) {
     return new V1DaemonSetStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
-  public V1DaemonSetStatusFluent.ConditionsNested<A> editCondition(Integer index) {
+  public V1DaemonSetStatusFluentImpl.ConditionsNested<A> editCondition(int index) {
     if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1DaemonSetStatusFluent.ConditionsNested<A> editFirstCondition() {
+  public V1DaemonSetStatusFluentImpl.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
-  public V1DaemonSetStatusFluent.ConditionsNested<A> editLastCondition() {
+  public V1DaemonSetStatusFluentImpl.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1DaemonSetStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1DaemonSetConditionBuilder> predicate) {
+  public V1DaemonSetStatusFluentImpl.ConditionsNested<A> editMatchingCondition(Predicate<V1DaemonSetConditionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<conditions.size();i++) { 
     if (predicate.test(conditions.get(i))) {index = i; break;}
@@ -245,17 +238,28 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1DaemonSetStatusFluentImpl that = (V1DaemonSetStatusFluentImpl) o;
-    if (collisionCount != null ? !collisionCount.equals(that.collisionCount) :that.collisionCount != null) return false;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
-    if (currentNumberScheduled != null ? !currentNumberScheduled.equals(that.currentNumberScheduled) :that.currentNumberScheduled != null) return false;
-    if (desiredNumberScheduled != null ? !desiredNumberScheduled.equals(that.desiredNumberScheduled) :that.desiredNumberScheduled != null) return false;
-    if (numberAvailable != null ? !numberAvailable.equals(that.numberAvailable) :that.numberAvailable != null) return false;
-    if (numberMisscheduled != null ? !numberMisscheduled.equals(that.numberMisscheduled) :that.numberMisscheduled != null) return false;
-    if (numberReady != null ? !numberReady.equals(that.numberReady) :that.numberReady != null) return false;
-    if (numberUnavailable != null ? !numberUnavailable.equals(that.numberUnavailable) :that.numberUnavailable != null) return false;
-    if (observedGeneration != null ? !observedGeneration.equals(that.observedGeneration) :that.observedGeneration != null) return false;
-    if (updatedNumberScheduled != null ? !updatedNumberScheduled.equals(that.updatedNumberScheduled) :that.updatedNumberScheduled != null) return false;
+    if (!java.util.Objects.equals(collisionCount, that.collisionCount)) return false;
+
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
+    if (!java.util.Objects.equals(currentNumberScheduled, that.currentNumberScheduled)) return false;
+
+    if (!java.util.Objects.equals(desiredNumberScheduled, that.desiredNumberScheduled)) return false;
+
+    if (!java.util.Objects.equals(numberAvailable, that.numberAvailable)) return false;
+
+    if (!java.util.Objects.equals(numberMisscheduled, that.numberMisscheduled)) return false;
+
+    if (!java.util.Objects.equals(numberReady, that.numberReady)) return false;
+
+    if (!java.util.Objects.equals(numberUnavailable, that.numberUnavailable)) return false;
+
+    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
+
+    if (!java.util.Objects.equals(updatedNumberScheduled, that.updatedNumberScheduled)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -265,7 +269,7 @@ import java.lang.Boolean;
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (collisionCount != null) { sb.append("collisionCount:"); sb.append(collisionCount + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
+    if (conditions != null) { sb.append("conditions:"); sb.append(conditions + ","); }
     if (currentNumberScheduled != null) { sb.append("currentNumberScheduled:"); sb.append(currentNumberScheduled + ","); }
     if (desiredNumberScheduled != null) { sb.append("desiredNumberScheduled:"); sb.append(desiredNumberScheduled + ","); }
     if (numberAvailable != null) { sb.append("numberAvailable:"); sb.append(numberAvailable + ","); }
@@ -277,8 +281,8 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ConditionsNestedImpl<N> extends V1DaemonSetConditionFluentImpl<V1DaemonSetStatusFluent.ConditionsNested<N>> implements V1DaemonSetStatusFluent.ConditionsNested<N>,Nested<N>{
-    ConditionsNestedImpl(Integer index,V1DaemonSetCondition item) {
+  class ConditionsNestedImpl<N> extends V1DaemonSetConditionFluentImpl<V1DaemonSetStatusFluentImpl.ConditionsNested<N>> implements V1DaemonSetStatusFluentImpl.ConditionsNested<N>,Nested<N>{
+    ConditionsNestedImpl(int index,V1DaemonSetCondition item) {
       this.index = index;
       this.builder = new V1DaemonSetConditionBuilder(this, item);
     }
@@ -287,7 +291,7 @@ import java.lang.Boolean;
       this.builder = new V1DaemonSetConditionBuilder(this);
     }
     V1DaemonSetConditionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1DaemonSetStatusFluentImpl.this.setToConditions(index,builder.build());
     }

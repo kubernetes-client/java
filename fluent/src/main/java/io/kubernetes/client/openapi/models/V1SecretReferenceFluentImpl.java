@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1SecretReferenceFluentImpl() {
   }
   public V1SecretReferenceFluentImpl(V1SecretReference instance) {
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+    }
   }
   private String name;
   private String namespace;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SecretReferenceFluentImpl that = (V1SecretReferenceFluentImpl) o;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (namespace != null ? !namespace.equals(that.namespace) :that.namespace != null) return false;
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,47 +12,48 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.time.OffsetDateTime;
-import java.util.Objects;
 
-/** PodCondition contains details for the current condition of this pod. */
+/**
+ * PodCondition contains details for the current condition of this pod.
+ */
 @ApiModel(description = "PodCondition contains details for the current condition of this pod.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1PodCondition {
   public static final String SERIALIZED_NAME_LAST_PROBE_TIME = "lastProbeTime";
-
   @SerializedName(SERIALIZED_NAME_LAST_PROBE_TIME)
   private OffsetDateTime lastProbeTime;
 
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
-
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
   private OffsetDateTime lastTransitionTime;
 
   public static final String SERIALIZED_NAME_MESSAGE = "message";
-
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
-
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
 
   public static final String SERIALIZED_NAME_STATUS = "status";
-
   @SerializedName(SERIALIZED_NAME_STATUS)
   private String status;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
-
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+
 
   public V1PodCondition lastProbeTime(OffsetDateTime lastProbeTime) {
 
@@ -60,20 +61,22 @@ public class V1PodCondition {
     return this;
   }
 
-  /**
+   /**
    * Last time we probed the condition.
-   *
    * @return lastProbeTime
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Last time we probed the condition.")
+
   public OffsetDateTime getLastProbeTime() {
     return lastProbeTime;
   }
 
+
   public void setLastProbeTime(OffsetDateTime lastProbeTime) {
     this.lastProbeTime = lastProbeTime;
   }
+
 
   public V1PodCondition lastTransitionTime(OffsetDateTime lastTransitionTime) {
 
@@ -81,20 +84,22 @@ public class V1PodCondition {
     return this;
   }
 
-  /**
+   /**
    * Last time the condition transitioned from one status to another.
-   *
    * @return lastTransitionTime
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Last time the condition transitioned from one status to another.")
+
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
 
+
   public void setLastTransitionTime(OffsetDateTime lastTransitionTime) {
     this.lastTransitionTime = lastTransitionTime;
   }
+
 
   public V1PodCondition message(String message) {
 
@@ -102,20 +107,22 @@ public class V1PodCondition {
     return this;
   }
 
-  /**
+   /**
    * Human-readable message indicating details about last transition.
-   *
    * @return message
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Human-readable message indicating details about last transition.")
+
   public String getMessage() {
     return message;
   }
 
+
   public void setMessage(String message) {
     this.message = message;
   }
+
 
   public V1PodCondition reason(String reason) {
 
@@ -123,21 +130,22 @@ public class V1PodCondition {
     return this;
   }
 
-  /**
+   /**
    * Unique, one-word, CamelCase reason for the condition&#39;s last transition.
-   *
    * @return reason
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "Unique, one-word, CamelCase reason for the condition's last transition.")
+  @ApiModelProperty(value = "Unique, one-word, CamelCase reason for the condition's last transition.")
+
   public String getReason() {
     return reason;
   }
 
+
   public void setReason(String reason) {
     this.reason = reason;
   }
+
 
   public V1PodCondition status(String status) {
 
@@ -145,23 +153,21 @@ public class V1PodCondition {
     return this;
   }
 
-  /**
-   * Status is the status of the condition. Can be True, False, Unknown. More info:
-   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
-   *
+   /**
+   * Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
    * @return status
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions")
+  **/
+  @ApiModelProperty(required = true, value = "Status is the status of the condition. Can be True, False, Unknown. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions")
+
   public String getStatus() {
     return status;
   }
 
+
   public void setStatus(String status) {
     this.status = status;
   }
+
 
   public V1PodCondition type(String type) {
 
@@ -169,23 +175,21 @@ public class V1PodCondition {
     return this;
   }
 
-  /**
-   * Type is the type of the condition. More info:
-   * https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
-   *
+   /**
+   * Type is the type of the condition. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions
    * @return type
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "Type is the type of the condition. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions")
+  **/
+  @ApiModelProperty(required = true, value = "Type is the type of the condition. More info: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#pod-conditions")
+
   public String getType() {
     return type;
   }
 
+
   public void setType(String type) {
     this.type = type;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -196,18 +200,19 @@ public class V1PodCondition {
       return false;
     }
     V1PodCondition v1PodCondition = (V1PodCondition) o;
-    return Objects.equals(this.lastProbeTime, v1PodCondition.lastProbeTime)
-        && Objects.equals(this.lastTransitionTime, v1PodCondition.lastTransitionTime)
-        && Objects.equals(this.message, v1PodCondition.message)
-        && Objects.equals(this.reason, v1PodCondition.reason)
-        && Objects.equals(this.status, v1PodCondition.status)
-        && Objects.equals(this.type, v1PodCondition.type);
+    return Objects.equals(this.lastProbeTime, v1PodCondition.lastProbeTime) &&
+        Objects.equals(this.lastTransitionTime, v1PodCondition.lastTransitionTime) &&
+        Objects.equals(this.message, v1PodCondition.message) &&
+        Objects.equals(this.reason, v1PodCondition.reason) &&
+        Objects.equals(this.status, v1PodCondition.status) &&
+        Objects.equals(this.type, v1PodCondition.type);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(lastProbeTime, lastTransitionTime, message, reason, status, type);
   }
+
 
   @Override
   public String toString() {
@@ -224,7 +229,8 @@ public class V1PodCondition {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -232,4 +238,5 @@ public class V1PodCondition {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

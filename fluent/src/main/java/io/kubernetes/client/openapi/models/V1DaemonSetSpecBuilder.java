@@ -20,16 +20,13 @@ public class V1DaemonSetSpecBuilder extends V1DaemonSetSpecFluentImpl<V1DaemonSe
   }
   public V1DaemonSetSpecBuilder(V1DaemonSetSpecFluent<?> fluent,V1DaemonSetSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMinReadySeconds(instance.getMinReadySeconds());
-
-    fluent.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
-
-    fluent.withSelector(instance.getSelector());
-
-    fluent.withTemplate(instance.getTemplate());
-
-    fluent.withUpdateStrategy(instance.getUpdateStrategy());
-
+    if (instance != null) {
+      fluent.withMinReadySeconds(instance.getMinReadySeconds());
+      fluent.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
+      fluent.withSelector(instance.getSelector());
+      fluent.withTemplate(instance.getTemplate());
+      fluent.withUpdateStrategy(instance.getUpdateStrategy());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1DaemonSetSpecBuilder(V1DaemonSetSpec instance) {
@@ -37,16 +34,13 @@ public class V1DaemonSetSpecBuilder extends V1DaemonSetSpecFluentImpl<V1DaemonSe
   }
   public V1DaemonSetSpecBuilder(V1DaemonSetSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMinReadySeconds(instance.getMinReadySeconds());
-
-    this.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
-
-    this.withSelector(instance.getSelector());
-
-    this.withTemplate(instance.getTemplate());
-
-    this.withUpdateStrategy(instance.getUpdateStrategy());
-
+    if (instance != null) {
+      this.withMinReadySeconds(instance.getMinReadySeconds());
+      this.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
+      this.withSelector(instance.getSelector());
+      this.withTemplate(instance.getTemplate());
+      this.withUpdateStrategy(instance.getUpdateStrategy());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1DaemonSetSpecFluent<?> fluent;

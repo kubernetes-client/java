@@ -20,10 +20,10 @@ public class V1beta2NonResourcePolicyRuleBuilder extends V1beta2NonResourcePolic
   }
   public V1beta2NonResourcePolicyRuleBuilder(V1beta2NonResourcePolicyRuleFluent<?> fluent,V1beta2NonResourcePolicyRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withNonResourceURLs(instance.getNonResourceURLs());
-
-    fluent.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      fluent.withNonResourceURLs(instance.getNonResourceURLs());
+      fluent.withVerbs(instance.getVerbs());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2NonResourcePolicyRuleBuilder(V1beta2NonResourcePolicyRule instance) {
@@ -31,10 +31,10 @@ public class V1beta2NonResourcePolicyRuleBuilder extends V1beta2NonResourcePolic
   }
   public V1beta2NonResourcePolicyRuleBuilder(V1beta2NonResourcePolicyRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withNonResourceURLs(instance.getNonResourceURLs());
-
-    this.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      this.withNonResourceURLs(instance.getNonResourceURLs());
+      this.withVerbs(instance.getVerbs());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2NonResourcePolicyRuleFluent<?> fluent;

@@ -20,10 +20,10 @@ public class V1ContainerStateWaitingBuilder extends V1ContainerStateWaitingFluen
   }
   public V1ContainerStateWaitingBuilder(V1ContainerStateWaitingFluent<?> fluent,V1ContainerStateWaiting instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withReason(instance.getReason());
-
+    if (instance != null) {
+      fluent.withMessage(instance.getMessage());
+      fluent.withReason(instance.getReason());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ContainerStateWaitingBuilder(V1ContainerStateWaiting instance) {
@@ -31,10 +31,10 @@ public class V1ContainerStateWaitingBuilder extends V1ContainerStateWaitingFluen
   }
   public V1ContainerStateWaitingBuilder(V1ContainerStateWaiting instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
+    if (instance != null) {
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ContainerStateWaitingFluent<?> fluent;

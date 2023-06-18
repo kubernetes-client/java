@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -23,8 +23,8 @@ public interface V1LoadBalancerIngressFluent<A extends V1LoadBalancerIngressFlue
   public String getIp();
   public A withIp(String ip);
   public Boolean hasIp();
-  public A addToPorts(Integer index,V1PortStatus item);
-  public A setToPorts(Integer index,V1PortStatus item);
+  public A addToPorts(int index,V1PortStatus item);
+  public A setToPorts(int index,V1PortStatus item);
   public A addToPorts(io.kubernetes.client.openapi.models.V1PortStatus... items);
   public A addAllToPorts(Collection<V1PortStatus> items);
   public A removeFromPorts(io.kubernetes.client.openapi.models.V1PortStatus... items);
@@ -38,7 +38,7 @@ public interface V1LoadBalancerIngressFluent<A extends V1LoadBalancerIngressFlue
   @Deprecated
   public List<V1PortStatus> getPorts();
   public List<V1PortStatus> buildPorts();
-  public V1PortStatus buildPort(Integer index);
+  public V1PortStatus buildPort(int index);
   public V1PortStatus buildFirstPort();
   public V1PortStatus buildLastPort();
   public V1PortStatus buildMatchingPort(Predicate<V1PortStatusBuilder> predicate);
@@ -48,8 +48,8 @@ public interface V1LoadBalancerIngressFluent<A extends V1LoadBalancerIngressFlue
   public Boolean hasPorts();
   public V1LoadBalancerIngressFluent.PortsNested<A> addNewPort();
   public V1LoadBalancerIngressFluent.PortsNested<A> addNewPortLike(V1PortStatus item);
-  public V1LoadBalancerIngressFluent.PortsNested<A> setNewPortLike(Integer index,V1PortStatus item);
-  public V1LoadBalancerIngressFluent.PortsNested<A> editPort(Integer index);
+  public V1LoadBalancerIngressFluent.PortsNested<A> setNewPortLike(int index,V1PortStatus item);
+  public V1LoadBalancerIngressFluent.PortsNested<A> editPort(int index);
   public V1LoadBalancerIngressFluent.PortsNested<A> editFirstPort();
   public V1LoadBalancerIngressFluent.PortsNested<A> editLastPort();
   public V1LoadBalancerIngressFluent.PortsNested<A> editMatchingPort(Predicate<V1PortStatusBuilder> predicate);

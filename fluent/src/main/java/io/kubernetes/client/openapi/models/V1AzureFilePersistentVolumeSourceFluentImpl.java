@@ -14,14 +14,12 @@ import java.lang.Boolean;
   public V1AzureFilePersistentVolumeSourceFluentImpl() {
   }
   public V1AzureFilePersistentVolumeSourceFluentImpl(V1AzureFilePersistentVolumeSource instance) {
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretName(instance.getSecretName());
-
-    this.withSecretNamespace(instance.getSecretNamespace());
-
-    this.withShareName(instance.getShareName());
-
+    if (instance != null) {
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretName(instance.getSecretName());
+      this.withSecretNamespace(instance.getSecretNamespace());
+      this.withShareName(instance.getShareName());
+    }
   }
   private Boolean readOnly;
   private String secretName;
@@ -66,11 +64,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1AzureFilePersistentVolumeSourceFluentImpl that = (V1AzureFilePersistentVolumeSourceFluentImpl) o;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (secretName != null ? !secretName.equals(that.secretName) :that.secretName != null) return false;
-    if (secretNamespace != null ? !secretNamespace.equals(that.secretNamespace) :that.secretNamespace != null) return false;
-    if (shareName != null ? !shareName.equals(that.shareName) :that.shareName != null) return false;
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(secretName, that.secretName)) return false;
+
+    if (!java.util.Objects.equals(secretNamespace, that.secretNamespace)) return false;
+
+    if (!java.util.Objects.equals(shareName, that.shareName)) return false;
+
     return true;
   }
   public int hashCode() {

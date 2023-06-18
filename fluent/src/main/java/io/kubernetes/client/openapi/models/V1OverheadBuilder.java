@@ -20,8 +20,9 @@ public class V1OverheadBuilder extends V1OverheadFluentImpl<V1OverheadBuilder> i
   }
   public V1OverheadBuilder(V1OverheadFluent<?> fluent,V1Overhead instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPodFixed(instance.getPodFixed());
-
+    if (instance != null) {
+      fluent.withPodFixed(instance.getPodFixed());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1OverheadBuilder(V1Overhead instance) {
@@ -29,8 +30,9 @@ public class V1OverheadBuilder extends V1OverheadFluentImpl<V1OverheadBuilder> i
   }
   public V1OverheadBuilder(V1Overhead instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPodFixed(instance.getPodFixed());
-
+    if (instance != null) {
+      this.withPodFixed(instance.getPodFixed());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1OverheadFluent<?> fluent;

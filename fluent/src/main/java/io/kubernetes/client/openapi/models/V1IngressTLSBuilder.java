@@ -20,10 +20,10 @@ public class V1IngressTLSBuilder extends V1IngressTLSFluentImpl<V1IngressTLSBuil
   }
   public V1IngressTLSBuilder(V1IngressTLSFluent<?> fluent,V1IngressTLS instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withHosts(instance.getHosts());
-
-    fluent.withSecretName(instance.getSecretName());
-
+    if (instance != null) {
+      fluent.withHosts(instance.getHosts());
+      fluent.withSecretName(instance.getSecretName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1IngressTLSBuilder(V1IngressTLS instance) {
@@ -31,10 +31,10 @@ public class V1IngressTLSBuilder extends V1IngressTLSFluentImpl<V1IngressTLSBuil
   }
   public V1IngressTLSBuilder(V1IngressTLS instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withHosts(instance.getHosts());
-
-    this.withSecretName(instance.getSecretName());
-
+    if (instance != null) {
+      this.withHosts(instance.getHosts());
+      this.withSecretName(instance.getSecretName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1IngressTLSFluent<?> fluent;

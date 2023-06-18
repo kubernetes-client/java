@@ -20,26 +20,18 @@ public class V1NodeSystemInfoBuilder extends V1NodeSystemInfoFluentImpl<V1NodeSy
   }
   public V1NodeSystemInfoBuilder(V1NodeSystemInfoFluent<?> fluent,V1NodeSystemInfo instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withArchitecture(instance.getArchitecture());
-
-    fluent.withBootID(instance.getBootID());
-
-    fluent.withContainerRuntimeVersion(instance.getContainerRuntimeVersion());
-
-    fluent.withKernelVersion(instance.getKernelVersion());
-
-    fluent.withKubeProxyVersion(instance.getKubeProxyVersion());
-
-    fluent.withKubeletVersion(instance.getKubeletVersion());
-
-    fluent.withMachineID(instance.getMachineID());
-
-    fluent.withOperatingSystem(instance.getOperatingSystem());
-
-    fluent.withOsImage(instance.getOsImage());
-
-    fluent.withSystemUUID(instance.getSystemUUID());
-
+    if (instance != null) {
+      fluent.withArchitecture(instance.getArchitecture());
+      fluent.withBootID(instance.getBootID());
+      fluent.withContainerRuntimeVersion(instance.getContainerRuntimeVersion());
+      fluent.withKernelVersion(instance.getKernelVersion());
+      fluent.withKubeProxyVersion(instance.getKubeProxyVersion());
+      fluent.withKubeletVersion(instance.getKubeletVersion());
+      fluent.withMachineID(instance.getMachineID());
+      fluent.withOperatingSystem(instance.getOperatingSystem());
+      fluent.withOsImage(instance.getOsImage());
+      fluent.withSystemUUID(instance.getSystemUUID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeSystemInfoBuilder(V1NodeSystemInfo instance) {
@@ -47,26 +39,18 @@ public class V1NodeSystemInfoBuilder extends V1NodeSystemInfoFluentImpl<V1NodeSy
   }
   public V1NodeSystemInfoBuilder(V1NodeSystemInfo instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withArchitecture(instance.getArchitecture());
-
-    this.withBootID(instance.getBootID());
-
-    this.withContainerRuntimeVersion(instance.getContainerRuntimeVersion());
-
-    this.withKernelVersion(instance.getKernelVersion());
-
-    this.withKubeProxyVersion(instance.getKubeProxyVersion());
-
-    this.withKubeletVersion(instance.getKubeletVersion());
-
-    this.withMachineID(instance.getMachineID());
-
-    this.withOperatingSystem(instance.getOperatingSystem());
-
-    this.withOsImage(instance.getOsImage());
-
-    this.withSystemUUID(instance.getSystemUUID());
-
+    if (instance != null) {
+      this.withArchitecture(instance.getArchitecture());
+      this.withBootID(instance.getBootID());
+      this.withContainerRuntimeVersion(instance.getContainerRuntimeVersion());
+      this.withKernelVersion(instance.getKernelVersion());
+      this.withKubeProxyVersion(instance.getKubeProxyVersion());
+      this.withKubeletVersion(instance.getKubeletVersion());
+      this.withMachineID(instance.getMachineID());
+      this.withOperatingSystem(instance.getOperatingSystem());
+      this.withOsImage(instance.getOsImage());
+      this.withSystemUUID(instance.getSystemUUID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeSystemInfoFluent<?> fluent;

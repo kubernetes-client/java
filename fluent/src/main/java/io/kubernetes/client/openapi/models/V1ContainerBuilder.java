@@ -20,50 +20,31 @@ public class V1ContainerBuilder extends V1ContainerFluentImpl<V1ContainerBuilder
   }
   public V1ContainerBuilder(V1ContainerFluent<?> fluent,V1Container instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withArgs(instance.getArgs());
-
-    fluent.withCommand(instance.getCommand());
-
-    fluent.withEnv(instance.getEnv());
-
-    fluent.withEnvFrom(instance.getEnvFrom());
-
-    fluent.withImage(instance.getImage());
-
-    fluent.withImagePullPolicy(instance.getImagePullPolicy());
-
-    fluent.withLifecycle(instance.getLifecycle());
-
-    fluent.withLivenessProbe(instance.getLivenessProbe());
-
-    fluent.withName(instance.getName());
-
-    fluent.withPorts(instance.getPorts());
-
-    fluent.withReadinessProbe(instance.getReadinessProbe());
-
-    fluent.withResources(instance.getResources());
-
-    fluent.withSecurityContext(instance.getSecurityContext());
-
-    fluent.withStartupProbe(instance.getStartupProbe());
-
-    fluent.withStdin(instance.getStdin());
-
-    fluent.withStdinOnce(instance.getStdinOnce());
-
-    fluent.withTerminationMessagePath(instance.getTerminationMessagePath());
-
-    fluent.withTerminationMessagePolicy(instance.getTerminationMessagePolicy());
-
-    fluent.withTty(instance.getTty());
-
-    fluent.withVolumeDevices(instance.getVolumeDevices());
-
-    fluent.withVolumeMounts(instance.getVolumeMounts());
-
-    fluent.withWorkingDir(instance.getWorkingDir());
-
+    if (instance != null) {
+      fluent.withArgs(instance.getArgs());
+      fluent.withCommand(instance.getCommand());
+      fluent.withEnv(instance.getEnv());
+      fluent.withEnvFrom(instance.getEnvFrom());
+      fluent.withImage(instance.getImage());
+      fluent.withImagePullPolicy(instance.getImagePullPolicy());
+      fluent.withLifecycle(instance.getLifecycle());
+      fluent.withLivenessProbe(instance.getLivenessProbe());
+      fluent.withName(instance.getName());
+      fluent.withPorts(instance.getPorts());
+      fluent.withReadinessProbe(instance.getReadinessProbe());
+      fluent.withResizePolicy(instance.getResizePolicy());
+      fluent.withResources(instance.getResources());
+      fluent.withSecurityContext(instance.getSecurityContext());
+      fluent.withStartupProbe(instance.getStartupProbe());
+      fluent.withStdin(instance.getStdin());
+      fluent.withStdinOnce(instance.getStdinOnce());
+      fluent.withTerminationMessagePath(instance.getTerminationMessagePath());
+      fluent.withTerminationMessagePolicy(instance.getTerminationMessagePolicy());
+      fluent.withTty(instance.getTty());
+      fluent.withVolumeDevices(instance.getVolumeDevices());
+      fluent.withVolumeMounts(instance.getVolumeMounts());
+      fluent.withWorkingDir(instance.getWorkingDir());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ContainerBuilder(V1Container instance) {
@@ -71,50 +52,31 @@ public class V1ContainerBuilder extends V1ContainerFluentImpl<V1ContainerBuilder
   }
   public V1ContainerBuilder(V1Container instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withArgs(instance.getArgs());
-
-    this.withCommand(instance.getCommand());
-
-    this.withEnv(instance.getEnv());
-
-    this.withEnvFrom(instance.getEnvFrom());
-
-    this.withImage(instance.getImage());
-
-    this.withImagePullPolicy(instance.getImagePullPolicy());
-
-    this.withLifecycle(instance.getLifecycle());
-
-    this.withLivenessProbe(instance.getLivenessProbe());
-
-    this.withName(instance.getName());
-
-    this.withPorts(instance.getPorts());
-
-    this.withReadinessProbe(instance.getReadinessProbe());
-
-    this.withResources(instance.getResources());
-
-    this.withSecurityContext(instance.getSecurityContext());
-
-    this.withStartupProbe(instance.getStartupProbe());
-
-    this.withStdin(instance.getStdin());
-
-    this.withStdinOnce(instance.getStdinOnce());
-
-    this.withTerminationMessagePath(instance.getTerminationMessagePath());
-
-    this.withTerminationMessagePolicy(instance.getTerminationMessagePolicy());
-
-    this.withTty(instance.getTty());
-
-    this.withVolumeDevices(instance.getVolumeDevices());
-
-    this.withVolumeMounts(instance.getVolumeMounts());
-
-    this.withWorkingDir(instance.getWorkingDir());
-
+    if (instance != null) {
+      this.withArgs(instance.getArgs());
+      this.withCommand(instance.getCommand());
+      this.withEnv(instance.getEnv());
+      this.withEnvFrom(instance.getEnvFrom());
+      this.withImage(instance.getImage());
+      this.withImagePullPolicy(instance.getImagePullPolicy());
+      this.withLifecycle(instance.getLifecycle());
+      this.withLivenessProbe(instance.getLivenessProbe());
+      this.withName(instance.getName());
+      this.withPorts(instance.getPorts());
+      this.withReadinessProbe(instance.getReadinessProbe());
+      this.withResizePolicy(instance.getResizePolicy());
+      this.withResources(instance.getResources());
+      this.withSecurityContext(instance.getSecurityContext());
+      this.withStartupProbe(instance.getStartupProbe());
+      this.withStdin(instance.getStdin());
+      this.withStdinOnce(instance.getStdinOnce());
+      this.withTerminationMessagePath(instance.getTerminationMessagePath());
+      this.withTerminationMessagePolicy(instance.getTerminationMessagePolicy());
+      this.withTty(instance.getTty());
+      this.withVolumeDevices(instance.getVolumeDevices());
+      this.withVolumeMounts(instance.getVolumeMounts());
+      this.withWorkingDir(instance.getWorkingDir());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ContainerFluent<?> fluent;
@@ -132,6 +94,7 @@ public class V1ContainerBuilder extends V1ContainerFluentImpl<V1ContainerBuilder
     buildable.setName(fluent.getName());
     buildable.setPorts(fluent.getPorts());
     buildable.setReadinessProbe(fluent.getReadinessProbe());
+    buildable.setResizePolicy(fluent.getResizePolicy());
     buildable.setResources(fluent.getResources());
     buildable.setSecurityContext(fluent.getSecurityContext());
     buildable.setStartupProbe(fluent.getStartupProbe());

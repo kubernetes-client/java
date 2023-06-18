@@ -20,10 +20,10 @@ public class V1PhotonPersistentDiskVolumeSourceBuilder extends V1PhotonPersisten
   }
   public V1PhotonPersistentDiskVolumeSourceBuilder(V1PhotonPersistentDiskVolumeSourceFluent<?> fluent,V1PhotonPersistentDiskVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withPdID(instance.getPdID());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withPdID(instance.getPdID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PhotonPersistentDiskVolumeSourceBuilder(V1PhotonPersistentDiskVolumeSource instance) {
@@ -31,10 +31,10 @@ public class V1PhotonPersistentDiskVolumeSourceBuilder extends V1PhotonPersisten
   }
   public V1PhotonPersistentDiskVolumeSourceBuilder(V1PhotonPersistentDiskVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withPdID(instance.getPdID());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withPdID(instance.getPdID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PhotonPersistentDiskVolumeSourceFluent<?> fluent;

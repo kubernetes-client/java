@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -53,8 +53,8 @@ public interface V1ClusterRoleBindingFluent<A extends V1ClusterRoleBindingFluent
   public V1ClusterRoleBindingFluent.RoleRefNested<A> editRoleRef();
   public V1ClusterRoleBindingFluent.RoleRefNested<A> editOrNewRoleRef();
   public V1ClusterRoleBindingFluent.RoleRefNested<A> editOrNewRoleRefLike(V1RoleRef item);
-  public A addToSubjects(Integer index,V1Subject item);
-  public A setToSubjects(Integer index,V1Subject item);
+  public A addToSubjects(int index,V1Subject item);
+  public A setToSubjects(int index,V1Subject item);
   public A addToSubjects(io.kubernetes.client.openapi.models.V1Subject... items);
   public A addAllToSubjects(Collection<V1Subject> items);
   public A removeFromSubjects(io.kubernetes.client.openapi.models.V1Subject... items);
@@ -68,7 +68,7 @@ public interface V1ClusterRoleBindingFluent<A extends V1ClusterRoleBindingFluent
   @Deprecated
   public List<V1Subject> getSubjects();
   public List<V1Subject> buildSubjects();
-  public V1Subject buildSubject(Integer index);
+  public V1Subject buildSubject(int index);
   public V1Subject buildFirstSubject();
   public V1Subject buildLastSubject();
   public V1Subject buildMatchingSubject(Predicate<V1SubjectBuilder> predicate);
@@ -78,8 +78,8 @@ public interface V1ClusterRoleBindingFluent<A extends V1ClusterRoleBindingFluent
   public Boolean hasSubjects();
   public V1ClusterRoleBindingFluent.SubjectsNested<A> addNewSubject();
   public V1ClusterRoleBindingFluent.SubjectsNested<A> addNewSubjectLike(V1Subject item);
-  public V1ClusterRoleBindingFluent.SubjectsNested<A> setNewSubjectLike(Integer index,V1Subject item);
-  public V1ClusterRoleBindingFluent.SubjectsNested<A> editSubject(Integer index);
+  public V1ClusterRoleBindingFluent.SubjectsNested<A> setNewSubjectLike(int index,V1Subject item);
+  public V1ClusterRoleBindingFluent.SubjectsNested<A> editSubject(int index);
   public V1ClusterRoleBindingFluent.SubjectsNested<A> editFirstSubject();
   public V1ClusterRoleBindingFluent.SubjectsNested<A> editLastSubject();
   public V1ClusterRoleBindingFluent.SubjectsNested<A> editMatchingSubject(Predicate<V1SubjectBuilder> predicate);
