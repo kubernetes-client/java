@@ -243,7 +243,7 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
       List<V1ControllerRevision> result = new ArrayList<>();
       V1ControllerRevisionList historyList =
           api.listNamespacedControllerRevision(
-              namespace, null, null, null, null, selector.toString(), null, null, null, null, null);
+              namespace, null, null, null, null, selector.toString(), null, null, null, null, null, null);
       for (V1ControllerRevision history : historyList.getItems()) {
         if (isControlledBy(history, accessor)) {
           result.add(history);
