@@ -85,6 +85,7 @@ public class DefaultControllerBuilderTest {
               null,
               params.resourceVersion,
               null,
+              null,
               params.timeoutSeconds,
               params.watch,
               null);
@@ -155,6 +156,7 @@ public class DefaultControllerBuilderTest {
                   null,
                   null,
                   params.resourceVersion,
+                  null,
                   null,
                   params.timeoutSeconds,
                   params.watch,

@@ -145,6 +145,7 @@ public class DefaultSharedIndexInformerWireMockTest {
                     null,
                     params.resourceVersion,
                     null,
+                    null,
                     params.timeoutSeconds,
                     params.watch,
                     null);
@@ -260,6 +261,7 @@ public class DefaultSharedIndexInformerWireMockTest {
                     null,
                     null,
                     params.resourceVersion,
+                    null,
                     null,
                     params.timeoutSeconds,
                     params.watch,
@@ -396,6 +398,7 @@ public class DefaultSharedIndexInformerWireMockTest {
                     null,
                     params.resourceVersion,
                     null,
+                    null,
                     params.timeoutSeconds,
                     params.watch,
                     null);
@@ -508,6 +511,7 @@ public class DefaultSharedIndexInformerWireMockTest {
                     null,
                     params.resourceVersion,
                     null,
+                    null,
                     params.timeoutSeconds,
                     params.watch,
                     null);
@@ -576,6 +580,7 @@ public class DefaultSharedIndexInformerWireMockTest {
                     null,
                     null,
                     params.resourceVersion,
+                    null,
                     null,
                     params.timeoutSeconds,
                     params.watch,
