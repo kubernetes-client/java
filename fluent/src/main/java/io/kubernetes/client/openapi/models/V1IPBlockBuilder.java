@@ -20,10 +20,10 @@ public class V1IPBlockBuilder extends V1IPBlockFluentImpl<V1IPBlockBuilder> impl
   }
   public V1IPBlockBuilder(V1IPBlockFluent<?> fluent,V1IPBlock instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCidr(instance.getCidr());
-
-    fluent.withExcept(instance.getExcept());
-
+    if (instance != null) {
+      fluent.withCidr(instance.getCidr());
+      fluent.withExcept(instance.getExcept());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1IPBlockBuilder(V1IPBlock instance) {
@@ -31,10 +31,10 @@ public class V1IPBlockBuilder extends V1IPBlockFluentImpl<V1IPBlockBuilder> impl
   }
   public V1IPBlockBuilder(V1IPBlock instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCidr(instance.getCidr());
-
-    this.withExcept(instance.getExcept());
-
+    if (instance != null) {
+      this.withCidr(instance.getCidr());
+      this.withExcept(instance.getExcept());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1IPBlockFluent<?> fluent;

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,14 +20,14 @@ public interface V1PodFailurePolicyOnExitCodesRequirementFluent<A extends V1PodF
   public String getOperator();
   public A withOperator(String operator);
   public Boolean hasOperator();
-  public A addToValues(Integer index,Integer item);
-  public A setToValues(Integer index,Integer item);
+  public A addToValues(int index,Integer item);
+  public A setToValues(int index,Integer item);
   public A addToValues(java.lang.Integer... items);
   public A addAllToValues(Collection<Integer> items);
   public A removeFromValues(java.lang.Integer... items);
   public A removeAllFromValues(Collection<Integer> items);
   public List<Integer> getValues();
-  public Integer getValue(Integer index);
+  public Integer getValue(int index);
   public Integer getFirstValue();
   public Integer getLastValue();
   public Integer getMatchingValue(Predicate<Integer> predicate);

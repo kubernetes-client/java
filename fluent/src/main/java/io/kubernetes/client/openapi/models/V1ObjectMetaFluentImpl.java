@@ -12,7 +12,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.time.OffsetDateTime;
 import java.lang.Long;
 import java.util.Collection;
@@ -27,36 +26,23 @@ import java.util.Map;
   public V1ObjectMetaFluentImpl() {
   }
   public V1ObjectMetaFluentImpl(V1ObjectMeta instance) {
-    this.withAnnotations(instance.getAnnotations());
-
-    this.withCreationTimestamp(instance.getCreationTimestamp());
-
-    this.withDeletionGracePeriodSeconds(instance.getDeletionGracePeriodSeconds());
-
-    this.withDeletionTimestamp(instance.getDeletionTimestamp());
-
-    this.withFinalizers(instance.getFinalizers());
-
-    this.withGenerateName(instance.getGenerateName());
-
-    this.withGeneration(instance.getGeneration());
-
-    this.withLabels(instance.getLabels());
-
-    this.withManagedFields(instance.getManagedFields());
-
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withOwnerReferences(instance.getOwnerReferences());
-
-    this.withResourceVersion(instance.getResourceVersion());
-
-    this.withSelfLink(instance.getSelfLink());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withAnnotations(instance.getAnnotations());
+      this.withCreationTimestamp(instance.getCreationTimestamp());
+      this.withDeletionGracePeriodSeconds(instance.getDeletionGracePeriodSeconds());
+      this.withDeletionTimestamp(instance.getDeletionTimestamp());
+      this.withFinalizers(instance.getFinalizers());
+      this.withGenerateName(instance.getGenerateName());
+      this.withGeneration(instance.getGeneration());
+      this.withLabels(instance.getLabels());
+      this.withManagedFields(instance.getManagedFields());
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withOwnerReferences(instance.getOwnerReferences());
+      this.withResourceVersion(instance.getResourceVersion());
+      this.withSelfLink(instance.getSelfLink());
+      this.withUid(instance.getUid());
+    }
   }
   private Map<String,String> annotations;
   private OffsetDateTime creationTimestamp;
@@ -125,12 +111,12 @@ import java.util.Map;
   public Boolean hasDeletionTimestamp() {
     return this.deletionTimestamp != null;
   }
-  public A addToFinalizers(Integer index,String item) {
+  public A addToFinalizers(int index,String item) {
     if (this.finalizers == null) {this.finalizers = new ArrayList<String>();}
     this.finalizers.add(index, item);
     return (A)this;
   }
-  public A setToFinalizers(Integer index,String item) {
+  public A setToFinalizers(int index,String item) {
     if (this.finalizers == null) {this.finalizers = new ArrayList<String>();}
     this.finalizers.set(index, item); return (A)this;
   }
@@ -151,7 +137,7 @@ import java.util.Map;
   public List<String> getFinalizers() {
     return this.finalizers;
   }
-  public String getFinalizer(Integer index) {
+  public String getFinalizer(int index) {
     return this.finalizers.get(index);
   }
   public String getFirstFinalizer() {
@@ -170,7 +156,7 @@ import java.util.Map;
     if (finalizers != null) {this.finalizers = new ArrayList(); for (String item : finalizers){this.addToFinalizers(item);}} else { this.finalizers = null;} return (A) this;
   }
   public A withFinalizers(java.lang.String... finalizers) {
-    if (this.finalizers != null) {this.finalizers.clear();}
+    if (this.finalizers != null) {this.finalizers.clear(); _visitables.remove("finalizers"); }
     if (finalizers != null) {for (String item :finalizers){ this.addToFinalizers(item);}} return (A) this;
   }
   public Boolean hasFinalizers() {
@@ -219,16 +205,17 @@ import java.util.Map;
   public Boolean hasLabels() {
     return this.labels != null;
   }
-  public A addToManagedFields(Integer index,V1ManagedFieldsEntry item) {
-    if (this.managedFields == null) {this.managedFields = new ArrayList<V1ManagedFieldsEntryBuilder>();}
-    V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);_visitables.get("managedFields").add(index >= 0 ? index : _visitables.get("managedFields").size(), builder);this.managedFields.add(index >= 0 ? index : managedFields.size(), builder); return (A)this;
-  }
-  public A setToManagedFields(Integer index,V1ManagedFieldsEntry item) {
+  public A addToManagedFields(int index,V1ManagedFieldsEntry item) {
     if (this.managedFields == null) {this.managedFields = new ArrayList<V1ManagedFieldsEntryBuilder>();}
     V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
-    if (index < 0 || index >= _visitables.get("managedFields").size()) { _visitables.get("managedFields").add(builder); } else { _visitables.get("managedFields").set(index, builder);}
-    if (index < 0 || index >= managedFields.size()) { managedFields.add(builder); } else { managedFields.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= managedFields.size()) { _visitables.get("managedFields").add(builder); managedFields.add(builder); } else { _visitables.get("managedFields").add(index, builder); managedFields.add(index, builder);}
+    return (A)this;
+  }
+  public A setToManagedFields(int index,V1ManagedFieldsEntry item) {
+    if (this.managedFields == null) {this.managedFields = new ArrayList<V1ManagedFieldsEntryBuilder>();}
+    V1ManagedFieldsEntryBuilder builder = new V1ManagedFieldsEntryBuilder(item);
+    if (index < 0 || index >= managedFields.size()) { _visitables.get("managedFields").add(builder); managedFields.add(builder); } else { _visitables.get("managedFields").set(index, builder); managedFields.set(index, builder);}
+    return (A)this;
   }
   public A addToManagedFields(io.kubernetes.client.openapi.models.V1ManagedFieldsEntry... items) {
     if (this.managedFields == null) {this.managedFields = new ArrayList<V1ManagedFieldsEntryBuilder>();}
@@ -269,7 +256,7 @@ import java.util.Map;
   public List<V1ManagedFieldsEntry> buildManagedFields() {
     return managedFields != null ? build(managedFields) : null;
   }
-  public V1ManagedFieldsEntry buildManagedField(Integer index) {
+  public V1ManagedFieldsEntry buildManagedField(int index) {
     return this.managedFields.get(index).build();
   }
   public V1ManagedFieldsEntry buildFirstManagedField() {
@@ -285,39 +272,39 @@ import java.util.Map;
     for (V1ManagedFieldsEntryBuilder item: managedFields) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withManagedFields(List<V1ManagedFieldsEntry> managedFields) {
-    if (this.managedFields != null) { _visitables.get("managedFields").removeAll(this.managedFields);}
+    if (this.managedFields != null) { _visitables.get("managedFields").clear();}
     if (managedFields != null) {this.managedFields = new ArrayList(); for (V1ManagedFieldsEntry item : managedFields){this.addToManagedFields(item);}} else { this.managedFields = null;} return (A) this;
   }
   public A withManagedFields(io.kubernetes.client.openapi.models.V1ManagedFieldsEntry... managedFields) {
-    if (this.managedFields != null) {this.managedFields.clear();}
+    if (this.managedFields != null) {this.managedFields.clear(); _visitables.remove("managedFields"); }
     if (managedFields != null) {for (V1ManagedFieldsEntry item :managedFields){ this.addToManagedFields(item);}} return (A) this;
   }
   public Boolean hasManagedFields() {
     return managedFields != null && !managedFields.isEmpty();
   }
-  public V1ObjectMetaFluent.ManagedFieldsNested<A> addNewManagedField() {
+  public V1ObjectMetaFluentImpl.ManagedFieldsNested<A> addNewManagedField() {
     return new V1ObjectMetaFluentImpl.ManagedFieldsNestedImpl();
   }
-  public V1ObjectMetaFluent.ManagedFieldsNested<A> addNewManagedFieldLike(V1ManagedFieldsEntry item) {
+  public V1ObjectMetaFluentImpl.ManagedFieldsNested<A> addNewManagedFieldLike(V1ManagedFieldsEntry item) {
     return new V1ObjectMetaFluentImpl.ManagedFieldsNestedImpl(-1, item);
   }
-  public V1ObjectMetaFluent.ManagedFieldsNested<A> setNewManagedFieldLike(Integer index,V1ManagedFieldsEntry item) {
+  public V1ObjectMetaFluentImpl.ManagedFieldsNested<A> setNewManagedFieldLike(int index,V1ManagedFieldsEntry item) {
     return new V1ObjectMetaFluentImpl.ManagedFieldsNestedImpl(index, item);
   }
-  public V1ObjectMetaFluent.ManagedFieldsNested<A> editManagedField(Integer index) {
+  public V1ObjectMetaFluentImpl.ManagedFieldsNested<A> editManagedField(int index) {
     if (managedFields.size() <= index) throw new RuntimeException("Can't edit managedFields. Index exceeds size.");
     return setNewManagedFieldLike(index, buildManagedField(index));
   }
-  public V1ObjectMetaFluent.ManagedFieldsNested<A> editFirstManagedField() {
+  public V1ObjectMetaFluentImpl.ManagedFieldsNested<A> editFirstManagedField() {
     if (managedFields.size() == 0) throw new RuntimeException("Can't edit first managedFields. The list is empty.");
     return setNewManagedFieldLike(0, buildManagedField(0));
   }
-  public V1ObjectMetaFluent.ManagedFieldsNested<A> editLastManagedField() {
+  public V1ObjectMetaFluentImpl.ManagedFieldsNested<A> editLastManagedField() {
     int index = managedFields.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last managedFields. The list is empty.");
     return setNewManagedFieldLike(index, buildManagedField(index));
   }
-  public V1ObjectMetaFluent.ManagedFieldsNested<A> editMatchingManagedField(Predicate<V1ManagedFieldsEntryBuilder> predicate) {
+  public V1ObjectMetaFluentImpl.ManagedFieldsNested<A> editMatchingManagedField(Predicate<V1ManagedFieldsEntryBuilder> predicate) {
     int index = -1;
     for (int i=0;i<managedFields.size();i++) { 
     if (predicate.test(managedFields.get(i))) {index = i; break;}
@@ -343,16 +330,17 @@ import java.util.Map;
   public Boolean hasNamespace() {
     return this.namespace != null;
   }
-  public A addToOwnerReferences(Integer index,V1OwnerReference item) {
-    if (this.ownerReferences == null) {this.ownerReferences = new ArrayList<V1OwnerReferenceBuilder>();}
-    V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);_visitables.get("ownerReferences").add(index >= 0 ? index : _visitables.get("ownerReferences").size(), builder);this.ownerReferences.add(index >= 0 ? index : ownerReferences.size(), builder); return (A)this;
-  }
-  public A setToOwnerReferences(Integer index,V1OwnerReference item) {
+  public A addToOwnerReferences(int index,V1OwnerReference item) {
     if (this.ownerReferences == null) {this.ownerReferences = new ArrayList<V1OwnerReferenceBuilder>();}
     V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
-    if (index < 0 || index >= _visitables.get("ownerReferences").size()) { _visitables.get("ownerReferences").add(builder); } else { _visitables.get("ownerReferences").set(index, builder);}
-    if (index < 0 || index >= ownerReferences.size()) { ownerReferences.add(builder); } else { ownerReferences.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= ownerReferences.size()) { _visitables.get("ownerReferences").add(builder); ownerReferences.add(builder); } else { _visitables.get("ownerReferences").add(index, builder); ownerReferences.add(index, builder);}
+    return (A)this;
+  }
+  public A setToOwnerReferences(int index,V1OwnerReference item) {
+    if (this.ownerReferences == null) {this.ownerReferences = new ArrayList<V1OwnerReferenceBuilder>();}
+    V1OwnerReferenceBuilder builder = new V1OwnerReferenceBuilder(item);
+    if (index < 0 || index >= ownerReferences.size()) { _visitables.get("ownerReferences").add(builder); ownerReferences.add(builder); } else { _visitables.get("ownerReferences").set(index, builder); ownerReferences.set(index, builder);}
+    return (A)this;
   }
   public A addToOwnerReferences(io.kubernetes.client.openapi.models.V1OwnerReference... items) {
     if (this.ownerReferences == null) {this.ownerReferences = new ArrayList<V1OwnerReferenceBuilder>();}
@@ -393,7 +381,7 @@ import java.util.Map;
   public List<V1OwnerReference> buildOwnerReferences() {
     return ownerReferences != null ? build(ownerReferences) : null;
   }
-  public V1OwnerReference buildOwnerReference(Integer index) {
+  public V1OwnerReference buildOwnerReference(int index) {
     return this.ownerReferences.get(index).build();
   }
   public V1OwnerReference buildFirstOwnerReference() {
@@ -409,39 +397,39 @@ import java.util.Map;
     for (V1OwnerReferenceBuilder item: ownerReferences) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withOwnerReferences(List<V1OwnerReference> ownerReferences) {
-    if (this.ownerReferences != null) { _visitables.get("ownerReferences").removeAll(this.ownerReferences);}
+    if (this.ownerReferences != null) { _visitables.get("ownerReferences").clear();}
     if (ownerReferences != null) {this.ownerReferences = new ArrayList(); for (V1OwnerReference item : ownerReferences){this.addToOwnerReferences(item);}} else { this.ownerReferences = null;} return (A) this;
   }
   public A withOwnerReferences(io.kubernetes.client.openapi.models.V1OwnerReference... ownerReferences) {
-    if (this.ownerReferences != null) {this.ownerReferences.clear();}
+    if (this.ownerReferences != null) {this.ownerReferences.clear(); _visitables.remove("ownerReferences"); }
     if (ownerReferences != null) {for (V1OwnerReference item :ownerReferences){ this.addToOwnerReferences(item);}} return (A) this;
   }
   public Boolean hasOwnerReferences() {
     return ownerReferences != null && !ownerReferences.isEmpty();
   }
-  public V1ObjectMetaFluent.OwnerReferencesNested<A> addNewOwnerReference() {
+  public V1ObjectMetaFluentImpl.OwnerReferencesNested<A> addNewOwnerReference() {
     return new V1ObjectMetaFluentImpl.OwnerReferencesNestedImpl();
   }
-  public V1ObjectMetaFluent.OwnerReferencesNested<A> addNewOwnerReferenceLike(V1OwnerReference item) {
+  public V1ObjectMetaFluentImpl.OwnerReferencesNested<A> addNewOwnerReferenceLike(V1OwnerReference item) {
     return new V1ObjectMetaFluentImpl.OwnerReferencesNestedImpl(-1, item);
   }
-  public V1ObjectMetaFluent.OwnerReferencesNested<A> setNewOwnerReferenceLike(Integer index,V1OwnerReference item) {
+  public V1ObjectMetaFluentImpl.OwnerReferencesNested<A> setNewOwnerReferenceLike(int index,V1OwnerReference item) {
     return new V1ObjectMetaFluentImpl.OwnerReferencesNestedImpl(index, item);
   }
-  public V1ObjectMetaFluent.OwnerReferencesNested<A> editOwnerReference(Integer index) {
+  public V1ObjectMetaFluentImpl.OwnerReferencesNested<A> editOwnerReference(int index) {
     if (ownerReferences.size() <= index) throw new RuntimeException("Can't edit ownerReferences. Index exceeds size.");
     return setNewOwnerReferenceLike(index, buildOwnerReference(index));
   }
-  public V1ObjectMetaFluent.OwnerReferencesNested<A> editFirstOwnerReference() {
+  public V1ObjectMetaFluentImpl.OwnerReferencesNested<A> editFirstOwnerReference() {
     if (ownerReferences.size() == 0) throw new RuntimeException("Can't edit first ownerReferences. The list is empty.");
     return setNewOwnerReferenceLike(0, buildOwnerReference(0));
   }
-  public V1ObjectMetaFluent.OwnerReferencesNested<A> editLastOwnerReference() {
+  public V1ObjectMetaFluentImpl.OwnerReferencesNested<A> editLastOwnerReference() {
     int index = ownerReferences.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last ownerReferences. The list is empty.");
     return setNewOwnerReferenceLike(index, buildOwnerReference(index));
   }
-  public V1ObjectMetaFluent.OwnerReferencesNested<A> editMatchingOwnerReference(Predicate<V1OwnerReferenceBuilder> predicate) {
+  public V1ObjectMetaFluentImpl.OwnerReferencesNested<A> editMatchingOwnerReference(Predicate<V1OwnerReferenceBuilder> predicate) {
     int index = -1;
     for (int i=0;i<ownerReferences.size();i++) { 
     if (predicate.test(ownerReferences.get(i))) {index = i; break;}
@@ -479,22 +467,38 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ObjectMetaFluentImpl that = (V1ObjectMetaFluentImpl) o;
-    if (annotations != null ? !annotations.equals(that.annotations) :that.annotations != null) return false;
-    if (creationTimestamp != null ? !creationTimestamp.equals(that.creationTimestamp) :that.creationTimestamp != null) return false;
-    if (deletionGracePeriodSeconds != null ? !deletionGracePeriodSeconds.equals(that.deletionGracePeriodSeconds) :that.deletionGracePeriodSeconds != null) return false;
-    if (deletionTimestamp != null ? !deletionTimestamp.equals(that.deletionTimestamp) :that.deletionTimestamp != null) return false;
-    if (finalizers != null ? !finalizers.equals(that.finalizers) :that.finalizers != null) return false;
-    if (generateName != null ? !generateName.equals(that.generateName) :that.generateName != null) return false;
-    if (generation != null ? !generation.equals(that.generation) :that.generation != null) return false;
-    if (labels != null ? !labels.equals(that.labels) :that.labels != null) return false;
-    if (managedFields != null ? !managedFields.equals(that.managedFields) :that.managedFields != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (namespace != null ? !namespace.equals(that.namespace) :that.namespace != null) return false;
-    if (ownerReferences != null ? !ownerReferences.equals(that.ownerReferences) :that.ownerReferences != null) return false;
-    if (resourceVersion != null ? !resourceVersion.equals(that.resourceVersion) :that.resourceVersion != null) return false;
-    if (selfLink != null ? !selfLink.equals(that.selfLink) :that.selfLink != null) return false;
-    if (uid != null ? !uid.equals(that.uid) :that.uid != null) return false;
+    if (!java.util.Objects.equals(annotations, that.annotations)) return false;
+
+    if (!java.util.Objects.equals(creationTimestamp, that.creationTimestamp)) return false;
+
+    if (!java.util.Objects.equals(deletionGracePeriodSeconds, that.deletionGracePeriodSeconds)) return false;
+
+    if (!java.util.Objects.equals(deletionTimestamp, that.deletionTimestamp)) return false;
+
+    if (!java.util.Objects.equals(finalizers, that.finalizers)) return false;
+
+    if (!java.util.Objects.equals(generateName, that.generateName)) return false;
+
+    if (!java.util.Objects.equals(generation, that.generation)) return false;
+
+    if (!java.util.Objects.equals(labels, that.labels)) return false;
+
+    if (!java.util.Objects.equals(managedFields, that.managedFields)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
+
+    if (!java.util.Objects.equals(ownerReferences, that.ownerReferences)) return false;
+
+    if (!java.util.Objects.equals(resourceVersion, that.resourceVersion)) return false;
+
+    if (!java.util.Objects.equals(selfLink, that.selfLink)) return false;
+
+    if (!java.util.Objects.equals(uid, that.uid)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -511,18 +515,18 @@ import java.util.Map;
     if (generateName != null) { sb.append("generateName:"); sb.append(generateName + ","); }
     if (generation != null) { sb.append("generation:"); sb.append(generation + ","); }
     if (labels != null && !labels.isEmpty()) { sb.append("labels:"); sb.append(labels + ","); }
-    if (managedFields != null && !managedFields.isEmpty()) { sb.append("managedFields:"); sb.append(managedFields + ","); }
+    if (managedFields != null) { sb.append("managedFields:"); sb.append(managedFields + ","); }
     if (name != null) { sb.append("name:"); sb.append(name + ","); }
     if (namespace != null) { sb.append("namespace:"); sb.append(namespace + ","); }
-    if (ownerReferences != null && !ownerReferences.isEmpty()) { sb.append("ownerReferences:"); sb.append(ownerReferences + ","); }
+    if (ownerReferences != null) { sb.append("ownerReferences:"); sb.append(ownerReferences + ","); }
     if (resourceVersion != null) { sb.append("resourceVersion:"); sb.append(resourceVersion + ","); }
     if (selfLink != null) { sb.append("selfLink:"); sb.append(selfLink + ","); }
     if (uid != null) { sb.append("uid:"); sb.append(uid); }
     sb.append("}");
     return sb.toString();
   }
-  class ManagedFieldsNestedImpl<N> extends V1ManagedFieldsEntryFluentImpl<V1ObjectMetaFluent.ManagedFieldsNested<N>> implements V1ObjectMetaFluent.ManagedFieldsNested<N>,Nested<N>{
-    ManagedFieldsNestedImpl(Integer index,V1ManagedFieldsEntry item) {
+  class ManagedFieldsNestedImpl<N> extends V1ManagedFieldsEntryFluentImpl<V1ObjectMetaFluentImpl.ManagedFieldsNested<N>> implements V1ObjectMetaFluentImpl.ManagedFieldsNested<N>,Nested<N>{
+    ManagedFieldsNestedImpl(int index,V1ManagedFieldsEntry item) {
       this.index = index;
       this.builder = new V1ManagedFieldsEntryBuilder(this, item);
     }
@@ -531,7 +535,7 @@ import java.util.Map;
       this.builder = new V1ManagedFieldsEntryBuilder(this);
     }
     V1ManagedFieldsEntryBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ObjectMetaFluentImpl.this.setToManagedFields(index,builder.build());
     }
@@ -540,8 +544,8 @@ import java.util.Map;
     }
     
   }
-  class OwnerReferencesNestedImpl<N> extends V1OwnerReferenceFluentImpl<V1ObjectMetaFluent.OwnerReferencesNested<N>> implements V1ObjectMetaFluent.OwnerReferencesNested<N>,Nested<N>{
-    OwnerReferencesNestedImpl(Integer index,V1OwnerReference item) {
+  class OwnerReferencesNestedImpl<N> extends V1OwnerReferenceFluentImpl<V1ObjectMetaFluentImpl.OwnerReferencesNested<N>> implements V1ObjectMetaFluentImpl.OwnerReferencesNested<N>,Nested<N>{
+    OwnerReferencesNestedImpl(int index,V1OwnerReference item) {
       this.index = index;
       this.builder = new V1OwnerReferenceBuilder(this, item);
     }
@@ -550,7 +554,7 @@ import java.util.Map;
       this.builder = new V1OwnerReferenceBuilder(this);
     }
     V1OwnerReferenceBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ObjectMetaFluentImpl.this.setToOwnerReferences(index,builder.build());
     }

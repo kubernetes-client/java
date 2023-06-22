@@ -20,16 +20,13 @@ public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIV
   }
   public V1CSIVolumeSourceBuilder(V1CSIVolumeSourceFluent<?> fluent,V1CSIVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDriver(instance.getDriver());
-
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withNodePublishSecretRef(instance.getNodePublishSecretRef());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withVolumeAttributes(instance.getVolumeAttributes());
-
+    if (instance != null) {
+      fluent.withDriver(instance.getDriver());
+      fluent.withFsType(instance.getFsType());
+      fluent.withNodePublishSecretRef(instance.getNodePublishSecretRef());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withVolumeAttributes(instance.getVolumeAttributes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CSIVolumeSourceBuilder(V1CSIVolumeSource instance) {
@@ -37,16 +34,13 @@ public class V1CSIVolumeSourceBuilder extends V1CSIVolumeSourceFluentImpl<V1CSIV
   }
   public V1CSIVolumeSourceBuilder(V1CSIVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDriver(instance.getDriver());
-
-    this.withFsType(instance.getFsType());
-
-    this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withVolumeAttributes(instance.getVolumeAttributes());
-
+    if (instance != null) {
+      this.withDriver(instance.getDriver());
+      this.withFsType(instance.getFsType());
+      this.withNodePublishSecretRef(instance.getNodePublishSecretRef());
+      this.withReadOnly(instance.getReadOnly());
+      this.withVolumeAttributes(instance.getVolumeAttributes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CSIVolumeSourceFluent<?> fluent;

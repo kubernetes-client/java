@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1ClusterRoleBindingListFluent<A extends V1ClusterRoleBindingLi
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1ClusterRoleBinding item);
-  public A setToItems(Integer index,V1ClusterRoleBinding item);
+  public A addToItems(int index,V1ClusterRoleBinding item);
+  public A setToItems(int index,V1ClusterRoleBinding item);
   public A addToItems(io.kubernetes.client.openapi.models.V1ClusterRoleBinding... items);
   public A addAllToItems(Collection<V1ClusterRoleBinding> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1ClusterRoleBinding... items);
@@ -35,7 +35,7 @@ public interface V1ClusterRoleBindingListFluent<A extends V1ClusterRoleBindingLi
   @Deprecated
   public List<V1ClusterRoleBinding> getItems();
   public List<V1ClusterRoleBinding> buildItems();
-  public V1ClusterRoleBinding buildItem(Integer index);
+  public V1ClusterRoleBinding buildItem(int index);
   public V1ClusterRoleBinding buildFirstItem();
   public V1ClusterRoleBinding buildLastItem();
   public V1ClusterRoleBinding buildMatchingItem(Predicate<V1ClusterRoleBindingBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1ClusterRoleBindingListFluent<A extends V1ClusterRoleBindingLi
   public Boolean hasItems();
   public V1ClusterRoleBindingListFluent.ItemsNested<A> addNewItem();
   public V1ClusterRoleBindingListFluent.ItemsNested<A> addNewItemLike(V1ClusterRoleBinding item);
-  public V1ClusterRoleBindingListFluent.ItemsNested<A> setNewItemLike(Integer index,V1ClusterRoleBinding item);
-  public V1ClusterRoleBindingListFluent.ItemsNested<A> editItem(Integer index);
+  public V1ClusterRoleBindingListFluent.ItemsNested<A> setNewItemLike(int index,V1ClusterRoleBinding item);
+  public V1ClusterRoleBindingListFluent.ItemsNested<A> editItem(int index);
   public V1ClusterRoleBindingListFluent.ItemsNested<A> editFirstItem();
   public V1ClusterRoleBindingListFluent.ItemsNested<A> editLastItem();
   public V1ClusterRoleBindingListFluent.ItemsNested<A> editMatchingItem(Predicate<V1ClusterRoleBindingBuilder> predicate);

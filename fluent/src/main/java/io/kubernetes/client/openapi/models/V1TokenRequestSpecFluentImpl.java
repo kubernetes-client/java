@@ -5,7 +5,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
@@ -22,22 +21,21 @@ import java.lang.Boolean;
   public V1TokenRequestSpecFluentImpl() {
   }
   public V1TokenRequestSpecFluentImpl(V1TokenRequestSpec instance) {
-    this.withAudiences(instance.getAudiences());
-
-    this.withBoundObjectRef(instance.getBoundObjectRef());
-
-    this.withExpirationSeconds(instance.getExpirationSeconds());
-
+    if (instance != null) {
+      this.withAudiences(instance.getAudiences());
+      this.withBoundObjectRef(instance.getBoundObjectRef());
+      this.withExpirationSeconds(instance.getExpirationSeconds());
+    }
   }
   private List<String> audiences;
   private V1BoundObjectReferenceBuilder boundObjectRef;
   private Long expirationSeconds;
-  public A addToAudiences(Integer index,String item) {
+  public A addToAudiences(int index,String item) {
     if (this.audiences == null) {this.audiences = new ArrayList<String>();}
     this.audiences.add(index, item);
     return (A)this;
   }
-  public A setToAudiences(Integer index,String item) {
+  public A setToAudiences(int index,String item) {
     if (this.audiences == null) {this.audiences = new ArrayList<String>();}
     this.audiences.set(index, item); return (A)this;
   }
@@ -58,7 +56,7 @@ import java.lang.Boolean;
   public List<String> getAudiences() {
     return this.audiences;
   }
-  public String getAudience(Integer index) {
+  public String getAudience(int index) {
     return this.audiences.get(index);
   }
   public String getFirstAudience() {
@@ -77,7 +75,7 @@ import java.lang.Boolean;
     if (audiences != null) {this.audiences = new ArrayList(); for (String item : audiences){this.addToAudiences(item);}} else { this.audiences = null;} return (A) this;
   }
   public A withAudiences(java.lang.String... audiences) {
-    if (this.audiences != null) {this.audiences.clear();}
+    if (this.audiences != null) {this.audiences.clear(); _visitables.remove("audiences"); }
     if (audiences != null) {for (String item :audiences){ this.addToAudiences(item);}} return (A) this;
   }
   public Boolean hasAudiences() {
@@ -102,19 +100,19 @@ import java.lang.Boolean;
   public Boolean hasBoundObjectRef() {
     return this.boundObjectRef != null;
   }
-  public V1TokenRequestSpecFluent.BoundObjectRefNested<A> withNewBoundObjectRef() {
+  public V1TokenRequestSpecFluentImpl.BoundObjectRefNested<A> withNewBoundObjectRef() {
     return new V1TokenRequestSpecFluentImpl.BoundObjectRefNestedImpl();
   }
-  public V1TokenRequestSpecFluent.BoundObjectRefNested<A> withNewBoundObjectRefLike(V1BoundObjectReference item) {
+  public V1TokenRequestSpecFluentImpl.BoundObjectRefNested<A> withNewBoundObjectRefLike(V1BoundObjectReference item) {
     return new V1TokenRequestSpecFluentImpl.BoundObjectRefNestedImpl(item);
   }
-  public V1TokenRequestSpecFluent.BoundObjectRefNested<A> editBoundObjectRef() {
+  public V1TokenRequestSpecFluentImpl.BoundObjectRefNested<A> editBoundObjectRef() {
     return withNewBoundObjectRefLike(getBoundObjectRef());
   }
-  public V1TokenRequestSpecFluent.BoundObjectRefNested<A> editOrNewBoundObjectRef() {
+  public V1TokenRequestSpecFluentImpl.BoundObjectRefNested<A> editOrNewBoundObjectRef() {
     return withNewBoundObjectRefLike(getBoundObjectRef() != null ? getBoundObjectRef(): new V1BoundObjectReferenceBuilder().build());
   }
-  public V1TokenRequestSpecFluent.BoundObjectRefNested<A> editOrNewBoundObjectRefLike(V1BoundObjectReference item) {
+  public V1TokenRequestSpecFluentImpl.BoundObjectRefNested<A> editOrNewBoundObjectRefLike(V1BoundObjectReference item) {
     return withNewBoundObjectRefLike(getBoundObjectRef() != null ? getBoundObjectRef(): item);
   }
   public Long getExpirationSeconds() {
@@ -129,10 +127,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1TokenRequestSpecFluentImpl that = (V1TokenRequestSpecFluentImpl) o;
-    if (audiences != null ? !audiences.equals(that.audiences) :that.audiences != null) return false;
-    if (boundObjectRef != null ? !boundObjectRef.equals(that.boundObjectRef) :that.boundObjectRef != null) return false;
-    if (expirationSeconds != null ? !expirationSeconds.equals(that.expirationSeconds) :that.expirationSeconds != null) return false;
+    if (!java.util.Objects.equals(audiences, that.audiences)) return false;
+
+    if (!java.util.Objects.equals(boundObjectRef, that.boundObjectRef)) return false;
+
+    if (!java.util.Objects.equals(expirationSeconds, that.expirationSeconds)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -147,7 +149,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class BoundObjectRefNestedImpl<N> extends V1BoundObjectReferenceFluentImpl<V1TokenRequestSpecFluent.BoundObjectRefNested<N>> implements V1TokenRequestSpecFluent.BoundObjectRefNested<N>,Nested<N>{
+  class BoundObjectRefNestedImpl<N> extends V1BoundObjectReferenceFluentImpl<V1TokenRequestSpecFluentImpl.BoundObjectRefNested<N>> implements V1TokenRequestSpecFluentImpl.BoundObjectRefNested<N>,Nested<N>{
     BoundObjectRefNestedImpl(V1BoundObjectReference item) {
       this.builder = new V1BoundObjectReferenceBuilder(this, item);
     }

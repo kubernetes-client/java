@@ -14,18 +14,14 @@ import java.lang.Boolean;
   public V1QuobyteVolumeSourceFluentImpl() {
   }
   public V1QuobyteVolumeSourceFluentImpl(V1QuobyteVolumeSource instance) {
-    this.withGroup(instance.getGroup());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withRegistry(instance.getRegistry());
-
-    this.withTenant(instance.getTenant());
-
-    this.withUser(instance.getUser());
-
-    this.withVolume(instance.getVolume());
-
+    if (instance != null) {
+      this.withGroup(instance.getGroup());
+      this.withReadOnly(instance.getReadOnly());
+      this.withRegistry(instance.getRegistry());
+      this.withTenant(instance.getTenant());
+      this.withUser(instance.getUser());
+      this.withVolume(instance.getVolume());
+    }
   }
   private String group;
   private Boolean readOnly;
@@ -90,13 +86,20 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1QuobyteVolumeSourceFluentImpl that = (V1QuobyteVolumeSourceFluentImpl) o;
-    if (group != null ? !group.equals(that.group) :that.group != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (registry != null ? !registry.equals(that.registry) :that.registry != null) return false;
-    if (tenant != null ? !tenant.equals(that.tenant) :that.tenant != null) return false;
-    if (user != null ? !user.equals(that.user) :that.user != null) return false;
-    if (volume != null ? !volume.equals(that.volume) :that.volume != null) return false;
+    if (!java.util.Objects.equals(group, that.group)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(registry, that.registry)) return false;
+
+    if (!java.util.Objects.equals(tenant, that.tenant)) return false;
+
+    if (!java.util.Objects.equals(user, that.user)) return false;
+
+    if (!java.util.Objects.equals(volume, that.volume)) return false;
+
     return true;
   }
   public int hashCode() {

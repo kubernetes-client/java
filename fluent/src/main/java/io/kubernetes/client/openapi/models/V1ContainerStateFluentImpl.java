@@ -16,12 +16,11 @@ import java.lang.Object;
   public V1ContainerStateFluentImpl() {
   }
   public V1ContainerStateFluentImpl(V1ContainerState instance) {
-    this.withRunning(instance.getRunning());
-
-    this.withTerminated(instance.getTerminated());
-
-    this.withWaiting(instance.getWaiting());
-
+    if (instance != null) {
+      this.withRunning(instance.getRunning());
+      this.withTerminated(instance.getTerminated());
+      this.withWaiting(instance.getWaiting());
+    }
   }
   private V1ContainerStateRunningBuilder running;
   private V1ContainerStateTerminatedBuilder terminated;
@@ -45,19 +44,19 @@ import java.lang.Object;
   public Boolean hasRunning() {
     return this.running != null;
   }
-  public V1ContainerStateFluent.RunningNested<A> withNewRunning() {
+  public V1ContainerStateFluentImpl.RunningNested<A> withNewRunning() {
     return new V1ContainerStateFluentImpl.RunningNestedImpl();
   }
-  public V1ContainerStateFluent.RunningNested<A> withNewRunningLike(V1ContainerStateRunning item) {
+  public V1ContainerStateFluentImpl.RunningNested<A> withNewRunningLike(V1ContainerStateRunning item) {
     return new V1ContainerStateFluentImpl.RunningNestedImpl(item);
   }
-  public V1ContainerStateFluent.RunningNested<A> editRunning() {
+  public V1ContainerStateFluentImpl.RunningNested<A> editRunning() {
     return withNewRunningLike(getRunning());
   }
-  public V1ContainerStateFluent.RunningNested<A> editOrNewRunning() {
+  public V1ContainerStateFluentImpl.RunningNested<A> editOrNewRunning() {
     return withNewRunningLike(getRunning() != null ? getRunning(): new V1ContainerStateRunningBuilder().build());
   }
-  public V1ContainerStateFluent.RunningNested<A> editOrNewRunningLike(V1ContainerStateRunning item) {
+  public V1ContainerStateFluentImpl.RunningNested<A> editOrNewRunningLike(V1ContainerStateRunning item) {
     return withNewRunningLike(getRunning() != null ? getRunning(): item);
   }
   
@@ -79,19 +78,19 @@ import java.lang.Object;
   public Boolean hasTerminated() {
     return this.terminated != null;
   }
-  public V1ContainerStateFluent.TerminatedNested<A> withNewTerminated() {
+  public V1ContainerStateFluentImpl.TerminatedNested<A> withNewTerminated() {
     return new V1ContainerStateFluentImpl.TerminatedNestedImpl();
   }
-  public V1ContainerStateFluent.TerminatedNested<A> withNewTerminatedLike(V1ContainerStateTerminated item) {
+  public V1ContainerStateFluentImpl.TerminatedNested<A> withNewTerminatedLike(V1ContainerStateTerminated item) {
     return new V1ContainerStateFluentImpl.TerminatedNestedImpl(item);
   }
-  public V1ContainerStateFluent.TerminatedNested<A> editTerminated() {
+  public V1ContainerStateFluentImpl.TerminatedNested<A> editTerminated() {
     return withNewTerminatedLike(getTerminated());
   }
-  public V1ContainerStateFluent.TerminatedNested<A> editOrNewTerminated() {
+  public V1ContainerStateFluentImpl.TerminatedNested<A> editOrNewTerminated() {
     return withNewTerminatedLike(getTerminated() != null ? getTerminated(): new V1ContainerStateTerminatedBuilder().build());
   }
-  public V1ContainerStateFluent.TerminatedNested<A> editOrNewTerminatedLike(V1ContainerStateTerminated item) {
+  public V1ContainerStateFluentImpl.TerminatedNested<A> editOrNewTerminatedLike(V1ContainerStateTerminated item) {
     return withNewTerminatedLike(getTerminated() != null ? getTerminated(): item);
   }
   
@@ -113,28 +112,32 @@ import java.lang.Object;
   public Boolean hasWaiting() {
     return this.waiting != null;
   }
-  public V1ContainerStateFluent.WaitingNested<A> withNewWaiting() {
+  public V1ContainerStateFluentImpl.WaitingNested<A> withNewWaiting() {
     return new V1ContainerStateFluentImpl.WaitingNestedImpl();
   }
-  public V1ContainerStateFluent.WaitingNested<A> withNewWaitingLike(V1ContainerStateWaiting item) {
+  public V1ContainerStateFluentImpl.WaitingNested<A> withNewWaitingLike(V1ContainerStateWaiting item) {
     return new V1ContainerStateFluentImpl.WaitingNestedImpl(item);
   }
-  public V1ContainerStateFluent.WaitingNested<A> editWaiting() {
+  public V1ContainerStateFluentImpl.WaitingNested<A> editWaiting() {
     return withNewWaitingLike(getWaiting());
   }
-  public V1ContainerStateFluent.WaitingNested<A> editOrNewWaiting() {
+  public V1ContainerStateFluentImpl.WaitingNested<A> editOrNewWaiting() {
     return withNewWaitingLike(getWaiting() != null ? getWaiting(): new V1ContainerStateWaitingBuilder().build());
   }
-  public V1ContainerStateFluent.WaitingNested<A> editOrNewWaitingLike(V1ContainerStateWaiting item) {
+  public V1ContainerStateFluentImpl.WaitingNested<A> editOrNewWaitingLike(V1ContainerStateWaiting item) {
     return withNewWaitingLike(getWaiting() != null ? getWaiting(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ContainerStateFluentImpl that = (V1ContainerStateFluentImpl) o;
-    if (running != null ? !running.equals(that.running) :that.running != null) return false;
-    if (terminated != null ? !terminated.equals(that.terminated) :that.terminated != null) return false;
-    if (waiting != null ? !waiting.equals(that.waiting) :that.waiting != null) return false;
+    if (!java.util.Objects.equals(running, that.running)) return false;
+
+    if (!java.util.Objects.equals(terminated, that.terminated)) return false;
+
+    if (!java.util.Objects.equals(waiting, that.waiting)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -149,7 +152,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class RunningNestedImpl<N> extends V1ContainerStateRunningFluentImpl<V1ContainerStateFluent.RunningNested<N>> implements V1ContainerStateFluent.RunningNested<N>,Nested<N>{
+  class RunningNestedImpl<N> extends V1ContainerStateRunningFluentImpl<V1ContainerStateFluentImpl.RunningNested<N>> implements V1ContainerStateFluentImpl.RunningNested<N>,Nested<N>{
     RunningNestedImpl(V1ContainerStateRunning item) {
       this.builder = new V1ContainerStateRunningBuilder(this, item);
     }
@@ -165,7 +168,7 @@ import java.lang.Object;
     }
     
   }
-  class TerminatedNestedImpl<N> extends V1ContainerStateTerminatedFluentImpl<V1ContainerStateFluent.TerminatedNested<N>> implements V1ContainerStateFluent.TerminatedNested<N>,Nested<N>{
+  class TerminatedNestedImpl<N> extends V1ContainerStateTerminatedFluentImpl<V1ContainerStateFluentImpl.TerminatedNested<N>> implements V1ContainerStateFluentImpl.TerminatedNested<N>,Nested<N>{
     TerminatedNestedImpl(V1ContainerStateTerminated item) {
       this.builder = new V1ContainerStateTerminatedBuilder(this, item);
     }
@@ -181,7 +184,7 @@ import java.lang.Object;
     }
     
   }
-  class WaitingNestedImpl<N> extends V1ContainerStateWaitingFluentImpl<V1ContainerStateFluent.WaitingNested<N>> implements V1ContainerStateFluent.WaitingNested<N>,Nested<N>{
+  class WaitingNestedImpl<N> extends V1ContainerStateWaitingFluentImpl<V1ContainerStateFluentImpl.WaitingNested<N>> implements V1ContainerStateFluentImpl.WaitingNested<N>,Nested<N>{
     WaitingNestedImpl(V1ContainerStateWaiting item) {
       this.builder = new V1ContainerStateWaitingBuilder(this, item);
     }

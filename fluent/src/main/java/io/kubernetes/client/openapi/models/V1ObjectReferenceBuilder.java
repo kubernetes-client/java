@@ -20,20 +20,15 @@ public class V1ObjectReferenceBuilder extends V1ObjectReferenceFluentImpl<V1Obje
   }
   public V1ObjectReferenceBuilder(V1ObjectReferenceFluent<?> fluent,V1ObjectReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withFieldPath(instance.getFieldPath());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
-    fluent.withNamespace(instance.getNamespace());
-
-    fluent.withResourceVersion(instance.getResourceVersion());
-
-    fluent.withUid(instance.getUid());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withFieldPath(instance.getFieldPath());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+      fluent.withNamespace(instance.getNamespace());
+      fluent.withResourceVersion(instance.getResourceVersion());
+      fluent.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ObjectReferenceBuilder(V1ObjectReference instance) {
@@ -41,20 +36,15 @@ public class V1ObjectReferenceBuilder extends V1ObjectReferenceFluentImpl<V1Obje
   }
   public V1ObjectReferenceBuilder(V1ObjectReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withFieldPath(instance.getFieldPath());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withResourceVersion(instance.getResourceVersion());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withFieldPath(instance.getFieldPath());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withResourceVersion(instance.getResourceVersion());
+      this.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ObjectReferenceFluent<?> fluent;

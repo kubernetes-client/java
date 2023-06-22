@@ -20,8 +20,9 @@ public class V1ScopeSelectorBuilder extends V1ScopeSelectorFluentImpl<V1ScopeSel
   }
   public V1ScopeSelectorBuilder(V1ScopeSelectorFluent<?> fluent,V1ScopeSelector instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMatchExpressions(instance.getMatchExpressions());
-
+    if (instance != null) {
+      fluent.withMatchExpressions(instance.getMatchExpressions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ScopeSelectorBuilder(V1ScopeSelector instance) {
@@ -29,8 +30,9 @@ public class V1ScopeSelectorBuilder extends V1ScopeSelectorFluentImpl<V1ScopeSel
   }
   public V1ScopeSelectorBuilder(V1ScopeSelector instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMatchExpressions(instance.getMatchExpressions());
-
+    if (instance != null) {
+      this.withMatchExpressions(instance.getMatchExpressions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ScopeSelectorFluent<?> fluent;

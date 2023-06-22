@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1PersistentVolumeClaimVolumeSourceFluentImpl() {
   }
   public V1PersistentVolumeClaimVolumeSourceFluentImpl(V1PersistentVolumeClaimVolumeSource instance) {
-    this.withClaimName(instance.getClaimName());
-
-    this.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      this.withClaimName(instance.getClaimName());
+      this.withReadOnly(instance.getReadOnly());
+    }
   }
   private String claimName;
   private Boolean readOnly;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PersistentVolumeClaimVolumeSourceFluentImpl that = (V1PersistentVolumeClaimVolumeSourceFluentImpl) o;
-    if (claimName != null ? !claimName.equals(that.claimName) :that.claimName != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
+    if (!java.util.Objects.equals(claimName, that.claimName)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
     return true;
   }
   public int hashCode() {

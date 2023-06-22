@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,14 +22,12 @@ import java.lang.Object;
   public V1PodDisruptionBudgetListFluentImpl() {
   }
   public V1PodDisruptionBudgetListFluentImpl(V1PodDisruptionBudgetList instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withItems(instance.getItems());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withItems(instance.getItems());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
   }
   private String apiVersion;
   private ArrayList<V1PodDisruptionBudgetBuilder> items;
@@ -45,16 +42,17 @@ import java.lang.Object;
   public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
-  public A addToItems(Integer index,V1PodDisruptionBudget item) {
-    if (this.items == null) {this.items = new ArrayList<V1PodDisruptionBudgetBuilder>();}
-    V1PodDisruptionBudgetBuilder builder = new V1PodDisruptionBudgetBuilder(item);_visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);this.items.add(index >= 0 ? index : items.size(), builder); return (A)this;
-  }
-  public A setToItems(Integer index,V1PodDisruptionBudget item) {
+  public A addToItems(int index,V1PodDisruptionBudget item) {
     if (this.items == null) {this.items = new ArrayList<V1PodDisruptionBudgetBuilder>();}
     V1PodDisruptionBudgetBuilder builder = new V1PodDisruptionBudgetBuilder(item);
-    if (index < 0 || index >= _visitables.get("items").size()) { _visitables.get("items").add(builder); } else { _visitables.get("items").set(index, builder);}
-    if (index < 0 || index >= items.size()) { items.add(builder); } else { items.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    return (A)this;
+  }
+  public A setToItems(int index,V1PodDisruptionBudget item) {
+    if (this.items == null) {this.items = new ArrayList<V1PodDisruptionBudgetBuilder>();}
+    V1PodDisruptionBudgetBuilder builder = new V1PodDisruptionBudgetBuilder(item);
+    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    return (A)this;
   }
   public A addToItems(io.kubernetes.client.openapi.models.V1PodDisruptionBudget... items) {
     if (this.items == null) {this.items = new ArrayList<V1PodDisruptionBudgetBuilder>();}
@@ -95,7 +93,7 @@ import java.lang.Object;
   public List<V1PodDisruptionBudget> buildItems() {
     return items != null ? build(items) : null;
   }
-  public V1PodDisruptionBudget buildItem(Integer index) {
+  public V1PodDisruptionBudget buildItem(int index) {
     return this.items.get(index).build();
   }
   public V1PodDisruptionBudget buildFirstItem() {
@@ -111,39 +109,39 @@ import java.lang.Object;
     for (V1PodDisruptionBudgetBuilder item: items) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withItems(List<V1PodDisruptionBudget> items) {
-    if (this.items != null) { _visitables.get("items").removeAll(this.items);}
+    if (this.items != null) { _visitables.get("items").clear();}
     if (items != null) {this.items = new ArrayList(); for (V1PodDisruptionBudget item : items){this.addToItems(item);}} else { this.items = null;} return (A) this;
   }
   public A withItems(io.kubernetes.client.openapi.models.V1PodDisruptionBudget... items) {
-    if (this.items != null) {this.items.clear();}
+    if (this.items != null) {this.items.clear(); _visitables.remove("items"); }
     if (items != null) {for (V1PodDisruptionBudget item :items){ this.addToItems(item);}} return (A) this;
   }
   public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
-  public V1PodDisruptionBudgetListFluent.ItemsNested<A> addNewItem() {
+  public V1PodDisruptionBudgetListFluentImpl.ItemsNested<A> addNewItem() {
     return new V1PodDisruptionBudgetListFluentImpl.ItemsNestedImpl();
   }
-  public V1PodDisruptionBudgetListFluent.ItemsNested<A> addNewItemLike(V1PodDisruptionBudget item) {
+  public V1PodDisruptionBudgetListFluentImpl.ItemsNested<A> addNewItemLike(V1PodDisruptionBudget item) {
     return new V1PodDisruptionBudgetListFluentImpl.ItemsNestedImpl(-1, item);
   }
-  public V1PodDisruptionBudgetListFluent.ItemsNested<A> setNewItemLike(Integer index,V1PodDisruptionBudget item) {
+  public V1PodDisruptionBudgetListFluentImpl.ItemsNested<A> setNewItemLike(int index,V1PodDisruptionBudget item) {
     return new V1PodDisruptionBudgetListFluentImpl.ItemsNestedImpl(index, item);
   }
-  public V1PodDisruptionBudgetListFluent.ItemsNested<A> editItem(Integer index) {
+  public V1PodDisruptionBudgetListFluentImpl.ItemsNested<A> editItem(int index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
-  public V1PodDisruptionBudgetListFluent.ItemsNested<A> editFirstItem() {
+  public V1PodDisruptionBudgetListFluentImpl.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
-  public V1PodDisruptionBudgetListFluent.ItemsNested<A> editLastItem() {
+  public V1PodDisruptionBudgetListFluentImpl.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
-  public V1PodDisruptionBudgetListFluent.ItemsNested<A> editMatchingItem(Predicate<V1PodDisruptionBudgetBuilder> predicate) {
+  public V1PodDisruptionBudgetListFluentImpl.ItemsNested<A> editMatchingItem(Predicate<V1PodDisruptionBudgetBuilder> predicate) {
     int index = -1;
     for (int i=0;i<items.size();i++) { 
     if (predicate.test(items.get(i))) {index = i; break;}
@@ -179,29 +177,34 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1PodDisruptionBudgetListFluent.MetadataNested<A> withNewMetadata() {
+  public V1PodDisruptionBudgetListFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1PodDisruptionBudgetListFluentImpl.MetadataNestedImpl();
   }
-  public V1PodDisruptionBudgetListFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+  public V1PodDisruptionBudgetListFluentImpl.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
     return new V1PodDisruptionBudgetListFluentImpl.MetadataNestedImpl(item);
   }
-  public V1PodDisruptionBudgetListFluent.MetadataNested<A> editMetadata() {
+  public V1PodDisruptionBudgetListFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1PodDisruptionBudgetListFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1PodDisruptionBudgetListFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ListMetaBuilder().build());
   }
-  public V1PodDisruptionBudgetListFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
+  public V1PodDisruptionBudgetListFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodDisruptionBudgetListFluentImpl that = (V1PodDisruptionBudgetListFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (items != null ? !items.equals(that.items) :that.items != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(items, that.items)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -211,14 +214,14 @@ import java.lang.Object;
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (items != null && !items.isEmpty()) { sb.append("items:"); sb.append(items + ","); }
+    if (items != null) { sb.append("items:"); sb.append(items + ","); }
     if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
     if (metadata != null) { sb.append("metadata:"); sb.append(metadata); }
     sb.append("}");
     return sb.toString();
   }
-  class ItemsNestedImpl<N> extends V1PodDisruptionBudgetFluentImpl<V1PodDisruptionBudgetListFluent.ItemsNested<N>> implements V1PodDisruptionBudgetListFluent.ItemsNested<N>,Nested<N>{
-    ItemsNestedImpl(Integer index,V1PodDisruptionBudget item) {
+  class ItemsNestedImpl<N> extends V1PodDisruptionBudgetFluentImpl<V1PodDisruptionBudgetListFluentImpl.ItemsNested<N>> implements V1PodDisruptionBudgetListFluentImpl.ItemsNested<N>,Nested<N>{
+    ItemsNestedImpl(int index,V1PodDisruptionBudget item) {
       this.index = index;
       this.builder = new V1PodDisruptionBudgetBuilder(this, item);
     }
@@ -227,7 +230,7 @@ import java.lang.Object;
       this.builder = new V1PodDisruptionBudgetBuilder(this);
     }
     V1PodDisruptionBudgetBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1PodDisruptionBudgetListFluentImpl.this.setToItems(index,builder.build());
     }
@@ -236,7 +239,7 @@ import java.lang.Object;
     }
     
   }
-  class MetadataNestedImpl<N> extends V1ListMetaFluentImpl<V1PodDisruptionBudgetListFluent.MetadataNested<N>> implements V1PodDisruptionBudgetListFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ListMetaFluentImpl<V1PodDisruptionBudgetListFluentImpl.MetadataNested<N>> implements V1PodDisruptionBudgetListFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }

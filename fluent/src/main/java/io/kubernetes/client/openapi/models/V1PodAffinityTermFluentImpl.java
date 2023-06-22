@@ -5,7 +5,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Collection;
@@ -21,14 +20,12 @@ import java.lang.Boolean;
   public V1PodAffinityTermFluentImpl() {
   }
   public V1PodAffinityTermFluentImpl(V1PodAffinityTerm instance) {
-    this.withLabelSelector(instance.getLabelSelector());
-
-    this.withNamespaceSelector(instance.getNamespaceSelector());
-
-    this.withNamespaces(instance.getNamespaces());
-
-    this.withTopologyKey(instance.getTopologyKey());
-
+    if (instance != null) {
+      this.withLabelSelector(instance.getLabelSelector());
+      this.withNamespaceSelector(instance.getNamespaceSelector());
+      this.withNamespaces(instance.getNamespaces());
+      this.withTopologyKey(instance.getTopologyKey());
+    }
   }
   private V1LabelSelectorBuilder labelSelector;
   private V1LabelSelectorBuilder namespaceSelector;
@@ -53,19 +50,19 @@ import java.lang.Boolean;
   public Boolean hasLabelSelector() {
     return this.labelSelector != null;
   }
-  public V1PodAffinityTermFluent.LabelSelectorNested<A> withNewLabelSelector() {
+  public V1PodAffinityTermFluentImpl.LabelSelectorNested<A> withNewLabelSelector() {
     return new V1PodAffinityTermFluentImpl.LabelSelectorNestedImpl();
   }
-  public V1PodAffinityTermFluent.LabelSelectorNested<A> withNewLabelSelectorLike(V1LabelSelector item) {
+  public V1PodAffinityTermFluentImpl.LabelSelectorNested<A> withNewLabelSelectorLike(V1LabelSelector item) {
     return new V1PodAffinityTermFluentImpl.LabelSelectorNestedImpl(item);
   }
-  public V1PodAffinityTermFluent.LabelSelectorNested<A> editLabelSelector() {
+  public V1PodAffinityTermFluentImpl.LabelSelectorNested<A> editLabelSelector() {
     return withNewLabelSelectorLike(getLabelSelector());
   }
-  public V1PodAffinityTermFluent.LabelSelectorNested<A> editOrNewLabelSelector() {
+  public V1PodAffinityTermFluentImpl.LabelSelectorNested<A> editOrNewLabelSelector() {
     return withNewLabelSelectorLike(getLabelSelector() != null ? getLabelSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1PodAffinityTermFluent.LabelSelectorNested<A> editOrNewLabelSelectorLike(V1LabelSelector item) {
+  public V1PodAffinityTermFluentImpl.LabelSelectorNested<A> editOrNewLabelSelectorLike(V1LabelSelector item) {
     return withNewLabelSelectorLike(getLabelSelector() != null ? getLabelSelector(): item);
   }
   
@@ -87,27 +84,27 @@ import java.lang.Boolean;
   public Boolean hasNamespaceSelector() {
     return this.namespaceSelector != null;
   }
-  public V1PodAffinityTermFluent.NamespaceSelectorNested<A> withNewNamespaceSelector() {
+  public V1PodAffinityTermFluentImpl.NamespaceSelectorNested<A> withNewNamespaceSelector() {
     return new V1PodAffinityTermFluentImpl.NamespaceSelectorNestedImpl();
   }
-  public V1PodAffinityTermFluent.NamespaceSelectorNested<A> withNewNamespaceSelectorLike(V1LabelSelector item) {
+  public V1PodAffinityTermFluentImpl.NamespaceSelectorNested<A> withNewNamespaceSelectorLike(V1LabelSelector item) {
     return new V1PodAffinityTermFluentImpl.NamespaceSelectorNestedImpl(item);
   }
-  public V1PodAffinityTermFluent.NamespaceSelectorNested<A> editNamespaceSelector() {
+  public V1PodAffinityTermFluentImpl.NamespaceSelectorNested<A> editNamespaceSelector() {
     return withNewNamespaceSelectorLike(getNamespaceSelector());
   }
-  public V1PodAffinityTermFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelector() {
+  public V1PodAffinityTermFluentImpl.NamespaceSelectorNested<A> editOrNewNamespaceSelector() {
     return withNewNamespaceSelectorLike(getNamespaceSelector() != null ? getNamespaceSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1PodAffinityTermFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelectorLike(V1LabelSelector item) {
+  public V1PodAffinityTermFluentImpl.NamespaceSelectorNested<A> editOrNewNamespaceSelectorLike(V1LabelSelector item) {
     return withNewNamespaceSelectorLike(getNamespaceSelector() != null ? getNamespaceSelector(): item);
   }
-  public A addToNamespaces(Integer index,String item) {
+  public A addToNamespaces(int index,String item) {
     if (this.namespaces == null) {this.namespaces = new ArrayList<String>();}
     this.namespaces.add(index, item);
     return (A)this;
   }
-  public A setToNamespaces(Integer index,String item) {
+  public A setToNamespaces(int index,String item) {
     if (this.namespaces == null) {this.namespaces = new ArrayList<String>();}
     this.namespaces.set(index, item); return (A)this;
   }
@@ -128,7 +125,7 @@ import java.lang.Boolean;
   public List<String> getNamespaces() {
     return this.namespaces;
   }
-  public String getNamespace(Integer index) {
+  public String getNamespace(int index) {
     return this.namespaces.get(index);
   }
   public String getFirstNamespace() {
@@ -147,7 +144,7 @@ import java.lang.Boolean;
     if (namespaces != null) {this.namespaces = new ArrayList(); for (String item : namespaces){this.addToNamespaces(item);}} else { this.namespaces = null;} return (A) this;
   }
   public A withNamespaces(java.lang.String... namespaces) {
-    if (this.namespaces != null) {this.namespaces.clear();}
+    if (this.namespaces != null) {this.namespaces.clear(); _visitables.remove("namespaces"); }
     if (namespaces != null) {for (String item :namespaces){ this.addToNamespaces(item);}} return (A) this;
   }
   public Boolean hasNamespaces() {
@@ -165,11 +162,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodAffinityTermFluentImpl that = (V1PodAffinityTermFluentImpl) o;
-    if (labelSelector != null ? !labelSelector.equals(that.labelSelector) :that.labelSelector != null) return false;
-    if (namespaceSelector != null ? !namespaceSelector.equals(that.namespaceSelector) :that.namespaceSelector != null) return false;
-    if (namespaces != null ? !namespaces.equals(that.namespaces) :that.namespaces != null) return false;
-    if (topologyKey != null ? !topologyKey.equals(that.topologyKey) :that.topologyKey != null) return false;
+    if (!java.util.Objects.equals(labelSelector, that.labelSelector)) return false;
+
+    if (!java.util.Objects.equals(namespaceSelector, that.namespaceSelector)) return false;
+
+    if (!java.util.Objects.equals(namespaces, that.namespaces)) return false;
+
+    if (!java.util.Objects.equals(topologyKey, that.topologyKey)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -185,7 +187,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class LabelSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1PodAffinityTermFluent.LabelSelectorNested<N>> implements V1PodAffinityTermFluent.LabelSelectorNested<N>,Nested<N>{
+  class LabelSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1PodAffinityTermFluentImpl.LabelSelectorNested<N>> implements V1PodAffinityTermFluentImpl.LabelSelectorNested<N>,Nested<N>{
     LabelSelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
@@ -201,7 +203,7 @@ import java.lang.Boolean;
     }
     
   }
-  class NamespaceSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1PodAffinityTermFluent.NamespaceSelectorNested<N>> implements V1PodAffinityTermFluent.NamespaceSelectorNested<N>,Nested<N>{
+  class NamespaceSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1PodAffinityTermFluentImpl.NamespaceSelectorNested<N>> implements V1PodAffinityTermFluentImpl.NamespaceSelectorNested<N>,Nested<N>{
     NamespaceSelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }

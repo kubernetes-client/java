@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1NodeListFluent<A extends V1NodeListFluent<A>> extends Fluent<
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1Node item);
-  public A setToItems(Integer index,V1Node item);
+  public A addToItems(int index,V1Node item);
+  public A setToItems(int index,V1Node item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Node... items);
   public A addAllToItems(Collection<V1Node> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Node... items);
@@ -35,7 +35,7 @@ public interface V1NodeListFluent<A extends V1NodeListFluent<A>> extends Fluent<
   @Deprecated
   public List<V1Node> getItems();
   public List<V1Node> buildItems();
-  public V1Node buildItem(Integer index);
+  public V1Node buildItem(int index);
   public V1Node buildFirstItem();
   public V1Node buildLastItem();
   public V1Node buildMatchingItem(Predicate<V1NodeBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1NodeListFluent<A extends V1NodeListFluent<A>> extends Fluent<
   public Boolean hasItems();
   public V1NodeListFluent.ItemsNested<A> addNewItem();
   public V1NodeListFluent.ItemsNested<A> addNewItemLike(V1Node item);
-  public V1NodeListFluent.ItemsNested<A> setNewItemLike(Integer index,V1Node item);
-  public V1NodeListFluent.ItemsNested<A> editItem(Integer index);
+  public V1NodeListFluent.ItemsNested<A> setNewItemLike(int index,V1Node item);
+  public V1NodeListFluent.ItemsNested<A> editItem(int index);
   public V1NodeListFluent.ItemsNested<A> editFirstItem();
   public V1NodeListFluent.ItemsNested<A> editLastItem();
   public V1NodeListFluent.ItemsNested<A> editMatchingItem(Predicate<V1NodeBuilder> predicate);

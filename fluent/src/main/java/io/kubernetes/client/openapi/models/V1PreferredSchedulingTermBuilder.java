@@ -20,10 +20,10 @@ public class V1PreferredSchedulingTermBuilder extends V1PreferredSchedulingTermF
   }
   public V1PreferredSchedulingTermBuilder(V1PreferredSchedulingTermFluent<?> fluent,V1PreferredSchedulingTerm instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPreference(instance.getPreference());
-
-    fluent.withWeight(instance.getWeight());
-
+    if (instance != null) {
+      fluent.withPreference(instance.getPreference());
+      fluent.withWeight(instance.getWeight());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PreferredSchedulingTermBuilder(V1PreferredSchedulingTerm instance) {
@@ -31,10 +31,10 @@ public class V1PreferredSchedulingTermBuilder extends V1PreferredSchedulingTermF
   }
   public V1PreferredSchedulingTermBuilder(V1PreferredSchedulingTerm instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPreference(instance.getPreference());
-
-    this.withWeight(instance.getWeight());
-
+    if (instance != null) {
+      this.withPreference(instance.getPreference());
+      this.withWeight(instance.getWeight());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PreferredSchedulingTermFluent<?> fluent;

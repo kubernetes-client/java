@@ -20,12 +20,11 @@ public class V1PortStatusBuilder extends V1PortStatusFluentImpl<V1PortStatusBuil
   }
   public V1PortStatusBuilder(V1PortStatusFluent<?> fluent,V1PortStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withError(instance.getError());
-
-    fluent.withPort(instance.getPort());
-
-    fluent.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      fluent.withError(instance.getError());
+      fluent.withPort(instance.getPort());
+      fluent.withProtocol(instance.getProtocol());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PortStatusBuilder(V1PortStatus instance) {
@@ -33,12 +32,11 @@ public class V1PortStatusBuilder extends V1PortStatusFluentImpl<V1PortStatusBuil
   }
   public V1PortStatusBuilder(V1PortStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withError(instance.getError());
-
-    this.withPort(instance.getPort());
-
-    this.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      this.withError(instance.getError());
+      this.withPort(instance.getPort());
+      this.withProtocol(instance.getProtocol());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PortStatusFluent<?> fluent;

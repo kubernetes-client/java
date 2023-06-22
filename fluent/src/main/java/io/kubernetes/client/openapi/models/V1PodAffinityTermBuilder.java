@@ -20,14 +20,12 @@ public class V1PodAffinityTermBuilder extends V1PodAffinityTermFluentImpl<V1PodA
   }
   public V1PodAffinityTermBuilder(V1PodAffinityTermFluent<?> fluent,V1PodAffinityTerm instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLabelSelector(instance.getLabelSelector());
-
-    fluent.withNamespaceSelector(instance.getNamespaceSelector());
-
-    fluent.withNamespaces(instance.getNamespaces());
-
-    fluent.withTopologyKey(instance.getTopologyKey());
-
+    if (instance != null) {
+      fluent.withLabelSelector(instance.getLabelSelector());
+      fluent.withNamespaceSelector(instance.getNamespaceSelector());
+      fluent.withNamespaces(instance.getNamespaces());
+      fluent.withTopologyKey(instance.getTopologyKey());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodAffinityTermBuilder(V1PodAffinityTerm instance) {
@@ -35,14 +33,12 @@ public class V1PodAffinityTermBuilder extends V1PodAffinityTermFluentImpl<V1PodA
   }
   public V1PodAffinityTermBuilder(V1PodAffinityTerm instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLabelSelector(instance.getLabelSelector());
-
-    this.withNamespaceSelector(instance.getNamespaceSelector());
-
-    this.withNamespaces(instance.getNamespaces());
-
-    this.withTopologyKey(instance.getTopologyKey());
-
+    if (instance != null) {
+      this.withLabelSelector(instance.getLabelSelector());
+      this.withNamespaceSelector(instance.getNamespaceSelector());
+      this.withNamespaces(instance.getNamespaces());
+      this.withTopologyKey(instance.getTopologyKey());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodAffinityTermFluent<?> fluent;

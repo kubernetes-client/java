@@ -20,16 +20,13 @@ public class V1CronJobBuilder extends V1CronJobFluentImpl<V1CronJobBuilder> impl
   }
   public V1CronJobBuilder(V1CronJobFluent<?> fluent,V1CronJob instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
-    fluent.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+      fluent.withStatus(instance.getStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CronJobBuilder(V1CronJob instance) {
@@ -37,16 +34,13 @@ public class V1CronJobBuilder extends V1CronJobFluentImpl<V1CronJobBuilder> impl
   }
   public V1CronJobBuilder(V1CronJob instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CronJobFluent<?> fluent;

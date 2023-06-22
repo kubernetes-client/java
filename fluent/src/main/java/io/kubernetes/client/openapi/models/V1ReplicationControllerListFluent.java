@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1ReplicationControllerListFluent<A extends V1ReplicationContro
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1ReplicationController item);
-  public A setToItems(Integer index,V1ReplicationController item);
+  public A addToItems(int index,V1ReplicationController item);
+  public A setToItems(int index,V1ReplicationController item);
   public A addToItems(io.kubernetes.client.openapi.models.V1ReplicationController... items);
   public A addAllToItems(Collection<V1ReplicationController> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1ReplicationController... items);
@@ -35,7 +35,7 @@ public interface V1ReplicationControllerListFluent<A extends V1ReplicationContro
   @Deprecated
   public List<V1ReplicationController> getItems();
   public List<V1ReplicationController> buildItems();
-  public V1ReplicationController buildItem(Integer index);
+  public V1ReplicationController buildItem(int index);
   public V1ReplicationController buildFirstItem();
   public V1ReplicationController buildLastItem();
   public V1ReplicationController buildMatchingItem(Predicate<V1ReplicationControllerBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1ReplicationControllerListFluent<A extends V1ReplicationContro
   public Boolean hasItems();
   public V1ReplicationControllerListFluent.ItemsNested<A> addNewItem();
   public V1ReplicationControllerListFluent.ItemsNested<A> addNewItemLike(V1ReplicationController item);
-  public V1ReplicationControllerListFluent.ItemsNested<A> setNewItemLike(Integer index,V1ReplicationController item);
-  public V1ReplicationControllerListFluent.ItemsNested<A> editItem(Integer index);
+  public V1ReplicationControllerListFluent.ItemsNested<A> setNewItemLike(int index,V1ReplicationController item);
+  public V1ReplicationControllerListFluent.ItemsNested<A> editItem(int index);
   public V1ReplicationControllerListFluent.ItemsNested<A> editFirstItem();
   public V1ReplicationControllerListFluent.ItemsNested<A> editLastItem();
   public V1ReplicationControllerListFluent.ItemsNested<A> editMatchingItem(Predicate<V1ReplicationControllerBuilder> predicate);

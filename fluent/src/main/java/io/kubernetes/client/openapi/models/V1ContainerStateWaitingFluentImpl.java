@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1ContainerStateWaitingFluentImpl() {
   }
   public V1ContainerStateWaitingFluentImpl(V1ContainerStateWaiting instance) {
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
+    if (instance != null) {
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+    }
   }
   private String message;
   private String reason;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ContainerStateWaitingFluentImpl that = (V1ContainerStateWaitingFluentImpl) o;
-    if (message != null ? !message.equals(that.message) :that.message != null) return false;
-    if (reason != null ? !reason.equals(that.reason) :that.reason != null) return false;
+    if (!java.util.Objects.equals(message, that.message)) return false;
+
+    if (!java.util.Objects.equals(reason, that.reason)) return false;
+
     return true;
   }
   public int hashCode() {

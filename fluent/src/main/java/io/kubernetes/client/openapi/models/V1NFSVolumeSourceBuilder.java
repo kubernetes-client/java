@@ -20,12 +20,11 @@ public class V1NFSVolumeSourceBuilder extends V1NFSVolumeSourceFluentImpl<V1NFSV
   }
   public V1NFSVolumeSourceBuilder(V1NFSVolumeSourceFluent<?> fluent,V1NFSVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPath(instance.getPath());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withServer(instance.getServer());
-
+    if (instance != null) {
+      fluent.withPath(instance.getPath());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withServer(instance.getServer());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NFSVolumeSourceBuilder(V1NFSVolumeSource instance) {
@@ -33,12 +32,11 @@ public class V1NFSVolumeSourceBuilder extends V1NFSVolumeSourceFluentImpl<V1NFSV
   }
   public V1NFSVolumeSourceBuilder(V1NFSVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPath(instance.getPath());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withServer(instance.getServer());
-
+    if (instance != null) {
+      this.withPath(instance.getPath());
+      this.withReadOnly(instance.getReadOnly());
+      this.withServer(instance.getServer());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NFSVolumeSourceFluent<?> fluent;

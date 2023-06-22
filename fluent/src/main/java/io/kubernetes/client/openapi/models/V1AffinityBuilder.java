@@ -20,12 +20,11 @@ public class V1AffinityBuilder extends V1AffinityFluentImpl<V1AffinityBuilder> i
   }
   public V1AffinityBuilder(V1AffinityFluent<?> fluent,V1Affinity instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withNodeAffinity(instance.getNodeAffinity());
-
-    fluent.withPodAffinity(instance.getPodAffinity());
-
-    fluent.withPodAntiAffinity(instance.getPodAntiAffinity());
-
+    if (instance != null) {
+      fluent.withNodeAffinity(instance.getNodeAffinity());
+      fluent.withPodAffinity(instance.getPodAffinity());
+      fluent.withPodAntiAffinity(instance.getPodAntiAffinity());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1AffinityBuilder(V1Affinity instance) {
@@ -33,12 +32,11 @@ public class V1AffinityBuilder extends V1AffinityFluentImpl<V1AffinityBuilder> i
   }
   public V1AffinityBuilder(V1Affinity instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withNodeAffinity(instance.getNodeAffinity());
-
-    this.withPodAffinity(instance.getPodAffinity());
-
-    this.withPodAntiAffinity(instance.getPodAntiAffinity());
-
+    if (instance != null) {
+      this.withNodeAffinity(instance.getNodeAffinity());
+      this.withPodAffinity(instance.getPodAffinity());
+      this.withPodAntiAffinity(instance.getPodAntiAffinity());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1AffinityFluent<?> fluent;

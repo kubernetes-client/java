@@ -15,14 +15,12 @@ import java.lang.Boolean;
   public V1ListMetaFluentImpl() {
   }
   public V1ListMetaFluentImpl(V1ListMeta instance) {
-    this.withContinue(instance.getContinue());
-
-    this.withRemainingItemCount(instance.getRemainingItemCount());
-
-    this.withResourceVersion(instance.getResourceVersion());
-
-    this.withSelfLink(instance.getSelfLink());
-
+    if (instance != null) {
+      this.withContinue(instance.getContinue());
+      this.withRemainingItemCount(instance.getRemainingItemCount());
+      this.withResourceVersion(instance.getResourceVersion());
+      this.withSelfLink(instance.getSelfLink());
+    }
   }
   private String _continue;
   private Long remainingItemCount;
@@ -67,11 +65,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ListMetaFluentImpl that = (V1ListMetaFluentImpl) o;
-    if (_continue != null ? !_continue.equals(that._continue) :that._continue != null) return false;
-    if (remainingItemCount != null ? !remainingItemCount.equals(that.remainingItemCount) :that.remainingItemCount != null) return false;
-    if (resourceVersion != null ? !resourceVersion.equals(that.resourceVersion) :that.resourceVersion != null) return false;
-    if (selfLink != null ? !selfLink.equals(that.selfLink) :that.selfLink != null) return false;
+    if (!java.util.Objects.equals(_continue, that._continue)) return false;
+
+    if (!java.util.Objects.equals(remainingItemCount, that.remainingItemCount)) return false;
+
+    if (!java.util.Objects.equals(resourceVersion, that.resourceVersion)) return false;
+
+    if (!java.util.Objects.equals(selfLink, that.selfLink)) return false;
+
     return true;
   }
   public int hashCode() {

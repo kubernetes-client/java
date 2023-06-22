@@ -16,14 +16,12 @@ import java.lang.Boolean;
   public V1EvictionFluentImpl() {
   }
   public V1EvictionFluentImpl(V1Eviction instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withDeleteOptions(instance.getDeleteOptions());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withDeleteOptions(instance.getDeleteOptions());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
   }
   private String apiVersion;
   private V1DeleteOptionsBuilder deleteOptions;
@@ -57,19 +55,19 @@ import java.lang.Boolean;
   public Boolean hasDeleteOptions() {
     return this.deleteOptions != null;
   }
-  public V1EvictionFluent.DeleteOptionsNested<A> withNewDeleteOptions() {
+  public V1EvictionFluentImpl.DeleteOptionsNested<A> withNewDeleteOptions() {
     return new V1EvictionFluentImpl.DeleteOptionsNestedImpl();
   }
-  public V1EvictionFluent.DeleteOptionsNested<A> withNewDeleteOptionsLike(V1DeleteOptions item) {
+  public V1EvictionFluentImpl.DeleteOptionsNested<A> withNewDeleteOptionsLike(V1DeleteOptions item) {
     return new V1EvictionFluentImpl.DeleteOptionsNestedImpl(item);
   }
-  public V1EvictionFluent.DeleteOptionsNested<A> editDeleteOptions() {
+  public V1EvictionFluentImpl.DeleteOptionsNested<A> editDeleteOptions() {
     return withNewDeleteOptionsLike(getDeleteOptions());
   }
-  public V1EvictionFluent.DeleteOptionsNested<A> editOrNewDeleteOptions() {
+  public V1EvictionFluentImpl.DeleteOptionsNested<A> editOrNewDeleteOptions() {
     return withNewDeleteOptionsLike(getDeleteOptions() != null ? getDeleteOptions(): new V1DeleteOptionsBuilder().build());
   }
-  public V1EvictionFluent.DeleteOptionsNested<A> editOrNewDeleteOptionsLike(V1DeleteOptions item) {
+  public V1EvictionFluentImpl.DeleteOptionsNested<A> editOrNewDeleteOptionsLike(V1DeleteOptions item) {
     return withNewDeleteOptionsLike(getDeleteOptions() != null ? getDeleteOptions(): item);
   }
   public String getKind() {
@@ -100,29 +98,34 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1EvictionFluent.MetadataNested<A> withNewMetadata() {
+  public V1EvictionFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1EvictionFluentImpl.MetadataNestedImpl();
   }
-  public V1EvictionFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1EvictionFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1EvictionFluentImpl.MetadataNestedImpl(item);
   }
-  public V1EvictionFluent.MetadataNested<A> editMetadata() {
+  public V1EvictionFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1EvictionFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1EvictionFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1EvictionFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1EvictionFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EvictionFluentImpl that = (V1EvictionFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (deleteOptions != null ? !deleteOptions.equals(that.deleteOptions) :that.deleteOptions != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(deleteOptions, that.deleteOptions)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -138,7 +141,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class DeleteOptionsNestedImpl<N> extends V1DeleteOptionsFluentImpl<V1EvictionFluent.DeleteOptionsNested<N>> implements V1EvictionFluent.DeleteOptionsNested<N>,Nested<N>{
+  class DeleteOptionsNestedImpl<N> extends V1DeleteOptionsFluentImpl<V1EvictionFluentImpl.DeleteOptionsNested<N>> implements V1EvictionFluentImpl.DeleteOptionsNested<N>,Nested<N>{
     DeleteOptionsNestedImpl(V1DeleteOptions item) {
       this.builder = new V1DeleteOptionsBuilder(this, item);
     }
@@ -154,7 +157,7 @@ import java.lang.Boolean;
     }
     
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1EvictionFluent.MetadataNested<N>> implements V1EvictionFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1EvictionFluentImpl.MetadataNested<N>> implements V1EvictionFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }

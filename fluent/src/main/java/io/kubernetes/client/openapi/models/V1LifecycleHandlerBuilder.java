@@ -20,12 +20,11 @@ public class V1LifecycleHandlerBuilder extends V1LifecycleHandlerFluentImpl<V1Li
   }
   public V1LifecycleHandlerBuilder(V1LifecycleHandlerFluent<?> fluent,V1LifecycleHandler instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withExec(instance.getExec());
-
-    fluent.withHttpGet(instance.getHttpGet());
-
-    fluent.withTcpSocket(instance.getTcpSocket());
-
+    if (instance != null) {
+      fluent.withExec(instance.getExec());
+      fluent.withHttpGet(instance.getHttpGet());
+      fluent.withTcpSocket(instance.getTcpSocket());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LifecycleHandlerBuilder(V1LifecycleHandler instance) {
@@ -33,12 +32,11 @@ public class V1LifecycleHandlerBuilder extends V1LifecycleHandlerFluentImpl<V1Li
   }
   public V1LifecycleHandlerBuilder(V1LifecycleHandler instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withExec(instance.getExec());
-
-    this.withHttpGet(instance.getHttpGet());
-
-    this.withTcpSocket(instance.getTcpSocket());
-
+    if (instance != null) {
+      this.withExec(instance.getExec());
+      this.withHttpGet(instance.getHttpGet());
+      this.withTcpSocket(instance.getTcpSocket());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LifecycleHandlerFluent<?> fluent;

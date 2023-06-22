@@ -20,12 +20,11 @@ public class V1TypedLocalObjectReferenceBuilder extends V1TypedLocalObjectRefere
   }
   public V1TypedLocalObjectReferenceBuilder(V1TypedLocalObjectReferenceFluent<?> fluent,V1TypedLocalObjectReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiGroup(instance.getApiGroup());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withApiGroup(instance.getApiGroup());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TypedLocalObjectReferenceBuilder(V1TypedLocalObjectReference instance) {
@@ -33,12 +32,11 @@ public class V1TypedLocalObjectReferenceBuilder extends V1TypedLocalObjectRefere
   }
   public V1TypedLocalObjectReferenceBuilder(V1TypedLocalObjectReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiGroup(instance.getApiGroup());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withApiGroup(instance.getApiGroup());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TypedLocalObjectReferenceFluent<?> fluent;

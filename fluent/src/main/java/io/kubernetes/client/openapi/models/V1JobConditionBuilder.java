@@ -20,18 +20,14 @@ public class V1JobConditionBuilder extends V1JobConditionFluentImpl<V1JobConditi
   }
   public V1JobConditionBuilder(V1JobConditionFluent<?> fluent,V1JobCondition instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLastProbeTime(instance.getLastProbeTime());
-
-    fluent.withLastTransitionTime(instance.getLastTransitionTime());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withReason(instance.getReason());
-
-    fluent.withStatus(instance.getStatus());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withLastProbeTime(instance.getLastProbeTime());
+      fluent.withLastTransitionTime(instance.getLastTransitionTime());
+      fluent.withMessage(instance.getMessage());
+      fluent.withReason(instance.getReason());
+      fluent.withStatus(instance.getStatus());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1JobConditionBuilder(V1JobCondition instance) {
@@ -39,18 +35,14 @@ public class V1JobConditionBuilder extends V1JobConditionFluentImpl<V1JobConditi
   }
   public V1JobConditionBuilder(V1JobCondition instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLastProbeTime(instance.getLastProbeTime());
-
-    this.withLastTransitionTime(instance.getLastTransitionTime());
-
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLastProbeTime(instance.getLastProbeTime());
+      this.withLastTransitionTime(instance.getLastTransitionTime());
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1JobConditionFluent<?> fluent;

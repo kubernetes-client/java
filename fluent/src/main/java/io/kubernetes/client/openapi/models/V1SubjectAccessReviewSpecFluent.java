@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Collection;
 import java.util.List;
@@ -24,14 +24,14 @@ public interface V1SubjectAccessReviewSpecFluent<A extends V1SubjectAccessReview
   public Map<String,List<String>> getExtra();
   public <K,V>A withExtra(Map<String,List<String>> extra);
   public Boolean hasExtra();
-  public A addToGroups(Integer index,String item);
-  public A setToGroups(Integer index,String item);
+  public A addToGroups(int index,String item);
+  public A setToGroups(int index,String item);
   public A addToGroups(java.lang.String... items);
   public A addAllToGroups(Collection<String> items);
   public A removeFromGroups(java.lang.String... items);
   public A removeAllFromGroups(Collection<String> items);
   public List<String> getGroups();
-  public String getGroup(Integer index);
+  public String getGroup(int index);
   public String getFirstGroup();
   public String getLastGroup();
   public String getMatchingGroup(Predicate<String> predicate);

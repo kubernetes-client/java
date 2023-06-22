@@ -6,7 +6,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -23,20 +22,22 @@ import java.lang.Boolean;
   public V1DownwardAPIProjectionFluentImpl() {
   }
   public V1DownwardAPIProjectionFluentImpl(V1DownwardAPIProjection instance) {
-    this.withItems(instance.getItems());
-
+    if (instance != null) {
+      this.withItems(instance.getItems());
+    }
   }
   private ArrayList<V1DownwardAPIVolumeFileBuilder> items;
-  public A addToItems(Integer index,V1DownwardAPIVolumeFile item) {
-    if (this.items == null) {this.items = new ArrayList<V1DownwardAPIVolumeFileBuilder>();}
-    V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);_visitables.get("items").add(index >= 0 ? index : _visitables.get("items").size(), builder);this.items.add(index >= 0 ? index : items.size(), builder); return (A)this;
-  }
-  public A setToItems(Integer index,V1DownwardAPIVolumeFile item) {
+  public A addToItems(int index,V1DownwardAPIVolumeFile item) {
     if (this.items == null) {this.items = new ArrayList<V1DownwardAPIVolumeFileBuilder>();}
     V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
-    if (index < 0 || index >= _visitables.get("items").size()) { _visitables.get("items").add(builder); } else { _visitables.get("items").set(index, builder);}
-    if (index < 0 || index >= items.size()) { items.add(builder); } else { items.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").add(index, builder); items.add(index, builder);}
+    return (A)this;
+  }
+  public A setToItems(int index,V1DownwardAPIVolumeFile item) {
+    if (this.items == null) {this.items = new ArrayList<V1DownwardAPIVolumeFileBuilder>();}
+    V1DownwardAPIVolumeFileBuilder builder = new V1DownwardAPIVolumeFileBuilder(item);
+    if (index < 0 || index >= items.size()) { _visitables.get("items").add(builder); items.add(builder); } else { _visitables.get("items").set(index, builder); items.set(index, builder);}
+    return (A)this;
   }
   public A addToItems(io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile... items) {
     if (this.items == null) {this.items = new ArrayList<V1DownwardAPIVolumeFileBuilder>();}
@@ -77,7 +78,7 @@ import java.lang.Boolean;
   public List<V1DownwardAPIVolumeFile> buildItems() {
     return items != null ? build(items) : null;
   }
-  public V1DownwardAPIVolumeFile buildItem(Integer index) {
+  public V1DownwardAPIVolumeFile buildItem(int index) {
     return this.items.get(index).build();
   }
   public V1DownwardAPIVolumeFile buildFirstItem() {
@@ -93,39 +94,39 @@ import java.lang.Boolean;
     for (V1DownwardAPIVolumeFileBuilder item: items) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withItems(List<V1DownwardAPIVolumeFile> items) {
-    if (this.items != null) { _visitables.get("items").removeAll(this.items);}
+    if (this.items != null) { _visitables.get("items").clear();}
     if (items != null) {this.items = new ArrayList(); for (V1DownwardAPIVolumeFile item : items){this.addToItems(item);}} else { this.items = null;} return (A) this;
   }
   public A withItems(io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile... items) {
-    if (this.items != null) {this.items.clear();}
+    if (this.items != null) {this.items.clear(); _visitables.remove("items"); }
     if (items != null) {for (V1DownwardAPIVolumeFile item :items){ this.addToItems(item);}} return (A) this;
   }
   public Boolean hasItems() {
     return items != null && !items.isEmpty();
   }
-  public V1DownwardAPIProjectionFluent.ItemsNested<A> addNewItem() {
+  public V1DownwardAPIProjectionFluentImpl.ItemsNested<A> addNewItem() {
     return new V1DownwardAPIProjectionFluentImpl.ItemsNestedImpl();
   }
-  public V1DownwardAPIProjectionFluent.ItemsNested<A> addNewItemLike(V1DownwardAPIVolumeFile item) {
+  public V1DownwardAPIProjectionFluentImpl.ItemsNested<A> addNewItemLike(V1DownwardAPIVolumeFile item) {
     return new V1DownwardAPIProjectionFluentImpl.ItemsNestedImpl(-1, item);
   }
-  public V1DownwardAPIProjectionFluent.ItemsNested<A> setNewItemLike(Integer index,V1DownwardAPIVolumeFile item) {
+  public V1DownwardAPIProjectionFluentImpl.ItemsNested<A> setNewItemLike(int index,V1DownwardAPIVolumeFile item) {
     return new V1DownwardAPIProjectionFluentImpl.ItemsNestedImpl(index, item);
   }
-  public V1DownwardAPIProjectionFluent.ItemsNested<A> editItem(Integer index) {
+  public V1DownwardAPIProjectionFluentImpl.ItemsNested<A> editItem(int index) {
     if (items.size() <= index) throw new RuntimeException("Can't edit items. Index exceeds size.");
     return setNewItemLike(index, buildItem(index));
   }
-  public V1DownwardAPIProjectionFluent.ItemsNested<A> editFirstItem() {
+  public V1DownwardAPIProjectionFluentImpl.ItemsNested<A> editFirstItem() {
     if (items.size() == 0) throw new RuntimeException("Can't edit first items. The list is empty.");
     return setNewItemLike(0, buildItem(0));
   }
-  public V1DownwardAPIProjectionFluent.ItemsNested<A> editLastItem() {
+  public V1DownwardAPIProjectionFluentImpl.ItemsNested<A> editLastItem() {
     int index = items.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last items. The list is empty.");
     return setNewItemLike(index, buildItem(index));
   }
-  public V1DownwardAPIProjectionFluent.ItemsNested<A> editMatchingItem(Predicate<V1DownwardAPIVolumeFileBuilder> predicate) {
+  public V1DownwardAPIProjectionFluentImpl.ItemsNested<A> editMatchingItem(Predicate<V1DownwardAPIVolumeFileBuilder> predicate) {
     int index = -1;
     for (int i=0;i<items.size();i++) { 
     if (predicate.test(items.get(i))) {index = i; break;}
@@ -136,8 +137,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1DownwardAPIProjectionFluentImpl that = (V1DownwardAPIProjectionFluentImpl) o;
-    if (items != null ? !items.equals(that.items) :that.items != null) return false;
+    if (!java.util.Objects.equals(items, that.items)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -146,12 +149,12 @@ import java.lang.Boolean;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (items != null && !items.isEmpty()) { sb.append("items:"); sb.append(items); }
+    if (items != null) { sb.append("items:"); sb.append(items); }
     sb.append("}");
     return sb.toString();
   }
-  class ItemsNestedImpl<N> extends V1DownwardAPIVolumeFileFluentImpl<V1DownwardAPIProjectionFluent.ItemsNested<N>> implements V1DownwardAPIProjectionFluent.ItemsNested<N>,Nested<N>{
-    ItemsNestedImpl(Integer index,V1DownwardAPIVolumeFile item) {
+  class ItemsNestedImpl<N> extends V1DownwardAPIVolumeFileFluentImpl<V1DownwardAPIProjectionFluentImpl.ItemsNested<N>> implements V1DownwardAPIProjectionFluentImpl.ItemsNested<N>,Nested<N>{
+    ItemsNestedImpl(int index,V1DownwardAPIVolumeFile item) {
       this.index = index;
       this.builder = new V1DownwardAPIVolumeFileBuilder(this, item);
     }
@@ -160,7 +163,7 @@ import java.lang.Boolean;
       this.builder = new V1DownwardAPIVolumeFileBuilder(this);
     }
     V1DownwardAPIVolumeFileBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1DownwardAPIProjectionFluentImpl.this.setToItems(index,builder.build());
     }

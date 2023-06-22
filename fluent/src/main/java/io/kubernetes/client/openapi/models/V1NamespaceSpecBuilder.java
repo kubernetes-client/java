@@ -20,8 +20,9 @@ public class V1NamespaceSpecBuilder extends V1NamespaceSpecFluentImpl<V1Namespac
   }
   public V1NamespaceSpecBuilder(V1NamespaceSpecFluent<?> fluent,V1NamespaceSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFinalizers(instance.getFinalizers());
-
+    if (instance != null) {
+      fluent.withFinalizers(instance.getFinalizers());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NamespaceSpecBuilder(V1NamespaceSpec instance) {
@@ -29,8 +30,9 @@ public class V1NamespaceSpecBuilder extends V1NamespaceSpecFluentImpl<V1Namespac
   }
   public V1NamespaceSpecBuilder(V1NamespaceSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFinalizers(instance.getFinalizers());
-
+    if (instance != null) {
+      this.withFinalizers(instance.getFinalizers());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NamespaceSpecFluent<?> fluent;

@@ -18,20 +18,15 @@ import java.util.Map;
   public V1SecretFluentImpl() {
   }
   public V1SecretFluentImpl(V1Secret instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withData(instance.getData());
-
-    this.withImmutable(instance.getImmutable());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withStringData(instance.getStringData());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withData(instance.getData());
+      this.withImmutable(instance.getImmutable());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withStringData(instance.getStringData());
+      this.withType(instance.getType());
+    }
   }
   private String apiVersion;
   private Map<String,byte[]> data;
@@ -111,19 +106,19 @@ import java.util.Map;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1SecretFluent.MetadataNested<A> withNewMetadata() {
+  public V1SecretFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1SecretFluentImpl.MetadataNestedImpl();
   }
-  public V1SecretFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1SecretFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1SecretFluentImpl.MetadataNestedImpl(item);
   }
-  public V1SecretFluent.MetadataNested<A> editMetadata() {
+  public V1SecretFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1SecretFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1SecretFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1SecretFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1SecretFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   public A addToStringData(String key,String value) {
@@ -163,14 +158,22 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SecretFluentImpl that = (V1SecretFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (data != null ? !data.equals(that.data) :that.data != null) return false;
-    if (immutable != null ? !immutable.equals(that.immutable) :that.immutable != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (stringData != null ? !stringData.equals(that.stringData) :that.stringData != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(data, that.data)) return false;
+
+    if (!java.util.Objects.equals(immutable, that.immutable)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(stringData, that.stringData)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -192,7 +195,7 @@ import java.util.Map;
   public A withImmutable() {
     return withImmutable(true);
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1SecretFluent.MetadataNested<N>> implements V1SecretFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1SecretFluentImpl.MetadataNested<N>> implements V1SecretFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }

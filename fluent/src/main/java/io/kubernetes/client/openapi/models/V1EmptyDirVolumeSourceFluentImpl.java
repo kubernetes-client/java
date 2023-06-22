@@ -15,10 +15,10 @@ import java.lang.Boolean;
   public V1EmptyDirVolumeSourceFluentImpl() {
   }
   public V1EmptyDirVolumeSourceFluentImpl(V1EmptyDirVolumeSource instance) {
-    this.withMedium(instance.getMedium());
-
-    this.withSizeLimit(instance.getSizeLimit());
-
+    if (instance != null) {
+      this.withMedium(instance.getMedium());
+      this.withSizeLimit(instance.getSizeLimit());
+    }
   }
   private String medium;
   private Quantity sizeLimit;
@@ -46,9 +46,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EmptyDirVolumeSourceFluentImpl that = (V1EmptyDirVolumeSourceFluentImpl) o;
-    if (medium != null ? !medium.equals(that.medium) :that.medium != null) return false;
-    if (sizeLimit != null ? !sizeLimit.equals(that.sizeLimit) :that.sizeLimit != null) return false;
+    if (!java.util.Objects.equals(medium, that.medium)) return false;
+
+    if (!java.util.Objects.equals(sizeLimit, that.sizeLimit)) return false;
+
     return true;
   }
   public int hashCode() {

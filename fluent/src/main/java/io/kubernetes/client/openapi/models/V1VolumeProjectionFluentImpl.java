@@ -16,14 +16,12 @@ import java.lang.Object;
   public V1VolumeProjectionFluentImpl() {
   }
   public V1VolumeProjectionFluentImpl(V1VolumeProjection instance) {
-    this.withConfigMap(instance.getConfigMap());
-
-    this.withDownwardAPI(instance.getDownwardAPI());
-
-    this.withSecret(instance.getSecret());
-
-    this.withServiceAccountToken(instance.getServiceAccountToken());
-
+    if (instance != null) {
+      this.withConfigMap(instance.getConfigMap());
+      this.withDownwardAPI(instance.getDownwardAPI());
+      this.withSecret(instance.getSecret());
+      this.withServiceAccountToken(instance.getServiceAccountToken());
+    }
   }
   private V1ConfigMapProjectionBuilder configMap;
   private V1DownwardAPIProjectionBuilder downwardAPI;
@@ -48,19 +46,19 @@ import java.lang.Object;
   public Boolean hasConfigMap() {
     return this.configMap != null;
   }
-  public V1VolumeProjectionFluent.ConfigMapNested<A> withNewConfigMap() {
+  public V1VolumeProjectionFluentImpl.ConfigMapNested<A> withNewConfigMap() {
     return new V1VolumeProjectionFluentImpl.ConfigMapNestedImpl();
   }
-  public V1VolumeProjectionFluent.ConfigMapNested<A> withNewConfigMapLike(V1ConfigMapProjection item) {
+  public V1VolumeProjectionFluentImpl.ConfigMapNested<A> withNewConfigMapLike(V1ConfigMapProjection item) {
     return new V1VolumeProjectionFluentImpl.ConfigMapNestedImpl(item);
   }
-  public V1VolumeProjectionFluent.ConfigMapNested<A> editConfigMap() {
+  public V1VolumeProjectionFluentImpl.ConfigMapNested<A> editConfigMap() {
     return withNewConfigMapLike(getConfigMap());
   }
-  public V1VolumeProjectionFluent.ConfigMapNested<A> editOrNewConfigMap() {
+  public V1VolumeProjectionFluentImpl.ConfigMapNested<A> editOrNewConfigMap() {
     return withNewConfigMapLike(getConfigMap() != null ? getConfigMap(): new V1ConfigMapProjectionBuilder().build());
   }
-  public V1VolumeProjectionFluent.ConfigMapNested<A> editOrNewConfigMapLike(V1ConfigMapProjection item) {
+  public V1VolumeProjectionFluentImpl.ConfigMapNested<A> editOrNewConfigMapLike(V1ConfigMapProjection item) {
     return withNewConfigMapLike(getConfigMap() != null ? getConfigMap(): item);
   }
   
@@ -82,19 +80,19 @@ import java.lang.Object;
   public Boolean hasDownwardAPI() {
     return this.downwardAPI != null;
   }
-  public V1VolumeProjectionFluent.DownwardAPINested<A> withNewDownwardAPI() {
+  public V1VolumeProjectionFluentImpl.DownwardAPINested<A> withNewDownwardAPI() {
     return new V1VolumeProjectionFluentImpl.DownwardAPINestedImpl();
   }
-  public V1VolumeProjectionFluent.DownwardAPINested<A> withNewDownwardAPILike(V1DownwardAPIProjection item) {
+  public V1VolumeProjectionFluentImpl.DownwardAPINested<A> withNewDownwardAPILike(V1DownwardAPIProjection item) {
     return new V1VolumeProjectionFluentImpl.DownwardAPINestedImpl(item);
   }
-  public V1VolumeProjectionFluent.DownwardAPINested<A> editDownwardAPI() {
+  public V1VolumeProjectionFluentImpl.DownwardAPINested<A> editDownwardAPI() {
     return withNewDownwardAPILike(getDownwardAPI());
   }
-  public V1VolumeProjectionFluent.DownwardAPINested<A> editOrNewDownwardAPI() {
+  public V1VolumeProjectionFluentImpl.DownwardAPINested<A> editOrNewDownwardAPI() {
     return withNewDownwardAPILike(getDownwardAPI() != null ? getDownwardAPI(): new V1DownwardAPIProjectionBuilder().build());
   }
-  public V1VolumeProjectionFluent.DownwardAPINested<A> editOrNewDownwardAPILike(V1DownwardAPIProjection item) {
+  public V1VolumeProjectionFluentImpl.DownwardAPINested<A> editOrNewDownwardAPILike(V1DownwardAPIProjection item) {
     return withNewDownwardAPILike(getDownwardAPI() != null ? getDownwardAPI(): item);
   }
   
@@ -116,19 +114,19 @@ import java.lang.Object;
   public Boolean hasSecret() {
     return this.secret != null;
   }
-  public V1VolumeProjectionFluent.SecretNested<A> withNewSecret() {
+  public V1VolumeProjectionFluentImpl.SecretNested<A> withNewSecret() {
     return new V1VolumeProjectionFluentImpl.SecretNestedImpl();
   }
-  public V1VolumeProjectionFluent.SecretNested<A> withNewSecretLike(V1SecretProjection item) {
+  public V1VolumeProjectionFluentImpl.SecretNested<A> withNewSecretLike(V1SecretProjection item) {
     return new V1VolumeProjectionFluentImpl.SecretNestedImpl(item);
   }
-  public V1VolumeProjectionFluent.SecretNested<A> editSecret() {
+  public V1VolumeProjectionFluentImpl.SecretNested<A> editSecret() {
     return withNewSecretLike(getSecret());
   }
-  public V1VolumeProjectionFluent.SecretNested<A> editOrNewSecret() {
+  public V1VolumeProjectionFluentImpl.SecretNested<A> editOrNewSecret() {
     return withNewSecretLike(getSecret() != null ? getSecret(): new V1SecretProjectionBuilder().build());
   }
-  public V1VolumeProjectionFluent.SecretNested<A> editOrNewSecretLike(V1SecretProjection item) {
+  public V1VolumeProjectionFluentImpl.SecretNested<A> editOrNewSecretLike(V1SecretProjection item) {
     return withNewSecretLike(getSecret() != null ? getSecret(): item);
   }
   
@@ -150,29 +148,34 @@ import java.lang.Object;
   public Boolean hasServiceAccountToken() {
     return this.serviceAccountToken != null;
   }
-  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> withNewServiceAccountToken() {
+  public V1VolumeProjectionFluentImpl.ServiceAccountTokenNested<A> withNewServiceAccountToken() {
     return new V1VolumeProjectionFluentImpl.ServiceAccountTokenNestedImpl();
   }
-  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> withNewServiceAccountTokenLike(V1ServiceAccountTokenProjection item) {
+  public V1VolumeProjectionFluentImpl.ServiceAccountTokenNested<A> withNewServiceAccountTokenLike(V1ServiceAccountTokenProjection item) {
     return new V1VolumeProjectionFluentImpl.ServiceAccountTokenNestedImpl(item);
   }
-  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> editServiceAccountToken() {
+  public V1VolumeProjectionFluentImpl.ServiceAccountTokenNested<A> editServiceAccountToken() {
     return withNewServiceAccountTokenLike(getServiceAccountToken());
   }
-  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> editOrNewServiceAccountToken() {
+  public V1VolumeProjectionFluentImpl.ServiceAccountTokenNested<A> editOrNewServiceAccountToken() {
     return withNewServiceAccountTokenLike(getServiceAccountToken() != null ? getServiceAccountToken(): new V1ServiceAccountTokenProjectionBuilder().build());
   }
-  public V1VolumeProjectionFluent.ServiceAccountTokenNested<A> editOrNewServiceAccountTokenLike(V1ServiceAccountTokenProjection item) {
+  public V1VolumeProjectionFluentImpl.ServiceAccountTokenNested<A> editOrNewServiceAccountTokenLike(V1ServiceAccountTokenProjection item) {
     return withNewServiceAccountTokenLike(getServiceAccountToken() != null ? getServiceAccountToken(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1VolumeProjectionFluentImpl that = (V1VolumeProjectionFluentImpl) o;
-    if (configMap != null ? !configMap.equals(that.configMap) :that.configMap != null) return false;
-    if (downwardAPI != null ? !downwardAPI.equals(that.downwardAPI) :that.downwardAPI != null) return false;
-    if (secret != null ? !secret.equals(that.secret) :that.secret != null) return false;
-    if (serviceAccountToken != null ? !serviceAccountToken.equals(that.serviceAccountToken) :that.serviceAccountToken != null) return false;
+    if (!java.util.Objects.equals(configMap, that.configMap)) return false;
+
+    if (!java.util.Objects.equals(downwardAPI, that.downwardAPI)) return false;
+
+    if (!java.util.Objects.equals(secret, that.secret)) return false;
+
+    if (!java.util.Objects.equals(serviceAccountToken, that.serviceAccountToken)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -188,7 +191,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class ConfigMapNestedImpl<N> extends V1ConfigMapProjectionFluentImpl<V1VolumeProjectionFluent.ConfigMapNested<N>> implements V1VolumeProjectionFluent.ConfigMapNested<N>,Nested<N>{
+  class ConfigMapNestedImpl<N> extends V1ConfigMapProjectionFluentImpl<V1VolumeProjectionFluentImpl.ConfigMapNested<N>> implements V1VolumeProjectionFluentImpl.ConfigMapNested<N>,Nested<N>{
     ConfigMapNestedImpl(V1ConfigMapProjection item) {
       this.builder = new V1ConfigMapProjectionBuilder(this, item);
     }
@@ -204,7 +207,7 @@ import java.lang.Object;
     }
     
   }
-  class DownwardAPINestedImpl<N> extends V1DownwardAPIProjectionFluentImpl<V1VolumeProjectionFluent.DownwardAPINested<N>> implements V1VolumeProjectionFluent.DownwardAPINested<N>,Nested<N>{
+  class DownwardAPINestedImpl<N> extends V1DownwardAPIProjectionFluentImpl<V1VolumeProjectionFluentImpl.DownwardAPINested<N>> implements V1VolumeProjectionFluentImpl.DownwardAPINested<N>,Nested<N>{
     DownwardAPINestedImpl(V1DownwardAPIProjection item) {
       this.builder = new V1DownwardAPIProjectionBuilder(this, item);
     }
@@ -220,7 +223,7 @@ import java.lang.Object;
     }
     
   }
-  class SecretNestedImpl<N> extends V1SecretProjectionFluentImpl<V1VolumeProjectionFluent.SecretNested<N>> implements V1VolumeProjectionFluent.SecretNested<N>,Nested<N>{
+  class SecretNestedImpl<N> extends V1SecretProjectionFluentImpl<V1VolumeProjectionFluentImpl.SecretNested<N>> implements V1VolumeProjectionFluentImpl.SecretNested<N>,Nested<N>{
     SecretNestedImpl(V1SecretProjection item) {
       this.builder = new V1SecretProjectionBuilder(this, item);
     }
@@ -236,7 +239,7 @@ import java.lang.Object;
     }
     
   }
-  class ServiceAccountTokenNestedImpl<N> extends V1ServiceAccountTokenProjectionFluentImpl<V1VolumeProjectionFluent.ServiceAccountTokenNested<N>> implements V1VolumeProjectionFluent.ServiceAccountTokenNested<N>,Nested<N>{
+  class ServiceAccountTokenNestedImpl<N> extends V1ServiceAccountTokenProjectionFluentImpl<V1VolumeProjectionFluentImpl.ServiceAccountTokenNested<N>> implements V1VolumeProjectionFluentImpl.ServiceAccountTokenNested<N>,Nested<N>{
     ServiceAccountTokenNestedImpl(V1ServiceAccountTokenProjection item) {
       this.builder = new V1ServiceAccountTokenProjectionBuilder(this, item);
     }

@@ -20,8 +20,9 @@ public class V1SessionAffinityConfigBuilder extends V1SessionAffinityConfigFluen
   }
   public V1SessionAffinityConfigBuilder(V1SessionAffinityConfigFluent<?> fluent,V1SessionAffinityConfig instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withClientIP(instance.getClientIP());
-
+    if (instance != null) {
+      fluent.withClientIP(instance.getClientIP());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SessionAffinityConfigBuilder(V1SessionAffinityConfig instance) {
@@ -29,8 +30,9 @@ public class V1SessionAffinityConfigBuilder extends V1SessionAffinityConfigFluen
   }
   public V1SessionAffinityConfigBuilder(V1SessionAffinityConfig instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withClientIP(instance.getClientIP());
-
+    if (instance != null) {
+      this.withClientIP(instance.getClientIP());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SessionAffinityConfigFluent<?> fluent;

@@ -16,14 +16,12 @@ import java.lang.Boolean;
   public V1CSIDriverFluentImpl() {
   }
   public V1CSIDriverFluentImpl(V1CSIDriver instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -66,19 +64,19 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1CSIDriverFluent.MetadataNested<A> withNewMetadata() {
+  public V1CSIDriverFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1CSIDriverFluentImpl.MetadataNestedImpl();
   }
-  public V1CSIDriverFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1CSIDriverFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1CSIDriverFluentImpl.MetadataNestedImpl(item);
   }
-  public V1CSIDriverFluent.MetadataNested<A> editMetadata() {
+  public V1CSIDriverFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1CSIDriverFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1CSIDriverFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1CSIDriverFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1CSIDriverFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -100,29 +98,34 @@ import java.lang.Boolean;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1CSIDriverFluent.SpecNested<A> withNewSpec() {
+  public V1CSIDriverFluentImpl.SpecNested<A> withNewSpec() {
     return new V1CSIDriverFluentImpl.SpecNestedImpl();
   }
-  public V1CSIDriverFluent.SpecNested<A> withNewSpecLike(V1CSIDriverSpec item) {
+  public V1CSIDriverFluentImpl.SpecNested<A> withNewSpecLike(V1CSIDriverSpec item) {
     return new V1CSIDriverFluentImpl.SpecNestedImpl(item);
   }
-  public V1CSIDriverFluent.SpecNested<A> editSpec() {
+  public V1CSIDriverFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1CSIDriverFluent.SpecNested<A> editOrNewSpec() {
+  public V1CSIDriverFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1CSIDriverSpecBuilder().build());
   }
-  public V1CSIDriverFluent.SpecNested<A> editOrNewSpecLike(V1CSIDriverSpec item) {
+  public V1CSIDriverFluentImpl.SpecNested<A> editOrNewSpecLike(V1CSIDriverSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CSIDriverFluentImpl that = (V1CSIDriverFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -138,7 +141,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1CSIDriverFluent.MetadataNested<N>> implements V1CSIDriverFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1CSIDriverFluentImpl.MetadataNested<N>> implements V1CSIDriverFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -154,7 +157,7 @@ import java.lang.Boolean;
     }
     
   }
-  class SpecNestedImpl<N> extends V1CSIDriverSpecFluentImpl<V1CSIDriverFluent.SpecNested<N>> implements V1CSIDriverFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1CSIDriverSpecFluentImpl<V1CSIDriverFluentImpl.SpecNested<N>> implements V1CSIDriverFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1CSIDriverSpec item) {
       this.builder = new V1CSIDriverSpecBuilder(this, item);
     }

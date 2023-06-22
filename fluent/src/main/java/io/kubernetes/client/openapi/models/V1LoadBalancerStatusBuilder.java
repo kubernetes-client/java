@@ -20,8 +20,9 @@ public class V1LoadBalancerStatusBuilder extends V1LoadBalancerStatusFluentImpl<
   }
   public V1LoadBalancerStatusBuilder(V1LoadBalancerStatusFluent<?> fluent,V1LoadBalancerStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withIngress(instance.getIngress());
-
+    if (instance != null) {
+      fluent.withIngress(instance.getIngress());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LoadBalancerStatusBuilder(V1LoadBalancerStatus instance) {
@@ -29,8 +30,9 @@ public class V1LoadBalancerStatusBuilder extends V1LoadBalancerStatusFluentImpl<
   }
   public V1LoadBalancerStatusBuilder(V1LoadBalancerStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withIngress(instance.getIngress());
-
+    if (instance != null) {
+      this.withIngress(instance.getIngress());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LoadBalancerStatusFluent<?> fluent;

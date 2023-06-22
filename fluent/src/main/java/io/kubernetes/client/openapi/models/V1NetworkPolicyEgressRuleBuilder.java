@@ -20,10 +20,10 @@ public class V1NetworkPolicyEgressRuleBuilder extends V1NetworkPolicyEgressRuleF
   }
   public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRuleFluent<?> fluent,V1NetworkPolicyEgressRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPorts(instance.getPorts());
-
-    fluent.withTo(instance.getTo());
-
+    if (instance != null) {
+      fluent.withPorts(instance.getPorts());
+      fluent.withTo(instance.getTo());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRule instance) {
@@ -31,10 +31,10 @@ public class V1NetworkPolicyEgressRuleBuilder extends V1NetworkPolicyEgressRuleF
   }
   public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPorts(instance.getPorts());
-
-    this.withTo(instance.getTo());
-
+    if (instance != null) {
+      this.withPorts(instance.getPorts());
+      this.withTo(instance.getTo());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NetworkPolicyEgressRuleFluent<?> fluent;

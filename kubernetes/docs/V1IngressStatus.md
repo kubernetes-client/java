@@ -7,7 +7,7 @@ IngressStatus describe the current state of the Ingress.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loadBalancer** | [**V1LoadBalancerStatus**](V1LoadBalancerStatus.md) |  |  [optional]
+**loadBalancer** | [**V1IngressLoadBalancerStatus**](V1IngressLoadBalancerStatus.md) |  |  [optional]
 
 
 

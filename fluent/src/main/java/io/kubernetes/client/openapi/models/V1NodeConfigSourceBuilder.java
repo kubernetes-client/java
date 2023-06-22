@@ -20,8 +20,9 @@ public class V1NodeConfigSourceBuilder extends V1NodeConfigSourceFluentImpl<V1No
   }
   public V1NodeConfigSourceBuilder(V1NodeConfigSourceFluent<?> fluent,V1NodeConfigSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConfigMap(instance.getConfigMap());
-
+    if (instance != null) {
+      fluent.withConfigMap(instance.getConfigMap());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeConfigSourceBuilder(V1NodeConfigSource instance) {
@@ -29,8 +30,9 @@ public class V1NodeConfigSourceBuilder extends V1NodeConfigSourceFluentImpl<V1No
   }
   public V1NodeConfigSourceBuilder(V1NodeConfigSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConfigMap(instance.getConfigMap());
-
+    if (instance != null) {
+      this.withConfigMap(instance.getConfigMap());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeConfigSourceFluent<?> fluent;

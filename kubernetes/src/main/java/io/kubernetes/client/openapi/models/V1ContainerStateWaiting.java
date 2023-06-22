@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** ContainerStateWaiting is a waiting state of a container. */
+/**
+ * ContainerStateWaiting is a waiting state of a container.
+ */
 @ApiModel(description = "ContainerStateWaiting is a waiting state of a container.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1ContainerStateWaiting {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
-
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
 
   public static final String SERIALIZED_NAME_REASON = "reason";
-
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
+
 
   public V1ContainerStateWaiting message(String message) {
 
@@ -39,20 +44,22 @@ public class V1ContainerStateWaiting {
     return this;
   }
 
-  /**
+   /**
    * Message regarding why the container is not yet running.
-   *
    * @return message
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Message regarding why the container is not yet running.")
+
   public String getMessage() {
     return message;
   }
 
+
   public void setMessage(String message) {
     this.message = message;
   }
+
 
   public V1ContainerStateWaiting reason(String reason) {
 
@@ -60,20 +67,22 @@ public class V1ContainerStateWaiting {
     return this;
   }
 
-  /**
+   /**
    * (brief) reason the container is not yet running.
-   *
    * @return reason
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "(brief) reason the container is not yet running.")
+
   public String getReason() {
     return reason;
   }
 
+
   public void setReason(String reason) {
     this.reason = reason;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,14 +93,15 @@ public class V1ContainerStateWaiting {
       return false;
     }
     V1ContainerStateWaiting v1ContainerStateWaiting = (V1ContainerStateWaiting) o;
-    return Objects.equals(this.message, v1ContainerStateWaiting.message)
-        && Objects.equals(this.reason, v1ContainerStateWaiting.reason);
+    return Objects.equals(this.message, v1ContainerStateWaiting.message) &&
+        Objects.equals(this.reason, v1ContainerStateWaiting.reason);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(message, reason);
   }
+
 
   @Override
   public String toString() {
@@ -104,7 +114,8 @@ public class V1ContainerStateWaiting {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -112,4 +123,5 @@ public class V1ContainerStateWaiting {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

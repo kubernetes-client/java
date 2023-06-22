@@ -20,14 +20,12 @@ public class V1ListMetaBuilder extends V1ListMetaFluentImpl<V1ListMetaBuilder> i
   }
   public V1ListMetaBuilder(V1ListMetaFluent<?> fluent,V1ListMeta instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withContinue(instance.getContinue());
-
-    fluent.withRemainingItemCount(instance.getRemainingItemCount());
-
-    fluent.withResourceVersion(instance.getResourceVersion());
-
-    fluent.withSelfLink(instance.getSelfLink());
-
+    if (instance != null) {
+      fluent.withContinue(instance.getContinue());
+      fluent.withRemainingItemCount(instance.getRemainingItemCount());
+      fluent.withResourceVersion(instance.getResourceVersion());
+      fluent.withSelfLink(instance.getSelfLink());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ListMetaBuilder(V1ListMeta instance) {
@@ -35,14 +33,12 @@ public class V1ListMetaBuilder extends V1ListMetaFluentImpl<V1ListMetaBuilder> i
   }
   public V1ListMetaBuilder(V1ListMeta instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withContinue(instance.getContinue());
-
-    this.withRemainingItemCount(instance.getRemainingItemCount());
-
-    this.withResourceVersion(instance.getResourceVersion());
-
-    this.withSelfLink(instance.getSelfLink());
-
+    if (instance != null) {
+      this.withContinue(instance.getContinue());
+      this.withRemainingItemCount(instance.getRemainingItemCount());
+      this.withResourceVersion(instance.getResourceVersion());
+      this.withSelfLink(instance.getSelfLink());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ListMetaFluent<?> fluent;

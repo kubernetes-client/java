@@ -16,16 +16,13 @@ import java.lang.Object;
   public V1ServiceFluentImpl() {
   }
   public V1ServiceFluentImpl(V1Service instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1ServiceFluent.MetadataNested<A> withNewMetadata() {
+  public V1ServiceFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1ServiceFluentImpl.MetadataNestedImpl();
   }
-  public V1ServiceFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1ServiceFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1ServiceFluentImpl.MetadataNestedImpl(item);
   }
-  public V1ServiceFluent.MetadataNested<A> editMetadata() {
+  public V1ServiceFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1ServiceFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1ServiceFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1ServiceFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1ServiceFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1ServiceFluent.SpecNested<A> withNewSpec() {
+  public V1ServiceFluentImpl.SpecNested<A> withNewSpec() {
     return new V1ServiceFluentImpl.SpecNestedImpl();
   }
-  public V1ServiceFluent.SpecNested<A> withNewSpecLike(V1ServiceSpec item) {
+  public V1ServiceFluentImpl.SpecNested<A> withNewSpecLike(V1ServiceSpec item) {
     return new V1ServiceFluentImpl.SpecNestedImpl(item);
   }
-  public V1ServiceFluent.SpecNested<A> editSpec() {
+  public V1ServiceFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1ServiceFluent.SpecNested<A> editOrNewSpec() {
+  public V1ServiceFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1ServiceSpecBuilder().build());
   }
-  public V1ServiceFluent.SpecNested<A> editOrNewSpecLike(V1ServiceSpec item) {
+  public V1ServiceFluentImpl.SpecNested<A> editOrNewSpecLike(V1ServiceSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1ServiceFluent.StatusNested<A> withNewStatus() {
+  public V1ServiceFluentImpl.StatusNested<A> withNewStatus() {
     return new V1ServiceFluentImpl.StatusNestedImpl();
   }
-  public V1ServiceFluent.StatusNested<A> withNewStatusLike(V1ServiceStatus item) {
+  public V1ServiceFluentImpl.StatusNested<A> withNewStatusLike(V1ServiceStatus item) {
     return new V1ServiceFluentImpl.StatusNestedImpl(item);
   }
-  public V1ServiceFluent.StatusNested<A> editStatus() {
+  public V1ServiceFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1ServiceFluent.StatusNested<A> editOrNewStatus() {
+  public V1ServiceFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1ServiceStatusBuilder().build());
   }
-  public V1ServiceFluent.StatusNested<A> editOrNewStatusLike(V1ServiceStatus item) {
+  public V1ServiceFluentImpl.StatusNested<A> editOrNewStatusLike(V1ServiceStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ServiceFluentImpl that = (V1ServiceFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ServiceFluent.MetadataNested<N>> implements V1ServiceFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ServiceFluentImpl.MetadataNested<N>> implements V1ServiceFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1ServiceSpecFluentImpl<V1ServiceFluent.SpecNested<N>> implements V1ServiceFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1ServiceSpecFluentImpl<V1ServiceFluentImpl.SpecNested<N>> implements V1ServiceFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1ServiceSpec item) {
       this.builder = new V1ServiceSpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1ServiceStatusFluentImpl<V1ServiceFluent.StatusNested<N>> implements V1ServiceFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1ServiceStatusFluentImpl<V1ServiceFluentImpl.StatusNested<N>> implements V1ServiceFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1ServiceStatus item) {
       this.builder = new V1ServiceStatusBuilder(this, item);
     }

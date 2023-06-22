@@ -20,18 +20,14 @@ public class V1CephFSVolumeSourceBuilder extends V1CephFSVolumeSourceFluentImpl<
   }
   public V1CephFSVolumeSourceBuilder(V1CephFSVolumeSourceFluent<?> fluent,V1CephFSVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMonitors(instance.getMonitors());
-
-    fluent.withPath(instance.getPath());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withSecretFile(instance.getSecretFile());
-
-    fluent.withSecretRef(instance.getSecretRef());
-
-    fluent.withUser(instance.getUser());
-
+    if (instance != null) {
+      fluent.withMonitors(instance.getMonitors());
+      fluent.withPath(instance.getPath());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withSecretFile(instance.getSecretFile());
+      fluent.withSecretRef(instance.getSecretRef());
+      fluent.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CephFSVolumeSourceBuilder(V1CephFSVolumeSource instance) {
@@ -39,18 +35,14 @@ public class V1CephFSVolumeSourceBuilder extends V1CephFSVolumeSourceFluentImpl<
   }
   public V1CephFSVolumeSourceBuilder(V1CephFSVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMonitors(instance.getMonitors());
-
-    this.withPath(instance.getPath());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretFile(instance.getSecretFile());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withMonitors(instance.getMonitors());
+      this.withPath(instance.getPath());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretFile(instance.getSecretFile());
+      this.withSecretRef(instance.getSecretRef());
+      this.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CephFSVolumeSourceFluent<?> fluent;

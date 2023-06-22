@@ -16,18 +16,14 @@ import java.lang.Object;
   public V1RuntimeClassFluentImpl() {
   }
   public V1RuntimeClassFluentImpl(V1RuntimeClass instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withHandler(instance.getHandler());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withOverhead(instance.getOverhead());
-
-    this.withScheduling(instance.getScheduling());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withHandler(instance.getHandler());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withOverhead(instance.getOverhead());
+      this.withScheduling(instance.getScheduling());
+    }
   }
   private String apiVersion;
   private String handler;
@@ -81,19 +77,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1RuntimeClassFluent.MetadataNested<A> withNewMetadata() {
+  public V1RuntimeClassFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1RuntimeClassFluentImpl.MetadataNestedImpl();
   }
-  public V1RuntimeClassFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1RuntimeClassFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1RuntimeClassFluentImpl.MetadataNestedImpl(item);
   }
-  public V1RuntimeClassFluent.MetadataNested<A> editMetadata() {
+  public V1RuntimeClassFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1RuntimeClassFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1RuntimeClassFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1RuntimeClassFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1RuntimeClassFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -115,19 +111,19 @@ import java.lang.Object;
   public Boolean hasOverhead() {
     return this.overhead != null;
   }
-  public V1RuntimeClassFluent.OverheadNested<A> withNewOverhead() {
+  public V1RuntimeClassFluentImpl.OverheadNested<A> withNewOverhead() {
     return new V1RuntimeClassFluentImpl.OverheadNestedImpl();
   }
-  public V1RuntimeClassFluent.OverheadNested<A> withNewOverheadLike(V1Overhead item) {
+  public V1RuntimeClassFluentImpl.OverheadNested<A> withNewOverheadLike(V1Overhead item) {
     return new V1RuntimeClassFluentImpl.OverheadNestedImpl(item);
   }
-  public V1RuntimeClassFluent.OverheadNested<A> editOverhead() {
+  public V1RuntimeClassFluentImpl.OverheadNested<A> editOverhead() {
     return withNewOverheadLike(getOverhead());
   }
-  public V1RuntimeClassFluent.OverheadNested<A> editOrNewOverhead() {
+  public V1RuntimeClassFluentImpl.OverheadNested<A> editOrNewOverhead() {
     return withNewOverheadLike(getOverhead() != null ? getOverhead(): new V1OverheadBuilder().build());
   }
-  public V1RuntimeClassFluent.OverheadNested<A> editOrNewOverheadLike(V1Overhead item) {
+  public V1RuntimeClassFluentImpl.OverheadNested<A> editOrNewOverheadLike(V1Overhead item) {
     return withNewOverheadLike(getOverhead() != null ? getOverhead(): item);
   }
   
@@ -149,31 +145,38 @@ import java.lang.Object;
   public Boolean hasScheduling() {
     return this.scheduling != null;
   }
-  public V1RuntimeClassFluent.SchedulingNested<A> withNewScheduling() {
+  public V1RuntimeClassFluentImpl.SchedulingNested<A> withNewScheduling() {
     return new V1RuntimeClassFluentImpl.SchedulingNestedImpl();
   }
-  public V1RuntimeClassFluent.SchedulingNested<A> withNewSchedulingLike(V1Scheduling item) {
+  public V1RuntimeClassFluentImpl.SchedulingNested<A> withNewSchedulingLike(V1Scheduling item) {
     return new V1RuntimeClassFluentImpl.SchedulingNestedImpl(item);
   }
-  public V1RuntimeClassFluent.SchedulingNested<A> editScheduling() {
+  public V1RuntimeClassFluentImpl.SchedulingNested<A> editScheduling() {
     return withNewSchedulingLike(getScheduling());
   }
-  public V1RuntimeClassFluent.SchedulingNested<A> editOrNewScheduling() {
+  public V1RuntimeClassFluentImpl.SchedulingNested<A> editOrNewScheduling() {
     return withNewSchedulingLike(getScheduling() != null ? getScheduling(): new V1SchedulingBuilder().build());
   }
-  public V1RuntimeClassFluent.SchedulingNested<A> editOrNewSchedulingLike(V1Scheduling item) {
+  public V1RuntimeClassFluentImpl.SchedulingNested<A> editOrNewSchedulingLike(V1Scheduling item) {
     return withNewSchedulingLike(getScheduling() != null ? getScheduling(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1RuntimeClassFluentImpl that = (V1RuntimeClassFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (handler != null ? !handler.equals(that.handler) :that.handler != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (overhead != null ? !overhead.equals(that.overhead) :that.overhead != null) return false;
-    if (scheduling != null ? !scheduling.equals(that.scheduling) :that.scheduling != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(handler, that.handler)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(overhead, that.overhead)) return false;
+
+    if (!java.util.Objects.equals(scheduling, that.scheduling)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -191,7 +194,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1RuntimeClassFluent.MetadataNested<N>> implements V1RuntimeClassFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1RuntimeClassFluentImpl.MetadataNested<N>> implements V1RuntimeClassFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -207,7 +210,7 @@ import java.lang.Object;
     }
     
   }
-  class OverheadNestedImpl<N> extends V1OverheadFluentImpl<V1RuntimeClassFluent.OverheadNested<N>> implements V1RuntimeClassFluent.OverheadNested<N>,Nested<N>{
+  class OverheadNestedImpl<N> extends V1OverheadFluentImpl<V1RuntimeClassFluentImpl.OverheadNested<N>> implements V1RuntimeClassFluentImpl.OverheadNested<N>,Nested<N>{
     OverheadNestedImpl(V1Overhead item) {
       this.builder = new V1OverheadBuilder(this, item);
     }
@@ -223,7 +226,7 @@ import java.lang.Object;
     }
     
   }
-  class SchedulingNestedImpl<N> extends V1SchedulingFluentImpl<V1RuntimeClassFluent.SchedulingNested<N>> implements V1RuntimeClassFluent.SchedulingNested<N>,Nested<N>{
+  class SchedulingNestedImpl<N> extends V1SchedulingFluentImpl<V1RuntimeClassFluentImpl.SchedulingNested<N>> implements V1RuntimeClassFluentImpl.SchedulingNested<N>,Nested<N>{
     SchedulingNestedImpl(V1Scheduling item) {
       this.builder = new V1SchedulingBuilder(this, item);
     }

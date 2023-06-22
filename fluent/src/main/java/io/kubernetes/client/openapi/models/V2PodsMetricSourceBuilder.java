@@ -20,10 +20,10 @@ public class V2PodsMetricSourceBuilder extends V2PodsMetricSourceFluentImpl<V2Po
   }
   public V2PodsMetricSourceBuilder(V2PodsMetricSourceFluent<?> fluent,V2PodsMetricSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMetric(instance.getMetric());
-
-    fluent.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      fluent.withMetric(instance.getMetric());
+      fluent.withTarget(instance.getTarget());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2PodsMetricSourceBuilder(V2PodsMetricSource instance) {
@@ -31,10 +31,10 @@ public class V2PodsMetricSourceBuilder extends V2PodsMetricSourceFluentImpl<V2Po
   }
   public V2PodsMetricSourceBuilder(V2PodsMetricSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMetric(instance.getMetric());
-
-    this.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      this.withMetric(instance.getMetric());
+      this.withTarget(instance.getTarget());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2PodsMetricSourceFluent<?> fluent;

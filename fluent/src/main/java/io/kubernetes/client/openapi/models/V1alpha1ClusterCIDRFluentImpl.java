@@ -16,14 +16,12 @@ import java.lang.Boolean;
   public V1alpha1ClusterCIDRFluentImpl() {
   }
   public V1alpha1ClusterCIDRFluentImpl(V1alpha1ClusterCIDR instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -66,19 +64,19 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1alpha1ClusterCIDRFluent.MetadataNested<A> withNewMetadata() {
+  public V1alpha1ClusterCIDRFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1alpha1ClusterCIDRFluentImpl.MetadataNestedImpl();
   }
-  public V1alpha1ClusterCIDRFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1alpha1ClusterCIDRFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1alpha1ClusterCIDRFluentImpl.MetadataNestedImpl(item);
   }
-  public V1alpha1ClusterCIDRFluent.MetadataNested<A> editMetadata() {
+  public V1alpha1ClusterCIDRFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1alpha1ClusterCIDRFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1alpha1ClusterCIDRFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1alpha1ClusterCIDRFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1alpha1ClusterCIDRFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -100,29 +98,34 @@ import java.lang.Boolean;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1alpha1ClusterCIDRFluent.SpecNested<A> withNewSpec() {
+  public V1alpha1ClusterCIDRFluentImpl.SpecNested<A> withNewSpec() {
     return new V1alpha1ClusterCIDRFluentImpl.SpecNestedImpl();
   }
-  public V1alpha1ClusterCIDRFluent.SpecNested<A> withNewSpecLike(V1alpha1ClusterCIDRSpec item) {
+  public V1alpha1ClusterCIDRFluentImpl.SpecNested<A> withNewSpecLike(V1alpha1ClusterCIDRSpec item) {
     return new V1alpha1ClusterCIDRFluentImpl.SpecNestedImpl(item);
   }
-  public V1alpha1ClusterCIDRFluent.SpecNested<A> editSpec() {
+  public V1alpha1ClusterCIDRFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1alpha1ClusterCIDRFluent.SpecNested<A> editOrNewSpec() {
+  public V1alpha1ClusterCIDRFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1alpha1ClusterCIDRSpecBuilder().build());
   }
-  public V1alpha1ClusterCIDRFluent.SpecNested<A> editOrNewSpecLike(V1alpha1ClusterCIDRSpec item) {
+  public V1alpha1ClusterCIDRFluentImpl.SpecNested<A> editOrNewSpecLike(V1alpha1ClusterCIDRSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1alpha1ClusterCIDRFluentImpl that = (V1alpha1ClusterCIDRFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -138,7 +141,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1alpha1ClusterCIDRFluent.MetadataNested<N>> implements V1alpha1ClusterCIDRFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1alpha1ClusterCIDRFluentImpl.MetadataNested<N>> implements V1alpha1ClusterCIDRFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -154,7 +157,7 @@ import java.lang.Boolean;
     }
     
   }
-  class SpecNestedImpl<N> extends V1alpha1ClusterCIDRSpecFluentImpl<V1alpha1ClusterCIDRFluent.SpecNested<N>> implements V1alpha1ClusterCIDRFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1alpha1ClusterCIDRSpecFluentImpl<V1alpha1ClusterCIDRFluentImpl.SpecNested<N>> implements V1alpha1ClusterCIDRFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1alpha1ClusterCIDRSpec item) {
       this.builder = new V1alpha1ClusterCIDRSpecBuilder(this, item);
     }

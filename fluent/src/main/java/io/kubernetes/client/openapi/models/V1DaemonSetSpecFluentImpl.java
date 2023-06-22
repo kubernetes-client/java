@@ -17,16 +17,13 @@ import java.lang.Object;
   public V1DaemonSetSpecFluentImpl() {
   }
   public V1DaemonSetSpecFluentImpl(V1DaemonSetSpec instance) {
-    this.withMinReadySeconds(instance.getMinReadySeconds());
-
-    this.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
-
-    this.withSelector(instance.getSelector());
-
-    this.withTemplate(instance.getTemplate());
-
-    this.withUpdateStrategy(instance.getUpdateStrategy());
-
+    if (instance != null) {
+      this.withMinReadySeconds(instance.getMinReadySeconds());
+      this.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
+      this.withSelector(instance.getSelector());
+      this.withTemplate(instance.getTemplate());
+      this.withUpdateStrategy(instance.getUpdateStrategy());
+    }
   }
   private Integer minReadySeconds;
   private Integer revisionHistoryLimit;
@@ -70,19 +67,19 @@ import java.lang.Object;
   public Boolean hasSelector() {
     return this.selector != null;
   }
-  public V1DaemonSetSpecFluent.SelectorNested<A> withNewSelector() {
+  public V1DaemonSetSpecFluentImpl.SelectorNested<A> withNewSelector() {
     return new V1DaemonSetSpecFluentImpl.SelectorNestedImpl();
   }
-  public V1DaemonSetSpecFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
+  public V1DaemonSetSpecFluentImpl.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
     return new V1DaemonSetSpecFluentImpl.SelectorNestedImpl(item);
   }
-  public V1DaemonSetSpecFluent.SelectorNested<A> editSelector() {
+  public V1DaemonSetSpecFluentImpl.SelectorNested<A> editSelector() {
     return withNewSelectorLike(getSelector());
   }
-  public V1DaemonSetSpecFluent.SelectorNested<A> editOrNewSelector() {
+  public V1DaemonSetSpecFluentImpl.SelectorNested<A> editOrNewSelector() {
     return withNewSelectorLike(getSelector() != null ? getSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1DaemonSetSpecFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
+  public V1DaemonSetSpecFluentImpl.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
     return withNewSelectorLike(getSelector() != null ? getSelector(): item);
   }
   
@@ -104,19 +101,19 @@ import java.lang.Object;
   public Boolean hasTemplate() {
     return this.template != null;
   }
-  public V1DaemonSetSpecFluent.TemplateNested<A> withNewTemplate() {
+  public V1DaemonSetSpecFluentImpl.TemplateNested<A> withNewTemplate() {
     return new V1DaemonSetSpecFluentImpl.TemplateNestedImpl();
   }
-  public V1DaemonSetSpecFluent.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
+  public V1DaemonSetSpecFluentImpl.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
     return new V1DaemonSetSpecFluentImpl.TemplateNestedImpl(item);
   }
-  public V1DaemonSetSpecFluent.TemplateNested<A> editTemplate() {
+  public V1DaemonSetSpecFluentImpl.TemplateNested<A> editTemplate() {
     return withNewTemplateLike(getTemplate());
   }
-  public V1DaemonSetSpecFluent.TemplateNested<A> editOrNewTemplate() {
+  public V1DaemonSetSpecFluentImpl.TemplateNested<A> editOrNewTemplate() {
     return withNewTemplateLike(getTemplate() != null ? getTemplate(): new V1PodTemplateSpecBuilder().build());
   }
-  public V1DaemonSetSpecFluent.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
+  public V1DaemonSetSpecFluentImpl.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
     return withNewTemplateLike(getTemplate() != null ? getTemplate(): item);
   }
   
@@ -138,30 +135,36 @@ import java.lang.Object;
   public Boolean hasUpdateStrategy() {
     return this.updateStrategy != null;
   }
-  public V1DaemonSetSpecFluent.UpdateStrategyNested<A> withNewUpdateStrategy() {
+  public V1DaemonSetSpecFluentImpl.UpdateStrategyNested<A> withNewUpdateStrategy() {
     return new V1DaemonSetSpecFluentImpl.UpdateStrategyNestedImpl();
   }
-  public V1DaemonSetSpecFluent.UpdateStrategyNested<A> withNewUpdateStrategyLike(V1DaemonSetUpdateStrategy item) {
+  public V1DaemonSetSpecFluentImpl.UpdateStrategyNested<A> withNewUpdateStrategyLike(V1DaemonSetUpdateStrategy item) {
     return new V1DaemonSetSpecFluentImpl.UpdateStrategyNestedImpl(item);
   }
-  public V1DaemonSetSpecFluent.UpdateStrategyNested<A> editUpdateStrategy() {
+  public V1DaemonSetSpecFluentImpl.UpdateStrategyNested<A> editUpdateStrategy() {
     return withNewUpdateStrategyLike(getUpdateStrategy());
   }
-  public V1DaemonSetSpecFluent.UpdateStrategyNested<A> editOrNewUpdateStrategy() {
+  public V1DaemonSetSpecFluentImpl.UpdateStrategyNested<A> editOrNewUpdateStrategy() {
     return withNewUpdateStrategyLike(getUpdateStrategy() != null ? getUpdateStrategy(): new V1DaemonSetUpdateStrategyBuilder().build());
   }
-  public V1DaemonSetSpecFluent.UpdateStrategyNested<A> editOrNewUpdateStrategyLike(V1DaemonSetUpdateStrategy item) {
+  public V1DaemonSetSpecFluentImpl.UpdateStrategyNested<A> editOrNewUpdateStrategyLike(V1DaemonSetUpdateStrategy item) {
     return withNewUpdateStrategyLike(getUpdateStrategy() != null ? getUpdateStrategy(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1DaemonSetSpecFluentImpl that = (V1DaemonSetSpecFluentImpl) o;
-    if (minReadySeconds != null ? !minReadySeconds.equals(that.minReadySeconds) :that.minReadySeconds != null) return false;
-    if (revisionHistoryLimit != null ? !revisionHistoryLimit.equals(that.revisionHistoryLimit) :that.revisionHistoryLimit != null) return false;
-    if (selector != null ? !selector.equals(that.selector) :that.selector != null) return false;
-    if (template != null ? !template.equals(that.template) :that.template != null) return false;
-    if (updateStrategy != null ? !updateStrategy.equals(that.updateStrategy) :that.updateStrategy != null) return false;
+    if (!java.util.Objects.equals(minReadySeconds, that.minReadySeconds)) return false;
+
+    if (!java.util.Objects.equals(revisionHistoryLimit, that.revisionHistoryLimit)) return false;
+
+    if (!java.util.Objects.equals(selector, that.selector)) return false;
+
+    if (!java.util.Objects.equals(template, that.template)) return false;
+
+    if (!java.util.Objects.equals(updateStrategy, that.updateStrategy)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -178,7 +181,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1DaemonSetSpecFluent.SelectorNested<N>> implements V1DaemonSetSpecFluent.SelectorNested<N>,Nested<N>{
+  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1DaemonSetSpecFluentImpl.SelectorNested<N>> implements V1DaemonSetSpecFluentImpl.SelectorNested<N>,Nested<N>{
     SelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
@@ -194,7 +197,7 @@ import java.lang.Object;
     }
     
   }
-  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1DaemonSetSpecFluent.TemplateNested<N>> implements V1DaemonSetSpecFluent.TemplateNested<N>,Nested<N>{
+  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1DaemonSetSpecFluentImpl.TemplateNested<N>> implements V1DaemonSetSpecFluentImpl.TemplateNested<N>,Nested<N>{
     TemplateNestedImpl(V1PodTemplateSpec item) {
       this.builder = new V1PodTemplateSpecBuilder(this, item);
     }
@@ -210,7 +213,7 @@ import java.lang.Object;
     }
     
   }
-  class UpdateStrategyNestedImpl<N> extends V1DaemonSetUpdateStrategyFluentImpl<V1DaemonSetSpecFluent.UpdateStrategyNested<N>> implements V1DaemonSetSpecFluent.UpdateStrategyNested<N>,Nested<N>{
+  class UpdateStrategyNestedImpl<N> extends V1DaemonSetUpdateStrategyFluentImpl<V1DaemonSetSpecFluentImpl.UpdateStrategyNested<N>> implements V1DaemonSetSpecFluentImpl.UpdateStrategyNested<N>,Nested<N>{
     UpdateStrategyNestedImpl(V1DaemonSetUpdateStrategy item) {
       this.builder = new V1DaemonSetUpdateStrategyBuilder(this, item);
     }

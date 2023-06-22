@@ -17,20 +17,15 @@ import java.lang.Boolean;
   public V1CSIStorageCapacityFluentImpl() {
   }
   public V1CSIStorageCapacityFluentImpl(V1CSIStorageCapacity instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withCapacity(instance.getCapacity());
-
-    this.withKind(instance.getKind());
-
-    this.withMaximumVolumeSize(instance.getMaximumVolumeSize());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withNodeTopology(instance.getNodeTopology());
-
-    this.withStorageClassName(instance.getStorageClassName());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withCapacity(instance.getCapacity());
+      this.withKind(instance.getKind());
+      this.withMaximumVolumeSize(instance.getMaximumVolumeSize());
+      this.withMetadata(instance.getMetadata());
+      this.withNodeTopology(instance.getNodeTopology());
+      this.withStorageClassName(instance.getStorageClassName());
+    }
   }
   private String apiVersion;
   private Quantity capacity;
@@ -100,19 +95,19 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1CSIStorageCapacityFluent.MetadataNested<A> withNewMetadata() {
+  public V1CSIStorageCapacityFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1CSIStorageCapacityFluentImpl.MetadataNestedImpl();
   }
-  public V1CSIStorageCapacityFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1CSIStorageCapacityFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1CSIStorageCapacityFluentImpl.MetadataNestedImpl(item);
   }
-  public V1CSIStorageCapacityFluent.MetadataNested<A> editMetadata() {
+  public V1CSIStorageCapacityFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1CSIStorageCapacityFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1CSIStorageCapacityFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1CSIStorageCapacityFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1CSIStorageCapacityFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -134,19 +129,19 @@ import java.lang.Boolean;
   public Boolean hasNodeTopology() {
     return this.nodeTopology != null;
   }
-  public V1CSIStorageCapacityFluent.NodeTopologyNested<A> withNewNodeTopology() {
+  public V1CSIStorageCapacityFluentImpl.NodeTopologyNested<A> withNewNodeTopology() {
     return new V1CSIStorageCapacityFluentImpl.NodeTopologyNestedImpl();
   }
-  public V1CSIStorageCapacityFluent.NodeTopologyNested<A> withNewNodeTopologyLike(V1LabelSelector item) {
+  public V1CSIStorageCapacityFluentImpl.NodeTopologyNested<A> withNewNodeTopologyLike(V1LabelSelector item) {
     return new V1CSIStorageCapacityFluentImpl.NodeTopologyNestedImpl(item);
   }
-  public V1CSIStorageCapacityFluent.NodeTopologyNested<A> editNodeTopology() {
+  public V1CSIStorageCapacityFluentImpl.NodeTopologyNested<A> editNodeTopology() {
     return withNewNodeTopologyLike(getNodeTopology());
   }
-  public V1CSIStorageCapacityFluent.NodeTopologyNested<A> editOrNewNodeTopology() {
+  public V1CSIStorageCapacityFluentImpl.NodeTopologyNested<A> editOrNewNodeTopology() {
     return withNewNodeTopologyLike(getNodeTopology() != null ? getNodeTopology(): new V1LabelSelectorBuilder().build());
   }
-  public V1CSIStorageCapacityFluent.NodeTopologyNested<A> editOrNewNodeTopologyLike(V1LabelSelector item) {
+  public V1CSIStorageCapacityFluentImpl.NodeTopologyNested<A> editOrNewNodeTopologyLike(V1LabelSelector item) {
     return withNewNodeTopologyLike(getNodeTopology() != null ? getNodeTopology(): item);
   }
   public String getStorageClassName() {
@@ -161,14 +156,22 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CSIStorageCapacityFluentImpl that = (V1CSIStorageCapacityFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (capacity != null ? !capacity.equals(that.capacity) :that.capacity != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (maximumVolumeSize != null ? !maximumVolumeSize.equals(that.maximumVolumeSize) :that.maximumVolumeSize != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (nodeTopology != null ? !nodeTopology.equals(that.nodeTopology) :that.nodeTopology != null) return false;
-    if (storageClassName != null ? !storageClassName.equals(that.storageClassName) :that.storageClassName != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(capacity, that.capacity)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(maximumVolumeSize, that.maximumVolumeSize)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(nodeTopology, that.nodeTopology)) return false;
+
+    if (!java.util.Objects.equals(storageClassName, that.storageClassName)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -187,7 +190,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1CSIStorageCapacityFluent.MetadataNested<N>> implements V1CSIStorageCapacityFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1CSIStorageCapacityFluentImpl.MetadataNested<N>> implements V1CSIStorageCapacityFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -203,7 +206,7 @@ import java.lang.Boolean;
     }
     
   }
-  class NodeTopologyNestedImpl<N> extends V1LabelSelectorFluentImpl<V1CSIStorageCapacityFluent.NodeTopologyNested<N>> implements V1CSIStorageCapacityFluent.NodeTopologyNested<N>,Nested<N>{
+  class NodeTopologyNestedImpl<N> extends V1LabelSelectorFluentImpl<V1CSIStorageCapacityFluentImpl.NodeTopologyNested<N>> implements V1CSIStorageCapacityFluentImpl.NodeTopologyNested<N>,Nested<N>{
     NodeTopologyNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }

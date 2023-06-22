@@ -20,12 +20,11 @@ public class V1NodeSelectorRequirementBuilder extends V1NodeSelectorRequirementF
   }
   public V1NodeSelectorRequirementBuilder(V1NodeSelectorRequirementFluent<?> fluent,V1NodeSelectorRequirement instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withKey(instance.getKey());
-
-    fluent.withOperator(instance.getOperator());
-
-    fluent.withValues(instance.getValues());
-
+    if (instance != null) {
+      fluent.withKey(instance.getKey());
+      fluent.withOperator(instance.getOperator());
+      fluent.withValues(instance.getValues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeSelectorRequirementBuilder(V1NodeSelectorRequirement instance) {
@@ -33,12 +32,11 @@ public class V1NodeSelectorRequirementBuilder extends V1NodeSelectorRequirementF
   }
   public V1NodeSelectorRequirementBuilder(V1NodeSelectorRequirement instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withKey(instance.getKey());
-
-    this.withOperator(instance.getOperator());
-
-    this.withValues(instance.getValues());
-
+    if (instance != null) {
+      this.withKey(instance.getKey());
+      this.withOperator(instance.getOperator());
+      this.withValues(instance.getValues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeSelectorRequirementFluent<?> fluent;

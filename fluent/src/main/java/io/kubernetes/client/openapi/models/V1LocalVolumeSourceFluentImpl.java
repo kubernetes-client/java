@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1LocalVolumeSourceFluentImpl() {
   }
   public V1LocalVolumeSourceFluentImpl(V1LocalVolumeSource instance) {
-    this.withFsType(instance.getFsType());
-
-    this.withPath(instance.getPath());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withPath(instance.getPath());
+    }
   }
   private String fsType;
   private String path;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1LocalVolumeSourceFluentImpl that = (V1LocalVolumeSourceFluentImpl) o;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
     return true;
   }
   public int hashCode() {

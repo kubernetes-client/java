@@ -20,10 +20,10 @@ public class V1WeightedPodAffinityTermBuilder extends V1WeightedPodAffinityTermF
   }
   public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTermFluent<?> fluent,V1WeightedPodAffinityTerm instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPodAffinityTerm(instance.getPodAffinityTerm());
-
-    fluent.withWeight(instance.getWeight());
-
+    if (instance != null) {
+      fluent.withPodAffinityTerm(instance.getPodAffinityTerm());
+      fluent.withWeight(instance.getWeight());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTerm instance) {
@@ -31,10 +31,10 @@ public class V1WeightedPodAffinityTermBuilder extends V1WeightedPodAffinityTermF
   }
   public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTerm instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPodAffinityTerm(instance.getPodAffinityTerm());
-
-    this.withWeight(instance.getWeight());
-
+    if (instance != null) {
+      this.withPodAffinityTerm(instance.getPodAffinityTerm());
+      this.withWeight(instance.getWeight());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1WeightedPodAffinityTermFluent<?> fluent;

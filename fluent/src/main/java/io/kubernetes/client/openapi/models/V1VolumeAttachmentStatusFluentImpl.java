@@ -18,14 +18,12 @@ import java.util.Map;
   public V1VolumeAttachmentStatusFluentImpl() {
   }
   public V1VolumeAttachmentStatusFluentImpl(V1VolumeAttachmentStatus instance) {
-    this.withAttachError(instance.getAttachError());
-
-    this.withAttached(instance.getAttached());
-
-    this.withAttachmentMetadata(instance.getAttachmentMetadata());
-
-    this.withDetachError(instance.getDetachError());
-
+    if (instance != null) {
+      this.withAttachError(instance.getAttachError());
+      this.withAttached(instance.getAttached());
+      this.withAttachmentMetadata(instance.getAttachmentMetadata());
+      this.withDetachError(instance.getDetachError());
+    }
   }
   private V1VolumeErrorBuilder attachError;
   private Boolean attached;
@@ -50,19 +48,19 @@ import java.util.Map;
   public Boolean hasAttachError() {
     return this.attachError != null;
   }
-  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> withNewAttachError() {
+  public V1VolumeAttachmentStatusFluentImpl.AttachErrorNested<A> withNewAttachError() {
     return new V1VolumeAttachmentStatusFluentImpl.AttachErrorNestedImpl();
   }
-  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> withNewAttachErrorLike(V1VolumeError item) {
+  public V1VolumeAttachmentStatusFluentImpl.AttachErrorNested<A> withNewAttachErrorLike(V1VolumeError item) {
     return new V1VolumeAttachmentStatusFluentImpl.AttachErrorNestedImpl(item);
   }
-  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> editAttachError() {
+  public V1VolumeAttachmentStatusFluentImpl.AttachErrorNested<A> editAttachError() {
     return withNewAttachErrorLike(getAttachError());
   }
-  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> editOrNewAttachError() {
+  public V1VolumeAttachmentStatusFluentImpl.AttachErrorNested<A> editOrNewAttachError() {
     return withNewAttachErrorLike(getAttachError() != null ? getAttachError(): new V1VolumeErrorBuilder().build());
   }
-  public V1VolumeAttachmentStatusFluent.AttachErrorNested<A> editOrNewAttachErrorLike(V1VolumeError item) {
+  public V1VolumeAttachmentStatusFluentImpl.AttachErrorNested<A> editOrNewAttachErrorLike(V1VolumeError item) {
     return withNewAttachErrorLike(getAttachError() != null ? getAttachError(): item);
   }
   public Boolean getAttached() {
@@ -118,29 +116,34 @@ import java.util.Map;
   public Boolean hasDetachError() {
     return this.detachError != null;
   }
-  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> withNewDetachError() {
+  public V1VolumeAttachmentStatusFluentImpl.DetachErrorNested<A> withNewDetachError() {
     return new V1VolumeAttachmentStatusFluentImpl.DetachErrorNestedImpl();
   }
-  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> withNewDetachErrorLike(V1VolumeError item) {
+  public V1VolumeAttachmentStatusFluentImpl.DetachErrorNested<A> withNewDetachErrorLike(V1VolumeError item) {
     return new V1VolumeAttachmentStatusFluentImpl.DetachErrorNestedImpl(item);
   }
-  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> editDetachError() {
+  public V1VolumeAttachmentStatusFluentImpl.DetachErrorNested<A> editDetachError() {
     return withNewDetachErrorLike(getDetachError());
   }
-  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> editOrNewDetachError() {
+  public V1VolumeAttachmentStatusFluentImpl.DetachErrorNested<A> editOrNewDetachError() {
     return withNewDetachErrorLike(getDetachError() != null ? getDetachError(): new V1VolumeErrorBuilder().build());
   }
-  public V1VolumeAttachmentStatusFluent.DetachErrorNested<A> editOrNewDetachErrorLike(V1VolumeError item) {
+  public V1VolumeAttachmentStatusFluentImpl.DetachErrorNested<A> editOrNewDetachErrorLike(V1VolumeError item) {
     return withNewDetachErrorLike(getDetachError() != null ? getDetachError(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1VolumeAttachmentStatusFluentImpl that = (V1VolumeAttachmentStatusFluentImpl) o;
-    if (attachError != null ? !attachError.equals(that.attachError) :that.attachError != null) return false;
-    if (attached != null ? !attached.equals(that.attached) :that.attached != null) return false;
-    if (attachmentMetadata != null ? !attachmentMetadata.equals(that.attachmentMetadata) :that.attachmentMetadata != null) return false;
-    if (detachError != null ? !detachError.equals(that.detachError) :that.detachError != null) return false;
+    if (!java.util.Objects.equals(attachError, that.attachError)) return false;
+
+    if (!java.util.Objects.equals(attached, that.attached)) return false;
+
+    if (!java.util.Objects.equals(attachmentMetadata, that.attachmentMetadata)) return false;
+
+    if (!java.util.Objects.equals(detachError, that.detachError)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -159,7 +162,7 @@ import java.util.Map;
   public A withAttached() {
     return withAttached(true);
   }
-  class AttachErrorNestedImpl<N> extends V1VolumeErrorFluentImpl<V1VolumeAttachmentStatusFluent.AttachErrorNested<N>> implements V1VolumeAttachmentStatusFluent.AttachErrorNested<N>,Nested<N>{
+  class AttachErrorNestedImpl<N> extends V1VolumeErrorFluentImpl<V1VolumeAttachmentStatusFluentImpl.AttachErrorNested<N>> implements V1VolumeAttachmentStatusFluentImpl.AttachErrorNested<N>,Nested<N>{
     AttachErrorNestedImpl(V1VolumeError item) {
       this.builder = new V1VolumeErrorBuilder(this, item);
     }
@@ -175,7 +178,7 @@ import java.util.Map;
     }
     
   }
-  class DetachErrorNestedImpl<N> extends V1VolumeErrorFluentImpl<V1VolumeAttachmentStatusFluent.DetachErrorNested<N>> implements V1VolumeAttachmentStatusFluent.DetachErrorNested<N>,Nested<N>{
+  class DetachErrorNestedImpl<N> extends V1VolumeErrorFluentImpl<V1VolumeAttachmentStatusFluentImpl.DetachErrorNested<N>> implements V1VolumeAttachmentStatusFluentImpl.DetachErrorNested<N>,Nested<N>{
     DetachErrorNestedImpl(V1VolumeError item) {
       this.builder = new V1VolumeErrorBuilder(this, item);
     }

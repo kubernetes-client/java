@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1EndpointSliceListFluent<A extends V1EndpointSliceListFluent<A
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1EndpointSlice item);
-  public A setToItems(Integer index,V1EndpointSlice item);
+  public A addToItems(int index,V1EndpointSlice item);
+  public A setToItems(int index,V1EndpointSlice item);
   public A addToItems(io.kubernetes.client.openapi.models.V1EndpointSlice... items);
   public A addAllToItems(Collection<V1EndpointSlice> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1EndpointSlice... items);
@@ -35,7 +35,7 @@ public interface V1EndpointSliceListFluent<A extends V1EndpointSliceListFluent<A
   @Deprecated
   public List<V1EndpointSlice> getItems();
   public List<V1EndpointSlice> buildItems();
-  public V1EndpointSlice buildItem(Integer index);
+  public V1EndpointSlice buildItem(int index);
   public V1EndpointSlice buildFirstItem();
   public V1EndpointSlice buildLastItem();
   public V1EndpointSlice buildMatchingItem(Predicate<V1EndpointSliceBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1EndpointSliceListFluent<A extends V1EndpointSliceListFluent<A
   public Boolean hasItems();
   public V1EndpointSliceListFluent.ItemsNested<A> addNewItem();
   public V1EndpointSliceListFluent.ItemsNested<A> addNewItemLike(V1EndpointSlice item);
-  public V1EndpointSliceListFluent.ItemsNested<A> setNewItemLike(Integer index,V1EndpointSlice item);
-  public V1EndpointSliceListFluent.ItemsNested<A> editItem(Integer index);
+  public V1EndpointSliceListFluent.ItemsNested<A> setNewItemLike(int index,V1EndpointSlice item);
+  public V1EndpointSliceListFluent.ItemsNested<A> editItem(int index);
   public V1EndpointSliceListFluent.ItemsNested<A> editFirstItem();
   public V1EndpointSliceListFluent.ItemsNested<A> editLastItem();
   public V1EndpointSliceListFluent.ItemsNested<A> editMatchingItem(Predicate<V1EndpointSliceBuilder> predicate);

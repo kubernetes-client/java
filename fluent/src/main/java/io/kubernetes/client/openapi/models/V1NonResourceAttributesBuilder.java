@@ -20,10 +20,10 @@ public class V1NonResourceAttributesBuilder extends V1NonResourceAttributesFluen
   }
   public V1NonResourceAttributesBuilder(V1NonResourceAttributesFluent<?> fluent,V1NonResourceAttributes instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPath(instance.getPath());
-
-    fluent.withVerb(instance.getVerb());
-
+    if (instance != null) {
+      fluent.withPath(instance.getPath());
+      fluent.withVerb(instance.getVerb());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NonResourceAttributesBuilder(V1NonResourceAttributes instance) {
@@ -31,10 +31,10 @@ public class V1NonResourceAttributesBuilder extends V1NonResourceAttributesFluen
   }
   public V1NonResourceAttributesBuilder(V1NonResourceAttributes instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPath(instance.getPath());
-
-    this.withVerb(instance.getVerb());
-
+    if (instance != null) {
+      this.withPath(instance.getPath());
+      this.withVerb(instance.getVerb());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NonResourceAttributesFluent<?> fluent;

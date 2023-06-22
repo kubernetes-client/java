@@ -16,16 +16,13 @@ import java.lang.Boolean;
   public V1alpha1StorageVersionFluentImpl() {
   }
   public V1alpha1StorageVersionFluentImpl(V1alpha1StorageVersion instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1alpha1StorageVersionFluent.MetadataNested<A> withNewMetadata() {
+  public V1alpha1StorageVersionFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1alpha1StorageVersionFluentImpl.MetadataNestedImpl();
   }
-  public V1alpha1StorageVersionFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1alpha1StorageVersionFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1alpha1StorageVersionFluentImpl.MetadataNestedImpl(item);
   }
-  public V1alpha1StorageVersionFluent.MetadataNested<A> editMetadata() {
+  public V1alpha1StorageVersionFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1alpha1StorageVersionFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1alpha1StorageVersionFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1alpha1StorageVersionFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1alpha1StorageVersionFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   public Object getSpec() {
@@ -112,30 +109,36 @@ import java.lang.Boolean;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1alpha1StorageVersionFluent.StatusNested<A> withNewStatus() {
+  public V1alpha1StorageVersionFluentImpl.StatusNested<A> withNewStatus() {
     return new V1alpha1StorageVersionFluentImpl.StatusNestedImpl();
   }
-  public V1alpha1StorageVersionFluent.StatusNested<A> withNewStatusLike(V1alpha1StorageVersionStatus item) {
+  public V1alpha1StorageVersionFluentImpl.StatusNested<A> withNewStatusLike(V1alpha1StorageVersionStatus item) {
     return new V1alpha1StorageVersionFluentImpl.StatusNestedImpl(item);
   }
-  public V1alpha1StorageVersionFluent.StatusNested<A> editStatus() {
+  public V1alpha1StorageVersionFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1alpha1StorageVersionFluent.StatusNested<A> editOrNewStatus() {
+  public V1alpha1StorageVersionFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1alpha1StorageVersionStatusBuilder().build());
   }
-  public V1alpha1StorageVersionFluent.StatusNested<A> editOrNewStatusLike(V1alpha1StorageVersionStatus item) {
+  public V1alpha1StorageVersionFluentImpl.StatusNested<A> editOrNewStatusLike(V1alpha1StorageVersionStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1alpha1StorageVersionFluentImpl that = (V1alpha1StorageVersionFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -152,7 +155,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1alpha1StorageVersionFluent.MetadataNested<N>> implements V1alpha1StorageVersionFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1alpha1StorageVersionFluentImpl.MetadataNested<N>> implements V1alpha1StorageVersionFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -168,7 +171,7 @@ import java.lang.Boolean;
     }
     
   }
-  class StatusNestedImpl<N> extends V1alpha1StorageVersionStatusFluentImpl<V1alpha1StorageVersionFluent.StatusNested<N>> implements V1alpha1StorageVersionFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1alpha1StorageVersionStatusFluentImpl<V1alpha1StorageVersionFluentImpl.StatusNested<N>> implements V1alpha1StorageVersionFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1alpha1StorageVersionStatus item) {
       this.builder = new V1alpha1StorageVersionStatusBuilder(this, item);
     }

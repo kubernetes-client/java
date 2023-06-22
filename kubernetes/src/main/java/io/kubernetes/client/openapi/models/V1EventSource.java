@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** EventSource contains information for an event. */
+/**
+ * EventSource contains information for an event.
+ */
 @ApiModel(description = "EventSource contains information for an event.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1EventSource {
   public static final String SERIALIZED_NAME_COMPONENT = "component";
-
   @SerializedName(SERIALIZED_NAME_COMPONENT)
   private String component;
 
   public static final String SERIALIZED_NAME_HOST = "host";
-
   @SerializedName(SERIALIZED_NAME_HOST)
   private String host;
+
 
   public V1EventSource component(String component) {
 
@@ -39,20 +44,22 @@ public class V1EventSource {
     return this;
   }
 
-  /**
+   /**
    * Component from which the event is generated.
-   *
    * @return component
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Component from which the event is generated.")
+
   public String getComponent() {
     return component;
   }
 
+
   public void setComponent(String component) {
     this.component = component;
   }
+
 
   public V1EventSource host(String host) {
 
@@ -60,20 +67,22 @@ public class V1EventSource {
     return this;
   }
 
-  /**
+   /**
    * Node name on which the event is generated.
-   *
    * @return host
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Node name on which the event is generated.")
+
   public String getHost() {
     return host;
   }
 
+
   public void setHost(String host) {
     this.host = host;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,14 +93,15 @@ public class V1EventSource {
       return false;
     }
     V1EventSource v1EventSource = (V1EventSource) o;
-    return Objects.equals(this.component, v1EventSource.component)
-        && Objects.equals(this.host, v1EventSource.host);
+    return Objects.equals(this.component, v1EventSource.component) &&
+        Objects.equals(this.host, v1EventSource.host);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(component, host);
   }
+
 
   @Override
   public String toString() {
@@ -104,7 +114,8 @@ public class V1EventSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -112,4 +123,5 @@ public class V1EventSource {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

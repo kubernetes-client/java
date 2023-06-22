@@ -2,6 +2,7 @@ package io.kubernetes.client.openapi.models;
 
 import java.lang.Integer;
 import java.time.OffsetDateTime;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import java.lang.Long;
 import java.lang.Boolean;

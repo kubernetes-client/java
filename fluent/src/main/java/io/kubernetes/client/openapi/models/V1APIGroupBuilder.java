@@ -20,18 +20,14 @@ public class V1APIGroupBuilder extends V1APIGroupFluentImpl<V1APIGroupBuilder> i
   }
   public V1APIGroupBuilder(V1APIGroupFluent<?> fluent,V1APIGroup instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
-    fluent.withPreferredVersion(instance.getPreferredVersion());
-
-    fluent.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
-
-    fluent.withVersions(instance.getVersions());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+      fluent.withPreferredVersion(instance.getPreferredVersion());
+      fluent.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
+      fluent.withVersions(instance.getVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1APIGroupBuilder(V1APIGroup instance) {
@@ -39,18 +35,14 @@ public class V1APIGroupBuilder extends V1APIGroupFluentImpl<V1APIGroupBuilder> i
   }
   public V1APIGroupBuilder(V1APIGroup instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withPreferredVersion(instance.getPreferredVersion());
-
-    this.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
-
-    this.withVersions(instance.getVersions());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withPreferredVersion(instance.getPreferredVersion());
+      this.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
+      this.withVersions(instance.getVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1APIGroupFluent<?> fluent;

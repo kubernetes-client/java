@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -35,8 +35,8 @@ public interface V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends F
   public String getIngressClassName();
   public A withIngressClassName(String ingressClassName);
   public Boolean hasIngressClassName();
-  public A addToRules(Integer index,V1IngressRule item);
-  public A setToRules(Integer index,V1IngressRule item);
+  public A addToRules(int index,V1IngressRule item);
+  public A setToRules(int index,V1IngressRule item);
   public A addToRules(io.kubernetes.client.openapi.models.V1IngressRule... items);
   public A addAllToRules(Collection<V1IngressRule> items);
   public A removeFromRules(io.kubernetes.client.openapi.models.V1IngressRule... items);
@@ -50,7 +50,7 @@ public interface V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends F
   @Deprecated
   public List<V1IngressRule> getRules();
   public List<V1IngressRule> buildRules();
-  public V1IngressRule buildRule(Integer index);
+  public V1IngressRule buildRule(int index);
   public V1IngressRule buildFirstRule();
   public V1IngressRule buildLastRule();
   public V1IngressRule buildMatchingRule(Predicate<V1IngressRuleBuilder> predicate);
@@ -60,13 +60,13 @@ public interface V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends F
   public Boolean hasRules();
   public V1IngressSpecFluent.RulesNested<A> addNewRule();
   public V1IngressSpecFluent.RulesNested<A> addNewRuleLike(V1IngressRule item);
-  public V1IngressSpecFluent.RulesNested<A> setNewRuleLike(Integer index,V1IngressRule item);
-  public V1IngressSpecFluent.RulesNested<A> editRule(Integer index);
+  public V1IngressSpecFluent.RulesNested<A> setNewRuleLike(int index,V1IngressRule item);
+  public V1IngressSpecFluent.RulesNested<A> editRule(int index);
   public V1IngressSpecFluent.RulesNested<A> editFirstRule();
   public V1IngressSpecFluent.RulesNested<A> editLastRule();
   public V1IngressSpecFluent.RulesNested<A> editMatchingRule(Predicate<V1IngressRuleBuilder> predicate);
-  public A addToTls(Integer index,V1IngressTLS item);
-  public A setToTls(Integer index,V1IngressTLS item);
+  public A addToTls(int index,V1IngressTLS item);
+  public A setToTls(int index,V1IngressTLS item);
   public A addToTls(io.kubernetes.client.openapi.models.V1IngressTLS... items);
   public A addAllToTls(Collection<V1IngressTLS> items);
   public A removeFromTls(io.kubernetes.client.openapi.models.V1IngressTLS... items);
@@ -80,7 +80,7 @@ public interface V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends F
   @Deprecated
   public List<V1IngressTLS> getTls();
   public List<V1IngressTLS> buildTls();
-  public V1IngressTLS buildTl(Integer index);
+  public V1IngressTLS buildTl(int index);
   public V1IngressTLS buildFirstTl();
   public V1IngressTLS buildLastTl();
   public V1IngressTLS buildMatchingTl(Predicate<V1IngressTLSBuilder> predicate);
@@ -90,8 +90,8 @@ public interface V1IngressSpecFluent<A extends V1IngressSpecFluent<A>> extends F
   public Boolean hasTls();
   public V1IngressSpecFluent.TlsNested<A> addNewTl();
   public V1IngressSpecFluent.TlsNested<A> addNewTlLike(V1IngressTLS item);
-  public V1IngressSpecFluent.TlsNested<A> setNewTlLike(Integer index,V1IngressTLS item);
-  public V1IngressSpecFluent.TlsNested<A> editTl(Integer index);
+  public V1IngressSpecFluent.TlsNested<A> setNewTlLike(int index,V1IngressTLS item);
+  public V1IngressSpecFluent.TlsNested<A> editTl(int index);
   public V1IngressSpecFluent.TlsNested<A> editFirstTl();
   public V1IngressSpecFluent.TlsNested<A> editLastTl();
   public V1IngressSpecFluent.TlsNested<A> editMatchingTl(Predicate<V1IngressTLSBuilder> predicate);

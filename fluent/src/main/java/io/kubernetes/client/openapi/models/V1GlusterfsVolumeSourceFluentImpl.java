@@ -14,12 +14,11 @@ import java.lang.Boolean;
   public V1GlusterfsVolumeSourceFluentImpl() {
   }
   public V1GlusterfsVolumeSourceFluentImpl(V1GlusterfsVolumeSource instance) {
-    this.withEndpoints(instance.getEndpoints());
-
-    this.withPath(instance.getPath());
-
-    this.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      this.withEndpoints(instance.getEndpoints());
+      this.withPath(instance.getPath());
+      this.withReadOnly(instance.getReadOnly());
+    }
   }
   private String endpoints;
   private String path;
@@ -54,10 +53,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1GlusterfsVolumeSourceFluentImpl that = (V1GlusterfsVolumeSourceFluentImpl) o;
-    if (endpoints != null ? !endpoints.equals(that.endpoints) :that.endpoints != null) return false;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
+    if (!java.util.Objects.equals(endpoints, that.endpoints)) return false;
+
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
     return true;
   }
   public int hashCode() {

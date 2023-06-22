@@ -20,10 +20,10 @@ public class V1UncountedTerminatedPodsBuilder extends V1UncountedTerminatedPodsF
   }
   public V1UncountedTerminatedPodsBuilder(V1UncountedTerminatedPodsFluent<?> fluent,V1UncountedTerminatedPods instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFailed(instance.getFailed());
-
-    fluent.withSucceeded(instance.getSucceeded());
-
+    if (instance != null) {
+      fluent.withFailed(instance.getFailed());
+      fluent.withSucceeded(instance.getSucceeded());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1UncountedTerminatedPodsBuilder(V1UncountedTerminatedPods instance) {
@@ -31,10 +31,10 @@ public class V1UncountedTerminatedPodsBuilder extends V1UncountedTerminatedPodsF
   }
   public V1UncountedTerminatedPodsBuilder(V1UncountedTerminatedPods instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFailed(instance.getFailed());
-
-    this.withSucceeded(instance.getSucceeded());
-
+    if (instance != null) {
+      this.withFailed(instance.getFailed());
+      this.withSucceeded(instance.getSucceeded());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1UncountedTerminatedPodsFluent<?> fluent;

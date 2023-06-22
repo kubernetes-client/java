@@ -20,10 +20,10 @@ public class V1SelfSubjectAccessReviewSpecBuilder extends V1SelfSubjectAccessRev
   }
   public V1SelfSubjectAccessReviewSpecBuilder(V1SelfSubjectAccessReviewSpecFluent<?> fluent,V1SelfSubjectAccessReviewSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withNonResourceAttributes(instance.getNonResourceAttributes());
-
-    fluent.withResourceAttributes(instance.getResourceAttributes());
-
+    if (instance != null) {
+      fluent.withNonResourceAttributes(instance.getNonResourceAttributes());
+      fluent.withResourceAttributes(instance.getResourceAttributes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SelfSubjectAccessReviewSpecBuilder(V1SelfSubjectAccessReviewSpec instance) {
@@ -31,10 +31,10 @@ public class V1SelfSubjectAccessReviewSpecBuilder extends V1SelfSubjectAccessRev
   }
   public V1SelfSubjectAccessReviewSpecBuilder(V1SelfSubjectAccessReviewSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withNonResourceAttributes(instance.getNonResourceAttributes());
-
-    this.withResourceAttributes(instance.getResourceAttributes());
-
+    if (instance != null) {
+      this.withNonResourceAttributes(instance.getNonResourceAttributes());
+      this.withResourceAttributes(instance.getResourceAttributes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SelfSubjectAccessReviewSpecFluent<?> fluent;

@@ -20,16 +20,13 @@ public class V1HorizontalPodAutoscalerStatusBuilder extends V1HorizontalPodAutos
   }
   public V1HorizontalPodAutoscalerStatusBuilder(V1HorizontalPodAutoscalerStatusFluent<?> fluent,V1HorizontalPodAutoscalerStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
-
-    fluent.withCurrentReplicas(instance.getCurrentReplicas());
-
-    fluent.withDesiredReplicas(instance.getDesiredReplicas());
-
-    fluent.withLastScaleTime(instance.getLastScaleTime());
-
-    fluent.withObservedGeneration(instance.getObservedGeneration());
-
+    if (instance != null) {
+      fluent.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
+      fluent.withCurrentReplicas(instance.getCurrentReplicas());
+      fluent.withDesiredReplicas(instance.getDesiredReplicas());
+      fluent.withLastScaleTime(instance.getLastScaleTime());
+      fluent.withObservedGeneration(instance.getObservedGeneration());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1HorizontalPodAutoscalerStatusBuilder(V1HorizontalPodAutoscalerStatus instance) {
@@ -37,16 +34,13 @@ public class V1HorizontalPodAutoscalerStatusBuilder extends V1HorizontalPodAutos
   }
   public V1HorizontalPodAutoscalerStatusBuilder(V1HorizontalPodAutoscalerStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
-
-    this.withCurrentReplicas(instance.getCurrentReplicas());
-
-    this.withDesiredReplicas(instance.getDesiredReplicas());
-
-    this.withLastScaleTime(instance.getLastScaleTime());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
+    if (instance != null) {
+      this.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
+      this.withCurrentReplicas(instance.getCurrentReplicas());
+      this.withDesiredReplicas(instance.getDesiredReplicas());
+      this.withLastScaleTime(instance.getLastScaleTime());
+      this.withObservedGeneration(instance.getObservedGeneration());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1HorizontalPodAutoscalerStatusFluent<?> fluent;

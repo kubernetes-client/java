@@ -20,10 +20,10 @@ public class V1TokenReviewSpecBuilder extends V1TokenReviewSpecFluentImpl<V1Toke
   }
   public V1TokenReviewSpecBuilder(V1TokenReviewSpecFluent<?> fluent,V1TokenReviewSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAudiences(instance.getAudiences());
-
-    fluent.withToken(instance.getToken());
-
+    if (instance != null) {
+      fluent.withAudiences(instance.getAudiences());
+      fluent.withToken(instance.getToken());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TokenReviewSpecBuilder(V1TokenReviewSpec instance) {
@@ -31,10 +31,10 @@ public class V1TokenReviewSpecBuilder extends V1TokenReviewSpecFluentImpl<V1Toke
   }
   public V1TokenReviewSpecBuilder(V1TokenReviewSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAudiences(instance.getAudiences());
-
-    this.withToken(instance.getToken());
-
+    if (instance != null) {
+      this.withAudiences(instance.getAudiences());
+      this.withToken(instance.getToken());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TokenReviewSpecFluent<?> fluent;

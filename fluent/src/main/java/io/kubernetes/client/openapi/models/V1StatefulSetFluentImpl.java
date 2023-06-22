@@ -16,16 +16,13 @@ import java.lang.Object;
   public V1StatefulSetFluentImpl() {
   }
   public V1StatefulSetFluentImpl(V1StatefulSet instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1StatefulSetFluent.MetadataNested<A> withNewMetadata() {
+  public V1StatefulSetFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1StatefulSetFluentImpl.MetadataNestedImpl();
   }
-  public V1StatefulSetFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1StatefulSetFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1StatefulSetFluentImpl.MetadataNestedImpl(item);
   }
-  public V1StatefulSetFluent.MetadataNested<A> editMetadata() {
+  public V1StatefulSetFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1StatefulSetFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1StatefulSetFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1StatefulSetFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1StatefulSetFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1StatefulSetFluent.SpecNested<A> withNewSpec() {
+  public V1StatefulSetFluentImpl.SpecNested<A> withNewSpec() {
     return new V1StatefulSetFluentImpl.SpecNestedImpl();
   }
-  public V1StatefulSetFluent.SpecNested<A> withNewSpecLike(V1StatefulSetSpec item) {
+  public V1StatefulSetFluentImpl.SpecNested<A> withNewSpecLike(V1StatefulSetSpec item) {
     return new V1StatefulSetFluentImpl.SpecNestedImpl(item);
   }
-  public V1StatefulSetFluent.SpecNested<A> editSpec() {
+  public V1StatefulSetFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1StatefulSetFluent.SpecNested<A> editOrNewSpec() {
+  public V1StatefulSetFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1StatefulSetSpecBuilder().build());
   }
-  public V1StatefulSetFluent.SpecNested<A> editOrNewSpecLike(V1StatefulSetSpec item) {
+  public V1StatefulSetFluentImpl.SpecNested<A> editOrNewSpecLike(V1StatefulSetSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1StatefulSetFluent.StatusNested<A> withNewStatus() {
+  public V1StatefulSetFluentImpl.StatusNested<A> withNewStatus() {
     return new V1StatefulSetFluentImpl.StatusNestedImpl();
   }
-  public V1StatefulSetFluent.StatusNested<A> withNewStatusLike(V1StatefulSetStatus item) {
+  public V1StatefulSetFluentImpl.StatusNested<A> withNewStatusLike(V1StatefulSetStatus item) {
     return new V1StatefulSetFluentImpl.StatusNestedImpl(item);
   }
-  public V1StatefulSetFluent.StatusNested<A> editStatus() {
+  public V1StatefulSetFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1StatefulSetFluent.StatusNested<A> editOrNewStatus() {
+  public V1StatefulSetFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1StatefulSetStatusBuilder().build());
   }
-  public V1StatefulSetFluent.StatusNested<A> editOrNewStatusLike(V1StatefulSetStatus item) {
+  public V1StatefulSetFluentImpl.StatusNested<A> editOrNewStatusLike(V1StatefulSetStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1StatefulSetFluentImpl that = (V1StatefulSetFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1StatefulSetFluent.MetadataNested<N>> implements V1StatefulSetFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1StatefulSetFluentImpl.MetadataNested<N>> implements V1StatefulSetFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1StatefulSetSpecFluentImpl<V1StatefulSetFluent.SpecNested<N>> implements V1StatefulSetFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1StatefulSetSpecFluentImpl<V1StatefulSetFluentImpl.SpecNested<N>> implements V1StatefulSetFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1StatefulSetSpec item) {
       this.builder = new V1StatefulSetSpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1StatefulSetStatusFluentImpl<V1StatefulSetFluent.StatusNested<N>> implements V1StatefulSetFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1StatefulSetStatusFluentImpl<V1StatefulSetFluentImpl.StatusNested<N>> implements V1StatefulSetFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1StatefulSetStatus item) {
       this.builder = new V1StatefulSetStatusBuilder(this, item);
     }

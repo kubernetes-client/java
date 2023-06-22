@@ -20,12 +20,11 @@ public class V1PodFailurePolicyOnExitCodesRequirementBuilder extends V1PodFailur
   }
   public V1PodFailurePolicyOnExitCodesRequirementBuilder(V1PodFailurePolicyOnExitCodesRequirementFluent<?> fluent,V1PodFailurePolicyOnExitCodesRequirement instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withContainerName(instance.getContainerName());
-
-    fluent.withOperator(instance.getOperator());
-
-    fluent.withValues(instance.getValues());
-
+    if (instance != null) {
+      fluent.withContainerName(instance.getContainerName());
+      fluent.withOperator(instance.getOperator());
+      fluent.withValues(instance.getValues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodFailurePolicyOnExitCodesRequirementBuilder(V1PodFailurePolicyOnExitCodesRequirement instance) {
@@ -33,12 +32,11 @@ public class V1PodFailurePolicyOnExitCodesRequirementBuilder extends V1PodFailur
   }
   public V1PodFailurePolicyOnExitCodesRequirementBuilder(V1PodFailurePolicyOnExitCodesRequirement instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withContainerName(instance.getContainerName());
-
-    this.withOperator(instance.getOperator());
-
-    this.withValues(instance.getValues());
-
+    if (instance != null) {
+      this.withContainerName(instance.getContainerName());
+      this.withOperator(instance.getOperator());
+      this.withValues(instance.getValues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodFailurePolicyOnExitCodesRequirementFluent<?> fluent;

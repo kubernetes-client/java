@@ -15,12 +15,11 @@ import java.lang.Boolean;
   public V1beta2QueuingConfigurationFluentImpl() {
   }
   public V1beta2QueuingConfigurationFluentImpl(V1beta2QueuingConfiguration instance) {
-    this.withHandSize(instance.getHandSize());
-
-    this.withQueueLengthLimit(instance.getQueueLengthLimit());
-
-    this.withQueues(instance.getQueues());
-
+    if (instance != null) {
+      this.withHandSize(instance.getHandSize());
+      this.withQueueLengthLimit(instance.getQueueLengthLimit());
+      this.withQueues(instance.getQueues());
+    }
   }
   private Integer handSize;
   private Integer queueLengthLimit;
@@ -55,10 +54,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1beta2QueuingConfigurationFluentImpl that = (V1beta2QueuingConfigurationFluentImpl) o;
-    if (handSize != null ? !handSize.equals(that.handSize) :that.handSize != null) return false;
-    if (queueLengthLimit != null ? !queueLengthLimit.equals(that.queueLengthLimit) :that.queueLengthLimit != null) return false;
-    if (queues != null ? !queues.equals(that.queues) :that.queues != null) return false;
+    if (!java.util.Objects.equals(handSize, that.handSize)) return false;
+
+    if (!java.util.Objects.equals(queueLengthLimit, that.queueLengthLimit)) return false;
+
+    if (!java.util.Objects.equals(queues, that.queues)) return false;
+
     return true;
   }
   public int hashCode() {

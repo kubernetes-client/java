@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -27,8 +28,8 @@ public interface V1JobStatusFluent<A extends V1JobStatusFluent<A>> extends Fluen
   public OffsetDateTime getCompletionTime();
   public A withCompletionTime(OffsetDateTime completionTime);
   public Boolean hasCompletionTime();
-  public A addToConditions(Integer index,V1JobCondition item);
-  public A setToConditions(Integer index,V1JobCondition item);
+  public A addToConditions(int index,V1JobCondition item);
+  public A setToConditions(int index,V1JobCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1JobCondition... items);
   public A addAllToConditions(Collection<V1JobCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1JobCondition... items);
@@ -42,7 +43,7 @@ public interface V1JobStatusFluent<A extends V1JobStatusFluent<A>> extends Fluen
   @Deprecated
   public List<V1JobCondition> getConditions();
   public List<V1JobCondition> buildConditions();
-  public V1JobCondition buildCondition(Integer index);
+  public V1JobCondition buildCondition(int index);
   public V1JobCondition buildFirstCondition();
   public V1JobCondition buildLastCondition();
   public V1JobCondition buildMatchingCondition(Predicate<V1JobConditionBuilder> predicate);
@@ -52,8 +53,8 @@ public interface V1JobStatusFluent<A extends V1JobStatusFluent<A>> extends Fluen
   public Boolean hasConditions();
   public V1JobStatusFluent.ConditionsNested<A> addNewCondition();
   public V1JobStatusFluent.ConditionsNested<A> addNewConditionLike(V1JobCondition item);
-  public V1JobStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1JobCondition item);
-  public V1JobStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1JobStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1JobCondition item);
+  public V1JobStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1JobStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1JobStatusFluent.ConditionsNested<A> editLastCondition();
   public V1JobStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1JobConditionBuilder> predicate);

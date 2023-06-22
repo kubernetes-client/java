@@ -14,14 +14,12 @@ import java.lang.Boolean;
   public V1VsphereVirtualDiskVolumeSourceFluentImpl() {
   }
   public V1VsphereVirtualDiskVolumeSourceFluentImpl(V1VsphereVirtualDiskVolumeSource instance) {
-    this.withFsType(instance.getFsType());
-
-    this.withStoragePolicyID(instance.getStoragePolicyID());
-
-    this.withStoragePolicyName(instance.getStoragePolicyName());
-
-    this.withVolumePath(instance.getVolumePath());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withStoragePolicyID(instance.getStoragePolicyID());
+      this.withStoragePolicyName(instance.getStoragePolicyName());
+      this.withVolumePath(instance.getVolumePath());
+    }
   }
   private String fsType;
   private String storagePolicyID;
@@ -66,11 +64,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1VsphereVirtualDiskVolumeSourceFluentImpl that = (V1VsphereVirtualDiskVolumeSourceFluentImpl) o;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (storagePolicyID != null ? !storagePolicyID.equals(that.storagePolicyID) :that.storagePolicyID != null) return false;
-    if (storagePolicyName != null ? !storagePolicyName.equals(that.storagePolicyName) :that.storagePolicyName != null) return false;
-    if (volumePath != null ? !volumePath.equals(that.volumePath) :that.volumePath != null) return false;
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(storagePolicyID, that.storagePolicyID)) return false;
+
+    if (!java.util.Objects.equals(storagePolicyName, that.storagePolicyName)) return false;
+
+    if (!java.util.Objects.equals(volumePath, that.volumePath)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -15,10 +15,10 @@ import java.lang.Boolean;
   public V1GRPCActionFluentImpl() {
   }
   public V1GRPCActionFluentImpl(V1GRPCAction instance) {
-    this.withPort(instance.getPort());
-
-    this.withService(instance.getService());
-
+    if (instance != null) {
+      this.withPort(instance.getPort());
+      this.withService(instance.getService());
+    }
   }
   private Integer port;
   private String service;
@@ -43,9 +43,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1GRPCActionFluentImpl that = (V1GRPCActionFluentImpl) o;
-    if (port != null ? !port.equals(that.port) :that.port != null) return false;
-    if (service != null ? !service.equals(that.service) :that.service != null) return false;
+    if (!java.util.Objects.equals(port, that.port)) return false;
+
+    if (!java.util.Objects.equals(service, that.service)) return false;
+
     return true;
   }
   public int hashCode() {

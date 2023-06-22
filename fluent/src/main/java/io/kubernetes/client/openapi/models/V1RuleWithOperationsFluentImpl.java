@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,28 +18,25 @@ import java.lang.Boolean;
   public V1RuleWithOperationsFluentImpl() {
   }
   public V1RuleWithOperationsFluentImpl(V1RuleWithOperations instance) {
-    this.withApiGroups(instance.getApiGroups());
-
-    this.withApiVersions(instance.getApiVersions());
-
-    this.withOperations(instance.getOperations());
-
-    this.withResources(instance.getResources());
-
-    this.withScope(instance.getScope());
-
+    if (instance != null) {
+      this.withApiGroups(instance.getApiGroups());
+      this.withApiVersions(instance.getApiVersions());
+      this.withOperations(instance.getOperations());
+      this.withResources(instance.getResources());
+      this.withScope(instance.getScope());
+    }
   }
   private List<String> apiGroups;
   private List<String> apiVersions;
   private List<String> operations;
   private List<String> resources;
   private String scope;
-  public A addToApiGroups(Integer index,String item) {
+  public A addToApiGroups(int index,String item) {
     if (this.apiGroups == null) {this.apiGroups = new ArrayList<String>();}
     this.apiGroups.add(index, item);
     return (A)this;
   }
-  public A setToApiGroups(Integer index,String item) {
+  public A setToApiGroups(int index,String item) {
     if (this.apiGroups == null) {this.apiGroups = new ArrayList<String>();}
     this.apiGroups.set(index, item); return (A)this;
   }
@@ -61,7 +57,7 @@ import java.lang.Boolean;
   public List<String> getApiGroups() {
     return this.apiGroups;
   }
-  public String getApiGroup(Integer index) {
+  public String getApiGroup(int index) {
     return this.apiGroups.get(index);
   }
   public String getFirstApiGroup() {
@@ -80,18 +76,18 @@ import java.lang.Boolean;
     if (apiGroups != null) {this.apiGroups = new ArrayList(); for (String item : apiGroups){this.addToApiGroups(item);}} else { this.apiGroups = null;} return (A) this;
   }
   public A withApiGroups(java.lang.String... apiGroups) {
-    if (this.apiGroups != null) {this.apiGroups.clear();}
+    if (this.apiGroups != null) {this.apiGroups.clear(); _visitables.remove("apiGroups"); }
     if (apiGroups != null) {for (String item :apiGroups){ this.addToApiGroups(item);}} return (A) this;
   }
   public Boolean hasApiGroups() {
     return apiGroups != null && !apiGroups.isEmpty();
   }
-  public A addToApiVersions(Integer index,String item) {
+  public A addToApiVersions(int index,String item) {
     if (this.apiVersions == null) {this.apiVersions = new ArrayList<String>();}
     this.apiVersions.add(index, item);
     return (A)this;
   }
-  public A setToApiVersions(Integer index,String item) {
+  public A setToApiVersions(int index,String item) {
     if (this.apiVersions == null) {this.apiVersions = new ArrayList<String>();}
     this.apiVersions.set(index, item); return (A)this;
   }
@@ -112,7 +108,7 @@ import java.lang.Boolean;
   public List<String> getApiVersions() {
     return this.apiVersions;
   }
-  public String getApiVersion(Integer index) {
+  public String getApiVersion(int index) {
     return this.apiVersions.get(index);
   }
   public String getFirstApiVersion() {
@@ -131,18 +127,18 @@ import java.lang.Boolean;
     if (apiVersions != null) {this.apiVersions = new ArrayList(); for (String item : apiVersions){this.addToApiVersions(item);}} else { this.apiVersions = null;} return (A) this;
   }
   public A withApiVersions(java.lang.String... apiVersions) {
-    if (this.apiVersions != null) {this.apiVersions.clear();}
+    if (this.apiVersions != null) {this.apiVersions.clear(); _visitables.remove("apiVersions"); }
     if (apiVersions != null) {for (String item :apiVersions){ this.addToApiVersions(item);}} return (A) this;
   }
   public Boolean hasApiVersions() {
     return apiVersions != null && !apiVersions.isEmpty();
   }
-  public A addToOperations(Integer index,String item) {
+  public A addToOperations(int index,String item) {
     if (this.operations == null) {this.operations = new ArrayList<String>();}
     this.operations.add(index, item);
     return (A)this;
   }
-  public A setToOperations(Integer index,String item) {
+  public A setToOperations(int index,String item) {
     if (this.operations == null) {this.operations = new ArrayList<String>();}
     this.operations.set(index, item); return (A)this;
   }
@@ -163,7 +159,7 @@ import java.lang.Boolean;
   public List<String> getOperations() {
     return this.operations;
   }
-  public String getOperation(Integer index) {
+  public String getOperation(int index) {
     return this.operations.get(index);
   }
   public String getFirstOperation() {
@@ -182,18 +178,18 @@ import java.lang.Boolean;
     if (operations != null) {this.operations = new ArrayList(); for (String item : operations){this.addToOperations(item);}} else { this.operations = null;} return (A) this;
   }
   public A withOperations(java.lang.String... operations) {
-    if (this.operations != null) {this.operations.clear();}
+    if (this.operations != null) {this.operations.clear(); _visitables.remove("operations"); }
     if (operations != null) {for (String item :operations){ this.addToOperations(item);}} return (A) this;
   }
   public Boolean hasOperations() {
     return operations != null && !operations.isEmpty();
   }
-  public A addToResources(Integer index,String item) {
+  public A addToResources(int index,String item) {
     if (this.resources == null) {this.resources = new ArrayList<String>();}
     this.resources.add(index, item);
     return (A)this;
   }
-  public A setToResources(Integer index,String item) {
+  public A setToResources(int index,String item) {
     if (this.resources == null) {this.resources = new ArrayList<String>();}
     this.resources.set(index, item); return (A)this;
   }
@@ -214,7 +210,7 @@ import java.lang.Boolean;
   public List<String> getResources() {
     return this.resources;
   }
-  public String getResource(Integer index) {
+  public String getResource(int index) {
     return this.resources.get(index);
   }
   public String getFirstResource() {
@@ -233,7 +229,7 @@ import java.lang.Boolean;
     if (resources != null) {this.resources = new ArrayList(); for (String item : resources){this.addToResources(item);}} else { this.resources = null;} return (A) this;
   }
   public A withResources(java.lang.String... resources) {
-    if (this.resources != null) {this.resources.clear();}
+    if (this.resources != null) {this.resources.clear(); _visitables.remove("resources"); }
     if (resources != null) {for (String item :resources){ this.addToResources(item);}} return (A) this;
   }
   public Boolean hasResources() {
@@ -251,12 +247,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1RuleWithOperationsFluentImpl that = (V1RuleWithOperationsFluentImpl) o;
-    if (apiGroups != null ? !apiGroups.equals(that.apiGroups) :that.apiGroups != null) return false;
-    if (apiVersions != null ? !apiVersions.equals(that.apiVersions) :that.apiVersions != null) return false;
-    if (operations != null ? !operations.equals(that.operations) :that.operations != null) return false;
-    if (resources != null ? !resources.equals(that.resources) :that.resources != null) return false;
-    if (scope != null ? !scope.equals(that.scope) :that.scope != null) return false;
+    if (!java.util.Objects.equals(apiGroups, that.apiGroups)) return false;
+
+    if (!java.util.Objects.equals(apiVersions, that.apiVersions)) return false;
+
+    if (!java.util.Objects.equals(operations, that.operations)) return false;
+
+    if (!java.util.Objects.equals(resources, that.resources)) return false;
+
+    if (!java.util.Objects.equals(scope, that.scope)) return false;
+
     return true;
   }
   public int hashCode() {

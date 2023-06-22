@@ -20,12 +20,11 @@ public class V1TokenRequestSpecBuilder extends V1TokenRequestSpecFluentImpl<V1To
   }
   public V1TokenRequestSpecBuilder(V1TokenRequestSpecFluent<?> fluent,V1TokenRequestSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAudiences(instance.getAudiences());
-
-    fluent.withBoundObjectRef(instance.getBoundObjectRef());
-
-    fluent.withExpirationSeconds(instance.getExpirationSeconds());
-
+    if (instance != null) {
+      fluent.withAudiences(instance.getAudiences());
+      fluent.withBoundObjectRef(instance.getBoundObjectRef());
+      fluent.withExpirationSeconds(instance.getExpirationSeconds());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TokenRequestSpecBuilder(V1TokenRequestSpec instance) {
@@ -33,12 +32,11 @@ public class V1TokenRequestSpecBuilder extends V1TokenRequestSpecFluentImpl<V1To
   }
   public V1TokenRequestSpecBuilder(V1TokenRequestSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAudiences(instance.getAudiences());
-
-    this.withBoundObjectRef(instance.getBoundObjectRef());
-
-    this.withExpirationSeconds(instance.getExpirationSeconds());
-
+    if (instance != null) {
+      this.withAudiences(instance.getAudiences());
+      this.withBoundObjectRef(instance.getBoundObjectRef());
+      this.withExpirationSeconds(instance.getExpirationSeconds());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TokenRequestSpecFluent<?> fluent;

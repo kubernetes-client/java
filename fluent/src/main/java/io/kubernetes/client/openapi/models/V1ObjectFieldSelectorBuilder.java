@@ -20,10 +20,10 @@ public class V1ObjectFieldSelectorBuilder extends V1ObjectFieldSelectorFluentImp
   }
   public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelectorFluent<?> fluent,V1ObjectFieldSelector instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withFieldPath(instance.getFieldPath());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withFieldPath(instance.getFieldPath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelector instance) {
@@ -31,10 +31,10 @@ public class V1ObjectFieldSelectorBuilder extends V1ObjectFieldSelectorFluentImp
   }
   public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelector instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withFieldPath(instance.getFieldPath());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withFieldPath(instance.getFieldPath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ObjectFieldSelectorFluent<?> fluent;

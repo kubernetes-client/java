@@ -20,12 +20,11 @@ public class V1CrossVersionObjectReferenceBuilder extends V1CrossVersionObjectRe
   }
   public V1CrossVersionObjectReferenceBuilder(V1CrossVersionObjectReferenceFluent<?> fluent,V1CrossVersionObjectReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CrossVersionObjectReferenceBuilder(V1CrossVersionObjectReference instance) {
@@ -33,12 +32,11 @@ public class V1CrossVersionObjectReferenceBuilder extends V1CrossVersionObjectRe
   }
   public V1CrossVersionObjectReferenceBuilder(V1CrossVersionObjectReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CrossVersionObjectReferenceFluent<?> fluent;

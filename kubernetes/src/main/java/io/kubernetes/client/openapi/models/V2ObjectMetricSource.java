@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,36 +12,38 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V2CrossVersionObjectReference;
+import io.kubernetes.client.openapi.models.V2MetricIdentifier;
+import io.kubernetes.client.openapi.models.V2MetricTarget;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for
- * example, hits-per-second on an Ingress object).
+ * ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).
  */
-@ApiModel(
-    description =
-        "ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V2ObjectMetricSource {
   public static final String SERIALIZED_NAME_DESCRIBED_OBJECT = "describedObject";
-
   @SerializedName(SERIALIZED_NAME_DESCRIBED_OBJECT)
   private V2CrossVersionObjectReference describedObject;
 
   public static final String SERIALIZED_NAME_METRIC = "metric";
-
   @SerializedName(SERIALIZED_NAME_METRIC)
   private V2MetricIdentifier metric;
 
   public static final String SERIALIZED_NAME_TARGET = "target";
-
   @SerializedName(SERIALIZED_NAME_TARGET)
   private V2MetricTarget target;
+
 
   public V2ObjectMetricSource describedObject(V2CrossVersionObjectReference describedObject) {
 
@@ -49,19 +51,21 @@ public class V2ObjectMetricSource {
     return this;
   }
 
-  /**
+   /**
    * Get describedObject
-   *
    * @return describedObject
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
+
   public V2CrossVersionObjectReference getDescribedObject() {
     return describedObject;
   }
 
+
   public void setDescribedObject(V2CrossVersionObjectReference describedObject) {
     this.describedObject = describedObject;
   }
+
 
   public V2ObjectMetricSource metric(V2MetricIdentifier metric) {
 
@@ -69,19 +73,21 @@ public class V2ObjectMetricSource {
     return this;
   }
 
-  /**
+   /**
    * Get metric
-   *
    * @return metric
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
+
   public V2MetricIdentifier getMetric() {
     return metric;
   }
 
+
   public void setMetric(V2MetricIdentifier metric) {
     this.metric = metric;
   }
+
 
   public V2ObjectMetricSource target(V2MetricTarget target) {
 
@@ -89,19 +95,21 @@ public class V2ObjectMetricSource {
     return this;
   }
 
-  /**
+   /**
    * Get target
-   *
    * @return target
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
+
   public V2MetricTarget getTarget() {
     return target;
   }
 
+
   public void setTarget(V2MetricTarget target) {
     this.target = target;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -112,15 +120,16 @@ public class V2ObjectMetricSource {
       return false;
     }
     V2ObjectMetricSource v2ObjectMetricSource = (V2ObjectMetricSource) o;
-    return Objects.equals(this.describedObject, v2ObjectMetricSource.describedObject)
-        && Objects.equals(this.metric, v2ObjectMetricSource.metric)
-        && Objects.equals(this.target, v2ObjectMetricSource.target);
+    return Objects.equals(this.describedObject, v2ObjectMetricSource.describedObject) &&
+        Objects.equals(this.metric, v2ObjectMetricSource.metric) &&
+        Objects.equals(this.target, v2ObjectMetricSource.target);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(describedObject, metric, target);
   }
+
 
   @Override
   public String toString() {
@@ -134,7 +143,8 @@ public class V2ObjectMetricSource {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -142,4 +152,5 @@ public class V2ObjectMetricSource {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

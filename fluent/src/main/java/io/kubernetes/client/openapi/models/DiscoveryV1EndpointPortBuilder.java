@@ -20,14 +20,12 @@ public class DiscoveryV1EndpointPortBuilder extends DiscoveryV1EndpointPortFluen
   }
   public DiscoveryV1EndpointPortBuilder(DiscoveryV1EndpointPortFluent<?> fluent,DiscoveryV1EndpointPort instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAppProtocol(instance.getAppProtocol());
-
-    fluent.withName(instance.getName());
-
-    fluent.withPort(instance.getPort());
-
-    fluent.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      fluent.withAppProtocol(instance.getAppProtocol());
+      fluent.withName(instance.getName());
+      fluent.withPort(instance.getPort());
+      fluent.withProtocol(instance.getProtocol());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public DiscoveryV1EndpointPortBuilder(DiscoveryV1EndpointPort instance) {
@@ -35,14 +33,12 @@ public class DiscoveryV1EndpointPortBuilder extends DiscoveryV1EndpointPortFluen
   }
   public DiscoveryV1EndpointPortBuilder(DiscoveryV1EndpointPort instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAppProtocol(instance.getAppProtocol());
-
-    this.withName(instance.getName());
-
-    this.withPort(instance.getPort());
-
-    this.withProtocol(instance.getProtocol());
-
+    if (instance != null) {
+      this.withAppProtocol(instance.getAppProtocol());
+      this.withName(instance.getName());
+      this.withPort(instance.getPort());
+      this.withProtocol(instance.getProtocol());
+    }
     this.validationEnabled = validationEnabled; 
   }
   DiscoveryV1EndpointPortFluent<?> fluent;

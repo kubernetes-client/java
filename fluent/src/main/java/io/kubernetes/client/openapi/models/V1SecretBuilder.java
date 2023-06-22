@@ -20,20 +20,15 @@ public class V1SecretBuilder extends V1SecretFluentImpl<V1SecretBuilder> impleme
   }
   public V1SecretBuilder(V1SecretFluent<?> fluent,V1Secret instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withData(instance.getData());
-
-    fluent.withImmutable(instance.getImmutable());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withStringData(instance.getStringData());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withData(instance.getData());
+      fluent.withImmutable(instance.getImmutable());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withStringData(instance.getStringData());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SecretBuilder(V1Secret instance) {
@@ -41,20 +36,15 @@ public class V1SecretBuilder extends V1SecretFluentImpl<V1SecretBuilder> impleme
   }
   public V1SecretBuilder(V1Secret instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withData(instance.getData());
-
-    this.withImmutable(instance.getImmutable());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withStringData(instance.getStringData());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withData(instance.getData());
+      this.withImmutable(instance.getImmutable());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withStringData(instance.getStringData());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SecretFluent<?> fluent;

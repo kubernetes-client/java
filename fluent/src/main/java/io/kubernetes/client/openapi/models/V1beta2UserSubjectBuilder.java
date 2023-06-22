@@ -20,8 +20,9 @@ public class V1beta2UserSubjectBuilder extends V1beta2UserSubjectFluentImpl<V1be
   }
   public V1beta2UserSubjectBuilder(V1beta2UserSubjectFluent<?> fluent,V1beta2UserSubject instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2UserSubjectBuilder(V1beta2UserSubject instance) {
@@ -29,8 +30,9 @@ public class V1beta2UserSubjectBuilder extends V1beta2UserSubjectFluentImpl<V1be
   }
   public V1beta2UserSubjectBuilder(V1beta2UserSubject instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2UserSubjectFluent<?> fluent;

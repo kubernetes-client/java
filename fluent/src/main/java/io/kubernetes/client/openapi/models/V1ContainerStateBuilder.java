@@ -20,12 +20,11 @@ public class V1ContainerStateBuilder extends V1ContainerStateFluentImpl<V1Contai
   }
   public V1ContainerStateBuilder(V1ContainerStateFluent<?> fluent,V1ContainerState instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withRunning(instance.getRunning());
-
-    fluent.withTerminated(instance.getTerminated());
-
-    fluent.withWaiting(instance.getWaiting());
-
+    if (instance != null) {
+      fluent.withRunning(instance.getRunning());
+      fluent.withTerminated(instance.getTerminated());
+      fluent.withWaiting(instance.getWaiting());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ContainerStateBuilder(V1ContainerState instance) {
@@ -33,12 +32,11 @@ public class V1ContainerStateBuilder extends V1ContainerStateFluentImpl<V1Contai
   }
   public V1ContainerStateBuilder(V1ContainerState instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withRunning(instance.getRunning());
-
-    this.withTerminated(instance.getTerminated());
-
-    this.withWaiting(instance.getWaiting());
-
+    if (instance != null) {
+      this.withRunning(instance.getRunning());
+      this.withTerminated(instance.getTerminated());
+      this.withWaiting(instance.getWaiting());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ContainerStateFluent<?> fluent;

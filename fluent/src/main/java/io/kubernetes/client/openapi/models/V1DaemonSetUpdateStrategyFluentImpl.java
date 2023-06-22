@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1DaemonSetUpdateStrategyFluentImpl() {
   }
   public V1DaemonSetUpdateStrategyFluentImpl(V1DaemonSetUpdateStrategy instance) {
-    this.withRollingUpdate(instance.getRollingUpdate());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withRollingUpdate(instance.getRollingUpdate());
+      this.withType(instance.getType());
+    }
   }
   private V1RollingUpdateDaemonSetBuilder rollingUpdate;
   private String type;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasRollingUpdate() {
     return this.rollingUpdate != null;
   }
-  public V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A> withNewRollingUpdate() {
+  public V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNested<A> withNewRollingUpdate() {
     return new V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNestedImpl();
   }
-  public V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A> withNewRollingUpdateLike(V1RollingUpdateDaemonSet item) {
+  public V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNested<A> withNewRollingUpdateLike(V1RollingUpdateDaemonSet item) {
     return new V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNestedImpl(item);
   }
-  public V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A> editRollingUpdate() {
+  public V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNested<A> editRollingUpdate() {
     return withNewRollingUpdateLike(getRollingUpdate());
   }
-  public V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdate() {
+  public V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNested<A> editOrNewRollingUpdate() {
     return withNewRollingUpdateLike(getRollingUpdate() != null ? getRollingUpdate(): new V1RollingUpdateDaemonSetBuilder().build());
   }
-  public V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<A> editOrNewRollingUpdateLike(V1RollingUpdateDaemonSet item) {
+  public V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNested<A> editOrNewRollingUpdateLike(V1RollingUpdateDaemonSet item) {
     return withNewRollingUpdateLike(getRollingUpdate() != null ? getRollingUpdate(): item);
   }
   public String getType() {
@@ -69,9 +69,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1DaemonSetUpdateStrategyFluentImpl that = (V1DaemonSetUpdateStrategyFluentImpl) o;
-    if (rollingUpdate != null ? !rollingUpdate.equals(that.rollingUpdate) :that.rollingUpdate != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(rollingUpdate, that.rollingUpdate)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -85,7 +88,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class RollingUpdateNestedImpl<N> extends V1RollingUpdateDaemonSetFluentImpl<V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<N>> implements V1DaemonSetUpdateStrategyFluent.RollingUpdateNested<N>,Nested<N>{
+  class RollingUpdateNestedImpl<N> extends V1RollingUpdateDaemonSetFluentImpl<V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNested<N>> implements V1DaemonSetUpdateStrategyFluentImpl.RollingUpdateNested<N>,Nested<N>{
     RollingUpdateNestedImpl(V1RollingUpdateDaemonSet item) {
       this.builder = new V1RollingUpdateDaemonSetBuilder(this, item);
     }

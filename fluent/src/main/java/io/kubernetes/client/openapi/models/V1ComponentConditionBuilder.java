@@ -20,14 +20,12 @@ public class V1ComponentConditionBuilder extends V1ComponentConditionFluentImpl<
   }
   public V1ComponentConditionBuilder(V1ComponentConditionFluent<?> fluent,V1ComponentCondition instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withError(instance.getError());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withStatus(instance.getStatus());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withError(instance.getError());
+      fluent.withMessage(instance.getMessage());
+      fluent.withStatus(instance.getStatus());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ComponentConditionBuilder(V1ComponentCondition instance) {
@@ -35,14 +33,12 @@ public class V1ComponentConditionBuilder extends V1ComponentConditionFluentImpl<
   }
   public V1ComponentConditionBuilder(V1ComponentCondition instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withError(instance.getError());
-
-    this.withMessage(instance.getMessage());
-
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withError(instance.getError());
+      this.withMessage(instance.getMessage());
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ComponentConditionFluent<?> fluent;

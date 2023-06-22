@@ -14,8 +14,9 @@ import java.lang.Boolean;
   public V1PodReadinessGateFluentImpl() {
   }
   public V1PodReadinessGateFluentImpl(V1PodReadinessGate instance) {
-    this.withConditionType(instance.getConditionType());
-
+    if (instance != null) {
+      this.withConditionType(instance.getConditionType());
+    }
   }
   private String conditionType;
   public String getConditionType() {
@@ -30,8 +31,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodReadinessGateFluentImpl that = (V1PodReadinessGateFluentImpl) o;
-    if (conditionType != null ? !conditionType.equals(that.conditionType) :that.conditionType != null) return false;
+    if (!java.util.Objects.equals(conditionType, that.conditionType)) return false;
+
     return true;
   }
   public int hashCode() {

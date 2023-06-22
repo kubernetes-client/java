@@ -20,10 +20,10 @@ public class V1ServerAddressByClientCIDRBuilder extends V1ServerAddressByClientC
   }
   public V1ServerAddressByClientCIDRBuilder(V1ServerAddressByClientCIDRFluent<?> fluent,V1ServerAddressByClientCIDR instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withClientCIDR(instance.getClientCIDR());
-
-    fluent.withServerAddress(instance.getServerAddress());
-
+    if (instance != null) {
+      fluent.withClientCIDR(instance.getClientCIDR());
+      fluent.withServerAddress(instance.getServerAddress());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ServerAddressByClientCIDRBuilder(V1ServerAddressByClientCIDR instance) {
@@ -31,10 +31,10 @@ public class V1ServerAddressByClientCIDRBuilder extends V1ServerAddressByClientC
   }
   public V1ServerAddressByClientCIDRBuilder(V1ServerAddressByClientCIDR instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withClientCIDR(instance.getClientCIDR());
-
-    this.withServerAddress(instance.getServerAddress());
-
+    if (instance != null) {
+      this.withClientCIDR(instance.getClientCIDR());
+      this.withServerAddress(instance.getServerAddress());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ServerAddressByClientCIDRFluent<?> fluent;

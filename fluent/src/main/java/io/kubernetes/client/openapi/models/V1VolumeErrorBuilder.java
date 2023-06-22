@@ -20,10 +20,10 @@ public class V1VolumeErrorBuilder extends V1VolumeErrorFluentImpl<V1VolumeErrorB
   }
   public V1VolumeErrorBuilder(V1VolumeErrorFluent<?> fluent,V1VolumeError instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withTime(instance.getTime());
-
+    if (instance != null) {
+      fluent.withMessage(instance.getMessage());
+      fluent.withTime(instance.getTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeErrorBuilder(V1VolumeError instance) {
@@ -31,10 +31,10 @@ public class V1VolumeErrorBuilder extends V1VolumeErrorFluentImpl<V1VolumeErrorB
   }
   public V1VolumeErrorBuilder(V1VolumeError instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMessage(instance.getMessage());
-
-    this.withTime(instance.getTime());
-
+    if (instance != null) {
+      this.withMessage(instance.getMessage());
+      this.withTime(instance.getTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeErrorFluent<?> fluent;

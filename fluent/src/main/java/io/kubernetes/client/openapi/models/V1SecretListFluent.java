@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1SecretListFluent<A extends V1SecretListFluent<A>> extends Flu
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1Secret item);
-  public A setToItems(Integer index,V1Secret item);
+  public A addToItems(int index,V1Secret item);
+  public A setToItems(int index,V1Secret item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Secret... items);
   public A addAllToItems(Collection<V1Secret> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Secret... items);
@@ -35,7 +35,7 @@ public interface V1SecretListFluent<A extends V1SecretListFluent<A>> extends Flu
   @Deprecated
   public List<V1Secret> getItems();
   public List<V1Secret> buildItems();
-  public V1Secret buildItem(Integer index);
+  public V1Secret buildItem(int index);
   public V1Secret buildFirstItem();
   public V1Secret buildLastItem();
   public V1Secret buildMatchingItem(Predicate<V1SecretBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1SecretListFluent<A extends V1SecretListFluent<A>> extends Flu
   public Boolean hasItems();
   public V1SecretListFluent.ItemsNested<A> addNewItem();
   public V1SecretListFluent.ItemsNested<A> addNewItemLike(V1Secret item);
-  public V1SecretListFluent.ItemsNested<A> setNewItemLike(Integer index,V1Secret item);
-  public V1SecretListFluent.ItemsNested<A> editItem(Integer index);
+  public V1SecretListFluent.ItemsNested<A> setNewItemLike(int index,V1Secret item);
+  public V1SecretListFluent.ItemsNested<A> editItem(int index);
   public V1SecretListFluent.ItemsNested<A> editFirstItem();
   public V1SecretListFluent.ItemsNested<A> editLastItem();
   public V1SecretListFluent.ItemsNested<A> editMatchingItem(Predicate<V1SecretBuilder> predicate);

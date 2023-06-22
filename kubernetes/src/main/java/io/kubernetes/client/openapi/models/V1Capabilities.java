@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,28 +12,33 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-/** Adds and removes POSIX capabilities from running containers. */
+/**
+ * Adds and removes POSIX capabilities from running containers.
+ */
 @ApiModel(description = "Adds and removes POSIX capabilities from running containers.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1Capabilities {
   public static final String SERIALIZED_NAME_ADD = "add";
-
   @SerializedName(SERIALIZED_NAME_ADD)
   private List<String> add = null;
 
   public static final String SERIALIZED_NAME_DROP = "drop";
-
   @SerializedName(SERIALIZED_NAME_DROP)
   private List<String> drop = null;
+
 
   public V1Capabilities add(List<String> add) {
 
@@ -49,20 +54,22 @@ public class V1Capabilities {
     return this;
   }
 
-  /**
+   /**
    * Added capabilities
-   *
    * @return add
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Added capabilities")
+
   public List<String> getAdd() {
     return add;
   }
 
+
   public void setAdd(List<String> add) {
     this.add = add;
   }
+
 
   public V1Capabilities drop(List<String> drop) {
 
@@ -78,20 +85,22 @@ public class V1Capabilities {
     return this;
   }
 
-  /**
+   /**
    * Removed capabilities
-   *
    * @return drop
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "Removed capabilities")
+
   public List<String> getDrop() {
     return drop;
   }
 
+
   public void setDrop(List<String> drop) {
     this.drop = drop;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -102,14 +111,15 @@ public class V1Capabilities {
       return false;
     }
     V1Capabilities v1Capabilities = (V1Capabilities) o;
-    return Objects.equals(this.add, v1Capabilities.add)
-        && Objects.equals(this.drop, v1Capabilities.drop);
+    return Objects.equals(this.add, v1Capabilities.add) &&
+        Objects.equals(this.drop, v1Capabilities.drop);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(add, drop);
   }
+
 
   @Override
   public String toString() {
@@ -122,7 +132,8 @@ public class V1Capabilities {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -130,4 +141,5 @@ public class V1Capabilities {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

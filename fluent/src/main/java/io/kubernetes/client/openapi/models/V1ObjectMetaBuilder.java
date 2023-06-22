@@ -20,36 +20,23 @@ public class V1ObjectMetaBuilder extends V1ObjectMetaFluentImpl<V1ObjectMetaBuil
   }
   public V1ObjectMetaBuilder(V1ObjectMetaFluent<?> fluent,V1ObjectMeta instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAnnotations(instance.getAnnotations());
-
-    fluent.withCreationTimestamp(instance.getCreationTimestamp());
-
-    fluent.withDeletionGracePeriodSeconds(instance.getDeletionGracePeriodSeconds());
-
-    fluent.withDeletionTimestamp(instance.getDeletionTimestamp());
-
-    fluent.withFinalizers(instance.getFinalizers());
-
-    fluent.withGenerateName(instance.getGenerateName());
-
-    fluent.withGeneration(instance.getGeneration());
-
-    fluent.withLabels(instance.getLabels());
-
-    fluent.withManagedFields(instance.getManagedFields());
-
-    fluent.withName(instance.getName());
-
-    fluent.withNamespace(instance.getNamespace());
-
-    fluent.withOwnerReferences(instance.getOwnerReferences());
-
-    fluent.withResourceVersion(instance.getResourceVersion());
-
-    fluent.withSelfLink(instance.getSelfLink());
-
-    fluent.withUid(instance.getUid());
-
+    if (instance != null) {
+      fluent.withAnnotations(instance.getAnnotations());
+      fluent.withCreationTimestamp(instance.getCreationTimestamp());
+      fluent.withDeletionGracePeriodSeconds(instance.getDeletionGracePeriodSeconds());
+      fluent.withDeletionTimestamp(instance.getDeletionTimestamp());
+      fluent.withFinalizers(instance.getFinalizers());
+      fluent.withGenerateName(instance.getGenerateName());
+      fluent.withGeneration(instance.getGeneration());
+      fluent.withLabels(instance.getLabels());
+      fluent.withManagedFields(instance.getManagedFields());
+      fluent.withName(instance.getName());
+      fluent.withNamespace(instance.getNamespace());
+      fluent.withOwnerReferences(instance.getOwnerReferences());
+      fluent.withResourceVersion(instance.getResourceVersion());
+      fluent.withSelfLink(instance.getSelfLink());
+      fluent.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ObjectMetaBuilder(V1ObjectMeta instance) {
@@ -57,36 +44,23 @@ public class V1ObjectMetaBuilder extends V1ObjectMetaFluentImpl<V1ObjectMetaBuil
   }
   public V1ObjectMetaBuilder(V1ObjectMeta instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAnnotations(instance.getAnnotations());
-
-    this.withCreationTimestamp(instance.getCreationTimestamp());
-
-    this.withDeletionGracePeriodSeconds(instance.getDeletionGracePeriodSeconds());
-
-    this.withDeletionTimestamp(instance.getDeletionTimestamp());
-
-    this.withFinalizers(instance.getFinalizers());
-
-    this.withGenerateName(instance.getGenerateName());
-
-    this.withGeneration(instance.getGeneration());
-
-    this.withLabels(instance.getLabels());
-
-    this.withManagedFields(instance.getManagedFields());
-
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withOwnerReferences(instance.getOwnerReferences());
-
-    this.withResourceVersion(instance.getResourceVersion());
-
-    this.withSelfLink(instance.getSelfLink());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withAnnotations(instance.getAnnotations());
+      this.withCreationTimestamp(instance.getCreationTimestamp());
+      this.withDeletionGracePeriodSeconds(instance.getDeletionGracePeriodSeconds());
+      this.withDeletionTimestamp(instance.getDeletionTimestamp());
+      this.withFinalizers(instance.getFinalizers());
+      this.withGenerateName(instance.getGenerateName());
+      this.withGeneration(instance.getGeneration());
+      this.withLabels(instance.getLabels());
+      this.withManagedFields(instance.getManagedFields());
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withOwnerReferences(instance.getOwnerReferences());
+      this.withResourceVersion(instance.getResourceVersion());
+      this.withSelfLink(instance.getSelfLink());
+      this.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ObjectMetaFluent<?> fluent;

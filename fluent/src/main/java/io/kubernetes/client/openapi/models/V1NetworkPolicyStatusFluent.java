@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -16,8 +16,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1NetworkPolicyStatusFluent<A extends V1NetworkPolicyStatusFluent<A>> extends Fluent<A>{
-  public A addToConditions(Integer index,V1Condition item);
-  public A setToConditions(Integer index,V1Condition item);
+  public A addToConditions(int index,V1Condition item);
+  public A setToConditions(int index,V1Condition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1Condition... items);
   public A addAllToConditions(Collection<V1Condition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1Condition... items);
@@ -31,7 +31,7 @@ public interface V1NetworkPolicyStatusFluent<A extends V1NetworkPolicyStatusFlue
   @Deprecated
   public List<V1Condition> getConditions();
   public List<V1Condition> buildConditions();
-  public V1Condition buildCondition(Integer index);
+  public V1Condition buildCondition(int index);
   public V1Condition buildFirstCondition();
   public V1Condition buildLastCondition();
   public V1Condition buildMatchingCondition(Predicate<V1ConditionBuilder> predicate);
@@ -41,8 +41,8 @@ public interface V1NetworkPolicyStatusFluent<A extends V1NetworkPolicyStatusFlue
   public Boolean hasConditions();
   public V1NetworkPolicyStatusFluent.ConditionsNested<A> addNewCondition();
   public V1NetworkPolicyStatusFluent.ConditionsNested<A> addNewConditionLike(V1Condition item);
-  public V1NetworkPolicyStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1Condition item);
-  public V1NetworkPolicyStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1NetworkPolicyStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1Condition item);
+  public V1NetworkPolicyStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1NetworkPolicyStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1NetworkPolicyStatusFluent.ConditionsNested<A> editLastCondition();
   public V1NetworkPolicyStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1ConditionBuilder> predicate);

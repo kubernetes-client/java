@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,29 +22,28 @@ import java.lang.Object;
   public V1NetworkPolicySpecFluentImpl() {
   }
   public V1NetworkPolicySpecFluentImpl(V1NetworkPolicySpec instance) {
-    this.withEgress(instance.getEgress());
-
-    this.withIngress(instance.getIngress());
-
-    this.withPodSelector(instance.getPodSelector());
-
-    this.withPolicyTypes(instance.getPolicyTypes());
-
+    if (instance != null) {
+      this.withEgress(instance.getEgress());
+      this.withIngress(instance.getIngress());
+      this.withPodSelector(instance.getPodSelector());
+      this.withPolicyTypes(instance.getPolicyTypes());
+    }
   }
   private ArrayList<V1NetworkPolicyEgressRuleBuilder> egress;
   private ArrayList<V1NetworkPolicyIngressRuleBuilder> ingress;
   private V1LabelSelectorBuilder podSelector;
   private List<String> policyTypes;
-  public A addToEgress(Integer index,V1NetworkPolicyEgressRule item) {
-    if (this.egress == null) {this.egress = new ArrayList<V1NetworkPolicyEgressRuleBuilder>();}
-    V1NetworkPolicyEgressRuleBuilder builder = new V1NetworkPolicyEgressRuleBuilder(item);_visitables.get("egress").add(index >= 0 ? index : _visitables.get("egress").size(), builder);this.egress.add(index >= 0 ? index : egress.size(), builder); return (A)this;
-  }
-  public A setToEgress(Integer index,V1NetworkPolicyEgressRule item) {
+  public A addToEgress(int index,V1NetworkPolicyEgressRule item) {
     if (this.egress == null) {this.egress = new ArrayList<V1NetworkPolicyEgressRuleBuilder>();}
     V1NetworkPolicyEgressRuleBuilder builder = new V1NetworkPolicyEgressRuleBuilder(item);
-    if (index < 0 || index >= _visitables.get("egress").size()) { _visitables.get("egress").add(builder); } else { _visitables.get("egress").set(index, builder);}
-    if (index < 0 || index >= egress.size()) { egress.add(builder); } else { egress.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= egress.size()) { _visitables.get("egress").add(builder); egress.add(builder); } else { _visitables.get("egress").add(index, builder); egress.add(index, builder);}
+    return (A)this;
+  }
+  public A setToEgress(int index,V1NetworkPolicyEgressRule item) {
+    if (this.egress == null) {this.egress = new ArrayList<V1NetworkPolicyEgressRuleBuilder>();}
+    V1NetworkPolicyEgressRuleBuilder builder = new V1NetworkPolicyEgressRuleBuilder(item);
+    if (index < 0 || index >= egress.size()) { _visitables.get("egress").add(builder); egress.add(builder); } else { _visitables.get("egress").set(index, builder); egress.set(index, builder);}
+    return (A)this;
   }
   public A addToEgress(io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule... items) {
     if (this.egress == null) {this.egress = new ArrayList<V1NetworkPolicyEgressRuleBuilder>();}
@@ -86,7 +84,7 @@ import java.lang.Object;
   public List<V1NetworkPolicyEgressRule> buildEgress() {
     return egress != null ? build(egress) : null;
   }
-  public V1NetworkPolicyEgressRule buildEgress(Integer index) {
+  public V1NetworkPolicyEgressRule buildEgress(int index) {
     return this.egress.get(index).build();
   }
   public V1NetworkPolicyEgressRule buildFirstEgress() {
@@ -102,39 +100,39 @@ import java.lang.Object;
     for (V1NetworkPolicyEgressRuleBuilder item: egress) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withEgress(List<V1NetworkPolicyEgressRule> egress) {
-    if (this.egress != null) { _visitables.get("egress").removeAll(this.egress);}
+    if (this.egress != null) { _visitables.get("egress").clear();}
     if (egress != null) {this.egress = new ArrayList(); for (V1NetworkPolicyEgressRule item : egress){this.addToEgress(item);}} else { this.egress = null;} return (A) this;
   }
   public A withEgress(io.kubernetes.client.openapi.models.V1NetworkPolicyEgressRule... egress) {
-    if (this.egress != null) {this.egress.clear();}
+    if (this.egress != null) {this.egress.clear(); _visitables.remove("egress"); }
     if (egress != null) {for (V1NetworkPolicyEgressRule item :egress){ this.addToEgress(item);}} return (A) this;
   }
   public Boolean hasEgress() {
     return egress != null && !egress.isEmpty();
   }
-  public V1NetworkPolicySpecFluent.EgressNested<A> addNewEgress() {
+  public V1NetworkPolicySpecFluentImpl.EgressNested<A> addNewEgress() {
     return new V1NetworkPolicySpecFluentImpl.EgressNestedImpl();
   }
-  public V1NetworkPolicySpecFluent.EgressNested<A> addNewEgressLike(V1NetworkPolicyEgressRule item) {
+  public V1NetworkPolicySpecFluentImpl.EgressNested<A> addNewEgressLike(V1NetworkPolicyEgressRule item) {
     return new V1NetworkPolicySpecFluentImpl.EgressNestedImpl(-1, item);
   }
-  public V1NetworkPolicySpecFluent.EgressNested<A> setNewEgressLike(Integer index,V1NetworkPolicyEgressRule item) {
+  public V1NetworkPolicySpecFluentImpl.EgressNested<A> setNewEgressLike(int index,V1NetworkPolicyEgressRule item) {
     return new V1NetworkPolicySpecFluentImpl.EgressNestedImpl(index, item);
   }
-  public V1NetworkPolicySpecFluent.EgressNested<A> editEgress(Integer index) {
+  public V1NetworkPolicySpecFluentImpl.EgressNested<A> editEgress(int index) {
     if (egress.size() <= index) throw new RuntimeException("Can't edit egress. Index exceeds size.");
     return setNewEgressLike(index, buildEgress(index));
   }
-  public V1NetworkPolicySpecFluent.EgressNested<A> editFirstEgress() {
+  public V1NetworkPolicySpecFluentImpl.EgressNested<A> editFirstEgress() {
     if (egress.size() == 0) throw new RuntimeException("Can't edit first egress. The list is empty.");
     return setNewEgressLike(0, buildEgress(0));
   }
-  public V1NetworkPolicySpecFluent.EgressNested<A> editLastEgress() {
+  public V1NetworkPolicySpecFluentImpl.EgressNested<A> editLastEgress() {
     int index = egress.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last egress. The list is empty.");
     return setNewEgressLike(index, buildEgress(index));
   }
-  public V1NetworkPolicySpecFluent.EgressNested<A> editMatchingEgress(Predicate<V1NetworkPolicyEgressRuleBuilder> predicate) {
+  public V1NetworkPolicySpecFluentImpl.EgressNested<A> editMatchingEgress(Predicate<V1NetworkPolicyEgressRuleBuilder> predicate) {
     int index = -1;
     for (int i=0;i<egress.size();i++) { 
     if (predicate.test(egress.get(i))) {index = i; break;}
@@ -142,16 +140,17 @@ import java.lang.Object;
     if (index < 0) throw new RuntimeException("Can't edit matching egress. No match found.");
     return setNewEgressLike(index, buildEgress(index));
   }
-  public A addToIngress(Integer index,V1NetworkPolicyIngressRule item) {
-    if (this.ingress == null) {this.ingress = new ArrayList<V1NetworkPolicyIngressRuleBuilder>();}
-    V1NetworkPolicyIngressRuleBuilder builder = new V1NetworkPolicyIngressRuleBuilder(item);_visitables.get("ingress").add(index >= 0 ? index : _visitables.get("ingress").size(), builder);this.ingress.add(index >= 0 ? index : ingress.size(), builder); return (A)this;
-  }
-  public A setToIngress(Integer index,V1NetworkPolicyIngressRule item) {
+  public A addToIngress(int index,V1NetworkPolicyIngressRule item) {
     if (this.ingress == null) {this.ingress = new ArrayList<V1NetworkPolicyIngressRuleBuilder>();}
     V1NetworkPolicyIngressRuleBuilder builder = new V1NetworkPolicyIngressRuleBuilder(item);
-    if (index < 0 || index >= _visitables.get("ingress").size()) { _visitables.get("ingress").add(builder); } else { _visitables.get("ingress").set(index, builder);}
-    if (index < 0 || index >= ingress.size()) { ingress.add(builder); } else { ingress.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= ingress.size()) { _visitables.get("ingress").add(builder); ingress.add(builder); } else { _visitables.get("ingress").add(index, builder); ingress.add(index, builder);}
+    return (A)this;
+  }
+  public A setToIngress(int index,V1NetworkPolicyIngressRule item) {
+    if (this.ingress == null) {this.ingress = new ArrayList<V1NetworkPolicyIngressRuleBuilder>();}
+    V1NetworkPolicyIngressRuleBuilder builder = new V1NetworkPolicyIngressRuleBuilder(item);
+    if (index < 0 || index >= ingress.size()) { _visitables.get("ingress").add(builder); ingress.add(builder); } else { _visitables.get("ingress").set(index, builder); ingress.set(index, builder);}
+    return (A)this;
   }
   public A addToIngress(io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule... items) {
     if (this.ingress == null) {this.ingress = new ArrayList<V1NetworkPolicyIngressRuleBuilder>();}
@@ -192,7 +191,7 @@ import java.lang.Object;
   public List<V1NetworkPolicyIngressRule> buildIngress() {
     return ingress != null ? build(ingress) : null;
   }
-  public V1NetworkPolicyIngressRule buildIngress(Integer index) {
+  public V1NetworkPolicyIngressRule buildIngress(int index) {
     return this.ingress.get(index).build();
   }
   public V1NetworkPolicyIngressRule buildFirstIngress() {
@@ -208,39 +207,39 @@ import java.lang.Object;
     for (V1NetworkPolicyIngressRuleBuilder item: ingress) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withIngress(List<V1NetworkPolicyIngressRule> ingress) {
-    if (this.ingress != null) { _visitables.get("ingress").removeAll(this.ingress);}
+    if (this.ingress != null) { _visitables.get("ingress").clear();}
     if (ingress != null) {this.ingress = new ArrayList(); for (V1NetworkPolicyIngressRule item : ingress){this.addToIngress(item);}} else { this.ingress = null;} return (A) this;
   }
   public A withIngress(io.kubernetes.client.openapi.models.V1NetworkPolicyIngressRule... ingress) {
-    if (this.ingress != null) {this.ingress.clear();}
+    if (this.ingress != null) {this.ingress.clear(); _visitables.remove("ingress"); }
     if (ingress != null) {for (V1NetworkPolicyIngressRule item :ingress){ this.addToIngress(item);}} return (A) this;
   }
   public Boolean hasIngress() {
     return ingress != null && !ingress.isEmpty();
   }
-  public V1NetworkPolicySpecFluent.IngressNested<A> addNewIngress() {
+  public V1NetworkPolicySpecFluentImpl.IngressNested<A> addNewIngress() {
     return new V1NetworkPolicySpecFluentImpl.IngressNestedImpl();
   }
-  public V1NetworkPolicySpecFluent.IngressNested<A> addNewIngressLike(V1NetworkPolicyIngressRule item) {
+  public V1NetworkPolicySpecFluentImpl.IngressNested<A> addNewIngressLike(V1NetworkPolicyIngressRule item) {
     return new V1NetworkPolicySpecFluentImpl.IngressNestedImpl(-1, item);
   }
-  public V1NetworkPolicySpecFluent.IngressNested<A> setNewIngressLike(Integer index,V1NetworkPolicyIngressRule item) {
+  public V1NetworkPolicySpecFluentImpl.IngressNested<A> setNewIngressLike(int index,V1NetworkPolicyIngressRule item) {
     return new V1NetworkPolicySpecFluentImpl.IngressNestedImpl(index, item);
   }
-  public V1NetworkPolicySpecFluent.IngressNested<A> editIngress(Integer index) {
+  public V1NetworkPolicySpecFluentImpl.IngressNested<A> editIngress(int index) {
     if (ingress.size() <= index) throw new RuntimeException("Can't edit ingress. Index exceeds size.");
     return setNewIngressLike(index, buildIngress(index));
   }
-  public V1NetworkPolicySpecFluent.IngressNested<A> editFirstIngress() {
+  public V1NetworkPolicySpecFluentImpl.IngressNested<A> editFirstIngress() {
     if (ingress.size() == 0) throw new RuntimeException("Can't edit first ingress. The list is empty.");
     return setNewIngressLike(0, buildIngress(0));
   }
-  public V1NetworkPolicySpecFluent.IngressNested<A> editLastIngress() {
+  public V1NetworkPolicySpecFluentImpl.IngressNested<A> editLastIngress() {
     int index = ingress.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last ingress. The list is empty.");
     return setNewIngressLike(index, buildIngress(index));
   }
-  public V1NetworkPolicySpecFluent.IngressNested<A> editMatchingIngress(Predicate<V1NetworkPolicyIngressRuleBuilder> predicate) {
+  public V1NetworkPolicySpecFluentImpl.IngressNested<A> editMatchingIngress(Predicate<V1NetworkPolicyIngressRuleBuilder> predicate) {
     int index = -1;
     for (int i=0;i<ingress.size();i++) { 
     if (predicate.test(ingress.get(i))) {index = i; break;}
@@ -267,27 +266,27 @@ import java.lang.Object;
   public Boolean hasPodSelector() {
     return this.podSelector != null;
   }
-  public V1NetworkPolicySpecFluent.PodSelectorNested<A> withNewPodSelector() {
+  public V1NetworkPolicySpecFluentImpl.PodSelectorNested<A> withNewPodSelector() {
     return new V1NetworkPolicySpecFluentImpl.PodSelectorNestedImpl();
   }
-  public V1NetworkPolicySpecFluent.PodSelectorNested<A> withNewPodSelectorLike(V1LabelSelector item) {
+  public V1NetworkPolicySpecFluentImpl.PodSelectorNested<A> withNewPodSelectorLike(V1LabelSelector item) {
     return new V1NetworkPolicySpecFluentImpl.PodSelectorNestedImpl(item);
   }
-  public V1NetworkPolicySpecFluent.PodSelectorNested<A> editPodSelector() {
+  public V1NetworkPolicySpecFluentImpl.PodSelectorNested<A> editPodSelector() {
     return withNewPodSelectorLike(getPodSelector());
   }
-  public V1NetworkPolicySpecFluent.PodSelectorNested<A> editOrNewPodSelector() {
+  public V1NetworkPolicySpecFluentImpl.PodSelectorNested<A> editOrNewPodSelector() {
     return withNewPodSelectorLike(getPodSelector() != null ? getPodSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1NetworkPolicySpecFluent.PodSelectorNested<A> editOrNewPodSelectorLike(V1LabelSelector item) {
+  public V1NetworkPolicySpecFluentImpl.PodSelectorNested<A> editOrNewPodSelectorLike(V1LabelSelector item) {
     return withNewPodSelectorLike(getPodSelector() != null ? getPodSelector(): item);
   }
-  public A addToPolicyTypes(Integer index,String item) {
+  public A addToPolicyTypes(int index,String item) {
     if (this.policyTypes == null) {this.policyTypes = new ArrayList<String>();}
     this.policyTypes.add(index, item);
     return (A)this;
   }
-  public A setToPolicyTypes(Integer index,String item) {
+  public A setToPolicyTypes(int index,String item) {
     if (this.policyTypes == null) {this.policyTypes = new ArrayList<String>();}
     this.policyTypes.set(index, item); return (A)this;
   }
@@ -308,7 +307,7 @@ import java.lang.Object;
   public List<String> getPolicyTypes() {
     return this.policyTypes;
   }
-  public String getPolicyType(Integer index) {
+  public String getPolicyType(int index) {
     return this.policyTypes.get(index);
   }
   public String getFirstPolicyType() {
@@ -327,7 +326,7 @@ import java.lang.Object;
     if (policyTypes != null) {this.policyTypes = new ArrayList(); for (String item : policyTypes){this.addToPolicyTypes(item);}} else { this.policyTypes = null;} return (A) this;
   }
   public A withPolicyTypes(java.lang.String... policyTypes) {
-    if (this.policyTypes != null) {this.policyTypes.clear();}
+    if (this.policyTypes != null) {this.policyTypes.clear(); _visitables.remove("policyTypes"); }
     if (policyTypes != null) {for (String item :policyTypes){ this.addToPolicyTypes(item);}} return (A) this;
   }
   public Boolean hasPolicyTypes() {
@@ -336,11 +335,16 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NetworkPolicySpecFluentImpl that = (V1NetworkPolicySpecFluentImpl) o;
-    if (egress != null ? !egress.equals(that.egress) :that.egress != null) return false;
-    if (ingress != null ? !ingress.equals(that.ingress) :that.ingress != null) return false;
-    if (podSelector != null ? !podSelector.equals(that.podSelector) :that.podSelector != null) return false;
-    if (policyTypes != null ? !policyTypes.equals(that.policyTypes) :that.policyTypes != null) return false;
+    if (!java.util.Objects.equals(egress, that.egress)) return false;
+
+    if (!java.util.Objects.equals(ingress, that.ingress)) return false;
+
+    if (!java.util.Objects.equals(podSelector, that.podSelector)) return false;
+
+    if (!java.util.Objects.equals(policyTypes, that.policyTypes)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -349,15 +353,15 @@ import java.lang.Object;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (egress != null && !egress.isEmpty()) { sb.append("egress:"); sb.append(egress + ","); }
-    if (ingress != null && !ingress.isEmpty()) { sb.append("ingress:"); sb.append(ingress + ","); }
+    if (egress != null) { sb.append("egress:"); sb.append(egress + ","); }
+    if (ingress != null) { sb.append("ingress:"); sb.append(ingress + ","); }
     if (podSelector != null) { sb.append("podSelector:"); sb.append(podSelector + ","); }
     if (policyTypes != null && !policyTypes.isEmpty()) { sb.append("policyTypes:"); sb.append(policyTypes); }
     sb.append("}");
     return sb.toString();
   }
-  class EgressNestedImpl<N> extends V1NetworkPolicyEgressRuleFluentImpl<V1NetworkPolicySpecFluent.EgressNested<N>> implements V1NetworkPolicySpecFluent.EgressNested<N>,Nested<N>{
-    EgressNestedImpl(Integer index,V1NetworkPolicyEgressRule item) {
+  class EgressNestedImpl<N> extends V1NetworkPolicyEgressRuleFluentImpl<V1NetworkPolicySpecFluentImpl.EgressNested<N>> implements V1NetworkPolicySpecFluentImpl.EgressNested<N>,Nested<N>{
+    EgressNestedImpl(int index,V1NetworkPolicyEgressRule item) {
       this.index = index;
       this.builder = new V1NetworkPolicyEgressRuleBuilder(this, item);
     }
@@ -366,7 +370,7 @@ import java.lang.Object;
       this.builder = new V1NetworkPolicyEgressRuleBuilder(this);
     }
     V1NetworkPolicyEgressRuleBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1NetworkPolicySpecFluentImpl.this.setToEgress(index,builder.build());
     }
@@ -375,8 +379,8 @@ import java.lang.Object;
     }
     
   }
-  class IngressNestedImpl<N> extends V1NetworkPolicyIngressRuleFluentImpl<V1NetworkPolicySpecFluent.IngressNested<N>> implements V1NetworkPolicySpecFluent.IngressNested<N>,Nested<N>{
-    IngressNestedImpl(Integer index,V1NetworkPolicyIngressRule item) {
+  class IngressNestedImpl<N> extends V1NetworkPolicyIngressRuleFluentImpl<V1NetworkPolicySpecFluentImpl.IngressNested<N>> implements V1NetworkPolicySpecFluentImpl.IngressNested<N>,Nested<N>{
+    IngressNestedImpl(int index,V1NetworkPolicyIngressRule item) {
       this.index = index;
       this.builder = new V1NetworkPolicyIngressRuleBuilder(this, item);
     }
@@ -385,7 +389,7 @@ import java.lang.Object;
       this.builder = new V1NetworkPolicyIngressRuleBuilder(this);
     }
     V1NetworkPolicyIngressRuleBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1NetworkPolicySpecFluentImpl.this.setToIngress(index,builder.build());
     }
@@ -394,7 +398,7 @@ import java.lang.Object;
     }
     
   }
-  class PodSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1NetworkPolicySpecFluent.PodSelectorNested<N>> implements V1NetworkPolicySpecFluent.PodSelectorNested<N>,Nested<N>{
+  class PodSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1NetworkPolicySpecFluentImpl.PodSelectorNested<N>> implements V1NetworkPolicySpecFluentImpl.PodSelectorNested<N>,Nested<N>{
     PodSelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }

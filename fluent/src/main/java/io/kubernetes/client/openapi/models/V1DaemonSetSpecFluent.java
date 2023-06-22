@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.Integer;

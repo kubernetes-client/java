@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import java.lang.String;
 import java.lang.Boolean;
 import io.kubernetes.client.fluent.Fluent;

@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,26 +18,18 @@ import java.lang.Boolean;
   public V1APIResourceFluentImpl() {
   }
   public V1APIResourceFluentImpl(V1APIResource instance) {
-    this.withCategories(instance.getCategories());
-
-    this.withGroup(instance.getGroup());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withNamespaced(instance.getNamespaced());
-
-    this.withShortNames(instance.getShortNames());
-
-    this.withSingularName(instance.getSingularName());
-
-    this.withStorageVersionHash(instance.getStorageVersionHash());
-
-    this.withVerbs(instance.getVerbs());
-
-    this.withVersion(instance.getVersion());
-
+    if (instance != null) {
+      this.withCategories(instance.getCategories());
+      this.withGroup(instance.getGroup());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withNamespaced(instance.getNamespaced());
+      this.withShortNames(instance.getShortNames());
+      this.withSingularName(instance.getSingularName());
+      this.withStorageVersionHash(instance.getStorageVersionHash());
+      this.withVerbs(instance.getVerbs());
+      this.withVersion(instance.getVersion());
+    }
   }
   private List<String> categories;
   private String group;
@@ -50,12 +41,12 @@ import java.lang.Boolean;
   private String storageVersionHash;
   private List<String> verbs;
   private String version;
-  public A addToCategories(Integer index,String item) {
+  public A addToCategories(int index,String item) {
     if (this.categories == null) {this.categories = new ArrayList<String>();}
     this.categories.add(index, item);
     return (A)this;
   }
-  public A setToCategories(Integer index,String item) {
+  public A setToCategories(int index,String item) {
     if (this.categories == null) {this.categories = new ArrayList<String>();}
     this.categories.set(index, item); return (A)this;
   }
@@ -76,7 +67,7 @@ import java.lang.Boolean;
   public List<String> getCategories() {
     return this.categories;
   }
-  public String getCategory(Integer index) {
+  public String getCategory(int index) {
     return this.categories.get(index);
   }
   public String getFirstCategory() {
@@ -95,7 +86,7 @@ import java.lang.Boolean;
     if (categories != null) {this.categories = new ArrayList(); for (String item : categories){this.addToCategories(item);}} else { this.categories = null;} return (A) this;
   }
   public A withCategories(java.lang.String... categories) {
-    if (this.categories != null) {this.categories.clear();}
+    if (this.categories != null) {this.categories.clear(); _visitables.remove("categories"); }
     if (categories != null) {for (String item :categories){ this.addToCategories(item);}} return (A) this;
   }
   public Boolean hasCategories() {
@@ -137,12 +128,12 @@ import java.lang.Boolean;
   public Boolean hasNamespaced() {
     return this.namespaced != null;
   }
-  public A addToShortNames(Integer index,String item) {
+  public A addToShortNames(int index,String item) {
     if (this.shortNames == null) {this.shortNames = new ArrayList<String>();}
     this.shortNames.add(index, item);
     return (A)this;
   }
-  public A setToShortNames(Integer index,String item) {
+  public A setToShortNames(int index,String item) {
     if (this.shortNames == null) {this.shortNames = new ArrayList<String>();}
     this.shortNames.set(index, item); return (A)this;
   }
@@ -163,7 +154,7 @@ import java.lang.Boolean;
   public List<String> getShortNames() {
     return this.shortNames;
   }
-  public String getShortName(Integer index) {
+  public String getShortName(int index) {
     return this.shortNames.get(index);
   }
   public String getFirstShortName() {
@@ -182,7 +173,7 @@ import java.lang.Boolean;
     if (shortNames != null) {this.shortNames = new ArrayList(); for (String item : shortNames){this.addToShortNames(item);}} else { this.shortNames = null;} return (A) this;
   }
   public A withShortNames(java.lang.String... shortNames) {
-    if (this.shortNames != null) {this.shortNames.clear();}
+    if (this.shortNames != null) {this.shortNames.clear(); _visitables.remove("shortNames"); }
     if (shortNames != null) {for (String item :shortNames){ this.addToShortNames(item);}} return (A) this;
   }
   public Boolean hasShortNames() {
@@ -206,12 +197,12 @@ import java.lang.Boolean;
   public Boolean hasStorageVersionHash() {
     return this.storageVersionHash != null;
   }
-  public A addToVerbs(Integer index,String item) {
+  public A addToVerbs(int index,String item) {
     if (this.verbs == null) {this.verbs = new ArrayList<String>();}
     this.verbs.add(index, item);
     return (A)this;
   }
-  public A setToVerbs(Integer index,String item) {
+  public A setToVerbs(int index,String item) {
     if (this.verbs == null) {this.verbs = new ArrayList<String>();}
     this.verbs.set(index, item); return (A)this;
   }
@@ -232,7 +223,7 @@ import java.lang.Boolean;
   public List<String> getVerbs() {
     return this.verbs;
   }
-  public String getVerb(Integer index) {
+  public String getVerb(int index) {
     return this.verbs.get(index);
   }
   public String getFirstVerb() {
@@ -251,7 +242,7 @@ import java.lang.Boolean;
     if (verbs != null) {this.verbs = new ArrayList(); for (String item : verbs){this.addToVerbs(item);}} else { this.verbs = null;} return (A) this;
   }
   public A withVerbs(java.lang.String... verbs) {
-    if (this.verbs != null) {this.verbs.clear();}
+    if (this.verbs != null) {this.verbs.clear(); _visitables.remove("verbs"); }
     if (verbs != null) {for (String item :verbs){ this.addToVerbs(item);}} return (A) this;
   }
   public Boolean hasVerbs() {
@@ -269,17 +260,28 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1APIResourceFluentImpl that = (V1APIResourceFluentImpl) o;
-    if (categories != null ? !categories.equals(that.categories) :that.categories != null) return false;
-    if (group != null ? !group.equals(that.group) :that.group != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (namespaced != null ? !namespaced.equals(that.namespaced) :that.namespaced != null) return false;
-    if (shortNames != null ? !shortNames.equals(that.shortNames) :that.shortNames != null) return false;
-    if (singularName != null ? !singularName.equals(that.singularName) :that.singularName != null) return false;
-    if (storageVersionHash != null ? !storageVersionHash.equals(that.storageVersionHash) :that.storageVersionHash != null) return false;
-    if (verbs != null ? !verbs.equals(that.verbs) :that.verbs != null) return false;
-    if (version != null ? !version.equals(that.version) :that.version != null) return false;
+    if (!java.util.Objects.equals(categories, that.categories)) return false;
+
+    if (!java.util.Objects.equals(group, that.group)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(namespaced, that.namespaced)) return false;
+
+    if (!java.util.Objects.equals(shortNames, that.shortNames)) return false;
+
+    if (!java.util.Objects.equals(singularName, that.singularName)) return false;
+
+    if (!java.util.Objects.equals(storageVersionHash, that.storageVersionHash)) return false;
+
+    if (!java.util.Objects.equals(verbs, that.verbs)) return false;
+
+    if (!java.util.Objects.equals(version, that.version)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -17,8 +17,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1CustomResourceDefinitionVersionFluent<A extends V1CustomResourceDefinitionVersionFluent<A>> extends Fluent<A>{
-  public A addToAdditionalPrinterColumns(Integer index,V1CustomResourceColumnDefinition item);
-  public A setToAdditionalPrinterColumns(Integer index,V1CustomResourceColumnDefinition item);
+  public A addToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item);
+  public A setToAdditionalPrinterColumns(int index,V1CustomResourceColumnDefinition item);
   public A addToAdditionalPrinterColumns(io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition... items);
   public A addAllToAdditionalPrinterColumns(Collection<V1CustomResourceColumnDefinition> items);
   public A removeFromAdditionalPrinterColumns(io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition... items);
@@ -32,7 +32,7 @@ public interface V1CustomResourceDefinitionVersionFluent<A extends V1CustomResou
   @Deprecated
   public List<V1CustomResourceColumnDefinition> getAdditionalPrinterColumns();
   public List<V1CustomResourceColumnDefinition> buildAdditionalPrinterColumns();
-  public V1CustomResourceColumnDefinition buildAdditionalPrinterColumn(Integer index);
+  public V1CustomResourceColumnDefinition buildAdditionalPrinterColumn(int index);
   public V1CustomResourceColumnDefinition buildFirstAdditionalPrinterColumn();
   public V1CustomResourceColumnDefinition buildLastAdditionalPrinterColumn();
   public V1CustomResourceColumnDefinition buildMatchingAdditionalPrinterColumn(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate);
@@ -42,8 +42,8 @@ public interface V1CustomResourceDefinitionVersionFluent<A extends V1CustomResou
   public Boolean hasAdditionalPrinterColumns();
   public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumn();
   public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> addNewAdditionalPrinterColumnLike(V1CustomResourceColumnDefinition item);
-  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> setNewAdditionalPrinterColumnLike(Integer index,V1CustomResourceColumnDefinition item);
-  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> editAdditionalPrinterColumn(Integer index);
+  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> setNewAdditionalPrinterColumnLike(int index,V1CustomResourceColumnDefinition item);
+  public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> editAdditionalPrinterColumn(int index);
   public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> editFirstAdditionalPrinterColumn();
   public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> editLastAdditionalPrinterColumn();
   public V1CustomResourceDefinitionVersionFluent.AdditionalPrinterColumnsNested<A> editMatchingAdditionalPrinterColumn(Predicate<V1CustomResourceColumnDefinitionBuilder> predicate);

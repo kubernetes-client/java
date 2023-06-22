@@ -16,16 +16,13 @@ import java.lang.Object;
   public V1HorizontalPodAutoscalerFluentImpl() {
   }
   public V1HorizontalPodAutoscalerFluentImpl(V1HorizontalPodAutoscaler instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1HorizontalPodAutoscalerFluent.MetadataNested<A> withNewMetadata() {
+  public V1HorizontalPodAutoscalerFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1HorizontalPodAutoscalerFluentImpl.MetadataNestedImpl();
   }
-  public V1HorizontalPodAutoscalerFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1HorizontalPodAutoscalerFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1HorizontalPodAutoscalerFluentImpl.MetadataNestedImpl(item);
   }
-  public V1HorizontalPodAutoscalerFluent.MetadataNested<A> editMetadata() {
+  public V1HorizontalPodAutoscalerFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1HorizontalPodAutoscalerFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1HorizontalPodAutoscalerFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1HorizontalPodAutoscalerFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1HorizontalPodAutoscalerFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1HorizontalPodAutoscalerFluent.SpecNested<A> withNewSpec() {
+  public V1HorizontalPodAutoscalerFluentImpl.SpecNested<A> withNewSpec() {
     return new V1HorizontalPodAutoscalerFluentImpl.SpecNestedImpl();
   }
-  public V1HorizontalPodAutoscalerFluent.SpecNested<A> withNewSpecLike(V1HorizontalPodAutoscalerSpec item) {
+  public V1HorizontalPodAutoscalerFluentImpl.SpecNested<A> withNewSpecLike(V1HorizontalPodAutoscalerSpec item) {
     return new V1HorizontalPodAutoscalerFluentImpl.SpecNestedImpl(item);
   }
-  public V1HorizontalPodAutoscalerFluent.SpecNested<A> editSpec() {
+  public V1HorizontalPodAutoscalerFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1HorizontalPodAutoscalerFluent.SpecNested<A> editOrNewSpec() {
+  public V1HorizontalPodAutoscalerFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1HorizontalPodAutoscalerSpecBuilder().build());
   }
-  public V1HorizontalPodAutoscalerFluent.SpecNested<A> editOrNewSpecLike(V1HorizontalPodAutoscalerSpec item) {
+  public V1HorizontalPodAutoscalerFluentImpl.SpecNested<A> editOrNewSpecLike(V1HorizontalPodAutoscalerSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1HorizontalPodAutoscalerFluent.StatusNested<A> withNewStatus() {
+  public V1HorizontalPodAutoscalerFluentImpl.StatusNested<A> withNewStatus() {
     return new V1HorizontalPodAutoscalerFluentImpl.StatusNestedImpl();
   }
-  public V1HorizontalPodAutoscalerFluent.StatusNested<A> withNewStatusLike(V1HorizontalPodAutoscalerStatus item) {
+  public V1HorizontalPodAutoscalerFluentImpl.StatusNested<A> withNewStatusLike(V1HorizontalPodAutoscalerStatus item) {
     return new V1HorizontalPodAutoscalerFluentImpl.StatusNestedImpl(item);
   }
-  public V1HorizontalPodAutoscalerFluent.StatusNested<A> editStatus() {
+  public V1HorizontalPodAutoscalerFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1HorizontalPodAutoscalerFluent.StatusNested<A> editOrNewStatus() {
+  public V1HorizontalPodAutoscalerFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1HorizontalPodAutoscalerStatusBuilder().build());
   }
-  public V1HorizontalPodAutoscalerFluent.StatusNested<A> editOrNewStatusLike(V1HorizontalPodAutoscalerStatus item) {
+  public V1HorizontalPodAutoscalerFluentImpl.StatusNested<A> editOrNewStatusLike(V1HorizontalPodAutoscalerStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1HorizontalPodAutoscalerFluentImpl that = (V1HorizontalPodAutoscalerFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1HorizontalPodAutoscalerFluent.MetadataNested<N>> implements V1HorizontalPodAutoscalerFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1HorizontalPodAutoscalerFluentImpl.MetadataNested<N>> implements V1HorizontalPodAutoscalerFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1HorizontalPodAutoscalerSpecFluentImpl<V1HorizontalPodAutoscalerFluent.SpecNested<N>> implements V1HorizontalPodAutoscalerFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1HorizontalPodAutoscalerSpecFluentImpl<V1HorizontalPodAutoscalerFluentImpl.SpecNested<N>> implements V1HorizontalPodAutoscalerFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1HorizontalPodAutoscalerSpec item) {
       this.builder = new V1HorizontalPodAutoscalerSpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1HorizontalPodAutoscalerStatusFluentImpl<V1HorizontalPodAutoscalerFluent.StatusNested<N>> implements V1HorizontalPodAutoscalerFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1HorizontalPodAutoscalerStatusFluentImpl<V1HorizontalPodAutoscalerFluentImpl.StatusNested<N>> implements V1HorizontalPodAutoscalerFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1HorizontalPodAutoscalerStatus item) {
       this.builder = new V1HorizontalPodAutoscalerStatusBuilder(this, item);
     }

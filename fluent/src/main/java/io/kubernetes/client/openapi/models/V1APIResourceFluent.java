@@ -1,6 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,14 +13,14 @@ import java.util.function.Predicate;
   * Generated
   */
 public interface V1APIResourceFluent<A extends V1APIResourceFluent<A>> extends Fluent<A>{
-  public A addToCategories(Integer index,String item);
-  public A setToCategories(Integer index,String item);
+  public A addToCategories(int index,String item);
+  public A setToCategories(int index,String item);
   public A addToCategories(java.lang.String... items);
   public A addAllToCategories(Collection<String> items);
   public A removeFromCategories(java.lang.String... items);
   public A removeAllFromCategories(Collection<String> items);
   public List<String> getCategories();
-  public String getCategory(Integer index);
+  public String getCategory(int index);
   public String getFirstCategory();
   public String getLastCategory();
   public String getMatchingCategory(Predicate<String> predicate);
@@ -40,14 +40,14 @@ public interface V1APIResourceFluent<A extends V1APIResourceFluent<A>> extends F
   public Boolean getNamespaced();
   public A withNamespaced(Boolean namespaced);
   public Boolean hasNamespaced();
-  public A addToShortNames(Integer index,String item);
-  public A setToShortNames(Integer index,String item);
+  public A addToShortNames(int index,String item);
+  public A setToShortNames(int index,String item);
   public A addToShortNames(java.lang.String... items);
   public A addAllToShortNames(Collection<String> items);
   public A removeFromShortNames(java.lang.String... items);
   public A removeAllFromShortNames(Collection<String> items);
   public List<String> getShortNames();
-  public String getShortName(Integer index);
+  public String getShortName(int index);
   public String getFirstShortName();
   public String getLastShortName();
   public String getMatchingShortName(Predicate<String> predicate);
@@ -61,14 +61,14 @@ public interface V1APIResourceFluent<A extends V1APIResourceFluent<A>> extends F
   public String getStorageVersionHash();
   public A withStorageVersionHash(String storageVersionHash);
   public Boolean hasStorageVersionHash();
-  public A addToVerbs(Integer index,String item);
-  public A setToVerbs(Integer index,String item);
+  public A addToVerbs(int index,String item);
+  public A setToVerbs(int index,String item);
   public A addToVerbs(java.lang.String... items);
   public A addAllToVerbs(Collection<String> items);
   public A removeFromVerbs(java.lang.String... items);
   public A removeAllFromVerbs(Collection<String> items);
   public List<String> getVerbs();
-  public String getVerb(Integer index);
+  public String getVerb(int index);
   public String getFirstVerb();
   public String getLastVerb();
   public String getMatchingVerb(Predicate<String> predicate);

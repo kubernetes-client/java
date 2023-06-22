@@ -20,14 +20,12 @@ public class V1LeaseBuilder extends V1LeaseFluentImpl<V1LeaseBuilder> implements
   }
   public V1LeaseBuilder(V1LeaseFluent<?> fluent,V1Lease instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LeaseBuilder(V1Lease instance) {
@@ -35,14 +33,12 @@ public class V1LeaseBuilder extends V1LeaseFluentImpl<V1LeaseBuilder> implements
   }
   public V1LeaseBuilder(V1Lease instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LeaseFluent<?> fluent;

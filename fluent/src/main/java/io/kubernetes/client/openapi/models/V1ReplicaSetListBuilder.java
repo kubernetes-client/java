@@ -20,14 +20,12 @@ public class V1ReplicaSetListBuilder extends V1ReplicaSetListFluentImpl<V1Replic
   }
   public V1ReplicaSetListBuilder(V1ReplicaSetListFluent<?> fluent,V1ReplicaSetList instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withItems(instance.getItems());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withItems(instance.getItems());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ReplicaSetListBuilder(V1ReplicaSetList instance) {
@@ -35,14 +33,12 @@ public class V1ReplicaSetListBuilder extends V1ReplicaSetListFluentImpl<V1Replic
   }
   public V1ReplicaSetListBuilder(V1ReplicaSetList instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withItems(instance.getItems());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withItems(instance.getItems());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ReplicaSetListFluent<?> fluent;

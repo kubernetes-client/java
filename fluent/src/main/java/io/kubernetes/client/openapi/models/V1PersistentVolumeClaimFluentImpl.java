@@ -16,16 +16,13 @@ import java.lang.Object;
   public V1PersistentVolumeClaimFluentImpl() {
   }
   public V1PersistentVolumeClaimFluentImpl(V1PersistentVolumeClaim instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1PersistentVolumeClaimFluent.MetadataNested<A> withNewMetadata() {
+  public V1PersistentVolumeClaimFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1PersistentVolumeClaimFluentImpl.MetadataNestedImpl();
   }
-  public V1PersistentVolumeClaimFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1PersistentVolumeClaimFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1PersistentVolumeClaimFluentImpl.MetadataNestedImpl(item);
   }
-  public V1PersistentVolumeClaimFluent.MetadataNested<A> editMetadata() {
+  public V1PersistentVolumeClaimFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1PersistentVolumeClaimFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1PersistentVolumeClaimFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1PersistentVolumeClaimFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1PersistentVolumeClaimFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1PersistentVolumeClaimFluent.SpecNested<A> withNewSpec() {
+  public V1PersistentVolumeClaimFluentImpl.SpecNested<A> withNewSpec() {
     return new V1PersistentVolumeClaimFluentImpl.SpecNestedImpl();
   }
-  public V1PersistentVolumeClaimFluent.SpecNested<A> withNewSpecLike(V1PersistentVolumeClaimSpec item) {
+  public V1PersistentVolumeClaimFluentImpl.SpecNested<A> withNewSpecLike(V1PersistentVolumeClaimSpec item) {
     return new V1PersistentVolumeClaimFluentImpl.SpecNestedImpl(item);
   }
-  public V1PersistentVolumeClaimFluent.SpecNested<A> editSpec() {
+  public V1PersistentVolumeClaimFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1PersistentVolumeClaimFluent.SpecNested<A> editOrNewSpec() {
+  public V1PersistentVolumeClaimFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1PersistentVolumeClaimSpecBuilder().build());
   }
-  public V1PersistentVolumeClaimFluent.SpecNested<A> editOrNewSpecLike(V1PersistentVolumeClaimSpec item) {
+  public V1PersistentVolumeClaimFluentImpl.SpecNested<A> editOrNewSpecLike(V1PersistentVolumeClaimSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1PersistentVolumeClaimFluent.StatusNested<A> withNewStatus() {
+  public V1PersistentVolumeClaimFluentImpl.StatusNested<A> withNewStatus() {
     return new V1PersistentVolumeClaimFluentImpl.StatusNestedImpl();
   }
-  public V1PersistentVolumeClaimFluent.StatusNested<A> withNewStatusLike(V1PersistentVolumeClaimStatus item) {
+  public V1PersistentVolumeClaimFluentImpl.StatusNested<A> withNewStatusLike(V1PersistentVolumeClaimStatus item) {
     return new V1PersistentVolumeClaimFluentImpl.StatusNestedImpl(item);
   }
-  public V1PersistentVolumeClaimFluent.StatusNested<A> editStatus() {
+  public V1PersistentVolumeClaimFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1PersistentVolumeClaimFluent.StatusNested<A> editOrNewStatus() {
+  public V1PersistentVolumeClaimFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1PersistentVolumeClaimStatusBuilder().build());
   }
-  public V1PersistentVolumeClaimFluent.StatusNested<A> editOrNewStatusLike(V1PersistentVolumeClaimStatus item) {
+  public V1PersistentVolumeClaimFluentImpl.StatusNested<A> editOrNewStatusLike(V1PersistentVolumeClaimStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PersistentVolumeClaimFluentImpl that = (V1PersistentVolumeClaimFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1PersistentVolumeClaimFluent.MetadataNested<N>> implements V1PersistentVolumeClaimFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1PersistentVolumeClaimFluentImpl.MetadataNested<N>> implements V1PersistentVolumeClaimFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1PersistentVolumeClaimSpecFluentImpl<V1PersistentVolumeClaimFluent.SpecNested<N>> implements V1PersistentVolumeClaimFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1PersistentVolumeClaimSpecFluentImpl<V1PersistentVolumeClaimFluentImpl.SpecNested<N>> implements V1PersistentVolumeClaimFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1PersistentVolumeClaimSpec item) {
       this.builder = new V1PersistentVolumeClaimSpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1PersistentVolumeClaimStatusFluentImpl<V1PersistentVolumeClaimFluent.StatusNested<N>> implements V1PersistentVolumeClaimFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1PersistentVolumeClaimStatusFluentImpl<V1PersistentVolumeClaimFluentImpl.StatusNested<N>> implements V1PersistentVolumeClaimFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1PersistentVolumeClaimStatus item) {
       this.builder = new V1PersistentVolumeClaimStatusBuilder(this, item);
     }

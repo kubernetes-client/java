@@ -20,10 +20,10 @@ public class V1NodeSelectorTermBuilder extends V1NodeSelectorTermFluentImpl<V1No
   }
   public V1NodeSelectorTermBuilder(V1NodeSelectorTermFluent<?> fluent,V1NodeSelectorTerm instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMatchExpressions(instance.getMatchExpressions());
-
-    fluent.withMatchFields(instance.getMatchFields());
-
+    if (instance != null) {
+      fluent.withMatchExpressions(instance.getMatchExpressions());
+      fluent.withMatchFields(instance.getMatchFields());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeSelectorTermBuilder(V1NodeSelectorTerm instance) {
@@ -31,10 +31,10 @@ public class V1NodeSelectorTermBuilder extends V1NodeSelectorTermFluentImpl<V1No
   }
   public V1NodeSelectorTermBuilder(V1NodeSelectorTerm instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMatchExpressions(instance.getMatchExpressions());
-
-    this.withMatchFields(instance.getMatchFields());
-
+    if (instance != null) {
+      this.withMatchExpressions(instance.getMatchExpressions());
+      this.withMatchFields(instance.getMatchFields());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeSelectorTermFluent<?> fluent;

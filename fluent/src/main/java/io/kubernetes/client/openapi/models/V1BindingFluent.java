@@ -1,9 +1,10 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Deprecated;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
+import java.lang.Deprecated;
 import java.lang.Boolean;
 
  /**

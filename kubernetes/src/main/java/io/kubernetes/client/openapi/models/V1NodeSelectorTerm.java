@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,33 +12,34 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1NodeSelectorRequirement;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * A null or empty node selector term matches no objects. The requirements of them are ANDed. The
- * TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
+ * A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.
  */
-@ApiModel(
-    description =
-        "A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "A null or empty node selector term matches no objects. The requirements of them are ANDed. The TopologySelectorTerm type implements a subset of the NodeSelectorTerm.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1NodeSelectorTerm {
   public static final String SERIALIZED_NAME_MATCH_EXPRESSIONS = "matchExpressions";
-
   @SerializedName(SERIALIZED_NAME_MATCH_EXPRESSIONS)
   private List<V1NodeSelectorRequirement> matchExpressions = null;
 
   public static final String SERIALIZED_NAME_MATCH_FIELDS = "matchFields";
-
   @SerializedName(SERIALIZED_NAME_MATCH_FIELDS)
   private List<V1NodeSelectorRequirement> matchFields = null;
+
 
   public V1NodeSelectorTerm matchExpressions(List<V1NodeSelectorRequirement> matchExpressions) {
 
@@ -46,8 +47,7 @@ public class V1NodeSelectorTerm {
     return this;
   }
 
-  public V1NodeSelectorTerm addMatchExpressionsItem(
-      V1NodeSelectorRequirement matchExpressionsItem) {
+  public V1NodeSelectorTerm addMatchExpressionsItem(V1NodeSelectorRequirement matchExpressionsItem) {
     if (this.matchExpressions == null) {
       this.matchExpressions = new ArrayList<>();
     }
@@ -55,20 +55,22 @@ public class V1NodeSelectorTerm {
     return this;
   }
 
-  /**
+   /**
    * A list of node selector requirements by node&#39;s labels.
-   *
    * @return matchExpressions
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A list of node selector requirements by node's labels.")
+
   public List<V1NodeSelectorRequirement> getMatchExpressions() {
     return matchExpressions;
   }
 
+
   public void setMatchExpressions(List<V1NodeSelectorRequirement> matchExpressions) {
     this.matchExpressions = matchExpressions;
   }
+
 
   public V1NodeSelectorTerm matchFields(List<V1NodeSelectorRequirement> matchFields) {
 
@@ -84,20 +86,22 @@ public class V1NodeSelectorTerm {
     return this;
   }
 
-  /**
+   /**
    * A list of node selector requirements by node&#39;s fields.
-   *
    * @return matchFields
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "A list of node selector requirements by node's fields.")
+
   public List<V1NodeSelectorRequirement> getMatchFields() {
     return matchFields;
   }
 
+
   public void setMatchFields(List<V1NodeSelectorRequirement> matchFields) {
     this.matchFields = matchFields;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -108,14 +112,15 @@ public class V1NodeSelectorTerm {
       return false;
     }
     V1NodeSelectorTerm v1NodeSelectorTerm = (V1NodeSelectorTerm) o;
-    return Objects.equals(this.matchExpressions, v1NodeSelectorTerm.matchExpressions)
-        && Objects.equals(this.matchFields, v1NodeSelectorTerm.matchFields);
+    return Objects.equals(this.matchExpressions, v1NodeSelectorTerm.matchExpressions) &&
+        Objects.equals(this.matchFields, v1NodeSelectorTerm.matchFields);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(matchExpressions, matchFields);
   }
+
 
   @Override
   public String toString() {
@@ -128,7 +133,8 @@ public class V1NodeSelectorTerm {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -136,4 +142,5 @@ public class V1NodeSelectorTerm {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

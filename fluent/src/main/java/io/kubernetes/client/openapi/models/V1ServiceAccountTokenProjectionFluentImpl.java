@@ -15,12 +15,11 @@ import java.lang.Boolean;
   public V1ServiceAccountTokenProjectionFluentImpl() {
   }
   public V1ServiceAccountTokenProjectionFluentImpl(V1ServiceAccountTokenProjection instance) {
-    this.withAudience(instance.getAudience());
-
-    this.withExpirationSeconds(instance.getExpirationSeconds());
-
-    this.withPath(instance.getPath());
-
+    if (instance != null) {
+      this.withAudience(instance.getAudience());
+      this.withExpirationSeconds(instance.getExpirationSeconds());
+      this.withPath(instance.getPath());
+    }
   }
   private String audience;
   private Long expirationSeconds;
@@ -55,10 +54,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ServiceAccountTokenProjectionFluentImpl that = (V1ServiceAccountTokenProjectionFluentImpl) o;
-    if (audience != null ? !audience.equals(that.audience) :that.audience != null) return false;
-    if (expirationSeconds != null ? !expirationSeconds.equals(that.expirationSeconds) :that.expirationSeconds != null) return false;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
+    if (!java.util.Objects.equals(audience, that.audience)) return false;
+
+    if (!java.util.Objects.equals(expirationSeconds, that.expirationSeconds)) return false;
+
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
     return true;
   }
   public int hashCode() {

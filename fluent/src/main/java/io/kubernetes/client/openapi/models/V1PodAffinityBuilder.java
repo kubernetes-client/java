@@ -20,10 +20,10 @@ public class V1PodAffinityBuilder extends V1PodAffinityFluentImpl<V1PodAffinityB
   }
   public V1PodAffinityBuilder(V1PodAffinityFluent<?> fluent,V1PodAffinity instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
-
-    fluent.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
-
+    if (instance != null) {
+      fluent.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
+      fluent.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodAffinityBuilder(V1PodAffinity instance) {
@@ -31,10 +31,10 @@ public class V1PodAffinityBuilder extends V1PodAffinityFluentImpl<V1PodAffinityB
   }
   public V1PodAffinityBuilder(V1PodAffinity instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
-
-    this.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
-
+    if (instance != null) {
+      this.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
+      this.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodAffinityFluent<?> fluent;

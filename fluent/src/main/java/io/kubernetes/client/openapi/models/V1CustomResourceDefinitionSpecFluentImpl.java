@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,18 +22,14 @@ import java.lang.Object;
   public V1CustomResourceDefinitionSpecFluentImpl() {
   }
   public V1CustomResourceDefinitionSpecFluentImpl(V1CustomResourceDefinitionSpec instance) {
-    this.withConversion(instance.getConversion());
-
-    this.withGroup(instance.getGroup());
-
-    this.withNames(instance.getNames());
-
-    this.withPreserveUnknownFields(instance.getPreserveUnknownFields());
-
-    this.withScope(instance.getScope());
-
-    this.withVersions(instance.getVersions());
-
+    if (instance != null) {
+      this.withConversion(instance.getConversion());
+      this.withGroup(instance.getGroup());
+      this.withNames(instance.getNames());
+      this.withPreserveUnknownFields(instance.getPreserveUnknownFields());
+      this.withScope(instance.getScope());
+      this.withVersions(instance.getVersions());
+    }
   }
   private V1CustomResourceConversionBuilder conversion;
   private String group;
@@ -61,19 +56,19 @@ import java.lang.Object;
   public Boolean hasConversion() {
     return this.conversion != null;
   }
-  public V1CustomResourceDefinitionSpecFluent.ConversionNested<A> withNewConversion() {
+  public V1CustomResourceDefinitionSpecFluentImpl.ConversionNested<A> withNewConversion() {
     return new V1CustomResourceDefinitionSpecFluentImpl.ConversionNestedImpl();
   }
-  public V1CustomResourceDefinitionSpecFluent.ConversionNested<A> withNewConversionLike(V1CustomResourceConversion item) {
+  public V1CustomResourceDefinitionSpecFluentImpl.ConversionNested<A> withNewConversionLike(V1CustomResourceConversion item) {
     return new V1CustomResourceDefinitionSpecFluentImpl.ConversionNestedImpl(item);
   }
-  public V1CustomResourceDefinitionSpecFluent.ConversionNested<A> editConversion() {
+  public V1CustomResourceDefinitionSpecFluentImpl.ConversionNested<A> editConversion() {
     return withNewConversionLike(getConversion());
   }
-  public V1CustomResourceDefinitionSpecFluent.ConversionNested<A> editOrNewConversion() {
+  public V1CustomResourceDefinitionSpecFluentImpl.ConversionNested<A> editOrNewConversion() {
     return withNewConversionLike(getConversion() != null ? getConversion(): new V1CustomResourceConversionBuilder().build());
   }
-  public V1CustomResourceDefinitionSpecFluent.ConversionNested<A> editOrNewConversionLike(V1CustomResourceConversion item) {
+  public V1CustomResourceDefinitionSpecFluentImpl.ConversionNested<A> editOrNewConversionLike(V1CustomResourceConversion item) {
     return withNewConversionLike(getConversion() != null ? getConversion(): item);
   }
   public String getGroup() {
@@ -104,19 +99,19 @@ import java.lang.Object;
   public Boolean hasNames() {
     return this.names != null;
   }
-  public V1CustomResourceDefinitionSpecFluent.NamesNested<A> withNewNames() {
+  public V1CustomResourceDefinitionSpecFluentImpl.NamesNested<A> withNewNames() {
     return new V1CustomResourceDefinitionSpecFluentImpl.NamesNestedImpl();
   }
-  public V1CustomResourceDefinitionSpecFluent.NamesNested<A> withNewNamesLike(V1CustomResourceDefinitionNames item) {
+  public V1CustomResourceDefinitionSpecFluentImpl.NamesNested<A> withNewNamesLike(V1CustomResourceDefinitionNames item) {
     return new V1CustomResourceDefinitionSpecFluentImpl.NamesNestedImpl(item);
   }
-  public V1CustomResourceDefinitionSpecFluent.NamesNested<A> editNames() {
+  public V1CustomResourceDefinitionSpecFluentImpl.NamesNested<A> editNames() {
     return withNewNamesLike(getNames());
   }
-  public V1CustomResourceDefinitionSpecFluent.NamesNested<A> editOrNewNames() {
+  public V1CustomResourceDefinitionSpecFluentImpl.NamesNested<A> editOrNewNames() {
     return withNewNamesLike(getNames() != null ? getNames(): new V1CustomResourceDefinitionNamesBuilder().build());
   }
-  public V1CustomResourceDefinitionSpecFluent.NamesNested<A> editOrNewNamesLike(V1CustomResourceDefinitionNames item) {
+  public V1CustomResourceDefinitionSpecFluentImpl.NamesNested<A> editOrNewNamesLike(V1CustomResourceDefinitionNames item) {
     return withNewNamesLike(getNames() != null ? getNames(): item);
   }
   public Boolean getPreserveUnknownFields() {
@@ -137,16 +132,17 @@ import java.lang.Object;
   public Boolean hasScope() {
     return this.scope != null;
   }
-  public A addToVersions(Integer index,V1CustomResourceDefinitionVersion item) {
-    if (this.versions == null) {this.versions = new ArrayList<V1CustomResourceDefinitionVersionBuilder>();}
-    V1CustomResourceDefinitionVersionBuilder builder = new V1CustomResourceDefinitionVersionBuilder(item);_visitables.get("versions").add(index >= 0 ? index : _visitables.get("versions").size(), builder);this.versions.add(index >= 0 ? index : versions.size(), builder); return (A)this;
-  }
-  public A setToVersions(Integer index,V1CustomResourceDefinitionVersion item) {
+  public A addToVersions(int index,V1CustomResourceDefinitionVersion item) {
     if (this.versions == null) {this.versions = new ArrayList<V1CustomResourceDefinitionVersionBuilder>();}
     V1CustomResourceDefinitionVersionBuilder builder = new V1CustomResourceDefinitionVersionBuilder(item);
-    if (index < 0 || index >= _visitables.get("versions").size()) { _visitables.get("versions").add(builder); } else { _visitables.get("versions").set(index, builder);}
-    if (index < 0 || index >= versions.size()) { versions.add(builder); } else { versions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= versions.size()) { _visitables.get("versions").add(builder); versions.add(builder); } else { _visitables.get("versions").add(index, builder); versions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToVersions(int index,V1CustomResourceDefinitionVersion item) {
+    if (this.versions == null) {this.versions = new ArrayList<V1CustomResourceDefinitionVersionBuilder>();}
+    V1CustomResourceDefinitionVersionBuilder builder = new V1CustomResourceDefinitionVersionBuilder(item);
+    if (index < 0 || index >= versions.size()) { _visitables.get("versions").add(builder); versions.add(builder); } else { _visitables.get("versions").set(index, builder); versions.set(index, builder);}
+    return (A)this;
   }
   public A addToVersions(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion... items) {
     if (this.versions == null) {this.versions = new ArrayList<V1CustomResourceDefinitionVersionBuilder>();}
@@ -187,7 +183,7 @@ import java.lang.Object;
   public List<V1CustomResourceDefinitionVersion> buildVersions() {
     return versions != null ? build(versions) : null;
   }
-  public V1CustomResourceDefinitionVersion buildVersion(Integer index) {
+  public V1CustomResourceDefinitionVersion buildVersion(int index) {
     return this.versions.get(index).build();
   }
   public V1CustomResourceDefinitionVersion buildFirstVersion() {
@@ -203,39 +199,39 @@ import java.lang.Object;
     for (V1CustomResourceDefinitionVersionBuilder item: versions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withVersions(List<V1CustomResourceDefinitionVersion> versions) {
-    if (this.versions != null) { _visitables.get("versions").removeAll(this.versions);}
+    if (this.versions != null) { _visitables.get("versions").clear();}
     if (versions != null) {this.versions = new ArrayList(); for (V1CustomResourceDefinitionVersion item : versions){this.addToVersions(item);}} else { this.versions = null;} return (A) this;
   }
   public A withVersions(io.kubernetes.client.openapi.models.V1CustomResourceDefinitionVersion... versions) {
-    if (this.versions != null) {this.versions.clear();}
+    if (this.versions != null) {this.versions.clear(); _visitables.remove("versions"); }
     if (versions != null) {for (V1CustomResourceDefinitionVersion item :versions){ this.addToVersions(item);}} return (A) this;
   }
   public Boolean hasVersions() {
     return versions != null && !versions.isEmpty();
   }
-  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> addNewVersion() {
+  public V1CustomResourceDefinitionSpecFluentImpl.VersionsNested<A> addNewVersion() {
     return new V1CustomResourceDefinitionSpecFluentImpl.VersionsNestedImpl();
   }
-  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> addNewVersionLike(V1CustomResourceDefinitionVersion item) {
+  public V1CustomResourceDefinitionSpecFluentImpl.VersionsNested<A> addNewVersionLike(V1CustomResourceDefinitionVersion item) {
     return new V1CustomResourceDefinitionSpecFluentImpl.VersionsNestedImpl(-1, item);
   }
-  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> setNewVersionLike(Integer index,V1CustomResourceDefinitionVersion item) {
+  public V1CustomResourceDefinitionSpecFluentImpl.VersionsNested<A> setNewVersionLike(int index,V1CustomResourceDefinitionVersion item) {
     return new V1CustomResourceDefinitionSpecFluentImpl.VersionsNestedImpl(index, item);
   }
-  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> editVersion(Integer index) {
+  public V1CustomResourceDefinitionSpecFluentImpl.VersionsNested<A> editVersion(int index) {
     if (versions.size() <= index) throw new RuntimeException("Can't edit versions. Index exceeds size.");
     return setNewVersionLike(index, buildVersion(index));
   }
-  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> editFirstVersion() {
+  public V1CustomResourceDefinitionSpecFluentImpl.VersionsNested<A> editFirstVersion() {
     if (versions.size() == 0) throw new RuntimeException("Can't edit first versions. The list is empty.");
     return setNewVersionLike(0, buildVersion(0));
   }
-  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> editLastVersion() {
+  public V1CustomResourceDefinitionSpecFluentImpl.VersionsNested<A> editLastVersion() {
     int index = versions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last versions. The list is empty.");
     return setNewVersionLike(index, buildVersion(index));
   }
-  public V1CustomResourceDefinitionSpecFluent.VersionsNested<A> editMatchingVersion(Predicate<V1CustomResourceDefinitionVersionBuilder> predicate) {
+  public V1CustomResourceDefinitionSpecFluentImpl.VersionsNested<A> editMatchingVersion(Predicate<V1CustomResourceDefinitionVersionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<versions.size();i++) { 
     if (predicate.test(versions.get(i))) {index = i; break;}
@@ -246,13 +242,20 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CustomResourceDefinitionSpecFluentImpl that = (V1CustomResourceDefinitionSpecFluentImpl) o;
-    if (conversion != null ? !conversion.equals(that.conversion) :that.conversion != null) return false;
-    if (group != null ? !group.equals(that.group) :that.group != null) return false;
-    if (names != null ? !names.equals(that.names) :that.names != null) return false;
-    if (preserveUnknownFields != null ? !preserveUnknownFields.equals(that.preserveUnknownFields) :that.preserveUnknownFields != null) return false;
-    if (scope != null ? !scope.equals(that.scope) :that.scope != null) return false;
-    if (versions != null ? !versions.equals(that.versions) :that.versions != null) return false;
+    if (!java.util.Objects.equals(conversion, that.conversion)) return false;
+
+    if (!java.util.Objects.equals(group, that.group)) return false;
+
+    if (!java.util.Objects.equals(names, that.names)) return false;
+
+    if (!java.util.Objects.equals(preserveUnknownFields, that.preserveUnknownFields)) return false;
+
+    if (!java.util.Objects.equals(scope, that.scope)) return false;
+
+    if (!java.util.Objects.equals(versions, that.versions)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -266,14 +269,14 @@ import java.lang.Object;
     if (names != null) { sb.append("names:"); sb.append(names + ","); }
     if (preserveUnknownFields != null) { sb.append("preserveUnknownFields:"); sb.append(preserveUnknownFields + ","); }
     if (scope != null) { sb.append("scope:"); sb.append(scope + ","); }
-    if (versions != null && !versions.isEmpty()) { sb.append("versions:"); sb.append(versions); }
+    if (versions != null) { sb.append("versions:"); sb.append(versions); }
     sb.append("}");
     return sb.toString();
   }
   public A withPreserveUnknownFields() {
     return withPreserveUnknownFields(true);
   }
-  class ConversionNestedImpl<N> extends V1CustomResourceConversionFluentImpl<V1CustomResourceDefinitionSpecFluent.ConversionNested<N>> implements V1CustomResourceDefinitionSpecFluent.ConversionNested<N>,Nested<N>{
+  class ConversionNestedImpl<N> extends V1CustomResourceConversionFluentImpl<V1CustomResourceDefinitionSpecFluentImpl.ConversionNested<N>> implements V1CustomResourceDefinitionSpecFluentImpl.ConversionNested<N>,Nested<N>{
     ConversionNestedImpl(V1CustomResourceConversion item) {
       this.builder = new V1CustomResourceConversionBuilder(this, item);
     }
@@ -289,7 +292,7 @@ import java.lang.Object;
     }
     
   }
-  class NamesNestedImpl<N> extends V1CustomResourceDefinitionNamesFluentImpl<V1CustomResourceDefinitionSpecFluent.NamesNested<N>> implements V1CustomResourceDefinitionSpecFluent.NamesNested<N>,Nested<N>{
+  class NamesNestedImpl<N> extends V1CustomResourceDefinitionNamesFluentImpl<V1CustomResourceDefinitionSpecFluentImpl.NamesNested<N>> implements V1CustomResourceDefinitionSpecFluentImpl.NamesNested<N>,Nested<N>{
     NamesNestedImpl(V1CustomResourceDefinitionNames item) {
       this.builder = new V1CustomResourceDefinitionNamesBuilder(this, item);
     }
@@ -305,8 +308,8 @@ import java.lang.Object;
     }
     
   }
-  class VersionsNestedImpl<N> extends V1CustomResourceDefinitionVersionFluentImpl<V1CustomResourceDefinitionSpecFluent.VersionsNested<N>> implements V1CustomResourceDefinitionSpecFluent.VersionsNested<N>,Nested<N>{
-    VersionsNestedImpl(Integer index,V1CustomResourceDefinitionVersion item) {
+  class VersionsNestedImpl<N> extends V1CustomResourceDefinitionVersionFluentImpl<V1CustomResourceDefinitionSpecFluentImpl.VersionsNested<N>> implements V1CustomResourceDefinitionSpecFluentImpl.VersionsNested<N>,Nested<N>{
+    VersionsNestedImpl(int index,V1CustomResourceDefinitionVersion item) {
       this.index = index;
       this.builder = new V1CustomResourceDefinitionVersionBuilder(this, item);
     }
@@ -315,7 +318,7 @@ import java.lang.Object;
       this.builder = new V1CustomResourceDefinitionVersionBuilder(this);
     }
     V1CustomResourceDefinitionVersionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1CustomResourceDefinitionSpecFluentImpl.this.setToVersions(index,builder.build());
     }

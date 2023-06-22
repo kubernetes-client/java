@@ -20,14 +20,12 @@ public class V1DownwardAPIVolumeFileBuilder extends V1DownwardAPIVolumeFileFluen
   }
   public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFileFluent<?> fluent,V1DownwardAPIVolumeFile instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFieldRef(instance.getFieldRef());
-
-    fluent.withMode(instance.getMode());
-
-    fluent.withPath(instance.getPath());
-
-    fluent.withResourceFieldRef(instance.getResourceFieldRef());
-
+    if (instance != null) {
+      fluent.withFieldRef(instance.getFieldRef());
+      fluent.withMode(instance.getMode());
+      fluent.withPath(instance.getPath());
+      fluent.withResourceFieldRef(instance.getResourceFieldRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFile instance) {
@@ -35,14 +33,12 @@ public class V1DownwardAPIVolumeFileBuilder extends V1DownwardAPIVolumeFileFluen
   }
   public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFile instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFieldRef(instance.getFieldRef());
-
-    this.withMode(instance.getMode());
-
-    this.withPath(instance.getPath());
-
-    this.withResourceFieldRef(instance.getResourceFieldRef());
-
+    if (instance != null) {
+      this.withFieldRef(instance.getFieldRef());
+      this.withMode(instance.getMode());
+      this.withPath(instance.getPath());
+      this.withResourceFieldRef(instance.getResourceFieldRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1DownwardAPIVolumeFileFluent<?> fluent;

@@ -20,8 +20,9 @@ public class V1NodeDaemonEndpointsBuilder extends V1NodeDaemonEndpointsFluentImp
   }
   public V1NodeDaemonEndpointsBuilder(V1NodeDaemonEndpointsFluent<?> fluent,V1NodeDaemonEndpoints instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withKubeletEndpoint(instance.getKubeletEndpoint());
-
+    if (instance != null) {
+      fluent.withKubeletEndpoint(instance.getKubeletEndpoint());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeDaemonEndpointsBuilder(V1NodeDaemonEndpoints instance) {
@@ -29,8 +30,9 @@ public class V1NodeDaemonEndpointsBuilder extends V1NodeDaemonEndpointsFluentImp
   }
   public V1NodeDaemonEndpointsBuilder(V1NodeDaemonEndpoints instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withKubeletEndpoint(instance.getKubeletEndpoint());
-
+    if (instance != null) {
+      this.withKubeletEndpoint(instance.getKubeletEndpoint());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeDaemonEndpointsFluent<?> fluent;

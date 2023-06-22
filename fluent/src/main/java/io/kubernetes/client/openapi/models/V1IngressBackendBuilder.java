@@ -20,10 +20,10 @@ public class V1IngressBackendBuilder extends V1IngressBackendFluentImpl<V1Ingres
   }
   public V1IngressBackendBuilder(V1IngressBackendFluent<?> fluent,V1IngressBackend instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withResource(instance.getResource());
-
-    fluent.withService(instance.getService());
-
+    if (instance != null) {
+      fluent.withResource(instance.getResource());
+      fluent.withService(instance.getService());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1IngressBackendBuilder(V1IngressBackend instance) {
@@ -31,10 +31,10 @@ public class V1IngressBackendBuilder extends V1IngressBackendFluentImpl<V1Ingres
   }
   public V1IngressBackendBuilder(V1IngressBackend instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withResource(instance.getResource());
-
-    this.withService(instance.getService());
-
+    if (instance != null) {
+      this.withResource(instance.getResource());
+      this.withService(instance.getService());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1IngressBackendFluent<?> fluent;

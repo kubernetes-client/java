@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,27 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** volumeDevice describes a mapping of a raw block device within a container. */
-@ApiModel(
-    description = "volumeDevice describes a mapping of a raw block device within a container.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * volumeDevice describes a mapping of a raw block device within a container.
+ */
+@ApiModel(description = "volumeDevice describes a mapping of a raw block device within a container.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1VolumeDevice {
   public static final String SERIALIZED_NAME_DEVICE_PATH = "devicePath";
-
   @SerializedName(SERIALIZED_NAME_DEVICE_PATH)
   private String devicePath;
 
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
 
   public V1VolumeDevice devicePath(String devicePath) {
 
@@ -40,21 +44,21 @@ public class V1VolumeDevice {
     return this;
   }
 
-  /**
+   /**
    * devicePath is the path inside of the container that the device will be mapped to.
-   *
    * @return devicePath
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "devicePath is the path inside of the container that the device will be mapped to.")
+  **/
+  @ApiModelProperty(required = true, value = "devicePath is the path inside of the container that the device will be mapped to.")
+
   public String getDevicePath() {
     return devicePath;
   }
 
+
   public void setDevicePath(String devicePath) {
     this.devicePath = devicePath;
   }
+
 
   public V1VolumeDevice name(String name) {
 
@@ -62,21 +66,21 @@ public class V1VolumeDevice {
     return this;
   }
 
-  /**
+   /**
    * name must match the name of a persistentVolumeClaim in the pod
-   *
    * @return name
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "name must match the name of a persistentVolumeClaim in the pod")
+  **/
+  @ApiModelProperty(required = true, value = "name must match the name of a persistentVolumeClaim in the pod")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -87,14 +91,15 @@ public class V1VolumeDevice {
       return false;
     }
     V1VolumeDevice v1VolumeDevice = (V1VolumeDevice) o;
-    return Objects.equals(this.devicePath, v1VolumeDevice.devicePath)
-        && Objects.equals(this.name, v1VolumeDevice.name);
+    return Objects.equals(this.devicePath, v1VolumeDevice.devicePath) &&
+        Objects.equals(this.name, v1VolumeDevice.name);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(devicePath, name);
   }
+
 
   @Override
   public String toString() {
@@ -107,7 +112,8 @@ public class V1VolumeDevice {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -115,4 +121,5 @@ public class V1VolumeDevice {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

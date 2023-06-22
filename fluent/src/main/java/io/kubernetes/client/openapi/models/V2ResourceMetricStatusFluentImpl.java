@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V2ResourceMetricStatusFluentImpl() {
   }
   public V2ResourceMetricStatusFluentImpl(V2ResourceMetricStatus instance) {
-    this.withCurrent(instance.getCurrent());
-
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withCurrent(instance.getCurrent());
+      this.withName(instance.getName());
+    }
   }
   private V2MetricValueStatusBuilder current;
   private String name;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasCurrent() {
     return this.current != null;
   }
-  public V2ResourceMetricStatusFluent.CurrentNested<A> withNewCurrent() {
+  public V2ResourceMetricStatusFluentImpl.CurrentNested<A> withNewCurrent() {
     return new V2ResourceMetricStatusFluentImpl.CurrentNestedImpl();
   }
-  public V2ResourceMetricStatusFluent.CurrentNested<A> withNewCurrentLike(V2MetricValueStatus item) {
+  public V2ResourceMetricStatusFluentImpl.CurrentNested<A> withNewCurrentLike(V2MetricValueStatus item) {
     return new V2ResourceMetricStatusFluentImpl.CurrentNestedImpl(item);
   }
-  public V2ResourceMetricStatusFluent.CurrentNested<A> editCurrent() {
+  public V2ResourceMetricStatusFluentImpl.CurrentNested<A> editCurrent() {
     return withNewCurrentLike(getCurrent());
   }
-  public V2ResourceMetricStatusFluent.CurrentNested<A> editOrNewCurrent() {
+  public V2ResourceMetricStatusFluentImpl.CurrentNested<A> editOrNewCurrent() {
     return withNewCurrentLike(getCurrent() != null ? getCurrent(): new V2MetricValueStatusBuilder().build());
   }
-  public V2ResourceMetricStatusFluent.CurrentNested<A> editOrNewCurrentLike(V2MetricValueStatus item) {
+  public V2ResourceMetricStatusFluentImpl.CurrentNested<A> editOrNewCurrentLike(V2MetricValueStatus item) {
     return withNewCurrentLike(getCurrent() != null ? getCurrent(): item);
   }
   public String getName() {
@@ -69,9 +69,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2ResourceMetricStatusFluentImpl that = (V2ResourceMetricStatusFluentImpl) o;
-    if (current != null ? !current.equals(that.current) :that.current != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
+    if (!java.util.Objects.equals(current, that.current)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -85,7 +88,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class CurrentNestedImpl<N> extends V2MetricValueStatusFluentImpl<V2ResourceMetricStatusFluent.CurrentNested<N>> implements V2ResourceMetricStatusFluent.CurrentNested<N>,Nested<N>{
+  class CurrentNestedImpl<N> extends V2MetricValueStatusFluentImpl<V2ResourceMetricStatusFluentImpl.CurrentNested<N>> implements V2ResourceMetricStatusFluentImpl.CurrentNested<N>,Nested<N>{
     CurrentNestedImpl(V2MetricValueStatus item) {
       this.builder = new V2MetricValueStatusBuilder(this, item);
     }

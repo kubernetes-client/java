@@ -20,12 +20,11 @@ public class V1KeyToPathBuilder extends V1KeyToPathFluentImpl<V1KeyToPathBuilder
   }
   public V1KeyToPathBuilder(V1KeyToPathFluent<?> fluent,V1KeyToPath instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withKey(instance.getKey());
-
-    fluent.withMode(instance.getMode());
-
-    fluent.withPath(instance.getPath());
-
+    if (instance != null) {
+      fluent.withKey(instance.getKey());
+      fluent.withMode(instance.getMode());
+      fluent.withPath(instance.getPath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1KeyToPathBuilder(V1KeyToPath instance) {
@@ -33,12 +32,11 @@ public class V1KeyToPathBuilder extends V1KeyToPathFluentImpl<V1KeyToPathBuilder
   }
   public V1KeyToPathBuilder(V1KeyToPath instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withKey(instance.getKey());
-
-    this.withMode(instance.getMode());
-
-    this.withPath(instance.getPath());
-
+    if (instance != null) {
+      this.withKey(instance.getKey());
+      this.withMode(instance.getMode());
+      this.withPath(instance.getPath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1KeyToPathFluent<?> fluent;

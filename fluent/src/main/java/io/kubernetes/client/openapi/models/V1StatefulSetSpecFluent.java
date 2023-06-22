@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
@@ -20,6 +21,21 @@ public interface V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> e
   public Integer getMinReadySeconds();
   public A withMinReadySeconds(Integer minReadySeconds);
   public Boolean hasMinReadySeconds();
+  
+  /**
+   * This method has been deprecated, please use method buildOrdinals instead.
+   * @return The buildable object.
+   */
+  @Deprecated
+  public V1StatefulSetOrdinals getOrdinals();
+  public V1StatefulSetOrdinals buildOrdinals();
+  public A withOrdinals(V1StatefulSetOrdinals ordinals);
+  public Boolean hasOrdinals();
+  public V1StatefulSetSpecFluent.OrdinalsNested<A> withNewOrdinals();
+  public V1StatefulSetSpecFluent.OrdinalsNested<A> withNewOrdinalsLike(V1StatefulSetOrdinals item);
+  public V1StatefulSetSpecFluent.OrdinalsNested<A> editOrdinals();
+  public V1StatefulSetSpecFluent.OrdinalsNested<A> editOrNewOrdinals();
+  public V1StatefulSetSpecFluent.OrdinalsNested<A> editOrNewOrdinalsLike(V1StatefulSetOrdinals item);
   
   /**
    * This method has been deprecated, please use method buildPersistentVolumeClaimRetentionPolicy instead.
@@ -92,8 +108,8 @@ public interface V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> e
   public V1StatefulSetSpecFluent.UpdateStrategyNested<A> editUpdateStrategy();
   public V1StatefulSetSpecFluent.UpdateStrategyNested<A> editOrNewUpdateStrategy();
   public V1StatefulSetSpecFluent.UpdateStrategyNested<A> editOrNewUpdateStrategyLike(V1StatefulSetUpdateStrategy item);
-  public A addToVolumeClaimTemplates(Integer index,V1PersistentVolumeClaim item);
-  public A setToVolumeClaimTemplates(Integer index,V1PersistentVolumeClaim item);
+  public A addToVolumeClaimTemplates(int index,V1PersistentVolumeClaim item);
+  public A setToVolumeClaimTemplates(int index,V1PersistentVolumeClaim item);
   public A addToVolumeClaimTemplates(io.kubernetes.client.openapi.models.V1PersistentVolumeClaim... items);
   public A addAllToVolumeClaimTemplates(Collection<V1PersistentVolumeClaim> items);
   public A removeFromVolumeClaimTemplates(io.kubernetes.client.openapi.models.V1PersistentVolumeClaim... items);
@@ -107,7 +123,7 @@ public interface V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> e
   @Deprecated
   public List<V1PersistentVolumeClaim> getVolumeClaimTemplates();
   public List<V1PersistentVolumeClaim> buildVolumeClaimTemplates();
-  public V1PersistentVolumeClaim buildVolumeClaimTemplate(Integer index);
+  public V1PersistentVolumeClaim buildVolumeClaimTemplate(int index);
   public V1PersistentVolumeClaim buildFirstVolumeClaimTemplate();
   public V1PersistentVolumeClaim buildLastVolumeClaimTemplate();
   public V1PersistentVolumeClaim buildMatchingVolumeClaimTemplate(Predicate<V1PersistentVolumeClaimBuilder> predicate);
@@ -117,11 +133,16 @@ public interface V1StatefulSetSpecFluent<A extends V1StatefulSetSpecFluent<A>> e
   public Boolean hasVolumeClaimTemplates();
   public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> addNewVolumeClaimTemplate();
   public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> addNewVolumeClaimTemplateLike(V1PersistentVolumeClaim item);
-  public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> setNewVolumeClaimTemplateLike(Integer index,V1PersistentVolumeClaim item);
-  public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editVolumeClaimTemplate(Integer index);
+  public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> setNewVolumeClaimTemplateLike(int index,V1PersistentVolumeClaim item);
+  public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editVolumeClaimTemplate(int index);
   public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editFirstVolumeClaimTemplate();
   public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editLastVolumeClaimTemplate();
   public V1StatefulSetSpecFluent.VolumeClaimTemplatesNested<A> editMatchingVolumeClaimTemplate(Predicate<V1PersistentVolumeClaimBuilder> predicate);
+  public interface OrdinalsNested<N> extends Nested<N>,V1StatefulSetOrdinalsFluent<V1StatefulSetSpecFluent.OrdinalsNested<N>>{
+    public N and();
+    public N endOrdinals();
+    
+  }
   public interface PersistentVolumeClaimRetentionPolicyNested<N> extends Nested<N>,V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<V1StatefulSetSpecFluent.PersistentVolumeClaimRetentionPolicyNested<N>>{
     public N and();
     public N endPersistentVolumeClaimRetentionPolicy();

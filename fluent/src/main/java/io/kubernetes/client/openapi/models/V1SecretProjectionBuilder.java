@@ -20,12 +20,11 @@ public class V1SecretProjectionBuilder extends V1SecretProjectionFluentImpl<V1Se
   }
   public V1SecretProjectionBuilder(V1SecretProjectionFluent<?> fluent,V1SecretProjection instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withItems(instance.getItems());
-
-    fluent.withName(instance.getName());
-
-    fluent.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      fluent.withItems(instance.getItems());
+      fluent.withName(instance.getName());
+      fluent.withOptional(instance.getOptional());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SecretProjectionBuilder(V1SecretProjection instance) {
@@ -33,12 +32,11 @@ public class V1SecretProjectionBuilder extends V1SecretProjectionFluentImpl<V1Se
   }
   public V1SecretProjectionBuilder(V1SecretProjection instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withItems(instance.getItems());
-
-    this.withName(instance.getName());
-
-    this.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      this.withItems(instance.getItems());
+      this.withName(instance.getName());
+      this.withOptional(instance.getOptional());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SecretProjectionFluent<?> fluent;

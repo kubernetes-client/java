@@ -20,8 +20,9 @@ public class V1VolumeNodeResourcesBuilder extends V1VolumeNodeResourcesFluentImp
   }
   public V1VolumeNodeResourcesBuilder(V1VolumeNodeResourcesFluent<?> fluent,V1VolumeNodeResources instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCount(instance.getCount());
-
+    if (instance != null) {
+      fluent.withCount(instance.getCount());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeNodeResourcesBuilder(V1VolumeNodeResources instance) {
@@ -29,8 +30,9 @@ public class V1VolumeNodeResourcesBuilder extends V1VolumeNodeResourcesFluentImp
   }
   public V1VolumeNodeResourcesBuilder(V1VolumeNodeResources instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCount(instance.getCount());
-
+    if (instance != null) {
+      this.withCount(instance.getCount());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeNodeResourcesFluent<?> fluent;

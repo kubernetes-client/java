@@ -16,16 +16,13 @@ import java.lang.Object;
   public V1ReplicationControllerFluentImpl() {
   }
   public V1ReplicationControllerFluentImpl(V1ReplicationController instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1ReplicationControllerFluent.MetadataNested<A> withNewMetadata() {
+  public V1ReplicationControllerFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1ReplicationControllerFluentImpl.MetadataNestedImpl();
   }
-  public V1ReplicationControllerFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1ReplicationControllerFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1ReplicationControllerFluentImpl.MetadataNestedImpl(item);
   }
-  public V1ReplicationControllerFluent.MetadataNested<A> editMetadata() {
+  public V1ReplicationControllerFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1ReplicationControllerFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1ReplicationControllerFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1ReplicationControllerFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1ReplicationControllerFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1ReplicationControllerFluent.SpecNested<A> withNewSpec() {
+  public V1ReplicationControllerFluentImpl.SpecNested<A> withNewSpec() {
     return new V1ReplicationControllerFluentImpl.SpecNestedImpl();
   }
-  public V1ReplicationControllerFluent.SpecNested<A> withNewSpecLike(V1ReplicationControllerSpec item) {
+  public V1ReplicationControllerFluentImpl.SpecNested<A> withNewSpecLike(V1ReplicationControllerSpec item) {
     return new V1ReplicationControllerFluentImpl.SpecNestedImpl(item);
   }
-  public V1ReplicationControllerFluent.SpecNested<A> editSpec() {
+  public V1ReplicationControllerFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1ReplicationControllerFluent.SpecNested<A> editOrNewSpec() {
+  public V1ReplicationControllerFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1ReplicationControllerSpecBuilder().build());
   }
-  public V1ReplicationControllerFluent.SpecNested<A> editOrNewSpecLike(V1ReplicationControllerSpec item) {
+  public V1ReplicationControllerFluentImpl.SpecNested<A> editOrNewSpecLike(V1ReplicationControllerSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1ReplicationControllerFluent.StatusNested<A> withNewStatus() {
+  public V1ReplicationControllerFluentImpl.StatusNested<A> withNewStatus() {
     return new V1ReplicationControllerFluentImpl.StatusNestedImpl();
   }
-  public V1ReplicationControllerFluent.StatusNested<A> withNewStatusLike(V1ReplicationControllerStatus item) {
+  public V1ReplicationControllerFluentImpl.StatusNested<A> withNewStatusLike(V1ReplicationControllerStatus item) {
     return new V1ReplicationControllerFluentImpl.StatusNestedImpl(item);
   }
-  public V1ReplicationControllerFluent.StatusNested<A> editStatus() {
+  public V1ReplicationControllerFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1ReplicationControllerFluent.StatusNested<A> editOrNewStatus() {
+  public V1ReplicationControllerFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1ReplicationControllerStatusBuilder().build());
   }
-  public V1ReplicationControllerFluent.StatusNested<A> editOrNewStatusLike(V1ReplicationControllerStatus item) {
+  public V1ReplicationControllerFluentImpl.StatusNested<A> editOrNewStatusLike(V1ReplicationControllerStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ReplicationControllerFluentImpl that = (V1ReplicationControllerFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ReplicationControllerFluent.MetadataNested<N>> implements V1ReplicationControllerFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ReplicationControllerFluentImpl.MetadataNested<N>> implements V1ReplicationControllerFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1ReplicationControllerSpecFluentImpl<V1ReplicationControllerFluent.SpecNested<N>> implements V1ReplicationControllerFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1ReplicationControllerSpecFluentImpl<V1ReplicationControllerFluentImpl.SpecNested<N>> implements V1ReplicationControllerFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1ReplicationControllerSpec item) {
       this.builder = new V1ReplicationControllerSpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1ReplicationControllerStatusFluentImpl<V1ReplicationControllerFluent.StatusNested<N>> implements V1ReplicationControllerFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1ReplicationControllerStatusFluentImpl<V1ReplicationControllerFluentImpl.StatusNested<N>> implements V1ReplicationControllerFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1ReplicationControllerStatus item) {
       this.builder = new V1ReplicationControllerStatusBuilder(this, item);
     }

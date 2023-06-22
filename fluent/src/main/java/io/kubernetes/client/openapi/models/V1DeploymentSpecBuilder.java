@@ -20,22 +20,16 @@ public class V1DeploymentSpecBuilder extends V1DeploymentSpecFluentImpl<V1Deploy
   }
   public V1DeploymentSpecBuilder(V1DeploymentSpecFluent<?> fluent,V1DeploymentSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMinReadySeconds(instance.getMinReadySeconds());
-
-    fluent.withPaused(instance.getPaused());
-
-    fluent.withProgressDeadlineSeconds(instance.getProgressDeadlineSeconds());
-
-    fluent.withReplicas(instance.getReplicas());
-
-    fluent.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
-
-    fluent.withSelector(instance.getSelector());
-
-    fluent.withStrategy(instance.getStrategy());
-
-    fluent.withTemplate(instance.getTemplate());
-
+    if (instance != null) {
+      fluent.withMinReadySeconds(instance.getMinReadySeconds());
+      fluent.withPaused(instance.getPaused());
+      fluent.withProgressDeadlineSeconds(instance.getProgressDeadlineSeconds());
+      fluent.withReplicas(instance.getReplicas());
+      fluent.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
+      fluent.withSelector(instance.getSelector());
+      fluent.withStrategy(instance.getStrategy());
+      fluent.withTemplate(instance.getTemplate());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1DeploymentSpecBuilder(V1DeploymentSpec instance) {
@@ -43,22 +37,16 @@ public class V1DeploymentSpecBuilder extends V1DeploymentSpecFluentImpl<V1Deploy
   }
   public V1DeploymentSpecBuilder(V1DeploymentSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMinReadySeconds(instance.getMinReadySeconds());
-
-    this.withPaused(instance.getPaused());
-
-    this.withProgressDeadlineSeconds(instance.getProgressDeadlineSeconds());
-
-    this.withReplicas(instance.getReplicas());
-
-    this.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
-
-    this.withSelector(instance.getSelector());
-
-    this.withStrategy(instance.getStrategy());
-
-    this.withTemplate(instance.getTemplate());
-
+    if (instance != null) {
+      this.withMinReadySeconds(instance.getMinReadySeconds());
+      this.withPaused(instance.getPaused());
+      this.withProgressDeadlineSeconds(instance.getProgressDeadlineSeconds());
+      this.withReplicas(instance.getReplicas());
+      this.withRevisionHistoryLimit(instance.getRevisionHistoryLimit());
+      this.withSelector(instance.getSelector());
+      this.withStrategy(instance.getStrategy());
+      this.withTemplate(instance.getTemplate());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1DeploymentSpecFluent<?> fluent;

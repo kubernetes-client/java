@@ -21,28 +21,19 @@ import java.lang.Boolean;
   public V1ISCSIVolumeSourceFluentImpl() {
   }
   public V1ISCSIVolumeSourceFluentImpl(V1ISCSIVolumeSource instance) {
-    this.withChapAuthDiscovery(instance.getChapAuthDiscovery());
-
-    this.withChapAuthSession(instance.getChapAuthSession());
-
-    this.withFsType(instance.getFsType());
-
-    this.withInitiatorName(instance.getInitiatorName());
-
-    this.withIqn(instance.getIqn());
-
-    this.withIscsiInterface(instance.getIscsiInterface());
-
-    this.withLun(instance.getLun());
-
-    this.withPortals(instance.getPortals());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withTargetPortal(instance.getTargetPortal());
-
+    if (instance != null) {
+      this.withChapAuthDiscovery(instance.getChapAuthDiscovery());
+      this.withChapAuthSession(instance.getChapAuthSession());
+      this.withFsType(instance.getFsType());
+      this.withInitiatorName(instance.getInitiatorName());
+      this.withIqn(instance.getIqn());
+      this.withIscsiInterface(instance.getIscsiInterface());
+      this.withLun(instance.getLun());
+      this.withPortals(instance.getPortals());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+      this.withTargetPortal(instance.getTargetPortal());
+    }
   }
   private Boolean chapAuthDiscovery;
   private Boolean chapAuthSession;
@@ -118,12 +109,12 @@ import java.lang.Boolean;
   public Boolean hasLun() {
     return this.lun != null;
   }
-  public A addToPortals(Integer index,String item) {
+  public A addToPortals(int index,String item) {
     if (this.portals == null) {this.portals = new ArrayList<String>();}
     this.portals.add(index, item);
     return (A)this;
   }
-  public A setToPortals(Integer index,String item) {
+  public A setToPortals(int index,String item) {
     if (this.portals == null) {this.portals = new ArrayList<String>();}
     this.portals.set(index, item); return (A)this;
   }
@@ -144,7 +135,7 @@ import java.lang.Boolean;
   public List<String> getPortals() {
     return this.portals;
   }
-  public String getPortal(Integer index) {
+  public String getPortal(int index) {
     return this.portals.get(index);
   }
   public String getFirstPortal() {
@@ -163,7 +154,7 @@ import java.lang.Boolean;
     if (portals != null) {this.portals = new ArrayList(); for (String item : portals){this.addToPortals(item);}} else { this.portals = null;} return (A) this;
   }
   public A withPortals(java.lang.String... portals) {
-    if (this.portals != null) {this.portals.clear();}
+    if (this.portals != null) {this.portals.clear(); _visitables.remove("portals"); }
     if (portals != null) {for (String item :portals){ this.addToPortals(item);}} return (A) this;
   }
   public Boolean hasPortals() {
@@ -197,19 +188,19 @@ import java.lang.Boolean;
   public Boolean hasSecretRef() {
     return this.secretRef != null;
   }
-  public V1ISCSIVolumeSourceFluent.SecretRefNested<A> withNewSecretRef() {
+  public V1ISCSIVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRef() {
     return new V1ISCSIVolumeSourceFluentImpl.SecretRefNestedImpl();
   }
-  public V1ISCSIVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item) {
+  public V1ISCSIVolumeSourceFluentImpl.SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item) {
     return new V1ISCSIVolumeSourceFluentImpl.SecretRefNestedImpl(item);
   }
-  public V1ISCSIVolumeSourceFluent.SecretRefNested<A> editSecretRef() {
+  public V1ISCSIVolumeSourceFluentImpl.SecretRefNested<A> editSecretRef() {
     return withNewSecretRefLike(getSecretRef());
   }
-  public V1ISCSIVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef() {
+  public V1ISCSIVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRef() {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): new V1LocalObjectReferenceBuilder().build());
   }
-  public V1ISCSIVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(V1LocalObjectReference item) {
+  public V1ISCSIVolumeSourceFluentImpl.SecretRefNested<A> editOrNewSecretRefLike(V1LocalObjectReference item) {
     return withNewSecretRefLike(getSecretRef() != null ? getSecretRef(): item);
   }
   public String getTargetPortal() {
@@ -224,18 +215,30 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ISCSIVolumeSourceFluentImpl that = (V1ISCSIVolumeSourceFluentImpl) o;
-    if (chapAuthDiscovery != null ? !chapAuthDiscovery.equals(that.chapAuthDiscovery) :that.chapAuthDiscovery != null) return false;
-    if (chapAuthSession != null ? !chapAuthSession.equals(that.chapAuthSession) :that.chapAuthSession != null) return false;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (initiatorName != null ? !initiatorName.equals(that.initiatorName) :that.initiatorName != null) return false;
-    if (iqn != null ? !iqn.equals(that.iqn) :that.iqn != null) return false;
-    if (iscsiInterface != null ? !iscsiInterface.equals(that.iscsiInterface) :that.iscsiInterface != null) return false;
-    if (lun != null ? !lun.equals(that.lun) :that.lun != null) return false;
-    if (portals != null ? !portals.equals(that.portals) :that.portals != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
-    if (secretRef != null ? !secretRef.equals(that.secretRef) :that.secretRef != null) return false;
-    if (targetPortal != null ? !targetPortal.equals(that.targetPortal) :that.targetPortal != null) return false;
+    if (!java.util.Objects.equals(chapAuthDiscovery, that.chapAuthDiscovery)) return false;
+
+    if (!java.util.Objects.equals(chapAuthSession, that.chapAuthSession)) return false;
+
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(initiatorName, that.initiatorName)) return false;
+
+    if (!java.util.Objects.equals(iqn, that.iqn)) return false;
+
+    if (!java.util.Objects.equals(iscsiInterface, that.iscsiInterface)) return false;
+
+    if (!java.util.Objects.equals(lun, that.lun)) return false;
+
+    if (!java.util.Objects.equals(portals, that.portals)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
+    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
+
+    if (!java.util.Objects.equals(targetPortal, that.targetPortal)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -267,7 +270,7 @@ import java.lang.Boolean;
   public A withReadOnly() {
     return withReadOnly(true);
   }
-  class SecretRefNestedImpl<N> extends V1LocalObjectReferenceFluentImpl<V1ISCSIVolumeSourceFluent.SecretRefNested<N>> implements V1ISCSIVolumeSourceFluent.SecretRefNested<N>,Nested<N>{
+  class SecretRefNestedImpl<N> extends V1LocalObjectReferenceFluentImpl<V1ISCSIVolumeSourceFluentImpl.SecretRefNested<N>> implements V1ISCSIVolumeSourceFluentImpl.SecretRefNested<N>,Nested<N>{
     SecretRefNestedImpl(V1LocalObjectReference item) {
       this.builder = new V1LocalObjectReferenceBuilder(this, item);
     }

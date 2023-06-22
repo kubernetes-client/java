@@ -6,7 +6,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -23,14 +22,12 @@ import java.lang.Boolean;
   public V1APIResourceListFluentImpl() {
   }
   public V1APIResourceListFluentImpl(V1APIResourceList instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withGroupVersion(instance.getGroupVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withResources(instance.getResources());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withGroupVersion(instance.getGroupVersion());
+      this.withKind(instance.getKind());
+      this.withResources(instance.getResources());
+    }
   }
   private String apiVersion;
   private String groupVersion;
@@ -63,16 +60,17 @@ import java.lang.Boolean;
   public Boolean hasKind() {
     return this.kind != null;
   }
-  public A addToResources(Integer index,V1APIResource item) {
-    if (this.resources == null) {this.resources = new ArrayList<V1APIResourceBuilder>();}
-    V1APIResourceBuilder builder = new V1APIResourceBuilder(item);_visitables.get("resources").add(index >= 0 ? index : _visitables.get("resources").size(), builder);this.resources.add(index >= 0 ? index : resources.size(), builder); return (A)this;
-  }
-  public A setToResources(Integer index,V1APIResource item) {
+  public A addToResources(int index,V1APIResource item) {
     if (this.resources == null) {this.resources = new ArrayList<V1APIResourceBuilder>();}
     V1APIResourceBuilder builder = new V1APIResourceBuilder(item);
-    if (index < 0 || index >= _visitables.get("resources").size()) { _visitables.get("resources").add(builder); } else { _visitables.get("resources").set(index, builder);}
-    if (index < 0 || index >= resources.size()) { resources.add(builder); } else { resources.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= resources.size()) { _visitables.get("resources").add(builder); resources.add(builder); } else { _visitables.get("resources").add(index, builder); resources.add(index, builder);}
+    return (A)this;
+  }
+  public A setToResources(int index,V1APIResource item) {
+    if (this.resources == null) {this.resources = new ArrayList<V1APIResourceBuilder>();}
+    V1APIResourceBuilder builder = new V1APIResourceBuilder(item);
+    if (index < 0 || index >= resources.size()) { _visitables.get("resources").add(builder); resources.add(builder); } else { _visitables.get("resources").set(index, builder); resources.set(index, builder);}
+    return (A)this;
   }
   public A addToResources(io.kubernetes.client.openapi.models.V1APIResource... items) {
     if (this.resources == null) {this.resources = new ArrayList<V1APIResourceBuilder>();}
@@ -113,7 +111,7 @@ import java.lang.Boolean;
   public List<V1APIResource> buildResources() {
     return resources != null ? build(resources) : null;
   }
-  public V1APIResource buildResource(Integer index) {
+  public V1APIResource buildResource(int index) {
     return this.resources.get(index).build();
   }
   public V1APIResource buildFirstResource() {
@@ -129,39 +127,39 @@ import java.lang.Boolean;
     for (V1APIResourceBuilder item: resources) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withResources(List<V1APIResource> resources) {
-    if (this.resources != null) { _visitables.get("resources").removeAll(this.resources);}
+    if (this.resources != null) { _visitables.get("resources").clear();}
     if (resources != null) {this.resources = new ArrayList(); for (V1APIResource item : resources){this.addToResources(item);}} else { this.resources = null;} return (A) this;
   }
   public A withResources(io.kubernetes.client.openapi.models.V1APIResource... resources) {
-    if (this.resources != null) {this.resources.clear();}
+    if (this.resources != null) {this.resources.clear(); _visitables.remove("resources"); }
     if (resources != null) {for (V1APIResource item :resources){ this.addToResources(item);}} return (A) this;
   }
   public Boolean hasResources() {
     return resources != null && !resources.isEmpty();
   }
-  public V1APIResourceListFluent.ResourcesNested<A> addNewResource() {
+  public V1APIResourceListFluentImpl.ResourcesNested<A> addNewResource() {
     return new V1APIResourceListFluentImpl.ResourcesNestedImpl();
   }
-  public V1APIResourceListFluent.ResourcesNested<A> addNewResourceLike(V1APIResource item) {
+  public V1APIResourceListFluentImpl.ResourcesNested<A> addNewResourceLike(V1APIResource item) {
     return new V1APIResourceListFluentImpl.ResourcesNestedImpl(-1, item);
   }
-  public V1APIResourceListFluent.ResourcesNested<A> setNewResourceLike(Integer index,V1APIResource item) {
+  public V1APIResourceListFluentImpl.ResourcesNested<A> setNewResourceLike(int index,V1APIResource item) {
     return new V1APIResourceListFluentImpl.ResourcesNestedImpl(index, item);
   }
-  public V1APIResourceListFluent.ResourcesNested<A> editResource(Integer index) {
+  public V1APIResourceListFluentImpl.ResourcesNested<A> editResource(int index) {
     if (resources.size() <= index) throw new RuntimeException("Can't edit resources. Index exceeds size.");
     return setNewResourceLike(index, buildResource(index));
   }
-  public V1APIResourceListFluent.ResourcesNested<A> editFirstResource() {
+  public V1APIResourceListFluentImpl.ResourcesNested<A> editFirstResource() {
     if (resources.size() == 0) throw new RuntimeException("Can't edit first resources. The list is empty.");
     return setNewResourceLike(0, buildResource(0));
   }
-  public V1APIResourceListFluent.ResourcesNested<A> editLastResource() {
+  public V1APIResourceListFluentImpl.ResourcesNested<A> editLastResource() {
     int index = resources.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last resources. The list is empty.");
     return setNewResourceLike(index, buildResource(index));
   }
-  public V1APIResourceListFluent.ResourcesNested<A> editMatchingResource(Predicate<V1APIResourceBuilder> predicate) {
+  public V1APIResourceListFluentImpl.ResourcesNested<A> editMatchingResource(Predicate<V1APIResourceBuilder> predicate) {
     int index = -1;
     for (int i=0;i<resources.size();i++) { 
     if (predicate.test(resources.get(i))) {index = i; break;}
@@ -172,11 +170,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1APIResourceListFluentImpl that = (V1APIResourceListFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (groupVersion != null ? !groupVersion.equals(that.groupVersion) :that.groupVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (resources != null ? !resources.equals(that.resources) :that.resources != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(groupVersion, that.groupVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(resources, that.resources)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -188,12 +191,12 @@ import java.lang.Boolean;
     if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
     if (groupVersion != null) { sb.append("groupVersion:"); sb.append(groupVersion + ","); }
     if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
-    if (resources != null && !resources.isEmpty()) { sb.append("resources:"); sb.append(resources); }
+    if (resources != null) { sb.append("resources:"); sb.append(resources); }
     sb.append("}");
     return sb.toString();
   }
-  class ResourcesNestedImpl<N> extends V1APIResourceFluentImpl<V1APIResourceListFluent.ResourcesNested<N>> implements V1APIResourceListFluent.ResourcesNested<N>,Nested<N>{
-    ResourcesNestedImpl(Integer index,V1APIResource item) {
+  class ResourcesNestedImpl<N> extends V1APIResourceFluentImpl<V1APIResourceListFluentImpl.ResourcesNested<N>> implements V1APIResourceListFluentImpl.ResourcesNested<N>,Nested<N>{
+    ResourcesNestedImpl(int index,V1APIResource item) {
       this.index = index;
       this.builder = new V1APIResourceBuilder(this, item);
     }
@@ -202,7 +205,7 @@ import java.lang.Boolean;
       this.builder = new V1APIResourceBuilder(this);
     }
     V1APIResourceBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1APIResourceListFluentImpl.this.setToResources(index,builder.build());
     }

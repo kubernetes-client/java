@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,52 +12,53 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-/** PersistentVolumeClaimStatus is the current status of a persistent volume claim. */
-@ApiModel(
-    description = "PersistentVolumeClaimStatus is the current status of a persistent volume claim.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * PersistentVolumeClaimStatus is the current status of a persistent volume claim.
+ */
+@ApiModel(description = "PersistentVolumeClaimStatus is the current status of a persistent volume claim.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
-
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
   private List<String> accessModes = null;
 
   public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES = "allocatedResources";
-
   @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES)
   private Map<String, Quantity> allocatedResources = null;
 
   public static final String SERIALIZED_NAME_CAPACITY = "capacity";
-
   @SerializedName(SERIALIZED_NAME_CAPACITY)
   private Map<String, Quantity> capacity = null;
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
-
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private List<V1PersistentVolumeClaimCondition> conditions = null;
 
   public static final String SERIALIZED_NAME_PHASE = "phase";
-
   @SerializedName(SERIALIZED_NAME_PHASE)
   private String phase;
 
   public static final String SERIALIZED_NAME_RESIZE_STATUS = "resizeStatus";
-
   @SerializedName(SERIALIZED_NAME_RESIZE_STATUS)
   private String resizeStatus;
+
 
   public V1PersistentVolumeClaimStatus accessModes(List<String> accessModes) {
 
@@ -73,33 +74,30 @@ public class V1PersistentVolumeClaimStatus {
     return this;
   }
 
-  /**
-   * accessModes contains the actual access modes the volume backing the PVC has. More info:
-   * https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
-   *
+   /**
+   * accessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1
    * @return accessModes
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "accessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1")
+  @ApiModelProperty(value = "accessModes contains the actual access modes the volume backing the PVC has. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1")
+
   public List<String> getAccessModes() {
     return accessModes;
   }
+
 
   public void setAccessModes(List<String> accessModes) {
     this.accessModes = accessModes;
   }
 
-  public V1PersistentVolumeClaimStatus allocatedResources(
-      Map<String, Quantity> allocatedResources) {
+
+  public V1PersistentVolumeClaimStatus allocatedResources(Map<String, Quantity> allocatedResources) {
 
     this.allocatedResources = allocatedResources;
     return this;
   }
 
-  public V1PersistentVolumeClaimStatus putAllocatedResourcesItem(
-      String key, Quantity allocatedResourcesItem) {
+  public V1PersistentVolumeClaimStatus putAllocatedResourcesItem(String key, Quantity allocatedResourcesItem) {
     if (this.allocatedResources == null) {
       this.allocatedResources = new HashMap<>();
     }
@@ -107,29 +105,22 @@ public class V1PersistentVolumeClaimStatus {
     return this;
   }
 
-  /**
-   * allocatedResources is the storage resource within AllocatedResources tracks the capacity
-   * allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation
-   * is requested. For storage quota, the larger value from allocatedResources and
-   * PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used
-   * for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is
-   * only lowered if there are no expansion operations in progress and if the actual volume capacity
-   * is equal or lower than the requested capacity. This is an alpha field and requires enabling
-   * RecoverVolumeExpansionFailure feature.
-   *
+   /**
+   * allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
    * @return allocatedResources
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
+  @ApiModelProperty(value = "allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
+
   public Map<String, Quantity> getAllocatedResources() {
     return allocatedResources;
   }
 
+
   public void setAllocatedResources(Map<String, Quantity> allocatedResources) {
     this.allocatedResources = allocatedResources;
   }
+
 
   public V1PersistentVolumeClaimStatus capacity(Map<String, Quantity> capacity) {
 
@@ -145,30 +136,30 @@ public class V1PersistentVolumeClaimStatus {
     return this;
   }
 
-  /**
+   /**
    * capacity represents the actual resources of the underlying volume.
-   *
    * @return capacity
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "capacity represents the actual resources of the underlying volume.")
+
   public Map<String, Quantity> getCapacity() {
     return capacity;
   }
+
 
   public void setCapacity(Map<String, Quantity> capacity) {
     this.capacity = capacity;
   }
 
-  public V1PersistentVolumeClaimStatus conditions(
-      List<V1PersistentVolumeClaimCondition> conditions) {
+
+  public V1PersistentVolumeClaimStatus conditions(List<V1PersistentVolumeClaimCondition> conditions) {
 
     this.conditions = conditions;
     return this;
   }
 
-  public V1PersistentVolumeClaimStatus addConditionsItem(
-      V1PersistentVolumeClaimCondition conditionsItem) {
+  public V1PersistentVolumeClaimStatus addConditionsItem(V1PersistentVolumeClaimCondition conditionsItem) {
     if (this.conditions == null) {
       this.conditions = new ArrayList<>();
     }
@@ -176,23 +167,22 @@ public class V1PersistentVolumeClaimStatus {
     return this;
   }
 
-  /**
-   * conditions is the current Condition of persistent volume claim. If underlying persistent volume
-   * is being resized then the Condition will be set to &#39;ResizeStarted&#39;.
-   *
+   /**
+   * conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to &#39;ResizeStarted&#39;.
    * @return conditions
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.")
+  @ApiModelProperty(value = "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.")
+
   public List<V1PersistentVolumeClaimCondition> getConditions() {
     return conditions;
   }
 
+
   public void setConditions(List<V1PersistentVolumeClaimCondition> conditions) {
     this.conditions = conditions;
   }
+
 
   public V1PersistentVolumeClaimStatus phase(String phase) {
 
@@ -200,20 +190,22 @@ public class V1PersistentVolumeClaimStatus {
     return this;
   }
 
-  /**
+   /**
    * phase represents the current phase of PersistentVolumeClaim.
-   *
    * @return phase
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "phase represents the current phase of PersistentVolumeClaim.  ")
+  @ApiModelProperty(value = "phase represents the current phase of PersistentVolumeClaim.")
+
   public String getPhase() {
     return phase;
   }
 
+
   public void setPhase(String phase) {
     this.phase = phase;
   }
+
 
   public V1PersistentVolumeClaimStatus resizeStatus(String resizeStatus) {
 
@@ -221,24 +213,22 @@ public class V1PersistentVolumeClaimStatus {
     return this;
   }
 
-  /**
-   * resizeStatus stores status of resize operation. ResizeStatus is not set by default but when
-   * expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This
-   * is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
-   *
+   /**
+   * resizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
    * @return resizeStatus
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "resizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
+  @ApiModelProperty(value = "resizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
+
   public String getResizeStatus() {
     return resizeStatus;
   }
 
+
   public void setResizeStatus(String resizeStatus) {
     this.resizeStatus = resizeStatus;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -249,18 +239,19 @@ public class V1PersistentVolumeClaimStatus {
       return false;
     }
     V1PersistentVolumeClaimStatus v1PersistentVolumeClaimStatus = (V1PersistentVolumeClaimStatus) o;
-    return Objects.equals(this.accessModes, v1PersistentVolumeClaimStatus.accessModes)
-        && Objects.equals(this.allocatedResources, v1PersistentVolumeClaimStatus.allocatedResources)
-        && Objects.equals(this.capacity, v1PersistentVolumeClaimStatus.capacity)
-        && Objects.equals(this.conditions, v1PersistentVolumeClaimStatus.conditions)
-        && Objects.equals(this.phase, v1PersistentVolumeClaimStatus.phase)
-        && Objects.equals(this.resizeStatus, v1PersistentVolumeClaimStatus.resizeStatus);
+    return Objects.equals(this.accessModes, v1PersistentVolumeClaimStatus.accessModes) &&
+        Objects.equals(this.allocatedResources, v1PersistentVolumeClaimStatus.allocatedResources) &&
+        Objects.equals(this.capacity, v1PersistentVolumeClaimStatus.capacity) &&
+        Objects.equals(this.conditions, v1PersistentVolumeClaimStatus.conditions) &&
+        Objects.equals(this.phase, v1PersistentVolumeClaimStatus.phase) &&
+        Objects.equals(this.resizeStatus, v1PersistentVolumeClaimStatus.resizeStatus);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(accessModes, allocatedResources, capacity, conditions, phase, resizeStatus);
   }
+
 
   @Override
   public String toString() {
@@ -277,7 +268,8 @@ public class V1PersistentVolumeClaimStatus {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -285,4 +277,5 @@ public class V1PersistentVolumeClaimStatus {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -19,8 +20,8 @@ public interface V1DownwardAPIVolumeSourceFluent<A extends V1DownwardAPIVolumeSo
   public Integer getDefaultMode();
   public A withDefaultMode(Integer defaultMode);
   public Boolean hasDefaultMode();
-  public A addToItems(Integer index,V1DownwardAPIVolumeFile item);
-  public A setToItems(Integer index,V1DownwardAPIVolumeFile item);
+  public A addToItems(int index,V1DownwardAPIVolumeFile item);
+  public A setToItems(int index,V1DownwardAPIVolumeFile item);
   public A addToItems(io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile... items);
   public A addAllToItems(Collection<V1DownwardAPIVolumeFile> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1DownwardAPIVolumeFile... items);
@@ -34,7 +35,7 @@ public interface V1DownwardAPIVolumeSourceFluent<A extends V1DownwardAPIVolumeSo
   @Deprecated
   public List<V1DownwardAPIVolumeFile> getItems();
   public List<V1DownwardAPIVolumeFile> buildItems();
-  public V1DownwardAPIVolumeFile buildItem(Integer index);
+  public V1DownwardAPIVolumeFile buildItem(int index);
   public V1DownwardAPIVolumeFile buildFirstItem();
   public V1DownwardAPIVolumeFile buildLastItem();
   public V1DownwardAPIVolumeFile buildMatchingItem(Predicate<V1DownwardAPIVolumeFileBuilder> predicate);
@@ -44,8 +45,8 @@ public interface V1DownwardAPIVolumeSourceFluent<A extends V1DownwardAPIVolumeSo
   public Boolean hasItems();
   public V1DownwardAPIVolumeSourceFluent.ItemsNested<A> addNewItem();
   public V1DownwardAPIVolumeSourceFluent.ItemsNested<A> addNewItemLike(V1DownwardAPIVolumeFile item);
-  public V1DownwardAPIVolumeSourceFluent.ItemsNested<A> setNewItemLike(Integer index,V1DownwardAPIVolumeFile item);
-  public V1DownwardAPIVolumeSourceFluent.ItemsNested<A> editItem(Integer index);
+  public V1DownwardAPIVolumeSourceFluent.ItemsNested<A> setNewItemLike(int index,V1DownwardAPIVolumeFile item);
+  public V1DownwardAPIVolumeSourceFluent.ItemsNested<A> editItem(int index);
   public V1DownwardAPIVolumeSourceFluent.ItemsNested<A> editFirstItem();
   public V1DownwardAPIVolumeSourceFluent.ItemsNested<A> editLastItem();
   public V1DownwardAPIVolumeSourceFluent.ItemsNested<A> editMatchingItem(Predicate<V1DownwardAPIVolumeFileBuilder> predicate);

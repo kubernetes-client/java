@@ -20,14 +20,12 @@ public class V1beta2PriorityLevelConfigurationListBuilder extends V1beta2Priorit
   }
   public V1beta2PriorityLevelConfigurationListBuilder(V1beta2PriorityLevelConfigurationListFluent<?> fluent,V1beta2PriorityLevelConfigurationList instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withItems(instance.getItems());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withItems(instance.getItems());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2PriorityLevelConfigurationListBuilder(V1beta2PriorityLevelConfigurationList instance) {
@@ -35,14 +33,12 @@ public class V1beta2PriorityLevelConfigurationListBuilder extends V1beta2Priorit
   }
   public V1beta2PriorityLevelConfigurationListBuilder(V1beta2PriorityLevelConfigurationList instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withItems(instance.getItems());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withItems(instance.getItems());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2PriorityLevelConfigurationListFluent<?> fluent;

@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1LifecycleFluentImpl() {
   }
   public V1LifecycleFluentImpl(V1Lifecycle instance) {
-    this.withPostStart(instance.getPostStart());
-
-    this.withPreStop(instance.getPreStop());
-
+    if (instance != null) {
+      this.withPostStart(instance.getPostStart());
+      this.withPreStop(instance.getPreStop());
+    }
   }
   private V1LifecycleHandlerBuilder postStart;
   private V1LifecycleHandlerBuilder preStop;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasPostStart() {
     return this.postStart != null;
   }
-  public V1LifecycleFluent.PostStartNested<A> withNewPostStart() {
+  public V1LifecycleFluentImpl.PostStartNested<A> withNewPostStart() {
     return new V1LifecycleFluentImpl.PostStartNestedImpl();
   }
-  public V1LifecycleFluent.PostStartNested<A> withNewPostStartLike(V1LifecycleHandler item) {
+  public V1LifecycleFluentImpl.PostStartNested<A> withNewPostStartLike(V1LifecycleHandler item) {
     return new V1LifecycleFluentImpl.PostStartNestedImpl(item);
   }
-  public V1LifecycleFluent.PostStartNested<A> editPostStart() {
+  public V1LifecycleFluentImpl.PostStartNested<A> editPostStart() {
     return withNewPostStartLike(getPostStart());
   }
-  public V1LifecycleFluent.PostStartNested<A> editOrNewPostStart() {
+  public V1LifecycleFluentImpl.PostStartNested<A> editOrNewPostStart() {
     return withNewPostStartLike(getPostStart() != null ? getPostStart(): new V1LifecycleHandlerBuilder().build());
   }
-  public V1LifecycleFluent.PostStartNested<A> editOrNewPostStartLike(V1LifecycleHandler item) {
+  public V1LifecycleFluentImpl.PostStartNested<A> editOrNewPostStartLike(V1LifecycleHandler item) {
     return withNewPostStartLike(getPostStart() != null ? getPostStart(): item);
   }
   
@@ -76,27 +76,30 @@ import java.lang.Boolean;
   public Boolean hasPreStop() {
     return this.preStop != null;
   }
-  public V1LifecycleFluent.PreStopNested<A> withNewPreStop() {
+  public V1LifecycleFluentImpl.PreStopNested<A> withNewPreStop() {
     return new V1LifecycleFluentImpl.PreStopNestedImpl();
   }
-  public V1LifecycleFluent.PreStopNested<A> withNewPreStopLike(V1LifecycleHandler item) {
+  public V1LifecycleFluentImpl.PreStopNested<A> withNewPreStopLike(V1LifecycleHandler item) {
     return new V1LifecycleFluentImpl.PreStopNestedImpl(item);
   }
-  public V1LifecycleFluent.PreStopNested<A> editPreStop() {
+  public V1LifecycleFluentImpl.PreStopNested<A> editPreStop() {
     return withNewPreStopLike(getPreStop());
   }
-  public V1LifecycleFluent.PreStopNested<A> editOrNewPreStop() {
+  public V1LifecycleFluentImpl.PreStopNested<A> editOrNewPreStop() {
     return withNewPreStopLike(getPreStop() != null ? getPreStop(): new V1LifecycleHandlerBuilder().build());
   }
-  public V1LifecycleFluent.PreStopNested<A> editOrNewPreStopLike(V1LifecycleHandler item) {
+  public V1LifecycleFluentImpl.PreStopNested<A> editOrNewPreStopLike(V1LifecycleHandler item) {
     return withNewPreStopLike(getPreStop() != null ? getPreStop(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1LifecycleFluentImpl that = (V1LifecycleFluentImpl) o;
-    if (postStart != null ? !postStart.equals(that.postStart) :that.postStart != null) return false;
-    if (preStop != null ? !preStop.equals(that.preStop) :that.preStop != null) return false;
+    if (!java.util.Objects.equals(postStart, that.postStart)) return false;
+
+    if (!java.util.Objects.equals(preStop, that.preStop)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -110,7 +113,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class PostStartNestedImpl<N> extends V1LifecycleHandlerFluentImpl<V1LifecycleFluent.PostStartNested<N>> implements V1LifecycleFluent.PostStartNested<N>,Nested<N>{
+  class PostStartNestedImpl<N> extends V1LifecycleHandlerFluentImpl<V1LifecycleFluentImpl.PostStartNested<N>> implements V1LifecycleFluentImpl.PostStartNested<N>,Nested<N>{
     PostStartNestedImpl(V1LifecycleHandler item) {
       this.builder = new V1LifecycleHandlerBuilder(this, item);
     }
@@ -126,7 +129,7 @@ import java.lang.Boolean;
     }
     
   }
-  class PreStopNestedImpl<N> extends V1LifecycleHandlerFluentImpl<V1LifecycleFluent.PreStopNested<N>> implements V1LifecycleFluent.PreStopNested<N>,Nested<N>{
+  class PreStopNestedImpl<N> extends V1LifecycleHandlerFluentImpl<V1LifecycleFluentImpl.PreStopNested<N>> implements V1LifecycleFluentImpl.PreStopNested<N>,Nested<N>{
     PreStopNestedImpl(V1LifecycleHandler item) {
       this.builder = new V1LifecycleHandlerBuilder(this, item);
     }

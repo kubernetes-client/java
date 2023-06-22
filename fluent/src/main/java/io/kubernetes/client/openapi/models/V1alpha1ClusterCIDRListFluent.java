@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1alpha1ClusterCIDRListFluent<A extends V1alpha1ClusterCIDRList
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1alpha1ClusterCIDR item);
-  public A setToItems(Integer index,V1alpha1ClusterCIDR item);
+  public A addToItems(int index,V1alpha1ClusterCIDR item);
+  public A setToItems(int index,V1alpha1ClusterCIDR item);
   public A addToItems(io.kubernetes.client.openapi.models.V1alpha1ClusterCIDR... items);
   public A addAllToItems(Collection<V1alpha1ClusterCIDR> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1alpha1ClusterCIDR... items);
@@ -35,7 +35,7 @@ public interface V1alpha1ClusterCIDRListFluent<A extends V1alpha1ClusterCIDRList
   @Deprecated
   public List<V1alpha1ClusterCIDR> getItems();
   public List<V1alpha1ClusterCIDR> buildItems();
-  public V1alpha1ClusterCIDR buildItem(Integer index);
+  public V1alpha1ClusterCIDR buildItem(int index);
   public V1alpha1ClusterCIDR buildFirstItem();
   public V1alpha1ClusterCIDR buildLastItem();
   public V1alpha1ClusterCIDR buildMatchingItem(Predicate<V1alpha1ClusterCIDRBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1alpha1ClusterCIDRListFluent<A extends V1alpha1ClusterCIDRList
   public Boolean hasItems();
   public V1alpha1ClusterCIDRListFluent.ItemsNested<A> addNewItem();
   public V1alpha1ClusterCIDRListFluent.ItemsNested<A> addNewItemLike(V1alpha1ClusterCIDR item);
-  public V1alpha1ClusterCIDRListFluent.ItemsNested<A> setNewItemLike(Integer index,V1alpha1ClusterCIDR item);
-  public V1alpha1ClusterCIDRListFluent.ItemsNested<A> editItem(Integer index);
+  public V1alpha1ClusterCIDRListFluent.ItemsNested<A> setNewItemLike(int index,V1alpha1ClusterCIDR item);
+  public V1alpha1ClusterCIDRListFluent.ItemsNested<A> editItem(int index);
   public V1alpha1ClusterCIDRListFluent.ItemsNested<A> editFirstItem();
   public V1alpha1ClusterCIDRListFluent.ItemsNested<A> editLastItem();
   public V1alpha1ClusterCIDRListFluent.ItemsNested<A> editMatchingItem(Predicate<V1alpha1ClusterCIDRBuilder> predicate);

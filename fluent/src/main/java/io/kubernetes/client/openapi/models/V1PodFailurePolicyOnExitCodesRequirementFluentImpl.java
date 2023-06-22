@@ -19,12 +19,11 @@ import java.lang.Boolean;
   public V1PodFailurePolicyOnExitCodesRequirementFluentImpl() {
   }
   public V1PodFailurePolicyOnExitCodesRequirementFluentImpl(V1PodFailurePolicyOnExitCodesRequirement instance) {
-    this.withContainerName(instance.getContainerName());
-
-    this.withOperator(instance.getOperator());
-
-    this.withValues(instance.getValues());
-
+    if (instance != null) {
+      this.withContainerName(instance.getContainerName());
+      this.withOperator(instance.getOperator());
+      this.withValues(instance.getValues());
+    }
   }
   private String containerName;
   private String operator;
@@ -47,12 +46,12 @@ import java.lang.Boolean;
   public Boolean hasOperator() {
     return this.operator != null;
   }
-  public A addToValues(Integer index,Integer item) {
+  public A addToValues(int index,Integer item) {
     if (this.values == null) {this.values = new ArrayList<Integer>();}
     this.values.add(index, item);
     return (A)this;
   }
-  public A setToValues(Integer index,Integer item) {
+  public A setToValues(int index,Integer item) {
     if (this.values == null) {this.values = new ArrayList<Integer>();}
     this.values.set(index, item); return (A)this;
   }
@@ -73,7 +72,7 @@ import java.lang.Boolean;
   public List<Integer> getValues() {
     return this.values;
   }
-  public Integer getValue(Integer index) {
+  public Integer getValue(int index) {
     return this.values.get(index);
   }
   public Integer getFirstValue() {
@@ -92,7 +91,7 @@ import java.lang.Boolean;
     if (values != null) {this.values = new ArrayList(); for (Integer item : values){this.addToValues(item);}} else { this.values = null;} return (A) this;
   }
   public A withValues(java.lang.Integer... values) {
-    if (this.values != null) {this.values.clear();}
+    if (this.values != null) {this.values.clear(); _visitables.remove("values"); }
     if (values != null) {for (Integer item :values){ this.addToValues(item);}} return (A) this;
   }
   public Boolean hasValues() {
@@ -101,10 +100,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodFailurePolicyOnExitCodesRequirementFluentImpl that = (V1PodFailurePolicyOnExitCodesRequirementFluentImpl) o;
-    if (containerName != null ? !containerName.equals(that.containerName) :that.containerName != null) return false;
-    if (operator != null ? !operator.equals(that.operator) :that.operator != null) return false;
-    if (values != null ? !values.equals(that.values) :that.values != null) return false;
+    if (!java.util.Objects.equals(containerName, that.containerName)) return false;
+
+    if (!java.util.Objects.equals(operator, that.operator)) return false;
+
+    if (!java.util.Objects.equals(values, that.values)) return false;
+
     return true;
   }
   public int hashCode() {

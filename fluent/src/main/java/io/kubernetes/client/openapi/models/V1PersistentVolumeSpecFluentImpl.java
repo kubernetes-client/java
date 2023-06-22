@@ -14,7 +14,6 @@ import java.util.Collection;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import io.kubernetes.client.custom.Quantity;
-import java.lang.Integer;
 
  /**
   * Generated
@@ -24,66 +23,38 @@ import java.lang.Integer;
   public V1PersistentVolumeSpecFluentImpl() {
   }
   public V1PersistentVolumeSpecFluentImpl(V1PersistentVolumeSpec instance) {
-    this.withAccessModes(instance.getAccessModes());
-
-    this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
-
-    this.withAzureDisk(instance.getAzureDisk());
-
-    this.withAzureFile(instance.getAzureFile());
-
-    this.withCapacity(instance.getCapacity());
-
-    this.withCephfs(instance.getCephfs());
-
-    this.withCinder(instance.getCinder());
-
-    this.withClaimRef(instance.getClaimRef());
-
-    this.withCsi(instance.getCsi());
-
-    this.withFc(instance.getFc());
-
-    this.withFlexVolume(instance.getFlexVolume());
-
-    this.withFlocker(instance.getFlocker());
-
-    this.withGcePersistentDisk(instance.getGcePersistentDisk());
-
-    this.withGlusterfs(instance.getGlusterfs());
-
-    this.withHostPath(instance.getHostPath());
-
-    this.withIscsi(instance.getIscsi());
-
-    this.withLocal(instance.getLocal());
-
-    this.withMountOptions(instance.getMountOptions());
-
-    this.withNfs(instance.getNfs());
-
-    this.withNodeAffinity(instance.getNodeAffinity());
-
-    this.withPersistentVolumeReclaimPolicy(instance.getPersistentVolumeReclaimPolicy());
-
-    this.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
-
-    this.withPortworxVolume(instance.getPortworxVolume());
-
-    this.withQuobyte(instance.getQuobyte());
-
-    this.withRbd(instance.getRbd());
-
-    this.withScaleIO(instance.getScaleIO());
-
-    this.withStorageClassName(instance.getStorageClassName());
-
-    this.withStorageos(instance.getStorageos());
-
-    this.withVolumeMode(instance.getVolumeMode());
-
-    this.withVsphereVolume(instance.getVsphereVolume());
-
+    if (instance != null) {
+      this.withAccessModes(instance.getAccessModes());
+      this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
+      this.withAzureDisk(instance.getAzureDisk());
+      this.withAzureFile(instance.getAzureFile());
+      this.withCapacity(instance.getCapacity());
+      this.withCephfs(instance.getCephfs());
+      this.withCinder(instance.getCinder());
+      this.withClaimRef(instance.getClaimRef());
+      this.withCsi(instance.getCsi());
+      this.withFc(instance.getFc());
+      this.withFlexVolume(instance.getFlexVolume());
+      this.withFlocker(instance.getFlocker());
+      this.withGcePersistentDisk(instance.getGcePersistentDisk());
+      this.withGlusterfs(instance.getGlusterfs());
+      this.withHostPath(instance.getHostPath());
+      this.withIscsi(instance.getIscsi());
+      this.withLocal(instance.getLocal());
+      this.withMountOptions(instance.getMountOptions());
+      this.withNfs(instance.getNfs());
+      this.withNodeAffinity(instance.getNodeAffinity());
+      this.withPersistentVolumeReclaimPolicy(instance.getPersistentVolumeReclaimPolicy());
+      this.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
+      this.withPortworxVolume(instance.getPortworxVolume());
+      this.withQuobyte(instance.getQuobyte());
+      this.withRbd(instance.getRbd());
+      this.withScaleIO(instance.getScaleIO());
+      this.withStorageClassName(instance.getStorageClassName());
+      this.withStorageos(instance.getStorageos());
+      this.withVolumeMode(instance.getVolumeMode());
+      this.withVsphereVolume(instance.getVsphereVolume());
+    }
   }
   private List<String> accessModes;
   private V1AWSElasticBlockStoreVolumeSourceBuilder awsElasticBlockStore;
@@ -115,12 +86,12 @@ import java.lang.Integer;
   private V1StorageOSPersistentVolumeSourceBuilder storageos;
   private String volumeMode;
   private V1VsphereVirtualDiskVolumeSourceBuilder vsphereVolume;
-  public A addToAccessModes(Integer index,String item) {
+  public A addToAccessModes(int index,String item) {
     if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
     this.accessModes.add(index, item);
     return (A)this;
   }
-  public A setToAccessModes(Integer index,String item) {
+  public A setToAccessModes(int index,String item) {
     if (this.accessModes == null) {this.accessModes = new ArrayList<String>();}
     this.accessModes.set(index, item); return (A)this;
   }
@@ -141,7 +112,7 @@ import java.lang.Integer;
   public List<String> getAccessModes() {
     return this.accessModes;
   }
-  public String getAccessMode(Integer index) {
+  public String getAccessMode(int index) {
     return this.accessModes.get(index);
   }
   public String getFirstAccessMode() {
@@ -160,7 +131,7 @@ import java.lang.Integer;
     if (accessModes != null) {this.accessModes = new ArrayList(); for (String item : accessModes){this.addToAccessModes(item);}} else { this.accessModes = null;} return (A) this;
   }
   public A withAccessModes(java.lang.String... accessModes) {
-    if (this.accessModes != null) {this.accessModes.clear();}
+    if (this.accessModes != null) {this.accessModes.clear(); _visitables.remove("accessModes"); }
     if (accessModes != null) {for (String item :accessModes){ this.addToAccessModes(item);}} return (A) this;
   }
   public Boolean hasAccessModes() {
@@ -185,19 +156,19 @@ import java.lang.Integer;
   public Boolean hasAwsElasticBlockStore() {
     return this.awsElasticBlockStore != null;
   }
-  public V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStore() {
+  public V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStore() {
     return new V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStoreLike(V1AWSElasticBlockStoreVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNested<A> withNewAwsElasticBlockStoreLike(V1AWSElasticBlockStoreVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<A> editAwsElasticBlockStore() {
+  public V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNested<A> editAwsElasticBlockStore() {
     return withNewAwsElasticBlockStoreLike(getAwsElasticBlockStore());
   }
-  public V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<A> editOrNewAwsElasticBlockStore() {
+  public V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNested<A> editOrNewAwsElasticBlockStore() {
     return withNewAwsElasticBlockStoreLike(getAwsElasticBlockStore() != null ? getAwsElasticBlockStore(): new V1AWSElasticBlockStoreVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<A> editOrNewAwsElasticBlockStoreLike(V1AWSElasticBlockStoreVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNested<A> editOrNewAwsElasticBlockStoreLike(V1AWSElasticBlockStoreVolumeSource item) {
     return withNewAwsElasticBlockStoreLike(getAwsElasticBlockStore() != null ? getAwsElasticBlockStore(): item);
   }
   
@@ -219,19 +190,19 @@ import java.lang.Integer;
   public Boolean hasAzureDisk() {
     return this.azureDisk != null;
   }
-  public V1PersistentVolumeSpecFluent.AzureDiskNested<A> withNewAzureDisk() {
+  public V1PersistentVolumeSpecFluentImpl.AzureDiskNested<A> withNewAzureDisk() {
     return new V1PersistentVolumeSpecFluentImpl.AzureDiskNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.AzureDiskNested<A> withNewAzureDiskLike(V1AzureDiskVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.AzureDiskNested<A> withNewAzureDiskLike(V1AzureDiskVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.AzureDiskNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.AzureDiskNested<A> editAzureDisk() {
+  public V1PersistentVolumeSpecFluentImpl.AzureDiskNested<A> editAzureDisk() {
     return withNewAzureDiskLike(getAzureDisk());
   }
-  public V1PersistentVolumeSpecFluent.AzureDiskNested<A> editOrNewAzureDisk() {
+  public V1PersistentVolumeSpecFluentImpl.AzureDiskNested<A> editOrNewAzureDisk() {
     return withNewAzureDiskLike(getAzureDisk() != null ? getAzureDisk(): new V1AzureDiskVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.AzureDiskNested<A> editOrNewAzureDiskLike(V1AzureDiskVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.AzureDiskNested<A> editOrNewAzureDiskLike(V1AzureDiskVolumeSource item) {
     return withNewAzureDiskLike(getAzureDisk() != null ? getAzureDisk(): item);
   }
   
@@ -253,19 +224,19 @@ import java.lang.Integer;
   public Boolean hasAzureFile() {
     return this.azureFile != null;
   }
-  public V1PersistentVolumeSpecFluent.AzureFileNested<A> withNewAzureFile() {
+  public V1PersistentVolumeSpecFluentImpl.AzureFileNested<A> withNewAzureFile() {
     return new V1PersistentVolumeSpecFluentImpl.AzureFileNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.AzureFileNested<A> withNewAzureFileLike(V1AzureFilePersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.AzureFileNested<A> withNewAzureFileLike(V1AzureFilePersistentVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.AzureFileNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.AzureFileNested<A> editAzureFile() {
+  public V1PersistentVolumeSpecFluentImpl.AzureFileNested<A> editAzureFile() {
     return withNewAzureFileLike(getAzureFile());
   }
-  public V1PersistentVolumeSpecFluent.AzureFileNested<A> editOrNewAzureFile() {
+  public V1PersistentVolumeSpecFluentImpl.AzureFileNested<A> editOrNewAzureFile() {
     return withNewAzureFileLike(getAzureFile() != null ? getAzureFile(): new V1AzureFilePersistentVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.AzureFileNested<A> editOrNewAzureFileLike(V1AzureFilePersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.AzureFileNested<A> editOrNewAzureFileLike(V1AzureFilePersistentVolumeSource item) {
     return withNewAzureFileLike(getAzureFile() != null ? getAzureFile(): item);
   }
   public A addToCapacity(String key,Quantity value) {
@@ -312,19 +283,19 @@ import java.lang.Integer;
   public Boolean hasCephfs() {
     return this.cephfs != null;
   }
-  public V1PersistentVolumeSpecFluent.CephfsNested<A> withNewCephfs() {
+  public V1PersistentVolumeSpecFluentImpl.CephfsNested<A> withNewCephfs() {
     return new V1PersistentVolumeSpecFluentImpl.CephfsNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.CephfsNested<A> withNewCephfsLike(V1CephFSPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.CephfsNested<A> withNewCephfsLike(V1CephFSPersistentVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.CephfsNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.CephfsNested<A> editCephfs() {
+  public V1PersistentVolumeSpecFluentImpl.CephfsNested<A> editCephfs() {
     return withNewCephfsLike(getCephfs());
   }
-  public V1PersistentVolumeSpecFluent.CephfsNested<A> editOrNewCephfs() {
+  public V1PersistentVolumeSpecFluentImpl.CephfsNested<A> editOrNewCephfs() {
     return withNewCephfsLike(getCephfs() != null ? getCephfs(): new V1CephFSPersistentVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.CephfsNested<A> editOrNewCephfsLike(V1CephFSPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.CephfsNested<A> editOrNewCephfsLike(V1CephFSPersistentVolumeSource item) {
     return withNewCephfsLike(getCephfs() != null ? getCephfs(): item);
   }
   
@@ -346,19 +317,19 @@ import java.lang.Integer;
   public Boolean hasCinder() {
     return this.cinder != null;
   }
-  public V1PersistentVolumeSpecFluent.CinderNested<A> withNewCinder() {
+  public V1PersistentVolumeSpecFluentImpl.CinderNested<A> withNewCinder() {
     return new V1PersistentVolumeSpecFluentImpl.CinderNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.CinderNested<A> withNewCinderLike(V1CinderPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.CinderNested<A> withNewCinderLike(V1CinderPersistentVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.CinderNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.CinderNested<A> editCinder() {
+  public V1PersistentVolumeSpecFluentImpl.CinderNested<A> editCinder() {
     return withNewCinderLike(getCinder());
   }
-  public V1PersistentVolumeSpecFluent.CinderNested<A> editOrNewCinder() {
+  public V1PersistentVolumeSpecFluentImpl.CinderNested<A> editOrNewCinder() {
     return withNewCinderLike(getCinder() != null ? getCinder(): new V1CinderPersistentVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.CinderNested<A> editOrNewCinderLike(V1CinderPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.CinderNested<A> editOrNewCinderLike(V1CinderPersistentVolumeSource item) {
     return withNewCinderLike(getCinder() != null ? getCinder(): item);
   }
   
@@ -380,19 +351,19 @@ import java.lang.Integer;
   public Boolean hasClaimRef() {
     return this.claimRef != null;
   }
-  public V1PersistentVolumeSpecFluent.ClaimRefNested<A> withNewClaimRef() {
+  public V1PersistentVolumeSpecFluentImpl.ClaimRefNested<A> withNewClaimRef() {
     return new V1PersistentVolumeSpecFluentImpl.ClaimRefNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.ClaimRefNested<A> withNewClaimRefLike(V1ObjectReference item) {
+  public V1PersistentVolumeSpecFluentImpl.ClaimRefNested<A> withNewClaimRefLike(V1ObjectReference item) {
     return new V1PersistentVolumeSpecFluentImpl.ClaimRefNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.ClaimRefNested<A> editClaimRef() {
+  public V1PersistentVolumeSpecFluentImpl.ClaimRefNested<A> editClaimRef() {
     return withNewClaimRefLike(getClaimRef());
   }
-  public V1PersistentVolumeSpecFluent.ClaimRefNested<A> editOrNewClaimRef() {
+  public V1PersistentVolumeSpecFluentImpl.ClaimRefNested<A> editOrNewClaimRef() {
     return withNewClaimRefLike(getClaimRef() != null ? getClaimRef(): new V1ObjectReferenceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.ClaimRefNested<A> editOrNewClaimRefLike(V1ObjectReference item) {
+  public V1PersistentVolumeSpecFluentImpl.ClaimRefNested<A> editOrNewClaimRefLike(V1ObjectReference item) {
     return withNewClaimRefLike(getClaimRef() != null ? getClaimRef(): item);
   }
   
@@ -414,19 +385,19 @@ import java.lang.Integer;
   public Boolean hasCsi() {
     return this.csi != null;
   }
-  public V1PersistentVolumeSpecFluent.CsiNested<A> withNewCsi() {
+  public V1PersistentVolumeSpecFluentImpl.CsiNested<A> withNewCsi() {
     return new V1PersistentVolumeSpecFluentImpl.CsiNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.CsiNested<A> withNewCsiLike(V1CSIPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.CsiNested<A> withNewCsiLike(V1CSIPersistentVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.CsiNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.CsiNested<A> editCsi() {
+  public V1PersistentVolumeSpecFluentImpl.CsiNested<A> editCsi() {
     return withNewCsiLike(getCsi());
   }
-  public V1PersistentVolumeSpecFluent.CsiNested<A> editOrNewCsi() {
+  public V1PersistentVolumeSpecFluentImpl.CsiNested<A> editOrNewCsi() {
     return withNewCsiLike(getCsi() != null ? getCsi(): new V1CSIPersistentVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.CsiNested<A> editOrNewCsiLike(V1CSIPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.CsiNested<A> editOrNewCsiLike(V1CSIPersistentVolumeSource item) {
     return withNewCsiLike(getCsi() != null ? getCsi(): item);
   }
   
@@ -448,19 +419,19 @@ import java.lang.Integer;
   public Boolean hasFc() {
     return this.fc != null;
   }
-  public V1PersistentVolumeSpecFluent.FcNested<A> withNewFc() {
+  public V1PersistentVolumeSpecFluentImpl.FcNested<A> withNewFc() {
     return new V1PersistentVolumeSpecFluentImpl.FcNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.FcNested<A> withNewFcLike(V1FCVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.FcNested<A> withNewFcLike(V1FCVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.FcNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.FcNested<A> editFc() {
+  public V1PersistentVolumeSpecFluentImpl.FcNested<A> editFc() {
     return withNewFcLike(getFc());
   }
-  public V1PersistentVolumeSpecFluent.FcNested<A> editOrNewFc() {
+  public V1PersistentVolumeSpecFluentImpl.FcNested<A> editOrNewFc() {
     return withNewFcLike(getFc() != null ? getFc(): new V1FCVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.FcNested<A> editOrNewFcLike(V1FCVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.FcNested<A> editOrNewFcLike(V1FCVolumeSource item) {
     return withNewFcLike(getFc() != null ? getFc(): item);
   }
   
@@ -482,19 +453,19 @@ import java.lang.Integer;
   public Boolean hasFlexVolume() {
     return this.flexVolume != null;
   }
-  public V1PersistentVolumeSpecFluent.FlexVolumeNested<A> withNewFlexVolume() {
+  public V1PersistentVolumeSpecFluentImpl.FlexVolumeNested<A> withNewFlexVolume() {
     return new V1PersistentVolumeSpecFluentImpl.FlexVolumeNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.FlexVolumeNested<A> withNewFlexVolumeLike(V1FlexPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.FlexVolumeNested<A> withNewFlexVolumeLike(V1FlexPersistentVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.FlexVolumeNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.FlexVolumeNested<A> editFlexVolume() {
+  public V1PersistentVolumeSpecFluentImpl.FlexVolumeNested<A> editFlexVolume() {
     return withNewFlexVolumeLike(getFlexVolume());
   }
-  public V1PersistentVolumeSpecFluent.FlexVolumeNested<A> editOrNewFlexVolume() {
+  public V1PersistentVolumeSpecFluentImpl.FlexVolumeNested<A> editOrNewFlexVolume() {
     return withNewFlexVolumeLike(getFlexVolume() != null ? getFlexVolume(): new V1FlexPersistentVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.FlexVolumeNested<A> editOrNewFlexVolumeLike(V1FlexPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.FlexVolumeNested<A> editOrNewFlexVolumeLike(V1FlexPersistentVolumeSource item) {
     return withNewFlexVolumeLike(getFlexVolume() != null ? getFlexVolume(): item);
   }
   
@@ -516,19 +487,19 @@ import java.lang.Integer;
   public Boolean hasFlocker() {
     return this.flocker != null;
   }
-  public V1PersistentVolumeSpecFluent.FlockerNested<A> withNewFlocker() {
+  public V1PersistentVolumeSpecFluentImpl.FlockerNested<A> withNewFlocker() {
     return new V1PersistentVolumeSpecFluentImpl.FlockerNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.FlockerNested<A> withNewFlockerLike(V1FlockerVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.FlockerNested<A> withNewFlockerLike(V1FlockerVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.FlockerNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.FlockerNested<A> editFlocker() {
+  public V1PersistentVolumeSpecFluentImpl.FlockerNested<A> editFlocker() {
     return withNewFlockerLike(getFlocker());
   }
-  public V1PersistentVolumeSpecFluent.FlockerNested<A> editOrNewFlocker() {
+  public V1PersistentVolumeSpecFluentImpl.FlockerNested<A> editOrNewFlocker() {
     return withNewFlockerLike(getFlocker() != null ? getFlocker(): new V1FlockerVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.FlockerNested<A> editOrNewFlockerLike(V1FlockerVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.FlockerNested<A> editOrNewFlockerLike(V1FlockerVolumeSource item) {
     return withNewFlockerLike(getFlocker() != null ? getFlocker(): item);
   }
   
@@ -550,19 +521,19 @@ import java.lang.Integer;
   public Boolean hasGcePersistentDisk() {
     return this.gcePersistentDisk != null;
   }
-  public V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A> withNewGcePersistentDisk() {
+  public V1PersistentVolumeSpecFluentImpl.GcePersistentDiskNested<A> withNewGcePersistentDisk() {
     return new V1PersistentVolumeSpecFluentImpl.GcePersistentDiskNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A> withNewGcePersistentDiskLike(V1GCEPersistentDiskVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.GcePersistentDiskNested<A> withNewGcePersistentDiskLike(V1GCEPersistentDiskVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.GcePersistentDiskNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A> editGcePersistentDisk() {
+  public V1PersistentVolumeSpecFluentImpl.GcePersistentDiskNested<A> editGcePersistentDisk() {
     return withNewGcePersistentDiskLike(getGcePersistentDisk());
   }
-  public V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A> editOrNewGcePersistentDisk() {
+  public V1PersistentVolumeSpecFluentImpl.GcePersistentDiskNested<A> editOrNewGcePersistentDisk() {
     return withNewGcePersistentDiskLike(getGcePersistentDisk() != null ? getGcePersistentDisk(): new V1GCEPersistentDiskVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.GcePersistentDiskNested<A> editOrNewGcePersistentDiskLike(V1GCEPersistentDiskVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.GcePersistentDiskNested<A> editOrNewGcePersistentDiskLike(V1GCEPersistentDiskVolumeSource item) {
     return withNewGcePersistentDiskLike(getGcePersistentDisk() != null ? getGcePersistentDisk(): item);
   }
   
@@ -584,19 +555,19 @@ import java.lang.Integer;
   public Boolean hasGlusterfs() {
     return this.glusterfs != null;
   }
-  public V1PersistentVolumeSpecFluent.GlusterfsNested<A> withNewGlusterfs() {
+  public V1PersistentVolumeSpecFluentImpl.GlusterfsNested<A> withNewGlusterfs() {
     return new V1PersistentVolumeSpecFluentImpl.GlusterfsNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.GlusterfsNested<A> withNewGlusterfsLike(V1GlusterfsPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.GlusterfsNested<A> withNewGlusterfsLike(V1GlusterfsPersistentVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.GlusterfsNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.GlusterfsNested<A> editGlusterfs() {
+  public V1PersistentVolumeSpecFluentImpl.GlusterfsNested<A> editGlusterfs() {
     return withNewGlusterfsLike(getGlusterfs());
   }
-  public V1PersistentVolumeSpecFluent.GlusterfsNested<A> editOrNewGlusterfs() {
+  public V1PersistentVolumeSpecFluentImpl.GlusterfsNested<A> editOrNewGlusterfs() {
     return withNewGlusterfsLike(getGlusterfs() != null ? getGlusterfs(): new V1GlusterfsPersistentVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.GlusterfsNested<A> editOrNewGlusterfsLike(V1GlusterfsPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.GlusterfsNested<A> editOrNewGlusterfsLike(V1GlusterfsPersistentVolumeSource item) {
     return withNewGlusterfsLike(getGlusterfs() != null ? getGlusterfs(): item);
   }
   
@@ -618,19 +589,19 @@ import java.lang.Integer;
   public Boolean hasHostPath() {
     return this.hostPath != null;
   }
-  public V1PersistentVolumeSpecFluent.HostPathNested<A> withNewHostPath() {
+  public V1PersistentVolumeSpecFluentImpl.HostPathNested<A> withNewHostPath() {
     return new V1PersistentVolumeSpecFluentImpl.HostPathNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.HostPathNested<A> withNewHostPathLike(V1HostPathVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.HostPathNested<A> withNewHostPathLike(V1HostPathVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.HostPathNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.HostPathNested<A> editHostPath() {
+  public V1PersistentVolumeSpecFluentImpl.HostPathNested<A> editHostPath() {
     return withNewHostPathLike(getHostPath());
   }
-  public V1PersistentVolumeSpecFluent.HostPathNested<A> editOrNewHostPath() {
+  public V1PersistentVolumeSpecFluentImpl.HostPathNested<A> editOrNewHostPath() {
     return withNewHostPathLike(getHostPath() != null ? getHostPath(): new V1HostPathVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.HostPathNested<A> editOrNewHostPathLike(V1HostPathVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.HostPathNested<A> editOrNewHostPathLike(V1HostPathVolumeSource item) {
     return withNewHostPathLike(getHostPath() != null ? getHostPath(): item);
   }
   
@@ -652,19 +623,19 @@ import java.lang.Integer;
   public Boolean hasIscsi() {
     return this.iscsi != null;
   }
-  public V1PersistentVolumeSpecFluent.IscsiNested<A> withNewIscsi() {
+  public V1PersistentVolumeSpecFluentImpl.IscsiNested<A> withNewIscsi() {
     return new V1PersistentVolumeSpecFluentImpl.IscsiNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.IscsiNested<A> withNewIscsiLike(V1ISCSIPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.IscsiNested<A> withNewIscsiLike(V1ISCSIPersistentVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.IscsiNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.IscsiNested<A> editIscsi() {
+  public V1PersistentVolumeSpecFluentImpl.IscsiNested<A> editIscsi() {
     return withNewIscsiLike(getIscsi());
   }
-  public V1PersistentVolumeSpecFluent.IscsiNested<A> editOrNewIscsi() {
+  public V1PersistentVolumeSpecFluentImpl.IscsiNested<A> editOrNewIscsi() {
     return withNewIscsiLike(getIscsi() != null ? getIscsi(): new V1ISCSIPersistentVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.IscsiNested<A> editOrNewIscsiLike(V1ISCSIPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.IscsiNested<A> editOrNewIscsiLike(V1ISCSIPersistentVolumeSource item) {
     return withNewIscsiLike(getIscsi() != null ? getIscsi(): item);
   }
   
@@ -686,27 +657,27 @@ import java.lang.Integer;
   public Boolean hasLocal() {
     return this.local != null;
   }
-  public V1PersistentVolumeSpecFluent.LocalNested<A> withNewLocal() {
+  public V1PersistentVolumeSpecFluentImpl.LocalNested<A> withNewLocal() {
     return new V1PersistentVolumeSpecFluentImpl.LocalNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.LocalNested<A> withNewLocalLike(V1LocalVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.LocalNested<A> withNewLocalLike(V1LocalVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.LocalNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.LocalNested<A> editLocal() {
+  public V1PersistentVolumeSpecFluentImpl.LocalNested<A> editLocal() {
     return withNewLocalLike(getLocal());
   }
-  public V1PersistentVolumeSpecFluent.LocalNested<A> editOrNewLocal() {
+  public V1PersistentVolumeSpecFluentImpl.LocalNested<A> editOrNewLocal() {
     return withNewLocalLike(getLocal() != null ? getLocal(): new V1LocalVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.LocalNested<A> editOrNewLocalLike(V1LocalVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.LocalNested<A> editOrNewLocalLike(V1LocalVolumeSource item) {
     return withNewLocalLike(getLocal() != null ? getLocal(): item);
   }
-  public A addToMountOptions(Integer index,String item) {
+  public A addToMountOptions(int index,String item) {
     if (this.mountOptions == null) {this.mountOptions = new ArrayList<String>();}
     this.mountOptions.add(index, item);
     return (A)this;
   }
-  public A setToMountOptions(Integer index,String item) {
+  public A setToMountOptions(int index,String item) {
     if (this.mountOptions == null) {this.mountOptions = new ArrayList<String>();}
     this.mountOptions.set(index, item); return (A)this;
   }
@@ -727,7 +698,7 @@ import java.lang.Integer;
   public List<String> getMountOptions() {
     return this.mountOptions;
   }
-  public String getMountOption(Integer index) {
+  public String getMountOption(int index) {
     return this.mountOptions.get(index);
   }
   public String getFirstMountOption() {
@@ -746,7 +717,7 @@ import java.lang.Integer;
     if (mountOptions != null) {this.mountOptions = new ArrayList(); for (String item : mountOptions){this.addToMountOptions(item);}} else { this.mountOptions = null;} return (A) this;
   }
   public A withMountOptions(java.lang.String... mountOptions) {
-    if (this.mountOptions != null) {this.mountOptions.clear();}
+    if (this.mountOptions != null) {this.mountOptions.clear(); _visitables.remove("mountOptions"); }
     if (mountOptions != null) {for (String item :mountOptions){ this.addToMountOptions(item);}} return (A) this;
   }
   public Boolean hasMountOptions() {
@@ -771,19 +742,19 @@ import java.lang.Integer;
   public Boolean hasNfs() {
     return this.nfs != null;
   }
-  public V1PersistentVolumeSpecFluent.NfsNested<A> withNewNfs() {
+  public V1PersistentVolumeSpecFluentImpl.NfsNested<A> withNewNfs() {
     return new V1PersistentVolumeSpecFluentImpl.NfsNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.NfsNested<A> withNewNfsLike(V1NFSVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.NfsNested<A> withNewNfsLike(V1NFSVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.NfsNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.NfsNested<A> editNfs() {
+  public V1PersistentVolumeSpecFluentImpl.NfsNested<A> editNfs() {
     return withNewNfsLike(getNfs());
   }
-  public V1PersistentVolumeSpecFluent.NfsNested<A> editOrNewNfs() {
+  public V1PersistentVolumeSpecFluentImpl.NfsNested<A> editOrNewNfs() {
     return withNewNfsLike(getNfs() != null ? getNfs(): new V1NFSVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.NfsNested<A> editOrNewNfsLike(V1NFSVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.NfsNested<A> editOrNewNfsLike(V1NFSVolumeSource item) {
     return withNewNfsLike(getNfs() != null ? getNfs(): item);
   }
   
@@ -805,19 +776,19 @@ import java.lang.Integer;
   public Boolean hasNodeAffinity() {
     return this.nodeAffinity != null;
   }
-  public V1PersistentVolumeSpecFluent.NodeAffinityNested<A> withNewNodeAffinity() {
+  public V1PersistentVolumeSpecFluentImpl.NodeAffinityNested<A> withNewNodeAffinity() {
     return new V1PersistentVolumeSpecFluentImpl.NodeAffinityNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.NodeAffinityNested<A> withNewNodeAffinityLike(V1VolumeNodeAffinity item) {
+  public V1PersistentVolumeSpecFluentImpl.NodeAffinityNested<A> withNewNodeAffinityLike(V1VolumeNodeAffinity item) {
     return new V1PersistentVolumeSpecFluentImpl.NodeAffinityNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.NodeAffinityNested<A> editNodeAffinity() {
+  public V1PersistentVolumeSpecFluentImpl.NodeAffinityNested<A> editNodeAffinity() {
     return withNewNodeAffinityLike(getNodeAffinity());
   }
-  public V1PersistentVolumeSpecFluent.NodeAffinityNested<A> editOrNewNodeAffinity() {
+  public V1PersistentVolumeSpecFluentImpl.NodeAffinityNested<A> editOrNewNodeAffinity() {
     return withNewNodeAffinityLike(getNodeAffinity() != null ? getNodeAffinity(): new V1VolumeNodeAffinityBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.NodeAffinityNested<A> editOrNewNodeAffinityLike(V1VolumeNodeAffinity item) {
+  public V1PersistentVolumeSpecFluentImpl.NodeAffinityNested<A> editOrNewNodeAffinityLike(V1VolumeNodeAffinity item) {
     return withNewNodeAffinityLike(getNodeAffinity() != null ? getNodeAffinity(): item);
   }
   public String getPersistentVolumeReclaimPolicy() {
@@ -848,19 +819,19 @@ import java.lang.Integer;
   public Boolean hasPhotonPersistentDisk() {
     return this.photonPersistentDisk != null;
   }
-  public V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<A> withNewPhotonPersistentDisk() {
+  public V1PersistentVolumeSpecFluentImpl.PhotonPersistentDiskNested<A> withNewPhotonPersistentDisk() {
     return new V1PersistentVolumeSpecFluentImpl.PhotonPersistentDiskNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<A> withNewPhotonPersistentDiskLike(V1PhotonPersistentDiskVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.PhotonPersistentDiskNested<A> withNewPhotonPersistentDiskLike(V1PhotonPersistentDiskVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.PhotonPersistentDiskNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<A> editPhotonPersistentDisk() {
+  public V1PersistentVolumeSpecFluentImpl.PhotonPersistentDiskNested<A> editPhotonPersistentDisk() {
     return withNewPhotonPersistentDiskLike(getPhotonPersistentDisk());
   }
-  public V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<A> editOrNewPhotonPersistentDisk() {
+  public V1PersistentVolumeSpecFluentImpl.PhotonPersistentDiskNested<A> editOrNewPhotonPersistentDisk() {
     return withNewPhotonPersistentDiskLike(getPhotonPersistentDisk() != null ? getPhotonPersistentDisk(): new V1PhotonPersistentDiskVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<A> editOrNewPhotonPersistentDiskLike(V1PhotonPersistentDiskVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.PhotonPersistentDiskNested<A> editOrNewPhotonPersistentDiskLike(V1PhotonPersistentDiskVolumeSource item) {
     return withNewPhotonPersistentDiskLike(getPhotonPersistentDisk() != null ? getPhotonPersistentDisk(): item);
   }
   
@@ -882,19 +853,19 @@ import java.lang.Integer;
   public Boolean hasPortworxVolume() {
     return this.portworxVolume != null;
   }
-  public V1PersistentVolumeSpecFluent.PortworxVolumeNested<A> withNewPortworxVolume() {
+  public V1PersistentVolumeSpecFluentImpl.PortworxVolumeNested<A> withNewPortworxVolume() {
     return new V1PersistentVolumeSpecFluentImpl.PortworxVolumeNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.PortworxVolumeNested<A> withNewPortworxVolumeLike(V1PortworxVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.PortworxVolumeNested<A> withNewPortworxVolumeLike(V1PortworxVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.PortworxVolumeNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.PortworxVolumeNested<A> editPortworxVolume() {
+  public V1PersistentVolumeSpecFluentImpl.PortworxVolumeNested<A> editPortworxVolume() {
     return withNewPortworxVolumeLike(getPortworxVolume());
   }
-  public V1PersistentVolumeSpecFluent.PortworxVolumeNested<A> editOrNewPortworxVolume() {
+  public V1PersistentVolumeSpecFluentImpl.PortworxVolumeNested<A> editOrNewPortworxVolume() {
     return withNewPortworxVolumeLike(getPortworxVolume() != null ? getPortworxVolume(): new V1PortworxVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.PortworxVolumeNested<A> editOrNewPortworxVolumeLike(V1PortworxVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.PortworxVolumeNested<A> editOrNewPortworxVolumeLike(V1PortworxVolumeSource item) {
     return withNewPortworxVolumeLike(getPortworxVolume() != null ? getPortworxVolume(): item);
   }
   
@@ -916,19 +887,19 @@ import java.lang.Integer;
   public Boolean hasQuobyte() {
     return this.quobyte != null;
   }
-  public V1PersistentVolumeSpecFluent.QuobyteNested<A> withNewQuobyte() {
+  public V1PersistentVolumeSpecFluentImpl.QuobyteNested<A> withNewQuobyte() {
     return new V1PersistentVolumeSpecFluentImpl.QuobyteNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.QuobyteNested<A> withNewQuobyteLike(V1QuobyteVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.QuobyteNested<A> withNewQuobyteLike(V1QuobyteVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.QuobyteNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.QuobyteNested<A> editQuobyte() {
+  public V1PersistentVolumeSpecFluentImpl.QuobyteNested<A> editQuobyte() {
     return withNewQuobyteLike(getQuobyte());
   }
-  public V1PersistentVolumeSpecFluent.QuobyteNested<A> editOrNewQuobyte() {
+  public V1PersistentVolumeSpecFluentImpl.QuobyteNested<A> editOrNewQuobyte() {
     return withNewQuobyteLike(getQuobyte() != null ? getQuobyte(): new V1QuobyteVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.QuobyteNested<A> editOrNewQuobyteLike(V1QuobyteVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.QuobyteNested<A> editOrNewQuobyteLike(V1QuobyteVolumeSource item) {
     return withNewQuobyteLike(getQuobyte() != null ? getQuobyte(): item);
   }
   
@@ -950,19 +921,19 @@ import java.lang.Integer;
   public Boolean hasRbd() {
     return this.rbd != null;
   }
-  public V1PersistentVolumeSpecFluent.RbdNested<A> withNewRbd() {
+  public V1PersistentVolumeSpecFluentImpl.RbdNested<A> withNewRbd() {
     return new V1PersistentVolumeSpecFluentImpl.RbdNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.RbdNested<A> withNewRbdLike(V1RBDPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.RbdNested<A> withNewRbdLike(V1RBDPersistentVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.RbdNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.RbdNested<A> editRbd() {
+  public V1PersistentVolumeSpecFluentImpl.RbdNested<A> editRbd() {
     return withNewRbdLike(getRbd());
   }
-  public V1PersistentVolumeSpecFluent.RbdNested<A> editOrNewRbd() {
+  public V1PersistentVolumeSpecFluentImpl.RbdNested<A> editOrNewRbd() {
     return withNewRbdLike(getRbd() != null ? getRbd(): new V1RBDPersistentVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.RbdNested<A> editOrNewRbdLike(V1RBDPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.RbdNested<A> editOrNewRbdLike(V1RBDPersistentVolumeSource item) {
     return withNewRbdLike(getRbd() != null ? getRbd(): item);
   }
   
@@ -984,19 +955,19 @@ import java.lang.Integer;
   public Boolean hasScaleIO() {
     return this.scaleIO != null;
   }
-  public V1PersistentVolumeSpecFluent.ScaleIONested<A> withNewScaleIO() {
+  public V1PersistentVolumeSpecFluentImpl.ScaleIONested<A> withNewScaleIO() {
     return new V1PersistentVolumeSpecFluentImpl.ScaleIONestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.ScaleIONested<A> withNewScaleIOLike(V1ScaleIOPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.ScaleIONested<A> withNewScaleIOLike(V1ScaleIOPersistentVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.ScaleIONestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.ScaleIONested<A> editScaleIO() {
+  public V1PersistentVolumeSpecFluentImpl.ScaleIONested<A> editScaleIO() {
     return withNewScaleIOLike(getScaleIO());
   }
-  public V1PersistentVolumeSpecFluent.ScaleIONested<A> editOrNewScaleIO() {
+  public V1PersistentVolumeSpecFluentImpl.ScaleIONested<A> editOrNewScaleIO() {
     return withNewScaleIOLike(getScaleIO() != null ? getScaleIO(): new V1ScaleIOPersistentVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.ScaleIONested<A> editOrNewScaleIOLike(V1ScaleIOPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.ScaleIONested<A> editOrNewScaleIOLike(V1ScaleIOPersistentVolumeSource item) {
     return withNewScaleIOLike(getScaleIO() != null ? getScaleIO(): item);
   }
   public String getStorageClassName() {
@@ -1027,19 +998,19 @@ import java.lang.Integer;
   public Boolean hasStorageos() {
     return this.storageos != null;
   }
-  public V1PersistentVolumeSpecFluent.StorageosNested<A> withNewStorageos() {
+  public V1PersistentVolumeSpecFluentImpl.StorageosNested<A> withNewStorageos() {
     return new V1PersistentVolumeSpecFluentImpl.StorageosNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.StorageosNested<A> withNewStorageosLike(V1StorageOSPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.StorageosNested<A> withNewStorageosLike(V1StorageOSPersistentVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.StorageosNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.StorageosNested<A> editStorageos() {
+  public V1PersistentVolumeSpecFluentImpl.StorageosNested<A> editStorageos() {
     return withNewStorageosLike(getStorageos());
   }
-  public V1PersistentVolumeSpecFluent.StorageosNested<A> editOrNewStorageos() {
+  public V1PersistentVolumeSpecFluentImpl.StorageosNested<A> editOrNewStorageos() {
     return withNewStorageosLike(getStorageos() != null ? getStorageos(): new V1StorageOSPersistentVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.StorageosNested<A> editOrNewStorageosLike(V1StorageOSPersistentVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.StorageosNested<A> editOrNewStorageosLike(V1StorageOSPersistentVolumeSource item) {
     return withNewStorageosLike(getStorageos() != null ? getStorageos(): item);
   }
   public String getVolumeMode() {
@@ -1070,55 +1041,86 @@ import java.lang.Integer;
   public Boolean hasVsphereVolume() {
     return this.vsphereVolume != null;
   }
-  public V1PersistentVolumeSpecFluent.VsphereVolumeNested<A> withNewVsphereVolume() {
+  public V1PersistentVolumeSpecFluentImpl.VsphereVolumeNested<A> withNewVsphereVolume() {
     return new V1PersistentVolumeSpecFluentImpl.VsphereVolumeNestedImpl();
   }
-  public V1PersistentVolumeSpecFluent.VsphereVolumeNested<A> withNewVsphereVolumeLike(V1VsphereVirtualDiskVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.VsphereVolumeNested<A> withNewVsphereVolumeLike(V1VsphereVirtualDiskVolumeSource item) {
     return new V1PersistentVolumeSpecFluentImpl.VsphereVolumeNestedImpl(item);
   }
-  public V1PersistentVolumeSpecFluent.VsphereVolumeNested<A> editVsphereVolume() {
+  public V1PersistentVolumeSpecFluentImpl.VsphereVolumeNested<A> editVsphereVolume() {
     return withNewVsphereVolumeLike(getVsphereVolume());
   }
-  public V1PersistentVolumeSpecFluent.VsphereVolumeNested<A> editOrNewVsphereVolume() {
+  public V1PersistentVolumeSpecFluentImpl.VsphereVolumeNested<A> editOrNewVsphereVolume() {
     return withNewVsphereVolumeLike(getVsphereVolume() != null ? getVsphereVolume(): new V1VsphereVirtualDiskVolumeSourceBuilder().build());
   }
-  public V1PersistentVolumeSpecFluent.VsphereVolumeNested<A> editOrNewVsphereVolumeLike(V1VsphereVirtualDiskVolumeSource item) {
+  public V1PersistentVolumeSpecFluentImpl.VsphereVolumeNested<A> editOrNewVsphereVolumeLike(V1VsphereVirtualDiskVolumeSource item) {
     return withNewVsphereVolumeLike(getVsphereVolume() != null ? getVsphereVolume(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PersistentVolumeSpecFluentImpl that = (V1PersistentVolumeSpecFluentImpl) o;
-    if (accessModes != null ? !accessModes.equals(that.accessModes) :that.accessModes != null) return false;
-    if (awsElasticBlockStore != null ? !awsElasticBlockStore.equals(that.awsElasticBlockStore) :that.awsElasticBlockStore != null) return false;
-    if (azureDisk != null ? !azureDisk.equals(that.azureDisk) :that.azureDisk != null) return false;
-    if (azureFile != null ? !azureFile.equals(that.azureFile) :that.azureFile != null) return false;
-    if (capacity != null ? !capacity.equals(that.capacity) :that.capacity != null) return false;
-    if (cephfs != null ? !cephfs.equals(that.cephfs) :that.cephfs != null) return false;
-    if (cinder != null ? !cinder.equals(that.cinder) :that.cinder != null) return false;
-    if (claimRef != null ? !claimRef.equals(that.claimRef) :that.claimRef != null) return false;
-    if (csi != null ? !csi.equals(that.csi) :that.csi != null) return false;
-    if (fc != null ? !fc.equals(that.fc) :that.fc != null) return false;
-    if (flexVolume != null ? !flexVolume.equals(that.flexVolume) :that.flexVolume != null) return false;
-    if (flocker != null ? !flocker.equals(that.flocker) :that.flocker != null) return false;
-    if (gcePersistentDisk != null ? !gcePersistentDisk.equals(that.gcePersistentDisk) :that.gcePersistentDisk != null) return false;
-    if (glusterfs != null ? !glusterfs.equals(that.glusterfs) :that.glusterfs != null) return false;
-    if (hostPath != null ? !hostPath.equals(that.hostPath) :that.hostPath != null) return false;
-    if (iscsi != null ? !iscsi.equals(that.iscsi) :that.iscsi != null) return false;
-    if (local != null ? !local.equals(that.local) :that.local != null) return false;
-    if (mountOptions != null ? !mountOptions.equals(that.mountOptions) :that.mountOptions != null) return false;
-    if (nfs != null ? !nfs.equals(that.nfs) :that.nfs != null) return false;
-    if (nodeAffinity != null ? !nodeAffinity.equals(that.nodeAffinity) :that.nodeAffinity != null) return false;
-    if (persistentVolumeReclaimPolicy != null ? !persistentVolumeReclaimPolicy.equals(that.persistentVolumeReclaimPolicy) :that.persistentVolumeReclaimPolicy != null) return false;
-    if (photonPersistentDisk != null ? !photonPersistentDisk.equals(that.photonPersistentDisk) :that.photonPersistentDisk != null) return false;
-    if (portworxVolume != null ? !portworxVolume.equals(that.portworxVolume) :that.portworxVolume != null) return false;
-    if (quobyte != null ? !quobyte.equals(that.quobyte) :that.quobyte != null) return false;
-    if (rbd != null ? !rbd.equals(that.rbd) :that.rbd != null) return false;
-    if (scaleIO != null ? !scaleIO.equals(that.scaleIO) :that.scaleIO != null) return false;
-    if (storageClassName != null ? !storageClassName.equals(that.storageClassName) :that.storageClassName != null) return false;
-    if (storageos != null ? !storageos.equals(that.storageos) :that.storageos != null) return false;
-    if (volumeMode != null ? !volumeMode.equals(that.volumeMode) :that.volumeMode != null) return false;
-    if (vsphereVolume != null ? !vsphereVolume.equals(that.vsphereVolume) :that.vsphereVolume != null) return false;
+    if (!java.util.Objects.equals(accessModes, that.accessModes)) return false;
+
+    if (!java.util.Objects.equals(awsElasticBlockStore, that.awsElasticBlockStore)) return false;
+
+    if (!java.util.Objects.equals(azureDisk, that.azureDisk)) return false;
+
+    if (!java.util.Objects.equals(azureFile, that.azureFile)) return false;
+
+    if (!java.util.Objects.equals(capacity, that.capacity)) return false;
+
+    if (!java.util.Objects.equals(cephfs, that.cephfs)) return false;
+
+    if (!java.util.Objects.equals(cinder, that.cinder)) return false;
+
+    if (!java.util.Objects.equals(claimRef, that.claimRef)) return false;
+
+    if (!java.util.Objects.equals(csi, that.csi)) return false;
+
+    if (!java.util.Objects.equals(fc, that.fc)) return false;
+
+    if (!java.util.Objects.equals(flexVolume, that.flexVolume)) return false;
+
+    if (!java.util.Objects.equals(flocker, that.flocker)) return false;
+
+    if (!java.util.Objects.equals(gcePersistentDisk, that.gcePersistentDisk)) return false;
+
+    if (!java.util.Objects.equals(glusterfs, that.glusterfs)) return false;
+
+    if (!java.util.Objects.equals(hostPath, that.hostPath)) return false;
+
+    if (!java.util.Objects.equals(iscsi, that.iscsi)) return false;
+
+    if (!java.util.Objects.equals(local, that.local)) return false;
+
+    if (!java.util.Objects.equals(mountOptions, that.mountOptions)) return false;
+
+    if (!java.util.Objects.equals(nfs, that.nfs)) return false;
+
+    if (!java.util.Objects.equals(nodeAffinity, that.nodeAffinity)) return false;
+
+    if (!java.util.Objects.equals(persistentVolumeReclaimPolicy, that.persistentVolumeReclaimPolicy)) return false;
+
+    if (!java.util.Objects.equals(photonPersistentDisk, that.photonPersistentDisk)) return false;
+
+    if (!java.util.Objects.equals(portworxVolume, that.portworxVolume)) return false;
+
+    if (!java.util.Objects.equals(quobyte, that.quobyte)) return false;
+
+    if (!java.util.Objects.equals(rbd, that.rbd)) return false;
+
+    if (!java.util.Objects.equals(scaleIO, that.scaleIO)) return false;
+
+    if (!java.util.Objects.equals(storageClassName, that.storageClassName)) return false;
+
+    if (!java.util.Objects.equals(storageos, that.storageos)) return false;
+
+    if (!java.util.Objects.equals(volumeMode, that.volumeMode)) return false;
+
+    if (!java.util.Objects.equals(vsphereVolume, that.vsphereVolume)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -1160,7 +1162,7 @@ import java.lang.Integer;
     sb.append("}");
     return sb.toString();
   }
-  class AwsElasticBlockStoreNestedImpl<N> extends V1AWSElasticBlockStoreVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<N>> implements V1PersistentVolumeSpecFluent.AwsElasticBlockStoreNested<N>,Nested<N>{
+  class AwsElasticBlockStoreNestedImpl<N> extends V1AWSElasticBlockStoreVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNested<N>> implements V1PersistentVolumeSpecFluentImpl.AwsElasticBlockStoreNested<N>,Nested<N>{
     AwsElasticBlockStoreNestedImpl(V1AWSElasticBlockStoreVolumeSource item) {
       this.builder = new V1AWSElasticBlockStoreVolumeSourceBuilder(this, item);
     }
@@ -1176,7 +1178,7 @@ import java.lang.Integer;
     }
     
   }
-  class AzureDiskNestedImpl<N> extends V1AzureDiskVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.AzureDiskNested<N>> implements V1PersistentVolumeSpecFluent.AzureDiskNested<N>,Nested<N>{
+  class AzureDiskNestedImpl<N> extends V1AzureDiskVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.AzureDiskNested<N>> implements V1PersistentVolumeSpecFluentImpl.AzureDiskNested<N>,Nested<N>{
     AzureDiskNestedImpl(V1AzureDiskVolumeSource item) {
       this.builder = new V1AzureDiskVolumeSourceBuilder(this, item);
     }
@@ -1192,7 +1194,7 @@ import java.lang.Integer;
     }
     
   }
-  class AzureFileNestedImpl<N> extends V1AzureFilePersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.AzureFileNested<N>> implements V1PersistentVolumeSpecFluent.AzureFileNested<N>,Nested<N>{
+  class AzureFileNestedImpl<N> extends V1AzureFilePersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.AzureFileNested<N>> implements V1PersistentVolumeSpecFluentImpl.AzureFileNested<N>,Nested<N>{
     AzureFileNestedImpl(V1AzureFilePersistentVolumeSource item) {
       this.builder = new V1AzureFilePersistentVolumeSourceBuilder(this, item);
     }
@@ -1208,7 +1210,7 @@ import java.lang.Integer;
     }
     
   }
-  class CephfsNestedImpl<N> extends V1CephFSPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.CephfsNested<N>> implements V1PersistentVolumeSpecFluent.CephfsNested<N>,Nested<N>{
+  class CephfsNestedImpl<N> extends V1CephFSPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.CephfsNested<N>> implements V1PersistentVolumeSpecFluentImpl.CephfsNested<N>,Nested<N>{
     CephfsNestedImpl(V1CephFSPersistentVolumeSource item) {
       this.builder = new V1CephFSPersistentVolumeSourceBuilder(this, item);
     }
@@ -1224,7 +1226,7 @@ import java.lang.Integer;
     }
     
   }
-  class CinderNestedImpl<N> extends V1CinderPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.CinderNested<N>> implements V1PersistentVolumeSpecFluent.CinderNested<N>,Nested<N>{
+  class CinderNestedImpl<N> extends V1CinderPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.CinderNested<N>> implements V1PersistentVolumeSpecFluentImpl.CinderNested<N>,Nested<N>{
     CinderNestedImpl(V1CinderPersistentVolumeSource item) {
       this.builder = new V1CinderPersistentVolumeSourceBuilder(this, item);
     }
@@ -1240,7 +1242,7 @@ import java.lang.Integer;
     }
     
   }
-  class ClaimRefNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1PersistentVolumeSpecFluent.ClaimRefNested<N>> implements V1PersistentVolumeSpecFluent.ClaimRefNested<N>,Nested<N>{
+  class ClaimRefNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1PersistentVolumeSpecFluentImpl.ClaimRefNested<N>> implements V1PersistentVolumeSpecFluentImpl.ClaimRefNested<N>,Nested<N>{
     ClaimRefNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }
@@ -1256,7 +1258,7 @@ import java.lang.Integer;
     }
     
   }
-  class CsiNestedImpl<N> extends V1CSIPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.CsiNested<N>> implements V1PersistentVolumeSpecFluent.CsiNested<N>,Nested<N>{
+  class CsiNestedImpl<N> extends V1CSIPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.CsiNested<N>> implements V1PersistentVolumeSpecFluentImpl.CsiNested<N>,Nested<N>{
     CsiNestedImpl(V1CSIPersistentVolumeSource item) {
       this.builder = new V1CSIPersistentVolumeSourceBuilder(this, item);
     }
@@ -1272,7 +1274,7 @@ import java.lang.Integer;
     }
     
   }
-  class FcNestedImpl<N> extends V1FCVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.FcNested<N>> implements V1PersistentVolumeSpecFluent.FcNested<N>,Nested<N>{
+  class FcNestedImpl<N> extends V1FCVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.FcNested<N>> implements V1PersistentVolumeSpecFluentImpl.FcNested<N>,Nested<N>{
     FcNestedImpl(V1FCVolumeSource item) {
       this.builder = new V1FCVolumeSourceBuilder(this, item);
     }
@@ -1288,7 +1290,7 @@ import java.lang.Integer;
     }
     
   }
-  class FlexVolumeNestedImpl<N> extends V1FlexPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.FlexVolumeNested<N>> implements V1PersistentVolumeSpecFluent.FlexVolumeNested<N>,Nested<N>{
+  class FlexVolumeNestedImpl<N> extends V1FlexPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.FlexVolumeNested<N>> implements V1PersistentVolumeSpecFluentImpl.FlexVolumeNested<N>,Nested<N>{
     FlexVolumeNestedImpl(V1FlexPersistentVolumeSource item) {
       this.builder = new V1FlexPersistentVolumeSourceBuilder(this, item);
     }
@@ -1304,7 +1306,7 @@ import java.lang.Integer;
     }
     
   }
-  class FlockerNestedImpl<N> extends V1FlockerVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.FlockerNested<N>> implements V1PersistentVolumeSpecFluent.FlockerNested<N>,Nested<N>{
+  class FlockerNestedImpl<N> extends V1FlockerVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.FlockerNested<N>> implements V1PersistentVolumeSpecFluentImpl.FlockerNested<N>,Nested<N>{
     FlockerNestedImpl(V1FlockerVolumeSource item) {
       this.builder = new V1FlockerVolumeSourceBuilder(this, item);
     }
@@ -1320,7 +1322,7 @@ import java.lang.Integer;
     }
     
   }
-  class GcePersistentDiskNestedImpl<N> extends V1GCEPersistentDiskVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.GcePersistentDiskNested<N>> implements V1PersistentVolumeSpecFluent.GcePersistentDiskNested<N>,Nested<N>{
+  class GcePersistentDiskNestedImpl<N> extends V1GCEPersistentDiskVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.GcePersistentDiskNested<N>> implements V1PersistentVolumeSpecFluentImpl.GcePersistentDiskNested<N>,Nested<N>{
     GcePersistentDiskNestedImpl(V1GCEPersistentDiskVolumeSource item) {
       this.builder = new V1GCEPersistentDiskVolumeSourceBuilder(this, item);
     }
@@ -1336,7 +1338,7 @@ import java.lang.Integer;
     }
     
   }
-  class GlusterfsNestedImpl<N> extends V1GlusterfsPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.GlusterfsNested<N>> implements V1PersistentVolumeSpecFluent.GlusterfsNested<N>,Nested<N>{
+  class GlusterfsNestedImpl<N> extends V1GlusterfsPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.GlusterfsNested<N>> implements V1PersistentVolumeSpecFluentImpl.GlusterfsNested<N>,Nested<N>{
     GlusterfsNestedImpl(V1GlusterfsPersistentVolumeSource item) {
       this.builder = new V1GlusterfsPersistentVolumeSourceBuilder(this, item);
     }
@@ -1352,7 +1354,7 @@ import java.lang.Integer;
     }
     
   }
-  class HostPathNestedImpl<N> extends V1HostPathVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.HostPathNested<N>> implements V1PersistentVolumeSpecFluent.HostPathNested<N>,Nested<N>{
+  class HostPathNestedImpl<N> extends V1HostPathVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.HostPathNested<N>> implements V1PersistentVolumeSpecFluentImpl.HostPathNested<N>,Nested<N>{
     HostPathNestedImpl(V1HostPathVolumeSource item) {
       this.builder = new V1HostPathVolumeSourceBuilder(this, item);
     }
@@ -1368,7 +1370,7 @@ import java.lang.Integer;
     }
     
   }
-  class IscsiNestedImpl<N> extends V1ISCSIPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.IscsiNested<N>> implements V1PersistentVolumeSpecFluent.IscsiNested<N>,Nested<N>{
+  class IscsiNestedImpl<N> extends V1ISCSIPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.IscsiNested<N>> implements V1PersistentVolumeSpecFluentImpl.IscsiNested<N>,Nested<N>{
     IscsiNestedImpl(V1ISCSIPersistentVolumeSource item) {
       this.builder = new V1ISCSIPersistentVolumeSourceBuilder(this, item);
     }
@@ -1384,7 +1386,7 @@ import java.lang.Integer;
     }
     
   }
-  class LocalNestedImpl<N> extends V1LocalVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.LocalNested<N>> implements V1PersistentVolumeSpecFluent.LocalNested<N>,Nested<N>{
+  class LocalNestedImpl<N> extends V1LocalVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.LocalNested<N>> implements V1PersistentVolumeSpecFluentImpl.LocalNested<N>,Nested<N>{
     LocalNestedImpl(V1LocalVolumeSource item) {
       this.builder = new V1LocalVolumeSourceBuilder(this, item);
     }
@@ -1400,7 +1402,7 @@ import java.lang.Integer;
     }
     
   }
-  class NfsNestedImpl<N> extends V1NFSVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.NfsNested<N>> implements V1PersistentVolumeSpecFluent.NfsNested<N>,Nested<N>{
+  class NfsNestedImpl<N> extends V1NFSVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.NfsNested<N>> implements V1PersistentVolumeSpecFluentImpl.NfsNested<N>,Nested<N>{
     NfsNestedImpl(V1NFSVolumeSource item) {
       this.builder = new V1NFSVolumeSourceBuilder(this, item);
     }
@@ -1416,7 +1418,7 @@ import java.lang.Integer;
     }
     
   }
-  class NodeAffinityNestedImpl<N> extends V1VolumeNodeAffinityFluentImpl<V1PersistentVolumeSpecFluent.NodeAffinityNested<N>> implements V1PersistentVolumeSpecFluent.NodeAffinityNested<N>,Nested<N>{
+  class NodeAffinityNestedImpl<N> extends V1VolumeNodeAffinityFluentImpl<V1PersistentVolumeSpecFluentImpl.NodeAffinityNested<N>> implements V1PersistentVolumeSpecFluentImpl.NodeAffinityNested<N>,Nested<N>{
     NodeAffinityNestedImpl(V1VolumeNodeAffinity item) {
       this.builder = new V1VolumeNodeAffinityBuilder(this, item);
     }
@@ -1432,7 +1434,7 @@ import java.lang.Integer;
     }
     
   }
-  class PhotonPersistentDiskNestedImpl<N> extends V1PhotonPersistentDiskVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<N>> implements V1PersistentVolumeSpecFluent.PhotonPersistentDiskNested<N>,Nested<N>{
+  class PhotonPersistentDiskNestedImpl<N> extends V1PhotonPersistentDiskVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.PhotonPersistentDiskNested<N>> implements V1PersistentVolumeSpecFluentImpl.PhotonPersistentDiskNested<N>,Nested<N>{
     PhotonPersistentDiskNestedImpl(V1PhotonPersistentDiskVolumeSource item) {
       this.builder = new V1PhotonPersistentDiskVolumeSourceBuilder(this, item);
     }
@@ -1448,7 +1450,7 @@ import java.lang.Integer;
     }
     
   }
-  class PortworxVolumeNestedImpl<N> extends V1PortworxVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.PortworxVolumeNested<N>> implements V1PersistentVolumeSpecFluent.PortworxVolumeNested<N>,Nested<N>{
+  class PortworxVolumeNestedImpl<N> extends V1PortworxVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.PortworxVolumeNested<N>> implements V1PersistentVolumeSpecFluentImpl.PortworxVolumeNested<N>,Nested<N>{
     PortworxVolumeNestedImpl(V1PortworxVolumeSource item) {
       this.builder = new V1PortworxVolumeSourceBuilder(this, item);
     }
@@ -1464,7 +1466,7 @@ import java.lang.Integer;
     }
     
   }
-  class QuobyteNestedImpl<N> extends V1QuobyteVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.QuobyteNested<N>> implements V1PersistentVolumeSpecFluent.QuobyteNested<N>,Nested<N>{
+  class QuobyteNestedImpl<N> extends V1QuobyteVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.QuobyteNested<N>> implements V1PersistentVolumeSpecFluentImpl.QuobyteNested<N>,Nested<N>{
     QuobyteNestedImpl(V1QuobyteVolumeSource item) {
       this.builder = new V1QuobyteVolumeSourceBuilder(this, item);
     }
@@ -1480,7 +1482,7 @@ import java.lang.Integer;
     }
     
   }
-  class RbdNestedImpl<N> extends V1RBDPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.RbdNested<N>> implements V1PersistentVolumeSpecFluent.RbdNested<N>,Nested<N>{
+  class RbdNestedImpl<N> extends V1RBDPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.RbdNested<N>> implements V1PersistentVolumeSpecFluentImpl.RbdNested<N>,Nested<N>{
     RbdNestedImpl(V1RBDPersistentVolumeSource item) {
       this.builder = new V1RBDPersistentVolumeSourceBuilder(this, item);
     }
@@ -1496,7 +1498,7 @@ import java.lang.Integer;
     }
     
   }
-  class ScaleIONestedImpl<N> extends V1ScaleIOPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.ScaleIONested<N>> implements V1PersistentVolumeSpecFluent.ScaleIONested<N>,Nested<N>{
+  class ScaleIONestedImpl<N> extends V1ScaleIOPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.ScaleIONested<N>> implements V1PersistentVolumeSpecFluentImpl.ScaleIONested<N>,Nested<N>{
     ScaleIONestedImpl(V1ScaleIOPersistentVolumeSource item) {
       this.builder = new V1ScaleIOPersistentVolumeSourceBuilder(this, item);
     }
@@ -1512,7 +1514,7 @@ import java.lang.Integer;
     }
     
   }
-  class StorageosNestedImpl<N> extends V1StorageOSPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.StorageosNested<N>> implements V1PersistentVolumeSpecFluent.StorageosNested<N>,Nested<N>{
+  class StorageosNestedImpl<N> extends V1StorageOSPersistentVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.StorageosNested<N>> implements V1PersistentVolumeSpecFluentImpl.StorageosNested<N>,Nested<N>{
     StorageosNestedImpl(V1StorageOSPersistentVolumeSource item) {
       this.builder = new V1StorageOSPersistentVolumeSourceBuilder(this, item);
     }
@@ -1528,7 +1530,7 @@ import java.lang.Integer;
     }
     
   }
-  class VsphereVolumeNestedImpl<N> extends V1VsphereVirtualDiskVolumeSourceFluentImpl<V1PersistentVolumeSpecFluent.VsphereVolumeNested<N>> implements V1PersistentVolumeSpecFluent.VsphereVolumeNested<N>,Nested<N>{
+  class VsphereVolumeNestedImpl<N> extends V1VsphereVirtualDiskVolumeSourceFluentImpl<V1PersistentVolumeSpecFluentImpl.VsphereVolumeNested<N>> implements V1PersistentVolumeSpecFluentImpl.VsphereVolumeNested<N>,Nested<N>{
     VsphereVolumeNestedImpl(V1VsphereVirtualDiskVolumeSource item) {
       this.builder = new V1VsphereVirtualDiskVolumeSourceBuilder(this, item);
     }

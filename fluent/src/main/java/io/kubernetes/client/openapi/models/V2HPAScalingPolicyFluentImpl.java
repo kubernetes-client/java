@@ -15,12 +15,11 @@ import java.lang.Boolean;
   public V2HPAScalingPolicyFluentImpl() {
   }
   public V2HPAScalingPolicyFluentImpl(V2HPAScalingPolicy instance) {
-    this.withPeriodSeconds(instance.getPeriodSeconds());
-
-    this.withType(instance.getType());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withPeriodSeconds(instance.getPeriodSeconds());
+      this.withType(instance.getType());
+      this.withValue(instance.getValue());
+    }
   }
   private Integer periodSeconds;
   private String type;
@@ -55,10 +54,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2HPAScalingPolicyFluentImpl that = (V2HPAScalingPolicyFluentImpl) o;
-    if (periodSeconds != null ? !periodSeconds.equals(that.periodSeconds) :that.periodSeconds != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
-    if (value != null ? !value.equals(that.value) :that.value != null) return false;
+    if (!java.util.Objects.equals(periodSeconds, that.periodSeconds)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
+    if (!java.util.Objects.equals(value, that.value)) return false;
+
     return true;
   }
   public int hashCode() {

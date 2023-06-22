@@ -20,16 +20,13 @@ public class V2HorizontalPodAutoscalerConditionBuilder extends V2HorizontalPodAu
   }
   public V2HorizontalPodAutoscalerConditionBuilder(V2HorizontalPodAutoscalerConditionFluent<?> fluent,V2HorizontalPodAutoscalerCondition instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLastTransitionTime(instance.getLastTransitionTime());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withReason(instance.getReason());
-
-    fluent.withStatus(instance.getStatus());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withLastTransitionTime(instance.getLastTransitionTime());
+      fluent.withMessage(instance.getMessage());
+      fluent.withReason(instance.getReason());
+      fluent.withStatus(instance.getStatus());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2HorizontalPodAutoscalerConditionBuilder(V2HorizontalPodAutoscalerCondition instance) {
@@ -37,16 +34,13 @@ public class V2HorizontalPodAutoscalerConditionBuilder extends V2HorizontalPodAu
   }
   public V2HorizontalPodAutoscalerConditionBuilder(V2HorizontalPodAutoscalerCondition instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLastTransitionTime(instance.getLastTransitionTime());
-
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLastTransitionTime(instance.getLastTransitionTime());
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2HorizontalPodAutoscalerConditionFluent<?> fluent;

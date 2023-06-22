@@ -20,10 +20,10 @@ public class V1ScaleStatusBuilder extends V1ScaleStatusFluentImpl<V1ScaleStatusB
   }
   public V1ScaleStatusBuilder(V1ScaleStatusFluent<?> fluent,V1ScaleStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withReplicas(instance.getReplicas());
-
-    fluent.withSelector(instance.getSelector());
-
+    if (instance != null) {
+      fluent.withReplicas(instance.getReplicas());
+      fluent.withSelector(instance.getSelector());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ScaleStatusBuilder(V1ScaleStatus instance) {
@@ -31,10 +31,10 @@ public class V1ScaleStatusBuilder extends V1ScaleStatusFluentImpl<V1ScaleStatusB
   }
   public V1ScaleStatusBuilder(V1ScaleStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withReplicas(instance.getReplicas());
-
-    this.withSelector(instance.getSelector());
-
+    if (instance != null) {
+      this.withReplicas(instance.getReplicas());
+      this.withSelector(instance.getSelector());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ScaleStatusFluent<?> fluent;

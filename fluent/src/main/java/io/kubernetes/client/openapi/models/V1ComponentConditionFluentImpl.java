@@ -14,14 +14,12 @@ import java.lang.Boolean;
   public V1ComponentConditionFluentImpl() {
   }
   public V1ComponentConditionFluentImpl(V1ComponentCondition instance) {
-    this.withError(instance.getError());
-
-    this.withMessage(instance.getMessage());
-
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withError(instance.getError());
+      this.withMessage(instance.getMessage());
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
   }
   private String error;
   private String message;
@@ -66,11 +64,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ComponentConditionFluentImpl that = (V1ComponentConditionFluentImpl) o;
-    if (error != null ? !error.equals(that.error) :that.error != null) return false;
-    if (message != null ? !message.equals(that.message) :that.message != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(error, that.error)) return false;
+
+    if (!java.util.Objects.equals(message, that.message)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {

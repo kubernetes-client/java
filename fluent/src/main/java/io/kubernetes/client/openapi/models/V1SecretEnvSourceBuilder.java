@@ -20,10 +20,10 @@ public class V1SecretEnvSourceBuilder extends V1SecretEnvSourceFluentImpl<V1Secr
   }
   public V1SecretEnvSourceBuilder(V1SecretEnvSourceFluent<?> fluent,V1SecretEnvSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withOptional(instance.getOptional());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SecretEnvSourceBuilder(V1SecretEnvSource instance) {
@@ -31,10 +31,10 @@ public class V1SecretEnvSourceBuilder extends V1SecretEnvSourceFluentImpl<V1Secr
   }
   public V1SecretEnvSourceBuilder(V1SecretEnvSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withOptional(instance.getOptional());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SecretEnvSourceFluent<?> fluent;

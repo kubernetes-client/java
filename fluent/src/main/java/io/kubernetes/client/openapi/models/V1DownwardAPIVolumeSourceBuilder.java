@@ -20,10 +20,10 @@ public class V1DownwardAPIVolumeSourceBuilder extends V1DownwardAPIVolumeSourceF
   }
   public V1DownwardAPIVolumeSourceBuilder(V1DownwardAPIVolumeSourceFluent<?> fluent,V1DownwardAPIVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDefaultMode(instance.getDefaultMode());
-
-    fluent.withItems(instance.getItems());
-
+    if (instance != null) {
+      fluent.withDefaultMode(instance.getDefaultMode());
+      fluent.withItems(instance.getItems());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1DownwardAPIVolumeSourceBuilder(V1DownwardAPIVolumeSource instance) {
@@ -31,10 +31,10 @@ public class V1DownwardAPIVolumeSourceBuilder extends V1DownwardAPIVolumeSourceF
   }
   public V1DownwardAPIVolumeSourceBuilder(V1DownwardAPIVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDefaultMode(instance.getDefaultMode());
-
-    this.withItems(instance.getItems());
-
+    if (instance != null) {
+      this.withDefaultMode(instance.getDefaultMode());
+      this.withItems(instance.getItems());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1DownwardAPIVolumeSourceFluent<?> fluent;

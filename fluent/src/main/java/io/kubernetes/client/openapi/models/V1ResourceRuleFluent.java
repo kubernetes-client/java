@@ -1,6 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -13,14 +13,14 @@ import java.util.function.Predicate;
   * Generated
   */
 public interface V1ResourceRuleFluent<A extends V1ResourceRuleFluent<A>> extends Fluent<A>{
-  public A addToApiGroups(Integer index,String item);
-  public A setToApiGroups(Integer index,String item);
+  public A addToApiGroups(int index,String item);
+  public A setToApiGroups(int index,String item);
   public A addToApiGroups(java.lang.String... items);
   public A addAllToApiGroups(Collection<String> items);
   public A removeFromApiGroups(java.lang.String... items);
   public A removeAllFromApiGroups(Collection<String> items);
   public List<String> getApiGroups();
-  public String getApiGroup(Integer index);
+  public String getApiGroup(int index);
   public String getFirstApiGroup();
   public String getLastApiGroup();
   public String getMatchingApiGroup(Predicate<String> predicate);
@@ -28,14 +28,14 @@ public interface V1ResourceRuleFluent<A extends V1ResourceRuleFluent<A>> extends
   public A withApiGroups(List<String> apiGroups);
   public A withApiGroups(java.lang.String... apiGroups);
   public Boolean hasApiGroups();
-  public A addToResourceNames(Integer index,String item);
-  public A setToResourceNames(Integer index,String item);
+  public A addToResourceNames(int index,String item);
+  public A setToResourceNames(int index,String item);
   public A addToResourceNames(java.lang.String... items);
   public A addAllToResourceNames(Collection<String> items);
   public A removeFromResourceNames(java.lang.String... items);
   public A removeAllFromResourceNames(Collection<String> items);
   public List<String> getResourceNames();
-  public String getResourceName(Integer index);
+  public String getResourceName(int index);
   public String getFirstResourceName();
   public String getLastResourceName();
   public String getMatchingResourceName(Predicate<String> predicate);
@@ -43,14 +43,14 @@ public interface V1ResourceRuleFluent<A extends V1ResourceRuleFluent<A>> extends
   public A withResourceNames(List<String> resourceNames);
   public A withResourceNames(java.lang.String... resourceNames);
   public Boolean hasResourceNames();
-  public A addToResources(Integer index,String item);
-  public A setToResources(Integer index,String item);
+  public A addToResources(int index,String item);
+  public A setToResources(int index,String item);
   public A addToResources(java.lang.String... items);
   public A addAllToResources(Collection<String> items);
   public A removeFromResources(java.lang.String... items);
   public A removeAllFromResources(Collection<String> items);
   public List<String> getResources();
-  public String getResource(Integer index);
+  public String getResource(int index);
   public String getFirstResource();
   public String getLastResource();
   public String getMatchingResource(Predicate<String> predicate);
@@ -58,14 +58,14 @@ public interface V1ResourceRuleFluent<A extends V1ResourceRuleFluent<A>> extends
   public A withResources(List<String> resources);
   public A withResources(java.lang.String... resources);
   public Boolean hasResources();
-  public A addToVerbs(Integer index,String item);
-  public A setToVerbs(Integer index,String item);
+  public A addToVerbs(int index,String item);
+  public A setToVerbs(int index,String item);
   public A addToVerbs(java.lang.String... items);
   public A addAllToVerbs(Collection<String> items);
   public A removeFromVerbs(java.lang.String... items);
   public A removeAllFromVerbs(Collection<String> items);
   public List<String> getVerbs();
-  public String getVerb(Integer index);
+  public String getVerb(int index);
   public String getFirstVerb();
   public String getLastVerb();
   public String getMatchingVerb(Predicate<String> predicate);

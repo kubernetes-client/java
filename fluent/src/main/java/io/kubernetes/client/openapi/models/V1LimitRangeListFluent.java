@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1LimitRangeListFluent<A extends V1LimitRangeListFluent<A>> ext
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1LimitRange item);
-  public A setToItems(Integer index,V1LimitRange item);
+  public A addToItems(int index,V1LimitRange item);
+  public A setToItems(int index,V1LimitRange item);
   public A addToItems(io.kubernetes.client.openapi.models.V1LimitRange... items);
   public A addAllToItems(Collection<V1LimitRange> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1LimitRange... items);
@@ -35,7 +35,7 @@ public interface V1LimitRangeListFluent<A extends V1LimitRangeListFluent<A>> ext
   @Deprecated
   public List<V1LimitRange> getItems();
   public List<V1LimitRange> buildItems();
-  public V1LimitRange buildItem(Integer index);
+  public V1LimitRange buildItem(int index);
   public V1LimitRange buildFirstItem();
   public V1LimitRange buildLastItem();
   public V1LimitRange buildMatchingItem(Predicate<V1LimitRangeBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1LimitRangeListFluent<A extends V1LimitRangeListFluent<A>> ext
   public Boolean hasItems();
   public V1LimitRangeListFluent.ItemsNested<A> addNewItem();
   public V1LimitRangeListFluent.ItemsNested<A> addNewItemLike(V1LimitRange item);
-  public V1LimitRangeListFluent.ItemsNested<A> setNewItemLike(Integer index,V1LimitRange item);
-  public V1LimitRangeListFluent.ItemsNested<A> editItem(Integer index);
+  public V1LimitRangeListFluent.ItemsNested<A> setNewItemLike(int index,V1LimitRange item);
+  public V1LimitRangeListFluent.ItemsNested<A> editItem(int index);
   public V1LimitRangeListFluent.ItemsNested<A> editFirstItem();
   public V1LimitRangeListFluent.ItemsNested<A> editLastItem();
   public V1LimitRangeListFluent.ItemsNested<A> editMatchingItem(Predicate<V1LimitRangeBuilder> predicate);

@@ -20,26 +20,18 @@ public class V1PodSecurityContextBuilder extends V1PodSecurityContextFluentImpl<
   }
   public V1PodSecurityContextBuilder(V1PodSecurityContextFluent<?> fluent,V1PodSecurityContext instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsGroup(instance.getFsGroup());
-
-    fluent.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
-
-    fluent.withRunAsGroup(instance.getRunAsGroup());
-
-    fluent.withRunAsNonRoot(instance.getRunAsNonRoot());
-
-    fluent.withRunAsUser(instance.getRunAsUser());
-
-    fluent.withSeLinuxOptions(instance.getSeLinuxOptions());
-
-    fluent.withSeccompProfile(instance.getSeccompProfile());
-
-    fluent.withSupplementalGroups(instance.getSupplementalGroups());
-
-    fluent.withSysctls(instance.getSysctls());
-
-    fluent.withWindowsOptions(instance.getWindowsOptions());
-
+    if (instance != null) {
+      fluent.withFsGroup(instance.getFsGroup());
+      fluent.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
+      fluent.withRunAsGroup(instance.getRunAsGroup());
+      fluent.withRunAsNonRoot(instance.getRunAsNonRoot());
+      fluent.withRunAsUser(instance.getRunAsUser());
+      fluent.withSeLinuxOptions(instance.getSeLinuxOptions());
+      fluent.withSeccompProfile(instance.getSeccompProfile());
+      fluent.withSupplementalGroups(instance.getSupplementalGroups());
+      fluent.withSysctls(instance.getSysctls());
+      fluent.withWindowsOptions(instance.getWindowsOptions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodSecurityContextBuilder(V1PodSecurityContext instance) {
@@ -47,26 +39,18 @@ public class V1PodSecurityContextBuilder extends V1PodSecurityContextFluentImpl<
   }
   public V1PodSecurityContextBuilder(V1PodSecurityContext instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsGroup(instance.getFsGroup());
-
-    this.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
-
-    this.withRunAsGroup(instance.getRunAsGroup());
-
-    this.withRunAsNonRoot(instance.getRunAsNonRoot());
-
-    this.withRunAsUser(instance.getRunAsUser());
-
-    this.withSeLinuxOptions(instance.getSeLinuxOptions());
-
-    this.withSeccompProfile(instance.getSeccompProfile());
-
-    this.withSupplementalGroups(instance.getSupplementalGroups());
-
-    this.withSysctls(instance.getSysctls());
-
-    this.withWindowsOptions(instance.getWindowsOptions());
-
+    if (instance != null) {
+      this.withFsGroup(instance.getFsGroup());
+      this.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
+      this.withRunAsGroup(instance.getRunAsGroup());
+      this.withRunAsNonRoot(instance.getRunAsNonRoot());
+      this.withRunAsUser(instance.getRunAsUser());
+      this.withSeLinuxOptions(instance.getSeLinuxOptions());
+      this.withSeccompProfile(instance.getSeccompProfile());
+      this.withSupplementalGroups(instance.getSupplementalGroups());
+      this.withSysctls(instance.getSysctls());
+      this.withWindowsOptions(instance.getWindowsOptions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodSecurityContextFluent<?> fluent;

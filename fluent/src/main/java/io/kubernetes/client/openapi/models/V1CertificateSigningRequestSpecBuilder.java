@@ -20,22 +20,16 @@ public class V1CertificateSigningRequestSpecBuilder extends V1CertificateSigning
   }
   public V1CertificateSigningRequestSpecBuilder(V1CertificateSigningRequestSpecFluent<?> fluent,V1CertificateSigningRequestSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withExpirationSeconds(instance.getExpirationSeconds());
-
-    fluent.withExtra(instance.getExtra());
-
-    fluent.withGroups(instance.getGroups());
-
-    fluent.withRequest(instance.getRequest());
-
-    fluent.withSignerName(instance.getSignerName());
-
-    fluent.withUid(instance.getUid());
-
-    fluent.withUsages(instance.getUsages());
-
-    fluent.withUsername(instance.getUsername());
-
+    if (instance != null) {
+      fluent.withExpirationSeconds(instance.getExpirationSeconds());
+      fluent.withExtra(instance.getExtra());
+      fluent.withGroups(instance.getGroups());
+      fluent.withRequest(instance.getRequest());
+      fluent.withSignerName(instance.getSignerName());
+      fluent.withUid(instance.getUid());
+      fluent.withUsages(instance.getUsages());
+      fluent.withUsername(instance.getUsername());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CertificateSigningRequestSpecBuilder(V1CertificateSigningRequestSpec instance) {
@@ -43,22 +37,16 @@ public class V1CertificateSigningRequestSpecBuilder extends V1CertificateSigning
   }
   public V1CertificateSigningRequestSpecBuilder(V1CertificateSigningRequestSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withExpirationSeconds(instance.getExpirationSeconds());
-
-    this.withExtra(instance.getExtra());
-
-    this.withGroups(instance.getGroups());
-
-    this.withRequest(instance.getRequest());
-
-    this.withSignerName(instance.getSignerName());
-
-    this.withUid(instance.getUid());
-
-    this.withUsages(instance.getUsages());
-
-    this.withUsername(instance.getUsername());
-
+    if (instance != null) {
+      this.withExpirationSeconds(instance.getExpirationSeconds());
+      this.withExtra(instance.getExtra());
+      this.withGroups(instance.getGroups());
+      this.withRequest(instance.getRequest());
+      this.withSignerName(instance.getSignerName());
+      this.withUid(instance.getUid());
+      this.withUsages(instance.getUsages());
+      this.withUsername(instance.getUsername());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CertificateSigningRequestSpecFluent<?> fluent;

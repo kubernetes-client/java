@@ -24,22 +24,16 @@ import java.lang.Boolean;
   public V1DeploymentStatusFluentImpl() {
   }
   public V1DeploymentStatusFluentImpl(V1DeploymentStatus instance) {
-    this.withAvailableReplicas(instance.getAvailableReplicas());
-
-    this.withCollisionCount(instance.getCollisionCount());
-
-    this.withConditions(instance.getConditions());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
-    this.withReadyReplicas(instance.getReadyReplicas());
-
-    this.withReplicas(instance.getReplicas());
-
-    this.withUnavailableReplicas(instance.getUnavailableReplicas());
-
-    this.withUpdatedReplicas(instance.getUpdatedReplicas());
-
+    if (instance != null) {
+      this.withAvailableReplicas(instance.getAvailableReplicas());
+      this.withCollisionCount(instance.getCollisionCount());
+      this.withConditions(instance.getConditions());
+      this.withObservedGeneration(instance.getObservedGeneration());
+      this.withReadyReplicas(instance.getReadyReplicas());
+      this.withReplicas(instance.getReplicas());
+      this.withUnavailableReplicas(instance.getUnavailableReplicas());
+      this.withUpdatedReplicas(instance.getUpdatedReplicas());
+    }
   }
   private Integer availableReplicas;
   private Integer collisionCount;
@@ -67,16 +61,17 @@ import java.lang.Boolean;
   public Boolean hasCollisionCount() {
     return this.collisionCount != null;
   }
-  public A addToConditions(Integer index,V1DeploymentCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1DeploymentConditionBuilder>();}
-    V1DeploymentConditionBuilder builder = new V1DeploymentConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
-  }
-  public A setToConditions(Integer index,V1DeploymentCondition item) {
+  public A addToConditions(int index,V1DeploymentCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1DeploymentConditionBuilder>();}
     V1DeploymentConditionBuilder builder = new V1DeploymentConditionBuilder(item);
-    if (index < 0 || index >= _visitables.get("conditions").size()) { _visitables.get("conditions").add(builder); } else { _visitables.get("conditions").set(index, builder);}
-    if (index < 0 || index >= conditions.size()) { conditions.add(builder); } else { conditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToConditions(int index,V1DeploymentCondition item) {
+    if (this.conditions == null) {this.conditions = new ArrayList<V1DeploymentConditionBuilder>();}
+    V1DeploymentConditionBuilder builder = new V1DeploymentConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    return (A)this;
   }
   public A addToConditions(io.kubernetes.client.openapi.models.V1DeploymentCondition... items) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1DeploymentConditionBuilder>();}
@@ -117,7 +112,7 @@ import java.lang.Boolean;
   public List<V1DeploymentCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
-  public V1DeploymentCondition buildCondition(Integer index) {
+  public V1DeploymentCondition buildCondition(int index) {
     return this.conditions.get(index).build();
   }
   public V1DeploymentCondition buildFirstCondition() {
@@ -133,39 +128,39 @@ import java.lang.Boolean;
     for (V1DeploymentConditionBuilder item: conditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withConditions(List<V1DeploymentCondition> conditions) {
-    if (this.conditions != null) { _visitables.get("conditions").removeAll(this.conditions);}
+    if (this.conditions != null) { _visitables.get("conditions").clear();}
     if (conditions != null) {this.conditions = new ArrayList(); for (V1DeploymentCondition item : conditions){this.addToConditions(item);}} else { this.conditions = null;} return (A) this;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V1DeploymentCondition... conditions) {
-    if (this.conditions != null) {this.conditions.clear();}
+    if (this.conditions != null) {this.conditions.clear(); _visitables.remove("conditions"); }
     if (conditions != null) {for (V1DeploymentCondition item :conditions){ this.addToConditions(item);}} return (A) this;
   }
   public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
-  public V1DeploymentStatusFluent.ConditionsNested<A> addNewCondition() {
+  public V1DeploymentStatusFluentImpl.ConditionsNested<A> addNewCondition() {
     return new V1DeploymentStatusFluentImpl.ConditionsNestedImpl();
   }
-  public V1DeploymentStatusFluent.ConditionsNested<A> addNewConditionLike(V1DeploymentCondition item) {
+  public V1DeploymentStatusFluentImpl.ConditionsNested<A> addNewConditionLike(V1DeploymentCondition item) {
     return new V1DeploymentStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
-  public V1DeploymentStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1DeploymentCondition item) {
+  public V1DeploymentStatusFluentImpl.ConditionsNested<A> setNewConditionLike(int index,V1DeploymentCondition item) {
     return new V1DeploymentStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
-  public V1DeploymentStatusFluent.ConditionsNested<A> editCondition(Integer index) {
+  public V1DeploymentStatusFluentImpl.ConditionsNested<A> editCondition(int index) {
     if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1DeploymentStatusFluent.ConditionsNested<A> editFirstCondition() {
+  public V1DeploymentStatusFluentImpl.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
-  public V1DeploymentStatusFluent.ConditionsNested<A> editLastCondition() {
+  public V1DeploymentStatusFluentImpl.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1DeploymentStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1DeploymentConditionBuilder> predicate) {
+  public V1DeploymentStatusFluentImpl.ConditionsNested<A> editMatchingCondition(Predicate<V1DeploymentConditionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<conditions.size();i++) { 
     if (predicate.test(conditions.get(i))) {index = i; break;}
@@ -221,15 +216,24 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1DeploymentStatusFluentImpl that = (V1DeploymentStatusFluentImpl) o;
-    if (availableReplicas != null ? !availableReplicas.equals(that.availableReplicas) :that.availableReplicas != null) return false;
-    if (collisionCount != null ? !collisionCount.equals(that.collisionCount) :that.collisionCount != null) return false;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
-    if (observedGeneration != null ? !observedGeneration.equals(that.observedGeneration) :that.observedGeneration != null) return false;
-    if (readyReplicas != null ? !readyReplicas.equals(that.readyReplicas) :that.readyReplicas != null) return false;
-    if (replicas != null ? !replicas.equals(that.replicas) :that.replicas != null) return false;
-    if (unavailableReplicas != null ? !unavailableReplicas.equals(that.unavailableReplicas) :that.unavailableReplicas != null) return false;
-    if (updatedReplicas != null ? !updatedReplicas.equals(that.updatedReplicas) :that.updatedReplicas != null) return false;
+    if (!java.util.Objects.equals(availableReplicas, that.availableReplicas)) return false;
+
+    if (!java.util.Objects.equals(collisionCount, that.collisionCount)) return false;
+
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
+    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
+
+    if (!java.util.Objects.equals(readyReplicas, that.readyReplicas)) return false;
+
+    if (!java.util.Objects.equals(replicas, that.replicas)) return false;
+
+    if (!java.util.Objects.equals(unavailableReplicas, that.unavailableReplicas)) return false;
+
+    if (!java.util.Objects.equals(updatedReplicas, that.updatedReplicas)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -240,7 +244,7 @@ import java.lang.Boolean;
     sb.append("{");
     if (availableReplicas != null) { sb.append("availableReplicas:"); sb.append(availableReplicas + ","); }
     if (collisionCount != null) { sb.append("collisionCount:"); sb.append(collisionCount + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
+    if (conditions != null) { sb.append("conditions:"); sb.append(conditions + ","); }
     if (observedGeneration != null) { sb.append("observedGeneration:"); sb.append(observedGeneration + ","); }
     if (readyReplicas != null) { sb.append("readyReplicas:"); sb.append(readyReplicas + ","); }
     if (replicas != null) { sb.append("replicas:"); sb.append(replicas + ","); }
@@ -249,8 +253,8 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ConditionsNestedImpl<N> extends V1DeploymentConditionFluentImpl<V1DeploymentStatusFluent.ConditionsNested<N>> implements V1DeploymentStatusFluent.ConditionsNested<N>,Nested<N>{
-    ConditionsNestedImpl(Integer index,V1DeploymentCondition item) {
+  class ConditionsNestedImpl<N> extends V1DeploymentConditionFluentImpl<V1DeploymentStatusFluentImpl.ConditionsNested<N>> implements V1DeploymentStatusFluentImpl.ConditionsNested<N>,Nested<N>{
+    ConditionsNestedImpl(int index,V1DeploymentCondition item) {
       this.index = index;
       this.builder = new V1DeploymentConditionBuilder(this, item);
     }
@@ -259,7 +263,7 @@ import java.lang.Boolean;
       this.builder = new V1DeploymentConditionBuilder(this);
     }
     V1DeploymentConditionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1DeploymentStatusFluentImpl.this.setToConditions(index,builder.build());
     }

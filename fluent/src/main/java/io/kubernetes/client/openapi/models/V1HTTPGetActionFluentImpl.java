@@ -7,7 +7,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -24,16 +23,13 @@ import java.lang.Boolean;
   public V1HTTPGetActionFluentImpl() {
   }
   public V1HTTPGetActionFluentImpl(V1HTTPGetAction instance) {
-    this.withHost(instance.getHost());
-
-    this.withHttpHeaders(instance.getHttpHeaders());
-
-    this.withPath(instance.getPath());
-
-    this.withPort(instance.getPort());
-
-    this.withScheme(instance.getScheme());
-
+    if (instance != null) {
+      this.withHost(instance.getHost());
+      this.withHttpHeaders(instance.getHttpHeaders());
+      this.withPath(instance.getPath());
+      this.withPort(instance.getPort());
+      this.withScheme(instance.getScheme());
+    }
   }
   private String host;
   private ArrayList<V1HTTPHeaderBuilder> httpHeaders;
@@ -49,16 +45,17 @@ import java.lang.Boolean;
   public Boolean hasHost() {
     return this.host != null;
   }
-  public A addToHttpHeaders(Integer index,V1HTTPHeader item) {
-    if (this.httpHeaders == null) {this.httpHeaders = new ArrayList<V1HTTPHeaderBuilder>();}
-    V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);_visitables.get("httpHeaders").add(index >= 0 ? index : _visitables.get("httpHeaders").size(), builder);this.httpHeaders.add(index >= 0 ? index : httpHeaders.size(), builder); return (A)this;
-  }
-  public A setToHttpHeaders(Integer index,V1HTTPHeader item) {
+  public A addToHttpHeaders(int index,V1HTTPHeader item) {
     if (this.httpHeaders == null) {this.httpHeaders = new ArrayList<V1HTTPHeaderBuilder>();}
     V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
-    if (index < 0 || index >= _visitables.get("httpHeaders").size()) { _visitables.get("httpHeaders").add(builder); } else { _visitables.get("httpHeaders").set(index, builder);}
-    if (index < 0 || index >= httpHeaders.size()) { httpHeaders.add(builder); } else { httpHeaders.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= httpHeaders.size()) { _visitables.get("httpHeaders").add(builder); httpHeaders.add(builder); } else { _visitables.get("httpHeaders").add(index, builder); httpHeaders.add(index, builder);}
+    return (A)this;
+  }
+  public A setToHttpHeaders(int index,V1HTTPHeader item) {
+    if (this.httpHeaders == null) {this.httpHeaders = new ArrayList<V1HTTPHeaderBuilder>();}
+    V1HTTPHeaderBuilder builder = new V1HTTPHeaderBuilder(item);
+    if (index < 0 || index >= httpHeaders.size()) { _visitables.get("httpHeaders").add(builder); httpHeaders.add(builder); } else { _visitables.get("httpHeaders").set(index, builder); httpHeaders.set(index, builder);}
+    return (A)this;
   }
   public A addToHttpHeaders(io.kubernetes.client.openapi.models.V1HTTPHeader... items) {
     if (this.httpHeaders == null) {this.httpHeaders = new ArrayList<V1HTTPHeaderBuilder>();}
@@ -99,7 +96,7 @@ import java.lang.Boolean;
   public List<V1HTTPHeader> buildHttpHeaders() {
     return httpHeaders != null ? build(httpHeaders) : null;
   }
-  public V1HTTPHeader buildHttpHeader(Integer index) {
+  public V1HTTPHeader buildHttpHeader(int index) {
     return this.httpHeaders.get(index).build();
   }
   public V1HTTPHeader buildFirstHttpHeader() {
@@ -115,39 +112,39 @@ import java.lang.Boolean;
     for (V1HTTPHeaderBuilder item: httpHeaders) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withHttpHeaders(List<V1HTTPHeader> httpHeaders) {
-    if (this.httpHeaders != null) { _visitables.get("httpHeaders").removeAll(this.httpHeaders);}
+    if (this.httpHeaders != null) { _visitables.get("httpHeaders").clear();}
     if (httpHeaders != null) {this.httpHeaders = new ArrayList(); for (V1HTTPHeader item : httpHeaders){this.addToHttpHeaders(item);}} else { this.httpHeaders = null;} return (A) this;
   }
   public A withHttpHeaders(io.kubernetes.client.openapi.models.V1HTTPHeader... httpHeaders) {
-    if (this.httpHeaders != null) {this.httpHeaders.clear();}
+    if (this.httpHeaders != null) {this.httpHeaders.clear(); _visitables.remove("httpHeaders"); }
     if (httpHeaders != null) {for (V1HTTPHeader item :httpHeaders){ this.addToHttpHeaders(item);}} return (A) this;
   }
   public Boolean hasHttpHeaders() {
     return httpHeaders != null && !httpHeaders.isEmpty();
   }
-  public V1HTTPGetActionFluent.HttpHeadersNested<A> addNewHttpHeader() {
+  public V1HTTPGetActionFluentImpl.HttpHeadersNested<A> addNewHttpHeader() {
     return new V1HTTPGetActionFluentImpl.HttpHeadersNestedImpl();
   }
-  public V1HTTPGetActionFluent.HttpHeadersNested<A> addNewHttpHeaderLike(V1HTTPHeader item) {
+  public V1HTTPGetActionFluentImpl.HttpHeadersNested<A> addNewHttpHeaderLike(V1HTTPHeader item) {
     return new V1HTTPGetActionFluentImpl.HttpHeadersNestedImpl(-1, item);
   }
-  public V1HTTPGetActionFluent.HttpHeadersNested<A> setNewHttpHeaderLike(Integer index,V1HTTPHeader item) {
+  public V1HTTPGetActionFluentImpl.HttpHeadersNested<A> setNewHttpHeaderLike(int index,V1HTTPHeader item) {
     return new V1HTTPGetActionFluentImpl.HttpHeadersNestedImpl(index, item);
   }
-  public V1HTTPGetActionFluent.HttpHeadersNested<A> editHttpHeader(Integer index) {
+  public V1HTTPGetActionFluentImpl.HttpHeadersNested<A> editHttpHeader(int index) {
     if (httpHeaders.size() <= index) throw new RuntimeException("Can't edit httpHeaders. Index exceeds size.");
     return setNewHttpHeaderLike(index, buildHttpHeader(index));
   }
-  public V1HTTPGetActionFluent.HttpHeadersNested<A> editFirstHttpHeader() {
+  public V1HTTPGetActionFluentImpl.HttpHeadersNested<A> editFirstHttpHeader() {
     if (httpHeaders.size() == 0) throw new RuntimeException("Can't edit first httpHeaders. The list is empty.");
     return setNewHttpHeaderLike(0, buildHttpHeader(0));
   }
-  public V1HTTPGetActionFluent.HttpHeadersNested<A> editLastHttpHeader() {
+  public V1HTTPGetActionFluentImpl.HttpHeadersNested<A> editLastHttpHeader() {
     int index = httpHeaders.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last httpHeaders. The list is empty.");
     return setNewHttpHeaderLike(index, buildHttpHeader(index));
   }
-  public V1HTTPGetActionFluent.HttpHeadersNested<A> editMatchingHttpHeader(Predicate<V1HTTPHeaderBuilder> predicate) {
+  public V1HTTPGetActionFluentImpl.HttpHeadersNested<A> editMatchingHttpHeader(Predicate<V1HTTPHeaderBuilder> predicate) {
     int index = -1;
     for (int i=0;i<httpHeaders.size();i++) { 
     if (predicate.test(httpHeaders.get(i))) {index = i; break;}
@@ -191,12 +188,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1HTTPGetActionFluentImpl that = (V1HTTPGetActionFluentImpl) o;
-    if (host != null ? !host.equals(that.host) :that.host != null) return false;
-    if (httpHeaders != null ? !httpHeaders.equals(that.httpHeaders) :that.httpHeaders != null) return false;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
-    if (port != null ? !port.equals(that.port) :that.port != null) return false;
-    if (scheme != null ? !scheme.equals(that.scheme) :that.scheme != null) return false;
+    if (!java.util.Objects.equals(host, that.host)) return false;
+
+    if (!java.util.Objects.equals(httpHeaders, that.httpHeaders)) return false;
+
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
+    if (!java.util.Objects.equals(port, that.port)) return false;
+
+    if (!java.util.Objects.equals(scheme, that.scheme)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -206,15 +209,15 @@ import java.lang.Boolean;
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (host != null) { sb.append("host:"); sb.append(host + ","); }
-    if (httpHeaders != null && !httpHeaders.isEmpty()) { sb.append("httpHeaders:"); sb.append(httpHeaders + ","); }
+    if (httpHeaders != null) { sb.append("httpHeaders:"); sb.append(httpHeaders + ","); }
     if (path != null) { sb.append("path:"); sb.append(path + ","); }
     if (port != null) { sb.append("port:"); sb.append(port + ","); }
     if (scheme != null) { sb.append("scheme:"); sb.append(scheme); }
     sb.append("}");
     return sb.toString();
   }
-  class HttpHeadersNestedImpl<N> extends V1HTTPHeaderFluentImpl<V1HTTPGetActionFluent.HttpHeadersNested<N>> implements V1HTTPGetActionFluent.HttpHeadersNested<N>,Nested<N>{
-    HttpHeadersNestedImpl(Integer index,V1HTTPHeader item) {
+  class HttpHeadersNestedImpl<N> extends V1HTTPHeaderFluentImpl<V1HTTPGetActionFluentImpl.HttpHeadersNested<N>> implements V1HTTPGetActionFluentImpl.HttpHeadersNested<N>,Nested<N>{
+    HttpHeadersNestedImpl(int index,V1HTTPHeader item) {
       this.index = index;
       this.builder = new V1HTTPHeaderBuilder(this, item);
     }
@@ -223,7 +226,7 @@ import java.lang.Boolean;
       this.builder = new V1HTTPHeaderBuilder(this);
     }
     V1HTTPHeaderBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1HTTPGetActionFluentImpl.this.setToHttpHeaders(index,builder.build());
     }

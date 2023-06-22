@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1ExternalDocumentationFluentImpl() {
   }
   public V1ExternalDocumentationFluentImpl(V1ExternalDocumentation instance) {
-    this.withDescription(instance.getDescription());
-
-    this.withUrl(instance.getUrl());
-
+    if (instance != null) {
+      this.withDescription(instance.getDescription());
+      this.withUrl(instance.getUrl());
+    }
   }
   private String description;
   private String url;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ExternalDocumentationFluentImpl that = (V1ExternalDocumentationFluentImpl) o;
-    if (description != null ? !description.equals(that.description) :that.description != null) return false;
-    if (url != null ? !url.equals(that.url) :that.url != null) return false;
+    if (!java.util.Objects.equals(description, that.description)) return false;
+
+    if (!java.util.Objects.equals(url, that.url)) return false;
+
     return true;
   }
   public int hashCode() {

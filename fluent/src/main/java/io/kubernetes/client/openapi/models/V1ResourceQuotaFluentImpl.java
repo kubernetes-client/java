@@ -16,16 +16,13 @@ import java.lang.Object;
   public V1ResourceQuotaFluentImpl() {
   }
   public V1ResourceQuotaFluentImpl(V1ResourceQuota instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1ResourceQuotaFluent.MetadataNested<A> withNewMetadata() {
+  public V1ResourceQuotaFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1ResourceQuotaFluentImpl.MetadataNestedImpl();
   }
-  public V1ResourceQuotaFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1ResourceQuotaFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1ResourceQuotaFluentImpl.MetadataNestedImpl(item);
   }
-  public V1ResourceQuotaFluent.MetadataNested<A> editMetadata() {
+  public V1ResourceQuotaFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1ResourceQuotaFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1ResourceQuotaFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1ResourceQuotaFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1ResourceQuotaFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1ResourceQuotaFluent.SpecNested<A> withNewSpec() {
+  public V1ResourceQuotaFluentImpl.SpecNested<A> withNewSpec() {
     return new V1ResourceQuotaFluentImpl.SpecNestedImpl();
   }
-  public V1ResourceQuotaFluent.SpecNested<A> withNewSpecLike(V1ResourceQuotaSpec item) {
+  public V1ResourceQuotaFluentImpl.SpecNested<A> withNewSpecLike(V1ResourceQuotaSpec item) {
     return new V1ResourceQuotaFluentImpl.SpecNestedImpl(item);
   }
-  public V1ResourceQuotaFluent.SpecNested<A> editSpec() {
+  public V1ResourceQuotaFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1ResourceQuotaFluent.SpecNested<A> editOrNewSpec() {
+  public V1ResourceQuotaFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1ResourceQuotaSpecBuilder().build());
   }
-  public V1ResourceQuotaFluent.SpecNested<A> editOrNewSpecLike(V1ResourceQuotaSpec item) {
+  public V1ResourceQuotaFluentImpl.SpecNested<A> editOrNewSpecLike(V1ResourceQuotaSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1ResourceQuotaFluent.StatusNested<A> withNewStatus() {
+  public V1ResourceQuotaFluentImpl.StatusNested<A> withNewStatus() {
     return new V1ResourceQuotaFluentImpl.StatusNestedImpl();
   }
-  public V1ResourceQuotaFluent.StatusNested<A> withNewStatusLike(V1ResourceQuotaStatus item) {
+  public V1ResourceQuotaFluentImpl.StatusNested<A> withNewStatusLike(V1ResourceQuotaStatus item) {
     return new V1ResourceQuotaFluentImpl.StatusNestedImpl(item);
   }
-  public V1ResourceQuotaFluent.StatusNested<A> editStatus() {
+  public V1ResourceQuotaFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1ResourceQuotaFluent.StatusNested<A> editOrNewStatus() {
+  public V1ResourceQuotaFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1ResourceQuotaStatusBuilder().build());
   }
-  public V1ResourceQuotaFluent.StatusNested<A> editOrNewStatusLike(V1ResourceQuotaStatus item) {
+  public V1ResourceQuotaFluentImpl.StatusNested<A> editOrNewStatusLike(V1ResourceQuotaStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ResourceQuotaFluentImpl that = (V1ResourceQuotaFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ResourceQuotaFluent.MetadataNested<N>> implements V1ResourceQuotaFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ResourceQuotaFluentImpl.MetadataNested<N>> implements V1ResourceQuotaFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1ResourceQuotaSpecFluentImpl<V1ResourceQuotaFluent.SpecNested<N>> implements V1ResourceQuotaFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1ResourceQuotaSpecFluentImpl<V1ResourceQuotaFluentImpl.SpecNested<N>> implements V1ResourceQuotaFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1ResourceQuotaSpec item) {
       this.builder = new V1ResourceQuotaSpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1ResourceQuotaStatusFluentImpl<V1ResourceQuotaFluent.StatusNested<N>> implements V1ResourceQuotaFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1ResourceQuotaStatusFluentImpl<V1ResourceQuotaFluentImpl.StatusNested<N>> implements V1ResourceQuotaFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1ResourceQuotaStatus item) {
       this.builder = new V1ResourceQuotaStatusBuilder(this, item);
     }

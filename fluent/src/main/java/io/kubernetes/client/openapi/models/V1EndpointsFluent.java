@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -38,8 +38,8 @@ public interface V1EndpointsFluent<A extends V1EndpointsFluent<A>> extends Fluen
   public V1EndpointsFluent.MetadataNested<A> editMetadata();
   public V1EndpointsFluent.MetadataNested<A> editOrNewMetadata();
   public V1EndpointsFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
-  public A addToSubsets(Integer index,V1EndpointSubset item);
-  public A setToSubsets(Integer index,V1EndpointSubset item);
+  public A addToSubsets(int index,V1EndpointSubset item);
+  public A setToSubsets(int index,V1EndpointSubset item);
   public A addToSubsets(io.kubernetes.client.openapi.models.V1EndpointSubset... items);
   public A addAllToSubsets(Collection<V1EndpointSubset> items);
   public A removeFromSubsets(io.kubernetes.client.openapi.models.V1EndpointSubset... items);
@@ -53,7 +53,7 @@ public interface V1EndpointsFluent<A extends V1EndpointsFluent<A>> extends Fluen
   @Deprecated
   public List<V1EndpointSubset> getSubsets();
   public List<V1EndpointSubset> buildSubsets();
-  public V1EndpointSubset buildSubset(Integer index);
+  public V1EndpointSubset buildSubset(int index);
   public V1EndpointSubset buildFirstSubset();
   public V1EndpointSubset buildLastSubset();
   public V1EndpointSubset buildMatchingSubset(Predicate<V1EndpointSubsetBuilder> predicate);
@@ -63,8 +63,8 @@ public interface V1EndpointsFluent<A extends V1EndpointsFluent<A>> extends Fluen
   public Boolean hasSubsets();
   public V1EndpointsFluent.SubsetsNested<A> addNewSubset();
   public V1EndpointsFluent.SubsetsNested<A> addNewSubsetLike(V1EndpointSubset item);
-  public V1EndpointsFluent.SubsetsNested<A> setNewSubsetLike(Integer index,V1EndpointSubset item);
-  public V1EndpointsFluent.SubsetsNested<A> editSubset(Integer index);
+  public V1EndpointsFluent.SubsetsNested<A> setNewSubsetLike(int index,V1EndpointSubset item);
+  public V1EndpointsFluent.SubsetsNested<A> editSubset(int index);
   public V1EndpointsFluent.SubsetsNested<A> editFirstSubset();
   public V1EndpointsFluent.SubsetsNested<A> editLastSubset();
   public V1EndpointsFluent.SubsetsNested<A> editMatchingSubset(Predicate<V1EndpointSubsetBuilder> predicate);

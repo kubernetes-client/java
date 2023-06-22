@@ -20,18 +20,14 @@ public class V1CustomResourceColumnDefinitionBuilder extends V1CustomResourceCol
   }
   public V1CustomResourceColumnDefinitionBuilder(V1CustomResourceColumnDefinitionFluent<?> fluent,V1CustomResourceColumnDefinition instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDescription(instance.getDescription());
-
-    fluent.withFormat(instance.getFormat());
-
-    fluent.withJsonPath(instance.getJsonPath());
-
-    fluent.withName(instance.getName());
-
-    fluent.withPriority(instance.getPriority());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withDescription(instance.getDescription());
+      fluent.withFormat(instance.getFormat());
+      fluent.withJsonPath(instance.getJsonPath());
+      fluent.withName(instance.getName());
+      fluent.withPriority(instance.getPriority());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CustomResourceColumnDefinitionBuilder(V1CustomResourceColumnDefinition instance) {
@@ -39,18 +35,14 @@ public class V1CustomResourceColumnDefinitionBuilder extends V1CustomResourceCol
   }
   public V1CustomResourceColumnDefinitionBuilder(V1CustomResourceColumnDefinition instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDescription(instance.getDescription());
-
-    this.withFormat(instance.getFormat());
-
-    this.withJsonPath(instance.getJsonPath());
-
-    this.withName(instance.getName());
-
-    this.withPriority(instance.getPriority());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withDescription(instance.getDescription());
+      this.withFormat(instance.getFormat());
+      this.withJsonPath(instance.getJsonPath());
+      this.withName(instance.getName());
+      this.withPriority(instance.getPriority());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CustomResourceColumnDefinitionFluent<?> fluent;

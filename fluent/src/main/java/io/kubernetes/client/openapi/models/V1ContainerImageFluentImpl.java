@@ -4,7 +4,6 @@ import java.lang.SuppressWarnings;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
 import java.util.Collection;
@@ -20,19 +19,19 @@ import java.lang.Boolean;
   public V1ContainerImageFluentImpl() {
   }
   public V1ContainerImageFluentImpl(V1ContainerImage instance) {
-    this.withNames(instance.getNames());
-
-    this.withSizeBytes(instance.getSizeBytes());
-
+    if (instance != null) {
+      this.withNames(instance.getNames());
+      this.withSizeBytes(instance.getSizeBytes());
+    }
   }
   private List<String> names;
   private Long sizeBytes;
-  public A addToNames(Integer index,String item) {
+  public A addToNames(int index,String item) {
     if (this.names == null) {this.names = new ArrayList<String>();}
     this.names.add(index, item);
     return (A)this;
   }
-  public A setToNames(Integer index,String item) {
+  public A setToNames(int index,String item) {
     if (this.names == null) {this.names = new ArrayList<String>();}
     this.names.set(index, item); return (A)this;
   }
@@ -53,7 +52,7 @@ import java.lang.Boolean;
   public List<String> getNames() {
     return this.names;
   }
-  public String getName(Integer index) {
+  public String getName(int index) {
     return this.names.get(index);
   }
   public String getFirstName() {
@@ -72,7 +71,7 @@ import java.lang.Boolean;
     if (names != null) {this.names = new ArrayList(); for (String item : names){this.addToNames(item);}} else { this.names = null;} return (A) this;
   }
   public A withNames(java.lang.String... names) {
-    if (this.names != null) {this.names.clear();}
+    if (this.names != null) {this.names.clear(); _visitables.remove("names"); }
     if (names != null) {for (String item :names){ this.addToNames(item);}} return (A) this;
   }
   public Boolean hasNames() {
@@ -90,9 +89,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ContainerImageFluentImpl that = (V1ContainerImageFluentImpl) o;
-    if (names != null ? !names.equals(that.names) :that.names != null) return false;
-    if (sizeBytes != null ? !sizeBytes.equals(that.sizeBytes) :that.sizeBytes != null) return false;
+    if (!java.util.Objects.equals(names, that.names)) return false;
+
+    if (!java.util.Objects.equals(sizeBytes, that.sizeBytes)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -20,10 +20,10 @@ public class V1HostAliasBuilder extends V1HostAliasFluentImpl<V1HostAliasBuilder
   }
   public V1HostAliasBuilder(V1HostAliasFluent<?> fluent,V1HostAlias instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withHostnames(instance.getHostnames());
-
-    fluent.withIp(instance.getIp());
-
+    if (instance != null) {
+      fluent.withHostnames(instance.getHostnames());
+      fluent.withIp(instance.getIp());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1HostAliasBuilder(V1HostAlias instance) {
@@ -31,10 +31,10 @@ public class V1HostAliasBuilder extends V1HostAliasFluentImpl<V1HostAliasBuilder
   }
   public V1HostAliasBuilder(V1HostAlias instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withHostnames(instance.getHostnames());
-
-    this.withIp(instance.getIp());
-
+    if (instance != null) {
+      this.withHostnames(instance.getHostnames());
+      this.withIp(instance.getIp());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1HostAliasFluent<?> fluent;

@@ -15,14 +15,12 @@ import java.lang.Boolean;
   public V1GCEPersistentDiskVolumeSourceFluentImpl() {
   }
   public V1GCEPersistentDiskVolumeSourceFluentImpl(V1GCEPersistentDiskVolumeSource instance) {
-    this.withFsType(instance.getFsType());
-
-    this.withPartition(instance.getPartition());
-
-    this.withPdName(instance.getPdName());
-
-    this.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withPartition(instance.getPartition());
+      this.withPdName(instance.getPdName());
+      this.withReadOnly(instance.getReadOnly());
+    }
   }
   private String fsType;
   private Integer partition;
@@ -67,11 +65,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1GCEPersistentDiskVolumeSourceFluentImpl that = (V1GCEPersistentDiskVolumeSourceFluentImpl) o;
-    if (fsType != null ? !fsType.equals(that.fsType) :that.fsType != null) return false;
-    if (partition != null ? !partition.equals(that.partition) :that.partition != null) return false;
-    if (pdName != null ? !pdName.equals(that.pdName) :that.pdName != null) return false;
-    if (readOnly != null ? !readOnly.equals(that.readOnly) :that.readOnly != null) return false;
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+
+    if (!java.util.Objects.equals(partition, that.partition)) return false;
+
+    if (!java.util.Objects.equals(pdName, that.pdName)) return false;
+
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+
     return true;
   }
   public int hashCode() {

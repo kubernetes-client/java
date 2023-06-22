@@ -20,10 +20,10 @@ public class V1CertificateSigningRequestStatusBuilder extends V1CertificateSigni
   }
   public V1CertificateSigningRequestStatusBuilder(V1CertificateSigningRequestStatusFluent<?> fluent,V1CertificateSigningRequestStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCertificate(instance.getCertificate());
-
-    fluent.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      fluent.withCertificate(instance.getCertificate());
+      fluent.withConditions(instance.getConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CertificateSigningRequestStatusBuilder(V1CertificateSigningRequestStatus instance) {
@@ -31,10 +31,10 @@ public class V1CertificateSigningRequestStatusBuilder extends V1CertificateSigni
   }
   public V1CertificateSigningRequestStatusBuilder(V1CertificateSigningRequestStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCertificate(instance.getCertificate());
-
-    this.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      this.withCertificate(instance.getCertificate());
+      this.withConditions(instance.getConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CertificateSigningRequestStatusFluent<?> fluent;

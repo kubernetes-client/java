@@ -20,10 +20,10 @@ public class V1CapabilitiesBuilder extends V1CapabilitiesFluentImpl<V1Capabiliti
   }
   public V1CapabilitiesBuilder(V1CapabilitiesFluent<?> fluent,V1Capabilities instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAdd(instance.getAdd());
-
-    fluent.withDrop(instance.getDrop());
-
+    if (instance != null) {
+      fluent.withAdd(instance.getAdd());
+      fluent.withDrop(instance.getDrop());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CapabilitiesBuilder(V1Capabilities instance) {
@@ -31,10 +31,10 @@ public class V1CapabilitiesBuilder extends V1CapabilitiesFluentImpl<V1Capabiliti
   }
   public V1CapabilitiesBuilder(V1Capabilities instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAdd(instance.getAdd());
-
-    this.withDrop(instance.getDrop());
-
+    if (instance != null) {
+      this.withAdd(instance.getAdd());
+      this.withDrop(instance.getDrop());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CapabilitiesFluent<?> fluent;

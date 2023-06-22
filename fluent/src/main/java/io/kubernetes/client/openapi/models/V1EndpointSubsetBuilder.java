@@ -20,12 +20,11 @@ public class V1EndpointSubsetBuilder extends V1EndpointSubsetFluentImpl<V1Endpoi
   }
   public V1EndpointSubsetBuilder(V1EndpointSubsetFluent<?> fluent,V1EndpointSubset instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAddresses(instance.getAddresses());
-
-    fluent.withNotReadyAddresses(instance.getNotReadyAddresses());
-
-    fluent.withPorts(instance.getPorts());
-
+    if (instance != null) {
+      fluent.withAddresses(instance.getAddresses());
+      fluent.withNotReadyAddresses(instance.getNotReadyAddresses());
+      fluent.withPorts(instance.getPorts());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EndpointSubsetBuilder(V1EndpointSubset instance) {
@@ -33,12 +32,11 @@ public class V1EndpointSubsetBuilder extends V1EndpointSubsetFluentImpl<V1Endpoi
   }
   public V1EndpointSubsetBuilder(V1EndpointSubset instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAddresses(instance.getAddresses());
-
-    this.withNotReadyAddresses(instance.getNotReadyAddresses());
-
-    this.withPorts(instance.getPorts());
-
+    if (instance != null) {
+      this.withAddresses(instance.getAddresses());
+      this.withNotReadyAddresses(instance.getNotReadyAddresses());
+      this.withPorts(instance.getPorts());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EndpointSubsetFluent<?> fluent;

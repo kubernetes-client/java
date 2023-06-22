@@ -18,28 +18,19 @@ import java.lang.Object;
   public V1JobSpecFluentImpl() {
   }
   public V1JobSpecFluentImpl(V1JobSpec instance) {
-    this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
-
-    this.withBackoffLimit(instance.getBackoffLimit());
-
-    this.withCompletionMode(instance.getCompletionMode());
-
-    this.withCompletions(instance.getCompletions());
-
-    this.withManualSelector(instance.getManualSelector());
-
-    this.withParallelism(instance.getParallelism());
-
-    this.withPodFailurePolicy(instance.getPodFailurePolicy());
-
-    this.withSelector(instance.getSelector());
-
-    this.withSuspend(instance.getSuspend());
-
-    this.withTemplate(instance.getTemplate());
-
-    this.withTtlSecondsAfterFinished(instance.getTtlSecondsAfterFinished());
-
+    if (instance != null) {
+      this.withActiveDeadlineSeconds(instance.getActiveDeadlineSeconds());
+      this.withBackoffLimit(instance.getBackoffLimit());
+      this.withCompletionMode(instance.getCompletionMode());
+      this.withCompletions(instance.getCompletions());
+      this.withManualSelector(instance.getManualSelector());
+      this.withParallelism(instance.getParallelism());
+      this.withPodFailurePolicy(instance.getPodFailurePolicy());
+      this.withSelector(instance.getSelector());
+      this.withSuspend(instance.getSuspend());
+      this.withTemplate(instance.getTemplate());
+      this.withTtlSecondsAfterFinished(instance.getTtlSecondsAfterFinished());
+    }
   }
   private Long activeDeadlineSeconds;
   private Integer backoffLimit;
@@ -125,19 +116,19 @@ import java.lang.Object;
   public Boolean hasPodFailurePolicy() {
     return this.podFailurePolicy != null;
   }
-  public V1JobSpecFluent.PodFailurePolicyNested<A> withNewPodFailurePolicy() {
+  public V1JobSpecFluentImpl.PodFailurePolicyNested<A> withNewPodFailurePolicy() {
     return new V1JobSpecFluentImpl.PodFailurePolicyNestedImpl();
   }
-  public V1JobSpecFluent.PodFailurePolicyNested<A> withNewPodFailurePolicyLike(V1PodFailurePolicy item) {
+  public V1JobSpecFluentImpl.PodFailurePolicyNested<A> withNewPodFailurePolicyLike(V1PodFailurePolicy item) {
     return new V1JobSpecFluentImpl.PodFailurePolicyNestedImpl(item);
   }
-  public V1JobSpecFluent.PodFailurePolicyNested<A> editPodFailurePolicy() {
+  public V1JobSpecFluentImpl.PodFailurePolicyNested<A> editPodFailurePolicy() {
     return withNewPodFailurePolicyLike(getPodFailurePolicy());
   }
-  public V1JobSpecFluent.PodFailurePolicyNested<A> editOrNewPodFailurePolicy() {
+  public V1JobSpecFluentImpl.PodFailurePolicyNested<A> editOrNewPodFailurePolicy() {
     return withNewPodFailurePolicyLike(getPodFailurePolicy() != null ? getPodFailurePolicy(): new V1PodFailurePolicyBuilder().build());
   }
-  public V1JobSpecFluent.PodFailurePolicyNested<A> editOrNewPodFailurePolicyLike(V1PodFailurePolicy item) {
+  public V1JobSpecFluentImpl.PodFailurePolicyNested<A> editOrNewPodFailurePolicyLike(V1PodFailurePolicy item) {
     return withNewPodFailurePolicyLike(getPodFailurePolicy() != null ? getPodFailurePolicy(): item);
   }
   
@@ -159,19 +150,19 @@ import java.lang.Object;
   public Boolean hasSelector() {
     return this.selector != null;
   }
-  public V1JobSpecFluent.SelectorNested<A> withNewSelector() {
+  public V1JobSpecFluentImpl.SelectorNested<A> withNewSelector() {
     return new V1JobSpecFluentImpl.SelectorNestedImpl();
   }
-  public V1JobSpecFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
+  public V1JobSpecFluentImpl.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
     return new V1JobSpecFluentImpl.SelectorNestedImpl(item);
   }
-  public V1JobSpecFluent.SelectorNested<A> editSelector() {
+  public V1JobSpecFluentImpl.SelectorNested<A> editSelector() {
     return withNewSelectorLike(getSelector());
   }
-  public V1JobSpecFluent.SelectorNested<A> editOrNewSelector() {
+  public V1JobSpecFluentImpl.SelectorNested<A> editOrNewSelector() {
     return withNewSelectorLike(getSelector() != null ? getSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1JobSpecFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
+  public V1JobSpecFluentImpl.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
     return withNewSelectorLike(getSelector() != null ? getSelector(): item);
   }
   public Boolean getSuspend() {
@@ -202,19 +193,19 @@ import java.lang.Object;
   public Boolean hasTemplate() {
     return this.template != null;
   }
-  public V1JobSpecFluent.TemplateNested<A> withNewTemplate() {
+  public V1JobSpecFluentImpl.TemplateNested<A> withNewTemplate() {
     return new V1JobSpecFluentImpl.TemplateNestedImpl();
   }
-  public V1JobSpecFluent.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
+  public V1JobSpecFluentImpl.TemplateNested<A> withNewTemplateLike(V1PodTemplateSpec item) {
     return new V1JobSpecFluentImpl.TemplateNestedImpl(item);
   }
-  public V1JobSpecFluent.TemplateNested<A> editTemplate() {
+  public V1JobSpecFluentImpl.TemplateNested<A> editTemplate() {
     return withNewTemplateLike(getTemplate());
   }
-  public V1JobSpecFluent.TemplateNested<A> editOrNewTemplate() {
+  public V1JobSpecFluentImpl.TemplateNested<A> editOrNewTemplate() {
     return withNewTemplateLike(getTemplate() != null ? getTemplate(): new V1PodTemplateSpecBuilder().build());
   }
-  public V1JobSpecFluent.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
+  public V1JobSpecFluentImpl.TemplateNested<A> editOrNewTemplateLike(V1PodTemplateSpec item) {
     return withNewTemplateLike(getTemplate() != null ? getTemplate(): item);
   }
   public Integer getTtlSecondsAfterFinished() {
@@ -229,18 +220,30 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1JobSpecFluentImpl that = (V1JobSpecFluentImpl) o;
-    if (activeDeadlineSeconds != null ? !activeDeadlineSeconds.equals(that.activeDeadlineSeconds) :that.activeDeadlineSeconds != null) return false;
-    if (backoffLimit != null ? !backoffLimit.equals(that.backoffLimit) :that.backoffLimit != null) return false;
-    if (completionMode != null ? !completionMode.equals(that.completionMode) :that.completionMode != null) return false;
-    if (completions != null ? !completions.equals(that.completions) :that.completions != null) return false;
-    if (manualSelector != null ? !manualSelector.equals(that.manualSelector) :that.manualSelector != null) return false;
-    if (parallelism != null ? !parallelism.equals(that.parallelism) :that.parallelism != null) return false;
-    if (podFailurePolicy != null ? !podFailurePolicy.equals(that.podFailurePolicy) :that.podFailurePolicy != null) return false;
-    if (selector != null ? !selector.equals(that.selector) :that.selector != null) return false;
-    if (suspend != null ? !suspend.equals(that.suspend) :that.suspend != null) return false;
-    if (template != null ? !template.equals(that.template) :that.template != null) return false;
-    if (ttlSecondsAfterFinished != null ? !ttlSecondsAfterFinished.equals(that.ttlSecondsAfterFinished) :that.ttlSecondsAfterFinished != null) return false;
+    if (!java.util.Objects.equals(activeDeadlineSeconds, that.activeDeadlineSeconds)) return false;
+
+    if (!java.util.Objects.equals(backoffLimit, that.backoffLimit)) return false;
+
+    if (!java.util.Objects.equals(completionMode, that.completionMode)) return false;
+
+    if (!java.util.Objects.equals(completions, that.completions)) return false;
+
+    if (!java.util.Objects.equals(manualSelector, that.manualSelector)) return false;
+
+    if (!java.util.Objects.equals(parallelism, that.parallelism)) return false;
+
+    if (!java.util.Objects.equals(podFailurePolicy, that.podFailurePolicy)) return false;
+
+    if (!java.util.Objects.equals(selector, that.selector)) return false;
+
+    if (!java.util.Objects.equals(suspend, that.suspend)) return false;
+
+    if (!java.util.Objects.equals(template, that.template)) return false;
+
+    if (!java.util.Objects.equals(ttlSecondsAfterFinished, that.ttlSecondsAfterFinished)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -269,7 +272,7 @@ import java.lang.Object;
   public A withSuspend() {
     return withSuspend(true);
   }
-  class PodFailurePolicyNestedImpl<N> extends V1PodFailurePolicyFluentImpl<V1JobSpecFluent.PodFailurePolicyNested<N>> implements V1JobSpecFluent.PodFailurePolicyNested<N>,Nested<N>{
+  class PodFailurePolicyNestedImpl<N> extends V1PodFailurePolicyFluentImpl<V1JobSpecFluentImpl.PodFailurePolicyNested<N>> implements V1JobSpecFluentImpl.PodFailurePolicyNested<N>,Nested<N>{
     PodFailurePolicyNestedImpl(V1PodFailurePolicy item) {
       this.builder = new V1PodFailurePolicyBuilder(this, item);
     }
@@ -285,7 +288,7 @@ import java.lang.Object;
     }
     
   }
-  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1JobSpecFluent.SelectorNested<N>> implements V1JobSpecFluent.SelectorNested<N>,Nested<N>{
+  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1JobSpecFluentImpl.SelectorNested<N>> implements V1JobSpecFluentImpl.SelectorNested<N>,Nested<N>{
     SelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
@@ -301,7 +304,7 @@ import java.lang.Object;
     }
     
   }
-  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1JobSpecFluent.TemplateNested<N>> implements V1JobSpecFluent.TemplateNested<N>,Nested<N>{
+  class TemplateNestedImpl<N> extends V1PodTemplateSpecFluentImpl<V1JobSpecFluentImpl.TemplateNested<N>> implements V1JobSpecFluentImpl.TemplateNested<N>,Nested<N>{
     TemplateNestedImpl(V1PodTemplateSpec item) {
       this.builder = new V1PodTemplateSpecBuilder(this, item);
     }

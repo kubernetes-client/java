@@ -20,10 +20,10 @@ public class V1ConfigMapEnvSourceBuilder extends V1ConfigMapEnvSourceFluentImpl<
   }
   public V1ConfigMapEnvSourceBuilder(V1ConfigMapEnvSourceFluent<?> fluent,V1ConfigMapEnvSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withOptional(instance.getOptional());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ConfigMapEnvSourceBuilder(V1ConfigMapEnvSource instance) {
@@ -31,10 +31,10 @@ public class V1ConfigMapEnvSourceBuilder extends V1ConfigMapEnvSourceFluentImpl<
   }
   public V1ConfigMapEnvSourceBuilder(V1ConfigMapEnvSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withOptional(instance.getOptional());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ConfigMapEnvSourceFluent<?> fluent;

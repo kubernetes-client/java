@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Collection;
 import java.util.List;
@@ -24,14 +24,14 @@ public interface V1RBDPersistentVolumeSourceFluent<A extends V1RBDPersistentVolu
   public String getKeyring();
   public A withKeyring(String keyring);
   public Boolean hasKeyring();
-  public A addToMonitors(Integer index,String item);
-  public A setToMonitors(Integer index,String item);
+  public A addToMonitors(int index,String item);
+  public A setToMonitors(int index,String item);
   public A addToMonitors(java.lang.String... items);
   public A addAllToMonitors(Collection<String> items);
   public A removeFromMonitors(java.lang.String... items);
   public A removeAllFromMonitors(Collection<String> items);
   public List<String> getMonitors();
-  public String getMonitor(Integer index);
+  public String getMonitor(int index);
   public String getFirstMonitor();
   public String getLastMonitor();
   public String getMatchingMonitor(Predicate<String> predicate);

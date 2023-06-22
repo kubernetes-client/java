@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1WatchEventFluentImpl() {
   }
   public V1WatchEventFluentImpl(V1WatchEvent instance) {
-    this.withObject(instance.getObject());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withObject(instance.getObject());
+      this.withType(instance.getType());
+    }
   }
   private Object _object;
   private String type;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1WatchEventFluentImpl that = (V1WatchEventFluentImpl) o;
-    if (_object != null ? !_object.equals(that._object) :that._object != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(_object, that._object)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {

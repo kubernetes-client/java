@@ -20,10 +20,10 @@ public class V1ResourceQuotaStatusBuilder extends V1ResourceQuotaStatusFluentImp
   }
   public V1ResourceQuotaStatusBuilder(V1ResourceQuotaStatusFluent<?> fluent,V1ResourceQuotaStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withHard(instance.getHard());
-
-    fluent.withUsed(instance.getUsed());
-
+    if (instance != null) {
+      fluent.withHard(instance.getHard());
+      fluent.withUsed(instance.getUsed());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ResourceQuotaStatusBuilder(V1ResourceQuotaStatus instance) {
@@ -31,10 +31,10 @@ public class V1ResourceQuotaStatusBuilder extends V1ResourceQuotaStatusFluentImp
   }
   public V1ResourceQuotaStatusBuilder(V1ResourceQuotaStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withHard(instance.getHard());
-
-    this.withUsed(instance.getUsed());
-
+    if (instance != null) {
+      this.withHard(instance.getHard());
+      this.withUsed(instance.getUsed());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ResourceQuotaStatusFluent<?> fluent;

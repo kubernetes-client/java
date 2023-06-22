@@ -20,16 +20,13 @@ public class V1ConfigMapNodeConfigSourceBuilder extends V1ConfigMapNodeConfigSou
   }
   public V1ConfigMapNodeConfigSourceBuilder(V1ConfigMapNodeConfigSourceFluent<?> fluent,V1ConfigMapNodeConfigSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withKubeletConfigKey(instance.getKubeletConfigKey());
-
-    fluent.withName(instance.getName());
-
-    fluent.withNamespace(instance.getNamespace());
-
-    fluent.withResourceVersion(instance.getResourceVersion());
-
-    fluent.withUid(instance.getUid());
-
+    if (instance != null) {
+      fluent.withKubeletConfigKey(instance.getKubeletConfigKey());
+      fluent.withName(instance.getName());
+      fluent.withNamespace(instance.getNamespace());
+      fluent.withResourceVersion(instance.getResourceVersion());
+      fluent.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ConfigMapNodeConfigSourceBuilder(V1ConfigMapNodeConfigSource instance) {
@@ -37,16 +34,13 @@ public class V1ConfigMapNodeConfigSourceBuilder extends V1ConfigMapNodeConfigSou
   }
   public V1ConfigMapNodeConfigSourceBuilder(V1ConfigMapNodeConfigSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withKubeletConfigKey(instance.getKubeletConfigKey());
-
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withResourceVersion(instance.getResourceVersion());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withKubeletConfigKey(instance.getKubeletConfigKey());
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withResourceVersion(instance.getResourceVersion());
+      this.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ConfigMapNodeConfigSourceFluent<?> fluent;

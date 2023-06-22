@@ -20,16 +20,13 @@ public class V1IngressClassParametersReferenceBuilder extends V1IngressClassPara
   }
   public V1IngressClassParametersReferenceBuilder(V1IngressClassParametersReferenceFluent<?> fluent,V1IngressClassParametersReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiGroup(instance.getApiGroup());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
-    fluent.withNamespace(instance.getNamespace());
-
-    fluent.withScope(instance.getScope());
-
+    if (instance != null) {
+      fluent.withApiGroup(instance.getApiGroup());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+      fluent.withNamespace(instance.getNamespace());
+      fluent.withScope(instance.getScope());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1IngressClassParametersReferenceBuilder(V1IngressClassParametersReference instance) {
@@ -37,16 +34,13 @@ public class V1IngressClassParametersReferenceBuilder extends V1IngressClassPara
   }
   public V1IngressClassParametersReferenceBuilder(V1IngressClassParametersReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiGroup(instance.getApiGroup());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withScope(instance.getScope());
-
+    if (instance != null) {
+      this.withApiGroup(instance.getApiGroup());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withScope(instance.getScope());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1IngressClassParametersReferenceFluent<?> fluent;

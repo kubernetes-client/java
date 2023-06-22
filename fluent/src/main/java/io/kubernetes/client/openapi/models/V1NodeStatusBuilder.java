@@ -20,28 +20,19 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuil
   }
   public V1NodeStatusBuilder(V1NodeStatusFluent<?> fluent,V1NodeStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAddresses(instance.getAddresses());
-
-    fluent.withAllocatable(instance.getAllocatable());
-
-    fluent.withCapacity(instance.getCapacity());
-
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withConfig(instance.getConfig());
-
-    fluent.withDaemonEndpoints(instance.getDaemonEndpoints());
-
-    fluent.withImages(instance.getImages());
-
-    fluent.withNodeInfo(instance.getNodeInfo());
-
-    fluent.withPhase(instance.getPhase());
-
-    fluent.withVolumesAttached(instance.getVolumesAttached());
-
-    fluent.withVolumesInUse(instance.getVolumesInUse());
-
+    if (instance != null) {
+      fluent.withAddresses(instance.getAddresses());
+      fluent.withAllocatable(instance.getAllocatable());
+      fluent.withCapacity(instance.getCapacity());
+      fluent.withConditions(instance.getConditions());
+      fluent.withConfig(instance.getConfig());
+      fluent.withDaemonEndpoints(instance.getDaemonEndpoints());
+      fluent.withImages(instance.getImages());
+      fluent.withNodeInfo(instance.getNodeInfo());
+      fluent.withPhase(instance.getPhase());
+      fluent.withVolumesAttached(instance.getVolumesAttached());
+      fluent.withVolumesInUse(instance.getVolumesInUse());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeStatusBuilder(V1NodeStatus instance) {
@@ -49,28 +40,19 @@ public class V1NodeStatusBuilder extends V1NodeStatusFluentImpl<V1NodeStatusBuil
   }
   public V1NodeStatusBuilder(V1NodeStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAddresses(instance.getAddresses());
-
-    this.withAllocatable(instance.getAllocatable());
-
-    this.withCapacity(instance.getCapacity());
-
-    this.withConditions(instance.getConditions());
-
-    this.withConfig(instance.getConfig());
-
-    this.withDaemonEndpoints(instance.getDaemonEndpoints());
-
-    this.withImages(instance.getImages());
-
-    this.withNodeInfo(instance.getNodeInfo());
-
-    this.withPhase(instance.getPhase());
-
-    this.withVolumesAttached(instance.getVolumesAttached());
-
-    this.withVolumesInUse(instance.getVolumesInUse());
-
+    if (instance != null) {
+      this.withAddresses(instance.getAddresses());
+      this.withAllocatable(instance.getAllocatable());
+      this.withCapacity(instance.getCapacity());
+      this.withConditions(instance.getConditions());
+      this.withConfig(instance.getConfig());
+      this.withDaemonEndpoints(instance.getDaemonEndpoints());
+      this.withImages(instance.getImages());
+      this.withNodeInfo(instance.getNodeInfo());
+      this.withPhase(instance.getPhase());
+      this.withVolumesAttached(instance.getVolumesAttached());
+      this.withVolumesInUse(instance.getVolumesInUse());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeStatusFluent<?> fluent;

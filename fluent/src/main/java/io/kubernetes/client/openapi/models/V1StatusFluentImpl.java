@@ -17,22 +17,16 @@ import java.lang.Boolean;
   public V1StatusFluentImpl() {
   }
   public V1StatusFluentImpl(V1Status instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withCode(instance.getCode());
-
-    this.withDetails(instance.getDetails());
-
-    this.withKind(instance.getKind());
-
-    this.withMessage(instance.getMessage());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withReason(instance.getReason());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withCode(instance.getCode());
+      this.withDetails(instance.getDetails());
+      this.withKind(instance.getKind());
+      this.withMessage(instance.getMessage());
+      this.withMetadata(instance.getMetadata());
+      this.withReason(instance.getReason());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private Integer code;
@@ -79,19 +73,19 @@ import java.lang.Boolean;
   public Boolean hasDetails() {
     return this.details != null;
   }
-  public V1StatusFluent.DetailsNested<A> withNewDetails() {
+  public V1StatusFluentImpl.DetailsNested<A> withNewDetails() {
     return new V1StatusFluentImpl.DetailsNestedImpl();
   }
-  public V1StatusFluent.DetailsNested<A> withNewDetailsLike(V1StatusDetails item) {
+  public V1StatusFluentImpl.DetailsNested<A> withNewDetailsLike(V1StatusDetails item) {
     return new V1StatusFluentImpl.DetailsNestedImpl(item);
   }
-  public V1StatusFluent.DetailsNested<A> editDetails() {
+  public V1StatusFluentImpl.DetailsNested<A> editDetails() {
     return withNewDetailsLike(getDetails());
   }
-  public V1StatusFluent.DetailsNested<A> editOrNewDetails() {
+  public V1StatusFluentImpl.DetailsNested<A> editOrNewDetails() {
     return withNewDetailsLike(getDetails() != null ? getDetails(): new V1StatusDetailsBuilder().build());
   }
-  public V1StatusFluent.DetailsNested<A> editOrNewDetailsLike(V1StatusDetails item) {
+  public V1StatusFluentImpl.DetailsNested<A> editOrNewDetailsLike(V1StatusDetails item) {
     return withNewDetailsLike(getDetails() != null ? getDetails(): item);
   }
   public String getKind() {
@@ -131,19 +125,19 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1StatusFluent.MetadataNested<A> withNewMetadata() {
+  public V1StatusFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1StatusFluentImpl.MetadataNestedImpl();
   }
-  public V1StatusFluent.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
+  public V1StatusFluentImpl.MetadataNested<A> withNewMetadataLike(V1ListMeta item) {
     return new V1StatusFluentImpl.MetadataNestedImpl(item);
   }
-  public V1StatusFluent.MetadataNested<A> editMetadata() {
+  public V1StatusFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1StatusFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1StatusFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ListMetaBuilder().build());
   }
-  public V1StatusFluent.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
+  public V1StatusFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ListMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   public String getReason() {
@@ -167,15 +161,24 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1StatusFluentImpl that = (V1StatusFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (code != null ? !code.equals(that.code) :that.code != null) return false;
-    if (details != null ? !details.equals(that.details) :that.details != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (message != null ? !message.equals(that.message) :that.message != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (reason != null ? !reason.equals(that.reason) :that.reason != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(code, that.code)) return false;
+
+    if (!java.util.Objects.equals(details, that.details)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(message, that.message)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(reason, that.reason)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -195,7 +198,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class DetailsNestedImpl<N> extends V1StatusDetailsFluentImpl<V1StatusFluent.DetailsNested<N>> implements V1StatusFluent.DetailsNested<N>,Nested<N>{
+  class DetailsNestedImpl<N> extends V1StatusDetailsFluentImpl<V1StatusFluentImpl.DetailsNested<N>> implements V1StatusFluentImpl.DetailsNested<N>,Nested<N>{
     DetailsNestedImpl(V1StatusDetails item) {
       this.builder = new V1StatusDetailsBuilder(this, item);
     }
@@ -211,7 +214,7 @@ import java.lang.Boolean;
     }
     
   }
-  class MetadataNestedImpl<N> extends V1ListMetaFluentImpl<V1StatusFluent.MetadataNested<N>> implements V1StatusFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ListMetaFluentImpl<V1StatusFluentImpl.MetadataNested<N>> implements V1StatusFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ListMeta item) {
       this.builder = new V1ListMetaBuilder(this, item);
     }

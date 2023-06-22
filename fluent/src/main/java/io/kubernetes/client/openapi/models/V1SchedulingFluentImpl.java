@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -25,10 +24,10 @@ import java.util.Map;
   public V1SchedulingFluentImpl() {
   }
   public V1SchedulingFluentImpl(V1Scheduling instance) {
-    this.withNodeSelector(instance.getNodeSelector());
-
-    this.withTolerations(instance.getTolerations());
-
+    if (instance != null) {
+      this.withNodeSelector(instance.getNodeSelector());
+      this.withTolerations(instance.getTolerations());
+    }
   }
   private Map<String,String> nodeSelector;
   private ArrayList<V1TolerationBuilder> tolerations;
@@ -57,16 +56,17 @@ import java.util.Map;
   public Boolean hasNodeSelector() {
     return this.nodeSelector != null;
   }
-  public A addToTolerations(Integer index,V1Toleration item) {
-    if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
-    V1TolerationBuilder builder = new V1TolerationBuilder(item);_visitables.get("tolerations").add(index >= 0 ? index : _visitables.get("tolerations").size(), builder);this.tolerations.add(index >= 0 ? index : tolerations.size(), builder); return (A)this;
-  }
-  public A setToTolerations(Integer index,V1Toleration item) {
+  public A addToTolerations(int index,V1Toleration item) {
     if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
     V1TolerationBuilder builder = new V1TolerationBuilder(item);
-    if (index < 0 || index >= _visitables.get("tolerations").size()) { _visitables.get("tolerations").add(builder); } else { _visitables.get("tolerations").set(index, builder);}
-    if (index < 0 || index >= tolerations.size()) { tolerations.add(builder); } else { tolerations.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= tolerations.size()) { _visitables.get("tolerations").add(builder); tolerations.add(builder); } else { _visitables.get("tolerations").add(index, builder); tolerations.add(index, builder);}
+    return (A)this;
+  }
+  public A setToTolerations(int index,V1Toleration item) {
+    if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
+    V1TolerationBuilder builder = new V1TolerationBuilder(item);
+    if (index < 0 || index >= tolerations.size()) { _visitables.get("tolerations").add(builder); tolerations.add(builder); } else { _visitables.get("tolerations").set(index, builder); tolerations.set(index, builder);}
+    return (A)this;
   }
   public A addToTolerations(io.kubernetes.client.openapi.models.V1Toleration... items) {
     if (this.tolerations == null) {this.tolerations = new ArrayList<V1TolerationBuilder>();}
@@ -107,7 +107,7 @@ import java.util.Map;
   public List<V1Toleration> buildTolerations() {
     return tolerations != null ? build(tolerations) : null;
   }
-  public V1Toleration buildToleration(Integer index) {
+  public V1Toleration buildToleration(int index) {
     return this.tolerations.get(index).build();
   }
   public V1Toleration buildFirstToleration() {
@@ -123,39 +123,39 @@ import java.util.Map;
     for (V1TolerationBuilder item: tolerations) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withTolerations(List<V1Toleration> tolerations) {
-    if (this.tolerations != null) { _visitables.get("tolerations").removeAll(this.tolerations);}
+    if (this.tolerations != null) { _visitables.get("tolerations").clear();}
     if (tolerations != null) {this.tolerations = new ArrayList(); for (V1Toleration item : tolerations){this.addToTolerations(item);}} else { this.tolerations = null;} return (A) this;
   }
   public A withTolerations(io.kubernetes.client.openapi.models.V1Toleration... tolerations) {
-    if (this.tolerations != null) {this.tolerations.clear();}
+    if (this.tolerations != null) {this.tolerations.clear(); _visitables.remove("tolerations"); }
     if (tolerations != null) {for (V1Toleration item :tolerations){ this.addToTolerations(item);}} return (A) this;
   }
   public Boolean hasTolerations() {
     return tolerations != null && !tolerations.isEmpty();
   }
-  public V1SchedulingFluent.TolerationsNested<A> addNewToleration() {
+  public V1SchedulingFluentImpl.TolerationsNested<A> addNewToleration() {
     return new V1SchedulingFluentImpl.TolerationsNestedImpl();
   }
-  public V1SchedulingFluent.TolerationsNested<A> addNewTolerationLike(V1Toleration item) {
+  public V1SchedulingFluentImpl.TolerationsNested<A> addNewTolerationLike(V1Toleration item) {
     return new V1SchedulingFluentImpl.TolerationsNestedImpl(-1, item);
   }
-  public V1SchedulingFluent.TolerationsNested<A> setNewTolerationLike(Integer index,V1Toleration item) {
+  public V1SchedulingFluentImpl.TolerationsNested<A> setNewTolerationLike(int index,V1Toleration item) {
     return new V1SchedulingFluentImpl.TolerationsNestedImpl(index, item);
   }
-  public V1SchedulingFluent.TolerationsNested<A> editToleration(Integer index) {
+  public V1SchedulingFluentImpl.TolerationsNested<A> editToleration(int index) {
     if (tolerations.size() <= index) throw new RuntimeException("Can't edit tolerations. Index exceeds size.");
     return setNewTolerationLike(index, buildToleration(index));
   }
-  public V1SchedulingFluent.TolerationsNested<A> editFirstToleration() {
+  public V1SchedulingFluentImpl.TolerationsNested<A> editFirstToleration() {
     if (tolerations.size() == 0) throw new RuntimeException("Can't edit first tolerations. The list is empty.");
     return setNewTolerationLike(0, buildToleration(0));
   }
-  public V1SchedulingFluent.TolerationsNested<A> editLastToleration() {
+  public V1SchedulingFluentImpl.TolerationsNested<A> editLastToleration() {
     int index = tolerations.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last tolerations. The list is empty.");
     return setNewTolerationLike(index, buildToleration(index));
   }
-  public V1SchedulingFluent.TolerationsNested<A> editMatchingToleration(Predicate<V1TolerationBuilder> predicate) {
+  public V1SchedulingFluentImpl.TolerationsNested<A> editMatchingToleration(Predicate<V1TolerationBuilder> predicate) {
     int index = -1;
     for (int i=0;i<tolerations.size();i++) { 
     if (predicate.test(tolerations.get(i))) {index = i; break;}
@@ -166,9 +166,12 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SchedulingFluentImpl that = (V1SchedulingFluentImpl) o;
-    if (nodeSelector != null ? !nodeSelector.equals(that.nodeSelector) :that.nodeSelector != null) return false;
-    if (tolerations != null ? !tolerations.equals(that.tolerations) :that.tolerations != null) return false;
+    if (!java.util.Objects.equals(nodeSelector, that.nodeSelector)) return false;
+
+    if (!java.util.Objects.equals(tolerations, that.tolerations)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -178,12 +181,12 @@ import java.util.Map;
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (nodeSelector != null && !nodeSelector.isEmpty()) { sb.append("nodeSelector:"); sb.append(nodeSelector + ","); }
-    if (tolerations != null && !tolerations.isEmpty()) { sb.append("tolerations:"); sb.append(tolerations); }
+    if (tolerations != null) { sb.append("tolerations:"); sb.append(tolerations); }
     sb.append("}");
     return sb.toString();
   }
-  class TolerationsNestedImpl<N> extends V1TolerationFluentImpl<V1SchedulingFluent.TolerationsNested<N>> implements V1SchedulingFluent.TolerationsNested<N>,Nested<N>{
-    TolerationsNestedImpl(Integer index,V1Toleration item) {
+  class TolerationsNestedImpl<N> extends V1TolerationFluentImpl<V1SchedulingFluentImpl.TolerationsNested<N>> implements V1SchedulingFluentImpl.TolerationsNested<N>,Nested<N>{
+    TolerationsNestedImpl(int index,V1Toleration item) {
       this.index = index;
       this.builder = new V1TolerationBuilder(this, item);
     }
@@ -192,7 +195,7 @@ import java.util.Map;
       this.builder = new V1TolerationBuilder(this);
     }
     V1TolerationBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1SchedulingFluentImpl.this.setToTolerations(index,builder.build());
     }

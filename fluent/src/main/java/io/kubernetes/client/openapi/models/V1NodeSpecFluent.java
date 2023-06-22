@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -38,14 +38,14 @@ public interface V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends Fluent<
   public String getPodCIDR();
   public A withPodCIDR(String podCIDR);
   public Boolean hasPodCIDR();
-  public A addToPodCIDRs(Integer index,String item);
-  public A setToPodCIDRs(Integer index,String item);
+  public A addToPodCIDRs(int index,String item);
+  public A setToPodCIDRs(int index,String item);
   public A addToPodCIDRs(java.lang.String... items);
   public A addAllToPodCIDRs(Collection<String> items);
   public A removeFromPodCIDRs(java.lang.String... items);
   public A removeAllFromPodCIDRs(Collection<String> items);
   public List<String> getPodCIDRs();
-  public String getPodCIDR(Integer index);
+  public String getPodCIDR(int index);
   public String getFirstPodCIDR();
   public String getLastPodCIDR();
   public String getMatchingPodCIDR(Predicate<String> predicate);
@@ -56,8 +56,8 @@ public interface V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends Fluent<
   public String getProviderID();
   public A withProviderID(String providerID);
   public Boolean hasProviderID();
-  public A addToTaints(Integer index,V1Taint item);
-  public A setToTaints(Integer index,V1Taint item);
+  public A addToTaints(int index,V1Taint item);
+  public A setToTaints(int index,V1Taint item);
   public A addToTaints(io.kubernetes.client.openapi.models.V1Taint... items);
   public A addAllToTaints(Collection<V1Taint> items);
   public A removeFromTaints(io.kubernetes.client.openapi.models.V1Taint... items);
@@ -71,7 +71,7 @@ public interface V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends Fluent<
   @Deprecated
   public List<V1Taint> getTaints();
   public List<V1Taint> buildTaints();
-  public V1Taint buildTaint(Integer index);
+  public V1Taint buildTaint(int index);
   public V1Taint buildFirstTaint();
   public V1Taint buildLastTaint();
   public V1Taint buildMatchingTaint(Predicate<V1TaintBuilder> predicate);
@@ -81,8 +81,8 @@ public interface V1NodeSpecFluent<A extends V1NodeSpecFluent<A>> extends Fluent<
   public Boolean hasTaints();
   public V1NodeSpecFluent.TaintsNested<A> addNewTaint();
   public V1NodeSpecFluent.TaintsNested<A> addNewTaintLike(V1Taint item);
-  public V1NodeSpecFluent.TaintsNested<A> setNewTaintLike(Integer index,V1Taint item);
-  public V1NodeSpecFluent.TaintsNested<A> editTaint(Integer index);
+  public V1NodeSpecFluent.TaintsNested<A> setNewTaintLike(int index,V1Taint item);
+  public V1NodeSpecFluent.TaintsNested<A> editTaint(int index);
   public V1NodeSpecFluent.TaintsNested<A> editFirstTaint();
   public V1NodeSpecFluent.TaintsNested<A> editLastTaint();
   public V1NodeSpecFluent.TaintsNested<A> editMatchingTaint(Predicate<V1TaintBuilder> predicate);

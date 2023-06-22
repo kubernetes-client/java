@@ -20,16 +20,13 @@ public class V1StatefulSetBuilder extends V1StatefulSetFluentImpl<V1StatefulSetB
   }
   public V1StatefulSetBuilder(V1StatefulSetFluent<?> fluent,V1StatefulSet instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
-    fluent.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+      fluent.withStatus(instance.getStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1StatefulSetBuilder(V1StatefulSet instance) {
@@ -37,16 +34,13 @@ public class V1StatefulSetBuilder extends V1StatefulSetFluentImpl<V1StatefulSetB
   }
   public V1StatefulSetBuilder(V1StatefulSet instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1StatefulSetFluent<?> fluent;

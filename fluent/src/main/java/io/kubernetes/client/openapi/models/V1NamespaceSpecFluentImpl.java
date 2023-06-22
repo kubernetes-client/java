@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,16 +18,17 @@ import java.lang.Boolean;
   public V1NamespaceSpecFluentImpl() {
   }
   public V1NamespaceSpecFluentImpl(V1NamespaceSpec instance) {
-    this.withFinalizers(instance.getFinalizers());
-
+    if (instance != null) {
+      this.withFinalizers(instance.getFinalizers());
+    }
   }
   private List<String> finalizers;
-  public A addToFinalizers(Integer index,String item) {
+  public A addToFinalizers(int index,String item) {
     if (this.finalizers == null) {this.finalizers = new ArrayList<String>();}
     this.finalizers.add(index, item);
     return (A)this;
   }
-  public A setToFinalizers(Integer index,String item) {
+  public A setToFinalizers(int index,String item) {
     if (this.finalizers == null) {this.finalizers = new ArrayList<String>();}
     this.finalizers.set(index, item); return (A)this;
   }
@@ -49,7 +49,7 @@ import java.lang.Boolean;
   public List<String> getFinalizers() {
     return this.finalizers;
   }
-  public String getFinalizer(Integer index) {
+  public String getFinalizer(int index) {
     return this.finalizers.get(index);
   }
   public String getFirstFinalizer() {
@@ -68,7 +68,7 @@ import java.lang.Boolean;
     if (finalizers != null) {this.finalizers = new ArrayList(); for (String item : finalizers){this.addToFinalizers(item);}} else { this.finalizers = null;} return (A) this;
   }
   public A withFinalizers(java.lang.String... finalizers) {
-    if (this.finalizers != null) {this.finalizers.clear();}
+    if (this.finalizers != null) {this.finalizers.clear(); _visitables.remove("finalizers"); }
     if (finalizers != null) {for (String item :finalizers){ this.addToFinalizers(item);}} return (A) this;
   }
   public Boolean hasFinalizers() {
@@ -77,8 +77,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NamespaceSpecFluentImpl that = (V1NamespaceSpecFluentImpl) o;
-    if (finalizers != null ? !finalizers.equals(that.finalizers) :that.finalizers != null) return false;
+    if (!java.util.Objects.equals(finalizers, that.finalizers)) return false;
+
     return true;
   }
   public int hashCode() {

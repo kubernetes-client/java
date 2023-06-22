@@ -14,8 +14,9 @@ import java.lang.Boolean;
   public V1PodIPFluentImpl() {
   }
   public V1PodIPFluentImpl(V1PodIP instance) {
-    this.withIp(instance.getIp());
-
+    if (instance != null) {
+      this.withIp(instance.getIp());
+    }
   }
   private String ip;
   public String getIp() {
@@ -30,8 +31,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodIPFluentImpl that = (V1PodIPFluentImpl) o;
-    if (ip != null ? !ip.equals(that.ip) :that.ip != null) return false;
+    if (!java.util.Objects.equals(ip, that.ip)) return false;
+
     return true;
   }
   public int hashCode() {

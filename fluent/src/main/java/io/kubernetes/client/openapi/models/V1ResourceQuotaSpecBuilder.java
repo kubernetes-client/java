@@ -20,12 +20,11 @@ public class V1ResourceQuotaSpecBuilder extends V1ResourceQuotaSpecFluentImpl<V1
   }
   public V1ResourceQuotaSpecBuilder(V1ResourceQuotaSpecFluent<?> fluent,V1ResourceQuotaSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withHard(instance.getHard());
-
-    fluent.withScopeSelector(instance.getScopeSelector());
-
-    fluent.withScopes(instance.getScopes());
-
+    if (instance != null) {
+      fluent.withHard(instance.getHard());
+      fluent.withScopeSelector(instance.getScopeSelector());
+      fluent.withScopes(instance.getScopes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ResourceQuotaSpecBuilder(V1ResourceQuotaSpec instance) {
@@ -33,12 +32,11 @@ public class V1ResourceQuotaSpecBuilder extends V1ResourceQuotaSpecFluentImpl<V1
   }
   public V1ResourceQuotaSpecBuilder(V1ResourceQuotaSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withHard(instance.getHard());
-
-    this.withScopeSelector(instance.getScopeSelector());
-
-    this.withScopes(instance.getScopes());
-
+    if (instance != null) {
+      this.withHard(instance.getHard());
+      this.withScopeSelector(instance.getScopeSelector());
+      this.withScopes(instance.getScopes());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ResourceQuotaSpecFluent<?> fluent;

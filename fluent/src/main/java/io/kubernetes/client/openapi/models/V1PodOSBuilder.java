@@ -20,8 +20,9 @@ public class V1PodOSBuilder extends V1PodOSFluentImpl<V1PodOSBuilder> implements
   }
   public V1PodOSBuilder(V1PodOSFluent<?> fluent,V1PodOS instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodOSBuilder(V1PodOS instance) {
@@ -29,8 +30,9 @@ public class V1PodOSBuilder extends V1PodOSFluentImpl<V1PodOSBuilder> implements
   }
   public V1PodOSBuilder(V1PodOS instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodOSFluent<?> fluent;

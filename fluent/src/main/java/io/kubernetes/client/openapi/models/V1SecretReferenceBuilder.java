@@ -20,10 +20,10 @@ public class V1SecretReferenceBuilder extends V1SecretReferenceFluentImpl<V1Secr
   }
   public V1SecretReferenceBuilder(V1SecretReferenceFluent<?> fluent,V1SecretReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withNamespace(instance.getNamespace());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withNamespace(instance.getNamespace());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SecretReferenceBuilder(V1SecretReference instance) {
@@ -31,10 +31,10 @@ public class V1SecretReferenceBuilder extends V1SecretReferenceFluentImpl<V1Secr
   }
   public V1SecretReferenceBuilder(V1SecretReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SecretReferenceFluent<?> fluent;

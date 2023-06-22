@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
@@ -11,7 +12,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
 import io.kubernetes.client.fluent.Fluent;
-import java.lang.Integer;
 import java.time.OffsetDateTime;
 import java.lang.Long;
 import java.util.Collection;
@@ -37,14 +37,14 @@ public interface V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends Flu
   public OffsetDateTime getDeletionTimestamp();
   public A withDeletionTimestamp(OffsetDateTime deletionTimestamp);
   public Boolean hasDeletionTimestamp();
-  public A addToFinalizers(Integer index,String item);
-  public A setToFinalizers(Integer index,String item);
+  public A addToFinalizers(int index,String item);
+  public A setToFinalizers(int index,String item);
   public A addToFinalizers(java.lang.String... items);
   public A addAllToFinalizers(Collection<String> items);
   public A removeFromFinalizers(java.lang.String... items);
   public A removeAllFromFinalizers(Collection<String> items);
   public List<String> getFinalizers();
-  public String getFinalizer(Integer index);
+  public String getFinalizer(int index);
   public String getFirstFinalizer();
   public String getLastFinalizer();
   public String getMatchingFinalizer(Predicate<String> predicate);
@@ -65,8 +65,8 @@ public interface V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends Flu
   public Map<String,String> getLabels();
   public <K,V>A withLabels(Map<String,String> labels);
   public Boolean hasLabels();
-  public A addToManagedFields(Integer index,V1ManagedFieldsEntry item);
-  public A setToManagedFields(Integer index,V1ManagedFieldsEntry item);
+  public A addToManagedFields(int index,V1ManagedFieldsEntry item);
+  public A setToManagedFields(int index,V1ManagedFieldsEntry item);
   public A addToManagedFields(io.kubernetes.client.openapi.models.V1ManagedFieldsEntry... items);
   public A addAllToManagedFields(Collection<V1ManagedFieldsEntry> items);
   public A removeFromManagedFields(io.kubernetes.client.openapi.models.V1ManagedFieldsEntry... items);
@@ -80,7 +80,7 @@ public interface V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends Flu
   @Deprecated
   public List<V1ManagedFieldsEntry> getManagedFields();
   public List<V1ManagedFieldsEntry> buildManagedFields();
-  public V1ManagedFieldsEntry buildManagedField(Integer index);
+  public V1ManagedFieldsEntry buildManagedField(int index);
   public V1ManagedFieldsEntry buildFirstManagedField();
   public V1ManagedFieldsEntry buildLastManagedField();
   public V1ManagedFieldsEntry buildMatchingManagedField(Predicate<V1ManagedFieldsEntryBuilder> predicate);
@@ -90,8 +90,8 @@ public interface V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends Flu
   public Boolean hasManagedFields();
   public V1ObjectMetaFluent.ManagedFieldsNested<A> addNewManagedField();
   public V1ObjectMetaFluent.ManagedFieldsNested<A> addNewManagedFieldLike(V1ManagedFieldsEntry item);
-  public V1ObjectMetaFluent.ManagedFieldsNested<A> setNewManagedFieldLike(Integer index,V1ManagedFieldsEntry item);
-  public V1ObjectMetaFluent.ManagedFieldsNested<A> editManagedField(Integer index);
+  public V1ObjectMetaFluent.ManagedFieldsNested<A> setNewManagedFieldLike(int index,V1ManagedFieldsEntry item);
+  public V1ObjectMetaFluent.ManagedFieldsNested<A> editManagedField(int index);
   public V1ObjectMetaFluent.ManagedFieldsNested<A> editFirstManagedField();
   public V1ObjectMetaFluent.ManagedFieldsNested<A> editLastManagedField();
   public V1ObjectMetaFluent.ManagedFieldsNested<A> editMatchingManagedField(Predicate<V1ManagedFieldsEntryBuilder> predicate);
@@ -101,8 +101,8 @@ public interface V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends Flu
   public String getNamespace();
   public A withNamespace(String namespace);
   public Boolean hasNamespace();
-  public A addToOwnerReferences(Integer index,V1OwnerReference item);
-  public A setToOwnerReferences(Integer index,V1OwnerReference item);
+  public A addToOwnerReferences(int index,V1OwnerReference item);
+  public A setToOwnerReferences(int index,V1OwnerReference item);
   public A addToOwnerReferences(io.kubernetes.client.openapi.models.V1OwnerReference... items);
   public A addAllToOwnerReferences(Collection<V1OwnerReference> items);
   public A removeFromOwnerReferences(io.kubernetes.client.openapi.models.V1OwnerReference... items);
@@ -116,7 +116,7 @@ public interface V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends Flu
   @Deprecated
   public List<V1OwnerReference> getOwnerReferences();
   public List<V1OwnerReference> buildOwnerReferences();
-  public V1OwnerReference buildOwnerReference(Integer index);
+  public V1OwnerReference buildOwnerReference(int index);
   public V1OwnerReference buildFirstOwnerReference();
   public V1OwnerReference buildLastOwnerReference();
   public V1OwnerReference buildMatchingOwnerReference(Predicate<V1OwnerReferenceBuilder> predicate);
@@ -126,8 +126,8 @@ public interface V1ObjectMetaFluent<A extends V1ObjectMetaFluent<A>> extends Flu
   public Boolean hasOwnerReferences();
   public V1ObjectMetaFluent.OwnerReferencesNested<A> addNewOwnerReference();
   public V1ObjectMetaFluent.OwnerReferencesNested<A> addNewOwnerReferenceLike(V1OwnerReference item);
-  public V1ObjectMetaFluent.OwnerReferencesNested<A> setNewOwnerReferenceLike(Integer index,V1OwnerReference item);
-  public V1ObjectMetaFluent.OwnerReferencesNested<A> editOwnerReference(Integer index);
+  public V1ObjectMetaFluent.OwnerReferencesNested<A> setNewOwnerReferenceLike(int index,V1OwnerReference item);
+  public V1ObjectMetaFluent.OwnerReferencesNested<A> editOwnerReference(int index);
   public V1ObjectMetaFluent.OwnerReferencesNested<A> editFirstOwnerReference();
   public V1ObjectMetaFluent.OwnerReferencesNested<A> editLastOwnerReference();
   public V1ObjectMetaFluent.OwnerReferencesNested<A> editMatchingOwnerReference(Predicate<V1OwnerReferenceBuilder> predicate);

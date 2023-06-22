@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,14 +22,12 @@ import java.lang.Object;
   public V1MutatingWebhookConfigurationFluentImpl() {
   }
   public V1MutatingWebhookConfigurationFluentImpl(V1MutatingWebhookConfiguration instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withWebhooks(instance.getWebhooks());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withWebhooks(instance.getWebhooks());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -73,31 +70,32 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1MutatingWebhookConfigurationFluent.MetadataNested<A> withNewMetadata() {
+  public V1MutatingWebhookConfigurationFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1MutatingWebhookConfigurationFluentImpl.MetadataNestedImpl();
   }
-  public V1MutatingWebhookConfigurationFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1MutatingWebhookConfigurationFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1MutatingWebhookConfigurationFluentImpl.MetadataNestedImpl(item);
   }
-  public V1MutatingWebhookConfigurationFluent.MetadataNested<A> editMetadata() {
+  public V1MutatingWebhookConfigurationFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1MutatingWebhookConfigurationFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1MutatingWebhookConfigurationFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1MutatingWebhookConfigurationFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1MutatingWebhookConfigurationFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
-  public A addToWebhooks(Integer index,V1MutatingWebhook item) {
-    if (this.webhooks == null) {this.webhooks = new ArrayList<V1MutatingWebhookBuilder>();}
-    V1MutatingWebhookBuilder builder = new V1MutatingWebhookBuilder(item);_visitables.get("webhooks").add(index >= 0 ? index : _visitables.get("webhooks").size(), builder);this.webhooks.add(index >= 0 ? index : webhooks.size(), builder); return (A)this;
-  }
-  public A setToWebhooks(Integer index,V1MutatingWebhook item) {
+  public A addToWebhooks(int index,V1MutatingWebhook item) {
     if (this.webhooks == null) {this.webhooks = new ArrayList<V1MutatingWebhookBuilder>();}
     V1MutatingWebhookBuilder builder = new V1MutatingWebhookBuilder(item);
-    if (index < 0 || index >= _visitables.get("webhooks").size()) { _visitables.get("webhooks").add(builder); } else { _visitables.get("webhooks").set(index, builder);}
-    if (index < 0 || index >= webhooks.size()) { webhooks.add(builder); } else { webhooks.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= webhooks.size()) { _visitables.get("webhooks").add(builder); webhooks.add(builder); } else { _visitables.get("webhooks").add(index, builder); webhooks.add(index, builder);}
+    return (A)this;
+  }
+  public A setToWebhooks(int index,V1MutatingWebhook item) {
+    if (this.webhooks == null) {this.webhooks = new ArrayList<V1MutatingWebhookBuilder>();}
+    V1MutatingWebhookBuilder builder = new V1MutatingWebhookBuilder(item);
+    if (index < 0 || index >= webhooks.size()) { _visitables.get("webhooks").add(builder); webhooks.add(builder); } else { _visitables.get("webhooks").set(index, builder); webhooks.set(index, builder);}
+    return (A)this;
   }
   public A addToWebhooks(io.kubernetes.client.openapi.models.V1MutatingWebhook... items) {
     if (this.webhooks == null) {this.webhooks = new ArrayList<V1MutatingWebhookBuilder>();}
@@ -138,7 +136,7 @@ import java.lang.Object;
   public List<V1MutatingWebhook> buildWebhooks() {
     return webhooks != null ? build(webhooks) : null;
   }
-  public V1MutatingWebhook buildWebhook(Integer index) {
+  public V1MutatingWebhook buildWebhook(int index) {
     return this.webhooks.get(index).build();
   }
   public V1MutatingWebhook buildFirstWebhook() {
@@ -154,39 +152,39 @@ import java.lang.Object;
     for (V1MutatingWebhookBuilder item: webhooks) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withWebhooks(List<V1MutatingWebhook> webhooks) {
-    if (this.webhooks != null) { _visitables.get("webhooks").removeAll(this.webhooks);}
+    if (this.webhooks != null) { _visitables.get("webhooks").clear();}
     if (webhooks != null) {this.webhooks = new ArrayList(); for (V1MutatingWebhook item : webhooks){this.addToWebhooks(item);}} else { this.webhooks = null;} return (A) this;
   }
   public A withWebhooks(io.kubernetes.client.openapi.models.V1MutatingWebhook... webhooks) {
-    if (this.webhooks != null) {this.webhooks.clear();}
+    if (this.webhooks != null) {this.webhooks.clear(); _visitables.remove("webhooks"); }
     if (webhooks != null) {for (V1MutatingWebhook item :webhooks){ this.addToWebhooks(item);}} return (A) this;
   }
   public Boolean hasWebhooks() {
     return webhooks != null && !webhooks.isEmpty();
   }
-  public V1MutatingWebhookConfigurationFluent.WebhooksNested<A> addNewWebhook() {
+  public V1MutatingWebhookConfigurationFluentImpl.WebhooksNested<A> addNewWebhook() {
     return new V1MutatingWebhookConfigurationFluentImpl.WebhooksNestedImpl();
   }
-  public V1MutatingWebhookConfigurationFluent.WebhooksNested<A> addNewWebhookLike(V1MutatingWebhook item) {
+  public V1MutatingWebhookConfigurationFluentImpl.WebhooksNested<A> addNewWebhookLike(V1MutatingWebhook item) {
     return new V1MutatingWebhookConfigurationFluentImpl.WebhooksNestedImpl(-1, item);
   }
-  public V1MutatingWebhookConfigurationFluent.WebhooksNested<A> setNewWebhookLike(Integer index,V1MutatingWebhook item) {
+  public V1MutatingWebhookConfigurationFluentImpl.WebhooksNested<A> setNewWebhookLike(int index,V1MutatingWebhook item) {
     return new V1MutatingWebhookConfigurationFluentImpl.WebhooksNestedImpl(index, item);
   }
-  public V1MutatingWebhookConfigurationFluent.WebhooksNested<A> editWebhook(Integer index) {
+  public V1MutatingWebhookConfigurationFluentImpl.WebhooksNested<A> editWebhook(int index) {
     if (webhooks.size() <= index) throw new RuntimeException("Can't edit webhooks. Index exceeds size.");
     return setNewWebhookLike(index, buildWebhook(index));
   }
-  public V1MutatingWebhookConfigurationFluent.WebhooksNested<A> editFirstWebhook() {
+  public V1MutatingWebhookConfigurationFluentImpl.WebhooksNested<A> editFirstWebhook() {
     if (webhooks.size() == 0) throw new RuntimeException("Can't edit first webhooks. The list is empty.");
     return setNewWebhookLike(0, buildWebhook(0));
   }
-  public V1MutatingWebhookConfigurationFluent.WebhooksNested<A> editLastWebhook() {
+  public V1MutatingWebhookConfigurationFluentImpl.WebhooksNested<A> editLastWebhook() {
     int index = webhooks.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last webhooks. The list is empty.");
     return setNewWebhookLike(index, buildWebhook(index));
   }
-  public V1MutatingWebhookConfigurationFluent.WebhooksNested<A> editMatchingWebhook(Predicate<V1MutatingWebhookBuilder> predicate) {
+  public V1MutatingWebhookConfigurationFluentImpl.WebhooksNested<A> editMatchingWebhook(Predicate<V1MutatingWebhookBuilder> predicate) {
     int index = -1;
     for (int i=0;i<webhooks.size();i++) { 
     if (predicate.test(webhooks.get(i))) {index = i; break;}
@@ -197,11 +195,16 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1MutatingWebhookConfigurationFluentImpl that = (V1MutatingWebhookConfigurationFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (webhooks != null ? !webhooks.equals(that.webhooks) :that.webhooks != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(webhooks, that.webhooks)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -213,11 +216,11 @@ import java.lang.Object;
     if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
     if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
     if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (webhooks != null && !webhooks.isEmpty()) { sb.append("webhooks:"); sb.append(webhooks); }
+    if (webhooks != null) { sb.append("webhooks:"); sb.append(webhooks); }
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1MutatingWebhookConfigurationFluent.MetadataNested<N>> implements V1MutatingWebhookConfigurationFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1MutatingWebhookConfigurationFluentImpl.MetadataNested<N>> implements V1MutatingWebhookConfigurationFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -233,8 +236,8 @@ import java.lang.Object;
     }
     
   }
-  class WebhooksNestedImpl<N> extends V1MutatingWebhookFluentImpl<V1MutatingWebhookConfigurationFluent.WebhooksNested<N>> implements V1MutatingWebhookConfigurationFluent.WebhooksNested<N>,Nested<N>{
-    WebhooksNestedImpl(Integer index,V1MutatingWebhook item) {
+  class WebhooksNestedImpl<N> extends V1MutatingWebhookFluentImpl<V1MutatingWebhookConfigurationFluentImpl.WebhooksNested<N>> implements V1MutatingWebhookConfigurationFluentImpl.WebhooksNested<N>,Nested<N>{
+    WebhooksNestedImpl(int index,V1MutatingWebhook item) {
       this.index = index;
       this.builder = new V1MutatingWebhookBuilder(this, item);
     }
@@ -243,7 +246,7 @@ import java.lang.Object;
       this.builder = new V1MutatingWebhookBuilder(this);
     }
     V1MutatingWebhookBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1MutatingWebhookConfigurationFluentImpl.this.setToWebhooks(index,builder.build());
     }

@@ -20,10 +20,10 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder extends V1
   }
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?> fluent,V1StatefulSetPersistentVolumeClaimRetentionPolicy instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withWhenDeleted(instance.getWhenDeleted());
-
-    fluent.withWhenScaled(instance.getWhenScaled());
-
+    if (instance != null) {
+      fluent.withWhenDeleted(instance.getWhenDeleted());
+      fluent.withWhenScaled(instance.getWhenScaled());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(V1StatefulSetPersistentVolumeClaimRetentionPolicy instance) {
@@ -31,10 +31,10 @@ public class V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder extends V1
   }
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyBuilder(V1StatefulSetPersistentVolumeClaimRetentionPolicy instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withWhenDeleted(instance.getWhenDeleted());
-
-    this.withWhenScaled(instance.getWhenScaled());
-
+    if (instance != null) {
+      this.withWhenDeleted(instance.getWhenDeleted());
+      this.withWhenScaled(instance.getWhenScaled());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1StatefulSetPersistentVolumeClaimRetentionPolicyFluent<?> fluent;

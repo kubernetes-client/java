@@ -17,16 +17,17 @@ import java.lang.Boolean;
   public V1PodDisruptionBudgetSpecFluentImpl() {
   }
   public V1PodDisruptionBudgetSpecFluentImpl(V1PodDisruptionBudgetSpec instance) {
-    this.withMaxUnavailable(instance.getMaxUnavailable());
-
-    this.withMinAvailable(instance.getMinAvailable());
-
-    this.withSelector(instance.getSelector());
-
+    if (instance != null) {
+      this.withMaxUnavailable(instance.getMaxUnavailable());
+      this.withMinAvailable(instance.getMinAvailable());
+      this.withSelector(instance.getSelector());
+      this.withUnhealthyPodEvictionPolicy(instance.getUnhealthyPodEvictionPolicy());
+    }
   }
   private IntOrString maxUnavailable;
   private IntOrString minAvailable;
   private V1LabelSelectorBuilder selector;
+  private String unhealthyPodEvictionPolicy;
   public IntOrString getMaxUnavailable() {
     return this.maxUnavailable;
   }
@@ -76,43 +77,59 @@ import java.lang.Boolean;
   public Boolean hasSelector() {
     return this.selector != null;
   }
-  public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> withNewSelector() {
+  public V1PodDisruptionBudgetSpecFluentImpl.SelectorNested<A> withNewSelector() {
     return new V1PodDisruptionBudgetSpecFluentImpl.SelectorNestedImpl();
   }
-  public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
+  public V1PodDisruptionBudgetSpecFluentImpl.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
     return new V1PodDisruptionBudgetSpecFluentImpl.SelectorNestedImpl(item);
   }
-  public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> editSelector() {
+  public V1PodDisruptionBudgetSpecFluentImpl.SelectorNested<A> editSelector() {
     return withNewSelectorLike(getSelector());
   }
-  public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> editOrNewSelector() {
+  public V1PodDisruptionBudgetSpecFluentImpl.SelectorNested<A> editOrNewSelector() {
     return withNewSelectorLike(getSelector() != null ? getSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
+  public V1PodDisruptionBudgetSpecFluentImpl.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
     return withNewSelectorLike(getSelector() != null ? getSelector(): item);
+  }
+  public String getUnhealthyPodEvictionPolicy() {
+    return this.unhealthyPodEvictionPolicy;
+  }
+  public A withUnhealthyPodEvictionPolicy(String unhealthyPodEvictionPolicy) {
+    this.unhealthyPodEvictionPolicy=unhealthyPodEvictionPolicy; return (A) this;
+  }
+  public Boolean hasUnhealthyPodEvictionPolicy() {
+    return this.unhealthyPodEvictionPolicy != null;
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodDisruptionBudgetSpecFluentImpl that = (V1PodDisruptionBudgetSpecFluentImpl) o;
-    if (maxUnavailable != null ? !maxUnavailable.equals(that.maxUnavailable) :that.maxUnavailable != null) return false;
-    if (minAvailable != null ? !minAvailable.equals(that.minAvailable) :that.minAvailable != null) return false;
-    if (selector != null ? !selector.equals(that.selector) :that.selector != null) return false;
+    if (!java.util.Objects.equals(maxUnavailable, that.maxUnavailable)) return false;
+
+    if (!java.util.Objects.equals(minAvailable, that.minAvailable)) return false;
+
+    if (!java.util.Objects.equals(selector, that.selector)) return false;
+
+    if (!java.util.Objects.equals(unhealthyPodEvictionPolicy, that.unhealthyPodEvictionPolicy)) return false;
+
     return true;
   }
   public int hashCode() {
-    return java.util.Objects.hash(maxUnavailable,  minAvailable,  selector,  super.hashCode());
+    return java.util.Objects.hash(maxUnavailable,  minAvailable,  selector,  unhealthyPodEvictionPolicy,  super.hashCode());
   }
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (maxUnavailable != null) { sb.append("maxUnavailable:"); sb.append(maxUnavailable + ","); }
     if (minAvailable != null) { sb.append("minAvailable:"); sb.append(minAvailable + ","); }
-    if (selector != null) { sb.append("selector:"); sb.append(selector); }
+    if (selector != null) { sb.append("selector:"); sb.append(selector + ","); }
+    if (unhealthyPodEvictionPolicy != null) { sb.append("unhealthyPodEvictionPolicy:"); sb.append(unhealthyPodEvictionPolicy); }
     sb.append("}");
     return sb.toString();
   }
-  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1PodDisruptionBudgetSpecFluent.SelectorNested<N>> implements V1PodDisruptionBudgetSpecFluent.SelectorNested<N>,Nested<N>{
+  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1PodDisruptionBudgetSpecFluentImpl.SelectorNested<N>> implements V1PodDisruptionBudgetSpecFluentImpl.SelectorNested<N>,Nested<N>{
     SelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }

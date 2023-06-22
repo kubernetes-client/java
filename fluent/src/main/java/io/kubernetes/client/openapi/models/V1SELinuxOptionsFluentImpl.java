@@ -14,14 +14,12 @@ import java.lang.Boolean;
   public V1SELinuxOptionsFluentImpl() {
   }
   public V1SELinuxOptionsFluentImpl(V1SELinuxOptions instance) {
-    this.withLevel(instance.getLevel());
-
-    this.withRole(instance.getRole());
-
-    this.withType(instance.getType());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withLevel(instance.getLevel());
+      this.withRole(instance.getRole());
+      this.withType(instance.getType());
+      this.withUser(instance.getUser());
+    }
   }
   private String level;
   private String role;
@@ -66,11 +64,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SELinuxOptionsFluentImpl that = (V1SELinuxOptionsFluentImpl) o;
-    if (level != null ? !level.equals(that.level) :that.level != null) return false;
-    if (role != null ? !role.equals(that.role) :that.role != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
-    if (user != null ? !user.equals(that.user) :that.user != null) return false;
+    if (!java.util.Objects.equals(level, that.level)) return false;
+
+    if (!java.util.Objects.equals(role, that.role)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
+    if (!java.util.Objects.equals(user, that.user)) return false;
+
     return true;
   }
   public int hashCode() {

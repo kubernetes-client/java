@@ -16,20 +16,15 @@ import java.lang.Boolean;
   public V1ContainerStateTerminatedFluentImpl() {
   }
   public V1ContainerStateTerminatedFluentImpl(V1ContainerStateTerminated instance) {
-    this.withContainerID(instance.getContainerID());
-
-    this.withExitCode(instance.getExitCode());
-
-    this.withFinishedAt(instance.getFinishedAt());
-
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
-    this.withSignal(instance.getSignal());
-
-    this.withStartedAt(instance.getStartedAt());
-
+    if (instance != null) {
+      this.withContainerID(instance.getContainerID());
+      this.withExitCode(instance.getExitCode());
+      this.withFinishedAt(instance.getFinishedAt());
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+      this.withSignal(instance.getSignal());
+      this.withStartedAt(instance.getStartedAt());
+    }
   }
   private String containerID;
   private Integer exitCode;
@@ -104,14 +99,22 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ContainerStateTerminatedFluentImpl that = (V1ContainerStateTerminatedFluentImpl) o;
-    if (containerID != null ? !containerID.equals(that.containerID) :that.containerID != null) return false;
-    if (exitCode != null ? !exitCode.equals(that.exitCode) :that.exitCode != null) return false;
-    if (finishedAt != null ? !finishedAt.equals(that.finishedAt) :that.finishedAt != null) return false;
-    if (message != null ? !message.equals(that.message) :that.message != null) return false;
-    if (reason != null ? !reason.equals(that.reason) :that.reason != null) return false;
-    if (signal != null ? !signal.equals(that.signal) :that.signal != null) return false;
-    if (startedAt != null ? !startedAt.equals(that.startedAt) :that.startedAt != null) return false;
+    if (!java.util.Objects.equals(containerID, that.containerID)) return false;
+
+    if (!java.util.Objects.equals(exitCode, that.exitCode)) return false;
+
+    if (!java.util.Objects.equals(finishedAt, that.finishedAt)) return false;
+
+    if (!java.util.Objects.equals(message, that.message)) return false;
+
+    if (!java.util.Objects.equals(reason, that.reason)) return false;
+
+    if (!java.util.Objects.equals(signal, that.signal)) return false;
+
+    if (!java.util.Objects.equals(startedAt, that.startedAt)) return false;
+
     return true;
   }
   public int hashCode() {

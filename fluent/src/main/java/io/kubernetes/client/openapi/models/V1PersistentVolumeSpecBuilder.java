@@ -20,66 +20,38 @@ public class V1PersistentVolumeSpecBuilder extends V1PersistentVolumeSpecFluentI
   }
   public V1PersistentVolumeSpecBuilder(V1PersistentVolumeSpecFluent<?> fluent,V1PersistentVolumeSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAccessModes(instance.getAccessModes());
-
-    fluent.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
-
-    fluent.withAzureDisk(instance.getAzureDisk());
-
-    fluent.withAzureFile(instance.getAzureFile());
-
-    fluent.withCapacity(instance.getCapacity());
-
-    fluent.withCephfs(instance.getCephfs());
-
-    fluent.withCinder(instance.getCinder());
-
-    fluent.withClaimRef(instance.getClaimRef());
-
-    fluent.withCsi(instance.getCsi());
-
-    fluent.withFc(instance.getFc());
-
-    fluent.withFlexVolume(instance.getFlexVolume());
-
-    fluent.withFlocker(instance.getFlocker());
-
-    fluent.withGcePersistentDisk(instance.getGcePersistentDisk());
-
-    fluent.withGlusterfs(instance.getGlusterfs());
-
-    fluent.withHostPath(instance.getHostPath());
-
-    fluent.withIscsi(instance.getIscsi());
-
-    fluent.withLocal(instance.getLocal());
-
-    fluent.withMountOptions(instance.getMountOptions());
-
-    fluent.withNfs(instance.getNfs());
-
-    fluent.withNodeAffinity(instance.getNodeAffinity());
-
-    fluent.withPersistentVolumeReclaimPolicy(instance.getPersistentVolumeReclaimPolicy());
-
-    fluent.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
-
-    fluent.withPortworxVolume(instance.getPortworxVolume());
-
-    fluent.withQuobyte(instance.getQuobyte());
-
-    fluent.withRbd(instance.getRbd());
-
-    fluent.withScaleIO(instance.getScaleIO());
-
-    fluent.withStorageClassName(instance.getStorageClassName());
-
-    fluent.withStorageos(instance.getStorageos());
-
-    fluent.withVolumeMode(instance.getVolumeMode());
-
-    fluent.withVsphereVolume(instance.getVsphereVolume());
-
+    if (instance != null) {
+      fluent.withAccessModes(instance.getAccessModes());
+      fluent.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
+      fluent.withAzureDisk(instance.getAzureDisk());
+      fluent.withAzureFile(instance.getAzureFile());
+      fluent.withCapacity(instance.getCapacity());
+      fluent.withCephfs(instance.getCephfs());
+      fluent.withCinder(instance.getCinder());
+      fluent.withClaimRef(instance.getClaimRef());
+      fluent.withCsi(instance.getCsi());
+      fluent.withFc(instance.getFc());
+      fluent.withFlexVolume(instance.getFlexVolume());
+      fluent.withFlocker(instance.getFlocker());
+      fluent.withGcePersistentDisk(instance.getGcePersistentDisk());
+      fluent.withGlusterfs(instance.getGlusterfs());
+      fluent.withHostPath(instance.getHostPath());
+      fluent.withIscsi(instance.getIscsi());
+      fluent.withLocal(instance.getLocal());
+      fluent.withMountOptions(instance.getMountOptions());
+      fluent.withNfs(instance.getNfs());
+      fluent.withNodeAffinity(instance.getNodeAffinity());
+      fluent.withPersistentVolumeReclaimPolicy(instance.getPersistentVolumeReclaimPolicy());
+      fluent.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
+      fluent.withPortworxVolume(instance.getPortworxVolume());
+      fluent.withQuobyte(instance.getQuobyte());
+      fluent.withRbd(instance.getRbd());
+      fluent.withScaleIO(instance.getScaleIO());
+      fluent.withStorageClassName(instance.getStorageClassName());
+      fluent.withStorageos(instance.getStorageos());
+      fluent.withVolumeMode(instance.getVolumeMode());
+      fluent.withVsphereVolume(instance.getVsphereVolume());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PersistentVolumeSpecBuilder(V1PersistentVolumeSpec instance) {
@@ -87,66 +59,38 @@ public class V1PersistentVolumeSpecBuilder extends V1PersistentVolumeSpecFluentI
   }
   public V1PersistentVolumeSpecBuilder(V1PersistentVolumeSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAccessModes(instance.getAccessModes());
-
-    this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
-
-    this.withAzureDisk(instance.getAzureDisk());
-
-    this.withAzureFile(instance.getAzureFile());
-
-    this.withCapacity(instance.getCapacity());
-
-    this.withCephfs(instance.getCephfs());
-
-    this.withCinder(instance.getCinder());
-
-    this.withClaimRef(instance.getClaimRef());
-
-    this.withCsi(instance.getCsi());
-
-    this.withFc(instance.getFc());
-
-    this.withFlexVolume(instance.getFlexVolume());
-
-    this.withFlocker(instance.getFlocker());
-
-    this.withGcePersistentDisk(instance.getGcePersistentDisk());
-
-    this.withGlusterfs(instance.getGlusterfs());
-
-    this.withHostPath(instance.getHostPath());
-
-    this.withIscsi(instance.getIscsi());
-
-    this.withLocal(instance.getLocal());
-
-    this.withMountOptions(instance.getMountOptions());
-
-    this.withNfs(instance.getNfs());
-
-    this.withNodeAffinity(instance.getNodeAffinity());
-
-    this.withPersistentVolumeReclaimPolicy(instance.getPersistentVolumeReclaimPolicy());
-
-    this.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
-
-    this.withPortworxVolume(instance.getPortworxVolume());
-
-    this.withQuobyte(instance.getQuobyte());
-
-    this.withRbd(instance.getRbd());
-
-    this.withScaleIO(instance.getScaleIO());
-
-    this.withStorageClassName(instance.getStorageClassName());
-
-    this.withStorageos(instance.getStorageos());
-
-    this.withVolumeMode(instance.getVolumeMode());
-
-    this.withVsphereVolume(instance.getVsphereVolume());
-
+    if (instance != null) {
+      this.withAccessModes(instance.getAccessModes());
+      this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
+      this.withAzureDisk(instance.getAzureDisk());
+      this.withAzureFile(instance.getAzureFile());
+      this.withCapacity(instance.getCapacity());
+      this.withCephfs(instance.getCephfs());
+      this.withCinder(instance.getCinder());
+      this.withClaimRef(instance.getClaimRef());
+      this.withCsi(instance.getCsi());
+      this.withFc(instance.getFc());
+      this.withFlexVolume(instance.getFlexVolume());
+      this.withFlocker(instance.getFlocker());
+      this.withGcePersistentDisk(instance.getGcePersistentDisk());
+      this.withGlusterfs(instance.getGlusterfs());
+      this.withHostPath(instance.getHostPath());
+      this.withIscsi(instance.getIscsi());
+      this.withLocal(instance.getLocal());
+      this.withMountOptions(instance.getMountOptions());
+      this.withNfs(instance.getNfs());
+      this.withNodeAffinity(instance.getNodeAffinity());
+      this.withPersistentVolumeReclaimPolicy(instance.getPersistentVolumeReclaimPolicy());
+      this.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
+      this.withPortworxVolume(instance.getPortworxVolume());
+      this.withQuobyte(instance.getQuobyte());
+      this.withRbd(instance.getRbd());
+      this.withScaleIO(instance.getScaleIO());
+      this.withStorageClassName(instance.getStorageClassName());
+      this.withStorageos(instance.getStorageos());
+      this.withVolumeMode(instance.getVolumeMode());
+      this.withVsphereVolume(instance.getVsphereVolume());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PersistentVolumeSpecFluent<?> fluent;

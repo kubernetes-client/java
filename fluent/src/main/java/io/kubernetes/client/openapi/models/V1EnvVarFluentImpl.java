@@ -16,12 +16,11 @@ import java.lang.Boolean;
   public V1EnvVarFluentImpl() {
   }
   public V1EnvVarFluentImpl(V1EnvVar instance) {
-    this.withName(instance.getName());
-
-    this.withValue(instance.getValue());
-
-    this.withValueFrom(instance.getValueFrom());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withValue(instance.getValue());
+      this.withValueFrom(instance.getValueFrom());
+    }
   }
   private String name;
   private String value;
@@ -63,28 +62,32 @@ import java.lang.Boolean;
   public Boolean hasValueFrom() {
     return this.valueFrom != null;
   }
-  public V1EnvVarFluent.ValueFromNested<A> withNewValueFrom() {
+  public V1EnvVarFluentImpl.ValueFromNested<A> withNewValueFrom() {
     return new V1EnvVarFluentImpl.ValueFromNestedImpl();
   }
-  public V1EnvVarFluent.ValueFromNested<A> withNewValueFromLike(V1EnvVarSource item) {
+  public V1EnvVarFluentImpl.ValueFromNested<A> withNewValueFromLike(V1EnvVarSource item) {
     return new V1EnvVarFluentImpl.ValueFromNestedImpl(item);
   }
-  public V1EnvVarFluent.ValueFromNested<A> editValueFrom() {
+  public V1EnvVarFluentImpl.ValueFromNested<A> editValueFrom() {
     return withNewValueFromLike(getValueFrom());
   }
-  public V1EnvVarFluent.ValueFromNested<A> editOrNewValueFrom() {
+  public V1EnvVarFluentImpl.ValueFromNested<A> editOrNewValueFrom() {
     return withNewValueFromLike(getValueFrom() != null ? getValueFrom(): new V1EnvVarSourceBuilder().build());
   }
-  public V1EnvVarFluent.ValueFromNested<A> editOrNewValueFromLike(V1EnvVarSource item) {
+  public V1EnvVarFluentImpl.ValueFromNested<A> editOrNewValueFromLike(V1EnvVarSource item) {
     return withNewValueFromLike(getValueFrom() != null ? getValueFrom(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EnvVarFluentImpl that = (V1EnvVarFluentImpl) o;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (value != null ? !value.equals(that.value) :that.value != null) return false;
-    if (valueFrom != null ? !valueFrom.equals(that.valueFrom) :that.valueFrom != null) return false;
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(value, that.value)) return false;
+
+    if (!java.util.Objects.equals(valueFrom, that.valueFrom)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -99,7 +102,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ValueFromNestedImpl<N> extends V1EnvVarSourceFluentImpl<V1EnvVarFluent.ValueFromNested<N>> implements V1EnvVarFluent.ValueFromNested<N>,Nested<N>{
+  class ValueFromNestedImpl<N> extends V1EnvVarSourceFluentImpl<V1EnvVarFluentImpl.ValueFromNested<N>> implements V1EnvVarFluentImpl.ValueFromNested<N>,Nested<N>{
     ValueFromNestedImpl(V1EnvVarSource item) {
       this.builder = new V1EnvVarSourceBuilder(this, item);
     }

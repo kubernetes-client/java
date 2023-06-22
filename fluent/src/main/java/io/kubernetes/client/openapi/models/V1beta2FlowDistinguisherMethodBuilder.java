@@ -20,8 +20,9 @@ public class V1beta2FlowDistinguisherMethodBuilder extends V1beta2FlowDistinguis
   }
   public V1beta2FlowDistinguisherMethodBuilder(V1beta2FlowDistinguisherMethodFluent<?> fluent,V1beta2FlowDistinguisherMethod instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2FlowDistinguisherMethodBuilder(V1beta2FlowDistinguisherMethod instance) {
@@ -29,8 +30,9 @@ public class V1beta2FlowDistinguisherMethodBuilder extends V1beta2FlowDistinguis
   }
   public V1beta2FlowDistinguisherMethodBuilder(V1beta2FlowDistinguisherMethod instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2FlowDistinguisherMethodFluent<?> fluent;

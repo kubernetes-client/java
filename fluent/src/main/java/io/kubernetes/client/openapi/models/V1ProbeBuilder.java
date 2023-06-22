@@ -20,26 +20,18 @@ public class V1ProbeBuilder extends V1ProbeFluentImpl<V1ProbeBuilder> implements
   }
   public V1ProbeBuilder(V1ProbeFluent<?> fluent,V1Probe instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withExec(instance.getExec());
-
-    fluent.withFailureThreshold(instance.getFailureThreshold());
-
-    fluent.withGrpc(instance.getGrpc());
-
-    fluent.withHttpGet(instance.getHttpGet());
-
-    fluent.withInitialDelaySeconds(instance.getInitialDelaySeconds());
-
-    fluent.withPeriodSeconds(instance.getPeriodSeconds());
-
-    fluent.withSuccessThreshold(instance.getSuccessThreshold());
-
-    fluent.withTcpSocket(instance.getTcpSocket());
-
-    fluent.withTerminationGracePeriodSeconds(instance.getTerminationGracePeriodSeconds());
-
-    fluent.withTimeoutSeconds(instance.getTimeoutSeconds());
-
+    if (instance != null) {
+      fluent.withExec(instance.getExec());
+      fluent.withFailureThreshold(instance.getFailureThreshold());
+      fluent.withGrpc(instance.getGrpc());
+      fluent.withHttpGet(instance.getHttpGet());
+      fluent.withInitialDelaySeconds(instance.getInitialDelaySeconds());
+      fluent.withPeriodSeconds(instance.getPeriodSeconds());
+      fluent.withSuccessThreshold(instance.getSuccessThreshold());
+      fluent.withTcpSocket(instance.getTcpSocket());
+      fluent.withTerminationGracePeriodSeconds(instance.getTerminationGracePeriodSeconds());
+      fluent.withTimeoutSeconds(instance.getTimeoutSeconds());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ProbeBuilder(V1Probe instance) {
@@ -47,26 +39,18 @@ public class V1ProbeBuilder extends V1ProbeFluentImpl<V1ProbeBuilder> implements
   }
   public V1ProbeBuilder(V1Probe instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withExec(instance.getExec());
-
-    this.withFailureThreshold(instance.getFailureThreshold());
-
-    this.withGrpc(instance.getGrpc());
-
-    this.withHttpGet(instance.getHttpGet());
-
-    this.withInitialDelaySeconds(instance.getInitialDelaySeconds());
-
-    this.withPeriodSeconds(instance.getPeriodSeconds());
-
-    this.withSuccessThreshold(instance.getSuccessThreshold());
-
-    this.withTcpSocket(instance.getTcpSocket());
-
-    this.withTerminationGracePeriodSeconds(instance.getTerminationGracePeriodSeconds());
-
-    this.withTimeoutSeconds(instance.getTimeoutSeconds());
-
+    if (instance != null) {
+      this.withExec(instance.getExec());
+      this.withFailureThreshold(instance.getFailureThreshold());
+      this.withGrpc(instance.getGrpc());
+      this.withHttpGet(instance.getHttpGet());
+      this.withInitialDelaySeconds(instance.getInitialDelaySeconds());
+      this.withPeriodSeconds(instance.getPeriodSeconds());
+      this.withSuccessThreshold(instance.getSuccessThreshold());
+      this.withTcpSocket(instance.getTcpSocket());
+      this.withTerminationGracePeriodSeconds(instance.getTerminationGracePeriodSeconds());
+      this.withTimeoutSeconds(instance.getTimeoutSeconds());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ProbeFluent<?> fluent;

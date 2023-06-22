@@ -20,40 +20,25 @@ public class CoreV1EventBuilder extends CoreV1EventFluentImpl<CoreV1EventBuilder
   }
   public CoreV1EventBuilder(CoreV1EventFluent<?> fluent,CoreV1Event instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAction(instance.getAction());
-
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withCount(instance.getCount());
-
-    fluent.withEventTime(instance.getEventTime());
-
-    fluent.withFirstTimestamp(instance.getFirstTimestamp());
-
-    fluent.withInvolvedObject(instance.getInvolvedObject());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withLastTimestamp(instance.getLastTimestamp());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withReason(instance.getReason());
-
-    fluent.withRelated(instance.getRelated());
-
-    fluent.withReportingComponent(instance.getReportingComponent());
-
-    fluent.withReportingInstance(instance.getReportingInstance());
-
-    fluent.withSeries(instance.getSeries());
-
-    fluent.withSource(instance.getSource());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withAction(instance.getAction());
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withCount(instance.getCount());
+      fluent.withEventTime(instance.getEventTime());
+      fluent.withFirstTimestamp(instance.getFirstTimestamp());
+      fluent.withInvolvedObject(instance.getInvolvedObject());
+      fluent.withKind(instance.getKind());
+      fluent.withLastTimestamp(instance.getLastTimestamp());
+      fluent.withMessage(instance.getMessage());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withReason(instance.getReason());
+      fluent.withRelated(instance.getRelated());
+      fluent.withReportingComponent(instance.getReportingComponent());
+      fluent.withReportingInstance(instance.getReportingInstance());
+      fluent.withSeries(instance.getSeries());
+      fluent.withSource(instance.getSource());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public CoreV1EventBuilder(CoreV1Event instance) {
@@ -61,40 +46,25 @@ public class CoreV1EventBuilder extends CoreV1EventFluentImpl<CoreV1EventBuilder
   }
   public CoreV1EventBuilder(CoreV1Event instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAction(instance.getAction());
-
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withCount(instance.getCount());
-
-    this.withEventTime(instance.getEventTime());
-
-    this.withFirstTimestamp(instance.getFirstTimestamp());
-
-    this.withInvolvedObject(instance.getInvolvedObject());
-
-    this.withKind(instance.getKind());
-
-    this.withLastTimestamp(instance.getLastTimestamp());
-
-    this.withMessage(instance.getMessage());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withReason(instance.getReason());
-
-    this.withRelated(instance.getRelated());
-
-    this.withReportingComponent(instance.getReportingComponent());
-
-    this.withReportingInstance(instance.getReportingInstance());
-
-    this.withSeries(instance.getSeries());
-
-    this.withSource(instance.getSource());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withAction(instance.getAction());
+      this.withApiVersion(instance.getApiVersion());
+      this.withCount(instance.getCount());
+      this.withEventTime(instance.getEventTime());
+      this.withFirstTimestamp(instance.getFirstTimestamp());
+      this.withInvolvedObject(instance.getInvolvedObject());
+      this.withKind(instance.getKind());
+      this.withLastTimestamp(instance.getLastTimestamp());
+      this.withMessage(instance.getMessage());
+      this.withMetadata(instance.getMetadata());
+      this.withReason(instance.getReason());
+      this.withRelated(instance.getRelated());
+      this.withReportingComponent(instance.getReportingComponent());
+      this.withReportingInstance(instance.getReportingInstance());
+      this.withSeries(instance.getSeries());
+      this.withSource(instance.getSource());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   CoreV1EventFluent<?> fluent;

@@ -17,18 +17,14 @@ import java.util.LinkedHashMap;
   public V1LimitRangeItemFluentImpl() {
   }
   public V1LimitRangeItemFluentImpl(V1LimitRangeItem instance) {
-    this.withDefault(instance.getDefault());
-
-    this.withDefaultRequest(instance.getDefaultRequest());
-
-    this.withMax(instance.getMax());
-
-    this.withMaxLimitRequestRatio(instance.getMaxLimitRequestRatio());
-
-    this.withMin(instance.getMin());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withDefault(instance.getDefault());
+      this.withDefaultRequest(instance.getDefaultRequest());
+      this.withMax(instance.getMax());
+      this.withMaxLimitRequestRatio(instance.getMaxLimitRequestRatio());
+      this.withMin(instance.getMin());
+      this.withType(instance.getType());
+    }
   }
   private Map<String,Quantity> _default;
   private Map<String,Quantity> defaultRequest;
@@ -173,13 +169,20 @@ import java.util.LinkedHashMap;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1LimitRangeItemFluentImpl that = (V1LimitRangeItemFluentImpl) o;
-    if (_default != null ? !_default.equals(that._default) :that._default != null) return false;
-    if (defaultRequest != null ? !defaultRequest.equals(that.defaultRequest) :that.defaultRequest != null) return false;
-    if (max != null ? !max.equals(that.max) :that.max != null) return false;
-    if (maxLimitRequestRatio != null ? !maxLimitRequestRatio.equals(that.maxLimitRequestRatio) :that.maxLimitRequestRatio != null) return false;
-    if (min != null ? !min.equals(that.min) :that.min != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(_default, that._default)) return false;
+
+    if (!java.util.Objects.equals(defaultRequest, that.defaultRequest)) return false;
+
+    if (!java.util.Objects.equals(max, that.max)) return false;
+
+    if (!java.util.Objects.equals(maxLimitRequestRatio, that.maxLimitRequestRatio)) return false;
+
+    if (!java.util.Objects.equals(min, that.min)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {

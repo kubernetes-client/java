@@ -17,8 +17,9 @@ import java.util.LinkedHashMap;
   public V1OverheadFluentImpl() {
   }
   public V1OverheadFluentImpl(V1Overhead instance) {
-    this.withPodFixed(instance.getPodFixed());
-
+    if (instance != null) {
+      this.withPodFixed(instance.getPodFixed());
+    }
   }
   private Map<String,Quantity> podFixed;
   public A addToPodFixed(String key,Quantity value) {
@@ -49,8 +50,10 @@ import java.util.LinkedHashMap;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1OverheadFluentImpl that = (V1OverheadFluentImpl) o;
-    if (podFixed != null ? !podFixed.equals(that.podFixed) :that.podFixed != null) return false;
+    if (!java.util.Objects.equals(podFixed, that.podFixed)) return false;
+
     return true;
   }
   public int hashCode() {

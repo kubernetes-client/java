@@ -20,18 +20,14 @@ public class V1AzureDiskVolumeSourceBuilder extends V1AzureDiskVolumeSourceFluen
   }
   public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSourceFluent<?> fluent,V1AzureDiskVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCachingMode(instance.getCachingMode());
-
-    fluent.withDiskName(instance.getDiskName());
-
-    fluent.withDiskURI(instance.getDiskURI());
-
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      fluent.withCachingMode(instance.getCachingMode());
+      fluent.withDiskName(instance.getDiskName());
+      fluent.withDiskURI(instance.getDiskURI());
+      fluent.withFsType(instance.getFsType());
+      fluent.withKind(instance.getKind());
+      fluent.withReadOnly(instance.getReadOnly());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSource instance) {
@@ -39,18 +35,14 @@ public class V1AzureDiskVolumeSourceBuilder extends V1AzureDiskVolumeSourceFluen
   }
   public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCachingMode(instance.getCachingMode());
-
-    this.withDiskName(instance.getDiskName());
-
-    this.withDiskURI(instance.getDiskURI());
-
-    this.withFsType(instance.getFsType());
-
-    this.withKind(instance.getKind());
-
-    this.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      this.withCachingMode(instance.getCachingMode());
+      this.withDiskName(instance.getDiskName());
+      this.withDiskURI(instance.getDiskURI());
+      this.withFsType(instance.getFsType());
+      this.withKind(instance.getKind());
+      this.withReadOnly(instance.getReadOnly());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1AzureDiskVolumeSourceFluent<?> fluent;

@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,19 +18,19 @@ import java.lang.Boolean;
   public V1HostAliasFluentImpl() {
   }
   public V1HostAliasFluentImpl(V1HostAlias instance) {
-    this.withHostnames(instance.getHostnames());
-
-    this.withIp(instance.getIp());
-
+    if (instance != null) {
+      this.withHostnames(instance.getHostnames());
+      this.withIp(instance.getIp());
+    }
   }
   private List<String> hostnames;
   private String ip;
-  public A addToHostnames(Integer index,String item) {
+  public A addToHostnames(int index,String item) {
     if (this.hostnames == null) {this.hostnames = new ArrayList<String>();}
     this.hostnames.add(index, item);
     return (A)this;
   }
-  public A setToHostnames(Integer index,String item) {
+  public A setToHostnames(int index,String item) {
     if (this.hostnames == null) {this.hostnames = new ArrayList<String>();}
     this.hostnames.set(index, item); return (A)this;
   }
@@ -52,7 +51,7 @@ import java.lang.Boolean;
   public List<String> getHostnames() {
     return this.hostnames;
   }
-  public String getHostname(Integer index) {
+  public String getHostname(int index) {
     return this.hostnames.get(index);
   }
   public String getFirstHostname() {
@@ -71,7 +70,7 @@ import java.lang.Boolean;
     if (hostnames != null) {this.hostnames = new ArrayList(); for (String item : hostnames){this.addToHostnames(item);}} else { this.hostnames = null;} return (A) this;
   }
   public A withHostnames(java.lang.String... hostnames) {
-    if (this.hostnames != null) {this.hostnames.clear();}
+    if (this.hostnames != null) {this.hostnames.clear(); _visitables.remove("hostnames"); }
     if (hostnames != null) {for (String item :hostnames){ this.addToHostnames(item);}} return (A) this;
   }
   public Boolean hasHostnames() {
@@ -89,9 +88,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1HostAliasFluentImpl that = (V1HostAliasFluentImpl) o;
-    if (hostnames != null ? !hostnames.equals(that.hostnames) :that.hostnames != null) return false;
-    if (ip != null ? !ip.equals(that.ip) :that.ip != null) return false;
+    if (!java.util.Objects.equals(hostnames, that.hostnames)) return false;
+
+    if (!java.util.Objects.equals(ip, that.ip)) return false;
+
     return true;
   }
   public int hashCode() {

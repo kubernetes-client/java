@@ -20,8 +20,9 @@ public class V1beta2PriorityLevelConfigurationReferenceBuilder extends V1beta2Pr
   }
   public V1beta2PriorityLevelConfigurationReferenceBuilder(V1beta2PriorityLevelConfigurationReferenceFluent<?> fluent,V1beta2PriorityLevelConfigurationReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2PriorityLevelConfigurationReferenceBuilder(V1beta2PriorityLevelConfigurationReference instance) {
@@ -29,8 +30,9 @@ public class V1beta2PriorityLevelConfigurationReferenceBuilder extends V1beta2Pr
   }
   public V1beta2PriorityLevelConfigurationReferenceBuilder(V1beta2PriorityLevelConfigurationReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2PriorityLevelConfigurationReferenceFluent<?> fluent;

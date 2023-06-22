@@ -16,8 +16,9 @@ import java.lang.Boolean;
   public V1EphemeralVolumeSourceFluentImpl() {
   }
   public V1EphemeralVolumeSourceFluentImpl(V1EphemeralVolumeSource instance) {
-    this.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
-
+    if (instance != null) {
+      this.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
+    }
   }
   private V1PersistentVolumeClaimTemplateBuilder volumeClaimTemplate;
   
@@ -39,26 +40,28 @@ import java.lang.Boolean;
   public Boolean hasVolumeClaimTemplate() {
     return this.volumeClaimTemplate != null;
   }
-  public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A> withNewVolumeClaimTemplate() {
+  public V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNested<A> withNewVolumeClaimTemplate() {
     return new V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNestedImpl();
   }
-  public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A> withNewVolumeClaimTemplateLike(V1PersistentVolumeClaimTemplate item) {
+  public V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNested<A> withNewVolumeClaimTemplateLike(V1PersistentVolumeClaimTemplate item) {
     return new V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNestedImpl(item);
   }
-  public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A> editVolumeClaimTemplate() {
+  public V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNested<A> editVolumeClaimTemplate() {
     return withNewVolumeClaimTemplateLike(getVolumeClaimTemplate());
   }
-  public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A> editOrNewVolumeClaimTemplate() {
+  public V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNested<A> editOrNewVolumeClaimTemplate() {
     return withNewVolumeClaimTemplateLike(getVolumeClaimTemplate() != null ? getVolumeClaimTemplate(): new V1PersistentVolumeClaimTemplateBuilder().build());
   }
-  public V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<A> editOrNewVolumeClaimTemplateLike(V1PersistentVolumeClaimTemplate item) {
+  public V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNested<A> editOrNewVolumeClaimTemplateLike(V1PersistentVolumeClaimTemplate item) {
     return withNewVolumeClaimTemplateLike(getVolumeClaimTemplate() != null ? getVolumeClaimTemplate(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EphemeralVolumeSourceFluentImpl that = (V1EphemeralVolumeSourceFluentImpl) o;
-    if (volumeClaimTemplate != null ? !volumeClaimTemplate.equals(that.volumeClaimTemplate) :that.volumeClaimTemplate != null) return false;
+    if (!java.util.Objects.equals(volumeClaimTemplate, that.volumeClaimTemplate)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -71,7 +74,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class VolumeClaimTemplateNestedImpl<N> extends V1PersistentVolumeClaimTemplateFluentImpl<V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<N>> implements V1EphemeralVolumeSourceFluent.VolumeClaimTemplateNested<N>,Nested<N>{
+  class VolumeClaimTemplateNestedImpl<N> extends V1PersistentVolumeClaimTemplateFluentImpl<V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNested<N>> implements V1EphemeralVolumeSourceFluentImpl.VolumeClaimTemplateNested<N>,Nested<N>{
     VolumeClaimTemplateNestedImpl(V1PersistentVolumeClaimTemplate item) {
       this.builder = new V1PersistentVolumeClaimTemplateBuilder(this, item);
     }

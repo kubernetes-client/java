@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,37 +12,40 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1CrossVersionObjectReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** specification of a horizontal pod autoscaler. */
+/**
+ * specification of a horizontal pod autoscaler.
+ */
 @ApiModel(description = "specification of a horizontal pod autoscaler.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1HorizontalPodAutoscalerSpec {
   public static final String SERIALIZED_NAME_MAX_REPLICAS = "maxReplicas";
-
   @SerializedName(SERIALIZED_NAME_MAX_REPLICAS)
   private Integer maxReplicas;
 
   public static final String SERIALIZED_NAME_MIN_REPLICAS = "minReplicas";
-
   @SerializedName(SERIALIZED_NAME_MIN_REPLICAS)
   private Integer minReplicas;
 
   public static final String SERIALIZED_NAME_SCALE_TARGET_REF = "scaleTargetRef";
-
   @SerializedName(SERIALIZED_NAME_SCALE_TARGET_REF)
   private V1CrossVersionObjectReference scaleTargetRef;
 
-  public static final String SERIALIZED_NAME_TARGET_C_P_U_UTILIZATION_PERCENTAGE =
-      "targetCPUUtilizationPercentage";
-
+  public static final String SERIALIZED_NAME_TARGET_C_P_U_UTILIZATION_PERCENTAGE = "targetCPUUtilizationPercentage";
   @SerializedName(SERIALIZED_NAME_TARGET_C_P_U_UTILIZATION_PERCENTAGE)
   private Integer targetCPUUtilizationPercentage;
+
 
   public V1HorizontalPodAutoscalerSpec maxReplicas(Integer maxReplicas) {
 
@@ -50,23 +53,21 @@ public class V1HorizontalPodAutoscalerSpec {
     return this;
   }
 
-  /**
-   * upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than
-   * MinReplicas.
-   *
+   /**
+   * maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.
    * @return maxReplicas
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.")
+  **/
+  @ApiModelProperty(required = true, value = "maxReplicas is the upper limit for the number of pods that can be set by the autoscaler; cannot be smaller than MinReplicas.")
+
   public Integer getMaxReplicas() {
     return maxReplicas;
   }
 
+
   public void setMaxReplicas(Integer maxReplicas) {
     this.maxReplicas = maxReplicas;
   }
+
 
   public V1HorizontalPodAutoscalerSpec minReplicas(Integer minReplicas) {
 
@@ -74,71 +75,67 @@ public class V1HorizontalPodAutoscalerSpec {
     return this;
   }
 
-  /**
-   * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale
-   * down. It defaults to 1 pod. minReplicas is allowed to be 0 if the alpha feature gate
-   * HPAScaleToZero is enabled and at least one Object or External metric is configured. Scaling is
-   * active as long as at least one metric value is available.
-   *
+   /**
+   * minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.
    * @return minReplicas
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.")
+  @ApiModelProperty(value = "minReplicas is the lower limit for the number of replicas to which the autoscaler can scale down.  It defaults to 1 pod.  minReplicas is allowed to be 0 if the alpha feature gate HPAScaleToZero is enabled and at least one Object or External metric is configured.  Scaling is active as long as at least one metric value is available.")
+
   public Integer getMinReplicas() {
     return minReplicas;
   }
+
 
   public void setMinReplicas(Integer minReplicas) {
     this.minReplicas = minReplicas;
   }
 
-  public V1HorizontalPodAutoscalerSpec scaleTargetRef(
-      V1CrossVersionObjectReference scaleTargetRef) {
+
+  public V1HorizontalPodAutoscalerSpec scaleTargetRef(V1CrossVersionObjectReference scaleTargetRef) {
 
     this.scaleTargetRef = scaleTargetRef;
     return this;
   }
 
-  /**
+   /**
    * Get scaleTargetRef
-   *
    * @return scaleTargetRef
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
+
   public V1CrossVersionObjectReference getScaleTargetRef() {
     return scaleTargetRef;
   }
+
 
   public void setScaleTargetRef(V1CrossVersionObjectReference scaleTargetRef) {
     this.scaleTargetRef = scaleTargetRef;
   }
 
-  public V1HorizontalPodAutoscalerSpec targetCPUUtilizationPercentage(
-      Integer targetCPUUtilizationPercentage) {
+
+  public V1HorizontalPodAutoscalerSpec targetCPUUtilizationPercentage(Integer targetCPUUtilizationPercentage) {
 
     this.targetCPUUtilizationPercentage = targetCPUUtilizationPercentage;
     return this;
   }
 
-  /**
-   * target average CPU utilization (represented as a percentage of requested CPU) over all the
-   * pods; if not specified the default autoscaling policy will be used.
-   *
+   /**
+   * targetCPUUtilizationPercentage is the target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.
    * @return targetCPUUtilizationPercentage
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.")
+  @ApiModelProperty(value = "targetCPUUtilizationPercentage is the target average CPU utilization (represented as a percentage of requested CPU) over all the pods; if not specified the default autoscaling policy will be used.")
+
   public Integer getTargetCPUUtilizationPercentage() {
     return targetCPUUtilizationPercentage;
   }
 
+
   public void setTargetCPUUtilizationPercentage(Integer targetCPUUtilizationPercentage) {
     this.targetCPUUtilizationPercentage = targetCPUUtilizationPercentage;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -149,18 +146,17 @@ public class V1HorizontalPodAutoscalerSpec {
       return false;
     }
     V1HorizontalPodAutoscalerSpec v1HorizontalPodAutoscalerSpec = (V1HorizontalPodAutoscalerSpec) o;
-    return Objects.equals(this.maxReplicas, v1HorizontalPodAutoscalerSpec.maxReplicas)
-        && Objects.equals(this.minReplicas, v1HorizontalPodAutoscalerSpec.minReplicas)
-        && Objects.equals(this.scaleTargetRef, v1HorizontalPodAutoscalerSpec.scaleTargetRef)
-        && Objects.equals(
-            this.targetCPUUtilizationPercentage,
-            v1HorizontalPodAutoscalerSpec.targetCPUUtilizationPercentage);
+    return Objects.equals(this.maxReplicas, v1HorizontalPodAutoscalerSpec.maxReplicas) &&
+        Objects.equals(this.minReplicas, v1HorizontalPodAutoscalerSpec.minReplicas) &&
+        Objects.equals(this.scaleTargetRef, v1HorizontalPodAutoscalerSpec.scaleTargetRef) &&
+        Objects.equals(this.targetCPUUtilizationPercentage, v1HorizontalPodAutoscalerSpec.targetCPUUtilizationPercentage);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(maxReplicas, minReplicas, scaleTargetRef, targetCPUUtilizationPercentage);
   }
+
 
   @Override
   public String toString() {
@@ -169,15 +165,14 @@ public class V1HorizontalPodAutoscalerSpec {
     sb.append("    maxReplicas: ").append(toIndentedString(maxReplicas)).append("\n");
     sb.append("    minReplicas: ").append(toIndentedString(minReplicas)).append("\n");
     sb.append("    scaleTargetRef: ").append(toIndentedString(scaleTargetRef)).append("\n");
-    sb.append("    targetCPUUtilizationPercentage: ")
-        .append(toIndentedString(targetCPUUtilizationPercentage))
-        .append("\n");
+    sb.append("    targetCPUUtilizationPercentage: ").append(toIndentedString(targetCPUUtilizationPercentage)).append("\n");
     sb.append("}");
     return sb.toString();
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -185,4 +180,5 @@ public class V1HorizontalPodAutoscalerSpec {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

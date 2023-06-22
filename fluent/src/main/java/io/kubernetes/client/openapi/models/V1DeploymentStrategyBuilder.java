@@ -20,10 +20,10 @@ public class V1DeploymentStrategyBuilder extends V1DeploymentStrategyFluentImpl<
   }
   public V1DeploymentStrategyBuilder(V1DeploymentStrategyFluent<?> fluent,V1DeploymentStrategy instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withRollingUpdate(instance.getRollingUpdate());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withRollingUpdate(instance.getRollingUpdate());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1DeploymentStrategyBuilder(V1DeploymentStrategy instance) {
@@ -31,10 +31,10 @@ public class V1DeploymentStrategyBuilder extends V1DeploymentStrategyFluentImpl<
   }
   public V1DeploymentStrategyBuilder(V1DeploymentStrategy instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withRollingUpdate(instance.getRollingUpdate());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withRollingUpdate(instance.getRollingUpdate());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1DeploymentStrategyFluent<?> fluent;

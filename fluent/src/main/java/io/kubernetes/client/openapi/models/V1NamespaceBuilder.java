@@ -20,16 +20,13 @@ public class V1NamespaceBuilder extends V1NamespaceFluentImpl<V1NamespaceBuilder
   }
   public V1NamespaceBuilder(V1NamespaceFluent<?> fluent,V1Namespace instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
-    fluent.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+      fluent.withStatus(instance.getStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NamespaceBuilder(V1Namespace instance) {
@@ -37,16 +34,13 @@ public class V1NamespaceBuilder extends V1NamespaceFluentImpl<V1NamespaceBuilder
   }
   public V1NamespaceBuilder(V1Namespace instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NamespaceFluent<?> fluent;

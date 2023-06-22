@@ -20,10 +20,10 @@ public class V2MetricIdentifierBuilder extends V2MetricIdentifierFluentImpl<V2Me
   }
   public V2MetricIdentifierBuilder(V2MetricIdentifierFluent<?> fluent,V2MetricIdentifier instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withSelector(instance.getSelector());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withSelector(instance.getSelector());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2MetricIdentifierBuilder(V2MetricIdentifier instance) {
@@ -31,10 +31,10 @@ public class V2MetricIdentifierBuilder extends V2MetricIdentifierFluentImpl<V2Me
   }
   public V2MetricIdentifierBuilder(V2MetricIdentifier instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withSelector(instance.getSelector());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withSelector(instance.getSelector());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2MetricIdentifierFluent<?> fluent;

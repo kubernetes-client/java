@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,12 +18,11 @@ import java.lang.Boolean;
   public V1NodeSelectorRequirementFluentImpl() {
   }
   public V1NodeSelectorRequirementFluentImpl(V1NodeSelectorRequirement instance) {
-    this.withKey(instance.getKey());
-
-    this.withOperator(instance.getOperator());
-
-    this.withValues(instance.getValues());
-
+    if (instance != null) {
+      this.withKey(instance.getKey());
+      this.withOperator(instance.getOperator());
+      this.withValues(instance.getValues());
+    }
   }
   private String key;
   private String operator;
@@ -47,12 +45,12 @@ import java.lang.Boolean;
   public Boolean hasOperator() {
     return this.operator != null;
   }
-  public A addToValues(Integer index,String item) {
+  public A addToValues(int index,String item) {
     if (this.values == null) {this.values = new ArrayList<String>();}
     this.values.add(index, item);
     return (A)this;
   }
-  public A setToValues(Integer index,String item) {
+  public A setToValues(int index,String item) {
     if (this.values == null) {this.values = new ArrayList<String>();}
     this.values.set(index, item); return (A)this;
   }
@@ -73,7 +71,7 @@ import java.lang.Boolean;
   public List<String> getValues() {
     return this.values;
   }
-  public String getValue(Integer index) {
+  public String getValue(int index) {
     return this.values.get(index);
   }
   public String getFirstValue() {
@@ -92,7 +90,7 @@ import java.lang.Boolean;
     if (values != null) {this.values = new ArrayList(); for (String item : values){this.addToValues(item);}} else { this.values = null;} return (A) this;
   }
   public A withValues(java.lang.String... values) {
-    if (this.values != null) {this.values.clear();}
+    if (this.values != null) {this.values.clear(); _visitables.remove("values"); }
     if (values != null) {for (String item :values){ this.addToValues(item);}} return (A) this;
   }
   public Boolean hasValues() {
@@ -101,10 +99,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NodeSelectorRequirementFluentImpl that = (V1NodeSelectorRequirementFluentImpl) o;
-    if (key != null ? !key.equals(that.key) :that.key != null) return false;
-    if (operator != null ? !operator.equals(that.operator) :that.operator != null) return false;
-    if (values != null ? !values.equals(that.values) :that.values != null) return false;
+    if (!java.util.Objects.equals(key, that.key)) return false;
+
+    if (!java.util.Objects.equals(operator, that.operator)) return false;
+
+    if (!java.util.Objects.equals(values, that.values)) return false;
+
     return true;
   }
   public int hashCode() {
