@@ -36,12 +36,13 @@ jobs:
         java-version: 17.0.x
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2.2.12
+      uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
+        tools: 'https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.13.3/codeql-bundle-linux64.tar.gz'
 
     - name: Autobuild
-      uses: github/codeql-action/autobuild@v2.2.12
+      uses: github/codeql-action/autobuild@v2
 
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2.2.12
+      uses: github/codeql-action/analyze@v2
