@@ -20,6 +20,7 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 import static org.junit.Assert.assertEquals;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import io.kubernetes.client.Discovery.APIResource;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1APIResource;
@@ -28,6 +29,7 @@ import io.kubernetes.client.openapi.models.V1APIVersions;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 import org.junit.Before;
 import org.junit.Rule;
@@ -100,5 +102,54 @@ public class DiscoveryTest {
     assertEquals("meow", meow.getResourceSingular());
     assertEquals(true, meow.getNamespaced());
     assertEquals("mouse", meow.getSubResources().get(0));
+  }
+
+  @Test
+  public void findAllShouldReturnAllApiResourceWhenApiResponseIsSuccess() {
+    Discovery discovery = new Discovery(apiClient);
+
+    String group = "test.com";
+    String version = "v1";
+    String path="/apis/"+group+'/'+version;
+
+    wireMockRule.stubFor(
+        get(urlPathEqualTo(path))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody(
+                        apiClient
+                            .getJSON()
+                            .serialize(new V1APIResourceList()
+                                .resources(
+                                    Arrays.asList(
+                                      new V1APIResource()
+                                        .name("first"),
+                                      new V1APIResource()
+                                        .name("second")))))));
+
+    Set<APIResource> apiResources = discovery.findAll(group, List.of(version), version);
+    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(path)));
+    assertEquals(2, apiResources.size());
+  }
+
+  @Test
+  public void findAllShouldReturnEmptyListWhenApiResponseIsNotSuccess() {
+    Discovery discovery = new Discovery(apiClient);
+
+    String group = "test.com";
+    String version = "v1";
+    String path="/apis/"+group+'/'+version;
+
+    wireMockRule.stubFor(
+        get(urlPathEqualTo(path))
+            .willReturn(
+                aResponse()
+                    .withStatus(503)));
+
+    Set<APIResource> apiResources = discovery.findAll(group, List.of(version), version);
+    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(path)));
+    assertEquals(0, apiResources.size());
   }
 }

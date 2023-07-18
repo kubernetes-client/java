@@ -32,9 +32,12 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import okhttp3.Call;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Discovery {
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(Discovery.class);
   private final ApiClient apiClient;
 
   public Discovery() {
@@ -60,16 +63,18 @@ public class Discovery {
     return allResources;
   }
 
-  public Set<APIResource> findAll(String group, List<String> versions, String preferredVersion)
-      throws ApiException {
+  public Set<APIResource> findAll(String group, List<String> versions, String preferredVersion) {
     return findAll(group, versions, preferredVersion, "/apis/" + group + "/" + preferredVersion);
   }
 
-  public Set<APIResource> findAll(
-      String group, List<String> versions, String preferredVersion, String path)
-      throws ApiException {
-    V1APIResourceList resourceList = resourceDiscovery(path);
-    return groupResourcesByName(group, versions, preferredVersion, resourceList);
+  public Set<APIResource> findAll(String group, List<String> versions, String preferredVersion, String path) {
+    try {
+      V1APIResourceList resourceList = resourceDiscovery(path);
+      return groupResourcesByName(group, versions, preferredVersion, resourceList);
+    } catch (ApiException e) {
+      LOGGER.warn("Api {} returns a {} code, all api resources managed by this api cannot be discovered", path, e.getCode(), e);
+      return Collections.emptySet();
+    }
   }
 
   public Set<APIResource> groupResourcesByName(
