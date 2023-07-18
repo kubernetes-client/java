@@ -1,0 +1,19 @@
+template:
+  name: tname
+  type: Step
+  projectIdentifier: sahiltest
+  orgIdentifier: default
+  spec:
+    type: ShellScript
+    spec:
+      shell: Bash
+      onDelegate: true
+      source:
+        type: Inline
+        spec:
+          script: echo "hello"
+      environmentVariables: []
+      outputVariables: []
+    timeout: 10m
+  versionLabel: V1
+  identifier: tname
