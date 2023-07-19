@@ -28,6 +28,7 @@ import io.kubernetes.client.openapi.models.V1APIResourceList;
 import io.kubernetes.client.openapi.models.V1APIVersions;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -129,7 +130,9 @@ public class DiscoveryTest {
                                       new V1APIResource()
                                         .name("second")))))));
 
-    Set<APIResource> apiResources = discovery.findAll(group, List.of(version), version);
+    List<String> versions = new ArrayList<>();
+    versions.add(version);
+    Set<APIResource> apiResources = discovery.findAll(group, versions, version);
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(path)));
     assertEquals(2, apiResources.size());
   }
@@ -148,7 +151,9 @@ public class DiscoveryTest {
                 aResponse()
                     .withStatus(503)));
 
-    Set<APIResource> apiResources = discovery.findAll(group, List.of(version), version);
+    List<String> versions = new ArrayList<>();
+    versions.add(version);
+    Set<APIResource> apiResources = discovery.findAll(group, versions, version);
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(path)));
     assertEquals(0, apiResources.size());
   }
