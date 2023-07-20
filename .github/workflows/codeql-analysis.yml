@@ -39,7 +39,7 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        tools: 'https://github.com/github/codeql-action/releases/download/codeql-bundle-v2.13.3/codeql-bundle-linux64.tar.gz'
+        tools: 'https://github.com/github/codeql-action/releases/download/codeql-bundle-20230524/codeql-bundle-linux64.tar.gz'
 
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
