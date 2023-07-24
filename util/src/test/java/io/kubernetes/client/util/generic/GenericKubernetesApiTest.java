@@ -246,6 +246,23 @@ public class GenericKubernetesApiTest {
   }
 
   @Test
+  public void patchNamespacedJobReturningEmpty() {
+    V1Patch v1Patch = new V1Patch("{}");
+    stubFor(
+        patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
+            .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
+            .willReturn(aResponse().withStatus(200).withBody("")));
+    KubernetesApiResponse<V1Job> jobPatchResp =
+        jobClient.patch("default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
+
+    assertTrue(jobPatchResp.isSuccess());
+    assertNull(jobPatchResp.getObject());
+    assertEquals("Unexpected response body", jobPatchResp.getStatus().getMessage());
+    assertEquals(200, jobPatchResp.getStatus().getCode().intValue());
+    verify(1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
+  }
+
+  @Test
   public void watchNamespacedJobReturningObject() throws ApiException {
     V1JobList jobList = new V1JobList().kind("JobList").metadata(new V1ListMeta());
 
