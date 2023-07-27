@@ -72,7 +72,7 @@ public class Discovery {
       V1APIResourceList resourceList = resourceDiscovery(path);
       return groupResourcesByName(group, versions, preferredVersion, resourceList);
     } catch (ApiException e) {
-      LOGGER.warn("Api {} returns a {} code, all api resources managed by this api cannot be discovered", path, e.getCode(), e);
+      LOGGER.warn("Unable to retrieve the complete list of server APIs: {}/{}: {}", group, preferredVersion, e.getResponseBody());
       return Collections.emptySet();
     }
   }
