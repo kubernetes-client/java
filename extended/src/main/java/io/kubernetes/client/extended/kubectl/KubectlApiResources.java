@@ -15,16 +15,24 @@ package io.kubernetes.client.extended.kubectl;
 import io.kubernetes.client.Discovery;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.util.exception.IncompleteDiscoveryException;
 import java.util.Set;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class KubectlApiResources extends Kubectl.ApiClientBuilder<KubectlApiResources>
     implements Kubectl.Executable<Set<Discovery.APIResource>> {
+
+  private static final Logger LOGGER = LoggerFactory.getLogger(KubectlApiResources.class);
 
   @Override
   public Set<Discovery.APIResource> execute() throws KubectlException {
     Discovery discovery = new Discovery(this.apiClient);
     try {
       return discovery.findAll();
+    } catch (IncompleteDiscoveryException e) {
+      LOGGER.warn("Error while getting all api resources, some resources will be missing", e);
+      return e.getDiscoveredResources();
     } catch (ApiException e) {
       throw new KubectlException(e);
     }

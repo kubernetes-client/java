@@ -20,6 +20,7 @@ import io.kubernetes.client.openapi.models.V1APIGroup;
 import io.kubernetes.client.openapi.models.V1APIGroupList;
 import io.kubernetes.client.openapi.models.V1APIResourceList;
 import io.kubernetes.client.openapi.models.V1APIVersions;
+import io.kubernetes.client.util.exception.IncompleteDiscoveryException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -32,12 +33,9 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import okhttp3.Call;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Discovery {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(Discovery.class);
   private final ApiClient apiClient;
 
   public Discovery() {
@@ -53,28 +51,42 @@ public class Discovery {
     for (String version : legacyCoreApi().getVersions()) {
       allResources.addAll(findAll("", Arrays.asList(version), version, "/api/" + version));
     }
+    IncompleteDiscoveryException incompleteDiscoveryException = null;
     for (V1APIGroup group : groupDiscovery("/apis").getGroups()) {
-      allResources.addAll(
-          findAll(
-              group.getName(),
-              group.getVersions().stream().map(v -> v.getVersion()).collect(Collectors.toList()),
-              group.getPreferredVersion().getVersion()));
+      try {
+        allResources.addAll(
+            findAll(
+                group.getName(),
+                group.getVersions().stream().map(v -> v.getVersion()).collect(Collectors.toList()),
+                group.getPreferredVersion().getVersion()));
+      } catch (ApiException e){
+        IncompleteDiscoveryException resourceDiscoveryException = new IncompleteDiscoveryException(
+            String.format("Unable to retrieve the complete list of server APIs: %s/%s : %s",
+                group.getName(), group.getPreferredVersion().getVersion(), e.getResponseBody()),
+            e, allResources);
+        if (incompleteDiscoveryException == null) {
+          incompleteDiscoveryException = resourceDiscoveryException;
+        }else {
+          incompleteDiscoveryException.addSuppressed(resourceDiscoveryException);
+        }
+      }
+    }
+    if (incompleteDiscoveryException != null) {
+      throw incompleteDiscoveryException;
     }
     return allResources;
   }
 
-  public Set<APIResource> findAll(String group, List<String> versions, String preferredVersion) {
+  public Set<APIResource> findAll(String group, List<String> versions, String preferredVersion)
+      throws ApiException {
     return findAll(group, versions, preferredVersion, "/apis/" + group + "/" + preferredVersion);
   }
 
-  public Set<APIResource> findAll(String group, List<String> versions, String preferredVersion, String path) {
-    try {
-      V1APIResourceList resourceList = resourceDiscovery(path);
-      return groupResourcesByName(group, versions, preferredVersion, resourceList);
-    } catch (ApiException e) {
-      LOGGER.warn("Unable to retrieve the complete list of server APIs: {}/{}: {}", group, preferredVersion, e.getResponseBody());
-      return Collections.emptySet();
-    }
+  public Set<APIResource> findAll(
+      String group, List<String> versions, String preferredVersion, String path)
+      throws ApiException {
+    V1APIResourceList resourceList = resourceDiscovery(path);
+    return groupResourcesByName(group, versions, preferredVersion, resourceList);
   }
 
   public Set<APIResource> groupResourcesByName(
