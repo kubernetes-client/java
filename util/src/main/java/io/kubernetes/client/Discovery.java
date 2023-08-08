@@ -20,6 +20,7 @@ import io.kubernetes.client.openapi.models.V1APIGroup;
 import io.kubernetes.client.openapi.models.V1APIGroupList;
 import io.kubernetes.client.openapi.models.V1APIResourceList;
 import io.kubernetes.client.openapi.models.V1APIVersions;
+import io.kubernetes.client.util.exception.IncompleteDiscoveryException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -50,12 +51,28 @@ public class Discovery {
     for (String version : legacyCoreApi().getVersions()) {
       allResources.addAll(findAll("", Arrays.asList(version), version, "/api/" + version));
     }
+    IncompleteDiscoveryException incompleteDiscoveryException = null;
     for (V1APIGroup group : groupDiscovery("/apis").getGroups()) {
-      allResources.addAll(
-          findAll(
-              group.getName(),
-              group.getVersions().stream().map(v -> v.getVersion()).collect(Collectors.toList()),
-              group.getPreferredVersion().getVersion()));
+      try {
+        allResources.addAll(
+            findAll(
+                group.getName(),
+                group.getVersions().stream().map(v -> v.getVersion()).collect(Collectors.toList()),
+                group.getPreferredVersion().getVersion()));
+      } catch (ApiException e){
+        IncompleteDiscoveryException resourceDiscoveryException = new IncompleteDiscoveryException(
+            String.format("Unable to retrieve the complete list of server APIs: %s/%s : %s",
+                group.getName(), group.getPreferredVersion().getVersion(), e.getResponseBody()),
+            e, allResources);
+        if (incompleteDiscoveryException == null) {
+          incompleteDiscoveryException = resourceDiscoveryException;
+        }else {
+          incompleteDiscoveryException.addSuppressed(resourceDiscoveryException);
+        }
+      }
+    }
+    if (incompleteDiscoveryException != null) {
+      throw incompleteDiscoveryException;
     }
     return allResources;
   }

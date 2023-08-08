@@ -18,6 +18,7 @@ import io.kubernetes.client.apimachinery.GroupVersionResource;
 import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.util.exception.IncompleteDiscoveryException;
 import java.io.File;
 
 import java.io.IOException;
@@ -266,7 +267,13 @@ public class ModelMapper {
       return lastAPIDiscovery;
     }
 
-    Set<Discovery.APIResource> apiResources = discovery.findAll();
+    Set<Discovery.APIResource> apiResources = null;
+    try {
+      apiResources = discovery.findAll();
+    } catch (IncompleteDiscoveryException e) {
+      logger.warn("Error while getting all api resources, some api resources will not be refreshed", e);
+      apiResources = e.getDiscoveredResources();
+    }
 
     for (Discovery.APIResource apiResource : apiResources) {
       for (String version : apiResource.getVersions()) {
