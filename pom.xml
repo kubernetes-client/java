@@ -50,7 +50,7 @@
     <jsr305.version>3.0.2</jsr305.version>
     <okhttp3.version>4.10.0</okhttp3.version>
     <swagger-core.version>1.6.11</swagger-core.version>
-    <sundrio.version>0.100.2</sundrio.version>
+    <sundrio.version>0.100.3</sundrio.version>
     <gsonfire.version>1.8.5</gsonfire.version>
     <apache.commons.lang3.version>3.13.0</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
