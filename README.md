@@ -33,3 +33,5 @@ already covered.
 You can also reach out to us via [#kubernetes-client](https://kubernetes.slack.com/messages/kubernetes-clients/) slack 
 channel.
 
+ok thanks for the info i will look into it.
+
