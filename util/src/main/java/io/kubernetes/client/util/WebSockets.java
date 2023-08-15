@@ -98,6 +98,7 @@ public class WebSockets {
 
     Request request =
         client.buildRequest(
+            null,
             path,
             method,
             queryParams,

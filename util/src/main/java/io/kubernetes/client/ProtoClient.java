@@ -196,6 +196,7 @@ public class ProtoClient {
     String[] localVarAuthNames = new String[] {"BearerToken"};
     Request request =
         apiClient.buildRequest(
+            null,
             path,
             "DELETE",
             new ArrayList<Pair>(),
@@ -235,6 +236,7 @@ public class ProtoClient {
     String[] localVarAuthNames = new String[] {"BearerToken"};
     Request request =
         apiClient.buildRequest(
+            null,
             path,
             method,
             new ArrayList<Pair>(),

@@ -2,13 +2,13 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**logFileHandler**](LogsApi.md#logFileHandler) | **GET** /logs/{logpath} | 
-[**logFileListHandler**](LogsApi.md#logFileListHandler) | **GET** /logs/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**logFileHandler**](LogsApi.md#logFileHandler) | **GET** /logs/{logpath} |  |
+| [**logFileListHandler**](LogsApi.md#logFileListHandler) | **GET** /logs/ |  |
 
 
-<a name="logFileHandler"></a>
+<a id="logFileHandler"></a>
 # **logFileHandler**
 > logFileHandler(logpath)
 
@@ -52,9 +52,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **logpath** | **String**| path to the log |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **logpath** | **String**| path to the log | |
 
 ### Return type
 
@@ -72,9 +72,9 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
+| **401** | Unauthorized |  -  |
 
-<a name="logFileListHandler"></a>
+<a id="logFileListHandler"></a>
 # **logFileListHandler**
 > logFileListHandler()
 
@@ -134,5 +134,5 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
+| **401** | Unauthorized |  -  |
 
