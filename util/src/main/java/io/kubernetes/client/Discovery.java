@@ -178,10 +178,11 @@ public class Discovery {
     headers.put("Content-Type", "application/json");
     Call call =
         apiClient.buildCall(
+            null,
             urlPath,
             "GET",
-            null,
-            null,
+            Collections.emptyList(),
+            Collections.emptyList(),
             null,
             headers,
             Collections.emptyMap(),

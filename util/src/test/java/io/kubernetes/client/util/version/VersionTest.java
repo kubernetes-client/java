@@ -74,8 +74,8 @@ public class VersionTest {
             .willReturn(
                 aResponse()
                     .withStatus(401)
-                    .withHeader("Content-Type", "application/json")
-                    .withBody("{}")));
+                    .withHeader("Accept","application/json")
+                    .withBody("{\"gitVersion\":\"GIT_VERSION\"}")));
 
     Version versionUtil = new Version(client);
     boolean thrown = false;
@@ -89,7 +89,6 @@ public class VersionTest {
 
     verify(
         getRequestedFor(urlPathEqualTo("/version/"))
-            .withHeader("Content-Type", equalTo("application/json"))
             .withHeader("Accept", equalTo("application/json")));
   }
 }

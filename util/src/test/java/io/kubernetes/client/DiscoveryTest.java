@@ -24,6 +24,7 @@ import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.Discovery.APIResource;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.models.V1APIGroup;
 import io.kubernetes.client.openapi.models.V1APIGroupList;
 import io.kubernetes.client.openapi.models.V1APIResource;
@@ -35,9 +36,11 @@ import io.kubernetes.client.util.exception.IncompleteDiscoveryException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -61,8 +64,7 @@ public class DiscoveryTest {
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
                     .withBody(
-                        apiClient
-                            .getJSON()
+                        JSON
                             .serialize(new V1APIVersions().versions(Arrays.asList("v1", "v2"))))));
     Discovery discovery = new Discovery(apiClient);
     V1APIVersions versions = discovery.versionDiscovery("/foo");
@@ -121,12 +123,13 @@ public class DiscoveryTest {
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
                     .withBody(
-                        apiClient
-                            .getJSON()
+                        JSON
                             .serialize(new V1APIVersions()))));
 
     String group = "test.com";
     String version = "v1";
+    String groupVersion = "vG1";
+    String resourceVersion = "vR1";
     String path="/apis/"+group+'/'+version;
 
     wireMockRule.stubFor(
@@ -136,14 +139,13 @@ public class DiscoveryTest {
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
                     .withBody(
-                        apiClient
-                            .getJSON()
+                        JSON
                             .serialize(new V1APIGroupList()
                                 .addGroupsItem(new V1APIGroup()
                                     .name(group)
-                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version))
+                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version).groupVersion(groupVersion))
                                     .versions(Arrays.asList(
-                                        new V1GroupVersionForDiscovery().version(version))))))));
+                                        new V1GroupVersionForDiscovery().version(version).groupVersion(groupVersion))))))));
 
     wireMockRule.stubFor(
         get(urlPathEqualTo(path))
@@ -152,18 +154,14 @@ public class DiscoveryTest {
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
                     .withBody(
-                        apiClient
-                            .getJSON()
-                            .serialize(new V1APIResourceList()
+                        JSON
+                            .serialize(new V1APIResourceList().apiVersion(version).groupVersion(resourceVersion)
                                 .resources(
                                     Arrays.asList(
                                       new V1APIResource()
-                                        .name("first"),
+                                        .name("first").version(version).group(resourceVersion).kind("Pod").namespaced(true).singularName("first-kind-1"),
                                       new V1APIResource()
-                                        .name("second")))))));
-
-    List<String> versions = new ArrayList<>();
-    versions.add(version);
+                                        .name("second").version(version).group(resourceVersion).kind("Deployment").namespaced(false).singularName("second-kind-2")))))));
     Set<APIResource> apiResources = discovery.findAll();
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(path)));
     assertEquals(2, apiResources.size());
@@ -180,12 +178,13 @@ public class DiscoveryTest {
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
                     .withBody(
-                        apiClient
-                            .getJSON()
+                        JSON
                             .serialize(new V1APIVersions()))));
 
     String groupSuccess = "test.com";
     String version = "v1";
+    String groupVersion = "vG1";
+    String resourceVersion = "vR1";
     String pathSuccess="/apis/"+groupSuccess+'/'+version;
 
     String groupError = "testError.com";
@@ -198,17 +197,16 @@ public class DiscoveryTest {
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
                     .withBody(
-                        apiClient
-                            .getJSON()
-                            .serialize(new V1APIGroupList()
+                        JSON
+                            .serialize(new V1APIGroupList().apiVersion(version)
                                 .addGroupsItem(new V1APIGroup()
                                     .name(groupError)
-                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version))
+                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version).groupVersion(groupVersion))
                                     .versions(Arrays.asList(
                                         new V1GroupVersionForDiscovery().version(version))))
                                 .addGroupsItem(new V1APIGroup()
                                     .name(groupSuccess)
-                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version))
+                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version).groupVersion(groupVersion))
                                     .versions(Arrays.asList(
                                         new V1GroupVersionForDiscovery().version(version))))))));
 
@@ -225,22 +223,19 @@ public class DiscoveryTest {
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
                     .withBody(
-                        apiClient
-                            .getJSON()
-                            .serialize(new V1APIResourceList()
+                        JSON
+                            .serialize(new V1APIResourceList().apiVersion(version).groupVersion(resourceVersion)
                                 .resources(
                                     Arrays.asList(
                                       new V1APIResource()
-                                        .name("first"),
+                                        .name("first").version(version).group(resourceVersion).kind("K1").namespaced(true).singularName("first-kind-1"),
                                       new V1APIResource()
-                                        .name("second")))))));
+                                        .name("second").version(version).group(resourceVersion).kind("K2").namespaced(false).singularName("first-kind-2")))))));
 
-    List<String> versions = new ArrayList<>();
-    versions.add(version);
     Set<APIResource> apiResources = null;
     try{
       discovery.findAll();
-      fail("Should have throw ImcompleteDiscoveryException");
+      fail("Should have throw IncompleteDiscoveryException");
     } catch (IncompleteDiscoveryException e) {
       apiResources = e.getDiscoveredResources();
     }

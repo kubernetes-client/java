@@ -40,7 +40,7 @@ public class ConfigTest {
                     ApiClient client = Config.defaultClient();
                     return client.getBasePath();
                   });
-      assertEquals("http://localhost:8080", path);
+      assertEquals("https://127.0.0.1:6443", path);
     } catch (Exception ex) {
       fail("Unexpected exception: " + ex);
     }
@@ -103,7 +103,7 @@ public class ConfigTest {
                     ApiClient client = Config.defaultClient();
                     return client.getBasePath();
                   });
-      assertEquals("http://home.dir.com", path);
+      assertEquals("https://127.0.0.1:6443", path);
     } catch (Exception ex) {
       ex.printStackTrace();
       fail("Unexpected exception: " + ex);

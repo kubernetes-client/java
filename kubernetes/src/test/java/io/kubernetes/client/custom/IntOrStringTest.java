@@ -12,9 +12,6 @@ limitations under the License.
 */
 package io.kubernetes.client.custom;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -24,14 +21,15 @@ public class IntOrStringTest {
   public void whenCreatedWithInt_isInteger() {
     IntOrString intOrString = new IntOrString(17);
 
-    assertThat(intOrString.isInteger(), is(true));
+    assertTrue("When Created with Int check for integer value", intOrString.isInteger());
   }
 
   @Test
   public void whenCreatedWithInt_canRetrieveIntValue() {
-    IntOrString intOrString = new IntOrString(17);
+    String string17= "17";
+    IntOrString intOrString = new IntOrString(string17);
 
-    assertThat(intOrString.getIntValue(), equalTo(17));
+    assertEquals("When created with Int can retrieve Int value ",intOrString.getIntValue(), Integer.getInteger(string17));
   }
 
   @Test(expected = IllegalStateException.class)
@@ -45,15 +43,14 @@ public class IntOrStringTest {
   public void whenCreatedWithInt_equalsItself() {
     IntOrString intOrString = new IntOrString(17);
 
-    assertThat(intOrString, equalTo(intOrString));
+    assertEquals("when created with int, check equals Itself",intOrString, intOrString );
   }
 
   @Test
   public void whenCreatedWithInt_equalsAnotherWithSameValue() {
     IntOrString intOrString1 = new IntOrString(17);
     IntOrString intOrString2 = new IntOrString(17);
-
-    assertThat(intOrString1, equalTo(intOrString2));
+    assertEquals("when created with Int check equality with another with same value",intOrString1, intOrString2);
   }
 
   @Test
@@ -61,7 +58,7 @@ public class IntOrStringTest {
     IntOrString intOrString1 = new IntOrString(17);
     IntOrString intOrString2 = new IntOrString(13);
 
-    assertThat(intOrString1, not(equalTo(intOrString2)));
+    assertNotEquals("when created with Int check in-equality with another with different value",intOrString1, intOrString2);
   }
 
   @Test
@@ -69,14 +66,14 @@ public class IntOrStringTest {
     IntOrString intOrString1 = new IntOrString(17);
     IntOrString intOrString2 = new IntOrString("17");
 
-    assertThat(intOrString1, not(equalTo(intOrString2)));
+    assertNotEquals("when created with Int check in-equality with another with same string value",intOrString1, intOrString2);
   }
 
   @Test
   public void whenCreatedWithString_isNotInteger() {
     IntOrString intOrString = new IntOrString("17");
 
-    assertThat(intOrString.isInteger(), is(false));
+    assertFalse("when created with string is not Integer",intOrString.isInteger());
   }
 
   @Test(expected = IllegalStateException.class)
@@ -88,16 +85,17 @@ public class IntOrStringTest {
 
   @Test
   public void whenCreatedWithString_canRetrieveStringValue() {
-    IntOrString intOrString = new IntOrString("17");
+    String string17 = "17";
+    IntOrString intOrString = new IntOrString(string17);
 
-    assertThat(intOrString.getStrValue(), equalTo("17"));
+    assertEquals("when created with String can retrieve String value",intOrString.getStrValue(), string17);
   }
 
   @Test
   public void whenCreatedWithString_equalsItself() {
     IntOrString intOrString = new IntOrString("17");
 
-    assertThat(intOrString, equalTo(intOrString));
+    assertEquals("when Created With String value check equals with Itself ",intOrString, intOrString);
   }
 
   @Test
@@ -105,7 +103,7 @@ public class IntOrStringTest {
     IntOrString intOrString1 = new IntOrString("17");
     IntOrString intOrString2 = new IntOrString("17");
 
-    assertThat(intOrString1, equalTo(intOrString2));
+    assertEquals("when Created With String value check equals with other with same value ",intOrString1, intOrString2);
   }
 
   @Test
@@ -113,6 +111,6 @@ public class IntOrStringTest {
     IntOrString intOrString1 = new IntOrString("17");
     IntOrString intOrString2 = new IntOrString("13");
 
-    assertThat(intOrString1, not(equalTo(intOrString2)));
+    assertNotEquals("when Created With String value check equals with other with different value ",intOrString1, intOrString2);
   }
 }

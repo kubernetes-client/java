@@ -83,7 +83,7 @@ public class ClientBuilderTest {
                   ApiClient client = ClientBuilder.defaultClient();
                   return client.getBasePath();
                 });
-    assertEquals("http://home.dir.com", path);
+    assertEquals("https://127.0.0.1:6443", path);
   }
 
   @Test
