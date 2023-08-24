@@ -48,7 +48,7 @@
     <bouncycastle.version>1.76</bouncycastle.version>
     <gson.version>2.10.1</gson.version>
     <jsr305.version>3.0.2</jsr305.version>
-    <okhttp3.version>4.10.0</okhttp3.version>
+    <okhttp3.version>4.11.0</okhttp3.version>
     <swagger-core.version>1.6.11</swagger-core.version>
     <sundrio.version>0.100.3</sundrio.version>
     <gsonfire.version>1.8.5</gsonfire.version>
@@ -59,7 +59,7 @@
     <common.codec.version>1.16.0</common.codec.version>
     <spring.boot.version>2.7.12</spring.boot.version>
     <spring.version>5.3.23</spring.version>
-    <prometheus.client.version>0.15.0</prometheus.client.version>
+    <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
 
     <e2e.skip>true</e2e.skip>
