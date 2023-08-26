@@ -20,14 +20,12 @@ public class V1alpha1ClusterCIDRSpecBuilder extends V1alpha1ClusterCIDRSpecFluen
   }
   public V1alpha1ClusterCIDRSpecBuilder(V1alpha1ClusterCIDRSpecFluent<?> fluent,V1alpha1ClusterCIDRSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withIpv4(instance.getIpv4());
-
-    fluent.withIpv6(instance.getIpv6());
-
-    fluent.withNodeSelector(instance.getNodeSelector());
-
-    fluent.withPerNodeHostBits(instance.getPerNodeHostBits());
-
+    if (instance != null) {
+      fluent.withIpv4(instance.getIpv4());
+      fluent.withIpv6(instance.getIpv6());
+      fluent.withNodeSelector(instance.getNodeSelector());
+      fluent.withPerNodeHostBits(instance.getPerNodeHostBits());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1alpha1ClusterCIDRSpecBuilder(V1alpha1ClusterCIDRSpec instance) {
@@ -35,14 +33,12 @@ public class V1alpha1ClusterCIDRSpecBuilder extends V1alpha1ClusterCIDRSpecFluen
   }
   public V1alpha1ClusterCIDRSpecBuilder(V1alpha1ClusterCIDRSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withIpv4(instance.getIpv4());
-
-    this.withIpv6(instance.getIpv6());
-
-    this.withNodeSelector(instance.getNodeSelector());
-
-    this.withPerNodeHostBits(instance.getPerNodeHostBits());
-
+    if (instance != null) {
+      this.withIpv4(instance.getIpv4());
+      this.withIpv6(instance.getIpv6());
+      this.withNodeSelector(instance.getNodeSelector());
+      this.withPerNodeHostBits(instance.getPerNodeHostBits());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1alpha1ClusterCIDRSpecFluent<?> fluent;

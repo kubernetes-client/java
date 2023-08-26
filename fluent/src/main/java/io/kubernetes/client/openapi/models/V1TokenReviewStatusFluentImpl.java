@@ -5,7 +5,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Collection;
@@ -21,25 +20,23 @@ import java.lang.Boolean;
   public V1TokenReviewStatusFluentImpl() {
   }
   public V1TokenReviewStatusFluentImpl(V1TokenReviewStatus instance) {
-    this.withAudiences(instance.getAudiences());
-
-    this.withAuthenticated(instance.getAuthenticated());
-
-    this.withError(instance.getError());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withAudiences(instance.getAudiences());
+      this.withAuthenticated(instance.getAuthenticated());
+      this.withError(instance.getError());
+      this.withUser(instance.getUser());
+    }
   }
   private List<String> audiences;
   private Boolean authenticated;
   private String error;
   private V1UserInfoBuilder user;
-  public A addToAudiences(Integer index,String item) {
+  public A addToAudiences(int index,String item) {
     if (this.audiences == null) {this.audiences = new ArrayList<String>();}
     this.audiences.add(index, item);
     return (A)this;
   }
-  public A setToAudiences(Integer index,String item) {
+  public A setToAudiences(int index,String item) {
     if (this.audiences == null) {this.audiences = new ArrayList<String>();}
     this.audiences.set(index, item); return (A)this;
   }
@@ -60,7 +57,7 @@ import java.lang.Boolean;
   public List<String> getAudiences() {
     return this.audiences;
   }
-  public String getAudience(Integer index) {
+  public String getAudience(int index) {
     return this.audiences.get(index);
   }
   public String getFirstAudience() {
@@ -79,7 +76,7 @@ import java.lang.Boolean;
     if (audiences != null) {this.audiences = new ArrayList(); for (String item : audiences){this.addToAudiences(item);}} else { this.audiences = null;} return (A) this;
   }
   public A withAudiences(java.lang.String... audiences) {
-    if (this.audiences != null) {this.audiences.clear();}
+    if (this.audiences != null) {this.audiences.clear(); _visitables.remove("audiences"); }
     if (audiences != null) {for (String item :audiences){ this.addToAudiences(item);}} return (A) this;
   }
   public Boolean hasAudiences() {
@@ -122,29 +119,34 @@ import java.lang.Boolean;
   public Boolean hasUser() {
     return this.user != null;
   }
-  public V1TokenReviewStatusFluent.UserNested<A> withNewUser() {
+  public V1TokenReviewStatusFluentImpl.UserNested<A> withNewUser() {
     return new V1TokenReviewStatusFluentImpl.UserNestedImpl();
   }
-  public V1TokenReviewStatusFluent.UserNested<A> withNewUserLike(V1UserInfo item) {
+  public V1TokenReviewStatusFluentImpl.UserNested<A> withNewUserLike(V1UserInfo item) {
     return new V1TokenReviewStatusFluentImpl.UserNestedImpl(item);
   }
-  public V1TokenReviewStatusFluent.UserNested<A> editUser() {
+  public V1TokenReviewStatusFluentImpl.UserNested<A> editUser() {
     return withNewUserLike(getUser());
   }
-  public V1TokenReviewStatusFluent.UserNested<A> editOrNewUser() {
+  public V1TokenReviewStatusFluentImpl.UserNested<A> editOrNewUser() {
     return withNewUserLike(getUser() != null ? getUser(): new V1UserInfoBuilder().build());
   }
-  public V1TokenReviewStatusFluent.UserNested<A> editOrNewUserLike(V1UserInfo item) {
+  public V1TokenReviewStatusFluentImpl.UserNested<A> editOrNewUserLike(V1UserInfo item) {
     return withNewUserLike(getUser() != null ? getUser(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1TokenReviewStatusFluentImpl that = (V1TokenReviewStatusFluentImpl) o;
-    if (audiences != null ? !audiences.equals(that.audiences) :that.audiences != null) return false;
-    if (authenticated != null ? !authenticated.equals(that.authenticated) :that.authenticated != null) return false;
-    if (error != null ? !error.equals(that.error) :that.error != null) return false;
-    if (user != null ? !user.equals(that.user) :that.user != null) return false;
+    if (!java.util.Objects.equals(audiences, that.audiences)) return false;
+
+    if (!java.util.Objects.equals(authenticated, that.authenticated)) return false;
+
+    if (!java.util.Objects.equals(error, that.error)) return false;
+
+    if (!java.util.Objects.equals(user, that.user)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -163,7 +165,7 @@ import java.lang.Boolean;
   public A withAuthenticated() {
     return withAuthenticated(true);
   }
-  class UserNestedImpl<N> extends V1UserInfoFluentImpl<V1TokenReviewStatusFluent.UserNested<N>> implements V1TokenReviewStatusFluent.UserNested<N>,Nested<N>{
+  class UserNestedImpl<N> extends V1UserInfoFluentImpl<V1TokenReviewStatusFluentImpl.UserNested<N>> implements V1TokenReviewStatusFluentImpl.UserNested<N>,Nested<N>{
     UserNestedImpl(V1UserInfo item) {
       this.builder = new V1UserInfoBuilder(this, item);
     }

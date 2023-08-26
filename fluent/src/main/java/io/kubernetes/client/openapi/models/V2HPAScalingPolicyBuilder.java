@@ -20,12 +20,11 @@ public class V2HPAScalingPolicyBuilder extends V2HPAScalingPolicyFluentImpl<V2HP
   }
   public V2HPAScalingPolicyBuilder(V2HPAScalingPolicyFluent<?> fluent,V2HPAScalingPolicy instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPeriodSeconds(instance.getPeriodSeconds());
-
-    fluent.withType(instance.getType());
-
-    fluent.withValue(instance.getValue());
-
+    if (instance != null) {
+      fluent.withPeriodSeconds(instance.getPeriodSeconds());
+      fluent.withType(instance.getType());
+      fluent.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2HPAScalingPolicyBuilder(V2HPAScalingPolicy instance) {
@@ -33,12 +32,11 @@ public class V2HPAScalingPolicyBuilder extends V2HPAScalingPolicyFluentImpl<V2HP
   }
   public V2HPAScalingPolicyBuilder(V2HPAScalingPolicy instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPeriodSeconds(instance.getPeriodSeconds());
-
-    this.withType(instance.getType());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withPeriodSeconds(instance.getPeriodSeconds());
+      this.withType(instance.getType());
+      this.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2HPAScalingPolicyFluent<?> fluent;

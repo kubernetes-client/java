@@ -20,14 +20,12 @@ public class V1GlusterfsPersistentVolumeSourceBuilder extends V1GlusterfsPersist
   }
   public V1GlusterfsPersistentVolumeSourceBuilder(V1GlusterfsPersistentVolumeSourceFluent<?> fluent,V1GlusterfsPersistentVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withEndpoints(instance.getEndpoints());
-
-    fluent.withEndpointsNamespace(instance.getEndpointsNamespace());
-
-    fluent.withPath(instance.getPath());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      fluent.withEndpoints(instance.getEndpoints());
+      fluent.withEndpointsNamespace(instance.getEndpointsNamespace());
+      fluent.withPath(instance.getPath());
+      fluent.withReadOnly(instance.getReadOnly());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1GlusterfsPersistentVolumeSourceBuilder(V1GlusterfsPersistentVolumeSource instance) {
@@ -35,14 +33,12 @@ public class V1GlusterfsPersistentVolumeSourceBuilder extends V1GlusterfsPersist
   }
   public V1GlusterfsPersistentVolumeSourceBuilder(V1GlusterfsPersistentVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withEndpoints(instance.getEndpoints());
-
-    this.withEndpointsNamespace(instance.getEndpointsNamespace());
-
-    this.withPath(instance.getPath());
-
-    this.withReadOnly(instance.getReadOnly());
-
+    if (instance != null) {
+      this.withEndpoints(instance.getEndpoints());
+      this.withEndpointsNamespace(instance.getEndpointsNamespace());
+      this.withPath(instance.getPath());
+      this.withReadOnly(instance.getReadOnly());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1GlusterfsPersistentVolumeSourceFluent<?> fluent;

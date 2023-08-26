@@ -14,12 +14,11 @@ import java.lang.Boolean;
   public V1PersistentVolumeStatusFluentImpl() {
   }
   public V1PersistentVolumeStatusFluentImpl(V1PersistentVolumeStatus instance) {
-    this.withMessage(instance.getMessage());
-
-    this.withPhase(instance.getPhase());
-
-    this.withReason(instance.getReason());
-
+    if (instance != null) {
+      this.withMessage(instance.getMessage());
+      this.withPhase(instance.getPhase());
+      this.withReason(instance.getReason());
+    }
   }
   private String message;
   private String phase;
@@ -54,10 +53,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PersistentVolumeStatusFluentImpl that = (V1PersistentVolumeStatusFluentImpl) o;
-    if (message != null ? !message.equals(that.message) :that.message != null) return false;
-    if (phase != null ? !phase.equals(that.phase) :that.phase != null) return false;
-    if (reason != null ? !reason.equals(that.reason) :that.reason != null) return false;
+    if (!java.util.Objects.equals(message, that.message)) return false;
+
+    if (!java.util.Objects.equals(phase, that.phase)) return false;
+
+    if (!java.util.Objects.equals(reason, that.reason)) return false;
+
     return true;
   }
   public int hashCode() {

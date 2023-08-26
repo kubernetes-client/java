@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public EventsV1EventSeriesFluentImpl() {
   }
   public EventsV1EventSeriesFluentImpl(EventsV1EventSeries instance) {
-    this.withCount(instance.getCount());
-
-    this.withLastObservedTime(instance.getLastObservedTime());
-
+    if (instance != null) {
+      this.withCount(instance.getCount());
+      this.withLastObservedTime(instance.getLastObservedTime());
+    }
   }
   private Integer count;
   private OffsetDateTime lastObservedTime;
@@ -44,9 +44,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     EventsV1EventSeriesFluentImpl that = (EventsV1EventSeriesFluentImpl) o;
-    if (count != null ? !count.equals(that.count) :that.count != null) return false;
-    if (lastObservedTime != null ? !lastObservedTime.equals(that.lastObservedTime) :that.lastObservedTime != null) return false;
+    if (!java.util.Objects.equals(count, that.count)) return false;
+
+    if (!java.util.Objects.equals(lastObservedTime, that.lastObservedTime)) return false;
+
     return true;
   }
   public int hashCode() {

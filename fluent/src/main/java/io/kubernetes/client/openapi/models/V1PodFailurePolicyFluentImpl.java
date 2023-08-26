@@ -6,7 +6,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -23,20 +22,22 @@ import java.lang.Boolean;
   public V1PodFailurePolicyFluentImpl() {
   }
   public V1PodFailurePolicyFluentImpl(V1PodFailurePolicy instance) {
-    this.withRules(instance.getRules());
-
+    if (instance != null) {
+      this.withRules(instance.getRules());
+    }
   }
   private ArrayList<V1PodFailurePolicyRuleBuilder> rules;
-  public A addToRules(Integer index,V1PodFailurePolicyRule item) {
-    if (this.rules == null) {this.rules = new ArrayList<V1PodFailurePolicyRuleBuilder>();}
-    V1PodFailurePolicyRuleBuilder builder = new V1PodFailurePolicyRuleBuilder(item);_visitables.get("rules").add(index >= 0 ? index : _visitables.get("rules").size(), builder);this.rules.add(index >= 0 ? index : rules.size(), builder); return (A)this;
-  }
-  public A setToRules(Integer index,V1PodFailurePolicyRule item) {
+  public A addToRules(int index,V1PodFailurePolicyRule item) {
     if (this.rules == null) {this.rules = new ArrayList<V1PodFailurePolicyRuleBuilder>();}
     V1PodFailurePolicyRuleBuilder builder = new V1PodFailurePolicyRuleBuilder(item);
-    if (index < 0 || index >= _visitables.get("rules").size()) { _visitables.get("rules").add(builder); } else { _visitables.get("rules").set(index, builder);}
-    if (index < 0 || index >= rules.size()) { rules.add(builder); } else { rules.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= rules.size()) { _visitables.get("rules").add(builder); rules.add(builder); } else { _visitables.get("rules").add(index, builder); rules.add(index, builder);}
+    return (A)this;
+  }
+  public A setToRules(int index,V1PodFailurePolicyRule item) {
+    if (this.rules == null) {this.rules = new ArrayList<V1PodFailurePolicyRuleBuilder>();}
+    V1PodFailurePolicyRuleBuilder builder = new V1PodFailurePolicyRuleBuilder(item);
+    if (index < 0 || index >= rules.size()) { _visitables.get("rules").add(builder); rules.add(builder); } else { _visitables.get("rules").set(index, builder); rules.set(index, builder);}
+    return (A)this;
   }
   public A addToRules(io.kubernetes.client.openapi.models.V1PodFailurePolicyRule... items) {
     if (this.rules == null) {this.rules = new ArrayList<V1PodFailurePolicyRuleBuilder>();}
@@ -77,7 +78,7 @@ import java.lang.Boolean;
   public List<V1PodFailurePolicyRule> buildRules() {
     return rules != null ? build(rules) : null;
   }
-  public V1PodFailurePolicyRule buildRule(Integer index) {
+  public V1PodFailurePolicyRule buildRule(int index) {
     return this.rules.get(index).build();
   }
   public V1PodFailurePolicyRule buildFirstRule() {
@@ -93,39 +94,39 @@ import java.lang.Boolean;
     for (V1PodFailurePolicyRuleBuilder item: rules) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withRules(List<V1PodFailurePolicyRule> rules) {
-    if (this.rules != null) { _visitables.get("rules").removeAll(this.rules);}
+    if (this.rules != null) { _visitables.get("rules").clear();}
     if (rules != null) {this.rules = new ArrayList(); for (V1PodFailurePolicyRule item : rules){this.addToRules(item);}} else { this.rules = null;} return (A) this;
   }
   public A withRules(io.kubernetes.client.openapi.models.V1PodFailurePolicyRule... rules) {
-    if (this.rules != null) {this.rules.clear();}
+    if (this.rules != null) {this.rules.clear(); _visitables.remove("rules"); }
     if (rules != null) {for (V1PodFailurePolicyRule item :rules){ this.addToRules(item);}} return (A) this;
   }
   public Boolean hasRules() {
     return rules != null && !rules.isEmpty();
   }
-  public V1PodFailurePolicyFluent.RulesNested<A> addNewRule() {
+  public V1PodFailurePolicyFluentImpl.RulesNested<A> addNewRule() {
     return new V1PodFailurePolicyFluentImpl.RulesNestedImpl();
   }
-  public V1PodFailurePolicyFluent.RulesNested<A> addNewRuleLike(V1PodFailurePolicyRule item) {
+  public V1PodFailurePolicyFluentImpl.RulesNested<A> addNewRuleLike(V1PodFailurePolicyRule item) {
     return new V1PodFailurePolicyFluentImpl.RulesNestedImpl(-1, item);
   }
-  public V1PodFailurePolicyFluent.RulesNested<A> setNewRuleLike(Integer index,V1PodFailurePolicyRule item) {
+  public V1PodFailurePolicyFluentImpl.RulesNested<A> setNewRuleLike(int index,V1PodFailurePolicyRule item) {
     return new V1PodFailurePolicyFluentImpl.RulesNestedImpl(index, item);
   }
-  public V1PodFailurePolicyFluent.RulesNested<A> editRule(Integer index) {
+  public V1PodFailurePolicyFluentImpl.RulesNested<A> editRule(int index) {
     if (rules.size() <= index) throw new RuntimeException("Can't edit rules. Index exceeds size.");
     return setNewRuleLike(index, buildRule(index));
   }
-  public V1PodFailurePolicyFluent.RulesNested<A> editFirstRule() {
+  public V1PodFailurePolicyFluentImpl.RulesNested<A> editFirstRule() {
     if (rules.size() == 0) throw new RuntimeException("Can't edit first rules. The list is empty.");
     return setNewRuleLike(0, buildRule(0));
   }
-  public V1PodFailurePolicyFluent.RulesNested<A> editLastRule() {
+  public V1PodFailurePolicyFluentImpl.RulesNested<A> editLastRule() {
     int index = rules.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last rules. The list is empty.");
     return setNewRuleLike(index, buildRule(index));
   }
-  public V1PodFailurePolicyFluent.RulesNested<A> editMatchingRule(Predicate<V1PodFailurePolicyRuleBuilder> predicate) {
+  public V1PodFailurePolicyFluentImpl.RulesNested<A> editMatchingRule(Predicate<V1PodFailurePolicyRuleBuilder> predicate) {
     int index = -1;
     for (int i=0;i<rules.size();i++) { 
     if (predicate.test(rules.get(i))) {index = i; break;}
@@ -136,8 +137,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodFailurePolicyFluentImpl that = (V1PodFailurePolicyFluentImpl) o;
-    if (rules != null ? !rules.equals(that.rules) :that.rules != null) return false;
+    if (!java.util.Objects.equals(rules, that.rules)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -146,12 +149,12 @@ import java.lang.Boolean;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (rules != null && !rules.isEmpty()) { sb.append("rules:"); sb.append(rules); }
+    if (rules != null) { sb.append("rules:"); sb.append(rules); }
     sb.append("}");
     return sb.toString();
   }
-  class RulesNestedImpl<N> extends V1PodFailurePolicyRuleFluentImpl<V1PodFailurePolicyFluent.RulesNested<N>> implements V1PodFailurePolicyFluent.RulesNested<N>,Nested<N>{
-    RulesNestedImpl(Integer index,V1PodFailurePolicyRule item) {
+  class RulesNestedImpl<N> extends V1PodFailurePolicyRuleFluentImpl<V1PodFailurePolicyFluentImpl.RulesNested<N>> implements V1PodFailurePolicyFluentImpl.RulesNested<N>,Nested<N>{
+    RulesNestedImpl(int index,V1PodFailurePolicyRule item) {
       this.index = index;
       this.builder = new V1PodFailurePolicyRuleBuilder(this, item);
     }
@@ -160,7 +163,7 @@ import java.lang.Boolean;
       this.builder = new V1PodFailurePolicyRuleBuilder(this);
     }
     V1PodFailurePolicyRuleBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1PodFailurePolicyFluentImpl.this.setToRules(index,builder.build());
     }

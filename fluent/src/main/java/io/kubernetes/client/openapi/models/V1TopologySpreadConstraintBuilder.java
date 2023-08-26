@@ -20,22 +20,16 @@ public class V1TopologySpreadConstraintBuilder extends V1TopologySpreadConstrain
   }
   public V1TopologySpreadConstraintBuilder(V1TopologySpreadConstraintFluent<?> fluent,V1TopologySpreadConstraint instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLabelSelector(instance.getLabelSelector());
-
-    fluent.withMatchLabelKeys(instance.getMatchLabelKeys());
-
-    fluent.withMaxSkew(instance.getMaxSkew());
-
-    fluent.withMinDomains(instance.getMinDomains());
-
-    fluent.withNodeAffinityPolicy(instance.getNodeAffinityPolicy());
-
-    fluent.withNodeTaintsPolicy(instance.getNodeTaintsPolicy());
-
-    fluent.withTopologyKey(instance.getTopologyKey());
-
-    fluent.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
-
+    if (instance != null) {
+      fluent.withLabelSelector(instance.getLabelSelector());
+      fluent.withMatchLabelKeys(instance.getMatchLabelKeys());
+      fluent.withMaxSkew(instance.getMaxSkew());
+      fluent.withMinDomains(instance.getMinDomains());
+      fluent.withNodeAffinityPolicy(instance.getNodeAffinityPolicy());
+      fluent.withNodeTaintsPolicy(instance.getNodeTaintsPolicy());
+      fluent.withTopologyKey(instance.getTopologyKey());
+      fluent.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TopologySpreadConstraintBuilder(V1TopologySpreadConstraint instance) {
@@ -43,22 +37,16 @@ public class V1TopologySpreadConstraintBuilder extends V1TopologySpreadConstrain
   }
   public V1TopologySpreadConstraintBuilder(V1TopologySpreadConstraint instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLabelSelector(instance.getLabelSelector());
-
-    this.withMatchLabelKeys(instance.getMatchLabelKeys());
-
-    this.withMaxSkew(instance.getMaxSkew());
-
-    this.withMinDomains(instance.getMinDomains());
-
-    this.withNodeAffinityPolicy(instance.getNodeAffinityPolicy());
-
-    this.withNodeTaintsPolicy(instance.getNodeTaintsPolicy());
-
-    this.withTopologyKey(instance.getTopologyKey());
-
-    this.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
-
+    if (instance != null) {
+      this.withLabelSelector(instance.getLabelSelector());
+      this.withMatchLabelKeys(instance.getMatchLabelKeys());
+      this.withMaxSkew(instance.getMaxSkew());
+      this.withMinDomains(instance.getMinDomains());
+      this.withNodeAffinityPolicy(instance.getNodeAffinityPolicy());
+      this.withNodeTaintsPolicy(instance.getNodeTaintsPolicy());
+      this.withTopologyKey(instance.getTopologyKey());
+      this.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TopologySpreadConstraintFluent<?> fluent;

@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.lang.Byte;
 import java.util.Iterator;
@@ -19,15 +19,15 @@ import java.lang.Boolean;
 public interface V1CertificateSigningRequestStatusFluent<A extends V1CertificateSigningRequestStatusFluent<A>> extends Fluent<A>{
   public A withCertificate(byte... certificate);
   public byte[] getCertificate();
-  public A addToCertificate(Integer index,Byte item);
-  public A setToCertificate(Integer index,Byte item);
+  public A addToCertificate(int index,Byte item);
+  public A setToCertificate(int index,Byte item);
   public A addToCertificate(java.lang.Byte... items);
   public A addAllToCertificate(Collection<Byte> items);
   public A removeFromCertificate(java.lang.Byte... items);
   public A removeAllFromCertificate(Collection<Byte> items);
   public Boolean hasCertificate();
-  public A addToConditions(Integer index,V1CertificateSigningRequestCondition item);
-  public A setToConditions(Integer index,V1CertificateSigningRequestCondition item);
+  public A addToConditions(int index,V1CertificateSigningRequestCondition item);
+  public A setToConditions(int index,V1CertificateSigningRequestCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition... items);
   public A addAllToConditions(Collection<V1CertificateSigningRequestCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1CertificateSigningRequestCondition... items);
@@ -41,7 +41,7 @@ public interface V1CertificateSigningRequestStatusFluent<A extends V1Certificate
   @Deprecated
   public List<V1CertificateSigningRequestCondition> getConditions();
   public List<V1CertificateSigningRequestCondition> buildConditions();
-  public V1CertificateSigningRequestCondition buildCondition(Integer index);
+  public V1CertificateSigningRequestCondition buildCondition(int index);
   public V1CertificateSigningRequestCondition buildFirstCondition();
   public V1CertificateSigningRequestCondition buildLastCondition();
   public V1CertificateSigningRequestCondition buildMatchingCondition(Predicate<V1CertificateSigningRequestConditionBuilder> predicate);
@@ -51,8 +51,8 @@ public interface V1CertificateSigningRequestStatusFluent<A extends V1Certificate
   public Boolean hasConditions();
   public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> addNewCondition();
   public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> addNewConditionLike(V1CertificateSigningRequestCondition item);
-  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1CertificateSigningRequestCondition item);
-  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1CertificateSigningRequestCondition item);
+  public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> editLastCondition();
   public V1CertificateSigningRequestStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1CertificateSigningRequestConditionBuilder> predicate);

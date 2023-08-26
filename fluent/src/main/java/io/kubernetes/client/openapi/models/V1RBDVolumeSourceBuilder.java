@@ -20,22 +20,16 @@ public class V1RBDVolumeSourceBuilder extends V1RBDVolumeSourceFluentImpl<V1RBDV
   }
   public V1RBDVolumeSourceBuilder(V1RBDVolumeSourceFluent<?> fluent,V1RBDVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withImage(instance.getImage());
-
-    fluent.withKeyring(instance.getKeyring());
-
-    fluent.withMonitors(instance.getMonitors());
-
-    fluent.withPool(instance.getPool());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withSecretRef(instance.getSecretRef());
-
-    fluent.withUser(instance.getUser());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withImage(instance.getImage());
+      fluent.withKeyring(instance.getKeyring());
+      fluent.withMonitors(instance.getMonitors());
+      fluent.withPool(instance.getPool());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withSecretRef(instance.getSecretRef());
+      fluent.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1RBDVolumeSourceBuilder(V1RBDVolumeSource instance) {
@@ -43,22 +37,16 @@ public class V1RBDVolumeSourceBuilder extends V1RBDVolumeSourceFluentImpl<V1RBDV
   }
   public V1RBDVolumeSourceBuilder(V1RBDVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withImage(instance.getImage());
-
-    this.withKeyring(instance.getKeyring());
-
-    this.withMonitors(instance.getMonitors());
-
-    this.withPool(instance.getPool());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretRef(instance.getSecretRef());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withImage(instance.getImage());
+      this.withKeyring(instance.getKeyring());
+      this.withMonitors(instance.getMonitors());
+      this.withPool(instance.getPool());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretRef(instance.getSecretRef());
+      this.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1RBDVolumeSourceFluent<?> fluent;

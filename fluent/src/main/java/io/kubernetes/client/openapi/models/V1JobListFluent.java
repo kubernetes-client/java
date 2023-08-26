@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1JobListFluent<A extends V1JobListFluent<A>> extends Fluent<A>
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1Job item);
-  public A setToItems(Integer index,V1Job item);
+  public A addToItems(int index,V1Job item);
+  public A setToItems(int index,V1Job item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Job... items);
   public A addAllToItems(Collection<V1Job> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Job... items);
@@ -35,7 +35,7 @@ public interface V1JobListFluent<A extends V1JobListFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1Job> getItems();
   public List<V1Job> buildItems();
-  public V1Job buildItem(Integer index);
+  public V1Job buildItem(int index);
   public V1Job buildFirstItem();
   public V1Job buildLastItem();
   public V1Job buildMatchingItem(Predicate<V1JobBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1JobListFluent<A extends V1JobListFluent<A>> extends Fluent<A>
   public Boolean hasItems();
   public V1JobListFluent.ItemsNested<A> addNewItem();
   public V1JobListFluent.ItemsNested<A> addNewItemLike(V1Job item);
-  public V1JobListFluent.ItemsNested<A> setNewItemLike(Integer index,V1Job item);
-  public V1JobListFluent.ItemsNested<A> editItem(Integer index);
+  public V1JobListFluent.ItemsNested<A> setNewItemLike(int index,V1Job item);
+  public V1JobListFluent.ItemsNested<A> editItem(int index);
   public V1JobListFluent.ItemsNested<A> editFirstItem();
   public V1JobListFluent.ItemsNested<A> editLastItem();
   public V1JobListFluent.ItemsNested<A> editMatchingItem(Predicate<V1JobBuilder> predicate);

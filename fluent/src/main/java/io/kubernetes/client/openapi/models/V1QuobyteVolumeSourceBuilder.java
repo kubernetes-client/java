@@ -20,18 +20,14 @@ public class V1QuobyteVolumeSourceBuilder extends V1QuobyteVolumeSourceFluentImp
   }
   public V1QuobyteVolumeSourceBuilder(V1QuobyteVolumeSourceFluent<?> fluent,V1QuobyteVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withGroup(instance.getGroup());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withRegistry(instance.getRegistry());
-
-    fluent.withTenant(instance.getTenant());
-
-    fluent.withUser(instance.getUser());
-
-    fluent.withVolume(instance.getVolume());
-
+    if (instance != null) {
+      fluent.withGroup(instance.getGroup());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withRegistry(instance.getRegistry());
+      fluent.withTenant(instance.getTenant());
+      fluent.withUser(instance.getUser());
+      fluent.withVolume(instance.getVolume());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1QuobyteVolumeSourceBuilder(V1QuobyteVolumeSource instance) {
@@ -39,18 +35,14 @@ public class V1QuobyteVolumeSourceBuilder extends V1QuobyteVolumeSourceFluentImp
   }
   public V1QuobyteVolumeSourceBuilder(V1QuobyteVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withGroup(instance.getGroup());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withRegistry(instance.getRegistry());
-
-    this.withTenant(instance.getTenant());
-
-    this.withUser(instance.getUser());
-
-    this.withVolume(instance.getVolume());
-
+    if (instance != null) {
+      this.withGroup(instance.getGroup());
+      this.withReadOnly(instance.getReadOnly());
+      this.withRegistry(instance.getRegistry());
+      this.withTenant(instance.getTenant());
+      this.withUser(instance.getUser());
+      this.withVolume(instance.getVolume());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1QuobyteVolumeSourceFluent<?> fluent;

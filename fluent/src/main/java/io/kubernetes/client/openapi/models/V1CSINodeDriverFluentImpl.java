@@ -5,7 +5,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Collection;
@@ -21,14 +20,12 @@ import java.lang.Boolean;
   public V1CSINodeDriverFluentImpl() {
   }
   public V1CSINodeDriverFluentImpl(V1CSINodeDriver instance) {
-    this.withAllocatable(instance.getAllocatable());
-
-    this.withName(instance.getName());
-
-    this.withNodeID(instance.getNodeID());
-
-    this.withTopologyKeys(instance.getTopologyKeys());
-
+    if (instance != null) {
+      this.withAllocatable(instance.getAllocatable());
+      this.withName(instance.getName());
+      this.withNodeID(instance.getNodeID());
+      this.withTopologyKeys(instance.getTopologyKeys());
+    }
   }
   private V1VolumeNodeResourcesBuilder allocatable;
   private String name;
@@ -53,19 +50,19 @@ import java.lang.Boolean;
   public Boolean hasAllocatable() {
     return this.allocatable != null;
   }
-  public V1CSINodeDriverFluent.AllocatableNested<A> withNewAllocatable() {
+  public V1CSINodeDriverFluentImpl.AllocatableNested<A> withNewAllocatable() {
     return new V1CSINodeDriverFluentImpl.AllocatableNestedImpl();
   }
-  public V1CSINodeDriverFluent.AllocatableNested<A> withNewAllocatableLike(V1VolumeNodeResources item) {
+  public V1CSINodeDriverFluentImpl.AllocatableNested<A> withNewAllocatableLike(V1VolumeNodeResources item) {
     return new V1CSINodeDriverFluentImpl.AllocatableNestedImpl(item);
   }
-  public V1CSINodeDriverFluent.AllocatableNested<A> editAllocatable() {
+  public V1CSINodeDriverFluentImpl.AllocatableNested<A> editAllocatable() {
     return withNewAllocatableLike(getAllocatable());
   }
-  public V1CSINodeDriverFluent.AllocatableNested<A> editOrNewAllocatable() {
+  public V1CSINodeDriverFluentImpl.AllocatableNested<A> editOrNewAllocatable() {
     return withNewAllocatableLike(getAllocatable() != null ? getAllocatable(): new V1VolumeNodeResourcesBuilder().build());
   }
-  public V1CSINodeDriverFluent.AllocatableNested<A> editOrNewAllocatableLike(V1VolumeNodeResources item) {
+  public V1CSINodeDriverFluentImpl.AllocatableNested<A> editOrNewAllocatableLike(V1VolumeNodeResources item) {
     return withNewAllocatableLike(getAllocatable() != null ? getAllocatable(): item);
   }
   public String getName() {
@@ -86,12 +83,12 @@ import java.lang.Boolean;
   public Boolean hasNodeID() {
     return this.nodeID != null;
   }
-  public A addToTopologyKeys(Integer index,String item) {
+  public A addToTopologyKeys(int index,String item) {
     if (this.topologyKeys == null) {this.topologyKeys = new ArrayList<String>();}
     this.topologyKeys.add(index, item);
     return (A)this;
   }
-  public A setToTopologyKeys(Integer index,String item) {
+  public A setToTopologyKeys(int index,String item) {
     if (this.topologyKeys == null) {this.topologyKeys = new ArrayList<String>();}
     this.topologyKeys.set(index, item); return (A)this;
   }
@@ -112,7 +109,7 @@ import java.lang.Boolean;
   public List<String> getTopologyKeys() {
     return this.topologyKeys;
   }
-  public String getTopologyKey(Integer index) {
+  public String getTopologyKey(int index) {
     return this.topologyKeys.get(index);
   }
   public String getFirstTopologyKey() {
@@ -131,7 +128,7 @@ import java.lang.Boolean;
     if (topologyKeys != null) {this.topologyKeys = new ArrayList(); for (String item : topologyKeys){this.addToTopologyKeys(item);}} else { this.topologyKeys = null;} return (A) this;
   }
   public A withTopologyKeys(java.lang.String... topologyKeys) {
-    if (this.topologyKeys != null) {this.topologyKeys.clear();}
+    if (this.topologyKeys != null) {this.topologyKeys.clear(); _visitables.remove("topologyKeys"); }
     if (topologyKeys != null) {for (String item :topologyKeys){ this.addToTopologyKeys(item);}} return (A) this;
   }
   public Boolean hasTopologyKeys() {
@@ -140,11 +137,16 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CSINodeDriverFluentImpl that = (V1CSINodeDriverFluentImpl) o;
-    if (allocatable != null ? !allocatable.equals(that.allocatable) :that.allocatable != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (nodeID != null ? !nodeID.equals(that.nodeID) :that.nodeID != null) return false;
-    if (topologyKeys != null ? !topologyKeys.equals(that.topologyKeys) :that.topologyKeys != null) return false;
+    if (!java.util.Objects.equals(allocatable, that.allocatable)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(nodeID, that.nodeID)) return false;
+
+    if (!java.util.Objects.equals(topologyKeys, that.topologyKeys)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -160,7 +162,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class AllocatableNestedImpl<N> extends V1VolumeNodeResourcesFluentImpl<V1CSINodeDriverFluent.AllocatableNested<N>> implements V1CSINodeDriverFluent.AllocatableNested<N>,Nested<N>{
+  class AllocatableNestedImpl<N> extends V1VolumeNodeResourcesFluentImpl<V1CSINodeDriverFluentImpl.AllocatableNested<N>> implements V1CSINodeDriverFluentImpl.AllocatableNested<N>,Nested<N>{
     AllocatableNestedImpl(V1VolumeNodeResources item) {
       this.builder = new V1VolumeNodeResourcesBuilder(this, item);
     }

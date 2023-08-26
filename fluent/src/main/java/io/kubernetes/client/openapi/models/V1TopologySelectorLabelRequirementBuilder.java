@@ -20,10 +20,10 @@ public class V1TopologySelectorLabelRequirementBuilder extends V1TopologySelecto
   }
   public V1TopologySelectorLabelRequirementBuilder(V1TopologySelectorLabelRequirementFluent<?> fluent,V1TopologySelectorLabelRequirement instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withKey(instance.getKey());
-
-    fluent.withValues(instance.getValues());
-
+    if (instance != null) {
+      fluent.withKey(instance.getKey());
+      fluent.withValues(instance.getValues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TopologySelectorLabelRequirementBuilder(V1TopologySelectorLabelRequirement instance) {
@@ -31,10 +31,10 @@ public class V1TopologySelectorLabelRequirementBuilder extends V1TopologySelecto
   }
   public V1TopologySelectorLabelRequirementBuilder(V1TopologySelectorLabelRequirement instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withKey(instance.getKey());
-
-    this.withValues(instance.getValues());
-
+    if (instance != null) {
+      this.withKey(instance.getKey());
+      this.withValues(instance.getValues());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TopologySelectorLabelRequirementFluent<?> fluent;

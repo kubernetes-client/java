@@ -6,7 +6,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -23,22 +22,16 @@ import java.lang.Boolean;
   public V1CSIDriverSpecFluentImpl() {
   }
   public V1CSIDriverSpecFluentImpl(V1CSIDriverSpec instance) {
-    this.withAttachRequired(instance.getAttachRequired());
-
-    this.withFsGroupPolicy(instance.getFsGroupPolicy());
-
-    this.withPodInfoOnMount(instance.getPodInfoOnMount());
-
-    this.withRequiresRepublish(instance.getRequiresRepublish());
-
-    this.withSeLinuxMount(instance.getSeLinuxMount());
-
-    this.withStorageCapacity(instance.getStorageCapacity());
-
-    this.withTokenRequests(instance.getTokenRequests());
-
-    this.withVolumeLifecycleModes(instance.getVolumeLifecycleModes());
-
+    if (instance != null) {
+      this.withAttachRequired(instance.getAttachRequired());
+      this.withFsGroupPolicy(instance.getFsGroupPolicy());
+      this.withPodInfoOnMount(instance.getPodInfoOnMount());
+      this.withRequiresRepublish(instance.getRequiresRepublish());
+      this.withSeLinuxMount(instance.getSeLinuxMount());
+      this.withStorageCapacity(instance.getStorageCapacity());
+      this.withTokenRequests(instance.getTokenRequests());
+      this.withVolumeLifecycleModes(instance.getVolumeLifecycleModes());
+    }
   }
   private Boolean attachRequired;
   private String fsGroupPolicy;
@@ -102,16 +95,17 @@ import java.lang.Boolean;
   public Boolean hasStorageCapacity() {
     return this.storageCapacity != null;
   }
-  public A addToTokenRequests(Integer index,StorageV1TokenRequest item) {
-    if (this.tokenRequests == null) {this.tokenRequests = new ArrayList<StorageV1TokenRequestBuilder>();}
-    StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);_visitables.get("tokenRequests").add(index >= 0 ? index : _visitables.get("tokenRequests").size(), builder);this.tokenRequests.add(index >= 0 ? index : tokenRequests.size(), builder); return (A)this;
-  }
-  public A setToTokenRequests(Integer index,StorageV1TokenRequest item) {
+  public A addToTokenRequests(int index,StorageV1TokenRequest item) {
     if (this.tokenRequests == null) {this.tokenRequests = new ArrayList<StorageV1TokenRequestBuilder>();}
     StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
-    if (index < 0 || index >= _visitables.get("tokenRequests").size()) { _visitables.get("tokenRequests").add(builder); } else { _visitables.get("tokenRequests").set(index, builder);}
-    if (index < 0 || index >= tokenRequests.size()) { tokenRequests.add(builder); } else { tokenRequests.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= tokenRequests.size()) { _visitables.get("tokenRequests").add(builder); tokenRequests.add(builder); } else { _visitables.get("tokenRequests").add(index, builder); tokenRequests.add(index, builder);}
+    return (A)this;
+  }
+  public A setToTokenRequests(int index,StorageV1TokenRequest item) {
+    if (this.tokenRequests == null) {this.tokenRequests = new ArrayList<StorageV1TokenRequestBuilder>();}
+    StorageV1TokenRequestBuilder builder = new StorageV1TokenRequestBuilder(item);
+    if (index < 0 || index >= tokenRequests.size()) { _visitables.get("tokenRequests").add(builder); tokenRequests.add(builder); } else { _visitables.get("tokenRequests").set(index, builder); tokenRequests.set(index, builder);}
+    return (A)this;
   }
   public A addToTokenRequests(io.kubernetes.client.openapi.models.StorageV1TokenRequest... items) {
     if (this.tokenRequests == null) {this.tokenRequests = new ArrayList<StorageV1TokenRequestBuilder>();}
@@ -152,7 +146,7 @@ import java.lang.Boolean;
   public List<StorageV1TokenRequest> buildTokenRequests() {
     return tokenRequests != null ? build(tokenRequests) : null;
   }
-  public StorageV1TokenRequest buildTokenRequest(Integer index) {
+  public StorageV1TokenRequest buildTokenRequest(int index) {
     return this.tokenRequests.get(index).build();
   }
   public StorageV1TokenRequest buildFirstTokenRequest() {
@@ -168,39 +162,39 @@ import java.lang.Boolean;
     for (StorageV1TokenRequestBuilder item: tokenRequests) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withTokenRequests(List<StorageV1TokenRequest> tokenRequests) {
-    if (this.tokenRequests != null) { _visitables.get("tokenRequests").removeAll(this.tokenRequests);}
+    if (this.tokenRequests != null) { _visitables.get("tokenRequests").clear();}
     if (tokenRequests != null) {this.tokenRequests = new ArrayList(); for (StorageV1TokenRequest item : tokenRequests){this.addToTokenRequests(item);}} else { this.tokenRequests = null;} return (A) this;
   }
   public A withTokenRequests(io.kubernetes.client.openapi.models.StorageV1TokenRequest... tokenRequests) {
-    if (this.tokenRequests != null) {this.tokenRequests.clear();}
+    if (this.tokenRequests != null) {this.tokenRequests.clear(); _visitables.remove("tokenRequests"); }
     if (tokenRequests != null) {for (StorageV1TokenRequest item :tokenRequests){ this.addToTokenRequests(item);}} return (A) this;
   }
   public Boolean hasTokenRequests() {
     return tokenRequests != null && !tokenRequests.isEmpty();
   }
-  public V1CSIDriverSpecFluent.TokenRequestsNested<A> addNewTokenRequest() {
+  public V1CSIDriverSpecFluentImpl.TokenRequestsNested<A> addNewTokenRequest() {
     return new V1CSIDriverSpecFluentImpl.TokenRequestsNestedImpl();
   }
-  public V1CSIDriverSpecFluent.TokenRequestsNested<A> addNewTokenRequestLike(StorageV1TokenRequest item) {
+  public V1CSIDriverSpecFluentImpl.TokenRequestsNested<A> addNewTokenRequestLike(StorageV1TokenRequest item) {
     return new V1CSIDriverSpecFluentImpl.TokenRequestsNestedImpl(-1, item);
   }
-  public V1CSIDriverSpecFluent.TokenRequestsNested<A> setNewTokenRequestLike(Integer index,StorageV1TokenRequest item) {
+  public V1CSIDriverSpecFluentImpl.TokenRequestsNested<A> setNewTokenRequestLike(int index,StorageV1TokenRequest item) {
     return new V1CSIDriverSpecFluentImpl.TokenRequestsNestedImpl(index, item);
   }
-  public V1CSIDriverSpecFluent.TokenRequestsNested<A> editTokenRequest(Integer index) {
+  public V1CSIDriverSpecFluentImpl.TokenRequestsNested<A> editTokenRequest(int index) {
     if (tokenRequests.size() <= index) throw new RuntimeException("Can't edit tokenRequests. Index exceeds size.");
     return setNewTokenRequestLike(index, buildTokenRequest(index));
   }
-  public V1CSIDriverSpecFluent.TokenRequestsNested<A> editFirstTokenRequest() {
+  public V1CSIDriverSpecFluentImpl.TokenRequestsNested<A> editFirstTokenRequest() {
     if (tokenRequests.size() == 0) throw new RuntimeException("Can't edit first tokenRequests. The list is empty.");
     return setNewTokenRequestLike(0, buildTokenRequest(0));
   }
-  public V1CSIDriverSpecFluent.TokenRequestsNested<A> editLastTokenRequest() {
+  public V1CSIDriverSpecFluentImpl.TokenRequestsNested<A> editLastTokenRequest() {
     int index = tokenRequests.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last tokenRequests. The list is empty.");
     return setNewTokenRequestLike(index, buildTokenRequest(index));
   }
-  public V1CSIDriverSpecFluent.TokenRequestsNested<A> editMatchingTokenRequest(Predicate<StorageV1TokenRequestBuilder> predicate) {
+  public V1CSIDriverSpecFluentImpl.TokenRequestsNested<A> editMatchingTokenRequest(Predicate<StorageV1TokenRequestBuilder> predicate) {
     int index = -1;
     for (int i=0;i<tokenRequests.size();i++) { 
     if (predicate.test(tokenRequests.get(i))) {index = i; break;}
@@ -208,12 +202,12 @@ import java.lang.Boolean;
     if (index < 0) throw new RuntimeException("Can't edit matching tokenRequests. No match found.");
     return setNewTokenRequestLike(index, buildTokenRequest(index));
   }
-  public A addToVolumeLifecycleModes(Integer index,String item) {
+  public A addToVolumeLifecycleModes(int index,String item) {
     if (this.volumeLifecycleModes == null) {this.volumeLifecycleModes = new ArrayList<String>();}
     this.volumeLifecycleModes.add(index, item);
     return (A)this;
   }
-  public A setToVolumeLifecycleModes(Integer index,String item) {
+  public A setToVolumeLifecycleModes(int index,String item) {
     if (this.volumeLifecycleModes == null) {this.volumeLifecycleModes = new ArrayList<String>();}
     this.volumeLifecycleModes.set(index, item); return (A)this;
   }
@@ -234,7 +228,7 @@ import java.lang.Boolean;
   public List<String> getVolumeLifecycleModes() {
     return this.volumeLifecycleModes;
   }
-  public String getVolumeLifecycleMode(Integer index) {
+  public String getVolumeLifecycleMode(int index) {
     return this.volumeLifecycleModes.get(index);
   }
   public String getFirstVolumeLifecycleMode() {
@@ -253,7 +247,7 @@ import java.lang.Boolean;
     if (volumeLifecycleModes != null) {this.volumeLifecycleModes = new ArrayList(); for (String item : volumeLifecycleModes){this.addToVolumeLifecycleModes(item);}} else { this.volumeLifecycleModes = null;} return (A) this;
   }
   public A withVolumeLifecycleModes(java.lang.String... volumeLifecycleModes) {
-    if (this.volumeLifecycleModes != null) {this.volumeLifecycleModes.clear();}
+    if (this.volumeLifecycleModes != null) {this.volumeLifecycleModes.clear(); _visitables.remove("volumeLifecycleModes"); }
     if (volumeLifecycleModes != null) {for (String item :volumeLifecycleModes){ this.addToVolumeLifecycleModes(item);}} return (A) this;
   }
   public Boolean hasVolumeLifecycleModes() {
@@ -262,15 +256,24 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CSIDriverSpecFluentImpl that = (V1CSIDriverSpecFluentImpl) o;
-    if (attachRequired != null ? !attachRequired.equals(that.attachRequired) :that.attachRequired != null) return false;
-    if (fsGroupPolicy != null ? !fsGroupPolicy.equals(that.fsGroupPolicy) :that.fsGroupPolicy != null) return false;
-    if (podInfoOnMount != null ? !podInfoOnMount.equals(that.podInfoOnMount) :that.podInfoOnMount != null) return false;
-    if (requiresRepublish != null ? !requiresRepublish.equals(that.requiresRepublish) :that.requiresRepublish != null) return false;
-    if (seLinuxMount != null ? !seLinuxMount.equals(that.seLinuxMount) :that.seLinuxMount != null) return false;
-    if (storageCapacity != null ? !storageCapacity.equals(that.storageCapacity) :that.storageCapacity != null) return false;
-    if (tokenRequests != null ? !tokenRequests.equals(that.tokenRequests) :that.tokenRequests != null) return false;
-    if (volumeLifecycleModes != null ? !volumeLifecycleModes.equals(that.volumeLifecycleModes) :that.volumeLifecycleModes != null) return false;
+    if (!java.util.Objects.equals(attachRequired, that.attachRequired)) return false;
+
+    if (!java.util.Objects.equals(fsGroupPolicy, that.fsGroupPolicy)) return false;
+
+    if (!java.util.Objects.equals(podInfoOnMount, that.podInfoOnMount)) return false;
+
+    if (!java.util.Objects.equals(requiresRepublish, that.requiresRepublish)) return false;
+
+    if (!java.util.Objects.equals(seLinuxMount, that.seLinuxMount)) return false;
+
+    if (!java.util.Objects.equals(storageCapacity, that.storageCapacity)) return false;
+
+    if (!java.util.Objects.equals(tokenRequests, that.tokenRequests)) return false;
+
+    if (!java.util.Objects.equals(volumeLifecycleModes, that.volumeLifecycleModes)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -285,7 +288,7 @@ import java.lang.Boolean;
     if (requiresRepublish != null) { sb.append("requiresRepublish:"); sb.append(requiresRepublish + ","); }
     if (seLinuxMount != null) { sb.append("seLinuxMount:"); sb.append(seLinuxMount + ","); }
     if (storageCapacity != null) { sb.append("storageCapacity:"); sb.append(storageCapacity + ","); }
-    if (tokenRequests != null && !tokenRequests.isEmpty()) { sb.append("tokenRequests:"); sb.append(tokenRequests + ","); }
+    if (tokenRequests != null) { sb.append("tokenRequests:"); sb.append(tokenRequests + ","); }
     if (volumeLifecycleModes != null && !volumeLifecycleModes.isEmpty()) { sb.append("volumeLifecycleModes:"); sb.append(volumeLifecycleModes); }
     sb.append("}");
     return sb.toString();
@@ -305,8 +308,8 @@ import java.lang.Boolean;
   public A withStorageCapacity() {
     return withStorageCapacity(true);
   }
-  class TokenRequestsNestedImpl<N> extends StorageV1TokenRequestFluentImpl<V1CSIDriverSpecFluent.TokenRequestsNested<N>> implements V1CSIDriverSpecFluent.TokenRequestsNested<N>,Nested<N>{
-    TokenRequestsNestedImpl(Integer index,StorageV1TokenRequest item) {
+  class TokenRequestsNestedImpl<N> extends StorageV1TokenRequestFluentImpl<V1CSIDriverSpecFluentImpl.TokenRequestsNested<N>> implements V1CSIDriverSpecFluentImpl.TokenRequestsNested<N>,Nested<N>{
+    TokenRequestsNestedImpl(int index,StorageV1TokenRequest item) {
       this.index = index;
       this.builder = new StorageV1TokenRequestBuilder(this, item);
     }
@@ -315,7 +318,7 @@ import java.lang.Boolean;
       this.builder = new StorageV1TokenRequestBuilder(this);
     }
     StorageV1TokenRequestBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1CSIDriverSpecFluentImpl.this.setToTokenRequests(index,builder.build());
     }

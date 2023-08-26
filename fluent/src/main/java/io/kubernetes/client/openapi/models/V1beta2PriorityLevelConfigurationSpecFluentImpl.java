@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1beta2PriorityLevelConfigurationSpecFluentImpl() {
   }
   public V1beta2PriorityLevelConfigurationSpecFluentImpl(V1beta2PriorityLevelConfigurationSpec instance) {
-    this.withLimited(instance.getLimited());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLimited(instance.getLimited());
+      this.withType(instance.getType());
+    }
   }
   private V1beta2LimitedPriorityLevelConfigurationBuilder limited;
   private String type;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasLimited() {
     return this.limited != null;
   }
-  public V1beta2PriorityLevelConfigurationSpecFluent.LimitedNested<A> withNewLimited() {
+  public V1beta2PriorityLevelConfigurationSpecFluentImpl.LimitedNested<A> withNewLimited() {
     return new V1beta2PriorityLevelConfigurationSpecFluentImpl.LimitedNestedImpl();
   }
-  public V1beta2PriorityLevelConfigurationSpecFluent.LimitedNested<A> withNewLimitedLike(V1beta2LimitedPriorityLevelConfiguration item) {
+  public V1beta2PriorityLevelConfigurationSpecFluentImpl.LimitedNested<A> withNewLimitedLike(V1beta2LimitedPriorityLevelConfiguration item) {
     return new V1beta2PriorityLevelConfigurationSpecFluentImpl.LimitedNestedImpl(item);
   }
-  public V1beta2PriorityLevelConfigurationSpecFluent.LimitedNested<A> editLimited() {
+  public V1beta2PriorityLevelConfigurationSpecFluentImpl.LimitedNested<A> editLimited() {
     return withNewLimitedLike(getLimited());
   }
-  public V1beta2PriorityLevelConfigurationSpecFluent.LimitedNested<A> editOrNewLimited() {
+  public V1beta2PriorityLevelConfigurationSpecFluentImpl.LimitedNested<A> editOrNewLimited() {
     return withNewLimitedLike(getLimited() != null ? getLimited(): new V1beta2LimitedPriorityLevelConfigurationBuilder().build());
   }
-  public V1beta2PriorityLevelConfigurationSpecFluent.LimitedNested<A> editOrNewLimitedLike(V1beta2LimitedPriorityLevelConfiguration item) {
+  public V1beta2PriorityLevelConfigurationSpecFluentImpl.LimitedNested<A> editOrNewLimitedLike(V1beta2LimitedPriorityLevelConfiguration item) {
     return withNewLimitedLike(getLimited() != null ? getLimited(): item);
   }
   public String getType() {
@@ -69,9 +69,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1beta2PriorityLevelConfigurationSpecFluentImpl that = (V1beta2PriorityLevelConfigurationSpecFluentImpl) o;
-    if (limited != null ? !limited.equals(that.limited) :that.limited != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(limited, that.limited)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -85,7 +88,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class LimitedNestedImpl<N> extends V1beta2LimitedPriorityLevelConfigurationFluentImpl<V1beta2PriorityLevelConfigurationSpecFluent.LimitedNested<N>> implements V1beta2PriorityLevelConfigurationSpecFluent.LimitedNested<N>,Nested<N>{
+  class LimitedNestedImpl<N> extends V1beta2LimitedPriorityLevelConfigurationFluentImpl<V1beta2PriorityLevelConfigurationSpecFluentImpl.LimitedNested<N>> implements V1beta2PriorityLevelConfigurationSpecFluentImpl.LimitedNested<N>,Nested<N>{
     LimitedNestedImpl(V1beta2LimitedPriorityLevelConfiguration item) {
       this.builder = new V1beta2LimitedPriorityLevelConfigurationBuilder(this, item);
     }

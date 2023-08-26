@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,33 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1IngressServiceBackend;
+import io.kubernetes.client.openapi.models.V1TypedLocalObjectReference;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** IngressBackend describes all endpoints for a given service and port. */
+/**
+ * IngressBackend describes all endpoints for a given service and port.
+ */
 @ApiModel(description = "IngressBackend describes all endpoints for a given service and port.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1IngressBackend {
   public static final String SERIALIZED_NAME_RESOURCE = "resource";
-
   @SerializedName(SERIALIZED_NAME_RESOURCE)
   private V1TypedLocalObjectReference resource;
 
   public static final String SERIALIZED_NAME_SERVICE = "service";
-
   @SerializedName(SERIALIZED_NAME_SERVICE)
   private V1IngressServiceBackend service;
+
 
   public V1IngressBackend resource(V1TypedLocalObjectReference resource) {
 
@@ -39,20 +46,22 @@ public class V1IngressBackend {
     return this;
   }
 
-  /**
+   /**
    * Get resource
-   *
    * @return resource
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1TypedLocalObjectReference getResource() {
     return resource;
   }
 
+
   public void setResource(V1TypedLocalObjectReference resource) {
     this.resource = resource;
   }
+
 
   public V1IngressBackend service(V1IngressServiceBackend service) {
 
@@ -60,20 +69,22 @@ public class V1IngressBackend {
     return this;
   }
 
-  /**
+   /**
    * Get service
-   *
    * @return service
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1IngressServiceBackend getService() {
     return service;
   }
 
+
   public void setService(V1IngressServiceBackend service) {
     this.service = service;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -84,14 +95,15 @@ public class V1IngressBackend {
       return false;
     }
     V1IngressBackend v1IngressBackend = (V1IngressBackend) o;
-    return Objects.equals(this.resource, v1IngressBackend.resource)
-        && Objects.equals(this.service, v1IngressBackend.service);
+    return Objects.equals(this.resource, v1IngressBackend.resource) &&
+        Objects.equals(this.service, v1IngressBackend.service);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(resource, service);
   }
+
 
   @Override
   public String toString() {
@@ -104,7 +116,8 @@ public class V1IngressBackend {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -112,4 +125,5 @@ public class V1IngressBackend {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

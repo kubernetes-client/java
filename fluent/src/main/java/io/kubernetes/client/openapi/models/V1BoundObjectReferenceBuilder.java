@@ -20,14 +20,12 @@ public class V1BoundObjectReferenceBuilder extends V1BoundObjectReferenceFluentI
   }
   public V1BoundObjectReferenceBuilder(V1BoundObjectReferenceFluent<?> fluent,V1BoundObjectReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
-    fluent.withUid(instance.getUid());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+      fluent.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1BoundObjectReferenceBuilder(V1BoundObjectReference instance) {
@@ -35,14 +33,12 @@ public class V1BoundObjectReferenceBuilder extends V1BoundObjectReferenceFluentI
   }
   public V1BoundObjectReferenceBuilder(V1BoundObjectReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withUid(instance.getUid());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withUid(instance.getUid());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1BoundObjectReferenceFluent<?> fluent;

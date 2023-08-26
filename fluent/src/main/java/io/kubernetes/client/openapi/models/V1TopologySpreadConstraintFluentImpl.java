@@ -21,22 +21,16 @@ import java.lang.Boolean;
   public V1TopologySpreadConstraintFluentImpl() {
   }
   public V1TopologySpreadConstraintFluentImpl(V1TopologySpreadConstraint instance) {
-    this.withLabelSelector(instance.getLabelSelector());
-
-    this.withMatchLabelKeys(instance.getMatchLabelKeys());
-
-    this.withMaxSkew(instance.getMaxSkew());
-
-    this.withMinDomains(instance.getMinDomains());
-
-    this.withNodeAffinityPolicy(instance.getNodeAffinityPolicy());
-
-    this.withNodeTaintsPolicy(instance.getNodeTaintsPolicy());
-
-    this.withTopologyKey(instance.getTopologyKey());
-
-    this.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
-
+    if (instance != null) {
+      this.withLabelSelector(instance.getLabelSelector());
+      this.withMatchLabelKeys(instance.getMatchLabelKeys());
+      this.withMaxSkew(instance.getMaxSkew());
+      this.withMinDomains(instance.getMinDomains());
+      this.withNodeAffinityPolicy(instance.getNodeAffinityPolicy());
+      this.withNodeTaintsPolicy(instance.getNodeTaintsPolicy());
+      this.withTopologyKey(instance.getTopologyKey());
+      this.withWhenUnsatisfiable(instance.getWhenUnsatisfiable());
+    }
   }
   private V1LabelSelectorBuilder labelSelector;
   private List<String> matchLabelKeys;
@@ -65,27 +59,27 @@ import java.lang.Boolean;
   public Boolean hasLabelSelector() {
     return this.labelSelector != null;
   }
-  public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> withNewLabelSelector() {
+  public V1TopologySpreadConstraintFluentImpl.LabelSelectorNested<A> withNewLabelSelector() {
     return new V1TopologySpreadConstraintFluentImpl.LabelSelectorNestedImpl();
   }
-  public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> withNewLabelSelectorLike(V1LabelSelector item) {
+  public V1TopologySpreadConstraintFluentImpl.LabelSelectorNested<A> withNewLabelSelectorLike(V1LabelSelector item) {
     return new V1TopologySpreadConstraintFluentImpl.LabelSelectorNestedImpl(item);
   }
-  public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> editLabelSelector() {
+  public V1TopologySpreadConstraintFluentImpl.LabelSelectorNested<A> editLabelSelector() {
     return withNewLabelSelectorLike(getLabelSelector());
   }
-  public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> editOrNewLabelSelector() {
+  public V1TopologySpreadConstraintFluentImpl.LabelSelectorNested<A> editOrNewLabelSelector() {
     return withNewLabelSelectorLike(getLabelSelector() != null ? getLabelSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> editOrNewLabelSelectorLike(V1LabelSelector item) {
+  public V1TopologySpreadConstraintFluentImpl.LabelSelectorNested<A> editOrNewLabelSelectorLike(V1LabelSelector item) {
     return withNewLabelSelectorLike(getLabelSelector() != null ? getLabelSelector(): item);
   }
-  public A addToMatchLabelKeys(Integer index,String item) {
+  public A addToMatchLabelKeys(int index,String item) {
     if (this.matchLabelKeys == null) {this.matchLabelKeys = new ArrayList<String>();}
     this.matchLabelKeys.add(index, item);
     return (A)this;
   }
-  public A setToMatchLabelKeys(Integer index,String item) {
+  public A setToMatchLabelKeys(int index,String item) {
     if (this.matchLabelKeys == null) {this.matchLabelKeys = new ArrayList<String>();}
     this.matchLabelKeys.set(index, item); return (A)this;
   }
@@ -106,7 +100,7 @@ import java.lang.Boolean;
   public List<String> getMatchLabelKeys() {
     return this.matchLabelKeys;
   }
-  public String getMatchLabelKey(Integer index) {
+  public String getMatchLabelKey(int index) {
     return this.matchLabelKeys.get(index);
   }
   public String getFirstMatchLabelKey() {
@@ -125,7 +119,7 @@ import java.lang.Boolean;
     if (matchLabelKeys != null) {this.matchLabelKeys = new ArrayList(); for (String item : matchLabelKeys){this.addToMatchLabelKeys(item);}} else { this.matchLabelKeys = null;} return (A) this;
   }
   public A withMatchLabelKeys(java.lang.String... matchLabelKeys) {
-    if (this.matchLabelKeys != null) {this.matchLabelKeys.clear();}
+    if (this.matchLabelKeys != null) {this.matchLabelKeys.clear(); _visitables.remove("matchLabelKeys"); }
     if (matchLabelKeys != null) {for (String item :matchLabelKeys){ this.addToMatchLabelKeys(item);}} return (A) this;
   }
   public Boolean hasMatchLabelKeys() {
@@ -188,15 +182,24 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1TopologySpreadConstraintFluentImpl that = (V1TopologySpreadConstraintFluentImpl) o;
-    if (labelSelector != null ? !labelSelector.equals(that.labelSelector) :that.labelSelector != null) return false;
-    if (matchLabelKeys != null ? !matchLabelKeys.equals(that.matchLabelKeys) :that.matchLabelKeys != null) return false;
-    if (maxSkew != null ? !maxSkew.equals(that.maxSkew) :that.maxSkew != null) return false;
-    if (minDomains != null ? !minDomains.equals(that.minDomains) :that.minDomains != null) return false;
-    if (nodeAffinityPolicy != null ? !nodeAffinityPolicy.equals(that.nodeAffinityPolicy) :that.nodeAffinityPolicy != null) return false;
-    if (nodeTaintsPolicy != null ? !nodeTaintsPolicy.equals(that.nodeTaintsPolicy) :that.nodeTaintsPolicy != null) return false;
-    if (topologyKey != null ? !topologyKey.equals(that.topologyKey) :that.topologyKey != null) return false;
-    if (whenUnsatisfiable != null ? !whenUnsatisfiable.equals(that.whenUnsatisfiable) :that.whenUnsatisfiable != null) return false;
+    if (!java.util.Objects.equals(labelSelector, that.labelSelector)) return false;
+
+    if (!java.util.Objects.equals(matchLabelKeys, that.matchLabelKeys)) return false;
+
+    if (!java.util.Objects.equals(maxSkew, that.maxSkew)) return false;
+
+    if (!java.util.Objects.equals(minDomains, that.minDomains)) return false;
+
+    if (!java.util.Objects.equals(nodeAffinityPolicy, that.nodeAffinityPolicy)) return false;
+
+    if (!java.util.Objects.equals(nodeTaintsPolicy, that.nodeTaintsPolicy)) return false;
+
+    if (!java.util.Objects.equals(topologyKey, that.topologyKey)) return false;
+
+    if (!java.util.Objects.equals(whenUnsatisfiable, that.whenUnsatisfiable)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -216,7 +219,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class LabelSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1TopologySpreadConstraintFluent.LabelSelectorNested<N>> implements V1TopologySpreadConstraintFluent.LabelSelectorNested<N>,Nested<N>{
+  class LabelSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1TopologySpreadConstraintFluentImpl.LabelSelectorNested<N>> implements V1TopologySpreadConstraintFluentImpl.LabelSelectorNested<N>,Nested<N>{
     LabelSelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }

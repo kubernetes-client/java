@@ -17,16 +17,13 @@ import java.lang.Boolean;
   public V1ControllerRevisionFluentImpl() {
   }
   public V1ControllerRevisionFluentImpl(V1ControllerRevision instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withData(instance.getData());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withRevision(instance.getRevision());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withData(instance.getData());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withRevision(instance.getRevision());
+    }
   }
   private String apiVersion;
   private Object data;
@@ -79,19 +76,19 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1ControllerRevisionFluent.MetadataNested<A> withNewMetadata() {
+  public V1ControllerRevisionFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1ControllerRevisionFluentImpl.MetadataNestedImpl();
   }
-  public V1ControllerRevisionFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1ControllerRevisionFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1ControllerRevisionFluentImpl.MetadataNestedImpl(item);
   }
-  public V1ControllerRevisionFluent.MetadataNested<A> editMetadata() {
+  public V1ControllerRevisionFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1ControllerRevisionFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1ControllerRevisionFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1ControllerRevisionFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1ControllerRevisionFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   public Long getRevision() {
@@ -106,12 +103,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ControllerRevisionFluentImpl that = (V1ControllerRevisionFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (data != null ? !data.equals(that.data) :that.data != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (revision != null ? !revision.equals(that.revision) :that.revision != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(data, that.data)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(revision, that.revision)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -128,7 +131,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ControllerRevisionFluent.MetadataNested<N>> implements V1ControllerRevisionFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ControllerRevisionFluentImpl.MetadataNested<N>> implements V1ControllerRevisionFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }

@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,33 +12,32 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V2MetricValueStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
 /**
- * ResourceMetricStatus indicates the current value of a resource metric known to Kubernetes, as
- * specified in requests and limits, describing each pod in the current scale target (e.g. CPU or
- * memory). Such metrics are built in to Kubernetes, and have special scaling options on top of
- * those available to normal per-pod metrics using the \&quot;pods\&quot; source.
+ * ResourceMetricStatus indicates the current value of a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \&quot;pods\&quot; source.
  */
-@ApiModel(
-    description =
-        "ResourceMetricStatus indicates the current value of a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \"pods\" source.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "ResourceMetricStatus indicates the current value of a resource metric known to Kubernetes, as specified in requests and limits, describing each pod in the current scale target (e.g. CPU or memory).  Such metrics are built in to Kubernetes, and have special scaling options on top of those available to normal per-pod metrics using the \"pods\" source.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V2ResourceMetricStatus {
   public static final String SERIALIZED_NAME_CURRENT = "current";
-
   @SerializedName(SERIALIZED_NAME_CURRENT)
   private V2MetricValueStatus current;
 
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
 
   public V2ResourceMetricStatus current(V2MetricValueStatus current) {
 
@@ -46,19 +45,21 @@ public class V2ResourceMetricStatus {
     return this;
   }
 
-  /**
+   /**
    * Get current
-   *
    * @return current
-   */
+  **/
   @ApiModelProperty(required = true, value = "")
+
   public V2MetricValueStatus getCurrent() {
     return current;
   }
 
+
   public void setCurrent(V2MetricValueStatus current) {
     this.current = current;
   }
+
 
   public V2ResourceMetricStatus name(String name) {
 
@@ -66,19 +67,21 @@ public class V2ResourceMetricStatus {
     return this;
   }
 
-  /**
-   * Name is the name of the resource in question.
-   *
+   /**
+   * name is the name of the resource in question.
    * @return name
-   */
-  @ApiModelProperty(required = true, value = "Name is the name of the resource in question.")
+  **/
+  @ApiModelProperty(required = true, value = "name is the name of the resource in question.")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -89,14 +92,15 @@ public class V2ResourceMetricStatus {
       return false;
     }
     V2ResourceMetricStatus v2ResourceMetricStatus = (V2ResourceMetricStatus) o;
-    return Objects.equals(this.current, v2ResourceMetricStatus.current)
-        && Objects.equals(this.name, v2ResourceMetricStatus.name);
+    return Objects.equals(this.current, v2ResourceMetricStatus.current) &&
+        Objects.equals(this.name, v2ResourceMetricStatus.name);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(current, name);
   }
+
 
   @Override
   public String toString() {
@@ -109,7 +113,8 @@ public class V2ResourceMetricStatus {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -117,4 +122,5 @@ public class V2ResourceMetricStatus {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

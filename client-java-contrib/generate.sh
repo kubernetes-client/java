@@ -21,6 +21,7 @@ CRD_URLS=${CRD_URLS:-}
 OUTPUT_DIR=${OUTPUT_DIR:-}
 KUBERNETES_CRD_GROUP_PREFIX=${KUBERNETES_CRD_GROUP_PREFIX:-}
 PACKAGE_NAME=${PACKAGE_NAME:-}
+CLUSTER_NAME=${CLUSTER_NAME:-"crd-model-gen"}
 
 print_usage() {
   echo "Usage: generate Java model classes from CRDs" >& 2
@@ -28,14 +29,16 @@ print_usage() {
   echo " -p: the base package name of the generated java project. " >& 2
   echo " -o: output directory of the generated java project. " >& 2
   echo " -u: url location of the YAML manifest to install CRDs to a Kubernetes cluster. " >& 2
+  echo " -c: cluster name of kind. " >& 2
 }
 
-while getopts 'u:n:p:o:' flag; do
+while getopts 'u:n:p:o:c:' flag; do
   case "${flag}" in
     u) CRD_URLS+=("${OPTARG}") ;;
     n) KUBERNETES_CRD_GROUP_PREFIX="${OPTARG}" ;;
     p) PACKAGE_NAME="${OPTARG}" ;;
     o) OUTPUT_DIR="${OPTARG}" ;;
+    c) CLUSTER_NAME="${OPTARG}" ;;
     *) print_usage
        exit 1 ;;
   esac
@@ -44,7 +47,7 @@ done
 set -e
 
 # create a KinD cluster on the host
-kind create cluster
+kind create cluster --name ${CLUSTER_NAME}
 
 # install CRDs to the KinD cluster and dump the swagger spec
 for url in "${CRD_URLS[@]}"; do
@@ -62,19 +65,19 @@ kubectl get crd -o name \
     do
       if [[ $(kubectl get $L -o jsonpath='{.status.conditions[?(@.type=="NonStructuralSchema")].status}') == "True" ]]; then
         echo "$L failed publishing openapi schema because it's attached non-structral-schema condition."
-        kind delete cluster
+        kind delete cluster --name ${CLUSTER_NAME}
         exit 1
       fi
       if [[ $(kubectl get $L -o jsonpath='{.spec.preserveUnknownFields}') == "true" ]]; then
         echo "$L failed publishing openapi schema because it explicitly disabled unknown fields pruning."
-        kind delete cluster
+        kind delete cluster --name ${CLUSTER_NAME}
         exit 1
       fi
       echo "$L successfully installed"
     done
 
 # destroy the KinD cluster
-kind delete cluster
+kind delete cluster --name ${CLUSTER_NAME}
 
 # execute the generation script
 bash java-crd-cmd.sh -n "${KUBERNETES_CRD_GROUP_PREFIX}" -p "${PACKAGE_NAME}" -l 2 -o "${OUTPUT_DIR}/gen" < /tmp/swagger

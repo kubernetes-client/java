@@ -20,12 +20,11 @@ public class V1NetworkPolicyPeerBuilder extends V1NetworkPolicyPeerFluentImpl<V1
   }
   public V1NetworkPolicyPeerBuilder(V1NetworkPolicyPeerFluent<?> fluent,V1NetworkPolicyPeer instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withIpBlock(instance.getIpBlock());
-
-    fluent.withNamespaceSelector(instance.getNamespaceSelector());
-
-    fluent.withPodSelector(instance.getPodSelector());
-
+    if (instance != null) {
+      fluent.withIpBlock(instance.getIpBlock());
+      fluent.withNamespaceSelector(instance.getNamespaceSelector());
+      fluent.withPodSelector(instance.getPodSelector());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NetworkPolicyPeerBuilder(V1NetworkPolicyPeer instance) {
@@ -33,12 +32,11 @@ public class V1NetworkPolicyPeerBuilder extends V1NetworkPolicyPeerFluentImpl<V1
   }
   public V1NetworkPolicyPeerBuilder(V1NetworkPolicyPeer instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withIpBlock(instance.getIpBlock());
-
-    this.withNamespaceSelector(instance.getNamespaceSelector());
-
-    this.withPodSelector(instance.getPodSelector());
-
+    if (instance != null) {
+      this.withIpBlock(instance.getIpBlock());
+      this.withNamespaceSelector(instance.getNamespaceSelector());
+      this.withPodSelector(instance.getPodSelector());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NetworkPolicyPeerFluent<?> fluent;

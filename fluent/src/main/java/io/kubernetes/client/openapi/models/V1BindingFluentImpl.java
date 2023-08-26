@@ -16,14 +16,12 @@ import java.lang.Boolean;
   public V1BindingFluentImpl() {
   }
   public V1BindingFluentImpl(V1Binding instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withTarget(instance.getTarget());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -66,19 +64,19 @@ import java.lang.Boolean;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1BindingFluent.MetadataNested<A> withNewMetadata() {
+  public V1BindingFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1BindingFluentImpl.MetadataNestedImpl();
   }
-  public V1BindingFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1BindingFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1BindingFluentImpl.MetadataNestedImpl(item);
   }
-  public V1BindingFluent.MetadataNested<A> editMetadata() {
+  public V1BindingFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1BindingFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1BindingFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1BindingFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1BindingFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -100,29 +98,34 @@ import java.lang.Boolean;
   public Boolean hasTarget() {
     return this.target != null;
   }
-  public V1BindingFluent.TargetNested<A> withNewTarget() {
+  public V1BindingFluentImpl.TargetNested<A> withNewTarget() {
     return new V1BindingFluentImpl.TargetNestedImpl();
   }
-  public V1BindingFluent.TargetNested<A> withNewTargetLike(V1ObjectReference item) {
+  public V1BindingFluentImpl.TargetNested<A> withNewTargetLike(V1ObjectReference item) {
     return new V1BindingFluentImpl.TargetNestedImpl(item);
   }
-  public V1BindingFluent.TargetNested<A> editTarget() {
+  public V1BindingFluentImpl.TargetNested<A> editTarget() {
     return withNewTargetLike(getTarget());
   }
-  public V1BindingFluent.TargetNested<A> editOrNewTarget() {
+  public V1BindingFluentImpl.TargetNested<A> editOrNewTarget() {
     return withNewTargetLike(getTarget() != null ? getTarget(): new V1ObjectReferenceBuilder().build());
   }
-  public V1BindingFluent.TargetNested<A> editOrNewTargetLike(V1ObjectReference item) {
+  public V1BindingFluentImpl.TargetNested<A> editOrNewTargetLike(V1ObjectReference item) {
     return withNewTargetLike(getTarget() != null ? getTarget(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1BindingFluentImpl that = (V1BindingFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (target != null ? !target.equals(that.target) :that.target != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(target, that.target)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -138,7 +141,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1BindingFluent.MetadataNested<N>> implements V1BindingFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1BindingFluentImpl.MetadataNested<N>> implements V1BindingFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -154,7 +157,7 @@ import java.lang.Boolean;
     }
     
   }
-  class TargetNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1BindingFluent.TargetNested<N>> implements V1BindingFluent.TargetNested<N>,Nested<N>{
+  class TargetNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1BindingFluentImpl.TargetNested<N>> implements V1BindingFluentImpl.TargetNested<N>,Nested<N>{
     TargetNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }

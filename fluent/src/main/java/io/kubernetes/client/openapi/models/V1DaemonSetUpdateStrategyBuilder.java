@@ -20,10 +20,10 @@ public class V1DaemonSetUpdateStrategyBuilder extends V1DaemonSetUpdateStrategyF
   }
   public V1DaemonSetUpdateStrategyBuilder(V1DaemonSetUpdateStrategyFluent<?> fluent,V1DaemonSetUpdateStrategy instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withRollingUpdate(instance.getRollingUpdate());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withRollingUpdate(instance.getRollingUpdate());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1DaemonSetUpdateStrategyBuilder(V1DaemonSetUpdateStrategy instance) {
@@ -31,10 +31,10 @@ public class V1DaemonSetUpdateStrategyBuilder extends V1DaemonSetUpdateStrategyF
   }
   public V1DaemonSetUpdateStrategyBuilder(V1DaemonSetUpdateStrategy instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withRollingUpdate(instance.getRollingUpdate());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withRollingUpdate(instance.getRollingUpdate());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1DaemonSetUpdateStrategyFluent<?> fluent;

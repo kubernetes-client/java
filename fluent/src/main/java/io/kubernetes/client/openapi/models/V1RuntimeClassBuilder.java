@@ -20,18 +20,14 @@ public class V1RuntimeClassBuilder extends V1RuntimeClassFluentImpl<V1RuntimeCla
   }
   public V1RuntimeClassBuilder(V1RuntimeClassFluent<?> fluent,V1RuntimeClass instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withHandler(instance.getHandler());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withOverhead(instance.getOverhead());
-
-    fluent.withScheduling(instance.getScheduling());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withHandler(instance.getHandler());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withOverhead(instance.getOverhead());
+      fluent.withScheduling(instance.getScheduling());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1RuntimeClassBuilder(V1RuntimeClass instance) {
@@ -39,18 +35,14 @@ public class V1RuntimeClassBuilder extends V1RuntimeClassFluentImpl<V1RuntimeCla
   }
   public V1RuntimeClassBuilder(V1RuntimeClass instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withHandler(instance.getHandler());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withOverhead(instance.getOverhead());
-
-    this.withScheduling(instance.getScheduling());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withHandler(instance.getHandler());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withOverhead(instance.getOverhead());
+      this.withScheduling(instance.getScheduling());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1RuntimeClassFluent<?> fluent;

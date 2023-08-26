@@ -20,12 +20,11 @@ public class V1RoleRefBuilder extends V1RoleRefFluentImpl<V1RoleRefBuilder> impl
   }
   public V1RoleRefBuilder(V1RoleRefFluent<?> fluent,V1RoleRef instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiGroup(instance.getApiGroup());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
+    if (instance != null) {
+      fluent.withApiGroup(instance.getApiGroup());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1RoleRefBuilder(V1RoleRef instance) {
@@ -33,12 +32,11 @@ public class V1RoleRefBuilder extends V1RoleRefFluentImpl<V1RoleRefBuilder> impl
   }
   public V1RoleRefBuilder(V1RoleRef instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiGroup(instance.getApiGroup());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withApiGroup(instance.getApiGroup());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1RoleRefFluent<?> fluent;

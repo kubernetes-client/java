@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.lang.Long;
 import java.util.Collection;
 import java.lang.Object;
@@ -24,26 +23,18 @@ import java.lang.Object;
   public V1PodSecurityContextFluentImpl() {
   }
   public V1PodSecurityContextFluentImpl(V1PodSecurityContext instance) {
-    this.withFsGroup(instance.getFsGroup());
-
-    this.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
-
-    this.withRunAsGroup(instance.getRunAsGroup());
-
-    this.withRunAsNonRoot(instance.getRunAsNonRoot());
-
-    this.withRunAsUser(instance.getRunAsUser());
-
-    this.withSeLinuxOptions(instance.getSeLinuxOptions());
-
-    this.withSeccompProfile(instance.getSeccompProfile());
-
-    this.withSupplementalGroups(instance.getSupplementalGroups());
-
-    this.withSysctls(instance.getSysctls());
-
-    this.withWindowsOptions(instance.getWindowsOptions());
-
+    if (instance != null) {
+      this.withFsGroup(instance.getFsGroup());
+      this.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
+      this.withRunAsGroup(instance.getRunAsGroup());
+      this.withRunAsNonRoot(instance.getRunAsNonRoot());
+      this.withRunAsUser(instance.getRunAsUser());
+      this.withSeLinuxOptions(instance.getSeLinuxOptions());
+      this.withSeccompProfile(instance.getSeccompProfile());
+      this.withSupplementalGroups(instance.getSupplementalGroups());
+      this.withSysctls(instance.getSysctls());
+      this.withWindowsOptions(instance.getWindowsOptions());
+    }
   }
   private Long fsGroup;
   private String fsGroupChangePolicy;
@@ -119,19 +110,19 @@ import java.lang.Object;
   public Boolean hasSeLinuxOptions() {
     return this.seLinuxOptions != null;
   }
-  public V1PodSecurityContextFluent.SeLinuxOptionsNested<A> withNewSeLinuxOptions() {
+  public V1PodSecurityContextFluentImpl.SeLinuxOptionsNested<A> withNewSeLinuxOptions() {
     return new V1PodSecurityContextFluentImpl.SeLinuxOptionsNestedImpl();
   }
-  public V1PodSecurityContextFluent.SeLinuxOptionsNested<A> withNewSeLinuxOptionsLike(V1SELinuxOptions item) {
+  public V1PodSecurityContextFluentImpl.SeLinuxOptionsNested<A> withNewSeLinuxOptionsLike(V1SELinuxOptions item) {
     return new V1PodSecurityContextFluentImpl.SeLinuxOptionsNestedImpl(item);
   }
-  public V1PodSecurityContextFluent.SeLinuxOptionsNested<A> editSeLinuxOptions() {
+  public V1PodSecurityContextFluentImpl.SeLinuxOptionsNested<A> editSeLinuxOptions() {
     return withNewSeLinuxOptionsLike(getSeLinuxOptions());
   }
-  public V1PodSecurityContextFluent.SeLinuxOptionsNested<A> editOrNewSeLinuxOptions() {
+  public V1PodSecurityContextFluentImpl.SeLinuxOptionsNested<A> editOrNewSeLinuxOptions() {
     return withNewSeLinuxOptionsLike(getSeLinuxOptions() != null ? getSeLinuxOptions(): new V1SELinuxOptionsBuilder().build());
   }
-  public V1PodSecurityContextFluent.SeLinuxOptionsNested<A> editOrNewSeLinuxOptionsLike(V1SELinuxOptions item) {
+  public V1PodSecurityContextFluentImpl.SeLinuxOptionsNested<A> editOrNewSeLinuxOptionsLike(V1SELinuxOptions item) {
     return withNewSeLinuxOptionsLike(getSeLinuxOptions() != null ? getSeLinuxOptions(): item);
   }
   
@@ -153,27 +144,27 @@ import java.lang.Object;
   public Boolean hasSeccompProfile() {
     return this.seccompProfile != null;
   }
-  public V1PodSecurityContextFluent.SeccompProfileNested<A> withNewSeccompProfile() {
+  public V1PodSecurityContextFluentImpl.SeccompProfileNested<A> withNewSeccompProfile() {
     return new V1PodSecurityContextFluentImpl.SeccompProfileNestedImpl();
   }
-  public V1PodSecurityContextFluent.SeccompProfileNested<A> withNewSeccompProfileLike(V1SeccompProfile item) {
+  public V1PodSecurityContextFluentImpl.SeccompProfileNested<A> withNewSeccompProfileLike(V1SeccompProfile item) {
     return new V1PodSecurityContextFluentImpl.SeccompProfileNestedImpl(item);
   }
-  public V1PodSecurityContextFluent.SeccompProfileNested<A> editSeccompProfile() {
+  public V1PodSecurityContextFluentImpl.SeccompProfileNested<A> editSeccompProfile() {
     return withNewSeccompProfileLike(getSeccompProfile());
   }
-  public V1PodSecurityContextFluent.SeccompProfileNested<A> editOrNewSeccompProfile() {
+  public V1PodSecurityContextFluentImpl.SeccompProfileNested<A> editOrNewSeccompProfile() {
     return withNewSeccompProfileLike(getSeccompProfile() != null ? getSeccompProfile(): new V1SeccompProfileBuilder().build());
   }
-  public V1PodSecurityContextFluent.SeccompProfileNested<A> editOrNewSeccompProfileLike(V1SeccompProfile item) {
+  public V1PodSecurityContextFluentImpl.SeccompProfileNested<A> editOrNewSeccompProfileLike(V1SeccompProfile item) {
     return withNewSeccompProfileLike(getSeccompProfile() != null ? getSeccompProfile(): item);
   }
-  public A addToSupplementalGroups(Integer index,Long item) {
+  public A addToSupplementalGroups(int index,Long item) {
     if (this.supplementalGroups == null) {this.supplementalGroups = new ArrayList<Long>();}
     this.supplementalGroups.add(index, item);
     return (A)this;
   }
-  public A setToSupplementalGroups(Integer index,Long item) {
+  public A setToSupplementalGroups(int index,Long item) {
     if (this.supplementalGroups == null) {this.supplementalGroups = new ArrayList<Long>();}
     this.supplementalGroups.set(index, item); return (A)this;
   }
@@ -194,7 +185,7 @@ import java.lang.Object;
   public List<Long> getSupplementalGroups() {
     return this.supplementalGroups;
   }
-  public Long getSupplementalGroup(Integer index) {
+  public Long getSupplementalGroup(int index) {
     return this.supplementalGroups.get(index);
   }
   public Long getFirstSupplementalGroup() {
@@ -213,22 +204,23 @@ import java.lang.Object;
     if (supplementalGroups != null) {this.supplementalGroups = new ArrayList(); for (Long item : supplementalGroups){this.addToSupplementalGroups(item);}} else { this.supplementalGroups = null;} return (A) this;
   }
   public A withSupplementalGroups(java.lang.Long... supplementalGroups) {
-    if (this.supplementalGroups != null) {this.supplementalGroups.clear();}
+    if (this.supplementalGroups != null) {this.supplementalGroups.clear(); _visitables.remove("supplementalGroups"); }
     if (supplementalGroups != null) {for (Long item :supplementalGroups){ this.addToSupplementalGroups(item);}} return (A) this;
   }
   public Boolean hasSupplementalGroups() {
     return supplementalGroups != null && !supplementalGroups.isEmpty();
   }
-  public A addToSysctls(Integer index,V1Sysctl item) {
-    if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
-    V1SysctlBuilder builder = new V1SysctlBuilder(item);_visitables.get("sysctls").add(index >= 0 ? index : _visitables.get("sysctls").size(), builder);this.sysctls.add(index >= 0 ? index : sysctls.size(), builder); return (A)this;
-  }
-  public A setToSysctls(Integer index,V1Sysctl item) {
+  public A addToSysctls(int index,V1Sysctl item) {
     if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
     V1SysctlBuilder builder = new V1SysctlBuilder(item);
-    if (index < 0 || index >= _visitables.get("sysctls").size()) { _visitables.get("sysctls").add(builder); } else { _visitables.get("sysctls").set(index, builder);}
-    if (index < 0 || index >= sysctls.size()) { sysctls.add(builder); } else { sysctls.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= sysctls.size()) { _visitables.get("sysctls").add(builder); sysctls.add(builder); } else { _visitables.get("sysctls").add(index, builder); sysctls.add(index, builder);}
+    return (A)this;
+  }
+  public A setToSysctls(int index,V1Sysctl item) {
+    if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
+    V1SysctlBuilder builder = new V1SysctlBuilder(item);
+    if (index < 0 || index >= sysctls.size()) { _visitables.get("sysctls").add(builder); sysctls.add(builder); } else { _visitables.get("sysctls").set(index, builder); sysctls.set(index, builder);}
+    return (A)this;
   }
   public A addToSysctls(io.kubernetes.client.openapi.models.V1Sysctl... items) {
     if (this.sysctls == null) {this.sysctls = new ArrayList<V1SysctlBuilder>();}
@@ -269,7 +261,7 @@ import java.lang.Object;
   public List<V1Sysctl> buildSysctls() {
     return sysctls != null ? build(sysctls) : null;
   }
-  public V1Sysctl buildSysctl(Integer index) {
+  public V1Sysctl buildSysctl(int index) {
     return this.sysctls.get(index).build();
   }
   public V1Sysctl buildFirstSysctl() {
@@ -285,39 +277,39 @@ import java.lang.Object;
     for (V1SysctlBuilder item: sysctls) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withSysctls(List<V1Sysctl> sysctls) {
-    if (this.sysctls != null) { _visitables.get("sysctls").removeAll(this.sysctls);}
+    if (this.sysctls != null) { _visitables.get("sysctls").clear();}
     if (sysctls != null) {this.sysctls = new ArrayList(); for (V1Sysctl item : sysctls){this.addToSysctls(item);}} else { this.sysctls = null;} return (A) this;
   }
   public A withSysctls(io.kubernetes.client.openapi.models.V1Sysctl... sysctls) {
-    if (this.sysctls != null) {this.sysctls.clear();}
+    if (this.sysctls != null) {this.sysctls.clear(); _visitables.remove("sysctls"); }
     if (sysctls != null) {for (V1Sysctl item :sysctls){ this.addToSysctls(item);}} return (A) this;
   }
   public Boolean hasSysctls() {
     return sysctls != null && !sysctls.isEmpty();
   }
-  public V1PodSecurityContextFluent.SysctlsNested<A> addNewSysctl() {
+  public V1PodSecurityContextFluentImpl.SysctlsNested<A> addNewSysctl() {
     return new V1PodSecurityContextFluentImpl.SysctlsNestedImpl();
   }
-  public V1PodSecurityContextFluent.SysctlsNested<A> addNewSysctlLike(V1Sysctl item) {
+  public V1PodSecurityContextFluentImpl.SysctlsNested<A> addNewSysctlLike(V1Sysctl item) {
     return new V1PodSecurityContextFluentImpl.SysctlsNestedImpl(-1, item);
   }
-  public V1PodSecurityContextFluent.SysctlsNested<A> setNewSysctlLike(Integer index,V1Sysctl item) {
+  public V1PodSecurityContextFluentImpl.SysctlsNested<A> setNewSysctlLike(int index,V1Sysctl item) {
     return new V1PodSecurityContextFluentImpl.SysctlsNestedImpl(index, item);
   }
-  public V1PodSecurityContextFluent.SysctlsNested<A> editSysctl(Integer index) {
+  public V1PodSecurityContextFluentImpl.SysctlsNested<A> editSysctl(int index) {
     if (sysctls.size() <= index) throw new RuntimeException("Can't edit sysctls. Index exceeds size.");
     return setNewSysctlLike(index, buildSysctl(index));
   }
-  public V1PodSecurityContextFluent.SysctlsNested<A> editFirstSysctl() {
+  public V1PodSecurityContextFluentImpl.SysctlsNested<A> editFirstSysctl() {
     if (sysctls.size() == 0) throw new RuntimeException("Can't edit first sysctls. The list is empty.");
     return setNewSysctlLike(0, buildSysctl(0));
   }
-  public V1PodSecurityContextFluent.SysctlsNested<A> editLastSysctl() {
+  public V1PodSecurityContextFluentImpl.SysctlsNested<A> editLastSysctl() {
     int index = sysctls.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last sysctls. The list is empty.");
     return setNewSysctlLike(index, buildSysctl(index));
   }
-  public V1PodSecurityContextFluent.SysctlsNested<A> editMatchingSysctl(Predicate<V1SysctlBuilder> predicate) {
+  public V1PodSecurityContextFluentImpl.SysctlsNested<A> editMatchingSysctl(Predicate<V1SysctlBuilder> predicate) {
     int index = -1;
     for (int i=0;i<sysctls.size();i++) { 
     if (predicate.test(sysctls.get(i))) {index = i; break;}
@@ -344,35 +336,46 @@ import java.lang.Object;
   public Boolean hasWindowsOptions() {
     return this.windowsOptions != null;
   }
-  public V1PodSecurityContextFluent.WindowsOptionsNested<A> withNewWindowsOptions() {
+  public V1PodSecurityContextFluentImpl.WindowsOptionsNested<A> withNewWindowsOptions() {
     return new V1PodSecurityContextFluentImpl.WindowsOptionsNestedImpl();
   }
-  public V1PodSecurityContextFluent.WindowsOptionsNested<A> withNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
+  public V1PodSecurityContextFluentImpl.WindowsOptionsNested<A> withNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
     return new V1PodSecurityContextFluentImpl.WindowsOptionsNestedImpl(item);
   }
-  public V1PodSecurityContextFluent.WindowsOptionsNested<A> editWindowsOptions() {
+  public V1PodSecurityContextFluentImpl.WindowsOptionsNested<A> editWindowsOptions() {
     return withNewWindowsOptionsLike(getWindowsOptions());
   }
-  public V1PodSecurityContextFluent.WindowsOptionsNested<A> editOrNewWindowsOptions() {
+  public V1PodSecurityContextFluentImpl.WindowsOptionsNested<A> editOrNewWindowsOptions() {
     return withNewWindowsOptionsLike(getWindowsOptions() != null ? getWindowsOptions(): new V1WindowsSecurityContextOptionsBuilder().build());
   }
-  public V1PodSecurityContextFluent.WindowsOptionsNested<A> editOrNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
+  public V1PodSecurityContextFluentImpl.WindowsOptionsNested<A> editOrNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
     return withNewWindowsOptionsLike(getWindowsOptions() != null ? getWindowsOptions(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodSecurityContextFluentImpl that = (V1PodSecurityContextFluentImpl) o;
-    if (fsGroup != null ? !fsGroup.equals(that.fsGroup) :that.fsGroup != null) return false;
-    if (fsGroupChangePolicy != null ? !fsGroupChangePolicy.equals(that.fsGroupChangePolicy) :that.fsGroupChangePolicy != null) return false;
-    if (runAsGroup != null ? !runAsGroup.equals(that.runAsGroup) :that.runAsGroup != null) return false;
-    if (runAsNonRoot != null ? !runAsNonRoot.equals(that.runAsNonRoot) :that.runAsNonRoot != null) return false;
-    if (runAsUser != null ? !runAsUser.equals(that.runAsUser) :that.runAsUser != null) return false;
-    if (seLinuxOptions != null ? !seLinuxOptions.equals(that.seLinuxOptions) :that.seLinuxOptions != null) return false;
-    if (seccompProfile != null ? !seccompProfile.equals(that.seccompProfile) :that.seccompProfile != null) return false;
-    if (supplementalGroups != null ? !supplementalGroups.equals(that.supplementalGroups) :that.supplementalGroups != null) return false;
-    if (sysctls != null ? !sysctls.equals(that.sysctls) :that.sysctls != null) return false;
-    if (windowsOptions != null ? !windowsOptions.equals(that.windowsOptions) :that.windowsOptions != null) return false;
+    if (!java.util.Objects.equals(fsGroup, that.fsGroup)) return false;
+
+    if (!java.util.Objects.equals(fsGroupChangePolicy, that.fsGroupChangePolicy)) return false;
+
+    if (!java.util.Objects.equals(runAsGroup, that.runAsGroup)) return false;
+
+    if (!java.util.Objects.equals(runAsNonRoot, that.runAsNonRoot)) return false;
+
+    if (!java.util.Objects.equals(runAsUser, that.runAsUser)) return false;
+
+    if (!java.util.Objects.equals(seLinuxOptions, that.seLinuxOptions)) return false;
+
+    if (!java.util.Objects.equals(seccompProfile, that.seccompProfile)) return false;
+
+    if (!java.util.Objects.equals(supplementalGroups, that.supplementalGroups)) return false;
+
+    if (!java.util.Objects.equals(sysctls, that.sysctls)) return false;
+
+    if (!java.util.Objects.equals(windowsOptions, that.windowsOptions)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -389,7 +392,7 @@ import java.lang.Object;
     if (seLinuxOptions != null) { sb.append("seLinuxOptions:"); sb.append(seLinuxOptions + ","); }
     if (seccompProfile != null) { sb.append("seccompProfile:"); sb.append(seccompProfile + ","); }
     if (supplementalGroups != null && !supplementalGroups.isEmpty()) { sb.append("supplementalGroups:"); sb.append(supplementalGroups + ","); }
-    if (sysctls != null && !sysctls.isEmpty()) { sb.append("sysctls:"); sb.append(sysctls + ","); }
+    if (sysctls != null) { sb.append("sysctls:"); sb.append(sysctls + ","); }
     if (windowsOptions != null) { sb.append("windowsOptions:"); sb.append(windowsOptions); }
     sb.append("}");
     return sb.toString();
@@ -397,7 +400,7 @@ import java.lang.Object;
   public A withRunAsNonRoot() {
     return withRunAsNonRoot(true);
   }
-  class SeLinuxOptionsNestedImpl<N> extends V1SELinuxOptionsFluentImpl<V1PodSecurityContextFluent.SeLinuxOptionsNested<N>> implements V1PodSecurityContextFluent.SeLinuxOptionsNested<N>,Nested<N>{
+  class SeLinuxOptionsNestedImpl<N> extends V1SELinuxOptionsFluentImpl<V1PodSecurityContextFluentImpl.SeLinuxOptionsNested<N>> implements V1PodSecurityContextFluentImpl.SeLinuxOptionsNested<N>,Nested<N>{
     SeLinuxOptionsNestedImpl(V1SELinuxOptions item) {
       this.builder = new V1SELinuxOptionsBuilder(this, item);
     }
@@ -413,7 +416,7 @@ import java.lang.Object;
     }
     
   }
-  class SeccompProfileNestedImpl<N> extends V1SeccompProfileFluentImpl<V1PodSecurityContextFluent.SeccompProfileNested<N>> implements V1PodSecurityContextFluent.SeccompProfileNested<N>,Nested<N>{
+  class SeccompProfileNestedImpl<N> extends V1SeccompProfileFluentImpl<V1PodSecurityContextFluentImpl.SeccompProfileNested<N>> implements V1PodSecurityContextFluentImpl.SeccompProfileNested<N>,Nested<N>{
     SeccompProfileNestedImpl(V1SeccompProfile item) {
       this.builder = new V1SeccompProfileBuilder(this, item);
     }
@@ -429,8 +432,8 @@ import java.lang.Object;
     }
     
   }
-  class SysctlsNestedImpl<N> extends V1SysctlFluentImpl<V1PodSecurityContextFluent.SysctlsNested<N>> implements V1PodSecurityContextFluent.SysctlsNested<N>,Nested<N>{
-    SysctlsNestedImpl(Integer index,V1Sysctl item) {
+  class SysctlsNestedImpl<N> extends V1SysctlFluentImpl<V1PodSecurityContextFluentImpl.SysctlsNested<N>> implements V1PodSecurityContextFluentImpl.SysctlsNested<N>,Nested<N>{
+    SysctlsNestedImpl(int index,V1Sysctl item) {
       this.index = index;
       this.builder = new V1SysctlBuilder(this, item);
     }
@@ -439,7 +442,7 @@ import java.lang.Object;
       this.builder = new V1SysctlBuilder(this);
     }
     V1SysctlBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1PodSecurityContextFluentImpl.this.setToSysctls(index,builder.build());
     }
@@ -448,7 +451,7 @@ import java.lang.Object;
     }
     
   }
-  class WindowsOptionsNestedImpl<N> extends V1WindowsSecurityContextOptionsFluentImpl<V1PodSecurityContextFluent.WindowsOptionsNested<N>> implements V1PodSecurityContextFluent.WindowsOptionsNested<N>,Nested<N>{
+  class WindowsOptionsNestedImpl<N> extends V1WindowsSecurityContextOptionsFluentImpl<V1PodSecurityContextFluentImpl.WindowsOptionsNested<N>> implements V1PodSecurityContextFluentImpl.WindowsOptionsNested<N>,Nested<N>{
     WindowsOptionsNestedImpl(V1WindowsSecurityContextOptions item) {
       this.builder = new V1WindowsSecurityContextOptionsBuilder(this, item);
     }

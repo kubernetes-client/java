@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> e
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToConditions(Integer index,V1ComponentCondition item);
-  public A setToConditions(Integer index,V1ComponentCondition item);
+  public A addToConditions(int index,V1ComponentCondition item);
+  public A setToConditions(int index,V1ComponentCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1ComponentCondition... items);
   public A addAllToConditions(Collection<V1ComponentCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1ComponentCondition... items);
@@ -35,7 +35,7 @@ public interface V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> e
   @Deprecated
   public List<V1ComponentCondition> getConditions();
   public List<V1ComponentCondition> buildConditions();
-  public V1ComponentCondition buildCondition(Integer index);
+  public V1ComponentCondition buildCondition(int index);
   public V1ComponentCondition buildFirstCondition();
   public V1ComponentCondition buildLastCondition();
   public V1ComponentCondition buildMatchingCondition(Predicate<V1ComponentConditionBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1ComponentStatusFluent<A extends V1ComponentStatusFluent<A>> e
   public Boolean hasConditions();
   public V1ComponentStatusFluent.ConditionsNested<A> addNewCondition();
   public V1ComponentStatusFluent.ConditionsNested<A> addNewConditionLike(V1ComponentCondition item);
-  public V1ComponentStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1ComponentCondition item);
-  public V1ComponentStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1ComponentStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1ComponentCondition item);
+  public V1ComponentStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1ComponentStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1ComponentStatusFluent.ConditionsNested<A> editLastCondition();
   public V1ComponentStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1ComponentConditionBuilder> predicate);

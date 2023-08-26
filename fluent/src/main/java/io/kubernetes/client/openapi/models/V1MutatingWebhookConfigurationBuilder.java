@@ -20,14 +20,12 @@ public class V1MutatingWebhookConfigurationBuilder extends V1MutatingWebhookConf
   }
   public V1MutatingWebhookConfigurationBuilder(V1MutatingWebhookConfigurationFluent<?> fluent,V1MutatingWebhookConfiguration instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withWebhooks(instance.getWebhooks());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withWebhooks(instance.getWebhooks());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1MutatingWebhookConfigurationBuilder(V1MutatingWebhookConfiguration instance) {
@@ -35,14 +33,12 @@ public class V1MutatingWebhookConfigurationBuilder extends V1MutatingWebhookConf
   }
   public V1MutatingWebhookConfigurationBuilder(V1MutatingWebhookConfiguration instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withWebhooks(instance.getWebhooks());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withWebhooks(instance.getWebhooks());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1MutatingWebhookConfigurationFluent<?> fluent;

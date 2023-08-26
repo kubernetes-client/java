@@ -20,10 +20,10 @@ public class V1PodFailurePolicyOnPodConditionsPatternBuilder extends V1PodFailur
   }
   public V1PodFailurePolicyOnPodConditionsPatternBuilder(V1PodFailurePolicyOnPodConditionsPatternFluent<?> fluent,V1PodFailurePolicyOnPodConditionsPattern instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withStatus(instance.getStatus());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withStatus(instance.getStatus());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodFailurePolicyOnPodConditionsPatternBuilder(V1PodFailurePolicyOnPodConditionsPattern instance) {
@@ -31,10 +31,10 @@ public class V1PodFailurePolicyOnPodConditionsPatternBuilder extends V1PodFailur
   }
   public V1PodFailurePolicyOnPodConditionsPatternBuilder(V1PodFailurePolicyOnPodConditionsPattern instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodFailurePolicyOnPodConditionsPatternFluent<?> fluent;

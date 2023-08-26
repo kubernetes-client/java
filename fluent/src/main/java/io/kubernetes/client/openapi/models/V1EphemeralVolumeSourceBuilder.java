@@ -20,8 +20,9 @@ public class V1EphemeralVolumeSourceBuilder extends V1EphemeralVolumeSourceFluen
   }
   public V1EphemeralVolumeSourceBuilder(V1EphemeralVolumeSourceFluent<?> fluent,V1EphemeralVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
-
+    if (instance != null) {
+      fluent.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EphemeralVolumeSourceBuilder(V1EphemeralVolumeSource instance) {
@@ -29,8 +30,9 @@ public class V1EphemeralVolumeSourceBuilder extends V1EphemeralVolumeSourceFluen
   }
   public V1EphemeralVolumeSourceBuilder(V1EphemeralVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
-
+    if (instance != null) {
+      this.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EphemeralVolumeSourceFluent<?> fluent;

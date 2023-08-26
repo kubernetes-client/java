@@ -17,10 +17,10 @@ import java.util.LinkedHashMap;
   public V1ResourceQuotaStatusFluentImpl() {
   }
   public V1ResourceQuotaStatusFluentImpl(V1ResourceQuotaStatus instance) {
-    this.withHard(instance.getHard());
-
-    this.withUsed(instance.getUsed());
-
+    if (instance != null) {
+      this.withHard(instance.getHard());
+      this.withUsed(instance.getUsed());
+    }
   }
   private Map<String,Quantity> hard;
   private Map<String,Quantity> used;
@@ -77,9 +77,12 @@ import java.util.LinkedHashMap;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ResourceQuotaStatusFluentImpl that = (V1ResourceQuotaStatusFluentImpl) o;
-    if (hard != null ? !hard.equals(that.hard) :that.hard != null) return false;
-    if (used != null ? !used.equals(that.used) :that.used != null) return false;
+    if (!java.util.Objects.equals(hard, that.hard)) return false;
+
+    if (!java.util.Objects.equals(used, that.used)) return false;
+
     return true;
   }
   public int hashCode() {

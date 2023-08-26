@@ -23,6 +23,7 @@ import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiCallback;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.ApiResponse;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.CustomObjectsApi;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -1356,7 +1357,11 @@ public class GenericKubernetesApi<
       ApiClient apiClient, Class<DataType> dataClass, CallBuilder callBuilder) {
     try {
       Call call = prepareCall(callBuilder);
-      JsonElement element = apiClient.<JsonElement>execute(call, JsonElement.class).getData();
+      ApiResponse<JsonElement> response = apiClient.execute(call, JsonElement.class);
+      JsonElement element = response.getData();
+      if (element == null) {
+        throw new ApiException(null, response.getStatusCode(), null, "Unexpected response body");
+      }
       return getKubernetesApiResponse(dataClass, element, apiClient.getJSON().getGson());
     } catch (ApiException e) {
       return responseFromApiException(apiClient, e);

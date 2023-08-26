@@ -20,18 +20,14 @@ public class V1NodeConditionBuilder extends V1NodeConditionFluentImpl<V1NodeCond
   }
   public V1NodeConditionBuilder(V1NodeConditionFluent<?> fluent,V1NodeCondition instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLastHeartbeatTime(instance.getLastHeartbeatTime());
-
-    fluent.withLastTransitionTime(instance.getLastTransitionTime());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withReason(instance.getReason());
-
-    fluent.withStatus(instance.getStatus());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withLastHeartbeatTime(instance.getLastHeartbeatTime());
+      fluent.withLastTransitionTime(instance.getLastTransitionTime());
+      fluent.withMessage(instance.getMessage());
+      fluent.withReason(instance.getReason());
+      fluent.withStatus(instance.getStatus());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeConditionBuilder(V1NodeCondition instance) {
@@ -39,18 +35,14 @@ public class V1NodeConditionBuilder extends V1NodeConditionFluentImpl<V1NodeCond
   }
   public V1NodeConditionBuilder(V1NodeCondition instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLastHeartbeatTime(instance.getLastHeartbeatTime());
-
-    this.withLastTransitionTime(instance.getLastTransitionTime());
-
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLastHeartbeatTime(instance.getLastHeartbeatTime());
+      this.withLastTransitionTime(instance.getLastTransitionTime());
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeConditionFluent<?> fluent;

@@ -20,10 +20,10 @@ public class V1SeccompProfileBuilder extends V1SeccompProfileFluentImpl<V1Seccom
   }
   public V1SeccompProfileBuilder(V1SeccompProfileFluent<?> fluent,V1SeccompProfile instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLocalhostProfile(instance.getLocalhostProfile());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withLocalhostProfile(instance.getLocalhostProfile());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SeccompProfileBuilder(V1SeccompProfile instance) {
@@ -31,10 +31,10 @@ public class V1SeccompProfileBuilder extends V1SeccompProfileFluentImpl<V1Seccom
   }
   public V1SeccompProfileBuilder(V1SeccompProfile instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLocalhostProfile(instance.getLocalhostProfile());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLocalhostProfile(instance.getLocalhostProfile());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SeccompProfileFluent<?> fluent;

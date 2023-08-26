@@ -20,12 +20,11 @@ public class V1CustomResourceDefinitionStatusBuilder extends V1CustomResourceDef
   }
   public V1CustomResourceDefinitionStatusBuilder(V1CustomResourceDefinitionStatusFluent<?> fluent,V1CustomResourceDefinitionStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAcceptedNames(instance.getAcceptedNames());
-
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withStoredVersions(instance.getStoredVersions());
-
+    if (instance != null) {
+      fluent.withAcceptedNames(instance.getAcceptedNames());
+      fluent.withConditions(instance.getConditions());
+      fluent.withStoredVersions(instance.getStoredVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CustomResourceDefinitionStatusBuilder(V1CustomResourceDefinitionStatus instance) {
@@ -33,12 +32,11 @@ public class V1CustomResourceDefinitionStatusBuilder extends V1CustomResourceDef
   }
   public V1CustomResourceDefinitionStatusBuilder(V1CustomResourceDefinitionStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAcceptedNames(instance.getAcceptedNames());
-
-    this.withConditions(instance.getConditions());
-
-    this.withStoredVersions(instance.getStoredVersions());
-
+    if (instance != null) {
+      this.withAcceptedNames(instance.getAcceptedNames());
+      this.withConditions(instance.getConditions());
+      this.withStoredVersions(instance.getStoredVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CustomResourceDefinitionStatusFluent<?> fluent;

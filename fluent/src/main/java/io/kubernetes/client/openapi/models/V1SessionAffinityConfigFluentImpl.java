@@ -16,8 +16,9 @@ import java.lang.Boolean;
   public V1SessionAffinityConfigFluentImpl() {
   }
   public V1SessionAffinityConfigFluentImpl(V1SessionAffinityConfig instance) {
-    this.withClientIP(instance.getClientIP());
-
+    if (instance != null) {
+      this.withClientIP(instance.getClientIP());
+    }
   }
   private V1ClientIPConfigBuilder clientIP;
   
@@ -39,26 +40,28 @@ import java.lang.Boolean;
   public Boolean hasClientIP() {
     return this.clientIP != null;
   }
-  public V1SessionAffinityConfigFluent.ClientIPNested<A> withNewClientIP() {
+  public V1SessionAffinityConfigFluentImpl.ClientIPNested<A> withNewClientIP() {
     return new V1SessionAffinityConfigFluentImpl.ClientIPNestedImpl();
   }
-  public V1SessionAffinityConfigFluent.ClientIPNested<A> withNewClientIPLike(V1ClientIPConfig item) {
+  public V1SessionAffinityConfigFluentImpl.ClientIPNested<A> withNewClientIPLike(V1ClientIPConfig item) {
     return new V1SessionAffinityConfigFluentImpl.ClientIPNestedImpl(item);
   }
-  public V1SessionAffinityConfigFluent.ClientIPNested<A> editClientIP() {
+  public V1SessionAffinityConfigFluentImpl.ClientIPNested<A> editClientIP() {
     return withNewClientIPLike(getClientIP());
   }
-  public V1SessionAffinityConfigFluent.ClientIPNested<A> editOrNewClientIP() {
+  public V1SessionAffinityConfigFluentImpl.ClientIPNested<A> editOrNewClientIP() {
     return withNewClientIPLike(getClientIP() != null ? getClientIP(): new V1ClientIPConfigBuilder().build());
   }
-  public V1SessionAffinityConfigFluent.ClientIPNested<A> editOrNewClientIPLike(V1ClientIPConfig item) {
+  public V1SessionAffinityConfigFluentImpl.ClientIPNested<A> editOrNewClientIPLike(V1ClientIPConfig item) {
     return withNewClientIPLike(getClientIP() != null ? getClientIP(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SessionAffinityConfigFluentImpl that = (V1SessionAffinityConfigFluentImpl) o;
-    if (clientIP != null ? !clientIP.equals(that.clientIP) :that.clientIP != null) return false;
+    if (!java.util.Objects.equals(clientIP, that.clientIP)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -71,7 +74,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ClientIPNestedImpl<N> extends V1ClientIPConfigFluentImpl<V1SessionAffinityConfigFluent.ClientIPNested<N>> implements V1SessionAffinityConfigFluent.ClientIPNested<N>,Nested<N>{
+  class ClientIPNestedImpl<N> extends V1ClientIPConfigFluentImpl<V1SessionAffinityConfigFluentImpl.ClientIPNested<N>> implements V1SessionAffinityConfigFluentImpl.ClientIPNested<N>,Nested<N>{
     ClientIPNestedImpl(V1ClientIPConfig item) {
       this.builder = new V1ClientIPConfigBuilder(this, item);
     }

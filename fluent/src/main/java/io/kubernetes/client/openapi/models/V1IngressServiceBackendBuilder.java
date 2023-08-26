@@ -20,10 +20,10 @@ public class V1IngressServiceBackendBuilder extends V1IngressServiceBackendFluen
   }
   public V1IngressServiceBackendBuilder(V1IngressServiceBackendFluent<?> fluent,V1IngressServiceBackend instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withPort(instance.getPort());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withPort(instance.getPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1IngressServiceBackendBuilder(V1IngressServiceBackend instance) {
@@ -31,10 +31,10 @@ public class V1IngressServiceBackendBuilder extends V1IngressServiceBackendFluen
   }
   public V1IngressServiceBackendBuilder(V1IngressServiceBackend instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withPort(instance.getPort());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withPort(instance.getPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1IngressServiceBackendFluent<?> fluent;

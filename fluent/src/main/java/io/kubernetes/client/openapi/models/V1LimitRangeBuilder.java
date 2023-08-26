@@ -20,14 +20,12 @@ public class V1LimitRangeBuilder extends V1LimitRangeFluentImpl<V1LimitRangeBuil
   }
   public V1LimitRangeBuilder(V1LimitRangeFluent<?> fluent,V1LimitRange instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LimitRangeBuilder(V1LimitRange instance) {
@@ -35,14 +33,12 @@ public class V1LimitRangeBuilder extends V1LimitRangeFluentImpl<V1LimitRangeBuil
   }
   public V1LimitRangeBuilder(V1LimitRange instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LimitRangeFluent<?> fluent;

@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -18,8 +19,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V2HorizontalPodAutoscalerStatusFluent<A extends V2HorizontalPodAutoscalerStatusFluent<A>> extends Fluent<A>{
-  public A addToConditions(Integer index,V2HorizontalPodAutoscalerCondition item);
-  public A setToConditions(Integer index,V2HorizontalPodAutoscalerCondition item);
+  public A addToConditions(int index,V2HorizontalPodAutoscalerCondition item);
+  public A setToConditions(int index,V2HorizontalPodAutoscalerCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition... items);
   public A addAllToConditions(Collection<V2HorizontalPodAutoscalerCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V2HorizontalPodAutoscalerCondition... items);
@@ -33,7 +34,7 @@ public interface V2HorizontalPodAutoscalerStatusFluent<A extends V2HorizontalPod
   @Deprecated
   public List<V2HorizontalPodAutoscalerCondition> getConditions();
   public List<V2HorizontalPodAutoscalerCondition> buildConditions();
-  public V2HorizontalPodAutoscalerCondition buildCondition(Integer index);
+  public V2HorizontalPodAutoscalerCondition buildCondition(int index);
   public V2HorizontalPodAutoscalerCondition buildFirstCondition();
   public V2HorizontalPodAutoscalerCondition buildLastCondition();
   public V2HorizontalPodAutoscalerCondition buildMatchingCondition(Predicate<V2HorizontalPodAutoscalerConditionBuilder> predicate);
@@ -43,13 +44,13 @@ public interface V2HorizontalPodAutoscalerStatusFluent<A extends V2HorizontalPod
   public Boolean hasConditions();
   public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> addNewCondition();
   public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> addNewConditionLike(V2HorizontalPodAutoscalerCondition item);
-  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V2HorizontalPodAutoscalerCondition item);
-  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V2HorizontalPodAutoscalerCondition item);
+  public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> editCondition(int index);
   public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> editFirstCondition();
   public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> editLastCondition();
   public V2HorizontalPodAutoscalerStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V2HorizontalPodAutoscalerConditionBuilder> predicate);
-  public A addToCurrentMetrics(Integer index,V2MetricStatus item);
-  public A setToCurrentMetrics(Integer index,V2MetricStatus item);
+  public A addToCurrentMetrics(int index,V2MetricStatus item);
+  public A setToCurrentMetrics(int index,V2MetricStatus item);
   public A addToCurrentMetrics(io.kubernetes.client.openapi.models.V2MetricStatus... items);
   public A addAllToCurrentMetrics(Collection<V2MetricStatus> items);
   public A removeFromCurrentMetrics(io.kubernetes.client.openapi.models.V2MetricStatus... items);
@@ -63,7 +64,7 @@ public interface V2HorizontalPodAutoscalerStatusFluent<A extends V2HorizontalPod
   @Deprecated
   public List<V2MetricStatus> getCurrentMetrics();
   public List<V2MetricStatus> buildCurrentMetrics();
-  public V2MetricStatus buildCurrentMetric(Integer index);
+  public V2MetricStatus buildCurrentMetric(int index);
   public V2MetricStatus buildFirstCurrentMetric();
   public V2MetricStatus buildLastCurrentMetric();
   public V2MetricStatus buildMatchingCurrentMetric(Predicate<V2MetricStatusBuilder> predicate);
@@ -73,8 +74,8 @@ public interface V2HorizontalPodAutoscalerStatusFluent<A extends V2HorizontalPod
   public Boolean hasCurrentMetrics();
   public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> addNewCurrentMetric();
   public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> addNewCurrentMetricLike(V2MetricStatus item);
-  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> setNewCurrentMetricLike(Integer index,V2MetricStatus item);
-  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> editCurrentMetric(Integer index);
+  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> setNewCurrentMetricLike(int index,V2MetricStatus item);
+  public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> editCurrentMetric(int index);
   public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> editFirstCurrentMetric();
   public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> editLastCurrentMetric();
   public V2HorizontalPodAutoscalerStatusFluent.CurrentMetricsNested<A> editMatchingCurrentMetric(Predicate<V2MetricStatusBuilder> predicate);

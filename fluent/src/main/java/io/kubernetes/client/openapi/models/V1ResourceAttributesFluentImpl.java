@@ -14,20 +14,15 @@ import java.lang.Boolean;
   public V1ResourceAttributesFluentImpl() {
   }
   public V1ResourceAttributesFluentImpl(V1ResourceAttributes instance) {
-    this.withGroup(instance.getGroup());
-
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withResource(instance.getResource());
-
-    this.withSubresource(instance.getSubresource());
-
-    this.withVerb(instance.getVerb());
-
-    this.withVersion(instance.getVersion());
-
+    if (instance != null) {
+      this.withGroup(instance.getGroup());
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withResource(instance.getResource());
+      this.withSubresource(instance.getSubresource());
+      this.withVerb(instance.getVerb());
+      this.withVersion(instance.getVersion());
+    }
   }
   private String group;
   private String name;
@@ -102,14 +97,22 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ResourceAttributesFluentImpl that = (V1ResourceAttributesFluentImpl) o;
-    if (group != null ? !group.equals(that.group) :that.group != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (namespace != null ? !namespace.equals(that.namespace) :that.namespace != null) return false;
-    if (resource != null ? !resource.equals(that.resource) :that.resource != null) return false;
-    if (subresource != null ? !subresource.equals(that.subresource) :that.subresource != null) return false;
-    if (verb != null ? !verb.equals(that.verb) :that.verb != null) return false;
-    if (version != null ? !version.equals(that.version) :that.version != null) return false;
+    if (!java.util.Objects.equals(group, that.group)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
+
+    if (!java.util.Objects.equals(resource, that.resource)) return false;
+
+    if (!java.util.Objects.equals(subresource, that.subresource)) return false;
+
+    if (!java.util.Objects.equals(verb, that.verb)) return false;
+
+    if (!java.util.Objects.equals(version, that.version)) return false;
+
     return true;
   }
   public int hashCode() {

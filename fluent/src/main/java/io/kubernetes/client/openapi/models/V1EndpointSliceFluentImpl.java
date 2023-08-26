@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,18 +22,14 @@ import java.lang.Object;
   public V1EndpointSliceFluentImpl() {
   }
   public V1EndpointSliceFluentImpl(V1EndpointSlice instance) {
-    this.withAddressType(instance.getAddressType());
-
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withEndpoints(instance.getEndpoints());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withPorts(instance.getPorts());
-
+    if (instance != null) {
+      this.withAddressType(instance.getAddressType());
+      this.withApiVersion(instance.getApiVersion());
+      this.withEndpoints(instance.getEndpoints());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withPorts(instance.getPorts());
+    }
   }
   private String addressType;
   private String apiVersion;
@@ -60,16 +55,17 @@ import java.lang.Object;
   public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
-  public A addToEndpoints(Integer index,V1Endpoint item) {
-    if (this.endpoints == null) {this.endpoints = new ArrayList<V1EndpointBuilder>();}
-    V1EndpointBuilder builder = new V1EndpointBuilder(item);_visitables.get("endpoints").add(index >= 0 ? index : _visitables.get("endpoints").size(), builder);this.endpoints.add(index >= 0 ? index : endpoints.size(), builder); return (A)this;
-  }
-  public A setToEndpoints(Integer index,V1Endpoint item) {
+  public A addToEndpoints(int index,V1Endpoint item) {
     if (this.endpoints == null) {this.endpoints = new ArrayList<V1EndpointBuilder>();}
     V1EndpointBuilder builder = new V1EndpointBuilder(item);
-    if (index < 0 || index >= _visitables.get("endpoints").size()) { _visitables.get("endpoints").add(builder); } else { _visitables.get("endpoints").set(index, builder);}
-    if (index < 0 || index >= endpoints.size()) { endpoints.add(builder); } else { endpoints.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= endpoints.size()) { _visitables.get("endpoints").add(builder); endpoints.add(builder); } else { _visitables.get("endpoints").add(index, builder); endpoints.add(index, builder);}
+    return (A)this;
+  }
+  public A setToEndpoints(int index,V1Endpoint item) {
+    if (this.endpoints == null) {this.endpoints = new ArrayList<V1EndpointBuilder>();}
+    V1EndpointBuilder builder = new V1EndpointBuilder(item);
+    if (index < 0 || index >= endpoints.size()) { _visitables.get("endpoints").add(builder); endpoints.add(builder); } else { _visitables.get("endpoints").set(index, builder); endpoints.set(index, builder);}
+    return (A)this;
   }
   public A addToEndpoints(io.kubernetes.client.openapi.models.V1Endpoint... items) {
     if (this.endpoints == null) {this.endpoints = new ArrayList<V1EndpointBuilder>();}
@@ -110,7 +106,7 @@ import java.lang.Object;
   public List<V1Endpoint> buildEndpoints() {
     return endpoints != null ? build(endpoints) : null;
   }
-  public V1Endpoint buildEndpoint(Integer index) {
+  public V1Endpoint buildEndpoint(int index) {
     return this.endpoints.get(index).build();
   }
   public V1Endpoint buildFirstEndpoint() {
@@ -126,39 +122,39 @@ import java.lang.Object;
     for (V1EndpointBuilder item: endpoints) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withEndpoints(List<V1Endpoint> endpoints) {
-    if (this.endpoints != null) { _visitables.get("endpoints").removeAll(this.endpoints);}
+    if (this.endpoints != null) { _visitables.get("endpoints").clear();}
     if (endpoints != null) {this.endpoints = new ArrayList(); for (V1Endpoint item : endpoints){this.addToEndpoints(item);}} else { this.endpoints = null;} return (A) this;
   }
   public A withEndpoints(io.kubernetes.client.openapi.models.V1Endpoint... endpoints) {
-    if (this.endpoints != null) {this.endpoints.clear();}
+    if (this.endpoints != null) {this.endpoints.clear(); _visitables.remove("endpoints"); }
     if (endpoints != null) {for (V1Endpoint item :endpoints){ this.addToEndpoints(item);}} return (A) this;
   }
   public Boolean hasEndpoints() {
     return endpoints != null && !endpoints.isEmpty();
   }
-  public V1EndpointSliceFluent.EndpointsNested<A> addNewEndpoint() {
+  public V1EndpointSliceFluentImpl.EndpointsNested<A> addNewEndpoint() {
     return new V1EndpointSliceFluentImpl.EndpointsNestedImpl();
   }
-  public V1EndpointSliceFluent.EndpointsNested<A> addNewEndpointLike(V1Endpoint item) {
+  public V1EndpointSliceFluentImpl.EndpointsNested<A> addNewEndpointLike(V1Endpoint item) {
     return new V1EndpointSliceFluentImpl.EndpointsNestedImpl(-1, item);
   }
-  public V1EndpointSliceFluent.EndpointsNested<A> setNewEndpointLike(Integer index,V1Endpoint item) {
+  public V1EndpointSliceFluentImpl.EndpointsNested<A> setNewEndpointLike(int index,V1Endpoint item) {
     return new V1EndpointSliceFluentImpl.EndpointsNestedImpl(index, item);
   }
-  public V1EndpointSliceFluent.EndpointsNested<A> editEndpoint(Integer index) {
+  public V1EndpointSliceFluentImpl.EndpointsNested<A> editEndpoint(int index) {
     if (endpoints.size() <= index) throw new RuntimeException("Can't edit endpoints. Index exceeds size.");
     return setNewEndpointLike(index, buildEndpoint(index));
   }
-  public V1EndpointSliceFluent.EndpointsNested<A> editFirstEndpoint() {
+  public V1EndpointSliceFluentImpl.EndpointsNested<A> editFirstEndpoint() {
     if (endpoints.size() == 0) throw new RuntimeException("Can't edit first endpoints. The list is empty.");
     return setNewEndpointLike(0, buildEndpoint(0));
   }
-  public V1EndpointSliceFluent.EndpointsNested<A> editLastEndpoint() {
+  public V1EndpointSliceFluentImpl.EndpointsNested<A> editLastEndpoint() {
     int index = endpoints.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last endpoints. The list is empty.");
     return setNewEndpointLike(index, buildEndpoint(index));
   }
-  public V1EndpointSliceFluent.EndpointsNested<A> editMatchingEndpoint(Predicate<V1EndpointBuilder> predicate) {
+  public V1EndpointSliceFluentImpl.EndpointsNested<A> editMatchingEndpoint(Predicate<V1EndpointBuilder> predicate) {
     int index = -1;
     for (int i=0;i<endpoints.size();i++) { 
     if (predicate.test(endpoints.get(i))) {index = i; break;}
@@ -194,31 +190,32 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1EndpointSliceFluent.MetadataNested<A> withNewMetadata() {
+  public V1EndpointSliceFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1EndpointSliceFluentImpl.MetadataNestedImpl();
   }
-  public V1EndpointSliceFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1EndpointSliceFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1EndpointSliceFluentImpl.MetadataNestedImpl(item);
   }
-  public V1EndpointSliceFluent.MetadataNested<A> editMetadata() {
+  public V1EndpointSliceFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1EndpointSliceFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1EndpointSliceFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1EndpointSliceFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1EndpointSliceFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
-  public A addToPorts(Integer index,DiscoveryV1EndpointPort item) {
-    if (this.ports == null) {this.ports = new ArrayList<DiscoveryV1EndpointPortBuilder>();}
-    DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);_visitables.get("ports").add(index >= 0 ? index : _visitables.get("ports").size(), builder);this.ports.add(index >= 0 ? index : ports.size(), builder); return (A)this;
-  }
-  public A setToPorts(Integer index,DiscoveryV1EndpointPort item) {
+  public A addToPorts(int index,DiscoveryV1EndpointPort item) {
     if (this.ports == null) {this.ports = new ArrayList<DiscoveryV1EndpointPortBuilder>();}
     DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
-    if (index < 0 || index >= _visitables.get("ports").size()) { _visitables.get("ports").add(builder); } else { _visitables.get("ports").set(index, builder);}
-    if (index < 0 || index >= ports.size()) { ports.add(builder); } else { ports.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").add(index, builder); ports.add(index, builder);}
+    return (A)this;
+  }
+  public A setToPorts(int index,DiscoveryV1EndpointPort item) {
+    if (this.ports == null) {this.ports = new ArrayList<DiscoveryV1EndpointPortBuilder>();}
+    DiscoveryV1EndpointPortBuilder builder = new DiscoveryV1EndpointPortBuilder(item);
+    if (index < 0 || index >= ports.size()) { _visitables.get("ports").add(builder); ports.add(builder); } else { _visitables.get("ports").set(index, builder); ports.set(index, builder);}
+    return (A)this;
   }
   public A addToPorts(io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort... items) {
     if (this.ports == null) {this.ports = new ArrayList<DiscoveryV1EndpointPortBuilder>();}
@@ -259,7 +256,7 @@ import java.lang.Object;
   public List<DiscoveryV1EndpointPort> buildPorts() {
     return ports != null ? build(ports) : null;
   }
-  public DiscoveryV1EndpointPort buildPort(Integer index) {
+  public DiscoveryV1EndpointPort buildPort(int index) {
     return this.ports.get(index).build();
   }
   public DiscoveryV1EndpointPort buildFirstPort() {
@@ -275,39 +272,39 @@ import java.lang.Object;
     for (DiscoveryV1EndpointPortBuilder item: ports) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withPorts(List<DiscoveryV1EndpointPort> ports) {
-    if (this.ports != null) { _visitables.get("ports").removeAll(this.ports);}
+    if (this.ports != null) { _visitables.get("ports").clear();}
     if (ports != null) {this.ports = new ArrayList(); for (DiscoveryV1EndpointPort item : ports){this.addToPorts(item);}} else { this.ports = null;} return (A) this;
   }
   public A withPorts(io.kubernetes.client.openapi.models.DiscoveryV1EndpointPort... ports) {
-    if (this.ports != null) {this.ports.clear();}
+    if (this.ports != null) {this.ports.clear(); _visitables.remove("ports"); }
     if (ports != null) {for (DiscoveryV1EndpointPort item :ports){ this.addToPorts(item);}} return (A) this;
   }
   public Boolean hasPorts() {
     return ports != null && !ports.isEmpty();
   }
-  public V1EndpointSliceFluent.PortsNested<A> addNewPort() {
+  public V1EndpointSliceFluentImpl.PortsNested<A> addNewPort() {
     return new V1EndpointSliceFluentImpl.PortsNestedImpl();
   }
-  public V1EndpointSliceFluent.PortsNested<A> addNewPortLike(DiscoveryV1EndpointPort item) {
+  public V1EndpointSliceFluentImpl.PortsNested<A> addNewPortLike(DiscoveryV1EndpointPort item) {
     return new V1EndpointSliceFluentImpl.PortsNestedImpl(-1, item);
   }
-  public V1EndpointSliceFluent.PortsNested<A> setNewPortLike(Integer index,DiscoveryV1EndpointPort item) {
+  public V1EndpointSliceFluentImpl.PortsNested<A> setNewPortLike(int index,DiscoveryV1EndpointPort item) {
     return new V1EndpointSliceFluentImpl.PortsNestedImpl(index, item);
   }
-  public V1EndpointSliceFluent.PortsNested<A> editPort(Integer index) {
+  public V1EndpointSliceFluentImpl.PortsNested<A> editPort(int index) {
     if (ports.size() <= index) throw new RuntimeException("Can't edit ports. Index exceeds size.");
     return setNewPortLike(index, buildPort(index));
   }
-  public V1EndpointSliceFluent.PortsNested<A> editFirstPort() {
+  public V1EndpointSliceFluentImpl.PortsNested<A> editFirstPort() {
     if (ports.size() == 0) throw new RuntimeException("Can't edit first ports. The list is empty.");
     return setNewPortLike(0, buildPort(0));
   }
-  public V1EndpointSliceFluent.PortsNested<A> editLastPort() {
+  public V1EndpointSliceFluentImpl.PortsNested<A> editLastPort() {
     int index = ports.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last ports. The list is empty.");
     return setNewPortLike(index, buildPort(index));
   }
-  public V1EndpointSliceFluent.PortsNested<A> editMatchingPort(Predicate<DiscoveryV1EndpointPortBuilder> predicate) {
+  public V1EndpointSliceFluentImpl.PortsNested<A> editMatchingPort(Predicate<DiscoveryV1EndpointPortBuilder> predicate) {
     int index = -1;
     for (int i=0;i<ports.size();i++) { 
     if (predicate.test(ports.get(i))) {index = i; break;}
@@ -318,13 +315,20 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EndpointSliceFluentImpl that = (V1EndpointSliceFluentImpl) o;
-    if (addressType != null ? !addressType.equals(that.addressType) :that.addressType != null) return false;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (endpoints != null ? !endpoints.equals(that.endpoints) :that.endpoints != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (ports != null ? !ports.equals(that.ports) :that.ports != null) return false;
+    if (!java.util.Objects.equals(addressType, that.addressType)) return false;
+
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(endpoints, that.endpoints)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(ports, that.ports)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -335,15 +339,15 @@ import java.lang.Object;
     sb.append("{");
     if (addressType != null) { sb.append("addressType:"); sb.append(addressType + ","); }
     if (apiVersion != null) { sb.append("apiVersion:"); sb.append(apiVersion + ","); }
-    if (endpoints != null && !endpoints.isEmpty()) { sb.append("endpoints:"); sb.append(endpoints + ","); }
+    if (endpoints != null) { sb.append("endpoints:"); sb.append(endpoints + ","); }
     if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
     if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
-    if (ports != null && !ports.isEmpty()) { sb.append("ports:"); sb.append(ports); }
+    if (ports != null) { sb.append("ports:"); sb.append(ports); }
     sb.append("}");
     return sb.toString();
   }
-  class EndpointsNestedImpl<N> extends V1EndpointFluentImpl<V1EndpointSliceFluent.EndpointsNested<N>> implements V1EndpointSliceFluent.EndpointsNested<N>,Nested<N>{
-    EndpointsNestedImpl(Integer index,V1Endpoint item) {
+  class EndpointsNestedImpl<N> extends V1EndpointFluentImpl<V1EndpointSliceFluentImpl.EndpointsNested<N>> implements V1EndpointSliceFluentImpl.EndpointsNested<N>,Nested<N>{
+    EndpointsNestedImpl(int index,V1Endpoint item) {
       this.index = index;
       this.builder = new V1EndpointBuilder(this, item);
     }
@@ -352,7 +356,7 @@ import java.lang.Object;
       this.builder = new V1EndpointBuilder(this);
     }
     V1EndpointBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1EndpointSliceFluentImpl.this.setToEndpoints(index,builder.build());
     }
@@ -361,7 +365,7 @@ import java.lang.Object;
     }
     
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1EndpointSliceFluent.MetadataNested<N>> implements V1EndpointSliceFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1EndpointSliceFluentImpl.MetadataNested<N>> implements V1EndpointSliceFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -377,8 +381,8 @@ import java.lang.Object;
     }
     
   }
-  class PortsNestedImpl<N> extends DiscoveryV1EndpointPortFluentImpl<V1EndpointSliceFluent.PortsNested<N>> implements V1EndpointSliceFluent.PortsNested<N>,Nested<N>{
-    PortsNestedImpl(Integer index,DiscoveryV1EndpointPort item) {
+  class PortsNestedImpl<N> extends DiscoveryV1EndpointPortFluentImpl<V1EndpointSliceFluentImpl.PortsNested<N>> implements V1EndpointSliceFluentImpl.PortsNested<N>,Nested<N>{
+    PortsNestedImpl(int index,DiscoveryV1EndpointPort item) {
       this.index = index;
       this.builder = new DiscoveryV1EndpointPortBuilder(this, item);
     }
@@ -387,7 +391,7 @@ import java.lang.Object;
       this.builder = new DiscoveryV1EndpointPortBuilder(this);
     }
     DiscoveryV1EndpointPortBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1EndpointSliceFluentImpl.this.setToPorts(index,builder.build());
     }

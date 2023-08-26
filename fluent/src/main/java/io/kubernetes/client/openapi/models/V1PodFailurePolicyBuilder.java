@@ -20,8 +20,9 @@ public class V1PodFailurePolicyBuilder extends V1PodFailurePolicyFluentImpl<V1Po
   }
   public V1PodFailurePolicyBuilder(V1PodFailurePolicyFluent<?> fluent,V1PodFailurePolicy instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withRules(instance.getRules());
-
+    if (instance != null) {
+      fluent.withRules(instance.getRules());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodFailurePolicyBuilder(V1PodFailurePolicy instance) {
@@ -29,8 +30,9 @@ public class V1PodFailurePolicyBuilder extends V1PodFailurePolicyFluentImpl<V1Po
   }
   public V1PodFailurePolicyBuilder(V1PodFailurePolicy instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withRules(instance.getRules());
-
+    if (instance != null) {
+      this.withRules(instance.getRules());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodFailurePolicyFluent<?> fluent;

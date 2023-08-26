@@ -20,10 +20,10 @@ public class V1PodDNSConfigOptionBuilder extends V1PodDNSConfigOptionFluentImpl<
   }
   public V1PodDNSConfigOptionBuilder(V1PodDNSConfigOptionFluent<?> fluent,V1PodDNSConfigOption instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withValue(instance.getValue());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodDNSConfigOptionBuilder(V1PodDNSConfigOption instance) {
@@ -31,10 +31,10 @@ public class V1PodDNSConfigOptionBuilder extends V1PodDNSConfigOptionFluentImpl<
   }
   public V1PodDNSConfigOptionBuilder(V1PodDNSConfigOption instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodDNSConfigOptionFluent<?> fluent;

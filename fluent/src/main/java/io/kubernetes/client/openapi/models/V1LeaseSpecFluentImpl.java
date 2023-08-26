@@ -16,16 +16,13 @@ import java.lang.Boolean;
   public V1LeaseSpecFluentImpl() {
   }
   public V1LeaseSpecFluentImpl(V1LeaseSpec instance) {
-    this.withAcquireTime(instance.getAcquireTime());
-
-    this.withHolderIdentity(instance.getHolderIdentity());
-
-    this.withLeaseDurationSeconds(instance.getLeaseDurationSeconds());
-
-    this.withLeaseTransitions(instance.getLeaseTransitions());
-
-    this.withRenewTime(instance.getRenewTime());
-
+    if (instance != null) {
+      this.withAcquireTime(instance.getAcquireTime());
+      this.withHolderIdentity(instance.getHolderIdentity());
+      this.withLeaseDurationSeconds(instance.getLeaseDurationSeconds());
+      this.withLeaseTransitions(instance.getLeaseTransitions());
+      this.withRenewTime(instance.getRenewTime());
+    }
   }
   private OffsetDateTime acquireTime;
   private String holderIdentity;
@@ -80,12 +77,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1LeaseSpecFluentImpl that = (V1LeaseSpecFluentImpl) o;
-    if (acquireTime != null ? !acquireTime.equals(that.acquireTime) :that.acquireTime != null) return false;
-    if (holderIdentity != null ? !holderIdentity.equals(that.holderIdentity) :that.holderIdentity != null) return false;
-    if (leaseDurationSeconds != null ? !leaseDurationSeconds.equals(that.leaseDurationSeconds) :that.leaseDurationSeconds != null) return false;
-    if (leaseTransitions != null ? !leaseTransitions.equals(that.leaseTransitions) :that.leaseTransitions != null) return false;
-    if (renewTime != null ? !renewTime.equals(that.renewTime) :that.renewTime != null) return false;
+    if (!java.util.Objects.equals(acquireTime, that.acquireTime)) return false;
+
+    if (!java.util.Objects.equals(holderIdentity, that.holderIdentity)) return false;
+
+    if (!java.util.Objects.equals(leaseDurationSeconds, that.leaseDurationSeconds)) return false;
+
+    if (!java.util.Objects.equals(leaseTransitions, that.leaseTransitions)) return false;
+
+    if (!java.util.Objects.equals(renewTime, that.renewTime)) return false;
+
     return true;
   }
   public int hashCode() {

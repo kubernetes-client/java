@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -16,8 +17,8 @@ import java.lang.Boolean;
 public interface V1APIServiceSpecFluent<A extends V1APIServiceSpecFluent<A>> extends Fluent<A>{
   public A withCaBundle(byte... caBundle);
   public byte[] getCaBundle();
-  public A addToCaBundle(Integer index,Byte item);
-  public A setToCaBundle(Integer index,Byte item);
+  public A addToCaBundle(int index,Byte item);
+  public A setToCaBundle(int index,Byte item);
   public A addToCaBundle(java.lang.Byte... items);
   public A addAllToCaBundle(Collection<Byte> items);
   public A removeFromCaBundle(java.lang.Byte... items);

@@ -20,20 +20,15 @@ public class V1NodeSpecBuilder extends V1NodeSpecFluentImpl<V1NodeSpecBuilder> i
   }
   public V1NodeSpecBuilder(V1NodeSpecFluent<?> fluent,V1NodeSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConfigSource(instance.getConfigSource());
-
-    fluent.withExternalID(instance.getExternalID());
-
-    fluent.withPodCIDR(instance.getPodCIDR());
-
-    fluent.withPodCIDRs(instance.getPodCIDRs());
-
-    fluent.withProviderID(instance.getProviderID());
-
-    fluent.withTaints(instance.getTaints());
-
-    fluent.withUnschedulable(instance.getUnschedulable());
-
+    if (instance != null) {
+      fluent.withConfigSource(instance.getConfigSource());
+      fluent.withExternalID(instance.getExternalID());
+      fluent.withPodCIDR(instance.getPodCIDR());
+      fluent.withPodCIDRs(instance.getPodCIDRs());
+      fluent.withProviderID(instance.getProviderID());
+      fluent.withTaints(instance.getTaints());
+      fluent.withUnschedulable(instance.getUnschedulable());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NodeSpecBuilder(V1NodeSpec instance) {
@@ -41,20 +36,15 @@ public class V1NodeSpecBuilder extends V1NodeSpecFluentImpl<V1NodeSpecBuilder> i
   }
   public V1NodeSpecBuilder(V1NodeSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConfigSource(instance.getConfigSource());
-
-    this.withExternalID(instance.getExternalID());
-
-    this.withPodCIDR(instance.getPodCIDR());
-
-    this.withPodCIDRs(instance.getPodCIDRs());
-
-    this.withProviderID(instance.getProviderID());
-
-    this.withTaints(instance.getTaints());
-
-    this.withUnschedulable(instance.getUnschedulable());
-
+    if (instance != null) {
+      this.withConfigSource(instance.getConfigSource());
+      this.withExternalID(instance.getExternalID());
+      this.withPodCIDR(instance.getPodCIDR());
+      this.withPodCIDRs(instance.getPodCIDRs());
+      this.withProviderID(instance.getProviderID());
+      this.withTaints(instance.getTaints());
+      this.withUnschedulable(instance.getUnschedulable());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NodeSpecFluent<?> fluent;

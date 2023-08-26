@@ -20,12 +20,11 @@ public class V1ServiceAccountTokenProjectionBuilder extends V1ServiceAccountToke
   }
   public V1ServiceAccountTokenProjectionBuilder(V1ServiceAccountTokenProjectionFluent<?> fluent,V1ServiceAccountTokenProjection instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAudience(instance.getAudience());
-
-    fluent.withExpirationSeconds(instance.getExpirationSeconds());
-
-    fluent.withPath(instance.getPath());
-
+    if (instance != null) {
+      fluent.withAudience(instance.getAudience());
+      fluent.withExpirationSeconds(instance.getExpirationSeconds());
+      fluent.withPath(instance.getPath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ServiceAccountTokenProjectionBuilder(V1ServiceAccountTokenProjection instance) {
@@ -33,12 +32,11 @@ public class V1ServiceAccountTokenProjectionBuilder extends V1ServiceAccountToke
   }
   public V1ServiceAccountTokenProjectionBuilder(V1ServiceAccountTokenProjection instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAudience(instance.getAudience());
-
-    this.withExpirationSeconds(instance.getExpirationSeconds());
-
-    this.withPath(instance.getPath());
-
+    if (instance != null) {
+      this.withAudience(instance.getAudience());
+      this.withExpirationSeconds(instance.getExpirationSeconds());
+      this.withPath(instance.getPath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ServiceAccountTokenProjectionFluent<?> fluent;

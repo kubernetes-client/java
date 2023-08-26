@@ -15,8 +15,9 @@ import java.lang.Boolean;
   public V1ScaleSpecFluentImpl() {
   }
   public V1ScaleSpecFluentImpl(V1ScaleSpec instance) {
-    this.withReplicas(instance.getReplicas());
-
+    if (instance != null) {
+      this.withReplicas(instance.getReplicas());
+    }
   }
   private Integer replicas;
   public Integer getReplicas() {
@@ -31,8 +32,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ScaleSpecFluentImpl that = (V1ScaleSpecFluentImpl) o;
-    if (replicas != null ? !replicas.equals(that.replicas) :that.replicas != null) return false;
+    if (!java.util.Objects.equals(replicas, that.replicas)) return false;
+
     return true;
   }
   public int hashCode() {

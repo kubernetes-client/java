@@ -20,12 +20,11 @@ public class V1PodFailurePolicyRuleBuilder extends V1PodFailurePolicyRuleFluentI
   }
   public V1PodFailurePolicyRuleBuilder(V1PodFailurePolicyRuleFluent<?> fluent,V1PodFailurePolicyRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAction(instance.getAction());
-
-    fluent.withOnExitCodes(instance.getOnExitCodes());
-
-    fluent.withOnPodConditions(instance.getOnPodConditions());
-
+    if (instance != null) {
+      fluent.withAction(instance.getAction());
+      fluent.withOnExitCodes(instance.getOnExitCodes());
+      fluent.withOnPodConditions(instance.getOnPodConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodFailurePolicyRuleBuilder(V1PodFailurePolicyRule instance) {
@@ -33,12 +32,11 @@ public class V1PodFailurePolicyRuleBuilder extends V1PodFailurePolicyRuleFluentI
   }
   public V1PodFailurePolicyRuleBuilder(V1PodFailurePolicyRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAction(instance.getAction());
-
-    this.withOnExitCodes(instance.getOnExitCodes());
-
-    this.withOnPodConditions(instance.getOnPodConditions());
-
+    if (instance != null) {
+      this.withAction(instance.getAction());
+      this.withOnExitCodes(instance.getOnExitCodes());
+      this.withOnPodConditions(instance.getOnPodConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodFailurePolicyRuleFluent<?> fluent;

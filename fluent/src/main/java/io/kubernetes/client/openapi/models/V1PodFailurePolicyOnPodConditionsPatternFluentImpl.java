@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1PodFailurePolicyOnPodConditionsPatternFluentImpl() {
   }
   public V1PodFailurePolicyOnPodConditionsPatternFluentImpl(V1PodFailurePolicyOnPodConditionsPattern instance) {
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
   }
   private String status;
   private String type;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1PodFailurePolicyOnPodConditionsPatternFluentImpl that = (V1PodFailurePolicyOnPodConditionsPatternFluentImpl) o;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {

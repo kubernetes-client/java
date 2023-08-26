@@ -16,12 +16,11 @@ import java.lang.Boolean;
   public V1NetworkPolicyPeerFluentImpl() {
   }
   public V1NetworkPolicyPeerFluentImpl(V1NetworkPolicyPeer instance) {
-    this.withIpBlock(instance.getIpBlock());
-
-    this.withNamespaceSelector(instance.getNamespaceSelector());
-
-    this.withPodSelector(instance.getPodSelector());
-
+    if (instance != null) {
+      this.withIpBlock(instance.getIpBlock());
+      this.withNamespaceSelector(instance.getNamespaceSelector());
+      this.withPodSelector(instance.getPodSelector());
+    }
   }
   private V1IPBlockBuilder ipBlock;
   private V1LabelSelectorBuilder namespaceSelector;
@@ -45,19 +44,19 @@ import java.lang.Boolean;
   public Boolean hasIpBlock() {
     return this.ipBlock != null;
   }
-  public V1NetworkPolicyPeerFluent.IpBlockNested<A> withNewIpBlock() {
+  public V1NetworkPolicyPeerFluentImpl.IpBlockNested<A> withNewIpBlock() {
     return new V1NetworkPolicyPeerFluentImpl.IpBlockNestedImpl();
   }
-  public V1NetworkPolicyPeerFluent.IpBlockNested<A> withNewIpBlockLike(V1IPBlock item) {
+  public V1NetworkPolicyPeerFluentImpl.IpBlockNested<A> withNewIpBlockLike(V1IPBlock item) {
     return new V1NetworkPolicyPeerFluentImpl.IpBlockNestedImpl(item);
   }
-  public V1NetworkPolicyPeerFluent.IpBlockNested<A> editIpBlock() {
+  public V1NetworkPolicyPeerFluentImpl.IpBlockNested<A> editIpBlock() {
     return withNewIpBlockLike(getIpBlock());
   }
-  public V1NetworkPolicyPeerFluent.IpBlockNested<A> editOrNewIpBlock() {
+  public V1NetworkPolicyPeerFluentImpl.IpBlockNested<A> editOrNewIpBlock() {
     return withNewIpBlockLike(getIpBlock() != null ? getIpBlock(): new V1IPBlockBuilder().build());
   }
-  public V1NetworkPolicyPeerFluent.IpBlockNested<A> editOrNewIpBlockLike(V1IPBlock item) {
+  public V1NetworkPolicyPeerFluentImpl.IpBlockNested<A> editOrNewIpBlockLike(V1IPBlock item) {
     return withNewIpBlockLike(getIpBlock() != null ? getIpBlock(): item);
   }
   
@@ -79,19 +78,19 @@ import java.lang.Boolean;
   public Boolean hasNamespaceSelector() {
     return this.namespaceSelector != null;
   }
-  public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> withNewNamespaceSelector() {
+  public V1NetworkPolicyPeerFluentImpl.NamespaceSelectorNested<A> withNewNamespaceSelector() {
     return new V1NetworkPolicyPeerFluentImpl.NamespaceSelectorNestedImpl();
   }
-  public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> withNewNamespaceSelectorLike(V1LabelSelector item) {
+  public V1NetworkPolicyPeerFluentImpl.NamespaceSelectorNested<A> withNewNamespaceSelectorLike(V1LabelSelector item) {
     return new V1NetworkPolicyPeerFluentImpl.NamespaceSelectorNestedImpl(item);
   }
-  public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> editNamespaceSelector() {
+  public V1NetworkPolicyPeerFluentImpl.NamespaceSelectorNested<A> editNamespaceSelector() {
     return withNewNamespaceSelectorLike(getNamespaceSelector());
   }
-  public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelector() {
+  public V1NetworkPolicyPeerFluentImpl.NamespaceSelectorNested<A> editOrNewNamespaceSelector() {
     return withNewNamespaceSelectorLike(getNamespaceSelector() != null ? getNamespaceSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1NetworkPolicyPeerFluent.NamespaceSelectorNested<A> editOrNewNamespaceSelectorLike(V1LabelSelector item) {
+  public V1NetworkPolicyPeerFluentImpl.NamespaceSelectorNested<A> editOrNewNamespaceSelectorLike(V1LabelSelector item) {
     return withNewNamespaceSelectorLike(getNamespaceSelector() != null ? getNamespaceSelector(): item);
   }
   
@@ -113,28 +112,32 @@ import java.lang.Boolean;
   public Boolean hasPodSelector() {
     return this.podSelector != null;
   }
-  public V1NetworkPolicyPeerFluent.PodSelectorNested<A> withNewPodSelector() {
+  public V1NetworkPolicyPeerFluentImpl.PodSelectorNested<A> withNewPodSelector() {
     return new V1NetworkPolicyPeerFluentImpl.PodSelectorNestedImpl();
   }
-  public V1NetworkPolicyPeerFluent.PodSelectorNested<A> withNewPodSelectorLike(V1LabelSelector item) {
+  public V1NetworkPolicyPeerFluentImpl.PodSelectorNested<A> withNewPodSelectorLike(V1LabelSelector item) {
     return new V1NetworkPolicyPeerFluentImpl.PodSelectorNestedImpl(item);
   }
-  public V1NetworkPolicyPeerFluent.PodSelectorNested<A> editPodSelector() {
+  public V1NetworkPolicyPeerFluentImpl.PodSelectorNested<A> editPodSelector() {
     return withNewPodSelectorLike(getPodSelector());
   }
-  public V1NetworkPolicyPeerFluent.PodSelectorNested<A> editOrNewPodSelector() {
+  public V1NetworkPolicyPeerFluentImpl.PodSelectorNested<A> editOrNewPodSelector() {
     return withNewPodSelectorLike(getPodSelector() != null ? getPodSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V1NetworkPolicyPeerFluent.PodSelectorNested<A> editOrNewPodSelectorLike(V1LabelSelector item) {
+  public V1NetworkPolicyPeerFluentImpl.PodSelectorNested<A> editOrNewPodSelectorLike(V1LabelSelector item) {
     return withNewPodSelectorLike(getPodSelector() != null ? getPodSelector(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NetworkPolicyPeerFluentImpl that = (V1NetworkPolicyPeerFluentImpl) o;
-    if (ipBlock != null ? !ipBlock.equals(that.ipBlock) :that.ipBlock != null) return false;
-    if (namespaceSelector != null ? !namespaceSelector.equals(that.namespaceSelector) :that.namespaceSelector != null) return false;
-    if (podSelector != null ? !podSelector.equals(that.podSelector) :that.podSelector != null) return false;
+    if (!java.util.Objects.equals(ipBlock, that.ipBlock)) return false;
+
+    if (!java.util.Objects.equals(namespaceSelector, that.namespaceSelector)) return false;
+
+    if (!java.util.Objects.equals(podSelector, that.podSelector)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -149,7 +152,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class IpBlockNestedImpl<N> extends V1IPBlockFluentImpl<V1NetworkPolicyPeerFluent.IpBlockNested<N>> implements V1NetworkPolicyPeerFluent.IpBlockNested<N>,Nested<N>{
+  class IpBlockNestedImpl<N> extends V1IPBlockFluentImpl<V1NetworkPolicyPeerFluentImpl.IpBlockNested<N>> implements V1NetworkPolicyPeerFluentImpl.IpBlockNested<N>,Nested<N>{
     IpBlockNestedImpl(V1IPBlock item) {
       this.builder = new V1IPBlockBuilder(this, item);
     }
@@ -165,7 +168,7 @@ import java.lang.Boolean;
     }
     
   }
-  class NamespaceSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1NetworkPolicyPeerFluent.NamespaceSelectorNested<N>> implements V1NetworkPolicyPeerFluent.NamespaceSelectorNested<N>,Nested<N>{
+  class NamespaceSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1NetworkPolicyPeerFluentImpl.NamespaceSelectorNested<N>> implements V1NetworkPolicyPeerFluentImpl.NamespaceSelectorNested<N>,Nested<N>{
     NamespaceSelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }
@@ -181,7 +184,7 @@ import java.lang.Boolean;
     }
     
   }
-  class PodSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1NetworkPolicyPeerFluent.PodSelectorNested<N>> implements V1NetworkPolicyPeerFluent.PodSelectorNested<N>,Nested<N>{
+  class PodSelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V1NetworkPolicyPeerFluentImpl.PodSelectorNested<N>> implements V1NetworkPolicyPeerFluentImpl.PodSelectorNested<N>,Nested<N>{
     PodSelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }

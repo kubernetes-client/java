@@ -20,14 +20,12 @@ public class V1APIVersionsBuilder extends V1APIVersionsFluentImpl<V1APIVersionsB
   }
   public V1APIVersionsBuilder(V1APIVersionsFluent<?> fluent,V1APIVersions instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
-
-    fluent.withVersions(instance.getVersions());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
+      fluent.withVersions(instance.getVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1APIVersionsBuilder(V1APIVersions instance) {
@@ -35,14 +33,12 @@ public class V1APIVersionsBuilder extends V1APIVersionsFluentImpl<V1APIVersionsB
   }
   public V1APIVersionsBuilder(V1APIVersions instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
-
-    this.withVersions(instance.getVersions());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withServerAddressByClientCIDRs(instance.getServerAddressByClientCIDRs());
+      this.withVersions(instance.getVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1APIVersionsFluent<?> fluent;

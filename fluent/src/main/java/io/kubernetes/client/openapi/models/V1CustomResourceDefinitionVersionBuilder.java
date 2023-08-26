@@ -20,22 +20,16 @@ public class V1CustomResourceDefinitionVersionBuilder extends V1CustomResourceDe
   }
   public V1CustomResourceDefinitionVersionBuilder(V1CustomResourceDefinitionVersionFluent<?> fluent,V1CustomResourceDefinitionVersion instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
-
-    fluent.withDeprecated(instance.getDeprecated());
-
-    fluent.withDeprecationWarning(instance.getDeprecationWarning());
-
-    fluent.withName(instance.getName());
-
-    fluent.withSchema(instance.getSchema());
-
-    fluent.withServed(instance.getServed());
-
-    fluent.withStorage(instance.getStorage());
-
-    fluent.withSubresources(instance.getSubresources());
-
+    if (instance != null) {
+      fluent.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
+      fluent.withDeprecated(instance.getDeprecated());
+      fluent.withDeprecationWarning(instance.getDeprecationWarning());
+      fluent.withName(instance.getName());
+      fluent.withSchema(instance.getSchema());
+      fluent.withServed(instance.getServed());
+      fluent.withStorage(instance.getStorage());
+      fluent.withSubresources(instance.getSubresources());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CustomResourceDefinitionVersionBuilder(V1CustomResourceDefinitionVersion instance) {
@@ -43,22 +37,16 @@ public class V1CustomResourceDefinitionVersionBuilder extends V1CustomResourceDe
   }
   public V1CustomResourceDefinitionVersionBuilder(V1CustomResourceDefinitionVersion instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
-
-    this.withDeprecated(instance.getDeprecated());
-
-    this.withDeprecationWarning(instance.getDeprecationWarning());
-
-    this.withName(instance.getName());
-
-    this.withSchema(instance.getSchema());
-
-    this.withServed(instance.getServed());
-
-    this.withStorage(instance.getStorage());
-
-    this.withSubresources(instance.getSubresources());
-
+    if (instance != null) {
+      this.withAdditionalPrinterColumns(instance.getAdditionalPrinterColumns());
+      this.withDeprecated(instance.getDeprecated());
+      this.withDeprecationWarning(instance.getDeprecationWarning());
+      this.withName(instance.getName());
+      this.withSchema(instance.getSchema());
+      this.withServed(instance.getServed());
+      this.withStorage(instance.getStorage());
+      this.withSubresources(instance.getSubresources());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CustomResourceDefinitionVersionFluent<?> fluent;

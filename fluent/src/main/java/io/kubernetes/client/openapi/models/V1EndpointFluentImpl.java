@@ -10,7 +10,6 @@ import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.Map;
@@ -23,22 +22,16 @@ import java.util.Map;
   public V1EndpointFluentImpl() {
   }
   public V1EndpointFluentImpl(V1Endpoint instance) {
-    this.withAddresses(instance.getAddresses());
-
-    this.withConditions(instance.getConditions());
-
-    this.withDeprecatedTopology(instance.getDeprecatedTopology());
-
-    this.withHints(instance.getHints());
-
-    this.withHostname(instance.getHostname());
-
-    this.withNodeName(instance.getNodeName());
-
-    this.withTargetRef(instance.getTargetRef());
-
-    this.withZone(instance.getZone());
-
+    if (instance != null) {
+      this.withAddresses(instance.getAddresses());
+      this.withConditions(instance.getConditions());
+      this.withDeprecatedTopology(instance.getDeprecatedTopology());
+      this.withHints(instance.getHints());
+      this.withHostname(instance.getHostname());
+      this.withNodeName(instance.getNodeName());
+      this.withTargetRef(instance.getTargetRef());
+      this.withZone(instance.getZone());
+    }
   }
   private List<String> addresses;
   private V1EndpointConditionsBuilder conditions;
@@ -48,12 +41,12 @@ import java.util.Map;
   private String nodeName;
   private V1ObjectReferenceBuilder targetRef;
   private String zone;
-  public A addToAddresses(Integer index,String item) {
+  public A addToAddresses(int index,String item) {
     if (this.addresses == null) {this.addresses = new ArrayList<String>();}
     this.addresses.add(index, item);
     return (A)this;
   }
-  public A setToAddresses(Integer index,String item) {
+  public A setToAddresses(int index,String item) {
     if (this.addresses == null) {this.addresses = new ArrayList<String>();}
     this.addresses.set(index, item); return (A)this;
   }
@@ -74,7 +67,7 @@ import java.util.Map;
   public List<String> getAddresses() {
     return this.addresses;
   }
-  public String getAddress(Integer index) {
+  public String getAddress(int index) {
     return this.addresses.get(index);
   }
   public String getFirstAddress() {
@@ -93,7 +86,7 @@ import java.util.Map;
     if (addresses != null) {this.addresses = new ArrayList(); for (String item : addresses){this.addToAddresses(item);}} else { this.addresses = null;} return (A) this;
   }
   public A withAddresses(java.lang.String... addresses) {
-    if (this.addresses != null) {this.addresses.clear();}
+    if (this.addresses != null) {this.addresses.clear(); _visitables.remove("addresses"); }
     if (addresses != null) {for (String item :addresses){ this.addToAddresses(item);}} return (A) this;
   }
   public Boolean hasAddresses() {
@@ -118,19 +111,19 @@ import java.util.Map;
   public Boolean hasConditions() {
     return this.conditions != null;
   }
-  public V1EndpointFluent.ConditionsNested<A> withNewConditions() {
+  public V1EndpointFluentImpl.ConditionsNested<A> withNewConditions() {
     return new V1EndpointFluentImpl.ConditionsNestedImpl();
   }
-  public V1EndpointFluent.ConditionsNested<A> withNewConditionsLike(V1EndpointConditions item) {
+  public V1EndpointFluentImpl.ConditionsNested<A> withNewConditionsLike(V1EndpointConditions item) {
     return new V1EndpointFluentImpl.ConditionsNestedImpl(item);
   }
-  public V1EndpointFluent.ConditionsNested<A> editConditions() {
+  public V1EndpointFluentImpl.ConditionsNested<A> editConditions() {
     return withNewConditionsLike(getConditions());
   }
-  public V1EndpointFluent.ConditionsNested<A> editOrNewConditions() {
+  public V1EndpointFluentImpl.ConditionsNested<A> editOrNewConditions() {
     return withNewConditionsLike(getConditions() != null ? getConditions(): new V1EndpointConditionsBuilder().build());
   }
-  public V1EndpointFluent.ConditionsNested<A> editOrNewConditionsLike(V1EndpointConditions item) {
+  public V1EndpointFluentImpl.ConditionsNested<A> editOrNewConditionsLike(V1EndpointConditions item) {
     return withNewConditionsLike(getConditions() != null ? getConditions(): item);
   }
   public A addToDeprecatedTopology(String key,String value) {
@@ -177,19 +170,19 @@ import java.util.Map;
   public Boolean hasHints() {
     return this.hints != null;
   }
-  public V1EndpointFluent.HintsNested<A> withNewHints() {
+  public V1EndpointFluentImpl.HintsNested<A> withNewHints() {
     return new V1EndpointFluentImpl.HintsNestedImpl();
   }
-  public V1EndpointFluent.HintsNested<A> withNewHintsLike(V1EndpointHints item) {
+  public V1EndpointFluentImpl.HintsNested<A> withNewHintsLike(V1EndpointHints item) {
     return new V1EndpointFluentImpl.HintsNestedImpl(item);
   }
-  public V1EndpointFluent.HintsNested<A> editHints() {
+  public V1EndpointFluentImpl.HintsNested<A> editHints() {
     return withNewHintsLike(getHints());
   }
-  public V1EndpointFluent.HintsNested<A> editOrNewHints() {
+  public V1EndpointFluentImpl.HintsNested<A> editOrNewHints() {
     return withNewHintsLike(getHints() != null ? getHints(): new V1EndpointHintsBuilder().build());
   }
-  public V1EndpointFluent.HintsNested<A> editOrNewHintsLike(V1EndpointHints item) {
+  public V1EndpointFluentImpl.HintsNested<A> editOrNewHintsLike(V1EndpointHints item) {
     return withNewHintsLike(getHints() != null ? getHints(): item);
   }
   public String getHostname() {
@@ -229,19 +222,19 @@ import java.util.Map;
   public Boolean hasTargetRef() {
     return this.targetRef != null;
   }
-  public V1EndpointFluent.TargetRefNested<A> withNewTargetRef() {
+  public V1EndpointFluentImpl.TargetRefNested<A> withNewTargetRef() {
     return new V1EndpointFluentImpl.TargetRefNestedImpl();
   }
-  public V1EndpointFluent.TargetRefNested<A> withNewTargetRefLike(V1ObjectReference item) {
+  public V1EndpointFluentImpl.TargetRefNested<A> withNewTargetRefLike(V1ObjectReference item) {
     return new V1EndpointFluentImpl.TargetRefNestedImpl(item);
   }
-  public V1EndpointFluent.TargetRefNested<A> editTargetRef() {
+  public V1EndpointFluentImpl.TargetRefNested<A> editTargetRef() {
     return withNewTargetRefLike(getTargetRef());
   }
-  public V1EndpointFluent.TargetRefNested<A> editOrNewTargetRef() {
+  public V1EndpointFluentImpl.TargetRefNested<A> editOrNewTargetRef() {
     return withNewTargetRefLike(getTargetRef() != null ? getTargetRef(): new V1ObjectReferenceBuilder().build());
   }
-  public V1EndpointFluent.TargetRefNested<A> editOrNewTargetRefLike(V1ObjectReference item) {
+  public V1EndpointFluentImpl.TargetRefNested<A> editOrNewTargetRefLike(V1ObjectReference item) {
     return withNewTargetRefLike(getTargetRef() != null ? getTargetRef(): item);
   }
   public String getZone() {
@@ -256,15 +249,24 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EndpointFluentImpl that = (V1EndpointFluentImpl) o;
-    if (addresses != null ? !addresses.equals(that.addresses) :that.addresses != null) return false;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
-    if (deprecatedTopology != null ? !deprecatedTopology.equals(that.deprecatedTopology) :that.deprecatedTopology != null) return false;
-    if (hints != null ? !hints.equals(that.hints) :that.hints != null) return false;
-    if (hostname != null ? !hostname.equals(that.hostname) :that.hostname != null) return false;
-    if (nodeName != null ? !nodeName.equals(that.nodeName) :that.nodeName != null) return false;
-    if (targetRef != null ? !targetRef.equals(that.targetRef) :that.targetRef != null) return false;
-    if (zone != null ? !zone.equals(that.zone) :that.zone != null) return false;
+    if (!java.util.Objects.equals(addresses, that.addresses)) return false;
+
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
+    if (!java.util.Objects.equals(deprecatedTopology, that.deprecatedTopology)) return false;
+
+    if (!java.util.Objects.equals(hints, that.hints)) return false;
+
+    if (!java.util.Objects.equals(hostname, that.hostname)) return false;
+
+    if (!java.util.Objects.equals(nodeName, that.nodeName)) return false;
+
+    if (!java.util.Objects.equals(targetRef, that.targetRef)) return false;
+
+    if (!java.util.Objects.equals(zone, that.zone)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -284,7 +286,7 @@ import java.util.Map;
     sb.append("}");
     return sb.toString();
   }
-  class ConditionsNestedImpl<N> extends V1EndpointConditionsFluentImpl<V1EndpointFluent.ConditionsNested<N>> implements V1EndpointFluent.ConditionsNested<N>,Nested<N>{
+  class ConditionsNestedImpl<N> extends V1EndpointConditionsFluentImpl<V1EndpointFluentImpl.ConditionsNested<N>> implements V1EndpointFluentImpl.ConditionsNested<N>,Nested<N>{
     ConditionsNestedImpl(V1EndpointConditions item) {
       this.builder = new V1EndpointConditionsBuilder(this, item);
     }
@@ -300,7 +302,7 @@ import java.util.Map;
     }
     
   }
-  class HintsNestedImpl<N> extends V1EndpointHintsFluentImpl<V1EndpointFluent.HintsNested<N>> implements V1EndpointFluent.HintsNested<N>,Nested<N>{
+  class HintsNestedImpl<N> extends V1EndpointHintsFluentImpl<V1EndpointFluentImpl.HintsNested<N>> implements V1EndpointFluentImpl.HintsNested<N>,Nested<N>{
     HintsNestedImpl(V1EndpointHints item) {
       this.builder = new V1EndpointHintsBuilder(this, item);
     }
@@ -316,7 +318,7 @@ import java.util.Map;
     }
     
   }
-  class TargetRefNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1EndpointFluent.TargetRefNested<N>> implements V1EndpointFluent.TargetRefNested<N>,Nested<N>{
+  class TargetRefNestedImpl<N> extends V1ObjectReferenceFluentImpl<V1EndpointFluentImpl.TargetRefNested<N>> implements V1EndpointFluentImpl.TargetRefNested<N>,Nested<N>{
     TargetRefNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }

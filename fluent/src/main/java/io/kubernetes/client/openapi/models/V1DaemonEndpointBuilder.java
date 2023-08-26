@@ -20,8 +20,9 @@ public class V1DaemonEndpointBuilder extends V1DaemonEndpointFluentImpl<V1Daemon
   }
   public V1DaemonEndpointBuilder(V1DaemonEndpointFluent<?> fluent,V1DaemonEndpoint instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPort(instance.getPort());
-
+    if (instance != null) {
+      fluent.withPort(instance.getPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1DaemonEndpointBuilder(V1DaemonEndpoint instance) {
@@ -29,8 +30,9 @@ public class V1DaemonEndpointBuilder extends V1DaemonEndpointFluentImpl<V1Daemon
   }
   public V1DaemonEndpointBuilder(V1DaemonEndpoint instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPort(instance.getPort());
-
+    if (instance != null) {
+      this.withPort(instance.getPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1DaemonEndpointFluent<?> fluent;

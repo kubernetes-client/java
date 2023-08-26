@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -41,8 +41,8 @@ public interface V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends Fluent<
   public V1APIGroupFluent.PreferredVersionNested<A> editPreferredVersion();
   public V1APIGroupFluent.PreferredVersionNested<A> editOrNewPreferredVersion();
   public V1APIGroupFluent.PreferredVersionNested<A> editOrNewPreferredVersionLike(V1GroupVersionForDiscovery item);
-  public A addToServerAddressByClientCIDRs(Integer index,V1ServerAddressByClientCIDR item);
-  public A setToServerAddressByClientCIDRs(Integer index,V1ServerAddressByClientCIDR item);
+  public A addToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item);
+  public A setToServerAddressByClientCIDRs(int index,V1ServerAddressByClientCIDR item);
   public A addToServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items);
   public A addAllToServerAddressByClientCIDRs(Collection<V1ServerAddressByClientCIDR> items);
   public A removeFromServerAddressByClientCIDRs(io.kubernetes.client.openapi.models.V1ServerAddressByClientCIDR... items);
@@ -56,7 +56,7 @@ public interface V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends Fluent<
   @Deprecated
   public List<V1ServerAddressByClientCIDR> getServerAddressByClientCIDRs();
   public List<V1ServerAddressByClientCIDR> buildServerAddressByClientCIDRs();
-  public V1ServerAddressByClientCIDR buildServerAddressByClientCIDR(Integer index);
+  public V1ServerAddressByClientCIDR buildServerAddressByClientCIDR(int index);
   public V1ServerAddressByClientCIDR buildFirstServerAddressByClientCIDR();
   public V1ServerAddressByClientCIDR buildLastServerAddressByClientCIDR();
   public V1ServerAddressByClientCIDR buildMatchingServerAddressByClientCIDR(Predicate<V1ServerAddressByClientCIDRBuilder> predicate);
@@ -66,13 +66,13 @@ public interface V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends Fluent<
   public Boolean hasServerAddressByClientCIDRs();
   public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDR();
   public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> addNewServerAddressByClientCIDRLike(V1ServerAddressByClientCIDR item);
-  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> setNewServerAddressByClientCIDRLike(Integer index,V1ServerAddressByClientCIDR item);
-  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editServerAddressByClientCIDR(Integer index);
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> setNewServerAddressByClientCIDRLike(int index,V1ServerAddressByClientCIDR item);
+  public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editServerAddressByClientCIDR(int index);
   public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editFirstServerAddressByClientCIDR();
   public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editLastServerAddressByClientCIDR();
   public V1APIGroupFluent.ServerAddressByClientCIDRsNested<A> editMatchingServerAddressByClientCIDR(Predicate<V1ServerAddressByClientCIDRBuilder> predicate);
-  public A addToVersions(Integer index,V1GroupVersionForDiscovery item);
-  public A setToVersions(Integer index,V1GroupVersionForDiscovery item);
+  public A addToVersions(int index,V1GroupVersionForDiscovery item);
+  public A setToVersions(int index,V1GroupVersionForDiscovery item);
   public A addToVersions(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... items);
   public A addAllToVersions(Collection<V1GroupVersionForDiscovery> items);
   public A removeFromVersions(io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery... items);
@@ -86,7 +86,7 @@ public interface V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends Fluent<
   @Deprecated
   public List<V1GroupVersionForDiscovery> getVersions();
   public List<V1GroupVersionForDiscovery> buildVersions();
-  public V1GroupVersionForDiscovery buildVersion(Integer index);
+  public V1GroupVersionForDiscovery buildVersion(int index);
   public V1GroupVersionForDiscovery buildFirstVersion();
   public V1GroupVersionForDiscovery buildLastVersion();
   public V1GroupVersionForDiscovery buildMatchingVersion(Predicate<V1GroupVersionForDiscoveryBuilder> predicate);
@@ -96,8 +96,8 @@ public interface V1APIGroupFluent<A extends V1APIGroupFluent<A>> extends Fluent<
   public Boolean hasVersions();
   public V1APIGroupFluent.VersionsNested<A> addNewVersion();
   public V1APIGroupFluent.VersionsNested<A> addNewVersionLike(V1GroupVersionForDiscovery item);
-  public V1APIGroupFluent.VersionsNested<A> setNewVersionLike(Integer index,V1GroupVersionForDiscovery item);
-  public V1APIGroupFluent.VersionsNested<A> editVersion(Integer index);
+  public V1APIGroupFluent.VersionsNested<A> setNewVersionLike(int index,V1GroupVersionForDiscovery item);
+  public V1APIGroupFluent.VersionsNested<A> editVersion(int index);
   public V1APIGroupFluent.VersionsNested<A> editFirstVersion();
   public V1APIGroupFluent.VersionsNested<A> editLastVersion();
   public V1APIGroupFluent.VersionsNested<A> editMatchingVersion(Predicate<V1GroupVersionForDiscoveryBuilder> predicate);

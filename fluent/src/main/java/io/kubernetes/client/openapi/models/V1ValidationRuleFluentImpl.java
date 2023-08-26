@@ -14,12 +14,14 @@ import java.lang.Boolean;
   public V1ValidationRuleFluentImpl() {
   }
   public V1ValidationRuleFluentImpl(V1ValidationRule instance) {
-    this.withMessage(instance.getMessage());
-
-    this.withRule(instance.getRule());
-
+    if (instance != null) {
+      this.withMessage(instance.getMessage());
+      this.withMessageExpression(instance.getMessageExpression());
+      this.withRule(instance.getRule());
+    }
   }
   private String message;
+  private String messageExpression;
   private String rule;
   public String getMessage() {
     return this.message;
@@ -29,6 +31,15 @@ import java.lang.Boolean;
   }
   public Boolean hasMessage() {
     return this.message != null;
+  }
+  public String getMessageExpression() {
+    return this.messageExpression;
+  }
+  public A withMessageExpression(String messageExpression) {
+    this.messageExpression=messageExpression; return (A) this;
+  }
+  public Boolean hasMessageExpression() {
+    return this.messageExpression != null;
   }
   public String getRule() {
     return this.rule;
@@ -42,18 +53,24 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ValidationRuleFluentImpl that = (V1ValidationRuleFluentImpl) o;
-    if (message != null ? !message.equals(that.message) :that.message != null) return false;
-    if (rule != null ? !rule.equals(that.rule) :that.rule != null) return false;
+    if (!java.util.Objects.equals(message, that.message)) return false;
+
+    if (!java.util.Objects.equals(messageExpression, that.messageExpression)) return false;
+
+    if (!java.util.Objects.equals(rule, that.rule)) return false;
+
     return true;
   }
   public int hashCode() {
-    return java.util.Objects.hash(message,  rule,  super.hashCode());
+    return java.util.Objects.hash(message,  messageExpression,  rule,  super.hashCode());
   }
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (message != null) { sb.append("message:"); sb.append(message + ","); }
+    if (messageExpression != null) { sb.append("messageExpression:"); sb.append(messageExpression + ","); }
     if (rule != null) { sb.append("rule:"); sb.append(rule); }
     sb.append("}");
     return sb.toString();

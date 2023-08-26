@@ -2,6 +2,7 @@ package io.kubernetes.client.openapi.models;
 
 import java.lang.Deprecated;
 import io.kubernetes.client.custom.IntOrString;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
@@ -36,6 +37,9 @@ public interface V1PodDisruptionBudgetSpecFluent<A extends V1PodDisruptionBudget
   public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> editSelector();
   public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> editOrNewSelector();
   public V1PodDisruptionBudgetSpecFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item);
+  public String getUnhealthyPodEvictionPolicy();
+  public A withUnhealthyPodEvictionPolicy(String unhealthyPodEvictionPolicy);
+  public Boolean hasUnhealthyPodEvictionPolicy();
   public interface SelectorNested<N> extends Nested<N>,V1LabelSelectorFluent<V1PodDisruptionBudgetSpecFluent.SelectorNested<N>>{
     public N and();
     public N endSelector();

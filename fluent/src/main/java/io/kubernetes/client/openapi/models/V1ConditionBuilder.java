@@ -20,18 +20,14 @@ public class V1ConditionBuilder extends V1ConditionFluentImpl<V1ConditionBuilder
   }
   public V1ConditionBuilder(V1ConditionFluent<?> fluent,V1Condition instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLastTransitionTime(instance.getLastTransitionTime());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withObservedGeneration(instance.getObservedGeneration());
-
-    fluent.withReason(instance.getReason());
-
-    fluent.withStatus(instance.getStatus());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withLastTransitionTime(instance.getLastTransitionTime());
+      fluent.withMessage(instance.getMessage());
+      fluent.withObservedGeneration(instance.getObservedGeneration());
+      fluent.withReason(instance.getReason());
+      fluent.withStatus(instance.getStatus());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ConditionBuilder(V1Condition instance) {
@@ -39,18 +35,14 @@ public class V1ConditionBuilder extends V1ConditionFluentImpl<V1ConditionBuilder
   }
   public V1ConditionBuilder(V1Condition instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLastTransitionTime(instance.getLastTransitionTime());
-
-    this.withMessage(instance.getMessage());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
-    this.withReason(instance.getReason());
-
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLastTransitionTime(instance.getLastTransitionTime());
+      this.withMessage(instance.getMessage());
+      this.withObservedGeneration(instance.getObservedGeneration());
+      this.withReason(instance.getReason());
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ConditionFluent<?> fluent;

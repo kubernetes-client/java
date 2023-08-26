@@ -20,10 +20,10 @@ public class V1ServiceBackendPortBuilder extends V1ServiceBackendPortFluentImpl<
   }
   public V1ServiceBackendPortBuilder(V1ServiceBackendPortFluent<?> fluent,V1ServiceBackendPort instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withNumber(instance.getNumber());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withNumber(instance.getNumber());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ServiceBackendPortBuilder(V1ServiceBackendPort instance) {
@@ -31,10 +31,10 @@ public class V1ServiceBackendPortBuilder extends V1ServiceBackendPortFluentImpl<
   }
   public V1ServiceBackendPortBuilder(V1ServiceBackendPort instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withNumber(instance.getNumber());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withNumber(instance.getNumber());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ServiceBackendPortFluent<?> fluent;

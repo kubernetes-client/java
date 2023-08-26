@@ -20,16 +20,13 @@ public class V1FCVolumeSourceBuilder extends V1FCVolumeSourceFluentImpl<V1FCVolu
   }
   public V1FCVolumeSourceBuilder(V1FCVolumeSourceFluent<?> fluent,V1FCVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withLun(instance.getLun());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withTargetWWNs(instance.getTargetWWNs());
-
-    fluent.withWwids(instance.getWwids());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withLun(instance.getLun());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withTargetWWNs(instance.getTargetWWNs());
+      fluent.withWwids(instance.getWwids());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1FCVolumeSourceBuilder(V1FCVolumeSource instance) {
@@ -37,16 +34,13 @@ public class V1FCVolumeSourceBuilder extends V1FCVolumeSourceFluentImpl<V1FCVolu
   }
   public V1FCVolumeSourceBuilder(V1FCVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withLun(instance.getLun());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withTargetWWNs(instance.getTargetWWNs());
-
-    this.withWwids(instance.getWwids());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withLun(instance.getLun());
+      this.withReadOnly(instance.getReadOnly());
+      this.withTargetWWNs(instance.getTargetWWNs());
+      this.withWwids(instance.getWwids());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1FCVolumeSourceFluent<?> fluent;

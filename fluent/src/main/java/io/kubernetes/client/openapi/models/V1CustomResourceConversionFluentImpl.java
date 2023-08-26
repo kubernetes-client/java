@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1CustomResourceConversionFluentImpl() {
   }
   public V1CustomResourceConversionFluentImpl(V1CustomResourceConversion instance) {
-    this.withStrategy(instance.getStrategy());
-
-    this.withWebhook(instance.getWebhook());
-
+    if (instance != null) {
+      this.withStrategy(instance.getStrategy());
+      this.withWebhook(instance.getWebhook());
+    }
   }
   private String strategy;
   private V1WebhookConversionBuilder webhook;
@@ -51,27 +51,30 @@ import java.lang.Boolean;
   public Boolean hasWebhook() {
     return this.webhook != null;
   }
-  public V1CustomResourceConversionFluent.WebhookNested<A> withNewWebhook() {
+  public V1CustomResourceConversionFluentImpl.WebhookNested<A> withNewWebhook() {
     return new V1CustomResourceConversionFluentImpl.WebhookNestedImpl();
   }
-  public V1CustomResourceConversionFluent.WebhookNested<A> withNewWebhookLike(V1WebhookConversion item) {
+  public V1CustomResourceConversionFluentImpl.WebhookNested<A> withNewWebhookLike(V1WebhookConversion item) {
     return new V1CustomResourceConversionFluentImpl.WebhookNestedImpl(item);
   }
-  public V1CustomResourceConversionFluent.WebhookNested<A> editWebhook() {
+  public V1CustomResourceConversionFluentImpl.WebhookNested<A> editWebhook() {
     return withNewWebhookLike(getWebhook());
   }
-  public V1CustomResourceConversionFluent.WebhookNested<A> editOrNewWebhook() {
+  public V1CustomResourceConversionFluentImpl.WebhookNested<A> editOrNewWebhook() {
     return withNewWebhookLike(getWebhook() != null ? getWebhook(): new V1WebhookConversionBuilder().build());
   }
-  public V1CustomResourceConversionFluent.WebhookNested<A> editOrNewWebhookLike(V1WebhookConversion item) {
+  public V1CustomResourceConversionFluentImpl.WebhookNested<A> editOrNewWebhookLike(V1WebhookConversion item) {
     return withNewWebhookLike(getWebhook() != null ? getWebhook(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CustomResourceConversionFluentImpl that = (V1CustomResourceConversionFluentImpl) o;
-    if (strategy != null ? !strategy.equals(that.strategy) :that.strategy != null) return false;
-    if (webhook != null ? !webhook.equals(that.webhook) :that.webhook != null) return false;
+    if (!java.util.Objects.equals(strategy, that.strategy)) return false;
+
+    if (!java.util.Objects.equals(webhook, that.webhook)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -85,7 +88,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class WebhookNestedImpl<N> extends V1WebhookConversionFluentImpl<V1CustomResourceConversionFluent.WebhookNested<N>> implements V1CustomResourceConversionFluent.WebhookNested<N>,Nested<N>{
+  class WebhookNestedImpl<N> extends V1WebhookConversionFluentImpl<V1CustomResourceConversionFluentImpl.WebhookNested<N>> implements V1CustomResourceConversionFluentImpl.WebhookNested<N>,Nested<N>{
     WebhookNestedImpl(V1WebhookConversion item) {
       this.builder = new V1WebhookConversionBuilder(this, item);
     }

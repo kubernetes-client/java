@@ -68,7 +68,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Create k8s Kind Cluster
-        uses: helm/kind-action@v1.7.0
+        uses: helm/kind-action@v1.8.0
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
@@ -118,18 +118,12 @@ jobs:
           mvn clean install \
           -q \
           -Dmaven.test.skip=true
-      - name: Version 13
+      - name: Examples
         run: |
-          cd examples/examples-release-13
-          mvn clean install
-      - name: Version 14
-        run: |
-          cd examples/examples-release-14
-          mvn clean install
-      - name: Version 15
-        run: |
-          cd examples/examples-release-15
-          mvn clean install
+          for d in $(find examples* -maxdepth 1 -type d)
+          do
+            mvn clean install -Dmaven.test.skip=true
+          done
   codegen:
     runs-on: ubuntu-latest
     services:

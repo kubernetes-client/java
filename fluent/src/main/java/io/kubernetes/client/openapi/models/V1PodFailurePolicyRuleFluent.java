@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -35,8 +35,8 @@ public interface V1PodFailurePolicyRuleFluent<A extends V1PodFailurePolicyRuleFl
   public V1PodFailurePolicyRuleFluent.OnExitCodesNested<A> editOnExitCodes();
   public V1PodFailurePolicyRuleFluent.OnExitCodesNested<A> editOrNewOnExitCodes();
   public V1PodFailurePolicyRuleFluent.OnExitCodesNested<A> editOrNewOnExitCodesLike(V1PodFailurePolicyOnExitCodesRequirement item);
-  public A addToOnPodConditions(Integer index,V1PodFailurePolicyOnPodConditionsPattern item);
-  public A setToOnPodConditions(Integer index,V1PodFailurePolicyOnPodConditionsPattern item);
+  public A addToOnPodConditions(int index,V1PodFailurePolicyOnPodConditionsPattern item);
+  public A setToOnPodConditions(int index,V1PodFailurePolicyOnPodConditionsPattern item);
   public A addToOnPodConditions(io.kubernetes.client.openapi.models.V1PodFailurePolicyOnPodConditionsPattern... items);
   public A addAllToOnPodConditions(Collection<V1PodFailurePolicyOnPodConditionsPattern> items);
   public A removeFromOnPodConditions(io.kubernetes.client.openapi.models.V1PodFailurePolicyOnPodConditionsPattern... items);
@@ -50,7 +50,7 @@ public interface V1PodFailurePolicyRuleFluent<A extends V1PodFailurePolicyRuleFl
   @Deprecated
   public List<V1PodFailurePolicyOnPodConditionsPattern> getOnPodConditions();
   public List<V1PodFailurePolicyOnPodConditionsPattern> buildOnPodConditions();
-  public V1PodFailurePolicyOnPodConditionsPattern buildOnPodCondition(Integer index);
+  public V1PodFailurePolicyOnPodConditionsPattern buildOnPodCondition(int index);
   public V1PodFailurePolicyOnPodConditionsPattern buildFirstOnPodCondition();
   public V1PodFailurePolicyOnPodConditionsPattern buildLastOnPodCondition();
   public V1PodFailurePolicyOnPodConditionsPattern buildMatchingOnPodCondition(Predicate<V1PodFailurePolicyOnPodConditionsPatternBuilder> predicate);
@@ -60,8 +60,8 @@ public interface V1PodFailurePolicyRuleFluent<A extends V1PodFailurePolicyRuleFl
   public Boolean hasOnPodConditions();
   public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> addNewOnPodCondition();
   public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> addNewOnPodConditionLike(V1PodFailurePolicyOnPodConditionsPattern item);
-  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> setNewOnPodConditionLike(Integer index,V1PodFailurePolicyOnPodConditionsPattern item);
-  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> editOnPodCondition(Integer index);
+  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> setNewOnPodConditionLike(int index,V1PodFailurePolicyOnPodConditionsPattern item);
+  public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> editOnPodCondition(int index);
   public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> editFirstOnPodCondition();
   public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> editLastOnPodCondition();
   public V1PodFailurePolicyRuleFluent.OnPodConditionsNested<A> editMatchingOnPodCondition(Predicate<V1PodFailurePolicyOnPodConditionsPatternBuilder> predicate);

@@ -20,14 +20,12 @@ public class V1EnvVarSourceBuilder extends V1EnvVarSourceFluentImpl<V1EnvVarSour
   }
   public V1EnvVarSourceBuilder(V1EnvVarSourceFluent<?> fluent,V1EnvVarSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConfigMapKeyRef(instance.getConfigMapKeyRef());
-
-    fluent.withFieldRef(instance.getFieldRef());
-
-    fluent.withResourceFieldRef(instance.getResourceFieldRef());
-
-    fluent.withSecretKeyRef(instance.getSecretKeyRef());
-
+    if (instance != null) {
+      fluent.withConfigMapKeyRef(instance.getConfigMapKeyRef());
+      fluent.withFieldRef(instance.getFieldRef());
+      fluent.withResourceFieldRef(instance.getResourceFieldRef());
+      fluent.withSecretKeyRef(instance.getSecretKeyRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EnvVarSourceBuilder(V1EnvVarSource instance) {
@@ -35,14 +33,12 @@ public class V1EnvVarSourceBuilder extends V1EnvVarSourceFluentImpl<V1EnvVarSour
   }
   public V1EnvVarSourceBuilder(V1EnvVarSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConfigMapKeyRef(instance.getConfigMapKeyRef());
-
-    this.withFieldRef(instance.getFieldRef());
-
-    this.withResourceFieldRef(instance.getResourceFieldRef());
-
-    this.withSecretKeyRef(instance.getSecretKeyRef());
-
+    if (instance != null) {
+      this.withConfigMapKeyRef(instance.getConfigMapKeyRef());
+      this.withFieldRef(instance.getFieldRef());
+      this.withResourceFieldRef(instance.getResourceFieldRef());
+      this.withSecretKeyRef(instance.getSecretKeyRef());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EnvVarSourceFluent<?> fluent;

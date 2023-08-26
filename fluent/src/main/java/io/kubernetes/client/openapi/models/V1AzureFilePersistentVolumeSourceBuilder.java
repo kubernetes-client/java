@@ -20,14 +20,12 @@ public class V1AzureFilePersistentVolumeSourceBuilder extends V1AzureFilePersist
   }
   public V1AzureFilePersistentVolumeSourceBuilder(V1AzureFilePersistentVolumeSourceFluent<?> fluent,V1AzureFilePersistentVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withSecretName(instance.getSecretName());
-
-    fluent.withSecretNamespace(instance.getSecretNamespace());
-
-    fluent.withShareName(instance.getShareName());
-
+    if (instance != null) {
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withSecretName(instance.getSecretName());
+      fluent.withSecretNamespace(instance.getSecretNamespace());
+      fluent.withShareName(instance.getShareName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1AzureFilePersistentVolumeSourceBuilder(V1AzureFilePersistentVolumeSource instance) {
@@ -35,14 +33,12 @@ public class V1AzureFilePersistentVolumeSourceBuilder extends V1AzureFilePersist
   }
   public V1AzureFilePersistentVolumeSourceBuilder(V1AzureFilePersistentVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretName(instance.getSecretName());
-
-    this.withSecretNamespace(instance.getSecretNamespace());
-
-    this.withShareName(instance.getShareName());
-
+    if (instance != null) {
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretName(instance.getSecretName());
+      this.withSecretNamespace(instance.getSecretNamespace());
+      this.withShareName(instance.getShareName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1AzureFilePersistentVolumeSourceFluent<?> fluent;

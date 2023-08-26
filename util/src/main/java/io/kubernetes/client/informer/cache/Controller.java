@@ -158,8 +158,8 @@ public class Controller<
         reflectorFuture.cancel(true);
       }
     }
-    reflectExecutor.shutdown();
-    resyncExecutor.shutdown();
+    reflectExecutor.shutdownNow();
+    resyncExecutor.shutdownNow();
   }
 
   /** returns true if the queue has been resycned */

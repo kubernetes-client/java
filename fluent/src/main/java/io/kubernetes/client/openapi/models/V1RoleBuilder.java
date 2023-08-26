@@ -20,14 +20,12 @@ public class V1RoleBuilder extends V1RoleFluentImpl<V1RoleBuilder> implements Vi
   }
   public V1RoleBuilder(V1RoleFluent<?> fluent,V1Role instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withRules(instance.getRules());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withRules(instance.getRules());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1RoleBuilder(V1Role instance) {
@@ -35,14 +33,12 @@ public class V1RoleBuilder extends V1RoleFluentImpl<V1RoleBuilder> implements Vi
   }
   public V1RoleBuilder(V1Role instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withRules(instance.getRules());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withRules(instance.getRules());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1RoleFluent<?> fluent;

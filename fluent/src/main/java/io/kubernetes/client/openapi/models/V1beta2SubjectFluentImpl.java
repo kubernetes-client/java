@@ -16,14 +16,12 @@ import java.lang.Object;
   public V1beta2SubjectFluentImpl() {
   }
   public V1beta2SubjectFluentImpl(V1beta2Subject instance) {
-    this.withGroup(instance.getGroup());
-
-    this.withKind(instance.getKind());
-
-    this.withServiceAccount(instance.getServiceAccount());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withGroup(instance.getGroup());
+      this.withKind(instance.getKind());
+      this.withServiceAccount(instance.getServiceAccount());
+      this.withUser(instance.getUser());
+    }
   }
   private V1beta2GroupSubjectBuilder group;
   private String kind;
@@ -48,19 +46,19 @@ import java.lang.Object;
   public Boolean hasGroup() {
     return this.group != null;
   }
-  public V1beta2SubjectFluent.GroupNested<A> withNewGroup() {
+  public V1beta2SubjectFluentImpl.GroupNested<A> withNewGroup() {
     return new V1beta2SubjectFluentImpl.GroupNestedImpl();
   }
-  public V1beta2SubjectFluent.GroupNested<A> withNewGroupLike(V1beta2GroupSubject item) {
+  public V1beta2SubjectFluentImpl.GroupNested<A> withNewGroupLike(V1beta2GroupSubject item) {
     return new V1beta2SubjectFluentImpl.GroupNestedImpl(item);
   }
-  public V1beta2SubjectFluent.GroupNested<A> editGroup() {
+  public V1beta2SubjectFluentImpl.GroupNested<A> editGroup() {
     return withNewGroupLike(getGroup());
   }
-  public V1beta2SubjectFluent.GroupNested<A> editOrNewGroup() {
+  public V1beta2SubjectFluentImpl.GroupNested<A> editOrNewGroup() {
     return withNewGroupLike(getGroup() != null ? getGroup(): new V1beta2GroupSubjectBuilder().build());
   }
-  public V1beta2SubjectFluent.GroupNested<A> editOrNewGroupLike(V1beta2GroupSubject item) {
+  public V1beta2SubjectFluentImpl.GroupNested<A> editOrNewGroupLike(V1beta2GroupSubject item) {
     return withNewGroupLike(getGroup() != null ? getGroup(): item);
   }
   public String getKind() {
@@ -91,19 +89,19 @@ import java.lang.Object;
   public Boolean hasServiceAccount() {
     return this.serviceAccount != null;
   }
-  public V1beta2SubjectFluent.ServiceAccountNested<A> withNewServiceAccount() {
+  public V1beta2SubjectFluentImpl.ServiceAccountNested<A> withNewServiceAccount() {
     return new V1beta2SubjectFluentImpl.ServiceAccountNestedImpl();
   }
-  public V1beta2SubjectFluent.ServiceAccountNested<A> withNewServiceAccountLike(V1beta2ServiceAccountSubject item) {
+  public V1beta2SubjectFluentImpl.ServiceAccountNested<A> withNewServiceAccountLike(V1beta2ServiceAccountSubject item) {
     return new V1beta2SubjectFluentImpl.ServiceAccountNestedImpl(item);
   }
-  public V1beta2SubjectFluent.ServiceAccountNested<A> editServiceAccount() {
+  public V1beta2SubjectFluentImpl.ServiceAccountNested<A> editServiceAccount() {
     return withNewServiceAccountLike(getServiceAccount());
   }
-  public V1beta2SubjectFluent.ServiceAccountNested<A> editOrNewServiceAccount() {
+  public V1beta2SubjectFluentImpl.ServiceAccountNested<A> editOrNewServiceAccount() {
     return withNewServiceAccountLike(getServiceAccount() != null ? getServiceAccount(): new V1beta2ServiceAccountSubjectBuilder().build());
   }
-  public V1beta2SubjectFluent.ServiceAccountNested<A> editOrNewServiceAccountLike(V1beta2ServiceAccountSubject item) {
+  public V1beta2SubjectFluentImpl.ServiceAccountNested<A> editOrNewServiceAccountLike(V1beta2ServiceAccountSubject item) {
     return withNewServiceAccountLike(getServiceAccount() != null ? getServiceAccount(): item);
   }
   
@@ -125,29 +123,34 @@ import java.lang.Object;
   public Boolean hasUser() {
     return this.user != null;
   }
-  public V1beta2SubjectFluent.UserNested<A> withNewUser() {
+  public V1beta2SubjectFluentImpl.UserNested<A> withNewUser() {
     return new V1beta2SubjectFluentImpl.UserNestedImpl();
   }
-  public V1beta2SubjectFluent.UserNested<A> withNewUserLike(V1beta2UserSubject item) {
+  public V1beta2SubjectFluentImpl.UserNested<A> withNewUserLike(V1beta2UserSubject item) {
     return new V1beta2SubjectFluentImpl.UserNestedImpl(item);
   }
-  public V1beta2SubjectFluent.UserNested<A> editUser() {
+  public V1beta2SubjectFluentImpl.UserNested<A> editUser() {
     return withNewUserLike(getUser());
   }
-  public V1beta2SubjectFluent.UserNested<A> editOrNewUser() {
+  public V1beta2SubjectFluentImpl.UserNested<A> editOrNewUser() {
     return withNewUserLike(getUser() != null ? getUser(): new V1beta2UserSubjectBuilder().build());
   }
-  public V1beta2SubjectFluent.UserNested<A> editOrNewUserLike(V1beta2UserSubject item) {
+  public V1beta2SubjectFluentImpl.UserNested<A> editOrNewUserLike(V1beta2UserSubject item) {
     return withNewUserLike(getUser() != null ? getUser(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1beta2SubjectFluentImpl that = (V1beta2SubjectFluentImpl) o;
-    if (group != null ? !group.equals(that.group) :that.group != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (serviceAccount != null ? !serviceAccount.equals(that.serviceAccount) :that.serviceAccount != null) return false;
-    if (user != null ? !user.equals(that.user) :that.user != null) return false;
+    if (!java.util.Objects.equals(group, that.group)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(serviceAccount, that.serviceAccount)) return false;
+
+    if (!java.util.Objects.equals(user, that.user)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -163,7 +166,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class GroupNestedImpl<N> extends V1beta2GroupSubjectFluentImpl<V1beta2SubjectFluent.GroupNested<N>> implements V1beta2SubjectFluent.GroupNested<N>,Nested<N>{
+  class GroupNestedImpl<N> extends V1beta2GroupSubjectFluentImpl<V1beta2SubjectFluentImpl.GroupNested<N>> implements V1beta2SubjectFluentImpl.GroupNested<N>,Nested<N>{
     GroupNestedImpl(V1beta2GroupSubject item) {
       this.builder = new V1beta2GroupSubjectBuilder(this, item);
     }
@@ -179,7 +182,7 @@ import java.lang.Object;
     }
     
   }
-  class ServiceAccountNestedImpl<N> extends V1beta2ServiceAccountSubjectFluentImpl<V1beta2SubjectFluent.ServiceAccountNested<N>> implements V1beta2SubjectFluent.ServiceAccountNested<N>,Nested<N>{
+  class ServiceAccountNestedImpl<N> extends V1beta2ServiceAccountSubjectFluentImpl<V1beta2SubjectFluentImpl.ServiceAccountNested<N>> implements V1beta2SubjectFluentImpl.ServiceAccountNested<N>,Nested<N>{
     ServiceAccountNestedImpl(V1beta2ServiceAccountSubject item) {
       this.builder = new V1beta2ServiceAccountSubjectBuilder(this, item);
     }
@@ -195,7 +198,7 @@ import java.lang.Object;
     }
     
   }
-  class UserNestedImpl<N> extends V1beta2UserSubjectFluentImpl<V1beta2SubjectFluent.UserNested<N>> implements V1beta2SubjectFluent.UserNested<N>,Nested<N>{
+  class UserNestedImpl<N> extends V1beta2UserSubjectFluentImpl<V1beta2SubjectFluentImpl.UserNested<N>> implements V1beta2SubjectFluentImpl.UserNested<N>,Nested<N>{
     UserNestedImpl(V1beta2UserSubject item) {
       this.builder = new V1beta2UserSubjectBuilder(this, item);
     }

@@ -20,12 +20,11 @@ public class V1AzureFileVolumeSourceBuilder extends V1AzureFileVolumeSourceFluen
   }
   public V1AzureFileVolumeSourceBuilder(V1AzureFileVolumeSourceFluent<?> fluent,V1AzureFileVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withSecretName(instance.getSecretName());
-
-    fluent.withShareName(instance.getShareName());
-
+    if (instance != null) {
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withSecretName(instance.getSecretName());
+      fluent.withShareName(instance.getShareName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1AzureFileVolumeSourceBuilder(V1AzureFileVolumeSource instance) {
@@ -33,12 +32,11 @@ public class V1AzureFileVolumeSourceBuilder extends V1AzureFileVolumeSourceFluen
   }
   public V1AzureFileVolumeSourceBuilder(V1AzureFileVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSecretName(instance.getSecretName());
-
-    this.withShareName(instance.getShareName());
-
+    if (instance != null) {
+      this.withReadOnly(instance.getReadOnly());
+      this.withSecretName(instance.getSecretName());
+      this.withShareName(instance.getShareName());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1AzureFileVolumeSourceFluent<?> fluent;

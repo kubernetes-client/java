@@ -20,14 +20,12 @@ public class V1UserInfoBuilder extends V1UserInfoFluentImpl<V1UserInfoBuilder> i
   }
   public V1UserInfoBuilder(V1UserInfoFluent<?> fluent,V1UserInfo instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withExtra(instance.getExtra());
-
-    fluent.withGroups(instance.getGroups());
-
-    fluent.withUid(instance.getUid());
-
-    fluent.withUsername(instance.getUsername());
-
+    if (instance != null) {
+      fluent.withExtra(instance.getExtra());
+      fluent.withGroups(instance.getGroups());
+      fluent.withUid(instance.getUid());
+      fluent.withUsername(instance.getUsername());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1UserInfoBuilder(V1UserInfo instance) {
@@ -35,14 +33,12 @@ public class V1UserInfoBuilder extends V1UserInfoFluentImpl<V1UserInfoBuilder> i
   }
   public V1UserInfoBuilder(V1UserInfo instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withExtra(instance.getExtra());
-
-    this.withGroups(instance.getGroups());
-
-    this.withUid(instance.getUid());
-
-    this.withUsername(instance.getUsername());
-
+    if (instance != null) {
+      this.withExtra(instance.getExtra());
+      this.withGroups(instance.getGroups());
+      this.withUid(instance.getUid());
+      this.withUsername(instance.getUsername());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1UserInfoFluent<?> fluent;

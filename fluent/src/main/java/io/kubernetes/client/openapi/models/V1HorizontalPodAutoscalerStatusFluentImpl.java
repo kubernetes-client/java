@@ -17,16 +17,13 @@ import java.lang.Boolean;
   public V1HorizontalPodAutoscalerStatusFluentImpl() {
   }
   public V1HorizontalPodAutoscalerStatusFluentImpl(V1HorizontalPodAutoscalerStatus instance) {
-    this.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
-
-    this.withCurrentReplicas(instance.getCurrentReplicas());
-
-    this.withDesiredReplicas(instance.getDesiredReplicas());
-
-    this.withLastScaleTime(instance.getLastScaleTime());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
+    if (instance != null) {
+      this.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
+      this.withCurrentReplicas(instance.getCurrentReplicas());
+      this.withDesiredReplicas(instance.getDesiredReplicas());
+      this.withLastScaleTime(instance.getLastScaleTime());
+      this.withObservedGeneration(instance.getObservedGeneration());
+    }
   }
   private Integer currentCPUUtilizationPercentage;
   private Integer currentReplicas;
@@ -81,12 +78,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1HorizontalPodAutoscalerStatusFluentImpl that = (V1HorizontalPodAutoscalerStatusFluentImpl) o;
-    if (currentCPUUtilizationPercentage != null ? !currentCPUUtilizationPercentage.equals(that.currentCPUUtilizationPercentage) :that.currentCPUUtilizationPercentage != null) return false;
-    if (currentReplicas != null ? !currentReplicas.equals(that.currentReplicas) :that.currentReplicas != null) return false;
-    if (desiredReplicas != null ? !desiredReplicas.equals(that.desiredReplicas) :that.desiredReplicas != null) return false;
-    if (lastScaleTime != null ? !lastScaleTime.equals(that.lastScaleTime) :that.lastScaleTime != null) return false;
-    if (observedGeneration != null ? !observedGeneration.equals(that.observedGeneration) :that.observedGeneration != null) return false;
+    if (!java.util.Objects.equals(currentCPUUtilizationPercentage, that.currentCPUUtilizationPercentage)) return false;
+
+    if (!java.util.Objects.equals(currentReplicas, that.currentReplicas)) return false;
+
+    if (!java.util.Objects.equals(desiredReplicas, that.desiredReplicas)) return false;
+
+    if (!java.util.Objects.equals(lastScaleTime, that.lastScaleTime)) return false;
+
+    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
+
     return true;
   }
   public int hashCode() {

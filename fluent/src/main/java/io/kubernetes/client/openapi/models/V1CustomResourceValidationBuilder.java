@@ -20,8 +20,9 @@ public class V1CustomResourceValidationBuilder extends V1CustomResourceValidatio
   }
   public V1CustomResourceValidationBuilder(V1CustomResourceValidationFluent<?> fluent,V1CustomResourceValidation instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withOpenAPIV3Schema(instance.getOpenAPIV3Schema());
-
+    if (instance != null) {
+      fluent.withOpenAPIV3Schema(instance.getOpenAPIV3Schema());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CustomResourceValidationBuilder(V1CustomResourceValidation instance) {
@@ -29,8 +30,9 @@ public class V1CustomResourceValidationBuilder extends V1CustomResourceValidatio
   }
   public V1CustomResourceValidationBuilder(V1CustomResourceValidation instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withOpenAPIV3Schema(instance.getOpenAPIV3Schema());
-
+    if (instance != null) {
+      this.withOpenAPIV3Schema(instance.getOpenAPIV3Schema());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CustomResourceValidationFluent<?> fluent;

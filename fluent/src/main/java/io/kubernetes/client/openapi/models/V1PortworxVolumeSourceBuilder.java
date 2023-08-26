@@ -20,12 +20,11 @@ public class V1PortworxVolumeSourceBuilder extends V1PortworxVolumeSourceFluentI
   }
   public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSourceFluent<?> fluent,V1PortworxVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withVolumeID(instance.getVolumeID());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withVolumeID(instance.getVolumeID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSource instance) {
@@ -33,12 +32,11 @@ public class V1PortworxVolumeSourceBuilder extends V1PortworxVolumeSourceFluentI
   }
   public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withVolumeID(instance.getVolumeID());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withReadOnly(instance.getReadOnly());
+      this.withVolumeID(instance.getVolumeID());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PortworxVolumeSourceFluent<?> fluent;

@@ -20,20 +20,15 @@ public class V1ResourceAttributesBuilder extends V1ResourceAttributesFluentImpl<
   }
   public V1ResourceAttributesBuilder(V1ResourceAttributesFluent<?> fluent,V1ResourceAttributes instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withGroup(instance.getGroup());
-
-    fluent.withName(instance.getName());
-
-    fluent.withNamespace(instance.getNamespace());
-
-    fluent.withResource(instance.getResource());
-
-    fluent.withSubresource(instance.getSubresource());
-
-    fluent.withVerb(instance.getVerb());
-
-    fluent.withVersion(instance.getVersion());
-
+    if (instance != null) {
+      fluent.withGroup(instance.getGroup());
+      fluent.withName(instance.getName());
+      fluent.withNamespace(instance.getNamespace());
+      fluent.withResource(instance.getResource());
+      fluent.withSubresource(instance.getSubresource());
+      fluent.withVerb(instance.getVerb());
+      fluent.withVersion(instance.getVersion());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ResourceAttributesBuilder(V1ResourceAttributes instance) {
@@ -41,20 +36,15 @@ public class V1ResourceAttributesBuilder extends V1ResourceAttributesFluentImpl<
   }
   public V1ResourceAttributesBuilder(V1ResourceAttributes instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withGroup(instance.getGroup());
-
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withResource(instance.getResource());
-
-    this.withSubresource(instance.getSubresource());
-
-    this.withVerb(instance.getVerb());
-
-    this.withVersion(instance.getVersion());
-
+    if (instance != null) {
+      this.withGroup(instance.getGroup());
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withResource(instance.getResource());
+      this.withSubresource(instance.getSubresource());
+      this.withVerb(instance.getVerb());
+      this.withVersion(instance.getVersion());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ResourceAttributesFluent<?> fluent;

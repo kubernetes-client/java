@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1NodeAddressFluentImpl() {
   }
   public V1NodeAddressFluentImpl(V1NodeAddress instance) {
-    this.withAddress(instance.getAddress());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withAddress(instance.getAddress());
+      this.withType(instance.getType());
+    }
   }
   private String address;
   private String type;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NodeAddressFluentImpl that = (V1NodeAddressFluentImpl) o;
-    if (address != null ? !address.equals(that.address) :that.address != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(address, that.address)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {

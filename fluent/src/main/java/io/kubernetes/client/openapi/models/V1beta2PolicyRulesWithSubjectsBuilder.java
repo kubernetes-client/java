@@ -20,12 +20,11 @@ public class V1beta2PolicyRulesWithSubjectsBuilder extends V1beta2PolicyRulesWit
   }
   public V1beta2PolicyRulesWithSubjectsBuilder(V1beta2PolicyRulesWithSubjectsFluent<?> fluent,V1beta2PolicyRulesWithSubjects instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withNonResourceRules(instance.getNonResourceRules());
-
-    fluent.withResourceRules(instance.getResourceRules());
-
-    fluent.withSubjects(instance.getSubjects());
-
+    if (instance != null) {
+      fluent.withNonResourceRules(instance.getNonResourceRules());
+      fluent.withResourceRules(instance.getResourceRules());
+      fluent.withSubjects(instance.getSubjects());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2PolicyRulesWithSubjectsBuilder(V1beta2PolicyRulesWithSubjects instance) {
@@ -33,12 +32,11 @@ public class V1beta2PolicyRulesWithSubjectsBuilder extends V1beta2PolicyRulesWit
   }
   public V1beta2PolicyRulesWithSubjectsBuilder(V1beta2PolicyRulesWithSubjects instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withNonResourceRules(instance.getNonResourceRules());
-
-    this.withResourceRules(instance.getResourceRules());
-
-    this.withSubjects(instance.getSubjects());
-
+    if (instance != null) {
+      this.withNonResourceRules(instance.getNonResourceRules());
+      this.withResourceRules(instance.getResourceRules());
+      this.withSubjects(instance.getSubjects());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2PolicyRulesWithSubjectsFluent<?> fluent;

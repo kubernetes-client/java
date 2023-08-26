@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1NetworkPolicyListFluent<A extends V1NetworkPolicyListFluent<A
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1NetworkPolicy item);
-  public A setToItems(Integer index,V1NetworkPolicy item);
+  public A addToItems(int index,V1NetworkPolicy item);
+  public A setToItems(int index,V1NetworkPolicy item);
   public A addToItems(io.kubernetes.client.openapi.models.V1NetworkPolicy... items);
   public A addAllToItems(Collection<V1NetworkPolicy> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1NetworkPolicy... items);
@@ -35,7 +35,7 @@ public interface V1NetworkPolicyListFluent<A extends V1NetworkPolicyListFluent<A
   @Deprecated
   public List<V1NetworkPolicy> getItems();
   public List<V1NetworkPolicy> buildItems();
-  public V1NetworkPolicy buildItem(Integer index);
+  public V1NetworkPolicy buildItem(int index);
   public V1NetworkPolicy buildFirstItem();
   public V1NetworkPolicy buildLastItem();
   public V1NetworkPolicy buildMatchingItem(Predicate<V1NetworkPolicyBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1NetworkPolicyListFluent<A extends V1NetworkPolicyListFluent<A
   public Boolean hasItems();
   public V1NetworkPolicyListFluent.ItemsNested<A> addNewItem();
   public V1NetworkPolicyListFluent.ItemsNested<A> addNewItemLike(V1NetworkPolicy item);
-  public V1NetworkPolicyListFluent.ItemsNested<A> setNewItemLike(Integer index,V1NetworkPolicy item);
-  public V1NetworkPolicyListFluent.ItemsNested<A> editItem(Integer index);
+  public V1NetworkPolicyListFluent.ItemsNested<A> setNewItemLike(int index,V1NetworkPolicy item);
+  public V1NetworkPolicyListFluent.ItemsNested<A> editItem(int index);
   public V1NetworkPolicyListFluent.ItemsNested<A> editFirstItem();
   public V1NetworkPolicyListFluent.ItemsNested<A> editLastItem();
   public V1NetworkPolicyListFluent.ItemsNested<A> editMatchingItem(Predicate<V1NetworkPolicyBuilder> predicate);

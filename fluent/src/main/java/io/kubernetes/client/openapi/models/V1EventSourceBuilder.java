@@ -20,10 +20,10 @@ public class V1EventSourceBuilder extends V1EventSourceFluentImpl<V1EventSourceB
   }
   public V1EventSourceBuilder(V1EventSourceFluent<?> fluent,V1EventSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withComponent(instance.getComponent());
-
-    fluent.withHost(instance.getHost());
-
+    if (instance != null) {
+      fluent.withComponent(instance.getComponent());
+      fluent.withHost(instance.getHost());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EventSourceBuilder(V1EventSource instance) {
@@ -31,10 +31,10 @@ public class V1EventSourceBuilder extends V1EventSourceFluentImpl<V1EventSourceB
   }
   public V1EventSourceBuilder(V1EventSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withComponent(instance.getComponent());
-
-    this.withHost(instance.getHost());
-
+    if (instance != null) {
+      this.withComponent(instance.getComponent());
+      this.withHost(instance.getHost());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EventSourceFluent<?> fluent;

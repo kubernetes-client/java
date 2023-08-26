@@ -20,14 +20,12 @@ public class V1CSIDriverBuilder extends V1CSIDriverFluentImpl<V1CSIDriverBuilder
   }
   public V1CSIDriverBuilder(V1CSIDriverFluent<?> fluent,V1CSIDriver instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CSIDriverBuilder(V1CSIDriver instance) {
@@ -35,14 +33,12 @@ public class V1CSIDriverBuilder extends V1CSIDriverFluentImpl<V1CSIDriverBuilder
   }
   public V1CSIDriverBuilder(V1CSIDriver instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CSIDriverFluent<?> fluent;

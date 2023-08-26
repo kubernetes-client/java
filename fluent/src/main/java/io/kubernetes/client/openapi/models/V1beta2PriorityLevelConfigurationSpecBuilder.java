@@ -20,10 +20,10 @@ public class V1beta2PriorityLevelConfigurationSpecBuilder extends V1beta2Priorit
   }
   public V1beta2PriorityLevelConfigurationSpecBuilder(V1beta2PriorityLevelConfigurationSpecFluent<?> fluent,V1beta2PriorityLevelConfigurationSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLimited(instance.getLimited());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withLimited(instance.getLimited());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2PriorityLevelConfigurationSpecBuilder(V1beta2PriorityLevelConfigurationSpec instance) {
@@ -31,10 +31,10 @@ public class V1beta2PriorityLevelConfigurationSpecBuilder extends V1beta2Priorit
   }
   public V1beta2PriorityLevelConfigurationSpecBuilder(V1beta2PriorityLevelConfigurationSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLimited(instance.getLimited());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLimited(instance.getLimited());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2PriorityLevelConfigurationSpecFluent<?> fluent;

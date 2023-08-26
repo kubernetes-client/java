@@ -20,12 +20,11 @@ public class V1alpha1StorageVersionStatusBuilder extends V1alpha1StorageVersionS
   }
   public V1alpha1StorageVersionStatusBuilder(V1alpha1StorageVersionStatusFluent<?> fluent,V1alpha1StorageVersionStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCommonEncodingVersion(instance.getCommonEncodingVersion());
-
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withStorageVersions(instance.getStorageVersions());
-
+    if (instance != null) {
+      fluent.withCommonEncodingVersion(instance.getCommonEncodingVersion());
+      fluent.withConditions(instance.getConditions());
+      fluent.withStorageVersions(instance.getStorageVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1alpha1StorageVersionStatusBuilder(V1alpha1StorageVersionStatus instance) {
@@ -33,12 +32,11 @@ public class V1alpha1StorageVersionStatusBuilder extends V1alpha1StorageVersionS
   }
   public V1alpha1StorageVersionStatusBuilder(V1alpha1StorageVersionStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCommonEncodingVersion(instance.getCommonEncodingVersion());
-
-    this.withConditions(instance.getConditions());
-
-    this.withStorageVersions(instance.getStorageVersions());
-
+    if (instance != null) {
+      this.withCommonEncodingVersion(instance.getCommonEncodingVersion());
+      this.withConditions(instance.getConditions());
+      this.withStorageVersions(instance.getStorageVersions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1alpha1StorageVersionStatusFluent<?> fluent;

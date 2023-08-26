@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1EndpointsListFluent<A extends V1EndpointsListFluent<A>> exten
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1Endpoints item);
-  public A setToItems(Integer index,V1Endpoints item);
+  public A addToItems(int index,V1Endpoints item);
+  public A setToItems(int index,V1Endpoints item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Endpoints... items);
   public A addAllToItems(Collection<V1Endpoints> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Endpoints... items);
@@ -35,7 +35,7 @@ public interface V1EndpointsListFluent<A extends V1EndpointsListFluent<A>> exten
   @Deprecated
   public List<V1Endpoints> getItems();
   public List<V1Endpoints> buildItems();
-  public V1Endpoints buildItem(Integer index);
+  public V1Endpoints buildItem(int index);
   public V1Endpoints buildFirstItem();
   public V1Endpoints buildLastItem();
   public V1Endpoints buildMatchingItem(Predicate<V1EndpointsBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1EndpointsListFluent<A extends V1EndpointsListFluent<A>> exten
   public Boolean hasItems();
   public V1EndpointsListFluent.ItemsNested<A> addNewItem();
   public V1EndpointsListFluent.ItemsNested<A> addNewItemLike(V1Endpoints item);
-  public V1EndpointsListFluent.ItemsNested<A> setNewItemLike(Integer index,V1Endpoints item);
-  public V1EndpointsListFluent.ItemsNested<A> editItem(Integer index);
+  public V1EndpointsListFluent.ItemsNested<A> setNewItemLike(int index,V1Endpoints item);
+  public V1EndpointsListFluent.ItemsNested<A> editItem(int index);
   public V1EndpointsListFluent.ItemsNested<A> editFirstItem();
   public V1EndpointsListFluent.ItemsNested<A> editLastItem();
   public V1EndpointsListFluent.ItemsNested<A> editMatchingItem(Predicate<V1EndpointsBuilder> predicate);

@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1VolumeAttachmentSourceFluentImpl() {
   }
   public V1VolumeAttachmentSourceFluentImpl(V1VolumeAttachmentSource instance) {
-    this.withInlineVolumeSpec(instance.getInlineVolumeSpec());
-
-    this.withPersistentVolumeName(instance.getPersistentVolumeName());
-
+    if (instance != null) {
+      this.withInlineVolumeSpec(instance.getInlineVolumeSpec());
+      this.withPersistentVolumeName(instance.getPersistentVolumeName());
+    }
   }
   private V1PersistentVolumeSpecBuilder inlineVolumeSpec;
   private String persistentVolumeName;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasInlineVolumeSpec() {
     return this.inlineVolumeSpec != null;
   }
-  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> withNewInlineVolumeSpec() {
+  public V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNested<A> withNewInlineVolumeSpec() {
     return new V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNestedImpl();
   }
-  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> withNewInlineVolumeSpecLike(V1PersistentVolumeSpec item) {
+  public V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNested<A> withNewInlineVolumeSpecLike(V1PersistentVolumeSpec item) {
     return new V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNestedImpl(item);
   }
-  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> editInlineVolumeSpec() {
+  public V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNested<A> editInlineVolumeSpec() {
     return withNewInlineVolumeSpecLike(getInlineVolumeSpec());
   }
-  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> editOrNewInlineVolumeSpec() {
+  public V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNested<A> editOrNewInlineVolumeSpec() {
     return withNewInlineVolumeSpecLike(getInlineVolumeSpec() != null ? getInlineVolumeSpec(): new V1PersistentVolumeSpecBuilder().build());
   }
-  public V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<A> editOrNewInlineVolumeSpecLike(V1PersistentVolumeSpec item) {
+  public V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNested<A> editOrNewInlineVolumeSpecLike(V1PersistentVolumeSpec item) {
     return withNewInlineVolumeSpecLike(getInlineVolumeSpec() != null ? getInlineVolumeSpec(): item);
   }
   public String getPersistentVolumeName() {
@@ -69,9 +69,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1VolumeAttachmentSourceFluentImpl that = (V1VolumeAttachmentSourceFluentImpl) o;
-    if (inlineVolumeSpec != null ? !inlineVolumeSpec.equals(that.inlineVolumeSpec) :that.inlineVolumeSpec != null) return false;
-    if (persistentVolumeName != null ? !persistentVolumeName.equals(that.persistentVolumeName) :that.persistentVolumeName != null) return false;
+    if (!java.util.Objects.equals(inlineVolumeSpec, that.inlineVolumeSpec)) return false;
+
+    if (!java.util.Objects.equals(persistentVolumeName, that.persistentVolumeName)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -85,7 +88,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class InlineVolumeSpecNestedImpl<N> extends V1PersistentVolumeSpecFluentImpl<V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<N>> implements V1VolumeAttachmentSourceFluent.InlineVolumeSpecNested<N>,Nested<N>{
+  class InlineVolumeSpecNestedImpl<N> extends V1PersistentVolumeSpecFluentImpl<V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNested<N>> implements V1VolumeAttachmentSourceFluentImpl.InlineVolumeSpecNested<N>,Nested<N>{
     InlineVolumeSpecNestedImpl(V1PersistentVolumeSpec item) {
       this.builder = new V1PersistentVolumeSpecBuilder(this, item);
     }

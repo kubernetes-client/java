@@ -20,10 +20,10 @@ public class V1LocalVolumeSourceBuilder extends V1LocalVolumeSourceFluentImpl<V1
   }
   public V1LocalVolumeSourceBuilder(V1LocalVolumeSourceFluent<?> fluent,V1LocalVolumeSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withFsType(instance.getFsType());
-
-    fluent.withPath(instance.getPath());
-
+    if (instance != null) {
+      fluent.withFsType(instance.getFsType());
+      fluent.withPath(instance.getPath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LocalVolumeSourceBuilder(V1LocalVolumeSource instance) {
@@ -31,10 +31,10 @@ public class V1LocalVolumeSourceBuilder extends V1LocalVolumeSourceFluentImpl<V1
   }
   public V1LocalVolumeSourceBuilder(V1LocalVolumeSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withFsType(instance.getFsType());
-
-    this.withPath(instance.getPath());
-
+    if (instance != null) {
+      this.withFsType(instance.getFsType());
+      this.withPath(instance.getPath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LocalVolumeSourceFluent<?> fluent;

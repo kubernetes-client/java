@@ -1,13 +1,13 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -26,8 +26,8 @@ public interface V1SchedulingFluent<A extends V1SchedulingFluent<A>> extends Flu
   public Map<String,String> getNodeSelector();
   public <K,V>A withNodeSelector(Map<String,String> nodeSelector);
   public Boolean hasNodeSelector();
-  public A addToTolerations(Integer index,V1Toleration item);
-  public A setToTolerations(Integer index,V1Toleration item);
+  public A addToTolerations(int index,V1Toleration item);
+  public A setToTolerations(int index,V1Toleration item);
   public A addToTolerations(io.kubernetes.client.openapi.models.V1Toleration... items);
   public A addAllToTolerations(Collection<V1Toleration> items);
   public A removeFromTolerations(io.kubernetes.client.openapi.models.V1Toleration... items);
@@ -41,7 +41,7 @@ public interface V1SchedulingFluent<A extends V1SchedulingFluent<A>> extends Flu
   @Deprecated
   public List<V1Toleration> getTolerations();
   public List<V1Toleration> buildTolerations();
-  public V1Toleration buildToleration(Integer index);
+  public V1Toleration buildToleration(int index);
   public V1Toleration buildFirstToleration();
   public V1Toleration buildLastToleration();
   public V1Toleration buildMatchingToleration(Predicate<V1TolerationBuilder> predicate);
@@ -51,8 +51,8 @@ public interface V1SchedulingFluent<A extends V1SchedulingFluent<A>> extends Flu
   public Boolean hasTolerations();
   public V1SchedulingFluent.TolerationsNested<A> addNewToleration();
   public V1SchedulingFluent.TolerationsNested<A> addNewTolerationLike(V1Toleration item);
-  public V1SchedulingFluent.TolerationsNested<A> setNewTolerationLike(Integer index,V1Toleration item);
-  public V1SchedulingFluent.TolerationsNested<A> editToleration(Integer index);
+  public V1SchedulingFluent.TolerationsNested<A> setNewTolerationLike(int index,V1Toleration item);
+  public V1SchedulingFluent.TolerationsNested<A> editToleration(int index);
   public V1SchedulingFluent.TolerationsNested<A> editFirstToleration();
   public V1SchedulingFluent.TolerationsNested<A> editLastToleration();
   public V1SchedulingFluent.TolerationsNested<A> editMatchingToleration(Predicate<V1TolerationBuilder> predicate);

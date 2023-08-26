@@ -16,12 +16,11 @@ import java.lang.Boolean;
   public V2ContainerResourceMetricStatusFluentImpl() {
   }
   public V2ContainerResourceMetricStatusFluentImpl(V2ContainerResourceMetricStatus instance) {
-    this.withContainer(instance.getContainer());
-
-    this.withCurrent(instance.getCurrent());
-
-    this.withName(instance.getName());
-
+    if (instance != null) {
+      this.withContainer(instance.getContainer());
+      this.withCurrent(instance.getCurrent());
+      this.withName(instance.getName());
+    }
   }
   private String container;
   private V2MetricValueStatusBuilder current;
@@ -54,19 +53,19 @@ import java.lang.Boolean;
   public Boolean hasCurrent() {
     return this.current != null;
   }
-  public V2ContainerResourceMetricStatusFluent.CurrentNested<A> withNewCurrent() {
+  public V2ContainerResourceMetricStatusFluentImpl.CurrentNested<A> withNewCurrent() {
     return new V2ContainerResourceMetricStatusFluentImpl.CurrentNestedImpl();
   }
-  public V2ContainerResourceMetricStatusFluent.CurrentNested<A> withNewCurrentLike(V2MetricValueStatus item) {
+  public V2ContainerResourceMetricStatusFluentImpl.CurrentNested<A> withNewCurrentLike(V2MetricValueStatus item) {
     return new V2ContainerResourceMetricStatusFluentImpl.CurrentNestedImpl(item);
   }
-  public V2ContainerResourceMetricStatusFluent.CurrentNested<A> editCurrent() {
+  public V2ContainerResourceMetricStatusFluentImpl.CurrentNested<A> editCurrent() {
     return withNewCurrentLike(getCurrent());
   }
-  public V2ContainerResourceMetricStatusFluent.CurrentNested<A> editOrNewCurrent() {
+  public V2ContainerResourceMetricStatusFluentImpl.CurrentNested<A> editOrNewCurrent() {
     return withNewCurrentLike(getCurrent() != null ? getCurrent(): new V2MetricValueStatusBuilder().build());
   }
-  public V2ContainerResourceMetricStatusFluent.CurrentNested<A> editOrNewCurrentLike(V2MetricValueStatus item) {
+  public V2ContainerResourceMetricStatusFluentImpl.CurrentNested<A> editOrNewCurrentLike(V2MetricValueStatus item) {
     return withNewCurrentLike(getCurrent() != null ? getCurrent(): item);
   }
   public String getName() {
@@ -81,10 +80,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2ContainerResourceMetricStatusFluentImpl that = (V2ContainerResourceMetricStatusFluentImpl) o;
-    if (container != null ? !container.equals(that.container) :that.container != null) return false;
-    if (current != null ? !current.equals(that.current) :that.current != null) return false;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
+    if (!java.util.Objects.equals(container, that.container)) return false;
+
+    if (!java.util.Objects.equals(current, that.current)) return false;
+
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -99,7 +102,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class CurrentNestedImpl<N> extends V2MetricValueStatusFluentImpl<V2ContainerResourceMetricStatusFluent.CurrentNested<N>> implements V2ContainerResourceMetricStatusFluent.CurrentNested<N>,Nested<N>{
+  class CurrentNestedImpl<N> extends V2MetricValueStatusFluentImpl<V2ContainerResourceMetricStatusFluentImpl.CurrentNested<N>> implements V2ContainerResourceMetricStatusFluentImpl.CurrentNested<N>,Nested<N>{
     CurrentNestedImpl(V2MetricValueStatus item) {
       this.builder = new V2MetricValueStatusBuilder(this, item);
     }

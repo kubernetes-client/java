@@ -20,12 +20,12 @@ public class V1PodDisruptionBudgetSpecBuilder extends V1PodDisruptionBudgetSpecF
   }
   public V1PodDisruptionBudgetSpecBuilder(V1PodDisruptionBudgetSpecFluent<?> fluent,V1PodDisruptionBudgetSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMaxUnavailable(instance.getMaxUnavailable());
-
-    fluent.withMinAvailable(instance.getMinAvailable());
-
-    fluent.withSelector(instance.getSelector());
-
+    if (instance != null) {
+      fluent.withMaxUnavailable(instance.getMaxUnavailable());
+      fluent.withMinAvailable(instance.getMinAvailable());
+      fluent.withSelector(instance.getSelector());
+      fluent.withUnhealthyPodEvictionPolicy(instance.getUnhealthyPodEvictionPolicy());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PodDisruptionBudgetSpecBuilder(V1PodDisruptionBudgetSpec instance) {
@@ -33,12 +33,12 @@ public class V1PodDisruptionBudgetSpecBuilder extends V1PodDisruptionBudgetSpecF
   }
   public V1PodDisruptionBudgetSpecBuilder(V1PodDisruptionBudgetSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMaxUnavailable(instance.getMaxUnavailable());
-
-    this.withMinAvailable(instance.getMinAvailable());
-
-    this.withSelector(instance.getSelector());
-
+    if (instance != null) {
+      this.withMaxUnavailable(instance.getMaxUnavailable());
+      this.withMinAvailable(instance.getMinAvailable());
+      this.withSelector(instance.getSelector());
+      this.withUnhealthyPodEvictionPolicy(instance.getUnhealthyPodEvictionPolicy());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PodDisruptionBudgetSpecFluent<?> fluent;
@@ -48,6 +48,7 @@ public class V1PodDisruptionBudgetSpecBuilder extends V1PodDisruptionBudgetSpecF
     buildable.setMaxUnavailable(fluent.getMaxUnavailable());
     buildable.setMinAvailable(fluent.getMinAvailable());
     buildable.setSelector(fluent.getSelector());
+    buildable.setUnhealthyPodEvictionPolicy(fluent.getUnhealthyPodEvictionPolicy());
     return buildable;
   }
   

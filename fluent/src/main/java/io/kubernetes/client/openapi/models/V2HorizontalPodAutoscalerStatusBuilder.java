@@ -20,18 +20,14 @@ public class V2HorizontalPodAutoscalerStatusBuilder extends V2HorizontalPodAutos
   }
   public V2HorizontalPodAutoscalerStatusBuilder(V2HorizontalPodAutoscalerStatusFluent<?> fluent,V2HorizontalPodAutoscalerStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withCurrentMetrics(instance.getCurrentMetrics());
-
-    fluent.withCurrentReplicas(instance.getCurrentReplicas());
-
-    fluent.withDesiredReplicas(instance.getDesiredReplicas());
-
-    fluent.withLastScaleTime(instance.getLastScaleTime());
-
-    fluent.withObservedGeneration(instance.getObservedGeneration());
-
+    if (instance != null) {
+      fluent.withConditions(instance.getConditions());
+      fluent.withCurrentMetrics(instance.getCurrentMetrics());
+      fluent.withCurrentReplicas(instance.getCurrentReplicas());
+      fluent.withDesiredReplicas(instance.getDesiredReplicas());
+      fluent.withLastScaleTime(instance.getLastScaleTime());
+      fluent.withObservedGeneration(instance.getObservedGeneration());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2HorizontalPodAutoscalerStatusBuilder(V2HorizontalPodAutoscalerStatus instance) {
@@ -39,18 +35,14 @@ public class V2HorizontalPodAutoscalerStatusBuilder extends V2HorizontalPodAutos
   }
   public V2HorizontalPodAutoscalerStatusBuilder(V2HorizontalPodAutoscalerStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConditions(instance.getConditions());
-
-    this.withCurrentMetrics(instance.getCurrentMetrics());
-
-    this.withCurrentReplicas(instance.getCurrentReplicas());
-
-    this.withDesiredReplicas(instance.getDesiredReplicas());
-
-    this.withLastScaleTime(instance.getLastScaleTime());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+      this.withCurrentMetrics(instance.getCurrentMetrics());
+      this.withCurrentReplicas(instance.getCurrentReplicas());
+      this.withDesiredReplicas(instance.getDesiredReplicas());
+      this.withLastScaleTime(instance.getLastScaleTime());
+      this.withObservedGeneration(instance.getObservedGeneration());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2HorizontalPodAutoscalerStatusFluent<?> fluent;

@@ -20,18 +20,14 @@ public class V1SubjectAccessReviewSpecBuilder extends V1SubjectAccessReviewSpecF
   }
   public V1SubjectAccessReviewSpecBuilder(V1SubjectAccessReviewSpecFluent<?> fluent,V1SubjectAccessReviewSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withExtra(instance.getExtra());
-
-    fluent.withGroups(instance.getGroups());
-
-    fluent.withNonResourceAttributes(instance.getNonResourceAttributes());
-
-    fluent.withResourceAttributes(instance.getResourceAttributes());
-
-    fluent.withUid(instance.getUid());
-
-    fluent.withUser(instance.getUser());
-
+    if (instance != null) {
+      fluent.withExtra(instance.getExtra());
+      fluent.withGroups(instance.getGroups());
+      fluent.withNonResourceAttributes(instance.getNonResourceAttributes());
+      fluent.withResourceAttributes(instance.getResourceAttributes());
+      fluent.withUid(instance.getUid());
+      fluent.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SubjectAccessReviewSpecBuilder(V1SubjectAccessReviewSpec instance) {
@@ -39,18 +35,14 @@ public class V1SubjectAccessReviewSpecBuilder extends V1SubjectAccessReviewSpecF
   }
   public V1SubjectAccessReviewSpecBuilder(V1SubjectAccessReviewSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withExtra(instance.getExtra());
-
-    this.withGroups(instance.getGroups());
-
-    this.withNonResourceAttributes(instance.getNonResourceAttributes());
-
-    this.withResourceAttributes(instance.getResourceAttributes());
-
-    this.withUid(instance.getUid());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withExtra(instance.getExtra());
+      this.withGroups(instance.getGroups());
+      this.withNonResourceAttributes(instance.getNonResourceAttributes());
+      this.withResourceAttributes(instance.getResourceAttributes());
+      this.withUid(instance.getUid());
+      this.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SubjectAccessReviewSpecFluent<?> fluent;

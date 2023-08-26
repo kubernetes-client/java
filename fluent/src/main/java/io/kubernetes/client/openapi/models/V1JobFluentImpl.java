@@ -16,16 +16,13 @@ import java.lang.Object;
   public V1JobFluentImpl() {
   }
   public V1JobFluentImpl(V1Job instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+      this.withStatus(instance.getStatus());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -69,19 +66,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1JobFluent.MetadataNested<A> withNewMetadata() {
+  public V1JobFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1JobFluentImpl.MetadataNestedImpl();
   }
-  public V1JobFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1JobFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1JobFluentImpl.MetadataNestedImpl(item);
   }
-  public V1JobFluent.MetadataNested<A> editMetadata() {
+  public V1JobFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1JobFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1JobFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1JobFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1JobFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -103,19 +100,19 @@ import java.lang.Object;
   public Boolean hasSpec() {
     return this.spec != null;
   }
-  public V1JobFluent.SpecNested<A> withNewSpec() {
+  public V1JobFluentImpl.SpecNested<A> withNewSpec() {
     return new V1JobFluentImpl.SpecNestedImpl();
   }
-  public V1JobFluent.SpecNested<A> withNewSpecLike(V1JobSpec item) {
+  public V1JobFluentImpl.SpecNested<A> withNewSpecLike(V1JobSpec item) {
     return new V1JobFluentImpl.SpecNestedImpl(item);
   }
-  public V1JobFluent.SpecNested<A> editSpec() {
+  public V1JobFluentImpl.SpecNested<A> editSpec() {
     return withNewSpecLike(getSpec());
   }
-  public V1JobFluent.SpecNested<A> editOrNewSpec() {
+  public V1JobFluentImpl.SpecNested<A> editOrNewSpec() {
     return withNewSpecLike(getSpec() != null ? getSpec(): new V1JobSpecBuilder().build());
   }
-  public V1JobFluent.SpecNested<A> editOrNewSpecLike(V1JobSpec item) {
+  public V1JobFluentImpl.SpecNested<A> editOrNewSpecLike(V1JobSpec item) {
     return withNewSpecLike(getSpec() != null ? getSpec(): item);
   }
   
@@ -137,30 +134,36 @@ import java.lang.Object;
   public Boolean hasStatus() {
     return this.status != null;
   }
-  public V1JobFluent.StatusNested<A> withNewStatus() {
+  public V1JobFluentImpl.StatusNested<A> withNewStatus() {
     return new V1JobFluentImpl.StatusNestedImpl();
   }
-  public V1JobFluent.StatusNested<A> withNewStatusLike(V1JobStatus item) {
+  public V1JobFluentImpl.StatusNested<A> withNewStatusLike(V1JobStatus item) {
     return new V1JobFluentImpl.StatusNestedImpl(item);
   }
-  public V1JobFluent.StatusNested<A> editStatus() {
+  public V1JobFluentImpl.StatusNested<A> editStatus() {
     return withNewStatusLike(getStatus());
   }
-  public V1JobFluent.StatusNested<A> editOrNewStatus() {
+  public V1JobFluentImpl.StatusNested<A> editOrNewStatus() {
     return withNewStatusLike(getStatus() != null ? getStatus(): new V1JobStatusBuilder().build());
   }
-  public V1JobFluent.StatusNested<A> editOrNewStatusLike(V1JobStatus item) {
+  public V1JobFluentImpl.StatusNested<A> editOrNewStatusLike(V1JobStatus item) {
     return withNewStatusLike(getStatus() != null ? getStatus(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1JobFluentImpl that = (V1JobFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (spec != null ? !spec.equals(that.spec) :that.spec != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(spec, that.spec)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -177,7 +180,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1JobFluent.MetadataNested<N>> implements V1JobFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1JobFluentImpl.MetadataNested<N>> implements V1JobFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -193,7 +196,7 @@ import java.lang.Object;
     }
     
   }
-  class SpecNestedImpl<N> extends V1JobSpecFluentImpl<V1JobFluent.SpecNested<N>> implements V1JobFluent.SpecNested<N>,Nested<N>{
+  class SpecNestedImpl<N> extends V1JobSpecFluentImpl<V1JobFluentImpl.SpecNested<N>> implements V1JobFluentImpl.SpecNested<N>,Nested<N>{
     SpecNestedImpl(V1JobSpec item) {
       this.builder = new V1JobSpecBuilder(this, item);
     }
@@ -209,7 +212,7 @@ import java.lang.Object;
     }
     
   }
-  class StatusNestedImpl<N> extends V1JobStatusFluentImpl<V1JobFluent.StatusNested<N>> implements V1JobFluent.StatusNested<N>,Nested<N>{
+  class StatusNestedImpl<N> extends V1JobStatusFluentImpl<V1JobFluentImpl.StatusNested<N>> implements V1JobFluentImpl.StatusNested<N>,Nested<N>{
     StatusNestedImpl(V1JobStatus item) {
       this.builder = new V1JobStatusBuilder(this, item);
     }

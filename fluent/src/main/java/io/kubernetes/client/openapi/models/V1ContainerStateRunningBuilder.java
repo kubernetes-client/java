@@ -20,8 +20,9 @@ public class V1ContainerStateRunningBuilder extends V1ContainerStateRunningFluen
   }
   public V1ContainerStateRunningBuilder(V1ContainerStateRunningFluent<?> fluent,V1ContainerStateRunning instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withStartedAt(instance.getStartedAt());
-
+    if (instance != null) {
+      fluent.withStartedAt(instance.getStartedAt());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ContainerStateRunningBuilder(V1ContainerStateRunning instance) {
@@ -29,8 +30,9 @@ public class V1ContainerStateRunningBuilder extends V1ContainerStateRunningFluen
   }
   public V1ContainerStateRunningBuilder(V1ContainerStateRunning instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withStartedAt(instance.getStartedAt());
-
+    if (instance != null) {
+      this.withStartedAt(instance.getStartedAt());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ContainerStateRunningFluent<?> fluent;

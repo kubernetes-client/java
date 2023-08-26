@@ -20,12 +20,11 @@ public class V1SecretKeySelectorBuilder extends V1SecretKeySelectorFluentImpl<V1
   }
   public V1SecretKeySelectorBuilder(V1SecretKeySelectorFluent<?> fluent,V1SecretKeySelector instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withKey(instance.getKey());
-
-    fluent.withName(instance.getName());
-
-    fluent.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      fluent.withKey(instance.getKey());
+      fluent.withName(instance.getName());
+      fluent.withOptional(instance.getOptional());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SecretKeySelectorBuilder(V1SecretKeySelector instance) {
@@ -33,12 +32,11 @@ public class V1SecretKeySelectorBuilder extends V1SecretKeySelectorFluentImpl<V1
   }
   public V1SecretKeySelectorBuilder(V1SecretKeySelector instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withKey(instance.getKey());
-
-    this.withName(instance.getName());
-
-    this.withOptional(instance.getOptional());
-
+    if (instance != null) {
+      this.withKey(instance.getKey());
+      this.withName(instance.getName());
+      this.withOptional(instance.getOptional());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SecretKeySelectorFluent<?> fluent;

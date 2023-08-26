@@ -20,8 +20,9 @@ public class V1TopologySelectorTermBuilder extends V1TopologySelectorTermFluentI
   }
   public V1TopologySelectorTermBuilder(V1TopologySelectorTermFluent<?> fluent,V1TopologySelectorTerm instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMatchLabelExpressions(instance.getMatchLabelExpressions());
-
+    if (instance != null) {
+      fluent.withMatchLabelExpressions(instance.getMatchLabelExpressions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TopologySelectorTermBuilder(V1TopologySelectorTerm instance) {
@@ -29,8 +30,9 @@ public class V1TopologySelectorTermBuilder extends V1TopologySelectorTermFluentI
   }
   public V1TopologySelectorTermBuilder(V1TopologySelectorTerm instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMatchLabelExpressions(instance.getMatchLabelExpressions());
-
+    if (instance != null) {
+      this.withMatchLabelExpressions(instance.getMatchLabelExpressions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TopologySelectorTermFluent<?> fluent;

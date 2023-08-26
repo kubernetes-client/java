@@ -20,16 +20,13 @@ public class V1beta2ResourcePolicyRuleBuilder extends V1beta2ResourcePolicyRuleF
   }
   public V1beta2ResourcePolicyRuleBuilder(V1beta2ResourcePolicyRuleFluent<?> fluent,V1beta2ResourcePolicyRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiGroups(instance.getApiGroups());
-
-    fluent.withClusterScope(instance.getClusterScope());
-
-    fluent.withNamespaces(instance.getNamespaces());
-
-    fluent.withResources(instance.getResources());
-
-    fluent.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      fluent.withApiGroups(instance.getApiGroups());
+      fluent.withClusterScope(instance.getClusterScope());
+      fluent.withNamespaces(instance.getNamespaces());
+      fluent.withResources(instance.getResources());
+      fluent.withVerbs(instance.getVerbs());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2ResourcePolicyRuleBuilder(V1beta2ResourcePolicyRule instance) {
@@ -37,16 +34,13 @@ public class V1beta2ResourcePolicyRuleBuilder extends V1beta2ResourcePolicyRuleF
   }
   public V1beta2ResourcePolicyRuleBuilder(V1beta2ResourcePolicyRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiGroups(instance.getApiGroups());
-
-    this.withClusterScope(instance.getClusterScope());
-
-    this.withNamespaces(instance.getNamespaces());
-
-    this.withResources(instance.getResources());
-
-    this.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      this.withApiGroups(instance.getApiGroups());
+      this.withClusterScope(instance.getClusterScope());
+      this.withNamespaces(instance.getNamespaces());
+      this.withResources(instance.getResources());
+      this.withVerbs(instance.getVerbs());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2ResourcePolicyRuleFluent<?> fluent;

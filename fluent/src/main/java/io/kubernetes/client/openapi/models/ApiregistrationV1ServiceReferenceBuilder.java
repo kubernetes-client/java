@@ -20,12 +20,11 @@ public class ApiregistrationV1ServiceReferenceBuilder extends ApiregistrationV1S
   }
   public ApiregistrationV1ServiceReferenceBuilder(ApiregistrationV1ServiceReferenceFluent<?> fluent,ApiregistrationV1ServiceReference instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withName(instance.getName());
-
-    fluent.withNamespace(instance.getNamespace());
-
-    fluent.withPort(instance.getPort());
-
+    if (instance != null) {
+      fluent.withName(instance.getName());
+      fluent.withNamespace(instance.getNamespace());
+      fluent.withPort(instance.getPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public ApiregistrationV1ServiceReferenceBuilder(ApiregistrationV1ServiceReference instance) {
@@ -33,12 +32,11 @@ public class ApiregistrationV1ServiceReferenceBuilder extends ApiregistrationV1S
   }
   public ApiregistrationV1ServiceReferenceBuilder(ApiregistrationV1ServiceReference instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
-    this.withPort(instance.getPort());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+      this.withPort(instance.getPort());
+    }
     this.validationEnabled = validationEnabled; 
   }
   ApiregistrationV1ServiceReferenceFluent<?> fluent;

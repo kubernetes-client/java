@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
-/** Overhead structure represents the resource overhead associated with running a pod. */
-@ApiModel(
-    description =
-        "Overhead structure represents the resource overhead associated with running a pod.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * Overhead structure represents the resource overhead associated with running a pod.
+ */
+@ApiModel(description = "Overhead structure represents the resource overhead associated with running a pod.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1Overhead {
   public static final String SERIALIZED_NAME_POD_FIXED = "podFixed";
-
   @SerializedName(SERIALIZED_NAME_POD_FIXED)
   private Map<String, Quantity> podFixed = null;
+
 
   public V1Overhead podFixed(Map<String, Quantity> podFixed) {
 
@@ -47,21 +52,22 @@ public class V1Overhead {
     return this;
   }
 
-  /**
-   * PodFixed represents the fixed resource overhead associated with running a pod.
-   *
+   /**
+   * podFixed represents the fixed resource overhead associated with running a pod.
    * @return podFixed
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value = "PodFixed represents the fixed resource overhead associated with running a pod.")
+  @ApiModelProperty(value = "podFixed represents the fixed resource overhead associated with running a pod.")
+
   public Map<String, Quantity> getPodFixed() {
     return podFixed;
   }
 
+
   public void setPodFixed(Map<String, Quantity> podFixed) {
     this.podFixed = podFixed;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -80,6 +86,7 @@ public class V1Overhead {
     return Objects.hash(podFixed);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -90,7 +97,8 @@ public class V1Overhead {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -98,4 +106,5 @@ public class V1Overhead {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

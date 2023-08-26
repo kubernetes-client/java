@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V1CustomResourceSubresourcesFluentImpl() {
   }
   public V1CustomResourceSubresourcesFluentImpl(V1CustomResourceSubresources instance) {
-    this.withScale(instance.getScale());
-
-    this.withStatus(instance.getStatus());
-
+    if (instance != null) {
+      this.withScale(instance.getScale());
+      this.withStatus(instance.getStatus());
+    }
   }
   private V1CustomResourceSubresourceScaleBuilder scale;
   private Object status;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasScale() {
     return this.scale != null;
   }
-  public V1CustomResourceSubresourcesFluent.ScaleNested<A> withNewScale() {
+  public V1CustomResourceSubresourcesFluentImpl.ScaleNested<A> withNewScale() {
     return new V1CustomResourceSubresourcesFluentImpl.ScaleNestedImpl();
   }
-  public V1CustomResourceSubresourcesFluent.ScaleNested<A> withNewScaleLike(V1CustomResourceSubresourceScale item) {
+  public V1CustomResourceSubresourcesFluentImpl.ScaleNested<A> withNewScaleLike(V1CustomResourceSubresourceScale item) {
     return new V1CustomResourceSubresourcesFluentImpl.ScaleNestedImpl(item);
   }
-  public V1CustomResourceSubresourcesFluent.ScaleNested<A> editScale() {
+  public V1CustomResourceSubresourcesFluentImpl.ScaleNested<A> editScale() {
     return withNewScaleLike(getScale());
   }
-  public V1CustomResourceSubresourcesFluent.ScaleNested<A> editOrNewScale() {
+  public V1CustomResourceSubresourcesFluentImpl.ScaleNested<A> editOrNewScale() {
     return withNewScaleLike(getScale() != null ? getScale(): new V1CustomResourceSubresourceScaleBuilder().build());
   }
-  public V1CustomResourceSubresourcesFluent.ScaleNested<A> editOrNewScaleLike(V1CustomResourceSubresourceScale item) {
+  public V1CustomResourceSubresourcesFluentImpl.ScaleNested<A> editOrNewScaleLike(V1CustomResourceSubresourceScale item) {
     return withNewScaleLike(getScale() != null ? getScale(): item);
   }
   public Object getStatus() {
@@ -69,9 +69,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CustomResourceSubresourcesFluentImpl that = (V1CustomResourceSubresourcesFluentImpl) o;
-    if (scale != null ? !scale.equals(that.scale) :that.scale != null) return false;
-    if (status != null ? !status.equals(that.status) :that.status != null) return false;
+    if (!java.util.Objects.equals(scale, that.scale)) return false;
+
+    if (!java.util.Objects.equals(status, that.status)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -85,7 +88,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ScaleNestedImpl<N> extends V1CustomResourceSubresourceScaleFluentImpl<V1CustomResourceSubresourcesFluent.ScaleNested<N>> implements V1CustomResourceSubresourcesFluent.ScaleNested<N>,Nested<N>{
+  class ScaleNestedImpl<N> extends V1CustomResourceSubresourceScaleFluentImpl<V1CustomResourceSubresourcesFluentImpl.ScaleNested<N>> implements V1CustomResourceSubresourcesFluentImpl.ScaleNested<N>,Nested<N>{
     ScaleNestedImpl(V1CustomResourceSubresourceScale item) {
       this.builder = new V1CustomResourceSubresourceScaleBuilder(this, item);
     }

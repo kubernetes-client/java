@@ -1,5 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -30,14 +31,14 @@ public interface V1TopologySpreadConstraintFluent<A extends V1TopologySpreadCons
   public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> editLabelSelector();
   public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> editOrNewLabelSelector();
   public V1TopologySpreadConstraintFluent.LabelSelectorNested<A> editOrNewLabelSelectorLike(V1LabelSelector item);
-  public A addToMatchLabelKeys(Integer index,String item);
-  public A setToMatchLabelKeys(Integer index,String item);
+  public A addToMatchLabelKeys(int index,String item);
+  public A setToMatchLabelKeys(int index,String item);
   public A addToMatchLabelKeys(java.lang.String... items);
   public A addAllToMatchLabelKeys(Collection<String> items);
   public A removeFromMatchLabelKeys(java.lang.String... items);
   public A removeAllFromMatchLabelKeys(Collection<String> items);
   public List<String> getMatchLabelKeys();
-  public String getMatchLabelKey(Integer index);
+  public String getMatchLabelKey(int index);
   public String getFirstMatchLabelKey();
   public String getLastMatchLabelKey();
   public String getMatchingMatchLabelKey(Predicate<String> predicate);

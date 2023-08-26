@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1APIGroupListFluent<A extends V1APIGroupListFluent<A>> extends
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToGroups(Integer index,V1APIGroup item);
-  public A setToGroups(Integer index,V1APIGroup item);
+  public A addToGroups(int index,V1APIGroup item);
+  public A setToGroups(int index,V1APIGroup item);
   public A addToGroups(io.kubernetes.client.openapi.models.V1APIGroup... items);
   public A addAllToGroups(Collection<V1APIGroup> items);
   public A removeFromGroups(io.kubernetes.client.openapi.models.V1APIGroup... items);
@@ -35,7 +35,7 @@ public interface V1APIGroupListFluent<A extends V1APIGroupListFluent<A>> extends
   @Deprecated
   public List<V1APIGroup> getGroups();
   public List<V1APIGroup> buildGroups();
-  public V1APIGroup buildGroup(Integer index);
+  public V1APIGroup buildGroup(int index);
   public V1APIGroup buildFirstGroup();
   public V1APIGroup buildLastGroup();
   public V1APIGroup buildMatchingGroup(Predicate<V1APIGroupBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1APIGroupListFluent<A extends V1APIGroupListFluent<A>> extends
   public Boolean hasGroups();
   public V1APIGroupListFluent.GroupsNested<A> addNewGroup();
   public V1APIGroupListFluent.GroupsNested<A> addNewGroupLike(V1APIGroup item);
-  public V1APIGroupListFluent.GroupsNested<A> setNewGroupLike(Integer index,V1APIGroup item);
-  public V1APIGroupListFluent.GroupsNested<A> editGroup(Integer index);
+  public V1APIGroupListFluent.GroupsNested<A> setNewGroupLike(int index,V1APIGroup item);
+  public V1APIGroupListFluent.GroupsNested<A> editGroup(int index);
   public V1APIGroupListFluent.GroupsNested<A> editFirstGroup();
   public V1APIGroupListFluent.GroupsNested<A> editLastGroup();
   public V1APIGroupListFluent.GroupsNested<A> editMatchingGroup(Predicate<V1APIGroupBuilder> predicate);

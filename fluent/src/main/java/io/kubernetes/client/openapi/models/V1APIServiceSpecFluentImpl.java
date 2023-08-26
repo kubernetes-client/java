@@ -21,20 +21,15 @@ import java.lang.Boolean;
   public V1APIServiceSpecFluentImpl() {
   }
   public V1APIServiceSpecFluentImpl(V1APIServiceSpec instance) {
-    this.withCaBundle(instance.getCaBundle());
-
-    this.withGroup(instance.getGroup());
-
-    this.withGroupPriorityMinimum(instance.getGroupPriorityMinimum());
-
-    this.withInsecureSkipTLSVerify(instance.getInsecureSkipTLSVerify());
-
-    this.withService(instance.getService());
-
-    this.withVersion(instance.getVersion());
-
-    this.withVersionPriority(instance.getVersionPriority());
-
+    if (instance != null) {
+      this.withCaBundle(instance.getCaBundle());
+      this.withGroup(instance.getGroup());
+      this.withGroupPriorityMinimum(instance.getGroupPriorityMinimum());
+      this.withInsecureSkipTLSVerify(instance.getInsecureSkipTLSVerify());
+      this.withService(instance.getService());
+      this.withVersion(instance.getVersion());
+      this.withVersionPriority(instance.getVersionPriority());
+    }
   }
   private List<Byte> caBundle;
   private String group;
@@ -44,7 +39,7 @@ import java.lang.Boolean;
   private String version;
   private Integer versionPriority;
   public A withCaBundle(byte... caBundle) {
-    if (this.caBundle != null) {this.caBundle.clear();}
+    if (this.caBundle != null) {this.caBundle.clear(); _visitables.remove("caBundle"); }
     if (caBundle != null) {for (byte item :caBundle){ this.addToCaBundle(item);}} return (A) this;
   }
   public byte[] getCaBundle() {
@@ -61,12 +56,12 @@ for (byte item : caBundle) {
 return result;
 
   }
-  public A addToCaBundle(Integer index,Byte item) {
+  public A addToCaBundle(int index,Byte item) {
     if (this.caBundle == null) {this.caBundle =  new ArrayList<Byte>();}
     this.caBundle.add(index, item);
     return (A)this;
   }
-  public A setToCaBundle(Integer index,Byte item) {
+  public A setToCaBundle(int index,Byte item) {
     if (this.caBundle == null) {this.caBundle =  new ArrayList<Byte>();}
     this.caBundle.set(index, item); return (A)this;
   }
@@ -133,19 +128,19 @@ return result;
   public Boolean hasService() {
     return this.service != null;
   }
-  public V1APIServiceSpecFluent.ServiceNested<A> withNewService() {
+  public V1APIServiceSpecFluentImpl.ServiceNested<A> withNewService() {
     return new V1APIServiceSpecFluentImpl.ServiceNestedImpl();
   }
-  public V1APIServiceSpecFluent.ServiceNested<A> withNewServiceLike(ApiregistrationV1ServiceReference item) {
+  public V1APIServiceSpecFluentImpl.ServiceNested<A> withNewServiceLike(ApiregistrationV1ServiceReference item) {
     return new V1APIServiceSpecFluentImpl.ServiceNestedImpl(item);
   }
-  public V1APIServiceSpecFluent.ServiceNested<A> editService() {
+  public V1APIServiceSpecFluentImpl.ServiceNested<A> editService() {
     return withNewServiceLike(getService());
   }
-  public V1APIServiceSpecFluent.ServiceNested<A> editOrNewService() {
+  public V1APIServiceSpecFluentImpl.ServiceNested<A> editOrNewService() {
     return withNewServiceLike(getService() != null ? getService(): new ApiregistrationV1ServiceReferenceBuilder().build());
   }
-  public V1APIServiceSpecFluent.ServiceNested<A> editOrNewServiceLike(ApiregistrationV1ServiceReference item) {
+  public V1APIServiceSpecFluentImpl.ServiceNested<A> editOrNewServiceLike(ApiregistrationV1ServiceReference item) {
     return withNewServiceLike(getService() != null ? getService(): item);
   }
   public String getVersion() {
@@ -169,14 +164,22 @@ return result;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1APIServiceSpecFluentImpl that = (V1APIServiceSpecFluentImpl) o;
-    if (caBundle != null ? !caBundle.equals(that.caBundle) :that.caBundle != null) return false;
-    if (group != null ? !group.equals(that.group) :that.group != null) return false;
-    if (groupPriorityMinimum != null ? !groupPriorityMinimum.equals(that.groupPriorityMinimum) :that.groupPriorityMinimum != null) return false;
-    if (insecureSkipTLSVerify != null ? !insecureSkipTLSVerify.equals(that.insecureSkipTLSVerify) :that.insecureSkipTLSVerify != null) return false;
-    if (service != null ? !service.equals(that.service) :that.service != null) return false;
-    if (version != null ? !version.equals(that.version) :that.version != null) return false;
-    if (versionPriority != null ? !versionPriority.equals(that.versionPriority) :that.versionPriority != null) return false;
+    if (!java.util.Objects.equals(caBundle, that.caBundle)) return false;
+
+    if (!java.util.Objects.equals(group, that.group)) return false;
+
+    if (!java.util.Objects.equals(groupPriorityMinimum, that.groupPriorityMinimum)) return false;
+
+    if (!java.util.Objects.equals(insecureSkipTLSVerify, that.insecureSkipTLSVerify)) return false;
+
+    if (!java.util.Objects.equals(service, that.service)) return false;
+
+    if (!java.util.Objects.equals(version, that.version)) return false;
+
+    if (!java.util.Objects.equals(versionPriority, that.versionPriority)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -198,7 +201,7 @@ return result;
   public A withInsecureSkipTLSVerify() {
     return withInsecureSkipTLSVerify(true);
   }
-  class ServiceNestedImpl<N> extends ApiregistrationV1ServiceReferenceFluentImpl<V1APIServiceSpecFluent.ServiceNested<N>> implements V1APIServiceSpecFluent.ServiceNested<N>,Nested<N>{
+  class ServiceNestedImpl<N> extends ApiregistrationV1ServiceReferenceFluentImpl<V1APIServiceSpecFluentImpl.ServiceNested<N>> implements V1APIServiceSpecFluentImpl.ServiceNested<N>,Nested<N>{
     ServiceNestedImpl(ApiregistrationV1ServiceReference item) {
       this.builder = new ApiregistrationV1ServiceReferenceBuilder(this, item);
     }

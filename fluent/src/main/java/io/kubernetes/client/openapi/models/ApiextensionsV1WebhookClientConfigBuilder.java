@@ -20,12 +20,11 @@ public class ApiextensionsV1WebhookClientConfigBuilder extends ApiextensionsV1We
   }
   public ApiextensionsV1WebhookClientConfigBuilder(ApiextensionsV1WebhookClientConfigFluent<?> fluent,ApiextensionsV1WebhookClientConfig instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCaBundle(instance.getCaBundle());
-
-    fluent.withService(instance.getService());
-
-    fluent.withUrl(instance.getUrl());
-
+    if (instance != null) {
+      fluent.withCaBundle(instance.getCaBundle());
+      fluent.withService(instance.getService());
+      fluent.withUrl(instance.getUrl());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public ApiextensionsV1WebhookClientConfigBuilder(ApiextensionsV1WebhookClientConfig instance) {
@@ -33,12 +32,11 @@ public class ApiextensionsV1WebhookClientConfigBuilder extends ApiextensionsV1We
   }
   public ApiextensionsV1WebhookClientConfigBuilder(ApiextensionsV1WebhookClientConfig instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCaBundle(instance.getCaBundle());
-
-    this.withService(instance.getService());
-
-    this.withUrl(instance.getUrl());
-
+    if (instance != null) {
+      this.withCaBundle(instance.getCaBundle());
+      this.withService(instance.getService());
+      this.withUrl(instance.getUrl());
+    }
     this.validationEnabled = validationEnabled; 
   }
   ApiextensionsV1WebhookClientConfigFluent<?> fluent;

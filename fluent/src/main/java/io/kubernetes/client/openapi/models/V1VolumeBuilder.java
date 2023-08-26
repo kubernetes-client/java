@@ -20,66 +20,38 @@ public class V1VolumeBuilder extends V1VolumeFluentImpl<V1VolumeBuilder> impleme
   }
   public V1VolumeBuilder(V1VolumeFluent<?> fluent,V1Volume instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
-
-    fluent.withAzureDisk(instance.getAzureDisk());
-
-    fluent.withAzureFile(instance.getAzureFile());
-
-    fluent.withCephfs(instance.getCephfs());
-
-    fluent.withCinder(instance.getCinder());
-
-    fluent.withConfigMap(instance.getConfigMap());
-
-    fluent.withCsi(instance.getCsi());
-
-    fluent.withDownwardAPI(instance.getDownwardAPI());
-
-    fluent.withEmptyDir(instance.getEmptyDir());
-
-    fluent.withEphemeral(instance.getEphemeral());
-
-    fluent.withFc(instance.getFc());
-
-    fluent.withFlexVolume(instance.getFlexVolume());
-
-    fluent.withFlocker(instance.getFlocker());
-
-    fluent.withGcePersistentDisk(instance.getGcePersistentDisk());
-
-    fluent.withGitRepo(instance.getGitRepo());
-
-    fluent.withGlusterfs(instance.getGlusterfs());
-
-    fluent.withHostPath(instance.getHostPath());
-
-    fluent.withIscsi(instance.getIscsi());
-
-    fluent.withName(instance.getName());
-
-    fluent.withNfs(instance.getNfs());
-
-    fluent.withPersistentVolumeClaim(instance.getPersistentVolumeClaim());
-
-    fluent.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
-
-    fluent.withPortworxVolume(instance.getPortworxVolume());
-
-    fluent.withProjected(instance.getProjected());
-
-    fluent.withQuobyte(instance.getQuobyte());
-
-    fluent.withRbd(instance.getRbd());
-
-    fluent.withScaleIO(instance.getScaleIO());
-
-    fluent.withSecret(instance.getSecret());
-
-    fluent.withStorageos(instance.getStorageos());
-
-    fluent.withVsphereVolume(instance.getVsphereVolume());
-
+    if (instance != null) {
+      fluent.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
+      fluent.withAzureDisk(instance.getAzureDisk());
+      fluent.withAzureFile(instance.getAzureFile());
+      fluent.withCephfs(instance.getCephfs());
+      fluent.withCinder(instance.getCinder());
+      fluent.withConfigMap(instance.getConfigMap());
+      fluent.withCsi(instance.getCsi());
+      fluent.withDownwardAPI(instance.getDownwardAPI());
+      fluent.withEmptyDir(instance.getEmptyDir());
+      fluent.withEphemeral(instance.getEphemeral());
+      fluent.withFc(instance.getFc());
+      fluent.withFlexVolume(instance.getFlexVolume());
+      fluent.withFlocker(instance.getFlocker());
+      fluent.withGcePersistentDisk(instance.getGcePersistentDisk());
+      fluent.withGitRepo(instance.getGitRepo());
+      fluent.withGlusterfs(instance.getGlusterfs());
+      fluent.withHostPath(instance.getHostPath());
+      fluent.withIscsi(instance.getIscsi());
+      fluent.withName(instance.getName());
+      fluent.withNfs(instance.getNfs());
+      fluent.withPersistentVolumeClaim(instance.getPersistentVolumeClaim());
+      fluent.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
+      fluent.withPortworxVolume(instance.getPortworxVolume());
+      fluent.withProjected(instance.getProjected());
+      fluent.withQuobyte(instance.getQuobyte());
+      fluent.withRbd(instance.getRbd());
+      fluent.withScaleIO(instance.getScaleIO());
+      fluent.withSecret(instance.getSecret());
+      fluent.withStorageos(instance.getStorageos());
+      fluent.withVsphereVolume(instance.getVsphereVolume());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeBuilder(V1Volume instance) {
@@ -87,66 +59,38 @@ public class V1VolumeBuilder extends V1VolumeFluentImpl<V1VolumeBuilder> impleme
   }
   public V1VolumeBuilder(V1Volume instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
-
-    this.withAzureDisk(instance.getAzureDisk());
-
-    this.withAzureFile(instance.getAzureFile());
-
-    this.withCephfs(instance.getCephfs());
-
-    this.withCinder(instance.getCinder());
-
-    this.withConfigMap(instance.getConfigMap());
-
-    this.withCsi(instance.getCsi());
-
-    this.withDownwardAPI(instance.getDownwardAPI());
-
-    this.withEmptyDir(instance.getEmptyDir());
-
-    this.withEphemeral(instance.getEphemeral());
-
-    this.withFc(instance.getFc());
-
-    this.withFlexVolume(instance.getFlexVolume());
-
-    this.withFlocker(instance.getFlocker());
-
-    this.withGcePersistentDisk(instance.getGcePersistentDisk());
-
-    this.withGitRepo(instance.getGitRepo());
-
-    this.withGlusterfs(instance.getGlusterfs());
-
-    this.withHostPath(instance.getHostPath());
-
-    this.withIscsi(instance.getIscsi());
-
-    this.withName(instance.getName());
-
-    this.withNfs(instance.getNfs());
-
-    this.withPersistentVolumeClaim(instance.getPersistentVolumeClaim());
-
-    this.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
-
-    this.withPortworxVolume(instance.getPortworxVolume());
-
-    this.withProjected(instance.getProjected());
-
-    this.withQuobyte(instance.getQuobyte());
-
-    this.withRbd(instance.getRbd());
-
-    this.withScaleIO(instance.getScaleIO());
-
-    this.withSecret(instance.getSecret());
-
-    this.withStorageos(instance.getStorageos());
-
-    this.withVsphereVolume(instance.getVsphereVolume());
-
+    if (instance != null) {
+      this.withAwsElasticBlockStore(instance.getAwsElasticBlockStore());
+      this.withAzureDisk(instance.getAzureDisk());
+      this.withAzureFile(instance.getAzureFile());
+      this.withCephfs(instance.getCephfs());
+      this.withCinder(instance.getCinder());
+      this.withConfigMap(instance.getConfigMap());
+      this.withCsi(instance.getCsi());
+      this.withDownwardAPI(instance.getDownwardAPI());
+      this.withEmptyDir(instance.getEmptyDir());
+      this.withEphemeral(instance.getEphemeral());
+      this.withFc(instance.getFc());
+      this.withFlexVolume(instance.getFlexVolume());
+      this.withFlocker(instance.getFlocker());
+      this.withGcePersistentDisk(instance.getGcePersistentDisk());
+      this.withGitRepo(instance.getGitRepo());
+      this.withGlusterfs(instance.getGlusterfs());
+      this.withHostPath(instance.getHostPath());
+      this.withIscsi(instance.getIscsi());
+      this.withName(instance.getName());
+      this.withNfs(instance.getNfs());
+      this.withPersistentVolumeClaim(instance.getPersistentVolumeClaim());
+      this.withPhotonPersistentDisk(instance.getPhotonPersistentDisk());
+      this.withPortworxVolume(instance.getPortworxVolume());
+      this.withProjected(instance.getProjected());
+      this.withQuobyte(instance.getQuobyte());
+      this.withRbd(instance.getRbd());
+      this.withScaleIO(instance.getScaleIO());
+      this.withSecret(instance.getSecret());
+      this.withStorageos(instance.getStorageos());
+      this.withVsphereVolume(instance.getVsphereVolume());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeFluent<?> fluent;

@@ -20,12 +20,11 @@ public class V1APIGroupListBuilder extends V1APIGroupListFluentImpl<V1APIGroupLi
   }
   public V1APIGroupListBuilder(V1APIGroupListFluent<?> fluent,V1APIGroupList instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withGroups(instance.getGroups());
-
-    fluent.withKind(instance.getKind());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withGroups(instance.getGroups());
+      fluent.withKind(instance.getKind());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1APIGroupListBuilder(V1APIGroupList instance) {
@@ -33,12 +32,11 @@ public class V1APIGroupListBuilder extends V1APIGroupListFluentImpl<V1APIGroupLi
   }
   public V1APIGroupListBuilder(V1APIGroupList instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withGroups(instance.getGroups());
-
-    this.withKind(instance.getKind());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withGroups(instance.getGroups());
+      this.withKind(instance.getKind());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1APIGroupListFluent<?> fluent;

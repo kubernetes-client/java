@@ -20,18 +20,14 @@ public class V1PersistentVolumeClaimConditionBuilder extends V1PersistentVolumeC
   }
   public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimConditionFluent<?> fluent,V1PersistentVolumeClaimCondition instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLastProbeTime(instance.getLastProbeTime());
-
-    fluent.withLastTransitionTime(instance.getLastTransitionTime());
-
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withReason(instance.getReason());
-
-    fluent.withStatus(instance.getStatus());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withLastProbeTime(instance.getLastProbeTime());
+      fluent.withLastTransitionTime(instance.getLastTransitionTime());
+      fluent.withMessage(instance.getMessage());
+      fluent.withReason(instance.getReason());
+      fluent.withStatus(instance.getStatus());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimCondition instance) {
@@ -39,18 +35,14 @@ public class V1PersistentVolumeClaimConditionBuilder extends V1PersistentVolumeC
   }
   public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimCondition instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLastProbeTime(instance.getLastProbeTime());
-
-    this.withLastTransitionTime(instance.getLastTransitionTime());
-
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
-    this.withStatus(instance.getStatus());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withLastProbeTime(instance.getLastProbeTime());
+      this.withLastTransitionTime(instance.getLastTransitionTime());
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+      this.withStatus(instance.getStatus());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PersistentVolumeClaimConditionFluent<?> fluent;

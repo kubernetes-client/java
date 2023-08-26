@@ -20,16 +20,13 @@ public class V1PolicyRuleBuilder extends V1PolicyRuleFluentImpl<V1PolicyRuleBuil
   }
   public V1PolicyRuleBuilder(V1PolicyRuleFluent<?> fluent,V1PolicyRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiGroups(instance.getApiGroups());
-
-    fluent.withNonResourceURLs(instance.getNonResourceURLs());
-
-    fluent.withResourceNames(instance.getResourceNames());
-
-    fluent.withResources(instance.getResources());
-
-    fluent.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      fluent.withApiGroups(instance.getApiGroups());
+      fluent.withNonResourceURLs(instance.getNonResourceURLs());
+      fluent.withResourceNames(instance.getResourceNames());
+      fluent.withResources(instance.getResources());
+      fluent.withVerbs(instance.getVerbs());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PolicyRuleBuilder(V1PolicyRule instance) {
@@ -37,16 +34,13 @@ public class V1PolicyRuleBuilder extends V1PolicyRuleFluentImpl<V1PolicyRuleBuil
   }
   public V1PolicyRuleBuilder(V1PolicyRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiGroups(instance.getApiGroups());
-
-    this.withNonResourceURLs(instance.getNonResourceURLs());
-
-    this.withResourceNames(instance.getResourceNames());
-
-    this.withResources(instance.getResources());
-
-    this.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      this.withApiGroups(instance.getApiGroups());
+      this.withNonResourceURLs(instance.getNonResourceURLs());
+      this.withResourceNames(instance.getResourceNames());
+      this.withResources(instance.getResources());
+      this.withVerbs(instance.getVerbs());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PolicyRuleFluent<?> fluent;

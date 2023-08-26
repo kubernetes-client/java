@@ -20,14 +20,12 @@ public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluentImpl<V1SELinu
   }
   public V1SELinuxOptionsBuilder(V1SELinuxOptionsFluent<?> fluent,V1SELinuxOptions instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLevel(instance.getLevel());
-
-    fluent.withRole(instance.getRole());
-
-    fluent.withType(instance.getType());
-
-    fluent.withUser(instance.getUser());
-
+    if (instance != null) {
+      fluent.withLevel(instance.getLevel());
+      fluent.withRole(instance.getRole());
+      fluent.withType(instance.getType());
+      fluent.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SELinuxOptionsBuilder(V1SELinuxOptions instance) {
@@ -35,14 +33,12 @@ public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluentImpl<V1SELinu
   }
   public V1SELinuxOptionsBuilder(V1SELinuxOptions instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLevel(instance.getLevel());
-
-    this.withRole(instance.getRole());
-
-    this.withType(instance.getType());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withLevel(instance.getLevel());
+      this.withRole(instance.getRole());
+      this.withType(instance.getType());
+      this.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SELinuxOptionsFluent<?> fluent;

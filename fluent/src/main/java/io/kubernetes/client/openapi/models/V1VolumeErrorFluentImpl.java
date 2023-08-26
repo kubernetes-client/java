@@ -15,10 +15,10 @@ import java.lang.Boolean;
   public V1VolumeErrorFluentImpl() {
   }
   public V1VolumeErrorFluentImpl(V1VolumeError instance) {
-    this.withMessage(instance.getMessage());
-
-    this.withTime(instance.getTime());
-
+    if (instance != null) {
+      this.withMessage(instance.getMessage());
+      this.withTime(instance.getTime());
+    }
   }
   private String message;
   private OffsetDateTime time;
@@ -43,9 +43,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1VolumeErrorFluentImpl that = (V1VolumeErrorFluentImpl) o;
-    if (message != null ? !message.equals(that.message) :that.message != null) return false;
-    if (time != null ? !time.equals(that.time) :that.time != null) return false;
+    if (!java.util.Objects.equals(message, that.message)) return false;
+
+    if (!java.util.Objects.equals(time, that.time)) return false;
+
     return true;
   }
   public int hashCode() {

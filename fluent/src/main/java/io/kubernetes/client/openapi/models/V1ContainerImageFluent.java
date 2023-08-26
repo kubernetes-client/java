@@ -1,6 +1,6 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Integer;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import java.lang.Long;
 import java.util.ArrayList;
@@ -14,14 +14,14 @@ import java.util.function.Predicate;
   * Generated
   */
 public interface V1ContainerImageFluent<A extends V1ContainerImageFluent<A>> extends Fluent<A>{
-  public A addToNames(Integer index,String item);
-  public A setToNames(Integer index,String item);
+  public A addToNames(int index,String item);
+  public A setToNames(int index,String item);
   public A addToNames(java.lang.String... items);
   public A addAllToNames(Collection<String> items);
   public A removeFromNames(java.lang.String... items);
   public A removeAllFromNames(Collection<String> items);
   public List<String> getNames();
-  public String getName(Integer index);
+  public String getName(int index);
   public String getFirstName();
   public String getLastName();
   public String getMatchingName(Predicate<String> predicate);

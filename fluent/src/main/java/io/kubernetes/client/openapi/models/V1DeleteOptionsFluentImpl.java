@@ -5,7 +5,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Long;
@@ -22,20 +21,15 @@ import java.lang.Boolean;
   public V1DeleteOptionsFluentImpl() {
   }
   public V1DeleteOptionsFluentImpl(V1DeleteOptions instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withDryRun(instance.getDryRun());
-
-    this.withGracePeriodSeconds(instance.getGracePeriodSeconds());
-
-    this.withKind(instance.getKind());
-
-    this.withOrphanDependents(instance.getOrphanDependents());
-
-    this.withPreconditions(instance.getPreconditions());
-
-    this.withPropagationPolicy(instance.getPropagationPolicy());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withDryRun(instance.getDryRun());
+      this.withGracePeriodSeconds(instance.getGracePeriodSeconds());
+      this.withKind(instance.getKind());
+      this.withOrphanDependents(instance.getOrphanDependents());
+      this.withPreconditions(instance.getPreconditions());
+      this.withPropagationPolicy(instance.getPropagationPolicy());
+    }
   }
   private String apiVersion;
   private List<String> dryRun;
@@ -53,12 +47,12 @@ import java.lang.Boolean;
   public Boolean hasApiVersion() {
     return this.apiVersion != null;
   }
-  public A addToDryRun(Integer index,String item) {
+  public A addToDryRun(int index,String item) {
     if (this.dryRun == null) {this.dryRun = new ArrayList<String>();}
     this.dryRun.add(index, item);
     return (A)this;
   }
-  public A setToDryRun(Integer index,String item) {
+  public A setToDryRun(int index,String item) {
     if (this.dryRun == null) {this.dryRun = new ArrayList<String>();}
     this.dryRun.set(index, item); return (A)this;
   }
@@ -79,7 +73,7 @@ import java.lang.Boolean;
   public List<String> getDryRun() {
     return this.dryRun;
   }
-  public String getDryRun(Integer index) {
+  public String getDryRun(int index) {
     return this.dryRun.get(index);
   }
   public String getFirstDryRun() {
@@ -98,7 +92,7 @@ import java.lang.Boolean;
     if (dryRun != null) {this.dryRun = new ArrayList(); for (String item : dryRun){this.addToDryRun(item);}} else { this.dryRun = null;} return (A) this;
   }
   public A withDryRun(java.lang.String... dryRun) {
-    if (this.dryRun != null) {this.dryRun.clear();}
+    if (this.dryRun != null) {this.dryRun.clear(); _visitables.remove("dryRun"); }
     if (dryRun != null) {for (String item :dryRun){ this.addToDryRun(item);}} return (A) this;
   }
   public Boolean hasDryRun() {
@@ -150,19 +144,19 @@ import java.lang.Boolean;
   public Boolean hasPreconditions() {
     return this.preconditions != null;
   }
-  public V1DeleteOptionsFluent.PreconditionsNested<A> withNewPreconditions() {
+  public V1DeleteOptionsFluentImpl.PreconditionsNested<A> withNewPreconditions() {
     return new V1DeleteOptionsFluentImpl.PreconditionsNestedImpl();
   }
-  public V1DeleteOptionsFluent.PreconditionsNested<A> withNewPreconditionsLike(V1Preconditions item) {
+  public V1DeleteOptionsFluentImpl.PreconditionsNested<A> withNewPreconditionsLike(V1Preconditions item) {
     return new V1DeleteOptionsFluentImpl.PreconditionsNestedImpl(item);
   }
-  public V1DeleteOptionsFluent.PreconditionsNested<A> editPreconditions() {
+  public V1DeleteOptionsFluentImpl.PreconditionsNested<A> editPreconditions() {
     return withNewPreconditionsLike(getPreconditions());
   }
-  public V1DeleteOptionsFluent.PreconditionsNested<A> editOrNewPreconditions() {
+  public V1DeleteOptionsFluentImpl.PreconditionsNested<A> editOrNewPreconditions() {
     return withNewPreconditionsLike(getPreconditions() != null ? getPreconditions(): new V1PreconditionsBuilder().build());
   }
-  public V1DeleteOptionsFluent.PreconditionsNested<A> editOrNewPreconditionsLike(V1Preconditions item) {
+  public V1DeleteOptionsFluentImpl.PreconditionsNested<A> editOrNewPreconditionsLike(V1Preconditions item) {
     return withNewPreconditionsLike(getPreconditions() != null ? getPreconditions(): item);
   }
   public String getPropagationPolicy() {
@@ -177,14 +171,22 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1DeleteOptionsFluentImpl that = (V1DeleteOptionsFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (dryRun != null ? !dryRun.equals(that.dryRun) :that.dryRun != null) return false;
-    if (gracePeriodSeconds != null ? !gracePeriodSeconds.equals(that.gracePeriodSeconds) :that.gracePeriodSeconds != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (orphanDependents != null ? !orphanDependents.equals(that.orphanDependents) :that.orphanDependents != null) return false;
-    if (preconditions != null ? !preconditions.equals(that.preconditions) :that.preconditions != null) return false;
-    if (propagationPolicy != null ? !propagationPolicy.equals(that.propagationPolicy) :that.propagationPolicy != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(dryRun, that.dryRun)) return false;
+
+    if (!java.util.Objects.equals(gracePeriodSeconds, that.gracePeriodSeconds)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(orphanDependents, that.orphanDependents)) return false;
+
+    if (!java.util.Objects.equals(preconditions, that.preconditions)) return false;
+
+    if (!java.util.Objects.equals(propagationPolicy, that.propagationPolicy)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -206,7 +208,7 @@ import java.lang.Boolean;
   public A withOrphanDependents() {
     return withOrphanDependents(true);
   }
-  class PreconditionsNestedImpl<N> extends V1PreconditionsFluentImpl<V1DeleteOptionsFluent.PreconditionsNested<N>> implements V1DeleteOptionsFluent.PreconditionsNested<N>,Nested<N>{
+  class PreconditionsNestedImpl<N> extends V1PreconditionsFluentImpl<V1DeleteOptionsFluentImpl.PreconditionsNested<N>> implements V1DeleteOptionsFluentImpl.PreconditionsNested<N>,Nested<N>{
     PreconditionsNestedImpl(V1Preconditions item) {
       this.builder = new V1PreconditionsBuilder(this, item);
     }

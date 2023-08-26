@@ -24,24 +24,17 @@ import java.lang.Object;
   public V1JobStatusFluentImpl() {
   }
   public V1JobStatusFluentImpl(V1JobStatus instance) {
-    this.withActive(instance.getActive());
-
-    this.withCompletedIndexes(instance.getCompletedIndexes());
-
-    this.withCompletionTime(instance.getCompletionTime());
-
-    this.withConditions(instance.getConditions());
-
-    this.withFailed(instance.getFailed());
-
-    this.withReady(instance.getReady());
-
-    this.withStartTime(instance.getStartTime());
-
-    this.withSucceeded(instance.getSucceeded());
-
-    this.withUncountedTerminatedPods(instance.getUncountedTerminatedPods());
-
+    if (instance != null) {
+      this.withActive(instance.getActive());
+      this.withCompletedIndexes(instance.getCompletedIndexes());
+      this.withCompletionTime(instance.getCompletionTime());
+      this.withConditions(instance.getConditions());
+      this.withFailed(instance.getFailed());
+      this.withReady(instance.getReady());
+      this.withStartTime(instance.getStartTime());
+      this.withSucceeded(instance.getSucceeded());
+      this.withUncountedTerminatedPods(instance.getUncountedTerminatedPods());
+    }
   }
   private Integer active;
   private String completedIndexes;
@@ -79,16 +72,17 @@ import java.lang.Object;
   public Boolean hasCompletionTime() {
     return this.completionTime != null;
   }
-  public A addToConditions(Integer index,V1JobCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1JobConditionBuilder>();}
-    V1JobConditionBuilder builder = new V1JobConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
-  }
-  public A setToConditions(Integer index,V1JobCondition item) {
+  public A addToConditions(int index,V1JobCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1JobConditionBuilder>();}
     V1JobConditionBuilder builder = new V1JobConditionBuilder(item);
-    if (index < 0 || index >= _visitables.get("conditions").size()) { _visitables.get("conditions").add(builder); } else { _visitables.get("conditions").set(index, builder);}
-    if (index < 0 || index >= conditions.size()) { conditions.add(builder); } else { conditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToConditions(int index,V1JobCondition item) {
+    if (this.conditions == null) {this.conditions = new ArrayList<V1JobConditionBuilder>();}
+    V1JobConditionBuilder builder = new V1JobConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    return (A)this;
   }
   public A addToConditions(io.kubernetes.client.openapi.models.V1JobCondition... items) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1JobConditionBuilder>();}
@@ -129,7 +123,7 @@ import java.lang.Object;
   public List<V1JobCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
-  public V1JobCondition buildCondition(Integer index) {
+  public V1JobCondition buildCondition(int index) {
     return this.conditions.get(index).build();
   }
   public V1JobCondition buildFirstCondition() {
@@ -145,39 +139,39 @@ import java.lang.Object;
     for (V1JobConditionBuilder item: conditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withConditions(List<V1JobCondition> conditions) {
-    if (this.conditions != null) { _visitables.get("conditions").removeAll(this.conditions);}
+    if (this.conditions != null) { _visitables.get("conditions").clear();}
     if (conditions != null) {this.conditions = new ArrayList(); for (V1JobCondition item : conditions){this.addToConditions(item);}} else { this.conditions = null;} return (A) this;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V1JobCondition... conditions) {
-    if (this.conditions != null) {this.conditions.clear();}
+    if (this.conditions != null) {this.conditions.clear(); _visitables.remove("conditions"); }
     if (conditions != null) {for (V1JobCondition item :conditions){ this.addToConditions(item);}} return (A) this;
   }
   public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
-  public V1JobStatusFluent.ConditionsNested<A> addNewCondition() {
+  public V1JobStatusFluentImpl.ConditionsNested<A> addNewCondition() {
     return new V1JobStatusFluentImpl.ConditionsNestedImpl();
   }
-  public V1JobStatusFluent.ConditionsNested<A> addNewConditionLike(V1JobCondition item) {
+  public V1JobStatusFluentImpl.ConditionsNested<A> addNewConditionLike(V1JobCondition item) {
     return new V1JobStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
-  public V1JobStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1JobCondition item) {
+  public V1JobStatusFluentImpl.ConditionsNested<A> setNewConditionLike(int index,V1JobCondition item) {
     return new V1JobStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
-  public V1JobStatusFluent.ConditionsNested<A> editCondition(Integer index) {
+  public V1JobStatusFluentImpl.ConditionsNested<A> editCondition(int index) {
     if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1JobStatusFluent.ConditionsNested<A> editFirstCondition() {
+  public V1JobStatusFluentImpl.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
-  public V1JobStatusFluent.ConditionsNested<A> editLastCondition() {
+  public V1JobStatusFluentImpl.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1JobStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1JobConditionBuilder> predicate) {
+  public V1JobStatusFluentImpl.ConditionsNested<A> editMatchingCondition(Predicate<V1JobConditionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<conditions.size();i++) { 
     if (predicate.test(conditions.get(i))) {index = i; break;}
@@ -240,34 +234,44 @@ import java.lang.Object;
   public Boolean hasUncountedTerminatedPods() {
     return this.uncountedTerminatedPods != null;
   }
-  public V1JobStatusFluent.UncountedTerminatedPodsNested<A> withNewUncountedTerminatedPods() {
+  public V1JobStatusFluentImpl.UncountedTerminatedPodsNested<A> withNewUncountedTerminatedPods() {
     return new V1JobStatusFluentImpl.UncountedTerminatedPodsNestedImpl();
   }
-  public V1JobStatusFluent.UncountedTerminatedPodsNested<A> withNewUncountedTerminatedPodsLike(V1UncountedTerminatedPods item) {
+  public V1JobStatusFluentImpl.UncountedTerminatedPodsNested<A> withNewUncountedTerminatedPodsLike(V1UncountedTerminatedPods item) {
     return new V1JobStatusFluentImpl.UncountedTerminatedPodsNestedImpl(item);
   }
-  public V1JobStatusFluent.UncountedTerminatedPodsNested<A> editUncountedTerminatedPods() {
+  public V1JobStatusFluentImpl.UncountedTerminatedPodsNested<A> editUncountedTerminatedPods() {
     return withNewUncountedTerminatedPodsLike(getUncountedTerminatedPods());
   }
-  public V1JobStatusFluent.UncountedTerminatedPodsNested<A> editOrNewUncountedTerminatedPods() {
+  public V1JobStatusFluentImpl.UncountedTerminatedPodsNested<A> editOrNewUncountedTerminatedPods() {
     return withNewUncountedTerminatedPodsLike(getUncountedTerminatedPods() != null ? getUncountedTerminatedPods(): new V1UncountedTerminatedPodsBuilder().build());
   }
-  public V1JobStatusFluent.UncountedTerminatedPodsNested<A> editOrNewUncountedTerminatedPodsLike(V1UncountedTerminatedPods item) {
+  public V1JobStatusFluentImpl.UncountedTerminatedPodsNested<A> editOrNewUncountedTerminatedPodsLike(V1UncountedTerminatedPods item) {
     return withNewUncountedTerminatedPodsLike(getUncountedTerminatedPods() != null ? getUncountedTerminatedPods(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1JobStatusFluentImpl that = (V1JobStatusFluentImpl) o;
-    if (active != null ? !active.equals(that.active) :that.active != null) return false;
-    if (completedIndexes != null ? !completedIndexes.equals(that.completedIndexes) :that.completedIndexes != null) return false;
-    if (completionTime != null ? !completionTime.equals(that.completionTime) :that.completionTime != null) return false;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
-    if (failed != null ? !failed.equals(that.failed) :that.failed != null) return false;
-    if (ready != null ? !ready.equals(that.ready) :that.ready != null) return false;
-    if (startTime != null ? !startTime.equals(that.startTime) :that.startTime != null) return false;
-    if (succeeded != null ? !succeeded.equals(that.succeeded) :that.succeeded != null) return false;
-    if (uncountedTerminatedPods != null ? !uncountedTerminatedPods.equals(that.uncountedTerminatedPods) :that.uncountedTerminatedPods != null) return false;
+    if (!java.util.Objects.equals(active, that.active)) return false;
+
+    if (!java.util.Objects.equals(completedIndexes, that.completedIndexes)) return false;
+
+    if (!java.util.Objects.equals(completionTime, that.completionTime)) return false;
+
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
+    if (!java.util.Objects.equals(failed, that.failed)) return false;
+
+    if (!java.util.Objects.equals(ready, that.ready)) return false;
+
+    if (!java.util.Objects.equals(startTime, that.startTime)) return false;
+
+    if (!java.util.Objects.equals(succeeded, that.succeeded)) return false;
+
+    if (!java.util.Objects.equals(uncountedTerminatedPods, that.uncountedTerminatedPods)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -279,7 +283,7 @@ import java.lang.Object;
     if (active != null) { sb.append("active:"); sb.append(active + ","); }
     if (completedIndexes != null) { sb.append("completedIndexes:"); sb.append(completedIndexes + ","); }
     if (completionTime != null) { sb.append("completionTime:"); sb.append(completionTime + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
+    if (conditions != null) { sb.append("conditions:"); sb.append(conditions + ","); }
     if (failed != null) { sb.append("failed:"); sb.append(failed + ","); }
     if (ready != null) { sb.append("ready:"); sb.append(ready + ","); }
     if (startTime != null) { sb.append("startTime:"); sb.append(startTime + ","); }
@@ -288,8 +292,8 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class ConditionsNestedImpl<N> extends V1JobConditionFluentImpl<V1JobStatusFluent.ConditionsNested<N>> implements V1JobStatusFluent.ConditionsNested<N>,Nested<N>{
-    ConditionsNestedImpl(Integer index,V1JobCondition item) {
+  class ConditionsNestedImpl<N> extends V1JobConditionFluentImpl<V1JobStatusFluentImpl.ConditionsNested<N>> implements V1JobStatusFluentImpl.ConditionsNested<N>,Nested<N>{
+    ConditionsNestedImpl(int index,V1JobCondition item) {
       this.index = index;
       this.builder = new V1JobConditionBuilder(this, item);
     }
@@ -298,7 +302,7 @@ import java.lang.Object;
       this.builder = new V1JobConditionBuilder(this);
     }
     V1JobConditionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1JobStatusFluentImpl.this.setToConditions(index,builder.build());
     }
@@ -307,7 +311,7 @@ import java.lang.Object;
     }
     
   }
-  class UncountedTerminatedPodsNestedImpl<N> extends V1UncountedTerminatedPodsFluentImpl<V1JobStatusFluent.UncountedTerminatedPodsNested<N>> implements V1JobStatusFluent.UncountedTerminatedPodsNested<N>,Nested<N>{
+  class UncountedTerminatedPodsNestedImpl<N> extends V1UncountedTerminatedPodsFluentImpl<V1JobStatusFluentImpl.UncountedTerminatedPodsNested<N>> implements V1JobStatusFluentImpl.UncountedTerminatedPodsNested<N>,Nested<N>{
     UncountedTerminatedPodsNestedImpl(V1UncountedTerminatedPods item) {
       this.builder = new V1UncountedTerminatedPodsBuilder(this, item);
     }

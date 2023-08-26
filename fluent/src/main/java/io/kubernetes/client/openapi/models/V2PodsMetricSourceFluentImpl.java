@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V2PodsMetricSourceFluentImpl() {
   }
   public V2PodsMetricSourceFluentImpl(V2PodsMetricSource instance) {
-    this.withMetric(instance.getMetric());
-
-    this.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      this.withMetric(instance.getMetric());
+      this.withTarget(instance.getTarget());
+    }
   }
   private V2MetricIdentifierBuilder metric;
   private V2MetricTargetBuilder target;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasMetric() {
     return this.metric != null;
   }
-  public V2PodsMetricSourceFluent.MetricNested<A> withNewMetric() {
+  public V2PodsMetricSourceFluentImpl.MetricNested<A> withNewMetric() {
     return new V2PodsMetricSourceFluentImpl.MetricNestedImpl();
   }
-  public V2PodsMetricSourceFluent.MetricNested<A> withNewMetricLike(V2MetricIdentifier item) {
+  public V2PodsMetricSourceFluentImpl.MetricNested<A> withNewMetricLike(V2MetricIdentifier item) {
     return new V2PodsMetricSourceFluentImpl.MetricNestedImpl(item);
   }
-  public V2PodsMetricSourceFluent.MetricNested<A> editMetric() {
+  public V2PodsMetricSourceFluentImpl.MetricNested<A> editMetric() {
     return withNewMetricLike(getMetric());
   }
-  public V2PodsMetricSourceFluent.MetricNested<A> editOrNewMetric() {
+  public V2PodsMetricSourceFluentImpl.MetricNested<A> editOrNewMetric() {
     return withNewMetricLike(getMetric() != null ? getMetric(): new V2MetricIdentifierBuilder().build());
   }
-  public V2PodsMetricSourceFluent.MetricNested<A> editOrNewMetricLike(V2MetricIdentifier item) {
+  public V2PodsMetricSourceFluentImpl.MetricNested<A> editOrNewMetricLike(V2MetricIdentifier item) {
     return withNewMetricLike(getMetric() != null ? getMetric(): item);
   }
   
@@ -76,27 +76,30 @@ import java.lang.Boolean;
   public Boolean hasTarget() {
     return this.target != null;
   }
-  public V2PodsMetricSourceFluent.TargetNested<A> withNewTarget() {
+  public V2PodsMetricSourceFluentImpl.TargetNested<A> withNewTarget() {
     return new V2PodsMetricSourceFluentImpl.TargetNestedImpl();
   }
-  public V2PodsMetricSourceFluent.TargetNested<A> withNewTargetLike(V2MetricTarget item) {
+  public V2PodsMetricSourceFluentImpl.TargetNested<A> withNewTargetLike(V2MetricTarget item) {
     return new V2PodsMetricSourceFluentImpl.TargetNestedImpl(item);
   }
-  public V2PodsMetricSourceFluent.TargetNested<A> editTarget() {
+  public V2PodsMetricSourceFluentImpl.TargetNested<A> editTarget() {
     return withNewTargetLike(getTarget());
   }
-  public V2PodsMetricSourceFluent.TargetNested<A> editOrNewTarget() {
+  public V2PodsMetricSourceFluentImpl.TargetNested<A> editOrNewTarget() {
     return withNewTargetLike(getTarget() != null ? getTarget(): new V2MetricTargetBuilder().build());
   }
-  public V2PodsMetricSourceFluent.TargetNested<A> editOrNewTargetLike(V2MetricTarget item) {
+  public V2PodsMetricSourceFluentImpl.TargetNested<A> editOrNewTargetLike(V2MetricTarget item) {
     return withNewTargetLike(getTarget() != null ? getTarget(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2PodsMetricSourceFluentImpl that = (V2PodsMetricSourceFluentImpl) o;
-    if (metric != null ? !metric.equals(that.metric) :that.metric != null) return false;
-    if (target != null ? !target.equals(that.target) :that.target != null) return false;
+    if (!java.util.Objects.equals(metric, that.metric)) return false;
+
+    if (!java.util.Objects.equals(target, that.target)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -110,7 +113,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class MetricNestedImpl<N> extends V2MetricIdentifierFluentImpl<V2PodsMetricSourceFluent.MetricNested<N>> implements V2PodsMetricSourceFluent.MetricNested<N>,Nested<N>{
+  class MetricNestedImpl<N> extends V2MetricIdentifierFluentImpl<V2PodsMetricSourceFluentImpl.MetricNested<N>> implements V2PodsMetricSourceFluentImpl.MetricNested<N>,Nested<N>{
     MetricNestedImpl(V2MetricIdentifier item) {
       this.builder = new V2MetricIdentifierBuilder(this, item);
     }
@@ -126,7 +129,7 @@ import java.lang.Boolean;
     }
     
   }
-  class TargetNestedImpl<N> extends V2MetricTargetFluentImpl<V2PodsMetricSourceFluent.TargetNested<N>> implements V2PodsMetricSourceFluent.TargetNested<N>,Nested<N>{
+  class TargetNestedImpl<N> extends V2MetricTargetFluentImpl<V2PodsMetricSourceFluentImpl.TargetNested<N>> implements V2PodsMetricSourceFluentImpl.TargetNested<N>,Nested<N>{
     TargetNestedImpl(V2MetricTarget item) {
       this.builder = new V2MetricTargetBuilder(this, item);
     }

@@ -20,14 +20,12 @@ public class V1beta2FlowSchemaSpecBuilder extends V1beta2FlowSchemaSpecFluentImp
   }
   public V1beta2FlowSchemaSpecBuilder(V1beta2FlowSchemaSpecFluent<?> fluent,V1beta2FlowSchemaSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDistinguisherMethod(instance.getDistinguisherMethod());
-
-    fluent.withMatchingPrecedence(instance.getMatchingPrecedence());
-
-    fluent.withPriorityLevelConfiguration(instance.getPriorityLevelConfiguration());
-
-    fluent.withRules(instance.getRules());
-
+    if (instance != null) {
+      fluent.withDistinguisherMethod(instance.getDistinguisherMethod());
+      fluent.withMatchingPrecedence(instance.getMatchingPrecedence());
+      fluent.withPriorityLevelConfiguration(instance.getPriorityLevelConfiguration());
+      fluent.withRules(instance.getRules());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2FlowSchemaSpecBuilder(V1beta2FlowSchemaSpec instance) {
@@ -35,14 +33,12 @@ public class V1beta2FlowSchemaSpecBuilder extends V1beta2FlowSchemaSpecFluentImp
   }
   public V1beta2FlowSchemaSpecBuilder(V1beta2FlowSchemaSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDistinguisherMethod(instance.getDistinguisherMethod());
-
-    this.withMatchingPrecedence(instance.getMatchingPrecedence());
-
-    this.withPriorityLevelConfiguration(instance.getPriorityLevelConfiguration());
-
-    this.withRules(instance.getRules());
-
+    if (instance != null) {
+      this.withDistinguisherMethod(instance.getDistinguisherMethod());
+      this.withMatchingPrecedence(instance.getMatchingPrecedence());
+      this.withPriorityLevelConfiguration(instance.getPriorityLevelConfiguration());
+      this.withRules(instance.getRules());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2FlowSchemaSpecFluent<?> fluent;

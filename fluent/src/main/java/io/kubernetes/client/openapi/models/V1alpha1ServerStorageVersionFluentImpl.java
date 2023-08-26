@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,12 +18,11 @@ import java.lang.Boolean;
   public V1alpha1ServerStorageVersionFluentImpl() {
   }
   public V1alpha1ServerStorageVersionFluentImpl(V1alpha1ServerStorageVersion instance) {
-    this.withApiServerID(instance.getApiServerID());
-
-    this.withDecodableVersions(instance.getDecodableVersions());
-
-    this.withEncodingVersion(instance.getEncodingVersion());
-
+    if (instance != null) {
+      this.withApiServerID(instance.getApiServerID());
+      this.withDecodableVersions(instance.getDecodableVersions());
+      this.withEncodingVersion(instance.getEncodingVersion());
+    }
   }
   private String apiServerID;
   private List<String> decodableVersions;
@@ -38,12 +36,12 @@ import java.lang.Boolean;
   public Boolean hasApiServerID() {
     return this.apiServerID != null;
   }
-  public A addToDecodableVersions(Integer index,String item) {
+  public A addToDecodableVersions(int index,String item) {
     if (this.decodableVersions == null) {this.decodableVersions = new ArrayList<String>();}
     this.decodableVersions.add(index, item);
     return (A)this;
   }
-  public A setToDecodableVersions(Integer index,String item) {
+  public A setToDecodableVersions(int index,String item) {
     if (this.decodableVersions == null) {this.decodableVersions = new ArrayList<String>();}
     this.decodableVersions.set(index, item); return (A)this;
   }
@@ -64,7 +62,7 @@ import java.lang.Boolean;
   public List<String> getDecodableVersions() {
     return this.decodableVersions;
   }
-  public String getDecodableVersion(Integer index) {
+  public String getDecodableVersion(int index) {
     return this.decodableVersions.get(index);
   }
   public String getFirstDecodableVersion() {
@@ -83,7 +81,7 @@ import java.lang.Boolean;
     if (decodableVersions != null) {this.decodableVersions = new ArrayList(); for (String item : decodableVersions){this.addToDecodableVersions(item);}} else { this.decodableVersions = null;} return (A) this;
   }
   public A withDecodableVersions(java.lang.String... decodableVersions) {
-    if (this.decodableVersions != null) {this.decodableVersions.clear();}
+    if (this.decodableVersions != null) {this.decodableVersions.clear(); _visitables.remove("decodableVersions"); }
     if (decodableVersions != null) {for (String item :decodableVersions){ this.addToDecodableVersions(item);}} return (A) this;
   }
   public Boolean hasDecodableVersions() {
@@ -101,10 +99,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1alpha1ServerStorageVersionFluentImpl that = (V1alpha1ServerStorageVersionFluentImpl) o;
-    if (apiServerID != null ? !apiServerID.equals(that.apiServerID) :that.apiServerID != null) return false;
-    if (decodableVersions != null ? !decodableVersions.equals(that.decodableVersions) :that.decodableVersions != null) return false;
-    if (encodingVersion != null ? !encodingVersion.equals(that.encodingVersion) :that.encodingVersion != null) return false;
+    if (!java.util.Objects.equals(apiServerID, that.apiServerID)) return false;
+
+    if (!java.util.Objects.equals(decodableVersions, that.decodableVersions)) return false;
+
+    if (!java.util.Objects.equals(encodingVersion, that.encodingVersion)) return false;
+
     return true;
   }
   public int hashCode() {

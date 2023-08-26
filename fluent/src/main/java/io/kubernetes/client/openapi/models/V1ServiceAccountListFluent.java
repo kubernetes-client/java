@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1ServiceAccountListFluent<A extends V1ServiceAccountListFluent
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1ServiceAccount item);
-  public A setToItems(Integer index,V1ServiceAccount item);
+  public A addToItems(int index,V1ServiceAccount item);
+  public A setToItems(int index,V1ServiceAccount item);
   public A addToItems(io.kubernetes.client.openapi.models.V1ServiceAccount... items);
   public A addAllToItems(Collection<V1ServiceAccount> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1ServiceAccount... items);
@@ -35,7 +35,7 @@ public interface V1ServiceAccountListFluent<A extends V1ServiceAccountListFluent
   @Deprecated
   public List<V1ServiceAccount> getItems();
   public List<V1ServiceAccount> buildItems();
-  public V1ServiceAccount buildItem(Integer index);
+  public V1ServiceAccount buildItem(int index);
   public V1ServiceAccount buildFirstItem();
   public V1ServiceAccount buildLastItem();
   public V1ServiceAccount buildMatchingItem(Predicate<V1ServiceAccountBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1ServiceAccountListFluent<A extends V1ServiceAccountListFluent
   public Boolean hasItems();
   public V1ServiceAccountListFluent.ItemsNested<A> addNewItem();
   public V1ServiceAccountListFluent.ItemsNested<A> addNewItemLike(V1ServiceAccount item);
-  public V1ServiceAccountListFluent.ItemsNested<A> setNewItemLike(Integer index,V1ServiceAccount item);
-  public V1ServiceAccountListFluent.ItemsNested<A> editItem(Integer index);
+  public V1ServiceAccountListFluent.ItemsNested<A> setNewItemLike(int index,V1ServiceAccount item);
+  public V1ServiceAccountListFluent.ItemsNested<A> editItem(int index);
   public V1ServiceAccountListFluent.ItemsNested<A> editFirstItem();
   public V1ServiceAccountListFluent.ItemsNested<A> editLastItem();
   public V1ServiceAccountListFluent.ItemsNested<A> editMatchingItem(Predicate<V1ServiceAccountBuilder> predicate);

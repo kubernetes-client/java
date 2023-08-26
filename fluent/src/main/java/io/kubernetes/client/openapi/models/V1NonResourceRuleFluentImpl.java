@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,19 +18,19 @@ import java.lang.Boolean;
   public V1NonResourceRuleFluentImpl() {
   }
   public V1NonResourceRuleFluentImpl(V1NonResourceRule instance) {
-    this.withNonResourceURLs(instance.getNonResourceURLs());
-
-    this.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      this.withNonResourceURLs(instance.getNonResourceURLs());
+      this.withVerbs(instance.getVerbs());
+    }
   }
   private List<String> nonResourceURLs;
   private List<String> verbs;
-  public A addToNonResourceURLs(Integer index,String item) {
+  public A addToNonResourceURLs(int index,String item) {
     if (this.nonResourceURLs == null) {this.nonResourceURLs = new ArrayList<String>();}
     this.nonResourceURLs.add(index, item);
     return (A)this;
   }
-  public A setToNonResourceURLs(Integer index,String item) {
+  public A setToNonResourceURLs(int index,String item) {
     if (this.nonResourceURLs == null) {this.nonResourceURLs = new ArrayList<String>();}
     this.nonResourceURLs.set(index, item); return (A)this;
   }
@@ -52,7 +51,7 @@ import java.lang.Boolean;
   public List<String> getNonResourceURLs() {
     return this.nonResourceURLs;
   }
-  public String getNonResourceURL(Integer index) {
+  public String getNonResourceURL(int index) {
     return this.nonResourceURLs.get(index);
   }
   public String getFirstNonResourceURL() {
@@ -71,18 +70,18 @@ import java.lang.Boolean;
     if (nonResourceURLs != null) {this.nonResourceURLs = new ArrayList(); for (String item : nonResourceURLs){this.addToNonResourceURLs(item);}} else { this.nonResourceURLs = null;} return (A) this;
   }
   public A withNonResourceURLs(java.lang.String... nonResourceURLs) {
-    if (this.nonResourceURLs != null) {this.nonResourceURLs.clear();}
+    if (this.nonResourceURLs != null) {this.nonResourceURLs.clear(); _visitables.remove("nonResourceURLs"); }
     if (nonResourceURLs != null) {for (String item :nonResourceURLs){ this.addToNonResourceURLs(item);}} return (A) this;
   }
   public Boolean hasNonResourceURLs() {
     return nonResourceURLs != null && !nonResourceURLs.isEmpty();
   }
-  public A addToVerbs(Integer index,String item) {
+  public A addToVerbs(int index,String item) {
     if (this.verbs == null) {this.verbs = new ArrayList<String>();}
     this.verbs.add(index, item);
     return (A)this;
   }
-  public A setToVerbs(Integer index,String item) {
+  public A setToVerbs(int index,String item) {
     if (this.verbs == null) {this.verbs = new ArrayList<String>();}
     this.verbs.set(index, item); return (A)this;
   }
@@ -103,7 +102,7 @@ import java.lang.Boolean;
   public List<String> getVerbs() {
     return this.verbs;
   }
-  public String getVerb(Integer index) {
+  public String getVerb(int index) {
     return this.verbs.get(index);
   }
   public String getFirstVerb() {
@@ -122,7 +121,7 @@ import java.lang.Boolean;
     if (verbs != null) {this.verbs = new ArrayList(); for (String item : verbs){this.addToVerbs(item);}} else { this.verbs = null;} return (A) this;
   }
   public A withVerbs(java.lang.String... verbs) {
-    if (this.verbs != null) {this.verbs.clear();}
+    if (this.verbs != null) {this.verbs.clear(); _visitables.remove("verbs"); }
     if (verbs != null) {for (String item :verbs){ this.addToVerbs(item);}} return (A) this;
   }
   public Boolean hasVerbs() {
@@ -131,9 +130,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NonResourceRuleFluentImpl that = (V1NonResourceRuleFluentImpl) o;
-    if (nonResourceURLs != null ? !nonResourceURLs.equals(that.nonResourceURLs) :that.nonResourceURLs != null) return false;
-    if (verbs != null ? !verbs.equals(that.verbs) :that.verbs != null) return false;
+    if (!java.util.Objects.equals(nonResourceURLs, that.nonResourceURLs)) return false;
+
+    if (!java.util.Objects.equals(verbs, that.verbs)) return false;
+
     return true;
   }
   public int hashCode() {

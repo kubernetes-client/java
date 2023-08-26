@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1PodListFluent<A extends V1PodListFluent<A>> extends Fluent<A>
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1Pod item);
-  public A setToItems(Integer index,V1Pod item);
+  public A addToItems(int index,V1Pod item);
+  public A setToItems(int index,V1Pod item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Pod... items);
   public A addAllToItems(Collection<V1Pod> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Pod... items);
@@ -35,7 +35,7 @@ public interface V1PodListFluent<A extends V1PodListFluent<A>> extends Fluent<A>
   @Deprecated
   public List<V1Pod> getItems();
   public List<V1Pod> buildItems();
-  public V1Pod buildItem(Integer index);
+  public V1Pod buildItem(int index);
   public V1Pod buildFirstItem();
   public V1Pod buildLastItem();
   public V1Pod buildMatchingItem(Predicate<V1PodBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1PodListFluent<A extends V1PodListFluent<A>> extends Fluent<A>
   public Boolean hasItems();
   public V1PodListFluent.ItemsNested<A> addNewItem();
   public V1PodListFluent.ItemsNested<A> addNewItemLike(V1Pod item);
-  public V1PodListFluent.ItemsNested<A> setNewItemLike(Integer index,V1Pod item);
-  public V1PodListFluent.ItemsNested<A> editItem(Integer index);
+  public V1PodListFluent.ItemsNested<A> setNewItemLike(int index,V1Pod item);
+  public V1PodListFluent.ItemsNested<A> editItem(int index);
   public V1PodListFluent.ItemsNested<A> editFirstItem();
   public V1PodListFluent.ItemsNested<A> editLastItem();
   public V1PodListFluent.ItemsNested<A> editMatchingItem(Predicate<V1PodBuilder> predicate);

@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V2MetricIdentifierFluentImpl() {
   }
   public V2MetricIdentifierFluentImpl(V2MetricIdentifier instance) {
-    this.withName(instance.getName());
-
-    this.withSelector(instance.getSelector());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withSelector(instance.getSelector());
+    }
   }
   private String name;
   private V1LabelSelectorBuilder selector;
@@ -51,27 +51,30 @@ import java.lang.Boolean;
   public Boolean hasSelector() {
     return this.selector != null;
   }
-  public V2MetricIdentifierFluent.SelectorNested<A> withNewSelector() {
+  public V2MetricIdentifierFluentImpl.SelectorNested<A> withNewSelector() {
     return new V2MetricIdentifierFluentImpl.SelectorNestedImpl();
   }
-  public V2MetricIdentifierFluent.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
+  public V2MetricIdentifierFluentImpl.SelectorNested<A> withNewSelectorLike(V1LabelSelector item) {
     return new V2MetricIdentifierFluentImpl.SelectorNestedImpl(item);
   }
-  public V2MetricIdentifierFluent.SelectorNested<A> editSelector() {
+  public V2MetricIdentifierFluentImpl.SelectorNested<A> editSelector() {
     return withNewSelectorLike(getSelector());
   }
-  public V2MetricIdentifierFluent.SelectorNested<A> editOrNewSelector() {
+  public V2MetricIdentifierFluentImpl.SelectorNested<A> editOrNewSelector() {
     return withNewSelectorLike(getSelector() != null ? getSelector(): new V1LabelSelectorBuilder().build());
   }
-  public V2MetricIdentifierFluent.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
+  public V2MetricIdentifierFluentImpl.SelectorNested<A> editOrNewSelectorLike(V1LabelSelector item) {
     return withNewSelectorLike(getSelector() != null ? getSelector(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2MetricIdentifierFluentImpl that = (V2MetricIdentifierFluentImpl) o;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (selector != null ? !selector.equals(that.selector) :that.selector != null) return false;
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(selector, that.selector)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -85,7 +88,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V2MetricIdentifierFluent.SelectorNested<N>> implements V2MetricIdentifierFluent.SelectorNested<N>,Nested<N>{
+  class SelectorNestedImpl<N> extends V1LabelSelectorFluentImpl<V2MetricIdentifierFluentImpl.SelectorNested<N>> implements V2MetricIdentifierFluentImpl.SelectorNested<N>,Nested<N>{
     SelectorNestedImpl(V1LabelSelector item) {
       this.builder = new V1LabelSelectorBuilder(this, item);
     }

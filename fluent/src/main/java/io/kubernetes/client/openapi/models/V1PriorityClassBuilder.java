@@ -20,20 +20,15 @@ public class V1PriorityClassBuilder extends V1PriorityClassFluentImpl<V1Priority
   }
   public V1PriorityClassBuilder(V1PriorityClassFluent<?> fluent,V1PriorityClass instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withDescription(instance.getDescription());
-
-    fluent.withGlobalDefault(instance.getGlobalDefault());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withPreemptionPolicy(instance.getPreemptionPolicy());
-
-    fluent.withValue(instance.getValue());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withDescription(instance.getDescription());
+      fluent.withGlobalDefault(instance.getGlobalDefault());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withPreemptionPolicy(instance.getPreemptionPolicy());
+      fluent.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PriorityClassBuilder(V1PriorityClass instance) {
@@ -41,20 +36,15 @@ public class V1PriorityClassBuilder extends V1PriorityClassFluentImpl<V1Priority
   }
   public V1PriorityClassBuilder(V1PriorityClass instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withDescription(instance.getDescription());
-
-    this.withGlobalDefault(instance.getGlobalDefault());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withPreemptionPolicy(instance.getPreemptionPolicy());
-
-    this.withValue(instance.getValue());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withDescription(instance.getDescription());
+      this.withGlobalDefault(instance.getGlobalDefault());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withPreemptionPolicy(instance.getPreemptionPolicy());
+      this.withValue(instance.getValue());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PriorityClassFluent<?> fluent;

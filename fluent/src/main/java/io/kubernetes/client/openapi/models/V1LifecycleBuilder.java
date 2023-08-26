@@ -20,10 +20,10 @@ public class V1LifecycleBuilder extends V1LifecycleFluentImpl<V1LifecycleBuilder
   }
   public V1LifecycleBuilder(V1LifecycleFluent<?> fluent,V1Lifecycle instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withPostStart(instance.getPostStart());
-
-    fluent.withPreStop(instance.getPreStop());
-
+    if (instance != null) {
+      fluent.withPostStart(instance.getPostStart());
+      fluent.withPreStop(instance.getPreStop());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LifecycleBuilder(V1Lifecycle instance) {
@@ -31,10 +31,10 @@ public class V1LifecycleBuilder extends V1LifecycleFluentImpl<V1LifecycleBuilder
   }
   public V1LifecycleBuilder(V1Lifecycle instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withPostStart(instance.getPostStart());
-
-    this.withPreStop(instance.getPreStop());
-
+    if (instance != null) {
+      this.withPostStart(instance.getPostStart());
+      this.withPreStop(instance.getPreStop());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LifecycleFluent<?> fluent;

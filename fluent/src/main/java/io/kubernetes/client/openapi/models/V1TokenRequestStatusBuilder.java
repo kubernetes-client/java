@@ -20,10 +20,10 @@ public class V1TokenRequestStatusBuilder extends V1TokenRequestStatusFluentImpl<
   }
   public V1TokenRequestStatusBuilder(V1TokenRequestStatusFluent<?> fluent,V1TokenRequestStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withExpirationTimestamp(instance.getExpirationTimestamp());
-
-    fluent.withToken(instance.getToken());
-
+    if (instance != null) {
+      fluent.withExpirationTimestamp(instance.getExpirationTimestamp());
+      fluent.withToken(instance.getToken());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TokenRequestStatusBuilder(V1TokenRequestStatus instance) {
@@ -31,10 +31,10 @@ public class V1TokenRequestStatusBuilder extends V1TokenRequestStatusFluentImpl<
   }
   public V1TokenRequestStatusBuilder(V1TokenRequestStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withExpirationTimestamp(instance.getExpirationTimestamp());
-
-    this.withToken(instance.getToken());
-
+    if (instance != null) {
+      this.withExpirationTimestamp(instance.getExpirationTimestamp());
+      this.withToken(instance.getToken());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TokenRequestStatusFluent<?> fluent;

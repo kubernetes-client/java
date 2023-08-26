@@ -20,12 +20,11 @@ public class V2ObjectMetricSourceBuilder extends V2ObjectMetricSourceFluentImpl<
   }
   public V2ObjectMetricSourceBuilder(V2ObjectMetricSourceFluent<?> fluent,V2ObjectMetricSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withDescribedObject(instance.getDescribedObject());
-
-    fluent.withMetric(instance.getMetric());
-
-    fluent.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      fluent.withDescribedObject(instance.getDescribedObject());
+      fluent.withMetric(instance.getMetric());
+      fluent.withTarget(instance.getTarget());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2ObjectMetricSourceBuilder(V2ObjectMetricSource instance) {
@@ -33,12 +32,11 @@ public class V2ObjectMetricSourceBuilder extends V2ObjectMetricSourceFluentImpl<
   }
   public V2ObjectMetricSourceBuilder(V2ObjectMetricSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withDescribedObject(instance.getDescribedObject());
-
-    this.withMetric(instance.getMetric());
-
-    this.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      this.withDescribedObject(instance.getDescribedObject());
+      this.withMetric(instance.getMetric());
+      this.withTarget(instance.getTarget());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2ObjectMetricSourceFluent<?> fluent;

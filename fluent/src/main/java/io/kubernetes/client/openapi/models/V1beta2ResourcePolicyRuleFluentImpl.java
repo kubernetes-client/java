@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,28 +18,25 @@ import java.lang.Boolean;
   public V1beta2ResourcePolicyRuleFluentImpl() {
   }
   public V1beta2ResourcePolicyRuleFluentImpl(V1beta2ResourcePolicyRule instance) {
-    this.withApiGroups(instance.getApiGroups());
-
-    this.withClusterScope(instance.getClusterScope());
-
-    this.withNamespaces(instance.getNamespaces());
-
-    this.withResources(instance.getResources());
-
-    this.withVerbs(instance.getVerbs());
-
+    if (instance != null) {
+      this.withApiGroups(instance.getApiGroups());
+      this.withClusterScope(instance.getClusterScope());
+      this.withNamespaces(instance.getNamespaces());
+      this.withResources(instance.getResources());
+      this.withVerbs(instance.getVerbs());
+    }
   }
   private List<String> apiGroups;
   private Boolean clusterScope;
   private List<String> namespaces;
   private List<String> resources;
   private List<String> verbs;
-  public A addToApiGroups(Integer index,String item) {
+  public A addToApiGroups(int index,String item) {
     if (this.apiGroups == null) {this.apiGroups = new ArrayList<String>();}
     this.apiGroups.add(index, item);
     return (A)this;
   }
-  public A setToApiGroups(Integer index,String item) {
+  public A setToApiGroups(int index,String item) {
     if (this.apiGroups == null) {this.apiGroups = new ArrayList<String>();}
     this.apiGroups.set(index, item); return (A)this;
   }
@@ -61,7 +57,7 @@ import java.lang.Boolean;
   public List<String> getApiGroups() {
     return this.apiGroups;
   }
-  public String getApiGroup(Integer index) {
+  public String getApiGroup(int index) {
     return this.apiGroups.get(index);
   }
   public String getFirstApiGroup() {
@@ -80,7 +76,7 @@ import java.lang.Boolean;
     if (apiGroups != null) {this.apiGroups = new ArrayList(); for (String item : apiGroups){this.addToApiGroups(item);}} else { this.apiGroups = null;} return (A) this;
   }
   public A withApiGroups(java.lang.String... apiGroups) {
-    if (this.apiGroups != null) {this.apiGroups.clear();}
+    if (this.apiGroups != null) {this.apiGroups.clear(); _visitables.remove("apiGroups"); }
     if (apiGroups != null) {for (String item :apiGroups){ this.addToApiGroups(item);}} return (A) this;
   }
   public Boolean hasApiGroups() {
@@ -95,12 +91,12 @@ import java.lang.Boolean;
   public Boolean hasClusterScope() {
     return this.clusterScope != null;
   }
-  public A addToNamespaces(Integer index,String item) {
+  public A addToNamespaces(int index,String item) {
     if (this.namespaces == null) {this.namespaces = new ArrayList<String>();}
     this.namespaces.add(index, item);
     return (A)this;
   }
-  public A setToNamespaces(Integer index,String item) {
+  public A setToNamespaces(int index,String item) {
     if (this.namespaces == null) {this.namespaces = new ArrayList<String>();}
     this.namespaces.set(index, item); return (A)this;
   }
@@ -121,7 +117,7 @@ import java.lang.Boolean;
   public List<String> getNamespaces() {
     return this.namespaces;
   }
-  public String getNamespace(Integer index) {
+  public String getNamespace(int index) {
     return this.namespaces.get(index);
   }
   public String getFirstNamespace() {
@@ -140,18 +136,18 @@ import java.lang.Boolean;
     if (namespaces != null) {this.namespaces = new ArrayList(); for (String item : namespaces){this.addToNamespaces(item);}} else { this.namespaces = null;} return (A) this;
   }
   public A withNamespaces(java.lang.String... namespaces) {
-    if (this.namespaces != null) {this.namespaces.clear();}
+    if (this.namespaces != null) {this.namespaces.clear(); _visitables.remove("namespaces"); }
     if (namespaces != null) {for (String item :namespaces){ this.addToNamespaces(item);}} return (A) this;
   }
   public Boolean hasNamespaces() {
     return namespaces != null && !namespaces.isEmpty();
   }
-  public A addToResources(Integer index,String item) {
+  public A addToResources(int index,String item) {
     if (this.resources == null) {this.resources = new ArrayList<String>();}
     this.resources.add(index, item);
     return (A)this;
   }
-  public A setToResources(Integer index,String item) {
+  public A setToResources(int index,String item) {
     if (this.resources == null) {this.resources = new ArrayList<String>();}
     this.resources.set(index, item); return (A)this;
   }
@@ -172,7 +168,7 @@ import java.lang.Boolean;
   public List<String> getResources() {
     return this.resources;
   }
-  public String getResource(Integer index) {
+  public String getResource(int index) {
     return this.resources.get(index);
   }
   public String getFirstResource() {
@@ -191,18 +187,18 @@ import java.lang.Boolean;
     if (resources != null) {this.resources = new ArrayList(); for (String item : resources){this.addToResources(item);}} else { this.resources = null;} return (A) this;
   }
   public A withResources(java.lang.String... resources) {
-    if (this.resources != null) {this.resources.clear();}
+    if (this.resources != null) {this.resources.clear(); _visitables.remove("resources"); }
     if (resources != null) {for (String item :resources){ this.addToResources(item);}} return (A) this;
   }
   public Boolean hasResources() {
     return resources != null && !resources.isEmpty();
   }
-  public A addToVerbs(Integer index,String item) {
+  public A addToVerbs(int index,String item) {
     if (this.verbs == null) {this.verbs = new ArrayList<String>();}
     this.verbs.add(index, item);
     return (A)this;
   }
-  public A setToVerbs(Integer index,String item) {
+  public A setToVerbs(int index,String item) {
     if (this.verbs == null) {this.verbs = new ArrayList<String>();}
     this.verbs.set(index, item); return (A)this;
   }
@@ -223,7 +219,7 @@ import java.lang.Boolean;
   public List<String> getVerbs() {
     return this.verbs;
   }
-  public String getVerb(Integer index) {
+  public String getVerb(int index) {
     return this.verbs.get(index);
   }
   public String getFirstVerb() {
@@ -242,7 +238,7 @@ import java.lang.Boolean;
     if (verbs != null) {this.verbs = new ArrayList(); for (String item : verbs){this.addToVerbs(item);}} else { this.verbs = null;} return (A) this;
   }
   public A withVerbs(java.lang.String... verbs) {
-    if (this.verbs != null) {this.verbs.clear();}
+    if (this.verbs != null) {this.verbs.clear(); _visitables.remove("verbs"); }
     if (verbs != null) {for (String item :verbs){ this.addToVerbs(item);}} return (A) this;
   }
   public Boolean hasVerbs() {
@@ -251,12 +247,18 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1beta2ResourcePolicyRuleFluentImpl that = (V1beta2ResourcePolicyRuleFluentImpl) o;
-    if (apiGroups != null ? !apiGroups.equals(that.apiGroups) :that.apiGroups != null) return false;
-    if (clusterScope != null ? !clusterScope.equals(that.clusterScope) :that.clusterScope != null) return false;
-    if (namespaces != null ? !namespaces.equals(that.namespaces) :that.namespaces != null) return false;
-    if (resources != null ? !resources.equals(that.resources) :that.resources != null) return false;
-    if (verbs != null ? !verbs.equals(that.verbs) :that.verbs != null) return false;
+    if (!java.util.Objects.equals(apiGroups, that.apiGroups)) return false;
+
+    if (!java.util.Objects.equals(clusterScope, that.clusterScope)) return false;
+
+    if (!java.util.Objects.equals(namespaces, that.namespaces)) return false;
+
+    if (!java.util.Objects.equals(resources, that.resources)) return false;
+
+    if (!java.util.Objects.equals(verbs, that.verbs)) return false;
+
     return true;
   }
   public int hashCode() {

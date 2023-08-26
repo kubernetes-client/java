@@ -20,14 +20,12 @@ public class V1APIResourceListBuilder extends V1APIResourceListFluentImpl<V1APIR
   }
   public V1APIResourceListBuilder(V1APIResourceListFluent<?> fluent,V1APIResourceList instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withGroupVersion(instance.getGroupVersion());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withResources(instance.getResources());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withGroupVersion(instance.getGroupVersion());
+      fluent.withKind(instance.getKind());
+      fluent.withResources(instance.getResources());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1APIResourceListBuilder(V1APIResourceList instance) {
@@ -35,14 +33,12 @@ public class V1APIResourceListBuilder extends V1APIResourceListFluentImpl<V1APIR
   }
   public V1APIResourceListBuilder(V1APIResourceList instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withGroupVersion(instance.getGroupVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withResources(instance.getResources());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withGroupVersion(instance.getGroupVersion());
+      this.withKind(instance.getKind());
+      this.withResources(instance.getResources());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1APIResourceListFluent<?> fluent;

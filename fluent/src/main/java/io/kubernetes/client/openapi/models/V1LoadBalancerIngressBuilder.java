@@ -20,12 +20,11 @@ public class V1LoadBalancerIngressBuilder extends V1LoadBalancerIngressFluentImp
   }
   public V1LoadBalancerIngressBuilder(V1LoadBalancerIngressFluent<?> fluent,V1LoadBalancerIngress instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withHostname(instance.getHostname());
-
-    fluent.withIp(instance.getIp());
-
-    fluent.withPorts(instance.getPorts());
-
+    if (instance != null) {
+      fluent.withHostname(instance.getHostname());
+      fluent.withIp(instance.getIp());
+      fluent.withPorts(instance.getPorts());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LoadBalancerIngressBuilder(V1LoadBalancerIngress instance) {
@@ -33,12 +32,11 @@ public class V1LoadBalancerIngressBuilder extends V1LoadBalancerIngressFluentImp
   }
   public V1LoadBalancerIngressBuilder(V1LoadBalancerIngress instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withHostname(instance.getHostname());
-
-    this.withIp(instance.getIp());
-
-    this.withPorts(instance.getPorts());
-
+    if (instance != null) {
+      this.withHostname(instance.getHostname());
+      this.withIp(instance.getIp());
+      this.withPorts(instance.getPorts());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LoadBalancerIngressFluent<?> fluent;

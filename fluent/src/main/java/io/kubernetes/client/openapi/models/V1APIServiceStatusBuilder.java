@@ -20,8 +20,9 @@ public class V1APIServiceStatusBuilder extends V1APIServiceStatusFluentImpl<V1AP
   }
   public V1APIServiceStatusBuilder(V1APIServiceStatusFluent<?> fluent,V1APIServiceStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      fluent.withConditions(instance.getConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1APIServiceStatusBuilder(V1APIServiceStatus instance) {
@@ -29,8 +30,9 @@ public class V1APIServiceStatusBuilder extends V1APIServiceStatusFluentImpl<V1AP
   }
   public V1APIServiceStatusBuilder(V1APIServiceStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1APIServiceStatusFluent<?> fluent;

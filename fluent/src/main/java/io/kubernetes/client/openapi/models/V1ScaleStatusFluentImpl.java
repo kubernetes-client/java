@@ -15,10 +15,10 @@ import java.lang.Boolean;
   public V1ScaleStatusFluentImpl() {
   }
   public V1ScaleStatusFluentImpl(V1ScaleStatus instance) {
-    this.withReplicas(instance.getReplicas());
-
-    this.withSelector(instance.getSelector());
-
+    if (instance != null) {
+      this.withReplicas(instance.getReplicas());
+      this.withSelector(instance.getSelector());
+    }
   }
   private Integer replicas;
   private String selector;
@@ -43,9 +43,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ScaleStatusFluentImpl that = (V1ScaleStatusFluentImpl) o;
-    if (replicas != null ? !replicas.equals(that.replicas) :that.replicas != null) return false;
-    if (selector != null ? !selector.equals(that.selector) :that.selector != null) return false;
+    if (!java.util.Objects.equals(replicas, that.replicas)) return false;
+
+    if (!java.util.Objects.equals(selector, that.selector)) return false;
+
     return true;
   }
   public int hashCode() {

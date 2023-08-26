@@ -20,10 +20,10 @@ public class V1NamespaceStatusBuilder extends V1NamespaceStatusFluentImpl<V1Name
   }
   public V1NamespaceStatusBuilder(V1NamespaceStatusFluent<?> fluent,V1NamespaceStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConditions(instance.getConditions());
-
-    fluent.withPhase(instance.getPhase());
-
+    if (instance != null) {
+      fluent.withConditions(instance.getConditions());
+      fluent.withPhase(instance.getPhase());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NamespaceStatusBuilder(V1NamespaceStatus instance) {
@@ -31,10 +31,10 @@ public class V1NamespaceStatusBuilder extends V1NamespaceStatusFluentImpl<V1Name
   }
   public V1NamespaceStatusBuilder(V1NamespaceStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConditions(instance.getConditions());
-
-    this.withPhase(instance.getPhase());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+      this.withPhase(instance.getPhase());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NamespaceStatusFluent<?> fluent;

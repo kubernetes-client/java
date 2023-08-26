@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1LeaseListFluent<A extends V1LeaseListFluent<A>> extends Fluen
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1Lease item);
-  public A setToItems(Integer index,V1Lease item);
+  public A addToItems(int index,V1Lease item);
+  public A setToItems(int index,V1Lease item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Lease... items);
   public A addAllToItems(Collection<V1Lease> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Lease... items);
@@ -35,7 +35,7 @@ public interface V1LeaseListFluent<A extends V1LeaseListFluent<A>> extends Fluen
   @Deprecated
   public List<V1Lease> getItems();
   public List<V1Lease> buildItems();
-  public V1Lease buildItem(Integer index);
+  public V1Lease buildItem(int index);
   public V1Lease buildFirstItem();
   public V1Lease buildLastItem();
   public V1Lease buildMatchingItem(Predicate<V1LeaseBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1LeaseListFluent<A extends V1LeaseListFluent<A>> extends Fluen
   public Boolean hasItems();
   public V1LeaseListFluent.ItemsNested<A> addNewItem();
   public V1LeaseListFluent.ItemsNested<A> addNewItemLike(V1Lease item);
-  public V1LeaseListFluent.ItemsNested<A> setNewItemLike(Integer index,V1Lease item);
-  public V1LeaseListFluent.ItemsNested<A> editItem(Integer index);
+  public V1LeaseListFluent.ItemsNested<A> setNewItemLike(int index,V1Lease item);
+  public V1LeaseListFluent.ItemsNested<A> editItem(int index);
   public V1LeaseListFluent.ItemsNested<A> editFirstItem();
   public V1LeaseListFluent.ItemsNested<A> editLastItem();
   public V1LeaseListFluent.ItemsNested<A> editMatchingItem(Predicate<V1LeaseBuilder> predicate);

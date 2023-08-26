@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,28 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** ServiceAccountSubject holds detailed information for service-account-kind subject. */
-@ApiModel(
-    description =
-        "ServiceAccountSubject holds detailed information for service-account-kind subject.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * ServiceAccountSubject holds detailed information for service-account-kind subject.
+ */
+@ApiModel(description = "ServiceAccountSubject holds detailed information for service-account-kind subject.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1beta2ServiceAccountSubject {
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
-
   @SerializedName(SERIALIZED_NAME_NAMESPACE)
   private String namespace;
+
 
   public V1beta2ServiceAccountSubject name(String name) {
 
@@ -41,23 +44,21 @@ public class V1beta2ServiceAccountSubject {
     return this;
   }
 
-  /**
-   * &#x60;name&#x60; is the name of matching ServiceAccount objects, or \&quot;*\&quot; to match
-   * regardless of name. Required.
-   *
+   /**
+   * &#x60;name&#x60; is the name of matching ServiceAccount objects, or \&quot;*\&quot; to match regardless of name. Required.
    * @return name
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "`name` is the name of matching ServiceAccount objects, or \"*\" to match regardless of name. Required.")
+  **/
+  @ApiModelProperty(required = true, value = "`name` is the name of matching ServiceAccount objects, or \"*\" to match regardless of name. Required.")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public V1beta2ServiceAccountSubject namespace(String namespace) {
 
@@ -65,21 +66,21 @@ public class V1beta2ServiceAccountSubject {
     return this;
   }
 
-  /**
+   /**
    * &#x60;namespace&#x60; is the namespace of matching ServiceAccount objects. Required.
-   *
    * @return namespace
-   */
-  @ApiModelProperty(
-      required = true,
-      value = "`namespace` is the namespace of matching ServiceAccount objects. Required.")
+  **/
+  @ApiModelProperty(required = true, value = "`namespace` is the namespace of matching ServiceAccount objects. Required.")
+
   public String getNamespace() {
     return namespace;
   }
 
+
   public void setNamespace(String namespace) {
     this.namespace = namespace;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -90,14 +91,15 @@ public class V1beta2ServiceAccountSubject {
       return false;
     }
     V1beta2ServiceAccountSubject v1beta2ServiceAccountSubject = (V1beta2ServiceAccountSubject) o;
-    return Objects.equals(this.name, v1beta2ServiceAccountSubject.name)
-        && Objects.equals(this.namespace, v1beta2ServiceAccountSubject.namespace);
+    return Objects.equals(this.name, v1beta2ServiceAccountSubject.name) &&
+        Objects.equals(this.namespace, v1beta2ServiceAccountSubject.namespace);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(name, namespace);
   }
+
 
   @Override
   public String toString() {
@@ -110,7 +112,8 @@ public class V1beta2ServiceAccountSubject {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -118,4 +121,5 @@ public class V1beta2ServiceAccountSubject {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

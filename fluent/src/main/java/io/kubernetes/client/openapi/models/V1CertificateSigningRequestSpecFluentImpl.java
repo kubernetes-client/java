@@ -22,22 +22,16 @@ import java.util.Map;
   public V1CertificateSigningRequestSpecFluentImpl() {
   }
   public V1CertificateSigningRequestSpecFluentImpl(V1CertificateSigningRequestSpec instance) {
-    this.withExpirationSeconds(instance.getExpirationSeconds());
-
-    this.withExtra(instance.getExtra());
-
-    this.withGroups(instance.getGroups());
-
-    this.withRequest(instance.getRequest());
-
-    this.withSignerName(instance.getSignerName());
-
-    this.withUid(instance.getUid());
-
-    this.withUsages(instance.getUsages());
-
-    this.withUsername(instance.getUsername());
-
+    if (instance != null) {
+      this.withExpirationSeconds(instance.getExpirationSeconds());
+      this.withExtra(instance.getExtra());
+      this.withGroups(instance.getGroups());
+      this.withRequest(instance.getRequest());
+      this.withSignerName(instance.getSignerName());
+      this.withUid(instance.getUid());
+      this.withUsages(instance.getUsages());
+      this.withUsername(instance.getUsername());
+    }
   }
   private Integer expirationSeconds;
   private Map<String,List<String>> extra;
@@ -81,12 +75,12 @@ import java.util.Map;
   public Boolean hasExtra() {
     return this.extra != null;
   }
-  public A addToGroups(Integer index,String item) {
+  public A addToGroups(int index,String item) {
     if (this.groups == null) {this.groups = new ArrayList<String>();}
     this.groups.add(index, item);
     return (A)this;
   }
-  public A setToGroups(Integer index,String item) {
+  public A setToGroups(int index,String item) {
     if (this.groups == null) {this.groups = new ArrayList<String>();}
     this.groups.set(index, item); return (A)this;
   }
@@ -107,7 +101,7 @@ import java.util.Map;
   public List<String> getGroups() {
     return this.groups;
   }
-  public String getGroup(Integer index) {
+  public String getGroup(int index) {
     return this.groups.get(index);
   }
   public String getFirstGroup() {
@@ -126,14 +120,14 @@ import java.util.Map;
     if (groups != null) {this.groups = new ArrayList(); for (String item : groups){this.addToGroups(item);}} else { this.groups = null;} return (A) this;
   }
   public A withGroups(java.lang.String... groups) {
-    if (this.groups != null) {this.groups.clear();}
+    if (this.groups != null) {this.groups.clear(); _visitables.remove("groups"); }
     if (groups != null) {for (String item :groups){ this.addToGroups(item);}} return (A) this;
   }
   public Boolean hasGroups() {
     return groups != null && !groups.isEmpty();
   }
   public A withRequest(byte... request) {
-    if (this.request != null) {this.request.clear();}
+    if (this.request != null) {this.request.clear(); _visitables.remove("request"); }
     if (request != null) {for (byte item :request){ this.addToRequest(item);}} return (A) this;
   }
   public byte[] getRequest() {
@@ -150,12 +144,12 @@ for (byte item : request) {
 return result;
 
   }
-  public A addToRequest(Integer index,Byte item) {
+  public A addToRequest(int index,Byte item) {
     if (this.request == null) {this.request =  new ArrayList<Byte>();}
     this.request.add(index, item);
     return (A)this;
   }
-  public A setToRequest(Integer index,Byte item) {
+  public A setToRequest(int index,Byte item) {
     if (this.request == null) {this.request =  new ArrayList<Byte>();}
     this.request.set(index, item); return (A)this;
   }
@@ -194,12 +188,12 @@ return result;
   public Boolean hasUid() {
     return this.uid != null;
   }
-  public A addToUsages(Integer index,String item) {
+  public A addToUsages(int index,String item) {
     if (this.usages == null) {this.usages = new ArrayList<String>();}
     this.usages.add(index, item);
     return (A)this;
   }
-  public A setToUsages(Integer index,String item) {
+  public A setToUsages(int index,String item) {
     if (this.usages == null) {this.usages = new ArrayList<String>();}
     this.usages.set(index, item); return (A)this;
   }
@@ -220,7 +214,7 @@ return result;
   public List<String> getUsages() {
     return this.usages;
   }
-  public String getUsage(Integer index) {
+  public String getUsage(int index) {
     return this.usages.get(index);
   }
   public String getFirstUsage() {
@@ -239,7 +233,7 @@ return result;
     if (usages != null) {this.usages = new ArrayList(); for (String item : usages){this.addToUsages(item);}} else { this.usages = null;} return (A) this;
   }
   public A withUsages(java.lang.String... usages) {
-    if (this.usages != null) {this.usages.clear();}
+    if (this.usages != null) {this.usages.clear(); _visitables.remove("usages"); }
     if (usages != null) {for (String item :usages){ this.addToUsages(item);}} return (A) this;
   }
   public Boolean hasUsages() {
@@ -257,15 +251,24 @@ return result;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CertificateSigningRequestSpecFluentImpl that = (V1CertificateSigningRequestSpecFluentImpl) o;
-    if (expirationSeconds != null ? !expirationSeconds.equals(that.expirationSeconds) :that.expirationSeconds != null) return false;
-    if (extra != null ? !extra.equals(that.extra) :that.extra != null) return false;
-    if (groups != null ? !groups.equals(that.groups) :that.groups != null) return false;
-    if (request != null ? !request.equals(that.request) :that.request != null) return false;
-    if (signerName != null ? !signerName.equals(that.signerName) :that.signerName != null) return false;
-    if (uid != null ? !uid.equals(that.uid) :that.uid != null) return false;
-    if (usages != null ? !usages.equals(that.usages) :that.usages != null) return false;
-    if (username != null ? !username.equals(that.username) :that.username != null) return false;
+    if (!java.util.Objects.equals(expirationSeconds, that.expirationSeconds)) return false;
+
+    if (!java.util.Objects.equals(extra, that.extra)) return false;
+
+    if (!java.util.Objects.equals(groups, that.groups)) return false;
+
+    if (!java.util.Objects.equals(request, that.request)) return false;
+
+    if (!java.util.Objects.equals(signerName, that.signerName)) return false;
+
+    if (!java.util.Objects.equals(uid, that.uid)) return false;
+
+    if (!java.util.Objects.equals(usages, that.usages)) return false;
+
+    if (!java.util.Objects.equals(username, that.username)) return false;
+
     return true;
   }
   public int hashCode() {

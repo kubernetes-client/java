@@ -20,10 +20,10 @@ public class V1StatefulSetUpdateStrategyBuilder extends V1StatefulSetUpdateStrat
   }
   public V1StatefulSetUpdateStrategyBuilder(V1StatefulSetUpdateStrategyFluent<?> fluent,V1StatefulSetUpdateStrategy instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withRollingUpdate(instance.getRollingUpdate());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withRollingUpdate(instance.getRollingUpdate());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1StatefulSetUpdateStrategyBuilder(V1StatefulSetUpdateStrategy instance) {
@@ -31,10 +31,10 @@ public class V1StatefulSetUpdateStrategyBuilder extends V1StatefulSetUpdateStrat
   }
   public V1StatefulSetUpdateStrategyBuilder(V1StatefulSetUpdateStrategy instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withRollingUpdate(instance.getRollingUpdate());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withRollingUpdate(instance.getRollingUpdate());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1StatefulSetUpdateStrategyFluent<?> fluent;

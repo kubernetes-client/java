@@ -20,14 +20,12 @@ public class V1EvictionBuilder extends V1EvictionFluentImpl<V1EvictionBuilder> i
   }
   public V1EvictionBuilder(V1EvictionFluent<?> fluent,V1Eviction instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiVersion(instance.getApiVersion());
-
-    fluent.withDeleteOptions(instance.getDeleteOptions());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      fluent.withApiVersion(instance.getApiVersion());
+      fluent.withDeleteOptions(instance.getDeleteOptions());
+      fluent.withKind(instance.getKind());
+      fluent.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1EvictionBuilder(V1Eviction instance) {
@@ -35,14 +33,12 @@ public class V1EvictionBuilder extends V1EvictionFluentImpl<V1EvictionBuilder> i
   }
   public V1EvictionBuilder(V1Eviction instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withDeleteOptions(instance.getDeleteOptions());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withDeleteOptions(instance.getDeleteOptions());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1EvictionFluent<?> fluent;

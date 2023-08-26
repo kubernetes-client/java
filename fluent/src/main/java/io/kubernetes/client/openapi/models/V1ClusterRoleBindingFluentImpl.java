@@ -11,7 +11,6 @@ import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 
@@ -23,16 +22,13 @@ import java.lang.Object;
   public V1ClusterRoleBindingFluentImpl() {
   }
   public V1ClusterRoleBindingFluentImpl(V1ClusterRoleBinding instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withRoleRef(instance.getRoleRef());
-
-    this.withSubjects(instance.getSubjects());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withRoleRef(instance.getRoleRef());
+      this.withSubjects(instance.getSubjects());
+    }
   }
   private String apiVersion;
   private String kind;
@@ -76,19 +72,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public V1ClusterRoleBindingFluent.MetadataNested<A> withNewMetadata() {
+  public V1ClusterRoleBindingFluentImpl.MetadataNested<A> withNewMetadata() {
     return new V1ClusterRoleBindingFluentImpl.MetadataNestedImpl();
   }
-  public V1ClusterRoleBindingFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public V1ClusterRoleBindingFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new V1ClusterRoleBindingFluentImpl.MetadataNestedImpl(item);
   }
-  public V1ClusterRoleBindingFluent.MetadataNested<A> editMetadata() {
+  public V1ClusterRoleBindingFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public V1ClusterRoleBindingFluent.MetadataNested<A> editOrNewMetadata() {
+  public V1ClusterRoleBindingFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public V1ClusterRoleBindingFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public V1ClusterRoleBindingFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   
@@ -110,31 +106,32 @@ import java.lang.Object;
   public Boolean hasRoleRef() {
     return this.roleRef != null;
   }
-  public V1ClusterRoleBindingFluent.RoleRefNested<A> withNewRoleRef() {
+  public V1ClusterRoleBindingFluentImpl.RoleRefNested<A> withNewRoleRef() {
     return new V1ClusterRoleBindingFluentImpl.RoleRefNestedImpl();
   }
-  public V1ClusterRoleBindingFluent.RoleRefNested<A> withNewRoleRefLike(V1RoleRef item) {
+  public V1ClusterRoleBindingFluentImpl.RoleRefNested<A> withNewRoleRefLike(V1RoleRef item) {
     return new V1ClusterRoleBindingFluentImpl.RoleRefNestedImpl(item);
   }
-  public V1ClusterRoleBindingFluent.RoleRefNested<A> editRoleRef() {
+  public V1ClusterRoleBindingFluentImpl.RoleRefNested<A> editRoleRef() {
     return withNewRoleRefLike(getRoleRef());
   }
-  public V1ClusterRoleBindingFluent.RoleRefNested<A> editOrNewRoleRef() {
+  public V1ClusterRoleBindingFluentImpl.RoleRefNested<A> editOrNewRoleRef() {
     return withNewRoleRefLike(getRoleRef() != null ? getRoleRef(): new V1RoleRefBuilder().build());
   }
-  public V1ClusterRoleBindingFluent.RoleRefNested<A> editOrNewRoleRefLike(V1RoleRef item) {
+  public V1ClusterRoleBindingFluentImpl.RoleRefNested<A> editOrNewRoleRefLike(V1RoleRef item) {
     return withNewRoleRefLike(getRoleRef() != null ? getRoleRef(): item);
   }
-  public A addToSubjects(Integer index,V1Subject item) {
-    if (this.subjects == null) {this.subjects = new ArrayList<V1SubjectBuilder>();}
-    V1SubjectBuilder builder = new V1SubjectBuilder(item);_visitables.get("subjects").add(index >= 0 ? index : _visitables.get("subjects").size(), builder);this.subjects.add(index >= 0 ? index : subjects.size(), builder); return (A)this;
-  }
-  public A setToSubjects(Integer index,V1Subject item) {
+  public A addToSubjects(int index,V1Subject item) {
     if (this.subjects == null) {this.subjects = new ArrayList<V1SubjectBuilder>();}
     V1SubjectBuilder builder = new V1SubjectBuilder(item);
-    if (index < 0 || index >= _visitables.get("subjects").size()) { _visitables.get("subjects").add(builder); } else { _visitables.get("subjects").set(index, builder);}
-    if (index < 0 || index >= subjects.size()) { subjects.add(builder); } else { subjects.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= subjects.size()) { _visitables.get("subjects").add(builder); subjects.add(builder); } else { _visitables.get("subjects").add(index, builder); subjects.add(index, builder);}
+    return (A)this;
+  }
+  public A setToSubjects(int index,V1Subject item) {
+    if (this.subjects == null) {this.subjects = new ArrayList<V1SubjectBuilder>();}
+    V1SubjectBuilder builder = new V1SubjectBuilder(item);
+    if (index < 0 || index >= subjects.size()) { _visitables.get("subjects").add(builder); subjects.add(builder); } else { _visitables.get("subjects").set(index, builder); subjects.set(index, builder);}
+    return (A)this;
   }
   public A addToSubjects(io.kubernetes.client.openapi.models.V1Subject... items) {
     if (this.subjects == null) {this.subjects = new ArrayList<V1SubjectBuilder>();}
@@ -175,7 +172,7 @@ import java.lang.Object;
   public List<V1Subject> buildSubjects() {
     return subjects != null ? build(subjects) : null;
   }
-  public V1Subject buildSubject(Integer index) {
+  public V1Subject buildSubject(int index) {
     return this.subjects.get(index).build();
   }
   public V1Subject buildFirstSubject() {
@@ -191,39 +188,39 @@ import java.lang.Object;
     for (V1SubjectBuilder item: subjects) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withSubjects(List<V1Subject> subjects) {
-    if (this.subjects != null) { _visitables.get("subjects").removeAll(this.subjects);}
+    if (this.subjects != null) { _visitables.get("subjects").clear();}
     if (subjects != null) {this.subjects = new ArrayList(); for (V1Subject item : subjects){this.addToSubjects(item);}} else { this.subjects = null;} return (A) this;
   }
   public A withSubjects(io.kubernetes.client.openapi.models.V1Subject... subjects) {
-    if (this.subjects != null) {this.subjects.clear();}
+    if (this.subjects != null) {this.subjects.clear(); _visitables.remove("subjects"); }
     if (subjects != null) {for (V1Subject item :subjects){ this.addToSubjects(item);}} return (A) this;
   }
   public Boolean hasSubjects() {
     return subjects != null && !subjects.isEmpty();
   }
-  public V1ClusterRoleBindingFluent.SubjectsNested<A> addNewSubject() {
+  public V1ClusterRoleBindingFluentImpl.SubjectsNested<A> addNewSubject() {
     return new V1ClusterRoleBindingFluentImpl.SubjectsNestedImpl();
   }
-  public V1ClusterRoleBindingFluent.SubjectsNested<A> addNewSubjectLike(V1Subject item) {
+  public V1ClusterRoleBindingFluentImpl.SubjectsNested<A> addNewSubjectLike(V1Subject item) {
     return new V1ClusterRoleBindingFluentImpl.SubjectsNestedImpl(-1, item);
   }
-  public V1ClusterRoleBindingFluent.SubjectsNested<A> setNewSubjectLike(Integer index,V1Subject item) {
+  public V1ClusterRoleBindingFluentImpl.SubjectsNested<A> setNewSubjectLike(int index,V1Subject item) {
     return new V1ClusterRoleBindingFluentImpl.SubjectsNestedImpl(index, item);
   }
-  public V1ClusterRoleBindingFluent.SubjectsNested<A> editSubject(Integer index) {
+  public V1ClusterRoleBindingFluentImpl.SubjectsNested<A> editSubject(int index) {
     if (subjects.size() <= index) throw new RuntimeException("Can't edit subjects. Index exceeds size.");
     return setNewSubjectLike(index, buildSubject(index));
   }
-  public V1ClusterRoleBindingFluent.SubjectsNested<A> editFirstSubject() {
+  public V1ClusterRoleBindingFluentImpl.SubjectsNested<A> editFirstSubject() {
     if (subjects.size() == 0) throw new RuntimeException("Can't edit first subjects. The list is empty.");
     return setNewSubjectLike(0, buildSubject(0));
   }
-  public V1ClusterRoleBindingFluent.SubjectsNested<A> editLastSubject() {
+  public V1ClusterRoleBindingFluentImpl.SubjectsNested<A> editLastSubject() {
     int index = subjects.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last subjects. The list is empty.");
     return setNewSubjectLike(index, buildSubject(index));
   }
-  public V1ClusterRoleBindingFluent.SubjectsNested<A> editMatchingSubject(Predicate<V1SubjectBuilder> predicate) {
+  public V1ClusterRoleBindingFluentImpl.SubjectsNested<A> editMatchingSubject(Predicate<V1SubjectBuilder> predicate) {
     int index = -1;
     for (int i=0;i<subjects.size();i++) { 
     if (predicate.test(subjects.get(i))) {index = i; break;}
@@ -234,12 +231,18 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ClusterRoleBindingFluentImpl that = (V1ClusterRoleBindingFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (roleRef != null ? !roleRef.equals(that.roleRef) :that.roleRef != null) return false;
-    if (subjects != null ? !subjects.equals(that.subjects) :that.subjects != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(roleRef, that.roleRef)) return false;
+
+    if (!java.util.Objects.equals(subjects, that.subjects)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -252,11 +255,11 @@ import java.lang.Object;
     if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
     if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
     if (roleRef != null) { sb.append("roleRef:"); sb.append(roleRef + ","); }
-    if (subjects != null && !subjects.isEmpty()) { sb.append("subjects:"); sb.append(subjects); }
+    if (subjects != null) { sb.append("subjects:"); sb.append(subjects); }
     sb.append("}");
     return sb.toString();
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ClusterRoleBindingFluent.MetadataNested<N>> implements V1ClusterRoleBindingFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<V1ClusterRoleBindingFluentImpl.MetadataNested<N>> implements V1ClusterRoleBindingFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -272,7 +275,7 @@ import java.lang.Object;
     }
     
   }
-  class RoleRefNestedImpl<N> extends V1RoleRefFluentImpl<V1ClusterRoleBindingFluent.RoleRefNested<N>> implements V1ClusterRoleBindingFluent.RoleRefNested<N>,Nested<N>{
+  class RoleRefNestedImpl<N> extends V1RoleRefFluentImpl<V1ClusterRoleBindingFluentImpl.RoleRefNested<N>> implements V1ClusterRoleBindingFluentImpl.RoleRefNested<N>,Nested<N>{
     RoleRefNestedImpl(V1RoleRef item) {
       this.builder = new V1RoleRefBuilder(this, item);
     }
@@ -288,8 +291,8 @@ import java.lang.Object;
     }
     
   }
-  class SubjectsNestedImpl<N> extends V1SubjectFluentImpl<V1ClusterRoleBindingFluent.SubjectsNested<N>> implements V1ClusterRoleBindingFluent.SubjectsNested<N>,Nested<N>{
-    SubjectsNestedImpl(Integer index,V1Subject item) {
+  class SubjectsNestedImpl<N> extends V1SubjectFluentImpl<V1ClusterRoleBindingFluentImpl.SubjectsNested<N>> implements V1ClusterRoleBindingFluentImpl.SubjectsNested<N>,Nested<N>{
+    SubjectsNestedImpl(int index,V1Subject item) {
       this.index = index;
       this.builder = new V1SubjectBuilder(this, item);
     }
@@ -298,7 +301,7 @@ import java.lang.Object;
       this.builder = new V1SubjectBuilder(this);
     }
     V1SubjectBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ClusterRoleBindingFluentImpl.this.setToSubjects(index,builder.build());
     }

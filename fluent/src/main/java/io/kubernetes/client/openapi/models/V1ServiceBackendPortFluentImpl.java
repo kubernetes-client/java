@@ -15,10 +15,10 @@ import java.lang.Boolean;
   public V1ServiceBackendPortFluentImpl() {
   }
   public V1ServiceBackendPortFluentImpl(V1ServiceBackendPort instance) {
-    this.withName(instance.getName());
-
-    this.withNumber(instance.getNumber());
-
+    if (instance != null) {
+      this.withName(instance.getName());
+      this.withNumber(instance.getNumber());
+    }
   }
   private String name;
   private Integer number;
@@ -43,9 +43,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ServiceBackendPortFluentImpl that = (V1ServiceBackendPortFluentImpl) o;
-    if (name != null ? !name.equals(that.name) :that.name != null) return false;
-    if (number != null ? !number.equals(that.number) :that.number != null) return false;
+    if (!java.util.Objects.equals(name, that.name)) return false;
+
+    if (!java.util.Objects.equals(number, that.number)) return false;
+
     return true;
   }
   public int hashCode() {

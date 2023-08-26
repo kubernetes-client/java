@@ -20,10 +20,10 @@ public class V1LabelSelectorBuilder extends V1LabelSelectorFluentImpl<V1LabelSel
   }
   public V1LabelSelectorBuilder(V1LabelSelectorFluent<?> fluent,V1LabelSelector instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMatchExpressions(instance.getMatchExpressions());
-
-    fluent.withMatchLabels(instance.getMatchLabels());
-
+    if (instance != null) {
+      fluent.withMatchExpressions(instance.getMatchExpressions());
+      fluent.withMatchLabels(instance.getMatchLabels());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1LabelSelectorBuilder(V1LabelSelector instance) {
@@ -31,10 +31,10 @@ public class V1LabelSelectorBuilder extends V1LabelSelectorFluentImpl<V1LabelSel
   }
   public V1LabelSelectorBuilder(V1LabelSelector instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMatchExpressions(instance.getMatchExpressions());
-
-    this.withMatchLabels(instance.getMatchLabels());
-
+    if (instance != null) {
+      this.withMatchExpressions(instance.getMatchExpressions());
+      this.withMatchLabels(instance.getMatchLabels());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1LabelSelectorFluent<?> fluent;

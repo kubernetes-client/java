@@ -20,10 +20,10 @@ public class V2ExternalMetricSourceBuilder extends V2ExternalMetricSourceFluentI
   }
   public V2ExternalMetricSourceBuilder(V2ExternalMetricSourceFluent<?> fluent,V2ExternalMetricSource instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMetric(instance.getMetric());
-
-    fluent.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      fluent.withMetric(instance.getMetric());
+      fluent.withTarget(instance.getTarget());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2ExternalMetricSourceBuilder(V2ExternalMetricSource instance) {
@@ -31,10 +31,10 @@ public class V2ExternalMetricSourceBuilder extends V2ExternalMetricSourceFluentI
   }
   public V2ExternalMetricSourceBuilder(V2ExternalMetricSource instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMetric(instance.getMetric());
-
-    this.withTarget(instance.getTarget());
-
+    if (instance != null) {
+      this.withMetric(instance.getMetric());
+      this.withTarget(instance.getTarget());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2ExternalMetricSourceFluent<?> fluent;

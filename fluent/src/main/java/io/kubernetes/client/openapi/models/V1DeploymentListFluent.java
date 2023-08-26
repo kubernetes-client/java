@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1DeploymentListFluent<A extends V1DeploymentListFluent<A>> ext
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1Deployment item);
-  public A setToItems(Integer index,V1Deployment item);
+  public A addToItems(int index,V1Deployment item);
+  public A setToItems(int index,V1Deployment item);
   public A addToItems(io.kubernetes.client.openapi.models.V1Deployment... items);
   public A addAllToItems(Collection<V1Deployment> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1Deployment... items);
@@ -35,7 +35,7 @@ public interface V1DeploymentListFluent<A extends V1DeploymentListFluent<A>> ext
   @Deprecated
   public List<V1Deployment> getItems();
   public List<V1Deployment> buildItems();
-  public V1Deployment buildItem(Integer index);
+  public V1Deployment buildItem(int index);
   public V1Deployment buildFirstItem();
   public V1Deployment buildLastItem();
   public V1Deployment buildMatchingItem(Predicate<V1DeploymentBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1DeploymentListFluent<A extends V1DeploymentListFluent<A>> ext
   public Boolean hasItems();
   public V1DeploymentListFluent.ItemsNested<A> addNewItem();
   public V1DeploymentListFluent.ItemsNested<A> addNewItemLike(V1Deployment item);
-  public V1DeploymentListFluent.ItemsNested<A> setNewItemLike(Integer index,V1Deployment item);
-  public V1DeploymentListFluent.ItemsNested<A> editItem(Integer index);
+  public V1DeploymentListFluent.ItemsNested<A> setNewItemLike(int index,V1Deployment item);
+  public V1DeploymentListFluent.ItemsNested<A> editItem(int index);
   public V1DeploymentListFluent.ItemsNested<A> editFirstItem();
   public V1DeploymentListFluent.ItemsNested<A> editLastItem();
   public V1DeploymentListFluent.ItemsNested<A> editMatchingItem(Predicate<V1DeploymentBuilder> predicate);

@@ -20,18 +20,14 @@ public class V1VolumeMountBuilder extends V1VolumeMountFluentImpl<V1VolumeMountB
   }
   public V1VolumeMountBuilder(V1VolumeMountFluent<?> fluent,V1VolumeMount instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMountPath(instance.getMountPath());
-
-    fluent.withMountPropagation(instance.getMountPropagation());
-
-    fluent.withName(instance.getName());
-
-    fluent.withReadOnly(instance.getReadOnly());
-
-    fluent.withSubPath(instance.getSubPath());
-
-    fluent.withSubPathExpr(instance.getSubPathExpr());
-
+    if (instance != null) {
+      fluent.withMountPath(instance.getMountPath());
+      fluent.withMountPropagation(instance.getMountPropagation());
+      fluent.withName(instance.getName());
+      fluent.withReadOnly(instance.getReadOnly());
+      fluent.withSubPath(instance.getSubPath());
+      fluent.withSubPathExpr(instance.getSubPathExpr());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1VolumeMountBuilder(V1VolumeMount instance) {
@@ -39,18 +35,14 @@ public class V1VolumeMountBuilder extends V1VolumeMountFluentImpl<V1VolumeMountB
   }
   public V1VolumeMountBuilder(V1VolumeMount instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMountPath(instance.getMountPath());
-
-    this.withMountPropagation(instance.getMountPropagation());
-
-    this.withName(instance.getName());
-
-    this.withReadOnly(instance.getReadOnly());
-
-    this.withSubPath(instance.getSubPath());
-
-    this.withSubPathExpr(instance.getSubPathExpr());
-
+    if (instance != null) {
+      this.withMountPath(instance.getMountPath());
+      this.withMountPropagation(instance.getMountPropagation());
+      this.withName(instance.getName());
+      this.withReadOnly(instance.getReadOnly());
+      this.withSubPath(instance.getSubPath());
+      this.withSubPathExpr(instance.getSubPathExpr());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1VolumeMountFluent<?> fluent;

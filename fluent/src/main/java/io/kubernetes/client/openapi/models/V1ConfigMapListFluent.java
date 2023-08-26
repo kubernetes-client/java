@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1ConfigMapListFluent<A extends V1ConfigMapListFluent<A>> exten
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1ConfigMap item);
-  public A setToItems(Integer index,V1ConfigMap item);
+  public A addToItems(int index,V1ConfigMap item);
+  public A setToItems(int index,V1ConfigMap item);
   public A addToItems(io.kubernetes.client.openapi.models.V1ConfigMap... items);
   public A addAllToItems(Collection<V1ConfigMap> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1ConfigMap... items);
@@ -35,7 +35,7 @@ public interface V1ConfigMapListFluent<A extends V1ConfigMapListFluent<A>> exten
   @Deprecated
   public List<V1ConfigMap> getItems();
   public List<V1ConfigMap> buildItems();
-  public V1ConfigMap buildItem(Integer index);
+  public V1ConfigMap buildItem(int index);
   public V1ConfigMap buildFirstItem();
   public V1ConfigMap buildLastItem();
   public V1ConfigMap buildMatchingItem(Predicate<V1ConfigMapBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1ConfigMapListFluent<A extends V1ConfigMapListFluent<A>> exten
   public Boolean hasItems();
   public V1ConfigMapListFluent.ItemsNested<A> addNewItem();
   public V1ConfigMapListFluent.ItemsNested<A> addNewItemLike(V1ConfigMap item);
-  public V1ConfigMapListFluent.ItemsNested<A> setNewItemLike(Integer index,V1ConfigMap item);
-  public V1ConfigMapListFluent.ItemsNested<A> editItem(Integer index);
+  public V1ConfigMapListFluent.ItemsNested<A> setNewItemLike(int index,V1ConfigMap item);
+  public V1ConfigMapListFluent.ItemsNested<A> editItem(int index);
   public V1ConfigMapListFluent.ItemsNested<A> editFirstItem();
   public V1ConfigMapListFluent.ItemsNested<A> editLastItem();
   public V1ConfigMapListFluent.ItemsNested<A> editMatchingItem(Predicate<V1ConfigMapBuilder> predicate);

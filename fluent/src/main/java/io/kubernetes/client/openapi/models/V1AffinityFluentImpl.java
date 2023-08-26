@@ -16,12 +16,11 @@ import java.lang.Object;
   public V1AffinityFluentImpl() {
   }
   public V1AffinityFluentImpl(V1Affinity instance) {
-    this.withNodeAffinity(instance.getNodeAffinity());
-
-    this.withPodAffinity(instance.getPodAffinity());
-
-    this.withPodAntiAffinity(instance.getPodAntiAffinity());
-
+    if (instance != null) {
+      this.withNodeAffinity(instance.getNodeAffinity());
+      this.withPodAffinity(instance.getPodAffinity());
+      this.withPodAntiAffinity(instance.getPodAntiAffinity());
+    }
   }
   private V1NodeAffinityBuilder nodeAffinity;
   private V1PodAffinityBuilder podAffinity;
@@ -45,19 +44,19 @@ import java.lang.Object;
   public Boolean hasNodeAffinity() {
     return this.nodeAffinity != null;
   }
-  public V1AffinityFluent.NodeAffinityNested<A> withNewNodeAffinity() {
+  public V1AffinityFluentImpl.NodeAffinityNested<A> withNewNodeAffinity() {
     return new V1AffinityFluentImpl.NodeAffinityNestedImpl();
   }
-  public V1AffinityFluent.NodeAffinityNested<A> withNewNodeAffinityLike(V1NodeAffinity item) {
+  public V1AffinityFluentImpl.NodeAffinityNested<A> withNewNodeAffinityLike(V1NodeAffinity item) {
     return new V1AffinityFluentImpl.NodeAffinityNestedImpl(item);
   }
-  public V1AffinityFluent.NodeAffinityNested<A> editNodeAffinity() {
+  public V1AffinityFluentImpl.NodeAffinityNested<A> editNodeAffinity() {
     return withNewNodeAffinityLike(getNodeAffinity());
   }
-  public V1AffinityFluent.NodeAffinityNested<A> editOrNewNodeAffinity() {
+  public V1AffinityFluentImpl.NodeAffinityNested<A> editOrNewNodeAffinity() {
     return withNewNodeAffinityLike(getNodeAffinity() != null ? getNodeAffinity(): new V1NodeAffinityBuilder().build());
   }
-  public V1AffinityFluent.NodeAffinityNested<A> editOrNewNodeAffinityLike(V1NodeAffinity item) {
+  public V1AffinityFluentImpl.NodeAffinityNested<A> editOrNewNodeAffinityLike(V1NodeAffinity item) {
     return withNewNodeAffinityLike(getNodeAffinity() != null ? getNodeAffinity(): item);
   }
   
@@ -79,19 +78,19 @@ import java.lang.Object;
   public Boolean hasPodAffinity() {
     return this.podAffinity != null;
   }
-  public V1AffinityFluent.PodAffinityNested<A> withNewPodAffinity() {
+  public V1AffinityFluentImpl.PodAffinityNested<A> withNewPodAffinity() {
     return new V1AffinityFluentImpl.PodAffinityNestedImpl();
   }
-  public V1AffinityFluent.PodAffinityNested<A> withNewPodAffinityLike(V1PodAffinity item) {
+  public V1AffinityFluentImpl.PodAffinityNested<A> withNewPodAffinityLike(V1PodAffinity item) {
     return new V1AffinityFluentImpl.PodAffinityNestedImpl(item);
   }
-  public V1AffinityFluent.PodAffinityNested<A> editPodAffinity() {
+  public V1AffinityFluentImpl.PodAffinityNested<A> editPodAffinity() {
     return withNewPodAffinityLike(getPodAffinity());
   }
-  public V1AffinityFluent.PodAffinityNested<A> editOrNewPodAffinity() {
+  public V1AffinityFluentImpl.PodAffinityNested<A> editOrNewPodAffinity() {
     return withNewPodAffinityLike(getPodAffinity() != null ? getPodAffinity(): new V1PodAffinityBuilder().build());
   }
-  public V1AffinityFluent.PodAffinityNested<A> editOrNewPodAffinityLike(V1PodAffinity item) {
+  public V1AffinityFluentImpl.PodAffinityNested<A> editOrNewPodAffinityLike(V1PodAffinity item) {
     return withNewPodAffinityLike(getPodAffinity() != null ? getPodAffinity(): item);
   }
   
@@ -113,28 +112,32 @@ import java.lang.Object;
   public Boolean hasPodAntiAffinity() {
     return this.podAntiAffinity != null;
   }
-  public V1AffinityFluent.PodAntiAffinityNested<A> withNewPodAntiAffinity() {
+  public V1AffinityFluentImpl.PodAntiAffinityNested<A> withNewPodAntiAffinity() {
     return new V1AffinityFluentImpl.PodAntiAffinityNestedImpl();
   }
-  public V1AffinityFluent.PodAntiAffinityNested<A> withNewPodAntiAffinityLike(V1PodAntiAffinity item) {
+  public V1AffinityFluentImpl.PodAntiAffinityNested<A> withNewPodAntiAffinityLike(V1PodAntiAffinity item) {
     return new V1AffinityFluentImpl.PodAntiAffinityNestedImpl(item);
   }
-  public V1AffinityFluent.PodAntiAffinityNested<A> editPodAntiAffinity() {
+  public V1AffinityFluentImpl.PodAntiAffinityNested<A> editPodAntiAffinity() {
     return withNewPodAntiAffinityLike(getPodAntiAffinity());
   }
-  public V1AffinityFluent.PodAntiAffinityNested<A> editOrNewPodAntiAffinity() {
+  public V1AffinityFluentImpl.PodAntiAffinityNested<A> editOrNewPodAntiAffinity() {
     return withNewPodAntiAffinityLike(getPodAntiAffinity() != null ? getPodAntiAffinity(): new V1PodAntiAffinityBuilder().build());
   }
-  public V1AffinityFluent.PodAntiAffinityNested<A> editOrNewPodAntiAffinityLike(V1PodAntiAffinity item) {
+  public V1AffinityFluentImpl.PodAntiAffinityNested<A> editOrNewPodAntiAffinityLike(V1PodAntiAffinity item) {
     return withNewPodAntiAffinityLike(getPodAntiAffinity() != null ? getPodAntiAffinity(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1AffinityFluentImpl that = (V1AffinityFluentImpl) o;
-    if (nodeAffinity != null ? !nodeAffinity.equals(that.nodeAffinity) :that.nodeAffinity != null) return false;
-    if (podAffinity != null ? !podAffinity.equals(that.podAffinity) :that.podAffinity != null) return false;
-    if (podAntiAffinity != null ? !podAntiAffinity.equals(that.podAntiAffinity) :that.podAntiAffinity != null) return false;
+    if (!java.util.Objects.equals(nodeAffinity, that.nodeAffinity)) return false;
+
+    if (!java.util.Objects.equals(podAffinity, that.podAffinity)) return false;
+
+    if (!java.util.Objects.equals(podAntiAffinity, that.podAntiAffinity)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -149,7 +152,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class NodeAffinityNestedImpl<N> extends V1NodeAffinityFluentImpl<V1AffinityFluent.NodeAffinityNested<N>> implements V1AffinityFluent.NodeAffinityNested<N>,Nested<N>{
+  class NodeAffinityNestedImpl<N> extends V1NodeAffinityFluentImpl<V1AffinityFluentImpl.NodeAffinityNested<N>> implements V1AffinityFluentImpl.NodeAffinityNested<N>,Nested<N>{
     NodeAffinityNestedImpl(V1NodeAffinity item) {
       this.builder = new V1NodeAffinityBuilder(this, item);
     }
@@ -165,7 +168,7 @@ import java.lang.Object;
     }
     
   }
-  class PodAffinityNestedImpl<N> extends V1PodAffinityFluentImpl<V1AffinityFluent.PodAffinityNested<N>> implements V1AffinityFluent.PodAffinityNested<N>,Nested<N>{
+  class PodAffinityNestedImpl<N> extends V1PodAffinityFluentImpl<V1AffinityFluentImpl.PodAffinityNested<N>> implements V1AffinityFluentImpl.PodAffinityNested<N>,Nested<N>{
     PodAffinityNestedImpl(V1PodAffinity item) {
       this.builder = new V1PodAffinityBuilder(this, item);
     }
@@ -181,7 +184,7 @@ import java.lang.Object;
     }
     
   }
-  class PodAntiAffinityNestedImpl<N> extends V1PodAntiAffinityFluentImpl<V1AffinityFluent.PodAntiAffinityNested<N>> implements V1AffinityFluent.PodAntiAffinityNested<N>,Nested<N>{
+  class PodAntiAffinityNestedImpl<N> extends V1PodAntiAffinityFluentImpl<V1AffinityFluentImpl.PodAntiAffinityNested<N>> implements V1AffinityFluentImpl.PodAntiAffinityNested<N>,Nested<N>{
     PodAntiAffinityNestedImpl(V1PodAntiAffinity item) {
       this.builder = new V1PodAntiAffinityBuilder(this, item);
     }

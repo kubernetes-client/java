@@ -16,8 +16,9 @@ import java.lang.Boolean;
   public V1NodeConfigSourceFluentImpl() {
   }
   public V1NodeConfigSourceFluentImpl(V1NodeConfigSource instance) {
-    this.withConfigMap(instance.getConfigMap());
-
+    if (instance != null) {
+      this.withConfigMap(instance.getConfigMap());
+    }
   }
   private V1ConfigMapNodeConfigSourceBuilder configMap;
   
@@ -39,26 +40,28 @@ import java.lang.Boolean;
   public Boolean hasConfigMap() {
     return this.configMap != null;
   }
-  public V1NodeConfigSourceFluent.ConfigMapNested<A> withNewConfigMap() {
+  public V1NodeConfigSourceFluentImpl.ConfigMapNested<A> withNewConfigMap() {
     return new V1NodeConfigSourceFluentImpl.ConfigMapNestedImpl();
   }
-  public V1NodeConfigSourceFluent.ConfigMapNested<A> withNewConfigMapLike(V1ConfigMapNodeConfigSource item) {
+  public V1NodeConfigSourceFluentImpl.ConfigMapNested<A> withNewConfigMapLike(V1ConfigMapNodeConfigSource item) {
     return new V1NodeConfigSourceFluentImpl.ConfigMapNestedImpl(item);
   }
-  public V1NodeConfigSourceFluent.ConfigMapNested<A> editConfigMap() {
+  public V1NodeConfigSourceFluentImpl.ConfigMapNested<A> editConfigMap() {
     return withNewConfigMapLike(getConfigMap());
   }
-  public V1NodeConfigSourceFluent.ConfigMapNested<A> editOrNewConfigMap() {
+  public V1NodeConfigSourceFluentImpl.ConfigMapNested<A> editOrNewConfigMap() {
     return withNewConfigMapLike(getConfigMap() != null ? getConfigMap(): new V1ConfigMapNodeConfigSourceBuilder().build());
   }
-  public V1NodeConfigSourceFluent.ConfigMapNested<A> editOrNewConfigMapLike(V1ConfigMapNodeConfigSource item) {
+  public V1NodeConfigSourceFluentImpl.ConfigMapNested<A> editOrNewConfigMapLike(V1ConfigMapNodeConfigSource item) {
     return withNewConfigMapLike(getConfigMap() != null ? getConfigMap(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1NodeConfigSourceFluentImpl that = (V1NodeConfigSourceFluentImpl) o;
-    if (configMap != null ? !configMap.equals(that.configMap) :that.configMap != null) return false;
+    if (!java.util.Objects.equals(configMap, that.configMap)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -71,7 +74,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ConfigMapNestedImpl<N> extends V1ConfigMapNodeConfigSourceFluentImpl<V1NodeConfigSourceFluent.ConfigMapNested<N>> implements V1NodeConfigSourceFluent.ConfigMapNested<N>,Nested<N>{
+  class ConfigMapNestedImpl<N> extends V1ConfigMapNodeConfigSourceFluentImpl<V1NodeConfigSourceFluentImpl.ConfigMapNested<N>> implements V1NodeConfigSourceFluentImpl.ConfigMapNested<N>,Nested<N>{
     ConfigMapNestedImpl(V1ConfigMapNodeConfigSource item) {
       this.builder = new V1ConfigMapNodeConfigSourceBuilder(this, item);
     }

@@ -17,14 +17,12 @@ import java.lang.Boolean;
   public V1DownwardAPIVolumeFileFluentImpl() {
   }
   public V1DownwardAPIVolumeFileFluentImpl(V1DownwardAPIVolumeFile instance) {
-    this.withFieldRef(instance.getFieldRef());
-
-    this.withMode(instance.getMode());
-
-    this.withPath(instance.getPath());
-
-    this.withResourceFieldRef(instance.getResourceFieldRef());
-
+    if (instance != null) {
+      this.withFieldRef(instance.getFieldRef());
+      this.withMode(instance.getMode());
+      this.withPath(instance.getPath());
+      this.withResourceFieldRef(instance.getResourceFieldRef());
+    }
   }
   private V1ObjectFieldSelectorBuilder fieldRef;
   private Integer mode;
@@ -49,19 +47,19 @@ import java.lang.Boolean;
   public Boolean hasFieldRef() {
     return this.fieldRef != null;
   }
-  public V1DownwardAPIVolumeFileFluent.FieldRefNested<A> withNewFieldRef() {
+  public V1DownwardAPIVolumeFileFluentImpl.FieldRefNested<A> withNewFieldRef() {
     return new V1DownwardAPIVolumeFileFluentImpl.FieldRefNestedImpl();
   }
-  public V1DownwardAPIVolumeFileFluent.FieldRefNested<A> withNewFieldRefLike(V1ObjectFieldSelector item) {
+  public V1DownwardAPIVolumeFileFluentImpl.FieldRefNested<A> withNewFieldRefLike(V1ObjectFieldSelector item) {
     return new V1DownwardAPIVolumeFileFluentImpl.FieldRefNestedImpl(item);
   }
-  public V1DownwardAPIVolumeFileFluent.FieldRefNested<A> editFieldRef() {
+  public V1DownwardAPIVolumeFileFluentImpl.FieldRefNested<A> editFieldRef() {
     return withNewFieldRefLike(getFieldRef());
   }
-  public V1DownwardAPIVolumeFileFluent.FieldRefNested<A> editOrNewFieldRef() {
+  public V1DownwardAPIVolumeFileFluentImpl.FieldRefNested<A> editOrNewFieldRef() {
     return withNewFieldRefLike(getFieldRef() != null ? getFieldRef(): new V1ObjectFieldSelectorBuilder().build());
   }
-  public V1DownwardAPIVolumeFileFluent.FieldRefNested<A> editOrNewFieldRefLike(V1ObjectFieldSelector item) {
+  public V1DownwardAPIVolumeFileFluentImpl.FieldRefNested<A> editOrNewFieldRefLike(V1ObjectFieldSelector item) {
     return withNewFieldRefLike(getFieldRef() != null ? getFieldRef(): item);
   }
   public Integer getMode() {
@@ -101,29 +99,34 @@ import java.lang.Boolean;
   public Boolean hasResourceFieldRef() {
     return this.resourceFieldRef != null;
   }
-  public V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A> withNewResourceFieldRef() {
+  public V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNested<A> withNewResourceFieldRef() {
     return new V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNestedImpl();
   }
-  public V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A> withNewResourceFieldRefLike(V1ResourceFieldSelector item) {
+  public V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNested<A> withNewResourceFieldRefLike(V1ResourceFieldSelector item) {
     return new V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNestedImpl(item);
   }
-  public V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A> editResourceFieldRef() {
+  public V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNested<A> editResourceFieldRef() {
     return withNewResourceFieldRefLike(getResourceFieldRef());
   }
-  public V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A> editOrNewResourceFieldRef() {
+  public V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNested<A> editOrNewResourceFieldRef() {
     return withNewResourceFieldRefLike(getResourceFieldRef() != null ? getResourceFieldRef(): new V1ResourceFieldSelectorBuilder().build());
   }
-  public V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<A> editOrNewResourceFieldRefLike(V1ResourceFieldSelector item) {
+  public V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNested<A> editOrNewResourceFieldRefLike(V1ResourceFieldSelector item) {
     return withNewResourceFieldRefLike(getResourceFieldRef() != null ? getResourceFieldRef(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1DownwardAPIVolumeFileFluentImpl that = (V1DownwardAPIVolumeFileFluentImpl) o;
-    if (fieldRef != null ? !fieldRef.equals(that.fieldRef) :that.fieldRef != null) return false;
-    if (mode != null ? !mode.equals(that.mode) :that.mode != null) return false;
-    if (path != null ? !path.equals(that.path) :that.path != null) return false;
-    if (resourceFieldRef != null ? !resourceFieldRef.equals(that.resourceFieldRef) :that.resourceFieldRef != null) return false;
+    if (!java.util.Objects.equals(fieldRef, that.fieldRef)) return false;
+
+    if (!java.util.Objects.equals(mode, that.mode)) return false;
+
+    if (!java.util.Objects.equals(path, that.path)) return false;
+
+    if (!java.util.Objects.equals(resourceFieldRef, that.resourceFieldRef)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -139,7 +142,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class FieldRefNestedImpl<N> extends V1ObjectFieldSelectorFluentImpl<V1DownwardAPIVolumeFileFluent.FieldRefNested<N>> implements V1DownwardAPIVolumeFileFluent.FieldRefNested<N>,Nested<N>{
+  class FieldRefNestedImpl<N> extends V1ObjectFieldSelectorFluentImpl<V1DownwardAPIVolumeFileFluentImpl.FieldRefNested<N>> implements V1DownwardAPIVolumeFileFluentImpl.FieldRefNested<N>,Nested<N>{
     FieldRefNestedImpl(V1ObjectFieldSelector item) {
       this.builder = new V1ObjectFieldSelectorBuilder(this, item);
     }
@@ -155,7 +158,7 @@ import java.lang.Boolean;
     }
     
   }
-  class ResourceFieldRefNestedImpl<N> extends V1ResourceFieldSelectorFluentImpl<V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<N>> implements V1DownwardAPIVolumeFileFluent.ResourceFieldRefNested<N>,Nested<N>{
+  class ResourceFieldRefNestedImpl<N> extends V1ResourceFieldSelectorFluentImpl<V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNested<N>> implements V1DownwardAPIVolumeFileFluentImpl.ResourceFieldRefNested<N>,Nested<N>{
     ResourceFieldRefNestedImpl(V1ResourceFieldSelector item) {
       this.builder = new V1ResourceFieldSelectorBuilder(this, item);
     }

@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -38,8 +38,8 @@ public interface V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWe
   public V1ValidatingWebhookConfigurationFluent.MetadataNested<A> editMetadata();
   public V1ValidatingWebhookConfigurationFluent.MetadataNested<A> editOrNewMetadata();
   public V1ValidatingWebhookConfigurationFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item);
-  public A addToWebhooks(Integer index,V1ValidatingWebhook item);
-  public A setToWebhooks(Integer index,V1ValidatingWebhook item);
+  public A addToWebhooks(int index,V1ValidatingWebhook item);
+  public A setToWebhooks(int index,V1ValidatingWebhook item);
   public A addToWebhooks(io.kubernetes.client.openapi.models.V1ValidatingWebhook... items);
   public A addAllToWebhooks(Collection<V1ValidatingWebhook> items);
   public A removeFromWebhooks(io.kubernetes.client.openapi.models.V1ValidatingWebhook... items);
@@ -53,7 +53,7 @@ public interface V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWe
   @Deprecated
   public List<V1ValidatingWebhook> getWebhooks();
   public List<V1ValidatingWebhook> buildWebhooks();
-  public V1ValidatingWebhook buildWebhook(Integer index);
+  public V1ValidatingWebhook buildWebhook(int index);
   public V1ValidatingWebhook buildFirstWebhook();
   public V1ValidatingWebhook buildLastWebhook();
   public V1ValidatingWebhook buildMatchingWebhook(Predicate<V1ValidatingWebhookBuilder> predicate);
@@ -63,8 +63,8 @@ public interface V1ValidatingWebhookConfigurationFluent<A extends V1ValidatingWe
   public Boolean hasWebhooks();
   public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> addNewWebhook();
   public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> addNewWebhookLike(V1ValidatingWebhook item);
-  public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> setNewWebhookLike(Integer index,V1ValidatingWebhook item);
-  public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> editWebhook(Integer index);
+  public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> setNewWebhookLike(int index,V1ValidatingWebhook item);
+  public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> editWebhook(int index);
   public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> editFirstWebhook();
   public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> editLastWebhook();
   public V1ValidatingWebhookConfigurationFluent.WebhooksNested<A> editMatchingWebhook(Predicate<V1ValidatingWebhookBuilder> predicate);

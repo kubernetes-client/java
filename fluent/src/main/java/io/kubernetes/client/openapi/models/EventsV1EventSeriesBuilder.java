@@ -20,10 +20,10 @@ public class EventsV1EventSeriesBuilder extends EventsV1EventSeriesFluentImpl<Ev
   }
   public EventsV1EventSeriesBuilder(EventsV1EventSeriesFluent<?> fluent,EventsV1EventSeries instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withCount(instance.getCount());
-
-    fluent.withLastObservedTime(instance.getLastObservedTime());
-
+    if (instance != null) {
+      fluent.withCount(instance.getCount());
+      fluent.withLastObservedTime(instance.getLastObservedTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public EventsV1EventSeriesBuilder(EventsV1EventSeries instance) {
@@ -31,10 +31,10 @@ public class EventsV1EventSeriesBuilder extends EventsV1EventSeriesFluentImpl<Ev
   }
   public EventsV1EventSeriesBuilder(EventsV1EventSeries instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withCount(instance.getCount());
-
-    this.withLastObservedTime(instance.getLastObservedTime());
-
+    if (instance != null) {
+      this.withCount(instance.getCount());
+      this.withLastObservedTime(instance.getLastObservedTime());
+    }
     this.validationEnabled = validationEnabled; 
   }
   EventsV1EventSeriesFluent<?> fluent;

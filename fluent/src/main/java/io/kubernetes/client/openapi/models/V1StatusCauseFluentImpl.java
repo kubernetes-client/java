@@ -14,12 +14,11 @@ import java.lang.Boolean;
   public V1StatusCauseFluentImpl() {
   }
   public V1StatusCauseFluentImpl(V1StatusCause instance) {
-    this.withField(instance.getField());
-
-    this.withMessage(instance.getMessage());
-
-    this.withReason(instance.getReason());
-
+    if (instance != null) {
+      this.withField(instance.getField());
+      this.withMessage(instance.getMessage());
+      this.withReason(instance.getReason());
+    }
   }
   private String field;
   private String message;
@@ -54,10 +53,14 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1StatusCauseFluentImpl that = (V1StatusCauseFluentImpl) o;
-    if (field != null ? !field.equals(that.field) :that.field != null) return false;
-    if (message != null ? !message.equals(that.message) :that.message != null) return false;
-    if (reason != null ? !reason.equals(that.reason) :that.reason != null) return false;
+    if (!java.util.Objects.equals(field, that.field)) return false;
+
+    if (!java.util.Objects.equals(message, that.message)) return false;
+
+    if (!java.util.Objects.equals(reason, that.reason)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -6,7 +6,6 @@ import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
@@ -23,20 +22,22 @@ import java.lang.Boolean;
   public V1beta2FlowSchemaStatusFluentImpl() {
   }
   public V1beta2FlowSchemaStatusFluentImpl(V1beta2FlowSchemaStatus instance) {
-    this.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+    }
   }
   private ArrayList<V1beta2FlowSchemaConditionBuilder> conditions;
-  public A addToConditions(Integer index,V1beta2FlowSchemaCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1beta2FlowSchemaConditionBuilder>();}
-    V1beta2FlowSchemaConditionBuilder builder = new V1beta2FlowSchemaConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
-  }
-  public A setToConditions(Integer index,V1beta2FlowSchemaCondition item) {
+  public A addToConditions(int index,V1beta2FlowSchemaCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1beta2FlowSchemaConditionBuilder>();}
     V1beta2FlowSchemaConditionBuilder builder = new V1beta2FlowSchemaConditionBuilder(item);
-    if (index < 0 || index >= _visitables.get("conditions").size()) { _visitables.get("conditions").add(builder); } else { _visitables.get("conditions").set(index, builder);}
-    if (index < 0 || index >= conditions.size()) { conditions.add(builder); } else { conditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToConditions(int index,V1beta2FlowSchemaCondition item) {
+    if (this.conditions == null) {this.conditions = new ArrayList<V1beta2FlowSchemaConditionBuilder>();}
+    V1beta2FlowSchemaConditionBuilder builder = new V1beta2FlowSchemaConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    return (A)this;
   }
   public A addToConditions(io.kubernetes.client.openapi.models.V1beta2FlowSchemaCondition... items) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1beta2FlowSchemaConditionBuilder>();}
@@ -77,7 +78,7 @@ import java.lang.Boolean;
   public List<V1beta2FlowSchemaCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
-  public V1beta2FlowSchemaCondition buildCondition(Integer index) {
+  public V1beta2FlowSchemaCondition buildCondition(int index) {
     return this.conditions.get(index).build();
   }
   public V1beta2FlowSchemaCondition buildFirstCondition() {
@@ -93,39 +94,39 @@ import java.lang.Boolean;
     for (V1beta2FlowSchemaConditionBuilder item: conditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withConditions(List<V1beta2FlowSchemaCondition> conditions) {
-    if (this.conditions != null) { _visitables.get("conditions").removeAll(this.conditions);}
+    if (this.conditions != null) { _visitables.get("conditions").clear();}
     if (conditions != null) {this.conditions = new ArrayList(); for (V1beta2FlowSchemaCondition item : conditions){this.addToConditions(item);}} else { this.conditions = null;} return (A) this;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V1beta2FlowSchemaCondition... conditions) {
-    if (this.conditions != null) {this.conditions.clear();}
+    if (this.conditions != null) {this.conditions.clear(); _visitables.remove("conditions"); }
     if (conditions != null) {for (V1beta2FlowSchemaCondition item :conditions){ this.addToConditions(item);}} return (A) this;
   }
   public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
-  public V1beta2FlowSchemaStatusFluent.ConditionsNested<A> addNewCondition() {
+  public V1beta2FlowSchemaStatusFluentImpl.ConditionsNested<A> addNewCondition() {
     return new V1beta2FlowSchemaStatusFluentImpl.ConditionsNestedImpl();
   }
-  public V1beta2FlowSchemaStatusFluent.ConditionsNested<A> addNewConditionLike(V1beta2FlowSchemaCondition item) {
+  public V1beta2FlowSchemaStatusFluentImpl.ConditionsNested<A> addNewConditionLike(V1beta2FlowSchemaCondition item) {
     return new V1beta2FlowSchemaStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
-  public V1beta2FlowSchemaStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1beta2FlowSchemaCondition item) {
+  public V1beta2FlowSchemaStatusFluentImpl.ConditionsNested<A> setNewConditionLike(int index,V1beta2FlowSchemaCondition item) {
     return new V1beta2FlowSchemaStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
-  public V1beta2FlowSchemaStatusFluent.ConditionsNested<A> editCondition(Integer index) {
+  public V1beta2FlowSchemaStatusFluentImpl.ConditionsNested<A> editCondition(int index) {
     if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1beta2FlowSchemaStatusFluent.ConditionsNested<A> editFirstCondition() {
+  public V1beta2FlowSchemaStatusFluentImpl.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
-  public V1beta2FlowSchemaStatusFluent.ConditionsNested<A> editLastCondition() {
+  public V1beta2FlowSchemaStatusFluentImpl.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1beta2FlowSchemaStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1beta2FlowSchemaConditionBuilder> predicate) {
+  public V1beta2FlowSchemaStatusFluentImpl.ConditionsNested<A> editMatchingCondition(Predicate<V1beta2FlowSchemaConditionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<conditions.size();i++) { 
     if (predicate.test(conditions.get(i))) {index = i; break;}
@@ -136,8 +137,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1beta2FlowSchemaStatusFluentImpl that = (V1beta2FlowSchemaStatusFluentImpl) o;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -146,12 +149,12 @@ import java.lang.Boolean;
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions); }
+    if (conditions != null) { sb.append("conditions:"); sb.append(conditions); }
     sb.append("}");
     return sb.toString();
   }
-  class ConditionsNestedImpl<N> extends V1beta2FlowSchemaConditionFluentImpl<V1beta2FlowSchemaStatusFluent.ConditionsNested<N>> implements V1beta2FlowSchemaStatusFluent.ConditionsNested<N>,Nested<N>{
-    ConditionsNestedImpl(Integer index,V1beta2FlowSchemaCondition item) {
+  class ConditionsNestedImpl<N> extends V1beta2FlowSchemaConditionFluentImpl<V1beta2FlowSchemaStatusFluentImpl.ConditionsNested<N>> implements V1beta2FlowSchemaStatusFluentImpl.ConditionsNested<N>,Nested<N>{
+    ConditionsNestedImpl(int index,V1beta2FlowSchemaCondition item) {
       this.index = index;
       this.builder = new V1beta2FlowSchemaConditionBuilder(this, item);
     }
@@ -160,7 +163,7 @@ import java.lang.Boolean;
       this.builder = new V1beta2FlowSchemaConditionBuilder(this);
     }
     V1beta2FlowSchemaConditionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1beta2FlowSchemaStatusFluentImpl.this.setToConditions(index,builder.build());
     }

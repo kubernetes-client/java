@@ -15,10 +15,10 @@ import java.lang.Boolean;
   public V1RollingUpdateDeploymentFluentImpl() {
   }
   public V1RollingUpdateDeploymentFluentImpl(V1RollingUpdateDeployment instance) {
-    this.withMaxSurge(instance.getMaxSurge());
-
-    this.withMaxUnavailable(instance.getMaxUnavailable());
-
+    if (instance != null) {
+      this.withMaxSurge(instance.getMaxSurge());
+      this.withMaxUnavailable(instance.getMaxUnavailable());
+    }
   }
   private IntOrString maxSurge;
   private IntOrString maxUnavailable;
@@ -55,9 +55,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1RollingUpdateDeploymentFluentImpl that = (V1RollingUpdateDeploymentFluentImpl) o;
-    if (maxSurge != null ? !maxSurge.equals(that.maxSurge) :that.maxSurge != null) return false;
-    if (maxUnavailable != null ? !maxUnavailable.equals(that.maxUnavailable) :that.maxUnavailable != null) return false;
+    if (!java.util.Objects.equals(maxSurge, that.maxSurge)) return false;
+
+    if (!java.util.Objects.equals(maxUnavailable, that.maxUnavailable)) return false;
+
     return true;
   }
   public int hashCode() {

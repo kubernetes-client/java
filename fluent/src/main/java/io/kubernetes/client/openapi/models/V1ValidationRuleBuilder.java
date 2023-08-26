@@ -20,10 +20,11 @@ public class V1ValidationRuleBuilder extends V1ValidationRuleFluentImpl<V1Valida
   }
   public V1ValidationRuleBuilder(V1ValidationRuleFluent<?> fluent,V1ValidationRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMessage(instance.getMessage());
-
-    fluent.withRule(instance.getRule());
-
+    if (instance != null) {
+      fluent.withMessage(instance.getMessage());
+      fluent.withMessageExpression(instance.getMessageExpression());
+      fluent.withRule(instance.getRule());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ValidationRuleBuilder(V1ValidationRule instance) {
@@ -31,10 +32,11 @@ public class V1ValidationRuleBuilder extends V1ValidationRuleFluentImpl<V1Valida
   }
   public V1ValidationRuleBuilder(V1ValidationRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMessage(instance.getMessage());
-
-    this.withRule(instance.getRule());
-
+    if (instance != null) {
+      this.withMessage(instance.getMessage());
+      this.withMessageExpression(instance.getMessageExpression());
+      this.withRule(instance.getRule());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ValidationRuleFluent<?> fluent;
@@ -42,6 +44,7 @@ public class V1ValidationRuleBuilder extends V1ValidationRuleFluentImpl<V1Valida
   public V1ValidationRule build() {
     V1ValidationRule buildable = new V1ValidationRule();
     buildable.setMessage(fluent.getMessage());
+    buildable.setMessageExpression(fluent.getMessageExpression());
     buildable.setRule(fluent.getRule());
     return buildable;
   }

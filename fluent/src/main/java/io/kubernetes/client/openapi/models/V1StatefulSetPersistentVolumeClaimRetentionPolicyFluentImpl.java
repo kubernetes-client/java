@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl() {
   }
   public V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl(V1StatefulSetPersistentVolumeClaimRetentionPolicy instance) {
-    this.withWhenDeleted(instance.getWhenDeleted());
-
-    this.withWhenScaled(instance.getWhenScaled());
-
+    if (instance != null) {
+      this.withWhenDeleted(instance.getWhenDeleted());
+      this.withWhenScaled(instance.getWhenScaled());
+    }
   }
   private String whenDeleted;
   private String whenScaled;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl that = (V1StatefulSetPersistentVolumeClaimRetentionPolicyFluentImpl) o;
-    if (whenDeleted != null ? !whenDeleted.equals(that.whenDeleted) :that.whenDeleted != null) return false;
-    if (whenScaled != null ? !whenScaled.equals(that.whenScaled) :that.whenScaled != null) return false;
+    if (!java.util.Objects.equals(whenDeleted, that.whenDeleted)) return false;
+
+    if (!java.util.Objects.equals(whenScaled, that.whenScaled)) return false;
+
     return true;
   }
   public int hashCode() {

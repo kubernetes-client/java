@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -21,8 +22,8 @@ import java.util.Map;
   * Generated
   */
 public interface V1PodDisruptionBudgetStatusFluent<A extends V1PodDisruptionBudgetStatusFluent<A>> extends Fluent<A>{
-  public A addToConditions(Integer index,V1Condition item);
-  public A setToConditions(Integer index,V1Condition item);
+  public A addToConditions(int index,V1Condition item);
+  public A setToConditions(int index,V1Condition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1Condition... items);
   public A addAllToConditions(Collection<V1Condition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1Condition... items);
@@ -36,7 +37,7 @@ public interface V1PodDisruptionBudgetStatusFluent<A extends V1PodDisruptionBudg
   @Deprecated
   public List<V1Condition> getConditions();
   public List<V1Condition> buildConditions();
-  public V1Condition buildCondition(Integer index);
+  public V1Condition buildCondition(int index);
   public V1Condition buildFirstCondition();
   public V1Condition buildLastCondition();
   public V1Condition buildMatchingCondition(Predicate<V1ConditionBuilder> predicate);
@@ -46,8 +47,8 @@ public interface V1PodDisruptionBudgetStatusFluent<A extends V1PodDisruptionBudg
   public Boolean hasConditions();
   public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> addNewCondition();
   public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> addNewConditionLike(V1Condition item);
-  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1Condition item);
-  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1Condition item);
+  public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editLastCondition();
   public V1PodDisruptionBudgetStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1ConditionBuilder> predicate);

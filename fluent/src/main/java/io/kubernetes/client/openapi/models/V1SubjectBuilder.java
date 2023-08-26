@@ -20,14 +20,12 @@ public class V1SubjectBuilder extends V1SubjectFluentImpl<V1SubjectBuilder> impl
   }
   public V1SubjectBuilder(V1SubjectFluent<?> fluent,V1Subject instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withApiGroup(instance.getApiGroup());
-
-    fluent.withKind(instance.getKind());
-
-    fluent.withName(instance.getName());
-
-    fluent.withNamespace(instance.getNamespace());
-
+    if (instance != null) {
+      fluent.withApiGroup(instance.getApiGroup());
+      fluent.withKind(instance.getKind());
+      fluent.withName(instance.getName());
+      fluent.withNamespace(instance.getNamespace());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1SubjectBuilder(V1Subject instance) {
@@ -35,14 +33,12 @@ public class V1SubjectBuilder extends V1SubjectFluentImpl<V1SubjectBuilder> impl
   }
   public V1SubjectBuilder(V1Subject instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withApiGroup(instance.getApiGroup());
-
-    this.withKind(instance.getKind());
-
-    this.withName(instance.getName());
-
-    this.withNamespace(instance.getNamespace());
-
+    if (instance != null) {
+      this.withApiGroup(instance.getApiGroup());
+      this.withKind(instance.getKind());
+      this.withName(instance.getName());
+      this.withNamespace(instance.getNamespace());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1SubjectFluent<?> fluent;

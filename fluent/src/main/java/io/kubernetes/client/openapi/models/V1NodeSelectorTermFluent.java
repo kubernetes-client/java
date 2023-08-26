@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -16,8 +16,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>> extends Fluent<A>{
-  public A addToMatchExpressions(Integer index,V1NodeSelectorRequirement item);
-  public A setToMatchExpressions(Integer index,V1NodeSelectorRequirement item);
+  public A addToMatchExpressions(int index,V1NodeSelectorRequirement item);
+  public A setToMatchExpressions(int index,V1NodeSelectorRequirement item);
   public A addToMatchExpressions(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items);
   public A addAllToMatchExpressions(Collection<V1NodeSelectorRequirement> items);
   public A removeFromMatchExpressions(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items);
@@ -31,7 +31,7 @@ public interface V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>>
   @Deprecated
   public List<V1NodeSelectorRequirement> getMatchExpressions();
   public List<V1NodeSelectorRequirement> buildMatchExpressions();
-  public V1NodeSelectorRequirement buildMatchExpression(Integer index);
+  public V1NodeSelectorRequirement buildMatchExpression(int index);
   public V1NodeSelectorRequirement buildFirstMatchExpression();
   public V1NodeSelectorRequirement buildLastMatchExpression();
   public V1NodeSelectorRequirement buildMatchingMatchExpression(Predicate<V1NodeSelectorRequirementBuilder> predicate);
@@ -41,13 +41,13 @@ public interface V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>>
   public Boolean hasMatchExpressions();
   public V1NodeSelectorTermFluent.MatchExpressionsNested<A> addNewMatchExpression();
   public V1NodeSelectorTermFluent.MatchExpressionsNested<A> addNewMatchExpressionLike(V1NodeSelectorRequirement item);
-  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> setNewMatchExpressionLike(Integer index,V1NodeSelectorRequirement item);
-  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> editMatchExpression(Integer index);
+  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> setNewMatchExpressionLike(int index,V1NodeSelectorRequirement item);
+  public V1NodeSelectorTermFluent.MatchExpressionsNested<A> editMatchExpression(int index);
   public V1NodeSelectorTermFluent.MatchExpressionsNested<A> editFirstMatchExpression();
   public V1NodeSelectorTermFluent.MatchExpressionsNested<A> editLastMatchExpression();
   public V1NodeSelectorTermFluent.MatchExpressionsNested<A> editMatchingMatchExpression(Predicate<V1NodeSelectorRequirementBuilder> predicate);
-  public A addToMatchFields(Integer index,V1NodeSelectorRequirement item);
-  public A setToMatchFields(Integer index,V1NodeSelectorRequirement item);
+  public A addToMatchFields(int index,V1NodeSelectorRequirement item);
+  public A setToMatchFields(int index,V1NodeSelectorRequirement item);
   public A addToMatchFields(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items);
   public A addAllToMatchFields(Collection<V1NodeSelectorRequirement> items);
   public A removeFromMatchFields(io.kubernetes.client.openapi.models.V1NodeSelectorRequirement... items);
@@ -61,7 +61,7 @@ public interface V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>>
   @Deprecated
   public List<V1NodeSelectorRequirement> getMatchFields();
   public List<V1NodeSelectorRequirement> buildMatchFields();
-  public V1NodeSelectorRequirement buildMatchField(Integer index);
+  public V1NodeSelectorRequirement buildMatchField(int index);
   public V1NodeSelectorRequirement buildFirstMatchField();
   public V1NodeSelectorRequirement buildLastMatchField();
   public V1NodeSelectorRequirement buildMatchingMatchField(Predicate<V1NodeSelectorRequirementBuilder> predicate);
@@ -71,8 +71,8 @@ public interface V1NodeSelectorTermFluent<A extends V1NodeSelectorTermFluent<A>>
   public Boolean hasMatchFields();
   public V1NodeSelectorTermFluent.MatchFieldsNested<A> addNewMatchField();
   public V1NodeSelectorTermFluent.MatchFieldsNested<A> addNewMatchFieldLike(V1NodeSelectorRequirement item);
-  public V1NodeSelectorTermFluent.MatchFieldsNested<A> setNewMatchFieldLike(Integer index,V1NodeSelectorRequirement item);
-  public V1NodeSelectorTermFluent.MatchFieldsNested<A> editMatchField(Integer index);
+  public V1NodeSelectorTermFluent.MatchFieldsNested<A> setNewMatchFieldLike(int index,V1NodeSelectorRequirement item);
+  public V1NodeSelectorTermFluent.MatchFieldsNested<A> editMatchField(int index);
   public V1NodeSelectorTermFluent.MatchFieldsNested<A> editFirstMatchField();
   public V1NodeSelectorTermFluent.MatchFieldsNested<A> editLastMatchField();
   public V1NodeSelectorTermFluent.MatchFieldsNested<A> editMatchingMatchField(Predicate<V1NodeSelectorRequirementBuilder> predicate);

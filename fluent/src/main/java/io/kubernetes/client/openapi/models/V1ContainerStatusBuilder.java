@@ -20,24 +20,19 @@ public class V1ContainerStatusBuilder extends V1ContainerStatusFluentImpl<V1Cont
   }
   public V1ContainerStatusBuilder(V1ContainerStatusFluent<?> fluent,V1ContainerStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withContainerID(instance.getContainerID());
-
-    fluent.withImage(instance.getImage());
-
-    fluent.withImageID(instance.getImageID());
-
-    fluent.withLastState(instance.getLastState());
-
-    fluent.withName(instance.getName());
-
-    fluent.withReady(instance.getReady());
-
-    fluent.withRestartCount(instance.getRestartCount());
-
-    fluent.withStarted(instance.getStarted());
-
-    fluent.withState(instance.getState());
-
+    if (instance != null) {
+      fluent.withAllocatedResources(instance.getAllocatedResources());
+      fluent.withContainerID(instance.getContainerID());
+      fluent.withImage(instance.getImage());
+      fluent.withImageID(instance.getImageID());
+      fluent.withLastState(instance.getLastState());
+      fluent.withName(instance.getName());
+      fluent.withReady(instance.getReady());
+      fluent.withResources(instance.getResources());
+      fluent.withRestartCount(instance.getRestartCount());
+      fluent.withStarted(instance.getStarted());
+      fluent.withState(instance.getState());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1ContainerStatusBuilder(V1ContainerStatus instance) {
@@ -45,36 +40,33 @@ public class V1ContainerStatusBuilder extends V1ContainerStatusFluentImpl<V1Cont
   }
   public V1ContainerStatusBuilder(V1ContainerStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withContainerID(instance.getContainerID());
-
-    this.withImage(instance.getImage());
-
-    this.withImageID(instance.getImageID());
-
-    this.withLastState(instance.getLastState());
-
-    this.withName(instance.getName());
-
-    this.withReady(instance.getReady());
-
-    this.withRestartCount(instance.getRestartCount());
-
-    this.withStarted(instance.getStarted());
-
-    this.withState(instance.getState());
-
+    if (instance != null) {
+      this.withAllocatedResources(instance.getAllocatedResources());
+      this.withContainerID(instance.getContainerID());
+      this.withImage(instance.getImage());
+      this.withImageID(instance.getImageID());
+      this.withLastState(instance.getLastState());
+      this.withName(instance.getName());
+      this.withReady(instance.getReady());
+      this.withResources(instance.getResources());
+      this.withRestartCount(instance.getRestartCount());
+      this.withStarted(instance.getStarted());
+      this.withState(instance.getState());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1ContainerStatusFluent<?> fluent;
   Boolean validationEnabled;
   public V1ContainerStatus build() {
     V1ContainerStatus buildable = new V1ContainerStatus();
+    buildable.setAllocatedResources(fluent.getAllocatedResources());
     buildable.setContainerID(fluent.getContainerID());
     buildable.setImage(fluent.getImage());
     buildable.setImageID(fluent.getImageID());
     buildable.setLastState(fluent.getLastState());
     buildable.setName(fluent.getName());
     buildable.setReady(fluent.getReady());
+    buildable.setResources(fluent.getResources());
     buildable.setRestartCount(fluent.getRestartCount());
     buildable.setStarted(fluent.getStarted());
     buildable.setState(fluent.getState());

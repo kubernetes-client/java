@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -16,8 +16,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> extends Fluent<A>{
-  public A addToAddresses(Integer index,V1EndpointAddress item);
-  public A setToAddresses(Integer index,V1EndpointAddress item);
+  public A addToAddresses(int index,V1EndpointAddress item);
+  public A setToAddresses(int index,V1EndpointAddress item);
   public A addToAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items);
   public A addAllToAddresses(Collection<V1EndpointAddress> items);
   public A removeFromAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items);
@@ -31,7 +31,7 @@ public interface V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> ext
   @Deprecated
   public List<V1EndpointAddress> getAddresses();
   public List<V1EndpointAddress> buildAddresses();
-  public V1EndpointAddress buildAddress(Integer index);
+  public V1EndpointAddress buildAddress(int index);
   public V1EndpointAddress buildFirstAddress();
   public V1EndpointAddress buildLastAddress();
   public V1EndpointAddress buildMatchingAddress(Predicate<V1EndpointAddressBuilder> predicate);
@@ -41,13 +41,13 @@ public interface V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> ext
   public Boolean hasAddresses();
   public V1EndpointSubsetFluent.AddressesNested<A> addNewAddress();
   public V1EndpointSubsetFluent.AddressesNested<A> addNewAddressLike(V1EndpointAddress item);
-  public V1EndpointSubsetFluent.AddressesNested<A> setNewAddressLike(Integer index,V1EndpointAddress item);
-  public V1EndpointSubsetFluent.AddressesNested<A> editAddress(Integer index);
+  public V1EndpointSubsetFluent.AddressesNested<A> setNewAddressLike(int index,V1EndpointAddress item);
+  public V1EndpointSubsetFluent.AddressesNested<A> editAddress(int index);
   public V1EndpointSubsetFluent.AddressesNested<A> editFirstAddress();
   public V1EndpointSubsetFluent.AddressesNested<A> editLastAddress();
   public V1EndpointSubsetFluent.AddressesNested<A> editMatchingAddress(Predicate<V1EndpointAddressBuilder> predicate);
-  public A addToNotReadyAddresses(Integer index,V1EndpointAddress item);
-  public A setToNotReadyAddresses(Integer index,V1EndpointAddress item);
+  public A addToNotReadyAddresses(int index,V1EndpointAddress item);
+  public A setToNotReadyAddresses(int index,V1EndpointAddress item);
   public A addToNotReadyAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items);
   public A addAllToNotReadyAddresses(Collection<V1EndpointAddress> items);
   public A removeFromNotReadyAddresses(io.kubernetes.client.openapi.models.V1EndpointAddress... items);
@@ -61,7 +61,7 @@ public interface V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> ext
   @Deprecated
   public List<V1EndpointAddress> getNotReadyAddresses();
   public List<V1EndpointAddress> buildNotReadyAddresses();
-  public V1EndpointAddress buildNotReadyAddress(Integer index);
+  public V1EndpointAddress buildNotReadyAddress(int index);
   public V1EndpointAddress buildFirstNotReadyAddress();
   public V1EndpointAddress buildLastNotReadyAddress();
   public V1EndpointAddress buildMatchingNotReadyAddress(Predicate<V1EndpointAddressBuilder> predicate);
@@ -71,13 +71,13 @@ public interface V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> ext
   public Boolean hasNotReadyAddresses();
   public V1EndpointSubsetFluent.NotReadyAddressesNested<A> addNewNotReadyAddress();
   public V1EndpointSubsetFluent.NotReadyAddressesNested<A> addNewNotReadyAddressLike(V1EndpointAddress item);
-  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> setNewNotReadyAddressLike(Integer index,V1EndpointAddress item);
-  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> editNotReadyAddress(Integer index);
+  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> setNewNotReadyAddressLike(int index,V1EndpointAddress item);
+  public V1EndpointSubsetFluent.NotReadyAddressesNested<A> editNotReadyAddress(int index);
   public V1EndpointSubsetFluent.NotReadyAddressesNested<A> editFirstNotReadyAddress();
   public V1EndpointSubsetFluent.NotReadyAddressesNested<A> editLastNotReadyAddress();
   public V1EndpointSubsetFluent.NotReadyAddressesNested<A> editMatchingNotReadyAddress(Predicate<V1EndpointAddressBuilder> predicate);
-  public A addToPorts(Integer index,CoreV1EndpointPort item);
-  public A setToPorts(Integer index,CoreV1EndpointPort item);
+  public A addToPorts(int index,CoreV1EndpointPort item);
+  public A setToPorts(int index,CoreV1EndpointPort item);
   public A addToPorts(io.kubernetes.client.openapi.models.CoreV1EndpointPort... items);
   public A addAllToPorts(Collection<CoreV1EndpointPort> items);
   public A removeFromPorts(io.kubernetes.client.openapi.models.CoreV1EndpointPort... items);
@@ -91,7 +91,7 @@ public interface V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> ext
   @Deprecated
   public List<CoreV1EndpointPort> getPorts();
   public List<CoreV1EndpointPort> buildPorts();
-  public CoreV1EndpointPort buildPort(Integer index);
+  public CoreV1EndpointPort buildPort(int index);
   public CoreV1EndpointPort buildFirstPort();
   public CoreV1EndpointPort buildLastPort();
   public CoreV1EndpointPort buildMatchingPort(Predicate<CoreV1EndpointPortBuilder> predicate);
@@ -101,8 +101,8 @@ public interface V1EndpointSubsetFluent<A extends V1EndpointSubsetFluent<A>> ext
   public Boolean hasPorts();
   public V1EndpointSubsetFluent.PortsNested<A> addNewPort();
   public V1EndpointSubsetFluent.PortsNested<A> addNewPortLike(CoreV1EndpointPort item);
-  public V1EndpointSubsetFluent.PortsNested<A> setNewPortLike(Integer index,CoreV1EndpointPort item);
-  public V1EndpointSubsetFluent.PortsNested<A> editPort(Integer index);
+  public V1EndpointSubsetFluent.PortsNested<A> setNewPortLike(int index,CoreV1EndpointPort item);
+  public V1EndpointSubsetFluent.PortsNested<A> editPort(int index);
   public V1EndpointSubsetFluent.PortsNested<A> editFirstPort();
   public V1EndpointSubsetFluent.PortsNested<A> editLastPort();
   public V1EndpointSubsetFluent.PortsNested<A> editMatchingPort(Predicate<CoreV1EndpointPortBuilder> predicate);

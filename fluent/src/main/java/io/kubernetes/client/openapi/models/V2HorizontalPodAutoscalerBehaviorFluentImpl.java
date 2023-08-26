@@ -16,10 +16,10 @@ import java.lang.Boolean;
   public V2HorizontalPodAutoscalerBehaviorFluentImpl() {
   }
   public V2HorizontalPodAutoscalerBehaviorFluentImpl(V2HorizontalPodAutoscalerBehavior instance) {
-    this.withScaleDown(instance.getScaleDown());
-
-    this.withScaleUp(instance.getScaleUp());
-
+    if (instance != null) {
+      this.withScaleDown(instance.getScaleDown());
+      this.withScaleUp(instance.getScaleUp());
+    }
   }
   private V2HPAScalingRulesBuilder scaleDown;
   private V2HPAScalingRulesBuilder scaleUp;
@@ -42,19 +42,19 @@ import java.lang.Boolean;
   public Boolean hasScaleDown() {
     return this.scaleDown != null;
   }
-  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<A> withNewScaleDown() {
+  public V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNested<A> withNewScaleDown() {
     return new V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNestedImpl();
   }
-  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<A> withNewScaleDownLike(V2HPAScalingRules item) {
+  public V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNested<A> withNewScaleDownLike(V2HPAScalingRules item) {
     return new V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNestedImpl(item);
   }
-  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<A> editScaleDown() {
+  public V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNested<A> editScaleDown() {
     return withNewScaleDownLike(getScaleDown());
   }
-  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<A> editOrNewScaleDown() {
+  public V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNested<A> editOrNewScaleDown() {
     return withNewScaleDownLike(getScaleDown() != null ? getScaleDown(): new V2HPAScalingRulesBuilder().build());
   }
-  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<A> editOrNewScaleDownLike(V2HPAScalingRules item) {
+  public V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNested<A> editOrNewScaleDownLike(V2HPAScalingRules item) {
     return withNewScaleDownLike(getScaleDown() != null ? getScaleDown(): item);
   }
   
@@ -76,27 +76,30 @@ import java.lang.Boolean;
   public Boolean hasScaleUp() {
     return this.scaleUp != null;
   }
-  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<A> withNewScaleUp() {
+  public V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNested<A> withNewScaleUp() {
     return new V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNestedImpl();
   }
-  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<A> withNewScaleUpLike(V2HPAScalingRules item) {
+  public V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNested<A> withNewScaleUpLike(V2HPAScalingRules item) {
     return new V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNestedImpl(item);
   }
-  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<A> editScaleUp() {
+  public V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNested<A> editScaleUp() {
     return withNewScaleUpLike(getScaleUp());
   }
-  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<A> editOrNewScaleUp() {
+  public V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNested<A> editOrNewScaleUp() {
     return withNewScaleUpLike(getScaleUp() != null ? getScaleUp(): new V2HPAScalingRulesBuilder().build());
   }
-  public V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<A> editOrNewScaleUpLike(V2HPAScalingRules item) {
+  public V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNested<A> editOrNewScaleUpLike(V2HPAScalingRules item) {
     return withNewScaleUpLike(getScaleUp() != null ? getScaleUp(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V2HorizontalPodAutoscalerBehaviorFluentImpl that = (V2HorizontalPodAutoscalerBehaviorFluentImpl) o;
-    if (scaleDown != null ? !scaleDown.equals(that.scaleDown) :that.scaleDown != null) return false;
-    if (scaleUp != null ? !scaleUp.equals(that.scaleUp) :that.scaleUp != null) return false;
+    if (!java.util.Objects.equals(scaleDown, that.scaleDown)) return false;
+
+    if (!java.util.Objects.equals(scaleUp, that.scaleUp)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -110,7 +113,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ScaleDownNestedImpl<N> extends V2HPAScalingRulesFluentImpl<V2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<N>> implements V2HorizontalPodAutoscalerBehaviorFluent.ScaleDownNested<N>,Nested<N>{
+  class ScaleDownNestedImpl<N> extends V2HPAScalingRulesFluentImpl<V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNested<N>> implements V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleDownNested<N>,Nested<N>{
     ScaleDownNestedImpl(V2HPAScalingRules item) {
       this.builder = new V2HPAScalingRulesBuilder(this, item);
     }
@@ -126,7 +129,7 @@ import java.lang.Boolean;
     }
     
   }
-  class ScaleUpNestedImpl<N> extends V2HPAScalingRulesFluentImpl<V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<N>> implements V2HorizontalPodAutoscalerBehaviorFluent.ScaleUpNested<N>,Nested<N>{
+  class ScaleUpNestedImpl<N> extends V2HPAScalingRulesFluentImpl<V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNested<N>> implements V2HorizontalPodAutoscalerBehaviorFluentImpl.ScaleUpNested<N>,Nested<N>{
     ScaleUpNestedImpl(V2HPAScalingRules item) {
       this.builder = new V2HPAScalingRulesBuilder(this, item);
     }

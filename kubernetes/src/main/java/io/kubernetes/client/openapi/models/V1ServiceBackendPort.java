@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,26 +12,31 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** ServiceBackendPort is the service port being referenced. */
+/**
+ * ServiceBackendPort is the service port being referenced.
+ */
 @ApiModel(description = "ServiceBackendPort is the service port being referenced.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1ServiceBackendPort {
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
   public static final String SERIALIZED_NAME_NUMBER = "number";
-
   @SerializedName(SERIALIZED_NAME_NUMBER)
   private Integer number;
+
 
   public V1ServiceBackendPort name(String name) {
 
@@ -39,23 +44,22 @@ public class V1ServiceBackendPort {
     return this;
   }
 
-  /**
-   * Name is the name of the port on the Service. This is a mutually exclusive setting with
-   * \&quot;Number\&quot;.
-   *
+   /**
+   * name is the name of the port on the Service. This is a mutually exclusive setting with \&quot;Number\&quot;.
    * @return name
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Name is the name of the port on the Service. This is a mutually exclusive setting with \"Number\".")
+  @ApiModelProperty(value = "name is the name of the port on the Service. This is a mutually exclusive setting with \"Number\".")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   public V1ServiceBackendPort number(Integer number) {
 
@@ -63,23 +67,22 @@ public class V1ServiceBackendPort {
     return this;
   }
 
-  /**
-   * Number is the numerical port number (e.g. 80) on the Service. This is a mutually exclusive
-   * setting with \&quot;Name\&quot;.
-   *
+   /**
+   * number is the numerical port number (e.g. 80) on the Service. This is a mutually exclusive setting with \&quot;Name\&quot;.
    * @return number
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "Number is the numerical port number (e.g. 80) on the Service. This is a mutually exclusive setting with \"Name\".")
+  @ApiModelProperty(value = "number is the numerical port number (e.g. 80) on the Service. This is a mutually exclusive setting with \"Name\".")
+
   public Integer getNumber() {
     return number;
   }
 
+
   public void setNumber(Integer number) {
     this.number = number;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -90,14 +93,15 @@ public class V1ServiceBackendPort {
       return false;
     }
     V1ServiceBackendPort v1ServiceBackendPort = (V1ServiceBackendPort) o;
-    return Objects.equals(this.name, v1ServiceBackendPort.name)
-        && Objects.equals(this.number, v1ServiceBackendPort.number);
+    return Objects.equals(this.name, v1ServiceBackendPort.name) &&
+        Objects.equals(this.number, v1ServiceBackendPort.number);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(name, number);
   }
+
 
   @Override
   public String toString() {
@@ -110,7 +114,8 @@ public class V1ServiceBackendPort {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -118,4 +123,5 @@ public class V1ServiceBackendPort {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

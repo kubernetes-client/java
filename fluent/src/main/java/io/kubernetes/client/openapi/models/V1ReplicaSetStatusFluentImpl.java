@@ -24,18 +24,14 @@ import java.lang.Boolean;
   public V1ReplicaSetStatusFluentImpl() {
   }
   public V1ReplicaSetStatusFluentImpl(V1ReplicaSetStatus instance) {
-    this.withAvailableReplicas(instance.getAvailableReplicas());
-
-    this.withConditions(instance.getConditions());
-
-    this.withFullyLabeledReplicas(instance.getFullyLabeledReplicas());
-
-    this.withObservedGeneration(instance.getObservedGeneration());
-
-    this.withReadyReplicas(instance.getReadyReplicas());
-
-    this.withReplicas(instance.getReplicas());
-
+    if (instance != null) {
+      this.withAvailableReplicas(instance.getAvailableReplicas());
+      this.withConditions(instance.getConditions());
+      this.withFullyLabeledReplicas(instance.getFullyLabeledReplicas());
+      this.withObservedGeneration(instance.getObservedGeneration());
+      this.withReadyReplicas(instance.getReadyReplicas());
+      this.withReplicas(instance.getReplicas());
+    }
   }
   private Integer availableReplicas;
   private ArrayList<V1ReplicaSetConditionBuilder> conditions;
@@ -52,16 +48,17 @@ import java.lang.Boolean;
   public Boolean hasAvailableReplicas() {
     return this.availableReplicas != null;
   }
-  public A addToConditions(Integer index,V1ReplicaSetCondition item) {
-    if (this.conditions == null) {this.conditions = new ArrayList<V1ReplicaSetConditionBuilder>();}
-    V1ReplicaSetConditionBuilder builder = new V1ReplicaSetConditionBuilder(item);_visitables.get("conditions").add(index >= 0 ? index : _visitables.get("conditions").size(), builder);this.conditions.add(index >= 0 ? index : conditions.size(), builder); return (A)this;
-  }
-  public A setToConditions(Integer index,V1ReplicaSetCondition item) {
+  public A addToConditions(int index,V1ReplicaSetCondition item) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1ReplicaSetConditionBuilder>();}
     V1ReplicaSetConditionBuilder builder = new V1ReplicaSetConditionBuilder(item);
-    if (index < 0 || index >= _visitables.get("conditions").size()) { _visitables.get("conditions").add(builder); } else { _visitables.get("conditions").set(index, builder);}
-    if (index < 0 || index >= conditions.size()) { conditions.add(builder); } else { conditions.set(index, builder);}
-     return (A)this;
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").add(index, builder); conditions.add(index, builder);}
+    return (A)this;
+  }
+  public A setToConditions(int index,V1ReplicaSetCondition item) {
+    if (this.conditions == null) {this.conditions = new ArrayList<V1ReplicaSetConditionBuilder>();}
+    V1ReplicaSetConditionBuilder builder = new V1ReplicaSetConditionBuilder(item);
+    if (index < 0 || index >= conditions.size()) { _visitables.get("conditions").add(builder); conditions.add(builder); } else { _visitables.get("conditions").set(index, builder); conditions.set(index, builder);}
+    return (A)this;
   }
   public A addToConditions(io.kubernetes.client.openapi.models.V1ReplicaSetCondition... items) {
     if (this.conditions == null) {this.conditions = new ArrayList<V1ReplicaSetConditionBuilder>();}
@@ -102,7 +99,7 @@ import java.lang.Boolean;
   public List<V1ReplicaSetCondition> buildConditions() {
     return conditions != null ? build(conditions) : null;
   }
-  public V1ReplicaSetCondition buildCondition(Integer index) {
+  public V1ReplicaSetCondition buildCondition(int index) {
     return this.conditions.get(index).build();
   }
   public V1ReplicaSetCondition buildFirstCondition() {
@@ -118,39 +115,39 @@ import java.lang.Boolean;
     for (V1ReplicaSetConditionBuilder item: conditions) { if(predicate.test(item)){ return true;} } return false;
   }
   public A withConditions(List<V1ReplicaSetCondition> conditions) {
-    if (this.conditions != null) { _visitables.get("conditions").removeAll(this.conditions);}
+    if (this.conditions != null) { _visitables.get("conditions").clear();}
     if (conditions != null) {this.conditions = new ArrayList(); for (V1ReplicaSetCondition item : conditions){this.addToConditions(item);}} else { this.conditions = null;} return (A) this;
   }
   public A withConditions(io.kubernetes.client.openapi.models.V1ReplicaSetCondition... conditions) {
-    if (this.conditions != null) {this.conditions.clear();}
+    if (this.conditions != null) {this.conditions.clear(); _visitables.remove("conditions"); }
     if (conditions != null) {for (V1ReplicaSetCondition item :conditions){ this.addToConditions(item);}} return (A) this;
   }
   public Boolean hasConditions() {
     return conditions != null && !conditions.isEmpty();
   }
-  public V1ReplicaSetStatusFluent.ConditionsNested<A> addNewCondition() {
+  public V1ReplicaSetStatusFluentImpl.ConditionsNested<A> addNewCondition() {
     return new V1ReplicaSetStatusFluentImpl.ConditionsNestedImpl();
   }
-  public V1ReplicaSetStatusFluent.ConditionsNested<A> addNewConditionLike(V1ReplicaSetCondition item) {
+  public V1ReplicaSetStatusFluentImpl.ConditionsNested<A> addNewConditionLike(V1ReplicaSetCondition item) {
     return new V1ReplicaSetStatusFluentImpl.ConditionsNestedImpl(-1, item);
   }
-  public V1ReplicaSetStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1ReplicaSetCondition item) {
+  public V1ReplicaSetStatusFluentImpl.ConditionsNested<A> setNewConditionLike(int index,V1ReplicaSetCondition item) {
     return new V1ReplicaSetStatusFluentImpl.ConditionsNestedImpl(index, item);
   }
-  public V1ReplicaSetStatusFluent.ConditionsNested<A> editCondition(Integer index) {
+  public V1ReplicaSetStatusFluentImpl.ConditionsNested<A> editCondition(int index) {
     if (conditions.size() <= index) throw new RuntimeException("Can't edit conditions. Index exceeds size.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1ReplicaSetStatusFluent.ConditionsNested<A> editFirstCondition() {
+  public V1ReplicaSetStatusFluentImpl.ConditionsNested<A> editFirstCondition() {
     if (conditions.size() == 0) throw new RuntimeException("Can't edit first conditions. The list is empty.");
     return setNewConditionLike(0, buildCondition(0));
   }
-  public V1ReplicaSetStatusFluent.ConditionsNested<A> editLastCondition() {
+  public V1ReplicaSetStatusFluentImpl.ConditionsNested<A> editLastCondition() {
     int index = conditions.size() - 1;
     if (index < 0) throw new RuntimeException("Can't edit last conditions. The list is empty.");
     return setNewConditionLike(index, buildCondition(index));
   }
-  public V1ReplicaSetStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1ReplicaSetConditionBuilder> predicate) {
+  public V1ReplicaSetStatusFluentImpl.ConditionsNested<A> editMatchingCondition(Predicate<V1ReplicaSetConditionBuilder> predicate) {
     int index = -1;
     for (int i=0;i<conditions.size();i++) { 
     if (predicate.test(conditions.get(i))) {index = i; break;}
@@ -197,13 +194,20 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ReplicaSetStatusFluentImpl that = (V1ReplicaSetStatusFluentImpl) o;
-    if (availableReplicas != null ? !availableReplicas.equals(that.availableReplicas) :that.availableReplicas != null) return false;
-    if (conditions != null ? !conditions.equals(that.conditions) :that.conditions != null) return false;
-    if (fullyLabeledReplicas != null ? !fullyLabeledReplicas.equals(that.fullyLabeledReplicas) :that.fullyLabeledReplicas != null) return false;
-    if (observedGeneration != null ? !observedGeneration.equals(that.observedGeneration) :that.observedGeneration != null) return false;
-    if (readyReplicas != null ? !readyReplicas.equals(that.readyReplicas) :that.readyReplicas != null) return false;
-    if (replicas != null ? !replicas.equals(that.replicas) :that.replicas != null) return false;
+    if (!java.util.Objects.equals(availableReplicas, that.availableReplicas)) return false;
+
+    if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+
+    if (!java.util.Objects.equals(fullyLabeledReplicas, that.fullyLabeledReplicas)) return false;
+
+    if (!java.util.Objects.equals(observedGeneration, that.observedGeneration)) return false;
+
+    if (!java.util.Objects.equals(readyReplicas, that.readyReplicas)) return false;
+
+    if (!java.util.Objects.equals(replicas, that.replicas)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -213,7 +217,7 @@ import java.lang.Boolean;
     StringBuilder sb = new StringBuilder();
     sb.append("{");
     if (availableReplicas != null) { sb.append("availableReplicas:"); sb.append(availableReplicas + ","); }
-    if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
+    if (conditions != null) { sb.append("conditions:"); sb.append(conditions + ","); }
     if (fullyLabeledReplicas != null) { sb.append("fullyLabeledReplicas:"); sb.append(fullyLabeledReplicas + ","); }
     if (observedGeneration != null) { sb.append("observedGeneration:"); sb.append(observedGeneration + ","); }
     if (readyReplicas != null) { sb.append("readyReplicas:"); sb.append(readyReplicas + ","); }
@@ -221,8 +225,8 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class ConditionsNestedImpl<N> extends V1ReplicaSetConditionFluentImpl<V1ReplicaSetStatusFluent.ConditionsNested<N>> implements V1ReplicaSetStatusFluent.ConditionsNested<N>,Nested<N>{
-    ConditionsNestedImpl(Integer index,V1ReplicaSetCondition item) {
+  class ConditionsNestedImpl<N> extends V1ReplicaSetConditionFluentImpl<V1ReplicaSetStatusFluentImpl.ConditionsNested<N>> implements V1ReplicaSetStatusFluentImpl.ConditionsNested<N>,Nested<N>{
+    ConditionsNestedImpl(int index,V1ReplicaSetCondition item) {
       this.index = index;
       this.builder = new V1ReplicaSetConditionBuilder(this, item);
     }
@@ -231,7 +235,7 @@ import java.lang.Boolean;
       this.builder = new V1ReplicaSetConditionBuilder(this);
     }
     V1ReplicaSetConditionBuilder builder;
-    Integer index;
+    int index;
     public N and() {
       return (N) V1ReplicaSetStatusFluentImpl.this.setToConditions(index,builder.build());
     }

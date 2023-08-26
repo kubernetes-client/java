@@ -17,10 +17,10 @@ import java.lang.Boolean;
   public V1WeightedPodAffinityTermFluentImpl() {
   }
   public V1WeightedPodAffinityTermFluentImpl(V1WeightedPodAffinityTerm instance) {
-    this.withPodAffinityTerm(instance.getPodAffinityTerm());
-
-    this.withWeight(instance.getWeight());
-
+    if (instance != null) {
+      this.withPodAffinityTerm(instance.getPodAffinityTerm());
+      this.withWeight(instance.getWeight());
+    }
   }
   private V1PodAffinityTermBuilder podAffinityTerm;
   private Integer weight;
@@ -43,19 +43,19 @@ import java.lang.Boolean;
   public Boolean hasPodAffinityTerm() {
     return this.podAffinityTerm != null;
   }
-  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> withNewPodAffinityTerm() {
+  public V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNested<A> withNewPodAffinityTerm() {
     return new V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNestedImpl();
   }
-  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> withNewPodAffinityTermLike(V1PodAffinityTerm item) {
+  public V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNested<A> withNewPodAffinityTermLike(V1PodAffinityTerm item) {
     return new V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNestedImpl(item);
   }
-  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> editPodAffinityTerm() {
+  public V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNested<A> editPodAffinityTerm() {
     return withNewPodAffinityTermLike(getPodAffinityTerm());
   }
-  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> editOrNewPodAffinityTerm() {
+  public V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNested<A> editOrNewPodAffinityTerm() {
     return withNewPodAffinityTermLike(getPodAffinityTerm() != null ? getPodAffinityTerm(): new V1PodAffinityTermBuilder().build());
   }
-  public V1WeightedPodAffinityTermFluent.PodAffinityTermNested<A> editOrNewPodAffinityTermLike(V1PodAffinityTerm item) {
+  public V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNested<A> editOrNewPodAffinityTermLike(V1PodAffinityTerm item) {
     return withNewPodAffinityTermLike(getPodAffinityTerm() != null ? getPodAffinityTerm(): item);
   }
   public Integer getWeight() {
@@ -70,9 +70,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1WeightedPodAffinityTermFluentImpl that = (V1WeightedPodAffinityTermFluentImpl) o;
-    if (podAffinityTerm != null ? !podAffinityTerm.equals(that.podAffinityTerm) :that.podAffinityTerm != null) return false;
-    if (weight != null ? !weight.equals(that.weight) :that.weight != null) return false;
+    if (!java.util.Objects.equals(podAffinityTerm, that.podAffinityTerm)) return false;
+
+    if (!java.util.Objects.equals(weight, that.weight)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -86,7 +89,7 @@ import java.lang.Boolean;
     sb.append("}");
     return sb.toString();
   }
-  class PodAffinityTermNestedImpl<N> extends V1PodAffinityTermFluentImpl<V1WeightedPodAffinityTermFluent.PodAffinityTermNested<N>> implements V1WeightedPodAffinityTermFluent.PodAffinityTermNested<N>,Nested<N>{
+  class PodAffinityTermNestedImpl<N> extends V1PodAffinityTermFluentImpl<V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNested<N>> implements V1WeightedPodAffinityTermFluentImpl.PodAffinityTermNested<N>,Nested<N>{
     PodAffinityTermNestedImpl(V1PodAffinityTerm item) {
       this.builder = new V1PodAffinityTermBuilder(this, item);
     }

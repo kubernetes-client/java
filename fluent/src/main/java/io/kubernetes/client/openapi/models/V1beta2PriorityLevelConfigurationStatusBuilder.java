@@ -20,8 +20,9 @@ public class V1beta2PriorityLevelConfigurationStatusBuilder extends V1beta2Prior
   }
   public V1beta2PriorityLevelConfigurationStatusBuilder(V1beta2PriorityLevelConfigurationStatusFluent<?> fluent,V1beta2PriorityLevelConfigurationStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      fluent.withConditions(instance.getConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1beta2PriorityLevelConfigurationStatusBuilder(V1beta2PriorityLevelConfigurationStatus instance) {
@@ -29,8 +30,9 @@ public class V1beta2PriorityLevelConfigurationStatusBuilder extends V1beta2Prior
   }
   public V1beta2PriorityLevelConfigurationStatusBuilder(V1beta2PriorityLevelConfigurationStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1beta2PriorityLevelConfigurationStatusFluent<?> fluent;

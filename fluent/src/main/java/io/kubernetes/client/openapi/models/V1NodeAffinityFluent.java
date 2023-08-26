@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -16,8 +16,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1NodeAffinityFluent<A extends V1NodeAffinityFluent<A>> extends Fluent<A>{
-  public A addToPreferredDuringSchedulingIgnoredDuringExecution(Integer index,V1PreferredSchedulingTerm item);
-  public A setToPreferredDuringSchedulingIgnoredDuringExecution(Integer index,V1PreferredSchedulingTerm item);
+  public A addToPreferredDuringSchedulingIgnoredDuringExecution(int index,V1PreferredSchedulingTerm item);
+  public A setToPreferredDuringSchedulingIgnoredDuringExecution(int index,V1PreferredSchedulingTerm item);
   public A addToPreferredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm... items);
   public A addAllToPreferredDuringSchedulingIgnoredDuringExecution(Collection<V1PreferredSchedulingTerm> items);
   public A removeFromPreferredDuringSchedulingIgnoredDuringExecution(io.kubernetes.client.openapi.models.V1PreferredSchedulingTerm... items);
@@ -31,7 +31,7 @@ public interface V1NodeAffinityFluent<A extends V1NodeAffinityFluent<A>> extends
   @Deprecated
   public List<V1PreferredSchedulingTerm> getPreferredDuringSchedulingIgnoredDuringExecution();
   public List<V1PreferredSchedulingTerm> buildPreferredDuringSchedulingIgnoredDuringExecution();
-  public V1PreferredSchedulingTerm buildPreferredDuringSchedulingIgnoredDuringExecution(Integer index);
+  public V1PreferredSchedulingTerm buildPreferredDuringSchedulingIgnoredDuringExecution(int index);
   public V1PreferredSchedulingTerm buildFirstPreferredDuringSchedulingIgnoredDuringExecution();
   public V1PreferredSchedulingTerm buildLastPreferredDuringSchedulingIgnoredDuringExecution();
   public V1PreferredSchedulingTerm buildMatchingPreferredDuringSchedulingIgnoredDuringExecution(Predicate<V1PreferredSchedulingTermBuilder> predicate);
@@ -41,8 +41,8 @@ public interface V1NodeAffinityFluent<A extends V1NodeAffinityFluent<A>> extends
   public Boolean hasPreferredDuringSchedulingIgnoredDuringExecution();
   public V1NodeAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> addNewPreferredDuringSchedulingIgnoredDuringExecution();
   public V1NodeAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> addNewPreferredDuringSchedulingIgnoredDuringExecutionLike(V1PreferredSchedulingTerm item);
-  public V1NodeAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(Integer index,V1PreferredSchedulingTerm item);
-  public V1NodeAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editPreferredDuringSchedulingIgnoredDuringExecution(Integer index);
+  public V1NodeAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> setNewPreferredDuringSchedulingIgnoredDuringExecutionLike(int index,V1PreferredSchedulingTerm item);
+  public V1NodeAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editPreferredDuringSchedulingIgnoredDuringExecution(int index);
   public V1NodeAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editFirstPreferredDuringSchedulingIgnoredDuringExecution();
   public V1NodeAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editLastPreferredDuringSchedulingIgnoredDuringExecution();
   public V1NodeAffinityFluent.PreferredDuringSchedulingIgnoredDuringExecutionNested<A> editMatchingPreferredDuringSchedulingIgnoredDuringExecution(Predicate<V1PreferredSchedulingTermBuilder> predicate);

@@ -20,8 +20,9 @@ public class V1NetworkPolicyStatusBuilder extends V1NetworkPolicyStatusFluentImp
   }
   public V1NetworkPolicyStatusBuilder(V1NetworkPolicyStatusFluent<?> fluent,V1NetworkPolicyStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      fluent.withConditions(instance.getConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1NetworkPolicyStatusBuilder(V1NetworkPolicyStatus instance) {
@@ -29,8 +30,9 @@ public class V1NetworkPolicyStatusBuilder extends V1NetworkPolicyStatusFluentImp
   }
   public V1NetworkPolicyStatusBuilder(V1NetworkPolicyStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withConditions(instance.getConditions());
-
+    if (instance != null) {
+      this.withConditions(instance.getConditions());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1NetworkPolicyStatusFluent<?> fluent;

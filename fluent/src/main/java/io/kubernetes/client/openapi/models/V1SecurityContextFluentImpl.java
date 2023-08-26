@@ -17,28 +17,19 @@ import java.lang.Object;
   public V1SecurityContextFluentImpl() {
   }
   public V1SecurityContextFluentImpl(V1SecurityContext instance) {
-    this.withAllowPrivilegeEscalation(instance.getAllowPrivilegeEscalation());
-
-    this.withCapabilities(instance.getCapabilities());
-
-    this.withPrivileged(instance.getPrivileged());
-
-    this.withProcMount(instance.getProcMount());
-
-    this.withReadOnlyRootFilesystem(instance.getReadOnlyRootFilesystem());
-
-    this.withRunAsGroup(instance.getRunAsGroup());
-
-    this.withRunAsNonRoot(instance.getRunAsNonRoot());
-
-    this.withRunAsUser(instance.getRunAsUser());
-
-    this.withSeLinuxOptions(instance.getSeLinuxOptions());
-
-    this.withSeccompProfile(instance.getSeccompProfile());
-
-    this.withWindowsOptions(instance.getWindowsOptions());
-
+    if (instance != null) {
+      this.withAllowPrivilegeEscalation(instance.getAllowPrivilegeEscalation());
+      this.withCapabilities(instance.getCapabilities());
+      this.withPrivileged(instance.getPrivileged());
+      this.withProcMount(instance.getProcMount());
+      this.withReadOnlyRootFilesystem(instance.getReadOnlyRootFilesystem());
+      this.withRunAsGroup(instance.getRunAsGroup());
+      this.withRunAsNonRoot(instance.getRunAsNonRoot());
+      this.withRunAsUser(instance.getRunAsUser());
+      this.withSeLinuxOptions(instance.getSeLinuxOptions());
+      this.withSeccompProfile(instance.getSeccompProfile());
+      this.withWindowsOptions(instance.getWindowsOptions());
+    }
   }
   private Boolean allowPrivilegeEscalation;
   private V1CapabilitiesBuilder capabilities;
@@ -79,19 +70,19 @@ import java.lang.Object;
   public Boolean hasCapabilities() {
     return this.capabilities != null;
   }
-  public V1SecurityContextFluent.CapabilitiesNested<A> withNewCapabilities() {
+  public V1SecurityContextFluentImpl.CapabilitiesNested<A> withNewCapabilities() {
     return new V1SecurityContextFluentImpl.CapabilitiesNestedImpl();
   }
-  public V1SecurityContextFluent.CapabilitiesNested<A> withNewCapabilitiesLike(V1Capabilities item) {
+  public V1SecurityContextFluentImpl.CapabilitiesNested<A> withNewCapabilitiesLike(V1Capabilities item) {
     return new V1SecurityContextFluentImpl.CapabilitiesNestedImpl(item);
   }
-  public V1SecurityContextFluent.CapabilitiesNested<A> editCapabilities() {
+  public V1SecurityContextFluentImpl.CapabilitiesNested<A> editCapabilities() {
     return withNewCapabilitiesLike(getCapabilities());
   }
-  public V1SecurityContextFluent.CapabilitiesNested<A> editOrNewCapabilities() {
+  public V1SecurityContextFluentImpl.CapabilitiesNested<A> editOrNewCapabilities() {
     return withNewCapabilitiesLike(getCapabilities() != null ? getCapabilities(): new V1CapabilitiesBuilder().build());
   }
-  public V1SecurityContextFluent.CapabilitiesNested<A> editOrNewCapabilitiesLike(V1Capabilities item) {
+  public V1SecurityContextFluentImpl.CapabilitiesNested<A> editOrNewCapabilitiesLike(V1Capabilities item) {
     return withNewCapabilitiesLike(getCapabilities() != null ? getCapabilities(): item);
   }
   public Boolean getPrivileged() {
@@ -167,19 +158,19 @@ import java.lang.Object;
   public Boolean hasSeLinuxOptions() {
     return this.seLinuxOptions != null;
   }
-  public V1SecurityContextFluent.SeLinuxOptionsNested<A> withNewSeLinuxOptions() {
+  public V1SecurityContextFluentImpl.SeLinuxOptionsNested<A> withNewSeLinuxOptions() {
     return new V1SecurityContextFluentImpl.SeLinuxOptionsNestedImpl();
   }
-  public V1SecurityContextFluent.SeLinuxOptionsNested<A> withNewSeLinuxOptionsLike(V1SELinuxOptions item) {
+  public V1SecurityContextFluentImpl.SeLinuxOptionsNested<A> withNewSeLinuxOptionsLike(V1SELinuxOptions item) {
     return new V1SecurityContextFluentImpl.SeLinuxOptionsNestedImpl(item);
   }
-  public V1SecurityContextFluent.SeLinuxOptionsNested<A> editSeLinuxOptions() {
+  public V1SecurityContextFluentImpl.SeLinuxOptionsNested<A> editSeLinuxOptions() {
     return withNewSeLinuxOptionsLike(getSeLinuxOptions());
   }
-  public V1SecurityContextFluent.SeLinuxOptionsNested<A> editOrNewSeLinuxOptions() {
+  public V1SecurityContextFluentImpl.SeLinuxOptionsNested<A> editOrNewSeLinuxOptions() {
     return withNewSeLinuxOptionsLike(getSeLinuxOptions() != null ? getSeLinuxOptions(): new V1SELinuxOptionsBuilder().build());
   }
-  public V1SecurityContextFluent.SeLinuxOptionsNested<A> editOrNewSeLinuxOptionsLike(V1SELinuxOptions item) {
+  public V1SecurityContextFluentImpl.SeLinuxOptionsNested<A> editOrNewSeLinuxOptionsLike(V1SELinuxOptions item) {
     return withNewSeLinuxOptionsLike(getSeLinuxOptions() != null ? getSeLinuxOptions(): item);
   }
   
@@ -201,19 +192,19 @@ import java.lang.Object;
   public Boolean hasSeccompProfile() {
     return this.seccompProfile != null;
   }
-  public V1SecurityContextFluent.SeccompProfileNested<A> withNewSeccompProfile() {
+  public V1SecurityContextFluentImpl.SeccompProfileNested<A> withNewSeccompProfile() {
     return new V1SecurityContextFluentImpl.SeccompProfileNestedImpl();
   }
-  public V1SecurityContextFluent.SeccompProfileNested<A> withNewSeccompProfileLike(V1SeccompProfile item) {
+  public V1SecurityContextFluentImpl.SeccompProfileNested<A> withNewSeccompProfileLike(V1SeccompProfile item) {
     return new V1SecurityContextFluentImpl.SeccompProfileNestedImpl(item);
   }
-  public V1SecurityContextFluent.SeccompProfileNested<A> editSeccompProfile() {
+  public V1SecurityContextFluentImpl.SeccompProfileNested<A> editSeccompProfile() {
     return withNewSeccompProfileLike(getSeccompProfile());
   }
-  public V1SecurityContextFluent.SeccompProfileNested<A> editOrNewSeccompProfile() {
+  public V1SecurityContextFluentImpl.SeccompProfileNested<A> editOrNewSeccompProfile() {
     return withNewSeccompProfileLike(getSeccompProfile() != null ? getSeccompProfile(): new V1SeccompProfileBuilder().build());
   }
-  public V1SecurityContextFluent.SeccompProfileNested<A> editOrNewSeccompProfileLike(V1SeccompProfile item) {
+  public V1SecurityContextFluentImpl.SeccompProfileNested<A> editOrNewSeccompProfileLike(V1SeccompProfile item) {
     return withNewSeccompProfileLike(getSeccompProfile() != null ? getSeccompProfile(): item);
   }
   
@@ -235,36 +226,48 @@ import java.lang.Object;
   public Boolean hasWindowsOptions() {
     return this.windowsOptions != null;
   }
-  public V1SecurityContextFluent.WindowsOptionsNested<A> withNewWindowsOptions() {
+  public V1SecurityContextFluentImpl.WindowsOptionsNested<A> withNewWindowsOptions() {
     return new V1SecurityContextFluentImpl.WindowsOptionsNestedImpl();
   }
-  public V1SecurityContextFluent.WindowsOptionsNested<A> withNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
+  public V1SecurityContextFluentImpl.WindowsOptionsNested<A> withNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
     return new V1SecurityContextFluentImpl.WindowsOptionsNestedImpl(item);
   }
-  public V1SecurityContextFluent.WindowsOptionsNested<A> editWindowsOptions() {
+  public V1SecurityContextFluentImpl.WindowsOptionsNested<A> editWindowsOptions() {
     return withNewWindowsOptionsLike(getWindowsOptions());
   }
-  public V1SecurityContextFluent.WindowsOptionsNested<A> editOrNewWindowsOptions() {
+  public V1SecurityContextFluentImpl.WindowsOptionsNested<A> editOrNewWindowsOptions() {
     return withNewWindowsOptionsLike(getWindowsOptions() != null ? getWindowsOptions(): new V1WindowsSecurityContextOptionsBuilder().build());
   }
-  public V1SecurityContextFluent.WindowsOptionsNested<A> editOrNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
+  public V1SecurityContextFluentImpl.WindowsOptionsNested<A> editOrNewWindowsOptionsLike(V1WindowsSecurityContextOptions item) {
     return withNewWindowsOptionsLike(getWindowsOptions() != null ? getWindowsOptions(): item);
   }
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SecurityContextFluentImpl that = (V1SecurityContextFluentImpl) o;
-    if (allowPrivilegeEscalation != null ? !allowPrivilegeEscalation.equals(that.allowPrivilegeEscalation) :that.allowPrivilegeEscalation != null) return false;
-    if (capabilities != null ? !capabilities.equals(that.capabilities) :that.capabilities != null) return false;
-    if (privileged != null ? !privileged.equals(that.privileged) :that.privileged != null) return false;
-    if (procMount != null ? !procMount.equals(that.procMount) :that.procMount != null) return false;
-    if (readOnlyRootFilesystem != null ? !readOnlyRootFilesystem.equals(that.readOnlyRootFilesystem) :that.readOnlyRootFilesystem != null) return false;
-    if (runAsGroup != null ? !runAsGroup.equals(that.runAsGroup) :that.runAsGroup != null) return false;
-    if (runAsNonRoot != null ? !runAsNonRoot.equals(that.runAsNonRoot) :that.runAsNonRoot != null) return false;
-    if (runAsUser != null ? !runAsUser.equals(that.runAsUser) :that.runAsUser != null) return false;
-    if (seLinuxOptions != null ? !seLinuxOptions.equals(that.seLinuxOptions) :that.seLinuxOptions != null) return false;
-    if (seccompProfile != null ? !seccompProfile.equals(that.seccompProfile) :that.seccompProfile != null) return false;
-    if (windowsOptions != null ? !windowsOptions.equals(that.windowsOptions) :that.windowsOptions != null) return false;
+    if (!java.util.Objects.equals(allowPrivilegeEscalation, that.allowPrivilegeEscalation)) return false;
+
+    if (!java.util.Objects.equals(capabilities, that.capabilities)) return false;
+
+    if (!java.util.Objects.equals(privileged, that.privileged)) return false;
+
+    if (!java.util.Objects.equals(procMount, that.procMount)) return false;
+
+    if (!java.util.Objects.equals(readOnlyRootFilesystem, that.readOnlyRootFilesystem)) return false;
+
+    if (!java.util.Objects.equals(runAsGroup, that.runAsGroup)) return false;
+
+    if (!java.util.Objects.equals(runAsNonRoot, that.runAsNonRoot)) return false;
+
+    if (!java.util.Objects.equals(runAsUser, that.runAsUser)) return false;
+
+    if (!java.util.Objects.equals(seLinuxOptions, that.seLinuxOptions)) return false;
+
+    if (!java.util.Objects.equals(seccompProfile, that.seccompProfile)) return false;
+
+    if (!java.util.Objects.equals(windowsOptions, that.windowsOptions)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -299,7 +302,7 @@ import java.lang.Object;
   public A withRunAsNonRoot() {
     return withRunAsNonRoot(true);
   }
-  class CapabilitiesNestedImpl<N> extends V1CapabilitiesFluentImpl<V1SecurityContextFluent.CapabilitiesNested<N>> implements V1SecurityContextFluent.CapabilitiesNested<N>,Nested<N>{
+  class CapabilitiesNestedImpl<N> extends V1CapabilitiesFluentImpl<V1SecurityContextFluentImpl.CapabilitiesNested<N>> implements V1SecurityContextFluentImpl.CapabilitiesNested<N>,Nested<N>{
     CapabilitiesNestedImpl(V1Capabilities item) {
       this.builder = new V1CapabilitiesBuilder(this, item);
     }
@@ -315,7 +318,7 @@ import java.lang.Object;
     }
     
   }
-  class SeLinuxOptionsNestedImpl<N> extends V1SELinuxOptionsFluentImpl<V1SecurityContextFluent.SeLinuxOptionsNested<N>> implements V1SecurityContextFluent.SeLinuxOptionsNested<N>,Nested<N>{
+  class SeLinuxOptionsNestedImpl<N> extends V1SELinuxOptionsFluentImpl<V1SecurityContextFluentImpl.SeLinuxOptionsNested<N>> implements V1SecurityContextFluentImpl.SeLinuxOptionsNested<N>,Nested<N>{
     SeLinuxOptionsNestedImpl(V1SELinuxOptions item) {
       this.builder = new V1SELinuxOptionsBuilder(this, item);
     }
@@ -331,7 +334,7 @@ import java.lang.Object;
     }
     
   }
-  class SeccompProfileNestedImpl<N> extends V1SeccompProfileFluentImpl<V1SecurityContextFluent.SeccompProfileNested<N>> implements V1SecurityContextFluent.SeccompProfileNested<N>,Nested<N>{
+  class SeccompProfileNestedImpl<N> extends V1SeccompProfileFluentImpl<V1SecurityContextFluentImpl.SeccompProfileNested<N>> implements V1SecurityContextFluentImpl.SeccompProfileNested<N>,Nested<N>{
     SeccompProfileNestedImpl(V1SeccompProfile item) {
       this.builder = new V1SeccompProfileBuilder(this, item);
     }
@@ -347,7 +350,7 @@ import java.lang.Object;
     }
     
   }
-  class WindowsOptionsNestedImpl<N> extends V1WindowsSecurityContextOptionsFluentImpl<V1SecurityContextFluent.WindowsOptionsNested<N>> implements V1SecurityContextFluent.WindowsOptionsNested<N>,Nested<N>{
+  class WindowsOptionsNestedImpl<N> extends V1WindowsSecurityContextOptionsFluentImpl<V1SecurityContextFluentImpl.WindowsOptionsNested<N>> implements V1SecurityContextFluentImpl.WindowsOptionsNested<N>,Nested<N>{
     WindowsOptionsNestedImpl(V1WindowsSecurityContextOptions item) {
       this.builder = new V1WindowsSecurityContextOptionsBuilder(this, item);
     }

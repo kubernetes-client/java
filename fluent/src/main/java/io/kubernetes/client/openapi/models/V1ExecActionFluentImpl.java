@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,16 +18,17 @@ import java.lang.Boolean;
   public V1ExecActionFluentImpl() {
   }
   public V1ExecActionFluentImpl(V1ExecAction instance) {
-    this.withCommand(instance.getCommand());
-
+    if (instance != null) {
+      this.withCommand(instance.getCommand());
+    }
   }
   private List<String> command;
-  public A addToCommand(Integer index,String item) {
+  public A addToCommand(int index,String item) {
     if (this.command == null) {this.command = new ArrayList<String>();}
     this.command.add(index, item);
     return (A)this;
   }
-  public A setToCommand(Integer index,String item) {
+  public A setToCommand(int index,String item) {
     if (this.command == null) {this.command = new ArrayList<String>();}
     this.command.set(index, item); return (A)this;
   }
@@ -49,7 +49,7 @@ import java.lang.Boolean;
   public List<String> getCommand() {
     return this.command;
   }
-  public String getCommand(Integer index) {
+  public String getCommand(int index) {
     return this.command.get(index);
   }
   public String getFirstCommand() {
@@ -68,7 +68,7 @@ import java.lang.Boolean;
     if (command != null) {this.command = new ArrayList(); for (String item : command){this.addToCommand(item);}} else { this.command = null;} return (A) this;
   }
   public A withCommand(java.lang.String... command) {
-    if (this.command != null) {this.command.clear();}
+    if (this.command != null) {this.command.clear(); _visitables.remove("command"); }
     if (command != null) {for (String item :command){ this.addToCommand(item);}} return (A) this;
   }
   public Boolean hasCommand() {
@@ -77,8 +77,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ExecActionFluentImpl that = (V1ExecActionFluentImpl) o;
-    if (command != null ? !command.equals(that.command) :that.command != null) return false;
+    if (!java.util.Objects.equals(command, that.command)) return false;
+
     return true;
   }
   public int hashCode() {

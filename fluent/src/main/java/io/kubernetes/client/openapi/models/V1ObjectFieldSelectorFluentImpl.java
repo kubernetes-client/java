@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1ObjectFieldSelectorFluentImpl() {
   }
   public V1ObjectFieldSelectorFluentImpl(V1ObjectFieldSelector instance) {
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withFieldPath(instance.getFieldPath());
-
+    if (instance != null) {
+      this.withApiVersion(instance.getApiVersion());
+      this.withFieldPath(instance.getFieldPath());
+    }
   }
   private String apiVersion;
   private String fieldPath;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1ObjectFieldSelectorFluentImpl that = (V1ObjectFieldSelectorFluentImpl) o;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (fieldPath != null ? !fieldPath.equals(that.fieldPath) :that.fieldPath != null) return false;
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(fieldPath, that.fieldPath)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -20,8 +20,9 @@ public class V1AggregationRuleBuilder extends V1AggregationRuleFluentImpl<V1Aggr
   }
   public V1AggregationRuleBuilder(V1AggregationRuleFluent<?> fluent,V1AggregationRule instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withClusterRoleSelectors(instance.getClusterRoleSelectors());
-
+    if (instance != null) {
+      fluent.withClusterRoleSelectors(instance.getClusterRoleSelectors());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1AggregationRuleBuilder(V1AggregationRule instance) {
@@ -29,8 +30,9 @@ public class V1AggregationRuleBuilder extends V1AggregationRuleFluentImpl<V1Aggr
   }
   public V1AggregationRuleBuilder(V1AggregationRule instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withClusterRoleSelectors(instance.getClusterRoleSelectors());
-
+    if (instance != null) {
+      this.withClusterRoleSelectors(instance.getClusterRoleSelectors());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1AggregationRuleFluent<?> fluent;

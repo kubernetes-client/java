@@ -1,6 +1,7 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
@@ -20,8 +21,8 @@ public interface V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>>
   public Integer getAvailableReplicas();
   public A withAvailableReplicas(Integer availableReplicas);
   public Boolean hasAvailableReplicas();
-  public A addToConditions(Integer index,V1ReplicaSetCondition item);
-  public A setToConditions(Integer index,V1ReplicaSetCondition item);
+  public A addToConditions(int index,V1ReplicaSetCondition item);
+  public A setToConditions(int index,V1ReplicaSetCondition item);
   public A addToConditions(io.kubernetes.client.openapi.models.V1ReplicaSetCondition... items);
   public A addAllToConditions(Collection<V1ReplicaSetCondition> items);
   public A removeFromConditions(io.kubernetes.client.openapi.models.V1ReplicaSetCondition... items);
@@ -35,7 +36,7 @@ public interface V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>>
   @Deprecated
   public List<V1ReplicaSetCondition> getConditions();
   public List<V1ReplicaSetCondition> buildConditions();
-  public V1ReplicaSetCondition buildCondition(Integer index);
+  public V1ReplicaSetCondition buildCondition(int index);
   public V1ReplicaSetCondition buildFirstCondition();
   public V1ReplicaSetCondition buildLastCondition();
   public V1ReplicaSetCondition buildMatchingCondition(Predicate<V1ReplicaSetConditionBuilder> predicate);
@@ -45,8 +46,8 @@ public interface V1ReplicaSetStatusFluent<A extends V1ReplicaSetStatusFluent<A>>
   public Boolean hasConditions();
   public V1ReplicaSetStatusFluent.ConditionsNested<A> addNewCondition();
   public V1ReplicaSetStatusFluent.ConditionsNested<A> addNewConditionLike(V1ReplicaSetCondition item);
-  public V1ReplicaSetStatusFluent.ConditionsNested<A> setNewConditionLike(Integer index,V1ReplicaSetCondition item);
-  public V1ReplicaSetStatusFluent.ConditionsNested<A> editCondition(Integer index);
+  public V1ReplicaSetStatusFluent.ConditionsNested<A> setNewConditionLike(int index,V1ReplicaSetCondition item);
+  public V1ReplicaSetStatusFluent.ConditionsNested<A> editCondition(int index);
   public V1ReplicaSetStatusFluent.ConditionsNested<A> editFirstCondition();
   public V1ReplicaSetStatusFluent.ConditionsNested<A> editLastCondition();
   public V1ReplicaSetStatusFluent.ConditionsNested<A> editMatchingCondition(Predicate<V1ReplicaSetConditionBuilder> predicate);

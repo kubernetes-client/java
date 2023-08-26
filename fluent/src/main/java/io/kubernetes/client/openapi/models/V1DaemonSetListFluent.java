@@ -1,12 +1,12 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.lang.String;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -20,8 +20,8 @@ public interface V1DaemonSetListFluent<A extends V1DaemonSetListFluent<A>> exten
   public String getApiVersion();
   public A withApiVersion(String apiVersion);
   public Boolean hasApiVersion();
-  public A addToItems(Integer index,V1DaemonSet item);
-  public A setToItems(Integer index,V1DaemonSet item);
+  public A addToItems(int index,V1DaemonSet item);
+  public A setToItems(int index,V1DaemonSet item);
   public A addToItems(io.kubernetes.client.openapi.models.V1DaemonSet... items);
   public A addAllToItems(Collection<V1DaemonSet> items);
   public A removeFromItems(io.kubernetes.client.openapi.models.V1DaemonSet... items);
@@ -35,7 +35,7 @@ public interface V1DaemonSetListFluent<A extends V1DaemonSetListFluent<A>> exten
   @Deprecated
   public List<V1DaemonSet> getItems();
   public List<V1DaemonSet> buildItems();
-  public V1DaemonSet buildItem(Integer index);
+  public V1DaemonSet buildItem(int index);
   public V1DaemonSet buildFirstItem();
   public V1DaemonSet buildLastItem();
   public V1DaemonSet buildMatchingItem(Predicate<V1DaemonSetBuilder> predicate);
@@ -45,8 +45,8 @@ public interface V1DaemonSetListFluent<A extends V1DaemonSetListFluent<A>> exten
   public Boolean hasItems();
   public V1DaemonSetListFluent.ItemsNested<A> addNewItem();
   public V1DaemonSetListFluent.ItemsNested<A> addNewItemLike(V1DaemonSet item);
-  public V1DaemonSetListFluent.ItemsNested<A> setNewItemLike(Integer index,V1DaemonSet item);
-  public V1DaemonSetListFluent.ItemsNested<A> editItem(Integer index);
+  public V1DaemonSetListFluent.ItemsNested<A> setNewItemLike(int index,V1DaemonSet item);
+  public V1DaemonSetListFluent.ItemsNested<A> editItem(int index);
   public V1DaemonSetListFluent.ItemsNested<A> editFirstItem();
   public V1DaemonSetListFluent.ItemsNested<A> editLastItem();
   public V1DaemonSetListFluent.ItemsNested<A> editMatchingItem(Predicate<V1DaemonSetBuilder> predicate);

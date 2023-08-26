@@ -18,40 +18,25 @@ import java.lang.Object;
   public EventsV1EventFluentImpl() {
   }
   public EventsV1EventFluentImpl(EventsV1Event instance) {
-    this.withAction(instance.getAction());
-
-    this.withApiVersion(instance.getApiVersion());
-
-    this.withDeprecatedCount(instance.getDeprecatedCount());
-
-    this.withDeprecatedFirstTimestamp(instance.getDeprecatedFirstTimestamp());
-
-    this.withDeprecatedLastTimestamp(instance.getDeprecatedLastTimestamp());
-
-    this.withDeprecatedSource(instance.getDeprecatedSource());
-
-    this.withEventTime(instance.getEventTime());
-
-    this.withKind(instance.getKind());
-
-    this.withMetadata(instance.getMetadata());
-
-    this.withNote(instance.getNote());
-
-    this.withReason(instance.getReason());
-
-    this.withRegarding(instance.getRegarding());
-
-    this.withRelated(instance.getRelated());
-
-    this.withReportingController(instance.getReportingController());
-
-    this.withReportingInstance(instance.getReportingInstance());
-
-    this.withSeries(instance.getSeries());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withAction(instance.getAction());
+      this.withApiVersion(instance.getApiVersion());
+      this.withDeprecatedCount(instance.getDeprecatedCount());
+      this.withDeprecatedFirstTimestamp(instance.getDeprecatedFirstTimestamp());
+      this.withDeprecatedLastTimestamp(instance.getDeprecatedLastTimestamp());
+      this.withDeprecatedSource(instance.getDeprecatedSource());
+      this.withEventTime(instance.getEventTime());
+      this.withKind(instance.getKind());
+      this.withMetadata(instance.getMetadata());
+      this.withNote(instance.getNote());
+      this.withReason(instance.getReason());
+      this.withRegarding(instance.getRegarding());
+      this.withRelated(instance.getRelated());
+      this.withReportingController(instance.getReportingController());
+      this.withReportingInstance(instance.getReportingInstance());
+      this.withSeries(instance.getSeries());
+      this.withType(instance.getType());
+    }
   }
   private String action;
   private String apiVersion;
@@ -134,19 +119,19 @@ import java.lang.Object;
   public Boolean hasDeprecatedSource() {
     return this.deprecatedSource != null;
   }
-  public EventsV1EventFluent.DeprecatedSourceNested<A> withNewDeprecatedSource() {
+  public EventsV1EventFluentImpl.DeprecatedSourceNested<A> withNewDeprecatedSource() {
     return new EventsV1EventFluentImpl.DeprecatedSourceNestedImpl();
   }
-  public EventsV1EventFluent.DeprecatedSourceNested<A> withNewDeprecatedSourceLike(V1EventSource item) {
+  public EventsV1EventFluentImpl.DeprecatedSourceNested<A> withNewDeprecatedSourceLike(V1EventSource item) {
     return new EventsV1EventFluentImpl.DeprecatedSourceNestedImpl(item);
   }
-  public EventsV1EventFluent.DeprecatedSourceNested<A> editDeprecatedSource() {
+  public EventsV1EventFluentImpl.DeprecatedSourceNested<A> editDeprecatedSource() {
     return withNewDeprecatedSourceLike(getDeprecatedSource());
   }
-  public EventsV1EventFluent.DeprecatedSourceNested<A> editOrNewDeprecatedSource() {
+  public EventsV1EventFluentImpl.DeprecatedSourceNested<A> editOrNewDeprecatedSource() {
     return withNewDeprecatedSourceLike(getDeprecatedSource() != null ? getDeprecatedSource(): new V1EventSourceBuilder().build());
   }
-  public EventsV1EventFluent.DeprecatedSourceNested<A> editOrNewDeprecatedSourceLike(V1EventSource item) {
+  public EventsV1EventFluentImpl.DeprecatedSourceNested<A> editOrNewDeprecatedSourceLike(V1EventSource item) {
     return withNewDeprecatedSourceLike(getDeprecatedSource() != null ? getDeprecatedSource(): item);
   }
   public OffsetDateTime getEventTime() {
@@ -186,19 +171,19 @@ import java.lang.Object;
   public Boolean hasMetadata() {
     return this.metadata != null;
   }
-  public EventsV1EventFluent.MetadataNested<A> withNewMetadata() {
+  public EventsV1EventFluentImpl.MetadataNested<A> withNewMetadata() {
     return new EventsV1EventFluentImpl.MetadataNestedImpl();
   }
-  public EventsV1EventFluent.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
+  public EventsV1EventFluentImpl.MetadataNested<A> withNewMetadataLike(V1ObjectMeta item) {
     return new EventsV1EventFluentImpl.MetadataNestedImpl(item);
   }
-  public EventsV1EventFluent.MetadataNested<A> editMetadata() {
+  public EventsV1EventFluentImpl.MetadataNested<A> editMetadata() {
     return withNewMetadataLike(getMetadata());
   }
-  public EventsV1EventFluent.MetadataNested<A> editOrNewMetadata() {
+  public EventsV1EventFluentImpl.MetadataNested<A> editOrNewMetadata() {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): new V1ObjectMetaBuilder().build());
   }
-  public EventsV1EventFluent.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
+  public EventsV1EventFluentImpl.MetadataNested<A> editOrNewMetadataLike(V1ObjectMeta item) {
     return withNewMetadataLike(getMetadata() != null ? getMetadata(): item);
   }
   public String getNote() {
@@ -238,19 +223,19 @@ import java.lang.Object;
   public Boolean hasRegarding() {
     return this.regarding != null;
   }
-  public EventsV1EventFluent.RegardingNested<A> withNewRegarding() {
+  public EventsV1EventFluentImpl.RegardingNested<A> withNewRegarding() {
     return new EventsV1EventFluentImpl.RegardingNestedImpl();
   }
-  public EventsV1EventFluent.RegardingNested<A> withNewRegardingLike(V1ObjectReference item) {
+  public EventsV1EventFluentImpl.RegardingNested<A> withNewRegardingLike(V1ObjectReference item) {
     return new EventsV1EventFluentImpl.RegardingNestedImpl(item);
   }
-  public EventsV1EventFluent.RegardingNested<A> editRegarding() {
+  public EventsV1EventFluentImpl.RegardingNested<A> editRegarding() {
     return withNewRegardingLike(getRegarding());
   }
-  public EventsV1EventFluent.RegardingNested<A> editOrNewRegarding() {
+  public EventsV1EventFluentImpl.RegardingNested<A> editOrNewRegarding() {
     return withNewRegardingLike(getRegarding() != null ? getRegarding(): new V1ObjectReferenceBuilder().build());
   }
-  public EventsV1EventFluent.RegardingNested<A> editOrNewRegardingLike(V1ObjectReference item) {
+  public EventsV1EventFluentImpl.RegardingNested<A> editOrNewRegardingLike(V1ObjectReference item) {
     return withNewRegardingLike(getRegarding() != null ? getRegarding(): item);
   }
   
@@ -272,19 +257,19 @@ import java.lang.Object;
   public Boolean hasRelated() {
     return this.related != null;
   }
-  public EventsV1EventFluent.RelatedNested<A> withNewRelated() {
+  public EventsV1EventFluentImpl.RelatedNested<A> withNewRelated() {
     return new EventsV1EventFluentImpl.RelatedNestedImpl();
   }
-  public EventsV1EventFluent.RelatedNested<A> withNewRelatedLike(V1ObjectReference item) {
+  public EventsV1EventFluentImpl.RelatedNested<A> withNewRelatedLike(V1ObjectReference item) {
     return new EventsV1EventFluentImpl.RelatedNestedImpl(item);
   }
-  public EventsV1EventFluent.RelatedNested<A> editRelated() {
+  public EventsV1EventFluentImpl.RelatedNested<A> editRelated() {
     return withNewRelatedLike(getRelated());
   }
-  public EventsV1EventFluent.RelatedNested<A> editOrNewRelated() {
+  public EventsV1EventFluentImpl.RelatedNested<A> editOrNewRelated() {
     return withNewRelatedLike(getRelated() != null ? getRelated(): new V1ObjectReferenceBuilder().build());
   }
-  public EventsV1EventFluent.RelatedNested<A> editOrNewRelatedLike(V1ObjectReference item) {
+  public EventsV1EventFluentImpl.RelatedNested<A> editOrNewRelatedLike(V1ObjectReference item) {
     return withNewRelatedLike(getRelated() != null ? getRelated(): item);
   }
   public String getReportingController() {
@@ -324,19 +309,19 @@ import java.lang.Object;
   public Boolean hasSeries() {
     return this.series != null;
   }
-  public EventsV1EventFluent.SeriesNested<A> withNewSeries() {
+  public EventsV1EventFluentImpl.SeriesNested<A> withNewSeries() {
     return new EventsV1EventFluentImpl.SeriesNestedImpl();
   }
-  public EventsV1EventFluent.SeriesNested<A> withNewSeriesLike(EventsV1EventSeries item) {
+  public EventsV1EventFluentImpl.SeriesNested<A> withNewSeriesLike(EventsV1EventSeries item) {
     return new EventsV1EventFluentImpl.SeriesNestedImpl(item);
   }
-  public EventsV1EventFluent.SeriesNested<A> editSeries() {
+  public EventsV1EventFluentImpl.SeriesNested<A> editSeries() {
     return withNewSeriesLike(getSeries());
   }
-  public EventsV1EventFluent.SeriesNested<A> editOrNewSeries() {
+  public EventsV1EventFluentImpl.SeriesNested<A> editOrNewSeries() {
     return withNewSeriesLike(getSeries() != null ? getSeries(): new EventsV1EventSeriesBuilder().build());
   }
-  public EventsV1EventFluent.SeriesNested<A> editOrNewSeriesLike(EventsV1EventSeries item) {
+  public EventsV1EventFluentImpl.SeriesNested<A> editOrNewSeriesLike(EventsV1EventSeries item) {
     return withNewSeriesLike(getSeries() != null ? getSeries(): item);
   }
   public String getType() {
@@ -351,24 +336,42 @@ import java.lang.Object;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     EventsV1EventFluentImpl that = (EventsV1EventFluentImpl) o;
-    if (action != null ? !action.equals(that.action) :that.action != null) return false;
-    if (apiVersion != null ? !apiVersion.equals(that.apiVersion) :that.apiVersion != null) return false;
-    if (deprecatedCount != null ? !deprecatedCount.equals(that.deprecatedCount) :that.deprecatedCount != null) return false;
-    if (deprecatedFirstTimestamp != null ? !deprecatedFirstTimestamp.equals(that.deprecatedFirstTimestamp) :that.deprecatedFirstTimestamp != null) return false;
-    if (deprecatedLastTimestamp != null ? !deprecatedLastTimestamp.equals(that.deprecatedLastTimestamp) :that.deprecatedLastTimestamp != null) return false;
-    if (deprecatedSource != null ? !deprecatedSource.equals(that.deprecatedSource) :that.deprecatedSource != null) return false;
-    if (eventTime != null ? !eventTime.equals(that.eventTime) :that.eventTime != null) return false;
-    if (kind != null ? !kind.equals(that.kind) :that.kind != null) return false;
-    if (metadata != null ? !metadata.equals(that.metadata) :that.metadata != null) return false;
-    if (note != null ? !note.equals(that.note) :that.note != null) return false;
-    if (reason != null ? !reason.equals(that.reason) :that.reason != null) return false;
-    if (regarding != null ? !regarding.equals(that.regarding) :that.regarding != null) return false;
-    if (related != null ? !related.equals(that.related) :that.related != null) return false;
-    if (reportingController != null ? !reportingController.equals(that.reportingController) :that.reportingController != null) return false;
-    if (reportingInstance != null ? !reportingInstance.equals(that.reportingInstance) :that.reportingInstance != null) return false;
-    if (series != null ? !series.equals(that.series) :that.series != null) return false;
-    if (type != null ? !type.equals(that.type) :that.type != null) return false;
+    if (!java.util.Objects.equals(action, that.action)) return false;
+
+    if (!java.util.Objects.equals(apiVersion, that.apiVersion)) return false;
+
+    if (!java.util.Objects.equals(deprecatedCount, that.deprecatedCount)) return false;
+
+    if (!java.util.Objects.equals(deprecatedFirstTimestamp, that.deprecatedFirstTimestamp)) return false;
+
+    if (!java.util.Objects.equals(deprecatedLastTimestamp, that.deprecatedLastTimestamp)) return false;
+
+    if (!java.util.Objects.equals(deprecatedSource, that.deprecatedSource)) return false;
+
+    if (!java.util.Objects.equals(eventTime, that.eventTime)) return false;
+
+    if (!java.util.Objects.equals(kind, that.kind)) return false;
+
+    if (!java.util.Objects.equals(metadata, that.metadata)) return false;
+
+    if (!java.util.Objects.equals(note, that.note)) return false;
+
+    if (!java.util.Objects.equals(reason, that.reason)) return false;
+
+    if (!java.util.Objects.equals(regarding, that.regarding)) return false;
+
+    if (!java.util.Objects.equals(related, that.related)) return false;
+
+    if (!java.util.Objects.equals(reportingController, that.reportingController)) return false;
+
+    if (!java.util.Objects.equals(reportingInstance, that.reportingInstance)) return false;
+
+    if (!java.util.Objects.equals(series, that.series)) return false;
+
+    if (!java.util.Objects.equals(type, that.type)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -397,7 +400,7 @@ import java.lang.Object;
     sb.append("}");
     return sb.toString();
   }
-  class DeprecatedSourceNestedImpl<N> extends V1EventSourceFluentImpl<EventsV1EventFluent.DeprecatedSourceNested<N>> implements EventsV1EventFluent.DeprecatedSourceNested<N>,Nested<N>{
+  class DeprecatedSourceNestedImpl<N> extends V1EventSourceFluentImpl<EventsV1EventFluentImpl.DeprecatedSourceNested<N>> implements EventsV1EventFluentImpl.DeprecatedSourceNested<N>,Nested<N>{
     DeprecatedSourceNestedImpl(V1EventSource item) {
       this.builder = new V1EventSourceBuilder(this, item);
     }
@@ -413,7 +416,7 @@ import java.lang.Object;
     }
     
   }
-  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<EventsV1EventFluent.MetadataNested<N>> implements EventsV1EventFluent.MetadataNested<N>,Nested<N>{
+  class MetadataNestedImpl<N> extends V1ObjectMetaFluentImpl<EventsV1EventFluentImpl.MetadataNested<N>> implements EventsV1EventFluentImpl.MetadataNested<N>,Nested<N>{
     MetadataNestedImpl(V1ObjectMeta item) {
       this.builder = new V1ObjectMetaBuilder(this, item);
     }
@@ -429,7 +432,7 @@ import java.lang.Object;
     }
     
   }
-  class RegardingNestedImpl<N> extends V1ObjectReferenceFluentImpl<EventsV1EventFluent.RegardingNested<N>> implements EventsV1EventFluent.RegardingNested<N>,Nested<N>{
+  class RegardingNestedImpl<N> extends V1ObjectReferenceFluentImpl<EventsV1EventFluentImpl.RegardingNested<N>> implements EventsV1EventFluentImpl.RegardingNested<N>,Nested<N>{
     RegardingNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }
@@ -445,7 +448,7 @@ import java.lang.Object;
     }
     
   }
-  class RelatedNestedImpl<N> extends V1ObjectReferenceFluentImpl<EventsV1EventFluent.RelatedNested<N>> implements EventsV1EventFluent.RelatedNested<N>,Nested<N>{
+  class RelatedNestedImpl<N> extends V1ObjectReferenceFluentImpl<EventsV1EventFluentImpl.RelatedNested<N>> implements EventsV1EventFluentImpl.RelatedNested<N>,Nested<N>{
     RelatedNestedImpl(V1ObjectReference item) {
       this.builder = new V1ObjectReferenceBuilder(this, item);
     }
@@ -461,7 +464,7 @@ import java.lang.Object;
     }
     
   }
-  class SeriesNestedImpl<N> extends EventsV1EventSeriesFluentImpl<EventsV1EventFluent.SeriesNested<N>> implements EventsV1EventFluent.SeriesNested<N>,Nested<N>{
+  class SeriesNestedImpl<N> extends EventsV1EventSeriesFluentImpl<EventsV1EventFluentImpl.SeriesNested<N>> implements EventsV1EventFluentImpl.SeriesNested<N>,Nested<N>{
     SeriesNestedImpl(EventsV1EventSeries item) {
       this.builder = new EventsV1EventSeriesBuilder(this, item);
     }

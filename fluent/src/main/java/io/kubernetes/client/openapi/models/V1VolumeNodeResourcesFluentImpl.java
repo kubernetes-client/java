@@ -15,8 +15,9 @@ import java.lang.Boolean;
   public V1VolumeNodeResourcesFluentImpl() {
   }
   public V1VolumeNodeResourcesFluentImpl(V1VolumeNodeResources instance) {
-    this.withCount(instance.getCount());
-
+    if (instance != null) {
+      this.withCount(instance.getCount());
+    }
   }
   private Integer count;
   public Integer getCount() {
@@ -31,8 +32,10 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1VolumeNodeResourcesFluentImpl that = (V1VolumeNodeResourcesFluentImpl) o;
-    if (count != null ? !count.equals(that.count) :that.count != null) return false;
+    if (!java.util.Objects.equals(count, that.count)) return false;
+
     return true;
   }
   public int hashCode() {

@@ -10,7 +10,6 @@ import java.lang.Deprecated;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.List;
 import java.lang.Boolean;
-import java.lang.Integer;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.Map;
@@ -23,18 +22,14 @@ import java.util.Map;
   public V1SubjectAccessReviewSpecFluentImpl() {
   }
   public V1SubjectAccessReviewSpecFluentImpl(V1SubjectAccessReviewSpec instance) {
-    this.withExtra(instance.getExtra());
-
-    this.withGroups(instance.getGroups());
-
-    this.withNonResourceAttributes(instance.getNonResourceAttributes());
-
-    this.withResourceAttributes(instance.getResourceAttributes());
-
-    this.withUid(instance.getUid());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withExtra(instance.getExtra());
+      this.withGroups(instance.getGroups());
+      this.withNonResourceAttributes(instance.getNonResourceAttributes());
+      this.withResourceAttributes(instance.getResourceAttributes());
+      this.withUid(instance.getUid());
+      this.withUser(instance.getUser());
+    }
   }
   private Map<String,List<String>> extra;
   private List<String> groups;
@@ -67,12 +62,12 @@ import java.util.Map;
   public Boolean hasExtra() {
     return this.extra != null;
   }
-  public A addToGroups(Integer index,String item) {
+  public A addToGroups(int index,String item) {
     if (this.groups == null) {this.groups = new ArrayList<String>();}
     this.groups.add(index, item);
     return (A)this;
   }
-  public A setToGroups(Integer index,String item) {
+  public A setToGroups(int index,String item) {
     if (this.groups == null) {this.groups = new ArrayList<String>();}
     this.groups.set(index, item); return (A)this;
   }
@@ -93,7 +88,7 @@ import java.util.Map;
   public List<String> getGroups() {
     return this.groups;
   }
-  public String getGroup(Integer index) {
+  public String getGroup(int index) {
     return this.groups.get(index);
   }
   public String getFirstGroup() {
@@ -112,7 +107,7 @@ import java.util.Map;
     if (groups != null) {this.groups = new ArrayList(); for (String item : groups){this.addToGroups(item);}} else { this.groups = null;} return (A) this;
   }
   public A withGroups(java.lang.String... groups) {
-    if (this.groups != null) {this.groups.clear();}
+    if (this.groups != null) {this.groups.clear(); _visitables.remove("groups"); }
     if (groups != null) {for (String item :groups){ this.addToGroups(item);}} return (A) this;
   }
   public Boolean hasGroups() {
@@ -137,19 +132,19 @@ import java.util.Map;
   public Boolean hasNonResourceAttributes() {
     return this.nonResourceAttributes != null;
   }
-  public V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<A> withNewNonResourceAttributes() {
+  public V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<A> withNewNonResourceAttributes() {
     return new V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNestedImpl();
   }
-  public V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<A> withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
+  public V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<A> withNewNonResourceAttributesLike(V1NonResourceAttributes item) {
     return new V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNestedImpl(item);
   }
-  public V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<A> editNonResourceAttributes() {
+  public V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<A> editNonResourceAttributes() {
     return withNewNonResourceAttributesLike(getNonResourceAttributes());
   }
-  public V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<A> editOrNewNonResourceAttributes() {
+  public V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<A> editOrNewNonResourceAttributes() {
     return withNewNonResourceAttributesLike(getNonResourceAttributes() != null ? getNonResourceAttributes(): new V1NonResourceAttributesBuilder().build());
   }
-  public V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<A> editOrNewNonResourceAttributesLike(V1NonResourceAttributes item) {
+  public V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<A> editOrNewNonResourceAttributesLike(V1NonResourceAttributes item) {
     return withNewNonResourceAttributesLike(getNonResourceAttributes() != null ? getNonResourceAttributes(): item);
   }
   
@@ -171,19 +166,19 @@ import java.util.Map;
   public Boolean hasResourceAttributes() {
     return this.resourceAttributes != null;
   }
-  public V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<A> withNewResourceAttributes() {
+  public V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<A> withNewResourceAttributes() {
     return new V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNestedImpl();
   }
-  public V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<A> withNewResourceAttributesLike(V1ResourceAttributes item) {
+  public V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<A> withNewResourceAttributesLike(V1ResourceAttributes item) {
     return new V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNestedImpl(item);
   }
-  public V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<A> editResourceAttributes() {
+  public V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<A> editResourceAttributes() {
     return withNewResourceAttributesLike(getResourceAttributes());
   }
-  public V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<A> editOrNewResourceAttributes() {
+  public V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<A> editOrNewResourceAttributes() {
     return withNewResourceAttributesLike(getResourceAttributes() != null ? getResourceAttributes(): new V1ResourceAttributesBuilder().build());
   }
-  public V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<A> editOrNewResourceAttributesLike(V1ResourceAttributes item) {
+  public V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<A> editOrNewResourceAttributesLike(V1ResourceAttributes item) {
     return withNewResourceAttributesLike(getResourceAttributes() != null ? getResourceAttributes(): item);
   }
   public String getUid() {
@@ -207,13 +202,20 @@ import java.util.Map;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1SubjectAccessReviewSpecFluentImpl that = (V1SubjectAccessReviewSpecFluentImpl) o;
-    if (extra != null ? !extra.equals(that.extra) :that.extra != null) return false;
-    if (groups != null ? !groups.equals(that.groups) :that.groups != null) return false;
-    if (nonResourceAttributes != null ? !nonResourceAttributes.equals(that.nonResourceAttributes) :that.nonResourceAttributes != null) return false;
-    if (resourceAttributes != null ? !resourceAttributes.equals(that.resourceAttributes) :that.resourceAttributes != null) return false;
-    if (uid != null ? !uid.equals(that.uid) :that.uid != null) return false;
-    if (user != null ? !user.equals(that.user) :that.user != null) return false;
+    if (!java.util.Objects.equals(extra, that.extra)) return false;
+
+    if (!java.util.Objects.equals(groups, that.groups)) return false;
+
+    if (!java.util.Objects.equals(nonResourceAttributes, that.nonResourceAttributes)) return false;
+
+    if (!java.util.Objects.equals(resourceAttributes, that.resourceAttributes)) return false;
+
+    if (!java.util.Objects.equals(uid, that.uid)) return false;
+
+    if (!java.util.Objects.equals(user, that.user)) return false;
+
     return true;
   }
   public int hashCode() {
@@ -231,7 +233,7 @@ import java.util.Map;
     sb.append("}");
     return sb.toString();
   }
-  class NonResourceAttributesNestedImpl<N> extends V1NonResourceAttributesFluentImpl<V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<N>> implements V1SubjectAccessReviewSpecFluent.NonResourceAttributesNested<N>,Nested<N>{
+  class NonResourceAttributesNestedImpl<N> extends V1NonResourceAttributesFluentImpl<V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<N>> implements V1SubjectAccessReviewSpecFluentImpl.NonResourceAttributesNested<N>,Nested<N>{
     NonResourceAttributesNestedImpl(V1NonResourceAttributes item) {
       this.builder = new V1NonResourceAttributesBuilder(this, item);
     }
@@ -247,7 +249,7 @@ import java.util.Map;
     }
     
   }
-  class ResourceAttributesNestedImpl<N> extends V1ResourceAttributesFluentImpl<V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<N>> implements V1SubjectAccessReviewSpecFluent.ResourceAttributesNested<N>,Nested<N>{
+  class ResourceAttributesNestedImpl<N> extends V1ResourceAttributesFluentImpl<V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<N>> implements V1SubjectAccessReviewSpecFluentImpl.ResourceAttributesNested<N>,Nested<N>{
     ResourceAttributesNestedImpl(V1ResourceAttributes item) {
       this.builder = new V1ResourceAttributesBuilder(this, item);
     }

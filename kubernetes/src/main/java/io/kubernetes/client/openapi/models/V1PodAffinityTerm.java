@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,45 +12,42 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1LabelSelector;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
- * Defines a set of pods (namely those matching the labelSelector relative to the given
- * namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity)
- * with, where co-located is defined as running on a node whose value of the label with key
- * &lt;topologyKey&gt; matches that of any node on which a pod of the set of pods is running
+ * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key &lt;topologyKey&gt; matches that of any node on which a pod of the set of pods is running
  */
-@ApiModel(
-    description =
-        "Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+@ApiModel(description = "Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key <topologyKey> matches that of any node on which a pod of the set of pods is running")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1PodAffinityTerm {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
-
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)
   private V1LabelSelector labelSelector;
 
   public static final String SERIALIZED_NAME_NAMESPACE_SELECTOR = "namespaceSelector";
-
   @SerializedName(SERIALIZED_NAME_NAMESPACE_SELECTOR)
   private V1LabelSelector namespaceSelector;
 
   public static final String SERIALIZED_NAME_NAMESPACES = "namespaces";
-
   @SerializedName(SERIALIZED_NAME_NAMESPACES)
   private List<String> namespaces = null;
 
   public static final String SERIALIZED_NAME_TOPOLOGY_KEY = "topologyKey";
-
   @SerializedName(SERIALIZED_NAME_TOPOLOGY_KEY)
   private String topologyKey;
+
 
   public V1PodAffinityTerm labelSelector(V1LabelSelector labelSelector) {
 
@@ -58,20 +55,22 @@ public class V1PodAffinityTerm {
     return this;
   }
 
-  /**
+   /**
    * Get labelSelector
-   *
    * @return labelSelector
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1LabelSelector getLabelSelector() {
     return labelSelector;
   }
 
+
   public void setLabelSelector(V1LabelSelector labelSelector) {
     this.labelSelector = labelSelector;
   }
+
 
   public V1PodAffinityTerm namespaceSelector(V1LabelSelector namespaceSelector) {
 
@@ -79,20 +78,22 @@ public class V1PodAffinityTerm {
     return this;
   }
 
-  /**
+   /**
    * Get namespaceSelector
-   *
    * @return namespaceSelector
-   */
+  **/
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
+
   public V1LabelSelector getNamespaceSelector() {
     return namespaceSelector;
   }
 
+
   public void setNamespaceSelector(V1LabelSelector namespaceSelector) {
     this.namespaceSelector = namespaceSelector;
   }
+
 
   public V1PodAffinityTerm namespaces(List<String> namespaces) {
 
@@ -108,25 +109,22 @@ public class V1PodAffinityTerm {
     return this;
   }
 
-  /**
-   * namespaces specifies a static list of namespace names that the term applies to. The term is
-   * applied to the union of the namespaces listed in this field and the ones selected by
-   * namespaceSelector. null or empty namespaces list and null namespaceSelector means \&quot;this
-   * pod&#39;s namespace\&quot;.
-   *
+   /**
+   * namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \&quot;this pod&#39;s namespace\&quot;.
    * @return namespaces
-   */
+  **/
   @javax.annotation.Nullable
-  @ApiModelProperty(
-      value =
-          "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".")
+  @ApiModelProperty(value = "namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means \"this pod's namespace\".")
+
   public List<String> getNamespaces() {
     return namespaces;
   }
 
+
   public void setNamespaces(List<String> namespaces) {
     this.namespaces = namespaces;
   }
+
 
   public V1PodAffinityTerm topologyKey(String topologyKey) {
 
@@ -134,25 +132,21 @@ public class V1PodAffinityTerm {
     return this;
   }
 
-  /**
-   * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods
-   * matching the labelSelector in the specified namespaces, where co-located is defined as running
-   * on a node whose value of the label with key topologyKey matches that of any node on which any
-   * of the selected pods is running. Empty topologyKey is not allowed.
-   *
+   /**
+   * This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.
    * @return topologyKey
-   */
-  @ApiModelProperty(
-      required = true,
-      value =
-          "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.")
+  **/
+  @ApiModelProperty(required = true, value = "This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.")
+
   public String getTopologyKey() {
     return topologyKey;
   }
 
+
   public void setTopologyKey(String topologyKey) {
     this.topologyKey = topologyKey;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -163,16 +157,17 @@ public class V1PodAffinityTerm {
       return false;
     }
     V1PodAffinityTerm v1PodAffinityTerm = (V1PodAffinityTerm) o;
-    return Objects.equals(this.labelSelector, v1PodAffinityTerm.labelSelector)
-        && Objects.equals(this.namespaceSelector, v1PodAffinityTerm.namespaceSelector)
-        && Objects.equals(this.namespaces, v1PodAffinityTerm.namespaces)
-        && Objects.equals(this.topologyKey, v1PodAffinityTerm.topologyKey);
+    return Objects.equals(this.labelSelector, v1PodAffinityTerm.labelSelector) &&
+        Objects.equals(this.namespaceSelector, v1PodAffinityTerm.namespaceSelector) &&
+        Objects.equals(this.namespaces, v1PodAffinityTerm.namespaces) &&
+        Objects.equals(this.topologyKey, v1PodAffinityTerm.topologyKey);
   }
 
   @Override
   public int hashCode() {
     return Objects.hash(labelSelector, namespaceSelector, namespaces, topologyKey);
   }
+
 
   @Override
   public String toString() {
@@ -187,7 +182,8 @@ public class V1PodAffinityTerm {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -195,4 +191,5 @@ public class V1PodAffinityTerm {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

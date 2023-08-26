@@ -20,14 +20,12 @@ public class V1TokenReviewStatusBuilder extends V1TokenReviewStatusFluentImpl<V1
   }
   public V1TokenReviewStatusBuilder(V1TokenReviewStatusFluent<?> fluent,V1TokenReviewStatus instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withAudiences(instance.getAudiences());
-
-    fluent.withAuthenticated(instance.getAuthenticated());
-
-    fluent.withError(instance.getError());
-
-    fluent.withUser(instance.getUser());
-
+    if (instance != null) {
+      fluent.withAudiences(instance.getAudiences());
+      fluent.withAuthenticated(instance.getAuthenticated());
+      fluent.withError(instance.getError());
+      fluent.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1TokenReviewStatusBuilder(V1TokenReviewStatus instance) {
@@ -35,14 +33,12 @@ public class V1TokenReviewStatusBuilder extends V1TokenReviewStatusFluentImpl<V1
   }
   public V1TokenReviewStatusBuilder(V1TokenReviewStatus instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withAudiences(instance.getAudiences());
-
-    this.withAuthenticated(instance.getAuthenticated());
-
-    this.withError(instance.getError());
-
-    this.withUser(instance.getUser());
-
+    if (instance != null) {
+      this.withAudiences(instance.getAudiences());
+      this.withAuthenticated(instance.getAuthenticated());
+      this.withError(instance.getError());
+      this.withUser(instance.getUser());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1TokenReviewStatusFluent<?> fluent;

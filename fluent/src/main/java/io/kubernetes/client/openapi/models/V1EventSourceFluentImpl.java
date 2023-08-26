@@ -14,10 +14,10 @@ import java.lang.Boolean;
   public V1EventSourceFluentImpl() {
   }
   public V1EventSourceFluentImpl(V1EventSource instance) {
-    this.withComponent(instance.getComponent());
-
-    this.withHost(instance.getHost());
-
+    if (instance != null) {
+      this.withComponent(instance.getComponent());
+      this.withHost(instance.getHost());
+    }
   }
   private String component;
   private String host;
@@ -42,9 +42,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1EventSourceFluentImpl that = (V1EventSourceFluentImpl) o;
-    if (component != null ? !component.equals(that.component) :that.component != null) return false;
-    if (host != null ? !host.equals(that.host) :that.host != null) return false;
+    if (!java.util.Objects.equals(component, that.component)) return false;
+
+    if (!java.util.Objects.equals(host, that.host)) return false;
+
     return true;
   }
   public int hashCode() {

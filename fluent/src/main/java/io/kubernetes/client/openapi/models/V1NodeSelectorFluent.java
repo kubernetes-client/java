@@ -1,11 +1,11 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
+import com.google.gson.annotations.SerializedName;
 import io.kubernetes.client.fluent.Fluent;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
 import java.util.function.Predicate;
-import java.lang.Integer;
 import java.lang.Deprecated;
 import java.util.Iterator;
 import java.util.Collection;
@@ -16,8 +16,8 @@ import java.lang.Boolean;
   * Generated
   */
 public interface V1NodeSelectorFluent<A extends V1NodeSelectorFluent<A>> extends Fluent<A>{
-  public A addToNodeSelectorTerms(Integer index,V1NodeSelectorTerm item);
-  public A setToNodeSelectorTerms(Integer index,V1NodeSelectorTerm item);
+  public A addToNodeSelectorTerms(int index,V1NodeSelectorTerm item);
+  public A setToNodeSelectorTerms(int index,V1NodeSelectorTerm item);
   public A addToNodeSelectorTerms(io.kubernetes.client.openapi.models.V1NodeSelectorTerm... items);
   public A addAllToNodeSelectorTerms(Collection<V1NodeSelectorTerm> items);
   public A removeFromNodeSelectorTerms(io.kubernetes.client.openapi.models.V1NodeSelectorTerm... items);
@@ -31,7 +31,7 @@ public interface V1NodeSelectorFluent<A extends V1NodeSelectorFluent<A>> extends
   @Deprecated
   public List<V1NodeSelectorTerm> getNodeSelectorTerms();
   public List<V1NodeSelectorTerm> buildNodeSelectorTerms();
-  public V1NodeSelectorTerm buildNodeSelectorTerm(Integer index);
+  public V1NodeSelectorTerm buildNodeSelectorTerm(int index);
   public V1NodeSelectorTerm buildFirstNodeSelectorTerm();
   public V1NodeSelectorTerm buildLastNodeSelectorTerm();
   public V1NodeSelectorTerm buildMatchingNodeSelectorTerm(Predicate<V1NodeSelectorTermBuilder> predicate);
@@ -41,8 +41,8 @@ public interface V1NodeSelectorFluent<A extends V1NodeSelectorFluent<A>> extends
   public Boolean hasNodeSelectorTerms();
   public V1NodeSelectorFluent.NodeSelectorTermsNested<A> addNewNodeSelectorTerm();
   public V1NodeSelectorFluent.NodeSelectorTermsNested<A> addNewNodeSelectorTermLike(V1NodeSelectorTerm item);
-  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> setNewNodeSelectorTermLike(Integer index,V1NodeSelectorTerm item);
-  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editNodeSelectorTerm(Integer index);
+  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> setNewNodeSelectorTermLike(int index,V1NodeSelectorTerm item);
+  public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editNodeSelectorTerm(int index);
   public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editFirstNodeSelectorTerm();
   public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editLastNodeSelectorTerm();
   public V1NodeSelectorFluent.NodeSelectorTermsNested<A> editMatchingNodeSelectorTerm(Predicate<V1NodeSelectorTermBuilder> predicate);

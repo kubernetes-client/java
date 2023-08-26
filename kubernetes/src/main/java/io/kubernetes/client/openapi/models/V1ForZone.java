@@ -1,5 +1,5 @@
 /*
-Copyright 2022 The Kubernetes Authors.
+Copyright 2023 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -12,22 +12,27 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi.models;
 
+import java.util.Objects;
+import java.util.Arrays;
+import com.google.gson.TypeAdapter;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.util.Objects;
+import java.io.IOException;
 
-/** ForZone provides information about which zones should consume this endpoint. */
-@ApiModel(
-    description = "ForZone provides information about which zones should consume this endpoint.")
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2022-12-05T08:14:34.919Z[Etc/UTC]")
+/**
+ * ForZone provides information about which zones should consume this endpoint.
+ */
+@ApiModel(description = "ForZone provides information about which zones should consume this endpoint.")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
 public class V1ForZone {
   public static final String SERIALIZED_NAME_NAME = "name";
-
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
+
 
   public V1ForZone name(String name) {
 
@@ -35,19 +40,21 @@ public class V1ForZone {
     return this;
   }
 
-  /**
+   /**
    * name represents the name of the zone.
-   *
    * @return name
-   */
+  **/
   @ApiModelProperty(required = true, value = "name represents the name of the zone.")
+
   public String getName() {
     return name;
   }
 
+
   public void setName(String name) {
     this.name = name;
   }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -66,6 +73,7 @@ public class V1ForZone {
     return Objects.hash(name);
   }
 
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -76,7 +84,8 @@ public class V1ForZone {
   }
 
   /**
-   * Convert the given object to string with each line indented by 4 spaces (except the first line).
+   * Convert the given object to string with each line indented by 4 spaces
+   * (except the first line).
    */
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
@@ -84,4 +93,5 @@ public class V1ForZone {
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }

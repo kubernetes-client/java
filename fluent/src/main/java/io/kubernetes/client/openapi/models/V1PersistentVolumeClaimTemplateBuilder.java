@@ -20,10 +20,10 @@ public class V1PersistentVolumeClaimTemplateBuilder extends V1PersistentVolumeCl
   }
   public V1PersistentVolumeClaimTemplateBuilder(V1PersistentVolumeClaimTemplateFluent<?> fluent,V1PersistentVolumeClaimTemplate instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withMetadata(instance.getMetadata());
-
-    fluent.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      fluent.withMetadata(instance.getMetadata());
+      fluent.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1PersistentVolumeClaimTemplateBuilder(V1PersistentVolumeClaimTemplate instance) {
@@ -31,10 +31,10 @@ public class V1PersistentVolumeClaimTemplateBuilder extends V1PersistentVolumeCl
   }
   public V1PersistentVolumeClaimTemplateBuilder(V1PersistentVolumeClaimTemplate instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withMetadata(instance.getMetadata());
-
-    this.withSpec(instance.getSpec());
-
+    if (instance != null) {
+      this.withMetadata(instance.getMetadata());
+      this.withSpec(instance.getSpec());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1PersistentVolumeClaimTemplateFluent<?> fluent;

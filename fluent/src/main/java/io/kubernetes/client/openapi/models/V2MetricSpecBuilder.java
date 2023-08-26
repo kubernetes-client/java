@@ -20,18 +20,14 @@ public class V2MetricSpecBuilder extends V2MetricSpecFluentImpl<V2MetricSpecBuil
   }
   public V2MetricSpecBuilder(V2MetricSpecFluent<?> fluent,V2MetricSpec instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withContainerResource(instance.getContainerResource());
-
-    fluent.withExternal(instance.getExternal());
-
-    fluent.withObject(instance.getObject());
-
-    fluent.withPods(instance.getPods());
-
-    fluent.withResource(instance.getResource());
-
-    fluent.withType(instance.getType());
-
+    if (instance != null) {
+      fluent.withContainerResource(instance.getContainerResource());
+      fluent.withExternal(instance.getExternal());
+      fluent.withObject(instance.getObject());
+      fluent.withPods(instance.getPods());
+      fluent.withResource(instance.getResource());
+      fluent.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V2MetricSpecBuilder(V2MetricSpec instance) {
@@ -39,18 +35,14 @@ public class V2MetricSpecBuilder extends V2MetricSpecFluentImpl<V2MetricSpecBuil
   }
   public V2MetricSpecBuilder(V2MetricSpec instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withContainerResource(instance.getContainerResource());
-
-    this.withExternal(instance.getExternal());
-
-    this.withObject(instance.getObject());
-
-    this.withPods(instance.getPods());
-
-    this.withResource(instance.getResource());
-
-    this.withType(instance.getType());
-
+    if (instance != null) {
+      this.withContainerResource(instance.getContainerResource());
+      this.withExternal(instance.getExternal());
+      this.withObject(instance.getObject());
+      this.withPods(instance.getPods());
+      this.withResource(instance.getResource());
+      this.withType(instance.getType());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V2MetricSpecFluent<?> fluent;

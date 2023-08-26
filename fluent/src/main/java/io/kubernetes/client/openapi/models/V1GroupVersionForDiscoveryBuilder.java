@@ -20,10 +20,10 @@ public class V1GroupVersionForDiscoveryBuilder extends V1GroupVersionForDiscover
   }
   public V1GroupVersionForDiscoveryBuilder(V1GroupVersionForDiscoveryFluent<?> fluent,V1GroupVersionForDiscovery instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withGroupVersion(instance.getGroupVersion());
-
-    fluent.withVersion(instance.getVersion());
-
+    if (instance != null) {
+      fluent.withGroupVersion(instance.getGroupVersion());
+      fluent.withVersion(instance.getVersion());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1GroupVersionForDiscoveryBuilder(V1GroupVersionForDiscovery instance) {
@@ -31,10 +31,10 @@ public class V1GroupVersionForDiscoveryBuilder extends V1GroupVersionForDiscover
   }
   public V1GroupVersionForDiscoveryBuilder(V1GroupVersionForDiscovery instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withGroupVersion(instance.getGroupVersion());
-
-    this.withVersion(instance.getVersion());
-
+    if (instance != null) {
+      this.withGroupVersion(instance.getGroupVersion());
+      this.withVersion(instance.getVersion());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1GroupVersionForDiscoveryFluent<?> fluent;

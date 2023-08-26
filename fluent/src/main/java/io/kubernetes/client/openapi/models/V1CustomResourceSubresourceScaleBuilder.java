@@ -20,12 +20,11 @@ public class V1CustomResourceSubresourceScaleBuilder extends V1CustomResourceSub
   }
   public V1CustomResourceSubresourceScaleBuilder(V1CustomResourceSubresourceScaleFluent<?> fluent,V1CustomResourceSubresourceScale instance,Boolean validationEnabled) {
     this.fluent = fluent; 
-    fluent.withLabelSelectorPath(instance.getLabelSelectorPath());
-
-    fluent.withSpecReplicasPath(instance.getSpecReplicasPath());
-
-    fluent.withStatusReplicasPath(instance.getStatusReplicasPath());
-
+    if (instance != null) {
+      fluent.withLabelSelectorPath(instance.getLabelSelectorPath());
+      fluent.withSpecReplicasPath(instance.getSpecReplicasPath());
+      fluent.withStatusReplicasPath(instance.getStatusReplicasPath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   public V1CustomResourceSubresourceScaleBuilder(V1CustomResourceSubresourceScale instance) {
@@ -33,12 +32,11 @@ public class V1CustomResourceSubresourceScaleBuilder extends V1CustomResourceSub
   }
   public V1CustomResourceSubresourceScaleBuilder(V1CustomResourceSubresourceScale instance,Boolean validationEnabled) {
     this.fluent = this; 
-    this.withLabelSelectorPath(instance.getLabelSelectorPath());
-
-    this.withSpecReplicasPath(instance.getSpecReplicasPath());
-
-    this.withStatusReplicasPath(instance.getStatusReplicasPath());
-
+    if (instance != null) {
+      this.withLabelSelectorPath(instance.getLabelSelectorPath());
+      this.withSpecReplicasPath(instance.getSpecReplicasPath());
+      this.withStatusReplicasPath(instance.getStatusReplicasPath());
+    }
     this.validationEnabled = validationEnabled; 
   }
   V1CustomResourceSubresourceScaleFluent<?> fluent;

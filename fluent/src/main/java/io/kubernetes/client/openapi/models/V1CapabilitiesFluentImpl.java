@@ -1,15 +1,14 @@
 package io.kubernetes.client.openapi.models;
 
 import java.lang.SuppressWarnings;
-import java.util.ArrayList;
-import java.lang.String;
-import java.util.function.Predicate;
-import java.lang.Integer;
 import io.kubernetes.client.fluent.BaseFluent;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.lang.Object;
 import java.util.List;
+import java.lang.String;
 import java.lang.Boolean;
+import java.util.function.Predicate;
 
  /**
   * Generated
@@ -19,19 +18,19 @@ import java.lang.Boolean;
   public V1CapabilitiesFluentImpl() {
   }
   public V1CapabilitiesFluentImpl(V1Capabilities instance) {
-    this.withAdd(instance.getAdd());
-
-    this.withDrop(instance.getDrop());
-
+    if (instance != null) {
+      this.withAdd(instance.getAdd());
+      this.withDrop(instance.getDrop());
+    }
   }
   private List<String> add;
   private List<String> drop;
-  public A addToAdd(Integer index,String item) {
+  public A addToAdd(int index,String item) {
     if (this.add == null) {this.add = new ArrayList<String>();}
     this.add.add(index, item);
     return (A)this;
   }
-  public A setToAdd(Integer index,String item) {
+  public A setToAdd(int index,String item) {
     if (this.add == null) {this.add = new ArrayList<String>();}
     this.add.set(index, item); return (A)this;
   }
@@ -52,7 +51,7 @@ import java.lang.Boolean;
   public List<String> getAdd() {
     return this.add;
   }
-  public String getAdd(Integer index) {
+  public String getAdd(int index) {
     return this.add.get(index);
   }
   public String getFirstAdd() {
@@ -71,18 +70,18 @@ import java.lang.Boolean;
     if (add != null) {this.add = new ArrayList(); for (String item : add){this.addToAdd(item);}} else { this.add = null;} return (A) this;
   }
   public A withAdd(java.lang.String... add) {
-    if (this.add != null) {this.add.clear();}
+    if (this.add != null) {this.add.clear(); _visitables.remove("add"); }
     if (add != null) {for (String item :add){ this.addToAdd(item);}} return (A) this;
   }
   public Boolean hasAdd() {
     return add != null && !add.isEmpty();
   }
-  public A addToDrop(Integer index,String item) {
+  public A addToDrop(int index,String item) {
     if (this.drop == null) {this.drop = new ArrayList<String>();}
     this.drop.add(index, item);
     return (A)this;
   }
-  public A setToDrop(Integer index,String item) {
+  public A setToDrop(int index,String item) {
     if (this.drop == null) {this.drop = new ArrayList<String>();}
     this.drop.set(index, item); return (A)this;
   }
@@ -103,7 +102,7 @@ import java.lang.Boolean;
   public List<String> getDrop() {
     return this.drop;
   }
-  public String getDrop(Integer index) {
+  public String getDrop(int index) {
     return this.drop.get(index);
   }
   public String getFirstDrop() {
@@ -122,7 +121,7 @@ import java.lang.Boolean;
     if (drop != null) {this.drop = new ArrayList(); for (String item : drop){this.addToDrop(item);}} else { this.drop = null;} return (A) this;
   }
   public A withDrop(java.lang.String... drop) {
-    if (this.drop != null) {this.drop.clear();}
+    if (this.drop != null) {this.drop.clear(); _visitables.remove("drop"); }
     if (drop != null) {for (String item :drop){ this.addToDrop(item);}} return (A) this;
   }
   public Boolean hasDrop() {
@@ -131,9 +130,12 @@ import java.lang.Boolean;
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
     V1CapabilitiesFluentImpl that = (V1CapabilitiesFluentImpl) o;
-    if (add != null ? !add.equals(that.add) :that.add != null) return false;
-    if (drop != null ? !drop.equals(that.drop) :that.drop != null) return false;
+    if (!java.util.Objects.equals(add, that.add)) return false;
+
+    if (!java.util.Objects.equals(drop, that.drop)) return false;
+
     return true;
   }
   public int hashCode() {
