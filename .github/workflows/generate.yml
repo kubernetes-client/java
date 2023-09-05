@@ -20,14 +20,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Java
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: 11
       - name: Checkout Gen
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           path: gen
           repository: kubernetes-client/gen
