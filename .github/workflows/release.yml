@@ -27,7 +27,7 @@ jobs:
           echo "${{ github.event.inputs.releaseVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+$/'
           echo "${{ github.event.inputs.nextDevelopmentVersion }}" | perl -ne 'die unless m/^\d+\.\d+\.\d+-SNAPSHOT$/'
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Check Actor
         run: |
           # Release actor should be in the OWNER list
