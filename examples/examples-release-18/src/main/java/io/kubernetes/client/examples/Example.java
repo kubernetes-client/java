@@ -36,9 +36,11 @@ public class Example {
 
     CoreV1Api api = new CoreV1Api();
     V1PodList list =
-        api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null, null);
+        api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null);
+    System.out.println("Pods:");
     for (V1Pod item : list.getItems()) {
-      System.out.println(item.getMetadata().getName());
+        assert item.getMetadata() != null;
+        System.out.println(item.getMetadata().getName());
     }
   }
 }

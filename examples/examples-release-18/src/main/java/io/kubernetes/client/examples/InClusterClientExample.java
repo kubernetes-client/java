@@ -52,7 +52,8 @@ public class InClusterClientExample {
     V1PodList list =
         api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null, null);
     for (V1Pod item : list.getItems()) {
-      System.out.println(item.getMetadata().getName());
+        assert item.getMetadata() != null;
+        System.out.println(item.getMetadata().getName());
     }
   }
 }
