@@ -16,9 +16,34 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
 import java.math.BigDecimal;
+
+import org.junit.Assert;
 import org.junit.Test;
 
 public class QuantityFormatterTest {
+
+  @Test
+  public void testEqualsAfterSerialAndDeSerial() {
+    testSerialDeSerial("0.5Gi");
+    testSerialDeSerial("0.5G");
+    testSerialDeSerial("1Gi");
+    testSerialDeSerial("1G");
+    testSerialDeSerial("500Mi");
+    testSerialDeSerial("500M");
+    testSerialDeSerial("500m");
+    testSerialDeSerial("0.5");
+    testSerialDeSerial("1");
+  }
+
+  private static void testSerialDeSerial(String value) {
+    Quantity quantity = Quantity.fromString(value);
+    // simulate the serialize-method
+    String suffixedString = quantity.toSuffixedString();
+    // simulate the deserialize-method, @see io.kubernetes.client.custom.Quantity.QuantityAdapter
+    Quantity deSerial = Quantity.fromString(suffixedString);
+
+    Assert.assertEquals(quantity,deSerial);
+  }
 
   @Test
   public void testParsePlain() {
