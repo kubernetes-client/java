@@ -184,7 +184,6 @@ public class PortForwardTest {
             });
     synchronized (block) {
       t.start();
-      Thread.sleep(2000);
       handler.close();
       block.wait();
     }
