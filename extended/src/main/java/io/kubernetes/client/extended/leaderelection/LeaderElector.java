@@ -291,6 +291,7 @@ public class LeaderElector implements AutoCloseable {
       oldLeaderElectionRecord = lock.get();
     } catch (ApiException e) {
       if (e.getCode() != HttpURLConnection.HTTP_NOT_FOUND) {
+        exceptionHandler.accept(e);
         log.error("Error retrieving resource lock {}", lock.describe(), e);
         return false;
       }
