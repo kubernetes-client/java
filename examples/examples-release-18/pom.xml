@@ -93,6 +93,14 @@
 
 	<build>
 		<plugins>
+		    <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
+                </configuration>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-deploy-plugin</artifactId>
