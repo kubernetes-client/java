@@ -30,27 +30,27 @@
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-api</artifactId>
-			<version>${project.version}</version>
+			<version>18.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java</artifactId>
-			<version>${project.version}</version>
+			<version>18.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-extended</artifactId>
-			<version>${project.version}</version>
+			<version>18.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-spring-integration</artifactId>
-			<version>${project.version}</version>
+			<version>18.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-proto</artifactId>
-			<version>${project.version}</version>
+			<version>18.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-cli</groupId>
