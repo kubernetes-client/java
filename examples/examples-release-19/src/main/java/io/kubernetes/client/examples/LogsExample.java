@@ -12,33 +12,40 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
+import io.kubernetes.client.PodLogs;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Pod;
-import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.util.Config;
+import io.kubernetes.client.util.Streams;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * A simple example of how to use the Java API
  *
  * <p>Easiest way to run this: mvn exec:java
- * -Dexec.mainClass="io.kubernetes.client.examples.Example"
+ * -Dexec.mainClass="io.kubernetes.client.examples.LogsExample"
  *
  * <p>From inside $REPO_DIR/examples
  */
-public class Example {
-  public static void main(String[] args) throws IOException, ApiException {
+public class LogsExample {
+  public static void main(String[] args) throws IOException, ApiException, InterruptedException {
     ApiClient client = Config.defaultClient();
     Configuration.setDefaultApiClient(client);
+    CoreV1Api coreApi = new CoreV1Api(client);
 
-    CoreV1Api api = new CoreV1Api();
-    V1PodList list =
-        api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null,  null);
-    for (V1Pod item : list.getItems()) {
-      System.out.println(item.getMetadata().getName());
-    }
+    PodLogs logs = new PodLogs();
+    V1Pod pod =
+        coreApi
+            .listNamespacedPod(
+                "default", "false", null, null, null, null, null, null, null, null, null, null)
+            .getItems()
+            .get(0);
+
+    InputStream is = logs.streamNamespacedPodLog(pod);
+    Streams.copy(is, System.out);
   }
 }

@@ -18,6 +18,7 @@
 		<module>examples-release-16</module>
 		<module>examples-release-17</module>
 		<module>examples-release-18</module>
+		<module>examples-release-19</module>
 	</modules>
 
 	<build>

@@ -8,8 +8,8 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<artifactId>client-java-examples-release-18</artifactId>
-	<name>client-java-examples-release-18</name>
+	<artifactId>client-java-examples-release-19</artifactId>
+	<name>client-java-examples-release-19</name>
 
 	<dependencies>
 		<dependency>
@@ -30,27 +30,27 @@
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-api</artifactId>
-			<version>18.0.1</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java</artifactId>
-			<version>18.0.1</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-extended</artifactId>
-			<version>18.0.1</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-spring-integration</artifactId>
-			<version>18.0.1</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.kubernetes</groupId>
 			<artifactId>client-java-proto</artifactId>
-			<version>18.0.1</version>
+			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-cli</groupId>
