@@ -102,7 +102,7 @@ public class ExpandedExample {
   public static List<String> getAllNameSpaces() throws ApiException {
     V1NamespaceList listNamespace =
         COREV1_API.listNamespace(
-            null, null, null, null, null, null, null, null, null, null);
+            null, null, null, null, null, null, null, null, null, null, null);
     List<String> list =
         listNamespace.getItems().stream()
             .map(v1Namespace -> v1Namespace.getMetadata().getName())
@@ -119,7 +119,7 @@ public class ExpandedExample {
   public static List<String> getPods() throws ApiException {
     V1PodList v1podList =
         COREV1_API.listPodForAllNamespaces(
-            null, null, null, null, null, null, null, null, null, null);
+            null, null, null, null, null, null, null, null, null, null, null);
     List<String> podList =
         v1podList.getItems().stream()
             .map(v1Pod -> v1Pod.getMetadata().getName())
@@ -168,6 +168,7 @@ public class ExpandedExample {
             null,
             null,
             null,
+            null,
             TIME_OUT_VALUE,
             Boolean.FALSE);
     List<String> listPods =
@@ -187,6 +188,7 @@ public class ExpandedExample {
     V1ServiceList listNamespacedService =
         COREV1_API.listNamespacedService(
             DEFAULT_NAME_SPACE,
+            null,
             null,
             null,
             null,
@@ -216,6 +218,7 @@ public class ExpandedExample {
     V1DeploymentList listNamespacedDeployment =
         appsV1Api.listNamespacedDeployment(
             DEFAULT_NAME_SPACE,
+            null,
             null,
             null,
             null,

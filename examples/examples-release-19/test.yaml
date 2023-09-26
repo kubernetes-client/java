@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: test 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+      - name: test 
+        image: test/examples:1.0
+        command: ["/bin/sh","-c"]
+        args: ["java -jar /examples.jar","while :; do  sleep 1; done"]

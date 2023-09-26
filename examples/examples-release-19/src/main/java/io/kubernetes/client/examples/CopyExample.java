@@ -12,33 +12,40 @@ limitations under the License.
 */
 package io.kubernetes.client.examples;
 
+import io.kubernetes.client.Copy;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
-import io.kubernetes.client.openapi.apis.CoreV1Api;
-import io.kubernetes.client.openapi.models.V1Pod;
-import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.util.Config;
+import io.kubernetes.client.util.Streams;
+import io.kubernetes.client.util.exception.CopyNotSupportedException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Paths;
 
 /**
  * A simple example of how to use the Java API
  *
  * <p>Easiest way to run this: mvn exec:java
- * -Dexec.mainClass="io.kubernetes.client.examples.Example"
+ * -Dexec.mainClass="io.kubernetes.client.examples.CopyExample"
  *
  * <p>From inside $REPO_DIR/examples
  */
-public class Example {
-  public static void main(String[] args) throws IOException, ApiException {
+public class CopyExample {
+  public static void main(String[] args)
+      throws IOException, ApiException, InterruptedException, CopyNotSupportedException {
+    String podName = "kube-addon-manager-minikube";
+    String namespace = "kube-system";
+
     ApiClient client = Config.defaultClient();
     Configuration.setDefaultApiClient(client);
 
-    CoreV1Api api = new CoreV1Api();
-    V1PodList list =
-        api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null,  null);
-    for (V1Pod item : list.getItems()) {
-      System.out.println(item.getMetadata().getName());
-    }
+    Copy copy = new Copy();
+    InputStream dataStream = copy.copyFileFromPod(namespace, podName, "/etc/motd");
+    Streams.copy(dataStream, System.out);
+
+    copy.copyDirectoryFromPod(namespace, podName, null, "/etc", Paths.get("/tmp/etc"));
+
+    System.out.println("Done!");
   }
 }
