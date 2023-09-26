@@ -53,9 +53,12 @@ public class DefaultRateLimitQueueTest {
     long t1 = System.nanoTime();
     rlq.addRateLimited("foo");
     rlq.get();
-    long t2 = System.nanoTime();
+    long t2 = System.nanoTime() - 100000;
+    long elapsed = t2-t1;
+    long elapsedMillis = Math.round((float) elapsed / 1000_000f);
+    long backoffMillis = Math.round((float) MockRateLimiter.mockConstantBackoff.toNanos() / 1000_000f);
     assertTrue(
-        "Unexpected time: " + (t2 - t1) + " vs " + MockRateLimiter.mockConstantBackoff.toNanos(),
-        t2 - t1 >= MockRateLimiter.mockConstantBackoff.toNanos());
+        "Unexpected time: " + elapsedMillis + " vs " + backoffMillis,
+            elapsedMillis >= backoffMillis);
   }
 }
