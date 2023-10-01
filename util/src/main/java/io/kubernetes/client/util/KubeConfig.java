@@ -16,6 +16,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
+import io.kubernetes.client.persister.ConfigPersister;
 import io.kubernetes.client.util.authenticators.Authenticator;
 import io.kubernetes.client.util.authenticators.AzureActiveDirectoryAuthenticator;
 import io.kubernetes.client.util.authenticators.GCPAuthenticator;
@@ -235,7 +236,7 @@ public class KubeConfig {
       }
     }
     Map<String, String> credentialsViaExecCredential =
-        credentialsViaExecCredential((Map<String, Object>) currentUser.get("exec"));
+        getCredentialsViaExecCredential((Map<String, Object>) currentUser.get("exec"));
     if (credentialsViaExecCredential != null) {
       return credentialsViaExecCredential;
     }
@@ -265,7 +266,7 @@ public class KubeConfig {
    *     Authenticating » client-go credential plugins</a>
    */
   @SuppressWarnings("unchecked")
-  private Map<String, String> credentialsViaExecCredential(Map<String, Object> execMap) {
+  private Map<String, String> getCredentialsViaExecCredential(Map<String, Object> execMap) {
     if (execMap == null) {
       return null;
     }
