@@ -28,8 +28,9 @@ jobs:
           gpg-passphrase: GPG_PASSPHRASE
       - name: Assert Snapshot Version
         run: |
-          ./mvnw clean install -Dmaven.test.skip=true
+          ./mvnw clean install -Dmaven.test.skip=true -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
           ./mvnw -q \
+            -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
             -Dexec.executable=echo \
             -Dexec.args='${project.version}' \
             exec:exec | perl -ne 'die unless m/.*-SNAPSHOT/'
