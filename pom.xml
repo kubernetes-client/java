@@ -218,6 +218,11 @@
         <version>${javax.annotation.version}</version>
       </dependency>
       <dependency>
+        <groupId>jakarta.annotation</groupId>
+        <artifactId>jakarta.annotation-api</artifactId>
+        <version>${jakarta.annotation.version}</version>
+      </dependency>
+      <dependency>
         <groupId>com.google.code.findbugs</groupId>
         <artifactId>jsr305</artifactId>
         <version>${jsr305.version}</version>
