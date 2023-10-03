@@ -41,6 +41,7 @@ jobs:
           echo "PROJECT_VERSION=$(mvn -q \
                       -Dexec.executable="echo" \
                       -Dexec.args='${project.version}' \
+                      -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
                       --non-recursive \
                       org.codehaus.mojo:exec-maven-plugin:1.6.0:exec)" >> $GITHUB_ENV
       - name: Generate Openapi
@@ -65,7 +66,7 @@ jobs:
         run: |
           # Only install the generated openapi module because the higher modules' compile
           # may fail due to api-changes.
-          mvn -Pfluent-gen -pl kubernetes -am clean install
+          mvn -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Pfluent-gen -pl kubernetes -am clean install
           pushd fluent-gen
           bash -x generate.sh
           popd
