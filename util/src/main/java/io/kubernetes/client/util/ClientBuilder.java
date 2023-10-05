@@ -24,6 +24,7 @@ import static io.kubernetes.client.util.KubeConfig.KUBEDIR;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1CertificateSigningRequest;
+import io.kubernetes.client.persister.FilePersister;
 import io.kubernetes.client.util.credentials.AccessTokenAuthentication;
 import io.kubernetes.client.util.credentials.Authentication;
 import io.kubernetes.client.util.credentials.ClientCertificateAuthentication;
