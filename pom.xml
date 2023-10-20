@@ -64,7 +64,7 @@
     <apache.commons.compress>1.24.0</apache.commons.compress>
     <apache.commons.io>2.14.0</apache.commons.io>
     <common.codec.version>1.16.0</common.codec.version>
-    <spring.boot.version>3.1.4</spring.boot.version>
+    <spring.boot.version>3.1.5</spring.boot.version>
     <spring.version>6.0.13</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
