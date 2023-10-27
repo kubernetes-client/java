@@ -1,50 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1beta2FlowSchemaConditionBuilder extends V1beta2FlowSchemaConditionFluentImpl<V1beta2FlowSchemaConditionBuilder> implements VisitableBuilder<V1beta2FlowSchemaCondition,V1beta2FlowSchemaConditionBuilder>{
+public class V1beta2FlowSchemaConditionBuilder extends V1beta2FlowSchemaConditionFluent<V1beta2FlowSchemaConditionBuilder> implements VisitableBuilder<V1beta2FlowSchemaCondition,V1beta2FlowSchemaConditionBuilder>{
   public V1beta2FlowSchemaConditionBuilder() {
-    this(false);
+    this(new V1beta2FlowSchemaCondition());
   }
-  public V1beta2FlowSchemaConditionBuilder(Boolean validationEnabled) {
-    this(new V1beta2FlowSchemaCondition(), validationEnabled);
-  }
+  
   public V1beta2FlowSchemaConditionBuilder(V1beta2FlowSchemaConditionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1beta2FlowSchemaCondition());
   }
-  public V1beta2FlowSchemaConditionBuilder(V1beta2FlowSchemaConditionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1beta2FlowSchemaCondition(), validationEnabled);
-  }
+  
   public V1beta2FlowSchemaConditionBuilder(V1beta2FlowSchemaConditionFluent<?> fluent,V1beta2FlowSchemaCondition instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1beta2FlowSchemaConditionBuilder(V1beta2FlowSchemaConditionFluent<?> fluent,V1beta2FlowSchemaCondition instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withLastTransitionTime(instance.getLastTransitionTime());
-      fluent.withMessage(instance.getMessage());
-      fluent.withReason(instance.getReason());
-      fluent.withStatus(instance.getStatus());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1beta2FlowSchemaConditionBuilder(V1beta2FlowSchemaCondition instance) {
-    this(instance,false);
-  }
-  public V1beta2FlowSchemaConditionBuilder(V1beta2FlowSchemaCondition instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withLastTransitionTime(instance.getLastTransitionTime());
-      this.withMessage(instance.getMessage());
-      this.withReason(instance.getReason());
-      this.withStatus(instance.getStatus());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1beta2FlowSchemaConditionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1beta2FlowSchemaCondition build() {
     V1beta2FlowSchemaCondition buildable = new V1beta2FlowSchemaCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
@@ -55,4 +31,5 @@ public class V1beta2FlowSchemaConditionBuilder extends V1beta2FlowSchemaConditio
     return buildable;
   }
   
+
 }

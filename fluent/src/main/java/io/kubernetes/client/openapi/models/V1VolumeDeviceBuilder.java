@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1VolumeDeviceBuilder extends V1VolumeDeviceFluentImpl<V1VolumeDeviceBuilder> implements VisitableBuilder<V1VolumeDevice,V1VolumeDeviceBuilder>{
+public class V1VolumeDeviceBuilder extends V1VolumeDeviceFluent<V1VolumeDeviceBuilder> implements VisitableBuilder<V1VolumeDevice,V1VolumeDeviceBuilder>{
   public V1VolumeDeviceBuilder() {
-    this(false);
+    this(new V1VolumeDevice());
   }
-  public V1VolumeDeviceBuilder(Boolean validationEnabled) {
-    this(new V1VolumeDevice(), validationEnabled);
-  }
+  
   public V1VolumeDeviceBuilder(V1VolumeDeviceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1VolumeDevice());
   }
-  public V1VolumeDeviceBuilder(V1VolumeDeviceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1VolumeDevice(), validationEnabled);
-  }
+  
   public V1VolumeDeviceBuilder(V1VolumeDeviceFluent<?> fluent,V1VolumeDevice instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1VolumeDeviceBuilder(V1VolumeDeviceFluent<?> fluent,V1VolumeDevice instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withDevicePath(instance.getDevicePath());
-      fluent.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1VolumeDeviceBuilder(V1VolumeDevice instance) {
-    this(instance,false);
-  }
-  public V1VolumeDeviceBuilder(V1VolumeDevice instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withDevicePath(instance.getDevicePath());
-      this.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1VolumeDeviceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1VolumeDevice build() {
     V1VolumeDevice buildable = new V1VolumeDevice();
     buildable.setDevicePath(fluent.getDevicePath());
@@ -46,4 +28,5 @@ public class V1VolumeDeviceBuilder extends V1VolumeDeviceFluentImpl<V1VolumeDevi
     return buildable;
   }
   
+
 }

@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1AggregationRuleBuilder extends V1AggregationRuleFluentImpl<V1AggregationRuleBuilder> implements VisitableBuilder<V1AggregationRule,V1AggregationRuleBuilder>{
+public class V1AggregationRuleBuilder extends V1AggregationRuleFluent<V1AggregationRuleBuilder> implements VisitableBuilder<V1AggregationRule,V1AggregationRuleBuilder>{
   public V1AggregationRuleBuilder() {
-    this(false);
+    this(new V1AggregationRule());
   }
-  public V1AggregationRuleBuilder(Boolean validationEnabled) {
-    this(new V1AggregationRule(), validationEnabled);
-  }
+  
   public V1AggregationRuleBuilder(V1AggregationRuleFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1AggregationRule());
   }
-  public V1AggregationRuleBuilder(V1AggregationRuleFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1AggregationRule(), validationEnabled);
-  }
+  
   public V1AggregationRuleBuilder(V1AggregationRuleFluent<?> fluent,V1AggregationRule instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1AggregationRuleBuilder(V1AggregationRuleFluent<?> fluent,V1AggregationRule instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withClusterRoleSelectors(instance.getClusterRoleSelectors());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1AggregationRuleBuilder(V1AggregationRule instance) {
-    this(instance,false);
-  }
-  public V1AggregationRuleBuilder(V1AggregationRule instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withClusterRoleSelectors(instance.getClusterRoleSelectors());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1AggregationRuleFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1AggregationRule build() {
     V1AggregationRule buildable = new V1AggregationRule();
-    buildable.setClusterRoleSelectors(fluent.getClusterRoleSelectors());
+    buildable.setClusterRoleSelectors(fluent.buildClusterRoleSelectors());
     return buildable;
   }
   
+
 }

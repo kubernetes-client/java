@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1NonResourceAttributesBuilder extends V1NonResourceAttributesFluentImpl<V1NonResourceAttributesBuilder> implements VisitableBuilder<V1NonResourceAttributes,V1NonResourceAttributesBuilder>{
+public class V1NonResourceAttributesBuilder extends V1NonResourceAttributesFluent<V1NonResourceAttributesBuilder> implements VisitableBuilder<V1NonResourceAttributes,V1NonResourceAttributesBuilder>{
   public V1NonResourceAttributesBuilder() {
-    this(false);
+    this(new V1NonResourceAttributes());
   }
-  public V1NonResourceAttributesBuilder(Boolean validationEnabled) {
-    this(new V1NonResourceAttributes(), validationEnabled);
-  }
+  
   public V1NonResourceAttributesBuilder(V1NonResourceAttributesFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1NonResourceAttributes());
   }
-  public V1NonResourceAttributesBuilder(V1NonResourceAttributesFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1NonResourceAttributes(), validationEnabled);
-  }
+  
   public V1NonResourceAttributesBuilder(V1NonResourceAttributesFluent<?> fluent,V1NonResourceAttributes instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1NonResourceAttributesBuilder(V1NonResourceAttributesFluent<?> fluent,V1NonResourceAttributes instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withPath(instance.getPath());
-      fluent.withVerb(instance.getVerb());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1NonResourceAttributesBuilder(V1NonResourceAttributes instance) {
-    this(instance,false);
-  }
-  public V1NonResourceAttributesBuilder(V1NonResourceAttributes instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withPath(instance.getPath());
-      this.withVerb(instance.getVerb());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1NonResourceAttributesFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1NonResourceAttributes build() {
     V1NonResourceAttributes buildable = new V1NonResourceAttributes();
     buildable.setPath(fluent.getPath());
@@ -46,4 +28,5 @@ public class V1NonResourceAttributesBuilder extends V1NonResourceAttributesFluen
     return buildable;
   }
   
+
 }

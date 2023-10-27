@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class CoreV1EndpointPortBuilder extends CoreV1EndpointPortFluentImpl<CoreV1EndpointPortBuilder> implements VisitableBuilder<CoreV1EndpointPort,CoreV1EndpointPortBuilder>{
+public class CoreV1EndpointPortBuilder extends CoreV1EndpointPortFluent<CoreV1EndpointPortBuilder> implements VisitableBuilder<CoreV1EndpointPort,CoreV1EndpointPortBuilder>{
   public CoreV1EndpointPortBuilder() {
-    this(false);
+    this(new CoreV1EndpointPort());
   }
-  public CoreV1EndpointPortBuilder(Boolean validationEnabled) {
-    this(new CoreV1EndpointPort(), validationEnabled);
-  }
+  
   public CoreV1EndpointPortBuilder(CoreV1EndpointPortFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new CoreV1EndpointPort());
   }
-  public CoreV1EndpointPortBuilder(CoreV1EndpointPortFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new CoreV1EndpointPort(), validationEnabled);
-  }
+  
   public CoreV1EndpointPortBuilder(CoreV1EndpointPortFluent<?> fluent,CoreV1EndpointPort instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public CoreV1EndpointPortBuilder(CoreV1EndpointPortFluent<?> fluent,CoreV1EndpointPort instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAppProtocol(instance.getAppProtocol());
-      fluent.withName(instance.getName());
-      fluent.withPort(instance.getPort());
-      fluent.withProtocol(instance.getProtocol());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public CoreV1EndpointPortBuilder(CoreV1EndpointPort instance) {
-    this(instance,false);
-  }
-  public CoreV1EndpointPortBuilder(CoreV1EndpointPort instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAppProtocol(instance.getAppProtocol());
-      this.withName(instance.getName());
-      this.withPort(instance.getPort());
-      this.withProtocol(instance.getProtocol());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   CoreV1EndpointPortFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public CoreV1EndpointPort build() {
     CoreV1EndpointPort buildable = new CoreV1EndpointPort();
     buildable.setAppProtocol(fluent.getAppProtocol());
@@ -52,4 +30,5 @@ public class CoreV1EndpointPortBuilder extends CoreV1EndpointPortFluentImpl<Core
     return buildable;
   }
   
+
 }

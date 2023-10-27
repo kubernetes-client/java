@@ -1,52 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1VolumeMountBuilder extends V1VolumeMountFluentImpl<V1VolumeMountBuilder> implements VisitableBuilder<V1VolumeMount,V1VolumeMountBuilder>{
+public class V1VolumeMountBuilder extends V1VolumeMountFluent<V1VolumeMountBuilder> implements VisitableBuilder<V1VolumeMount,V1VolumeMountBuilder>{
   public V1VolumeMountBuilder() {
-    this(false);
+    this(new V1VolumeMount());
   }
-  public V1VolumeMountBuilder(Boolean validationEnabled) {
-    this(new V1VolumeMount(), validationEnabled);
-  }
+  
   public V1VolumeMountBuilder(V1VolumeMountFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1VolumeMount());
   }
-  public V1VolumeMountBuilder(V1VolumeMountFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1VolumeMount(), validationEnabled);
-  }
+  
   public V1VolumeMountBuilder(V1VolumeMountFluent<?> fluent,V1VolumeMount instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1VolumeMountBuilder(V1VolumeMountFluent<?> fluent,V1VolumeMount instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withMountPath(instance.getMountPath());
-      fluent.withMountPropagation(instance.getMountPropagation());
-      fluent.withName(instance.getName());
-      fluent.withReadOnly(instance.getReadOnly());
-      fluent.withSubPath(instance.getSubPath());
-      fluent.withSubPathExpr(instance.getSubPathExpr());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1VolumeMountBuilder(V1VolumeMount instance) {
-    this(instance,false);
-  }
-  public V1VolumeMountBuilder(V1VolumeMount instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withMountPath(instance.getMountPath());
-      this.withMountPropagation(instance.getMountPropagation());
-      this.withName(instance.getName());
-      this.withReadOnly(instance.getReadOnly());
-      this.withSubPath(instance.getSubPath());
-      this.withSubPathExpr(instance.getSubPathExpr());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1VolumeMountFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1VolumeMount build() {
     V1VolumeMount buildable = new V1VolumeMount();
     buildable.setMountPath(fluent.getMountPath());
@@ -58,4 +32,5 @@ public class V1VolumeMountBuilder extends V1VolumeMountFluentImpl<V1VolumeMountB
     return buildable;
   }
   
+
 }

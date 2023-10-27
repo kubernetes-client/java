@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1CinderVolumeSourceBuilder extends V1CinderVolumeSourceFluentImpl<V1CinderVolumeSourceBuilder> implements VisitableBuilder<V1CinderVolumeSource,V1CinderVolumeSourceBuilder>{
+public class V1CinderVolumeSourceBuilder extends V1CinderVolumeSourceFluent<V1CinderVolumeSourceBuilder> implements VisitableBuilder<V1CinderVolumeSource,V1CinderVolumeSourceBuilder>{
   public V1CinderVolumeSourceBuilder() {
-    this(false);
+    this(new V1CinderVolumeSource());
   }
-  public V1CinderVolumeSourceBuilder(Boolean validationEnabled) {
-    this(new V1CinderVolumeSource(), validationEnabled);
-  }
+  
   public V1CinderVolumeSourceBuilder(V1CinderVolumeSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1CinderVolumeSource());
   }
-  public V1CinderVolumeSourceBuilder(V1CinderVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1CinderVolumeSource(), validationEnabled);
-  }
+  
   public V1CinderVolumeSourceBuilder(V1CinderVolumeSourceFluent<?> fluent,V1CinderVolumeSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1CinderVolumeSourceBuilder(V1CinderVolumeSourceFluent<?> fluent,V1CinderVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withFsType(instance.getFsType());
-      fluent.withReadOnly(instance.getReadOnly());
-      fluent.withSecretRef(instance.getSecretRef());
-      fluent.withVolumeID(instance.getVolumeID());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1CinderVolumeSourceBuilder(V1CinderVolumeSource instance) {
-    this(instance,false);
-  }
-  public V1CinderVolumeSourceBuilder(V1CinderVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withFsType(instance.getFsType());
-      this.withReadOnly(instance.getReadOnly());
-      this.withSecretRef(instance.getSecretRef());
-      this.withVolumeID(instance.getVolumeID());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1CinderVolumeSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1CinderVolumeSource build() {
     V1CinderVolumeSource buildable = new V1CinderVolumeSource();
     buildable.setFsType(fluent.getFsType());
     buildable.setReadOnly(fluent.getReadOnly());
-    buildable.setSecretRef(fluent.getSecretRef());
+    buildable.setSecretRef(fluent.buildSecretRef());
     buildable.setVolumeID(fluent.getVolumeID());
     return buildable;
   }
   
+
 }

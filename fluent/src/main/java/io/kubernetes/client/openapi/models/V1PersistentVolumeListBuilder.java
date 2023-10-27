@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1PersistentVolumeListBuilder extends V1PersistentVolumeListFluentImpl<V1PersistentVolumeListBuilder> implements VisitableBuilder<V1PersistentVolumeList,V1PersistentVolumeListBuilder>{
+public class V1PersistentVolumeListBuilder extends V1PersistentVolumeListFluent<V1PersistentVolumeListBuilder> implements VisitableBuilder<V1PersistentVolumeList,V1PersistentVolumeListBuilder>{
   public V1PersistentVolumeListBuilder() {
-    this(false);
+    this(new V1PersistentVolumeList());
   }
-  public V1PersistentVolumeListBuilder(Boolean validationEnabled) {
-    this(new V1PersistentVolumeList(), validationEnabled);
-  }
+  
   public V1PersistentVolumeListBuilder(V1PersistentVolumeListFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1PersistentVolumeList());
   }
-  public V1PersistentVolumeListBuilder(V1PersistentVolumeListFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1PersistentVolumeList(), validationEnabled);
-  }
+  
   public V1PersistentVolumeListBuilder(V1PersistentVolumeListFluent<?> fluent,V1PersistentVolumeList instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1PersistentVolumeListBuilder(V1PersistentVolumeListFluent<?> fluent,V1PersistentVolumeList instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withItems(instance.getItems());
-      fluent.withKind(instance.getKind());
-      fluent.withMetadata(instance.getMetadata());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1PersistentVolumeListBuilder(V1PersistentVolumeList instance) {
-    this(instance,false);
-  }
-  public V1PersistentVolumeListBuilder(V1PersistentVolumeList instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withItems(instance.getItems());
-      this.withKind(instance.getKind());
-      this.withMetadata(instance.getMetadata());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1PersistentVolumeListFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1PersistentVolumeList build() {
     V1PersistentVolumeList buildable = new V1PersistentVolumeList();
     buildable.setApiVersion(fluent.getApiVersion());
-    buildable.setItems(fluent.getItems());
+    buildable.setItems(fluent.buildItems());
     buildable.setKind(fluent.getKind());
-    buildable.setMetadata(fluent.getMetadata());
+    buildable.setMetadata(fluent.buildMetadata());
     return buildable;
   }
   
+
 }

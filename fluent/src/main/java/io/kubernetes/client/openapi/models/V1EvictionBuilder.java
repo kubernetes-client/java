@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1EvictionBuilder extends V1EvictionFluentImpl<V1EvictionBuilder> implements VisitableBuilder<V1Eviction,V1EvictionBuilder>{
+public class V1EvictionBuilder extends V1EvictionFluent<V1EvictionBuilder> implements VisitableBuilder<V1Eviction,V1EvictionBuilder>{
   public V1EvictionBuilder() {
-    this(false);
+    this(new V1Eviction());
   }
-  public V1EvictionBuilder(Boolean validationEnabled) {
-    this(new V1Eviction(), validationEnabled);
-  }
+  
   public V1EvictionBuilder(V1EvictionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1Eviction());
   }
-  public V1EvictionBuilder(V1EvictionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1Eviction(), validationEnabled);
-  }
+  
   public V1EvictionBuilder(V1EvictionFluent<?> fluent,V1Eviction instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1EvictionBuilder(V1EvictionFluent<?> fluent,V1Eviction instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withDeleteOptions(instance.getDeleteOptions());
-      fluent.withKind(instance.getKind());
-      fluent.withMetadata(instance.getMetadata());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1EvictionBuilder(V1Eviction instance) {
-    this(instance,false);
-  }
-  public V1EvictionBuilder(V1Eviction instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withDeleteOptions(instance.getDeleteOptions());
-      this.withKind(instance.getKind());
-      this.withMetadata(instance.getMetadata());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1EvictionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1Eviction build() {
     V1Eviction buildable = new V1Eviction();
     buildable.setApiVersion(fluent.getApiVersion());
-    buildable.setDeleteOptions(fluent.getDeleteOptions());
+    buildable.setDeleteOptions(fluent.buildDeleteOptions());
     buildable.setKind(fluent.getKind());
-    buildable.setMetadata(fluent.getMetadata());
+    buildable.setMetadata(fluent.buildMetadata());
     return buildable;
   }
   
+
 }

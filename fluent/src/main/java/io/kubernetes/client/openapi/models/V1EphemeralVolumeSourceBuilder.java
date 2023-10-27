@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1EphemeralVolumeSourceBuilder extends V1EphemeralVolumeSourceFluentImpl<V1EphemeralVolumeSourceBuilder> implements VisitableBuilder<V1EphemeralVolumeSource,V1EphemeralVolumeSourceBuilder>{
+public class V1EphemeralVolumeSourceBuilder extends V1EphemeralVolumeSourceFluent<V1EphemeralVolumeSourceBuilder> implements VisitableBuilder<V1EphemeralVolumeSource,V1EphemeralVolumeSourceBuilder>{
   public V1EphemeralVolumeSourceBuilder() {
-    this(false);
+    this(new V1EphemeralVolumeSource());
   }
-  public V1EphemeralVolumeSourceBuilder(Boolean validationEnabled) {
-    this(new V1EphemeralVolumeSource(), validationEnabled);
-  }
+  
   public V1EphemeralVolumeSourceBuilder(V1EphemeralVolumeSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1EphemeralVolumeSource());
   }
-  public V1EphemeralVolumeSourceBuilder(V1EphemeralVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1EphemeralVolumeSource(), validationEnabled);
-  }
+  
   public V1EphemeralVolumeSourceBuilder(V1EphemeralVolumeSourceFluent<?> fluent,V1EphemeralVolumeSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1EphemeralVolumeSourceBuilder(V1EphemeralVolumeSourceFluent<?> fluent,V1EphemeralVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1EphemeralVolumeSourceBuilder(V1EphemeralVolumeSource instance) {
-    this(instance,false);
-  }
-  public V1EphemeralVolumeSourceBuilder(V1EphemeralVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withVolumeClaimTemplate(instance.getVolumeClaimTemplate());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1EphemeralVolumeSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1EphemeralVolumeSource build() {
     V1EphemeralVolumeSource buildable = new V1EphemeralVolumeSource();
-    buildable.setVolumeClaimTemplate(fluent.getVolumeClaimTemplate());
+    buildable.setVolumeClaimTemplate(fluent.buildVolumeClaimTemplate());
     return buildable;
   }
   
+
 }

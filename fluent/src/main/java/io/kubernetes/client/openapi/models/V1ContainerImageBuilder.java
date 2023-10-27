@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ContainerImageBuilder extends V1ContainerImageFluentImpl<V1ContainerImageBuilder> implements VisitableBuilder<V1ContainerImage,V1ContainerImageBuilder>{
+public class V1ContainerImageBuilder extends V1ContainerImageFluent<V1ContainerImageBuilder> implements VisitableBuilder<V1ContainerImage,V1ContainerImageBuilder>{
   public V1ContainerImageBuilder() {
-    this(false);
+    this(new V1ContainerImage());
   }
-  public V1ContainerImageBuilder(Boolean validationEnabled) {
-    this(new V1ContainerImage(), validationEnabled);
-  }
+  
   public V1ContainerImageBuilder(V1ContainerImageFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ContainerImage());
   }
-  public V1ContainerImageBuilder(V1ContainerImageFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ContainerImage(), validationEnabled);
-  }
+  
   public V1ContainerImageBuilder(V1ContainerImageFluent<?> fluent,V1ContainerImage instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ContainerImageBuilder(V1ContainerImageFluent<?> fluent,V1ContainerImage instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withNames(instance.getNames());
-      fluent.withSizeBytes(instance.getSizeBytes());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ContainerImageBuilder(V1ContainerImage instance) {
-    this(instance,false);
-  }
-  public V1ContainerImageBuilder(V1ContainerImage instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withNames(instance.getNames());
-      this.withSizeBytes(instance.getSizeBytes());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ContainerImageFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ContainerImage build() {
     V1ContainerImage buildable = new V1ContainerImage();
     buildable.setNames(fluent.getNames());
@@ -46,4 +28,5 @@ public class V1ContainerImageBuilder extends V1ContainerImageFluentImpl<V1Contai
     return buildable;
   }
   
+
 }

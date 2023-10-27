@@ -1,58 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ReplicaSetBuilder extends V1ReplicaSetFluentImpl<V1ReplicaSetBuilder> implements VisitableBuilder<V1ReplicaSet,V1ReplicaSetBuilder>{
+public class V1ReplicaSetBuilder extends V1ReplicaSetFluent<V1ReplicaSetBuilder> implements VisitableBuilder<V1ReplicaSet,V1ReplicaSetBuilder>{
   public V1ReplicaSetBuilder() {
-    this(false);
+    this(new V1ReplicaSet());
   }
-  public V1ReplicaSetBuilder(Boolean validationEnabled) {
-    this(new V1ReplicaSet(), validationEnabled);
-  }
+  
   public V1ReplicaSetBuilder(V1ReplicaSetFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ReplicaSet());
   }
-  public V1ReplicaSetBuilder(V1ReplicaSetFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ReplicaSet(), validationEnabled);
-  }
+  
   public V1ReplicaSetBuilder(V1ReplicaSetFluent<?> fluent,V1ReplicaSet instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ReplicaSetBuilder(V1ReplicaSetFluent<?> fluent,V1ReplicaSet instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withKind(instance.getKind());
-      fluent.withMetadata(instance.getMetadata());
-      fluent.withSpec(instance.getSpec());
-      fluent.withStatus(instance.getStatus());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ReplicaSetBuilder(V1ReplicaSet instance) {
-    this(instance,false);
-  }
-  public V1ReplicaSetBuilder(V1ReplicaSet instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withKind(instance.getKind());
-      this.withMetadata(instance.getMetadata());
-      this.withSpec(instance.getSpec());
-      this.withStatus(instance.getStatus());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ReplicaSetFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ReplicaSet build() {
     V1ReplicaSet buildable = new V1ReplicaSet();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());
-    buildable.setMetadata(fluent.getMetadata());
-    buildable.setSpec(fluent.getSpec());
-    buildable.setStatus(fluent.getStatus());
+    buildable.setMetadata(fluent.buildMetadata());
+    buildable.setSpec(fluent.buildSpec());
+    buildable.setStatus(fluent.buildStatus());
     return buildable;
   }
   
+
 }

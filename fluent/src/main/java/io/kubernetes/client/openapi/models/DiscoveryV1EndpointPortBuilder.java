@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class DiscoveryV1EndpointPortBuilder extends DiscoveryV1EndpointPortFluentImpl<DiscoveryV1EndpointPortBuilder> implements VisitableBuilder<DiscoveryV1EndpointPort,DiscoveryV1EndpointPortBuilder>{
+public class DiscoveryV1EndpointPortBuilder extends DiscoveryV1EndpointPortFluent<DiscoveryV1EndpointPortBuilder> implements VisitableBuilder<DiscoveryV1EndpointPort,DiscoveryV1EndpointPortBuilder>{
   public DiscoveryV1EndpointPortBuilder() {
-    this(false);
+    this(new DiscoveryV1EndpointPort());
   }
-  public DiscoveryV1EndpointPortBuilder(Boolean validationEnabled) {
-    this(new DiscoveryV1EndpointPort(), validationEnabled);
-  }
+  
   public DiscoveryV1EndpointPortBuilder(DiscoveryV1EndpointPortFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new DiscoveryV1EndpointPort());
   }
-  public DiscoveryV1EndpointPortBuilder(DiscoveryV1EndpointPortFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new DiscoveryV1EndpointPort(), validationEnabled);
-  }
+  
   public DiscoveryV1EndpointPortBuilder(DiscoveryV1EndpointPortFluent<?> fluent,DiscoveryV1EndpointPort instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public DiscoveryV1EndpointPortBuilder(DiscoveryV1EndpointPortFluent<?> fluent,DiscoveryV1EndpointPort instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAppProtocol(instance.getAppProtocol());
-      fluent.withName(instance.getName());
-      fluent.withPort(instance.getPort());
-      fluent.withProtocol(instance.getProtocol());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public DiscoveryV1EndpointPortBuilder(DiscoveryV1EndpointPort instance) {
-    this(instance,false);
-  }
-  public DiscoveryV1EndpointPortBuilder(DiscoveryV1EndpointPort instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAppProtocol(instance.getAppProtocol());
-      this.withName(instance.getName());
-      this.withPort(instance.getPort());
-      this.withProtocol(instance.getProtocol());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   DiscoveryV1EndpointPortFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public DiscoveryV1EndpointPort build() {
     DiscoveryV1EndpointPort buildable = new DiscoveryV1EndpointPort();
     buildable.setAppProtocol(fluent.getAppProtocol());
@@ -52,4 +30,5 @@ public class DiscoveryV1EndpointPortBuilder extends DiscoveryV1EndpointPortFluen
     return buildable;
   }
   
+
 }

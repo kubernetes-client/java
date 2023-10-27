@@ -1,52 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1DeploymentConditionBuilder extends V1DeploymentConditionFluentImpl<V1DeploymentConditionBuilder> implements VisitableBuilder<V1DeploymentCondition,V1DeploymentConditionBuilder>{
+public class V1DeploymentConditionBuilder extends V1DeploymentConditionFluent<V1DeploymentConditionBuilder> implements VisitableBuilder<V1DeploymentCondition,V1DeploymentConditionBuilder>{
   public V1DeploymentConditionBuilder() {
-    this(false);
+    this(new V1DeploymentCondition());
   }
-  public V1DeploymentConditionBuilder(Boolean validationEnabled) {
-    this(new V1DeploymentCondition(), validationEnabled);
-  }
+  
   public V1DeploymentConditionBuilder(V1DeploymentConditionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1DeploymentCondition());
   }
-  public V1DeploymentConditionBuilder(V1DeploymentConditionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1DeploymentCondition(), validationEnabled);
-  }
+  
   public V1DeploymentConditionBuilder(V1DeploymentConditionFluent<?> fluent,V1DeploymentCondition instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1DeploymentConditionBuilder(V1DeploymentConditionFluent<?> fluent,V1DeploymentCondition instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withLastTransitionTime(instance.getLastTransitionTime());
-      fluent.withLastUpdateTime(instance.getLastUpdateTime());
-      fluent.withMessage(instance.getMessage());
-      fluent.withReason(instance.getReason());
-      fluent.withStatus(instance.getStatus());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1DeploymentConditionBuilder(V1DeploymentCondition instance) {
-    this(instance,false);
-  }
-  public V1DeploymentConditionBuilder(V1DeploymentCondition instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withLastTransitionTime(instance.getLastTransitionTime());
-      this.withLastUpdateTime(instance.getLastUpdateTime());
-      this.withMessage(instance.getMessage());
-      this.withReason(instance.getReason());
-      this.withStatus(instance.getStatus());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1DeploymentConditionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1DeploymentCondition build() {
     V1DeploymentCondition buildable = new V1DeploymentCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
@@ -58,4 +32,5 @@ public class V1DeploymentConditionBuilder extends V1DeploymentConditionFluentImp
     return buildable;
   }
   
+
 }

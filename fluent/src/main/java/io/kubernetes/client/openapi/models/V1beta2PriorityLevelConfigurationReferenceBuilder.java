@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1beta2PriorityLevelConfigurationReferenceBuilder extends V1beta2PriorityLevelConfigurationReferenceFluentImpl<V1beta2PriorityLevelConfigurationReferenceBuilder> implements VisitableBuilder<V1beta2PriorityLevelConfigurationReference,V1beta2PriorityLevelConfigurationReferenceBuilder>{
+public class V1beta2PriorityLevelConfigurationReferenceBuilder extends V1beta2PriorityLevelConfigurationReferenceFluent<V1beta2PriorityLevelConfigurationReferenceBuilder> implements VisitableBuilder<V1beta2PriorityLevelConfigurationReference,V1beta2PriorityLevelConfigurationReferenceBuilder>{
   public V1beta2PriorityLevelConfigurationReferenceBuilder() {
-    this(false);
+    this(new V1beta2PriorityLevelConfigurationReference());
   }
-  public V1beta2PriorityLevelConfigurationReferenceBuilder(Boolean validationEnabled) {
-    this(new V1beta2PriorityLevelConfigurationReference(), validationEnabled);
-  }
+  
   public V1beta2PriorityLevelConfigurationReferenceBuilder(V1beta2PriorityLevelConfigurationReferenceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1beta2PriorityLevelConfigurationReference());
   }
-  public V1beta2PriorityLevelConfigurationReferenceBuilder(V1beta2PriorityLevelConfigurationReferenceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1beta2PriorityLevelConfigurationReference(), validationEnabled);
-  }
+  
   public V1beta2PriorityLevelConfigurationReferenceBuilder(V1beta2PriorityLevelConfigurationReferenceFluent<?> fluent,V1beta2PriorityLevelConfigurationReference instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1beta2PriorityLevelConfigurationReferenceBuilder(V1beta2PriorityLevelConfigurationReferenceFluent<?> fluent,V1beta2PriorityLevelConfigurationReference instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1beta2PriorityLevelConfigurationReferenceBuilder(V1beta2PriorityLevelConfigurationReference instance) {
-    this(instance,false);
-  }
-  public V1beta2PriorityLevelConfigurationReferenceBuilder(V1beta2PriorityLevelConfigurationReference instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1beta2PriorityLevelConfigurationReferenceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1beta2PriorityLevelConfigurationReference build() {
     V1beta2PriorityLevelConfigurationReference buildable = new V1beta2PriorityLevelConfigurationReference();
     buildable.setName(fluent.getName());
     return buildable;
   }
   
+
 }

@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V2ResourceMetricStatusBuilder extends V2ResourceMetricStatusFluentImpl<V2ResourceMetricStatusBuilder> implements VisitableBuilder<V2ResourceMetricStatus,V2ResourceMetricStatusBuilder>{
+public class V2ResourceMetricStatusBuilder extends V2ResourceMetricStatusFluent<V2ResourceMetricStatusBuilder> implements VisitableBuilder<V2ResourceMetricStatus,V2ResourceMetricStatusBuilder>{
   public V2ResourceMetricStatusBuilder() {
-    this(false);
+    this(new V2ResourceMetricStatus());
   }
-  public V2ResourceMetricStatusBuilder(Boolean validationEnabled) {
-    this(new V2ResourceMetricStatus(), validationEnabled);
-  }
+  
   public V2ResourceMetricStatusBuilder(V2ResourceMetricStatusFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V2ResourceMetricStatus());
   }
-  public V2ResourceMetricStatusBuilder(V2ResourceMetricStatusFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V2ResourceMetricStatus(), validationEnabled);
-  }
+  
   public V2ResourceMetricStatusBuilder(V2ResourceMetricStatusFluent<?> fluent,V2ResourceMetricStatus instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V2ResourceMetricStatusBuilder(V2ResourceMetricStatusFluent<?> fluent,V2ResourceMetricStatus instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withCurrent(instance.getCurrent());
-      fluent.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V2ResourceMetricStatusBuilder(V2ResourceMetricStatus instance) {
-    this(instance,false);
-  }
-  public V2ResourceMetricStatusBuilder(V2ResourceMetricStatus instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withCurrent(instance.getCurrent());
-      this.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V2ResourceMetricStatusFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V2ResourceMetricStatus build() {
     V2ResourceMetricStatus buildable = new V2ResourceMetricStatus();
-    buildable.setCurrent(fluent.getCurrent());
+    buildable.setCurrent(fluent.buildCurrent());
     buildable.setName(fluent.getName());
     return buildable;
   }
   
+
 }

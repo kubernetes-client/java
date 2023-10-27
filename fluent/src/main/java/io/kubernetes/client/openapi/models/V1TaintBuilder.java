@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1TaintBuilder extends V1TaintFluentImpl<V1TaintBuilder> implements VisitableBuilder<V1Taint,V1TaintBuilder>{
+public class V1TaintBuilder extends V1TaintFluent<V1TaintBuilder> implements VisitableBuilder<V1Taint,V1TaintBuilder>{
   public V1TaintBuilder() {
-    this(false);
+    this(new V1Taint());
   }
-  public V1TaintBuilder(Boolean validationEnabled) {
-    this(new V1Taint(), validationEnabled);
-  }
+  
   public V1TaintBuilder(V1TaintFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1Taint());
   }
-  public V1TaintBuilder(V1TaintFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1Taint(), validationEnabled);
-  }
+  
   public V1TaintBuilder(V1TaintFluent<?> fluent,V1Taint instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1TaintBuilder(V1TaintFluent<?> fluent,V1Taint instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withEffect(instance.getEffect());
-      fluent.withKey(instance.getKey());
-      fluent.withTimeAdded(instance.getTimeAdded());
-      fluent.withValue(instance.getValue());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1TaintBuilder(V1Taint instance) {
-    this(instance,false);
-  }
-  public V1TaintBuilder(V1Taint instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withEffect(instance.getEffect());
-      this.withKey(instance.getKey());
-      this.withTimeAdded(instance.getTimeAdded());
-      this.withValue(instance.getValue());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1TaintFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1Taint build() {
     V1Taint buildable = new V1Taint();
     buildable.setEffect(fluent.getEffect());
@@ -52,4 +30,5 @@ public class V1TaintBuilder extends V1TaintFluentImpl<V1TaintBuilder> implements
     return buildable;
   }
   
+
 }

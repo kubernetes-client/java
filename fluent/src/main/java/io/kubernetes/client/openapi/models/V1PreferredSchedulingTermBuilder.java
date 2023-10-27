@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1PreferredSchedulingTermBuilder extends V1PreferredSchedulingTermFluentImpl<V1PreferredSchedulingTermBuilder> implements VisitableBuilder<V1PreferredSchedulingTerm,V1PreferredSchedulingTermBuilder>{
+public class V1PreferredSchedulingTermBuilder extends V1PreferredSchedulingTermFluent<V1PreferredSchedulingTermBuilder> implements VisitableBuilder<V1PreferredSchedulingTerm,V1PreferredSchedulingTermBuilder>{
   public V1PreferredSchedulingTermBuilder() {
-    this(false);
+    this(new V1PreferredSchedulingTerm());
   }
-  public V1PreferredSchedulingTermBuilder(Boolean validationEnabled) {
-    this(new V1PreferredSchedulingTerm(), validationEnabled);
-  }
+  
   public V1PreferredSchedulingTermBuilder(V1PreferredSchedulingTermFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1PreferredSchedulingTerm());
   }
-  public V1PreferredSchedulingTermBuilder(V1PreferredSchedulingTermFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1PreferredSchedulingTerm(), validationEnabled);
-  }
+  
   public V1PreferredSchedulingTermBuilder(V1PreferredSchedulingTermFluent<?> fluent,V1PreferredSchedulingTerm instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1PreferredSchedulingTermBuilder(V1PreferredSchedulingTermFluent<?> fluent,V1PreferredSchedulingTerm instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withPreference(instance.getPreference());
-      fluent.withWeight(instance.getWeight());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1PreferredSchedulingTermBuilder(V1PreferredSchedulingTerm instance) {
-    this(instance,false);
-  }
-  public V1PreferredSchedulingTermBuilder(V1PreferredSchedulingTerm instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withPreference(instance.getPreference());
-      this.withWeight(instance.getWeight());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1PreferredSchedulingTermFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1PreferredSchedulingTerm build() {
     V1PreferredSchedulingTerm buildable = new V1PreferredSchedulingTerm();
-    buildable.setPreference(fluent.getPreference());
+    buildable.setPreference(fluent.buildPreference());
     buildable.setWeight(fluent.getWeight());
     return buildable;
   }
   
+
 }

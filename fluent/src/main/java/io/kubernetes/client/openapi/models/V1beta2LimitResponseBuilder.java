@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1beta2LimitResponseBuilder extends V1beta2LimitResponseFluentImpl<V1beta2LimitResponseBuilder> implements VisitableBuilder<V1beta2LimitResponse,V1beta2LimitResponseBuilder>{
+public class V1beta2LimitResponseBuilder extends V1beta2LimitResponseFluent<V1beta2LimitResponseBuilder> implements VisitableBuilder<V1beta2LimitResponse,V1beta2LimitResponseBuilder>{
   public V1beta2LimitResponseBuilder() {
-    this(false);
+    this(new V1beta2LimitResponse());
   }
-  public V1beta2LimitResponseBuilder(Boolean validationEnabled) {
-    this(new V1beta2LimitResponse(), validationEnabled);
-  }
+  
   public V1beta2LimitResponseBuilder(V1beta2LimitResponseFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1beta2LimitResponse());
   }
-  public V1beta2LimitResponseBuilder(V1beta2LimitResponseFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1beta2LimitResponse(), validationEnabled);
-  }
+  
   public V1beta2LimitResponseBuilder(V1beta2LimitResponseFluent<?> fluent,V1beta2LimitResponse instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1beta2LimitResponseBuilder(V1beta2LimitResponseFluent<?> fluent,V1beta2LimitResponse instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withQueuing(instance.getQueuing());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1beta2LimitResponseBuilder(V1beta2LimitResponse instance) {
-    this(instance,false);
-  }
-  public V1beta2LimitResponseBuilder(V1beta2LimitResponse instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withQueuing(instance.getQueuing());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1beta2LimitResponseFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1beta2LimitResponse build() {
     V1beta2LimitResponse buildable = new V1beta2LimitResponse();
-    buildable.setQueuing(fluent.getQueuing());
+    buildable.setQueuing(fluent.buildQueuing());
     buildable.setType(fluent.getType());
     return buildable;
   }
   
+
 }

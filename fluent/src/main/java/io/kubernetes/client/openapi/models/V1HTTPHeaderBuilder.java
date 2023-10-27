@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1HTTPHeaderBuilder extends V1HTTPHeaderFluentImpl<V1HTTPHeaderBuilder> implements VisitableBuilder<V1HTTPHeader,V1HTTPHeaderBuilder>{
+public class V1HTTPHeaderBuilder extends V1HTTPHeaderFluent<V1HTTPHeaderBuilder> implements VisitableBuilder<V1HTTPHeader,V1HTTPHeaderBuilder>{
   public V1HTTPHeaderBuilder() {
-    this(false);
+    this(new V1HTTPHeader());
   }
-  public V1HTTPHeaderBuilder(Boolean validationEnabled) {
-    this(new V1HTTPHeader(), validationEnabled);
-  }
+  
   public V1HTTPHeaderBuilder(V1HTTPHeaderFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1HTTPHeader());
   }
-  public V1HTTPHeaderBuilder(V1HTTPHeaderFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1HTTPHeader(), validationEnabled);
-  }
+  
   public V1HTTPHeaderBuilder(V1HTTPHeaderFluent<?> fluent,V1HTTPHeader instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1HTTPHeaderBuilder(V1HTTPHeaderFluent<?> fluent,V1HTTPHeader instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withName(instance.getName());
-      fluent.withValue(instance.getValue());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1HTTPHeaderBuilder(V1HTTPHeader instance) {
-    this(instance,false);
-  }
-  public V1HTTPHeaderBuilder(V1HTTPHeader instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withName(instance.getName());
-      this.withValue(instance.getValue());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1HTTPHeaderFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1HTTPHeader build() {
     V1HTTPHeader buildable = new V1HTTPHeader();
     buildable.setName(fluent.getName());
@@ -46,4 +28,5 @@ public class V1HTTPHeaderBuilder extends V1HTTPHeaderFluentImpl<V1HTTPHeaderBuil
     return buildable;
   }
   
+
 }

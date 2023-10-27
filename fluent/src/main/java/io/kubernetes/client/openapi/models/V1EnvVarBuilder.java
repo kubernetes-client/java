@@ -1,52 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1EnvVarBuilder extends V1EnvVarFluentImpl<V1EnvVarBuilder> implements VisitableBuilder<V1EnvVar,V1EnvVarBuilder>{
+public class V1EnvVarBuilder extends V1EnvVarFluent<V1EnvVarBuilder> implements VisitableBuilder<V1EnvVar,V1EnvVarBuilder>{
   public V1EnvVarBuilder() {
-    this(false);
+    this(new V1EnvVar());
   }
-  public V1EnvVarBuilder(Boolean validationEnabled) {
-    this(new V1EnvVar(), validationEnabled);
-  }
+  
   public V1EnvVarBuilder(V1EnvVarFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1EnvVar());
   }
-  public V1EnvVarBuilder(V1EnvVarFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1EnvVar(), validationEnabled);
-  }
+  
   public V1EnvVarBuilder(V1EnvVarFluent<?> fluent,V1EnvVar instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1EnvVarBuilder(V1EnvVarFluent<?> fluent,V1EnvVar instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withName(instance.getName());
-      fluent.withValue(instance.getValue());
-      fluent.withValueFrom(instance.getValueFrom());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1EnvVarBuilder(V1EnvVar instance) {
-    this(instance,false);
-  }
-  public V1EnvVarBuilder(V1EnvVar instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withName(instance.getName());
-      this.withValue(instance.getValue());
-      this.withValueFrom(instance.getValueFrom());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1EnvVarFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1EnvVar build() {
     V1EnvVar buildable = new V1EnvVar();
     buildable.setName(fluent.getName());
     buildable.setValue(fluent.getValue());
-    buildable.setValueFrom(fluent.getValueFrom());
+    buildable.setValueFrom(fluent.buildValueFrom());
     return buildable;
   }
   
+
 }

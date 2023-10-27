@@ -1,52 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ContainerStateBuilder extends V1ContainerStateFluentImpl<V1ContainerStateBuilder> implements VisitableBuilder<V1ContainerState,V1ContainerStateBuilder>{
+public class V1ContainerStateBuilder extends V1ContainerStateFluent<V1ContainerStateBuilder> implements VisitableBuilder<V1ContainerState,V1ContainerStateBuilder>{
   public V1ContainerStateBuilder() {
-    this(false);
+    this(new V1ContainerState());
   }
-  public V1ContainerStateBuilder(Boolean validationEnabled) {
-    this(new V1ContainerState(), validationEnabled);
-  }
+  
   public V1ContainerStateBuilder(V1ContainerStateFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ContainerState());
   }
-  public V1ContainerStateBuilder(V1ContainerStateFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ContainerState(), validationEnabled);
-  }
+  
   public V1ContainerStateBuilder(V1ContainerStateFluent<?> fluent,V1ContainerState instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ContainerStateBuilder(V1ContainerStateFluent<?> fluent,V1ContainerState instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withRunning(instance.getRunning());
-      fluent.withTerminated(instance.getTerminated());
-      fluent.withWaiting(instance.getWaiting());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ContainerStateBuilder(V1ContainerState instance) {
-    this(instance,false);
-  }
-  public V1ContainerStateBuilder(V1ContainerState instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withRunning(instance.getRunning());
-      this.withTerminated(instance.getTerminated());
-      this.withWaiting(instance.getWaiting());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ContainerStateFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ContainerState build() {
     V1ContainerState buildable = new V1ContainerState();
-    buildable.setRunning(fluent.getRunning());
-    buildable.setTerminated(fluent.getTerminated());
-    buildable.setWaiting(fluent.getWaiting());
+    buildable.setRunning(fluent.buildRunning());
+    buildable.setTerminated(fluent.buildTerminated());
+    buildable.setWaiting(fluent.buildWaiting());
     return buildable;
   }
   
+
 }

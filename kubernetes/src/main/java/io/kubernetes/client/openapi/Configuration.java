@@ -12,8 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-27T04:33:30.382835Z[Etc/UTC]")
 public class Configuration {
+    public static final String VERSION = "20.0.0-SNAPSHOT";
+
     private static ApiClient defaultApiClient = new ApiClient();
 
     /**

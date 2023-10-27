@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1SecretKeySelectorBuilder extends V1SecretKeySelectorFluentImpl<V1SecretKeySelectorBuilder> implements VisitableBuilder<V1SecretKeySelector,V1SecretKeySelectorBuilder>{
+public class V1SecretKeySelectorBuilder extends V1SecretKeySelectorFluent<V1SecretKeySelectorBuilder> implements VisitableBuilder<V1SecretKeySelector,V1SecretKeySelectorBuilder>{
   public V1SecretKeySelectorBuilder() {
-    this(false);
+    this(new V1SecretKeySelector());
   }
-  public V1SecretKeySelectorBuilder(Boolean validationEnabled) {
-    this(new V1SecretKeySelector(), validationEnabled);
-  }
+  
   public V1SecretKeySelectorBuilder(V1SecretKeySelectorFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1SecretKeySelector());
   }
-  public V1SecretKeySelectorBuilder(V1SecretKeySelectorFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1SecretKeySelector(), validationEnabled);
-  }
+  
   public V1SecretKeySelectorBuilder(V1SecretKeySelectorFluent<?> fluent,V1SecretKeySelector instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1SecretKeySelectorBuilder(V1SecretKeySelectorFluent<?> fluent,V1SecretKeySelector instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withKey(instance.getKey());
-      fluent.withName(instance.getName());
-      fluent.withOptional(instance.getOptional());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1SecretKeySelectorBuilder(V1SecretKeySelector instance) {
-    this(instance,false);
-  }
-  public V1SecretKeySelectorBuilder(V1SecretKeySelector instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withKey(instance.getKey());
-      this.withName(instance.getName());
-      this.withOptional(instance.getOptional());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1SecretKeySelectorFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1SecretKeySelector build() {
     V1SecretKeySelector buildable = new V1SecretKeySelector();
     buildable.setKey(fluent.getKey());
@@ -49,4 +29,5 @@ public class V1SecretKeySelectorBuilder extends V1SecretKeySelectorFluentImpl<V1
     return buildable;
   }
   
+
 }

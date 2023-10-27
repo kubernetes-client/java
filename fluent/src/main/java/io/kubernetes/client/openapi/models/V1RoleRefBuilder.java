@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1RoleRefBuilder extends V1RoleRefFluentImpl<V1RoleRefBuilder> implements VisitableBuilder<V1RoleRef,V1RoleRefBuilder>{
+public class V1RoleRefBuilder extends V1RoleRefFluent<V1RoleRefBuilder> implements VisitableBuilder<V1RoleRef,V1RoleRefBuilder>{
   public V1RoleRefBuilder() {
-    this(false);
+    this(new V1RoleRef());
   }
-  public V1RoleRefBuilder(Boolean validationEnabled) {
-    this(new V1RoleRef(), validationEnabled);
-  }
+  
   public V1RoleRefBuilder(V1RoleRefFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1RoleRef());
   }
-  public V1RoleRefBuilder(V1RoleRefFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1RoleRef(), validationEnabled);
-  }
+  
   public V1RoleRefBuilder(V1RoleRefFluent<?> fluent,V1RoleRef instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1RoleRefBuilder(V1RoleRefFluent<?> fluent,V1RoleRef instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiGroup(instance.getApiGroup());
-      fluent.withKind(instance.getKind());
-      fluent.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1RoleRefBuilder(V1RoleRef instance) {
-    this(instance,false);
-  }
-  public V1RoleRefBuilder(V1RoleRef instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiGroup(instance.getApiGroup());
-      this.withKind(instance.getKind());
-      this.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1RoleRefFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1RoleRef build() {
     V1RoleRef buildable = new V1RoleRef();
     buildable.setApiGroup(fluent.getApiGroup());
@@ -49,4 +29,5 @@ public class V1RoleRefBuilder extends V1RoleRefFluentImpl<V1RoleRefBuilder> impl
     return buildable;
   }
   
+
 }

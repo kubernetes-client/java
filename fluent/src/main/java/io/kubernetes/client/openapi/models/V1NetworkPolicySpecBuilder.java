@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1NetworkPolicySpecBuilder extends V1NetworkPolicySpecFluentImpl<V1NetworkPolicySpecBuilder> implements VisitableBuilder<V1NetworkPolicySpec,V1NetworkPolicySpecBuilder>{
+public class V1NetworkPolicySpecBuilder extends V1NetworkPolicySpecFluent<V1NetworkPolicySpecBuilder> implements VisitableBuilder<V1NetworkPolicySpec,V1NetworkPolicySpecBuilder>{
   public V1NetworkPolicySpecBuilder() {
-    this(false);
+    this(new V1NetworkPolicySpec());
   }
-  public V1NetworkPolicySpecBuilder(Boolean validationEnabled) {
-    this(new V1NetworkPolicySpec(), validationEnabled);
-  }
+  
   public V1NetworkPolicySpecBuilder(V1NetworkPolicySpecFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1NetworkPolicySpec());
   }
-  public V1NetworkPolicySpecBuilder(V1NetworkPolicySpecFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1NetworkPolicySpec(), validationEnabled);
-  }
+  
   public V1NetworkPolicySpecBuilder(V1NetworkPolicySpecFluent<?> fluent,V1NetworkPolicySpec instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1NetworkPolicySpecBuilder(V1NetworkPolicySpecFluent<?> fluent,V1NetworkPolicySpec instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withEgress(instance.getEgress());
-      fluent.withIngress(instance.getIngress());
-      fluent.withPodSelector(instance.getPodSelector());
-      fluent.withPolicyTypes(instance.getPolicyTypes());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1NetworkPolicySpecBuilder(V1NetworkPolicySpec instance) {
-    this(instance,false);
-  }
-  public V1NetworkPolicySpecBuilder(V1NetworkPolicySpec instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withEgress(instance.getEgress());
-      this.withIngress(instance.getIngress());
-      this.withPodSelector(instance.getPodSelector());
-      this.withPolicyTypes(instance.getPolicyTypes());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1NetworkPolicySpecFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1NetworkPolicySpec build() {
     V1NetworkPolicySpec buildable = new V1NetworkPolicySpec();
-    buildable.setEgress(fluent.getEgress());
-    buildable.setIngress(fluent.getIngress());
-    buildable.setPodSelector(fluent.getPodSelector());
+    buildable.setEgress(fluent.buildEgress());
+    buildable.setIngress(fluent.buildIngress());
+    buildable.setPodSelector(fluent.buildPodSelector());
     buildable.setPolicyTypes(fluent.getPolicyTypes());
     return buildable;
   }
   
+
 }

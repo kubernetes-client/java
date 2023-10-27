@@ -1,52 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class AdmissionregistrationV1WebhookClientConfigBuilder extends AdmissionregistrationV1WebhookClientConfigFluentImpl<AdmissionregistrationV1WebhookClientConfigBuilder> implements VisitableBuilder<AdmissionregistrationV1WebhookClientConfig,AdmissionregistrationV1WebhookClientConfigBuilder>{
+public class AdmissionregistrationV1WebhookClientConfigBuilder extends AdmissionregistrationV1WebhookClientConfigFluent<AdmissionregistrationV1WebhookClientConfigBuilder> implements VisitableBuilder<AdmissionregistrationV1WebhookClientConfig,AdmissionregistrationV1WebhookClientConfigBuilder>{
   public AdmissionregistrationV1WebhookClientConfigBuilder() {
-    this(false);
+    this(new AdmissionregistrationV1WebhookClientConfig());
   }
-  public AdmissionregistrationV1WebhookClientConfigBuilder(Boolean validationEnabled) {
-    this(new AdmissionregistrationV1WebhookClientConfig(), validationEnabled);
-  }
+  
   public AdmissionregistrationV1WebhookClientConfigBuilder(AdmissionregistrationV1WebhookClientConfigFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new AdmissionregistrationV1WebhookClientConfig());
   }
-  public AdmissionregistrationV1WebhookClientConfigBuilder(AdmissionregistrationV1WebhookClientConfigFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new AdmissionregistrationV1WebhookClientConfig(), validationEnabled);
-  }
+  
   public AdmissionregistrationV1WebhookClientConfigBuilder(AdmissionregistrationV1WebhookClientConfigFluent<?> fluent,AdmissionregistrationV1WebhookClientConfig instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public AdmissionregistrationV1WebhookClientConfigBuilder(AdmissionregistrationV1WebhookClientConfigFluent<?> fluent,AdmissionregistrationV1WebhookClientConfig instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withCaBundle(instance.getCaBundle());
-      fluent.withService(instance.getService());
-      fluent.withUrl(instance.getUrl());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public AdmissionregistrationV1WebhookClientConfigBuilder(AdmissionregistrationV1WebhookClientConfig instance) {
-    this(instance,false);
-  }
-  public AdmissionregistrationV1WebhookClientConfigBuilder(AdmissionregistrationV1WebhookClientConfig instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withCaBundle(instance.getCaBundle());
-      this.withService(instance.getService());
-      this.withUrl(instance.getUrl());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   AdmissionregistrationV1WebhookClientConfigFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public AdmissionregistrationV1WebhookClientConfig build() {
     AdmissionregistrationV1WebhookClientConfig buildable = new AdmissionregistrationV1WebhookClientConfig();
     buildable.setCaBundle(fluent.getCaBundle());
-    buildable.setService(fluent.getService());
+    buildable.setService(fluent.buildService());
     buildable.setUrl(fluent.getUrl());
     return buildable;
   }
   
+
 }

@@ -12,7 +12,10 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+import java.util.Collection;
+import java.util.Iterator;
+
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-10-27T04:33:30.382835Z[Etc/UTC]")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).
@@ -54,6 +57,25 @@ public class StringUtil {
     out.append(array[0]);
     for (int i = 1; i < len; i++) {
       out.append(separator).append(array[i]);
+    }
+    return out.toString();
+  }
+
+  /**
+   * Join a list of strings with the given separator.
+   *
+   * @param list      The list of strings
+   * @param separator The separator
+   * @return the resulting string
+   */
+  public static String join(Collection<String> list, String separator) {
+    Iterator<String> iterator = list.iterator();
+    StringBuilder out = new StringBuilder();
+    if (iterator.hasNext()) {
+      out.append(iterator.next());
+    }
+    while (iterator.hasNext()) {
+      out.append(separator).append(iterator.next());
     }
     return out.toString();
   }

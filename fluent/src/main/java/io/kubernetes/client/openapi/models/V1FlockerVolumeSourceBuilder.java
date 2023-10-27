@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1FlockerVolumeSourceBuilder extends V1FlockerVolumeSourceFluentImpl<V1FlockerVolumeSourceBuilder> implements VisitableBuilder<V1FlockerVolumeSource,V1FlockerVolumeSourceBuilder>{
+public class V1FlockerVolumeSourceBuilder extends V1FlockerVolumeSourceFluent<V1FlockerVolumeSourceBuilder> implements VisitableBuilder<V1FlockerVolumeSource,V1FlockerVolumeSourceBuilder>{
   public V1FlockerVolumeSourceBuilder() {
-    this(false);
+    this(new V1FlockerVolumeSource());
   }
-  public V1FlockerVolumeSourceBuilder(Boolean validationEnabled) {
-    this(new V1FlockerVolumeSource(), validationEnabled);
-  }
+  
   public V1FlockerVolumeSourceBuilder(V1FlockerVolumeSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1FlockerVolumeSource());
   }
-  public V1FlockerVolumeSourceBuilder(V1FlockerVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1FlockerVolumeSource(), validationEnabled);
-  }
+  
   public V1FlockerVolumeSourceBuilder(V1FlockerVolumeSourceFluent<?> fluent,V1FlockerVolumeSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1FlockerVolumeSourceBuilder(V1FlockerVolumeSourceFluent<?> fluent,V1FlockerVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withDatasetName(instance.getDatasetName());
-      fluent.withDatasetUUID(instance.getDatasetUUID());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1FlockerVolumeSourceBuilder(V1FlockerVolumeSource instance) {
-    this(instance,false);
-  }
-  public V1FlockerVolumeSourceBuilder(V1FlockerVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withDatasetName(instance.getDatasetName());
-      this.withDatasetUUID(instance.getDatasetUUID());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1FlockerVolumeSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1FlockerVolumeSource build() {
     V1FlockerVolumeSource buildable = new V1FlockerVolumeSource();
     buildable.setDatasetName(fluent.getDatasetName());
@@ -46,4 +28,5 @@ public class V1FlockerVolumeSourceBuilder extends V1FlockerVolumeSourceFluentImp
     return buildable;
   }
   
+
 }

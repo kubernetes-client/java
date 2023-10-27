@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1IngressRuleBuilder extends V1IngressRuleFluentImpl<V1IngressRuleBuilder> implements VisitableBuilder<V1IngressRule,V1IngressRuleBuilder>{
+public class V1IngressRuleBuilder extends V1IngressRuleFluent<V1IngressRuleBuilder> implements VisitableBuilder<V1IngressRule,V1IngressRuleBuilder>{
   public V1IngressRuleBuilder() {
-    this(false);
+    this(new V1IngressRule());
   }
-  public V1IngressRuleBuilder(Boolean validationEnabled) {
-    this(new V1IngressRule(), validationEnabled);
-  }
+  
   public V1IngressRuleBuilder(V1IngressRuleFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1IngressRule());
   }
-  public V1IngressRuleBuilder(V1IngressRuleFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1IngressRule(), validationEnabled);
-  }
+  
   public V1IngressRuleBuilder(V1IngressRuleFluent<?> fluent,V1IngressRule instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1IngressRuleBuilder(V1IngressRuleFluent<?> fluent,V1IngressRule instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withHost(instance.getHost());
-      fluent.withHttp(instance.getHttp());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1IngressRuleBuilder(V1IngressRule instance) {
-    this(instance,false);
-  }
-  public V1IngressRuleBuilder(V1IngressRule instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withHost(instance.getHost());
-      this.withHttp(instance.getHttp());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1IngressRuleFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1IngressRule build() {
     V1IngressRule buildable = new V1IngressRule();
     buildable.setHost(fluent.getHost());
-    buildable.setHttp(fluent.getHttp());
+    buildable.setHttp(fluent.buildHttp());
     return buildable;
   }
   
+
 }

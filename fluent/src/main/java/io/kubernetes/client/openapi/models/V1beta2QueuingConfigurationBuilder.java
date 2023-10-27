@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1beta2QueuingConfigurationBuilder extends V1beta2QueuingConfigurationFluentImpl<V1beta2QueuingConfigurationBuilder> implements VisitableBuilder<V1beta2QueuingConfiguration,V1beta2QueuingConfigurationBuilder>{
+public class V1beta2QueuingConfigurationBuilder extends V1beta2QueuingConfigurationFluent<V1beta2QueuingConfigurationBuilder> implements VisitableBuilder<V1beta2QueuingConfiguration,V1beta2QueuingConfigurationBuilder>{
   public V1beta2QueuingConfigurationBuilder() {
-    this(false);
+    this(new V1beta2QueuingConfiguration());
   }
-  public V1beta2QueuingConfigurationBuilder(Boolean validationEnabled) {
-    this(new V1beta2QueuingConfiguration(), validationEnabled);
-  }
+  
   public V1beta2QueuingConfigurationBuilder(V1beta2QueuingConfigurationFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1beta2QueuingConfiguration());
   }
-  public V1beta2QueuingConfigurationBuilder(V1beta2QueuingConfigurationFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1beta2QueuingConfiguration(), validationEnabled);
-  }
+  
   public V1beta2QueuingConfigurationBuilder(V1beta2QueuingConfigurationFluent<?> fluent,V1beta2QueuingConfiguration instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1beta2QueuingConfigurationBuilder(V1beta2QueuingConfigurationFluent<?> fluent,V1beta2QueuingConfiguration instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withHandSize(instance.getHandSize());
-      fluent.withQueueLengthLimit(instance.getQueueLengthLimit());
-      fluent.withQueues(instance.getQueues());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1beta2QueuingConfigurationBuilder(V1beta2QueuingConfiguration instance) {
-    this(instance,false);
-  }
-  public V1beta2QueuingConfigurationBuilder(V1beta2QueuingConfiguration instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withHandSize(instance.getHandSize());
-      this.withQueueLengthLimit(instance.getQueueLengthLimit());
-      this.withQueues(instance.getQueues());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1beta2QueuingConfigurationFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1beta2QueuingConfiguration build() {
     V1beta2QueuingConfiguration buildable = new V1beta2QueuingConfiguration();
     buildable.setHandSize(fluent.getHandSize());
@@ -49,4 +29,5 @@ public class V1beta2QueuingConfigurationBuilder extends V1beta2QueuingConfigurat
     return buildable;
   }
   
+
 }

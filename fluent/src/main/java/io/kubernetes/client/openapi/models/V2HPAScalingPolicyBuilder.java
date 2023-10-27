@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V2HPAScalingPolicyBuilder extends V2HPAScalingPolicyFluentImpl<V2HPAScalingPolicyBuilder> implements VisitableBuilder<V2HPAScalingPolicy,V2HPAScalingPolicyBuilder>{
+public class V2HPAScalingPolicyBuilder extends V2HPAScalingPolicyFluent<V2HPAScalingPolicyBuilder> implements VisitableBuilder<V2HPAScalingPolicy,V2HPAScalingPolicyBuilder>{
   public V2HPAScalingPolicyBuilder() {
-    this(false);
+    this(new V2HPAScalingPolicy());
   }
-  public V2HPAScalingPolicyBuilder(Boolean validationEnabled) {
-    this(new V2HPAScalingPolicy(), validationEnabled);
-  }
+  
   public V2HPAScalingPolicyBuilder(V2HPAScalingPolicyFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V2HPAScalingPolicy());
   }
-  public V2HPAScalingPolicyBuilder(V2HPAScalingPolicyFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V2HPAScalingPolicy(), validationEnabled);
-  }
+  
   public V2HPAScalingPolicyBuilder(V2HPAScalingPolicyFluent<?> fluent,V2HPAScalingPolicy instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V2HPAScalingPolicyBuilder(V2HPAScalingPolicyFluent<?> fluent,V2HPAScalingPolicy instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withPeriodSeconds(instance.getPeriodSeconds());
-      fluent.withType(instance.getType());
-      fluent.withValue(instance.getValue());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V2HPAScalingPolicyBuilder(V2HPAScalingPolicy instance) {
-    this(instance,false);
-  }
-  public V2HPAScalingPolicyBuilder(V2HPAScalingPolicy instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withPeriodSeconds(instance.getPeriodSeconds());
-      this.withType(instance.getType());
-      this.withValue(instance.getValue());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V2HPAScalingPolicyFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V2HPAScalingPolicy build() {
     V2HPAScalingPolicy buildable = new V2HPAScalingPolicy();
     buildable.setPeriodSeconds(fluent.getPeriodSeconds());
@@ -49,4 +29,5 @@ public class V2HPAScalingPolicyBuilder extends V2HPAScalingPolicyFluentImpl<V2HP
     return buildable;
   }
   
+
 }

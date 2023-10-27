@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1SelfSubjectAccessReviewSpecBuilder extends V1SelfSubjectAccessReviewSpecFluentImpl<V1SelfSubjectAccessReviewSpecBuilder> implements VisitableBuilder<V1SelfSubjectAccessReviewSpec,V1SelfSubjectAccessReviewSpecBuilder>{
+public class V1SelfSubjectAccessReviewSpecBuilder extends V1SelfSubjectAccessReviewSpecFluent<V1SelfSubjectAccessReviewSpecBuilder> implements VisitableBuilder<V1SelfSubjectAccessReviewSpec,V1SelfSubjectAccessReviewSpecBuilder>{
   public V1SelfSubjectAccessReviewSpecBuilder() {
-    this(false);
+    this(new V1SelfSubjectAccessReviewSpec());
   }
-  public V1SelfSubjectAccessReviewSpecBuilder(Boolean validationEnabled) {
-    this(new V1SelfSubjectAccessReviewSpec(), validationEnabled);
-  }
+  
   public V1SelfSubjectAccessReviewSpecBuilder(V1SelfSubjectAccessReviewSpecFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1SelfSubjectAccessReviewSpec());
   }
-  public V1SelfSubjectAccessReviewSpecBuilder(V1SelfSubjectAccessReviewSpecFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1SelfSubjectAccessReviewSpec(), validationEnabled);
-  }
+  
   public V1SelfSubjectAccessReviewSpecBuilder(V1SelfSubjectAccessReviewSpecFluent<?> fluent,V1SelfSubjectAccessReviewSpec instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1SelfSubjectAccessReviewSpecBuilder(V1SelfSubjectAccessReviewSpecFluent<?> fluent,V1SelfSubjectAccessReviewSpec instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withNonResourceAttributes(instance.getNonResourceAttributes());
-      fluent.withResourceAttributes(instance.getResourceAttributes());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1SelfSubjectAccessReviewSpecBuilder(V1SelfSubjectAccessReviewSpec instance) {
-    this(instance,false);
-  }
-  public V1SelfSubjectAccessReviewSpecBuilder(V1SelfSubjectAccessReviewSpec instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withNonResourceAttributes(instance.getNonResourceAttributes());
-      this.withResourceAttributes(instance.getResourceAttributes());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1SelfSubjectAccessReviewSpecFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1SelfSubjectAccessReviewSpec build() {
     V1SelfSubjectAccessReviewSpec buildable = new V1SelfSubjectAccessReviewSpec();
-    buildable.setNonResourceAttributes(fluent.getNonResourceAttributes());
-    buildable.setResourceAttributes(fluent.getResourceAttributes());
+    buildable.setNonResourceAttributes(fluent.buildNonResourceAttributes());
+    buildable.setResourceAttributes(fluent.buildResourceAttributes());
     return buildable;
   }
   
+
 }

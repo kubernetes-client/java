@@ -1,52 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1LimitRangeItemBuilder extends V1LimitRangeItemFluentImpl<V1LimitRangeItemBuilder> implements VisitableBuilder<V1LimitRangeItem,V1LimitRangeItemBuilder>{
+public class V1LimitRangeItemBuilder extends V1LimitRangeItemFluent<V1LimitRangeItemBuilder> implements VisitableBuilder<V1LimitRangeItem,V1LimitRangeItemBuilder>{
   public V1LimitRangeItemBuilder() {
-    this(false);
+    this(new V1LimitRangeItem());
   }
-  public V1LimitRangeItemBuilder(Boolean validationEnabled) {
-    this(new V1LimitRangeItem(), validationEnabled);
-  }
+  
   public V1LimitRangeItemBuilder(V1LimitRangeItemFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1LimitRangeItem());
   }
-  public V1LimitRangeItemBuilder(V1LimitRangeItemFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1LimitRangeItem(), validationEnabled);
-  }
+  
   public V1LimitRangeItemBuilder(V1LimitRangeItemFluent<?> fluent,V1LimitRangeItem instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1LimitRangeItemBuilder(V1LimitRangeItemFluent<?> fluent,V1LimitRangeItem instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withDefault(instance.getDefault());
-      fluent.withDefaultRequest(instance.getDefaultRequest());
-      fluent.withMax(instance.getMax());
-      fluent.withMaxLimitRequestRatio(instance.getMaxLimitRequestRatio());
-      fluent.withMin(instance.getMin());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1LimitRangeItemBuilder(V1LimitRangeItem instance) {
-    this(instance,false);
-  }
-  public V1LimitRangeItemBuilder(V1LimitRangeItem instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withDefault(instance.getDefault());
-      this.withDefaultRequest(instance.getDefaultRequest());
-      this.withMax(instance.getMax());
-      this.withMaxLimitRequestRatio(instance.getMaxLimitRequestRatio());
-      this.withMin(instance.getMin());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1LimitRangeItemFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1LimitRangeItem build() {
     V1LimitRangeItem buildable = new V1LimitRangeItem();
     buildable.setDefault(fluent.getDefault());
@@ -58,4 +32,5 @@ public class V1LimitRangeItemBuilder extends V1LimitRangeItemFluentImpl<V1LimitR
     return buildable;
   }
   
+
 }

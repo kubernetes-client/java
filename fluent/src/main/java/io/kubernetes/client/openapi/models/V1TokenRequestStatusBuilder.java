@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1TokenRequestStatusBuilder extends V1TokenRequestStatusFluentImpl<V1TokenRequestStatusBuilder> implements VisitableBuilder<V1TokenRequestStatus,V1TokenRequestStatusBuilder>{
+public class V1TokenRequestStatusBuilder extends V1TokenRequestStatusFluent<V1TokenRequestStatusBuilder> implements VisitableBuilder<V1TokenRequestStatus,V1TokenRequestStatusBuilder>{
   public V1TokenRequestStatusBuilder() {
-    this(false);
+    this(new V1TokenRequestStatus());
   }
-  public V1TokenRequestStatusBuilder(Boolean validationEnabled) {
-    this(new V1TokenRequestStatus(), validationEnabled);
-  }
+  
   public V1TokenRequestStatusBuilder(V1TokenRequestStatusFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1TokenRequestStatus());
   }
-  public V1TokenRequestStatusBuilder(V1TokenRequestStatusFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1TokenRequestStatus(), validationEnabled);
-  }
+  
   public V1TokenRequestStatusBuilder(V1TokenRequestStatusFluent<?> fluent,V1TokenRequestStatus instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1TokenRequestStatusBuilder(V1TokenRequestStatusFluent<?> fluent,V1TokenRequestStatus instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withExpirationTimestamp(instance.getExpirationTimestamp());
-      fluent.withToken(instance.getToken());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1TokenRequestStatusBuilder(V1TokenRequestStatus instance) {
-    this(instance,false);
-  }
-  public V1TokenRequestStatusBuilder(V1TokenRequestStatus instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withExpirationTimestamp(instance.getExpirationTimestamp());
-      this.withToken(instance.getToken());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1TokenRequestStatusFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1TokenRequestStatus build() {
     V1TokenRequestStatus buildable = new V1TokenRequestStatus();
     buildable.setExpirationTimestamp(fluent.getExpirationTimestamp());
@@ -46,4 +28,5 @@ public class V1TokenRequestStatusBuilder extends V1TokenRequestStatusFluentImpl<
     return buildable;
   }
   
+
 }

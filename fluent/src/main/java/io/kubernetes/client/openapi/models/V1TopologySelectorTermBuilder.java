@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1TopologySelectorTermBuilder extends V1TopologySelectorTermFluentImpl<V1TopologySelectorTermBuilder> implements VisitableBuilder<V1TopologySelectorTerm,V1TopologySelectorTermBuilder>{
+public class V1TopologySelectorTermBuilder extends V1TopologySelectorTermFluent<V1TopologySelectorTermBuilder> implements VisitableBuilder<V1TopologySelectorTerm,V1TopologySelectorTermBuilder>{
   public V1TopologySelectorTermBuilder() {
-    this(false);
+    this(new V1TopologySelectorTerm());
   }
-  public V1TopologySelectorTermBuilder(Boolean validationEnabled) {
-    this(new V1TopologySelectorTerm(), validationEnabled);
-  }
+  
   public V1TopologySelectorTermBuilder(V1TopologySelectorTermFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1TopologySelectorTerm());
   }
-  public V1TopologySelectorTermBuilder(V1TopologySelectorTermFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1TopologySelectorTerm(), validationEnabled);
-  }
+  
   public V1TopologySelectorTermBuilder(V1TopologySelectorTermFluent<?> fluent,V1TopologySelectorTerm instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1TopologySelectorTermBuilder(V1TopologySelectorTermFluent<?> fluent,V1TopologySelectorTerm instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withMatchLabelExpressions(instance.getMatchLabelExpressions());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1TopologySelectorTermBuilder(V1TopologySelectorTerm instance) {
-    this(instance,false);
-  }
-  public V1TopologySelectorTermBuilder(V1TopologySelectorTerm instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withMatchLabelExpressions(instance.getMatchLabelExpressions());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1TopologySelectorTermFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1TopologySelectorTerm build() {
     V1TopologySelectorTerm buildable = new V1TopologySelectorTerm();
-    buildable.setMatchLabelExpressions(fluent.getMatchLabelExpressions());
+    buildable.setMatchLabelExpressions(fluent.buildMatchLabelExpressions());
     return buildable;
   }
   
+
 }
