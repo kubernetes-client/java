@@ -3,6 +3,7 @@
 # V1ClaimSource
 
 ClaimSource describes a reference to a ResourceClaim.  Exactly one of these fields should be set.  Consumers of this type must treat an empty object as if it has an unknown value.
+
 ## Properties
 
 Name | Type | Description | Notes

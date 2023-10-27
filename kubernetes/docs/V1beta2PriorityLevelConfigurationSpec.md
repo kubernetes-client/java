@@ -3,6 +3,7 @@
 # V1beta2PriorityLevelConfigurationSpec
 
 PriorityLevelConfigurationSpec specifies the configuration of a priority level.
+
 ## Properties
 
 Name | Type | Description | Notes

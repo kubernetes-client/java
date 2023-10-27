@@ -14,6 +14,8 @@ package io.kubernetes.client.openapi;
 
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class Configuration {
+    public static final String VERSION = "20.0.0-SNAPSHOT";
+
     private static ApiClient defaultApiClient = new ApiClient();
 
     /**

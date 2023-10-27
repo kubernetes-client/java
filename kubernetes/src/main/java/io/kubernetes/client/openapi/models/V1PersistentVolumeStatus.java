@@ -19,8 +19,6 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 
@@ -45,6 +43,29 @@ public class V1PersistentVolumeStatus {
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
+
+  public V1PersistentVolumeStatus() {
+  }
+
+  public V1PersistentVolumeStatus lastPhaseTransitionTime(OffsetDateTime lastPhaseTransitionTime) {
+
+    this.lastPhaseTransitionTime = lastPhaseTransitionTime;
+    return this;
+  }
+
+   /**
+   * lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions. This is an alpha field and requires enabling PersistentVolumeLastPhaseTransitionTime feature.
+   * @return lastPhaseTransitionTime
+  **/
+  @jakarta.annotation.Nullable
+  public OffsetDateTime getLastPhaseTransitionTime() {
+    return lastPhaseTransitionTime;
+  }
+
+
+  public void setLastPhaseTransitionTime(OffsetDateTime lastPhaseTransitionTime) {
+    this.lastPhaseTransitionTime = lastPhaseTransitionTime;
+  }
 
 
   public V1PersistentVolumeStatus lastPhaseTransitionTime(OffsetDateTime lastPhaseTransitionTime) {
@@ -80,9 +101,7 @@ public class V1PersistentVolumeStatus {
    * message is a human-readable message indicating details about why the volume is in this state.
    * @return message
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "message is a human-readable message indicating details about why the volume is in this state.")
-
+  @jakarta.annotation.Nullable
   public String getMessage() {
     return message;
   }
@@ -103,9 +122,7 @@ public class V1PersistentVolumeStatus {
    * phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase
    * @return phase
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "phase indicates if a volume is available, bound to a claim, or released by a claim. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#phase")
-
+  @jakarta.annotation.Nullable
   public String getPhase() {
     return phase;
   }
@@ -126,9 +143,7 @@ public class V1PersistentVolumeStatus {
    * reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.
    * @return reason
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "reason is a brief CamelCase string that describes any failure and is meant for machine parsing and tidy display in the CLI.")
-
+  @jakarta.annotation.Nullable
   public String getReason() {
     return reason;
   }
@@ -139,8 +154,9 @@ public class V1PersistentVolumeStatus {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -159,7 +175,6 @@ public class V1PersistentVolumeStatus {
     return Objects.hash(lastPhaseTransitionTime, message, phase, reason);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -176,11 +191,106 @@ public class V1PersistentVolumeStatus {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("lastPhaseTransitionTime");
+    openapiFields.add("message");
+    openapiFields.add("phase");
+    openapiFields.add("reason");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1PersistentVolumeStatus
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1PersistentVolumeStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PersistentVolumeStatus is not found in the empty JSON string", V1PersistentVolumeStatus.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1PersistentVolumeStatus.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PersistentVolumeStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
+      if ((jsonObj.get("phase") != null && !jsonObj.get("phase").isJsonNull()) && !jsonObj.get("phase").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `phase` to be a primitive type in the JSON string but got `%s`", jsonObj.get("phase").toString()));
+      }
+      if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1PersistentVolumeStatus.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1PersistentVolumeStatus' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1PersistentVolumeStatus> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1PersistentVolumeStatus.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1PersistentVolumeStatus>() {
+           @Override
+           public void write(JsonWriter out, V1PersistentVolumeStatus value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1PersistentVolumeStatus read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1PersistentVolumeStatus given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1PersistentVolumeStatus
+  * @throws IOException if the JSON string is invalid with respect to V1PersistentVolumeStatus
+  */
+  public static V1PersistentVolumeStatus fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1PersistentVolumeStatus.class);
+  }
+
+ /**
+  * Convert an instance of V1PersistentVolumeStatus to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

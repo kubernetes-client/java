@@ -19,9 +19,32 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * Validation specifies the CEL expression which is used to apply the validation.
@@ -45,6 +68,8 @@ public class V1alpha1Validation {
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
 
+  public V1alpha1Validation() {
+  }
 
   public V1alpha1Validation expression(String expression) {
 
@@ -78,9 +103,7 @@ public class V1alpha1Validation {
    * Message represents the message displayed when validation fails. The message is required if the Expression contains line breaks. The message must not contain line breaks. If unset, the message is \&quot;failed rule: {Rule}\&quot;. e.g. \&quot;must be a URL with the host matching spec.host\&quot; If the Expression contains line breaks. Message is required. The message must not contain line breaks. If unset, the message is \&quot;failed Expression: {Expression}\&quot;.
    * @return message
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Message represents the message displayed when validation fails. The message is required if the Expression contains line breaks. The message must not contain line breaks. If unset, the message is \"failed rule: {Rule}\". e.g. \"must be a URL with the host matching spec.host\" If the Expression contains line breaks. Message is required. The message must not contain line breaks. If unset, the message is \"failed Expression: {Expression}\".")
-
+  @jakarta.annotation.Nullable
   public String getMessage() {
     return message;
   }
@@ -101,9 +124,7 @@ public class V1alpha1Validation {
    * messageExpression declares a CEL expression that evaluates to the validation failure message that is returned when this rule fails. Since messageExpression is used as a failure message, it must evaluate to a string. If both message and messageExpression are present on a validation, then messageExpression will be used if validation fails. If messageExpression results in a runtime error, the runtime error is logged, and the validation failure message is produced as if the messageExpression field were unset. If messageExpression evaluates to an empty string, a string with only spaces, or a string that contains line breaks, then the validation failure message will also be produced as if the messageExpression field were unset, and the fact that messageExpression produced an empty string/string with only spaces/string with line breaks will be logged. messageExpression has access to all the same variables as the &#x60;expression&#x60; except for &#39;authorizer&#39; and &#39;authorizer.requestResource&#39;. Example: \&quot;object.x must be less than max (\&quot;+string(params.max)+\&quot;)\&quot;
    * @return messageExpression
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "messageExpression declares a CEL expression that evaluates to the validation failure message that is returned when this rule fails. Since messageExpression is used as a failure message, it must evaluate to a string. If both message and messageExpression are present on a validation, then messageExpression will be used if validation fails. If messageExpression results in a runtime error, the runtime error is logged, and the validation failure message is produced as if the messageExpression field were unset. If messageExpression evaluates to an empty string, a string with only spaces, or a string that contains line breaks, then the validation failure message will also be produced as if the messageExpression field were unset, and the fact that messageExpression produced an empty string/string with only spaces/string with line breaks will be logged. messageExpression has access to all the same variables as the `expression` except for 'authorizer' and 'authorizer.requestResource'. Example: \"object.x must be less than max (\"+string(params.max)+\")\"")
-
+  @jakarta.annotation.Nullable
   public String getMessageExpression() {
     return messageExpression;
   }
@@ -124,9 +145,7 @@ public class V1alpha1Validation {
    * Reason represents a machine-readable description of why this validation failed. If this is the first validation in the list to fail, this reason, as well as the corresponding HTTP response code, are used in the HTTP response to the client. The currently supported reasons are: \&quot;Unauthorized\&quot;, \&quot;Forbidden\&quot;, \&quot;Invalid\&quot;, \&quot;RequestEntityTooLarge\&quot;. If not set, StatusReasonInvalid is used in the response to the client.
    * @return reason
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Reason represents a machine-readable description of why this validation failed. If this is the first validation in the list to fail, this reason, as well as the corresponding HTTP response code, are used in the HTTP response to the client. The currently supported reasons are: \"Unauthorized\", \"Forbidden\", \"Invalid\", \"RequestEntityTooLarge\". If not set, StatusReasonInvalid is used in the response to the client.")
-
+  @jakarta.annotation.Nullable
   public String getReason() {
     return reason;
   }
@@ -137,8 +156,9 @@ public class V1alpha1Validation {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -157,7 +177,6 @@ public class V1alpha1Validation {
     return Objects.hash(expression, message, messageExpression, reason);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -174,11 +193,117 @@ public class V1alpha1Validation {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("expression");
+    openapiFields.add("message");
+    openapiFields.add("messageExpression");
+    openapiFields.add("reason");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("expression");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1alpha1Validation
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1alpha1Validation.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha1Validation is not found in the empty JSON string", V1alpha1Validation.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1alpha1Validation.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha1Validation` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1alpha1Validation.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("expression").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `expression` to be a primitive type in the JSON string but got `%s`", jsonObj.get("expression").toString()));
+      }
+      if ((jsonObj.get("message") != null && !jsonObj.get("message").isJsonNull()) && !jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
+      if ((jsonObj.get("messageExpression") != null && !jsonObj.get("messageExpression").isJsonNull()) && !jsonObj.get("messageExpression").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `messageExpression` to be a primitive type in the JSON string but got `%s`", jsonObj.get("messageExpression").toString()));
+      }
+      if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1alpha1Validation.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1alpha1Validation' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1alpha1Validation> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1alpha1Validation.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1alpha1Validation>() {
+           @Override
+           public void write(JsonWriter out, V1alpha1Validation value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1alpha1Validation read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1alpha1Validation given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1alpha1Validation
+  * @throws IOException if the JSON string is invalid with respect to V1alpha1Validation
+  */
+  public static V1alpha1Validation fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1alpha1Validation.class);
+  }
+
+ /**
+  * Convert an instance of V1alpha1Validation to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
