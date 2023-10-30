@@ -258,6 +258,14 @@ public class Attach {
       return handler.getInputStream(2);
     }
 
+    public InputStream getConnectionErrorStream() {
+      return handler.getInputStream(3);
+    }
+
+    public OutputStream getResizeStream() {
+      return handler.getOutputStream(4);
+    }
+
     public void close() {
       handler.close();
     }
