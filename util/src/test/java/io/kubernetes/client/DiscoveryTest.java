@@ -141,9 +141,9 @@ public class DiscoveryTest {
                             .serialize(new V1APIGroupList()
                                 .addGroupsItem(new V1APIGroup()
                                     .name(group)
-                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version))
+                                    .preferredVersion(new V1GroupVersionForDiscovery().groupVersion(version).version(version))
                                     .versions(Arrays.asList(
-                                        new V1GroupVersionForDiscovery().version(version))))))));
+                                        new V1GroupVersionForDiscovery().groupVersion(version).version(version))))))));
 
     wireMockRule.stubFor(
         get(urlPathEqualTo(path))
@@ -155,11 +155,18 @@ public class DiscoveryTest {
                         apiClient
                             .getJSON()
                             .serialize(new V1APIResourceList()
+                                    .groupVersion(version)
                                 .resources(
                                     Arrays.asList(
                                       new V1APIResource()
+                                              .kind("First")
+                                              .namespaced(true)
+                                              .singularName("first")
                                         .name("first"),
                                       new V1APIResource()
+                                              .kind("Second")
+                                              .namespaced(true)
+                                              .singularName("second")
                                         .name("second")))))));
 
     List<String> versions = new ArrayList<>();
@@ -203,14 +210,14 @@ public class DiscoveryTest {
                             .serialize(new V1APIGroupList()
                                 .addGroupsItem(new V1APIGroup()
                                     .name(groupError)
-                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version))
+                                    .preferredVersion(new V1GroupVersionForDiscovery().groupVersion(version).version(version))
                                     .versions(Arrays.asList(
-                                        new V1GroupVersionForDiscovery().version(version))))
+                                        new V1GroupVersionForDiscovery().groupVersion(version).version(version))))
                                 .addGroupsItem(new V1APIGroup()
                                     .name(groupSuccess)
-                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version))
+                                    .preferredVersion(new V1GroupVersionForDiscovery().groupVersion(version).version(version))
                                     .versions(Arrays.asList(
-                                        new V1GroupVersionForDiscovery().version(version))))))));
+                                        new V1GroupVersionForDiscovery().groupVersion(version).version(version))))))));
 
     wireMockRule.stubFor(
         get(urlPathEqualTo(pathError))
@@ -228,12 +235,19 @@ public class DiscoveryTest {
                         apiClient
                             .getJSON()
                             .serialize(new V1APIResourceList()
+                                    .groupVersion(version)
                                 .resources(
-                                    Arrays.asList(
-                                      new V1APIResource()
-                                        .name("first"),
-                                      new V1APIResource()
-                                        .name("second")))))));
+                                        Arrays.asList(
+                                                new V1APIResource()
+                                                        .kind("First")
+                                                        .namespaced(true)
+                                                        .singularName("first")
+                                                        .name("first"),
+                                                new V1APIResource()
+                                                        .kind("Second")
+                                                        .namespaced(true)
+                                                        .singularName("second")
+                                                        .name("second")))))));
 
     List<String> versions = new ArrayList<>();
     versions.add(version);

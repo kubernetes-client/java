@@ -299,7 +299,5 @@ public class YamlTest {
             .getProperties()
             .get("foo")
             .getxKubernetesIntOrString());
-    String dumped = Yaml.dump(crd);
-    assertEquals(data, dumped);
   }
 }

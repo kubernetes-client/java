@@ -150,7 +150,7 @@ public class PodLogsTest {
     Response mockResponse = mock(Response.class);
 
     when(mockClient.escapeString(any())).thenReturn("foo");
-    when(mockClient.buildCall(any(), any(), any(), any(), any(), any(), any(), any(), any(), any()))
+    when(mockClient.buildCall(any(), any(), any(), any(), any(), any(), any(), any(), any(), any(), any()))
         .thenReturn(mockCall);
     when(mockCall.execute()).thenReturn(mockResponse);
     when(mockResponse.isSuccessful()).thenReturn(false);

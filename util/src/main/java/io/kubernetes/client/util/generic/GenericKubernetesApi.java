@@ -1341,7 +1341,7 @@ public class GenericKubernetesApi<
     final V1Status status;
     try {
       status = apiClient.getJSON().deserialize(e.getResponseBody(), V1Status.class);
-    } catch (JsonSyntaxException jsonEx) {
+    } catch (JsonSyntaxException|IllegalArgumentException ex) {
       // craft a status object
       return new KubernetesApiResponse<>(
           new V1Status().code(e.getCode()).message(e.getResponseBody()), e.getCode());

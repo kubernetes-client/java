@@ -26,10 +26,13 @@ import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
+import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import java.io.File;
 import java.io.IOException;
 import java.time.Instant;
+
+import io.kubernetes.client.openapi.models.V1PodList;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -56,7 +59,7 @@ public class TokenFileAuthenticationTest {
   @Test
   public void testTokenProvided() throws IOException, ApiException {
     stubFor(
-        get(urlPathEqualTo("/api/v1/pods")).willReturn(okForContentType("application/json", "{}")));
+        get(urlPathEqualTo("/api/v1/pods")).willReturn(okForContentType("application/json", JSON.serialize(new V1PodList()))));
     CoreV1Api api = new CoreV1Api();
 
     api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null, null);

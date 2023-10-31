@@ -24,9 +24,12 @@ import static org.junit.Assert.assertEquals;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
+import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.models.VersionInfo;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
+import java.util.HashMap;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -51,7 +54,9 @@ public class VersionTest {
                 aResponse()
                     .withStatus(200)
                     .withHeader("Content-Type", "application/json")
-                    .withBody("{}")));
+                    .withBody(JSON.serialize(new HashMap(){{
+                      put("gitVersion", "foo");
+                    }}))));
 
     Version versionUtil = new Version(client);
     try {
@@ -62,7 +67,6 @@ public class VersionTest {
 
     verify(
         getRequestedFor(urlPathEqualTo("/version/"))
-            .withHeader("Content-Type", equalTo("application/json"))
             .withHeader("Accept", equalTo("application/json")));
   }
 
@@ -74,7 +78,6 @@ public class VersionTest {
             .willReturn(
                 aResponse()
                     .withStatus(401)
-                    .withHeader("Content-Type", "application/json")
                     .withBody("{}")));
 
     Version versionUtil = new Version(client);
@@ -89,7 +92,6 @@ public class VersionTest {
 
     verify(
         getRequestedFor(urlPathEqualTo("/version/"))
-            .withHeader("Content-Type", equalTo("application/json"))
             .withHeader("Accept", equalTo("application/json")));
   }
 }

@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
+  annotations: {}
   labels:
     app: mock
   name: mock
@@ -15,6 +16,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  annotations: {}
   labels:
     app: helloworld
   name: helloworld
@@ -22,6 +24,7 @@ spec:
   replicas: 1
   template:
     metadata:
+      annotations: {}
       labels:
         app: helloworld
       name: helloworld
@@ -39,11 +42,16 @@ spec:
           requests:
             memory: 4Gi
             cpu: '2'
+      nodeSelector: {}
+      overhead: {}
 ---
 apiVersion: v1
 kind: Secret
 metadata:
+  annotations: {}
+  labels: {}
   name: secret
 type: Opaque
 data:
   secret-data: aGVsbG8=
+stringData: {}

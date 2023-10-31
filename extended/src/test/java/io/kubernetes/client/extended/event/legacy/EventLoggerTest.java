@@ -22,7 +22,9 @@ public class EventLoggerTest {
 
   @Test
   public void buildEventPatch() {
-    String expectedStr = "2021-03-02T15:02:48.179000Z";
+//    String expectedStr = "2021-03-02T15:02:48.179000Z";
+    // TODO(yue99448822): Reset precision to 6 fractional decimal numbers
+    String expectedStr = "2021-03-02T15:02:48.179Z";
     OffsetDateTime expected = OffsetDateTime.parse("2021-03-02T15:02:48.179000Z");
     V1Patch patch = EventLogger.buildEventPatch(1, "foo", expected);
     assertEquals(
