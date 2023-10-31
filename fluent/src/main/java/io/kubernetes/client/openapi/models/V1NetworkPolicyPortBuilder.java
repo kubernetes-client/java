@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1NetworkPolicyPortBuilder extends V1NetworkPolicyPortFluentImpl<V1NetworkPolicyPortBuilder> implements VisitableBuilder<V1NetworkPolicyPort,V1NetworkPolicyPortBuilder>{
+public class V1NetworkPolicyPortBuilder extends V1NetworkPolicyPortFluent<V1NetworkPolicyPortBuilder> implements VisitableBuilder<V1NetworkPolicyPort,V1NetworkPolicyPortBuilder>{
   public V1NetworkPolicyPortBuilder() {
-    this(false);
+    this(new V1NetworkPolicyPort());
   }
-  public V1NetworkPolicyPortBuilder(Boolean validationEnabled) {
-    this(new V1NetworkPolicyPort(), validationEnabled);
-  }
+  
   public V1NetworkPolicyPortBuilder(V1NetworkPolicyPortFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1NetworkPolicyPort());
   }
-  public V1NetworkPolicyPortBuilder(V1NetworkPolicyPortFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1NetworkPolicyPort(), validationEnabled);
-  }
+  
   public V1NetworkPolicyPortBuilder(V1NetworkPolicyPortFluent<?> fluent,V1NetworkPolicyPort instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1NetworkPolicyPortBuilder(V1NetworkPolicyPortFluent<?> fluent,V1NetworkPolicyPort instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withEndPort(instance.getEndPort());
-      fluent.withPort(instance.getPort());
-      fluent.withProtocol(instance.getProtocol());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1NetworkPolicyPortBuilder(V1NetworkPolicyPort instance) {
-    this(instance,false);
-  }
-  public V1NetworkPolicyPortBuilder(V1NetworkPolicyPort instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withEndPort(instance.getEndPort());
-      this.withPort(instance.getPort());
-      this.withProtocol(instance.getProtocol());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1NetworkPolicyPortFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1NetworkPolicyPort build() {
     V1NetworkPolicyPort buildable = new V1NetworkPolicyPort();
     buildable.setEndPort(fluent.getEndPort());
@@ -49,4 +29,5 @@ public class V1NetworkPolicyPortBuilder extends V1NetworkPolicyPortFluentImpl<V1
     return buildable;
   }
   
+
 }

@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1BoundObjectReferenceBuilder extends V1BoundObjectReferenceFluentImpl<V1BoundObjectReferenceBuilder> implements VisitableBuilder<V1BoundObjectReference,V1BoundObjectReferenceBuilder>{
+public class V1BoundObjectReferenceBuilder extends V1BoundObjectReferenceFluent<V1BoundObjectReferenceBuilder> implements VisitableBuilder<V1BoundObjectReference,V1BoundObjectReferenceBuilder>{
   public V1BoundObjectReferenceBuilder() {
-    this(false);
+    this(new V1BoundObjectReference());
   }
-  public V1BoundObjectReferenceBuilder(Boolean validationEnabled) {
-    this(new V1BoundObjectReference(), validationEnabled);
-  }
+  
   public V1BoundObjectReferenceBuilder(V1BoundObjectReferenceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1BoundObjectReference());
   }
-  public V1BoundObjectReferenceBuilder(V1BoundObjectReferenceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1BoundObjectReference(), validationEnabled);
-  }
+  
   public V1BoundObjectReferenceBuilder(V1BoundObjectReferenceFluent<?> fluent,V1BoundObjectReference instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1BoundObjectReferenceBuilder(V1BoundObjectReferenceFluent<?> fluent,V1BoundObjectReference instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withKind(instance.getKind());
-      fluent.withName(instance.getName());
-      fluent.withUid(instance.getUid());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1BoundObjectReferenceBuilder(V1BoundObjectReference instance) {
-    this(instance,false);
-  }
-  public V1BoundObjectReferenceBuilder(V1BoundObjectReference instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withKind(instance.getKind());
-      this.withName(instance.getName());
-      this.withUid(instance.getUid());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1BoundObjectReferenceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1BoundObjectReference build() {
     V1BoundObjectReference buildable = new V1BoundObjectReference();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -52,4 +30,5 @@ public class V1BoundObjectReferenceBuilder extends V1BoundObjectReferenceFluentI
     return buildable;
   }
   
+
 }

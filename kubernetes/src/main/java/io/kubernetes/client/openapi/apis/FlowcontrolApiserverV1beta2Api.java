@@ -40,9 +40,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import jakarta.ws.rs.core.GenericType;
 
 public class FlowcontrolApiserverV1beta2Api {
     private ApiClient localVarApiClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
     public FlowcontrolApiserverV1beta2Api() {
         this(Configuration.getDefaultApiClient());
@@ -58,6 +61,22 @@ public class FlowcontrolApiserverV1beta2Api {
 
     public void setApiClient(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
+    }
+
+    public int getHostIndex() {
+        return localHostIndex;
+    }
+
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
+
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
+
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
     }
 
     /**
@@ -80,6 +99,19 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call createFlowSchemaCall(V1beta2FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -87,6 +119,10 @@ public class FlowcontrolApiserverV1beta2Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -103,11 +139,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -115,26 +150,25 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createFlowSchemaValidateBeforeCall(V1beta2FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createFlowSchema(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createFlowSchemaCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return createFlowSchemaCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -234,6 +268,19 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call createPriorityLevelConfigurationCall(V1beta2PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -241,6 +288,10 @@ public class FlowcontrolApiserverV1beta2Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -257,11 +308,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -269,26 +319,25 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createPriorityLevelConfigurationValidateBeforeCall(V1beta2PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createPriorityLevelConfiguration(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createPriorityLevelConfigurationCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return createPriorityLevelConfigurationCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -395,6 +444,19 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call deleteCollectionFlowSchemaCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -402,6 +464,10 @@ public class FlowcontrolApiserverV1beta2Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -454,11 +520,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -466,21 +531,20 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionFlowSchemaValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = deleteCollectionFlowSchemaCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
-        return localVarCall;
+        return deleteCollectionFlowSchemaCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
@@ -608,6 +672,19 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call deleteCollectionPriorityLevelConfigurationCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -615,6 +692,10 @@ public class FlowcontrolApiserverV1beta2Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -667,11 +748,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -679,21 +759,20 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionPriorityLevelConfigurationValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = deleteCollectionPriorityLevelConfigurationCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
-        return localVarCall;
+        return deleteCollectionPriorityLevelConfigurationCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
@@ -815,14 +894,31 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call deleteFlowSchemaCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/flowschemas/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -843,11 +939,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -855,26 +950,25 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteFlowSchemaValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteFlowSchema(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteFlowSchemaCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
-        return localVarCall;
+        return deleteFlowSchemaCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
@@ -978,14 +1072,31 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call deletePriorityLevelConfigurationCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/prioritylevelconfigurations/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1006,11 +1117,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1018,26 +1128,25 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deletePriorityLevelConfigurationValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deletePriorityLevelConfiguration(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deletePriorityLevelConfigurationCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
-        return localVarCall;
+        return deletePriorityLevelConfigurationCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
@@ -1133,6 +1242,19 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1143,8 +1265,11 @@ public class FlowcontrolApiserverV1beta2Api {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1152,21 +1277,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAPIResourcesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = getAPIResourcesCall(_callback);
-        return localVarCall;
+        return getAPIResourcesCall(_callback);
 
     }
 
@@ -1249,6 +1372,19 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call listFlowSchemaCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1256,6 +1392,10 @@ public class FlowcontrolApiserverV1beta2Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1300,11 +1440,12 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1312,21 +1453,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listFlowSchemaValidateBeforeCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = listFlowSchemaCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listFlowSchemaCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -1442,6 +1581,19 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call listPriorityLevelConfigurationCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -1449,6 +1601,10 @@ public class FlowcontrolApiserverV1beta2Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1493,11 +1649,12 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1505,21 +1662,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listPriorityLevelConfigurationValidateBeforeCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = listPriorityLevelConfigurationCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listPriorityLevelConfigurationCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -1632,14 +1787,31 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call patchFlowSchemaCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/flowschemas/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1660,11 +1832,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1672,18 +1843,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchFlowSchemaValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchFlowSchema(Async)");
@@ -1694,9 +1866,7 @@ public class FlowcontrolApiserverV1beta2Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchFlowSchema(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchFlowSchemaCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchFlowSchemaCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -1800,14 +1970,31 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call patchFlowSchemaStatusCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/flowschemas/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1828,11 +2015,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1840,18 +2026,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchFlowSchemaStatusValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchFlowSchemaStatus(Async)");
@@ -1862,9 +2049,7 @@ public class FlowcontrolApiserverV1beta2Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchFlowSchemaStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchFlowSchemaStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchFlowSchemaStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -1968,14 +2153,31 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call patchPriorityLevelConfigurationCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/prioritylevelconfigurations/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1996,11 +2198,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2008,18 +2209,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchPriorityLevelConfigurationValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchPriorityLevelConfiguration(Async)");
@@ -2030,9 +2232,7 @@ public class FlowcontrolApiserverV1beta2Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchPriorityLevelConfiguration(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchPriorityLevelConfigurationCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchPriorityLevelConfigurationCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -2136,14 +2336,31 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call patchPriorityLevelConfigurationStatusCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/prioritylevelconfigurations/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -2164,11 +2381,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2176,18 +2392,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchPriorityLevelConfigurationStatusValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchPriorityLevelConfigurationStatus(Async)");
@@ -2198,9 +2415,7 @@ public class FlowcontrolApiserverV1beta2Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchPriorityLevelConfigurationStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchPriorityLevelConfigurationStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchPriorityLevelConfigurationStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -2298,23 +2513,39 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call readFlowSchemaCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/flowschemas/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2322,26 +2553,24 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readFlowSchemaValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readFlowSchema(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readFlowSchemaCall(name, pretty, _callback);
-        return localVarCall;
+        return readFlowSchemaCall(name, pretty, _callback);
 
     }
 
@@ -2421,23 +2650,39 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call readFlowSchemaStatusCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/flowschemas/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2445,26 +2690,24 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readFlowSchemaStatusValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readFlowSchemaStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readFlowSchemaStatusCall(name, pretty, _callback);
-        return localVarCall;
+        return readFlowSchemaStatusCall(name, pretty, _callback);
 
     }
 
@@ -2544,23 +2787,39 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call readPriorityLevelConfigurationCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/prioritylevelconfigurations/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2568,26 +2827,24 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readPriorityLevelConfigurationValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readPriorityLevelConfiguration(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readPriorityLevelConfigurationCall(name, pretty, _callback);
-        return localVarCall;
+        return readPriorityLevelConfigurationCall(name, pretty, _callback);
 
     }
 
@@ -2667,23 +2924,39 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call readPriorityLevelConfigurationStatusCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/prioritylevelconfigurations/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2691,26 +2964,24 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readPriorityLevelConfigurationStatusValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readPriorityLevelConfigurationStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readPriorityLevelConfigurationStatusCall(name, pretty, _callback);
-        return localVarCall;
+        return readPriorityLevelConfigurationStatusCall(name, pretty, _callback);
 
     }
 
@@ -2795,14 +3066,31 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call replaceFlowSchemaCall(String name, V1beta2FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/flowschemas/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -2819,11 +3107,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2831,18 +3118,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceFlowSchemaValidateBeforeCall(String name, V1beta2FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceFlowSchema(Async)");
@@ -2853,9 +3141,7 @@ public class FlowcontrolApiserverV1beta2Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceFlowSchema(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceFlowSchemaCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceFlowSchemaCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -2955,14 +3241,31 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call replaceFlowSchemaStatusCall(String name, V1beta2FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/flowschemas/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -2979,11 +3282,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2991,18 +3293,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceFlowSchemaStatusValidateBeforeCall(String name, V1beta2FlowSchema body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceFlowSchemaStatus(Async)");
@@ -3013,9 +3316,7 @@ public class FlowcontrolApiserverV1beta2Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceFlowSchemaStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceFlowSchemaStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceFlowSchemaStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -3115,14 +3416,31 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call replacePriorityLevelConfigurationCall(String name, V1beta2PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/prioritylevelconfigurations/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -3139,11 +3457,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3151,18 +3468,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replacePriorityLevelConfigurationValidateBeforeCall(String name, V1beta2PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replacePriorityLevelConfiguration(Async)");
@@ -3173,9 +3491,7 @@ public class FlowcontrolApiserverV1beta2Api {
             throw new ApiException("Missing the required parameter 'body' when calling replacePriorityLevelConfiguration(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replacePriorityLevelConfigurationCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replacePriorityLevelConfigurationCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -3275,14 +3591,31 @@ public class FlowcontrolApiserverV1beta2Api {
      </table>
      */
     public okhttp3.Call replacePriorityLevelConfigurationStatusCall(String name, V1beta2PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/flowcontrol.apiserver.k8s.io/v1beta2/prioritylevelconfigurations/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -3299,11 +3632,10 @@ public class FlowcontrolApiserverV1beta2Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3311,18 +3643,19 @@ public class FlowcontrolApiserverV1beta2Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replacePriorityLevelConfigurationStatusValidateBeforeCall(String name, V1beta2PriorityLevelConfiguration body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replacePriorityLevelConfigurationStatus(Async)");
@@ -3333,9 +3666,7 @@ public class FlowcontrolApiserverV1beta2Api {
             throw new ApiException("Missing the required parameter 'body' when calling replacePriorityLevelConfigurationStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replacePriorityLevelConfigurationStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replacePriorityLevelConfigurationStatusCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 

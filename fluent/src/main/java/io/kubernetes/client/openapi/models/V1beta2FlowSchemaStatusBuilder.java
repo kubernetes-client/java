@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1beta2FlowSchemaStatusBuilder extends V1beta2FlowSchemaStatusFluentImpl<V1beta2FlowSchemaStatusBuilder> implements VisitableBuilder<V1beta2FlowSchemaStatus,V1beta2FlowSchemaStatusBuilder>{
+public class V1beta2FlowSchemaStatusBuilder extends V1beta2FlowSchemaStatusFluent<V1beta2FlowSchemaStatusBuilder> implements VisitableBuilder<V1beta2FlowSchemaStatus,V1beta2FlowSchemaStatusBuilder>{
   public V1beta2FlowSchemaStatusBuilder() {
-    this(false);
+    this(new V1beta2FlowSchemaStatus());
   }
-  public V1beta2FlowSchemaStatusBuilder(Boolean validationEnabled) {
-    this(new V1beta2FlowSchemaStatus(), validationEnabled);
-  }
+  
   public V1beta2FlowSchemaStatusBuilder(V1beta2FlowSchemaStatusFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1beta2FlowSchemaStatus());
   }
-  public V1beta2FlowSchemaStatusBuilder(V1beta2FlowSchemaStatusFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1beta2FlowSchemaStatus(), validationEnabled);
-  }
+  
   public V1beta2FlowSchemaStatusBuilder(V1beta2FlowSchemaStatusFluent<?> fluent,V1beta2FlowSchemaStatus instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1beta2FlowSchemaStatusBuilder(V1beta2FlowSchemaStatusFluent<?> fluent,V1beta2FlowSchemaStatus instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withConditions(instance.getConditions());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1beta2FlowSchemaStatusBuilder(V1beta2FlowSchemaStatus instance) {
-    this(instance,false);
-  }
-  public V1beta2FlowSchemaStatusBuilder(V1beta2FlowSchemaStatus instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withConditions(instance.getConditions());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1beta2FlowSchemaStatusFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1beta2FlowSchemaStatus build() {
     V1beta2FlowSchemaStatus buildable = new V1beta2FlowSchemaStatus();
-    buildable.setConditions(fluent.getConditions());
+    buildable.setConditions(fluent.buildConditions());
     return buildable;
   }
   
+
 }

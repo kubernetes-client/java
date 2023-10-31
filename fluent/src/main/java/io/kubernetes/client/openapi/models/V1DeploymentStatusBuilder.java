@@ -1,61 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1DeploymentStatusBuilder extends V1DeploymentStatusFluentImpl<V1DeploymentStatusBuilder> implements VisitableBuilder<V1DeploymentStatus,V1DeploymentStatusBuilder>{
+public class V1DeploymentStatusBuilder extends V1DeploymentStatusFluent<V1DeploymentStatusBuilder> implements VisitableBuilder<V1DeploymentStatus,V1DeploymentStatusBuilder>{
   public V1DeploymentStatusBuilder() {
-    this(false);
+    this(new V1DeploymentStatus());
   }
-  public V1DeploymentStatusBuilder(Boolean validationEnabled) {
-    this(new V1DeploymentStatus(), validationEnabled);
-  }
+  
   public V1DeploymentStatusBuilder(V1DeploymentStatusFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1DeploymentStatus());
   }
-  public V1DeploymentStatusBuilder(V1DeploymentStatusFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1DeploymentStatus(), validationEnabled);
-  }
+  
   public V1DeploymentStatusBuilder(V1DeploymentStatusFluent<?> fluent,V1DeploymentStatus instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1DeploymentStatusBuilder(V1DeploymentStatusFluent<?> fluent,V1DeploymentStatus instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAvailableReplicas(instance.getAvailableReplicas());
-      fluent.withCollisionCount(instance.getCollisionCount());
-      fluent.withConditions(instance.getConditions());
-      fluent.withObservedGeneration(instance.getObservedGeneration());
-      fluent.withReadyReplicas(instance.getReadyReplicas());
-      fluent.withReplicas(instance.getReplicas());
-      fluent.withUnavailableReplicas(instance.getUnavailableReplicas());
-      fluent.withUpdatedReplicas(instance.getUpdatedReplicas());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1DeploymentStatusBuilder(V1DeploymentStatus instance) {
-    this(instance,false);
-  }
-  public V1DeploymentStatusBuilder(V1DeploymentStatus instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAvailableReplicas(instance.getAvailableReplicas());
-      this.withCollisionCount(instance.getCollisionCount());
-      this.withConditions(instance.getConditions());
-      this.withObservedGeneration(instance.getObservedGeneration());
-      this.withReadyReplicas(instance.getReadyReplicas());
-      this.withReplicas(instance.getReplicas());
-      this.withUnavailableReplicas(instance.getUnavailableReplicas());
-      this.withUpdatedReplicas(instance.getUpdatedReplicas());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1DeploymentStatusFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1DeploymentStatus build() {
     V1DeploymentStatus buildable = new V1DeploymentStatus();
     buildable.setAvailableReplicas(fluent.getAvailableReplicas());
     buildable.setCollisionCount(fluent.getCollisionCount());
-    buildable.setConditions(fluent.getConditions());
+    buildable.setConditions(fluent.buildConditions());
     buildable.setObservedGeneration(fluent.getObservedGeneration());
     buildable.setReadyReplicas(fluent.getReadyReplicas());
     buildable.setReplicas(fluent.getReplicas());
@@ -64,4 +34,5 @@ public class V1DeploymentStatusBuilder extends V1DeploymentStatusFluentImpl<V1De
     return buildable;
   }
   
+
 }

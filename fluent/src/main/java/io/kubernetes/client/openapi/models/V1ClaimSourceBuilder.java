@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ClaimSourceBuilder extends V1ClaimSourceFluentImpl<V1ClaimSourceBuilder> implements VisitableBuilder<V1ClaimSource,V1ClaimSourceBuilder>{
+public class V1ClaimSourceBuilder extends V1ClaimSourceFluent<V1ClaimSourceBuilder> implements VisitableBuilder<V1ClaimSource,V1ClaimSourceBuilder>{
   public V1ClaimSourceBuilder() {
-    this(false);
+    this(new V1ClaimSource());
   }
-  public V1ClaimSourceBuilder(Boolean validationEnabled) {
-    this(new V1ClaimSource(), validationEnabled);
-  }
+  
   public V1ClaimSourceBuilder(V1ClaimSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ClaimSource());
   }
-  public V1ClaimSourceBuilder(V1ClaimSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ClaimSource(), validationEnabled);
-  }
+  
   public V1ClaimSourceBuilder(V1ClaimSourceFluent<?> fluent,V1ClaimSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ClaimSourceBuilder(V1ClaimSourceFluent<?> fluent,V1ClaimSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withResourceClaimName(instance.getResourceClaimName());
-      fluent.withResourceClaimTemplateName(instance.getResourceClaimTemplateName());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ClaimSourceBuilder(V1ClaimSource instance) {
-    this(instance,false);
-  }
-  public V1ClaimSourceBuilder(V1ClaimSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withResourceClaimName(instance.getResourceClaimName());
-      this.withResourceClaimTemplateName(instance.getResourceClaimTemplateName());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ClaimSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ClaimSource build() {
     V1ClaimSource buildable = new V1ClaimSource();
     buildable.setResourceClaimName(fluent.getResourceClaimName());
@@ -46,4 +28,5 @@ public class V1ClaimSourceBuilder extends V1ClaimSourceFluentImpl<V1ClaimSourceB
     return buildable;
   }
   
+
 }

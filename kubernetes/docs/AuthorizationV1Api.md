@@ -2,16 +2,16 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createNamespacedLocalSubjectAccessReview**](AuthorizationV1Api.md#createNamespacedLocalSubjectAccessReview) | **POST** /apis/authorization.k8s.io/v1/namespaces/{namespace}/localsubjectaccessreviews | 
-[**createSelfSubjectAccessReview**](AuthorizationV1Api.md#createSelfSubjectAccessReview) | **POST** /apis/authorization.k8s.io/v1/selfsubjectaccessreviews | 
-[**createSelfSubjectRulesReview**](AuthorizationV1Api.md#createSelfSubjectRulesReview) | **POST** /apis/authorization.k8s.io/v1/selfsubjectrulesreviews | 
-[**createSubjectAccessReview**](AuthorizationV1Api.md#createSubjectAccessReview) | **POST** /apis/authorization.k8s.io/v1/subjectaccessreviews | 
-[**getAPIResources**](AuthorizationV1Api.md#getAPIResources) | **GET** /apis/authorization.k8s.io/v1/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createNamespacedLocalSubjectAccessReview**](AuthorizationV1Api.md#createNamespacedLocalSubjectAccessReview) | **POST** /apis/authorization.k8s.io/v1/namespaces/{namespace}/localsubjectaccessreviews |  |
+| [**createSelfSubjectAccessReview**](AuthorizationV1Api.md#createSelfSubjectAccessReview) | **POST** /apis/authorization.k8s.io/v1/selfsubjectaccessreviews |  |
+| [**createSelfSubjectRulesReview**](AuthorizationV1Api.md#createSelfSubjectRulesReview) | **POST** /apis/authorization.k8s.io/v1/selfsubjectrulesreviews |  |
+| [**createSubjectAccessReview**](AuthorizationV1Api.md#createSubjectAccessReview) | **POST** /apis/authorization.k8s.io/v1/subjectaccessreviews |  |
+| [**getAPIResources**](AuthorizationV1Api.md#getAPIResources) | **GET** /apis/authorization.k8s.io/v1/ |  |
 
 
-<a name="createNamespacedLocalSubjectAccessReview"></a>
+<a id="createNamespacedLocalSubjectAccessReview"></a>
 # **createNamespacedLocalSubjectAccessReview**
 > V1LocalSubjectAccessReview createNamespacedLocalSubjectAccessReview(namespace, body, dryRun, fieldManager, fieldValidation, pretty)
 
@@ -63,14 +63,14 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **namespace** | **String**| object name and auth scope, such as for teams and projects |
- **body** | [**V1LocalSubjectAccessReview**](V1LocalSubjectAccessReview.md)|  |
- **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
- **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
- **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional]
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **namespace** | **String**| object name and auth scope, such as for teams and projects | |
+| **body** | [**V1LocalSubjectAccessReview**](V1LocalSubjectAccessReview.md)|  | |
+| **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] |
+| **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] |
+| **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional] |
+| **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] |
 
 ### Return type
 
@@ -82,18 +82,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**201** | Created |  -  |
-**202** | Accepted |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **201** | Created |  -  |
+| **202** | Accepted |  -  |
+| **401** | Unauthorized |  -  |
 
-<a name="createSelfSubjectAccessReview"></a>
+<a id="createSelfSubjectAccessReview"></a>
 # **createSelfSubjectAccessReview**
 > V1SelfSubjectAccessReview createSelfSubjectAccessReview(body, dryRun, fieldManager, fieldValidation, pretty)
 
@@ -144,13 +144,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1SelfSubjectAccessReview**](V1SelfSubjectAccessReview.md)|  |
- **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
- **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
- **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional]
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1SelfSubjectAccessReview**](V1SelfSubjectAccessReview.md)|  | |
+| **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] |
+| **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] |
+| **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional] |
+| **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] |
 
 ### Return type
 
@@ -162,18 +162,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**201** | Created |  -  |
-**202** | Accepted |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **201** | Created |  -  |
+| **202** | Accepted |  -  |
+| **401** | Unauthorized |  -  |
 
-<a name="createSelfSubjectRulesReview"></a>
+<a id="createSelfSubjectRulesReview"></a>
 # **createSelfSubjectRulesReview**
 > V1SelfSubjectRulesReview createSelfSubjectRulesReview(body, dryRun, fieldManager, fieldValidation, pretty)
 
@@ -224,13 +224,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1SelfSubjectRulesReview**](V1SelfSubjectRulesReview.md)|  |
- **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
- **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
- **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional]
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1SelfSubjectRulesReview**](V1SelfSubjectRulesReview.md)|  | |
+| **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] |
+| **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] |
+| **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional] |
+| **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] |
 
 ### Return type
 
@@ -242,18 +242,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**201** | Created |  -  |
-**202** | Accepted |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **201** | Created |  -  |
+| **202** | Accepted |  -  |
+| **401** | Unauthorized |  -  |
 
-<a name="createSubjectAccessReview"></a>
+<a id="createSubjectAccessReview"></a>
 # **createSubjectAccessReview**
 > V1SubjectAccessReview createSubjectAccessReview(body, dryRun, fieldManager, fieldValidation, pretty)
 
@@ -304,13 +304,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1SubjectAccessReview**](V1SubjectAccessReview.md)|  |
- **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
- **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
- **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional]
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1SubjectAccessReview**](V1SubjectAccessReview.md)|  | |
+| **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] |
+| **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] |
+| **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional] |
+| **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] |
 
 ### Return type
 
@@ -322,18 +322,18 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json, application/yaml, application/vnd.kubernetes.protobuf
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**201** | Created |  -  |
-**202** | Accepted |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **201** | Created |  -  |
+| **202** | Accepted |  -  |
+| **401** | Unauthorized |  -  |
 
-<a name="getAPIResources"></a>
+<a id="getAPIResources"></a>
 # **getAPIResources**
 > V1APIResourceList getAPIResources()
 
@@ -396,6 +396,6 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
 

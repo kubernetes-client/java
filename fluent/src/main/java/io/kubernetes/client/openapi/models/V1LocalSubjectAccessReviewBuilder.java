@@ -1,58 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1LocalSubjectAccessReviewBuilder extends V1LocalSubjectAccessReviewFluentImpl<V1LocalSubjectAccessReviewBuilder> implements VisitableBuilder<V1LocalSubjectAccessReview,V1LocalSubjectAccessReviewBuilder>{
+public class V1LocalSubjectAccessReviewBuilder extends V1LocalSubjectAccessReviewFluent<V1LocalSubjectAccessReviewBuilder> implements VisitableBuilder<V1LocalSubjectAccessReview,V1LocalSubjectAccessReviewBuilder>{
   public V1LocalSubjectAccessReviewBuilder() {
-    this(false);
+    this(new V1LocalSubjectAccessReview());
   }
-  public V1LocalSubjectAccessReviewBuilder(Boolean validationEnabled) {
-    this(new V1LocalSubjectAccessReview(), validationEnabled);
-  }
+  
   public V1LocalSubjectAccessReviewBuilder(V1LocalSubjectAccessReviewFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1LocalSubjectAccessReview());
   }
-  public V1LocalSubjectAccessReviewBuilder(V1LocalSubjectAccessReviewFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1LocalSubjectAccessReview(), validationEnabled);
-  }
+  
   public V1LocalSubjectAccessReviewBuilder(V1LocalSubjectAccessReviewFluent<?> fluent,V1LocalSubjectAccessReview instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1LocalSubjectAccessReviewBuilder(V1LocalSubjectAccessReviewFluent<?> fluent,V1LocalSubjectAccessReview instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withKind(instance.getKind());
-      fluent.withMetadata(instance.getMetadata());
-      fluent.withSpec(instance.getSpec());
-      fluent.withStatus(instance.getStatus());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1LocalSubjectAccessReviewBuilder(V1LocalSubjectAccessReview instance) {
-    this(instance,false);
-  }
-  public V1LocalSubjectAccessReviewBuilder(V1LocalSubjectAccessReview instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withKind(instance.getKind());
-      this.withMetadata(instance.getMetadata());
-      this.withSpec(instance.getSpec());
-      this.withStatus(instance.getStatus());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1LocalSubjectAccessReviewFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1LocalSubjectAccessReview build() {
     V1LocalSubjectAccessReview buildable = new V1LocalSubjectAccessReview();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());
-    buildable.setMetadata(fluent.getMetadata());
-    buildable.setSpec(fluent.getSpec());
-    buildable.setStatus(fluent.getStatus());
+    buildable.setMetadata(fluent.buildMetadata());
+    buildable.setSpec(fluent.buildSpec());
+    buildable.setStatus(fluent.buildStatus());
     return buildable;
   }
   
+
 }

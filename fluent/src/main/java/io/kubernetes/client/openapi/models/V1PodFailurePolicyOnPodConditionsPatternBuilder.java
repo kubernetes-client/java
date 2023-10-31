@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1PodFailurePolicyOnPodConditionsPatternBuilder extends V1PodFailurePolicyOnPodConditionsPatternFluentImpl<V1PodFailurePolicyOnPodConditionsPatternBuilder> implements VisitableBuilder<V1PodFailurePolicyOnPodConditionsPattern,V1PodFailurePolicyOnPodConditionsPatternBuilder>{
+public class V1PodFailurePolicyOnPodConditionsPatternBuilder extends V1PodFailurePolicyOnPodConditionsPatternFluent<V1PodFailurePolicyOnPodConditionsPatternBuilder> implements VisitableBuilder<V1PodFailurePolicyOnPodConditionsPattern,V1PodFailurePolicyOnPodConditionsPatternBuilder>{
   public V1PodFailurePolicyOnPodConditionsPatternBuilder() {
-    this(false);
+    this(new V1PodFailurePolicyOnPodConditionsPattern());
   }
-  public V1PodFailurePolicyOnPodConditionsPatternBuilder(Boolean validationEnabled) {
-    this(new V1PodFailurePolicyOnPodConditionsPattern(), validationEnabled);
-  }
+  
   public V1PodFailurePolicyOnPodConditionsPatternBuilder(V1PodFailurePolicyOnPodConditionsPatternFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1PodFailurePolicyOnPodConditionsPattern());
   }
-  public V1PodFailurePolicyOnPodConditionsPatternBuilder(V1PodFailurePolicyOnPodConditionsPatternFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1PodFailurePolicyOnPodConditionsPattern(), validationEnabled);
-  }
+  
   public V1PodFailurePolicyOnPodConditionsPatternBuilder(V1PodFailurePolicyOnPodConditionsPatternFluent<?> fluent,V1PodFailurePolicyOnPodConditionsPattern instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1PodFailurePolicyOnPodConditionsPatternBuilder(V1PodFailurePolicyOnPodConditionsPatternFluent<?> fluent,V1PodFailurePolicyOnPodConditionsPattern instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withStatus(instance.getStatus());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1PodFailurePolicyOnPodConditionsPatternBuilder(V1PodFailurePolicyOnPodConditionsPattern instance) {
-    this(instance,false);
-  }
-  public V1PodFailurePolicyOnPodConditionsPatternBuilder(V1PodFailurePolicyOnPodConditionsPattern instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withStatus(instance.getStatus());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1PodFailurePolicyOnPodConditionsPatternFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1PodFailurePolicyOnPodConditionsPattern build() {
     V1PodFailurePolicyOnPodConditionsPattern buildable = new V1PodFailurePolicyOnPodConditionsPattern();
     buildable.setStatus(fluent.getStatus());
@@ -46,4 +28,5 @@ public class V1PodFailurePolicyOnPodConditionsPatternBuilder extends V1PodFailur
     return buildable;
   }
   
+
 }

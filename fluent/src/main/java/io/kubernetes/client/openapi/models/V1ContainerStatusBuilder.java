@@ -1,76 +1,41 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ContainerStatusBuilder extends V1ContainerStatusFluentImpl<V1ContainerStatusBuilder> implements VisitableBuilder<V1ContainerStatus,V1ContainerStatusBuilder>{
+public class V1ContainerStatusBuilder extends V1ContainerStatusFluent<V1ContainerStatusBuilder> implements VisitableBuilder<V1ContainerStatus,V1ContainerStatusBuilder>{
   public V1ContainerStatusBuilder() {
-    this(false);
+    this(new V1ContainerStatus());
   }
-  public V1ContainerStatusBuilder(Boolean validationEnabled) {
-    this(new V1ContainerStatus(), validationEnabled);
-  }
+  
   public V1ContainerStatusBuilder(V1ContainerStatusFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ContainerStatus());
   }
-  public V1ContainerStatusBuilder(V1ContainerStatusFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ContainerStatus(), validationEnabled);
-  }
+  
   public V1ContainerStatusBuilder(V1ContainerStatusFluent<?> fluent,V1ContainerStatus instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ContainerStatusBuilder(V1ContainerStatusFluent<?> fluent,V1ContainerStatus instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAllocatedResources(instance.getAllocatedResources());
-      fluent.withContainerID(instance.getContainerID());
-      fluent.withImage(instance.getImage());
-      fluent.withImageID(instance.getImageID());
-      fluent.withLastState(instance.getLastState());
-      fluent.withName(instance.getName());
-      fluent.withReady(instance.getReady());
-      fluent.withResources(instance.getResources());
-      fluent.withRestartCount(instance.getRestartCount());
-      fluent.withStarted(instance.getStarted());
-      fluent.withState(instance.getState());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ContainerStatusBuilder(V1ContainerStatus instance) {
-    this(instance,false);
-  }
-  public V1ContainerStatusBuilder(V1ContainerStatus instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAllocatedResources(instance.getAllocatedResources());
-      this.withContainerID(instance.getContainerID());
-      this.withImage(instance.getImage());
-      this.withImageID(instance.getImageID());
-      this.withLastState(instance.getLastState());
-      this.withName(instance.getName());
-      this.withReady(instance.getReady());
-      this.withResources(instance.getResources());
-      this.withRestartCount(instance.getRestartCount());
-      this.withStarted(instance.getStarted());
-      this.withState(instance.getState());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ContainerStatusFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ContainerStatus build() {
     V1ContainerStatus buildable = new V1ContainerStatus();
     buildable.setAllocatedResources(fluent.getAllocatedResources());
     buildable.setContainerID(fluent.getContainerID());
     buildable.setImage(fluent.getImage());
     buildable.setImageID(fluent.getImageID());
-    buildable.setLastState(fluent.getLastState());
+    buildable.setLastState(fluent.buildLastState());
     buildable.setName(fluent.getName());
     buildable.setReady(fluent.getReady());
-    buildable.setResources(fluent.getResources());
+    buildable.setResources(fluent.buildResources());
     buildable.setRestartCount(fluent.getRestartCount());
     buildable.setStarted(fluent.getStarted());
-    buildable.setState(fluent.getState());
+    buildable.setState(fluent.buildState());
     return buildable;
   }
   
+
 }

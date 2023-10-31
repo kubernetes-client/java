@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1SessionAffinityConfigBuilder extends V1SessionAffinityConfigFluentImpl<V1SessionAffinityConfigBuilder> implements VisitableBuilder<V1SessionAffinityConfig,V1SessionAffinityConfigBuilder>{
+public class V1SessionAffinityConfigBuilder extends V1SessionAffinityConfigFluent<V1SessionAffinityConfigBuilder> implements VisitableBuilder<V1SessionAffinityConfig,V1SessionAffinityConfigBuilder>{
   public V1SessionAffinityConfigBuilder() {
-    this(false);
+    this(new V1SessionAffinityConfig());
   }
-  public V1SessionAffinityConfigBuilder(Boolean validationEnabled) {
-    this(new V1SessionAffinityConfig(), validationEnabled);
-  }
+  
   public V1SessionAffinityConfigBuilder(V1SessionAffinityConfigFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1SessionAffinityConfig());
   }
-  public V1SessionAffinityConfigBuilder(V1SessionAffinityConfigFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1SessionAffinityConfig(), validationEnabled);
-  }
+  
   public V1SessionAffinityConfigBuilder(V1SessionAffinityConfigFluent<?> fluent,V1SessionAffinityConfig instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1SessionAffinityConfigBuilder(V1SessionAffinityConfigFluent<?> fluent,V1SessionAffinityConfig instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withClientIP(instance.getClientIP());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1SessionAffinityConfigBuilder(V1SessionAffinityConfig instance) {
-    this(instance,false);
-  }
-  public V1SessionAffinityConfigBuilder(V1SessionAffinityConfig instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withClientIP(instance.getClientIP());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1SessionAffinityConfigFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1SessionAffinityConfig build() {
     V1SessionAffinityConfig buildable = new V1SessionAffinityConfig();
-    buildable.setClientIP(fluent.getClientIP());
+    buildable.setClientIP(fluent.buildClientIP());
     return buildable;
   }
   
+
 }

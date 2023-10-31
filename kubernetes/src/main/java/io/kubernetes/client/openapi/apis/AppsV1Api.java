@@ -47,9 +47,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import jakarta.ws.rs.core.GenericType;
 
 public class AppsV1Api {
     private ApiClient localVarApiClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
     public AppsV1Api() {
         this(Configuration.getDefaultApiClient());
@@ -65,6 +68,22 @@ public class AppsV1Api {
 
     public void setApiClient(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
+    }
+
+    public int getHostIndex() {
+        return localHostIndex;
+    }
+
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
+
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
+
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
     }
 
     /**
@@ -88,14 +107,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call createNamespacedControllerRevisionCall(String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/controllerrevisions"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -112,11 +148,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -124,18 +159,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createNamespacedControllerRevisionValidateBeforeCall(String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedControllerRevision(Async)");
@@ -146,9 +182,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling createNamespacedControllerRevision(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createNamespacedControllerRevisionCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return createNamespacedControllerRevisionCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -252,14 +286,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call createNamespacedDaemonSetCall(String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/daemonsets"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -276,11 +327,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -288,18 +338,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createNamespacedDaemonSetValidateBeforeCall(String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedDaemonSet(Async)");
@@ -310,9 +361,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling createNamespacedDaemonSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createNamespacedDaemonSetCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return createNamespacedDaemonSetCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -416,14 +465,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call createNamespacedDeploymentCall(String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -440,11 +506,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -452,18 +517,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createNamespacedDeploymentValidateBeforeCall(String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedDeployment(Async)");
@@ -474,9 +540,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling createNamespacedDeployment(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createNamespacedDeploymentCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return createNamespacedDeploymentCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -580,14 +644,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call createNamespacedReplicaSetCall(String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -604,11 +685,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -616,18 +696,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createNamespacedReplicaSetValidateBeforeCall(String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedReplicaSet(Async)");
@@ -638,9 +719,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling createNamespacedReplicaSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createNamespacedReplicaSetCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return createNamespacedReplicaSetCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -744,14 +823,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call createNamespacedStatefulSetCall(String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -768,11 +864,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -780,18 +875,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createNamespacedStatefulSetValidateBeforeCall(String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedStatefulSet(Async)");
@@ -802,9 +898,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling createNamespacedStatefulSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createNamespacedStatefulSetCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return createNamespacedStatefulSetCall(namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -915,14 +1009,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call deleteCollectionNamespacedControllerRevisionCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/controllerrevisions"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -975,11 +1086,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -987,26 +1097,25 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionNamespacedControllerRevisionValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedControllerRevision(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteCollectionNamespacedControllerRevisionCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
-        return localVarCall;
+        return deleteCollectionNamespacedControllerRevisionCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
@@ -1138,14 +1247,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call deleteCollectionNamespacedDaemonSetCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/daemonsets"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1198,11 +1324,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1210,26 +1335,25 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionNamespacedDaemonSetValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedDaemonSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteCollectionNamespacedDaemonSetCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
-        return localVarCall;
+        return deleteCollectionNamespacedDaemonSetCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
@@ -1361,14 +1485,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call deleteCollectionNamespacedDeploymentCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1421,11 +1562,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1433,26 +1573,25 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionNamespacedDeploymentValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedDeployment(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteCollectionNamespacedDeploymentCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
-        return localVarCall;
+        return deleteCollectionNamespacedDeploymentCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
@@ -1584,14 +1723,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call deleteCollectionNamespacedReplicaSetCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1644,11 +1800,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1656,26 +1811,25 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionNamespacedReplicaSetValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedReplicaSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteCollectionNamespacedReplicaSetCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
-        return localVarCall;
+        return deleteCollectionNamespacedReplicaSetCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
@@ -1807,14 +1961,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call deleteCollectionNamespacedStatefulSetCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1867,11 +2038,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1879,26 +2049,25 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionNamespacedStatefulSetValidateBeforeCall(String namespace, String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteCollectionNamespacedStatefulSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteCollectionNamespacedStatefulSetCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
-        return localVarCall;
+        return deleteCollectionNamespacedStatefulSetCall(namespace, pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
@@ -2024,15 +2193,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call deleteNamespacedControllerRevisionCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -2053,11 +2239,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2065,18 +2250,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedControllerRevision(Async)");
@@ -2087,9 +2273,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteNamespacedControllerRevision(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteNamespacedControllerRevisionCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
-        return localVarCall;
+        return deleteNamespacedControllerRevisionCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
@@ -2197,15 +2381,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call deleteNamespacedDaemonSetCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -2226,11 +2427,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2238,18 +2438,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteNamespacedDaemonSetValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedDaemonSet(Async)");
@@ -2260,9 +2461,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteNamespacedDaemonSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteNamespacedDaemonSetCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
-        return localVarCall;
+        return deleteNamespacedDaemonSetCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
@@ -2370,15 +2569,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call deleteNamespacedDeploymentCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -2399,11 +2615,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2411,18 +2626,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteNamespacedDeploymentValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedDeployment(Async)");
@@ -2433,9 +2649,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteNamespacedDeployment(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteNamespacedDeploymentCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
-        return localVarCall;
+        return deleteNamespacedDeploymentCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
@@ -2543,15 +2757,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call deleteNamespacedReplicaSetCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -2572,11 +2803,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2584,18 +2814,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteNamespacedReplicaSetValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedReplicaSet(Async)");
@@ -2606,9 +2837,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteNamespacedReplicaSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteNamespacedReplicaSetCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
-        return localVarCall;
+        return deleteNamespacedReplicaSetCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
@@ -2716,15 +2945,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call deleteNamespacedStatefulSetCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -2745,11 +2991,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2757,18 +3002,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteNamespacedStatefulSetValidateBeforeCall(String name, String namespace, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteNamespacedStatefulSet(Async)");
@@ -2779,9 +3025,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling deleteNamespacedStatefulSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteNamespacedStatefulSetCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
-        return localVarCall;
+        return deleteNamespacedStatefulSetCall(name, namespace, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
@@ -2880,6 +3124,19 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -2890,8 +3147,11 @@ public class AppsV1Api {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2899,21 +3159,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAPIResourcesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = getAPIResourcesCall(_callback);
-        return localVarCall;
+        return getAPIResourcesCall(_callback);
 
     }
 
@@ -2996,6 +3254,19 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call listControllerRevisionForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3003,6 +3274,10 @@ public class AppsV1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (allowWatchBookmarks != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
         }
@@ -3047,11 +3322,12 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3059,21 +3335,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listControllerRevisionForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = listControllerRevisionForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listControllerRevisionForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -3189,6 +3463,19 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call listDaemonSetForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3196,6 +3483,10 @@ public class AppsV1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (allowWatchBookmarks != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
         }
@@ -3240,11 +3531,12 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3252,21 +3544,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDaemonSetForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = listDaemonSetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listDaemonSetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -3382,6 +3672,19 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call listDeploymentForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -3389,6 +3692,10 @@ public class AppsV1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (allowWatchBookmarks != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
         }
@@ -3433,11 +3740,12 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3445,21 +3753,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDeploymentForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = listDeploymentForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listDeploymentForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -3576,14 +3882,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call listNamespacedControllerRevisionCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/controllerrevisions"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -3628,11 +3951,12 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3640,26 +3964,24 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listNamespacedControllerRevisionValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedControllerRevision(Async)");
         }
 
-
-        okhttp3.Call localVarCall = listNamespacedControllerRevisionCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listNamespacedControllerRevisionCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -3779,14 +4101,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call listNamespacedDaemonSetCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/daemonsets"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -3831,11 +4170,12 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -3843,26 +4183,24 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listNamespacedDaemonSetValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedDaemonSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = listNamespacedDaemonSetCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listNamespacedDaemonSetCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -3982,14 +4320,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call listNamespacedDeploymentCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -4034,11 +4389,12 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -4046,26 +4402,24 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listNamespacedDeploymentValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedDeployment(Async)");
         }
 
-
-        okhttp3.Call localVarCall = listNamespacedDeploymentCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listNamespacedDeploymentCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -4185,14 +4539,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call listNamespacedReplicaSetCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -4237,11 +4608,12 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -4249,26 +4621,24 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listNamespacedReplicaSetValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedReplicaSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = listNamespacedReplicaSetCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listNamespacedReplicaSetCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -4388,14 +4758,31 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call listNamespacedStatefulSetCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -4440,11 +4827,12 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -4452,26 +4840,24 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listNamespacedStatefulSetValidateBeforeCall(String namespace, String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling listNamespacedStatefulSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = listNamespacedStatefulSetCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listNamespacedStatefulSetCall(namespace, pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -4590,6 +4976,19 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call listReplicaSetForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4597,6 +4996,10 @@ public class AppsV1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (allowWatchBookmarks != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
         }
@@ -4641,11 +5044,12 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -4653,21 +5057,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listReplicaSetForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = listReplicaSetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listReplicaSetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -4783,6 +5185,19 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call listStatefulSetForAllNamespacesCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -4790,6 +5205,10 @@ public class AppsV1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (allowWatchBookmarks != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("allowWatchBookmarks", allowWatchBookmarks));
         }
@@ -4834,11 +5253,12 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -4846,21 +5266,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listStatefulSetForAllNamespacesValidateBeforeCall(Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String pretty, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = listStatefulSetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listStatefulSetForAllNamespacesCall(allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, pretty, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -4974,15 +5392,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedControllerRevisionCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -5003,11 +5438,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5015,18 +5449,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedControllerRevision(Async)");
@@ -5042,9 +5477,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedControllerRevision(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedControllerRevisionCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedControllerRevisionCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -5152,15 +5585,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedDaemonSetCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -5181,11 +5631,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5193,18 +5642,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedDaemonSetValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedDaemonSet(Async)");
@@ -5220,9 +5670,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedDaemonSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedDaemonSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedDaemonSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -5330,15 +5778,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedDaemonSetStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -5359,11 +5824,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5371,18 +5835,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedDaemonSetStatusValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedDaemonSetStatus(Async)");
@@ -5398,9 +5863,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedDaemonSetStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedDaemonSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedDaemonSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -5508,15 +5971,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedDeploymentCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -5537,11 +6017,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5549,18 +6028,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedDeploymentValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedDeployment(Async)");
@@ -5576,9 +6056,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedDeployment(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedDeploymentCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedDeploymentCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -5686,15 +6164,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedDeploymentScaleCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments/{name}/scale"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -5715,11 +6210,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5727,18 +6221,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedDeploymentScale(Async)");
@@ -5754,9 +6249,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedDeploymentScale(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedDeploymentScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedDeploymentScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -5864,15 +6357,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedDeploymentStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -5893,11 +6403,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -5905,18 +6414,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedDeploymentStatus(Async)");
@@ -5932,9 +6442,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedDeploymentStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedDeploymentStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedDeploymentStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -6042,15 +6550,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedReplicaSetCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -6071,11 +6596,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -6083,18 +6607,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedReplicaSetValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedReplicaSet(Async)");
@@ -6110,9 +6635,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedReplicaSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedReplicaSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedReplicaSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -6220,15 +6743,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedReplicaSetScaleCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/scale"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -6249,11 +6789,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -6261,18 +6800,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedReplicaSetScaleValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedReplicaSetScale(Async)");
@@ -6288,9 +6828,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedReplicaSetScale(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedReplicaSetScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedReplicaSetScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -6398,15 +6936,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedReplicaSetStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -6427,11 +6982,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -6439,18 +6993,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedReplicaSetStatusValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedReplicaSetStatus(Async)");
@@ -6466,9 +7021,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedReplicaSetStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedReplicaSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedReplicaSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -6576,15 +7129,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedStatefulSetCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -6605,11 +7175,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -6617,18 +7186,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedStatefulSetValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedStatefulSet(Async)");
@@ -6644,9 +7214,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedStatefulSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedStatefulSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedStatefulSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -6754,15 +7322,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedStatefulSetScaleCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/scale"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -6783,11 +7368,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -6795,18 +7379,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedStatefulSetScale(Async)");
@@ -6822,9 +7407,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedStatefulSetScale(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedStatefulSetScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedStatefulSetScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -6932,15 +7515,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call patchNamespacedStatefulSetStatusCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -6961,11 +7561,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -6973,18 +7572,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchNamespacedStatefulSetStatus(Async)");
@@ -7000,9 +7600,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedStatefulSetStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchNamespacedStatefulSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchNamespacedStatefulSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -7104,24 +7702,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedControllerRevisionCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -7129,18 +7743,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedControllerRevision(Async)");
@@ -7151,9 +7765,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedControllerRevision(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedControllerRevisionCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedControllerRevisionCall(name, namespace, pretty, _callback);
 
     }
 
@@ -7237,24 +7849,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedDaemonSetCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -7262,18 +7890,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedDaemonSetValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedDaemonSet(Async)");
@@ -7284,9 +7912,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedDaemonSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedDaemonSetCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedDaemonSetCall(name, namespace, pretty, _callback);
 
     }
 
@@ -7370,24 +7996,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedDaemonSetStatusCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -7395,18 +8037,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedDaemonSetStatusValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedDaemonSetStatus(Async)");
@@ -7417,9 +8059,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedDaemonSetStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedDaemonSetStatusCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedDaemonSetStatusCall(name, namespace, pretty, _callback);
 
     }
 
@@ -7503,24 +8143,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedDeploymentCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -7528,18 +8184,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedDeploymentValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedDeployment(Async)");
@@ -7550,9 +8206,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedDeployment(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedDeploymentCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedDeploymentCall(name, namespace, pretty, _callback);
 
     }
 
@@ -7636,24 +8290,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedDeploymentScaleCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments/{name}/scale"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -7661,18 +8331,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedDeploymentScale(Async)");
@@ -7683,9 +8353,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedDeploymentScale(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedDeploymentScaleCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedDeploymentScaleCall(name, namespace, pretty, _callback);
 
     }
 
@@ -7769,24 +8437,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedDeploymentStatusCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -7794,18 +8478,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedDeploymentStatus(Async)");
@@ -7816,9 +8500,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedDeploymentStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedDeploymentStatusCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedDeploymentStatusCall(name, namespace, pretty, _callback);
 
     }
 
@@ -7902,24 +8584,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedReplicaSetCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -7927,18 +8625,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedReplicaSetValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedReplicaSet(Async)");
@@ -7949,9 +8647,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedReplicaSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedReplicaSetCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedReplicaSetCall(name, namespace, pretty, _callback);
 
     }
 
@@ -8035,24 +8731,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedReplicaSetScaleCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/scale"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -8060,18 +8772,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedReplicaSetScaleValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedReplicaSetScale(Async)");
@@ -8082,9 +8794,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedReplicaSetScale(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedReplicaSetScaleCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedReplicaSetScaleCall(name, namespace, pretty, _callback);
 
     }
 
@@ -8168,24 +8878,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedReplicaSetStatusCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -8193,18 +8919,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedReplicaSetStatusValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedReplicaSetStatus(Async)");
@@ -8215,9 +8941,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedReplicaSetStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedReplicaSetStatusCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedReplicaSetStatusCall(name, namespace, pretty, _callback);
 
     }
 
@@ -8301,24 +9025,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedStatefulSetCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -8326,18 +9066,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedStatefulSetValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedStatefulSet(Async)");
@@ -8348,9 +9088,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedStatefulSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedStatefulSetCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedStatefulSetCall(name, namespace, pretty, _callback);
 
     }
 
@@ -8434,24 +9172,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedStatefulSetScaleCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/scale"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -8459,18 +9213,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedStatefulSetScale(Async)");
@@ -8481,9 +9235,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedStatefulSetScale(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedStatefulSetScaleCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedStatefulSetScaleCall(name, namespace, pretty, _callback);
 
     }
 
@@ -8567,24 +9319,40 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call readNamespacedStatefulSetStatusCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -8592,18 +9360,18 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readNamespacedStatefulSetStatus(Async)");
@@ -8614,9 +9382,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'namespace' when calling readNamespacedStatefulSetStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readNamespacedStatefulSetStatusCall(name, namespace, pretty, _callback);
-        return localVarCall;
+        return readNamespacedStatefulSetStatusCall(name, namespace, pretty, _callback);
 
     }
 
@@ -8705,15 +9471,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedControllerRevisionCall(String name, String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/controllerrevisions/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -8730,11 +9513,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -8742,18 +9524,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedControllerRevisionValidateBeforeCall(String name, String namespace, V1ControllerRevision body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedControllerRevision(Async)");
@@ -8769,9 +9552,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedControllerRevision(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedControllerRevisionCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedControllerRevisionCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -8875,15 +9656,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedDaemonSetCall(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -8900,11 +9698,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -8912,18 +9709,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedDaemonSetValidateBeforeCall(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedDaemonSet(Async)");
@@ -8939,9 +9737,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedDaemonSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedDaemonSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedDaemonSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -9045,15 +9841,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedDaemonSetStatusCall(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/daemonsets/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -9070,11 +9883,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -9082,18 +9894,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedDaemonSetStatusValidateBeforeCall(String name, String namespace, V1DaemonSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedDaemonSetStatus(Async)");
@@ -9109,9 +9922,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedDaemonSetStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedDaemonSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedDaemonSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -9215,15 +10026,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedDeploymentCall(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -9240,11 +10068,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -9252,18 +10079,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedDeploymentValidateBeforeCall(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedDeployment(Async)");
@@ -9279,9 +10107,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedDeployment(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedDeploymentCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedDeploymentCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -9385,15 +10211,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedDeploymentScaleCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments/{name}/scale"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -9410,11 +10253,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -9422,18 +10264,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedDeploymentScaleValidateBeforeCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedDeploymentScale(Async)");
@@ -9449,9 +10292,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedDeploymentScale(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedDeploymentScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedDeploymentScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -9555,15 +10396,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedDeploymentStatusCall(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/deployments/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -9580,11 +10438,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -9592,18 +10449,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedDeploymentStatusValidateBeforeCall(String name, String namespace, V1Deployment body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedDeploymentStatus(Async)");
@@ -9619,9 +10477,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedDeploymentStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedDeploymentStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedDeploymentStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -9725,15 +10581,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedReplicaSetCall(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -9750,11 +10623,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -9762,18 +10634,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedReplicaSetValidateBeforeCall(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedReplicaSet(Async)");
@@ -9789,9 +10662,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedReplicaSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedReplicaSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedReplicaSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -9895,15 +10766,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedReplicaSetScaleCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/scale"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -9920,11 +10808,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -9932,18 +10819,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedReplicaSetScaleValidateBeforeCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedReplicaSetScale(Async)");
@@ -9959,9 +10847,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedReplicaSetScale(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedReplicaSetScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedReplicaSetScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -10065,15 +10951,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedReplicaSetStatusCall(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/replicasets/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -10090,11 +10993,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -10102,18 +11004,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedReplicaSetStatusValidateBeforeCall(String name, String namespace, V1ReplicaSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedReplicaSetStatus(Async)");
@@ -10129,9 +11032,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedReplicaSetStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedReplicaSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedReplicaSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -10235,15 +11136,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedStatefulSetCall(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -10260,11 +11178,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -10272,18 +11189,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedStatefulSetValidateBeforeCall(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedStatefulSet(Async)");
@@ -10299,9 +11217,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedStatefulSet(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedStatefulSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedStatefulSetCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -10405,15 +11321,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedStatefulSetScaleCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/scale"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -10430,11 +11363,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -10442,18 +11374,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedStatefulSetScaleValidateBeforeCall(String name, String namespace, V1Scale body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedStatefulSetScale(Async)");
@@ -10469,9 +11402,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedStatefulSetScale(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedStatefulSetScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedStatefulSetScaleCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -10575,15 +11506,32 @@ public class AppsV1Api {
      </table>
      */
     public okhttp3.Call replaceNamespacedStatefulSetStatusCall(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/apps/v1/namespaces/{namespace}/statefulsets/{name}/status"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()))
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()))
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -10600,11 +11548,10 @@ public class AppsV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -10612,18 +11559,19 @@ public class AppsV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceNamespacedStatefulSetStatusValidateBeforeCall(String name, String namespace, V1StatefulSet body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceNamespacedStatefulSetStatus(Async)");
@@ -10639,9 +11587,7 @@ public class AppsV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedStatefulSetStatus(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceNamespacedStatefulSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceNamespacedStatefulSetStatusCall(name, namespace, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 

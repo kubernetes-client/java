@@ -38,9 +38,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import jakarta.ws.rs.core.GenericType;
 
 public class CertificatesV1alpha1Api {
     private ApiClient localVarApiClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
     public CertificatesV1alpha1Api() {
         this(Configuration.getDefaultApiClient());
@@ -56,6 +59,22 @@ public class CertificatesV1alpha1Api {
 
     public void setApiClient(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
+    }
+
+    public int getHostIndex() {
+        return localHostIndex;
+    }
+
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
+
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
+
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
     }
 
     /**
@@ -78,6 +97,19 @@ public class CertificatesV1alpha1Api {
      </table>
      */
     public okhttp3.Call createClusterTrustBundleCall(V1alpha1ClusterTrustBundle body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -85,6 +117,10 @@ public class CertificatesV1alpha1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -101,11 +137,10 @@ public class CertificatesV1alpha1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -113,26 +148,25 @@ public class CertificatesV1alpha1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createClusterTrustBundleValidateBeforeCall(V1alpha1ClusterTrustBundle body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createClusterTrustBundle(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createClusterTrustBundleCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return createClusterTrustBundleCall(body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
@@ -233,14 +267,31 @@ public class CertificatesV1alpha1Api {
      </table>
      */
     public okhttp3.Call deleteClusterTrustBundleCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -261,11 +312,10 @@ public class CertificatesV1alpha1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("propagationPolicy", propagationPolicy));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -273,26 +323,25 @@ public class CertificatesV1alpha1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteClusterTrustBundleValidateBeforeCall(String name, String pretty, String dryRun, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling deleteClusterTrustBundle(Async)");
         }
 
-
-        okhttp3.Call localVarCall = deleteClusterTrustBundleCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
-        return localVarCall;
+        return deleteClusterTrustBundleCall(name, pretty, dryRun, gracePeriodSeconds, orphanDependents, propagationPolicy, body, _callback);
 
     }
 
@@ -402,6 +451,19 @@ public class CertificatesV1alpha1Api {
      </table>
      */
     public okhttp3.Call deleteCollectionClusterTrustBundleCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -409,6 +471,10 @@ public class CertificatesV1alpha1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -461,11 +527,10 @@ public class CertificatesV1alpha1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("timeoutSeconds", timeoutSeconds));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -473,21 +538,20 @@ public class CertificatesV1alpha1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "DELETE", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionClusterTrustBundleValidateBeforeCall(String pretty, String _continue, String dryRun, String fieldSelector, Integer gracePeriodSeconds, String labelSelector, Integer limit, Boolean orphanDependents, String propagationPolicy, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = deleteCollectionClusterTrustBundleCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
-        return localVarCall;
+        return deleteCollectionClusterTrustBundleCall(pretty, _continue, dryRun, fieldSelector, gracePeriodSeconds, labelSelector, limit, orphanDependents, propagationPolicy, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, body, _callback);
 
     }
 
@@ -601,6 +665,19 @@ public class CertificatesV1alpha1Api {
      </table>
      */
     public okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -611,8 +688,11 @@ public class CertificatesV1alpha1Api {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -620,21 +700,19 @@ public class CertificatesV1alpha1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAPIResourcesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = getAPIResourcesCall(_callback);
-        return localVarCall;
+        return getAPIResourcesCall(_callback);
 
     }
 
@@ -717,6 +795,19 @@ public class CertificatesV1alpha1Api {
      </table>
      */
     public okhttp3.Call listClusterTrustBundleCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -724,6 +815,10 @@ public class CertificatesV1alpha1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -768,11 +863,12 @@ public class CertificatesV1alpha1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("watch", watch));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf", "application/json;stream=watch", "application/vnd.kubernetes.protobuf;stream=watch"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf",
+            "application/json;stream=watch",
+            "application/vnd.kubernetes.protobuf;stream=watch"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -780,21 +876,19 @@ public class CertificatesV1alpha1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listClusterTrustBundleValidateBeforeCall(String pretty, Boolean allowWatchBookmarks, String _continue, String fieldSelector, String labelSelector, Integer limit, String resourceVersion, String resourceVersionMatch, Boolean sendInitialEvents, Integer timeoutSeconds, Boolean watch, final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = listClusterTrustBundleCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
-        return localVarCall;
+        return listClusterTrustBundleCall(pretty, allowWatchBookmarks, _continue, fieldSelector, labelSelector, limit, resourceVersion, resourceVersionMatch, sendInitialEvents, timeoutSeconds, watch, _callback);
 
     }
 
@@ -907,14 +1001,31 @@ public class CertificatesV1alpha1Api {
      </table>
      */
     public okhttp3.Call patchClusterTrustBundleCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -935,11 +1046,10 @@ public class CertificatesV1alpha1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -947,18 +1057,19 @@ public class CertificatesV1alpha1Api {
         }
 
         final String[] localVarContentTypes = {
-            "application/json-patch+json", "application/merge-patch+json", "application/strategic-merge-patch+json", "application/apply-patch+yaml"
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PATCH", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call patchClusterTrustBundleValidateBeforeCall(String name, V1Patch body, String pretty, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling patchClusterTrustBundle(Async)");
@@ -969,9 +1080,7 @@ public class CertificatesV1alpha1Api {
             throw new ApiException("Missing the required parameter 'body' when calling patchClusterTrustBundle(Async)");
         }
 
-
-        okhttp3.Call localVarCall = patchClusterTrustBundleCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
-        return localVarCall;
+        return patchClusterTrustBundleCall(name, body, pretty, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
@@ -1069,23 +1178,39 @@ public class CertificatesV1alpha1Api {
      </table>
      */
     public okhttp3.Call readClusterTrustBundleCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
         String localVarPath = "/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1093,26 +1218,24 @@ public class CertificatesV1alpha1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call readClusterTrustBundleValidateBeforeCall(String name, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling readClusterTrustBundle(Async)");
         }
 
-
-        okhttp3.Call localVarCall = readClusterTrustBundleCall(name, pretty, _callback);
-        return localVarCall;
+        return readClusterTrustBundleCall(name, pretty, _callback);
 
     }
 
@@ -1197,14 +1320,31 @@ public class CertificatesV1alpha1Api {
      </table>
      */
     public okhttp3.Call replaceClusterTrustBundleCall(String name, V1alpha1ClusterTrustBundle body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/certificates.k8s.io/v1alpha1/clustertrustbundles/{name}"
-            .replaceAll("\\{" + "name" + "\\}", localVarApiClient.escapeString(name.toString()));
+            .replace("{" + "name" + "}", localVarApiClient.escapeString(name.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
@@ -1221,11 +1361,10 @@ public class CertificatesV1alpha1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1233,18 +1372,19 @@ public class CertificatesV1alpha1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call replaceClusterTrustBundleValidateBeforeCall(String name, V1alpha1ClusterTrustBundle body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'name' is set
         if (name == null) {
             throw new ApiException("Missing the required parameter 'name' when calling replaceClusterTrustBundle(Async)");
@@ -1255,9 +1395,7 @@ public class CertificatesV1alpha1Api {
             throw new ApiException("Missing the required parameter 'body' when calling replaceClusterTrustBundle(Async)");
         }
 
-
-        okhttp3.Call localVarCall = replaceClusterTrustBundleCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
-        return localVarCall;
+        return replaceClusterTrustBundleCall(name, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 

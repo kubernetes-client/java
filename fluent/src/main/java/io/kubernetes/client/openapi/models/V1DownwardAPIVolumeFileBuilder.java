@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1DownwardAPIVolumeFileBuilder extends V1DownwardAPIVolumeFileFluentImpl<V1DownwardAPIVolumeFileBuilder> implements VisitableBuilder<V1DownwardAPIVolumeFile,V1DownwardAPIVolumeFileBuilder>{
+public class V1DownwardAPIVolumeFileBuilder extends V1DownwardAPIVolumeFileFluent<V1DownwardAPIVolumeFileBuilder> implements VisitableBuilder<V1DownwardAPIVolumeFile,V1DownwardAPIVolumeFileBuilder>{
   public V1DownwardAPIVolumeFileBuilder() {
-    this(false);
+    this(new V1DownwardAPIVolumeFile());
   }
-  public V1DownwardAPIVolumeFileBuilder(Boolean validationEnabled) {
-    this(new V1DownwardAPIVolumeFile(), validationEnabled);
-  }
+  
   public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFileFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1DownwardAPIVolumeFile());
   }
-  public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFileFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1DownwardAPIVolumeFile(), validationEnabled);
-  }
+  
   public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFileFluent<?> fluent,V1DownwardAPIVolumeFile instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFileFluent<?> fluent,V1DownwardAPIVolumeFile instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withFieldRef(instance.getFieldRef());
-      fluent.withMode(instance.getMode());
-      fluent.withPath(instance.getPath());
-      fluent.withResourceFieldRef(instance.getResourceFieldRef());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFile instance) {
-    this(instance,false);
-  }
-  public V1DownwardAPIVolumeFileBuilder(V1DownwardAPIVolumeFile instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withFieldRef(instance.getFieldRef());
-      this.withMode(instance.getMode());
-      this.withPath(instance.getPath());
-      this.withResourceFieldRef(instance.getResourceFieldRef());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1DownwardAPIVolumeFileFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1DownwardAPIVolumeFile build() {
     V1DownwardAPIVolumeFile buildable = new V1DownwardAPIVolumeFile();
-    buildable.setFieldRef(fluent.getFieldRef());
+    buildable.setFieldRef(fluent.buildFieldRef());
     buildable.setMode(fluent.getMode());
     buildable.setPath(fluent.getPath());
-    buildable.setResourceFieldRef(fluent.getResourceFieldRef());
+    buildable.setResourceFieldRef(fluent.buildResourceFieldRef());
     return buildable;
   }
   
+
 }

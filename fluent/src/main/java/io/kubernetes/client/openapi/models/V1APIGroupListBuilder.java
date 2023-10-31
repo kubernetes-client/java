@@ -1,52 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1APIGroupListBuilder extends V1APIGroupListFluentImpl<V1APIGroupListBuilder> implements VisitableBuilder<V1APIGroupList,V1APIGroupListBuilder>{
+public class V1APIGroupListBuilder extends V1APIGroupListFluent<V1APIGroupListBuilder> implements VisitableBuilder<V1APIGroupList,V1APIGroupListBuilder>{
   public V1APIGroupListBuilder() {
-    this(false);
+    this(new V1APIGroupList());
   }
-  public V1APIGroupListBuilder(Boolean validationEnabled) {
-    this(new V1APIGroupList(), validationEnabled);
-  }
+  
   public V1APIGroupListBuilder(V1APIGroupListFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1APIGroupList());
   }
-  public V1APIGroupListBuilder(V1APIGroupListFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1APIGroupList(), validationEnabled);
-  }
+  
   public V1APIGroupListBuilder(V1APIGroupListFluent<?> fluent,V1APIGroupList instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1APIGroupListBuilder(V1APIGroupListFluent<?> fluent,V1APIGroupList instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withGroups(instance.getGroups());
-      fluent.withKind(instance.getKind());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1APIGroupListBuilder(V1APIGroupList instance) {
-    this(instance,false);
-  }
-  public V1APIGroupListBuilder(V1APIGroupList instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withGroups(instance.getGroups());
-      this.withKind(instance.getKind());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1APIGroupListFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1APIGroupList build() {
     V1APIGroupList buildable = new V1APIGroupList();
     buildable.setApiVersion(fluent.getApiVersion());
-    buildable.setGroups(fluent.getGroups());
+    buildable.setGroups(fluent.buildGroups());
     buildable.setKind(fluent.getKind());
     return buildable;
   }
   
+
 }

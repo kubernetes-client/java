@@ -1,50 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1TolerationBuilder extends V1TolerationFluentImpl<V1TolerationBuilder> implements VisitableBuilder<V1Toleration,V1TolerationBuilder>{
+public class V1TolerationBuilder extends V1TolerationFluent<V1TolerationBuilder> implements VisitableBuilder<V1Toleration,V1TolerationBuilder>{
   public V1TolerationBuilder() {
-    this(false);
+    this(new V1Toleration());
   }
-  public V1TolerationBuilder(Boolean validationEnabled) {
-    this(new V1Toleration(), validationEnabled);
-  }
+  
   public V1TolerationBuilder(V1TolerationFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1Toleration());
   }
-  public V1TolerationBuilder(V1TolerationFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1Toleration(), validationEnabled);
-  }
+  
   public V1TolerationBuilder(V1TolerationFluent<?> fluent,V1Toleration instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1TolerationBuilder(V1TolerationFluent<?> fluent,V1Toleration instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withEffect(instance.getEffect());
-      fluent.withKey(instance.getKey());
-      fluent.withOperator(instance.getOperator());
-      fluent.withTolerationSeconds(instance.getTolerationSeconds());
-      fluent.withValue(instance.getValue());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1TolerationBuilder(V1Toleration instance) {
-    this(instance,false);
-  }
-  public V1TolerationBuilder(V1Toleration instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withEffect(instance.getEffect());
-      this.withKey(instance.getKey());
-      this.withOperator(instance.getOperator());
-      this.withTolerationSeconds(instance.getTolerationSeconds());
-      this.withValue(instance.getValue());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1TolerationFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1Toleration build() {
     V1Toleration buildable = new V1Toleration();
     buildable.setEffect(fluent.getEffect());
@@ -55,4 +31,5 @@ public class V1TolerationBuilder extends V1TolerationFluentImpl<V1TolerationBuil
     return buildable;
   }
   
+
 }

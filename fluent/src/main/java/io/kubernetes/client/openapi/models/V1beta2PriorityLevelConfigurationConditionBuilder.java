@@ -1,50 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1beta2PriorityLevelConfigurationConditionBuilder extends V1beta2PriorityLevelConfigurationConditionFluentImpl<V1beta2PriorityLevelConfigurationConditionBuilder> implements VisitableBuilder<V1beta2PriorityLevelConfigurationCondition,V1beta2PriorityLevelConfigurationConditionBuilder>{
+public class V1beta2PriorityLevelConfigurationConditionBuilder extends V1beta2PriorityLevelConfigurationConditionFluent<V1beta2PriorityLevelConfigurationConditionBuilder> implements VisitableBuilder<V1beta2PriorityLevelConfigurationCondition,V1beta2PriorityLevelConfigurationConditionBuilder>{
   public V1beta2PriorityLevelConfigurationConditionBuilder() {
-    this(false);
+    this(new V1beta2PriorityLevelConfigurationCondition());
   }
-  public V1beta2PriorityLevelConfigurationConditionBuilder(Boolean validationEnabled) {
-    this(new V1beta2PriorityLevelConfigurationCondition(), validationEnabled);
-  }
+  
   public V1beta2PriorityLevelConfigurationConditionBuilder(V1beta2PriorityLevelConfigurationConditionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1beta2PriorityLevelConfigurationCondition());
   }
-  public V1beta2PriorityLevelConfigurationConditionBuilder(V1beta2PriorityLevelConfigurationConditionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1beta2PriorityLevelConfigurationCondition(), validationEnabled);
-  }
+  
   public V1beta2PriorityLevelConfigurationConditionBuilder(V1beta2PriorityLevelConfigurationConditionFluent<?> fluent,V1beta2PriorityLevelConfigurationCondition instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1beta2PriorityLevelConfigurationConditionBuilder(V1beta2PriorityLevelConfigurationConditionFluent<?> fluent,V1beta2PriorityLevelConfigurationCondition instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withLastTransitionTime(instance.getLastTransitionTime());
-      fluent.withMessage(instance.getMessage());
-      fluent.withReason(instance.getReason());
-      fluent.withStatus(instance.getStatus());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1beta2PriorityLevelConfigurationConditionBuilder(V1beta2PriorityLevelConfigurationCondition instance) {
-    this(instance,false);
-  }
-  public V1beta2PriorityLevelConfigurationConditionBuilder(V1beta2PriorityLevelConfigurationCondition instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withLastTransitionTime(instance.getLastTransitionTime());
-      this.withMessage(instance.getMessage());
-      this.withReason(instance.getReason());
-      this.withStatus(instance.getStatus());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1beta2PriorityLevelConfigurationConditionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1beta2PriorityLevelConfigurationCondition build() {
     V1beta2PriorityLevelConfigurationCondition buildable = new V1beta2PriorityLevelConfigurationCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
@@ -55,4 +31,5 @@ public class V1beta2PriorityLevelConfigurationConditionBuilder extends V1beta2Pr
     return buildable;
   }
   
+
 }

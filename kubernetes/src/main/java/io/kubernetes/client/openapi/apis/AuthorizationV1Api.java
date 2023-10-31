@@ -37,9 +37,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import jakarta.ws.rs.core.GenericType;
 
 public class AuthorizationV1Api {
     private ApiClient localVarApiClient;
+    private int localHostIndex;
+    private String localCustomBaseUrl;
 
     public AuthorizationV1Api() {
         this(Configuration.getDefaultApiClient());
@@ -55,6 +58,22 @@ public class AuthorizationV1Api {
 
     public void setApiClient(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
+    }
+
+    public int getHostIndex() {
+        return localHostIndex;
+    }
+
+    public void setHostIndex(int hostIndex) {
+        this.localHostIndex = hostIndex;
+    }
+
+    public String getCustomBaseUrl() {
+        return localCustomBaseUrl;
+    }
+
+    public void setCustomBaseUrl(String customBaseUrl) {
+        this.localCustomBaseUrl = customBaseUrl;
     }
 
     /**
@@ -78,14 +97,31 @@ public class AuthorizationV1Api {
      </table>
      */
     public okhttp3.Call createNamespacedLocalSubjectAccessReviewCall(String namespace, V1LocalSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath = "/apis/authorization.k8s.io/v1/namespaces/{namespace}/localsubjectaccessreviews"
-            .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
+            .replace("{" + "namespace" + "}", localVarApiClient.escapeString(namespace.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (dryRun != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
         }
@@ -102,11 +138,10 @@ public class AuthorizationV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -114,18 +149,19 @@ public class AuthorizationV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createNamespacedLocalSubjectAccessReviewValidateBeforeCall(String namespace, V1LocalSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'namespace' is set
         if (namespace == null) {
             throw new ApiException("Missing the required parameter 'namespace' when calling createNamespacedLocalSubjectAccessReview(Async)");
@@ -136,9 +172,7 @@ public class AuthorizationV1Api {
             throw new ApiException("Missing the required parameter 'body' when calling createNamespacedLocalSubjectAccessReview(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createNamespacedLocalSubjectAccessReviewCall(namespace, body, dryRun, fieldManager, fieldValidation, pretty, _callback);
-        return localVarCall;
+        return createNamespacedLocalSubjectAccessReviewCall(namespace, body, dryRun, fieldManager, fieldValidation, pretty, _callback);
 
     }
 
@@ -241,6 +275,19 @@ public class AuthorizationV1Api {
      </table>
      */
     public okhttp3.Call createSelfSubjectAccessReviewCall(V1SelfSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -248,6 +295,10 @@ public class AuthorizationV1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (dryRun != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
         }
@@ -264,11 +315,10 @@ public class AuthorizationV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -276,26 +326,25 @@ public class AuthorizationV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createSelfSubjectAccessReviewValidateBeforeCall(V1SelfSubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createSelfSubjectAccessReview(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createSelfSubjectAccessReviewCall(body, dryRun, fieldManager, fieldValidation, pretty, _callback);
-        return localVarCall;
+        return createSelfSubjectAccessReviewCall(body, dryRun, fieldManager, fieldValidation, pretty, _callback);
 
     }
 
@@ -395,6 +444,19 @@ public class AuthorizationV1Api {
      </table>
      */
     public okhttp3.Call createSelfSubjectRulesReviewCall(V1SelfSubjectRulesReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -402,6 +464,10 @@ public class AuthorizationV1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (dryRun != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
         }
@@ -418,11 +484,10 @@ public class AuthorizationV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -430,26 +495,25 @@ public class AuthorizationV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createSelfSubjectRulesReviewValidateBeforeCall(V1SelfSubjectRulesReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createSelfSubjectRulesReview(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createSelfSubjectRulesReviewCall(body, dryRun, fieldManager, fieldValidation, pretty, _callback);
-        return localVarCall;
+        return createSelfSubjectRulesReviewCall(body, dryRun, fieldManager, fieldValidation, pretty, _callback);
 
     }
 
@@ -549,6 +613,19 @@ public class AuthorizationV1Api {
      </table>
      */
     public okhttp3.Call createSubjectAccessReviewCall(V1SubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -556,6 +633,10 @@ public class AuthorizationV1Api {
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         if (dryRun != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("dryRun", dryRun));
         }
@@ -572,11 +653,10 @@ public class AuthorizationV1Api {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
         }
 
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -584,26 +664,25 @@ public class AuthorizationV1Api {
         }
 
         final String[] localVarContentTypes = {
-
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createSubjectAccessReviewValidateBeforeCall(V1SubjectAccessReview body, String dryRun, String fieldManager, String fieldValidation, String pretty, final ApiCallback _callback) throws ApiException {
-
         // verify the required parameter 'body' is set
         if (body == null) {
             throw new ApiException("Missing the required parameter 'body' when calling createSubjectAccessReview(Async)");
         }
 
-
-        okhttp3.Call localVarCall = createSubjectAccessReviewCall(body, dryRun, fieldManager, fieldValidation, pretty, _callback);
-        return localVarCall;
+        return createSubjectAccessReviewCall(body, dryRun, fieldManager, fieldValidation, pretty, _callback);
 
     }
 
@@ -696,6 +775,19 @@ public class AuthorizationV1Api {
      </table>
      */
     public okhttp3.Call getAPIResourcesCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
         Object localVarPostBody = null;
 
         // create path and map variables
@@ -706,8 +798,11 @@ public class AuthorizationV1Api {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
         final String[] localVarAccepts = {
-            "application/json", "application/yaml", "application/vnd.kubernetes.protobuf"
+            "application/json",
+            "application/yaml",
+            "application/vnd.kubernetes.protobuf"
         };
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -715,21 +810,19 @@ public class AuthorizationV1Api {
         }
 
         final String[] localVarContentTypes = {
-
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        localVarHeaderParams.put("Content-Type", localVarContentType);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
 
         String[] localVarAuthNames = new String[] { "BearerToken" };
-        return localVarApiClient.buildCall(localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAPIResourcesValidateBeforeCall(final ApiCallback _callback) throws ApiException {
-
-
-        okhttp3.Call localVarCall = getAPIResourcesCall(_callback);
-        return localVarCall;
+        return getAPIResourcesCall(_callback);
 
     }
 

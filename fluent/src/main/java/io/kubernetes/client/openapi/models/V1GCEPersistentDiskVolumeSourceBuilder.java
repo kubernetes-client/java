@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1GCEPersistentDiskVolumeSourceBuilder extends V1GCEPersistentDiskVolumeSourceFluentImpl<V1GCEPersistentDiskVolumeSourceBuilder> implements VisitableBuilder<V1GCEPersistentDiskVolumeSource,V1GCEPersistentDiskVolumeSourceBuilder>{
+public class V1GCEPersistentDiskVolumeSourceBuilder extends V1GCEPersistentDiskVolumeSourceFluent<V1GCEPersistentDiskVolumeSourceBuilder> implements VisitableBuilder<V1GCEPersistentDiskVolumeSource,V1GCEPersistentDiskVolumeSourceBuilder>{
   public V1GCEPersistentDiskVolumeSourceBuilder() {
-    this(false);
+    this(new V1GCEPersistentDiskVolumeSource());
   }
-  public V1GCEPersistentDiskVolumeSourceBuilder(Boolean validationEnabled) {
-    this(new V1GCEPersistentDiskVolumeSource(), validationEnabled);
-  }
+  
   public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1GCEPersistentDiskVolumeSource());
   }
-  public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1GCEPersistentDiskVolumeSource(), validationEnabled);
-  }
+  
   public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSourceFluent<?> fluent,V1GCEPersistentDiskVolumeSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSourceFluent<?> fluent,V1GCEPersistentDiskVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withFsType(instance.getFsType());
-      fluent.withPartition(instance.getPartition());
-      fluent.withPdName(instance.getPdName());
-      fluent.withReadOnly(instance.getReadOnly());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSource instance) {
-    this(instance,false);
-  }
-  public V1GCEPersistentDiskVolumeSourceBuilder(V1GCEPersistentDiskVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withFsType(instance.getFsType());
-      this.withPartition(instance.getPartition());
-      this.withPdName(instance.getPdName());
-      this.withReadOnly(instance.getReadOnly());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1GCEPersistentDiskVolumeSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1GCEPersistentDiskVolumeSource build() {
     V1GCEPersistentDiskVolumeSource buildable = new V1GCEPersistentDiskVolumeSource();
     buildable.setFsType(fluent.getFsType());
@@ -52,4 +30,5 @@ public class V1GCEPersistentDiskVolumeSourceBuilder extends V1GCEPersistentDiskV
     return buildable;
   }
   
+
 }

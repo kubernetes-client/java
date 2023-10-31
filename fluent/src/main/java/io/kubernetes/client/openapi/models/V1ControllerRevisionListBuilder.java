@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ControllerRevisionListBuilder extends V1ControllerRevisionListFluentImpl<V1ControllerRevisionListBuilder> implements VisitableBuilder<V1ControllerRevisionList,V1ControllerRevisionListBuilder>{
+public class V1ControllerRevisionListBuilder extends V1ControllerRevisionListFluent<V1ControllerRevisionListBuilder> implements VisitableBuilder<V1ControllerRevisionList,V1ControllerRevisionListBuilder>{
   public V1ControllerRevisionListBuilder() {
-    this(false);
+    this(new V1ControllerRevisionList());
   }
-  public V1ControllerRevisionListBuilder(Boolean validationEnabled) {
-    this(new V1ControllerRevisionList(), validationEnabled);
-  }
+  
   public V1ControllerRevisionListBuilder(V1ControllerRevisionListFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ControllerRevisionList());
   }
-  public V1ControllerRevisionListBuilder(V1ControllerRevisionListFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ControllerRevisionList(), validationEnabled);
-  }
+  
   public V1ControllerRevisionListBuilder(V1ControllerRevisionListFluent<?> fluent,V1ControllerRevisionList instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ControllerRevisionListBuilder(V1ControllerRevisionListFluent<?> fluent,V1ControllerRevisionList instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withItems(instance.getItems());
-      fluent.withKind(instance.getKind());
-      fluent.withMetadata(instance.getMetadata());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ControllerRevisionListBuilder(V1ControllerRevisionList instance) {
-    this(instance,false);
-  }
-  public V1ControllerRevisionListBuilder(V1ControllerRevisionList instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withItems(instance.getItems());
-      this.withKind(instance.getKind());
-      this.withMetadata(instance.getMetadata());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ControllerRevisionListFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ControllerRevisionList build() {
     V1ControllerRevisionList buildable = new V1ControllerRevisionList();
     buildable.setApiVersion(fluent.getApiVersion());
-    buildable.setItems(fluent.getItems());
+    buildable.setItems(fluent.buildItems());
     buildable.setKind(fluent.getKind());
-    buildable.setMetadata(fluent.getMetadata());
+    buildable.setMetadata(fluent.buildMetadata());
     return buildable;
   }
   
+
 }

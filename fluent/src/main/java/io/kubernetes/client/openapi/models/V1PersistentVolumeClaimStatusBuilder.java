@@ -1,61 +1,36 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1PersistentVolumeClaimStatusBuilder extends V1PersistentVolumeClaimStatusFluentImpl<V1PersistentVolumeClaimStatusBuilder> implements VisitableBuilder<V1PersistentVolumeClaimStatus,V1PersistentVolumeClaimStatusBuilder>{
+public class V1PersistentVolumeClaimStatusBuilder extends V1PersistentVolumeClaimStatusFluent<V1PersistentVolumeClaimStatusBuilder> implements VisitableBuilder<V1PersistentVolumeClaimStatus,V1PersistentVolumeClaimStatusBuilder>{
   public V1PersistentVolumeClaimStatusBuilder() {
-    this(false);
+    this(new V1PersistentVolumeClaimStatus());
   }
-  public V1PersistentVolumeClaimStatusBuilder(Boolean validationEnabled) {
-    this(new V1PersistentVolumeClaimStatus(), validationEnabled);
-  }
+  
   public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatusFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1PersistentVolumeClaimStatus());
   }
-  public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatusFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1PersistentVolumeClaimStatus(), validationEnabled);
-  }
+  
   public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatusFluent<?> fluent,V1PersistentVolumeClaimStatus instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatusFluent<?> fluent,V1PersistentVolumeClaimStatus instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAccessModes(instance.getAccessModes());
-      fluent.withAllocatedResources(instance.getAllocatedResources());
-      fluent.withCapacity(instance.getCapacity());
-      fluent.withConditions(instance.getConditions());
-      fluent.withPhase(instance.getPhase());
-      fluent.withResizeStatus(instance.getResizeStatus());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatus instance) {
-    this(instance,false);
-  }
-  public V1PersistentVolumeClaimStatusBuilder(V1PersistentVolumeClaimStatus instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAccessModes(instance.getAccessModes());
-      this.withAllocatedResources(instance.getAllocatedResources());
-      this.withCapacity(instance.getCapacity());
-      this.withConditions(instance.getConditions());
-      this.withPhase(instance.getPhase());
-      this.withResizeStatus(instance.getResizeStatus());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1PersistentVolumeClaimStatusFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1PersistentVolumeClaimStatus build() {
     V1PersistentVolumeClaimStatus buildable = new V1PersistentVolumeClaimStatus();
     buildable.setAccessModes(fluent.getAccessModes());
+    buildable.setAllocatedResourceStatuses(fluent.getAllocatedResourceStatuses());
     buildable.setAllocatedResources(fluent.getAllocatedResources());
     buildable.setCapacity(fluent.getCapacity());
-    buildable.setConditions(fluent.getConditions());
+    buildable.setConditions(fluent.buildConditions());
     buildable.setPhase(fluent.getPhase());
-    buildable.setResizeStatus(fluent.getResizeStatus());
     return buildable;
   }
   
+
 }

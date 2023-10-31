@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1CustomResourceSubresourceScaleBuilder extends V1CustomResourceSubresourceScaleFluentImpl<V1CustomResourceSubresourceScaleBuilder> implements VisitableBuilder<V1CustomResourceSubresourceScale,V1CustomResourceSubresourceScaleBuilder>{
+public class V1CustomResourceSubresourceScaleBuilder extends V1CustomResourceSubresourceScaleFluent<V1CustomResourceSubresourceScaleBuilder> implements VisitableBuilder<V1CustomResourceSubresourceScale,V1CustomResourceSubresourceScaleBuilder>{
   public V1CustomResourceSubresourceScaleBuilder() {
-    this(false);
+    this(new V1CustomResourceSubresourceScale());
   }
-  public V1CustomResourceSubresourceScaleBuilder(Boolean validationEnabled) {
-    this(new V1CustomResourceSubresourceScale(), validationEnabled);
-  }
+  
   public V1CustomResourceSubresourceScaleBuilder(V1CustomResourceSubresourceScaleFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1CustomResourceSubresourceScale());
   }
-  public V1CustomResourceSubresourceScaleBuilder(V1CustomResourceSubresourceScaleFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1CustomResourceSubresourceScale(), validationEnabled);
-  }
+  
   public V1CustomResourceSubresourceScaleBuilder(V1CustomResourceSubresourceScaleFluent<?> fluent,V1CustomResourceSubresourceScale instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1CustomResourceSubresourceScaleBuilder(V1CustomResourceSubresourceScaleFluent<?> fluent,V1CustomResourceSubresourceScale instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withLabelSelectorPath(instance.getLabelSelectorPath());
-      fluent.withSpecReplicasPath(instance.getSpecReplicasPath());
-      fluent.withStatusReplicasPath(instance.getStatusReplicasPath());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1CustomResourceSubresourceScaleBuilder(V1CustomResourceSubresourceScale instance) {
-    this(instance,false);
-  }
-  public V1CustomResourceSubresourceScaleBuilder(V1CustomResourceSubresourceScale instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withLabelSelectorPath(instance.getLabelSelectorPath());
-      this.withSpecReplicasPath(instance.getSpecReplicasPath());
-      this.withStatusReplicasPath(instance.getStatusReplicasPath());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1CustomResourceSubresourceScaleFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1CustomResourceSubresourceScale build() {
     V1CustomResourceSubresourceScale buildable = new V1CustomResourceSubresourceScale();
     buildable.setLabelSelectorPath(fluent.getLabelSelectorPath());
@@ -49,4 +29,5 @@ public class V1CustomResourceSubresourceScaleBuilder extends V1CustomResourceSub
     return buildable;
   }
   
+
 }

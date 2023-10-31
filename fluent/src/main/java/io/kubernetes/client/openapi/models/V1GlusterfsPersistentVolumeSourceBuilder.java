@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1GlusterfsPersistentVolumeSourceBuilder extends V1GlusterfsPersistentVolumeSourceFluentImpl<V1GlusterfsPersistentVolumeSourceBuilder> implements VisitableBuilder<V1GlusterfsPersistentVolumeSource,V1GlusterfsPersistentVolumeSourceBuilder>{
+public class V1GlusterfsPersistentVolumeSourceBuilder extends V1GlusterfsPersistentVolumeSourceFluent<V1GlusterfsPersistentVolumeSourceBuilder> implements VisitableBuilder<V1GlusterfsPersistentVolumeSource,V1GlusterfsPersistentVolumeSourceBuilder>{
   public V1GlusterfsPersistentVolumeSourceBuilder() {
-    this(false);
+    this(new V1GlusterfsPersistentVolumeSource());
   }
-  public V1GlusterfsPersistentVolumeSourceBuilder(Boolean validationEnabled) {
-    this(new V1GlusterfsPersistentVolumeSource(), validationEnabled);
-  }
+  
   public V1GlusterfsPersistentVolumeSourceBuilder(V1GlusterfsPersistentVolumeSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1GlusterfsPersistentVolumeSource());
   }
-  public V1GlusterfsPersistentVolumeSourceBuilder(V1GlusterfsPersistentVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1GlusterfsPersistentVolumeSource(), validationEnabled);
-  }
+  
   public V1GlusterfsPersistentVolumeSourceBuilder(V1GlusterfsPersistentVolumeSourceFluent<?> fluent,V1GlusterfsPersistentVolumeSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1GlusterfsPersistentVolumeSourceBuilder(V1GlusterfsPersistentVolumeSourceFluent<?> fluent,V1GlusterfsPersistentVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withEndpoints(instance.getEndpoints());
-      fluent.withEndpointsNamespace(instance.getEndpointsNamespace());
-      fluent.withPath(instance.getPath());
-      fluent.withReadOnly(instance.getReadOnly());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1GlusterfsPersistentVolumeSourceBuilder(V1GlusterfsPersistentVolumeSource instance) {
-    this(instance,false);
-  }
-  public V1GlusterfsPersistentVolumeSourceBuilder(V1GlusterfsPersistentVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withEndpoints(instance.getEndpoints());
-      this.withEndpointsNamespace(instance.getEndpointsNamespace());
-      this.withPath(instance.getPath());
-      this.withReadOnly(instance.getReadOnly());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1GlusterfsPersistentVolumeSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1GlusterfsPersistentVolumeSource build() {
     V1GlusterfsPersistentVolumeSource buildable = new V1GlusterfsPersistentVolumeSource();
     buildable.setEndpoints(fluent.getEndpoints());
@@ -52,4 +30,5 @@ public class V1GlusterfsPersistentVolumeSourceBuilder extends V1GlusterfsPersist
     return buildable;
   }
   
+
 }

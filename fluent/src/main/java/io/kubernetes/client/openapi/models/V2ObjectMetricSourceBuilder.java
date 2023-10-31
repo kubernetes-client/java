@@ -1,52 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V2ObjectMetricSourceBuilder extends V2ObjectMetricSourceFluentImpl<V2ObjectMetricSourceBuilder> implements VisitableBuilder<V2ObjectMetricSource,V2ObjectMetricSourceBuilder>{
+public class V2ObjectMetricSourceBuilder extends V2ObjectMetricSourceFluent<V2ObjectMetricSourceBuilder> implements VisitableBuilder<V2ObjectMetricSource,V2ObjectMetricSourceBuilder>{
   public V2ObjectMetricSourceBuilder() {
-    this(false);
+    this(new V2ObjectMetricSource());
   }
-  public V2ObjectMetricSourceBuilder(Boolean validationEnabled) {
-    this(new V2ObjectMetricSource(), validationEnabled);
-  }
+  
   public V2ObjectMetricSourceBuilder(V2ObjectMetricSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V2ObjectMetricSource());
   }
-  public V2ObjectMetricSourceBuilder(V2ObjectMetricSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V2ObjectMetricSource(), validationEnabled);
-  }
+  
   public V2ObjectMetricSourceBuilder(V2ObjectMetricSourceFluent<?> fluent,V2ObjectMetricSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V2ObjectMetricSourceBuilder(V2ObjectMetricSourceFluent<?> fluent,V2ObjectMetricSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withDescribedObject(instance.getDescribedObject());
-      fluent.withMetric(instance.getMetric());
-      fluent.withTarget(instance.getTarget());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V2ObjectMetricSourceBuilder(V2ObjectMetricSource instance) {
-    this(instance,false);
-  }
-  public V2ObjectMetricSourceBuilder(V2ObjectMetricSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withDescribedObject(instance.getDescribedObject());
-      this.withMetric(instance.getMetric());
-      this.withTarget(instance.getTarget());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V2ObjectMetricSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V2ObjectMetricSource build() {
     V2ObjectMetricSource buildable = new V2ObjectMetricSource();
-    buildable.setDescribedObject(fluent.getDescribedObject());
-    buildable.setMetric(fluent.getMetric());
-    buildable.setTarget(fluent.getTarget());
+    buildable.setDescribedObject(fluent.buildDescribedObject());
+    buildable.setMetric(fluent.buildMetric());
+    buildable.setTarget(fluent.buildTarget());
     return buildable;
   }
   
+
 }

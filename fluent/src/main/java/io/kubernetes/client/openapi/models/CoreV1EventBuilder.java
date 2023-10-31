@@ -1,74 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class CoreV1EventBuilder extends CoreV1EventFluentImpl<CoreV1EventBuilder> implements VisitableBuilder<CoreV1Event,CoreV1EventBuilder>{
+public class CoreV1EventBuilder extends CoreV1EventFluent<CoreV1EventBuilder> implements VisitableBuilder<CoreV1Event,CoreV1EventBuilder>{
   public CoreV1EventBuilder() {
-    this(false);
+    this(new CoreV1Event());
   }
-  public CoreV1EventBuilder(Boolean validationEnabled) {
-    this(new CoreV1Event(), validationEnabled);
-  }
+  
   public CoreV1EventBuilder(CoreV1EventFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new CoreV1Event());
   }
-  public CoreV1EventBuilder(CoreV1EventFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new CoreV1Event(), validationEnabled);
-  }
+  
   public CoreV1EventBuilder(CoreV1EventFluent<?> fluent,CoreV1Event instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public CoreV1EventBuilder(CoreV1EventFluent<?> fluent,CoreV1Event instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAction(instance.getAction());
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withCount(instance.getCount());
-      fluent.withEventTime(instance.getEventTime());
-      fluent.withFirstTimestamp(instance.getFirstTimestamp());
-      fluent.withInvolvedObject(instance.getInvolvedObject());
-      fluent.withKind(instance.getKind());
-      fluent.withLastTimestamp(instance.getLastTimestamp());
-      fluent.withMessage(instance.getMessage());
-      fluent.withMetadata(instance.getMetadata());
-      fluent.withReason(instance.getReason());
-      fluent.withRelated(instance.getRelated());
-      fluent.withReportingComponent(instance.getReportingComponent());
-      fluent.withReportingInstance(instance.getReportingInstance());
-      fluent.withSeries(instance.getSeries());
-      fluent.withSource(instance.getSource());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public CoreV1EventBuilder(CoreV1Event instance) {
-    this(instance,false);
-  }
-  public CoreV1EventBuilder(CoreV1Event instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAction(instance.getAction());
-      this.withApiVersion(instance.getApiVersion());
-      this.withCount(instance.getCount());
-      this.withEventTime(instance.getEventTime());
-      this.withFirstTimestamp(instance.getFirstTimestamp());
-      this.withInvolvedObject(instance.getInvolvedObject());
-      this.withKind(instance.getKind());
-      this.withLastTimestamp(instance.getLastTimestamp());
-      this.withMessage(instance.getMessage());
-      this.withMetadata(instance.getMetadata());
-      this.withReason(instance.getReason());
-      this.withRelated(instance.getRelated());
-      this.withReportingComponent(instance.getReportingComponent());
-      this.withReportingInstance(instance.getReportingInstance());
-      this.withSeries(instance.getSeries());
-      this.withSource(instance.getSource());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   CoreV1EventFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public CoreV1Event build() {
     CoreV1Event buildable = new CoreV1Event();
     buildable.setAction(fluent.getAction());
@@ -76,19 +28,20 @@ public class CoreV1EventBuilder extends CoreV1EventFluentImpl<CoreV1EventBuilder
     buildable.setCount(fluent.getCount());
     buildable.setEventTime(fluent.getEventTime());
     buildable.setFirstTimestamp(fluent.getFirstTimestamp());
-    buildable.setInvolvedObject(fluent.getInvolvedObject());
+    buildable.setInvolvedObject(fluent.buildInvolvedObject());
     buildable.setKind(fluent.getKind());
     buildable.setLastTimestamp(fluent.getLastTimestamp());
     buildable.setMessage(fluent.getMessage());
-    buildable.setMetadata(fluent.getMetadata());
+    buildable.setMetadata(fluent.buildMetadata());
     buildable.setReason(fluent.getReason());
-    buildable.setRelated(fluent.getRelated());
+    buildable.setRelated(fluent.buildRelated());
     buildable.setReportingComponent(fluent.getReportingComponent());
     buildable.setReportingInstance(fluent.getReportingInstance());
-    buildable.setSeries(fluent.getSeries());
-    buildable.setSource(fluent.getSource());
+    buildable.setSeries(fluent.buildSeries());
+    buildable.setSource(fluent.buildSource());
     buildable.setType(fluent.getType());
     return buildable;
   }
   
+
 }

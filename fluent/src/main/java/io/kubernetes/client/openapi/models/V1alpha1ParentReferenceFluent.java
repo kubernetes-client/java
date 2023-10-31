@@ -1,28 +1,131 @@
 package io.kubernetes.client.openapi.models;
 
-import com.google.gson.annotations.SerializedName;
-import io.kubernetes.client.fluent.Fluent;
+import java.lang.SuppressWarnings;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
 
- /**
-  * Generated
-  */
-public interface V1alpha1ParentReferenceFluent<A extends V1alpha1ParentReferenceFluent<A>> extends Fluent<A>{
-  public String getGroup();
-  public A withGroup(String group);
-  public Boolean hasGroup();
-  public String getName();
-  public A withName(String name);
-  public Boolean hasName();
-  public String getNamespace();
-  public A withNamespace(String namespace);
-  public Boolean hasNamespace();
-  public String getResource();
-  public A withResource(String resource);
-  public Boolean hasResource();
-  public String getUid();
-  public A withUid(String uid);
-  public Boolean hasUid();
+/**
+ * Generated
+ */
+@SuppressWarnings("unchecked")
+public class V1alpha1ParentReferenceFluent<A extends V1alpha1ParentReferenceFluent<A>> extends BaseFluent<A>{
+  public V1alpha1ParentReferenceFluent() {
+  }
   
+  public V1alpha1ParentReferenceFluent(V1alpha1ParentReference instance) {
+    this.copyInstance(instance);
+  }
+  private String group;
+  private String name;
+  private String namespace;
+  private String resource;
+  private String uid;
+  
+  protected void copyInstance(V1alpha1ParentReference instance) {
+    instance = (instance != null ? instance : new V1alpha1ParentReference());
+    if (instance != null) {
+          this.withGroup(instance.getGroup());
+          this.withName(instance.getName());
+          this.withNamespace(instance.getNamespace());
+          this.withResource(instance.getResource());
+          this.withUid(instance.getUid());
+        }
+  }
+  
+  public String getGroup() {
+    return this.group;
+  }
+  
+  public A withGroup(String group) {
+    this.group = group;
+    return (A) this;
+  }
+  
+  public boolean hasGroup() {
+    return this.group != null;
+  }
+  
+  public String getName() {
+    return this.name;
+  }
+  
+  public A withName(String name) {
+    this.name = name;
+    return (A) this;
+  }
+  
+  public boolean hasName() {
+    return this.name != null;
+  }
+  
+  public String getNamespace() {
+    return this.namespace;
+  }
+  
+  public A withNamespace(String namespace) {
+    this.namespace = namespace;
+    return (A) this;
+  }
+  
+  public boolean hasNamespace() {
+    return this.namespace != null;
+  }
+  
+  public String getResource() {
+    return this.resource;
+  }
+  
+  public A withResource(String resource) {
+    this.resource = resource;
+    return (A) this;
+  }
+  
+  public boolean hasResource() {
+    return this.resource != null;
+  }
+  
+  public String getUid() {
+    return this.uid;
+  }
+  
+  public A withUid(String uid) {
+    this.uid = uid;
+    return (A) this;
+  }
+  
+  public boolean hasUid() {
+    return this.uid != null;
+  }
+  
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    V1alpha1ParentReferenceFluent that = (V1alpha1ParentReferenceFluent) o;
+    if (!java.util.Objects.equals(group, that.group)) return false;
+    if (!java.util.Objects.equals(name, that.name)) return false;
+    if (!java.util.Objects.equals(namespace, that.namespace)) return false;
+    if (!java.util.Objects.equals(resource, that.resource)) return false;
+    if (!java.util.Objects.equals(uid, that.uid)) return false;
+    return true;
+  }
+  
+  public int hashCode() {
+    return java.util.Objects.hash(group,  name,  namespace,  resource,  uid,  super.hashCode());
+  }
+  
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (group != null) { sb.append("group:"); sb.append(group + ","); }
+    if (name != null) { sb.append("name:"); sb.append(name + ","); }
+    if (namespace != null) { sb.append("namespace:"); sb.append(namespace + ","); }
+    if (resource != null) { sb.append("resource:"); sb.append(resource + ","); }
+    if (uid != null) { sb.append("uid:"); sb.append(uid); }
+    sb.append("}");
+    return sb.toString();
+  }
+  
+
 }

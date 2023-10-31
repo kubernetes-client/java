@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1PortworxVolumeSourceBuilder extends V1PortworxVolumeSourceFluentImpl<V1PortworxVolumeSourceBuilder> implements VisitableBuilder<V1PortworxVolumeSource,V1PortworxVolumeSourceBuilder>{
+public class V1PortworxVolumeSourceBuilder extends V1PortworxVolumeSourceFluent<V1PortworxVolumeSourceBuilder> implements VisitableBuilder<V1PortworxVolumeSource,V1PortworxVolumeSourceBuilder>{
   public V1PortworxVolumeSourceBuilder() {
-    this(false);
+    this(new V1PortworxVolumeSource());
   }
-  public V1PortworxVolumeSourceBuilder(Boolean validationEnabled) {
-    this(new V1PortworxVolumeSource(), validationEnabled);
-  }
+  
   public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1PortworxVolumeSource());
   }
-  public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1PortworxVolumeSource(), validationEnabled);
-  }
+  
   public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSourceFluent<?> fluent,V1PortworxVolumeSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSourceFluent<?> fluent,V1PortworxVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withFsType(instance.getFsType());
-      fluent.withReadOnly(instance.getReadOnly());
-      fluent.withVolumeID(instance.getVolumeID());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSource instance) {
-    this(instance,false);
-  }
-  public V1PortworxVolumeSourceBuilder(V1PortworxVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withFsType(instance.getFsType());
-      this.withReadOnly(instance.getReadOnly());
-      this.withVolumeID(instance.getVolumeID());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1PortworxVolumeSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1PortworxVolumeSource build() {
     V1PortworxVolumeSource buildable = new V1PortworxVolumeSource();
     buildable.setFsType(fluent.getFsType());
@@ -49,4 +29,5 @@ public class V1PortworxVolumeSourceBuilder extends V1PortworxVolumeSourceFluentI
     return buildable;
   }
   
+
 }

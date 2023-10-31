@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ScopeSelectorBuilder extends V1ScopeSelectorFluentImpl<V1ScopeSelectorBuilder> implements VisitableBuilder<V1ScopeSelector,V1ScopeSelectorBuilder>{
+public class V1ScopeSelectorBuilder extends V1ScopeSelectorFluent<V1ScopeSelectorBuilder> implements VisitableBuilder<V1ScopeSelector,V1ScopeSelectorBuilder>{
   public V1ScopeSelectorBuilder() {
-    this(false);
+    this(new V1ScopeSelector());
   }
-  public V1ScopeSelectorBuilder(Boolean validationEnabled) {
-    this(new V1ScopeSelector(), validationEnabled);
-  }
+  
   public V1ScopeSelectorBuilder(V1ScopeSelectorFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ScopeSelector());
   }
-  public V1ScopeSelectorBuilder(V1ScopeSelectorFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ScopeSelector(), validationEnabled);
-  }
+  
   public V1ScopeSelectorBuilder(V1ScopeSelectorFluent<?> fluent,V1ScopeSelector instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ScopeSelectorBuilder(V1ScopeSelectorFluent<?> fluent,V1ScopeSelector instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withMatchExpressions(instance.getMatchExpressions());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ScopeSelectorBuilder(V1ScopeSelector instance) {
-    this(instance,false);
-  }
-  public V1ScopeSelectorBuilder(V1ScopeSelector instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withMatchExpressions(instance.getMatchExpressions());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ScopeSelectorFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ScopeSelector build() {
     V1ScopeSelector buildable = new V1ScopeSelector();
-    buildable.setMatchExpressions(fluent.getMatchExpressions());
+    buildable.setMatchExpressions(fluent.buildMatchExpressions());
     return buildable;
   }
   
+
 }

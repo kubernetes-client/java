@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1CapabilitiesBuilder extends V1CapabilitiesFluentImpl<V1CapabilitiesBuilder> implements VisitableBuilder<V1Capabilities,V1CapabilitiesBuilder>{
+public class V1CapabilitiesBuilder extends V1CapabilitiesFluent<V1CapabilitiesBuilder> implements VisitableBuilder<V1Capabilities,V1CapabilitiesBuilder>{
   public V1CapabilitiesBuilder() {
-    this(false);
+    this(new V1Capabilities());
   }
-  public V1CapabilitiesBuilder(Boolean validationEnabled) {
-    this(new V1Capabilities(), validationEnabled);
-  }
+  
   public V1CapabilitiesBuilder(V1CapabilitiesFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1Capabilities());
   }
-  public V1CapabilitiesBuilder(V1CapabilitiesFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1Capabilities(), validationEnabled);
-  }
+  
   public V1CapabilitiesBuilder(V1CapabilitiesFluent<?> fluent,V1Capabilities instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1CapabilitiesBuilder(V1CapabilitiesFluent<?> fluent,V1Capabilities instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAdd(instance.getAdd());
-      fluent.withDrop(instance.getDrop());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1CapabilitiesBuilder(V1Capabilities instance) {
-    this(instance,false);
-  }
-  public V1CapabilitiesBuilder(V1Capabilities instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAdd(instance.getAdd());
-      this.withDrop(instance.getDrop());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1CapabilitiesFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1Capabilities build() {
     V1Capabilities buildable = new V1Capabilities();
     buildable.setAdd(fluent.getAdd());
@@ -46,4 +28,5 @@ public class V1CapabilitiesBuilder extends V1CapabilitiesFluentImpl<V1Capabiliti
     return buildable;
   }
   
+
 }

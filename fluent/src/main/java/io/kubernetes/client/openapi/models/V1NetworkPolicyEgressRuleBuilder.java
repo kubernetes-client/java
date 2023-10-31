@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1NetworkPolicyEgressRuleBuilder extends V1NetworkPolicyEgressRuleFluentImpl<V1NetworkPolicyEgressRuleBuilder> implements VisitableBuilder<V1NetworkPolicyEgressRule,V1NetworkPolicyEgressRuleBuilder>{
+public class V1NetworkPolicyEgressRuleBuilder extends V1NetworkPolicyEgressRuleFluent<V1NetworkPolicyEgressRuleBuilder> implements VisitableBuilder<V1NetworkPolicyEgressRule,V1NetworkPolicyEgressRuleBuilder>{
   public V1NetworkPolicyEgressRuleBuilder() {
-    this(false);
+    this(new V1NetworkPolicyEgressRule());
   }
-  public V1NetworkPolicyEgressRuleBuilder(Boolean validationEnabled) {
-    this(new V1NetworkPolicyEgressRule(), validationEnabled);
-  }
+  
   public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRuleFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1NetworkPolicyEgressRule());
   }
-  public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRuleFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1NetworkPolicyEgressRule(), validationEnabled);
-  }
+  
   public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRuleFluent<?> fluent,V1NetworkPolicyEgressRule instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRuleFluent<?> fluent,V1NetworkPolicyEgressRule instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withPorts(instance.getPorts());
-      fluent.withTo(instance.getTo());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRule instance) {
-    this(instance,false);
-  }
-  public V1NetworkPolicyEgressRuleBuilder(V1NetworkPolicyEgressRule instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withPorts(instance.getPorts());
-      this.withTo(instance.getTo());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1NetworkPolicyEgressRuleFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1NetworkPolicyEgressRule build() {
     V1NetworkPolicyEgressRule buildable = new V1NetworkPolicyEgressRule();
-    buildable.setPorts(fluent.getPorts());
-    buildable.setTo(fluent.getTo());
+    buildable.setPorts(fluent.buildPorts());
+    buildable.setTo(fluent.buildTo());
     return buildable;
   }
   
+
 }

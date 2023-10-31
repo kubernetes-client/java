@@ -1,58 +1,35 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ServiceBuilder extends V1ServiceFluentImpl<V1ServiceBuilder> implements VisitableBuilder<V1Service,V1ServiceBuilder>{
+public class V1ServiceBuilder extends V1ServiceFluent<V1ServiceBuilder> implements VisitableBuilder<V1Service,V1ServiceBuilder>{
   public V1ServiceBuilder() {
-    this(false);
+    this(new V1Service());
   }
-  public V1ServiceBuilder(Boolean validationEnabled) {
-    this(new V1Service(), validationEnabled);
-  }
+  
   public V1ServiceBuilder(V1ServiceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1Service());
   }
-  public V1ServiceBuilder(V1ServiceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1Service(), validationEnabled);
-  }
+  
   public V1ServiceBuilder(V1ServiceFluent<?> fluent,V1Service instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ServiceBuilder(V1ServiceFluent<?> fluent,V1Service instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withKind(instance.getKind());
-      fluent.withMetadata(instance.getMetadata());
-      fluent.withSpec(instance.getSpec());
-      fluent.withStatus(instance.getStatus());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ServiceBuilder(V1Service instance) {
-    this(instance,false);
-  }
-  public V1ServiceBuilder(V1Service instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withKind(instance.getKind());
-      this.withMetadata(instance.getMetadata());
-      this.withSpec(instance.getSpec());
-      this.withStatus(instance.getStatus());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ServiceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1Service build() {
     V1Service buildable = new V1Service();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());
-    buildable.setMetadata(fluent.getMetadata());
-    buildable.setSpec(fluent.getSpec());
-    buildable.setStatus(fluent.getStatus());
+    buildable.setMetadata(fluent.buildMetadata());
+    buildable.setSpec(fluent.buildSpec());
+    buildable.setStatus(fluent.buildStatus());
     return buildable;
   }
   
+
 }
