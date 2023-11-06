@@ -37,6 +37,7 @@ docker run \
   -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_prometheuses.yaml \
   -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_prometheusrules.yaml \
   -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_servicemonitors.yaml \
+  -u https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/v0.65.2/example/prometheus-operator-crd/monitoring.coreos.com_probes.yaml \
   -n com.coreos.monitoring \
   -p com.coreos.monitoring \
   -o "$(pwd)"
