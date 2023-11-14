@@ -32,8 +32,8 @@ plugins are present in the [pom.xml](https://github.com/yue9944882/replicaset-co
     <groupId>org.apache.maven.plugins</groupId>
     <artifactId>maven-compiler-plugin</artifactId>
     <configuration>
-        <source>8</source>
-        <target>8</target>
+        <source>21</source>
+        <target>21</target>
     </configuration>
 </plugin>
 ```

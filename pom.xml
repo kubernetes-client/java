@@ -36,7 +36,7 @@
   </scm>
 
   <properties>
-    <java.version>1.8</java.version>
+    <java.version>21</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven-plugin-version>1.0.0</maven-plugin-version>
@@ -73,6 +73,7 @@
 
     <gpg.keyname>48540ECBBF00A28EACCF04E720FD12AFB0C9EBA9</gpg.keyname>
     <gpg.passphrase>${env.GPG_PASSPHRASE}</gpg.passphrase>
+    <mockito-core.version>5.6.0</mockito-core.version>
   </properties>
 
   <licenses>
@@ -273,7 +274,7 @@
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
-        <version>4.11.0</version>
+        <version>${mockito-core.version}</version>
         <scope>test</scope>
       </dependency>
       <dependency>
