@@ -16,6 +16,7 @@
 
     <properties>
         <spock.version>2.3-groovy-4.0</spock.version>
+        <groovy.version>4.0.15</groovy.version>
     </properties>
     <dependencies>
         <dependency>
@@ -34,7 +35,22 @@
             <artifactId>spock-core</artifactId>
             <version>${spock.version}</version>
             <scope>test</scope>
+            <exclusions>
+                <!-- spock brings apache groovy 4.0.4; but a minimum of 4.0.11 is required to be compatible with JDK 21 -->
+                <exclusion>
+                    <groupId>org.apache.groovy</groupId>
+                    <artifactId>groovy</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.groovy</groupId>
+            <artifactId>groovy</artifactId>
+            <version>${groovy.version}</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -93,6 +109,7 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
@@ -105,9 +122,10 @@
                 </executions>
                 <dependencies>
                     <dependency>
-                        <groupId>org.codehaus.groovy</groupId>
-                        <artifactId>groovy-all</artifactId>
-                        <version>2.4.21</version>
+                        <groupId>org.apache.groovy</groupId>
+                        <artifactId>groovy</artifactId>
+                        <version>${groovy.version}</version>
+                        <scope>runtime</scope>
                     </dependency>
                 </dependencies>
             </plugin>
