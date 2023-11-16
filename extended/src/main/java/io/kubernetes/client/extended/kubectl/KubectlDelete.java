@@ -42,7 +42,6 @@ public class KubectlDelete<ApiType extends KubernetesObject>
         return getGenericApi().delete(namespace, name).throwsApiException().getObject();
       } catch (ApiException e) {
         if (ignoreNotFound && e.getCode() == 404) {
-          System.out.println("Ignoring resource not found.");
           return null;
         } else {
           throw new KubectlException(e);
@@ -53,7 +52,6 @@ public class KubectlDelete<ApiType extends KubernetesObject>
         return getGenericApi().delete(name).throwsApiException().getObject();
       } catch (ApiException e) {
         if (ignoreNotFound && e.getCode() == 404) {
-          System.out.println("Ignoring resource not found.");
           return null;
         } else {
           throw new KubectlException(e);
