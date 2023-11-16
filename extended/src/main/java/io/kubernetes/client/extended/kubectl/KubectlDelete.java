@@ -19,13 +19,19 @@ import io.kubernetes.client.util.ModelMapper;
 import org.apache.commons.lang3.StringUtils;
 
 public class KubectlDelete<ApiType extends KubernetesObject>
-    extends Kubectl.ResourceBuilder<ApiType, KubectlDelete<ApiType>>
-    implements Kubectl.Executable<ApiType> {
+        extends Kubectl.ResourceBuilder<ApiType, KubectlDelete<ApiType>>
+        implements Kubectl.Executable<ApiType> {
+
+  private boolean ignoreNotFound = false;
 
   KubectlDelete(Class<ApiType> apiTypeClass) {
     super(apiTypeClass);
   }
 
+  public KubectlDelete<ApiType> ignoreNotFound(boolean ignore) {
+    this.ignoreNotFound = ignore;
+    return this;
+  }
   @Override
   public ApiType execute() throws KubectlException {
     verifyArguments();
@@ -35,13 +41,23 @@ public class KubectlDelete<ApiType extends KubernetesObject>
       try {
         return getGenericApi().delete(namespace, name).throwsApiException().getObject();
       } catch (ApiException e) {
-        throw new KubectlException(e);
+        if (ignoreNotFound && e.getCode() == 404) {
+          System.out.println("Ignoring resource not found.");
+          return null;
+        } else {
+          throw new KubectlException(e);
+        }
       }
     } else {
       try {
         return getGenericApi().delete(name).throwsApiException().getObject();
       } catch (ApiException e) {
-        throw new KubectlException(e);
+        if (ignoreNotFound && e.getCode() == 404) {
+          System.out.println("Ignoring resource not found.");
+          return null;
+        } else {
+          throw new KubectlException(e);
+        }
       }
     }
   }
