@@ -202,5 +202,6 @@ public class KubernetesReconcilerCreatorTest {
       fail();
     }
     assertEquals("foo", workQueue.get().getName());
+    sharedInformerFactory.stopAllRegisteredInformers();
   }
 }
