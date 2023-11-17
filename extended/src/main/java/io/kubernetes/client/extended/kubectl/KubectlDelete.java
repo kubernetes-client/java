@@ -32,6 +32,7 @@ public class KubectlDelete<ApiType extends KubernetesObject>
     this.ignoreNotFound = ignore;
     return this;
   }
+
   @Override
   public ApiType execute() throws KubectlException {
     verifyArguments();
