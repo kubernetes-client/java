@@ -73,7 +73,7 @@ public class KubectlDeleteTest {
     }
 
     @Test
-    public void testKubeDelete() throws KubectlException, IOException, ApiException {
+    public void testPatchConfigMap() throws KubectlException, IOException, ApiException {
 //        wireMockRule.stubFor(
 //                patch(urlPathEqualTo("/apis/batch/v1/namespaces/foo/jobs/bar"))
 //                        .withHeader(
@@ -97,6 +97,16 @@ public class KubectlDeleteTest {
 //        String localVarPath = "/apis/batch/v1/namespaces/{namespace}/jobs"
 //                .replaceAll("\\{" + "namespace" + "\\}", localVarApiClient.escapeString(namespace.toString()));
 
+
+//        /apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar
+        // /apis/batch/v1/namespaces/foo/jobs/bar
+        wireMockRule.stubFor(
+                delete(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
+                        .willReturn(
+                                aResponse()
+                                        .withStatus(200)
+                                        .withBody("{\"kind\":\"Job\",\"apiVersion\":\"batch/v1\",\"metadata\":{\"name\":\"bar\",\"namespace\":\"foo\",\"uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"resourceVersion\":\"82015\",\"generation\":2,\"creationTimestamp\":\"2023-11-24T06:00:49Z\",\"deletionTimestamp\":\"2023-11-24T06:07:44Z\",\"deletionGracePeriodSeconds\":0,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"job-name\":\"bar\"},\"annotations\":{\"batch.kubernetes.io/job-tracking\":\"\"},\"finalizers\":[\"orphan\"],\"managedFields\":[{\"manager\":\"Kubernetes Java Client\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-24T06:00:49Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:backoffLimit\":{},\"f:completionMode\":{},\"f:completions\":{},\"f:parallelism\":{},\"f:suspend\":{},\"f:template\":{\"f:spec\":{\"f:containers\":{\"k:{\\\"name\\\":\\\"bar2\\\"}\":{\".\":{},\"f:command\":{},\"f:image\":{},\"f:imagePullPolicy\":{},\"f:name\":{},\"f:resources\":{},\"f:terminationMessagePath\":{},\"f:terminationMessagePolicy\":{}}},\"f:dnsPolicy\":{},\"f:restartPolicy\":{},\"f:schedulerName\":{},\"f:securityContext\":{},\"f:terminationGracePeriodSeconds\":{}}}}}},{\"manager\":\"kube-controller-manager\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-24T06:00:53Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\"f:completionTime\":{},\"f:conditions\":{},\"f:ready\":{},\"f:startTime\":{},\"f:succeeded\":{},\"f:uncountedTerminatedPods\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"parallelism\":1,\"completions\":1,\"backoffLimit\":6,\"selector\":{\"matchLabels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"job-name\":\"bar\"}},\"spec\":{\"containers\":[{\"name\":\"bar2\",\"image\":\"busybox\",\"command\":[\"sh\",\"-c\",\"echo Hello World!\"],\"resources\":{},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"Always\"}],\"restartPolicy\":\"Never\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"securityContext\":{},\"schedulerName\":\"default-scheduler\"}},\"completionMode\":\"NonIndexed\",\"suspend\":false},\"status\":{\"conditions\":[{\"type\":\"Complete\",\"status\":\"True\",\"lastProbeTime\":\"2023-11-24T06:00:53Z\",\"lastTransitionTime\":\"2023-11-24T06:00:53Z\"}],\"startTime\":\"2023-11-24T06:00:49Z\",\"completionTime\":\"2023-11-24T06:00:53Z\",\"succeeded\":1,\"uncountedTerminatedPods\":{},\"ready\":0}}\n")));
+
         wireMockRule.stubFor(
                 get(urlPathEqualTo("/api"))
                         .willReturn(
@@ -115,6 +125,12 @@ public class KubectlDeleteTest {
                                 aResponse()
                                         .withStatus(200)
                                         .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1))))));
+        wireMockRule.stubFor(
+                get(urlPathEqualTo("/apis/batch/v1/"))
+                        .willReturn(
+                                aResponse()
+                                        .withStatus(200)
+                                        .withBody("{\"kind\":\"APIResourceList\",\"apiVersion\":\"v1\",\"groupVersion\":\"batch/v1\",\"resources\":[{\"name\":\"cronjobs\",\"singularName\":\"cronjob\",\"namespaced\":true,\"kind\":\"CronJob\",\"verbs\":[\"create\",\"delete\",\"deletecollection\",\"get\",\"list\",\"patch\",\"update\",\"watch\"],\"shortNames\":[\"cj\"],\"categories\":[\"all\"],\"storageVersionHash\":\"sd5LIXh4Fjs=\"},{\"name\":\"cronjobs/status\",\"singularName\":\"\",\"namespaced\":true,\"kind\":\"CronJob\",\"verbs\":[\"get\",\"patch\",\"update\"]},{\"name\":\"jobs\",\"singularName\":\"job\",\"namespaced\":true,\"kind\":\"Job\",\"verbs\":[\"create\",\"delete\",\"deletecollection\",\"get\",\"list\",\"patch\",\"update\",\"watch\"],\"categories\":[\"all\"],\"storageVersionHash\":\"mudhfqk/qZY=\"},{\"name\":\"jobs/status\",\"singularName\":\"\",\"namespaced\":true,\"kind\":\"Job\",\"verbs\":[\"get\",\"patch\",\"update\"]}]}\n")));
 
         V1JobSpec v1JobSpec = new V1JobSpec()
                 .template(new V1PodTemplateSpec()
@@ -141,14 +157,19 @@ public class KubectlDeleteTest {
 //                                aResponse()
 //                                        .withStatus(200)
 //                                        .withBody("{\"metadata\":{\"name\":\"bar\",\"namespace\":\"foo\"}}")))
-
-        // V1Job is not namespaced in apiClient, so I have to add it to model map??
-        ModelMapper.addModelMap(V1Job.class, true);
+        ModelMapper.addModelMap(api.getAPIResources().getGroupVersion(), job.getApiVersion(), job.getKind(), "jobs", true, V1Job.class);
 
         KubectlDelete<V1Job> kubectlDelete = Kubectl.delete(V1Job.class);
         kubectlDelete.apiClient(apiClient);
         kubectlDelete.namespace("foo").name("bar");
         kubectlDelete.execute();
+
+        // this job should error upon deletion now
+
+        KubectlDelete<V1Job> kubectlDelete2 = Kubectl.delete(V1Job.class);
+        kubectlDelete2.apiClient(apiClient);
+        kubectlDelete2.namespace("foo").name("bar");
+        kubectlDelete2.execute();
 
 //        jobClient.delete("foo", "bar");
 
