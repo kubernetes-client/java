@@ -15,9 +15,11 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.matching.EqualToPattern;
+import com.github.tomakehurst.wiremock.stubbing.Scenario;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.kubectl.Kubectl;
 import io.kubernetes.client.extended.kubectl.KubectlDelete;
@@ -73,7 +75,7 @@ public class KubectlDeleteTest {
     }
 
     @Test
-    public void testPatchConfigMap() throws KubectlException, IOException, ApiException {
+    public void testKubectlDelete() throws KubectlException, IOException, ApiException, InterruptedException {
 //        wireMockRule.stubFor(
 //                patch(urlPathEqualTo("/apis/batch/v1/namespaces/foo/jobs/bar"))
 //                        .withHeader(
@@ -100,12 +102,33 @@ public class KubectlDeleteTest {
 
 //        /apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar
         // /apis/batch/v1/namespaces/foo/jobs/bar
+//        wireMockRule.stubFor(
+//                delete(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
+//                        .willReturn(
+//                                aResponse()
+//                                        .withStatus(200)
+//                                        .withBody("{\"kind\":\"Job\",\"apiVersion\":\"batch/v1\",\"metadata\":{\"name\":\"bar\",\"namespace\":\"foo\",\"uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"resourceVersion\":\"82015\",\"generation\":2,\"creationTimestamp\":\"2023-11-24T06:00:49Z\",\"deletionTimestamp\":\"2023-11-24T06:07:44Z\",\"deletionGracePeriodSeconds\":0,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"job-name\":\"bar\"},\"annotations\":{\"batch.kubernetes.io/job-tracking\":\"\"},\"finalizers\":[\"orphan\"],\"managedFields\":[{\"manager\":\"Kubernetes Java Client\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-24T06:00:49Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:backoffLimit\":{},\"f:completionMode\":{},\"f:completions\":{},\"f:parallelism\":{},\"f:suspend\":{},\"f:template\":{\"f:spec\":{\"f:containers\":{\"k:{\\\"name\\\":\\\"bar2\\\"}\":{\".\":{},\"f:command\":{},\"f:image\":{},\"f:imagePullPolicy\":{},\"f:name\":{},\"f:resources\":{},\"f:terminationMessagePath\":{},\"f:terminationMessagePolicy\":{}}},\"f:dnsPolicy\":{},\"f:restartPolicy\":{},\"f:schedulerName\":{},\"f:securityContext\":{},\"f:terminationGracePeriodSeconds\":{}}}}}},{\"manager\":\"kube-controller-manager\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-24T06:00:53Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\"f:completionTime\":{},\"f:conditions\":{},\"f:ready\":{},\"f:startTime\":{},\"f:succeeded\":{},\"f:uncountedTerminatedPods\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"parallelism\":1,\"completions\":1,\"backoffLimit\":6,\"selector\":{\"matchLabels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"job-name\":\"bar\"}},\"spec\":{\"containers\":[{\"name\":\"bar2\",\"image\":\"busybox\",\"command\":[\"sh\",\"-c\",\"echo Hello World!\"],\"resources\":{},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"Always\"}],\"restartPolicy\":\"Never\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"securityContext\":{},\"schedulerName\":\"default-scheduler\"}},\"completionMode\":\"NonIndexed\",\"suspend\":false},\"status\":{\"conditions\":[{\"type\":\"Complete\",\"status\":\"True\",\"lastProbeTime\":\"2023-11-24T06:00:53Z\",\"lastTransitionTime\":\"2023-11-24T06:00:53Z\"}],\"startTime\":\"2023-11-24T06:00:49Z\",\"completionTime\":\"2023-11-24T06:00:53Z\",\"succeeded\":1,\"uncountedTerminatedPods\":{},\"ready\":0}}\n")));
+//
         wireMockRule.stubFor(
                 delete(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
-                        .willReturn(
-                                aResponse()
-                                        .withStatus(200)
-                                        .withBody("{\"kind\":\"Job\",\"apiVersion\":\"batch/v1\",\"metadata\":{\"name\":\"bar\",\"namespace\":\"foo\",\"uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"resourceVersion\":\"82015\",\"generation\":2,\"creationTimestamp\":\"2023-11-24T06:00:49Z\",\"deletionTimestamp\":\"2023-11-24T06:07:44Z\",\"deletionGracePeriodSeconds\":0,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"job-name\":\"bar\"},\"annotations\":{\"batch.kubernetes.io/job-tracking\":\"\"},\"finalizers\":[\"orphan\"],\"managedFields\":[{\"manager\":\"Kubernetes Java Client\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-24T06:00:49Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:backoffLimit\":{},\"f:completionMode\":{},\"f:completions\":{},\"f:parallelism\":{},\"f:suspend\":{},\"f:template\":{\"f:spec\":{\"f:containers\":{\"k:{\\\"name\\\":\\\"bar2\\\"}\":{\".\":{},\"f:command\":{},\"f:image\":{},\"f:imagePullPolicy\":{},\"f:name\":{},\"f:resources\":{},\"f:terminationMessagePath\":{},\"f:terminationMessagePolicy\":{}}},\"f:dnsPolicy\":{},\"f:restartPolicy\":{},\"f:schedulerName\":{},\"f:securityContext\":{},\"f:terminationGracePeriodSeconds\":{}}}}}},{\"manager\":\"kube-controller-manager\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-24T06:00:53Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\"f:completionTime\":{},\"f:conditions\":{},\"f:ready\":{},\"f:startTime\":{},\"f:succeeded\":{},\"f:uncountedTerminatedPods\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"parallelism\":1,\"completions\":1,\"backoffLimit\":6,\"selector\":{\"matchLabels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"job-name\":\"bar\"}},\"spec\":{\"containers\":[{\"name\":\"bar2\",\"image\":\"busybox\",\"command\":[\"sh\",\"-c\",\"echo Hello World!\"],\"resources\":{},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"Always\"}],\"restartPolicy\":\"Never\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"securityContext\":{},\"schedulerName\":\"default-scheduler\"}},\"completionMode\":\"NonIndexed\",\"suspend\":false},\"status\":{\"conditions\":[{\"type\":\"Complete\",\"status\":\"True\",\"lastProbeTime\":\"2023-11-24T06:00:53Z\",\"lastTransitionTime\":\"2023-11-24T06:00:53Z\"}],\"startTime\":\"2023-11-24T06:00:49Z\",\"completionTime\":\"2023-11-24T06:00:53Z\",\"succeeded\":1,\"uncountedTerminatedPods\":{},\"ready\":0}}\n")));
+                        .inScenario("JobDeletionScenario")
+                        .whenScenarioStateIs(Scenario.STARTED)
+                        .willReturn(aResponse()
+                            .withStatus(200)
+                            .withBody("{\"kind\":\"Job\",\"apiVersion\":\"batch/v1\",\"metadata\":{\"name\":\"bar\",\"namespace\":\"foo\",\"uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"resourceVersion\":\"82015\",\"generation\":2,\"creationTimestamp\":\"2023-11-24T06:00:49Z\",\"deletionTimestamp\":\"2023-11-24T06:07:44Z\",\"deletionGracePeriodSeconds\":0,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"job-name\":\"bar\"},\"annotations\":{\"batch.kubernetes.io/job-tracking\":\"\"},\"finalizers\":[\"orphan\"],\"managedFields\":[{\"manager\":\"Kubernetes Java Client\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-24T06:00:49Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:backoffLimit\":{},\"f:completionMode\":{},\"f:completions\":{},\"f:parallelism\":{},\"f:suspend\":{},\"f:template\":{\"f:spec\":{\"f:containers\":{\"k:{\\\"name\\\":\\\"bar2\\\"}\":{\".\":{},\"f:command\":{},\"f:image\":{},\"f:imagePullPolicy\":{},\"f:name\":{},\"f:resources\":{},\"f:terminationMessagePath\":{},\"f:terminationMessagePolicy\":{}}},\"f:dnsPolicy\":{},\"f:restartPolicy\":{},\"f:schedulerName\":{},\"f:securityContext\":{},\"f:terminationGracePeriodSeconds\":{}}}}}},{\"manager\":\"kube-controller-manager\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-24T06:00:53Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\"f:completionTime\":{},\"f:conditions\":{},\"f:ready\":{},\"f:startTime\":{},\"f:succeeded\":{},\"f:uncountedTerminatedPods\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"parallelism\":1,\"completions\":1,\"backoffLimit\":6,\"selector\":{\"matchLabels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"job-name\":\"bar\"}},\"spec\":{\"containers\":[{\"name\":\"bar2\",\"image\":\"busybox\",\"command\":[\"sh\",\"-c\",\"echo Hello World!\"],\"resources\":{},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"Always\"}],\"restartPolicy\":\"Never\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"securityContext\":{},\"schedulerName\":\"default-scheduler\"}},\"completionMode\":\"NonIndexed\",\"suspend\":false},\"status\":{\"conditions\":[{\"type\":\"Complete\",\"status\":\"True\",\"lastProbeTime\":\"2023-11-24T06:00:53Z\",\"lastTransitionTime\":\"2023-11-24T06:00:53Z\"}],\"startTime\":\"2023-11-24T06:00:49Z\",\"completionTime\":\"2023-11-24T06:00:53Z\",\"succeeded\":1,\"uncountedTerminatedPods\":{},\"ready\":0}}\n")
+                        )
+                        .willSetStateTo("SecondCall")
+        );
+
+        wireMockRule.stubFor(
+                delete(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
+                        .inScenario("JobDeletionScenario")
+                        .whenScenarioStateIs("SecondCall")
+                        .willReturn(aResponse()
+                                .withStatus(404)
+                                .withBody("{\"kind\":\"Status\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"message\":\"jobs.batch \\\"bar\\\" not found\",\"reason\":\"NotFound\",\"details\":{\"name\":\"bar\",\"group\":\"batch\",\"kind\":\"jobs\"},\"code\":404}")
+                        )
+        );
 
         wireMockRule.stubFor(
                 get(urlPathEqualTo("/api"))
@@ -164,11 +187,16 @@ public class KubectlDeleteTest {
         kubectlDelete.namespace("foo").name("bar");
         kubectlDelete.execute();
 
-        // this job should error upon deletion now
+        assertThrows(KubectlException.class, () -> {
+            KubectlDelete<V1Job> kubectlDelete2 = Kubectl.delete(V1Job.class);
+            kubectlDelete2.apiClient(apiClient);
+            kubectlDelete2.namespace("foo").name("bar");
+            kubectlDelete2.execute();
+        });
 
         KubectlDelete<V1Job> kubectlDelete2 = Kubectl.delete(V1Job.class);
         kubectlDelete2.apiClient(apiClient);
-        kubectlDelete2.namespace("foo").name("bar");
+        kubectlDelete2.namespace("foo").name("bar").ignoreNotFound(true);
         kubectlDelete2.execute();
 
 //        jobClient.delete("foo", "bar");
