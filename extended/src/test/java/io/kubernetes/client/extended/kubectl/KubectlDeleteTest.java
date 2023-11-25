@@ -23,7 +23,6 @@ import io.kubernetes.client.extended.kubectl.KubectlDelete;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.apis.BatchV1Api;
 import io.kubernetes.client.openapi.models.*;
 import io.kubernetes.client.util.ClientBuilder;
@@ -33,7 +32,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import io.kubernetes.client.util.generic.GenericKubernetesApi;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -54,6 +52,36 @@ public class KubectlDeleteTest {
                             .getPath())
                     .toString();
 
+
+    private static final String ADD_JOB =
+            new File(
+                    KubectlDeleteTest.class
+                            .getClassLoader()
+                            .getResource("deleted-add-job.json")
+                            .getPath())
+                    .toString();
+    private static final String GET_BATCH =
+            new File(
+                    KubectlDeleteTest.class
+                            .getClassLoader()
+                            .getResource("deleted-get-batch.json")
+                            .getPath())
+                    .toString();
+    private static final String DELETED_FIRST =
+            new File(
+                    KubectlDeleteTest.class
+                            .getClassLoader()
+                            .getResource("deleted-first-time.json")
+                            .getPath())
+                    .toString();
+    private static final String DELETED_SECOND =
+            new File(
+                    KubectlDeleteTest.class
+                            .getClassLoader()
+                            .getResource("deleted-second-time.json")
+                            .getPath())
+                    .toString();
+
     private static final String DISCOVERY_APIS =
             new File(KubectlDeleteTest.class.getClassLoader().getResource("discovery-apis.json").getPath())
                     .toString();
@@ -61,25 +89,25 @@ public class KubectlDeleteTest {
     @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
     @Before
-    public void setup() throws IOException {
+    public void setup() {
         apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     }
 
     @Test
-    public void testKubectlDelete() throws KubectlException, IOException, ApiException, InterruptedException {
+    public void testKubectlDelete() throws KubectlException, IOException, ApiException {
         wireMockRule.stubFor(
                 post(urlPathEqualTo("/apis/batch/v1/namespaces/foo/jobs"))
                         .willReturn(
                                 aResponse()
                                         .withStatus(201)
-                                        .withBody("{\"kind\":\"Job\",\"apiVersion\":\"batch/v1\",\"metadata\":{\"name\":\"bar\",\"namespace\":\"foo\",\"uid\":\"7f64e06e-d6a6-4598-b375-7c8773f3b0e7\",\"resourceVersion\":\"46205\",\"generation\":1,\"creationTimestamp\":\"2023-11-23T15:38:18Z\",\"labels\":{\"batch.kubernetes.io/controller-uid\":\"7f64e06e-d6a6-4598-b375-7c8773f3b0e7\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"7f64e06e-d6a6-4598-b375-7c8773f3b0e7\",\"job-name\":\"bar\"},\"annotations\":{\"batch.kubernetes.io/job-tracking\":\"\"},\"managedFields\":[{\"manager\":\"Kubernetes Java Client\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-23T15:38:18Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:backoffLimit\":{},\"f:completionMode\":{},\"f:completions\":{},\"f:parallelism\":{},\"f:suspend\":{},\"f:template\":{\"f:spec\":{\"f:containers\":{\"k:{\\\"name\\\":\\\"bar2\\\"}\":{\".\":{},\"f:command\":{},\"f:image\":{},\"f:imagePullPolicy\":{},\"f:name\":{},\"f:resources\":{},\"f:terminationMessagePath\":{},\"f:terminationMessagePolicy\":{}}},\"f:dnsPolicy\":{},\"f:restartPolicy\":{},\"f:schedulerName\":{},\"f:securityContext\":{},\"f:terminationGracePeriodSeconds\":{}}}}}}]},\"spec\":{\"parallelism\":1,\"completions\":1,\"backoffLimit\":6,\"selector\":{\"matchLabels\":{\"batch.kubernetes.io/controller-uid\":\"7f64e06e-d6a6-4598-b375-7c8773f3b0e7\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"7f64e06e-d6a6-4598-b375-7c8773f3b0e7\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"7f64e06e-d6a6-4598-b375-7c8773f3b0e7\",\"job-name\":\"bar\"}},\"spec\":{\"containers\":[{\"name\":\"bar2\",\"image\":\"busybox\",\"command\":[\"sh\",\"-c\",\"echo Hello World!\"],\"resources\":{},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"Always\"}],\"restartPolicy\":\"Never\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"securityContext\":{},\"schedulerName\":\"default-scheduler\"}},\"completionMode\":\"NonIndexed\",\"suspend\":false},\"status\":{}}")));
+                                        .withBody(new String(Files.readAllBytes(Paths.get(ADD_JOB))))));
         wireMockRule.stubFor(
                 delete(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
                         .inScenario("JobDeletionScenario")
                         .whenScenarioStateIs(Scenario.STARTED)
                         .willReturn(aResponse()
-                            .withStatus(200)
-                            .withBody("{\"kind\":\"Job\",\"apiVersion\":\"batch/v1\",\"metadata\":{\"name\":\"bar\",\"namespace\":\"foo\",\"uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"resourceVersion\":\"82015\",\"generation\":2,\"creationTimestamp\":\"2023-11-24T06:00:49Z\",\"deletionTimestamp\":\"2023-11-24T06:07:44Z\",\"deletionGracePeriodSeconds\":0,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"job-name\":\"bar\"},\"annotations\":{\"batch.kubernetes.io/job-tracking\":\"\"},\"finalizers\":[\"orphan\"],\"managedFields\":[{\"manager\":\"Kubernetes Java Client\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-24T06:00:49Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:spec\":{\"f:backoffLimit\":{},\"f:completionMode\":{},\"f:completions\":{},\"f:parallelism\":{},\"f:suspend\":{},\"f:template\":{\"f:spec\":{\"f:containers\":{\"k:{\\\"name\\\":\\\"bar2\\\"}\":{\".\":{},\"f:command\":{},\"f:image\":{},\"f:imagePullPolicy\":{},\"f:name\":{},\"f:resources\":{},\"f:terminationMessagePath\":{},\"f:terminationMessagePolicy\":{}}},\"f:dnsPolicy\":{},\"f:restartPolicy\":{},\"f:schedulerName\":{},\"f:securityContext\":{},\"f:terminationGracePeriodSeconds\":{}}}}}},{\"manager\":\"kube-controller-manager\",\"operation\":\"Update\",\"apiVersion\":\"batch/v1\",\"time\":\"2023-11-24T06:00:53Z\",\"fieldsType\":\"FieldsV1\",\"fieldsV1\":{\"f:status\":{\"f:completionTime\":{},\"f:conditions\":{},\"f:ready\":{},\"f:startTime\":{},\"f:succeeded\":{},\"f:uncountedTerminatedPods\":{}}},\"subresource\":\"status\"}]},\"spec\":{\"parallelism\":1,\"completions\":1,\"backoffLimit\":6,\"selector\":{\"matchLabels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\"}},\"template\":{\"metadata\":{\"creationTimestamp\":null,\"labels\":{\"batch.kubernetes.io/controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"batch.kubernetes.io/job-name\":\"bar\",\"controller-uid\":\"b862e993-3828-4108-a38f-c19a602d9af6\",\"job-name\":\"bar\"}},\"spec\":{\"containers\":[{\"name\":\"bar2\",\"image\":\"busybox\",\"command\":[\"sh\",\"-c\",\"echo Hello World!\"],\"resources\":{},\"terminationMessagePath\":\"/dev/termination-log\",\"terminationMessagePolicy\":\"File\",\"imagePullPolicy\":\"Always\"}],\"restartPolicy\":\"Never\",\"terminationGracePeriodSeconds\":30,\"dnsPolicy\":\"ClusterFirst\",\"securityContext\":{},\"schedulerName\":\"default-scheduler\"}},\"completionMode\":\"NonIndexed\",\"suspend\":false},\"status\":{\"conditions\":[{\"type\":\"Complete\",\"status\":\"True\",\"lastProbeTime\":\"2023-11-24T06:00:53Z\",\"lastTransitionTime\":\"2023-11-24T06:00:53Z\"}],\"startTime\":\"2023-11-24T06:00:49Z\",\"completionTime\":\"2023-11-24T06:00:53Z\",\"succeeded\":1,\"uncountedTerminatedPods\":{},\"ready\":0}}\n")
+                                .withStatus(200)
+                                .withBody(new String(Files.readAllBytes(Paths.get(DELETED_FIRST))))
                         )
                         .willSetStateTo("SecondCall")
         );
@@ -90,7 +118,7 @@ public class KubectlDeleteTest {
                         .whenScenarioStateIs("SecondCall")
                         .willReturn(aResponse()
                                 .withStatus(404)
-                                .withBody("{\"kind\":\"Status\",\"apiVersion\":\"v1\",\"metadata\":{},\"status\":\"Failure\",\"message\":\"jobs.batch \\\"bar\\\" not found\",\"reason\":\"NotFound\",\"details\":{\"name\":\"bar\",\"group\":\"batch\",\"kind\":\"jobs\"},\"code\":404}")
+                                .withBody(new String(Files.readAllBytes(Paths.get(DELETED_SECOND))))
                         )
         );
 
@@ -117,7 +145,7 @@ public class KubectlDeleteTest {
                         .willReturn(
                                 aResponse()
                                         .withStatus(200)
-                                        .withBody("{\"kind\":\"APIResourceList\",\"apiVersion\":\"v1\",\"groupVersion\":\"batch/v1\",\"resources\":[{\"name\":\"cronjobs\",\"singularName\":\"cronjob\",\"namespaced\":true,\"kind\":\"CronJob\",\"verbs\":[\"create\",\"delete\",\"deletecollection\",\"get\",\"list\",\"patch\",\"update\",\"watch\"],\"shortNames\":[\"cj\"],\"categories\":[\"all\"],\"storageVersionHash\":\"sd5LIXh4Fjs=\"},{\"name\":\"cronjobs/status\",\"singularName\":\"\",\"namespaced\":true,\"kind\":\"CronJob\",\"verbs\":[\"get\",\"patch\",\"update\"]},{\"name\":\"jobs\",\"singularName\":\"job\",\"namespaced\":true,\"kind\":\"Job\",\"verbs\":[\"create\",\"delete\",\"deletecollection\",\"get\",\"list\",\"patch\",\"update\",\"watch\"],\"categories\":[\"all\"],\"storageVersionHash\":\"mudhfqk/qZY=\"},{\"name\":\"jobs/status\",\"singularName\":\"\",\"namespaced\":true,\"kind\":\"Job\",\"verbs\":[\"get\",\"patch\",\"update\"]}]}\n")));
+                                        .withBody(new String(Files.readAllBytes(Paths.get(GET_BATCH))))));
 
         V1JobSpec v1JobSpec = new V1JobSpec()
                 .template(new V1PodTemplateSpec()

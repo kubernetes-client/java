@@ -1,0 +1,14 @@
+{
+  "kind": "Status",
+  "apiVersion": "v1",
+  "metadata": {},
+  "status": "Failure",
+  "message": "jobs.batch \"bar\" not found",
+  "reason": "NotFound",
+  "details": {
+    "name": "bar",
+    "group": "batch",
+    "kind": "jobs"
+  },
+  "code": 404
+}
