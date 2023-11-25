@@ -71,14 +71,14 @@ public class KubectlDeleteTest {
             new File(
                     KubectlDeleteTest.class
                             .getClassLoader()
-                            .getResource("deleted-first-time.json")
+                            .getResource("deleted-success.json")
                             .getPath())
                     .toString();
     private static final String DELETED_SECOND =
             new File(
                     KubectlDeleteTest.class
                             .getClassLoader()
-                            .getResource("deleted-second-time.json")
+                            .getResource("deleted-not-found.json")
                             .getPath())
                     .toString();
 
