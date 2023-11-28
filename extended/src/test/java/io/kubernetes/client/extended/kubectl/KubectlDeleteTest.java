@@ -27,14 +27,10 @@ import io.kubernetes.client.openapi.apis.BatchV1Api;
 import io.kubernetes.client.openapi.models.*;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.ModelMapper;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Properties;
+import java.util.Objects;
 
+import org.apache.commons.io.IOUtils;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -43,88 +39,86 @@ public class KubectlDeleteTest {
 
     private ApiClient apiClient;
 
-    private static final byte[] DISCOVERY_API;
+    private final byte[] DISCOVERY_API;
 
-    static {
+    {
         try {
-            DISCOVERY_API = KubectlDeleteTest.class
+            DISCOVERY_API = IOUtils.toByteArray(Objects.requireNonNull(KubectlDeleteTest.class
                     .getClassLoader()
-                    .getResourceAsStream("discovery-api.json")
-                    .readAllBytes();
+                    .getResourceAsStream("discovery-api.json")));
         } catch (IOException e) {
-            throw new RuntimeException("Failed to load resource", e);
+            throw new RuntimeException(e);
         }
     }
 
-    private static final byte[]  DISCOVERY_APIV1;
+    private final byte[] DISCOVERY_APIV1;
 
-    static {
+    {
         try {
-            DISCOVERY_APIV1 = KubectlDeleteTest.class
+            DISCOVERY_APIV1 = IOUtils.toByteArray(Objects.requireNonNull(KubectlDeleteTest.class
                     .getClassLoader()
-                    .getResourceAsStream("discovery-api-v1.json")
-                    .readAllBytes();
+                    .getResourceAsStream("discovery-api-v1.json")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
 
-    private static final byte[] ADD_JOB;
+    private final byte[] ADD_JOB;
 
-    static {
+    {
         try {
-            ADD_JOB = KubectlDeleteTest.class
+            ADD_JOB = IOUtils.toByteArray(Objects.requireNonNull(KubectlDeleteTest.class
                     .getClassLoader()
-                    .getResourceAsStream("deleted-add-job.json").readAllBytes();
+                    .getResourceAsStream("deleted-add-job.json")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static final byte[]  GET_BATCH;
+    private final byte[] GET_BATCH;
 
-    static {
+    {
         try {
-            GET_BATCH = KubectlDeleteTest.class
+            GET_BATCH = IOUtils.toByteArray(Objects.requireNonNull(KubectlDeleteTest.class
                     .getClassLoader()
-                    .getResourceAsStream("deleted-get-batch.json").readAllBytes();
+                    .getResourceAsStream("deleted-get-batch.json")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static final byte[]  DELETED_FIRST;
+    private final byte[] DELETED_FIRST;
 
-    static {
+    {
         try {
-            DELETED_FIRST = KubectlDeleteTest.class
+            DELETED_FIRST = IOUtils.toByteArray(Objects.requireNonNull(KubectlDeleteTest.class
                     .getClassLoader()
-                    .getResourceAsStream("deleted-success.json").readAllBytes();
+                    .getResourceAsStream("deleted-success.json")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static final byte[]  DELETED_SECOND;
+    private final byte[] DELETED_SECOND;
 
-    static {
+    {
         try {
-            DELETED_SECOND = KubectlDeleteTest.class
+            DELETED_SECOND = IOUtils.toByteArray(Objects.requireNonNull(KubectlDeleteTest.class
                     .getClassLoader()
-                    .getResourceAsStream("deleted-not-found.json").readAllBytes();
+                    .getResourceAsStream("deleted-not-found.json")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    private static final byte[]  DISCOVERY_APIS;
+    private final byte[] DISCOVERY_APIS;
 
-    static {
+    {
         try {
-            DISCOVERY_APIS = KubectlDeleteTest.class
+            DISCOVERY_APIS = IOUtils.toByteArray(Objects.requireNonNull(KubectlDeleteTest.class
                     .getClassLoader()
-                    .getResourceAsStream("discovery-apis.json").readAllBytes();
+                    .getResourceAsStream("discovery-apis.json")));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
