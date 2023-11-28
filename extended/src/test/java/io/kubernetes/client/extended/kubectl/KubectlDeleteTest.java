@@ -29,8 +29,11 @@ import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.ModelMapper;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Properties;
 
 import org.junit.Before;
 import org.junit.Rule;
@@ -40,51 +43,92 @@ public class KubectlDeleteTest {
 
     private ApiClient apiClient;
 
-    private static final String DISCOVERY_API =
-            new File(KubectlDeleteTest.class.getClassLoader().getResource("discovery-api.json").getPath())
-                    .toString();
+    private static final byte[] DISCOVERY_API;
 
-    private static final String DISCOVERY_APIV1 =
-            new File(
-                    KubectlDeleteTest.class
-                            .getClassLoader()
-                            .getResource("discovery-api-v1.json")
-                            .getPath())
-                    .toString();
+    static {
+        try {
+            DISCOVERY_API = KubectlDeleteTest.class
+                    .getClassLoader()
+                    .getResourceAsStream("discovery-api.json")
+                    .readAllBytes();
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load resource", e);
+        }
+    }
+
+    private static final byte[]  DISCOVERY_APIV1;
+
+    static {
+        try {
+            DISCOVERY_APIV1 = KubectlDeleteTest.class
+                    .getClassLoader()
+                    .getResourceAsStream("discovery-api-v1.json")
+                    .readAllBytes();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
-    private static final String ADD_JOB =
-            new File(
-                    KubectlDeleteTest.class
-                            .getClassLoader()
-                            .getResource("deleted-add-job.json")
-                            .getPath())
-                    .toString();
-    private static final String GET_BATCH =
-            new File(
-                    KubectlDeleteTest.class
-                            .getClassLoader()
-                            .getResource("deleted-get-batch.json")
-                            .getPath())
-                    .toString();
-    private static final String DELETED_FIRST =
-            new File(
-                    KubectlDeleteTest.class
-                            .getClassLoader()
-                            .getResource("deleted-success.json")
-                            .getPath())
-                    .toString();
-    private static final String DELETED_SECOND =
-            new File(
-                    KubectlDeleteTest.class
-                            .getClassLoader()
-                            .getResource("deleted-not-found.json")
-                            .getPath())
-                    .toString();
+    private static final byte[] ADD_JOB;
 
-    private static final String DISCOVERY_APIS =
-            new File(KubectlDeleteTest.class.getClassLoader().getResource("discovery-apis.json").getPath())
-                    .toString();
+    static {
+        try {
+            ADD_JOB = KubectlDeleteTest.class
+                    .getClassLoader()
+                    .getResourceAsStream("deleted-add-job.json").readAllBytes();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static final byte[]  GET_BATCH;
+
+    static {
+        try {
+            GET_BATCH = KubectlDeleteTest.class
+                    .getClassLoader()
+                    .getResourceAsStream("deleted-get-batch.json").readAllBytes();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static final byte[]  DELETED_FIRST;
+
+    static {
+        try {
+            DELETED_FIRST = KubectlDeleteTest.class
+                    .getClassLoader()
+                    .getResourceAsStream("deleted-success.json").readAllBytes();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static final byte[]  DELETED_SECOND;
+
+    static {
+        try {
+            DELETED_SECOND = KubectlDeleteTest.class
+                    .getClassLoader()
+                    .getResourceAsStream("deleted-not-found.json").readAllBytes();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static final byte[]  DISCOVERY_APIS;
+
+    static {
+        try {
+            DISCOVERY_APIS = KubectlDeleteTest.class
+                    .getClassLoader()
+                    .getResourceAsStream("discovery-apis.json").readAllBytes();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
@@ -100,14 +144,14 @@ public class KubectlDeleteTest {
                         .willReturn(
                                 aResponse()
                                         .withStatus(201)
-                                        .withBody(new String(Files.readAllBytes(Paths.get(ADD_JOB))))));
+                                        .withBody(ADD_JOB)));
         wireMockRule.stubFor(
                 delete(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
                         .inScenario("JobDeletionScenario")
                         .whenScenarioStateIs(Scenario.STARTED)
                         .willReturn(aResponse()
                                 .withStatus(200)
-                                .withBody(new String(Files.readAllBytes(Paths.get(DELETED_FIRST))))
+                                .withBody(DELETED_FIRST)
                         )
                         .willSetStateTo("SecondCall")
         );
@@ -118,34 +162,35 @@ public class KubectlDeleteTest {
                         .whenScenarioStateIs("SecondCall")
                         .willReturn(aResponse()
                                 .withStatus(404)
-                                .withBody(new String(Files.readAllBytes(Paths.get(DELETED_SECOND))))
+                                .withBody(DELETED_SECOND)
                         )
         );
+
 
         wireMockRule.stubFor(
                 get(urlPathEqualTo("/api"))
                         .willReturn(
                                 aResponse()
                                         .withStatus(200)
-                                        .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_API))))));
+                                        .withBody(DISCOVERY_API)));
         wireMockRule.stubFor(
                 get(urlPathEqualTo("/apis"))
                         .willReturn(
                                 aResponse()
                                         .withStatus(200)
-                                        .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS))))));
+                                        .withBody(DISCOVERY_APIS)));
         wireMockRule.stubFor(
                 get(urlPathEqualTo("/api/v1"))
                         .willReturn(
                                 aResponse()
                                         .withStatus(200)
-                                        .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1))))));
+                                        .withBody(DISCOVERY_APIV1)));
         wireMockRule.stubFor(
                 get(urlPathEqualTo("/apis/batch/v1/"))
                         .willReturn(
                                 aResponse()
                                         .withStatus(200)
-                                        .withBody(new String(Files.readAllBytes(Paths.get(GET_BATCH))))));
+                                        .withBody(GET_BATCH)));
 
         V1JobSpec v1JobSpec = new V1JobSpec()
                 .template(new V1PodTemplateSpec()
