@@ -1,0 +1,106 @@
+{
+  "kind": "Job",
+  "apiVersion": "batch/v1",
+  "metadata": {
+    "name": "bar",
+    "namespace": "foo",
+    "uid": "7f64e06e-d6a6-4598-b375-7c8773f3b0e7",
+    "resourceVersion": "46205",
+    "generation": 1,
+    "creationTimestamp": "2023-11-23T15:38:18Z",
+    "labels": {
+      "batch.kubernetes.io/controller-uid": "7f64e06e-d6a6-4598-b375-7c8773f3b0e7",
+      "batch.kubernetes.io/job-name": "bar",
+      "controller-uid": "7f64e06e-d6a6-4598-b375-7c8773f3b0e7",
+      "job-name": "bar"
+    },
+    "annotations": {
+      "batch.kubernetes.io/job-tracking": ""
+    },
+    "managedFields": [
+      {
+        "manager": "Kubernetes Java Client",
+        "operation": "Update",
+        "apiVersion": "batch/v1",
+        "time": "2023-11-23T15:38:18Z",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {
+          "f:spec": {
+            "f:backoffLimit": {},
+            "f:completionMode": {},
+            "f:completions": {},
+            "f:parallelism": {},
+            "f:suspend": {},
+            "f:template": {
+              "f:spec": {
+                "f:containers": {
+                  "k:{\"name\":\"bar2\"}": {
+                    ".": {},
+                    "f:command": {},
+                    "f:image": {},
+                    "f:imagePullPolicy": {},
+                    "f:name": {},
+                    "f:resources": {},
+                    "f:terminationMessagePath": {},
+                    "f:terminationMessagePolicy": {}
+                  }
+                },
+                "f:dnsPolicy": {},
+                "f:restartPolicy": {},
+                "f:schedulerName": {},
+                "f:securityContext": {},
+                "f:terminationGracePeriodSeconds": {}
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "spec": {
+    "parallelism": 1,
+    "completions": 1,
+    "backoffLimit": 6,
+    "selector": {
+      "matchLabels": {
+        "batch.kubernetes.io/controller-uid": "7f64e06e-d6a6-4598-b375-7c8773f3b0e7"
+      }
+    },
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "7f64e06e-d6a6-4598-b375-7c8773f3b0e7",
+          "batch.kubernetes.io/job-name": "bar",
+          "controller-uid": "7f64e06e-d6a6-4598-b375-7c8773f3b0e7",
+          "job-name": "bar"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "bar2",
+            "image": "busybox",
+            "command": [
+              "sh",
+              "-c",
+              "echo Hello World!"
+            ],
+            "resources": {},
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "Always"
+          }
+        ],
+        "restartPolicy": "Never",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "securityContext": {},
+        "schedulerName": "default-scheduler"
+      }
+    },
+    "completionMode": "NonIndexed",
+    "suspend": false
+  },
+  "status": {}
+}

@@ -1,0 +1,143 @@
+{
+  "kind": "Job",
+  "apiVersion": "batch/v1",
+  "metadata": {
+    "name": "bar",
+    "namespace": "foo",
+    "uid": "b862e993-3828-4108-a38f-c19a602d9af6",
+    "resourceVersion": "82015",
+    "generation": 2,
+    "creationTimestamp": "2023-11-24T06:00:49Z",
+    "deletionTimestamp": "2023-11-24T06:07:44Z",
+    "deletionGracePeriodSeconds": 0,
+    "labels": {
+      "batch.kubernetes.io/controller-uid": "b862e993-3828-4108-a38f-c19a602d9af6",
+      "batch.kubernetes.io/job-name": "bar",
+      "controller-uid": "b862e993-3828-4108-a38f-c19a602d9af6",
+      "job-name": "bar"
+    },
+    "annotations": {
+      "batch.kubernetes.io/job-tracking": ""
+    },
+    "finalizers": [
+      "orphan"
+    ],
+    "managedFields": [
+      {
+        "manager": "Kubernetes Java Client",
+        "operation": "Update",
+        "apiVersion": "batch/v1",
+        "time": "2023-11-24T06:00:49Z",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {
+          "f:spec": {
+            "f:backoffLimit": {},
+            "f:completionMode": {},
+            "f:completions": {},
+            "f:parallelism": {},
+            "f:suspend": {},
+            "f:template": {
+              "f:spec": {
+                "f:containers": {
+                  "k:{\"name\":\"bar2\"}": {
+                    ".": {},
+                    "f:command": {},
+                    "f:image": {},
+                    "f:imagePullPolicy": {},
+                    "f:name": {},
+                    "f:resources": {},
+                    "f:terminationMessagePath": {},
+                    "f:terminationMessagePolicy": {}
+                  }
+                },
+                "f:dnsPolicy": {},
+                "f:restartPolicy": {},
+                "f:schedulerName": {},
+                "f:securityContext": {},
+                "f:terminationGracePeriodSeconds": {}
+              }
+            }
+          }
+        }
+      },
+      {
+        "manager": "kube-controller-manager",
+        "operation": "Update",
+        "apiVersion": "batch/v1",
+        "time": "2023-11-24T06:00:53Z",
+        "fieldsType": "FieldsV1",
+        "fieldsV1": {
+          "f:status": {
+            "f:completionTime": {},
+            "f:conditions": {},
+            "f:ready": {},
+            "f:startTime": {},
+            "f:succeeded": {},
+            "f:uncountedTerminatedPods": {}
+          }
+        },
+        "subresource": "status"
+      }
+    ]
+  },
+  "spec": {
+    "parallelism": 1,
+    "completions": 1,
+    "backoffLimit": 6,
+    "selector": {
+      "matchLabels": {
+        "batch.kubernetes.io/controller-uid": "b862e993-3828-4108-a38f-c19a602d9af6"
+      }
+    },
+    "template": {
+      "metadata": {
+        "creationTimestamp": null,
+        "labels": {
+          "batch.kubernetes.io/controller-uid": "b862e993-3828-4108-a38f-c19a602d9af6",
+          "batch.kubernetes.io/job-name": "bar",
+          "controller-uid": "b862e993-3828-4108-a38f-c19a602d9af6",
+          "job-name": "bar"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "bar2",
+            "image": "busybox",
+            "command": [
+              "sh",
+              "-c",
+              "echo Hello World!"
+            ],
+            "resources": {},
+            "terminationMessagePath": "/dev/termination-log",
+            "terminationMessagePolicy": "File",
+            "imagePullPolicy": "Always"
+          }
+        ],
+        "restartPolicy": "Never",
+        "terminationGracePeriodSeconds": 30,
+        "dnsPolicy": "ClusterFirst",
+        "securityContext": {},
+        "schedulerName": "default-scheduler"
+      }
+    },
+    "completionMode": "NonIndexed",
+    "suspend": false
+  },
+  "status": {
+    "conditions": [
+      {
+        "type": "Complete",
+        "status": "True",
+        "lastProbeTime": "2023-11-24T06:00:53Z",
+        "lastTransitionTime": "2023-11-24T06:00:53Z"
+      }
+    ],
+    "startTime": "2023-11-24T06:00:49Z",
+    "completionTime": "2023-11-24T06:00:53Z",
+    "succeeded": 1,
+    "uncountedTerminatedPods": {},
+    "ready": 0
+  }
+}
