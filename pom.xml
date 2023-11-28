@@ -57,7 +57,7 @@
     <jsr305.version>3.0.2</jsr305.version>
     <okhttp3.version>4.11.0</okhttp3.version>
     <swagger-core.version>1.6.12</swagger-core.version>
-    <sundrio.version>0.101.3</sundrio.version>
+    <sundrio.version>0.103.0</sundrio.version>
     <gsonfire.version>1.9.0</gsonfire.version>
     <apache.commons.lang3.version>3.14.0</apache.commons.lang3.version>
     <apache.commons.collections4.version>4.4</apache.commons.collections4.version>
@@ -65,7 +65,7 @@
     <apache.commons.io>2.15.0</apache.commons.io>
     <common.codec.version>1.16.0</common.codec.version>
     <spring.boot.version>3.1.5</spring.boot.version>
-    <spring.version>6.1.0</spring.version>
+    <spring.version>6.1.1</spring.version>
     <prometheus.client.version>0.16.0</prometheus.client.version>
     <reflections.version>0.10.2</reflections.version>
 
@@ -385,7 +385,7 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>build-helper-maven-plugin</artifactId>
-          <version>3.4.0</version>
+          <version>3.5.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
