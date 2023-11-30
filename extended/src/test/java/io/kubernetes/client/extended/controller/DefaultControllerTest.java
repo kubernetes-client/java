@@ -189,7 +189,7 @@ public class DefaultControllerTest {
 
   @Test(timeout = 90000)
   public void testControllerTriggersInitialCatchUpCompleteHandlerWhenReconcilerCaughtUp()
-          throws InterruptedException {
+      throws InterruptedException {
     final Semaphore handlerLatch = new Semaphore(1);
     Runnable initialCatchUpCompleteHandler = spy(new Runnable() {
       @Override
@@ -199,39 +199,42 @@ public class DefaultControllerTest {
     });
     handlerLatch.acquire();
 
-    DefaultController testController = new DefaultController("", mockReconciler, workQueue,
-                                                             initialCatchUpCompleteHandler);
+    final Semaphore latch = new Semaphore(1);
+    latch.acquire();
+    Reconciler spyReconciler = spy(new Reconciler() {
+      @Override
+      public Result reconcile(Request request) {
+        try {
+          return new Result(false);
+        } finally {
+          latch.release();
+        }
+      }
+    });
+    DefaultController testController = new DefaultController(
+        "", spyReconciler, workQueue, initialCatchUpCompleteHandler);
 
     testController.setWorkerCount(1);
     testController.setWorkerThreadPool(Executors.newScheduledThreadPool(1));
 
     Request request1 = new Request("test1");
-    final Semaphore latch = new Semaphore(1);
-    latch.acquire();
-    when(mockReconciler.reconcile(any()))
-            .thenAnswer(
-                    (Answer<Result>) invocation -> {
-                      latch.release();
-                      return new Result(false);
-                    });
-
     workQueue.add(request1);
-    verify(mockReconciler, times(0)).reconcile(request1);
     verify(initialCatchUpCompleteHandler, times(0)).run();
 
     controllerThead.submit(testController::run);
     latch.acquire();
-    verify(mockReconciler, times(1)).reconcile(request1);
+    verify(spyReconciler, times(1)).reconcile(request1);
 
     handlerLatch.acquire();
     verify(initialCatchUpCompleteHandler, times(1)).run();
     reset(initialCatchUpCompleteHandler);
 
     Request request2 = new Request("test2");
-    verify(mockReconciler, times(0)).reconcile(request2);
-    workQueue.add(request2);
+    verify(spyReconciler, times(0)).reconcile(request2);
 
-    verify(mockReconciler, times(1)).reconcile(request2);
+    workQueue.add(request2);
+    latch.acquire();
+    verify(spyReconciler, times(1)).reconcile(request2);
     // Sleeps to make sure the handler isn't called.
     cooldown();
     verify(initialCatchUpCompleteHandler, times(0)).run();
