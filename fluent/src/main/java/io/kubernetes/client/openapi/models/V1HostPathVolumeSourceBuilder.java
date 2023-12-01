@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1HostPathVolumeSourceBuilder extends V1HostPathVolumeSourceFluentImpl<V1HostPathVolumeSourceBuilder> implements VisitableBuilder<V1HostPathVolumeSource,V1HostPathVolumeSourceBuilder>{
+public class V1HostPathVolumeSourceBuilder extends V1HostPathVolumeSourceFluent<V1HostPathVolumeSourceBuilder> implements VisitableBuilder<V1HostPathVolumeSource,V1HostPathVolumeSourceBuilder>{
   public V1HostPathVolumeSourceBuilder() {
-    this(false);
+    this(new V1HostPathVolumeSource());
   }
-  public V1HostPathVolumeSourceBuilder(Boolean validationEnabled) {
-    this(new V1HostPathVolumeSource(), validationEnabled);
-  }
+  
   public V1HostPathVolumeSourceBuilder(V1HostPathVolumeSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1HostPathVolumeSource());
   }
-  public V1HostPathVolumeSourceBuilder(V1HostPathVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1HostPathVolumeSource(), validationEnabled);
-  }
+  
   public V1HostPathVolumeSourceBuilder(V1HostPathVolumeSourceFluent<?> fluent,V1HostPathVolumeSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1HostPathVolumeSourceBuilder(V1HostPathVolumeSourceFluent<?> fluent,V1HostPathVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withPath(instance.getPath());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1HostPathVolumeSourceBuilder(V1HostPathVolumeSource instance) {
-    this(instance,false);
-  }
-  public V1HostPathVolumeSourceBuilder(V1HostPathVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withPath(instance.getPath());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1HostPathVolumeSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1HostPathVolumeSource build() {
     V1HostPathVolumeSource buildable = new V1HostPathVolumeSource();
     buildable.setPath(fluent.getPath());
@@ -46,4 +28,5 @@ public class V1HostPathVolumeSourceBuilder extends V1HostPathVolumeSourceFluentI
     return buildable;
   }
   
+
 }

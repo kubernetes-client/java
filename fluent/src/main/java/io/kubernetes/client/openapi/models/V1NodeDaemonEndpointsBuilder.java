@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1NodeDaemonEndpointsBuilder extends V1NodeDaemonEndpointsFluentImpl<V1NodeDaemonEndpointsBuilder> implements VisitableBuilder<V1NodeDaemonEndpoints,V1NodeDaemonEndpointsBuilder>{
+public class V1NodeDaemonEndpointsBuilder extends V1NodeDaemonEndpointsFluent<V1NodeDaemonEndpointsBuilder> implements VisitableBuilder<V1NodeDaemonEndpoints,V1NodeDaemonEndpointsBuilder>{
   public V1NodeDaemonEndpointsBuilder() {
-    this(false);
+    this(new V1NodeDaemonEndpoints());
   }
-  public V1NodeDaemonEndpointsBuilder(Boolean validationEnabled) {
-    this(new V1NodeDaemonEndpoints(), validationEnabled);
-  }
+  
   public V1NodeDaemonEndpointsBuilder(V1NodeDaemonEndpointsFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1NodeDaemonEndpoints());
   }
-  public V1NodeDaemonEndpointsBuilder(V1NodeDaemonEndpointsFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1NodeDaemonEndpoints(), validationEnabled);
-  }
+  
   public V1NodeDaemonEndpointsBuilder(V1NodeDaemonEndpointsFluent<?> fluent,V1NodeDaemonEndpoints instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1NodeDaemonEndpointsBuilder(V1NodeDaemonEndpointsFluent<?> fluent,V1NodeDaemonEndpoints instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withKubeletEndpoint(instance.getKubeletEndpoint());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1NodeDaemonEndpointsBuilder(V1NodeDaemonEndpoints instance) {
-    this(instance,false);
-  }
-  public V1NodeDaemonEndpointsBuilder(V1NodeDaemonEndpoints instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withKubeletEndpoint(instance.getKubeletEndpoint());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1NodeDaemonEndpointsFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1NodeDaemonEndpoints build() {
     V1NodeDaemonEndpoints buildable = new V1NodeDaemonEndpoints();
-    buildable.setKubeletEndpoint(fluent.getKubeletEndpoint());
+    buildable.setKubeletEndpoint(fluent.buildKubeletEndpoint());
     return buildable;
   }
   
+
 }

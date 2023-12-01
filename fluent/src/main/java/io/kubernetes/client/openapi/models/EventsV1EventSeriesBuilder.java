@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class EventsV1EventSeriesBuilder extends EventsV1EventSeriesFluentImpl<EventsV1EventSeriesBuilder> implements VisitableBuilder<EventsV1EventSeries,EventsV1EventSeriesBuilder>{
+public class EventsV1EventSeriesBuilder extends EventsV1EventSeriesFluent<EventsV1EventSeriesBuilder> implements VisitableBuilder<EventsV1EventSeries,EventsV1EventSeriesBuilder>{
   public EventsV1EventSeriesBuilder() {
-    this(false);
+    this(new EventsV1EventSeries());
   }
-  public EventsV1EventSeriesBuilder(Boolean validationEnabled) {
-    this(new EventsV1EventSeries(), validationEnabled);
-  }
+  
   public EventsV1EventSeriesBuilder(EventsV1EventSeriesFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new EventsV1EventSeries());
   }
-  public EventsV1EventSeriesBuilder(EventsV1EventSeriesFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new EventsV1EventSeries(), validationEnabled);
-  }
+  
   public EventsV1EventSeriesBuilder(EventsV1EventSeriesFluent<?> fluent,EventsV1EventSeries instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public EventsV1EventSeriesBuilder(EventsV1EventSeriesFluent<?> fluent,EventsV1EventSeries instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withCount(instance.getCount());
-      fluent.withLastObservedTime(instance.getLastObservedTime());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public EventsV1EventSeriesBuilder(EventsV1EventSeries instance) {
-    this(instance,false);
-  }
-  public EventsV1EventSeriesBuilder(EventsV1EventSeries instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withCount(instance.getCount());
-      this.withLastObservedTime(instance.getLastObservedTime());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   EventsV1EventSeriesFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public EventsV1EventSeries build() {
     EventsV1EventSeries buildable = new EventsV1EventSeries();
     buildable.setCount(fluent.getCount());
@@ -46,4 +28,5 @@ public class EventsV1EventSeriesBuilder extends EventsV1EventSeriesFluentImpl<Ev
     return buildable;
   }
   
+
 }

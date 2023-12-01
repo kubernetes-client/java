@@ -28,7 +28,7 @@ import java.io.IOException;
  * Spec to control the desired behavior of rolling update.
  */
 @ApiModel(description = "Spec to control the desired behavior of rolling update.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1RollingUpdateDeployment {
   public static final String SERIALIZED_NAME_MAX_SURGE = "maxSurge";
   @SerializedName(SERIALIZED_NAME_MAX_SURGE)

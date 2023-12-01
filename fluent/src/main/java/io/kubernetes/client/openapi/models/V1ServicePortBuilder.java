@@ -1,52 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ServicePortBuilder extends V1ServicePortFluentImpl<V1ServicePortBuilder> implements VisitableBuilder<V1ServicePort,V1ServicePortBuilder>{
+public class V1ServicePortBuilder extends V1ServicePortFluent<V1ServicePortBuilder> implements VisitableBuilder<V1ServicePort,V1ServicePortBuilder>{
   public V1ServicePortBuilder() {
-    this(false);
+    this(new V1ServicePort());
   }
-  public V1ServicePortBuilder(Boolean validationEnabled) {
-    this(new V1ServicePort(), validationEnabled);
-  }
+  
   public V1ServicePortBuilder(V1ServicePortFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ServicePort());
   }
-  public V1ServicePortBuilder(V1ServicePortFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ServicePort(), validationEnabled);
-  }
+  
   public V1ServicePortBuilder(V1ServicePortFluent<?> fluent,V1ServicePort instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ServicePortBuilder(V1ServicePortFluent<?> fluent,V1ServicePort instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAppProtocol(instance.getAppProtocol());
-      fluent.withName(instance.getName());
-      fluent.withNodePort(instance.getNodePort());
-      fluent.withPort(instance.getPort());
-      fluent.withProtocol(instance.getProtocol());
-      fluent.withTargetPort(instance.getTargetPort());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ServicePortBuilder(V1ServicePort instance) {
-    this(instance,false);
-  }
-  public V1ServicePortBuilder(V1ServicePort instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAppProtocol(instance.getAppProtocol());
-      this.withName(instance.getName());
-      this.withNodePort(instance.getNodePort());
-      this.withPort(instance.getPort());
-      this.withProtocol(instance.getProtocol());
-      this.withTargetPort(instance.getTargetPort());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ServicePortFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ServicePort build() {
     V1ServicePort buildable = new V1ServicePort();
     buildable.setAppProtocol(fluent.getAppProtocol());
@@ -58,4 +32,5 @@ public class V1ServicePortBuilder extends V1ServicePortFluentImpl<V1ServicePortB
     return buildable;
   }
   
+
 }

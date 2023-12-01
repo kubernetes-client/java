@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1VolumeProjectionBuilder extends V1VolumeProjectionFluentImpl<V1VolumeProjectionBuilder> implements VisitableBuilder<V1VolumeProjection,V1VolumeProjectionBuilder>{
+public class V1VolumeProjectionBuilder extends V1VolumeProjectionFluent<V1VolumeProjectionBuilder> implements VisitableBuilder<V1VolumeProjection,V1VolumeProjectionBuilder>{
   public V1VolumeProjectionBuilder() {
-    this(false);
+    this(new V1VolumeProjection());
   }
-  public V1VolumeProjectionBuilder(Boolean validationEnabled) {
-    this(new V1VolumeProjection(), validationEnabled);
-  }
+  
   public V1VolumeProjectionBuilder(V1VolumeProjectionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1VolumeProjection());
   }
-  public V1VolumeProjectionBuilder(V1VolumeProjectionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1VolumeProjection(), validationEnabled);
-  }
+  
   public V1VolumeProjectionBuilder(V1VolumeProjectionFluent<?> fluent,V1VolumeProjection instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1VolumeProjectionBuilder(V1VolumeProjectionFluent<?> fluent,V1VolumeProjection instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withConfigMap(instance.getConfigMap());
-      fluent.withDownwardAPI(instance.getDownwardAPI());
-      fluent.withSecret(instance.getSecret());
-      fluent.withServiceAccountToken(instance.getServiceAccountToken());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1VolumeProjectionBuilder(V1VolumeProjection instance) {
-    this(instance,false);
-  }
-  public V1VolumeProjectionBuilder(V1VolumeProjection instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withConfigMap(instance.getConfigMap());
-      this.withDownwardAPI(instance.getDownwardAPI());
-      this.withSecret(instance.getSecret());
-      this.withServiceAccountToken(instance.getServiceAccountToken());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1VolumeProjectionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1VolumeProjection build() {
     V1VolumeProjection buildable = new V1VolumeProjection();
-    buildable.setConfigMap(fluent.getConfigMap());
-    buildable.setDownwardAPI(fluent.getDownwardAPI());
-    buildable.setSecret(fluent.getSecret());
-    buildable.setServiceAccountToken(fluent.getServiceAccountToken());
+    buildable.setConfigMap(fluent.buildConfigMap());
+    buildable.setDownwardAPI(fluent.buildDownwardAPI());
+    buildable.setSecret(fluent.buildSecret());
+    buildable.setServiceAccountToken(fluent.buildServiceAccountToken());
     return buildable;
   }
   
+
 }

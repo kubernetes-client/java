@@ -22,13 +22,18 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 
 /**
  * PersistentVolumeStatus is the current status of a persistent volume.
  */
 @ApiModel(description = "PersistentVolumeStatus is the current status of a persistent volume.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1PersistentVolumeStatus {
+  public static final String SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME = "lastPhaseTransitionTime";
+  @SerializedName(SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME)
+  private OffsetDateTime lastPhaseTransitionTime;
+
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
@@ -40,6 +45,29 @@ public class V1PersistentVolumeStatus {
   public static final String SERIALIZED_NAME_REASON = "reason";
   @SerializedName(SERIALIZED_NAME_REASON)
   private String reason;
+
+
+  public V1PersistentVolumeStatus lastPhaseTransitionTime(OffsetDateTime lastPhaseTransitionTime) {
+
+    this.lastPhaseTransitionTime = lastPhaseTransitionTime;
+    return this;
+  }
+
+   /**
+   * lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions. This is an alpha field and requires enabling PersistentVolumeLastPhaseTransitionTime feature.
+   * @return lastPhaseTransitionTime
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions. This is an alpha field and requires enabling PersistentVolumeLastPhaseTransitionTime feature.")
+
+  public OffsetDateTime getLastPhaseTransitionTime() {
+    return lastPhaseTransitionTime;
+  }
+
+
+  public void setLastPhaseTransitionTime(OffsetDateTime lastPhaseTransitionTime) {
+    this.lastPhaseTransitionTime = lastPhaseTransitionTime;
+  }
 
 
   public V1PersistentVolumeStatus message(String message) {
@@ -120,14 +148,15 @@ public class V1PersistentVolumeStatus {
       return false;
     }
     V1PersistentVolumeStatus v1PersistentVolumeStatus = (V1PersistentVolumeStatus) o;
-    return Objects.equals(this.message, v1PersistentVolumeStatus.message) &&
+    return Objects.equals(this.lastPhaseTransitionTime, v1PersistentVolumeStatus.lastPhaseTransitionTime) &&
+        Objects.equals(this.message, v1PersistentVolumeStatus.message) &&
         Objects.equals(this.phase, v1PersistentVolumeStatus.phase) &&
         Objects.equals(this.reason, v1PersistentVolumeStatus.reason);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, phase, reason);
+    return Objects.hash(lastPhaseTransitionTime, message, phase, reason);
   }
 
 
@@ -135,6 +164,7 @@ public class V1PersistentVolumeStatus {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1PersistentVolumeStatus {\n");
+    sb.append("    lastPhaseTransitionTime: ").append(toIndentedString(lastPhaseTransitionTime)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");

@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1TypedLocalObjectReferenceBuilder extends V1TypedLocalObjectReferenceFluentImpl<V1TypedLocalObjectReferenceBuilder> implements VisitableBuilder<V1TypedLocalObjectReference,V1TypedLocalObjectReferenceBuilder>{
+public class V1TypedLocalObjectReferenceBuilder extends V1TypedLocalObjectReferenceFluent<V1TypedLocalObjectReferenceBuilder> implements VisitableBuilder<V1TypedLocalObjectReference,V1TypedLocalObjectReferenceBuilder>{
   public V1TypedLocalObjectReferenceBuilder() {
-    this(false);
+    this(new V1TypedLocalObjectReference());
   }
-  public V1TypedLocalObjectReferenceBuilder(Boolean validationEnabled) {
-    this(new V1TypedLocalObjectReference(), validationEnabled);
-  }
+  
   public V1TypedLocalObjectReferenceBuilder(V1TypedLocalObjectReferenceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1TypedLocalObjectReference());
   }
-  public V1TypedLocalObjectReferenceBuilder(V1TypedLocalObjectReferenceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1TypedLocalObjectReference(), validationEnabled);
-  }
+  
   public V1TypedLocalObjectReferenceBuilder(V1TypedLocalObjectReferenceFluent<?> fluent,V1TypedLocalObjectReference instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1TypedLocalObjectReferenceBuilder(V1TypedLocalObjectReferenceFluent<?> fluent,V1TypedLocalObjectReference instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiGroup(instance.getApiGroup());
-      fluent.withKind(instance.getKind());
-      fluent.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1TypedLocalObjectReferenceBuilder(V1TypedLocalObjectReference instance) {
-    this(instance,false);
-  }
-  public V1TypedLocalObjectReferenceBuilder(V1TypedLocalObjectReference instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiGroup(instance.getApiGroup());
-      this.withKind(instance.getKind());
-      this.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1TypedLocalObjectReferenceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1TypedLocalObjectReference build() {
     V1TypedLocalObjectReference buildable = new V1TypedLocalObjectReference();
     buildable.setApiGroup(fluent.getApiGroup());
@@ -49,4 +29,5 @@ public class V1TypedLocalObjectReferenceBuilder extends V1TypedLocalObjectRefere
     return buildable;
   }
   
+
 }

@@ -31,7 +31,7 @@ import java.util.List;
  * PodFailurePolicyRule describes how a pod failure is handled when the requirements are met. One of onExitCodes and onPodConditions, but not both, can be used in each rule.
  */
 @ApiModel(description = "PodFailurePolicyRule describes how a pod failure is handled when the requirements are met. One of onExitCodes and onPodConditions, but not both, can be used in each rule.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1PodFailurePolicyRule {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
@@ -43,7 +43,7 @@ public class V1PodFailurePolicyRule {
 
   public static final String SERIALIZED_NAME_ON_POD_CONDITIONS = "onPodConditions";
   @SerializedName(SERIALIZED_NAME_ON_POD_CONDITIONS)
-  private List<V1PodFailurePolicyOnPodConditionsPattern> onPodConditions = new ArrayList<>();
+  private List<V1PodFailurePolicyOnPodConditionsPattern> onPodConditions = null;
 
 
   public V1PodFailurePolicyRule action(String action) {
@@ -53,10 +53,10 @@ public class V1PodFailurePolicyRule {
   }
 
    /**
-   * Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are:  - FailJob: indicates that the pod&#39;s job is marked as Failed and all   running pods are terminated. - Ignore: indicates that the counter towards the .backoffLimit is not   incremented and a replacement pod is created. - Count: indicates that the pod is handled in the default way - the   counter towards the .backoffLimit is incremented. Additional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.
+   * Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are:  - FailJob: indicates that the pod&#39;s job is marked as Failed and all   running pods are terminated. - FailIndex: indicates that the pod&#39;s index is marked as Failed and will   not be restarted.   This value is alpha-level. It can be used when the   &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (disabled by default). - Ignore: indicates that the counter towards the .backoffLimit is not   incremented and a replacement pod is created. - Count: indicates that the pod is handled in the default way - the   counter towards the .backoffLimit is incremented. Additional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.
    * @return action
   **/
-  @ApiModelProperty(required = true, value = "Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are:  - FailJob: indicates that the pod's job is marked as Failed and all   running pods are terminated. - Ignore: indicates that the counter towards the .backoffLimit is not   incremented and a replacement pod is created. - Count: indicates that the pod is handled in the default way - the   counter towards the .backoffLimit is incremented. Additional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.")
+  @ApiModelProperty(required = true, value = "Specifies the action taken on a pod failure when the requirements are satisfied. Possible values are:  - FailJob: indicates that the pod's job is marked as Failed and all   running pods are terminated. - FailIndex: indicates that the pod's index is marked as Failed and will   not be restarted.   This value is alpha-level. It can be used when the   `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default). - Ignore: indicates that the counter towards the .backoffLimit is not   incremented and a replacement pod is created. - Count: indicates that the pod is handled in the default way - the   counter towards the .backoffLimit is incremented. Additional values are considered to be added in the future. Clients should react to an unknown action by skipping the rule.")
 
   public String getAction() {
     return action;
@@ -98,6 +98,9 @@ public class V1PodFailurePolicyRule {
   }
 
   public V1PodFailurePolicyRule addOnPodConditionsItem(V1PodFailurePolicyOnPodConditionsPattern onPodConditionsItem) {
+    if (this.onPodConditions == null) {
+      this.onPodConditions = new ArrayList<>();
+    }
     this.onPodConditions.add(onPodConditionsItem);
     return this;
   }
@@ -106,7 +109,8 @@ public class V1PodFailurePolicyRule {
    * Represents the requirement on the pod conditions. The requirement is represented as a list of pod condition patterns. The requirement is satisfied if at least one pattern matches an actual pod condition. At most 20 elements are allowed.
    * @return onPodConditions
   **/
-  @ApiModelProperty(required = true, value = "Represents the requirement on the pod conditions. The requirement is represented as a list of pod condition patterns. The requirement is satisfied if at least one pattern matches an actual pod condition. At most 20 elements are allowed.")
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Represents the requirement on the pod conditions. The requirement is represented as a list of pod condition patterns. The requirement is satisfied if at least one pattern matches an actual pod condition. At most 20 elements are allowed.")
 
   public List<V1PodFailurePolicyOnPodConditionsPattern> getOnPodConditions() {
     return onPodConditions;

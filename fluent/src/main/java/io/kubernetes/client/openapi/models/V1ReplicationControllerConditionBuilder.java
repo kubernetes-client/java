@@ -1,50 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ReplicationControllerConditionBuilder extends V1ReplicationControllerConditionFluentImpl<V1ReplicationControllerConditionBuilder> implements VisitableBuilder<V1ReplicationControllerCondition,V1ReplicationControllerConditionBuilder>{
+public class V1ReplicationControllerConditionBuilder extends V1ReplicationControllerConditionFluent<V1ReplicationControllerConditionBuilder> implements VisitableBuilder<V1ReplicationControllerCondition,V1ReplicationControllerConditionBuilder>{
   public V1ReplicationControllerConditionBuilder() {
-    this(false);
+    this(new V1ReplicationControllerCondition());
   }
-  public V1ReplicationControllerConditionBuilder(Boolean validationEnabled) {
-    this(new V1ReplicationControllerCondition(), validationEnabled);
-  }
+  
   public V1ReplicationControllerConditionBuilder(V1ReplicationControllerConditionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ReplicationControllerCondition());
   }
-  public V1ReplicationControllerConditionBuilder(V1ReplicationControllerConditionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ReplicationControllerCondition(), validationEnabled);
-  }
+  
   public V1ReplicationControllerConditionBuilder(V1ReplicationControllerConditionFluent<?> fluent,V1ReplicationControllerCondition instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ReplicationControllerConditionBuilder(V1ReplicationControllerConditionFluent<?> fluent,V1ReplicationControllerCondition instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withLastTransitionTime(instance.getLastTransitionTime());
-      fluent.withMessage(instance.getMessage());
-      fluent.withReason(instance.getReason());
-      fluent.withStatus(instance.getStatus());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ReplicationControllerConditionBuilder(V1ReplicationControllerCondition instance) {
-    this(instance,false);
-  }
-  public V1ReplicationControllerConditionBuilder(V1ReplicationControllerCondition instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withLastTransitionTime(instance.getLastTransitionTime());
-      this.withMessage(instance.getMessage());
-      this.withReason(instance.getReason());
-      this.withStatus(instance.getStatus());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ReplicationControllerConditionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ReplicationControllerCondition build() {
     V1ReplicationControllerCondition buildable = new V1ReplicationControllerCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
@@ -55,4 +31,5 @@ public class V1ReplicationControllerConditionBuilder extends V1ReplicationContro
     return buildable;
   }
   
+
 }

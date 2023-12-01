@@ -4,7 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**getServiceAccountIssuerOpenIDConfiguration**](WellKnownApi.md#getServiceAccountIssuerOpenIDConfiguration) | **GET** /.well-known/openid-configuration/ | 
+[**getServiceAccountIssuerOpenIDConfiguration**](WellKnownApi.md#getServiceAccountIssuerOpenIDConfiguration) | **GET** /.well-known/openid-configuration | 
 
 
 <a name="getServiceAccountIssuerOpenIDConfiguration"></a>

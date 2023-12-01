@@ -1,52 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1CertificateSigningRequestConditionBuilder extends V1CertificateSigningRequestConditionFluentImpl<V1CertificateSigningRequestConditionBuilder> implements VisitableBuilder<V1CertificateSigningRequestCondition,V1CertificateSigningRequestConditionBuilder>{
+public class V1CertificateSigningRequestConditionBuilder extends V1CertificateSigningRequestConditionFluent<V1CertificateSigningRequestConditionBuilder> implements VisitableBuilder<V1CertificateSigningRequestCondition,V1CertificateSigningRequestConditionBuilder>{
   public V1CertificateSigningRequestConditionBuilder() {
-    this(false);
+    this(new V1CertificateSigningRequestCondition());
   }
-  public V1CertificateSigningRequestConditionBuilder(Boolean validationEnabled) {
-    this(new V1CertificateSigningRequestCondition(), validationEnabled);
-  }
+  
   public V1CertificateSigningRequestConditionBuilder(V1CertificateSigningRequestConditionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1CertificateSigningRequestCondition());
   }
-  public V1CertificateSigningRequestConditionBuilder(V1CertificateSigningRequestConditionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1CertificateSigningRequestCondition(), validationEnabled);
-  }
+  
   public V1CertificateSigningRequestConditionBuilder(V1CertificateSigningRequestConditionFluent<?> fluent,V1CertificateSigningRequestCondition instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1CertificateSigningRequestConditionBuilder(V1CertificateSigningRequestConditionFluent<?> fluent,V1CertificateSigningRequestCondition instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withLastTransitionTime(instance.getLastTransitionTime());
-      fluent.withLastUpdateTime(instance.getLastUpdateTime());
-      fluent.withMessage(instance.getMessage());
-      fluent.withReason(instance.getReason());
-      fluent.withStatus(instance.getStatus());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1CertificateSigningRequestConditionBuilder(V1CertificateSigningRequestCondition instance) {
-    this(instance,false);
-  }
-  public V1CertificateSigningRequestConditionBuilder(V1CertificateSigningRequestCondition instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withLastTransitionTime(instance.getLastTransitionTime());
-      this.withLastUpdateTime(instance.getLastUpdateTime());
-      this.withMessage(instance.getMessage());
-      this.withReason(instance.getReason());
-      this.withStatus(instance.getStatus());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1CertificateSigningRequestConditionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1CertificateSigningRequestCondition build() {
     V1CertificateSigningRequestCondition buildable = new V1CertificateSigningRequestCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
@@ -58,4 +32,5 @@ public class V1CertificateSigningRequestConditionBuilder extends V1CertificateSi
     return buildable;
   }
   
+
 }

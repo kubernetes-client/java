@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class StorageV1TokenRequestBuilder extends StorageV1TokenRequestFluentImpl<StorageV1TokenRequestBuilder> implements VisitableBuilder<StorageV1TokenRequest,StorageV1TokenRequestBuilder>{
+public class StorageV1TokenRequestBuilder extends StorageV1TokenRequestFluent<StorageV1TokenRequestBuilder> implements VisitableBuilder<StorageV1TokenRequest,StorageV1TokenRequestBuilder>{
   public StorageV1TokenRequestBuilder() {
-    this(false);
+    this(new StorageV1TokenRequest());
   }
-  public StorageV1TokenRequestBuilder(Boolean validationEnabled) {
-    this(new StorageV1TokenRequest(), validationEnabled);
-  }
+  
   public StorageV1TokenRequestBuilder(StorageV1TokenRequestFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new StorageV1TokenRequest());
   }
-  public StorageV1TokenRequestBuilder(StorageV1TokenRequestFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new StorageV1TokenRequest(), validationEnabled);
-  }
+  
   public StorageV1TokenRequestBuilder(StorageV1TokenRequestFluent<?> fluent,StorageV1TokenRequest instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public StorageV1TokenRequestBuilder(StorageV1TokenRequestFluent<?> fluent,StorageV1TokenRequest instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAudience(instance.getAudience());
-      fluent.withExpirationSeconds(instance.getExpirationSeconds());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public StorageV1TokenRequestBuilder(StorageV1TokenRequest instance) {
-    this(instance,false);
-  }
-  public StorageV1TokenRequestBuilder(StorageV1TokenRequest instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAudience(instance.getAudience());
-      this.withExpirationSeconds(instance.getExpirationSeconds());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   StorageV1TokenRequestFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public StorageV1TokenRequest build() {
     StorageV1TokenRequest buildable = new StorageV1TokenRequest();
     buildable.setAudience(fluent.getAudience());
@@ -46,4 +28,5 @@ public class StorageV1TokenRequestBuilder extends StorageV1TokenRequestFluentImp
     return buildable;
   }
   
+
 }

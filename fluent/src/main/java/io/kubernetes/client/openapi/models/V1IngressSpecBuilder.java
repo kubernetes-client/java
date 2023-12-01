@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1IngressSpecBuilder extends V1IngressSpecFluentImpl<V1IngressSpecBuilder> implements VisitableBuilder<V1IngressSpec,V1IngressSpecBuilder>{
+public class V1IngressSpecBuilder extends V1IngressSpecFluent<V1IngressSpecBuilder> implements VisitableBuilder<V1IngressSpec,V1IngressSpecBuilder>{
   public V1IngressSpecBuilder() {
-    this(false);
+    this(new V1IngressSpec());
   }
-  public V1IngressSpecBuilder(Boolean validationEnabled) {
-    this(new V1IngressSpec(), validationEnabled);
-  }
+  
   public V1IngressSpecBuilder(V1IngressSpecFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1IngressSpec());
   }
-  public V1IngressSpecBuilder(V1IngressSpecFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1IngressSpec(), validationEnabled);
-  }
+  
   public V1IngressSpecBuilder(V1IngressSpecFluent<?> fluent,V1IngressSpec instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1IngressSpecBuilder(V1IngressSpecFluent<?> fluent,V1IngressSpec instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withDefaultBackend(instance.getDefaultBackend());
-      fluent.withIngressClassName(instance.getIngressClassName());
-      fluent.withRules(instance.getRules());
-      fluent.withTls(instance.getTls());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1IngressSpecBuilder(V1IngressSpec instance) {
-    this(instance,false);
-  }
-  public V1IngressSpecBuilder(V1IngressSpec instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withDefaultBackend(instance.getDefaultBackend());
-      this.withIngressClassName(instance.getIngressClassName());
-      this.withRules(instance.getRules());
-      this.withTls(instance.getTls());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1IngressSpecFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1IngressSpec build() {
     V1IngressSpec buildable = new V1IngressSpec();
-    buildable.setDefaultBackend(fluent.getDefaultBackend());
+    buildable.setDefaultBackend(fluent.buildDefaultBackend());
     buildable.setIngressClassName(fluent.getIngressClassName());
-    buildable.setRules(fluent.getRules());
-    buildable.setTls(fluent.getTls());
+    buildable.setRules(fluent.buildRules());
+    buildable.setTls(fluent.buildTls());
     return buildable;
   }
   
+
 }

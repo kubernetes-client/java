@@ -30,7 +30,7 @@ import java.io.IOException;
  * Affinity is a group of affinity scheduling rules.
  */
 @ApiModel(description = "Affinity is a group of affinity scheduling rules.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1Affinity {
   public static final String SERIALIZED_NAME_NODE_AFFINITY = "nodeAffinity";
   @SerializedName(SERIALIZED_NAME_NODE_AFFINITY)

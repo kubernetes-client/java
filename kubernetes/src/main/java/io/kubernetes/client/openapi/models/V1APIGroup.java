@@ -31,7 +31,7 @@ import java.util.List;
  * APIGroup contains the name, the supported versions, and the preferred version of a group.
  */
 @ApiModel(description = "APIGroup contains the name, the supported versions, and the preferred version of a group.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1APIGroup {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

@@ -28,7 +28,7 @@ import java.io.IOException;
  * ClusterCIDRSpec defines the desired state of ClusterCIDR.
  */
 @ApiModel(description = "ClusterCIDRSpec defines the desired state of ClusterCIDR.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1alpha1ClusterCIDRSpec {
   public static final String SERIALIZED_NAME_IPV4 = "ipv4";
   @SerializedName(SERIALIZED_NAME_IPV4)

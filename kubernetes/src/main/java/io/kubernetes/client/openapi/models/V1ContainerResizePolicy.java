@@ -27,7 +27,7 @@ import java.io.IOException;
  * ContainerResizePolicy represents resource resize policy for the container.
  */
 @ApiModel(description = "ContainerResizePolicy represents resource resize policy for the container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1ContainerResizePolicy {
   public static final String SERIALIZED_NAME_RESOURCE_NAME = "resourceName";
   @SerializedName(SERIALIZED_NAME_RESOURCE_NAME)

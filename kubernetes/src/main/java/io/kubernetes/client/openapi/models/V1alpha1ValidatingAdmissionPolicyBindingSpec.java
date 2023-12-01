@@ -31,7 +31,7 @@ import java.util.List;
  * ValidatingAdmissionPolicyBindingSpec is the specification of the ValidatingAdmissionPolicyBinding.
  */
 @ApiModel(description = "ValidatingAdmissionPolicyBindingSpec is the specification of the ValidatingAdmissionPolicyBinding.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1alpha1ValidatingAdmissionPolicyBindingSpec {
   public static final String SERIALIZED_NAME_MATCH_RESOURCES = "matchResources";
   @SerializedName(SERIALIZED_NAME_MATCH_RESOURCES)

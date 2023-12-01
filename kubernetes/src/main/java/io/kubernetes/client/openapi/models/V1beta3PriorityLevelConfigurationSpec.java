@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1beta3ExemptPriorityLevelConfiguration;
 import io.kubernetes.client.openapi.models.V1beta3LimitedPriorityLevelConfiguration;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -28,8 +29,12 @@ import java.io.IOException;
  * PriorityLevelConfigurationSpec specifies the configuration of a priority level.
  */
 @ApiModel(description = "PriorityLevelConfigurationSpec specifies the configuration of a priority level.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1beta3PriorityLevelConfigurationSpec {
+  public static final String SERIALIZED_NAME_EXEMPT = "exempt";
+  @SerializedName(SERIALIZED_NAME_EXEMPT)
+  private V1beta3ExemptPriorityLevelConfiguration exempt;
+
   public static final String SERIALIZED_NAME_LIMITED = "limited";
   @SerializedName(SERIALIZED_NAME_LIMITED)
   private V1beta3LimitedPriorityLevelConfiguration limited;
@@ -37,6 +42,29 @@ public class V1beta3PriorityLevelConfigurationSpec {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
+
+
+  public V1beta3PriorityLevelConfigurationSpec exempt(V1beta3ExemptPriorityLevelConfiguration exempt) {
+
+    this.exempt = exempt;
+    return this;
+  }
+
+   /**
+   * Get exempt
+   * @return exempt
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1beta3ExemptPriorityLevelConfiguration getExempt() {
+    return exempt;
+  }
+
+
+  public void setExempt(V1beta3ExemptPriorityLevelConfiguration exempt) {
+    this.exempt = exempt;
+  }
 
 
   public V1beta3PriorityLevelConfigurationSpec limited(V1beta3LimitedPriorityLevelConfiguration limited) {
@@ -93,13 +121,14 @@ public class V1beta3PriorityLevelConfigurationSpec {
       return false;
     }
     V1beta3PriorityLevelConfigurationSpec v1beta3PriorityLevelConfigurationSpec = (V1beta3PriorityLevelConfigurationSpec) o;
-    return Objects.equals(this.limited, v1beta3PriorityLevelConfigurationSpec.limited) &&
+    return Objects.equals(this.exempt, v1beta3PriorityLevelConfigurationSpec.exempt) &&
+        Objects.equals(this.limited, v1beta3PriorityLevelConfigurationSpec.limited) &&
         Objects.equals(this.type, v1beta3PriorityLevelConfigurationSpec.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(limited, type);
+    return Objects.hash(exempt, limited, type);
   }
 
 
@@ -107,6 +136,7 @@ public class V1beta3PriorityLevelConfigurationSpec {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1beta3PriorityLevelConfigurationSpec {\n");
+    sb.append("    exempt: ").append(toIndentedString(exempt)).append("\n");
     sb.append("    limited: ").append(toIndentedString(limited)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");

@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1beta2NonResourcePolicyRuleBuilder extends V1beta2NonResourcePolicyRuleFluentImpl<V1beta2NonResourcePolicyRuleBuilder> implements VisitableBuilder<V1beta2NonResourcePolicyRule,V1beta2NonResourcePolicyRuleBuilder>{
+public class V1beta2NonResourcePolicyRuleBuilder extends V1beta2NonResourcePolicyRuleFluent<V1beta2NonResourcePolicyRuleBuilder> implements VisitableBuilder<V1beta2NonResourcePolicyRule,V1beta2NonResourcePolicyRuleBuilder>{
   public V1beta2NonResourcePolicyRuleBuilder() {
-    this(false);
+    this(new V1beta2NonResourcePolicyRule());
   }
-  public V1beta2NonResourcePolicyRuleBuilder(Boolean validationEnabled) {
-    this(new V1beta2NonResourcePolicyRule(), validationEnabled);
-  }
+  
   public V1beta2NonResourcePolicyRuleBuilder(V1beta2NonResourcePolicyRuleFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1beta2NonResourcePolicyRule());
   }
-  public V1beta2NonResourcePolicyRuleBuilder(V1beta2NonResourcePolicyRuleFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1beta2NonResourcePolicyRule(), validationEnabled);
-  }
+  
   public V1beta2NonResourcePolicyRuleBuilder(V1beta2NonResourcePolicyRuleFluent<?> fluent,V1beta2NonResourcePolicyRule instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1beta2NonResourcePolicyRuleBuilder(V1beta2NonResourcePolicyRuleFluent<?> fluent,V1beta2NonResourcePolicyRule instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withNonResourceURLs(instance.getNonResourceURLs());
-      fluent.withVerbs(instance.getVerbs());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1beta2NonResourcePolicyRuleBuilder(V1beta2NonResourcePolicyRule instance) {
-    this(instance,false);
-  }
-  public V1beta2NonResourcePolicyRuleBuilder(V1beta2NonResourcePolicyRule instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withNonResourceURLs(instance.getNonResourceURLs());
-      this.withVerbs(instance.getVerbs());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1beta2NonResourcePolicyRuleFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1beta2NonResourcePolicyRule build() {
     V1beta2NonResourcePolicyRule buildable = new V1beta2NonResourcePolicyRule();
     buildable.setNonResourceURLs(fluent.getNonResourceURLs());
@@ -46,4 +28,5 @@ public class V1beta2NonResourcePolicyRuleBuilder extends V1beta2NonResourcePolic
     return buildable;
   }
   
+
 }

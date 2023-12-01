@@ -31,7 +31,7 @@ import java.util.List;
  * ResourceClaimStatus tracks whether the resource has been allocated and what the resulting attributes are.
  */
 @ApiModel(description = "ResourceClaimStatus tracks whether the resource has been allocated and what the resulting attributes are.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1alpha2ResourceClaimStatus {
   public static final String SERIALIZED_NAME_ALLOCATION = "allocation";
   @SerializedName(SERIALIZED_NAME_ALLOCATION)

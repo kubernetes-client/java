@@ -33,11 +33,15 @@ import java.util.Map;
  * PersistentVolumeClaimStatus is the current status of a persistent volume claim.
  */
 @ApiModel(description = "PersistentVolumeClaimStatus is the current status of a persistent volume claim.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
   private List<String> accessModes = null;
+
+  public static final String SERIALIZED_NAME_ALLOCATED_RESOURCE_STATUSES = "allocatedResourceStatuses";
+  @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCE_STATUSES)
+  private Map<String, String> allocatedResourceStatuses = null;
 
   public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES = "allocatedResources";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES)
@@ -54,10 +58,6 @@ public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)
   private String phase;
-
-  public static final String SERIALIZED_NAME_RESIZE_STATUS = "resizeStatus";
-  @SerializedName(SERIALIZED_NAME_RESIZE_STATUS)
-  private String resizeStatus;
 
 
   public V1PersistentVolumeClaimStatus accessModes(List<String> accessModes) {
@@ -91,6 +91,37 @@ public class V1PersistentVolumeClaimStatus {
   }
 
 
+  public V1PersistentVolumeClaimStatus allocatedResourceStatuses(Map<String, String> allocatedResourceStatuses) {
+
+    this.allocatedResourceStatuses = allocatedResourceStatuses;
+    return this;
+  }
+
+  public V1PersistentVolumeClaimStatus putAllocatedResourceStatusesItem(String key, String allocatedResourceStatusesItem) {
+    if (this.allocatedResourceStatuses == null) {
+      this.allocatedResourceStatuses = new HashMap<>();
+    }
+    this.allocatedResourceStatuses.put(key, allocatedResourceStatusesItem);
+    return this;
+  }
+
+   /**
+   * allocatedResourceStatuses stores status of resource being resized for the given PVC. Key names follow standard Kubernetes label syntax. Valid values are either:  * Un-prefixed keys:   - storage - the capacity of the volume.  * Custom resources must use implementation-defined prefixed names such as \&quot;example.com/my-custom-resource\&quot; Apart from above values - keys that are unprefixed or have kubernetes.io prefix are considered reserved and hence may not be used.  ClaimResourceStatus can be in any of following states:  - ControllerResizeInProgress:   State set when resize controller starts resizing the volume in control-plane.  - ControllerResizeFailed:   State set when resize has failed in resize controller with a terminal error.  - NodeResizePending:   State set when resize controller has finished resizing the volume but further resizing of   volume is needed on the node.  - NodeResizeInProgress:   State set when kubelet starts resizing the volume.  - NodeResizeFailed:   State set when resizing has failed in kubelet with a terminal error. Transient errors don&#39;t set   NodeResizeFailed. For example: if expanding a PVC for more capacity - this field can be one of the following states:  - pvc.status.allocatedResourceStatus[&#39;storage&#39;] &#x3D; \&quot;ControllerResizeInProgress\&quot;      - pvc.status.allocatedResourceStatus[&#39;storage&#39;] &#x3D; \&quot;ControllerResizeFailed\&quot;      - pvc.status.allocatedResourceStatus[&#39;storage&#39;] &#x3D; \&quot;NodeResizePending\&quot;      - pvc.status.allocatedResourceStatus[&#39;storage&#39;] &#x3D; \&quot;NodeResizeInProgress\&quot;      - pvc.status.allocatedResourceStatus[&#39;storage&#39;] &#x3D; \&quot;NodeResizeFailed\&quot; When this field is not set, it means that no resize operation is in progress for the given PVC.  A controller that receives PVC update with previously unknown resourceName or ClaimResourceStatus should ignore the update for the purpose it was designed. For example - a controller that only is responsible for resizing capacity of the volume, should ignore PVC updates that change other valid resources associated with PVC.  This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
+   * @return allocatedResourceStatuses
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "allocatedResourceStatuses stores status of resource being resized for the given PVC. Key names follow standard Kubernetes label syntax. Valid values are either:  * Un-prefixed keys:   - storage - the capacity of the volume.  * Custom resources must use implementation-defined prefixed names such as \"example.com/my-custom-resource\" Apart from above values - keys that are unprefixed or have kubernetes.io prefix are considered reserved and hence may not be used.  ClaimResourceStatus can be in any of following states:  - ControllerResizeInProgress:   State set when resize controller starts resizing the volume in control-plane.  - ControllerResizeFailed:   State set when resize has failed in resize controller with a terminal error.  - NodeResizePending:   State set when resize controller has finished resizing the volume but further resizing of   volume is needed on the node.  - NodeResizeInProgress:   State set when kubelet starts resizing the volume.  - NodeResizeFailed:   State set when resizing has failed in kubelet with a terminal error. Transient errors don't set   NodeResizeFailed. For example: if expanding a PVC for more capacity - this field can be one of the following states:  - pvc.status.allocatedResourceStatus['storage'] = \"ControllerResizeInProgress\"      - pvc.status.allocatedResourceStatus['storage'] = \"ControllerResizeFailed\"      - pvc.status.allocatedResourceStatus['storage'] = \"NodeResizePending\"      - pvc.status.allocatedResourceStatus['storage'] = \"NodeResizeInProgress\"      - pvc.status.allocatedResourceStatus['storage'] = \"NodeResizeFailed\" When this field is not set, it means that no resize operation is in progress for the given PVC.  A controller that receives PVC update with previously unknown resourceName or ClaimResourceStatus should ignore the update for the purpose it was designed. For example - a controller that only is responsible for resizing capacity of the volume, should ignore PVC updates that change other valid resources associated with PVC.  This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
+
+  public Map<String, String> getAllocatedResourceStatuses() {
+    return allocatedResourceStatuses;
+  }
+
+
+  public void setAllocatedResourceStatuses(Map<String, String> allocatedResourceStatuses) {
+    this.allocatedResourceStatuses = allocatedResourceStatuses;
+  }
+
+
   public V1PersistentVolumeClaimStatus allocatedResources(Map<String, Quantity> allocatedResources) {
 
     this.allocatedResources = allocatedResources;
@@ -106,11 +137,11 @@ public class V1PersistentVolumeClaimStatus {
   }
 
    /**
-   * allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
+   * allocatedResources tracks the resources allocated to a PVC including its capacity. Key names follow standard Kubernetes label syntax. Valid values are either:  * Un-prefixed keys:   - storage - the capacity of the volume.  * Custom resources must use implementation-defined prefixed names such as \&quot;example.com/my-custom-resource\&quot; Apart from above values - keys that are unprefixed or have kubernetes.io prefix are considered reserved and hence may not be used.  Capacity reported here may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity.  A controller that receives PVC update with previously unknown resourceName should ignore the update for the purpose it was designed. For example - a controller that only is responsible for resizing capacity of the volume, should ignore PVC updates that change other valid resources associated with PVC.  This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
    * @return allocatedResources
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "allocatedResources is the storage resource within AllocatedResources tracks the capacity allocated to a PVC. It may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
+  @ApiModelProperty(value = "allocatedResources tracks the resources allocated to a PVC including its capacity. Key names follow standard Kubernetes label syntax. Valid values are either:  * Un-prefixed keys:   - storage - the capacity of the volume.  * Custom resources must use implementation-defined prefixed names such as \"example.com/my-custom-resource\" Apart from above values - keys that are unprefixed or have kubernetes.io prefix are considered reserved and hence may not be used.  Capacity reported here may be larger than the actual capacity when a volume expansion operation is requested. For storage quota, the larger value from allocatedResources and PVC.spec.resources is used. If allocatedResources is not set, PVC.spec.resources alone is used for quota calculation. If a volume expansion capacity request is lowered, allocatedResources is only lowered if there are no expansion operations in progress and if the actual volume capacity is equal or lower than the requested capacity.  A controller that receives PVC update with previously unknown resourceName should ignore the update for the purpose it was designed. For example - a controller that only is responsible for resizing capacity of the volume, should ignore PVC updates that change other valid resources associated with PVC.  This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
 
   public Map<String, Quantity> getAllocatedResources() {
     return allocatedResources;
@@ -207,29 +238,6 @@ public class V1PersistentVolumeClaimStatus {
   }
 
 
-  public V1PersistentVolumeClaimStatus resizeStatus(String resizeStatus) {
-
-    this.resizeStatus = resizeStatus;
-    return this;
-  }
-
-   /**
-   * resizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.
-   * @return resizeStatus
-  **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "resizeStatus stores status of resize operation. ResizeStatus is not set by default but when expansion is complete resizeStatus is set to empty string by resize controller or kubelet. This is an alpha field and requires enabling RecoverVolumeExpansionFailure feature.")
-
-  public String getResizeStatus() {
-    return resizeStatus;
-  }
-
-
-  public void setResizeStatus(String resizeStatus) {
-    this.resizeStatus = resizeStatus;
-  }
-
-
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -240,16 +248,16 @@ public class V1PersistentVolumeClaimStatus {
     }
     V1PersistentVolumeClaimStatus v1PersistentVolumeClaimStatus = (V1PersistentVolumeClaimStatus) o;
     return Objects.equals(this.accessModes, v1PersistentVolumeClaimStatus.accessModes) &&
+        Objects.equals(this.allocatedResourceStatuses, v1PersistentVolumeClaimStatus.allocatedResourceStatuses) &&
         Objects.equals(this.allocatedResources, v1PersistentVolumeClaimStatus.allocatedResources) &&
         Objects.equals(this.capacity, v1PersistentVolumeClaimStatus.capacity) &&
         Objects.equals(this.conditions, v1PersistentVolumeClaimStatus.conditions) &&
-        Objects.equals(this.phase, v1PersistentVolumeClaimStatus.phase) &&
-        Objects.equals(this.resizeStatus, v1PersistentVolumeClaimStatus.resizeStatus);
+        Objects.equals(this.phase, v1PersistentVolumeClaimStatus.phase);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessModes, allocatedResources, capacity, conditions, phase, resizeStatus);
+    return Objects.hash(accessModes, allocatedResourceStatuses, allocatedResources, capacity, conditions, phase);
   }
 
 
@@ -258,11 +266,11 @@ public class V1PersistentVolumeClaimStatus {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1PersistentVolumeClaimStatus {\n");
     sb.append("    accessModes: ").append(toIndentedString(accessModes)).append("\n");
+    sb.append("    allocatedResourceStatuses: ").append(toIndentedString(allocatedResourceStatuses)).append("\n");
     sb.append("    allocatedResources: ").append(toIndentedString(allocatedResources)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
-    sb.append("    resizeStatus: ").append(toIndentedString(resizeStatus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

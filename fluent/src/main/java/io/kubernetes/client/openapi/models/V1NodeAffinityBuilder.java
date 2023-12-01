@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1NodeAffinityBuilder extends V1NodeAffinityFluentImpl<V1NodeAffinityBuilder> implements VisitableBuilder<V1NodeAffinity,V1NodeAffinityBuilder>{
+public class V1NodeAffinityBuilder extends V1NodeAffinityFluent<V1NodeAffinityBuilder> implements VisitableBuilder<V1NodeAffinity,V1NodeAffinityBuilder>{
   public V1NodeAffinityBuilder() {
-    this(false);
+    this(new V1NodeAffinity());
   }
-  public V1NodeAffinityBuilder(Boolean validationEnabled) {
-    this(new V1NodeAffinity(), validationEnabled);
-  }
+  
   public V1NodeAffinityBuilder(V1NodeAffinityFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1NodeAffinity());
   }
-  public V1NodeAffinityBuilder(V1NodeAffinityFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1NodeAffinity(), validationEnabled);
-  }
+  
   public V1NodeAffinityBuilder(V1NodeAffinityFluent<?> fluent,V1NodeAffinity instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1NodeAffinityBuilder(V1NodeAffinityFluent<?> fluent,V1NodeAffinity instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
-      fluent.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1NodeAffinityBuilder(V1NodeAffinity instance) {
-    this(instance,false);
-  }
-  public V1NodeAffinityBuilder(V1NodeAffinity instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
-      this.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1NodeAffinityFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1NodeAffinity build() {
     V1NodeAffinity buildable = new V1NodeAffinity();
-    buildable.setPreferredDuringSchedulingIgnoredDuringExecution(fluent.getPreferredDuringSchedulingIgnoredDuringExecution());
-    buildable.setRequiredDuringSchedulingIgnoredDuringExecution(fluent.getRequiredDuringSchedulingIgnoredDuringExecution());
+    buildable.setPreferredDuringSchedulingIgnoredDuringExecution(fluent.buildPreferredDuringSchedulingIgnoredDuringExecution());
+    buildable.setRequiredDuringSchedulingIgnoredDuringExecution(fluent.buildRequiredDuringSchedulingIgnoredDuringExecution());
     return buildable;
   }
   
+
 }

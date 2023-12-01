@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V2CrossVersionObjectReferenceBuilder extends V2CrossVersionObjectReferenceFluentImpl<V2CrossVersionObjectReferenceBuilder> implements VisitableBuilder<V2CrossVersionObjectReference,V2CrossVersionObjectReferenceBuilder>{
+public class V2CrossVersionObjectReferenceBuilder extends V2CrossVersionObjectReferenceFluent<V2CrossVersionObjectReferenceBuilder> implements VisitableBuilder<V2CrossVersionObjectReference,V2CrossVersionObjectReferenceBuilder>{
   public V2CrossVersionObjectReferenceBuilder() {
-    this(false);
+    this(new V2CrossVersionObjectReference());
   }
-  public V2CrossVersionObjectReferenceBuilder(Boolean validationEnabled) {
-    this(new V2CrossVersionObjectReference(), validationEnabled);
-  }
+  
   public V2CrossVersionObjectReferenceBuilder(V2CrossVersionObjectReferenceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V2CrossVersionObjectReference());
   }
-  public V2CrossVersionObjectReferenceBuilder(V2CrossVersionObjectReferenceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V2CrossVersionObjectReference(), validationEnabled);
-  }
+  
   public V2CrossVersionObjectReferenceBuilder(V2CrossVersionObjectReferenceFluent<?> fluent,V2CrossVersionObjectReference instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V2CrossVersionObjectReferenceBuilder(V2CrossVersionObjectReferenceFluent<?> fluent,V2CrossVersionObjectReference instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withKind(instance.getKind());
-      fluent.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V2CrossVersionObjectReferenceBuilder(V2CrossVersionObjectReference instance) {
-    this(instance,false);
-  }
-  public V2CrossVersionObjectReferenceBuilder(V2CrossVersionObjectReference instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withKind(instance.getKind());
-      this.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V2CrossVersionObjectReferenceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V2CrossVersionObjectReference build() {
     V2CrossVersionObjectReference buildable = new V2CrossVersionObjectReference();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -49,4 +29,5 @@ public class V2CrossVersionObjectReferenceBuilder extends V2CrossVersionObjectRe
     return buildable;
   }
   
+
 }

@@ -30,7 +30,7 @@ import java.util.List;
  * A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.
  */
 @ApiModel(description = "A scope selector represents the AND of the selectors represented by the scoped-resource selector requirements.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1ScopeSelector {
   public static final String SERIALIZED_NAME_MATCH_EXPRESSIONS = "matchExpressions";
   @SerializedName(SERIALIZED_NAME_MATCH_EXPRESSIONS)

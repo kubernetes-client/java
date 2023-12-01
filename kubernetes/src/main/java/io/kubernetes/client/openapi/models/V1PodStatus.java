@@ -20,8 +20,10 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ContainerStatus;
+import io.kubernetes.client.openapi.models.V1HostIP;
 import io.kubernetes.client.openapi.models.V1PodCondition;
 import io.kubernetes.client.openapi.models.V1PodIP;
+import io.kubernetes.client.openapi.models.V1PodResourceClaimStatus;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -33,7 +35,7 @@ import java.util.List;
  * PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.
  */
 @ApiModel(description = "PodStatus represents information about the status of a pod. Status may trail the actual state of a system, especially if the node that hosts the pod cannot contact the control plane.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1PodStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
@@ -50,6 +52,10 @@ public class V1PodStatus {
   public static final String SERIALIZED_NAME_HOST_I_P = "hostIP";
   @SerializedName(SERIALIZED_NAME_HOST_I_P)
   private String hostIP;
+
+  public static final String SERIALIZED_NAME_HOST_I_PS = "hostIPs";
+  @SerializedName(SERIALIZED_NAME_HOST_I_PS)
+  private List<V1HostIP> hostIPs = null;
 
   public static final String SERIALIZED_NAME_INIT_CONTAINER_STATUSES = "initContainerStatuses";
   @SerializedName(SERIALIZED_NAME_INIT_CONTAINER_STATUSES)
@@ -86,6 +92,10 @@ public class V1PodStatus {
   public static final String SERIALIZED_NAME_RESIZE = "resize";
   @SerializedName(SERIALIZED_NAME_RESIZE)
   private String resize;
+
+  public static final String SERIALIZED_NAME_RESOURCE_CLAIM_STATUSES = "resourceClaimStatuses";
+  @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIM_STATUSES)
+  private List<V1PodResourceClaimStatus> resourceClaimStatuses = null;
 
   public static final String SERIALIZED_NAME_START_TIME = "startTime";
   @SerializedName(SERIALIZED_NAME_START_TIME)
@@ -192,11 +202,11 @@ public class V1PodStatus {
   }
 
    /**
-   * IP address of the host to which the pod is assigned. Empty if not yet scheduled.
+   * hostIP holds the IP address of the host to which the pod is assigned. Empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is a node is assigned to pod
    * @return hostIP
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "IP address of the host to which the pod is assigned. Empty if not yet scheduled.")
+  @ApiModelProperty(value = "hostIP holds the IP address of the host to which the pod is assigned. Empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns mean that HostIP will not be updated even if there is a node is assigned to pod")
 
   public String getHostIP() {
     return hostIP;
@@ -205,6 +215,37 @@ public class V1PodStatus {
 
   public void setHostIP(String hostIP) {
     this.hostIP = hostIP;
+  }
+
+
+  public V1PodStatus hostIPs(List<V1HostIP> hostIPs) {
+
+    this.hostIPs = hostIPs;
+    return this;
+  }
+
+  public V1PodStatus addHostIPsItem(V1HostIP hostIPsItem) {
+    if (this.hostIPs == null) {
+      this.hostIPs = new ArrayList<>();
+    }
+    this.hostIPs.add(hostIPsItem);
+    return this;
+  }
+
+   /**
+   * hostIPs holds the IP addresses allocated to the host. If this field is specified, the first entry must match the hostIP field. This list is empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns means that HostIPs will not be updated even if there is a node is assigned to this pod.
+   * @return hostIPs
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "hostIPs holds the IP addresses allocated to the host. If this field is specified, the first entry must match the hostIP field. This list is empty if the pod has not started yet. A pod can be assigned to a node that has a problem in kubelet which in turns means that HostIPs will not be updated even if there is a node is assigned to this pod.")
+
+  public List<V1HostIP> getHostIPs() {
+    return hostIPs;
+  }
+
+
+  public void setHostIPs(List<V1HostIP> hostIPs) {
+    this.hostIPs = hostIPs;
   }
 
 
@@ -315,11 +356,11 @@ public class V1PodStatus {
   }
 
    /**
-   * IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.
+   * podIP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.
    * @return podIP
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "IP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.")
+  @ApiModelProperty(value = "podIP address allocated to the pod. Routable at least within the cluster. Empty if not yet allocated.")
 
   public String getPodIP() {
     return podIP;
@@ -431,6 +472,37 @@ public class V1PodStatus {
   }
 
 
+  public V1PodStatus resourceClaimStatuses(List<V1PodResourceClaimStatus> resourceClaimStatuses) {
+
+    this.resourceClaimStatuses = resourceClaimStatuses;
+    return this;
+  }
+
+  public V1PodStatus addResourceClaimStatusesItem(V1PodResourceClaimStatus resourceClaimStatusesItem) {
+    if (this.resourceClaimStatuses == null) {
+      this.resourceClaimStatuses = new ArrayList<>();
+    }
+    this.resourceClaimStatuses.add(resourceClaimStatusesItem);
+    return this;
+  }
+
+   /**
+   * Status of resource claims.
+   * @return resourceClaimStatuses
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Status of resource claims.")
+
+  public List<V1PodResourceClaimStatus> getResourceClaimStatuses() {
+    return resourceClaimStatuses;
+  }
+
+
+  public void setResourceClaimStatuses(List<V1PodResourceClaimStatus> resourceClaimStatuses) {
+    this.resourceClaimStatuses = resourceClaimStatuses;
+  }
+
+
   public V1PodStatus startTime(OffsetDateTime startTime) {
 
     this.startTime = startTime;
@@ -467,6 +539,7 @@ public class V1PodStatus {
         Objects.equals(this.containerStatuses, v1PodStatus.containerStatuses) &&
         Objects.equals(this.ephemeralContainerStatuses, v1PodStatus.ephemeralContainerStatuses) &&
         Objects.equals(this.hostIP, v1PodStatus.hostIP) &&
+        Objects.equals(this.hostIPs, v1PodStatus.hostIPs) &&
         Objects.equals(this.initContainerStatuses, v1PodStatus.initContainerStatuses) &&
         Objects.equals(this.message, v1PodStatus.message) &&
         Objects.equals(this.nominatedNodeName, v1PodStatus.nominatedNodeName) &&
@@ -476,12 +549,13 @@ public class V1PodStatus {
         Objects.equals(this.qosClass, v1PodStatus.qosClass) &&
         Objects.equals(this.reason, v1PodStatus.reason) &&
         Objects.equals(this.resize, v1PodStatus.resize) &&
+        Objects.equals(this.resourceClaimStatuses, v1PodStatus.resourceClaimStatuses) &&
         Objects.equals(this.startTime, v1PodStatus.startTime);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(conditions, containerStatuses, ephemeralContainerStatuses, hostIP, initContainerStatuses, message, nominatedNodeName, phase, podIP, podIPs, qosClass, reason, resize, startTime);
+    return Objects.hash(conditions, containerStatuses, ephemeralContainerStatuses, hostIP, hostIPs, initContainerStatuses, message, nominatedNodeName, phase, podIP, podIPs, qosClass, reason, resize, resourceClaimStatuses, startTime);
   }
 
 
@@ -493,6 +567,7 @@ public class V1PodStatus {
     sb.append("    containerStatuses: ").append(toIndentedString(containerStatuses)).append("\n");
     sb.append("    ephemeralContainerStatuses: ").append(toIndentedString(ephemeralContainerStatuses)).append("\n");
     sb.append("    hostIP: ").append(toIndentedString(hostIP)).append("\n");
+    sb.append("    hostIPs: ").append(toIndentedString(hostIPs)).append("\n");
     sb.append("    initContainerStatuses: ").append(toIndentedString(initContainerStatuses)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    nominatedNodeName: ").append(toIndentedString(nominatedNodeName)).append("\n");
@@ -502,6 +577,7 @@ public class V1PodStatus {
     sb.append("    qosClass: ").append(toIndentedString(qosClass)).append("\n");
     sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    resize: ").append(toIndentedString(resize)).append("\n");
+    sb.append("    resourceClaimStatuses: ").append(toIndentedString(resourceClaimStatuses)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("}");
     return sb.toString();

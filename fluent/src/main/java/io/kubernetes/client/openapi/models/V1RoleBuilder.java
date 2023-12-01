@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1RoleBuilder extends V1RoleFluentImpl<V1RoleBuilder> implements VisitableBuilder<V1Role,V1RoleBuilder>{
+public class V1RoleBuilder extends V1RoleFluent<V1RoleBuilder> implements VisitableBuilder<V1Role,V1RoleBuilder>{
   public V1RoleBuilder() {
-    this(false);
+    this(new V1Role());
   }
-  public V1RoleBuilder(Boolean validationEnabled) {
-    this(new V1Role(), validationEnabled);
-  }
+  
   public V1RoleBuilder(V1RoleFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1Role());
   }
-  public V1RoleBuilder(V1RoleFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1Role(), validationEnabled);
-  }
+  
   public V1RoleBuilder(V1RoleFluent<?> fluent,V1Role instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1RoleBuilder(V1RoleFluent<?> fluent,V1Role instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withKind(instance.getKind());
-      fluent.withMetadata(instance.getMetadata());
-      fluent.withRules(instance.getRules());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1RoleBuilder(V1Role instance) {
-    this(instance,false);
-  }
-  public V1RoleBuilder(V1Role instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withKind(instance.getKind());
-      this.withMetadata(instance.getMetadata());
-      this.withRules(instance.getRules());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1RoleFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1Role build() {
     V1Role buildable = new V1Role();
     buildable.setApiVersion(fluent.getApiVersion());
     buildable.setKind(fluent.getKind());
-    buildable.setMetadata(fluent.getMetadata());
-    buildable.setRules(fluent.getRules());
+    buildable.setMetadata(fluent.buildMetadata());
+    buildable.setRules(fluent.buildRules());
     return buildable;
   }
   
+
 }

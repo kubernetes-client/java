@@ -28,7 +28,7 @@ import java.io.IOException;
  * CustomResourceConversion describes how to convert different versions of a CR.
  */
 @ApiModel(description = "CustomResourceConversion describes how to convert different versions of a CR.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1CustomResourceConversion {
   public static final String SERIALIZED_NAME_STRATEGY = "strategy";
   @SerializedName(SERIALIZED_NAME_STRATEGY)

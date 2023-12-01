@@ -32,7 +32,7 @@ import java.util.List;
  * JobStatus represents the current state of a Job.
  */
 @ApiModel(description = "JobStatus represents the current state of a Job.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -54,6 +54,10 @@ public class V1JobStatus {
   @SerializedName(SERIALIZED_NAME_FAILED)
   private Integer failed;
 
+  public static final String SERIALIZED_NAME_FAILED_INDEXES = "failedIndexes";
+  @SerializedName(SERIALIZED_NAME_FAILED_INDEXES)
+  private String failedIndexes;
+
   public static final String SERIALIZED_NAME_READY = "ready";
   @SerializedName(SERIALIZED_NAME_READY)
   private Integer ready;
@@ -65,6 +69,10 @@ public class V1JobStatus {
   public static final String SERIALIZED_NAME_SUCCEEDED = "succeeded";
   @SerializedName(SERIALIZED_NAME_SUCCEEDED)
   private Integer succeeded;
+
+  public static final String SERIALIZED_NAME_TERMINATING = "terminating";
+  @SerializedName(SERIALIZED_NAME_TERMINATING)
+  private Integer terminating;
 
   public static final String SERIALIZED_NAME_UNCOUNTED_TERMINATED_PODS = "uncountedTerminatedPods";
   @SerializedName(SERIALIZED_NAME_UNCOUNTED_TERMINATED_PODS)
@@ -194,6 +202,29 @@ public class V1JobStatus {
   }
 
 
+  public V1JobStatus failedIndexes(String failedIndexes) {
+
+    this.failedIndexes = failedIndexes;
+    return this;
+  }
+
+   /**
+   * FailedIndexes holds the failed indexes when backoffLimitPerIndex&#x3D;true. The indexes are represented in the text format analogous as for the &#x60;completedIndexes&#x60; field, ie. they are kept as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the failed indexes are 1, 3, 4, 5 and 7, they are represented as \&quot;1,3-5,7\&quot;. This field is alpha-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (disabled by default).
+   * @return failedIndexes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "FailedIndexes holds the failed indexes when backoffLimitPerIndex=true. The indexes are represented in the text format analogous as for the `completedIndexes` field, ie. they are kept as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the failed indexes are 1, 3, 4, 5 and 7, they are represented as \"1,3-5,7\". This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).")
+
+  public String getFailedIndexes() {
+    return failedIndexes;
+  }
+
+
+  public void setFailedIndexes(String failedIndexes) {
+    this.failedIndexes = failedIndexes;
+  }
+
+
   public V1JobStatus ready(Integer ready) {
 
     this.ready = ready;
@@ -263,6 +294,29 @@ public class V1JobStatus {
   }
 
 
+  public V1JobStatus terminating(Integer terminating) {
+
+    this.terminating = terminating;
+    return this;
+  }
+
+   /**
+   * The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).  This field is alpha-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (disabled by default).
+   * @return terminating
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).  This field is alpha-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (disabled by default).")
+
+  public Integer getTerminating() {
+    return terminating;
+  }
+
+
+  public void setTerminating(Integer terminating) {
+    this.terminating = terminating;
+  }
+
+
   public V1JobStatus uncountedTerminatedPods(V1UncountedTerminatedPods uncountedTerminatedPods) {
 
     this.uncountedTerminatedPods = uncountedTerminatedPods;
@@ -300,15 +354,17 @@ public class V1JobStatus {
         Objects.equals(this.completionTime, v1JobStatus.completionTime) &&
         Objects.equals(this.conditions, v1JobStatus.conditions) &&
         Objects.equals(this.failed, v1JobStatus.failed) &&
+        Objects.equals(this.failedIndexes, v1JobStatus.failedIndexes) &&
         Objects.equals(this.ready, v1JobStatus.ready) &&
         Objects.equals(this.startTime, v1JobStatus.startTime) &&
         Objects.equals(this.succeeded, v1JobStatus.succeeded) &&
+        Objects.equals(this.terminating, v1JobStatus.terminating) &&
         Objects.equals(this.uncountedTerminatedPods, v1JobStatus.uncountedTerminatedPods);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(active, completedIndexes, completionTime, conditions, failed, ready, startTime, succeeded, uncountedTerminatedPods);
+    return Objects.hash(active, completedIndexes, completionTime, conditions, failed, failedIndexes, ready, startTime, succeeded, terminating, uncountedTerminatedPods);
   }
 
 
@@ -321,9 +377,11 @@ public class V1JobStatus {
     sb.append("    completionTime: ").append(toIndentedString(completionTime)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
     sb.append("    failed: ").append(toIndentedString(failed)).append("\n");
+    sb.append("    failedIndexes: ").append(toIndentedString(failedIndexes)).append("\n");
     sb.append("    ready: ").append(toIndentedString(ready)).append("\n");
     sb.append("    startTime: ").append(toIndentedString(startTime)).append("\n");
     sb.append("    succeeded: ").append(toIndentedString(succeeded)).append("\n");
+    sb.append("    terminating: ").append(toIndentedString(terminating)).append("\n");
     sb.append("    uncountedTerminatedPods: ").append(toIndentedString(uncountedTerminatedPods)).append("\n");
     sb.append("}");
     return sb.toString();

@@ -29,7 +29,7 @@ import java.io.IOException;
  * ResourceClaimTemplateSpec contains the metadata and fields for a ResourceClaim.
  */
 @ApiModel(description = "ResourceClaimTemplateSpec contains the metadata and fields for a ResourceClaim.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1alpha2ResourceClaimTemplateSpec {
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)

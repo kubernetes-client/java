@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1CustomResourceSubresourcesBuilder extends V1CustomResourceSubresourcesFluentImpl<V1CustomResourceSubresourcesBuilder> implements VisitableBuilder<V1CustomResourceSubresources,V1CustomResourceSubresourcesBuilder>{
+public class V1CustomResourceSubresourcesBuilder extends V1CustomResourceSubresourcesFluent<V1CustomResourceSubresourcesBuilder> implements VisitableBuilder<V1CustomResourceSubresources,V1CustomResourceSubresourcesBuilder>{
   public V1CustomResourceSubresourcesBuilder() {
-    this(false);
+    this(new V1CustomResourceSubresources());
   }
-  public V1CustomResourceSubresourcesBuilder(Boolean validationEnabled) {
-    this(new V1CustomResourceSubresources(), validationEnabled);
-  }
+  
   public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresourcesFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1CustomResourceSubresources());
   }
-  public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresourcesFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1CustomResourceSubresources(), validationEnabled);
-  }
+  
   public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresourcesFluent<?> fluent,V1CustomResourceSubresources instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresourcesFluent<?> fluent,V1CustomResourceSubresources instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withScale(instance.getScale());
-      fluent.withStatus(instance.getStatus());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresources instance) {
-    this(instance,false);
-  }
-  public V1CustomResourceSubresourcesBuilder(V1CustomResourceSubresources instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withScale(instance.getScale());
-      this.withStatus(instance.getStatus());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1CustomResourceSubresourcesFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1CustomResourceSubresources build() {
     V1CustomResourceSubresources buildable = new V1CustomResourceSubresources();
-    buildable.setScale(fluent.getScale());
+    buildable.setScale(fluent.buildScale());
     buildable.setStatus(fluent.getStatus());
     return buildable;
   }
   
+
 }

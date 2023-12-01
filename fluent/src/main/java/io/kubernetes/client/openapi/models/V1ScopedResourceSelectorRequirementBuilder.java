@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ScopedResourceSelectorRequirementBuilder extends V1ScopedResourceSelectorRequirementFluentImpl<V1ScopedResourceSelectorRequirementBuilder> implements VisitableBuilder<V1ScopedResourceSelectorRequirement,V1ScopedResourceSelectorRequirementBuilder>{
+public class V1ScopedResourceSelectorRequirementBuilder extends V1ScopedResourceSelectorRequirementFluent<V1ScopedResourceSelectorRequirementBuilder> implements VisitableBuilder<V1ScopedResourceSelectorRequirement,V1ScopedResourceSelectorRequirementBuilder>{
   public V1ScopedResourceSelectorRequirementBuilder() {
-    this(false);
+    this(new V1ScopedResourceSelectorRequirement());
   }
-  public V1ScopedResourceSelectorRequirementBuilder(Boolean validationEnabled) {
-    this(new V1ScopedResourceSelectorRequirement(), validationEnabled);
-  }
+  
   public V1ScopedResourceSelectorRequirementBuilder(V1ScopedResourceSelectorRequirementFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ScopedResourceSelectorRequirement());
   }
-  public V1ScopedResourceSelectorRequirementBuilder(V1ScopedResourceSelectorRequirementFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ScopedResourceSelectorRequirement(), validationEnabled);
-  }
+  
   public V1ScopedResourceSelectorRequirementBuilder(V1ScopedResourceSelectorRequirementFluent<?> fluent,V1ScopedResourceSelectorRequirement instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ScopedResourceSelectorRequirementBuilder(V1ScopedResourceSelectorRequirementFluent<?> fluent,V1ScopedResourceSelectorRequirement instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withOperator(instance.getOperator());
-      fluent.withScopeName(instance.getScopeName());
-      fluent.withValues(instance.getValues());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ScopedResourceSelectorRequirementBuilder(V1ScopedResourceSelectorRequirement instance) {
-    this(instance,false);
-  }
-  public V1ScopedResourceSelectorRequirementBuilder(V1ScopedResourceSelectorRequirement instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withOperator(instance.getOperator());
-      this.withScopeName(instance.getScopeName());
-      this.withValues(instance.getValues());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ScopedResourceSelectorRequirementFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ScopedResourceSelectorRequirement build() {
     V1ScopedResourceSelectorRequirement buildable = new V1ScopedResourceSelectorRequirement();
     buildable.setOperator(fluent.getOperator());
@@ -49,4 +29,5 @@ public class V1ScopedResourceSelectorRequirementBuilder extends V1ScopedResource
     return buildable;
   }
   
+
 }

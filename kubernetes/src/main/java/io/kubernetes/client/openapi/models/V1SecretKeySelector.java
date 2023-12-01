@@ -27,7 +27,7 @@ import java.io.IOException;
  * SecretKeySelector selects a key of a Secret.
  */
 @ApiModel(description = "SecretKeySelector selects a key of a Secret.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1SecretKeySelector {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)

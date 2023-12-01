@@ -1,32 +1,149 @@
 package io.kubernetes.client.openapi.models;
 
 import java.time.OffsetDateTime;
-import com.google.gson.annotations.SerializedName;
-import io.kubernetes.client.fluent.Fluent;
+import java.lang.SuppressWarnings;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Object;
 import java.lang.String;
-import java.lang.Boolean;
 
- /**
-  * Generated
-  */
-public interface V1CertificateSigningRequestConditionFluent<A extends V1CertificateSigningRequestConditionFluent<A>> extends Fluent<A>{
-  public OffsetDateTime getLastTransitionTime();
-  public A withLastTransitionTime(OffsetDateTime lastTransitionTime);
-  public Boolean hasLastTransitionTime();
-  public OffsetDateTime getLastUpdateTime();
-  public A withLastUpdateTime(OffsetDateTime lastUpdateTime);
-  public Boolean hasLastUpdateTime();
-  public String getMessage();
-  public A withMessage(String message);
-  public Boolean hasMessage();
-  public String getReason();
-  public A withReason(String reason);
-  public Boolean hasReason();
-  public String getStatus();
-  public A withStatus(String status);
-  public Boolean hasStatus();
-  public String getType();
-  public A withType(String type);
-  public Boolean hasType();
+/**
+ * Generated
+ */
+@SuppressWarnings("unchecked")
+public class V1CertificateSigningRequestConditionFluent<A extends V1CertificateSigningRequestConditionFluent<A>> extends BaseFluent<A>{
+  public V1CertificateSigningRequestConditionFluent() {
+  }
   
+  public V1CertificateSigningRequestConditionFluent(V1CertificateSigningRequestCondition instance) {
+    this.copyInstance(instance);
+  }
+  private OffsetDateTime lastTransitionTime;
+  private OffsetDateTime lastUpdateTime;
+  private String message;
+  private String reason;
+  private String status;
+  private String type;
+  
+  protected void copyInstance(V1CertificateSigningRequestCondition instance) {
+    instance = (instance != null ? instance : new V1CertificateSigningRequestCondition());
+    if (instance != null) {
+          this.withLastTransitionTime(instance.getLastTransitionTime());
+          this.withLastUpdateTime(instance.getLastUpdateTime());
+          this.withMessage(instance.getMessage());
+          this.withReason(instance.getReason());
+          this.withStatus(instance.getStatus());
+          this.withType(instance.getType());
+        }
+  }
+  
+  public OffsetDateTime getLastTransitionTime() {
+    return this.lastTransitionTime;
+  }
+  
+  public A withLastTransitionTime(OffsetDateTime lastTransitionTime) {
+    this.lastTransitionTime = lastTransitionTime;
+    return (A) this;
+  }
+  
+  public boolean hasLastTransitionTime() {
+    return this.lastTransitionTime != null;
+  }
+  
+  public OffsetDateTime getLastUpdateTime() {
+    return this.lastUpdateTime;
+  }
+  
+  public A withLastUpdateTime(OffsetDateTime lastUpdateTime) {
+    this.lastUpdateTime = lastUpdateTime;
+    return (A) this;
+  }
+  
+  public boolean hasLastUpdateTime() {
+    return this.lastUpdateTime != null;
+  }
+  
+  public String getMessage() {
+    return this.message;
+  }
+  
+  public A withMessage(String message) {
+    this.message = message;
+    return (A) this;
+  }
+  
+  public boolean hasMessage() {
+    return this.message != null;
+  }
+  
+  public String getReason() {
+    return this.reason;
+  }
+  
+  public A withReason(String reason) {
+    this.reason = reason;
+    return (A) this;
+  }
+  
+  public boolean hasReason() {
+    return this.reason != null;
+  }
+  
+  public String getStatus() {
+    return this.status;
+  }
+  
+  public A withStatus(String status) {
+    this.status = status;
+    return (A) this;
+  }
+  
+  public boolean hasStatus() {
+    return this.status != null;
+  }
+  
+  public String getType() {
+    return this.type;
+  }
+  
+  public A withType(String type) {
+    this.type = type;
+    return (A) this;
+  }
+  
+  public boolean hasType() {
+    return this.type != null;
+  }
+  
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    V1CertificateSigningRequestConditionFluent that = (V1CertificateSigningRequestConditionFluent) o;
+    if (!java.util.Objects.equals(lastTransitionTime, that.lastTransitionTime)) return false;
+    if (!java.util.Objects.equals(lastUpdateTime, that.lastUpdateTime)) return false;
+    if (!java.util.Objects.equals(message, that.message)) return false;
+    if (!java.util.Objects.equals(reason, that.reason)) return false;
+    if (!java.util.Objects.equals(status, that.status)) return false;
+    if (!java.util.Objects.equals(type, that.type)) return false;
+    return true;
+  }
+  
+  public int hashCode() {
+    return java.util.Objects.hash(lastTransitionTime,  lastUpdateTime,  message,  reason,  status,  type,  super.hashCode());
+  }
+  
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (lastTransitionTime != null) { sb.append("lastTransitionTime:"); sb.append(lastTransitionTime + ","); }
+    if (lastUpdateTime != null) { sb.append("lastUpdateTime:"); sb.append(lastUpdateTime + ","); }
+    if (message != null) { sb.append("message:"); sb.append(message + ","); }
+    if (reason != null) { sb.append("reason:"); sb.append(reason + ","); }
+    if (status != null) { sb.append("status:"); sb.append(status + ","); }
+    if (type != null) { sb.append("type:"); sb.append(type); }
+    sb.append("}");
+    return sb.toString();
+  }
+  
+
 }

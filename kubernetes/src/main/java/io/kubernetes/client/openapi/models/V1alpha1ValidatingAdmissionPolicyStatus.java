@@ -31,7 +31,7 @@ import java.util.List;
  * ValidatingAdmissionPolicyStatus represents the status of a ValidatingAdmissionPolicy.
  */
 @ApiModel(description = "ValidatingAdmissionPolicyStatus represents the status of a ValidatingAdmissionPolicy.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1alpha1ValidatingAdmissionPolicyStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)

@@ -1,61 +1,37 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1alpha1ValidatingAdmissionPolicySpecBuilder extends V1alpha1ValidatingAdmissionPolicySpecFluentImpl<V1alpha1ValidatingAdmissionPolicySpecBuilder> implements VisitableBuilder<V1alpha1ValidatingAdmissionPolicySpec,V1alpha1ValidatingAdmissionPolicySpecBuilder>{
+public class V1alpha1ValidatingAdmissionPolicySpecBuilder extends V1alpha1ValidatingAdmissionPolicySpecFluent<V1alpha1ValidatingAdmissionPolicySpecBuilder> implements VisitableBuilder<V1alpha1ValidatingAdmissionPolicySpec,V1alpha1ValidatingAdmissionPolicySpecBuilder>{
   public V1alpha1ValidatingAdmissionPolicySpecBuilder() {
-    this(false);
+    this(new V1alpha1ValidatingAdmissionPolicySpec());
   }
-  public V1alpha1ValidatingAdmissionPolicySpecBuilder(Boolean validationEnabled) {
-    this(new V1alpha1ValidatingAdmissionPolicySpec(), validationEnabled);
-  }
+  
   public V1alpha1ValidatingAdmissionPolicySpecBuilder(V1alpha1ValidatingAdmissionPolicySpecFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1alpha1ValidatingAdmissionPolicySpec());
   }
-  public V1alpha1ValidatingAdmissionPolicySpecBuilder(V1alpha1ValidatingAdmissionPolicySpecFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1alpha1ValidatingAdmissionPolicySpec(), validationEnabled);
-  }
+  
   public V1alpha1ValidatingAdmissionPolicySpecBuilder(V1alpha1ValidatingAdmissionPolicySpecFluent<?> fluent,V1alpha1ValidatingAdmissionPolicySpec instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1alpha1ValidatingAdmissionPolicySpecBuilder(V1alpha1ValidatingAdmissionPolicySpecFluent<?> fluent,V1alpha1ValidatingAdmissionPolicySpec instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAuditAnnotations(instance.getAuditAnnotations());
-      fluent.withFailurePolicy(instance.getFailurePolicy());
-      fluent.withMatchConditions(instance.getMatchConditions());
-      fluent.withMatchConstraints(instance.getMatchConstraints());
-      fluent.withParamKind(instance.getParamKind());
-      fluent.withValidations(instance.getValidations());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1alpha1ValidatingAdmissionPolicySpecBuilder(V1alpha1ValidatingAdmissionPolicySpec instance) {
-    this(instance,false);
-  }
-  public V1alpha1ValidatingAdmissionPolicySpecBuilder(V1alpha1ValidatingAdmissionPolicySpec instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAuditAnnotations(instance.getAuditAnnotations());
-      this.withFailurePolicy(instance.getFailurePolicy());
-      this.withMatchConditions(instance.getMatchConditions());
-      this.withMatchConstraints(instance.getMatchConstraints());
-      this.withParamKind(instance.getParamKind());
-      this.withValidations(instance.getValidations());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1alpha1ValidatingAdmissionPolicySpecFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1alpha1ValidatingAdmissionPolicySpec build() {
     V1alpha1ValidatingAdmissionPolicySpec buildable = new V1alpha1ValidatingAdmissionPolicySpec();
-    buildable.setAuditAnnotations(fluent.getAuditAnnotations());
+    buildable.setAuditAnnotations(fluent.buildAuditAnnotations());
     buildable.setFailurePolicy(fluent.getFailurePolicy());
-    buildable.setMatchConditions(fluent.getMatchConditions());
-    buildable.setMatchConstraints(fluent.getMatchConstraints());
-    buildable.setParamKind(fluent.getParamKind());
-    buildable.setValidations(fluent.getValidations());
+    buildable.setMatchConditions(fluent.buildMatchConditions());
+    buildable.setMatchConstraints(fluent.buildMatchConstraints());
+    buildable.setParamKind(fluent.buildParamKind());
+    buildable.setValidations(fluent.buildValidations());
+    buildable.setVariables(fluent.buildVariables());
     return buildable;
   }
   
+
 }

@@ -34,7 +34,7 @@ import java.util.Map;
  * ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.
  */
 @ApiModel(description = "ObjectMeta is metadata that all persisted resources must have, which includes all objects users must create.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1ObjectMeta {
   public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
   @SerializedName(SERIALIZED_NAME_ANNOTATIONS)

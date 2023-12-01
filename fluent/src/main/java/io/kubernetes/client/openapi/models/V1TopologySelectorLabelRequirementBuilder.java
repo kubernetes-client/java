@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1TopologySelectorLabelRequirementBuilder extends V1TopologySelectorLabelRequirementFluentImpl<V1TopologySelectorLabelRequirementBuilder> implements VisitableBuilder<V1TopologySelectorLabelRequirement,V1TopologySelectorLabelRequirementBuilder>{
+public class V1TopologySelectorLabelRequirementBuilder extends V1TopologySelectorLabelRequirementFluent<V1TopologySelectorLabelRequirementBuilder> implements VisitableBuilder<V1TopologySelectorLabelRequirement,V1TopologySelectorLabelRequirementBuilder>{
   public V1TopologySelectorLabelRequirementBuilder() {
-    this(false);
+    this(new V1TopologySelectorLabelRequirement());
   }
-  public V1TopologySelectorLabelRequirementBuilder(Boolean validationEnabled) {
-    this(new V1TopologySelectorLabelRequirement(), validationEnabled);
-  }
+  
   public V1TopologySelectorLabelRequirementBuilder(V1TopologySelectorLabelRequirementFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1TopologySelectorLabelRequirement());
   }
-  public V1TopologySelectorLabelRequirementBuilder(V1TopologySelectorLabelRequirementFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1TopologySelectorLabelRequirement(), validationEnabled);
-  }
+  
   public V1TopologySelectorLabelRequirementBuilder(V1TopologySelectorLabelRequirementFluent<?> fluent,V1TopologySelectorLabelRequirement instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1TopologySelectorLabelRequirementBuilder(V1TopologySelectorLabelRequirementFluent<?> fluent,V1TopologySelectorLabelRequirement instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withKey(instance.getKey());
-      fluent.withValues(instance.getValues());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1TopologySelectorLabelRequirementBuilder(V1TopologySelectorLabelRequirement instance) {
-    this(instance,false);
-  }
-  public V1TopologySelectorLabelRequirementBuilder(V1TopologySelectorLabelRequirement instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withKey(instance.getKey());
-      this.withValues(instance.getValues());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1TopologySelectorLabelRequirementFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1TopologySelectorLabelRequirement build() {
     V1TopologySelectorLabelRequirement buildable = new V1TopologySelectorLabelRequirement();
     buildable.setKey(fluent.getKey());
@@ -46,4 +28,5 @@ public class V1TopologySelectorLabelRequirementBuilder extends V1TopologySelecto
     return buildable;
   }
   
+
 }

@@ -30,7 +30,7 @@ import java.util.List;
  * PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.
  */
 @ApiModel(description = "PodDNSConfig defines the DNS parameters of a pod in addition to those generated from DNSPolicy.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1PodDNSConfig {
   public static final String SERIALIZED_NAME_NAMESERVERS = "nameservers";
   @SerializedName(SERIALIZED_NAME_NAMESERVERS)

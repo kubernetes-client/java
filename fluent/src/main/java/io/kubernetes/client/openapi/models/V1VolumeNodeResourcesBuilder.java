@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1VolumeNodeResourcesBuilder extends V1VolumeNodeResourcesFluentImpl<V1VolumeNodeResourcesBuilder> implements VisitableBuilder<V1VolumeNodeResources,V1VolumeNodeResourcesBuilder>{
+public class V1VolumeNodeResourcesBuilder extends V1VolumeNodeResourcesFluent<V1VolumeNodeResourcesBuilder> implements VisitableBuilder<V1VolumeNodeResources,V1VolumeNodeResourcesBuilder>{
   public V1VolumeNodeResourcesBuilder() {
-    this(false);
+    this(new V1VolumeNodeResources());
   }
-  public V1VolumeNodeResourcesBuilder(Boolean validationEnabled) {
-    this(new V1VolumeNodeResources(), validationEnabled);
-  }
+  
   public V1VolumeNodeResourcesBuilder(V1VolumeNodeResourcesFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1VolumeNodeResources());
   }
-  public V1VolumeNodeResourcesBuilder(V1VolumeNodeResourcesFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1VolumeNodeResources(), validationEnabled);
-  }
+  
   public V1VolumeNodeResourcesBuilder(V1VolumeNodeResourcesFluent<?> fluent,V1VolumeNodeResources instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1VolumeNodeResourcesBuilder(V1VolumeNodeResourcesFluent<?> fluent,V1VolumeNodeResources instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withCount(instance.getCount());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1VolumeNodeResourcesBuilder(V1VolumeNodeResources instance) {
-    this(instance,false);
-  }
-  public V1VolumeNodeResourcesBuilder(V1VolumeNodeResources instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withCount(instance.getCount());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1VolumeNodeResourcesFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1VolumeNodeResources build() {
     V1VolumeNodeResources buildable = new V1VolumeNodeResources();
     buildable.setCount(fluent.getCount());
     return buildable;
   }
   
+
 }

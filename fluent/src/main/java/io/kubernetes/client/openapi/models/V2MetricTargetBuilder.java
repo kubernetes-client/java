@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V2MetricTargetBuilder extends V2MetricTargetFluentImpl<V2MetricTargetBuilder> implements VisitableBuilder<V2MetricTarget,V2MetricTargetBuilder>{
+public class V2MetricTargetBuilder extends V2MetricTargetFluent<V2MetricTargetBuilder> implements VisitableBuilder<V2MetricTarget,V2MetricTargetBuilder>{
   public V2MetricTargetBuilder() {
-    this(false);
+    this(new V2MetricTarget());
   }
-  public V2MetricTargetBuilder(Boolean validationEnabled) {
-    this(new V2MetricTarget(), validationEnabled);
-  }
+  
   public V2MetricTargetBuilder(V2MetricTargetFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V2MetricTarget());
   }
-  public V2MetricTargetBuilder(V2MetricTargetFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V2MetricTarget(), validationEnabled);
-  }
+  
   public V2MetricTargetBuilder(V2MetricTargetFluent<?> fluent,V2MetricTarget instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V2MetricTargetBuilder(V2MetricTargetFluent<?> fluent,V2MetricTarget instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withAverageUtilization(instance.getAverageUtilization());
-      fluent.withAverageValue(instance.getAverageValue());
-      fluent.withType(instance.getType());
-      fluent.withValue(instance.getValue());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V2MetricTargetBuilder(V2MetricTarget instance) {
-    this(instance,false);
-  }
-  public V2MetricTargetBuilder(V2MetricTarget instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withAverageUtilization(instance.getAverageUtilization());
-      this.withAverageValue(instance.getAverageValue());
-      this.withType(instance.getType());
-      this.withValue(instance.getValue());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V2MetricTargetFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V2MetricTarget build() {
     V2MetricTarget buildable = new V2MetricTarget();
     buildable.setAverageUtilization(fluent.getAverageUtilization());
@@ -52,4 +30,5 @@ public class V2MetricTargetBuilder extends V2MetricTargetFluentImpl<V2MetricTarg
     return buildable;
   }
   
+
 }

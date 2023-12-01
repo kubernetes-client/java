@@ -39,7 +39,7 @@ import java.util.List;
  * An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.  To add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.
  */
 @ApiModel(description = "An EphemeralContainer is a temporary container that you may add to an existing Pod for user-initiated activities such as debugging. Ephemeral containers have no resource or scheduling guarantees, and they will not be restarted when they exit or when a Pod is removed or restarted. The kubelet may evict a Pod if an ephemeral container causes the Pod to exceed its resource allocation.  To add an ephemeral container, use the ephemeralcontainers subresource of an existing Pod. Ephemeral containers may not be removed or restarted.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1EphemeralContainer {
   public static final String SERIALIZED_NAME_ARGS = "args";
   @SerializedName(SERIALIZED_NAME_ARGS)
@@ -92,6 +92,10 @@ public class V1EphemeralContainer {
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
   private V1ResourceRequirements resources;
+
+  public static final String SERIALIZED_NAME_RESTART_POLICY = "restartPolicy";
+  @SerializedName(SERIALIZED_NAME_RESTART_POLICY)
+  private String restartPolicy;
 
   public static final String SERIALIZED_NAME_SECURITY_CONTEXT = "securityContext";
   @SerializedName(SERIALIZED_NAME_SECURITY_CONTEXT)
@@ -484,6 +488,29 @@ public class V1EphemeralContainer {
   }
 
 
+  public V1EphemeralContainer restartPolicy(String restartPolicy) {
+
+    this.restartPolicy = restartPolicy;
+    return this;
+  }
+
+   /**
+   * Restart policy for the container to manage the restart behavior of each container within a pod. This may only be set for init containers. You cannot set this field on ephemeral containers.
+   * @return restartPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Restart policy for the container to manage the restart behavior of each container within a pod. This may only be set for init containers. You cannot set this field on ephemeral containers.")
+
+  public String getRestartPolicy() {
+    return restartPolicy;
+  }
+
+
+  public void setRestartPolicy(String restartPolicy) {
+    this.restartPolicy = restartPolicy;
+  }
+
+
   public V1EphemeralContainer securityContext(V1SecurityContext securityContext) {
 
     this.securityContext = securityContext;
@@ -775,6 +802,7 @@ public class V1EphemeralContainer {
         Objects.equals(this.readinessProbe, v1EphemeralContainer.readinessProbe) &&
         Objects.equals(this.resizePolicy, v1EphemeralContainer.resizePolicy) &&
         Objects.equals(this.resources, v1EphemeralContainer.resources) &&
+        Objects.equals(this.restartPolicy, v1EphemeralContainer.restartPolicy) &&
         Objects.equals(this.securityContext, v1EphemeralContainer.securityContext) &&
         Objects.equals(this.startupProbe, v1EphemeralContainer.startupProbe) &&
         Objects.equals(this.stdin, v1EphemeralContainer.stdin) &&
@@ -790,7 +818,7 @@ public class V1EphemeralContainer {
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, command, env, envFrom, image, imagePullPolicy, lifecycle, livenessProbe, name, ports, readinessProbe, resizePolicy, resources, securityContext, startupProbe, stdin, stdinOnce, targetContainerName, terminationMessagePath, terminationMessagePolicy, tty, volumeDevices, volumeMounts, workingDir);
+    return Objects.hash(args, command, env, envFrom, image, imagePullPolicy, lifecycle, livenessProbe, name, ports, readinessProbe, resizePolicy, resources, restartPolicy, securityContext, startupProbe, stdin, stdinOnce, targetContainerName, terminationMessagePath, terminationMessagePolicy, tty, volumeDevices, volumeMounts, workingDir);
   }
 
 
@@ -811,6 +839,7 @@ public class V1EphemeralContainer {
     sb.append("    readinessProbe: ").append(toIndentedString(readinessProbe)).append("\n");
     sb.append("    resizePolicy: ").append(toIndentedString(resizePolicy)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
+    sb.append("    restartPolicy: ").append(toIndentedString(restartPolicy)).append("\n");
     sb.append("    securityContext: ").append(toIndentedString(securityContext)).append("\n");
     sb.append("    startupProbe: ").append(toIndentedString(startupProbe)).append("\n");
     sb.append("    stdin: ").append(toIndentedString(stdin)).append("\n");

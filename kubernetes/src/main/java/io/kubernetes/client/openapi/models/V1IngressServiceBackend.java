@@ -28,7 +28,7 @@ import java.io.IOException;
  * IngressServiceBackend references a Kubernetes Service as a Backend.
  */
 @ApiModel(description = "IngressServiceBackend references a Kubernetes Service as a Backend.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1IngressServiceBackend {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
