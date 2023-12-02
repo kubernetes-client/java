@@ -24,6 +24,7 @@ import io.kubernetes.client.openapi.models.V1alpha1MatchCondition;
 import io.kubernetes.client.openapi.models.V1alpha1MatchResources;
 import io.kubernetes.client.openapi.models.V1alpha1ParamKind;
 import io.kubernetes.client.openapi.models.V1alpha1Validation;
+import io.kubernetes.client.openapi.models.V1alpha1Variable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -34,7 +35,7 @@ import java.util.List;
  * ValidatingAdmissionPolicySpec is the specification of the desired behavior of the AdmissionPolicy.
  */
 @ApiModel(description = "ValidatingAdmissionPolicySpec is the specification of the desired behavior of the AdmissionPolicy.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1alpha1ValidatingAdmissionPolicySpec {
   public static final String SERIALIZED_NAME_AUDIT_ANNOTATIONS = "auditAnnotations";
   @SerializedName(SERIALIZED_NAME_AUDIT_ANNOTATIONS)
@@ -59,6 +60,10 @@ public class V1alpha1ValidatingAdmissionPolicySpec {
   public static final String SERIALIZED_NAME_VALIDATIONS = "validations";
   @SerializedName(SERIALIZED_NAME_VALIDATIONS)
   private List<V1alpha1Validation> validations = null;
+
+  public static final String SERIALIZED_NAME_VARIABLES = "variables";
+  @SerializedName(SERIALIZED_NAME_VARIABLES)
+  private List<V1alpha1Variable> variables = null;
 
 
   public V1alpha1ValidatingAdmissionPolicySpec auditAnnotations(List<V1alpha1AuditAnnotation> auditAnnotations) {
@@ -223,6 +228,37 @@ public class V1alpha1ValidatingAdmissionPolicySpec {
   }
 
 
+  public V1alpha1ValidatingAdmissionPolicySpec variables(List<V1alpha1Variable> variables) {
+
+    this.variables = variables;
+    return this;
+  }
+
+  public V1alpha1ValidatingAdmissionPolicySpec addVariablesItem(V1alpha1Variable variablesItem) {
+    if (this.variables == null) {
+      this.variables = new ArrayList<>();
+    }
+    this.variables.add(variablesItem);
+    return this;
+  }
+
+   /**
+   * Variables contain definitions of variables that can be used in composition of other expressions. Each variable is defined as a named CEL expression. The variables defined here will be available under &#x60;variables&#x60; in other expressions of the policy except MatchConditions because MatchConditions are evaluated before the rest of the policy.  The expression of a variable can refer to other variables defined earlier in the list but not those after. Thus, Variables must be sorted by the order of first appearance and acyclic.
+   * @return variables
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Variables contain definitions of variables that can be used in composition of other expressions. Each variable is defined as a named CEL expression. The variables defined here will be available under `variables` in other expressions of the policy except MatchConditions because MatchConditions are evaluated before the rest of the policy.  The expression of a variable can refer to other variables defined earlier in the list but not those after. Thus, Variables must be sorted by the order of first appearance and acyclic.")
+
+  public List<V1alpha1Variable> getVariables() {
+    return variables;
+  }
+
+
+  public void setVariables(List<V1alpha1Variable> variables) {
+    this.variables = variables;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -237,12 +273,13 @@ public class V1alpha1ValidatingAdmissionPolicySpec {
         Objects.equals(this.matchConditions, v1alpha1ValidatingAdmissionPolicySpec.matchConditions) &&
         Objects.equals(this.matchConstraints, v1alpha1ValidatingAdmissionPolicySpec.matchConstraints) &&
         Objects.equals(this.paramKind, v1alpha1ValidatingAdmissionPolicySpec.paramKind) &&
-        Objects.equals(this.validations, v1alpha1ValidatingAdmissionPolicySpec.validations);
+        Objects.equals(this.validations, v1alpha1ValidatingAdmissionPolicySpec.validations) &&
+        Objects.equals(this.variables, v1alpha1ValidatingAdmissionPolicySpec.variables);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(auditAnnotations, failurePolicy, matchConditions, matchConstraints, paramKind, validations);
+    return Objects.hash(auditAnnotations, failurePolicy, matchConditions, matchConstraints, paramKind, validations, variables);
   }
 
 
@@ -256,6 +293,7 @@ public class V1alpha1ValidatingAdmissionPolicySpec {
     sb.append("    matchConstraints: ").append(toIndentedString(matchConstraints)).append("\n");
     sb.append("    paramKind: ").append(toIndentedString(paramKind)).append("\n");
     sb.append("    validations: ").append(toIndentedString(validations)).append("\n");
+    sb.append("    variables: ").append(toIndentedString(variables)).append("\n");
     sb.append("}");
     return sb.toString();
   }

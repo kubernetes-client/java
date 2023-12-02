@@ -30,7 +30,7 @@ import java.io.IOException;
  * JobSpec describes how the job execution will look like.
  */
 @ApiModel(description = "JobSpec describes how the job execution will look like.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1JobSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -39,6 +39,10 @@ public class V1JobSpec {
   public static final String SERIALIZED_NAME_BACKOFF_LIMIT = "backoffLimit";
   @SerializedName(SERIALIZED_NAME_BACKOFF_LIMIT)
   private Integer backoffLimit;
+
+  public static final String SERIALIZED_NAME_BACKOFF_LIMIT_PER_INDEX = "backoffLimitPerIndex";
+  @SerializedName(SERIALIZED_NAME_BACKOFF_LIMIT_PER_INDEX)
+  private Integer backoffLimitPerIndex;
 
   public static final String SERIALIZED_NAME_COMPLETION_MODE = "completionMode";
   @SerializedName(SERIALIZED_NAME_COMPLETION_MODE)
@@ -52,6 +56,10 @@ public class V1JobSpec {
   @SerializedName(SERIALIZED_NAME_MANUAL_SELECTOR)
   private Boolean manualSelector;
 
+  public static final String SERIALIZED_NAME_MAX_FAILED_INDEXES = "maxFailedIndexes";
+  @SerializedName(SERIALIZED_NAME_MAX_FAILED_INDEXES)
+  private Integer maxFailedIndexes;
+
   public static final String SERIALIZED_NAME_PARALLELISM = "parallelism";
   @SerializedName(SERIALIZED_NAME_PARALLELISM)
   private Integer parallelism;
@@ -59,6 +67,10 @@ public class V1JobSpec {
   public static final String SERIALIZED_NAME_POD_FAILURE_POLICY = "podFailurePolicy";
   @SerializedName(SERIALIZED_NAME_POD_FAILURE_POLICY)
   private V1PodFailurePolicy podFailurePolicy;
+
+  public static final String SERIALIZED_NAME_POD_REPLACEMENT_POLICY = "podReplacementPolicy";
+  @SerializedName(SERIALIZED_NAME_POD_REPLACEMENT_POLICY)
+  private String podReplacementPolicy;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
@@ -120,6 +132,29 @@ public class V1JobSpec {
 
   public void setBackoffLimit(Integer backoffLimit) {
     this.backoffLimit = backoffLimit;
+  }
+
+
+  public V1JobSpec backoffLimitPerIndex(Integer backoffLimitPerIndex) {
+
+    this.backoffLimitPerIndex = backoffLimitPerIndex;
+    return this;
+  }
+
+   /**
+   * Specifies the limit for the number of retries within an index before marking this index as failed. When enabled the number of failures per index is kept in the pod&#39;s batch.kubernetes.io/job-index-failure-count annotation. It can only be set when Job&#39;s completionMode&#x3D;Indexed, and the Pod&#39;s restart policy is Never. The field is immutable. This field is alpha-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (disabled by default).
+   * @return backoffLimitPerIndex
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies the limit for the number of retries within an index before marking this index as failed. When enabled the number of failures per index is kept in the pod's batch.kubernetes.io/job-index-failure-count annotation. It can only be set when Job's completionMode=Indexed, and the Pod's restart policy is Never. The field is immutable. This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).")
+
+  public Integer getBackoffLimitPerIndex() {
+    return backoffLimitPerIndex;
+  }
+
+
+  public void setBackoffLimitPerIndex(Integer backoffLimitPerIndex) {
+    this.backoffLimitPerIndex = backoffLimitPerIndex;
   }
 
 
@@ -192,6 +227,29 @@ public class V1JobSpec {
   }
 
 
+  public V1JobSpec maxFailedIndexes(Integer maxFailedIndexes) {
+
+    this.maxFailedIndexes = maxFailedIndexes;
+    return this;
+  }
+
+   /**
+   * Specifies the maximal number of failed indexes before marking the Job as failed, when backoffLimitPerIndex is set. Once the number of failed indexes exceeds this number the entire Job is marked as Failed and its execution is terminated. When left as null the job continues execution of all of its indexes and is marked with the &#x60;Complete&#x60; Job condition. It can only be specified when backoffLimitPerIndex is set. It can be null or up to completions. It is required and must be less than or equal to 10^4 when is completions greater than 10^5. This field is alpha-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (disabled by default).
+   * @return maxFailedIndexes
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "Specifies the maximal number of failed indexes before marking the Job as failed, when backoffLimitPerIndex is set. Once the number of failed indexes exceeds this number the entire Job is marked as Failed and its execution is terminated. When left as null the job continues execution of all of its indexes and is marked with the `Complete` Job condition. It can only be specified when backoffLimitPerIndex is set. It can be null or up to completions. It is required and must be less than or equal to 10^4 when is completions greater than 10^5. This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).")
+
+  public Integer getMaxFailedIndexes() {
+    return maxFailedIndexes;
+  }
+
+
+  public void setMaxFailedIndexes(Integer maxFailedIndexes) {
+    this.maxFailedIndexes = maxFailedIndexes;
+  }
+
+
   public V1JobSpec parallelism(Integer parallelism) {
 
     this.parallelism = parallelism;
@@ -235,6 +293,29 @@ public class V1JobSpec {
 
   public void setPodFailurePolicy(V1PodFailurePolicy podFailurePolicy) {
     this.podFailurePolicy = podFailurePolicy;
+  }
+
+
+  public V1JobSpec podReplacementPolicy(String podReplacementPolicy) {
+
+    this.podReplacementPolicy = podReplacementPolicy;
+    return this;
+  }
+
+   /**
+   * podReplacementPolicy specifies when to create replacement Pods. Possible values are: - TerminatingOrFailed means that we recreate pods   when they are terminating (has a metadata.deletionTimestamp) or failed. - Failed means to wait until a previously created Pod is fully terminated (has phase   Failed or Succeeded) before creating a replacement Pod.  When using podFailurePolicy, Failed is the the only allowed value. TerminatingOrFailed and Failed are allowed values when podFailurePolicy is not in use. This is an alpha field. Enable JobPodReplacementPolicy to be able to use this field.
+   * @return podReplacementPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "podReplacementPolicy specifies when to create replacement Pods. Possible values are: - TerminatingOrFailed means that we recreate pods   when they are terminating (has a metadata.deletionTimestamp) or failed. - Failed means to wait until a previously created Pod is fully terminated (has phase   Failed or Succeeded) before creating a replacement Pod.  When using podFailurePolicy, Failed is the the only allowed value. TerminatingOrFailed and Failed are allowed values when podFailurePolicy is not in use. This is an alpha field. Enable JobPodReplacementPolicy to be able to use this field.")
+
+  public String getPodReplacementPolicy() {
+    return podReplacementPolicy;
+  }
+
+
+  public void setPodReplacementPolicy(String podReplacementPolicy) {
+    this.podReplacementPolicy = podReplacementPolicy;
   }
 
 
@@ -340,11 +421,14 @@ public class V1JobSpec {
     V1JobSpec v1JobSpec = (V1JobSpec) o;
     return Objects.equals(this.activeDeadlineSeconds, v1JobSpec.activeDeadlineSeconds) &&
         Objects.equals(this.backoffLimit, v1JobSpec.backoffLimit) &&
+        Objects.equals(this.backoffLimitPerIndex, v1JobSpec.backoffLimitPerIndex) &&
         Objects.equals(this.completionMode, v1JobSpec.completionMode) &&
         Objects.equals(this.completions, v1JobSpec.completions) &&
         Objects.equals(this.manualSelector, v1JobSpec.manualSelector) &&
+        Objects.equals(this.maxFailedIndexes, v1JobSpec.maxFailedIndexes) &&
         Objects.equals(this.parallelism, v1JobSpec.parallelism) &&
         Objects.equals(this.podFailurePolicy, v1JobSpec.podFailurePolicy) &&
+        Objects.equals(this.podReplacementPolicy, v1JobSpec.podReplacementPolicy) &&
         Objects.equals(this.selector, v1JobSpec.selector) &&
         Objects.equals(this.suspend, v1JobSpec.suspend) &&
         Objects.equals(this.template, v1JobSpec.template) &&
@@ -353,7 +437,7 @@ public class V1JobSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDeadlineSeconds, backoffLimit, completionMode, completions, manualSelector, parallelism, podFailurePolicy, selector, suspend, template, ttlSecondsAfterFinished);
+    return Objects.hash(activeDeadlineSeconds, backoffLimit, backoffLimitPerIndex, completionMode, completions, manualSelector, maxFailedIndexes, parallelism, podFailurePolicy, podReplacementPolicy, selector, suspend, template, ttlSecondsAfterFinished);
   }
 
 
@@ -363,11 +447,14 @@ public class V1JobSpec {
     sb.append("class V1JobSpec {\n");
     sb.append("    activeDeadlineSeconds: ").append(toIndentedString(activeDeadlineSeconds)).append("\n");
     sb.append("    backoffLimit: ").append(toIndentedString(backoffLimit)).append("\n");
+    sb.append("    backoffLimitPerIndex: ").append(toIndentedString(backoffLimitPerIndex)).append("\n");
     sb.append("    completionMode: ").append(toIndentedString(completionMode)).append("\n");
     sb.append("    completions: ").append(toIndentedString(completions)).append("\n");
     sb.append("    manualSelector: ").append(toIndentedString(manualSelector)).append("\n");
+    sb.append("    maxFailedIndexes: ").append(toIndentedString(maxFailedIndexes)).append("\n");
     sb.append("    parallelism: ").append(toIndentedString(parallelism)).append("\n");
     sb.append("    podFailurePolicy: ").append(toIndentedString(podFailurePolicy)).append("\n");
+    sb.append("    podReplacementPolicy: ").append(toIndentedString(podReplacementPolicy)).append("\n");
     sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    suspend: ").append(toIndentedString(suspend)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");

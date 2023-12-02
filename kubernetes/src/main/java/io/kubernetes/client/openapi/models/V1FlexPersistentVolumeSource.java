@@ -31,7 +31,7 @@ import java.util.Map;
  * FlexPersistentVolumeSource represents a generic persistent volume resource that is provisioned/attached using an exec based plugin.
  */
 @ApiModel(description = "FlexPersistentVolumeSource represents a generic persistent volume resource that is provisioned/attached using an exec based plugin.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1FlexPersistentVolumeSource {
   public static final String SERIALIZED_NAME_DRIVER = "driver";
   @SerializedName(SERIALIZED_NAME_DRIVER)

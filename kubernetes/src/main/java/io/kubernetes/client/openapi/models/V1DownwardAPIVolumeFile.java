@@ -29,7 +29,7 @@ import java.io.IOException;
  * DownwardAPIVolumeFile represents information to create the file containing the pod field
  */
 @ApiModel(description = "DownwardAPIVolumeFile represents information to create the file containing the pod field")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1DownwardAPIVolumeFile {
   public static final String SERIALIZED_NAME_FIELD_REF = "fieldRef";
   @SerializedName(SERIALIZED_NAME_FIELD_REF)

@@ -31,7 +31,7 @@ import java.util.List;
  * CustomResourceDefinitionStatus indicates the state of the CustomResourceDefinition
  */
 @ApiModel(description = "CustomResourceDefinitionStatus indicates the state of the CustomResourceDefinition")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1CustomResourceDefinitionStatus {
   public static final String SERIALIZED_NAME_ACCEPTED_NAMES = "acceptedNames";
   @SerializedName(SERIALIZED_NAME_ACCEPTED_NAMES)

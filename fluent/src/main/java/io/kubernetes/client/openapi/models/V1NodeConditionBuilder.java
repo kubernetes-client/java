@@ -1,52 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1NodeConditionBuilder extends V1NodeConditionFluentImpl<V1NodeConditionBuilder> implements VisitableBuilder<V1NodeCondition,V1NodeConditionBuilder>{
+public class V1NodeConditionBuilder extends V1NodeConditionFluent<V1NodeConditionBuilder> implements VisitableBuilder<V1NodeCondition,V1NodeConditionBuilder>{
   public V1NodeConditionBuilder() {
-    this(false);
+    this(new V1NodeCondition());
   }
-  public V1NodeConditionBuilder(Boolean validationEnabled) {
-    this(new V1NodeCondition(), validationEnabled);
-  }
+  
   public V1NodeConditionBuilder(V1NodeConditionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1NodeCondition());
   }
-  public V1NodeConditionBuilder(V1NodeConditionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1NodeCondition(), validationEnabled);
-  }
+  
   public V1NodeConditionBuilder(V1NodeConditionFluent<?> fluent,V1NodeCondition instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1NodeConditionBuilder(V1NodeConditionFluent<?> fluent,V1NodeCondition instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withLastHeartbeatTime(instance.getLastHeartbeatTime());
-      fluent.withLastTransitionTime(instance.getLastTransitionTime());
-      fluent.withMessage(instance.getMessage());
-      fluent.withReason(instance.getReason());
-      fluent.withStatus(instance.getStatus());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1NodeConditionBuilder(V1NodeCondition instance) {
-    this(instance,false);
-  }
-  public V1NodeConditionBuilder(V1NodeCondition instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withLastHeartbeatTime(instance.getLastHeartbeatTime());
-      this.withLastTransitionTime(instance.getLastTransitionTime());
-      this.withMessage(instance.getMessage());
-      this.withReason(instance.getReason());
-      this.withStatus(instance.getStatus());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1NodeConditionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1NodeCondition build() {
     V1NodeCondition buildable = new V1NodeCondition();
     buildable.setLastHeartbeatTime(fluent.getLastHeartbeatTime());
@@ -58,4 +32,5 @@ public class V1NodeConditionBuilder extends V1NodeConditionFluentImpl<V1NodeCond
     return buildable;
   }
   
+
 }

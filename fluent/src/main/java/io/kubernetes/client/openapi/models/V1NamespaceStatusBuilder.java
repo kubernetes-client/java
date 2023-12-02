@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1NamespaceStatusBuilder extends V1NamespaceStatusFluentImpl<V1NamespaceStatusBuilder> implements VisitableBuilder<V1NamespaceStatus,V1NamespaceStatusBuilder>{
+public class V1NamespaceStatusBuilder extends V1NamespaceStatusFluent<V1NamespaceStatusBuilder> implements VisitableBuilder<V1NamespaceStatus,V1NamespaceStatusBuilder>{
   public V1NamespaceStatusBuilder() {
-    this(false);
+    this(new V1NamespaceStatus());
   }
-  public V1NamespaceStatusBuilder(Boolean validationEnabled) {
-    this(new V1NamespaceStatus(), validationEnabled);
-  }
+  
   public V1NamespaceStatusBuilder(V1NamespaceStatusFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1NamespaceStatus());
   }
-  public V1NamespaceStatusBuilder(V1NamespaceStatusFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1NamespaceStatus(), validationEnabled);
-  }
+  
   public V1NamespaceStatusBuilder(V1NamespaceStatusFluent<?> fluent,V1NamespaceStatus instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1NamespaceStatusBuilder(V1NamespaceStatusFluent<?> fluent,V1NamespaceStatus instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withConditions(instance.getConditions());
-      fluent.withPhase(instance.getPhase());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1NamespaceStatusBuilder(V1NamespaceStatus instance) {
-    this(instance,false);
-  }
-  public V1NamespaceStatusBuilder(V1NamespaceStatus instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withConditions(instance.getConditions());
-      this.withPhase(instance.getPhase());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1NamespaceStatusFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1NamespaceStatus build() {
     V1NamespaceStatus buildable = new V1NamespaceStatus();
-    buildable.setConditions(fluent.getConditions());
+    buildable.setConditions(fluent.buildConditions());
     buildable.setPhase(fluent.getPhase());
     return buildable;
   }
   
+
 }

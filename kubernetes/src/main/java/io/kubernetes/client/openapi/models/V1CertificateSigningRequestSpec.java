@@ -31,7 +31,7 @@ import java.util.Map;
  * CertificateSigningRequestSpec contains the certificate request.
  */
 @ApiModel(description = "CertificateSigningRequestSpec contains the certificate request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1CertificateSigningRequestSpec {
   public static final String SERIALIZED_NAME_EXPIRATION_SECONDS = "expirationSeconds";
   @SerializedName(SERIALIZED_NAME_EXPIRATION_SECONDS)

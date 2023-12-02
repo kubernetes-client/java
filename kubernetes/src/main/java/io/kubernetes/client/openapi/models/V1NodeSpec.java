@@ -31,7 +31,7 @@ import java.util.List;
  * NodeSpec describes the attributes that a node is created with.
  */
 @ApiModel(description = "NodeSpec describes the attributes that a node is created with.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1NodeSpec {
   public static final String SERIALIZED_NAME_CONFIG_SOURCE = "configSource";
   @SerializedName(SERIALIZED_NAME_CONFIG_SOURCE)

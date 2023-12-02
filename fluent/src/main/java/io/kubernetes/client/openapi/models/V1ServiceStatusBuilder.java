@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ServiceStatusBuilder extends V1ServiceStatusFluentImpl<V1ServiceStatusBuilder> implements VisitableBuilder<V1ServiceStatus,V1ServiceStatusBuilder>{
+public class V1ServiceStatusBuilder extends V1ServiceStatusFluent<V1ServiceStatusBuilder> implements VisitableBuilder<V1ServiceStatus,V1ServiceStatusBuilder>{
   public V1ServiceStatusBuilder() {
-    this(false);
+    this(new V1ServiceStatus());
   }
-  public V1ServiceStatusBuilder(Boolean validationEnabled) {
-    this(new V1ServiceStatus(), validationEnabled);
-  }
+  
   public V1ServiceStatusBuilder(V1ServiceStatusFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ServiceStatus());
   }
-  public V1ServiceStatusBuilder(V1ServiceStatusFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ServiceStatus(), validationEnabled);
-  }
+  
   public V1ServiceStatusBuilder(V1ServiceStatusFluent<?> fluent,V1ServiceStatus instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ServiceStatusBuilder(V1ServiceStatusFluent<?> fluent,V1ServiceStatus instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withConditions(instance.getConditions());
-      fluent.withLoadBalancer(instance.getLoadBalancer());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ServiceStatusBuilder(V1ServiceStatus instance) {
-    this(instance,false);
-  }
-  public V1ServiceStatusBuilder(V1ServiceStatus instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withConditions(instance.getConditions());
-      this.withLoadBalancer(instance.getLoadBalancer());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ServiceStatusFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ServiceStatus build() {
     V1ServiceStatus buildable = new V1ServiceStatus();
-    buildable.setConditions(fluent.getConditions());
-    buildable.setLoadBalancer(fluent.getLoadBalancer());
+    buildable.setConditions(fluent.buildConditions());
+    buildable.setLoadBalancer(fluent.buildLoadBalancer());
     return buildable;
   }
   
+
 }

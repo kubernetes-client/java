@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V2PodsMetricStatusBuilder extends V2PodsMetricStatusFluentImpl<V2PodsMetricStatusBuilder> implements VisitableBuilder<V2PodsMetricStatus,V2PodsMetricStatusBuilder>{
+public class V2PodsMetricStatusBuilder extends V2PodsMetricStatusFluent<V2PodsMetricStatusBuilder> implements VisitableBuilder<V2PodsMetricStatus,V2PodsMetricStatusBuilder>{
   public V2PodsMetricStatusBuilder() {
-    this(false);
+    this(new V2PodsMetricStatus());
   }
-  public V2PodsMetricStatusBuilder(Boolean validationEnabled) {
-    this(new V2PodsMetricStatus(), validationEnabled);
-  }
+  
   public V2PodsMetricStatusBuilder(V2PodsMetricStatusFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V2PodsMetricStatus());
   }
-  public V2PodsMetricStatusBuilder(V2PodsMetricStatusFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V2PodsMetricStatus(), validationEnabled);
-  }
+  
   public V2PodsMetricStatusBuilder(V2PodsMetricStatusFluent<?> fluent,V2PodsMetricStatus instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V2PodsMetricStatusBuilder(V2PodsMetricStatusFluent<?> fluent,V2PodsMetricStatus instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withCurrent(instance.getCurrent());
-      fluent.withMetric(instance.getMetric());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V2PodsMetricStatusBuilder(V2PodsMetricStatus instance) {
-    this(instance,false);
-  }
-  public V2PodsMetricStatusBuilder(V2PodsMetricStatus instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withCurrent(instance.getCurrent());
-      this.withMetric(instance.getMetric());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V2PodsMetricStatusFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V2PodsMetricStatus build() {
     V2PodsMetricStatus buildable = new V2PodsMetricStatus();
-    buildable.setCurrent(fluent.getCurrent());
-    buildable.setMetric(fluent.getMetric());
+    buildable.setCurrent(fluent.buildCurrent());
+    buildable.setMetric(fluent.buildMetric());
     return buildable;
   }
   
+
 }

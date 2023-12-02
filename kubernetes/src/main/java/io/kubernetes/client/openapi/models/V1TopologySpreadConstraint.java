@@ -30,7 +30,7 @@ import java.util.List;
  * TopologySpreadConstraint specifies how to spread matching pods among the given topology.
  */
 @ApiModel(description = "TopologySpreadConstraint specifies how to spread matching pods among the given topology.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1TopologySpreadConstraint {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)

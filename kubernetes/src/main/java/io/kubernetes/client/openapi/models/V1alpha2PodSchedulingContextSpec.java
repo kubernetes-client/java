@@ -29,7 +29,7 @@ import java.util.List;
  * PodSchedulingContextSpec describes where resources for the Pod are needed.
  */
 @ApiModel(description = "PodSchedulingContextSpec describes where resources for the Pod are needed.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1alpha2PodSchedulingContextSpec {
   public static final String SERIALIZED_NAME_POTENTIAL_NODES = "potentialNodes";
   @SerializedName(SERIALIZED_NAME_POTENTIAL_NODES)

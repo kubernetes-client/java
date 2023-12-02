@@ -39,7 +39,7 @@ import java.util.List;
  * A single application container that you want to run within a pod.
  */
 @ApiModel(description = "A single application container that you want to run within a pod.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1Container {
   public static final String SERIALIZED_NAME_ARGS = "args";
   @SerializedName(SERIALIZED_NAME_ARGS)
@@ -92,6 +92,10 @@ public class V1Container {
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
   private V1ResourceRequirements resources;
+
+  public static final String SERIALIZED_NAME_RESTART_POLICY = "restartPolicy";
+  @SerializedName(SERIALIZED_NAME_RESTART_POLICY)
+  private String restartPolicy;
 
   public static final String SERIALIZED_NAME_SECURITY_CONTEXT = "securityContext";
   @SerializedName(SERIALIZED_NAME_SECURITY_CONTEXT)
@@ -480,6 +484,29 @@ public class V1Container {
   }
 
 
+  public V1Container restartPolicy(String restartPolicy) {
+
+    this.restartPolicy = restartPolicy;
+    return this;
+  }
+
+   /**
+   * RestartPolicy defines the restart behavior of individual containers in a pod. This field may only be set for init containers, and the only allowed value is \&quot;Always\&quot;. For non-init containers or when this field is not specified, the restart behavior is defined by the Pod&#39;s restart policy and the container type. Setting the RestartPolicy as \&quot;Always\&quot; for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated. Once all regular containers have completed, all init containers with restartPolicy \&quot;Always\&quot; will be shut down. This lifecycle differs from normal init containers and is often referred to as a \&quot;sidecar\&quot; container. Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container. Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed.
+   * @return restartPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "RestartPolicy defines the restart behavior of individual containers in a pod. This field may only be set for init containers, and the only allowed value is \"Always\". For non-init containers or when this field is not specified, the restart behavior is defined by the Pod's restart policy and the container type. Setting the RestartPolicy as \"Always\" for the init container will have the following effect: this init container will be continually restarted on exit until all regular containers have terminated. Once all regular containers have completed, all init containers with restartPolicy \"Always\" will be shut down. This lifecycle differs from normal init containers and is often referred to as a \"sidecar\" container. Although this init container still starts in the init container sequence, it does not wait for the container to complete before proceeding to the next init container. Instead, the next init container starts immediately after this init container is started, or after any startupProbe has successfully completed.")
+
+  public String getRestartPolicy() {
+    return restartPolicy;
+  }
+
+
+  public void setRestartPolicy(String restartPolicy) {
+    this.restartPolicy = restartPolicy;
+  }
+
+
   public V1Container securityContext(V1SecurityContext securityContext) {
 
     this.securityContext = securityContext;
@@ -748,6 +775,7 @@ public class V1Container {
         Objects.equals(this.readinessProbe, v1Container.readinessProbe) &&
         Objects.equals(this.resizePolicy, v1Container.resizePolicy) &&
         Objects.equals(this.resources, v1Container.resources) &&
+        Objects.equals(this.restartPolicy, v1Container.restartPolicy) &&
         Objects.equals(this.securityContext, v1Container.securityContext) &&
         Objects.equals(this.startupProbe, v1Container.startupProbe) &&
         Objects.equals(this.stdin, v1Container.stdin) &&
@@ -762,7 +790,7 @@ public class V1Container {
 
   @Override
   public int hashCode() {
-    return Objects.hash(args, command, env, envFrom, image, imagePullPolicy, lifecycle, livenessProbe, name, ports, readinessProbe, resizePolicy, resources, securityContext, startupProbe, stdin, stdinOnce, terminationMessagePath, terminationMessagePolicy, tty, volumeDevices, volumeMounts, workingDir);
+    return Objects.hash(args, command, env, envFrom, image, imagePullPolicy, lifecycle, livenessProbe, name, ports, readinessProbe, resizePolicy, resources, restartPolicy, securityContext, startupProbe, stdin, stdinOnce, terminationMessagePath, terminationMessagePolicy, tty, volumeDevices, volumeMounts, workingDir);
   }
 
 
@@ -783,6 +811,7 @@ public class V1Container {
     sb.append("    readinessProbe: ").append(toIndentedString(readinessProbe)).append("\n");
     sb.append("    resizePolicy: ").append(toIndentedString(resizePolicy)).append("\n");
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
+    sb.append("    restartPolicy: ").append(toIndentedString(restartPolicy)).append("\n");
     sb.append("    securityContext: ").append(toIndentedString(securityContext)).append("\n");
     sb.append("    startupProbe: ").append(toIndentedString(startupProbe)).append("\n");
     sb.append("    stdin: ").append(toIndentedString(stdin)).append("\n");

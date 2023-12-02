@@ -29,7 +29,7 @@ import java.util.List;
  * PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.
  */
 @ApiModel(description = "PolicyRule holds information that describes a policy rule, but does not contain information about who the rule applies to or which namespace the rule applies to.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1PolicyRule {
   public static final String SERIALIZED_NAME_API_GROUPS = "apiGroups";
   @SerializedName(SERIALIZED_NAME_API_GROUPS)

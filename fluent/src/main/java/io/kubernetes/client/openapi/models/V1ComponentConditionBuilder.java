@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ComponentConditionBuilder extends V1ComponentConditionFluentImpl<V1ComponentConditionBuilder> implements VisitableBuilder<V1ComponentCondition,V1ComponentConditionBuilder>{
+public class V1ComponentConditionBuilder extends V1ComponentConditionFluent<V1ComponentConditionBuilder> implements VisitableBuilder<V1ComponentCondition,V1ComponentConditionBuilder>{
   public V1ComponentConditionBuilder() {
-    this(false);
+    this(new V1ComponentCondition());
   }
-  public V1ComponentConditionBuilder(Boolean validationEnabled) {
-    this(new V1ComponentCondition(), validationEnabled);
-  }
+  
   public V1ComponentConditionBuilder(V1ComponentConditionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ComponentCondition());
   }
-  public V1ComponentConditionBuilder(V1ComponentConditionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ComponentCondition(), validationEnabled);
-  }
+  
   public V1ComponentConditionBuilder(V1ComponentConditionFluent<?> fluent,V1ComponentCondition instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ComponentConditionBuilder(V1ComponentConditionFluent<?> fluent,V1ComponentCondition instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withError(instance.getError());
-      fluent.withMessage(instance.getMessage());
-      fluent.withStatus(instance.getStatus());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ComponentConditionBuilder(V1ComponentCondition instance) {
-    this(instance,false);
-  }
-  public V1ComponentConditionBuilder(V1ComponentCondition instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withError(instance.getError());
-      this.withMessage(instance.getMessage());
-      this.withStatus(instance.getStatus());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ComponentConditionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ComponentCondition build() {
     V1ComponentCondition buildable = new V1ComponentCondition();
     buildable.setError(fluent.getError());
@@ -52,4 +30,5 @@ public class V1ComponentConditionBuilder extends V1ComponentConditionFluentImpl<
     return buildable;
   }
   
+
 }

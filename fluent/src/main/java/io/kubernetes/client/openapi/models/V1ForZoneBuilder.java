@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ForZoneBuilder extends V1ForZoneFluentImpl<V1ForZoneBuilder> implements VisitableBuilder<V1ForZone,V1ForZoneBuilder>{
+public class V1ForZoneBuilder extends V1ForZoneFluent<V1ForZoneBuilder> implements VisitableBuilder<V1ForZone,V1ForZoneBuilder>{
   public V1ForZoneBuilder() {
-    this(false);
+    this(new V1ForZone());
   }
-  public V1ForZoneBuilder(Boolean validationEnabled) {
-    this(new V1ForZone(), validationEnabled);
-  }
+  
   public V1ForZoneBuilder(V1ForZoneFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ForZone());
   }
-  public V1ForZoneBuilder(V1ForZoneFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ForZone(), validationEnabled);
-  }
+  
   public V1ForZoneBuilder(V1ForZoneFluent<?> fluent,V1ForZone instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ForZoneBuilder(V1ForZoneFluent<?> fluent,V1ForZone instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ForZoneBuilder(V1ForZone instance) {
-    this(instance,false);
-  }
-  public V1ForZoneBuilder(V1ForZone instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withName(instance.getName());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ForZoneFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ForZone build() {
     V1ForZone buildable = new V1ForZone();
     buildable.setName(fluent.getName());
     return buildable;
   }
   
+
 }

@@ -29,7 +29,7 @@ import java.util.List;
  * An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.
  */
 @ApiModel(description = "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1alpha1ServerStorageVersion {
   public static final String SERIALIZED_NAME_API_SERVER_I_D = "apiServerID";
   @SerializedName(SERIALIZED_NAME_API_SERVER_I_D)
@@ -42,6 +42,10 @@ public class V1alpha1ServerStorageVersion {
   public static final String SERIALIZED_NAME_ENCODING_VERSION = "encodingVersion";
   @SerializedName(SERIALIZED_NAME_ENCODING_VERSION)
   private String encodingVersion;
+
+  public static final String SERIALIZED_NAME_SERVED_VERSIONS = "servedVersions";
+  @SerializedName(SERIALIZED_NAME_SERVED_VERSIONS)
+  private List<String> servedVersions = null;
 
 
   public V1alpha1ServerStorageVersion apiServerID(String apiServerID) {
@@ -121,6 +125,37 @@ public class V1alpha1ServerStorageVersion {
   }
 
 
+  public V1alpha1ServerStorageVersion servedVersions(List<String> servedVersions) {
+
+    this.servedVersions = servedVersions;
+    return this;
+  }
+
+  public V1alpha1ServerStorageVersion addServedVersionsItem(String servedVersionsItem) {
+    if (this.servedVersions == null) {
+      this.servedVersions = new ArrayList<>();
+    }
+    this.servedVersions.add(servedVersionsItem);
+    return this;
+  }
+
+   /**
+   * The API server can serve these versions. DecodableVersions must include all ServedVersions.
+   * @return servedVersions
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "The API server can serve these versions. DecodableVersions must include all ServedVersions.")
+
+  public List<String> getServedVersions() {
+    return servedVersions;
+  }
+
+
+  public void setServedVersions(List<String> servedVersions) {
+    this.servedVersions = servedVersions;
+  }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -132,12 +167,13 @@ public class V1alpha1ServerStorageVersion {
     V1alpha1ServerStorageVersion v1alpha1ServerStorageVersion = (V1alpha1ServerStorageVersion) o;
     return Objects.equals(this.apiServerID, v1alpha1ServerStorageVersion.apiServerID) &&
         Objects.equals(this.decodableVersions, v1alpha1ServerStorageVersion.decodableVersions) &&
-        Objects.equals(this.encodingVersion, v1alpha1ServerStorageVersion.encodingVersion);
+        Objects.equals(this.encodingVersion, v1alpha1ServerStorageVersion.encodingVersion) &&
+        Objects.equals(this.servedVersions, v1alpha1ServerStorageVersion.servedVersions);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(apiServerID, decodableVersions, encodingVersion);
+    return Objects.hash(apiServerID, decodableVersions, encodingVersion, servedVersions);
   }
 
 
@@ -148,6 +184,7 @@ public class V1alpha1ServerStorageVersion {
     sb.append("    apiServerID: ").append(toIndentedString(apiServerID)).append("\n");
     sb.append("    decodableVersions: ").append(toIndentedString(decodableVersions)).append("\n");
     sb.append("    encodingVersion: ").append(toIndentedString(encodingVersion)).append("\n");
+    sb.append("    servedVersions: ").append(toIndentedString(servedVersions)).append("\n");
     sb.append("}");
     return sb.toString();
   }

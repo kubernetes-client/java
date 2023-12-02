@@ -32,7 +32,7 @@ import java.util.List;
  * CustomResourceDefinitionVersion describes a version for CRD.
  */
 @ApiModel(description = "CustomResourceDefinitionVersion describes a version for CRD.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1CustomResourceDefinitionVersion {
   public static final String SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS = "additionalPrinterColumns";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS)

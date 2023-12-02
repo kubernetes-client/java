@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class ApiextensionsV1ServiceReferenceBuilder extends ApiextensionsV1ServiceReferenceFluentImpl<ApiextensionsV1ServiceReferenceBuilder> implements VisitableBuilder<ApiextensionsV1ServiceReference,ApiextensionsV1ServiceReferenceBuilder>{
+public class ApiextensionsV1ServiceReferenceBuilder extends ApiextensionsV1ServiceReferenceFluent<ApiextensionsV1ServiceReferenceBuilder> implements VisitableBuilder<ApiextensionsV1ServiceReference,ApiextensionsV1ServiceReferenceBuilder>{
   public ApiextensionsV1ServiceReferenceBuilder() {
-    this(false);
+    this(new ApiextensionsV1ServiceReference());
   }
-  public ApiextensionsV1ServiceReferenceBuilder(Boolean validationEnabled) {
-    this(new ApiextensionsV1ServiceReference(), validationEnabled);
-  }
+  
   public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReferenceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new ApiextensionsV1ServiceReference());
   }
-  public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReferenceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new ApiextensionsV1ServiceReference(), validationEnabled);
-  }
+  
   public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReferenceFluent<?> fluent,ApiextensionsV1ServiceReference instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReferenceFluent<?> fluent,ApiextensionsV1ServiceReference instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withName(instance.getName());
-      fluent.withNamespace(instance.getNamespace());
-      fluent.withPath(instance.getPath());
-      fluent.withPort(instance.getPort());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReference instance) {
-    this(instance,false);
-  }
-  public ApiextensionsV1ServiceReferenceBuilder(ApiextensionsV1ServiceReference instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withName(instance.getName());
-      this.withNamespace(instance.getNamespace());
-      this.withPath(instance.getPath());
-      this.withPort(instance.getPort());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   ApiextensionsV1ServiceReferenceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public ApiextensionsV1ServiceReference build() {
     ApiextensionsV1ServiceReference buildable = new ApiextensionsV1ServiceReference();
     buildable.setName(fluent.getName());
@@ -52,4 +30,5 @@ public class ApiextensionsV1ServiceReferenceBuilder extends ApiextensionsV1Servi
     return buildable;
   }
   
+
 }

@@ -30,7 +30,7 @@ import java.util.List;
  * Represents a projected volume source
  */
 @ApiModel(description = "Represents a projected volume source")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1ProjectedVolumeSource {
   public static final String SERIALIZED_NAME_DEFAULT_MODE = "defaultMode";
   @SerializedName(SERIALIZED_NAME_DEFAULT_MODE)

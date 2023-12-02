@@ -1,52 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1AzureDiskVolumeSourceBuilder extends V1AzureDiskVolumeSourceFluentImpl<V1AzureDiskVolumeSourceBuilder> implements VisitableBuilder<V1AzureDiskVolumeSource,V1AzureDiskVolumeSourceBuilder>{
+public class V1AzureDiskVolumeSourceBuilder extends V1AzureDiskVolumeSourceFluent<V1AzureDiskVolumeSourceBuilder> implements VisitableBuilder<V1AzureDiskVolumeSource,V1AzureDiskVolumeSourceBuilder>{
   public V1AzureDiskVolumeSourceBuilder() {
-    this(false);
+    this(new V1AzureDiskVolumeSource());
   }
-  public V1AzureDiskVolumeSourceBuilder(Boolean validationEnabled) {
-    this(new V1AzureDiskVolumeSource(), validationEnabled);
-  }
+  
   public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1AzureDiskVolumeSource());
   }
-  public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1AzureDiskVolumeSource(), validationEnabled);
-  }
+  
   public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSourceFluent<?> fluent,V1AzureDiskVolumeSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSourceFluent<?> fluent,V1AzureDiskVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withCachingMode(instance.getCachingMode());
-      fluent.withDiskName(instance.getDiskName());
-      fluent.withDiskURI(instance.getDiskURI());
-      fluent.withFsType(instance.getFsType());
-      fluent.withKind(instance.getKind());
-      fluent.withReadOnly(instance.getReadOnly());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSource instance) {
-    this(instance,false);
-  }
-  public V1AzureDiskVolumeSourceBuilder(V1AzureDiskVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withCachingMode(instance.getCachingMode());
-      this.withDiskName(instance.getDiskName());
-      this.withDiskURI(instance.getDiskURI());
-      this.withFsType(instance.getFsType());
-      this.withKind(instance.getKind());
-      this.withReadOnly(instance.getReadOnly());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1AzureDiskVolumeSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1AzureDiskVolumeSource build() {
     V1AzureDiskVolumeSource buildable = new V1AzureDiskVolumeSource();
     buildable.setCachingMode(fluent.getCachingMode());
@@ -58,4 +32,5 @@ public class V1AzureDiskVolumeSourceBuilder extends V1AzureDiskVolumeSourceFluen
     return buildable;
   }
   
+
 }

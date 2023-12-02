@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1PersistentVolumeClaimVolumeSourceBuilder extends V1PersistentVolumeClaimVolumeSourceFluentImpl<V1PersistentVolumeClaimVolumeSourceBuilder> implements VisitableBuilder<V1PersistentVolumeClaimVolumeSource,V1PersistentVolumeClaimVolumeSourceBuilder>{
+public class V1PersistentVolumeClaimVolumeSourceBuilder extends V1PersistentVolumeClaimVolumeSourceFluent<V1PersistentVolumeClaimVolumeSourceBuilder> implements VisitableBuilder<V1PersistentVolumeClaimVolumeSource,V1PersistentVolumeClaimVolumeSourceBuilder>{
   public V1PersistentVolumeClaimVolumeSourceBuilder() {
-    this(false);
+    this(new V1PersistentVolumeClaimVolumeSource());
   }
-  public V1PersistentVolumeClaimVolumeSourceBuilder(Boolean validationEnabled) {
-    this(new V1PersistentVolumeClaimVolumeSource(), validationEnabled);
-  }
+  
   public V1PersistentVolumeClaimVolumeSourceBuilder(V1PersistentVolumeClaimVolumeSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1PersistentVolumeClaimVolumeSource());
   }
-  public V1PersistentVolumeClaimVolumeSourceBuilder(V1PersistentVolumeClaimVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1PersistentVolumeClaimVolumeSource(), validationEnabled);
-  }
+  
   public V1PersistentVolumeClaimVolumeSourceBuilder(V1PersistentVolumeClaimVolumeSourceFluent<?> fluent,V1PersistentVolumeClaimVolumeSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1PersistentVolumeClaimVolumeSourceBuilder(V1PersistentVolumeClaimVolumeSourceFluent<?> fluent,V1PersistentVolumeClaimVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withClaimName(instance.getClaimName());
-      fluent.withReadOnly(instance.getReadOnly());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1PersistentVolumeClaimVolumeSourceBuilder(V1PersistentVolumeClaimVolumeSource instance) {
-    this(instance,false);
-  }
-  public V1PersistentVolumeClaimVolumeSourceBuilder(V1PersistentVolumeClaimVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withClaimName(instance.getClaimName());
-      this.withReadOnly(instance.getReadOnly());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1PersistentVolumeClaimVolumeSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1PersistentVolumeClaimVolumeSource build() {
     V1PersistentVolumeClaimVolumeSource buildable = new V1PersistentVolumeClaimVolumeSource();
     buildable.setClaimName(fluent.getClaimName());
@@ -46,4 +28,5 @@ public class V1PersistentVolumeClaimVolumeSourceBuilder extends V1PersistentVolu
     return buildable;
   }
   
+
 }

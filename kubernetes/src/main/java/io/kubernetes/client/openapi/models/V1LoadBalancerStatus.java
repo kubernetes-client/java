@@ -30,7 +30,7 @@ import java.util.List;
  * LoadBalancerStatus represents the status of a load-balancer.
  */
 @ApiModel(description = "LoadBalancerStatus represents the status of a load-balancer.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1LoadBalancerStatus {
   public static final String SERIALIZED_NAME_INGRESS = "ingress";
   @SerializedName(SERIALIZED_NAME_INGRESS)

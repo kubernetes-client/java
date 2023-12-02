@@ -27,7 +27,7 @@ import java.io.IOException;
  * LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.
  */
 @ApiModel(description = "LocalObjectReference contains enough information to let you locate the referenced object inside the same namespace.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1LocalObjectReference {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

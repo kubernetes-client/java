@@ -1,52 +1,33 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1LoadBalancerIngressBuilder extends V1LoadBalancerIngressFluentImpl<V1LoadBalancerIngressBuilder> implements VisitableBuilder<V1LoadBalancerIngress,V1LoadBalancerIngressBuilder>{
+public class V1LoadBalancerIngressBuilder extends V1LoadBalancerIngressFluent<V1LoadBalancerIngressBuilder> implements VisitableBuilder<V1LoadBalancerIngress,V1LoadBalancerIngressBuilder>{
   public V1LoadBalancerIngressBuilder() {
-    this(false);
+    this(new V1LoadBalancerIngress());
   }
-  public V1LoadBalancerIngressBuilder(Boolean validationEnabled) {
-    this(new V1LoadBalancerIngress(), validationEnabled);
-  }
+  
   public V1LoadBalancerIngressBuilder(V1LoadBalancerIngressFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1LoadBalancerIngress());
   }
-  public V1LoadBalancerIngressBuilder(V1LoadBalancerIngressFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1LoadBalancerIngress(), validationEnabled);
-  }
+  
   public V1LoadBalancerIngressBuilder(V1LoadBalancerIngressFluent<?> fluent,V1LoadBalancerIngress instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1LoadBalancerIngressBuilder(V1LoadBalancerIngressFluent<?> fluent,V1LoadBalancerIngress instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withHostname(instance.getHostname());
-      fluent.withIp(instance.getIp());
-      fluent.withPorts(instance.getPorts());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1LoadBalancerIngressBuilder(V1LoadBalancerIngress instance) {
-    this(instance,false);
-  }
-  public V1LoadBalancerIngressBuilder(V1LoadBalancerIngress instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withHostname(instance.getHostname());
-      this.withIp(instance.getIp());
-      this.withPorts(instance.getPorts());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1LoadBalancerIngressFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1LoadBalancerIngress build() {
     V1LoadBalancerIngress buildable = new V1LoadBalancerIngress();
     buildable.setHostname(fluent.getHostname());
     buildable.setIp(fluent.getIp());
-    buildable.setPorts(fluent.getPorts());
+    buildable.setPorts(fluent.buildPorts());
     return buildable;
   }
   
+
 }

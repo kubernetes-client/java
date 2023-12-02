@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1CSIDriverListBuilder extends V1CSIDriverListFluentImpl<V1CSIDriverListBuilder> implements VisitableBuilder<V1CSIDriverList,V1CSIDriverListBuilder>{
+public class V1CSIDriverListBuilder extends V1CSIDriverListFluent<V1CSIDriverListBuilder> implements VisitableBuilder<V1CSIDriverList,V1CSIDriverListBuilder>{
   public V1CSIDriverListBuilder() {
-    this(false);
+    this(new V1CSIDriverList());
   }
-  public V1CSIDriverListBuilder(Boolean validationEnabled) {
-    this(new V1CSIDriverList(), validationEnabled);
-  }
+  
   public V1CSIDriverListBuilder(V1CSIDriverListFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1CSIDriverList());
   }
-  public V1CSIDriverListBuilder(V1CSIDriverListFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1CSIDriverList(), validationEnabled);
-  }
+  
   public V1CSIDriverListBuilder(V1CSIDriverListFluent<?> fluent,V1CSIDriverList instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1CSIDriverListBuilder(V1CSIDriverListFluent<?> fluent,V1CSIDriverList instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withItems(instance.getItems());
-      fluent.withKind(instance.getKind());
-      fluent.withMetadata(instance.getMetadata());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1CSIDriverListBuilder(V1CSIDriverList instance) {
-    this(instance,false);
-  }
-  public V1CSIDriverListBuilder(V1CSIDriverList instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withItems(instance.getItems());
-      this.withKind(instance.getKind());
-      this.withMetadata(instance.getMetadata());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1CSIDriverListFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1CSIDriverList build() {
     V1CSIDriverList buildable = new V1CSIDriverList();
     buildable.setApiVersion(fluent.getApiVersion());
-    buildable.setItems(fluent.getItems());
+    buildable.setItems(fluent.buildItems());
     buildable.setKind(fluent.getKind());
-    buildable.setMetadata(fluent.getMetadata());
+    buildable.setMetadata(fluent.buildMetadata());
     return buildable;
   }
   
+
 }

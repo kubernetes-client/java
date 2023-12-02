@@ -28,7 +28,7 @@ import java.io.IOException;
  * VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.
  */
 @ApiModel(description = "VolumeNodeAffinity defines constraints that limit what nodes this volume can be accessed from.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1VolumeNodeAffinity {
   public static final String SERIALIZED_NAME_REQUIRED = "required";
   @SerializedName(SERIALIZED_NAME_REQUIRED)

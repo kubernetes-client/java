@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ObjectFieldSelectorBuilder extends V1ObjectFieldSelectorFluentImpl<V1ObjectFieldSelectorBuilder> implements VisitableBuilder<V1ObjectFieldSelector,V1ObjectFieldSelectorBuilder>{
+public class V1ObjectFieldSelectorBuilder extends V1ObjectFieldSelectorFluent<V1ObjectFieldSelectorBuilder> implements VisitableBuilder<V1ObjectFieldSelector,V1ObjectFieldSelectorBuilder>{
   public V1ObjectFieldSelectorBuilder() {
-    this(false);
+    this(new V1ObjectFieldSelector());
   }
-  public V1ObjectFieldSelectorBuilder(Boolean validationEnabled) {
-    this(new V1ObjectFieldSelector(), validationEnabled);
-  }
+  
   public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelectorFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ObjectFieldSelector());
   }
-  public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelectorFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ObjectFieldSelector(), validationEnabled);
-  }
+  
   public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelectorFluent<?> fluent,V1ObjectFieldSelector instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelectorFluent<?> fluent,V1ObjectFieldSelector instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withFieldPath(instance.getFieldPath());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelector instance) {
-    this(instance,false);
-  }
-  public V1ObjectFieldSelectorBuilder(V1ObjectFieldSelector instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withFieldPath(instance.getFieldPath());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ObjectFieldSelectorFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ObjectFieldSelector build() {
     V1ObjectFieldSelector buildable = new V1ObjectFieldSelector();
     buildable.setApiVersion(fluent.getApiVersion());
@@ -46,4 +28,5 @@ public class V1ObjectFieldSelectorBuilder extends V1ObjectFieldSelectorFluentImp
     return buildable;
   }
   
+
 }

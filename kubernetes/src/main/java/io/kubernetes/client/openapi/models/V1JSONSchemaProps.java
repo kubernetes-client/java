@@ -33,7 +33,7 @@ import java.util.Map;
  * JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
  */
 @ApiModel(description = "JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1JSONSchemaProps {
   public static final String SERIALIZED_NAME_$_REF = "$ref";
   @SerializedName(SERIALIZED_NAME_$_REF)

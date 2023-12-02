@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1UserInfoBuilder extends V1UserInfoFluentImpl<V1UserInfoBuilder> implements VisitableBuilder<V1UserInfo,V1UserInfoBuilder>{
+public class V1UserInfoBuilder extends V1UserInfoFluent<V1UserInfoBuilder> implements VisitableBuilder<V1UserInfo,V1UserInfoBuilder>{
   public V1UserInfoBuilder() {
-    this(false);
+    this(new V1UserInfo());
   }
-  public V1UserInfoBuilder(Boolean validationEnabled) {
-    this(new V1UserInfo(), validationEnabled);
-  }
+  
   public V1UserInfoBuilder(V1UserInfoFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1UserInfo());
   }
-  public V1UserInfoBuilder(V1UserInfoFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1UserInfo(), validationEnabled);
-  }
+  
   public V1UserInfoBuilder(V1UserInfoFluent<?> fluent,V1UserInfo instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1UserInfoBuilder(V1UserInfoFluent<?> fluent,V1UserInfo instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withExtra(instance.getExtra());
-      fluent.withGroups(instance.getGroups());
-      fluent.withUid(instance.getUid());
-      fluent.withUsername(instance.getUsername());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1UserInfoBuilder(V1UserInfo instance) {
-    this(instance,false);
-  }
-  public V1UserInfoBuilder(V1UserInfo instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withExtra(instance.getExtra());
-      this.withGroups(instance.getGroups());
-      this.withUid(instance.getUid());
-      this.withUsername(instance.getUsername());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1UserInfoFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1UserInfo build() {
     V1UserInfo buildable = new V1UserInfo();
     buildable.setExtra(fluent.getExtra());
@@ -52,4 +30,5 @@ public class V1UserInfoBuilder extends V1UserInfoFluentImpl<V1UserInfoBuilder> i
     return buildable;
   }
   
+
 }

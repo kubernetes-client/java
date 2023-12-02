@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1PodAntiAffinityBuilder extends V1PodAntiAffinityFluentImpl<V1PodAntiAffinityBuilder> implements VisitableBuilder<V1PodAntiAffinity,V1PodAntiAffinityBuilder>{
+public class V1PodAntiAffinityBuilder extends V1PodAntiAffinityFluent<V1PodAntiAffinityBuilder> implements VisitableBuilder<V1PodAntiAffinity,V1PodAntiAffinityBuilder>{
   public V1PodAntiAffinityBuilder() {
-    this(false);
+    this(new V1PodAntiAffinity());
   }
-  public V1PodAntiAffinityBuilder(Boolean validationEnabled) {
-    this(new V1PodAntiAffinity(), validationEnabled);
-  }
+  
   public V1PodAntiAffinityBuilder(V1PodAntiAffinityFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1PodAntiAffinity());
   }
-  public V1PodAntiAffinityBuilder(V1PodAntiAffinityFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1PodAntiAffinity(), validationEnabled);
-  }
+  
   public V1PodAntiAffinityBuilder(V1PodAntiAffinityFluent<?> fluent,V1PodAntiAffinity instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1PodAntiAffinityBuilder(V1PodAntiAffinityFluent<?> fluent,V1PodAntiAffinity instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
-      fluent.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1PodAntiAffinityBuilder(V1PodAntiAffinity instance) {
-    this(instance,false);
-  }
-  public V1PodAntiAffinityBuilder(V1PodAntiAffinity instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withPreferredDuringSchedulingIgnoredDuringExecution(instance.getPreferredDuringSchedulingIgnoredDuringExecution());
-      this.withRequiredDuringSchedulingIgnoredDuringExecution(instance.getRequiredDuringSchedulingIgnoredDuringExecution());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1PodAntiAffinityFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1PodAntiAffinity build() {
     V1PodAntiAffinity buildable = new V1PodAntiAffinity();
-    buildable.setPreferredDuringSchedulingIgnoredDuringExecution(fluent.getPreferredDuringSchedulingIgnoredDuringExecution());
-    buildable.setRequiredDuringSchedulingIgnoredDuringExecution(fluent.getRequiredDuringSchedulingIgnoredDuringExecution());
+    buildable.setPreferredDuringSchedulingIgnoredDuringExecution(fluent.buildPreferredDuringSchedulingIgnoredDuringExecution());
+    buildable.setRequiredDuringSchedulingIgnoredDuringExecution(fluent.buildRequiredDuringSchedulingIgnoredDuringExecution());
     return buildable;
   }
   
+
 }

@@ -27,7 +27,7 @@ import java.io.IOException;
  * SeccompProfile defines a pod/container&#39;s seccomp profile settings. Only one profile source may be set.
  */
 @ApiModel(description = "SeccompProfile defines a pod/container's seccomp profile settings. Only one profile source may be set.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1SeccompProfile {
   public static final String SERIALIZED_NAME_LOCALHOST_PROFILE = "localhostProfile";
   @SerializedName(SERIALIZED_NAME_LOCALHOST_PROFILE)
@@ -45,11 +45,11 @@ public class V1SeccompProfile {
   }
 
    /**
-   * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet&#39;s configured seccomp profile location. Must only be set if type is \&quot;Localhost\&quot;.
+   * localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet&#39;s configured seccomp profile location. Must be set if type is \&quot;Localhost\&quot;. Must NOT be set for any other type.
    * @return localhostProfile
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must only be set if type is \"Localhost\".")
+  @ApiModelProperty(value = "localhostProfile indicates a profile defined in a file on the node should be used. The profile must be preconfigured on the node to work. Must be a descending path, relative to the kubelet's configured seccomp profile location. Must be set if type is \"Localhost\". Must NOT be set for any other type.")
 
   public String getLocalhostProfile() {
     return localhostProfile;

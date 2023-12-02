@@ -31,7 +31,7 @@ import java.util.List;
  * PriorityClassList is a collection of priority classes.
  */
 @ApiModel(description = "PriorityClassList is a collection of priority classes.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1PriorityClassList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

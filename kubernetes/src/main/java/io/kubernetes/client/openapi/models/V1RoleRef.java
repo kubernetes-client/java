@@ -27,7 +27,7 @@ import java.io.IOException;
  * RoleRef contains information that points to the role being used
  */
 @ApiModel(description = "RoleRef contains information that points to the role being used")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1RoleRef {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
   @SerializedName(SERIALIZED_NAME_API_GROUP)

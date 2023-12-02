@@ -1,55 +1,34 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1beta2PriorityLevelConfigurationListBuilder extends V1beta2PriorityLevelConfigurationListFluentImpl<V1beta2PriorityLevelConfigurationListBuilder> implements VisitableBuilder<V1beta2PriorityLevelConfigurationList,V1beta2PriorityLevelConfigurationListBuilder>{
+public class V1beta2PriorityLevelConfigurationListBuilder extends V1beta2PriorityLevelConfigurationListFluent<V1beta2PriorityLevelConfigurationListBuilder> implements VisitableBuilder<V1beta2PriorityLevelConfigurationList,V1beta2PriorityLevelConfigurationListBuilder>{
   public V1beta2PriorityLevelConfigurationListBuilder() {
-    this(false);
+    this(new V1beta2PriorityLevelConfigurationList());
   }
-  public V1beta2PriorityLevelConfigurationListBuilder(Boolean validationEnabled) {
-    this(new V1beta2PriorityLevelConfigurationList(), validationEnabled);
-  }
+  
   public V1beta2PriorityLevelConfigurationListBuilder(V1beta2PriorityLevelConfigurationListFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1beta2PriorityLevelConfigurationList());
   }
-  public V1beta2PriorityLevelConfigurationListBuilder(V1beta2PriorityLevelConfigurationListFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1beta2PriorityLevelConfigurationList(), validationEnabled);
-  }
+  
   public V1beta2PriorityLevelConfigurationListBuilder(V1beta2PriorityLevelConfigurationListFluent<?> fluent,V1beta2PriorityLevelConfigurationList instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1beta2PriorityLevelConfigurationListBuilder(V1beta2PriorityLevelConfigurationListFluent<?> fluent,V1beta2PriorityLevelConfigurationList instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withApiVersion(instance.getApiVersion());
-      fluent.withItems(instance.getItems());
-      fluent.withKind(instance.getKind());
-      fluent.withMetadata(instance.getMetadata());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1beta2PriorityLevelConfigurationListBuilder(V1beta2PriorityLevelConfigurationList instance) {
-    this(instance,false);
-  }
-  public V1beta2PriorityLevelConfigurationListBuilder(V1beta2PriorityLevelConfigurationList instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withApiVersion(instance.getApiVersion());
-      this.withItems(instance.getItems());
-      this.withKind(instance.getKind());
-      this.withMetadata(instance.getMetadata());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1beta2PriorityLevelConfigurationListFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1beta2PriorityLevelConfigurationList build() {
     V1beta2PriorityLevelConfigurationList buildable = new V1beta2PriorityLevelConfigurationList();
     buildable.setApiVersion(fluent.getApiVersion());
-    buildable.setItems(fluent.getItems());
+    buildable.setItems(fluent.buildItems());
     buildable.setKind(fluent.getKind());
-    buildable.setMetadata(fluent.getMetadata());
+    buildable.setMetadata(fluent.buildMetadata());
     return buildable;
   }
   
+
 }

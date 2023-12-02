@@ -1,54 +1,205 @@
 package io.kubernetes.client.openapi.models;
 
-import java.lang.Deprecated;
-import com.google.gson.annotations.SerializedName;
-import io.kubernetes.client.fluent.Fluent;
+import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
+import java.util.LinkedHashMap;
+import io.kubernetes.client.fluent.BaseFluent;
+import java.lang.Object;
 import java.lang.Boolean;
 import java.util.Map;
-import java.util.LinkedHashMap;
 
- /**
-  * Generated
-  */
-public interface V1FlexVolumeSourceFluent<A extends V1FlexVolumeSourceFluent<A>> extends Fluent<A>{
-  public String getDriver();
-  public A withDriver(String driver);
-  public Boolean hasDriver();
-  public String getFsType();
-  public A withFsType(String fsType);
-  public Boolean hasFsType();
-  public A addToOptions(String key,String value);
-  public A addToOptions(Map<String,String> map);
-  public A removeFromOptions(String key);
-  public A removeFromOptions(Map<String,String> map);
-  public Map<String,String> getOptions();
-  public <K,V>A withOptions(Map<String,String> options);
-  public Boolean hasOptions();
-  public Boolean getReadOnly();
-  public A withReadOnly(Boolean readOnly);
-  public Boolean hasReadOnly();
-  
-  /**
-   * This method has been deprecated, please use method buildSecretRef instead.
-   * @return The buildable object.
-   */
-  @Deprecated
-  public V1LocalObjectReference getSecretRef();
-  public V1LocalObjectReference buildSecretRef();
-  public A withSecretRef(V1LocalObjectReference secretRef);
-  public Boolean hasSecretRef();
-  public V1FlexVolumeSourceFluent.SecretRefNested<A> withNewSecretRef();
-  public V1FlexVolumeSourceFluent.SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item);
-  public V1FlexVolumeSourceFluent.SecretRefNested<A> editSecretRef();
-  public V1FlexVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRef();
-  public V1FlexVolumeSourceFluent.SecretRefNested<A> editOrNewSecretRefLike(V1LocalObjectReference item);
-  public A withReadOnly();
-  public interface SecretRefNested<N> extends Nested<N>,V1LocalObjectReferenceFluent<V1FlexVolumeSourceFluent.SecretRefNested<N>>{
-    public N and();
-    public N endSecretRef();
-    
+/**
+ * Generated
+ */
+@SuppressWarnings("unchecked")
+public class V1FlexVolumeSourceFluent<A extends V1FlexVolumeSourceFluent<A>> extends BaseFluent<A>{
+  public V1FlexVolumeSourceFluent() {
   }
   
+  public V1FlexVolumeSourceFluent(V1FlexVolumeSource instance) {
+    this.copyInstance(instance);
+  }
+  private String driver;
+  private String fsType;
+  private Map<String,String> options;
+  private Boolean readOnly;
+  private V1LocalObjectReferenceBuilder secretRef;
+  
+  protected void copyInstance(V1FlexVolumeSource instance) {
+    instance = (instance != null ? instance : new V1FlexVolumeSource());
+    if (instance != null) {
+          this.withDriver(instance.getDriver());
+          this.withFsType(instance.getFsType());
+          this.withOptions(instance.getOptions());
+          this.withReadOnly(instance.getReadOnly());
+          this.withSecretRef(instance.getSecretRef());
+        }
+  }
+  
+  public String getDriver() {
+    return this.driver;
+  }
+  
+  public A withDriver(String driver) {
+    this.driver = driver;
+    return (A) this;
+  }
+  
+  public boolean hasDriver() {
+    return this.driver != null;
+  }
+  
+  public String getFsType() {
+    return this.fsType;
+  }
+  
+  public A withFsType(String fsType) {
+    this.fsType = fsType;
+    return (A) this;
+  }
+  
+  public boolean hasFsType() {
+    return this.fsType != null;
+  }
+  
+  public A addToOptions(String key,String value) {
+    if(this.options == null && key != null && value != null) { this.options = new LinkedHashMap(); }
+    if(key != null && value != null) {this.options.put(key, value);} return (A)this;
+  }
+  
+  public A addToOptions(Map<String,String> map) {
+    if(this.options == null && map != null) { this.options = new LinkedHashMap(); }
+    if(map != null) { this.options.putAll(map);} return (A)this;
+  }
+  
+  public A removeFromOptions(String key) {
+    if(this.options == null) { return (A) this; }
+    if(key != null && this.options != null) {this.options.remove(key);} return (A)this;
+  }
+  
+  public A removeFromOptions(Map<String,String> map) {
+    if(this.options == null) { return (A) this; }
+    if(map != null) { for(Object key : map.keySet()) {if (this.options != null){this.options.remove(key);}}} return (A)this;
+  }
+  
+  public Map<String,String> getOptions() {
+    return this.options;
+  }
+  
+  public <K,V>A withOptions(Map<String,String> options) {
+    if (options == null) {
+      this.options = null;
+    } else {
+      this.options = new LinkedHashMap(options);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasOptions() {
+    return this.options != null;
+  }
+  
+  public Boolean getReadOnly() {
+    return this.readOnly;
+  }
+  
+  public A withReadOnly(Boolean readOnly) {
+    this.readOnly = readOnly;
+    return (A) this;
+  }
+  
+  public boolean hasReadOnly() {
+    return this.readOnly != null;
+  }
+  
+  public V1LocalObjectReference buildSecretRef() {
+    return this.secretRef != null ? this.secretRef.build() : null;
+  }
+  
+  public A withSecretRef(V1LocalObjectReference secretRef) {
+    this._visitables.remove("secretRef");
+    if (secretRef != null) {
+        this.secretRef = new V1LocalObjectReferenceBuilder(secretRef);
+        this._visitables.get("secretRef").add(this.secretRef);
+    } else {
+        this.secretRef = null;
+        this._visitables.get("secretRef").remove(this.secretRef);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasSecretRef() {
+    return this.secretRef != null;
+  }
+  
+  public SecretRefNested<A> withNewSecretRef() {
+    return new SecretRefNested(null);
+  }
+  
+  public SecretRefNested<A> withNewSecretRefLike(V1LocalObjectReference item) {
+    return new SecretRefNested(item);
+  }
+  
+  public SecretRefNested<A> editSecretRef() {
+    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(null));
+  }
+  
+  public SecretRefNested<A> editOrNewSecretRef() {
+    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(new V1LocalObjectReferenceBuilder().build()));
+  }
+  
+  public SecretRefNested<A> editOrNewSecretRefLike(V1LocalObjectReference item) {
+    return withNewSecretRefLike(java.util.Optional.ofNullable(buildSecretRef()).orElse(item));
+  }
+  
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    if (!super.equals(o)) return false;
+    V1FlexVolumeSourceFluent that = (V1FlexVolumeSourceFluent) o;
+    if (!java.util.Objects.equals(driver, that.driver)) return false;
+    if (!java.util.Objects.equals(fsType, that.fsType)) return false;
+    if (!java.util.Objects.equals(options, that.options)) return false;
+    if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+    if (!java.util.Objects.equals(secretRef, that.secretRef)) return false;
+    return true;
+  }
+  
+  public int hashCode() {
+    return java.util.Objects.hash(driver,  fsType,  options,  readOnly,  secretRef,  super.hashCode());
+  }
+  
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    if (driver != null) { sb.append("driver:"); sb.append(driver + ","); }
+    if (fsType != null) { sb.append("fsType:"); sb.append(fsType + ","); }
+    if (options != null && !options.isEmpty()) { sb.append("options:"); sb.append(options + ","); }
+    if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
+    if (secretRef != null) { sb.append("secretRef:"); sb.append(secretRef); }
+    sb.append("}");
+    return sb.toString();
+  }
+  
+  public A withReadOnly() {
+    return withReadOnly(true);
+  }
+  public class SecretRefNested<N> extends V1LocalObjectReferenceFluent<SecretRefNested<N>> implements Nested<N>{
+    SecretRefNested(V1LocalObjectReference item) {
+      this.builder = new V1LocalObjectReferenceBuilder(this, item);
+    }
+    V1LocalObjectReferenceBuilder builder;
+    
+    public N and() {
+      return (N) V1FlexVolumeSourceFluent.this.withSecretRef(builder.build());
+    }
+    
+    public N endSecretRef() {
+      return and();
+    }
+    
+  
+  }
+
 }

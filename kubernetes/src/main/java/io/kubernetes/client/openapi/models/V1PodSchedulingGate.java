@@ -27,7 +27,7 @@ import java.io.IOException;
  * PodSchedulingGate is associated to a Pod to guard its scheduling.
  */
 @ApiModel(description = "PodSchedulingGate is associated to a Pod to guard its scheduling.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1PodSchedulingGate {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)

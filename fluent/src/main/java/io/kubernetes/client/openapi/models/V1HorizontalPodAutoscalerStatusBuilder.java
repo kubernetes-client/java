@@ -1,50 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1HorizontalPodAutoscalerStatusBuilder extends V1HorizontalPodAutoscalerStatusFluentImpl<V1HorizontalPodAutoscalerStatusBuilder> implements VisitableBuilder<V1HorizontalPodAutoscalerStatus,V1HorizontalPodAutoscalerStatusBuilder>{
+public class V1HorizontalPodAutoscalerStatusBuilder extends V1HorizontalPodAutoscalerStatusFluent<V1HorizontalPodAutoscalerStatusBuilder> implements VisitableBuilder<V1HorizontalPodAutoscalerStatus,V1HorizontalPodAutoscalerStatusBuilder>{
   public V1HorizontalPodAutoscalerStatusBuilder() {
-    this(false);
+    this(new V1HorizontalPodAutoscalerStatus());
   }
-  public V1HorizontalPodAutoscalerStatusBuilder(Boolean validationEnabled) {
-    this(new V1HorizontalPodAutoscalerStatus(), validationEnabled);
-  }
+  
   public V1HorizontalPodAutoscalerStatusBuilder(V1HorizontalPodAutoscalerStatusFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1HorizontalPodAutoscalerStatus());
   }
-  public V1HorizontalPodAutoscalerStatusBuilder(V1HorizontalPodAutoscalerStatusFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1HorizontalPodAutoscalerStatus(), validationEnabled);
-  }
+  
   public V1HorizontalPodAutoscalerStatusBuilder(V1HorizontalPodAutoscalerStatusFluent<?> fluent,V1HorizontalPodAutoscalerStatus instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1HorizontalPodAutoscalerStatusBuilder(V1HorizontalPodAutoscalerStatusFluent<?> fluent,V1HorizontalPodAutoscalerStatus instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
-      fluent.withCurrentReplicas(instance.getCurrentReplicas());
-      fluent.withDesiredReplicas(instance.getDesiredReplicas());
-      fluent.withLastScaleTime(instance.getLastScaleTime());
-      fluent.withObservedGeneration(instance.getObservedGeneration());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1HorizontalPodAutoscalerStatusBuilder(V1HorizontalPodAutoscalerStatus instance) {
-    this(instance,false);
-  }
-  public V1HorizontalPodAutoscalerStatusBuilder(V1HorizontalPodAutoscalerStatus instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withCurrentCPUUtilizationPercentage(instance.getCurrentCPUUtilizationPercentage());
-      this.withCurrentReplicas(instance.getCurrentReplicas());
-      this.withDesiredReplicas(instance.getDesiredReplicas());
-      this.withLastScaleTime(instance.getLastScaleTime());
-      this.withObservedGeneration(instance.getObservedGeneration());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1HorizontalPodAutoscalerStatusFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1HorizontalPodAutoscalerStatus build() {
     V1HorizontalPodAutoscalerStatus buildable = new V1HorizontalPodAutoscalerStatus();
     buildable.setCurrentCPUUtilizationPercentage(fluent.getCurrentCPUUtilizationPercentage());
@@ -55,4 +31,5 @@ public class V1HorizontalPodAutoscalerStatusBuilder extends V1HorizontalPodAutos
     return buildable;
   }
   
+
 }

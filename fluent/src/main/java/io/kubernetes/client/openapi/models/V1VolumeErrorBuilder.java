@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1VolumeErrorBuilder extends V1VolumeErrorFluentImpl<V1VolumeErrorBuilder> implements VisitableBuilder<V1VolumeError,V1VolumeErrorBuilder>{
+public class V1VolumeErrorBuilder extends V1VolumeErrorFluent<V1VolumeErrorBuilder> implements VisitableBuilder<V1VolumeError,V1VolumeErrorBuilder>{
   public V1VolumeErrorBuilder() {
-    this(false);
+    this(new V1VolumeError());
   }
-  public V1VolumeErrorBuilder(Boolean validationEnabled) {
-    this(new V1VolumeError(), validationEnabled);
-  }
+  
   public V1VolumeErrorBuilder(V1VolumeErrorFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1VolumeError());
   }
-  public V1VolumeErrorBuilder(V1VolumeErrorFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1VolumeError(), validationEnabled);
-  }
+  
   public V1VolumeErrorBuilder(V1VolumeErrorFluent<?> fluent,V1VolumeError instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1VolumeErrorBuilder(V1VolumeErrorFluent<?> fluent,V1VolumeError instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withMessage(instance.getMessage());
-      fluent.withTime(instance.getTime());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1VolumeErrorBuilder(V1VolumeError instance) {
-    this(instance,false);
-  }
-  public V1VolumeErrorBuilder(V1VolumeError instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withMessage(instance.getMessage());
-      this.withTime(instance.getTime());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1VolumeErrorFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1VolumeError build() {
     V1VolumeError buildable = new V1VolumeError();
     buildable.setMessage(fluent.getMessage());
@@ -46,4 +28,5 @@ public class V1VolumeErrorBuilder extends V1VolumeErrorFluentImpl<V1VolumeErrorB
     return buildable;
   }
   
+
 }

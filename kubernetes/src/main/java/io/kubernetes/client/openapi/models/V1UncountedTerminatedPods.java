@@ -29,7 +29,7 @@ import java.util.List;
  * UncountedTerminatedPods holds UIDs of Pods that have terminated but haven&#39;t been accounted in Job status counters.
  */
 @ApiModel(description = "UncountedTerminatedPods holds UIDs of Pods that have terminated but haven't been accounted in Job status counters.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1UncountedTerminatedPods {
   public static final String SERIALIZED_NAME_FAILED = "failed";
   @SerializedName(SERIALIZED_NAME_FAILED)

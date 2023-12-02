@@ -29,7 +29,7 @@ import java.util.List;
  * APIResource specifies the name of a resource and whether it is namespaced.
  */
 @ApiModel(description = "APIResource specifies the name of a resource and whether it is namespaced.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1APIResource {
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)

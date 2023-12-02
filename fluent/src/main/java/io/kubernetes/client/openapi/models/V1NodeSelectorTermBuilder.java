@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1NodeSelectorTermBuilder extends V1NodeSelectorTermFluentImpl<V1NodeSelectorTermBuilder> implements VisitableBuilder<V1NodeSelectorTerm,V1NodeSelectorTermBuilder>{
+public class V1NodeSelectorTermBuilder extends V1NodeSelectorTermFluent<V1NodeSelectorTermBuilder> implements VisitableBuilder<V1NodeSelectorTerm,V1NodeSelectorTermBuilder>{
   public V1NodeSelectorTermBuilder() {
-    this(false);
+    this(new V1NodeSelectorTerm());
   }
-  public V1NodeSelectorTermBuilder(Boolean validationEnabled) {
-    this(new V1NodeSelectorTerm(), validationEnabled);
-  }
+  
   public V1NodeSelectorTermBuilder(V1NodeSelectorTermFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1NodeSelectorTerm());
   }
-  public V1NodeSelectorTermBuilder(V1NodeSelectorTermFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1NodeSelectorTerm(), validationEnabled);
-  }
+  
   public V1NodeSelectorTermBuilder(V1NodeSelectorTermFluent<?> fluent,V1NodeSelectorTerm instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1NodeSelectorTermBuilder(V1NodeSelectorTermFluent<?> fluent,V1NodeSelectorTerm instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withMatchExpressions(instance.getMatchExpressions());
-      fluent.withMatchFields(instance.getMatchFields());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1NodeSelectorTermBuilder(V1NodeSelectorTerm instance) {
-    this(instance,false);
-  }
-  public V1NodeSelectorTermBuilder(V1NodeSelectorTerm instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withMatchExpressions(instance.getMatchExpressions());
-      this.withMatchFields(instance.getMatchFields());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1NodeSelectorTermFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1NodeSelectorTerm build() {
     V1NodeSelectorTerm buildable = new V1NodeSelectorTerm();
-    buildable.setMatchExpressions(fluent.getMatchExpressions());
-    buildable.setMatchFields(fluent.getMatchFields());
+    buildable.setMatchExpressions(fluent.buildMatchExpressions());
+    buildable.setMatchFields(fluent.buildMatchFields());
     return buildable;
   }
   
+
 }

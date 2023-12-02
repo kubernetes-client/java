@@ -27,7 +27,7 @@ import java.io.IOException;
  * Selects a key from a ConfigMap.
  */
 @ApiModel(description = "Selects a key from a ConfigMap.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1ConfigMapKeySelector {
   public static final String SERIALIZED_NAME_KEY = "key";
   @SerializedName(SERIALIZED_NAME_KEY)

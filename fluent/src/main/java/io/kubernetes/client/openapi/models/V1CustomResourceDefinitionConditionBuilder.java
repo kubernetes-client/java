@@ -1,50 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1CustomResourceDefinitionConditionBuilder extends V1CustomResourceDefinitionConditionFluentImpl<V1CustomResourceDefinitionConditionBuilder> implements VisitableBuilder<V1CustomResourceDefinitionCondition,V1CustomResourceDefinitionConditionBuilder>{
+public class V1CustomResourceDefinitionConditionBuilder extends V1CustomResourceDefinitionConditionFluent<V1CustomResourceDefinitionConditionBuilder> implements VisitableBuilder<V1CustomResourceDefinitionCondition,V1CustomResourceDefinitionConditionBuilder>{
   public V1CustomResourceDefinitionConditionBuilder() {
-    this(false);
+    this(new V1CustomResourceDefinitionCondition());
   }
-  public V1CustomResourceDefinitionConditionBuilder(Boolean validationEnabled) {
-    this(new V1CustomResourceDefinitionCondition(), validationEnabled);
-  }
+  
   public V1CustomResourceDefinitionConditionBuilder(V1CustomResourceDefinitionConditionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1CustomResourceDefinitionCondition());
   }
-  public V1CustomResourceDefinitionConditionBuilder(V1CustomResourceDefinitionConditionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1CustomResourceDefinitionCondition(), validationEnabled);
-  }
+  
   public V1CustomResourceDefinitionConditionBuilder(V1CustomResourceDefinitionConditionFluent<?> fluent,V1CustomResourceDefinitionCondition instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1CustomResourceDefinitionConditionBuilder(V1CustomResourceDefinitionConditionFluent<?> fluent,V1CustomResourceDefinitionCondition instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withLastTransitionTime(instance.getLastTransitionTime());
-      fluent.withMessage(instance.getMessage());
-      fluent.withReason(instance.getReason());
-      fluent.withStatus(instance.getStatus());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1CustomResourceDefinitionConditionBuilder(V1CustomResourceDefinitionCondition instance) {
-    this(instance,false);
-  }
-  public V1CustomResourceDefinitionConditionBuilder(V1CustomResourceDefinitionCondition instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withLastTransitionTime(instance.getLastTransitionTime());
-      this.withMessage(instance.getMessage());
-      this.withReason(instance.getReason());
-      this.withStatus(instance.getStatus());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1CustomResourceDefinitionConditionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1CustomResourceDefinitionCondition build() {
     V1CustomResourceDefinitionCondition buildable = new V1CustomResourceDefinitionCondition();
     buildable.setLastTransitionTime(fluent.getLastTransitionTime());
@@ -55,4 +31,5 @@ public class V1CustomResourceDefinitionConditionBuilder extends V1CustomResource
     return buildable;
   }
   
+
 }

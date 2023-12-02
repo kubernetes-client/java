@@ -1,46 +1,31 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1CustomResourceValidationBuilder extends V1CustomResourceValidationFluentImpl<V1CustomResourceValidationBuilder> implements VisitableBuilder<V1CustomResourceValidation,V1CustomResourceValidationBuilder>{
+public class V1CustomResourceValidationBuilder extends V1CustomResourceValidationFluent<V1CustomResourceValidationBuilder> implements VisitableBuilder<V1CustomResourceValidation,V1CustomResourceValidationBuilder>{
   public V1CustomResourceValidationBuilder() {
-    this(false);
+    this(new V1CustomResourceValidation());
   }
-  public V1CustomResourceValidationBuilder(Boolean validationEnabled) {
-    this(new V1CustomResourceValidation(), validationEnabled);
-  }
+  
   public V1CustomResourceValidationBuilder(V1CustomResourceValidationFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1CustomResourceValidation());
   }
-  public V1CustomResourceValidationBuilder(V1CustomResourceValidationFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1CustomResourceValidation(), validationEnabled);
-  }
+  
   public V1CustomResourceValidationBuilder(V1CustomResourceValidationFluent<?> fluent,V1CustomResourceValidation instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1CustomResourceValidationBuilder(V1CustomResourceValidationFluent<?> fluent,V1CustomResourceValidation instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withOpenAPIV3Schema(instance.getOpenAPIV3Schema());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1CustomResourceValidationBuilder(V1CustomResourceValidation instance) {
-    this(instance,false);
-  }
-  public V1CustomResourceValidationBuilder(V1CustomResourceValidation instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withOpenAPIV3Schema(instance.getOpenAPIV3Schema());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1CustomResourceValidationFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1CustomResourceValidation build() {
     V1CustomResourceValidation buildable = new V1CustomResourceValidation();
-    buildable.setOpenAPIV3Schema(fluent.getOpenAPIV3Schema());
+    buildable.setOpenAPIV3Schema(fluent.buildOpenAPIV3Schema());
     return buildable;
   }
   
+
 }

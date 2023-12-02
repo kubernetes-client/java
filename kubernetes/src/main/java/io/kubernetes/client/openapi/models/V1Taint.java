@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * The node this Taint is attached to has the \&quot;effect\&quot; on any pod that does not tolerate the Taint.
  */
 @ApiModel(description = "The node this Taint is attached to has the \"effect\" on any pod that does not tolerate the Taint.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1Taint {
   public static final String SERIALIZED_NAME_EFFECT = "effect";
   @SerializedName(SERIALIZED_NAME_EFFECT)

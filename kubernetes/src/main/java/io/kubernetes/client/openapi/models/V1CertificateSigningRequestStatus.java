@@ -30,7 +30,7 @@ import java.util.List;
  * CertificateSigningRequestStatus contains conditions used to indicate approved/denied/failed status of the request, and the issued certificate.
  */
 @ApiModel(description = "CertificateSigningRequestStatus contains conditions used to indicate approved/denied/failed status of the request, and the issued certificate.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1CertificateSigningRequestStatus {
   public static final String SERIALIZED_NAME_CERTIFICATE = "certificate";
   @SerializedName(SERIALIZED_NAME_CERTIFICATE)

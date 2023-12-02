@@ -1,48 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluentImpl<V1SELinuxOptionsBuilder> implements VisitableBuilder<V1SELinuxOptions,V1SELinuxOptionsBuilder>{
+public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluent<V1SELinuxOptionsBuilder> implements VisitableBuilder<V1SELinuxOptions,V1SELinuxOptionsBuilder>{
   public V1SELinuxOptionsBuilder() {
-    this(false);
+    this(new V1SELinuxOptions());
   }
-  public V1SELinuxOptionsBuilder(Boolean validationEnabled) {
-    this(new V1SELinuxOptions(), validationEnabled);
-  }
+  
   public V1SELinuxOptionsBuilder(V1SELinuxOptionsFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1SELinuxOptions());
   }
-  public V1SELinuxOptionsBuilder(V1SELinuxOptionsFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1SELinuxOptions(), validationEnabled);
-  }
+  
   public V1SELinuxOptionsBuilder(V1SELinuxOptionsFluent<?> fluent,V1SELinuxOptions instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1SELinuxOptionsBuilder(V1SELinuxOptionsFluent<?> fluent,V1SELinuxOptions instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withLevel(instance.getLevel());
-      fluent.withRole(instance.getRole());
-      fluent.withType(instance.getType());
-      fluent.withUser(instance.getUser());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1SELinuxOptionsBuilder(V1SELinuxOptions instance) {
-    this(instance,false);
-  }
-  public V1SELinuxOptionsBuilder(V1SELinuxOptions instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withLevel(instance.getLevel());
-      this.withRole(instance.getRole());
-      this.withType(instance.getType());
-      this.withUser(instance.getUser());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1SELinuxOptionsFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1SELinuxOptions build() {
     V1SELinuxOptions buildable = new V1SELinuxOptions();
     buildable.setLevel(fluent.getLevel());
@@ -52,4 +30,5 @@ public class V1SELinuxOptionsBuilder extends V1SELinuxOptionsFluentImpl<V1SELinu
     return buildable;
   }
   
+
 }

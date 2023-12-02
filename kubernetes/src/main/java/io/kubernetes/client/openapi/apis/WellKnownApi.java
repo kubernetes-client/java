@@ -68,7 +68,7 @@ public class WellKnownApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/.well-known/openid-configuration/";
+        String localVarPath = "/.well-known/openid-configuration";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

@@ -1,46 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1ConfigMapKeySelectorBuilder extends V1ConfigMapKeySelectorFluentImpl<V1ConfigMapKeySelectorBuilder> implements VisitableBuilder<V1ConfigMapKeySelector,V1ConfigMapKeySelectorBuilder>{
+public class V1ConfigMapKeySelectorBuilder extends V1ConfigMapKeySelectorFluent<V1ConfigMapKeySelectorBuilder> implements VisitableBuilder<V1ConfigMapKeySelector,V1ConfigMapKeySelectorBuilder>{
   public V1ConfigMapKeySelectorBuilder() {
-    this(false);
+    this(new V1ConfigMapKeySelector());
   }
-  public V1ConfigMapKeySelectorBuilder(Boolean validationEnabled) {
-    this(new V1ConfigMapKeySelector(), validationEnabled);
-  }
+  
   public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelectorFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1ConfigMapKeySelector());
   }
-  public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelectorFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1ConfigMapKeySelector(), validationEnabled);
-  }
+  
   public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelectorFluent<?> fluent,V1ConfigMapKeySelector instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelectorFluent<?> fluent,V1ConfigMapKeySelector instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withKey(instance.getKey());
-      fluent.withName(instance.getName());
-      fluent.withOptional(instance.getOptional());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelector instance) {
-    this(instance,false);
-  }
-  public V1ConfigMapKeySelectorBuilder(V1ConfigMapKeySelector instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withKey(instance.getKey());
-      this.withName(instance.getName());
-      this.withOptional(instance.getOptional());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1ConfigMapKeySelectorFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1ConfigMapKeySelector build() {
     V1ConfigMapKeySelector buildable = new V1ConfigMapKeySelector();
     buildable.setKey(fluent.getKey());
@@ -49,4 +29,5 @@ public class V1ConfigMapKeySelectorBuilder extends V1ConfigMapKeySelectorFluentI
     return buildable;
   }
   
+
 }

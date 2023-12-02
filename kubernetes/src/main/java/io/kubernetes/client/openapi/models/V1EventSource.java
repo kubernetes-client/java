@@ -27,7 +27,7 @@ import java.io.IOException;
  * EventSource contains information for an event.
  */
 @ApiModel(description = "EventSource contains information for an event.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1EventSource {
   public static final String SERIALIZED_NAME_COMPONENT = "component";
   @SerializedName(SERIALIZED_NAME_COMPONENT)

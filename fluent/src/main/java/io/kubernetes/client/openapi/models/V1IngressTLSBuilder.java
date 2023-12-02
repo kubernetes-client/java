@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1IngressTLSBuilder extends V1IngressTLSFluentImpl<V1IngressTLSBuilder> implements VisitableBuilder<V1IngressTLS,V1IngressTLSBuilder>{
+public class V1IngressTLSBuilder extends V1IngressTLSFluent<V1IngressTLSBuilder> implements VisitableBuilder<V1IngressTLS,V1IngressTLSBuilder>{
   public V1IngressTLSBuilder() {
-    this(false);
+    this(new V1IngressTLS());
   }
-  public V1IngressTLSBuilder(Boolean validationEnabled) {
-    this(new V1IngressTLS(), validationEnabled);
-  }
+  
   public V1IngressTLSBuilder(V1IngressTLSFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1IngressTLS());
   }
-  public V1IngressTLSBuilder(V1IngressTLSFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1IngressTLS(), validationEnabled);
-  }
+  
   public V1IngressTLSBuilder(V1IngressTLSFluent<?> fluent,V1IngressTLS instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1IngressTLSBuilder(V1IngressTLSFluent<?> fluent,V1IngressTLS instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withHosts(instance.getHosts());
-      fluent.withSecretName(instance.getSecretName());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1IngressTLSBuilder(V1IngressTLS instance) {
-    this(instance,false);
-  }
-  public V1IngressTLSBuilder(V1IngressTLS instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withHosts(instance.getHosts());
-      this.withSecretName(instance.getSecretName());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1IngressTLSFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1IngressTLS build() {
     V1IngressTLS buildable = new V1IngressTLS();
     buildable.setHosts(fluent.getHosts());
@@ -46,4 +28,5 @@ public class V1IngressTLSBuilder extends V1IngressTLSFluentImpl<V1IngressTLSBuil
     return buildable;
   }
   
+
 }

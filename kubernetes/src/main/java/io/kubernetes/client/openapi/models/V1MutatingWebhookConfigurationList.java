@@ -31,7 +31,7 @@ import java.util.List;
  * MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.
  */
 @ApiModel(description = "MutatingWebhookConfigurationList is a list of MutatingWebhookConfiguration.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1MutatingWebhookConfigurationList implements io.kubernetes.client.common.KubernetesListObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

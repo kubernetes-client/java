@@ -26,7 +26,7 @@ import java.io.IOException;
 /**
  * V1GRPCAction
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1GRPCAction {
   public static final String SERIALIZED_NAME_PORT = "port";
   @SerializedName(SERIALIZED_NAME_PORT)

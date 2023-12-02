@@ -1,52 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1PersistentVolumeClaimConditionBuilder extends V1PersistentVolumeClaimConditionFluentImpl<V1PersistentVolumeClaimConditionBuilder> implements VisitableBuilder<V1PersistentVolumeClaimCondition,V1PersistentVolumeClaimConditionBuilder>{
+public class V1PersistentVolumeClaimConditionBuilder extends V1PersistentVolumeClaimConditionFluent<V1PersistentVolumeClaimConditionBuilder> implements VisitableBuilder<V1PersistentVolumeClaimCondition,V1PersistentVolumeClaimConditionBuilder>{
   public V1PersistentVolumeClaimConditionBuilder() {
-    this(false);
+    this(new V1PersistentVolumeClaimCondition());
   }
-  public V1PersistentVolumeClaimConditionBuilder(Boolean validationEnabled) {
-    this(new V1PersistentVolumeClaimCondition(), validationEnabled);
-  }
+  
   public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimConditionFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1PersistentVolumeClaimCondition());
   }
-  public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimConditionFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1PersistentVolumeClaimCondition(), validationEnabled);
-  }
+  
   public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimConditionFluent<?> fluent,V1PersistentVolumeClaimCondition instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimConditionFluent<?> fluent,V1PersistentVolumeClaimCondition instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withLastProbeTime(instance.getLastProbeTime());
-      fluent.withLastTransitionTime(instance.getLastTransitionTime());
-      fluent.withMessage(instance.getMessage());
-      fluent.withReason(instance.getReason());
-      fluent.withStatus(instance.getStatus());
-      fluent.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimCondition instance) {
-    this(instance,false);
-  }
-  public V1PersistentVolumeClaimConditionBuilder(V1PersistentVolumeClaimCondition instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withLastProbeTime(instance.getLastProbeTime());
-      this.withLastTransitionTime(instance.getLastTransitionTime());
-      this.withMessage(instance.getMessage());
-      this.withReason(instance.getReason());
-      this.withStatus(instance.getStatus());
-      this.withType(instance.getType());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1PersistentVolumeClaimConditionFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1PersistentVolumeClaimCondition build() {
     V1PersistentVolumeClaimCondition buildable = new V1PersistentVolumeClaimCondition();
     buildable.setLastProbeTime(fluent.getLastProbeTime());
@@ -58,4 +32,5 @@ public class V1PersistentVolumeClaimConditionBuilder extends V1PersistentVolumeC
     return buildable;
   }
   
+
 }

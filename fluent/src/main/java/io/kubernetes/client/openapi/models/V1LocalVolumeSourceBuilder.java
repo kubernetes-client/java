@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1LocalVolumeSourceBuilder extends V1LocalVolumeSourceFluentImpl<V1LocalVolumeSourceBuilder> implements VisitableBuilder<V1LocalVolumeSource,V1LocalVolumeSourceBuilder>{
+public class V1LocalVolumeSourceBuilder extends V1LocalVolumeSourceFluent<V1LocalVolumeSourceBuilder> implements VisitableBuilder<V1LocalVolumeSource,V1LocalVolumeSourceBuilder>{
   public V1LocalVolumeSourceBuilder() {
-    this(false);
+    this(new V1LocalVolumeSource());
   }
-  public V1LocalVolumeSourceBuilder(Boolean validationEnabled) {
-    this(new V1LocalVolumeSource(), validationEnabled);
-  }
+  
   public V1LocalVolumeSourceBuilder(V1LocalVolumeSourceFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1LocalVolumeSource());
   }
-  public V1LocalVolumeSourceBuilder(V1LocalVolumeSourceFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1LocalVolumeSource(), validationEnabled);
-  }
+  
   public V1LocalVolumeSourceBuilder(V1LocalVolumeSourceFluent<?> fluent,V1LocalVolumeSource instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1LocalVolumeSourceBuilder(V1LocalVolumeSourceFluent<?> fluent,V1LocalVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withFsType(instance.getFsType());
-      fluent.withPath(instance.getPath());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1LocalVolumeSourceBuilder(V1LocalVolumeSource instance) {
-    this(instance,false);
-  }
-  public V1LocalVolumeSourceBuilder(V1LocalVolumeSource instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withFsType(instance.getFsType());
-      this.withPath(instance.getPath());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1LocalVolumeSourceFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1LocalVolumeSource build() {
     V1LocalVolumeSource buildable = new V1LocalVolumeSource();
     buildable.setFsType(fluent.getFsType());
@@ -46,4 +28,5 @@ public class V1LocalVolumeSourceBuilder extends V1LocalVolumeSourceFluentImpl<V1
     return buildable;
   }
   
+
 }

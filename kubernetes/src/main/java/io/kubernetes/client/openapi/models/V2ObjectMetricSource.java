@@ -30,7 +30,7 @@ import java.io.IOException;
  * ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).
  */
 @ApiModel(description = "ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V2ObjectMetricSource {
   public static final String SERIALIZED_NAME_DESCRIBED_OBJECT = "describedObject";
   @SerializedName(SERIALIZED_NAME_DESCRIBED_OBJECT)

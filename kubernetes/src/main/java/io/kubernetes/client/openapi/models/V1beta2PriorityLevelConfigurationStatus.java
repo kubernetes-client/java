@@ -30,7 +30,7 @@ import java.util.List;
  * PriorityLevelConfigurationStatus represents the current state of a \&quot;request-priority\&quot;.
  */
 @ApiModel(description = "PriorityLevelConfigurationStatus represents the current state of a \"request-priority\".")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1beta2PriorityLevelConfigurationStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)

@@ -27,7 +27,7 @@ import java.io.IOException;
  * NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface
  */
 @ApiModel(description = "NonResourceAttributes includes the authorization attributes available for non-resource requests to the Authorizer interface")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1NonResourceAttributes {
   public static final String SERIALIZED_NAME_PATH = "path";
   @SerializedName(SERIALIZED_NAME_PATH)

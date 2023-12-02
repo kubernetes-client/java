@@ -68,7 +68,7 @@ public class OpenidApi {
         Object localVarPostBody = null;
 
         // create path and map variables
-        String localVarPath = "/openid/v1/jwks/";
+        String localVarPath = "/openid/v1/jwks";
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();

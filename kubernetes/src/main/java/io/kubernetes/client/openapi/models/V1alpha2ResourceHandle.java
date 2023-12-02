@@ -27,7 +27,7 @@ import java.io.IOException;
  * ResourceHandle holds opaque resource data for processing by a specific kubelet plugin.
  */
 @ApiModel(description = "ResourceHandle holds opaque resource data for processing by a specific kubelet plugin.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1alpha2ResourceHandle {
   public static final String SERIALIZED_NAME_DATA = "data";
   @SerializedName(SERIALIZED_NAME_DATA)

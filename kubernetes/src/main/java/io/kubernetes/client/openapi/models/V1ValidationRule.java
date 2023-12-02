@@ -27,8 +27,12 @@ import java.io.IOException;
  * ValidationRule describes a validation rule written in the CEL expression language.
  */
 @ApiModel(description = "ValidationRule describes a validation rule written in the CEL expression language.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1ValidationRule {
+  public static final String SERIALIZED_NAME_FIELD_PATH = "fieldPath";
+  @SerializedName(SERIALIZED_NAME_FIELD_PATH)
+  private String fieldPath;
+
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)
   private String message;
@@ -37,9 +41,36 @@ public class V1ValidationRule {
   @SerializedName(SERIALIZED_NAME_MESSAGE_EXPRESSION)
   private String messageExpression;
 
+  public static final String SERIALIZED_NAME_REASON = "reason";
+  @SerializedName(SERIALIZED_NAME_REASON)
+  private String reason;
+
   public static final String SERIALIZED_NAME_RULE = "rule";
   @SerializedName(SERIALIZED_NAME_RULE)
   private String rule;
+
+
+  public V1ValidationRule fieldPath(String fieldPath) {
+
+    this.fieldPath = fieldPath;
+    return this;
+  }
+
+   /**
+   * fieldPath represents the field path returned when the validation fails. It must be a relative JSON path (i.e. with array notation) scoped to the location of this x-kubernetes-validations extension in the schema and refer to an existing field. e.g. when validation checks if a specific attribute &#x60;foo&#x60; under a map &#x60;testMap&#x60;, the fieldPath could be set to &#x60;.testMap.foo&#x60; If the validation checks two lists must have unique attributes, the fieldPath could be set to either of the list: e.g. &#x60;.testList&#x60; It does not support list numeric index. It supports child operation to refer to an existing field currently. Refer to [JSONPath support in Kubernetes](https://kubernetes.io/docs/reference/kubectl/jsonpath/) for more info. Numeric index of array is not supported. For field name which contains special characters, use &#x60;[&#39;specialName&#39;]&#x60; to refer the field name. e.g. for attribute &#x60;foo.34$&#x60; appears in a list &#x60;testList&#x60;, the fieldPath could be set to &#x60;.testList[&#39;foo.34$&#39;]&#x60;
+   * @return fieldPath
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "fieldPath represents the field path returned when the validation fails. It must be a relative JSON path (i.e. with array notation) scoped to the location of this x-kubernetes-validations extension in the schema and refer to an existing field. e.g. when validation checks if a specific attribute `foo` under a map `testMap`, the fieldPath could be set to `.testMap.foo` If the validation checks two lists must have unique attributes, the fieldPath could be set to either of the list: e.g. `.testList` It does not support list numeric index. It supports child operation to refer to an existing field currently. Refer to [JSONPath support in Kubernetes](https://kubernetes.io/docs/reference/kubectl/jsonpath/) for more info. Numeric index of array is not supported. For field name which contains special characters, use `['specialName']` to refer the field name. e.g. for attribute `foo.34$` appears in a list `testList`, the fieldPath could be set to `.testList['foo.34$']`")
+
+  public String getFieldPath() {
+    return fieldPath;
+  }
+
+
+  public void setFieldPath(String fieldPath) {
+    this.fieldPath = fieldPath;
+  }
 
 
   public V1ValidationRule message(String message) {
@@ -88,6 +119,29 @@ public class V1ValidationRule {
   }
 
 
+  public V1ValidationRule reason(String reason) {
+
+    this.reason = reason;
+    return this;
+  }
+
+   /**
+   * reason provides a machine-readable validation failure reason that is returned to the caller when a request fails this validation rule. The HTTP status code returned to the caller will match the reason of the reason of the first failed validation rule. The currently supported reasons are: \&quot;FieldValueInvalid\&quot;, \&quot;FieldValueForbidden\&quot;, \&quot;FieldValueRequired\&quot;, \&quot;FieldValueDuplicate\&quot;. If not set, default to use \&quot;FieldValueInvalid\&quot;. All future added reasons must be accepted by clients when reading this value and unknown reasons should be treated as FieldValueInvalid.
+   * @return reason
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "reason provides a machine-readable validation failure reason that is returned to the caller when a request fails this validation rule. The HTTP status code returned to the caller will match the reason of the reason of the first failed validation rule. The currently supported reasons are: \"FieldValueInvalid\", \"FieldValueForbidden\", \"FieldValueRequired\", \"FieldValueDuplicate\". If not set, default to use \"FieldValueInvalid\". All future added reasons must be accepted by clients when reading this value and unknown reasons should be treated as FieldValueInvalid.")
+
+  public String getReason() {
+    return reason;
+  }
+
+
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
+
+
   public V1ValidationRule rule(String rule) {
 
     this.rule = rule;
@@ -119,14 +173,16 @@ public class V1ValidationRule {
       return false;
     }
     V1ValidationRule v1ValidationRule = (V1ValidationRule) o;
-    return Objects.equals(this.message, v1ValidationRule.message) &&
+    return Objects.equals(this.fieldPath, v1ValidationRule.fieldPath) &&
+        Objects.equals(this.message, v1ValidationRule.message) &&
         Objects.equals(this.messageExpression, v1ValidationRule.messageExpression) &&
+        Objects.equals(this.reason, v1ValidationRule.reason) &&
         Objects.equals(this.rule, v1ValidationRule.rule);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(message, messageExpression, rule);
+    return Objects.hash(fieldPath, message, messageExpression, reason, rule);
   }
 
 
@@ -134,8 +190,10 @@ public class V1ValidationRule {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1ValidationRule {\n");
+    sb.append("    fieldPath: ").append(toIndentedString(fieldPath)).append("\n");
     sb.append("    message: ").append(toIndentedString(message)).append("\n");
     sb.append("    messageExpression: ").append(toIndentedString(messageExpression)).append("\n");
+    sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
     sb.append("    rule: ").append(toIndentedString(rule)).append("\n");
     sb.append("}");
     return sb.toString();

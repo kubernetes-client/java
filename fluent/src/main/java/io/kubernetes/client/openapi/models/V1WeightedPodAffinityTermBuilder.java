@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1WeightedPodAffinityTermBuilder extends V1WeightedPodAffinityTermFluentImpl<V1WeightedPodAffinityTermBuilder> implements VisitableBuilder<V1WeightedPodAffinityTerm,V1WeightedPodAffinityTermBuilder>{
+public class V1WeightedPodAffinityTermBuilder extends V1WeightedPodAffinityTermFluent<V1WeightedPodAffinityTermBuilder> implements VisitableBuilder<V1WeightedPodAffinityTerm,V1WeightedPodAffinityTermBuilder>{
   public V1WeightedPodAffinityTermBuilder() {
-    this(false);
+    this(new V1WeightedPodAffinityTerm());
   }
-  public V1WeightedPodAffinityTermBuilder(Boolean validationEnabled) {
-    this(new V1WeightedPodAffinityTerm(), validationEnabled);
-  }
+  
   public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTermFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1WeightedPodAffinityTerm());
   }
-  public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTermFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1WeightedPodAffinityTerm(), validationEnabled);
-  }
+  
   public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTermFluent<?> fluent,V1WeightedPodAffinityTerm instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTermFluent<?> fluent,V1WeightedPodAffinityTerm instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withPodAffinityTerm(instance.getPodAffinityTerm());
-      fluent.withWeight(instance.getWeight());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTerm instance) {
-    this(instance,false);
-  }
-  public V1WeightedPodAffinityTermBuilder(V1WeightedPodAffinityTerm instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withPodAffinityTerm(instance.getPodAffinityTerm());
-      this.withWeight(instance.getWeight());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1WeightedPodAffinityTermFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1WeightedPodAffinityTerm build() {
     V1WeightedPodAffinityTerm buildable = new V1WeightedPodAffinityTerm();
-    buildable.setPodAffinityTerm(fluent.getPodAffinityTerm());
+    buildable.setPodAffinityTerm(fluent.buildPodAffinityTerm());
     buildable.setWeight(fluent.getWeight());
     return buildable;
   }
   
+
 }

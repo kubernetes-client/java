@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V2HorizontalPodAutoscalerBehaviorBuilder extends V2HorizontalPodAutoscalerBehaviorFluentImpl<V2HorizontalPodAutoscalerBehaviorBuilder> implements VisitableBuilder<V2HorizontalPodAutoscalerBehavior,V2HorizontalPodAutoscalerBehaviorBuilder>{
+public class V2HorizontalPodAutoscalerBehaviorBuilder extends V2HorizontalPodAutoscalerBehaviorFluent<V2HorizontalPodAutoscalerBehaviorBuilder> implements VisitableBuilder<V2HorizontalPodAutoscalerBehavior,V2HorizontalPodAutoscalerBehaviorBuilder>{
   public V2HorizontalPodAutoscalerBehaviorBuilder() {
-    this(false);
+    this(new V2HorizontalPodAutoscalerBehavior());
   }
-  public V2HorizontalPodAutoscalerBehaviorBuilder(Boolean validationEnabled) {
-    this(new V2HorizontalPodAutoscalerBehavior(), validationEnabled);
-  }
+  
   public V2HorizontalPodAutoscalerBehaviorBuilder(V2HorizontalPodAutoscalerBehaviorFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V2HorizontalPodAutoscalerBehavior());
   }
-  public V2HorizontalPodAutoscalerBehaviorBuilder(V2HorizontalPodAutoscalerBehaviorFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V2HorizontalPodAutoscalerBehavior(), validationEnabled);
-  }
+  
   public V2HorizontalPodAutoscalerBehaviorBuilder(V2HorizontalPodAutoscalerBehaviorFluent<?> fluent,V2HorizontalPodAutoscalerBehavior instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V2HorizontalPodAutoscalerBehaviorBuilder(V2HorizontalPodAutoscalerBehaviorFluent<?> fluent,V2HorizontalPodAutoscalerBehavior instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withScaleDown(instance.getScaleDown());
-      fluent.withScaleUp(instance.getScaleUp());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V2HorizontalPodAutoscalerBehaviorBuilder(V2HorizontalPodAutoscalerBehavior instance) {
-    this(instance,false);
-  }
-  public V2HorizontalPodAutoscalerBehaviorBuilder(V2HorizontalPodAutoscalerBehavior instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withScaleDown(instance.getScaleDown());
-      this.withScaleUp(instance.getScaleUp());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V2HorizontalPodAutoscalerBehaviorFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V2HorizontalPodAutoscalerBehavior build() {
     V2HorizontalPodAutoscalerBehavior buildable = new V2HorizontalPodAutoscalerBehavior();
-    buildable.setScaleDown(fluent.getScaleDown());
-    buildable.setScaleUp(fluent.getScaleUp());
+    buildable.setScaleDown(fluent.buildScaleDown());
+    buildable.setScaleUp(fluent.buildScaleUp());
     return buildable;
   }
   
+
 }

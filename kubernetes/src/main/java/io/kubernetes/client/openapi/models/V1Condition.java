@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * Condition contains details for one aspect of the current state of this API Resource.
  */
 @ApiModel(description = "Condition contains details for one aspect of the current state of this API Resource.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1Condition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)

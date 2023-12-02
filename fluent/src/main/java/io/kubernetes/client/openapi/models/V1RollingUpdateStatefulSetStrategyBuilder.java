@@ -1,44 +1,26 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1RollingUpdateStatefulSetStrategyBuilder extends V1RollingUpdateStatefulSetStrategyFluentImpl<V1RollingUpdateStatefulSetStrategyBuilder> implements VisitableBuilder<V1RollingUpdateStatefulSetStrategy,V1RollingUpdateStatefulSetStrategyBuilder>{
+public class V1RollingUpdateStatefulSetStrategyBuilder extends V1RollingUpdateStatefulSetStrategyFluent<V1RollingUpdateStatefulSetStrategyBuilder> implements VisitableBuilder<V1RollingUpdateStatefulSetStrategy,V1RollingUpdateStatefulSetStrategyBuilder>{
   public V1RollingUpdateStatefulSetStrategyBuilder() {
-    this(false);
+    this(new V1RollingUpdateStatefulSetStrategy());
   }
-  public V1RollingUpdateStatefulSetStrategyBuilder(Boolean validationEnabled) {
-    this(new V1RollingUpdateStatefulSetStrategy(), validationEnabled);
-  }
+  
   public V1RollingUpdateStatefulSetStrategyBuilder(V1RollingUpdateStatefulSetStrategyFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1RollingUpdateStatefulSetStrategy());
   }
-  public V1RollingUpdateStatefulSetStrategyBuilder(V1RollingUpdateStatefulSetStrategyFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1RollingUpdateStatefulSetStrategy(), validationEnabled);
-  }
+  
   public V1RollingUpdateStatefulSetStrategyBuilder(V1RollingUpdateStatefulSetStrategyFluent<?> fluent,V1RollingUpdateStatefulSetStrategy instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1RollingUpdateStatefulSetStrategyBuilder(V1RollingUpdateStatefulSetStrategyFluent<?> fluent,V1RollingUpdateStatefulSetStrategy instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withMaxUnavailable(instance.getMaxUnavailable());
-      fluent.withPartition(instance.getPartition());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1RollingUpdateStatefulSetStrategyBuilder(V1RollingUpdateStatefulSetStrategy instance) {
-    this(instance,false);
-  }
-  public V1RollingUpdateStatefulSetStrategyBuilder(V1RollingUpdateStatefulSetStrategy instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withMaxUnavailable(instance.getMaxUnavailable());
-      this.withPartition(instance.getPartition());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1RollingUpdateStatefulSetStrategyFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1RollingUpdateStatefulSetStrategy build() {
     V1RollingUpdateStatefulSetStrategy buildable = new V1RollingUpdateStatefulSetStrategy();
     buildable.setMaxUnavailable(fluent.getMaxUnavailable());
@@ -46,4 +28,5 @@ public class V1RollingUpdateStatefulSetStrategyBuilder extends V1RollingUpdateSt
     return buildable;
   }
   
+
 }

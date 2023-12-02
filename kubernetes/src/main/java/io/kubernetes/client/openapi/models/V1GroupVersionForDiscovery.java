@@ -27,7 +27,7 @@ import java.io.IOException;
  * GroupVersion contains the \&quot;group/version\&quot; and \&quot;version\&quot; string of a version. It is made a struct to keep extensibility.
  */
 @ApiModel(description = "GroupVersion contains the \"group/version\" and \"version\" string of a version. It is made a struct to keep extensibility.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1GroupVersionForDiscovery {
   public static final String SERIALIZED_NAME_GROUP_VERSION = "groupVersion";
   @SerializedName(SERIALIZED_NAME_GROUP_VERSION)

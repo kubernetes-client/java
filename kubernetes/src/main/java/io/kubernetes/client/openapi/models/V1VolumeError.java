@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * VolumeError captures an error encountered during a volume operation.
  */
 @ApiModel(description = "VolumeError captures an error encountered during a volume operation.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1VolumeError {
   public static final String SERIALIZED_NAME_MESSAGE = "message";
   @SerializedName(SERIALIZED_NAME_MESSAGE)

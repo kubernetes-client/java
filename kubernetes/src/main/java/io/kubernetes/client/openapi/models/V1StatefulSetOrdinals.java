@@ -27,7 +27,7 @@ import java.io.IOException;
  * StatefulSetOrdinals describes the policy used for replica ordinal assignment in this StatefulSet.
  */
 @ApiModel(description = "StatefulSetOrdinals describes the policy used for replica ordinal assignment in this StatefulSet.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V1StatefulSetOrdinals {
   public static final String SERIALIZED_NAME_START = "start";
   @SerializedName(SERIALIZED_NAME_START)

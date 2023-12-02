@@ -32,7 +32,7 @@ import java.io.IOException;
  * MetricStatus describes the last-read state of a single metric.
  */
 @ApiModel(description = "MetricStatus describes the last-read state of a single metric.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-06-18T15:05:57.863601Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
 public class V2MetricStatus {
   public static final String SERIALIZED_NAME_CONTAINER_RESOURCE = "containerResource";
   @SerializedName(SERIALIZED_NAME_CONTAINER_RESOURCE)

@@ -1,49 +1,32 @@
 package io.kubernetes.client.openapi.models;
 
 import io.kubernetes.client.fluent.VisitableBuilder;
-import java.lang.Boolean;
-public class V1PersistentVolumeClaimTemplateBuilder extends V1PersistentVolumeClaimTemplateFluentImpl<V1PersistentVolumeClaimTemplateBuilder> implements VisitableBuilder<V1PersistentVolumeClaimTemplate,V1PersistentVolumeClaimTemplateBuilder>{
+public class V1PersistentVolumeClaimTemplateBuilder extends V1PersistentVolumeClaimTemplateFluent<V1PersistentVolumeClaimTemplateBuilder> implements VisitableBuilder<V1PersistentVolumeClaimTemplate,V1PersistentVolumeClaimTemplateBuilder>{
   public V1PersistentVolumeClaimTemplateBuilder() {
-    this(false);
+    this(new V1PersistentVolumeClaimTemplate());
   }
-  public V1PersistentVolumeClaimTemplateBuilder(Boolean validationEnabled) {
-    this(new V1PersistentVolumeClaimTemplate(), validationEnabled);
-  }
+  
   public V1PersistentVolumeClaimTemplateBuilder(V1PersistentVolumeClaimTemplateFluent<?> fluent) {
-    this(fluent, false);
+    this(fluent, new V1PersistentVolumeClaimTemplate());
   }
-  public V1PersistentVolumeClaimTemplateBuilder(V1PersistentVolumeClaimTemplateFluent<?> fluent,Boolean validationEnabled) {
-    this(fluent, new V1PersistentVolumeClaimTemplate(), validationEnabled);
-  }
+  
   public V1PersistentVolumeClaimTemplateBuilder(V1PersistentVolumeClaimTemplateFluent<?> fluent,V1PersistentVolumeClaimTemplate instance) {
-    this(fluent, instance, false);
+    this.fluent = fluent;
+    fluent.copyInstance(instance);
   }
-  public V1PersistentVolumeClaimTemplateBuilder(V1PersistentVolumeClaimTemplateFluent<?> fluent,V1PersistentVolumeClaimTemplate instance,Boolean validationEnabled) {
-    this.fluent = fluent; 
-    if (instance != null) {
-      fluent.withMetadata(instance.getMetadata());
-      fluent.withSpec(instance.getSpec());
-    }
-    this.validationEnabled = validationEnabled; 
-  }
+  
   public V1PersistentVolumeClaimTemplateBuilder(V1PersistentVolumeClaimTemplate instance) {
-    this(instance,false);
-  }
-  public V1PersistentVolumeClaimTemplateBuilder(V1PersistentVolumeClaimTemplate instance,Boolean validationEnabled) {
-    this.fluent = this; 
-    if (instance != null) {
-      this.withMetadata(instance.getMetadata());
-      this.withSpec(instance.getSpec());
-    }
-    this.validationEnabled = validationEnabled; 
+    this.fluent = this;
+    this.copyInstance(instance);
   }
   V1PersistentVolumeClaimTemplateFluent<?> fluent;
-  Boolean validationEnabled;
+  
   public V1PersistentVolumeClaimTemplate build() {
     V1PersistentVolumeClaimTemplate buildable = new V1PersistentVolumeClaimTemplate();
-    buildable.setMetadata(fluent.getMetadata());
-    buildable.setSpec(fluent.getSpec());
+    buildable.setMetadata(fluent.buildMetadata());
+    buildable.setSpec(fluent.buildSpec());
     return buildable;
   }
   
+
 }
