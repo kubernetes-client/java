@@ -20,7 +20,7 @@
 
     <!-- These modules are released -->
     <module>util</module>
-    <module>kubernetes</module>
+    <module>kubernetes-legacy</module>
     <module>proto</module>
     <module>extended</module>
     <module>fluent</module>
