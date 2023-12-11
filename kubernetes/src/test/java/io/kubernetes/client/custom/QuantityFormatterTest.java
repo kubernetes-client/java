@@ -179,4 +179,12 @@ public class QuantityFormatterTest {
             .format(new Quantity(BigDecimal.valueOf(12345), Quantity.Format.DECIMAL_EXPONENT));
     assertThat(formattedString, is("12345"));
   }
+
+  @Test
+  public void testFormatLargeDecimalExponent() {
+    final String formattedString2 =
+            new QuantityFormatter()
+                    .format(new Quantity(Float.toString(123456789012.f)));
+    assertThat(formattedString2, is("123456791e3"));
+  }
 }
