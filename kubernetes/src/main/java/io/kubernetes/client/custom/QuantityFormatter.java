@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.custom;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.math.MathContext;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -64,9 +65,9 @@ public class QuantityFormatter {
 
   private String toBase1024String(final Quantity quantity) {
     final BigDecimal amount = quantity.getNumber();
-    final long value = amount.unscaledValue().longValue();
+    final BigInteger value = amount.unscaledValue();
     final int exponent = -amount.scale();
-    final Pair<Long, Integer> resultAndTimes = removeFactorsForBase(value, 1024);
+    final Pair<BigInteger, Integer> resultAndTimes = removeFactorsForBase(value, BigInteger.valueOf(1024));
     return resultAndTimes.getLeft()
         + new SuffixFormatter()
             .format(quantity.getFormat(), exponent + resultAndTimes.getRight() * 10);
@@ -74,33 +75,33 @@ public class QuantityFormatter {
 
   private String toBase10String(final Quantity quantity) {
     final BigDecimal amount = quantity.getNumber();
-    final long value = amount.unscaledValue().longValue();
+    final BigInteger value = amount.unscaledValue();
     final int exponent = -amount.scale();
-    final Pair<Long, Integer> resultAndTimes = removeFactorsForBase(value, 10);
+    final Pair<BigInteger, Integer> resultAndTimes = removeFactorsForBase(value, BigInteger.TEN);
     final int postFactoringExponent = exponent + resultAndTimes.getRight();
-    final Pair<Long, Integer> valueAndExponent =
+    final Pair<BigInteger, Integer> valueAndExponent =
         ensureExponentIsMultipleOf3(resultAndTimes.getLeft(), postFactoringExponent);
     return valueAndExponent.getLeft()
         + new SuffixFormatter().format(quantity.getFormat(), valueAndExponent.getRight());
   }
 
-  private Pair<Long, Integer> ensureExponentIsMultipleOf3(final long mantissa, final int exponent) {
+  private Pair<BigInteger, Integer> ensureExponentIsMultipleOf3(final BigInteger mantissa, final int exponent) {
     final long exponentRemainder = exponent % 3;
     if (exponentRemainder == 1 || exponentRemainder == -2) {
-      return Pair.of(mantissa * 10, exponent - 1);
+      return Pair.of(mantissa.multiply(BigInteger.TEN), exponent - 1);
     } else if (exponentRemainder == -1 || exponentRemainder == 2) {
-      return Pair.of(mantissa * 100, exponent - 2);
+      return Pair.of(mantissa.multiply(BigInteger.valueOf(100)), exponent - 2);
     } else {
       return Pair.of(mantissa, exponent);
     }
   }
 
-  private Pair<Long, Integer> removeFactorsForBase(final long value, final int base) {
+  private Pair<BigInteger, Integer> removeFactorsForBase(final BigInteger value, final BigInteger base) {
     int times = 0;
-    long result = value;
-    while (result >= base && result % base == 0) {
+    BigInteger result = value;
+    while (result.compareTo(base) >= 0 && result.mod(base).equals(BigInteger.ZERO)) {
       times++;
-      result = result / base;
+      result = result.divide(base);
     }
     return Pair.of(result, times);
   }
