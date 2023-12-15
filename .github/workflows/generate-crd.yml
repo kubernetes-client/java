@@ -48,7 +48,7 @@ jobs:
             -p ${{ github.event.inputs.generatingJavaPackage }} \
             -o "$(pwd)/${GEN_DIR}"
           ls -lh ${GEN_DIR}
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: generated-java-crd-model
           path: |
