@@ -22,9 +22,9 @@ import io.kubernetes.client.util.exception.IncompleteDiscoveryException;
 import java.io.File;
 
 import java.io.IOException;
+import java.net.JarURLConnection;
 import java.net.URI;
 import java.net.URL;
-import java.net.URLDecoder;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -484,10 +484,8 @@ public class ModelMapper {
   }
 
   private static void processJarPackage(URL packageURL, String packageName, String pkg, ArrayList<String> names) throws IOException {
-    String jarFileName = URLDecoder.decode(packageURL.getFile(), "UTF-8");
-    jarFileName = jarFileName.substring(5, jarFileName.indexOf("!"));
-    logger.info("Loading classes from jar {}", jarFileName);
-    try (JarFile jf = new JarFile(jarFileName)) {
+    logger.info("Loading classes from jar {}", packageURL.getFile());
+    try (JarFile jf = ((JarURLConnection) packageURL.openConnection()).getJarFile()) {
       Enumeration<JarEntry> jarEntries = jf.entries();
       while (jarEntries.hasMoreElements()) {
         processJarEntry(jarEntries.nextElement(), packageName, pkg, names);
