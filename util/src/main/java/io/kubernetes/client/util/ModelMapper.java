@@ -484,7 +484,11 @@ public class ModelMapper {
   }
 
   private static void processJarPackage(URL packageURL, String packageName, String pkg, ArrayList<String> names) throws IOException {
-    logger.info("Loading classes from jar {}", packageURL.getFile());
+    String jarFileName = URLDecoder.decode(packageURL.getFile(), "UTF-8");
+    if (!jarFileName.startsWith("jar:") && !jarFileName.startsWith("nested:")) {
+      logger.error("Loading classes from jar with error packageURL: {}", jarFileName);
+    }
+    logger.info("Loading classes from jar {}", jarFileName);
     try (JarFile jf = ((JarURLConnection) packageURL.openConnection()).getJarFile()) {
       Enumeration<JarEntry> jarEntries = jf.entries();
       while (jarEntries.hasMoreElements()) {
