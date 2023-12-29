@@ -487,6 +487,7 @@ public class ModelMapper {
     String jarFileName = URLDecoder.decode(packageURL.getFile(), "UTF-8");
     if (!jarFileName.startsWith("jar:") && !jarFileName.startsWith("nested:")) {
       logger.error("Loading classes from jar with error packageURL: {}", jarFileName);
+      return;
     }
     logger.info("Loading classes from jar {}", jarFileName);
     try (JarFile jf = ((JarURLConnection) packageURL.openConnection()).getJarFile()) {
