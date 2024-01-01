@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.net.JarURLConnection;
 import java.net.URI;
 import java.net.URL;
+import java.net.URLDecoder;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Enumeration;
