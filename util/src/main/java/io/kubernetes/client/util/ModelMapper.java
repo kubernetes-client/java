@@ -486,17 +486,26 @@ public class ModelMapper {
 
   private static void processJarPackage(URL packageURL, String packageName, String pkg, ArrayList<String> names) throws IOException {
     String jarFileName = URLDecoder.decode(packageURL.getFile(), "UTF-8");
-    if (!jarFileName.startsWith("jar:") && !jarFileName.startsWith("nested:")) {
+    JarFile jf = null;
+    // jar: client in repository; nested: client in a fat jar
+    if (jarFileName.startsWith("jar:") || jarFileName.startsWith("nested:")) {
+      jf = ((JarURLConnection) packageURL.openConnection()).getJarFile();
+    }
+    // file: client is a file in target (unit test)
+    if (jarFileName.startsWith("file:") ) {
+      jarFileName = jarFileName.substring(5, jarFileName.indexOf("!"));
+      jf = new JarFile(jarFileName);
+    }
+    if (jf == null) {
       logger.error("Loading classes from jar with error packageURL: {}", jarFileName);
       return;
     }
     logger.info("Loading classes from jar {}", jarFileName);
-    try (JarFile jf = ((JarURLConnection) packageURL.openConnection()).getJarFile()) {
-      Enumeration<JarEntry> jarEntries = jf.entries();
-      while (jarEntries.hasMoreElements()) {
-        processJarEntry(jarEntries.nextElement(), packageName, pkg, names);
-      }
+    Enumeration<JarEntry> jarEntries = jf.entries();
+    while (jarEntries.hasMoreElements()) {
+      processJarEntry(jarEntries.nextElement(), packageName, pkg, names);
     }
+    jf.close();
   }
 
   private static void processJarEntry(JarEntry jarEntry, String packageName, String pkg, ArrayList<String> names) {
