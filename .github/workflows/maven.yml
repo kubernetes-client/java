@@ -5,9 +5,9 @@ name: build
 
 on:
   push:
-    branches: [ "master", "release-**" ]
+    branches: [ "master", "master-java8", "release-**" ]
   pull_request:
-    branches: [ "master", "release-**" ]
+    branches: [ "master", "master-java8", "release-**" ]
 
 jobs:
   verify-format:
