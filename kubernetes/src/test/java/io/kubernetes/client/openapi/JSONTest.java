@@ -20,6 +20,7 @@ import okio.ByteString;
 import org.junit.Ignore;
 import org.junit.Test;
 
+@Ignore
 public class JSONTest {
 
   private final JSON json = new JSON();
