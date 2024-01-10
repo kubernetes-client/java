@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,30 +22,54 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1beta2NonResourcePolicyRule;
 import io.kubernetes.client.openapi.models.V1beta2ResourcePolicyRule;
 import io.kubernetes.client.openapi.models.V1beta2Subject;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.
  */
-@ApiModel(description = "PolicyRulesWithSubjects prescribes a test that applies to a request to an apiserver. The test considers the subject making the request, the verb being requested, and the resource to be acted upon. This PolicyRulesWithSubjects matches a request if and only if both (a) at least one member of subjects matches the request and (b) at least one member of resourceRules or nonResourceRules matches the request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1beta2PolicyRulesWithSubjects {
   public static final String SERIALIZED_NAME_NON_RESOURCE_RULES = "nonResourceRules";
   @SerializedName(SERIALIZED_NAME_NON_RESOURCE_RULES)
-  private List<V1beta2NonResourcePolicyRule> nonResourceRules = null;
+  private List<V1beta2NonResourcePolicyRule> nonResourceRules;
 
   public static final String SERIALIZED_NAME_RESOURCE_RULES = "resourceRules";
   @SerializedName(SERIALIZED_NAME_RESOURCE_RULES)
-  private List<V1beta2ResourcePolicyRule> resourceRules = null;
+  private List<V1beta2ResourcePolicyRule> resourceRules;
 
   public static final String SERIALIZED_NAME_SUBJECTS = "subjects";
   @SerializedName(SERIALIZED_NAME_SUBJECTS)
   private List<V1beta2Subject> subjects = new ArrayList<>();
 
+  public V1beta2PolicyRulesWithSubjects() {
+  }
 
   public V1beta2PolicyRulesWithSubjects nonResourceRules(List<V1beta2NonResourcePolicyRule> nonResourceRules) {
 
@@ -65,9 +89,7 @@ public class V1beta2PolicyRulesWithSubjects {
    * &#x60;nonResourceRules&#x60; is a list of NonResourcePolicyRules that identify matching requests according to their verb and the target non-resource URL.
    * @return nonResourceRules
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "`nonResourceRules` is a list of NonResourcePolicyRules that identify matching requests according to their verb and the target non-resource URL.")
-
+  @jakarta.annotation.Nullable
   public List<V1beta2NonResourcePolicyRule> getNonResourceRules() {
     return nonResourceRules;
   }
@@ -96,9 +118,7 @@ public class V1beta2PolicyRulesWithSubjects {
    * &#x60;resourceRules&#x60; is a slice of ResourcePolicyRules that identify matching requests according to their verb and the target resource. At least one of &#x60;resourceRules&#x60; and &#x60;nonResourceRules&#x60; has to be non-empty.
    * @return resourceRules
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "`resourceRules` is a slice of ResourcePolicyRules that identify matching requests according to their verb and the target resource. At least one of `resourceRules` and `nonResourceRules` has to be non-empty.")
-
+  @jakarta.annotation.Nullable
   public List<V1beta2ResourcePolicyRule> getResourceRules() {
     return resourceRules;
   }
@@ -116,6 +136,9 @@ public class V1beta2PolicyRulesWithSubjects {
   }
 
   public V1beta2PolicyRulesWithSubjects addSubjectsItem(V1beta2Subject subjectsItem) {
+    if (this.subjects == null) {
+      this.subjects = new ArrayList<>();
+    }
     this.subjects.add(subjectsItem);
     return this;
   }
@@ -124,8 +147,7 @@ public class V1beta2PolicyRulesWithSubjects {
    * subjects is the list of normal user, serviceaccount, or group that this rule cares about. There must be at least one member in this slice. A slice that includes both the system:authenticated and system:unauthenticated user groups matches every request. Required.
    * @return subjects
   **/
-  @ApiModelProperty(required = true, value = "subjects is the list of normal user, serviceaccount, or group that this rule cares about. There must be at least one member in this slice. A slice that includes both the system:authenticated and system:unauthenticated user groups matches every request. Required.")
-
+  @jakarta.annotation.Nonnull
   public List<V1beta2Subject> getSubjects() {
     return subjects;
   }
@@ -136,8 +158,9 @@ public class V1beta2PolicyRulesWithSubjects {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -155,7 +178,6 @@ public class V1beta2PolicyRulesWithSubjects {
     return Objects.hash(nonResourceRules, resourceRules, subjects);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -171,11 +193,142 @@ public class V1beta2PolicyRulesWithSubjects {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("nonResourceRules");
+    openapiFields.add("resourceRules");
+    openapiFields.add("subjects");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("subjects");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1beta2PolicyRulesWithSubjects
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1beta2PolicyRulesWithSubjects.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1beta2PolicyRulesWithSubjects is not found in the empty JSON string", V1beta2PolicyRulesWithSubjects.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1beta2PolicyRulesWithSubjects.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1beta2PolicyRulesWithSubjects` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1beta2PolicyRulesWithSubjects.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("nonResourceRules") != null && !jsonObj.get("nonResourceRules").isJsonNull()) {
+        JsonArray jsonArraynonResourceRules = jsonObj.getAsJsonArray("nonResourceRules");
+        if (jsonArraynonResourceRules != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("nonResourceRules").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `nonResourceRules` to be an array in the JSON string but got `%s`", jsonObj.get("nonResourceRules").toString()));
+          }
+
+          // validate the optional field `nonResourceRules` (array)
+          for (int i = 0; i < jsonArraynonResourceRules.size(); i++) {
+            V1beta2NonResourcePolicyRule.validateJsonObject(jsonArraynonResourceRules.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("resourceRules") != null && !jsonObj.get("resourceRules").isJsonNull()) {
+        JsonArray jsonArrayresourceRules = jsonObj.getAsJsonArray("resourceRules");
+        if (jsonArrayresourceRules != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("resourceRules").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `resourceRules` to be an array in the JSON string but got `%s`", jsonObj.get("resourceRules").toString()));
+          }
+
+          // validate the optional field `resourceRules` (array)
+          for (int i = 0; i < jsonArrayresourceRules.size(); i++) {
+            V1beta2ResourcePolicyRule.validateJsonObject(jsonArrayresourceRules.get(i).getAsJsonObject());
+          };
+        }
+      }
+      // ensure the json data is an array
+      if (!jsonObj.get("subjects").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subjects` to be an array in the JSON string but got `%s`", jsonObj.get("subjects").toString()));
+      }
+
+      JsonArray jsonArraysubjects = jsonObj.getAsJsonArray("subjects");
+      // validate the required field `subjects` (array)
+      for (int i = 0; i < jsonArraysubjects.size(); i++) {
+        V1beta2Subject.validateJsonObject(jsonArraysubjects.get(i).getAsJsonObject());
+      };
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1beta2PolicyRulesWithSubjects.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1beta2PolicyRulesWithSubjects' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1beta2PolicyRulesWithSubjects> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1beta2PolicyRulesWithSubjects.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1beta2PolicyRulesWithSubjects>() {
+           @Override
+           public void write(JsonWriter out, V1beta2PolicyRulesWithSubjects value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1beta2PolicyRulesWithSubjects read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1beta2PolicyRulesWithSubjects given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1beta2PolicyRulesWithSubjects
+  * @throws IOException if the JSON string is invalid with respect to V1beta2PolicyRulesWithSubjects
+  */
+  public static V1beta2PolicyRulesWithSubjects fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1beta2PolicyRulesWithSubjects.class);
+  }
+
+ /**
+  * Convert an instance of V1beta2PolicyRulesWithSubjects to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

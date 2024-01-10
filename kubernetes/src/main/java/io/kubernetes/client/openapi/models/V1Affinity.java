@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,15 +22,37 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NodeAffinity;
 import io.kubernetes.client.openapi.models.V1PodAffinity;
 import io.kubernetes.client.openapi.models.V1PodAntiAffinity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * Affinity is a group of affinity scheduling rules.
  */
-@ApiModel(description = "Affinity is a group of affinity scheduling rules.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1Affinity {
   public static final String SERIALIZED_NAME_NODE_AFFINITY = "nodeAffinity";
   @SerializedName(SERIALIZED_NAME_NODE_AFFINITY)
@@ -44,6 +66,8 @@ public class V1Affinity {
   @SerializedName(SERIALIZED_NAME_POD_ANTI_AFFINITY)
   private V1PodAntiAffinity podAntiAffinity;
 
+  public V1Affinity() {
+  }
 
   public V1Affinity nodeAffinity(V1NodeAffinity nodeAffinity) {
 
@@ -55,9 +79,7 @@ public class V1Affinity {
    * Get nodeAffinity
    * @return nodeAffinity
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1NodeAffinity getNodeAffinity() {
     return nodeAffinity;
   }
@@ -78,9 +100,7 @@ public class V1Affinity {
    * Get podAffinity
    * @return podAffinity
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1PodAffinity getPodAffinity() {
     return podAffinity;
   }
@@ -101,9 +121,7 @@ public class V1Affinity {
    * Get podAntiAffinity
    * @return podAntiAffinity
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1PodAntiAffinity getPodAntiAffinity() {
     return podAntiAffinity;
   }
@@ -114,8 +132,9 @@ public class V1Affinity {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -133,7 +152,6 @@ public class V1Affinity {
     return Objects.hash(nodeAffinity, podAffinity, podAntiAffinity);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -149,11 +167,108 @@ public class V1Affinity {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("nodeAffinity");
+    openapiFields.add("podAffinity");
+    openapiFields.add("podAntiAffinity");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Affinity
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Affinity.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Affinity is not found in the empty JSON string", V1Affinity.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Affinity.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Affinity` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `nodeAffinity`
+      if (jsonObj.get("nodeAffinity") != null && !jsonObj.get("nodeAffinity").isJsonNull()) {
+        V1NodeAffinity.validateJsonObject(jsonObj.getAsJsonObject("nodeAffinity"));
+      }
+      // validate the optional field `podAffinity`
+      if (jsonObj.get("podAffinity") != null && !jsonObj.get("podAffinity").isJsonNull()) {
+        V1PodAffinity.validateJsonObject(jsonObj.getAsJsonObject("podAffinity"));
+      }
+      // validate the optional field `podAntiAffinity`
+      if (jsonObj.get("podAntiAffinity") != null && !jsonObj.get("podAntiAffinity").isJsonNull()) {
+        V1PodAntiAffinity.validateJsonObject(jsonObj.getAsJsonObject("podAntiAffinity"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Affinity.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Affinity' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Affinity> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Affinity.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Affinity>() {
+           @Override
+           public void write(JsonWriter out, V1Affinity value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Affinity read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Affinity given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Affinity
+  * @throws IOException if the JSON string is invalid with respect to V1Affinity
+  */
+  public static V1Affinity fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Affinity.class);
+  }
+
+ /**
+  * Convert an instance of V1Affinity to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

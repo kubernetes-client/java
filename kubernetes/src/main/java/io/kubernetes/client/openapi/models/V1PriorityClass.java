@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,15 +20,37 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.
  */
-@ApiModel(description = "PriorityClass defines mapping from a priority class name to the priority integer value. The value can be any valid integer.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1PriorityClass implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -58,6 +80,8 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
   @SerializedName(SERIALIZED_NAME_VALUE)
   private Integer value;
 
+  public V1PriorityClass() {
+  }
 
   public V1PriorityClass apiVersion(String apiVersion) {
 
@@ -69,9 +93,7 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
-
+  @jakarta.annotation.Nullable
   public String getApiVersion() {
     return apiVersion;
   }
@@ -92,9 +114,7 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
    * description is an arbitrary string that usually provides guidelines on when this priority class should be used.
    * @return description
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "description is an arbitrary string that usually provides guidelines on when this priority class should be used.")
-
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }
@@ -115,9 +135,7 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
    * globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as &#x60;globalDefault&#x60;. However, if more than one PriorityClasses exists with their &#x60;globalDefault&#x60; field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.
    * @return globalDefault
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "globalDefault specifies whether this PriorityClass should be considered as the default priority for pods that do not have any priority class. Only one PriorityClass can be marked as `globalDefault`. However, if more than one PriorityClasses exists with their `globalDefault` field set to true, the smallest value of such global default PriorityClasses will be used as the default priority.")
-
+  @jakarta.annotation.Nullable
   public Boolean getGlobalDefault() {
     return globalDefault;
   }
@@ -138,9 +156,7 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
-
+  @jakarta.annotation.Nullable
   public String getKind() {
     return kind;
   }
@@ -161,9 +177,7 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
    * Get metadata
    * @return metadata
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
@@ -184,9 +198,7 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
    * preemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.
    * @return preemptionPolicy
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "preemptionPolicy is the Policy for preempting pods with lower priority. One of Never, PreemptLowerPriority. Defaults to PreemptLowerPriority if unset.")
-
+  @jakarta.annotation.Nullable
   public String getPreemptionPolicy() {
     return preemptionPolicy;
   }
@@ -207,8 +219,7 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
    * value represents the integer value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.
    * @return value
   **/
-  @ApiModelProperty(required = true, value = "value represents the integer value of this priority class. This is the actual priority that pods receive when they have the name of this class in their pod spec.")
-
+  @jakarta.annotation.Nonnull
   public Integer getValue() {
     return value;
   }
@@ -219,8 +230,9 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -242,7 +254,6 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
     return Objects.hash(apiVersion, description, globalDefault, kind, metadata, preemptionPolicy, value);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -262,11 +273,124 @@ public class V1PriorityClass implements io.kubernetes.client.common.KubernetesOb
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("apiVersion");
+    openapiFields.add("description");
+    openapiFields.add("globalDefault");
+    openapiFields.add("kind");
+    openapiFields.add("metadata");
+    openapiFields.add("preemptionPolicy");
+    openapiFields.add("value");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("value");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1PriorityClass
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1PriorityClass.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1PriorityClass is not found in the empty JSON string", V1PriorityClass.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1PriorityClass.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1PriorityClass` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1PriorityClass.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      // validate the optional field `metadata`
+      if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
+        V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+      }
+      if ((jsonObj.get("preemptionPolicy") != null && !jsonObj.get("preemptionPolicy").isJsonNull()) && !jsonObj.get("preemptionPolicy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `preemptionPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preemptionPolicy").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1PriorityClass.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1PriorityClass' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1PriorityClass> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1PriorityClass.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1PriorityClass>() {
+           @Override
+           public void write(JsonWriter out, V1PriorityClass value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1PriorityClass read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1PriorityClass given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1PriorityClass
+  * @throws IOException if the JSON string is invalid with respect to V1PriorityClass
+  */
+  public static V1PriorityClass fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1PriorityClass.class);
+  }
+
+ /**
+  * Convert an instance of V1PriorityClass to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

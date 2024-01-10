@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,18 +21,40 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1JobCondition;
 import io.kubernetes.client.openapi.models.V1UncountedTerminatedPods;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * JobStatus represents the current state of a Job.
  */
-@ApiModel(description = "JobStatus represents the current state of a Job.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1JobStatus {
   public static final String SERIALIZED_NAME_ACTIVE = "active";
   @SerializedName(SERIALIZED_NAME_ACTIVE)
@@ -48,7 +70,7 @@ public class V1JobStatus {
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private List<V1JobCondition> conditions = null;
+  private List<V1JobCondition> conditions;
 
   public static final String SERIALIZED_NAME_FAILED = "failed";
   @SerializedName(SERIALIZED_NAME_FAILED)
@@ -78,6 +100,8 @@ public class V1JobStatus {
   @SerializedName(SERIALIZED_NAME_UNCOUNTED_TERMINATED_PODS)
   private V1UncountedTerminatedPods uncountedTerminatedPods;
 
+  public V1JobStatus() {
+  }
 
   public V1JobStatus active(Integer active) {
 
@@ -89,9 +113,7 @@ public class V1JobStatus {
    * The number of pending and running pods.
    * @return active
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of pending and running pods.")
-
+  @jakarta.annotation.Nullable
   public Integer getActive() {
     return active;
   }
@@ -112,9 +134,7 @@ public class V1JobStatus {
    * completedIndexes holds the completed indexes when .spec.completionMode &#x3D; \&quot;Indexed\&quot; in a text format. The indexes are represented as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the completed indexes are 1, 3, 4, 5 and 7, they are represented as \&quot;1,3-5,7\&quot;.
    * @return completedIndexes
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "completedIndexes holds the completed indexes when .spec.completionMode = \"Indexed\" in a text format. The indexes are represented as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the completed indexes are 1, 3, 4, 5 and 7, they are represented as \"1,3-5,7\".")
-
+  @jakarta.annotation.Nullable
   public String getCompletedIndexes() {
     return completedIndexes;
   }
@@ -135,9 +155,7 @@ public class V1JobStatus {
    * Represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC. The completion time is only set when the job finishes successfully.
    * @return completionTime
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Represents time when the job was completed. It is not guaranteed to be set in happens-before order across separate operations. It is represented in RFC3339 form and is in UTC. The completion time is only set when the job finishes successfully.")
-
+  @jakarta.annotation.Nullable
   public OffsetDateTime getCompletionTime() {
     return completionTime;
   }
@@ -166,9 +184,7 @@ public class V1JobStatus {
    * The latest available observations of an object&#39;s current state. When a Job fails, one of the conditions will have type \&quot;Failed\&quot; and status true. When a Job is suspended, one of the conditions will have type \&quot;Suspended\&quot; and status true; when the Job is resumed, the status of this condition will become false. When a Job is completed, one of the conditions will have type \&quot;Complete\&quot; and status true. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
    * @return conditions
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The latest available observations of an object's current state. When a Job fails, one of the conditions will have type \"Failed\" and status true. When a Job is suspended, one of the conditions will have type \"Suspended\" and status true; when the Job is resumed, the status of this condition will become false. When a Job is completed, one of the conditions will have type \"Complete\" and status true. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/")
-
+  @jakarta.annotation.Nullable
   public List<V1JobCondition> getConditions() {
     return conditions;
   }
@@ -189,9 +205,7 @@ public class V1JobStatus {
    * The number of pods which reached phase Failed.
    * @return failed
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of pods which reached phase Failed.")
-
+  @jakarta.annotation.Nullable
   public Integer getFailed() {
     return failed;
   }
@@ -212,9 +226,7 @@ public class V1JobStatus {
    * FailedIndexes holds the failed indexes when backoffLimitPerIndex&#x3D;true. The indexes are represented in the text format analogous as for the &#x60;completedIndexes&#x60; field, ie. they are kept as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the failed indexes are 1, 3, 4, 5 and 7, they are represented as \&quot;1,3-5,7\&quot;. This field is alpha-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (disabled by default).
    * @return failedIndexes
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "FailedIndexes holds the failed indexes when backoffLimitPerIndex=true. The indexes are represented in the text format analogous as for the `completedIndexes` field, ie. they are kept as decimal integers separated by commas. The numbers are listed in increasing order. Three or more consecutive numbers are compressed and represented by the first and last element of the series, separated by a hyphen. For example, if the failed indexes are 1, 3, 4, 5 and 7, they are represented as \"1,3-5,7\". This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).")
-
+  @jakarta.annotation.Nullable
   public String getFailedIndexes() {
     return failedIndexes;
   }
@@ -235,9 +247,7 @@ public class V1JobStatus {
    * The number of pods which have a Ready condition.  This field is beta-level. The job controller populates the field when the feature gate JobReadyPods is enabled (enabled by default).
    * @return ready
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of pods which have a Ready condition.  This field is beta-level. The job controller populates the field when the feature gate JobReadyPods is enabled (enabled by default).")
-
+  @jakarta.annotation.Nullable
   public Integer getReady() {
     return ready;
   }
@@ -258,9 +268,7 @@ public class V1JobStatus {
    * Represents time when the job controller started processing a job. When a Job is created in the suspended state, this field is not set until the first time it is resumed. This field is reset every time a Job is resumed from suspension. It is represented in RFC3339 form and is in UTC.
    * @return startTime
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Represents time when the job controller started processing a job. When a Job is created in the suspended state, this field is not set until the first time it is resumed. This field is reset every time a Job is resumed from suspension. It is represented in RFC3339 form and is in UTC.")
-
+  @jakarta.annotation.Nullable
   public OffsetDateTime getStartTime() {
     return startTime;
   }
@@ -281,9 +289,7 @@ public class V1JobStatus {
    * The number of pods which reached phase Succeeded.
    * @return succeeded
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of pods which reached phase Succeeded.")
-
+  @jakarta.annotation.Nullable
   public Integer getSucceeded() {
     return succeeded;
   }
@@ -304,9 +310,7 @@ public class V1JobStatus {
    * The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).  This field is alpha-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (disabled by default).
    * @return terminating
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of pods which are terminating (in phase Pending or Running and have a deletionTimestamp).  This field is alpha-level. The job controller populates the field when the feature gate JobPodReplacementPolicy is enabled (disabled by default).")
-
+  @jakarta.annotation.Nullable
   public Integer getTerminating() {
     return terminating;
   }
@@ -327,9 +331,7 @@ public class V1JobStatus {
    * Get uncountedTerminatedPods
    * @return uncountedTerminatedPods
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1UncountedTerminatedPods getUncountedTerminatedPods() {
     return uncountedTerminatedPods;
   }
@@ -340,8 +342,9 @@ public class V1JobStatus {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -367,7 +370,6 @@ public class V1JobStatus {
     return Objects.hash(active, completedIndexes, completionTime, conditions, failed, failedIndexes, ready, startTime, succeeded, terminating, uncountedTerminatedPods);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -391,11 +393,128 @@ public class V1JobStatus {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("active");
+    openapiFields.add("completedIndexes");
+    openapiFields.add("completionTime");
+    openapiFields.add("conditions");
+    openapiFields.add("failed");
+    openapiFields.add("failedIndexes");
+    openapiFields.add("ready");
+    openapiFields.add("startTime");
+    openapiFields.add("succeeded");
+    openapiFields.add("terminating");
+    openapiFields.add("uncountedTerminatedPods");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1JobStatus
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1JobStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1JobStatus is not found in the empty JSON string", V1JobStatus.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1JobStatus.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JobStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("completedIndexes") != null && !jsonObj.get("completedIndexes").isJsonNull()) && !jsonObj.get("completedIndexes").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `completedIndexes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("completedIndexes").toString()));
+      }
+      if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
+        JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
+        if (jsonArrayconditions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("conditions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
+          }
+
+          // validate the optional field `conditions` (array)
+          for (int i = 0; i < jsonArrayconditions.size(); i++) {
+            V1JobCondition.validateJsonObject(jsonArrayconditions.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("failedIndexes") != null && !jsonObj.get("failedIndexes").isJsonNull()) && !jsonObj.get("failedIndexes").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `failedIndexes` to be a primitive type in the JSON string but got `%s`", jsonObj.get("failedIndexes").toString()));
+      }
+      // validate the optional field `uncountedTerminatedPods`
+      if (jsonObj.get("uncountedTerminatedPods") != null && !jsonObj.get("uncountedTerminatedPods").isJsonNull()) {
+        V1UncountedTerminatedPods.validateJsonObject(jsonObj.getAsJsonObject("uncountedTerminatedPods"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1JobStatus.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1JobStatus' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1JobStatus> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1JobStatus.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1JobStatus>() {
+           @Override
+           public void write(JsonWriter out, V1JobStatus value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1JobStatus read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1JobStatus given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1JobStatus
+  * @throws IOException if the JSON string is invalid with respect to V1JobStatus
+  */
+  public static V1JobStatus fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1JobStatus.class);
+  }
+
+ /**
+  * Convert an instance of V1JobStatus to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

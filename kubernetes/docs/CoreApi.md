@@ -2,14 +2,14 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAPIVersions**](CoreApi.md#getAPIVersions) | **GET** /api/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getAPIVersions**](CoreApi.md#getAPIVersions) | **GET** /api/ |  |
 
 
-<a name="getAPIVersions"></a>
+<a id="getAPIVersions"></a>
 # **getAPIVersions**
-> V1APIVersions getAPIVersions()
+> V1APIVersions getAPIVersions().execute();
 
 
 
@@ -38,7 +38,8 @@ public class Example {
 
     CoreApi apiInstance = new CoreApi(defaultClient);
     try {
-      V1APIVersions result = apiInstance.getAPIVersions();
+      V1APIVersions result = apiInstance.getAPIVersions()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling CoreApi#getAPIVersions");
@@ -70,6 +71,6 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
 

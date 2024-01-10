@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,21 +22,43 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition;
 import io.kubernetes.client.openapi.models.V1CustomResourceSubresources;
 import io.kubernetes.client.openapi.models.V1CustomResourceValidation;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * CustomResourceDefinitionVersion describes a version for CRD.
  */
-@ApiModel(description = "CustomResourceDefinitionVersion describes a version for CRD.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1CustomResourceDefinitionVersion {
   public static final String SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS = "additionalPrinterColumns";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS)
-  private List<V1CustomResourceColumnDefinition> additionalPrinterColumns = null;
+  private List<V1CustomResourceColumnDefinition> additionalPrinterColumns;
 
   public static final String SERIALIZED_NAME_DEPRECATED = "deprecated";
   @SerializedName(SERIALIZED_NAME_DEPRECATED)
@@ -66,6 +88,8 @@ public class V1CustomResourceDefinitionVersion {
   @SerializedName(SERIALIZED_NAME_SUBRESOURCES)
   private V1CustomResourceSubresources subresources;
 
+  public V1CustomResourceDefinitionVersion() {
+  }
 
   public V1CustomResourceDefinitionVersion additionalPrinterColumns(List<V1CustomResourceColumnDefinition> additionalPrinterColumns) {
 
@@ -85,9 +109,7 @@ public class V1CustomResourceDefinitionVersion {
    * additionalPrinterColumns specifies additional columns returned in Table output. See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If no columns are specified, a single column displaying the age of the custom resource is used.
    * @return additionalPrinterColumns
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "additionalPrinterColumns specifies additional columns returned in Table output. See https://kubernetes.io/docs/reference/using-api/api-concepts/#receiving-resources-as-tables for details. If no columns are specified, a single column displaying the age of the custom resource is used.")
-
+  @jakarta.annotation.Nullable
   public List<V1CustomResourceColumnDefinition> getAdditionalPrinterColumns() {
     return additionalPrinterColumns;
   }
@@ -108,9 +130,7 @@ public class V1CustomResourceDefinitionVersion {
    * deprecated indicates this version of the custom resource API is deprecated. When set to true, API requests to this version receive a warning header in the server response. Defaults to false.
    * @return deprecated
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "deprecated indicates this version of the custom resource API is deprecated. When set to true, API requests to this version receive a warning header in the server response. Defaults to false.")
-
+  @jakarta.annotation.Nullable
   public Boolean getDeprecated() {
     return deprecated;
   }
@@ -131,9 +151,7 @@ public class V1CustomResourceDefinitionVersion {
    * deprecationWarning overrides the default warning returned to API clients. May only be set when &#x60;deprecated&#x60; is true. The default warning indicates this version is deprecated and recommends use of the newest served version of equal or greater stability, if one exists.
    * @return deprecationWarning
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "deprecationWarning overrides the default warning returned to API clients. May only be set when `deprecated` is true. The default warning indicates this version is deprecated and recommends use of the newest served version of equal or greater stability, if one exists.")
-
+  @jakarta.annotation.Nullable
   public String getDeprecationWarning() {
     return deprecationWarning;
   }
@@ -154,8 +172,7 @@ public class V1CustomResourceDefinitionVersion {
    * name is the version name, e.g. “v1”, “v2beta1”, etc. The custom resources are served under this version at &#x60;/apis/&lt;group&gt;/&lt;version&gt;/...&#x60; if &#x60;served&#x60; is true.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "name is the version name, e.g. “v1”, “v2beta1”, etc. The custom resources are served under this version at `/apis/<group>/<version>/...` if `served` is true.")
-
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -176,9 +193,7 @@ public class V1CustomResourceDefinitionVersion {
    * Get schema
    * @return schema
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1CustomResourceValidation getSchema() {
     return schema;
   }
@@ -199,8 +214,7 @@ public class V1CustomResourceDefinitionVersion {
    * served is a flag enabling/disabling this version from being served via REST APIs
    * @return served
   **/
-  @ApiModelProperty(required = true, value = "served is a flag enabling/disabling this version from being served via REST APIs")
-
+  @jakarta.annotation.Nonnull
   public Boolean getServed() {
     return served;
   }
@@ -221,8 +235,7 @@ public class V1CustomResourceDefinitionVersion {
    * storage indicates this version should be used when persisting custom resources to storage. There must be exactly one version with storage&#x3D;true.
    * @return storage
   **/
-  @ApiModelProperty(required = true, value = "storage indicates this version should be used when persisting custom resources to storage. There must be exactly one version with storage=true.")
-
+  @jakarta.annotation.Nonnull
   public Boolean getStorage() {
     return storage;
   }
@@ -243,9 +256,7 @@ public class V1CustomResourceDefinitionVersion {
    * Get subresources
    * @return subresources
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1CustomResourceSubresources getSubresources() {
     return subresources;
   }
@@ -256,8 +267,9 @@ public class V1CustomResourceDefinitionVersion {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -280,7 +292,6 @@ public class V1CustomResourceDefinitionVersion {
     return Objects.hash(additionalPrinterColumns, deprecated, deprecationWarning, name, schema, served, storage, subresources);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -301,11 +312,139 @@ public class V1CustomResourceDefinitionVersion {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("additionalPrinterColumns");
+    openapiFields.add("deprecated");
+    openapiFields.add("deprecationWarning");
+    openapiFields.add("name");
+    openapiFields.add("schema");
+    openapiFields.add("served");
+    openapiFields.add("storage");
+    openapiFields.add("subresources");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("served");
+    openapiRequiredFields.add("storage");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1CustomResourceDefinitionVersion
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1CustomResourceDefinitionVersion.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1CustomResourceDefinitionVersion is not found in the empty JSON string", V1CustomResourceDefinitionVersion.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1CustomResourceDefinitionVersion.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CustomResourceDefinitionVersion` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1CustomResourceDefinitionVersion.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("additionalPrinterColumns") != null && !jsonObj.get("additionalPrinterColumns").isJsonNull()) {
+        JsonArray jsonArrayadditionalPrinterColumns = jsonObj.getAsJsonArray("additionalPrinterColumns");
+        if (jsonArrayadditionalPrinterColumns != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("additionalPrinterColumns").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `additionalPrinterColumns` to be an array in the JSON string but got `%s`", jsonObj.get("additionalPrinterColumns").toString()));
+          }
+
+          // validate the optional field `additionalPrinterColumns` (array)
+          for (int i = 0; i < jsonArrayadditionalPrinterColumns.size(); i++) {
+            V1CustomResourceColumnDefinition.validateJsonObject(jsonArrayadditionalPrinterColumns.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("deprecationWarning") != null && !jsonObj.get("deprecationWarning").isJsonNull()) && !jsonObj.get("deprecationWarning").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `deprecationWarning` to be a primitive type in the JSON string but got `%s`", jsonObj.get("deprecationWarning").toString()));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // validate the optional field `schema`
+      if (jsonObj.get("schema") != null && !jsonObj.get("schema").isJsonNull()) {
+        V1CustomResourceValidation.validateJsonObject(jsonObj.getAsJsonObject("schema"));
+      }
+      // validate the optional field `subresources`
+      if (jsonObj.get("subresources") != null && !jsonObj.get("subresources").isJsonNull()) {
+        V1CustomResourceSubresources.validateJsonObject(jsonObj.getAsJsonObject("subresources"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1CustomResourceDefinitionVersion.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1CustomResourceDefinitionVersion' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1CustomResourceDefinitionVersion> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1CustomResourceDefinitionVersion.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1CustomResourceDefinitionVersion>() {
+           @Override
+           public void write(JsonWriter out, V1CustomResourceDefinitionVersion value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1CustomResourceDefinitionVersion read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1CustomResourceDefinitionVersion given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1CustomResourceDefinitionVersion
+  * @throws IOException if the JSON string is invalid with respect to V1CustomResourceDefinitionVersion
+  */
+  public static V1CustomResourceDefinitionVersion fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1CustomResourceDefinitionVersion.class);
+  }
+
+ /**
+  * Convert an instance of V1CustomResourceDefinitionVersion to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

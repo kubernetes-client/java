@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,15 +23,37 @@ import io.kubernetes.client.openapi.models.V1Capabilities;
 import io.kubernetes.client.openapi.models.V1SELinuxOptions;
 import io.kubernetes.client.openapi.models.V1SeccompProfile;
 import io.kubernetes.client.openapi.models.V1WindowsSecurityContextOptions;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.
  */
-@ApiModel(description = "SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1SecurityContext {
   public static final String SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION = "allowPrivilegeEscalation";
   @SerializedName(SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION)
@@ -77,6 +99,8 @@ public class V1SecurityContext {
   @SerializedName(SERIALIZED_NAME_WINDOWS_OPTIONS)
   private V1WindowsSecurityContextOptions windowsOptions;
 
+  public V1SecurityContext() {
+  }
 
   public V1SecurityContext allowPrivilegeEscalation(Boolean allowPrivilegeEscalation) {
 
@@ -88,9 +112,7 @@ public class V1SecurityContext {
    * AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.
    * @return allowPrivilegeEscalation
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "AllowPrivilegeEscalation controls whether a process can gain more privileges than its parent process. This bool directly controls if the no_new_privs flag will be set on the container process. AllowPrivilegeEscalation is true always when the container is: 1) run as Privileged 2) has CAP_SYS_ADMIN Note that this field cannot be set when spec.os.name is windows.")
-
+  @jakarta.annotation.Nullable
   public Boolean getAllowPrivilegeEscalation() {
     return allowPrivilegeEscalation;
   }
@@ -111,9 +133,7 @@ public class V1SecurityContext {
    * Get capabilities
    * @return capabilities
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1Capabilities getCapabilities() {
     return capabilities;
   }
@@ -134,9 +154,7 @@ public class V1SecurityContext {
    * Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is windows.
    * @return privileged
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Run container in privileged mode. Processes in privileged containers are essentially equivalent to root on the host. Defaults to false. Note that this field cannot be set when spec.os.name is windows.")
-
+  @jakarta.annotation.Nullable
   public Boolean getPrivileged() {
     return privileged;
   }
@@ -157,9 +175,7 @@ public class V1SecurityContext {
    * procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.
    * @return procMount
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "procMount denotes the type of proc mount to use for the containers. The default is DefaultProcMount which uses the container runtime defaults for readonly paths and masked paths. This requires the ProcMountType feature flag to be enabled. Note that this field cannot be set when spec.os.name is windows.")
-
+  @jakarta.annotation.Nullable
   public String getProcMount() {
     return procMount;
   }
@@ -180,9 +196,7 @@ public class V1SecurityContext {
    * Whether this container has a read-only root filesystem. Default is false. Note that this field cannot be set when spec.os.name is windows.
    * @return readOnlyRootFilesystem
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Whether this container has a read-only root filesystem. Default is false. Note that this field cannot be set when spec.os.name is windows.")
-
+  @jakarta.annotation.Nullable
   public Boolean getReadOnlyRootFilesystem() {
     return readOnlyRootFilesystem;
   }
@@ -203,9 +217,7 @@ public class V1SecurityContext {
    * The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
    * @return runAsGroup
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The GID to run the entrypoint of the container process. Uses runtime default if unset. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.")
-
+  @jakarta.annotation.Nullable
   public Long getRunAsGroup() {
     return runAsGroup;
   }
@@ -226,9 +238,7 @@ public class V1SecurityContext {
    * Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.
    * @return runAsNonRoot
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates that the container must run as a non-root user. If true, the Kubelet will validate the image at runtime to ensure that it does not run as UID 0 (root) and fail to start the container if it does. If unset or false, no such validation will be performed. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence.")
-
+  @jakarta.annotation.Nullable
   public Boolean getRunAsNonRoot() {
     return runAsNonRoot;
   }
@@ -249,9 +259,7 @@ public class V1SecurityContext {
    * The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.
    * @return runAsUser
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The UID to run the entrypoint of the container process. Defaults to user specified in image metadata if unspecified. May also be set in PodSecurityContext.  If set in both SecurityContext and PodSecurityContext, the value specified in SecurityContext takes precedence. Note that this field cannot be set when spec.os.name is windows.")
-
+  @jakarta.annotation.Nullable
   public Long getRunAsUser() {
     return runAsUser;
   }
@@ -272,9 +280,7 @@ public class V1SecurityContext {
    * Get seLinuxOptions
    * @return seLinuxOptions
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1SELinuxOptions getSeLinuxOptions() {
     return seLinuxOptions;
   }
@@ -295,9 +301,7 @@ public class V1SecurityContext {
    * Get seccompProfile
    * @return seccompProfile
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1SeccompProfile getSeccompProfile() {
     return seccompProfile;
   }
@@ -318,9 +322,7 @@ public class V1SecurityContext {
    * Get windowsOptions
    * @return windowsOptions
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1WindowsSecurityContextOptions getWindowsOptions() {
     return windowsOptions;
   }
@@ -331,8 +333,9 @@ public class V1SecurityContext {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -358,7 +361,6 @@ public class V1SecurityContext {
     return Objects.hash(allowPrivilegeEscalation, capabilities, privileged, procMount, readOnlyRootFilesystem, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, windowsOptions);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -382,11 +384,123 @@ public class V1SecurityContext {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("allowPrivilegeEscalation");
+    openapiFields.add("capabilities");
+    openapiFields.add("privileged");
+    openapiFields.add("procMount");
+    openapiFields.add("readOnlyRootFilesystem");
+    openapiFields.add("runAsGroup");
+    openapiFields.add("runAsNonRoot");
+    openapiFields.add("runAsUser");
+    openapiFields.add("seLinuxOptions");
+    openapiFields.add("seccompProfile");
+    openapiFields.add("windowsOptions");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1SecurityContext
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1SecurityContext.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1SecurityContext is not found in the empty JSON string", V1SecurityContext.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1SecurityContext.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SecurityContext` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // validate the optional field `capabilities`
+      if (jsonObj.get("capabilities") != null && !jsonObj.get("capabilities").isJsonNull()) {
+        V1Capabilities.validateJsonObject(jsonObj.getAsJsonObject("capabilities"));
+      }
+      if ((jsonObj.get("procMount") != null && !jsonObj.get("procMount").isJsonNull()) && !jsonObj.get("procMount").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `procMount` to be a primitive type in the JSON string but got `%s`", jsonObj.get("procMount").toString()));
+      }
+      // validate the optional field `seLinuxOptions`
+      if (jsonObj.get("seLinuxOptions") != null && !jsonObj.get("seLinuxOptions").isJsonNull()) {
+        V1SELinuxOptions.validateJsonObject(jsonObj.getAsJsonObject("seLinuxOptions"));
+      }
+      // validate the optional field `seccompProfile`
+      if (jsonObj.get("seccompProfile") != null && !jsonObj.get("seccompProfile").isJsonNull()) {
+        V1SeccompProfile.validateJsonObject(jsonObj.getAsJsonObject("seccompProfile"));
+      }
+      // validate the optional field `windowsOptions`
+      if (jsonObj.get("windowsOptions") != null && !jsonObj.get("windowsOptions").isJsonNull()) {
+        V1WindowsSecurityContextOptions.validateJsonObject(jsonObj.getAsJsonObject("windowsOptions"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1SecurityContext.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1SecurityContext' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1SecurityContext> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1SecurityContext.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1SecurityContext>() {
+           @Override
+           public void write(JsonWriter out, V1SecurityContext value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1SecurityContext read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1SecurityContext given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1SecurityContext
+  * @throws IOException if the JSON string is invalid with respect to V1SecurityContext
+  */
+  public static V1SecurityContext fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1SecurityContext.class);
+  }
+
+ /**
+  * Convert an instance of V1SecurityContext to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

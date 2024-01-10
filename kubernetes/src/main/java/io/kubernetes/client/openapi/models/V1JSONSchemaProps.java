@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,19 +21,41 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ExternalDocumentation;
 import io.kubernetes.client.openapi.models.V1ValidationRule;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
  */
-@ApiModel(description = "JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1JSONSchemaProps {
   public static final String SERIALIZED_NAME_$_REF = "$ref";
   @SerializedName(SERIALIZED_NAME_$_REF)
@@ -53,11 +75,11 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_ALL_OF = "allOf";
   @SerializedName(SERIALIZED_NAME_ALL_OF)
-  private List<V1JSONSchemaProps> allOf = null;
+  private List<V1JSONSchemaProps> allOf;
 
   public static final String SERIALIZED_NAME_ANY_OF = "anyOf";
   @SerializedName(SERIALIZED_NAME_ANY_OF)
-  private List<V1JSONSchemaProps> anyOf = null;
+  private List<V1JSONSchemaProps> anyOf;
 
   public static final String SERIALIZED_NAME_DEFAULT = "default";
   @SerializedName(SERIALIZED_NAME_DEFAULT)
@@ -65,11 +87,11 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_DEFINITIONS = "definitions";
   @SerializedName(SERIALIZED_NAME_DEFINITIONS)
-  private Map<String, V1JSONSchemaProps> definitions = null;
+  private Map<String, V1JSONSchemaProps> definitions = new HashMap<>();
 
   public static final String SERIALIZED_NAME_DEPENDENCIES = "dependencies";
   @SerializedName(SERIALIZED_NAME_DEPENDENCIES)
-  private Map<String, Object> dependencies = null;
+  private Map<String, Object> dependencies = new HashMap<>();
 
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -77,7 +99,7 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_ENUM = "enum";
   @SerializedName(SERIALIZED_NAME_ENUM)
-  private List<Object> _enum = null;
+  private List<Object> _enum;
 
   public static final String SERIALIZED_NAME_EXAMPLE = "example";
   @SerializedName(SERIALIZED_NAME_EXAMPLE)
@@ -153,7 +175,7 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_ONE_OF = "oneOf";
   @SerializedName(SERIALIZED_NAME_ONE_OF)
-  private List<V1JSONSchemaProps> oneOf = null;
+  private List<V1JSONSchemaProps> oneOf;
 
   public static final String SERIALIZED_NAME_PATTERN = "pattern";
   @SerializedName(SERIALIZED_NAME_PATTERN)
@@ -161,15 +183,15 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_PATTERN_PROPERTIES = "patternProperties";
   @SerializedName(SERIALIZED_NAME_PATTERN_PROPERTIES)
-  private Map<String, V1JSONSchemaProps> patternProperties = null;
+  private Map<String, V1JSONSchemaProps> patternProperties = new HashMap<>();
 
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
-  private Map<String, V1JSONSchemaProps> properties = null;
+  private Map<String, V1JSONSchemaProps> properties = new HashMap<>();
 
   public static final String SERIALIZED_NAME_REQUIRED = "required";
   @SerializedName(SERIALIZED_NAME_REQUIRED)
-  private List<String> required = null;
+  private List<String> required;
 
   public static final String SERIALIZED_NAME_TITLE = "title";
   @SerializedName(SERIALIZED_NAME_TITLE)
@@ -193,7 +215,7 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_X_KUBERNETES_LIST_MAP_KEYS = "x-kubernetes-list-map-keys";
   @SerializedName(SERIALIZED_NAME_X_KUBERNETES_LIST_MAP_KEYS)
-  private List<String> xKubernetesListMapKeys = null;
+  private List<String> xKubernetesListMapKeys;
 
   public static final String SERIALIZED_NAME_X_KUBERNETES_LIST_TYPE = "x-kubernetes-list-type";
   @SerializedName(SERIALIZED_NAME_X_KUBERNETES_LIST_TYPE)
@@ -209,8 +231,10 @@ public class V1JSONSchemaProps {
 
   public static final String SERIALIZED_NAME_X_KUBERNETES_VALIDATIONS = "x-kubernetes-validations";
   @SerializedName(SERIALIZED_NAME_X_KUBERNETES_VALIDATIONS)
-  private List<V1ValidationRule> xKubernetesValidations = null;
+  private List<V1ValidationRule> xKubernetesValidations;
 
+  public V1JSONSchemaProps() {
+  }
 
   public V1JSONSchemaProps $ref(String $ref) {
 
@@ -222,9 +246,7 @@ public class V1JSONSchemaProps {
    * Get $ref
    * @return $ref
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public String get$Ref() {
     return $ref;
   }
@@ -245,9 +267,7 @@ public class V1JSONSchemaProps {
    * Get $schema
    * @return $schema
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public String get$Schema() {
     return $schema;
   }
@@ -268,9 +288,7 @@ public class V1JSONSchemaProps {
    * JSONSchemaPropsOrBool represents JSONSchemaProps or a boolean value. Defaults to true for the boolean property.
    * @return additionalItems
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "JSONSchemaPropsOrBool represents JSONSchemaProps or a boolean value. Defaults to true for the boolean property.")
-
+  @jakarta.annotation.Nullable
   public Object getAdditionalItems() {
     return additionalItems;
   }
@@ -291,9 +309,7 @@ public class V1JSONSchemaProps {
    * JSONSchemaPropsOrBool represents JSONSchemaProps or a boolean value. Defaults to true for the boolean property.
    * @return additionalProperties
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "JSONSchemaPropsOrBool represents JSONSchemaProps or a boolean value. Defaults to true for the boolean property.")
-
+  @jakarta.annotation.Nullable
   public Object getAdditionalProperties() {
     return additionalProperties;
   }
@@ -322,9 +338,7 @@ public class V1JSONSchemaProps {
    * Get allOf
    * @return allOf
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public List<V1JSONSchemaProps> getAllOf() {
     return allOf;
   }
@@ -353,9 +367,7 @@ public class V1JSONSchemaProps {
    * Get anyOf
    * @return anyOf
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public List<V1JSONSchemaProps> getAnyOf() {
     return anyOf;
   }
@@ -376,9 +388,7 @@ public class V1JSONSchemaProps {
    * default is a default value for undefined object fields. Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.
    * @return _default
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "default is a default value for undefined object fields. Defaulting is a beta feature under the CustomResourceDefaulting feature gate. Defaulting requires spec.preserveUnknownFields to be false.")
-
+  @jakarta.annotation.Nullable
   public Object getDefault() {
     return _default;
   }
@@ -407,9 +417,7 @@ public class V1JSONSchemaProps {
    * Get definitions
    * @return definitions
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Map<String, V1JSONSchemaProps> getDefinitions() {
     return definitions;
   }
@@ -438,9 +446,7 @@ public class V1JSONSchemaProps {
    * Get dependencies
    * @return dependencies
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Map<String, Object> getDependencies() {
     return dependencies;
   }
@@ -461,9 +467,7 @@ public class V1JSONSchemaProps {
    * Get description
    * @return description
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public String getDescription() {
     return description;
   }
@@ -492,9 +496,7 @@ public class V1JSONSchemaProps {
    * Get _enum
    * @return _enum
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public List<Object> getEnum() {
     return _enum;
   }
@@ -515,9 +517,7 @@ public class V1JSONSchemaProps {
    * JSON represents any valid JSON value. These types are supported: bool, int64, float64, string, []interface{}, map[string]interface{} and nil.
    * @return example
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "JSON represents any valid JSON value. These types are supported: bool, int64, float64, string, []interface{}, map[string]interface{} and nil.")
-
+  @jakarta.annotation.Nullable
   public Object getExample() {
     return example;
   }
@@ -538,9 +538,7 @@ public class V1JSONSchemaProps {
    * Get exclusiveMaximum
    * @return exclusiveMaximum
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Boolean getExclusiveMaximum() {
     return exclusiveMaximum;
   }
@@ -561,9 +559,7 @@ public class V1JSONSchemaProps {
    * Get exclusiveMinimum
    * @return exclusiveMinimum
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Boolean getExclusiveMinimum() {
     return exclusiveMinimum;
   }
@@ -584,9 +580,7 @@ public class V1JSONSchemaProps {
    * Get externalDocs
    * @return externalDocs
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1ExternalDocumentation getExternalDocs() {
     return externalDocs;
   }
@@ -607,9 +601,7 @@ public class V1JSONSchemaProps {
    * format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:  - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like \&quot;0321751043\&quot; or \&quot;978-0321751041\&quot; - isbn10: an ISBN10 number string like \&quot;0321751043\&quot; - isbn13: an ISBN13 number string like \&quot;978-0321751041\&quot; - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\\d{3}[- ]?\\d{2}[- ]?\\d{4}$ - hexcolor: an hexadecimal color code like \&quot;#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like \&quot;rgb(255,255,2559\&quot; - byte: base64 encoded binary data - password: any kind of string - date: a date string like \&quot;2006-01-02\&quot; as defined by full-date in RFC3339 - duration: a duration string like \&quot;22 ns\&quot; as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like \&quot;2014-12-15T19:30:20.000Z\&quot; as defined by date-time in RFC3339.
    * @return format
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "format is an OpenAPI v3 format string. Unknown formats are ignored. The following formats are validated:  - bsonobjectid: a bson object ID, i.e. a 24 characters hex string - uri: an URI as parsed by Golang net/url.ParseRequestURI - email: an email address as parsed by Golang net/mail.ParseAddress - hostname: a valid representation for an Internet host name, as defined by RFC 1034, section 3.1 [RFC1034]. - ipv4: an IPv4 IP as parsed by Golang net.ParseIP - ipv6: an IPv6 IP as parsed by Golang net.ParseIP - cidr: a CIDR as parsed by Golang net.ParseCIDR - mac: a MAC address as parsed by Golang net.ParseMAC - uuid: an UUID that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid3: an UUID3 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?3[0-9a-f]{3}-?[0-9a-f]{4}-?[0-9a-f]{12}$ - uuid4: an UUID4 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?4[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - uuid5: an UUID5 that allows uppercase defined by the regex (?i)^[0-9a-f]{8}-?[0-9a-f]{4}-?5[0-9a-f]{3}-?[89ab][0-9a-f]{3}-?[0-9a-f]{12}$ - isbn: an ISBN10 or ISBN13 number string like \"0321751043\" or \"978-0321751041\" - isbn10: an ISBN10 number string like \"0321751043\" - isbn13: an ISBN13 number string like \"978-0321751041\" - creditcard: a credit card number defined by the regex ^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\\d{3})\\d{11})$ with any non digit characters mixed in - ssn: a U.S. social security number following the regex ^\\d{3}[- ]?\\d{2}[- ]?\\d{4}$ - hexcolor: an hexadecimal color code like \"#FFFFFF: following the regex ^#?([0-9a-fA-F]{3}|[0-9a-fA-F]{6})$ - rgbcolor: an RGB color code like rgb like \"rgb(255,255,2559\" - byte: base64 encoded binary data - password: any kind of string - date: a date string like \"2006-01-02\" as defined by full-date in RFC3339 - duration: a duration string like \"22 ns\" as parsed by Golang time.ParseDuration or compatible with Scala duration format - datetime: a date time string like \"2014-12-15T19:30:20.000Z\" as defined by date-time in RFC3339.")
-
+  @jakarta.annotation.Nullable
   public String getFormat() {
     return format;
   }
@@ -630,9 +622,7 @@ public class V1JSONSchemaProps {
    * Get id
    * @return id
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public String getId() {
     return id;
   }
@@ -653,9 +643,7 @@ public class V1JSONSchemaProps {
    * JSONSchemaPropsOrArray represents a value that can either be a JSONSchemaProps or an array of JSONSchemaProps. Mainly here for serialization purposes.
    * @return items
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "JSONSchemaPropsOrArray represents a value that can either be a JSONSchemaProps or an array of JSONSchemaProps. Mainly here for serialization purposes.")
-
+  @jakarta.annotation.Nullable
   public Object getItems() {
     return items;
   }
@@ -676,9 +664,7 @@ public class V1JSONSchemaProps {
    * Get maxItems
    * @return maxItems
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Long getMaxItems() {
     return maxItems;
   }
@@ -699,9 +685,7 @@ public class V1JSONSchemaProps {
    * Get maxLength
    * @return maxLength
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Long getMaxLength() {
     return maxLength;
   }
@@ -722,9 +706,7 @@ public class V1JSONSchemaProps {
    * Get maxProperties
    * @return maxProperties
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Long getMaxProperties() {
     return maxProperties;
   }
@@ -745,9 +727,7 @@ public class V1JSONSchemaProps {
    * Get maximum
    * @return maximum
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Double getMaximum() {
     return maximum;
   }
@@ -768,9 +748,7 @@ public class V1JSONSchemaProps {
    * Get minItems
    * @return minItems
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Long getMinItems() {
     return minItems;
   }
@@ -791,9 +769,7 @@ public class V1JSONSchemaProps {
    * Get minLength
    * @return minLength
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Long getMinLength() {
     return minLength;
   }
@@ -814,9 +790,7 @@ public class V1JSONSchemaProps {
    * Get minProperties
    * @return minProperties
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Long getMinProperties() {
     return minProperties;
   }
@@ -837,9 +811,7 @@ public class V1JSONSchemaProps {
    * Get minimum
    * @return minimum
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Double getMinimum() {
     return minimum;
   }
@@ -860,9 +832,7 @@ public class V1JSONSchemaProps {
    * Get multipleOf
    * @return multipleOf
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Double getMultipleOf() {
     return multipleOf;
   }
@@ -883,9 +853,7 @@ public class V1JSONSchemaProps {
    * Get not
    * @return not
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1JSONSchemaProps getNot() {
     return not;
   }
@@ -906,9 +874,7 @@ public class V1JSONSchemaProps {
    * Get nullable
    * @return nullable
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Boolean getNullable() {
     return nullable;
   }
@@ -937,9 +903,7 @@ public class V1JSONSchemaProps {
    * Get oneOf
    * @return oneOf
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public List<V1JSONSchemaProps> getOneOf() {
     return oneOf;
   }
@@ -960,9 +924,7 @@ public class V1JSONSchemaProps {
    * Get pattern
    * @return pattern
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public String getPattern() {
     return pattern;
   }
@@ -991,9 +953,7 @@ public class V1JSONSchemaProps {
    * Get patternProperties
    * @return patternProperties
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Map<String, V1JSONSchemaProps> getPatternProperties() {
     return patternProperties;
   }
@@ -1022,9 +982,7 @@ public class V1JSONSchemaProps {
    * Get properties
    * @return properties
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Map<String, V1JSONSchemaProps> getProperties() {
     return properties;
   }
@@ -1053,9 +1011,7 @@ public class V1JSONSchemaProps {
    * Get required
    * @return required
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public List<String> getRequired() {
     return required;
   }
@@ -1076,9 +1032,7 @@ public class V1JSONSchemaProps {
    * Get title
    * @return title
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public String getTitle() {
     return title;
   }
@@ -1099,9 +1053,7 @@ public class V1JSONSchemaProps {
    * Get type
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public String getType() {
     return type;
   }
@@ -1122,9 +1074,7 @@ public class V1JSONSchemaProps {
    * Get uniqueItems
    * @return uniqueItems
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public Boolean getUniqueItems() {
     return uniqueItems;
   }
@@ -1145,9 +1095,7 @@ public class V1JSONSchemaProps {
    * x-kubernetes-embedded-resource defines that the value is an embedded Kubernetes runtime.Object, with TypeMeta and ObjectMeta. The type must be object. It is allowed to further restrict the embedded object. kind, apiVersion and metadata are validated automatically. x-kubernetes-preserve-unknown-fields is allowed to be true, but does not have to be if the object is fully specified (up to kind, apiVersion, metadata).
    * @return xKubernetesEmbeddedResource
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "x-kubernetes-embedded-resource defines that the value is an embedded Kubernetes runtime.Object, with TypeMeta and ObjectMeta. The type must be object. It is allowed to further restrict the embedded object. kind, apiVersion and metadata are validated automatically. x-kubernetes-preserve-unknown-fields is allowed to be true, but does not have to be if the object is fully specified (up to kind, apiVersion, metadata).")
-
+  @jakarta.annotation.Nullable
   public Boolean getxKubernetesEmbeddedResource() {
     return xKubernetesEmbeddedResource;
   }
@@ -1168,9 +1116,7 @@ public class V1JSONSchemaProps {
    * x-kubernetes-int-or-string specifies that this value is either an integer or a string. If this is true, an empty type is allowed and type as child of anyOf is permitted if following one of the following patterns:  1) anyOf:    - type: integer    - type: string 2) allOf:    - anyOf:      - type: integer      - type: string    - ... zero or more
    * @return xKubernetesIntOrString
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "x-kubernetes-int-or-string specifies that this value is either an integer or a string. If this is true, an empty type is allowed and type as child of anyOf is permitted if following one of the following patterns:  1) anyOf:    - type: integer    - type: string 2) allOf:    - anyOf:      - type: integer      - type: string    - ... zero or more")
-
+  @jakarta.annotation.Nullable
   public Boolean getxKubernetesIntOrString() {
     return xKubernetesIntOrString;
   }
@@ -1199,9 +1145,7 @@ public class V1JSONSchemaProps {
    * x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type &#x60;map&#x60; by specifying the keys used as the index of the map.  This tag MUST only be used on lists that have the \&quot;x-kubernetes-list-type\&quot; extension set to \&quot;map\&quot;. Also, the values specified for this attribute must be a scalar typed field of the child structure (no nesting is supported).  The properties specified must either be required or have a default value, to ensure those properties are present for all list items.
    * @return xKubernetesListMapKeys
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "x-kubernetes-list-map-keys annotates an array with the x-kubernetes-list-type `map` by specifying the keys used as the index of the map.  This tag MUST only be used on lists that have the \"x-kubernetes-list-type\" extension set to \"map\". Also, the values specified for this attribute must be a scalar typed field of the child structure (no nesting is supported).  The properties specified must either be required or have a default value, to ensure those properties are present for all list items.")
-
+  @jakarta.annotation.Nullable
   public List<String> getxKubernetesListMapKeys() {
     return xKubernetesListMapKeys;
   }
@@ -1222,9 +1166,7 @@ public class V1JSONSchemaProps {
    * x-kubernetes-list-type annotates an array to further describe its topology. This extension must only be used on lists and may have 3 possible values:  1) &#x60;atomic&#x60;: the list is treated as a single entity, like a scalar.      Atomic lists will be entirely replaced when updated. This extension      may be used on any type of list (struct, scalar, ...). 2) &#x60;set&#x60;:      Sets are lists that must not have multiple items with the same value. Each      value must be a scalar, an object with x-kubernetes-map-type &#x60;atomic&#x60; or an      array with x-kubernetes-list-type &#x60;atomic&#x60;. 3) &#x60;map&#x60;:      These lists are like maps in that their elements have a non-index key      used to identify them. Order is preserved upon merge. The map tag      must only be used on a list with elements of type object. Defaults to atomic for arrays.
    * @return xKubernetesListType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "x-kubernetes-list-type annotates an array to further describe its topology. This extension must only be used on lists and may have 3 possible values:  1) `atomic`: the list is treated as a single entity, like a scalar.      Atomic lists will be entirely replaced when updated. This extension      may be used on any type of list (struct, scalar, ...). 2) `set`:      Sets are lists that must not have multiple items with the same value. Each      value must be a scalar, an object with x-kubernetes-map-type `atomic` or an      array with x-kubernetes-list-type `atomic`. 3) `map`:      These lists are like maps in that their elements have a non-index key      used to identify them. Order is preserved upon merge. The map tag      must only be used on a list with elements of type object. Defaults to atomic for arrays.")
-
+  @jakarta.annotation.Nullable
   public String getxKubernetesListType() {
     return xKubernetesListType;
   }
@@ -1245,9 +1187,7 @@ public class V1JSONSchemaProps {
    * x-kubernetes-map-type annotates an object to further describe its topology. This extension must only be used when type is object and may have 2 possible values:  1) &#x60;granular&#x60;:      These maps are actual maps (key-value pairs) and each fields are independent      from each other (they can each be manipulated by separate actors). This is      the default behaviour for all maps. 2) &#x60;atomic&#x60;: the list is treated as a single entity, like a scalar.      Atomic maps will be entirely replaced when updated.
    * @return xKubernetesMapType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "x-kubernetes-map-type annotates an object to further describe its topology. This extension must only be used when type is object and may have 2 possible values:  1) `granular`:      These maps are actual maps (key-value pairs) and each fields are independent      from each other (they can each be manipulated by separate actors). This is      the default behaviour for all maps. 2) `atomic`: the list is treated as a single entity, like a scalar.      Atomic maps will be entirely replaced when updated.")
-
+  @jakarta.annotation.Nullable
   public String getxKubernetesMapType() {
     return xKubernetesMapType;
   }
@@ -1268,9 +1208,7 @@ public class V1JSONSchemaProps {
    * x-kubernetes-preserve-unknown-fields stops the API server decoding step from pruning fields which are not specified in the validation schema. This affects fields recursively, but switches back to normal pruning behaviour if nested properties or additionalProperties are specified in the schema. This can either be true or undefined. False is forbidden.
    * @return xKubernetesPreserveUnknownFields
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "x-kubernetes-preserve-unknown-fields stops the API server decoding step from pruning fields which are not specified in the validation schema. This affects fields recursively, but switches back to normal pruning behaviour if nested properties or additionalProperties are specified in the schema. This can either be true or undefined. False is forbidden.")
-
+  @jakarta.annotation.Nullable
   public Boolean getxKubernetesPreserveUnknownFields() {
     return xKubernetesPreserveUnknownFields;
   }
@@ -1299,9 +1237,7 @@ public class V1JSONSchemaProps {
    * x-kubernetes-validations describes a list of validation rules written in the CEL expression language. This field is an alpha-level. Using this field requires the feature gate &#x60;CustomResourceValidationExpressions&#x60; to be enabled.
    * @return xKubernetesValidations
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "x-kubernetes-validations describes a list of validation rules written in the CEL expression language. This field is an alpha-level. Using this field requires the feature gate `CustomResourceValidationExpressions` to be enabled.")
-
+  @jakarta.annotation.Nullable
   public List<V1ValidationRule> getxKubernetesValidations() {
     return xKubernetesValidations;
   }
@@ -1312,8 +1248,9 @@ public class V1JSONSchemaProps {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -1372,7 +1309,6 @@ public class V1JSONSchemaProps {
     return Objects.hash($ref, $schema, additionalItems, additionalProperties, allOf, anyOf, _default, definitions, dependencies, description, _enum, example, exclusiveMaximum, exclusiveMinimum, externalDocs, format, id, items, maxItems, maxLength, maxProperties, maximum, minItems, minLength, minProperties, minimum, multipleOf, not, nullable, oneOf, pattern, patternProperties, properties, required, title, type, uniqueItems, xKubernetesEmbeddedResource, xKubernetesIntOrString, xKubernetesListMapKeys, xKubernetesListType, xKubernetesMapType, xKubernetesPreserveUnknownFields, xKubernetesValidations);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -1429,11 +1365,243 @@ public class V1JSONSchemaProps {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("$ref");
+    openapiFields.add("$schema");
+    openapiFields.add("additionalItems");
+    openapiFields.add("additionalProperties");
+    openapiFields.add("allOf");
+    openapiFields.add("anyOf");
+    openapiFields.add("default");
+    openapiFields.add("definitions");
+    openapiFields.add("dependencies");
+    openapiFields.add("description");
+    openapiFields.add("enum");
+    openapiFields.add("example");
+    openapiFields.add("exclusiveMaximum");
+    openapiFields.add("exclusiveMinimum");
+    openapiFields.add("externalDocs");
+    openapiFields.add("format");
+    openapiFields.add("id");
+    openapiFields.add("items");
+    openapiFields.add("maxItems");
+    openapiFields.add("maxLength");
+    openapiFields.add("maxProperties");
+    openapiFields.add("maximum");
+    openapiFields.add("minItems");
+    openapiFields.add("minLength");
+    openapiFields.add("minProperties");
+    openapiFields.add("minimum");
+    openapiFields.add("multipleOf");
+    openapiFields.add("not");
+    openapiFields.add("nullable");
+    openapiFields.add("oneOf");
+    openapiFields.add("pattern");
+    openapiFields.add("patternProperties");
+    openapiFields.add("properties");
+    openapiFields.add("required");
+    openapiFields.add("title");
+    openapiFields.add("type");
+    openapiFields.add("uniqueItems");
+    openapiFields.add("x-kubernetes-embedded-resource");
+    openapiFields.add("x-kubernetes-int-or-string");
+    openapiFields.add("x-kubernetes-list-map-keys");
+    openapiFields.add("x-kubernetes-list-type");
+    openapiFields.add("x-kubernetes-map-type");
+    openapiFields.add("x-kubernetes-preserve-unknown-fields");
+    openapiFields.add("x-kubernetes-validations");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1JSONSchemaProps
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1JSONSchemaProps.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1JSONSchemaProps is not found in the empty JSON string", V1JSONSchemaProps.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1JSONSchemaProps.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JSONSchemaProps` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("$ref") != null && !jsonObj.get("$ref").isJsonNull()) && !jsonObj.get("$ref").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `$ref` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$ref").toString()));
+      }
+      if ((jsonObj.get("$schema") != null && !jsonObj.get("$schema").isJsonNull()) && !jsonObj.get("$schema").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `$schema` to be a primitive type in the JSON string but got `%s`", jsonObj.get("$schema").toString()));
+      }
+      if (jsonObj.get("allOf") != null && !jsonObj.get("allOf").isJsonNull()) {
+        JsonArray jsonArrayallOf = jsonObj.getAsJsonArray("allOf");
+        if (jsonArrayallOf != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("allOf").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `allOf` to be an array in the JSON string but got `%s`", jsonObj.get("allOf").toString()));
+          }
+
+          // validate the optional field `allOf` (array)
+          for (int i = 0; i < jsonArrayallOf.size(); i++) {
+            V1JSONSchemaProps.validateJsonObject(jsonArrayallOf.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if (jsonObj.get("anyOf") != null && !jsonObj.get("anyOf").isJsonNull()) {
+        JsonArray jsonArrayanyOf = jsonObj.getAsJsonArray("anyOf");
+        if (jsonArrayanyOf != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("anyOf").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `anyOf` to be an array in the JSON string but got `%s`", jsonObj.get("anyOf").toString()));
+          }
+
+          // validate the optional field `anyOf` (array)
+          for (int i = 0; i < jsonArrayanyOf.size(); i++) {
+            V1JSONSchemaProps.validateJsonObject(jsonArrayanyOf.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("enum") != null && !jsonObj.get("enum").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `enum` to be an array in the JSON string but got `%s`", jsonObj.get("enum").toString()));
+      }
+      // validate the optional field `externalDocs`
+      if (jsonObj.get("externalDocs") != null && !jsonObj.get("externalDocs").isJsonNull()) {
+        V1ExternalDocumentation.validateJsonObject(jsonObj.getAsJsonObject("externalDocs"));
+      }
+      if ((jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) && !jsonObj.get("format").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `format` to be a primitive type in the JSON string but got `%s`", jsonObj.get("format").toString()));
+      }
+      if ((jsonObj.get("id") != null && !jsonObj.get("id").isJsonNull()) && !jsonObj.get("id").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `id` to be a primitive type in the JSON string but got `%s`", jsonObj.get("id").toString()));
+      }
+      // validate the optional field `not`
+      if (jsonObj.get("not") != null && !jsonObj.get("not").isJsonNull()) {
+        V1JSONSchemaProps.validateJsonObject(jsonObj.getAsJsonObject("not"));
+      }
+      if (jsonObj.get("oneOf") != null && !jsonObj.get("oneOf").isJsonNull()) {
+        JsonArray jsonArrayoneOf = jsonObj.getAsJsonArray("oneOf");
+        if (jsonArrayoneOf != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("oneOf").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `oneOf` to be an array in the JSON string but got `%s`", jsonObj.get("oneOf").toString()));
+          }
+
+          // validate the optional field `oneOf` (array)
+          for (int i = 0; i < jsonArrayoneOf.size(); i++) {
+            V1JSONSchemaProps.validateJsonObject(jsonArrayoneOf.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("pattern") != null && !jsonObj.get("pattern").isJsonNull()) && !jsonObj.get("pattern").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pattern` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pattern").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("required") != null && !jsonObj.get("required").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `required` to be an array in the JSON string but got `%s`", jsonObj.get("required").toString()));
+      }
+      if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull()) && !jsonObj.get("title").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `title` to be a primitive type in the JSON string but got `%s`", jsonObj.get("title").toString()));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("x-kubernetes-list-map-keys") != null && !jsonObj.get("x-kubernetes-list-map-keys").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `x-kubernetes-list-map-keys` to be an array in the JSON string but got `%s`", jsonObj.get("x-kubernetes-list-map-keys").toString()));
+      }
+      if ((jsonObj.get("x-kubernetes-list-type") != null && !jsonObj.get("x-kubernetes-list-type").isJsonNull()) && !jsonObj.get("x-kubernetes-list-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `x-kubernetes-list-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("x-kubernetes-list-type").toString()));
+      }
+      if ((jsonObj.get("x-kubernetes-map-type") != null && !jsonObj.get("x-kubernetes-map-type").isJsonNull()) && !jsonObj.get("x-kubernetes-map-type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `x-kubernetes-map-type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("x-kubernetes-map-type").toString()));
+      }
+      if (jsonObj.get("x-kubernetes-validations") != null && !jsonObj.get("x-kubernetes-validations").isJsonNull()) {
+        JsonArray jsonArrayxKubernetesValidations = jsonObj.getAsJsonArray("x-kubernetes-validations");
+        if (jsonArrayxKubernetesValidations != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("x-kubernetes-validations").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `x-kubernetes-validations` to be an array in the JSON string but got `%s`", jsonObj.get("x-kubernetes-validations").toString()));
+          }
+
+          // validate the optional field `x-kubernetes-validations` (array)
+          for (int i = 0; i < jsonArrayxKubernetesValidations.size(); i++) {
+            V1ValidationRule.validateJsonObject(jsonArrayxKubernetesValidations.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1JSONSchemaProps.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1JSONSchemaProps' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1JSONSchemaProps> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1JSONSchemaProps.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1JSONSchemaProps>() {
+           @Override
+           public void write(JsonWriter out, V1JSONSchemaProps value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1JSONSchemaProps read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1JSONSchemaProps given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1JSONSchemaProps
+  * @throws IOException if the JSON string is invalid with respect to V1JSONSchemaProps
+  */
+  public static V1JSONSchemaProps fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1JSONSchemaProps.class);
+  }
+
+ /**
+  * Convert an instance of V1JSONSchemaProps to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

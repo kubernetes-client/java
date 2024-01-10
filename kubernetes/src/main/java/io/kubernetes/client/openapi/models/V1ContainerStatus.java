@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,22 +22,43 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
 import io.kubernetes.client.openapi.models.V1ContainerState;
 import io.kubernetes.client.openapi.models.V1ResourceRequirements;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * ContainerStatus contains details for the current status of this container.
  */
-@ApiModel(description = "ContainerStatus contains details for the current status of this container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1ContainerStatus {
   public static final String SERIALIZED_NAME_ALLOCATED_RESOURCES = "allocatedResources";
   @SerializedName(SERIALIZED_NAME_ALLOCATED_RESOURCES)
-  private Map<String, Quantity> allocatedResources = null;
+  private Map<String, Quantity> allocatedResources = new HashMap<>();
 
   public static final String SERIALIZED_NAME_CONTAINER_I_D = "containerID";
   @SerializedName(SERIALIZED_NAME_CONTAINER_I_D)
@@ -79,6 +100,8 @@ public class V1ContainerStatus {
   @SerializedName(SERIALIZED_NAME_STATE)
   private V1ContainerState state;
 
+  public V1ContainerStatus() {
+  }
 
   public V1ContainerStatus allocatedResources(Map<String, Quantity> allocatedResources) {
 
@@ -98,9 +121,7 @@ public class V1ContainerStatus {
    * AllocatedResources represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.
    * @return allocatedResources
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "AllocatedResources represents the compute resources allocated for this container by the node. Kubelet sets this value to Container.Resources.Requests upon successful pod admission and after successfully admitting desired pod resize.")
-
+  @jakarta.annotation.Nullable
   public Map<String, Quantity> getAllocatedResources() {
     return allocatedResources;
   }
@@ -121,9 +142,7 @@ public class V1ContainerStatus {
    * ContainerID is the ID of the container in the format &#39;&lt;type&gt;://&lt;container_id&gt;&#39;. Where type is a container runtime identifier, returned from Version call of CRI API (for example \&quot;containerd\&quot;).
    * @return containerID
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ContainerID is the ID of the container in the format '<type>://<container_id>'. Where type is a container runtime identifier, returned from Version call of CRI API (for example \"containerd\").")
-
+  @jakarta.annotation.Nullable
   public String getContainerID() {
     return containerID;
   }
@@ -144,8 +163,7 @@ public class V1ContainerStatus {
    * Image is the name of container image that the container is running. The container image may not match the image used in the PodSpec, as it may have been resolved by the runtime. More info: https://kubernetes.io/docs/concepts/containers/images.
    * @return image
   **/
-  @ApiModelProperty(required = true, value = "Image is the name of container image that the container is running. The container image may not match the image used in the PodSpec, as it may have been resolved by the runtime. More info: https://kubernetes.io/docs/concepts/containers/images.")
-
+  @jakarta.annotation.Nonnull
   public String getImage() {
     return image;
   }
@@ -166,8 +184,7 @@ public class V1ContainerStatus {
    * ImageID is the image ID of the container&#39;s image. The image ID may not match the image ID of the image used in the PodSpec, as it may have been resolved by the runtime.
    * @return imageID
   **/
-  @ApiModelProperty(required = true, value = "ImageID is the image ID of the container's image. The image ID may not match the image ID of the image used in the PodSpec, as it may have been resolved by the runtime.")
-
+  @jakarta.annotation.Nonnull
   public String getImageID() {
     return imageID;
   }
@@ -188,9 +205,7 @@ public class V1ContainerStatus {
    * Get lastState
    * @return lastState
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1ContainerState getLastState() {
     return lastState;
   }
@@ -211,8 +226,7 @@ public class V1ContainerStatus {
    * Name is a DNS_LABEL representing the unique name of the container. Each container in a pod must have a unique name across all container types. Cannot be updated.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "Name is a DNS_LABEL representing the unique name of the container. Each container in a pod must have a unique name across all container types. Cannot be updated.")
-
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -233,8 +247,7 @@ public class V1ContainerStatus {
    * Ready specifies whether the container is currently passing its readiness check. The value will change as readiness probes keep executing. If no readiness probes are specified, this field defaults to true once the container is fully started (see Started field).  The value is typically used to determine whether a container is ready to accept traffic.
    * @return ready
   **/
-  @ApiModelProperty(required = true, value = "Ready specifies whether the container is currently passing its readiness check. The value will change as readiness probes keep executing. If no readiness probes are specified, this field defaults to true once the container is fully started (see Started field).  The value is typically used to determine whether a container is ready to accept traffic.")
-
+  @jakarta.annotation.Nonnull
   public Boolean getReady() {
     return ready;
   }
@@ -255,9 +268,7 @@ public class V1ContainerStatus {
    * Get resources
    * @return resources
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1ResourceRequirements getResources() {
     return resources;
   }
@@ -278,8 +289,7 @@ public class V1ContainerStatus {
    * RestartCount holds the number of times the container has been restarted. Kubelet makes an effort to always increment the value, but there are cases when the state may be lost due to node restarts and then the value may be reset to 0. The value is never negative.
    * @return restartCount
   **/
-  @ApiModelProperty(required = true, value = "RestartCount holds the number of times the container has been restarted. Kubelet makes an effort to always increment the value, but there are cases when the state may be lost due to node restarts and then the value may be reset to 0. The value is never negative.")
-
+  @jakarta.annotation.Nonnull
   public Integer getRestartCount() {
     return restartCount;
   }
@@ -300,9 +310,7 @@ public class V1ContainerStatus {
    * Started indicates whether the container has finished its postStart lifecycle hook and passed its startup probe. Initialized as false, becomes true after startupProbe is considered successful. Resets to false when the container is restarted, or if kubelet loses state temporarily. In both cases, startup probes will run again. Is always true when no startupProbe is defined and container is running and has passed the postStart lifecycle hook. The null value must be treated the same as false.
    * @return started
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Started indicates whether the container has finished its postStart lifecycle hook and passed its startup probe. Initialized as false, becomes true after startupProbe is considered successful. Resets to false when the container is restarted, or if kubelet loses state temporarily. In both cases, startup probes will run again. Is always true when no startupProbe is defined and container is running and has passed the postStart lifecycle hook. The null value must be treated the same as false.")
-
+  @jakarta.annotation.Nullable
   public Boolean getStarted() {
     return started;
   }
@@ -323,9 +331,7 @@ public class V1ContainerStatus {
    * Get state
    * @return state
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1ContainerState getState() {
     return state;
   }
@@ -336,8 +342,9 @@ public class V1ContainerStatus {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -363,7 +370,6 @@ public class V1ContainerStatus {
     return Objects.hash(allocatedResources, containerID, image, imageID, lastState, name, ready, resources, restartCount, started, state);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -387,11 +393,140 @@ public class V1ContainerStatus {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("allocatedResources");
+    openapiFields.add("containerID");
+    openapiFields.add("image");
+    openapiFields.add("imageID");
+    openapiFields.add("lastState");
+    openapiFields.add("name");
+    openapiFields.add("ready");
+    openapiFields.add("resources");
+    openapiFields.add("restartCount");
+    openapiFields.add("started");
+    openapiFields.add("state");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("image");
+    openapiRequiredFields.add("imageID");
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("ready");
+    openapiRequiredFields.add("restartCount");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1ContainerStatus
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1ContainerStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ContainerStatus is not found in the empty JSON string", V1ContainerStatus.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1ContainerStatus.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ContainerStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1ContainerStatus.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("containerID") != null && !jsonObj.get("containerID").isJsonNull()) && !jsonObj.get("containerID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `containerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerID").toString()));
+      }
+      if (!jsonObj.get("image").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
+      }
+      if (!jsonObj.get("imageID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `imageID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("imageID").toString()));
+      }
+      // validate the optional field `lastState`
+      if (jsonObj.get("lastState") != null && !jsonObj.get("lastState").isJsonNull()) {
+        V1ContainerState.validateJsonObject(jsonObj.getAsJsonObject("lastState"));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // validate the optional field `resources`
+      if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull()) {
+        V1ResourceRequirements.validateJsonObject(jsonObj.getAsJsonObject("resources"));
+      }
+      // validate the optional field `state`
+      if (jsonObj.get("state") != null && !jsonObj.get("state").isJsonNull()) {
+        V1ContainerState.validateJsonObject(jsonObj.getAsJsonObject("state"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1ContainerStatus.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1ContainerStatus' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1ContainerStatus> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1ContainerStatus.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1ContainerStatus>() {
+           @Override
+           public void write(JsonWriter out, V1ContainerStatus value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1ContainerStatus read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1ContainerStatus given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1ContainerStatus
+  * @throws IOException if the JSON string is invalid with respect to V1ContainerStatus
+  */
+  public static V1ContainerStatus fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1ContainerStatus.class);
+  }
+
+ /**
+  * Convert an instance of V1ContainerStatus to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,27 +21,49 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1NonResourceAttributes;
 import io.kubernetes.client.openapi.models.V1ResourceAttributes;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set
  */
-@ApiModel(description = "SubjectAccessReviewSpec is a description of the access request.  Exactly one of ResourceAuthorizationAttributes and NonResourceAuthorizationAttributes must be set")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1SubjectAccessReviewSpec {
   public static final String SERIALIZED_NAME_EXTRA = "extra";
   @SerializedName(SERIALIZED_NAME_EXTRA)
-  private Map<String, List<String>> extra = null;
+  private Map<String, List<String>> extra = new HashMap<>();
 
   public static final String SERIALIZED_NAME_GROUPS = "groups";
   @SerializedName(SERIALIZED_NAME_GROUPS)
-  private List<String> groups = null;
+  private List<String> groups;
 
   public static final String SERIALIZED_NAME_NON_RESOURCE_ATTRIBUTES = "nonResourceAttributes";
   @SerializedName(SERIALIZED_NAME_NON_RESOURCE_ATTRIBUTES)
@@ -59,6 +81,8 @@ public class V1SubjectAccessReviewSpec {
   @SerializedName(SERIALIZED_NAME_USER)
   private String user;
 
+  public V1SubjectAccessReviewSpec() {
+  }
 
   public V1SubjectAccessReviewSpec extra(Map<String, List<String>> extra) {
 
@@ -78,9 +102,7 @@ public class V1SubjectAccessReviewSpec {
    * Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.
    * @return extra
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Extra corresponds to the user.Info.GetExtra() method from the authenticator.  Since that is input to the authorizer it needs a reflection here.")
-
+  @jakarta.annotation.Nullable
   public Map<String, List<String>> getExtra() {
     return extra;
   }
@@ -109,9 +131,7 @@ public class V1SubjectAccessReviewSpec {
    * Groups is the groups you&#39;re testing for.
    * @return groups
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Groups is the groups you're testing for.")
-
+  @jakarta.annotation.Nullable
   public List<String> getGroups() {
     return groups;
   }
@@ -132,9 +152,7 @@ public class V1SubjectAccessReviewSpec {
    * Get nonResourceAttributes
    * @return nonResourceAttributes
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1NonResourceAttributes getNonResourceAttributes() {
     return nonResourceAttributes;
   }
@@ -155,9 +173,7 @@ public class V1SubjectAccessReviewSpec {
    * Get resourceAttributes
    * @return resourceAttributes
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1ResourceAttributes getResourceAttributes() {
     return resourceAttributes;
   }
@@ -178,9 +194,7 @@ public class V1SubjectAccessReviewSpec {
    * UID information about the requesting user.
    * @return uid
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "UID information about the requesting user.")
-
+  @jakarta.annotation.Nullable
   public String getUid() {
     return uid;
   }
@@ -201,9 +215,7 @@ public class V1SubjectAccessReviewSpec {
    * User is the user you&#39;re testing for. If you specify \&quot;User\&quot; but not \&quot;Groups\&quot;, then is it interpreted as \&quot;What if User were not a member of any groups
    * @return user
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "User is the user you're testing for. If you specify \"User\" but not \"Groups\", then is it interpreted as \"What if User were not a member of any groups")
-
+  @jakarta.annotation.Nullable
   public String getUser() {
     return user;
   }
@@ -214,8 +226,9 @@ public class V1SubjectAccessReviewSpec {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -236,7 +249,6 @@ public class V1SubjectAccessReviewSpec {
     return Objects.hash(extra, groups, nonResourceAttributes, resourceAttributes, uid, user);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -255,11 +267,117 @@ public class V1SubjectAccessReviewSpec {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("extra");
+    openapiFields.add("groups");
+    openapiFields.add("nonResourceAttributes");
+    openapiFields.add("resourceAttributes");
+    openapiFields.add("uid");
+    openapiFields.add("user");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1SubjectAccessReviewSpec
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1SubjectAccessReviewSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1SubjectAccessReviewSpec is not found in the empty JSON string", V1SubjectAccessReviewSpec.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1SubjectAccessReviewSpec.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1SubjectAccessReviewSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("groups") != null && !jsonObj.get("groups").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `groups` to be an array in the JSON string but got `%s`", jsonObj.get("groups").toString()));
+      }
+      // validate the optional field `nonResourceAttributes`
+      if (jsonObj.get("nonResourceAttributes") != null && !jsonObj.get("nonResourceAttributes").isJsonNull()) {
+        V1NonResourceAttributes.validateJsonObject(jsonObj.getAsJsonObject("nonResourceAttributes"));
+      }
+      // validate the optional field `resourceAttributes`
+      if (jsonObj.get("resourceAttributes") != null && !jsonObj.get("resourceAttributes").isJsonNull()) {
+        V1ResourceAttributes.validateJsonObject(jsonObj.getAsJsonObject("resourceAttributes"));
+      }
+      if ((jsonObj.get("uid") != null && !jsonObj.get("uid").isJsonNull()) && !jsonObj.get("uid").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `uid` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uid").toString()));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1SubjectAccessReviewSpec.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1SubjectAccessReviewSpec' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1SubjectAccessReviewSpec> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1SubjectAccessReviewSpec.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1SubjectAccessReviewSpec>() {
+           @Override
+           public void write(JsonWriter out, V1SubjectAccessReviewSpec value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1SubjectAccessReviewSpec read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1SubjectAccessReviewSpec given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1SubjectAccessReviewSpec
+  * @throws IOException if the JSON string is invalid with respect to V1SubjectAccessReviewSpec
+  */
+  public static V1SubjectAccessReviewSpec fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1SubjectAccessReviewSpec.class);
+  }
+
+ /**
+  * Convert an instance of V1SubjectAccessReviewSpec to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

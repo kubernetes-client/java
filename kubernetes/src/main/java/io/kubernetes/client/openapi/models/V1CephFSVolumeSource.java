@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,17 +20,39 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LocalObjectReference;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.
  */
-@ApiModel(description = "Represents a Ceph Filesystem mount that lasts the lifetime of a pod Cephfs volumes do not support ownership management or SELinux relabeling.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1CephFSVolumeSource {
   public static final String SERIALIZED_NAME_MONITORS = "monitors";
   @SerializedName(SERIALIZED_NAME_MONITORS)
@@ -56,6 +78,8 @@ public class V1CephFSVolumeSource {
   @SerializedName(SERIALIZED_NAME_USER)
   private String user;
 
+  public V1CephFSVolumeSource() {
+  }
 
   public V1CephFSVolumeSource monitors(List<String> monitors) {
 
@@ -64,6 +88,9 @@ public class V1CephFSVolumeSource {
   }
 
   public V1CephFSVolumeSource addMonitorsItem(String monitorsItem) {
+    if (this.monitors == null) {
+      this.monitors = new ArrayList<>();
+    }
     this.monitors.add(monitorsItem);
     return this;
   }
@@ -72,8 +99,7 @@ public class V1CephFSVolumeSource {
    * monitors is Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    * @return monitors
   **/
-  @ApiModelProperty(required = true, value = "monitors is Required: Monitors is a collection of Ceph monitors More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
-
+  @jakarta.annotation.Nonnull
   public List<String> getMonitors() {
     return monitors;
   }
@@ -94,9 +120,7 @@ public class V1CephFSVolumeSource {
    * path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /
    * @return path
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "path is Optional: Used as the mounted root, rather than the full Ceph tree, default is /")
-
+  @jakarta.annotation.Nullable
   public String getPath() {
     return path;
   }
@@ -117,9 +141,7 @@ public class V1CephFSVolumeSource {
    * readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    * @return readOnly
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "readOnly is Optional: Defaults to false (read/write). ReadOnly here will force the ReadOnly setting in VolumeMounts. More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
-
+  @jakarta.annotation.Nullable
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -140,9 +162,7 @@ public class V1CephFSVolumeSource {
    * secretFile is Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    * @return secretFile
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "secretFile is Optional: SecretFile is the path to key ring for User, default is /etc/ceph/user.secret More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
-
+  @jakarta.annotation.Nullable
   public String getSecretFile() {
     return secretFile;
   }
@@ -163,9 +183,7 @@ public class V1CephFSVolumeSource {
    * Get secretRef
    * @return secretRef
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1LocalObjectReference getSecretRef() {
     return secretRef;
   }
@@ -186,9 +204,7 @@ public class V1CephFSVolumeSource {
    * user is optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it
    * @return user
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "user is optional: User is the rados user name, default is admin More info: https://examples.k8s.io/volumes/cephfs/README.md#how-to-use-it")
-
+  @jakarta.annotation.Nullable
   public String getUser() {
     return user;
   }
@@ -199,8 +215,9 @@ public class V1CephFSVolumeSource {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -221,7 +238,6 @@ public class V1CephFSVolumeSource {
     return Objects.hash(monitors, path, readOnly, secretFile, secretRef, user);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -240,11 +256,126 @@ public class V1CephFSVolumeSource {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("monitors");
+    openapiFields.add("path");
+    openapiFields.add("readOnly");
+    openapiFields.add("secretFile");
+    openapiFields.add("secretRef");
+    openapiFields.add("user");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("monitors");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1CephFSVolumeSource
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1CephFSVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1CephFSVolumeSource is not found in the empty JSON string", V1CephFSVolumeSource.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1CephFSVolumeSource.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1CephFSVolumeSource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1CephFSVolumeSource.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("monitors") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("monitors").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `monitors` to be an array in the JSON string but got `%s`", jsonObj.get("monitors").toString()));
+      }
+      if ((jsonObj.get("path") != null && !jsonObj.get("path").isJsonNull()) && !jsonObj.get("path").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `path` to be a primitive type in the JSON string but got `%s`", jsonObj.get("path").toString()));
+      }
+      if ((jsonObj.get("secretFile") != null && !jsonObj.get("secretFile").isJsonNull()) && !jsonObj.get("secretFile").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `secretFile` to be a primitive type in the JSON string but got `%s`", jsonObj.get("secretFile").toString()));
+      }
+      // validate the optional field `secretRef`
+      if (jsonObj.get("secretRef") != null && !jsonObj.get("secretRef").isJsonNull()) {
+        V1LocalObjectReference.validateJsonObject(jsonObj.getAsJsonObject("secretRef"));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1CephFSVolumeSource.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1CephFSVolumeSource' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1CephFSVolumeSource> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1CephFSVolumeSource.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1CephFSVolumeSource>() {
+           @Override
+           public void write(JsonWriter out, V1CephFSVolumeSource value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1CephFSVolumeSource read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1CephFSVolumeSource given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1CephFSVolumeSource
+  * @throws IOException if the JSON string is invalid with respect to V1CephFSVolumeSource
+  */
+  public static V1CephFSVolumeSource fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1CephFSVolumeSource.class);
+  }
+
+ /**
+  * Convert an instance of V1CephFSVolumeSource to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

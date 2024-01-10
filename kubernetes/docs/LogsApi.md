@@ -2,15 +2,15 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**logFileHandler**](LogsApi.md#logFileHandler) | **GET** /logs/{logpath} | 
-[**logFileListHandler**](LogsApi.md#logFileListHandler) | **GET** /logs/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**logFileHandler**](LogsApi.md#logFileHandler) | **GET** /logs/{logpath} |  |
+| [**logFileListHandler**](LogsApi.md#logFileListHandler) | **GET** /logs/ |  |
 
 
-<a name="logFileHandler"></a>
+<a id="logFileHandler"></a>
 # **logFileHandler**
-> logFileHandler(logpath)
+> logFileHandler(logpath).execute();
 
 
 
@@ -38,7 +38,8 @@ public class Example {
     LogsApi apiInstance = new LogsApi(defaultClient);
     String logpath = "logpath_example"; // String | path to the log
     try {
-      apiInstance.logFileHandler(logpath);
+      apiInstance.logFileHandler(logpath)
+            .execute();
     } catch (ApiException e) {
       System.err.println("Exception when calling LogsApi#logFileHandler");
       System.err.println("Status code: " + e.getCode());
@@ -52,9 +53,9 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **logpath** | **String**| path to the log |
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **logpath** | **String**| path to the log | |
 
 ### Return type
 
@@ -72,11 +73,11 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
+| **401** | Unauthorized |  -  |
 
-<a name="logFileListHandler"></a>
+<a id="logFileListHandler"></a>
 # **logFileListHandler**
-> logFileListHandler()
+> logFileListHandler().execute();
 
 
 
@@ -103,7 +104,8 @@ public class Example {
 
     LogsApi apiInstance = new LogsApi(defaultClient);
     try {
-      apiInstance.logFileListHandler();
+      apiInstance.logFileListHandler()
+            .execute();
     } catch (ApiException e) {
       System.err.println("Exception when calling LogsApi#logFileListHandler");
       System.err.println("Status code: " + e.getCode());
@@ -134,5 +136,5 @@ null (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
+| **401** | Unauthorized |  -  |
 

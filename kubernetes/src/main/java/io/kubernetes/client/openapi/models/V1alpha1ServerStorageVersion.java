@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,17 +19,39 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.
  */
-@ApiModel(description = "An API server instance reports the version it can decode and the version it encodes objects to when persisting objects in the backend.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1alpha1ServerStorageVersion {
   public static final String SERIALIZED_NAME_API_SERVER_I_D = "apiServerID";
   @SerializedName(SERIALIZED_NAME_API_SERVER_I_D)
@@ -37,7 +59,7 @@ public class V1alpha1ServerStorageVersion {
 
   public static final String SERIALIZED_NAME_DECODABLE_VERSIONS = "decodableVersions";
   @SerializedName(SERIALIZED_NAME_DECODABLE_VERSIONS)
-  private List<String> decodableVersions = null;
+  private List<String> decodableVersions;
 
   public static final String SERIALIZED_NAME_ENCODING_VERSION = "encodingVersion";
   @SerializedName(SERIALIZED_NAME_ENCODING_VERSION)
@@ -45,8 +67,10 @@ public class V1alpha1ServerStorageVersion {
 
   public static final String SERIALIZED_NAME_SERVED_VERSIONS = "servedVersions";
   @SerializedName(SERIALIZED_NAME_SERVED_VERSIONS)
-  private List<String> servedVersions = null;
+  private List<String> servedVersions;
 
+  public V1alpha1ServerStorageVersion() {
+  }
 
   public V1alpha1ServerStorageVersion apiServerID(String apiServerID) {
 
@@ -58,9 +82,7 @@ public class V1alpha1ServerStorageVersion {
    * The ID of the reporting API server.
    * @return apiServerID
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The ID of the reporting API server.")
-
+  @jakarta.annotation.Nullable
   public String getApiServerID() {
     return apiServerID;
   }
@@ -89,9 +111,7 @@ public class V1alpha1ServerStorageVersion {
    * The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.
    * @return decodableVersions
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The API server can decode objects encoded in these versions. The encodingVersion must be included in the decodableVersions.")
-
+  @jakarta.annotation.Nullable
   public List<String> getDecodableVersions() {
     return decodableVersions;
   }
@@ -112,9 +132,7 @@ public class V1alpha1ServerStorageVersion {
    * The API server encodes the object to this version when persisting it in the backend (e.g., etcd).
    * @return encodingVersion
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The API server encodes the object to this version when persisting it in the backend (e.g., etcd).")
-
+  @jakarta.annotation.Nullable
   public String getEncodingVersion() {
     return encodingVersion;
   }
@@ -143,9 +161,7 @@ public class V1alpha1ServerStorageVersion {
    * The API server can serve these versions. DecodableVersions must include all ServedVersions.
    * @return servedVersions
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The API server can serve these versions. DecodableVersions must include all ServedVersions.")
-
+  @jakarta.annotation.Nullable
   public List<String> getServedVersions() {
     return servedVersions;
   }
@@ -156,8 +172,9 @@ public class V1alpha1ServerStorageVersion {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -176,7 +193,6 @@ public class V1alpha1ServerStorageVersion {
     return Objects.hash(apiServerID, decodableVersions, encodingVersion, servedVersions);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -193,11 +209,111 @@ public class V1alpha1ServerStorageVersion {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("apiServerID");
+    openapiFields.add("decodableVersions");
+    openapiFields.add("encodingVersion");
+    openapiFields.add("servedVersions");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1alpha1ServerStorageVersion
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1alpha1ServerStorageVersion.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha1ServerStorageVersion is not found in the empty JSON string", V1alpha1ServerStorageVersion.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1alpha1ServerStorageVersion.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha1ServerStorageVersion` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("apiServerID") != null && !jsonObj.get("apiServerID").isJsonNull()) && !jsonObj.get("apiServerID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `apiServerID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiServerID").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("decodableVersions") != null && !jsonObj.get("decodableVersions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `decodableVersions` to be an array in the JSON string but got `%s`", jsonObj.get("decodableVersions").toString()));
+      }
+      if ((jsonObj.get("encodingVersion") != null && !jsonObj.get("encodingVersion").isJsonNull()) && !jsonObj.get("encodingVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `encodingVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("encodingVersion").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("servedVersions") != null && !jsonObj.get("servedVersions").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `servedVersions` to be an array in the JSON string but got `%s`", jsonObj.get("servedVersions").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1alpha1ServerStorageVersion.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1alpha1ServerStorageVersion' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1alpha1ServerStorageVersion> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1alpha1ServerStorageVersion.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1alpha1ServerStorageVersion>() {
+           @Override
+           public void write(JsonWriter out, V1alpha1ServerStorageVersion value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1alpha1ServerStorageVersion read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1alpha1ServerStorageVersion given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1alpha1ServerStorageVersion
+  * @throws IOException if the JSON string is invalid with respect to V1alpha1ServerStorageVersion
+  */
+  public static V1alpha1ServerStorageVersion fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1alpha1ServerStorageVersion.class);
+  }
+
+ /**
+  * Convert an instance of V1alpha1ServerStorageVersion to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

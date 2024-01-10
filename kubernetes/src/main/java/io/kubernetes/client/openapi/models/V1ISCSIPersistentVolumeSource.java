@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,17 +20,39 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1SecretReference;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * ISCSIPersistentVolumeSource represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.
  */
-@ApiModel(description = "ISCSIPersistentVolumeSource represents an ISCSI disk. ISCSI volumes can only be mounted as read/write once. ISCSI volumes support ownership management and SELinux relabeling.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1ISCSIPersistentVolumeSource {
   public static final String SERIALIZED_NAME_CHAP_AUTH_DISCOVERY = "chapAuthDiscovery";
   @SerializedName(SERIALIZED_NAME_CHAP_AUTH_DISCOVERY)
@@ -62,7 +84,7 @@ public class V1ISCSIPersistentVolumeSource {
 
   public static final String SERIALIZED_NAME_PORTALS = "portals";
   @SerializedName(SERIALIZED_NAME_PORTALS)
-  private List<String> portals = null;
+  private List<String> portals;
 
   public static final String SERIALIZED_NAME_READ_ONLY = "readOnly";
   @SerializedName(SERIALIZED_NAME_READ_ONLY)
@@ -76,6 +98,8 @@ public class V1ISCSIPersistentVolumeSource {
   @SerializedName(SERIALIZED_NAME_TARGET_PORTAL)
   private String targetPortal;
 
+  public V1ISCSIPersistentVolumeSource() {
+  }
 
   public V1ISCSIPersistentVolumeSource chapAuthDiscovery(Boolean chapAuthDiscovery) {
 
@@ -87,9 +111,7 @@ public class V1ISCSIPersistentVolumeSource {
    * chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication
    * @return chapAuthDiscovery
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "chapAuthDiscovery defines whether support iSCSI Discovery CHAP authentication")
-
+  @jakarta.annotation.Nullable
   public Boolean getChapAuthDiscovery() {
     return chapAuthDiscovery;
   }
@@ -110,9 +132,7 @@ public class V1ISCSIPersistentVolumeSource {
    * chapAuthSession defines whether support iSCSI Session CHAP authentication
    * @return chapAuthSession
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "chapAuthSession defines whether support iSCSI Session CHAP authentication")
-
+  @jakarta.annotation.Nullable
   public Boolean getChapAuthSession() {
     return chapAuthSession;
   }
@@ -133,9 +153,7 @@ public class V1ISCSIPersistentVolumeSource {
    * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi
    * @return fsType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#iscsi")
-
+  @jakarta.annotation.Nullable
   public String getFsType() {
     return fsType;
   }
@@ -156,9 +174,7 @@ public class V1ISCSIPersistentVolumeSource {
    * initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface &lt;target portal&gt;:&lt;volume name&gt; will be created for the connection.
    * @return initiatorName
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "initiatorName is the custom iSCSI Initiator Name. If initiatorName is specified with iscsiInterface simultaneously, new iSCSI interface <target portal>:<volume name> will be created for the connection.")
-
+  @jakarta.annotation.Nullable
   public String getInitiatorName() {
     return initiatorName;
   }
@@ -179,8 +195,7 @@ public class V1ISCSIPersistentVolumeSource {
    * iqn is Target iSCSI Qualified Name.
    * @return iqn
   **/
-  @ApiModelProperty(required = true, value = "iqn is Target iSCSI Qualified Name.")
-
+  @jakarta.annotation.Nonnull
   public String getIqn() {
     return iqn;
   }
@@ -201,9 +216,7 @@ public class V1ISCSIPersistentVolumeSource {
    * iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to &#39;default&#39; (tcp).
    * @return iscsiInterface
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "iscsiInterface is the interface Name that uses an iSCSI transport. Defaults to 'default' (tcp).")
-
+  @jakarta.annotation.Nullable
   public String getIscsiInterface() {
     return iscsiInterface;
   }
@@ -224,8 +237,7 @@ public class V1ISCSIPersistentVolumeSource {
    * lun is iSCSI Target Lun number.
    * @return lun
   **/
-  @ApiModelProperty(required = true, value = "lun is iSCSI Target Lun number.")
-
+  @jakarta.annotation.Nonnull
   public Integer getLun() {
     return lun;
   }
@@ -254,9 +266,7 @@ public class V1ISCSIPersistentVolumeSource {
    * portals is the iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
    * @return portals
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "portals is the iSCSI Target Portal List. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).")
-
+  @jakarta.annotation.Nullable
   public List<String> getPortals() {
     return portals;
   }
@@ -277,9 +287,7 @@ public class V1ISCSIPersistentVolumeSource {
    * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.
    * @return readOnly
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false.")
-
+  @jakarta.annotation.Nullable
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -300,9 +308,7 @@ public class V1ISCSIPersistentVolumeSource {
    * Get secretRef
    * @return secretRef
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1SecretReference getSecretRef() {
     return secretRef;
   }
@@ -323,8 +329,7 @@ public class V1ISCSIPersistentVolumeSource {
    * targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).
    * @return targetPortal
   **/
-  @ApiModelProperty(required = true, value = "targetPortal is iSCSI Target Portal. The Portal is either an IP or ip_addr:port if the port is other than default (typically TCP ports 860 and 3260).")
-
+  @jakarta.annotation.Nonnull
   public String getTargetPortal() {
     return targetPortal;
   }
@@ -335,8 +340,9 @@ public class V1ISCSIPersistentVolumeSource {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -362,7 +368,6 @@ public class V1ISCSIPersistentVolumeSource {
     return Objects.hash(chapAuthDiscovery, chapAuthSession, fsType, initiatorName, iqn, iscsiInterface, lun, portals, readOnly, secretRef, targetPortal);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -386,11 +391,137 @@ public class V1ISCSIPersistentVolumeSource {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("chapAuthDiscovery");
+    openapiFields.add("chapAuthSession");
+    openapiFields.add("fsType");
+    openapiFields.add("initiatorName");
+    openapiFields.add("iqn");
+    openapiFields.add("iscsiInterface");
+    openapiFields.add("lun");
+    openapiFields.add("portals");
+    openapiFields.add("readOnly");
+    openapiFields.add("secretRef");
+    openapiFields.add("targetPortal");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("iqn");
+    openapiRequiredFields.add("lun");
+    openapiRequiredFields.add("targetPortal");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1ISCSIPersistentVolumeSource
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1ISCSIPersistentVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ISCSIPersistentVolumeSource is not found in the empty JSON string", V1ISCSIPersistentVolumeSource.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1ISCSIPersistentVolumeSource.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ISCSIPersistentVolumeSource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1ISCSIPersistentVolumeSource.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("fsType") != null && !jsonObj.get("fsType").isJsonNull()) && !jsonObj.get("fsType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fsType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsType").toString()));
+      }
+      if ((jsonObj.get("initiatorName") != null && !jsonObj.get("initiatorName").isJsonNull()) && !jsonObj.get("initiatorName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `initiatorName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("initiatorName").toString()));
+      }
+      if (!jsonObj.get("iqn").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `iqn` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iqn").toString()));
+      }
+      if ((jsonObj.get("iscsiInterface") != null && !jsonObj.get("iscsiInterface").isJsonNull()) && !jsonObj.get("iscsiInterface").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `iscsiInterface` to be a primitive type in the JSON string but got `%s`", jsonObj.get("iscsiInterface").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("portals") != null && !jsonObj.get("portals").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `portals` to be an array in the JSON string but got `%s`", jsonObj.get("portals").toString()));
+      }
+      // validate the optional field `secretRef`
+      if (jsonObj.get("secretRef") != null && !jsonObj.get("secretRef").isJsonNull()) {
+        V1SecretReference.validateJsonObject(jsonObj.getAsJsonObject("secretRef"));
+      }
+      if (!jsonObj.get("targetPortal").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `targetPortal` to be a primitive type in the JSON string but got `%s`", jsonObj.get("targetPortal").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1ISCSIPersistentVolumeSource.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1ISCSIPersistentVolumeSource' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1ISCSIPersistentVolumeSource> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1ISCSIPersistentVolumeSource.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1ISCSIPersistentVolumeSource>() {
+           @Override
+           public void write(JsonWriter out, V1ISCSIPersistentVolumeSource value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1ISCSIPersistentVolumeSource read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1ISCSIPersistentVolumeSource given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1ISCSIPersistentVolumeSource
+  * @throws IOException if the JSON string is invalid with respect to V1ISCSIPersistentVolumeSource
+  */
+  public static V1ISCSIPersistentVolumeSource fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1ISCSIPersistentVolumeSource.class);
+  }
+
+ /**
+  * Convert an instance of V1ISCSIPersistentVolumeSource to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

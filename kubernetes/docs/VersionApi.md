@@ -2,14 +2,14 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getCode**](VersionApi.md#getCode) | **GET** /version/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getCode**](VersionApi.md#getCode) | **GET** /version/ |  |
 
 
-<a name="getCode"></a>
+<a id="getCode"></a>
 # **getCode**
-> VersionInfo getCode()
+> VersionInfo getCode().execute();
 
 
 
@@ -38,7 +38,8 @@ public class Example {
 
     VersionApi apiInstance = new VersionApi(defaultClient);
     try {
-      VersionInfo result = apiInstance.getCode();
+      VersionInfo result = apiInstance.getCode()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling VersionApi#getCode");
@@ -70,6 +71,6 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
 

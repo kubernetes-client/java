@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,15 +19,37 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * QueuingConfiguration holds the configuration parameters for queuing
  */
-@ApiModel(description = "QueuingConfiguration holds the configuration parameters for queuing")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1beta2QueuingConfiguration {
   public static final String SERIALIZED_NAME_HAND_SIZE = "handSize";
   @SerializedName(SERIALIZED_NAME_HAND_SIZE)
@@ -41,6 +63,8 @@ public class V1beta2QueuingConfiguration {
   @SerializedName(SERIALIZED_NAME_QUEUES)
   private Integer queues;
 
+  public V1beta2QueuingConfiguration() {
+  }
 
   public V1beta2QueuingConfiguration handSize(Integer handSize) {
 
@@ -52,9 +76,7 @@ public class V1beta2QueuingConfiguration {
    * &#x60;handSize&#x60; is a small positive number that configures the shuffle sharding of requests into queues.  When enqueuing a request at this priority level the request&#39;s flow identifier (a string pair) is hashed and the hash value is used to shuffle the list of queues and deal a hand of the size specified here.  The request is put into one of the shortest queues in that hand. &#x60;handSize&#x60; must be no larger than &#x60;queues&#x60;, and should be significantly smaller (so that a few heavy flows do not saturate most of the queues).  See the user-facing documentation for more extensive guidance on setting this field.  This field has a default value of 8.
    * @return handSize
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "`handSize` is a small positive number that configures the shuffle sharding of requests into queues.  When enqueuing a request at this priority level the request's flow identifier (a string pair) is hashed and the hash value is used to shuffle the list of queues and deal a hand of the size specified here.  The request is put into one of the shortest queues in that hand. `handSize` must be no larger than `queues`, and should be significantly smaller (so that a few heavy flows do not saturate most of the queues).  See the user-facing documentation for more extensive guidance on setting this field.  This field has a default value of 8.")
-
+  @jakarta.annotation.Nullable
   public Integer getHandSize() {
     return handSize;
   }
@@ -75,9 +97,7 @@ public class V1beta2QueuingConfiguration {
    * &#x60;queueLengthLimit&#x60; is the maximum number of requests allowed to be waiting in a given queue of this priority level at a time; excess requests are rejected.  This value must be positive.  If not specified, it will be defaulted to 50.
    * @return queueLengthLimit
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "`queueLengthLimit` is the maximum number of requests allowed to be waiting in a given queue of this priority level at a time; excess requests are rejected.  This value must be positive.  If not specified, it will be defaulted to 50.")
-
+  @jakarta.annotation.Nullable
   public Integer getQueueLengthLimit() {
     return queueLengthLimit;
   }
@@ -98,9 +118,7 @@ public class V1beta2QueuingConfiguration {
    * &#x60;queues&#x60; is the number of queues for this priority level. The queues exist independently at each apiserver. The value must be positive.  Setting it to 1 effectively precludes shufflesharding and thus makes the distinguisher method of associated flow schemas irrelevant.  This field has a default value of 64.
    * @return queues
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "`queues` is the number of queues for this priority level. The queues exist independently at each apiserver. The value must be positive.  Setting it to 1 effectively precludes shufflesharding and thus makes the distinguisher method of associated flow schemas irrelevant.  This field has a default value of 64.")
-
+  @jakarta.annotation.Nullable
   public Integer getQueues() {
     return queues;
   }
@@ -111,8 +129,9 @@ public class V1beta2QueuingConfiguration {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -130,7 +149,6 @@ public class V1beta2QueuingConfiguration {
     return Objects.hash(handSize, queueLengthLimit, queues);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -146,11 +164,96 @@ public class V1beta2QueuingConfiguration {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("handSize");
+    openapiFields.add("queueLengthLimit");
+    openapiFields.add("queues");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1beta2QueuingConfiguration
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1beta2QueuingConfiguration.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1beta2QueuingConfiguration is not found in the empty JSON string", V1beta2QueuingConfiguration.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1beta2QueuingConfiguration.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1beta2QueuingConfiguration` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1beta2QueuingConfiguration.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1beta2QueuingConfiguration' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1beta2QueuingConfiguration> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1beta2QueuingConfiguration.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1beta2QueuingConfiguration>() {
+           @Override
+           public void write(JsonWriter out, V1beta2QueuingConfiguration value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1beta2QueuingConfiguration read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1beta2QueuingConfiguration given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1beta2QueuingConfiguration
+  * @throws IOException if the JSON string is invalid with respect to V1beta2QueuingConfiguration
+  */
+  public static V1beta2QueuingConfiguration fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1beta2QueuingConfiguration.class);
+  }
+
+ /**
+  * Convert an instance of V1beta2QueuingConfiguration to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

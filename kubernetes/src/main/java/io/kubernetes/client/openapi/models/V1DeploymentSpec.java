@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,15 +22,37 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1DeploymentStrategy;
 import io.kubernetes.client.openapi.models.V1LabelSelector;
 import io.kubernetes.client.openapi.models.V1PodTemplateSpec;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * DeploymentSpec is the specification of the desired behavior of the Deployment.
  */
-@ApiModel(description = "DeploymentSpec is the specification of the desired behavior of the Deployment.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1DeploymentSpec {
   public static final String SERIALIZED_NAME_MIN_READY_SECONDS = "minReadySeconds";
   @SerializedName(SERIALIZED_NAME_MIN_READY_SECONDS)
@@ -64,6 +86,8 @@ public class V1DeploymentSpec {
   @SerializedName(SERIALIZED_NAME_TEMPLATE)
   private V1PodTemplateSpec template;
 
+  public V1DeploymentSpec() {
+  }
 
   public V1DeploymentSpec minReadySeconds(Integer minReadySeconds) {
 
@@ -75,9 +99,7 @@ public class V1DeploymentSpec {
    * Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)
    * @return minReadySeconds
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Minimum number of seconds for which a newly created pod should be ready without any of its container crashing, for it to be considered available. Defaults to 0 (pod will be considered available as soon as it is ready)")
-
+  @jakarta.annotation.Nullable
   public Integer getMinReadySeconds() {
     return minReadySeconds;
   }
@@ -98,9 +120,7 @@ public class V1DeploymentSpec {
    * Indicates that the deployment is paused.
    * @return paused
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Indicates that the deployment is paused.")
-
+  @jakarta.annotation.Nullable
   public Boolean getPaused() {
     return paused;
   }
@@ -121,9 +141,7 @@ public class V1DeploymentSpec {
    * The maximum time in seconds for a deployment to make progress before it is considered to be failed. The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. Defaults to 600s.
    * @return progressDeadlineSeconds
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The maximum time in seconds for a deployment to make progress before it is considered to be failed. The deployment controller will continue to process failed deployments and a condition with a ProgressDeadlineExceeded reason will be surfaced in the deployment status. Note that progress will not be estimated during the time a deployment is paused. Defaults to 600s.")
-
+  @jakarta.annotation.Nullable
   public Integer getProgressDeadlineSeconds() {
     return progressDeadlineSeconds;
   }
@@ -144,9 +162,7 @@ public class V1DeploymentSpec {
    * Number of desired pods. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.
    * @return replicas
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Number of desired pods. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.")
-
+  @jakarta.annotation.Nullable
   public Integer getReplicas() {
     return replicas;
   }
@@ -167,9 +183,7 @@ public class V1DeploymentSpec {
    * The number of old ReplicaSets to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.
    * @return revisionHistoryLimit
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of old ReplicaSets to retain to allow rollback. This is a pointer to distinguish between explicit zero and not specified. Defaults to 10.")
-
+  @jakarta.annotation.Nullable
   public Integer getRevisionHistoryLimit() {
     return revisionHistoryLimit;
   }
@@ -190,8 +204,7 @@ public class V1DeploymentSpec {
    * Get selector
    * @return selector
   **/
-  @ApiModelProperty(required = true, value = "")
-
+  @jakarta.annotation.Nonnull
   public V1LabelSelector getSelector() {
     return selector;
   }
@@ -212,9 +225,7 @@ public class V1DeploymentSpec {
    * Get strategy
    * @return strategy
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1DeploymentStrategy getStrategy() {
     return strategy;
   }
@@ -235,8 +246,7 @@ public class V1DeploymentSpec {
    * Get template
    * @return template
   **/
-  @ApiModelProperty(required = true, value = "")
-
+  @jakarta.annotation.Nonnull
   public V1PodTemplateSpec getTemplate() {
     return template;
   }
@@ -247,8 +257,9 @@ public class V1DeploymentSpec {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -271,7 +282,6 @@ public class V1DeploymentSpec {
     return Objects.hash(minReadySeconds, paused, progressDeadlineSeconds, replicas, revisionHistoryLimit, selector, strategy, template);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -292,11 +302,118 @@ public class V1DeploymentSpec {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("minReadySeconds");
+    openapiFields.add("paused");
+    openapiFields.add("progressDeadlineSeconds");
+    openapiFields.add("replicas");
+    openapiFields.add("revisionHistoryLimit");
+    openapiFields.add("selector");
+    openapiFields.add("strategy");
+    openapiFields.add("template");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("selector");
+    openapiRequiredFields.add("template");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1DeploymentSpec
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1DeploymentSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1DeploymentSpec is not found in the empty JSON string", V1DeploymentSpec.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1DeploymentSpec.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1DeploymentSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1DeploymentSpec.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // validate the required field `selector`
+      V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("selector"));
+      // validate the optional field `strategy`
+      if (jsonObj.get("strategy") != null && !jsonObj.get("strategy").isJsonNull()) {
+        V1DeploymentStrategy.validateJsonObject(jsonObj.getAsJsonObject("strategy"));
+      }
+      // validate the required field `template`
+      V1PodTemplateSpec.validateJsonObject(jsonObj.getAsJsonObject("template"));
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1DeploymentSpec.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1DeploymentSpec' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1DeploymentSpec> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1DeploymentSpec.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1DeploymentSpec>() {
+           @Override
+           public void write(JsonWriter out, V1DeploymentSpec value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1DeploymentSpec read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1DeploymentSpec given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1DeploymentSpec
+  * @throws IOException if the JSON string is invalid with respect to V1DeploymentSpec
+  */
+  public static V1DeploymentSpec fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1DeploymentSpec.class);
+  }
+
+ /**
+  * Convert an instance of V1DeploymentSpec to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

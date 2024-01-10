@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -21,21 +21,43 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LabelSelector;
 import io.kubernetes.client.openapi.models.V1alpha1NamedRuleWithOperations;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * MatchResources decides whether to run the admission control policy on an object based on whether it meets the match criteria. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)
  */
-@ApiModel(description = "MatchResources decides whether to run the admission control policy on an object based on whether it meets the match criteria. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1alpha1MatchResources {
   public static final String SERIALIZED_NAME_EXCLUDE_RESOURCE_RULES = "excludeResourceRules";
   @SerializedName(SERIALIZED_NAME_EXCLUDE_RESOURCE_RULES)
-  private List<V1alpha1NamedRuleWithOperations> excludeResourceRules = null;
+  private List<V1alpha1NamedRuleWithOperations> excludeResourceRules;
 
   public static final String SERIALIZED_NAME_MATCH_POLICY = "matchPolicy";
   @SerializedName(SERIALIZED_NAME_MATCH_POLICY)
@@ -51,8 +73,10 @@ public class V1alpha1MatchResources {
 
   public static final String SERIALIZED_NAME_RESOURCE_RULES = "resourceRules";
   @SerializedName(SERIALIZED_NAME_RESOURCE_RULES)
-  private List<V1alpha1NamedRuleWithOperations> resourceRules = null;
+  private List<V1alpha1NamedRuleWithOperations> resourceRules;
 
+  public V1alpha1MatchResources() {
+  }
 
   public V1alpha1MatchResources excludeResourceRules(List<V1alpha1NamedRuleWithOperations> excludeResourceRules) {
 
@@ -72,9 +96,7 @@ public class V1alpha1MatchResources {
    * ExcludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)
    * @return excludeResourceRules
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ExcludeResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy should not care about. The exclude rules take precedence over include rules (if a resource matches both, it is excluded)")
-
+  @jakarta.annotation.Nullable
   public List<V1alpha1NamedRuleWithOperations> getExcludeResourceRules() {
     return excludeResourceRules;
   }
@@ -95,9 +117,7 @@ public class V1alpha1MatchResources {
    * matchPolicy defines how the \&quot;MatchResources\&quot; list is used to match incoming requests. Allowed values are \&quot;Exact\&quot; or \&quot;Equivalent\&quot;.  - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but \&quot;rules\&quot; only included &#x60;apiGroups:[\&quot;apps\&quot;], apiVersions:[\&quot;v1\&quot;], resources: [\&quot;deployments\&quot;]&#x60;, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the ValidatingAdmissionPolicy.  - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and \&quot;rules\&quot; only included &#x60;apiGroups:[\&quot;apps\&quot;], apiVersions:[\&quot;v1\&quot;], resources: [\&quot;deployments\&quot;]&#x60;, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the ValidatingAdmissionPolicy.  Defaults to \&quot;Equivalent\&quot;
    * @return matchPolicy
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "matchPolicy defines how the \"MatchResources\" list is used to match incoming requests. Allowed values are \"Exact\" or \"Equivalent\".  - Exact: match a request only if it exactly matches a specified rule. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, but \"rules\" only included `apiGroups:[\"apps\"], apiVersions:[\"v1\"], resources: [\"deployments\"]`, a request to apps/v1beta1 or extensions/v1beta1 would not be sent to the ValidatingAdmissionPolicy.  - Equivalent: match a request if modifies a resource listed in rules, even via another API group or version. For example, if deployments can be modified via apps/v1, apps/v1beta1, and extensions/v1beta1, and \"rules\" only included `apiGroups:[\"apps\"], apiVersions:[\"v1\"], resources: [\"deployments\"]`, a request to apps/v1beta1 or extensions/v1beta1 would be converted to apps/v1 and sent to the ValidatingAdmissionPolicy.  Defaults to \"Equivalent\"")
-
+  @jakarta.annotation.Nullable
   public String getMatchPolicy() {
     return matchPolicy;
   }
@@ -118,9 +138,7 @@ public class V1alpha1MatchResources {
    * Get namespaceSelector
    * @return namespaceSelector
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1LabelSelector getNamespaceSelector() {
     return namespaceSelector;
   }
@@ -141,9 +159,7 @@ public class V1alpha1MatchResources {
    * Get objectSelector
    * @return objectSelector
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1LabelSelector getObjectSelector() {
     return objectSelector;
   }
@@ -172,9 +188,7 @@ public class V1alpha1MatchResources {
    * ResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.
    * @return resourceRules
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ResourceRules describes what operations on what resources/subresources the ValidatingAdmissionPolicy matches. The policy cares about an operation if it matches _any_ Rule.")
-
+  @jakarta.annotation.Nullable
   public List<V1alpha1NamedRuleWithOperations> getResourceRules() {
     return resourceRules;
   }
@@ -185,8 +199,9 @@ public class V1alpha1MatchResources {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -206,7 +221,6 @@ public class V1alpha1MatchResources {
     return Objects.hash(excludeResourceRules, matchPolicy, namespaceSelector, objectSelector, resourceRules);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -224,11 +238,137 @@ public class V1alpha1MatchResources {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("excludeResourceRules");
+    openapiFields.add("matchPolicy");
+    openapiFields.add("namespaceSelector");
+    openapiFields.add("objectSelector");
+    openapiFields.add("resourceRules");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1alpha1MatchResources
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1alpha1MatchResources.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1alpha1MatchResources is not found in the empty JSON string", V1alpha1MatchResources.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1alpha1MatchResources.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1alpha1MatchResources` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("excludeResourceRules") != null && !jsonObj.get("excludeResourceRules").isJsonNull()) {
+        JsonArray jsonArrayexcludeResourceRules = jsonObj.getAsJsonArray("excludeResourceRules");
+        if (jsonArrayexcludeResourceRules != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("excludeResourceRules").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `excludeResourceRules` to be an array in the JSON string but got `%s`", jsonObj.get("excludeResourceRules").toString()));
+          }
+
+          // validate the optional field `excludeResourceRules` (array)
+          for (int i = 0; i < jsonArrayexcludeResourceRules.size(); i++) {
+            V1alpha1NamedRuleWithOperations.validateJsonObject(jsonArrayexcludeResourceRules.get(i).getAsJsonObject());
+          };
+        }
+      }
+      if ((jsonObj.get("matchPolicy") != null && !jsonObj.get("matchPolicy").isJsonNull()) && !jsonObj.get("matchPolicy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `matchPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("matchPolicy").toString()));
+      }
+      // validate the optional field `namespaceSelector`
+      if (jsonObj.get("namespaceSelector") != null && !jsonObj.get("namespaceSelector").isJsonNull()) {
+        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("namespaceSelector"));
+      }
+      // validate the optional field `objectSelector`
+      if (jsonObj.get("objectSelector") != null && !jsonObj.get("objectSelector").isJsonNull()) {
+        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("objectSelector"));
+      }
+      if (jsonObj.get("resourceRules") != null && !jsonObj.get("resourceRules").isJsonNull()) {
+        JsonArray jsonArrayresourceRules = jsonObj.getAsJsonArray("resourceRules");
+        if (jsonArrayresourceRules != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("resourceRules").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `resourceRules` to be an array in the JSON string but got `%s`", jsonObj.get("resourceRules").toString()));
+          }
+
+          // validate the optional field `resourceRules` (array)
+          for (int i = 0; i < jsonArrayresourceRules.size(); i++) {
+            V1alpha1NamedRuleWithOperations.validateJsonObject(jsonArrayresourceRules.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1alpha1MatchResources.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1alpha1MatchResources' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1alpha1MatchResources> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1alpha1MatchResources.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1alpha1MatchResources>() {
+           @Override
+           public void write(JsonWriter out, V1alpha1MatchResources value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1alpha1MatchResources read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1alpha1MatchResources given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1alpha1MatchResources
+  * @throws IOException if the JSON string is invalid with respect to V1alpha1MatchResources
+  */
+  public static V1alpha1MatchResources fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1alpha1MatchResources.class);
+  }
+
+ /**
+  * Convert an instance of V1alpha1MatchResources to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
