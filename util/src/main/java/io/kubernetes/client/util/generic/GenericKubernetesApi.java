@@ -463,8 +463,9 @@ public class GenericKubernetesApi<
     return () ->
         adaptGetCall(
             customObjectsApi.getApiClient(),
-            customObjectsApi.getClusterCustomObjectCall(
-                this.apiGroup, this.apiVersion, this.resourcePlural, name, null),
+            customObjectsApi.getClusterCustomObject(
+                this.apiGroup, this.apiVersion, this.resourcePlural, name)
+                    .buildCall(null),
             getOptions);
   }
 
@@ -529,8 +530,9 @@ public class GenericKubernetesApi<
     return () ->
         adaptGetCall(
             customObjectsApi.getApiClient(),
-            customObjectsApi.getNamespacedCustomObjectCall(
-                this.apiGroup, this.apiVersion, namespace, this.resourcePlural, name, null),
+            customObjectsApi.getNamespacedCustomObject(
+                this.apiGroup, this.apiVersion, namespace, this.resourcePlural, name)
+                    .buildCall(null),
             getOptions);
   }
 
@@ -576,21 +578,14 @@ public class GenericKubernetesApi<
     return () ->
         adaptListCall(
             customObjectsApi.getApiClient(),
-            customObjectsApi.listClusterCustomObjectCall(
-                this.apiGroup,
-                this.apiVersion,
-                this.resourcePlural,
-                null,
-                false,
-                listOptions.getContinue(),
-                listOptions.getFieldSelector(),
-                listOptions.getLabelSelector(),
-                listOptions.getLimit(),
-                listOptions.getResourceVersion(),
-                null,
-                listOptions.getTimeoutSeconds(),
-                false,
-                null),
+            customObjectsApi.listClusterCustomObject( this.apiGroup, this.apiVersion, this.resourcePlural)
+                    .fieldSelector(listOptions.getFieldSelector())
+                    .labelSelector(listOptions.getLabelSelector())
+                    .limit(listOptions.getLimit())
+                    .resourceVersion(listOptions.getResourceVersion())
+                    .timeoutSeconds(listOptions.getTimeoutSeconds())
+                    .watch(false)
+                    .buildCall(null),
             listOptions);
   }
 
@@ -629,22 +624,15 @@ public class GenericKubernetesApi<
     return () ->
         adaptListCall(
             customObjectsApi.getApiClient(),
-            customObjectsApi.listNamespacedCustomObjectCall(
-                this.apiGroup,
-                this.apiVersion,
-                namespace,
-                this.resourcePlural,
-                null,
-                null,
-                listOptions.getContinue(),
-                listOptions.getFieldSelector(),
-                listOptions.getLabelSelector(),
-                listOptions.getLimit(),
-                listOptions.getResourceVersion(),
-                null,
-                listOptions.getTimeoutSeconds(),
-                false,
-                null),
+            customObjectsApi.listNamespacedCustomObject(this.apiGroup, this.apiVersion, namespace, this.resourcePlural)
+                    ._continue(listOptions.getContinue())
+                    .fieldSelector(listOptions.getFieldSelector())
+                    .labelSelector(listOptions.getLabelSelector())
+                    .limit(listOptions.getLimit())
+                    .resourceVersion(listOptions.getResourceVersion())
+                    .timeoutSeconds(listOptions.getTimeoutSeconds())
+                    .watch(false)
+                    .buildCall(null),
             listOptions);
   }
 
@@ -712,15 +700,14 @@ public class GenericKubernetesApi<
       ApiType object, final CreateOptions createOptions) {
     // TODO(yue9944882): judge namespaced object via api discovery
     return () ->
-        customObjectsApi.createClusterCustomObjectCall(
+        customObjectsApi.createClusterCustomObject(
             this.apiGroup,
             this.apiVersion,
             this.resourcePlural,
-            object,
-            null,
-            createOptions.getDryRun(),
-            createOptions.getFieldManager(),
-            null);
+            object)
+                .dryRun(createOptions.getDryRun())
+                .dryRun(createOptions.getFieldManager())
+                .buildCall(null);
   }
 
   /**
@@ -743,16 +730,15 @@ public class GenericKubernetesApi<
       String namespace, ApiType object, final CreateOptions createOptions) {
     // TODO(yue9944882): judge namespaced object via api discovery
     return () ->
-        customObjectsApi.createNamespacedCustomObjectCall(
+        customObjectsApi.createNamespacedCustomObject(
             this.apiGroup,
             this.apiVersion,
             namespace,
             this.resourcePlural,
-            object,
-            null,
-            createOptions.getDryRun(),
-            createOptions.getFieldManager(),
-            null);
+            object)
+                .dryRun(createOptions.getDryRun())
+                .fieldManager(createOptions.getFieldManager())
+                .buildCall(null);
   }
 
   /**
@@ -821,25 +807,25 @@ public class GenericKubernetesApi<
     return () ->
         //// TODO(yue9944882): judge namespaced object via api discovery
         isNamespaced
-            ? customObjectsApi.replaceNamespacedCustomObjectCall(
+            ? customObjectsApi.replaceNamespacedCustomObject(
                 this.apiGroup,
                 this.apiVersion,
                 objectMeta.getNamespace(),
                 this.resourcePlural,
                 objectMeta.getName(),
-                object,
-                updateOptions.getDryRun(),
-                updateOptions.getFieldManager(),
-                null)
-            : customObjectsApi.replaceClusterCustomObjectCall(
+                object)
+                .dryRun(updateOptions.getDryRun())
+                .fieldManager(updateOptions.getFieldManager())
+                .buildCall(null)
+            : customObjectsApi.replaceClusterCustomObject(
                 this.apiGroup,
                 this.apiVersion,
                 this.resourcePlural,
                 objectMeta.getName(),
-                object,
-                updateOptions.getDryRun(),
-                updateOptions.getFieldManager(),
-                null);
+                object)
+                .dryRun(updateOptions.getDryRun())
+                .fieldManager(updateOptions.getFieldManager())
+                .buildCall(null);
   }
 
   /**
@@ -897,27 +883,25 @@ public class GenericKubernetesApi<
     return () ->
         //// TODO(yue9944882): judge namespaced object via api discovery
         isNamespaced
-            ? customObjectsApi.patchNamespacedCustomObjectStatusCall(
+            ? customObjectsApi.patchNamespacedCustomObjectStatus(
                 this.apiGroup,
                 this.apiVersion,
                 objectMeta.getNamespace(),
                 this.resourcePlural,
                 objectMeta.getName(),
-                Arrays.asList(new StatusPatch(status.apply(object))),
-                updateOptions.getDryRun(),
-                updateOptions.getFieldManager(),
-                null,
-                null)
-            : customObjectsApi.patchClusterCustomObjectStatusCall(
+                Arrays.asList(new StatusPatch(status.apply(object))))
+                .dryRun(updateOptions.getDryRun())
+                .fieldManager(updateOptions.getFieldManager())
+                .buildCall(null)
+            : customObjectsApi.patchClusterCustomObjectStatus(
                 this.apiGroup,
                 this.apiVersion,
                 this.resourcePlural,
                 objectMeta.getName(),
-                Arrays.asList(new StatusPatch(status.apply(object))),
-                updateOptions.getDryRun(),
-                updateOptions.getFieldManager(),
-                null,
-                null);
+                Arrays.asList(new StatusPatch(status.apply(object))))
+                .dryRun(updateOptions.getDryRun())
+                .fieldManager(updateOptions.getFieldManager())
+                .buildCall(null);
   }
 
   /**
@@ -994,16 +978,16 @@ public class GenericKubernetesApi<
     return () ->
         adaptPatchCall(
             customObjectsApi.getApiClient(),
-            customObjectsApi.patchClusterCustomObjectCall(
+            customObjectsApi.patchClusterCustomObject(
                 this.apiGroup,
                 this.apiVersion,
                 this.resourcePlural,
                 name,
-                patch,
-                patchOptions.getDryRun(),
-                patchOptions.getFieldManager(),
-                patchOptions.getForce(),
-                null),
+                patch)
+                    .dryRun(patchOptions.getDryRun())
+                    .fieldManager(patchOptions.getFieldManager())
+                    .force(patchOptions.getForce())
+                    .buildCall(null),
             patchType);
   }
 
@@ -1044,17 +1028,17 @@ public class GenericKubernetesApi<
     return () ->
         adaptPatchCall(
             customObjectsApi.getApiClient(),
-            customObjectsApi.patchNamespacedCustomObjectCall(
+            customObjectsApi.patchNamespacedCustomObject(
                 this.apiGroup,
                 this.apiVersion,
                 namespace,
                 this.resourcePlural,
                 name,
-                patch,
-                patchOptions.getDryRun(),
-                patchOptions.getFieldManager(),
-                patchOptions.getForce(),
-                null),
+                patch)
+                    .dryRun(patchOptions.getDryRun())
+                    .fieldManager(patchOptions.getFieldManager())
+                    .force(patchOptions.getForce())
+                    .buildCall(null),
             patchType);
   }
 
@@ -1135,17 +1119,13 @@ public class GenericKubernetesApi<
 
   private CallBuilder makeClusterDeleteCallBuilder(String name, final DeleteOptions deleteOptions) {
     return () ->
-        customObjectsApi.deleteClusterCustomObjectCall(
+        customObjectsApi.deleteClusterCustomObject(
             this.apiGroup,
             this.apiVersion,
             this.resourcePlural,
-            name,
-            null,
-            null,
-            null,
-            null,
-            deleteOptions, // TODO: fill/convert the option
-            null);
+            name)
+                // TODO: fill/convert the option
+                .buildCall(null);
   }
 
   /**
@@ -1173,18 +1153,14 @@ public class GenericKubernetesApi<
   private CallBuilder makeNamespacedDeleteCallBuilder(
       String namespace, String name, final DeleteOptions deleteOptions) {
     return () ->
-        customObjectsApi.deleteNamespacedCustomObjectCall(
+        customObjectsApi.deleteNamespacedCustomObject(
             this.apiGroup,
             this.apiVersion,
             namespace,
             this.resourcePlural,
-            name,
-            null,
-            null,
-            null,
-            null,
-            deleteOptions, // TODO: fill/convert the option
-            null);
+            name)
+                // TODO: fill/convert the option
+                .buildCall(null);
   }
 
   /**
@@ -1245,21 +1221,18 @@ public class GenericKubernetesApi<
    */
   public Watchable<ApiType> watch(final ListOptions listOptions) throws ApiException {
     Call call =
-        customObjectsApi.listClusterCustomObjectCall(
+        customObjectsApi.listClusterCustomObject(
             this.apiGroup,
             this.apiVersion,
-            this.resourcePlural,
-            null,
-            null,
-            listOptions.getContinue(),
-            listOptions.getFieldSelector(),
-            listOptions.getLabelSelector(),
-            listOptions.getLimit(),
-            listOptions.getResourceVersion(),
-            null,
-            listOptions.getTimeoutSeconds(),
-            true,
-            null);
+            this.resourcePlural)
+                ._continue(listOptions.getContinue())
+                .fieldSelector(listOptions.getFieldSelector())
+                .labelSelector(listOptions.getLabelSelector())
+                .limit(listOptions.getLimit())
+                .resourceVersion(listOptions.getResourceVersion())
+                .timeoutSeconds(listOptions.getTimeoutSeconds())
+                .watch(true)
+                .buildCall(null);
 
     call = tweakCallForCoreV1Group(call);
     return Watch.createWatch(
@@ -1282,22 +1255,19 @@ public class GenericKubernetesApi<
       throw new IllegalArgumentException("invalid namespace");
     }
     Call call =
-        customObjectsApi.listNamespacedCustomObjectCall(
+        customObjectsApi.listNamespacedCustomObject(
             this.apiGroup,
             this.apiVersion,
             namespace,
-            this.resourcePlural,
-            null,
-            null,
-            listOptions.getContinue(),
-            listOptions.getFieldSelector(),
-            listOptions.getLabelSelector(),
-            listOptions.getLimit(),
-            listOptions.getResourceVersion(),
-            null,
-            listOptions.getTimeoutSeconds(),
-            true,
-            null);
+            this.resourcePlural)
+                ._continue(listOptions.getContinue())
+                .fieldSelector(listOptions.getFieldSelector())
+                .labelSelector(listOptions.getLabelSelector())
+                .limit(listOptions.getLimit())
+                .resourceVersion(listOptions.getResourceVersion())
+                .timeoutSeconds(listOptions.getTimeoutSeconds())
+                .watch(true)
+                .buildCall(null);
 
     call = tweakCallForCoreV1Group(call);
     return Watch.createWatch(

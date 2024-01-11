@@ -127,6 +127,7 @@ public class DiscoveryTest {
 
     String group = "test.com";
     String version = "v1";
+    String groupVersion = "test.com/v1";
     String path="/apis/"+group+'/'+version;
 
     wireMockRule.stubFor(
@@ -141,9 +142,9 @@ public class DiscoveryTest {
                             .serialize(new V1APIGroupList()
                                 .addGroupsItem(new V1APIGroup()
                                     .name(group)
-                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version))
+                                    .preferredVersion(new V1GroupVersionForDiscovery().groupVersion(groupVersion).version(version))
                                     .versions(Arrays.asList(
-                                        new V1GroupVersionForDiscovery().version(version))))))));
+                                        new V1GroupVersionForDiscovery().groupVersion(groupVersion).version(version))))))));
 
     wireMockRule.stubFor(
         get(urlPathEqualTo(path))
@@ -155,11 +156,22 @@ public class DiscoveryTest {
                         apiClient
                             .getJSON()
                             .serialize(new V1APIResourceList()
+                                    .groupVersion(group)
                                 .resources(
                                     Arrays.asList(
                                       new V1APIResource()
+                                              .kind("First")
+                                              .namespaced(true)
+                                              .singularName("first")
+                                              .group(group)
+                                              .version(version)
                                         .name("first"),
                                       new V1APIResource()
+                                              .kind("Second")
+                                              .namespaced(true)
+                                              .singularName("second")
+                                              .group(group)
+                                              .version(version)
                                         .name("second")))))));
 
     List<String> versions = new ArrayList<>();
@@ -186,9 +198,11 @@ public class DiscoveryTest {
 
     String groupSuccess = "test.com";
     String version = "v1";
+    String groupVersionSuccess = "test.com/v1";
     String pathSuccess="/apis/"+groupSuccess+'/'+version;
 
     String groupError = "testError.com";
+    String groupVersionError = "test.com/v1";
     String pathError="/apis/"+groupError+'/'+version;
 
     wireMockRule.stubFor(
@@ -203,14 +217,14 @@ public class DiscoveryTest {
                             .serialize(new V1APIGroupList()
                                 .addGroupsItem(new V1APIGroup()
                                     .name(groupError)
-                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version))
+                                    .preferredVersion(new V1GroupVersionForDiscovery().groupVersion(groupVersionError).version(version))
                                     .versions(Arrays.asList(
-                                        new V1GroupVersionForDiscovery().version(version))))
+                                        new V1GroupVersionForDiscovery().groupVersion(groupVersionError).version(version))))
                                 .addGroupsItem(new V1APIGroup()
                                     .name(groupSuccess)
-                                    .preferredVersion(new V1GroupVersionForDiscovery().version(version))
+                                    .preferredVersion(new V1GroupVersionForDiscovery().groupVersion(groupVersionSuccess).version(version))
                                     .versions(Arrays.asList(
-                                        new V1GroupVersionForDiscovery().version(version))))))));
+                                        new V1GroupVersionForDiscovery().groupVersion(groupVersionSuccess).version(version))))))));
 
     wireMockRule.stubFor(
         get(urlPathEqualTo(pathError))
@@ -228,11 +242,22 @@ public class DiscoveryTest {
                         apiClient
                             .getJSON()
                             .serialize(new V1APIResourceList()
+                                    .groupVersion(groupVersionSuccess)
                                 .resources(
                                     Arrays.asList(
                                       new V1APIResource()
+                                              .kind("First")
+                                              .namespaced(true)
+                                              .singularName("first")
+                                              .group(groupSuccess)
+                                              .version(version)
                                         .name("first"),
                                       new V1APIResource()
+                                              .kind("Second")
+                                              .namespaced(true)
+                                              .singularName("second")
+                                              .group(groupSuccess)
+                                              .version(version)
                                         .name("second")))))));
 
     List<String> versions = new ArrayList<>();

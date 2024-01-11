@@ -50,32 +50,27 @@ public class KubectlScale<ApiType extends KubernetesObject>
         return PatchUtils.patch(
             apiTypeClass,
             () ->
-                api.patchNamespacedDeploymentCall(
+                api.patchNamespacedDeployment(
                     name,
                     namespace,
-                    new V1Patch(jsonPatchStr),
-                    null,
-                    null,
-                    null,
-                    null, // field-manager is optional
-                    null,
-                    null),
+                    new V1Patch(jsonPatchStr))
+                        .buildCall(null),
             V1Patch.PATCH_FORMAT_JSON_PATCH,
             this.apiClient);
       } else if (apiTypeClass.equals(V1ReplicaSet.class)) {
         return PatchUtils.patch(
             apiTypeClass,
             () ->
-                api.patchNamespacedReplicaSetCall(
-                    name, namespace, new V1Patch(jsonPatchStr), null, null, null, null, null, null),
+                api.patchNamespacedReplicaSet(
+                    name, namespace, new V1Patch(jsonPatchStr)).buildCall(null),
             V1Patch.PATCH_FORMAT_JSON_PATCH,
             this.apiClient);
       } else if (apiTypeClass.equals(V1StatefulSet.class)) {
         return PatchUtils.patch(
             apiTypeClass,
             () ->
-                api.patchNamespacedStatefulSetCall(
-                    name, namespace, new V1Patch(jsonPatchStr), null, null, null, null, null, null),
+                api.patchNamespacedStatefulSet(
+                    name, namespace, new V1Patch(jsonPatchStr)).buildCall(null),
             V1Patch.PATCH_FORMAT_JSON_PATCH,
             this.apiClient);
       } else {

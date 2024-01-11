@@ -64,7 +64,7 @@ public class DeployRolloutRestartExample {
                                                 .name(deploymentName)
                                                 .image(imageName))))));
     appsV1Api.createNamespacedDeployment(
-        namespace, deploymentBuilder.build(), null, null, null, null);
+        namespace, deploymentBuilder.build()).execute();
 
     // Wait until example deployment is ready
     Wait.poll(
@@ -74,7 +74,8 @@ public class DeployRolloutRestartExample {
           try {
             System.out.println("Waiting until example deployment is ready...");
             return appsV1Api
-                    .readNamespacedDeployment(deploymentName, namespace, null)
+                    .readNamespacedDeployment(deploymentName, namespace)
+                    .execute()
                     .getStatus()
                     .getReadyReplicas()
                 > 0;
@@ -87,7 +88,7 @@ public class DeployRolloutRestartExample {
 
     // Trigger a rollout restart of the example deployment
     V1Deployment runningDeployment =
-        appsV1Api.readNamespacedDeployment(deploymentName, namespace, null);
+        appsV1Api.readNamespacedDeployment(deploymentName, namespace).execute();
 
     // Explicitly set "restartedAt" annotation with current date/time to trigger rollout when patch
     // is applied
@@ -102,16 +103,12 @@ public class DeployRolloutRestartExample {
       PatchUtils.patch(
           V1Deployment.class,
           () ->
-              appsV1Api.patchNamespacedDeploymentCall(
+              appsV1Api.patchNamespacedDeployment(
                   deploymentName,
                   namespace,
-                  new V1Patch(deploymentJson),
-                  null,
-                  null,
-                  "kubectl-rollout",
-                  null,
-                  null,
-                  null),
+                  new V1Patch(deploymentJson))
+                      .fieldManager("kubectl-rollout")
+                      .buildCall(null),
           V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
           client);
 
@@ -123,7 +120,8 @@ public class DeployRolloutRestartExample {
             try {
               System.out.println("Waiting until example deployment restarted successfully...");
               return appsV1Api
-                      .readNamespacedDeployment(deploymentName, namespace, null)
+                      .readNamespacedDeployment(deploymentName, namespace)
+                      .execute()
                       .getStatus()
                       .getReadyReplicas()
                   > 0;

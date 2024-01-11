@@ -29,26 +29,26 @@ public class Deployments {
     }
 
     public V1Deployment createNamespacedDeployment(String namespace, V1Deployment body) throws ApiException {
-        return api.createNamespacedDeployment(namespace, body, null, null, null, null);
+        return api.createNamespacedDeployment(namespace, body).execute();
     }
 
     public V1Status deleteNamespacedDeployment(String name, String namespace) throws ApiException {
-        return api.deleteNamespacedDeployment(name, namespace, null, null, null, null, null, null);
+        return api.deleteNamespacedDeployment(name, namespace).execute();
     }
 
     public V1DeploymentList listNamespacedDeployment(String namespace) throws ApiException {
-        return api.listNamespacedDeployment(namespace, null, null, null, null, null, null, null, null, null, null, null);
+        return api.listNamespacedDeployment(namespace).execute();
     }
 
     public V1DeploymentList listDeploymentForAllNamespaces() throws ApiException {
-        return api.listDeploymentForAllNamespaces(null, null, null, null, null, null, null, null, null, null, null);
+        return api.listDeploymentForAllNamespaces().execute();
     }
 
     public V1Deployment replaceNamespacedDeployment(String name, String namespace, V1Deployment body) throws ApiException {
-        return api.replaceNamespacedDeployment(name, namespace, body, null, null, null, null);
+        return api.replaceNamespacedDeployment(name, namespace, body).execute();
     }
 
     public V1Deployment patchNamespacedDeployment(String name, String namespace, V1Patch body) throws ApiException {
-        return api.patchNamespacedDeployment(name, namespace, body, null, null, null, null, null);
+        return api.patchNamespacedDeployment(name, namespace, body).execute();
     }
 }

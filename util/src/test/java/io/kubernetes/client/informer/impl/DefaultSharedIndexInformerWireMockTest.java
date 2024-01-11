@@ -135,20 +135,11 @@ public class DefaultSharedIndexInformerWireMockTest {
         factory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
               try {
-                return coreV1Api.listNamespacedPodCall(
-                    namespace,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    params.resourceVersion,
-                    null,
-                    null,
-                    params.timeoutSeconds,
-                    params.watch,
-                    null);
+                return coreV1Api.listNamespacedPod(namespace)
+                        .resourceVersion(params.resourceVersion)
+                        .watch(params.watch)
+                        .timeoutSeconds(params.timeoutSeconds)
+                        .buildCall(null);
               } catch (ApiException e) {
                 throw new RuntimeException(e);
               }
@@ -253,19 +244,11 @@ public class DefaultSharedIndexInformerWireMockTest {
         factory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
               try {
-                return coreV1Api.listPodForAllNamespacesCall(
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    params.resourceVersion,
-                    null,
-                    null,
-                    params.timeoutSeconds,
-                    params.watch,
-                    null);
+                return coreV1Api.listPodForAllNamespaces()
+                        .resourceVersion(params.resourceVersion)
+                        .timeoutSeconds(params.timeoutSeconds)
+                        .watch(params.watch)
+                        .buildCall(null);
               } catch (ApiException e) {
                 throw new RuntimeException(e);
               }
@@ -389,19 +372,11 @@ public class DefaultSharedIndexInformerWireMockTest {
         factory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
               try {
-                return coreV1Api.listPodForAllNamespacesCall(
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    params.resourceVersion,
-                    null,
-                    null,
-                    params.timeoutSeconds,
-                    params.watch,
-                    null);
+                return coreV1Api.listPodForAllNamespaces()
+                        .resourceVersion(params.resourceVersion)
+                        .timeoutSeconds(params.timeoutSeconds)
+                        .watch(params.watch)
+                        .buildCall(null);
               } catch (ApiException e) {
                 throw new RuntimeException(e);
               }
@@ -501,20 +476,11 @@ public class DefaultSharedIndexInformerWireMockTest {
         factory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
               try {
-                return coreV1Api.listNamespacedPodCall(
-                    namespace,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    params.resourceVersion,
-                    null,
-                    null,
-                    params.timeoutSeconds,
-                    params.watch,
-                    null);
+                return coreV1Api.listNamespacedPod(namespace)
+                        .resourceVersion(params.resourceVersion)
+                        .timeoutSeconds(params.timeoutSeconds)
+                        .watch(params.watch)
+                        .buildCall(null);
               } catch (ApiException e) {
                 throw new RuntimeException(e);
               }
@@ -571,20 +537,11 @@ public class DefaultSharedIndexInformerWireMockTest {
         factory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
               try {
-                return coreV1Api.listNamespacedPodCall(
-                    namespace,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    params.resourceVersion,
-                    null,
-                    null,
-                    params.timeoutSeconds,
-                    params.watch,
-                    null);
+                return coreV1Api.listNamespacedPod(namespace)
+                        .resourceVersion(params.resourceVersion)
+                        .timeoutSeconds(params.timeoutSeconds)
+                        .watch(params.watch)
+                        .buildCall(null);
               } catch (ApiException e) {
                 throw new RuntimeException(e);
               }

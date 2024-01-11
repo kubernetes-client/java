@@ -201,8 +201,8 @@ public class KubectlDeleteTest {
                 .spec(v1JobSpec);
         BatchV1Api api = new BatchV1Api();
         api.setApiClient(apiClient);
-        api.createNamespacedJob("foo", job, null, null, null, "Strict");
-        ModelMapper.addModelMap(api.getAPIResources().getGroupVersion(), job.getApiVersion(), job.getKind(), "jobs", true, V1Job.class);
+        api.createNamespacedJob("foo", job).execute();
+        ModelMapper.addModelMap(api.getAPIResources().execute().getGroupVersion(), job.getApiVersion(), job.getKind(), "jobs", true, V1Job.class);
 
         KubectlDelete<V1Job> kubectlDelete = Kubectl.delete(V1Job.class);
         kubectlDelete.apiClient(apiClient);

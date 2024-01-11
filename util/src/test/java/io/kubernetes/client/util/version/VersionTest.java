@@ -50,8 +50,9 @@ public class VersionTest {
             .willReturn(
                 aResponse()
                     .withStatus(200)
-                    .withHeader("Content-Type", "application/json")
-                    .withBody("{}")));
+                    .withBody("{\"gitVersion\":\"\",\"gitCommit\":\"\",\"major\":\"\",\"minor\":\"\"," +
+                            "\"goVersion\":\"\",\"buildDate\":\"\",\"compiler\":\"\"," +
+                            "\"gitTreeState\":\"\",\"platform\":\"\"}")));
 
     Version versionUtil = new Version(client);
     try {
@@ -62,7 +63,6 @@ public class VersionTest {
 
     verify(
         getRequestedFor(urlPathEqualTo("/version/"))
-            .withHeader("Content-Type", equalTo("application/json"))
             .withHeader("Accept", equalTo("application/json")));
   }
 
@@ -89,7 +89,6 @@ public class VersionTest {
 
     verify(
         getRequestedFor(urlPathEqualTo("/version/"))
-            .withHeader("Content-Type", equalTo("application/json"))
             .withHeader("Accept", equalTo("application/json")));
   }
 }

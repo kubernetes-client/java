@@ -27,7 +27,7 @@ jobs:
     strategy:
       matrix:
         # Test against the LTS Java versions. TODO: add JDK18 when it becomes available.
-        java: [ 8.0.x, 11.0.x, 17.0.x ]
+        java: [ 11.0.x, 17.0.x ]
         os: [ macos-latest, windows-latest, ubuntu-latest ]
     runs-on: ${{ matrix.os }}
     steps:

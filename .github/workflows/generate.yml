@@ -30,7 +30,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: gen
-          repository: yue9944882/gen
+          repository: kubernetes-client/gen
           token: ${{ secrets.PAT_TOKEN }}
       - name: Generate Branch Name
         run: |

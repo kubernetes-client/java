@@ -76,19 +76,11 @@ public class DefaultControllerBuilderTest {
     CoreV1Api api = new CoreV1Api();
     informerFactory.sharedIndexInformerFor(
         (CallGeneratorParams params) -> {
-          return api.listPodForAllNamespacesCall(
-              null,
-              null,
-              null,
-              null,
-              null,
-              null,
-              params.resourceVersion,
-              null,
-              null,
-              params.timeoutSeconds,
-              params.watch,
-              null);
+          return api.listPodForAllNamespaces()
+                  .resourceVersion(params.resourceVersion)
+                  .timeoutSeconds(params.timeoutSeconds)
+                  .watch(params.watch)
+                  .buildCall(null);
         },
         V1Pod.class,
         V1PodList.class);
@@ -148,19 +140,11 @@ public class DefaultControllerBuilderTest {
     SharedIndexInformer<V1Pod> podInformer =
         informerFactory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
-              return api.listPodForAllNamespacesCall(
-                  null,
-                  null,
-                  null,
-                  null,
-                  null,
-                  null,
-                  params.resourceVersion,
-                  null,
-                  null,
-                  params.timeoutSeconds,
-                  params.watch,
-                  null);
+              return api.listPodForAllNamespaces()
+                      .resourceVersion(params.resourceVersion)
+                      .timeoutSeconds(params.timeoutSeconds)
+                      .watch(params.watch)
+                      .buildCall(null);
             },
             V1Pod.class,
             V1PodList.class);

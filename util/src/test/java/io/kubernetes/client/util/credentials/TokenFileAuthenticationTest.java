@@ -56,24 +56,25 @@ public class TokenFileAuthenticationTest {
   @Test
   public void testTokenProvided() throws IOException, ApiException {
     stubFor(
-        get(urlPathEqualTo("/api/v1/pods")).willReturn(okForContentType("application/json", "{}")));
+        get(urlPathEqualTo("/api/v1/pods")).willReturn(okForContentType("application/json",
+                "{\"items\":[]}")));
     CoreV1Api api = new CoreV1Api();
 
-    api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null, null);
+    api.listPodForAllNamespaces().execute();
     WireMock.verify(
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/pods"))
             .withHeader("Authorization", equalTo("Bearer token1")));
 
     this.auth.setFile(SERVICEACCOUNT_TOKEN2_PATH);
-    api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null, null);
+    api.listPodForAllNamespaces().execute();
     WireMock.verify(
         2,
         getRequestedFor(urlPathEqualTo("/api/v1/pods"))
             .withHeader("Authorization", equalTo("Bearer token1")));
 
     this.auth.setExpiry(Instant.now().minusSeconds(1));
-    api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null, null);
+    api.listPodForAllNamespaces().execute();
     WireMock.verify(
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/pods"))

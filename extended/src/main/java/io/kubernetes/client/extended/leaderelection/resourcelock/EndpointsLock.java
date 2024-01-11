@@ -58,7 +58,7 @@ public class EndpointsLock implements Lock {
 
   @Override
   public LeaderElectionRecord get() throws ApiException {
-    V1Endpoints endpoints = coreV1Client.readNamespacedEndpoints(name, namespace, null);
+    V1Endpoints endpoints = coreV1Client.readNamespacedEndpoints(name, namespace).execute();
     endpointsRefer.set(endpoints);
 
     Map<String, String> annotations = endpoints.getMetadata().getAnnotations();
@@ -96,7 +96,7 @@ public class EndpointsLock implements Lock {
       }
       endpoints.setMetadata(objectMeta);
       V1Endpoints createdendpoints =
-          coreV1Client.createNamespacedEndpoints(namespace, endpoints, null, null, null, null);
+          coreV1Client.createNamespacedEndpoints(namespace, endpoints).execute();
       endpointsRefer.set(createdendpoints);
       return true;
     } catch (ApiException e) {
@@ -121,7 +121,7 @@ public class EndpointsLock implements Lock {
       // TODO consider to retry if receiving a 409 code
       V1Endpoints replacedEndpoints =
           coreV1Client.replaceNamespacedEndpoints(
-              name, namespace, endpoints, null, null, null, null);
+              name, namespace, endpoints).execute();
       endpointsRefer.set(replacedEndpoints);
       return true;
     } catch (ApiException e) {

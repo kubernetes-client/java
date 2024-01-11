@@ -30,8 +30,6 @@ public class WatchTest {
         new Watch<V1ConfigMap>(
             json, null, new TypeToken<Watch.Response<V1ConfigMap>>() {}.getType(), null);
     JsonObject metadata = new JsonObject();
-    metadata.addProperty("name", "foo");
-    metadata.addProperty("namespace", "bar");
 
     JsonObject status = new JsonObject();
     status.add("metadata", metadata);

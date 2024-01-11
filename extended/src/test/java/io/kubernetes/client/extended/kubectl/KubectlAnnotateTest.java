@@ -127,7 +127,7 @@ public class KubectlAnnotateTest {
             .willReturn(aResponse().withStatus(200).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
     wireMockRule.stubFor(
         put(urlPathEqualTo("/api/v1/nodes/foo"))
-            .willReturn(aResponse().withStatus(403).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
+            .willReturn(aResponse().withStatus(403).withBody("{\"metadata\":{}}")));
     assertThrows(
         KubectlException.class,
         () -> {

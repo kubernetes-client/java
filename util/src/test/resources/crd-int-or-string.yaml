@@ -1,6 +1,8 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
+  annotations: {}
+  labels: {}
   name: crontabs.stable.example.com
 spec:
   group: stable.example.com
@@ -16,21 +18,51 @@ spec:
     schema:
       openAPIV3Schema:
         type: object
+        definitions: {}
+        dependencies: {}
+        patternProperties: {}
         properties:
           foo:
             anyOf:
             - type: integer
+              definitions: {}
+              dependencies: {}
+              patternProperties: {}
+              properties: {}
             - type: string
+              definitions: {}
+              dependencies: {}
+              patternProperties: {}
+              properties: {}
+            definitions: {}
+            dependencies: {}
             pattern: ^.*
+            patternProperties: {}
+            properties: {}
             x-kubernetes-int-or-string: true
           spec:
             type: object
+            definitions: {}
+            dependencies: {}
+            patternProperties: {}
             properties:
               cronSpec:
                 type: string
+                definitions: {}
+                dependencies: {}
+                patternProperties: {}
+                properties: {}
               image:
                 type: string
+                definitions: {}
+                dependencies: {}
+                patternProperties: {}
+                properties: {}
               replicas:
                 type: integer
+                definitions: {}
+                dependencies: {}
+                patternProperties: {}
+                properties: {}
     served: true
     storage: true
