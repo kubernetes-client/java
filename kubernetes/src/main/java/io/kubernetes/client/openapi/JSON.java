@@ -23,6 +23,8 @@ import com.google.gson.JsonElement;
 import io.gsonfire.GsonFireBuilder;
 import io.gsonfire.TypeSelector;
 
+import io.kubernetes.client.gson.V1StatusPreProcessor;
+import io.kubernetes.client.openapi.models.V1Status;
 import okio.ByteString;
 
 import java.io.IOException;
@@ -71,7 +73,10 @@ public class JSON {
     public static GsonBuilder createGson() {
         GsonFireBuilder fireBuilder = new GsonFireBuilder()
         ;
-        GsonBuilder builder = fireBuilder.createGsonBuilder();
+        GsonBuilder builder =
+                fireBuilder
+                        .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())
+                        .createGsonBuilder();
         return builder;
     }
 

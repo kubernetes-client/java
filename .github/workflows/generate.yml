@@ -66,7 +66,10 @@ jobs:
         run: |
           # Only install the generated openapi module because the higher modules' compile
           # may fail due to api-changes.
-          mvn -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -Pfluent-gen -pl kubernetes -am clean install
+          mvn -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
+              -Dmaven.test.skip=true \
+              -Pfluent-gen \
+              -pl kubernetes -am clean install
           pushd fluent-gen
           bash -x generate.sh
           popd

@@ -394,7 +394,8 @@ public class V1Status {
            @Override
            public V1Status read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
+             // Disable validation so delete API won't crash due to V1Status/delete-object duality
+             // validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
            }
 
