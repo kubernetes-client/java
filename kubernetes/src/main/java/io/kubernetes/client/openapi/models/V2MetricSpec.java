@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -24,15 +24,37 @@ import io.kubernetes.client.openapi.models.V2ExternalMetricSource;
 import io.kubernetes.client.openapi.models.V2ObjectMetricSource;
 import io.kubernetes.client.openapi.models.V2PodsMetricSource;
 import io.kubernetes.client.openapi.models.V2ResourceMetricSource;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * MetricSpec specifies how to scale based on a single metric (only &#x60;type&#x60; and one other matching field should be set at once).
  */
-@ApiModel(description = "MetricSpec specifies how to scale based on a single metric (only `type` and one other matching field should be set at once).")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V2MetricSpec {
   public static final String SERIALIZED_NAME_CONTAINER_RESOURCE = "containerResource";
   @SerializedName(SERIALIZED_NAME_CONTAINER_RESOURCE)
@@ -58,6 +80,8 @@ public class V2MetricSpec {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public V2MetricSpec() {
+  }
 
   public V2MetricSpec containerResource(V2ContainerResourceMetricSource containerResource) {
 
@@ -69,9 +93,7 @@ public class V2MetricSpec {
    * Get containerResource
    * @return containerResource
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V2ContainerResourceMetricSource getContainerResource() {
     return containerResource;
   }
@@ -92,9 +114,7 @@ public class V2MetricSpec {
    * Get external
    * @return external
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V2ExternalMetricSource getExternal() {
     return external;
   }
@@ -115,9 +135,7 @@ public class V2MetricSpec {
    * Get _object
    * @return _object
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V2ObjectMetricSource getObject() {
     return _object;
   }
@@ -138,9 +156,7 @@ public class V2MetricSpec {
    * Get pods
    * @return pods
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V2PodsMetricSource getPods() {
     return pods;
   }
@@ -161,9 +177,7 @@ public class V2MetricSpec {
    * Get resource
    * @return resource
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V2ResourceMetricSource getResource() {
     return resource;
   }
@@ -184,8 +198,7 @@ public class V2MetricSpec {
    * type is the type of metric source.  It should be one of \&quot;ContainerResource\&quot;, \&quot;External\&quot;, \&quot;Object\&quot;, \&quot;Pods\&quot; or \&quot;Resource\&quot;, each mapping to a matching field in the object. Note: \&quot;ContainerResource\&quot; type is available on when the feature-gate HPAContainerMetrics is enabled
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "type is the type of metric source.  It should be one of \"ContainerResource\", \"External\", \"Object\", \"Pods\" or \"Resource\", each mapping to a matching field in the object. Note: \"ContainerResource\" type is available on when the feature-gate HPAContainerMetrics is enabled")
-
+  @jakarta.annotation.Nonnull
   public String getType() {
     return type;
   }
@@ -196,8 +209,9 @@ public class V2MetricSpec {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -218,7 +232,6 @@ public class V2MetricSpec {
     return Objects.hash(containerResource, external, _object, pods, resource, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -237,11 +250,130 @@ public class V2MetricSpec {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("containerResource");
+    openapiFields.add("external");
+    openapiFields.add("object");
+    openapiFields.add("pods");
+    openapiFields.add("resource");
+    openapiFields.add("type");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("type");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V2MetricSpec
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V2MetricSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V2MetricSpec is not found in the empty JSON string", V2MetricSpec.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V2MetricSpec.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V2MetricSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V2MetricSpec.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // validate the optional field `containerResource`
+      if (jsonObj.get("containerResource") != null && !jsonObj.get("containerResource").isJsonNull()) {
+        V2ContainerResourceMetricSource.validateJsonObject(jsonObj.getAsJsonObject("containerResource"));
+      }
+      // validate the optional field `external`
+      if (jsonObj.get("external") != null && !jsonObj.get("external").isJsonNull()) {
+        V2ExternalMetricSource.validateJsonObject(jsonObj.getAsJsonObject("external"));
+      }
+      // validate the optional field `object`
+      if (jsonObj.get("object") != null && !jsonObj.get("object").isJsonNull()) {
+        V2ObjectMetricSource.validateJsonObject(jsonObj.getAsJsonObject("object"));
+      }
+      // validate the optional field `pods`
+      if (jsonObj.get("pods") != null && !jsonObj.get("pods").isJsonNull()) {
+        V2PodsMetricSource.validateJsonObject(jsonObj.getAsJsonObject("pods"));
+      }
+      // validate the optional field `resource`
+      if (jsonObj.get("resource") != null && !jsonObj.get("resource").isJsonNull()) {
+        V2ResourceMetricSource.validateJsonObject(jsonObj.getAsJsonObject("resource"));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V2MetricSpec.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V2MetricSpec' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V2MetricSpec> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V2MetricSpec.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V2MetricSpec>() {
+           @Override
+           public void write(JsonWriter out, V2MetricSpec value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V2MetricSpec read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V2MetricSpec given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V2MetricSpec
+  * @throws IOException if the JSON string is invalid with respect to V2MetricSpec
+  */
+  public static V2MetricSpec fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V2MetricSpec.class);
+  }
+
+ /**
+  * Convert an instance of V2MetricSpec to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,16 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * Condition contains details for one aspect of the current state of this API Resource.
  */
-@ApiModel(description = "Condition contains details for one aspect of the current state of this API Resource.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1Condition {
   public static final String SERIALIZED_NAME_LAST_TRANSITION_TIME = "lastTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_TRANSITION_TIME)
@@ -54,6 +76,8 @@ public class V1Condition {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public V1Condition() {
+  }
 
   public V1Condition lastTransitionTime(OffsetDateTime lastTransitionTime) {
 
@@ -65,8 +89,7 @@ public class V1Condition {
    * lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.
    * @return lastTransitionTime
   **/
-  @ApiModelProperty(required = true, value = "lastTransitionTime is the last time the condition transitioned from one status to another. This should be when the underlying condition changed.  If that is not known, then using the time when the API field changed is acceptable.")
-
+  @jakarta.annotation.Nonnull
   public OffsetDateTime getLastTransitionTime() {
     return lastTransitionTime;
   }
@@ -87,8 +110,7 @@ public class V1Condition {
    * message is a human readable message indicating details about the transition. This may be an empty string.
    * @return message
   **/
-  @ApiModelProperty(required = true, value = "message is a human readable message indicating details about the transition. This may be an empty string.")
-
+  @jakarta.annotation.Nonnull
   public String getMessage() {
     return message;
   }
@@ -109,9 +131,7 @@ public class V1Condition {
    * observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.
    * @return observedGeneration
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "observedGeneration represents the .metadata.generation that the condition was set based upon. For instance, if .metadata.generation is currently 12, but the .status.conditions[x].observedGeneration is 9, the condition is out of date with respect to the current state of the instance.")
-
+  @jakarta.annotation.Nullable
   public Long getObservedGeneration() {
     return observedGeneration;
   }
@@ -132,8 +152,7 @@ public class V1Condition {
    * reason contains a programmatic identifier indicating the reason for the condition&#39;s last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.
    * @return reason
   **/
-  @ApiModelProperty(required = true, value = "reason contains a programmatic identifier indicating the reason for the condition's last transition. Producers of specific condition types may define expected values and meanings for this field, and whether the values are considered a guaranteed API. The value should be a CamelCase string. This field may not be empty.")
-
+  @jakarta.annotation.Nonnull
   public String getReason() {
     return reason;
   }
@@ -154,8 +173,7 @@ public class V1Condition {
    * status of the condition, one of True, False, Unknown.
    * @return status
   **/
-  @ApiModelProperty(required = true, value = "status of the condition, one of True, False, Unknown.")
-
+  @jakarta.annotation.Nonnull
   public String getStatus() {
     return status;
   }
@@ -176,8 +194,7 @@ public class V1Condition {
    * type of condition in CamelCase or in foo.example.com/CamelCase.
    * @return type
   **/
-  @ApiModelProperty(required = true, value = "type of condition in CamelCase or in foo.example.com/CamelCase.")
-
+  @jakarta.annotation.Nonnull
   public String getType() {
     return type;
   }
@@ -188,8 +205,9 @@ public class V1Condition {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -210,7 +228,6 @@ public class V1Condition {
     return Objects.hash(lastTransitionTime, message, observedGeneration, reason, status, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -229,11 +246,123 @@ public class V1Condition {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("lastTransitionTime");
+    openapiFields.add("message");
+    openapiFields.add("observedGeneration");
+    openapiFields.add("reason");
+    openapiFields.add("status");
+    openapiFields.add("type");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("lastTransitionTime");
+    openapiRequiredFields.add("message");
+    openapiRequiredFields.add("reason");
+    openapiRequiredFields.add("status");
+    openapiRequiredFields.add("type");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1Condition
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1Condition.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1Condition is not found in the empty JSON string", V1Condition.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1Condition.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1Condition` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1Condition.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("message").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `message` to be a primitive type in the JSON string but got `%s`", jsonObj.get("message").toString()));
+      }
+      if (!jsonObj.get("reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      }
+      if (!jsonObj.get("status").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `status` to be a primitive type in the JSON string but got `%s`", jsonObj.get("status").toString()));
+      }
+      if (!jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1Condition.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1Condition' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1Condition> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1Condition.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1Condition>() {
+           @Override
+           public void write(JsonWriter out, V1Condition value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1Condition read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1Condition given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1Condition
+  * @throws IOException if the JSON string is invalid with respect to V1Condition
+  */
+  public static V1Condition fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1Condition.class);
+  }
+
+ /**
+  * Convert an instance of V1Condition to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

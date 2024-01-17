@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,21 +19,43 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * APIResource specifies the name of a resource and whether it is namespaced.
  */
-@ApiModel(description = "APIResource specifies the name of a resource and whether it is namespaced.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1APIResource {
   public static final String SERIALIZED_NAME_CATEGORIES = "categories";
   @SerializedName(SERIALIZED_NAME_CATEGORIES)
-  private List<String> categories = null;
+  private List<String> categories;
 
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
@@ -53,7 +75,7 @@ public class V1APIResource {
 
   public static final String SERIALIZED_NAME_SHORT_NAMES = "shortNames";
   @SerializedName(SERIALIZED_NAME_SHORT_NAMES)
-  private List<String> shortNames = null;
+  private List<String> shortNames;
 
   public static final String SERIALIZED_NAME_SINGULAR_NAME = "singularName";
   @SerializedName(SERIALIZED_NAME_SINGULAR_NAME)
@@ -71,6 +93,8 @@ public class V1APIResource {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private String version;
 
+  public V1APIResource() {
+  }
 
   public V1APIResource categories(List<String> categories) {
 
@@ -90,9 +114,7 @@ public class V1APIResource {
    * categories is a list of the grouped resources this resource belongs to (e.g. &#39;all&#39;)
    * @return categories
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "categories is a list of the grouped resources this resource belongs to (e.g. 'all')")
-
+  @jakarta.annotation.Nullable
   public List<String> getCategories() {
     return categories;
   }
@@ -113,9 +135,7 @@ public class V1APIResource {
    * group is the preferred group of the resource.  Empty implies the group of the containing resource list. For subresources, this may have a different value, for example: Scale\&quot;.
    * @return group
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "group is the preferred group of the resource.  Empty implies the group of the containing resource list. For subresources, this may have a different value, for example: Scale\".")
-
+  @jakarta.annotation.Nullable
   public String getGroup() {
     return group;
   }
@@ -136,8 +156,7 @@ public class V1APIResource {
    * kind is the kind for the resource (e.g. &#39;Foo&#39; is the kind for a resource &#39;foo&#39;)
    * @return kind
   **/
-  @ApiModelProperty(required = true, value = "kind is the kind for the resource (e.g. 'Foo' is the kind for a resource 'foo')")
-
+  @jakarta.annotation.Nonnull
   public String getKind() {
     return kind;
   }
@@ -158,8 +177,7 @@ public class V1APIResource {
    * name is the plural name of the resource.
    * @return name
   **/
-  @ApiModelProperty(required = true, value = "name is the plural name of the resource.")
-
+  @jakarta.annotation.Nonnull
   public String getName() {
     return name;
   }
@@ -180,8 +198,7 @@ public class V1APIResource {
    * namespaced indicates if a resource is namespaced or not.
    * @return namespaced
   **/
-  @ApiModelProperty(required = true, value = "namespaced indicates if a resource is namespaced or not.")
-
+  @jakarta.annotation.Nonnull
   public Boolean getNamespaced() {
     return namespaced;
   }
@@ -210,9 +227,7 @@ public class V1APIResource {
    * shortNames is a list of suggested short names of the resource.
    * @return shortNames
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "shortNames is a list of suggested short names of the resource.")
-
+  @jakarta.annotation.Nullable
   public List<String> getShortNames() {
     return shortNames;
   }
@@ -233,8 +248,7 @@ public class V1APIResource {
    * singularName is the singular name of the resource.  This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface.
    * @return singularName
   **/
-  @ApiModelProperty(required = true, value = "singularName is the singular name of the resource.  This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface.")
-
+  @jakarta.annotation.Nonnull
   public String getSingularName() {
     return singularName;
   }
@@ -255,9 +269,7 @@ public class V1APIResource {
    * The hash value of the storage version, the version this resource is converted to when written to the data store. Value must be treated as opaque by clients. Only equality comparison on the value is valid. This is an alpha feature and may change or be removed in the future. The field is populated by the apiserver only if the StorageVersionHash feature gate is enabled. This field will remain optional even if it graduates.
    * @return storageVersionHash
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The hash value of the storage version, the version this resource is converted to when written to the data store. Value must be treated as opaque by clients. Only equality comparison on the value is valid. This is an alpha feature and may change or be removed in the future. The field is populated by the apiserver only if the StorageVersionHash feature gate is enabled. This field will remain optional even if it graduates.")
-
+  @jakarta.annotation.Nullable
   public String getStorageVersionHash() {
     return storageVersionHash;
   }
@@ -275,6 +287,9 @@ public class V1APIResource {
   }
 
   public V1APIResource addVerbsItem(String verbsItem) {
+    if (this.verbs == null) {
+      this.verbs = new ArrayList<>();
+    }
     this.verbs.add(verbsItem);
     return this;
   }
@@ -283,8 +298,7 @@ public class V1APIResource {
    * verbs is a list of supported kube verbs (this includes get, list, watch, create, update, patch, delete, deletecollection, and proxy)
    * @return verbs
   **/
-  @ApiModelProperty(required = true, value = "verbs is a list of supported kube verbs (this includes get, list, watch, create, update, patch, delete, deletecollection, and proxy)")
-
+  @jakarta.annotation.Nonnull
   public List<String> getVerbs() {
     return verbs;
   }
@@ -305,9 +319,7 @@ public class V1APIResource {
    * version is the preferred version of the resource.  Empty implies the version of the containing resource list For subresources, this may have a different value, for example: v1 (while inside a v1beta1 version of the core resource&#39;s group)\&quot;.
    * @return version
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "version is the preferred version of the resource.  Empty implies the version of the containing resource list For subresources, this may have a different value, for example: v1 (while inside a v1beta1 version of the core resource's group)\".")
-
+  @jakarta.annotation.Nullable
   public String getVersion() {
     return version;
   }
@@ -318,8 +330,9 @@ public class V1APIResource {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -344,7 +357,6 @@ public class V1APIResource {
     return Objects.hash(categories, group, kind, name, namespaced, shortNames, singularName, storageVersionHash, verbs, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -367,11 +379,147 @@ public class V1APIResource {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("categories");
+    openapiFields.add("group");
+    openapiFields.add("kind");
+    openapiFields.add("name");
+    openapiFields.add("namespaced");
+    openapiFields.add("shortNames");
+    openapiFields.add("singularName");
+    openapiFields.add("storageVersionHash");
+    openapiFields.add("verbs");
+    openapiFields.add("version");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("kind");
+    openapiRequiredFields.add("name");
+    openapiRequiredFields.add("namespaced");
+    openapiRequiredFields.add("singularName");
+    openapiRequiredFields.add("verbs");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1APIResource
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1APIResource.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1APIResource is not found in the empty JSON string", V1APIResource.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1APIResource.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1APIResource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1APIResource.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("categories") != null && !jsonObj.get("categories").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `categories` to be an array in the JSON string but got `%s`", jsonObj.get("categories").toString()));
+      }
+      if ((jsonObj.get("group") != null && !jsonObj.get("group").isJsonNull()) && !jsonObj.get("group").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `group` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group").toString()));
+      }
+      if (!jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      if (!jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("shortNames") != null && !jsonObj.get("shortNames").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `shortNames` to be an array in the JSON string but got `%s`", jsonObj.get("shortNames").toString()));
+      }
+      if (!jsonObj.get("singularName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `singularName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("singularName").toString()));
+      }
+      if ((jsonObj.get("storageVersionHash") != null && !jsonObj.get("storageVersionHash").isJsonNull()) && !jsonObj.get("storageVersionHash").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `storageVersionHash` to be a primitive type in the JSON string but got `%s`", jsonObj.get("storageVersionHash").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("verbs") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("verbs").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `verbs` to be an array in the JSON string but got `%s`", jsonObj.get("verbs").toString()));
+      }
+      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1APIResource.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1APIResource' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1APIResource> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1APIResource.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1APIResource>() {
+           @Override
+           public void write(JsonWriter out, V1APIResource value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1APIResource read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1APIResource given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1APIResource
+  * @throws IOException if the JSON string is invalid with respect to V1APIResource
+  */
+  public static V1APIResource fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1APIResource.class);
+  }
+
+ /**
+  * Convert an instance of V1APIResource to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

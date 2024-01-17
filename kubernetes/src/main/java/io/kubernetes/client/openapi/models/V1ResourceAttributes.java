@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,15 +19,37 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface
  */
-@ApiModel(description = "ResourceAttributes includes the authorization attributes available for resource requests to the Authorizer interface")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1ResourceAttributes {
   public static final String SERIALIZED_NAME_GROUP = "group";
   @SerializedName(SERIALIZED_NAME_GROUP)
@@ -57,6 +79,8 @@ public class V1ResourceAttributes {
   @SerializedName(SERIALIZED_NAME_VERSION)
   private String version;
 
+  public V1ResourceAttributes() {
+  }
 
   public V1ResourceAttributes group(String group) {
 
@@ -68,9 +92,7 @@ public class V1ResourceAttributes {
    * Group is the API Group of the Resource.  \&quot;*\&quot; means all.
    * @return group
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Group is the API Group of the Resource.  \"*\" means all.")
-
+  @jakarta.annotation.Nullable
   public String getGroup() {
     return group;
   }
@@ -91,9 +113,7 @@ public class V1ResourceAttributes {
    * Name is the name of the resource being requested for a \&quot;get\&quot; or deleted for a \&quot;delete\&quot;. \&quot;\&quot; (empty) means all.
    * @return name
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Name is the name of the resource being requested for a \"get\" or deleted for a \"delete\". \"\" (empty) means all.")
-
+  @jakarta.annotation.Nullable
   public String getName() {
     return name;
   }
@@ -114,9 +134,7 @@ public class V1ResourceAttributes {
    * Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \&quot;\&quot; (empty) is defaulted for LocalSubjectAccessReviews \&quot;\&quot; (empty) is empty for cluster-scoped resources \&quot;\&quot; (empty) means \&quot;all\&quot; for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview
    * @return namespace
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Namespace is the namespace of the action being requested.  Currently, there is no distinction between no namespace and all namespaces \"\" (empty) is defaulted for LocalSubjectAccessReviews \"\" (empty) is empty for cluster-scoped resources \"\" (empty) means \"all\" for namespace scoped resources from a SubjectAccessReview or SelfSubjectAccessReview")
-
+  @jakarta.annotation.Nullable
   public String getNamespace() {
     return namespace;
   }
@@ -137,9 +155,7 @@ public class V1ResourceAttributes {
    * Resource is one of the existing resource types.  \&quot;*\&quot; means all.
    * @return resource
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Resource is one of the existing resource types.  \"*\" means all.")
-
+  @jakarta.annotation.Nullable
   public String getResource() {
     return resource;
   }
@@ -160,9 +176,7 @@ public class V1ResourceAttributes {
    * Subresource is one of the existing resource types.  \&quot;\&quot; means none.
    * @return subresource
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Subresource is one of the existing resource types.  \"\" means none.")
-
+  @jakarta.annotation.Nullable
   public String getSubresource() {
     return subresource;
   }
@@ -183,9 +197,7 @@ public class V1ResourceAttributes {
    * Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \&quot;*\&quot; means all.
    * @return verb
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Verb is a kubernetes resource API verb, like: get, list, watch, create, update, delete, proxy.  \"*\" means all.")
-
+  @jakarta.annotation.Nullable
   public String getVerb() {
     return verb;
   }
@@ -206,9 +218,7 @@ public class V1ResourceAttributes {
    * Version is the API Version of the Resource.  \&quot;*\&quot; means all.
    * @return version
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Version is the API Version of the Resource.  \"*\" means all.")
-
+  @jakarta.annotation.Nullable
   public String getVersion() {
     return version;
   }
@@ -219,8 +229,9 @@ public class V1ResourceAttributes {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -242,7 +253,6 @@ public class V1ResourceAttributes {
     return Objects.hash(group, name, namespace, resource, subresource, verb, version);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -262,11 +272,121 @@ public class V1ResourceAttributes {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("group");
+    openapiFields.add("name");
+    openapiFields.add("namespace");
+    openapiFields.add("resource");
+    openapiFields.add("subresource");
+    openapiFields.add("verb");
+    openapiFields.add("version");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1ResourceAttributes
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1ResourceAttributes.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1ResourceAttributes is not found in the empty JSON string", V1ResourceAttributes.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1ResourceAttributes.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1ResourceAttributes` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("group") != null && !jsonObj.get("group").isJsonNull()) && !jsonObj.get("group").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `group` to be a primitive type in the JSON string but got `%s`", jsonObj.get("group").toString()));
+      }
+      if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
+      }
+      if ((jsonObj.get("namespace") != null && !jsonObj.get("namespace").isJsonNull()) && !jsonObj.get("namespace").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `namespace` to be a primitive type in the JSON string but got `%s`", jsonObj.get("namespace").toString()));
+      }
+      if ((jsonObj.get("resource") != null && !jsonObj.get("resource").isJsonNull()) && !jsonObj.get("resource").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `resource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("resource").toString()));
+      }
+      if ((jsonObj.get("subresource") != null && !jsonObj.get("subresource").isJsonNull()) && !jsonObj.get("subresource").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `subresource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subresource").toString()));
+      }
+      if ((jsonObj.get("verb") != null && !jsonObj.get("verb").isJsonNull()) && !jsonObj.get("verb").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `verb` to be a primitive type in the JSON string but got `%s`", jsonObj.get("verb").toString()));
+      }
+      if ((jsonObj.get("version") != null && !jsonObj.get("version").isJsonNull()) && !jsonObj.get("version").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `version` to be a primitive type in the JSON string but got `%s`", jsonObj.get("version").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1ResourceAttributes.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1ResourceAttributes' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1ResourceAttributes> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1ResourceAttributes.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1ResourceAttributes>() {
+           @Override
+           public void write(JsonWriter out, V1ResourceAttributes value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1ResourceAttributes read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1ResourceAttributes given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1ResourceAttributes
+  * @throws IOException if the JSON string is invalid with respect to V1ResourceAttributes
+  */
+  public static V1ResourceAttributes fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1ResourceAttributes.class);
+  }
+
+ /**
+  * Convert an instance of V1ResourceAttributes to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

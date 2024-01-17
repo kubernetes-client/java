@@ -63,7 +63,7 @@ public class CSRUtils {
   public static void approve(ApiClient apiClient, String csrObjName) throws ApiException {
     CertificatesV1Api api = new CertificatesV1Api(apiClient);
     OffsetDateTime now = OffsetDateTime.now();
-    V1CertificateSigningRequest current = api.readCertificateSigningRequest(csrObjName, null);
+    V1CertificateSigningRequest current = api.readCertificateSigningRequest(csrObjName).execute();
     current
         .getStatus()
         .addConditionsItem(
@@ -73,7 +73,7 @@ public class CSRUtils {
                 .reason("Kubernetes Java Client")
                 .lastTransitionTime(now)
                 .lastUpdateTime(now));
-    api.replaceCertificateSigningRequestApproval(csrObjName, current, null, null, null, null);
+    api.replaceCertificateSigningRequestApproval(csrObjName, current).execute();
   }
 
   /**
@@ -95,7 +95,7 @@ public class CSRUtils {
     if (!CSRUtils.createIfAbsent(bootstrapApiClient, csr)) {
       CertificatesV1Api api = new CertificatesV1Api(bootstrapApiClient);
       V1CertificateSigningRequest existing =
-          api.readCertificateSigningRequest(csr.getMetadata().getName(), null);
+          api.readCertificateSigningRequest(csr.getMetadata().getName()).execute();
       if (!CSRUtils.isIdentical(existing, csr)) {
         LOG.error(
             "Existing CertificateSigningRequest object is conflicting with the requesting object");
@@ -119,7 +119,7 @@ public class CSRUtils {
       throws ApiException {
     CertificatesV1Api api = new CertificatesV1Api(apiClient);
     try {
-      api.createCertificateSigningRequest(csr, null, null, null, null);
+      api.createCertificateSigningRequest(csr).execute();
       return true;
     } catch (ApiException e) {
       if (e.getCode() == 409) { // HTTP-Conflict
@@ -171,7 +171,7 @@ public class CSRUtils {
               () -> {
                 try {
                   V1CertificateSigningRequest current =
-                      api.readCertificateSigningRequest(csrObjectName, null);
+                      api.readCertificateSigningRequest(csrObjectName).execute();
                   CSRUtils.getCertificate(current).ifPresent(cert -> certRef.set(cert));
                   return true;
                 } catch (ApiException e) {

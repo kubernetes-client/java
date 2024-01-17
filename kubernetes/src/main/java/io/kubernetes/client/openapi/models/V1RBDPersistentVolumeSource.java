@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,17 +20,39 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1SecretReference;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * Represents a Rados Block Device mount that lasts the lifetime of a pod. RBD volumes support ownership management and SELinux relabeling.
  */
-@ApiModel(description = "Represents a Rados Block Device mount that lasts the lifetime of a pod. RBD volumes support ownership management and SELinux relabeling.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1RBDPersistentVolumeSource {
   public static final String SERIALIZED_NAME_FS_TYPE = "fsType";
   @SerializedName(SERIALIZED_NAME_FS_TYPE)
@@ -64,6 +86,8 @@ public class V1RBDPersistentVolumeSource {
   @SerializedName(SERIALIZED_NAME_USER)
   private String user;
 
+  public V1RBDPersistentVolumeSource() {
+  }
 
   public V1RBDPersistentVolumeSource fsType(String fsType) {
 
@@ -75,9 +99,7 @@ public class V1RBDPersistentVolumeSource {
    * fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \&quot;ext4\&quot;, \&quot;xfs\&quot;, \&quot;ntfs\&quot;. Implicitly inferred to be \&quot;ext4\&quot; if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd
    * @return fsType
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "fsType is the filesystem type of the volume that you want to mount. Tip: Ensure that the filesystem type is supported by the host operating system. Examples: \"ext4\", \"xfs\", \"ntfs\". Implicitly inferred to be \"ext4\" if unspecified. More info: https://kubernetes.io/docs/concepts/storage/volumes#rbd")
-
+  @jakarta.annotation.Nullable
   public String getFsType() {
     return fsType;
   }
@@ -98,8 +120,7 @@ public class V1RBDPersistentVolumeSource {
    * image is the rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return image
   **/
-  @ApiModelProperty(required = true, value = "image is the rados image name. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
-
+  @jakarta.annotation.Nonnull
   public String getImage() {
     return image;
   }
@@ -120,9 +141,7 @@ public class V1RBDPersistentVolumeSource {
    * keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return keyring
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "keyring is the path to key ring for RBDUser. Default is /etc/ceph/keyring. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
-
+  @jakarta.annotation.Nullable
   public String getKeyring() {
     return keyring;
   }
@@ -140,6 +159,9 @@ public class V1RBDPersistentVolumeSource {
   }
 
   public V1RBDPersistentVolumeSource addMonitorsItem(String monitorsItem) {
+    if (this.monitors == null) {
+      this.monitors = new ArrayList<>();
+    }
     this.monitors.add(monitorsItem);
     return this;
   }
@@ -148,8 +170,7 @@ public class V1RBDPersistentVolumeSource {
    * monitors is a collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return monitors
   **/
-  @ApiModelProperty(required = true, value = "monitors is a collection of Ceph monitors. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
-
+  @jakarta.annotation.Nonnull
   public List<String> getMonitors() {
     return monitors;
   }
@@ -170,9 +191,7 @@ public class V1RBDPersistentVolumeSource {
    * pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return pool
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "pool is the rados pool name. Default is rbd. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
-
+  @jakarta.annotation.Nullable
   public String getPool() {
     return pool;
   }
@@ -193,9 +212,7 @@ public class V1RBDPersistentVolumeSource {
    * readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return readOnly
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "readOnly here will force the ReadOnly setting in VolumeMounts. Defaults to false. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
-
+  @jakarta.annotation.Nullable
   public Boolean getReadOnly() {
     return readOnly;
   }
@@ -216,9 +233,7 @@ public class V1RBDPersistentVolumeSource {
    * Get secretRef
    * @return secretRef
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1SecretReference getSecretRef() {
     return secretRef;
   }
@@ -239,9 +254,7 @@ public class V1RBDPersistentVolumeSource {
    * user is the rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it
    * @return user
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "user is the rados user name. Default is admin. More info: https://examples.k8s.io/volumes/rbd/README.md#how-to-use-it")
-
+  @jakarta.annotation.Nullable
   public String getUser() {
     return user;
   }
@@ -252,8 +265,9 @@ public class V1RBDPersistentVolumeSource {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -276,7 +290,6 @@ public class V1RBDPersistentVolumeSource {
     return Objects.hash(fsType, image, keyring, monitors, pool, readOnly, secretRef, user);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -297,11 +310,135 @@ public class V1RBDPersistentVolumeSource {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("fsType");
+    openapiFields.add("image");
+    openapiFields.add("keyring");
+    openapiFields.add("monitors");
+    openapiFields.add("pool");
+    openapiFields.add("readOnly");
+    openapiFields.add("secretRef");
+    openapiFields.add("user");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("image");
+    openapiRequiredFields.add("monitors");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1RBDPersistentVolumeSource
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1RBDPersistentVolumeSource.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1RBDPersistentVolumeSource is not found in the empty JSON string", V1RBDPersistentVolumeSource.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1RBDPersistentVolumeSource.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1RBDPersistentVolumeSource` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1RBDPersistentVolumeSource.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("fsType") != null && !jsonObj.get("fsType").isJsonNull()) && !jsonObj.get("fsType").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `fsType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("fsType").toString()));
+      }
+      if (!jsonObj.get("image").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `image` to be a primitive type in the JSON string but got `%s`", jsonObj.get("image").toString()));
+      }
+      if ((jsonObj.get("keyring") != null && !jsonObj.get("keyring").isJsonNull()) && !jsonObj.get("keyring").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `keyring` to be a primitive type in the JSON string but got `%s`", jsonObj.get("keyring").toString()));
+      }
+      // ensure the required json array is present
+      if (jsonObj.get("monitors") == null) {
+        throw new IllegalArgumentException("Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+      } else if (!jsonObj.get("monitors").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `monitors` to be an array in the JSON string but got `%s`", jsonObj.get("monitors").toString()));
+      }
+      if ((jsonObj.get("pool") != null && !jsonObj.get("pool").isJsonNull()) && !jsonObj.get("pool").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `pool` to be a primitive type in the JSON string but got `%s`", jsonObj.get("pool").toString()));
+      }
+      // validate the optional field `secretRef`
+      if (jsonObj.get("secretRef") != null && !jsonObj.get("secretRef").isJsonNull()) {
+        V1SecretReference.validateJsonObject(jsonObj.getAsJsonObject("secretRef"));
+      }
+      if ((jsonObj.get("user") != null && !jsonObj.get("user").isJsonNull()) && !jsonObj.get("user").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `user` to be a primitive type in the JSON string but got `%s`", jsonObj.get("user").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1RBDPersistentVolumeSource.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1RBDPersistentVolumeSource' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1RBDPersistentVolumeSource> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1RBDPersistentVolumeSource.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1RBDPersistentVolumeSource>() {
+           @Override
+           public void write(JsonWriter out, V1RBDPersistentVolumeSource value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1RBDPersistentVolumeSource read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1RBDPersistentVolumeSource given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1RBDPersistentVolumeSource
+  * @throws IOException if the JSON string is invalid with respect to V1RBDPersistentVolumeSource
+  */
+  public static V1RBDPersistentVolumeSource fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1RBDPersistentVolumeSource.class);
+  }
+
+ /**
+  * Convert an instance of V1RBDPersistentVolumeSource to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

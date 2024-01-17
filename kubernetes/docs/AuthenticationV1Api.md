@@ -2,16 +2,16 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**createSelfSubjectReview**](AuthenticationV1Api.md#createSelfSubjectReview) | **POST** /apis/authentication.k8s.io/v1/selfsubjectreviews | 
-[**createTokenReview**](AuthenticationV1Api.md#createTokenReview) | **POST** /apis/authentication.k8s.io/v1/tokenreviews | 
-[**getAPIResources**](AuthenticationV1Api.md#getAPIResources) | **GET** /apis/authentication.k8s.io/v1/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**createSelfSubjectReview**](AuthenticationV1Api.md#createSelfSubjectReview) | **POST** /apis/authentication.k8s.io/v1/selfsubjectreviews |  |
+| [**createTokenReview**](AuthenticationV1Api.md#createTokenReview) | **POST** /apis/authentication.k8s.io/v1/tokenreviews |  |
+| [**getAPIResources**](AuthenticationV1Api.md#getAPIResources) | **GET** /apis/authentication.k8s.io/v1/ |  |
 
 
-<a name="createSelfSubjectReview"></a>
+<a id="createSelfSubjectReview"></a>
 # **createSelfSubjectReview**
-> V1SelfSubjectReview createSelfSubjectReview(body, dryRun, fieldManager, fieldValidation, pretty)
+> V1SelfSubjectReview createSelfSubjectReview(body).dryRun(dryRun).fieldManager(fieldManager).fieldValidation(fieldValidation).pretty(pretty).execute();
 
 
 
@@ -45,7 +45,12 @@ public class Example {
     String fieldValidation = "fieldValidation_example"; // String | fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered.
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     try {
-      V1SelfSubjectReview result = apiInstance.createSelfSubjectReview(body, dryRun, fieldManager, fieldValidation, pretty);
+      V1SelfSubjectReview result = apiInstance.createSelfSubjectReview(body)
+            .dryRun(dryRun)
+            .fieldManager(fieldManager)
+            .fieldValidation(fieldValidation)
+            .pretty(pretty)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationV1Api#createSelfSubjectReview");
@@ -60,13 +65,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1SelfSubjectReview**](V1SelfSubjectReview.md)|  |
- **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
- **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
- **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional]
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1SelfSubjectReview**](V1SelfSubjectReview.md)|  | |
+| **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] |
+| **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] |
+| **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional] |
+| **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] |
 
 ### Return type
 
@@ -84,14 +89,14 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**201** | Created |  -  |
-**202** | Accepted |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **201** | Created |  -  |
+| **202** | Accepted |  -  |
+| **401** | Unauthorized |  -  |
 
-<a name="createTokenReview"></a>
+<a id="createTokenReview"></a>
 # **createTokenReview**
-> V1TokenReview createTokenReview(body, dryRun, fieldManager, fieldValidation, pretty)
+> V1TokenReview createTokenReview(body).dryRun(dryRun).fieldManager(fieldManager).fieldValidation(fieldValidation).pretty(pretty).execute();
 
 
 
@@ -125,7 +130,12 @@ public class Example {
     String fieldValidation = "fieldValidation_example"; // String | fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered.
     String pretty = "pretty_example"; // String | If 'true', then the output is pretty printed.
     try {
-      V1TokenReview result = apiInstance.createTokenReview(body, dryRun, fieldManager, fieldValidation, pretty);
+      V1TokenReview result = apiInstance.createTokenReview(body)
+            .dryRun(dryRun)
+            .fieldManager(fieldManager)
+            .fieldValidation(fieldValidation)
+            .pretty(pretty)
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationV1Api#createTokenReview");
@@ -140,13 +150,13 @@ public class Example {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**V1TokenReview**](V1TokenReview.md)|  |
- **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional]
- **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional]
- **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional]
- **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional]
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **body** | [**V1TokenReview**](V1TokenReview.md)|  | |
+| **dryRun** | **String**| When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed | [optional] |
+| **fieldManager** | **String**| fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. | [optional] |
+| **fieldValidation** | **String**| fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. | [optional] |
+| **pretty** | **String**| If &#39;true&#39;, then the output is pretty printed. | [optional] |
 
 ### Return type
 
@@ -164,14 +174,14 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**201** | Created |  -  |
-**202** | Accepted |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **201** | Created |  -  |
+| **202** | Accepted |  -  |
+| **401** | Unauthorized |  -  |
 
-<a name="getAPIResources"></a>
+<a id="getAPIResources"></a>
 # **getAPIResources**
-> V1APIResourceList getAPIResources()
+> V1APIResourceList getAPIResources().execute();
 
 
 
@@ -200,7 +210,8 @@ public class Example {
 
     AuthenticationV1Api apiInstance = new AuthenticationV1Api(defaultClient);
     try {
-      V1APIResourceList result = apiInstance.getAPIResources();
+      V1APIResourceList result = apiInstance.getAPIResources()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling AuthenticationV1Api#getAPIResources");
@@ -232,6 +243,6 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
 

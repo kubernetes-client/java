@@ -96,7 +96,8 @@ public class DeploymentHelper {
       String namespace, String selector, AppsV1Api api) throws ApiException {
     V1ReplicaSetList rsList =
         api.listNamespacedReplicaSet(
-            namespace, null, null, null, null, selector, null, null, null, null, null, null);
+            namespace).labelSelector(selector)
+                .execute();
     return rsList.getItems();
   }
 

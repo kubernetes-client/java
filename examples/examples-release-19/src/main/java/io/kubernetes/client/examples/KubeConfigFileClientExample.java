@@ -50,7 +50,7 @@ public class KubeConfigFileClientExample {
 
     // invokes the CoreV1Api client
     V1PodList list =
-        api.listPodForAllNamespaces(null, null, null, null, null, null, null, null, null, null, null);
+        api.listPodForAllNamespaces().execute();
     for (V1Pod item : list.getItems()) {
       System.out.println(item.getMetadata().getName());
     }

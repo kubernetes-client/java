@@ -85,8 +85,7 @@ public class PagerTest {
         new Pager<V1Namespace, V1NamespaceList>(
             (Pager.PagerParams param) -> {
               try {
-                return api.listNamespaceCall(
-                    null, null, null, null, null, null, null, null, null, null, null, null);
+                return api.listNamespace().buildCall(null);
               } catch (Exception e) {
                 throw new RuntimeException(e);
               }
@@ -130,19 +129,10 @@ public class PagerTest {
         new Pager<V1Namespace, V1NamespaceList>(
             (Pager.PagerParams param) -> {
               try {
-                return api.listNamespaceCall(
-                    null,
-                    null,
-                    param.getContinueToken(),
-                    null,
-                    null,
-                    param.getLimit(),
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null);
+                return api.listNamespace()
+                        ._continue(param.getContinueToken())
+                        .limit(param.getLimit())
+                        .buildCall(null);
               } catch (Exception e) {
                 throw new RuntimeException(e);
               }
@@ -193,19 +183,10 @@ public class PagerTest {
         new Pager<V1Namespace, V1NamespaceList>(
             (Pager.PagerParams param) -> {
               try {
-                return api.listNamespaceCall(
-                    null,
-                    null,
-                    param.getContinueToken(),
-                    null,
-                    null,
-                    param.getLimit(),
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null);
+                return api.listNamespace()
+                        ._continue(param.getContinueToken())
+                        .limit(param.getLimit())
+                        .buildCall(null);
               } catch (Exception e) {
                 throw new RuntimeException(e);
               }
@@ -246,19 +227,11 @@ public class PagerTest {
         new Pager<V1Namespace, V1NamespaceList>(
             (Pager.PagerParams param) -> {
               try {
-                return api.listNamespaceCall(
-                    null,
-                    null,
-                    param.getContinueToken(),
-                    "metadata.name=default",
-                    null,
-                    param.getLimit(),
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null);
+                return api.listNamespace()
+                        ._continue(param.getContinueToken())
+                        .limit(param.getLimit())
+                        .fieldSelector("metadata.name=default")
+                        .buildCall(null);
               } catch (Exception e) {
                 throw new RuntimeException(e);
               }

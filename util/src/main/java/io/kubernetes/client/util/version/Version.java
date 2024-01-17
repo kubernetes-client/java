@@ -34,7 +34,7 @@ public class Version {
   }
 
   public VersionInfo getVersion() throws ApiException, IOException {
-    Call call = versionApi.getCodeCall(null);
+    Call call = versionApi.getCode().buildCall(null);
     Response response = null;
     try {
       response = call.execute();

@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -24,7 +24,7 @@ public class ServerConfiguration {
 
     /**
      * @param URL A URL to the target host.
-     * @param description A describtion of the host designated by the URL.
+     * @param description A description of the host designated by the URL.
      * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template.
      */
     public ServerConfiguration(String URL, String description, Map<String, ServerVariable> variables) {
@@ -51,10 +51,10 @@ public class ServerConfiguration {
             if (variables != null && variables.containsKey(name)) {
                 value = variables.get(name);
                 if (serverVariable.enumValues.size() > 0 && !serverVariable.enumValues.contains(value)) {
-                    throw new RuntimeException("The variable " + name + " in the server URL has invalid value " + value + ".");
+                    throw new IllegalArgumentException("The variable " + name + " in the server URL has invalid value " + value + ".");
                 }
             }
-            url = url.replaceAll("\\{" + name + "\\}", value);
+            url = url.replace("{" + name + "}", value);
         }
         return url;
     }

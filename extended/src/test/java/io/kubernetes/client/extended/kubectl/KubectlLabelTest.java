@@ -200,7 +200,7 @@ public class KubectlLabelTest {
             .withRequestBody(
                 matchingJsonPath(
                     "$.metadata.labels", equalToJson("{ \"k1\": \"v1\", \"k2\": \"v2\" }")))
-            .willReturn(aResponse().withStatus(403).withBody("{\"metadata\":{\"name\":\"foo\"}}")));
+            .willReturn(aResponse().withStatus(403).withBody("{\"metadata\":{}}")));
     assertThrows(
         KubectlException.class,
         () -> {

@@ -66,7 +66,7 @@ public class KubectlDrainTest {
     wireMockRule.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
             .withQueryParam("fieldSelector", equalTo("spec.nodeName=node1"))
-            .willReturn(aResponse().withStatus(200).withBody("{}")));
+            .willReturn(aResponse().withStatus(200).withBody("{\"items\":[]}")));
     V1Node node = new KubectlDrain().skipDiscovery().apiClient(apiClient).name("node1").execute();
     wireMockRule.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/nodes/node1")));
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));

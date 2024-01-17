@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,17 +20,39 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1DaemonSetCondition;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
+
 /**
  * DaemonSetStatus represents the current status of a daemon set.
  */
-@ApiModel(description = "DaemonSetStatus represents the current status of a daemon set.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1DaemonSetStatus {
   public static final String SERIALIZED_NAME_COLLISION_COUNT = "collisionCount";
   @SerializedName(SERIALIZED_NAME_COLLISION_COUNT)
@@ -38,7 +60,7 @@ public class V1DaemonSetStatus {
 
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
-  private List<V1DaemonSetCondition> conditions = null;
+  private List<V1DaemonSetCondition> conditions;
 
   public static final String SERIALIZED_NAME_CURRENT_NUMBER_SCHEDULED = "currentNumberScheduled";
   @SerializedName(SERIALIZED_NAME_CURRENT_NUMBER_SCHEDULED)
@@ -72,6 +94,8 @@ public class V1DaemonSetStatus {
   @SerializedName(SERIALIZED_NAME_UPDATED_NUMBER_SCHEDULED)
   private Integer updatedNumberScheduled;
 
+  public V1DaemonSetStatus() {
+  }
 
   public V1DaemonSetStatus collisionCount(Integer collisionCount) {
 
@@ -83,9 +107,7 @@ public class V1DaemonSetStatus {
    * Count of hash collisions for the DaemonSet. The DaemonSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.
    * @return collisionCount
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Count of hash collisions for the DaemonSet. The DaemonSet controller uses this field as a collision avoidance mechanism when it needs to create the name for the newest ControllerRevision.")
-
+  @jakarta.annotation.Nullable
   public Integer getCollisionCount() {
     return collisionCount;
   }
@@ -114,9 +136,7 @@ public class V1DaemonSetStatus {
    * Represents the latest available observations of a DaemonSet&#39;s current state.
    * @return conditions
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Represents the latest available observations of a DaemonSet's current state.")
-
+  @jakarta.annotation.Nullable
   public List<V1DaemonSetCondition> getConditions() {
     return conditions;
   }
@@ -137,8 +157,7 @@ public class V1DaemonSetStatus {
    * The number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
    * @return currentNumberScheduled
   **/
-  @ApiModelProperty(required = true, value = "The number of nodes that are running at least 1 daemon pod and are supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/")
-
+  @jakarta.annotation.Nonnull
   public Integer getCurrentNumberScheduled() {
     return currentNumberScheduled;
   }
@@ -159,8 +178,7 @@ public class V1DaemonSetStatus {
    * The total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
    * @return desiredNumberScheduled
   **/
-  @ApiModelProperty(required = true, value = "The total number of nodes that should be running the daemon pod (including nodes correctly running the daemon pod). More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/")
-
+  @jakarta.annotation.Nonnull
   public Integer getDesiredNumberScheduled() {
     return desiredNumberScheduled;
   }
@@ -181,9 +199,7 @@ public class V1DaemonSetStatus {
    * The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available (ready for at least spec.minReadySeconds)
    * @return numberAvailable
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of nodes that should be running the daemon pod and have one or more of the daemon pod running and available (ready for at least spec.minReadySeconds)")
-
+  @jakarta.annotation.Nullable
   public Integer getNumberAvailable() {
     return numberAvailable;
   }
@@ -204,8 +220,7 @@ public class V1DaemonSetStatus {
    * The number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/
    * @return numberMisscheduled
   **/
-  @ApiModelProperty(required = true, value = "The number of nodes that are running the daemon pod, but are not supposed to run the daemon pod. More info: https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/")
-
+  @jakarta.annotation.Nonnull
   public Integer getNumberMisscheduled() {
     return numberMisscheduled;
   }
@@ -226,8 +241,7 @@ public class V1DaemonSetStatus {
    * numberReady is the number of nodes that should be running the daemon pod and have one or more of the daemon pod running with a Ready Condition.
    * @return numberReady
   **/
-  @ApiModelProperty(required = true, value = "numberReady is the number of nodes that should be running the daemon pod and have one or more of the daemon pod running with a Ready Condition.")
-
+  @jakarta.annotation.Nonnull
   public Integer getNumberReady() {
     return numberReady;
   }
@@ -248,9 +262,7 @@ public class V1DaemonSetStatus {
    * The number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds)
    * @return numberUnavailable
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The number of nodes that should be running the daemon pod and have none of the daemon pod running and available (ready for at least spec.minReadySeconds)")
-
+  @jakarta.annotation.Nullable
   public Integer getNumberUnavailable() {
     return numberUnavailable;
   }
@@ -271,9 +283,7 @@ public class V1DaemonSetStatus {
    * The most recent generation observed by the daemon set controller.
    * @return observedGeneration
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The most recent generation observed by the daemon set controller.")
-
+  @jakarta.annotation.Nullable
   public Long getObservedGeneration() {
     return observedGeneration;
   }
@@ -294,9 +304,7 @@ public class V1DaemonSetStatus {
    * The total number of nodes that are running updated daemon pod
    * @return updatedNumberScheduled
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "The total number of nodes that are running updated daemon pod")
-
+  @jakarta.annotation.Nullable
   public Integer getUpdatedNumberScheduled() {
     return updatedNumberScheduled;
   }
@@ -307,8 +315,9 @@ public class V1DaemonSetStatus {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -333,7 +342,6 @@ public class V1DaemonSetStatus {
     return Objects.hash(collisionCount, conditions, currentNumberScheduled, desiredNumberScheduled, numberAvailable, numberMisscheduled, numberReady, numberUnavailable, observedGeneration, updatedNumberScheduled);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -356,11 +364,128 @@ public class V1DaemonSetStatus {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("collisionCount");
+    openapiFields.add("conditions");
+    openapiFields.add("currentNumberScheduled");
+    openapiFields.add("desiredNumberScheduled");
+    openapiFields.add("numberAvailable");
+    openapiFields.add("numberMisscheduled");
+    openapiFields.add("numberReady");
+    openapiFields.add("numberUnavailable");
+    openapiFields.add("observedGeneration");
+    openapiFields.add("updatedNumberScheduled");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("currentNumberScheduled");
+    openapiRequiredFields.add("desiredNumberScheduled");
+    openapiRequiredFields.add("numberMisscheduled");
+    openapiRequiredFields.add("numberReady");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1DaemonSetStatus
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1DaemonSetStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1DaemonSetStatus is not found in the empty JSON string", V1DaemonSetStatus.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1DaemonSetStatus.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1DaemonSetStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1DaemonSetStatus.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (jsonObj.get("conditions") != null && !jsonObj.get("conditions").isJsonNull()) {
+        JsonArray jsonArrayconditions = jsonObj.getAsJsonArray("conditions");
+        if (jsonArrayconditions != null) {
+          // ensure the json data is an array
+          if (!jsonObj.get("conditions").isJsonArray()) {
+            throw new IllegalArgumentException(String.format("Expected the field `conditions` to be an array in the JSON string but got `%s`", jsonObj.get("conditions").toString()));
+          }
+
+          // validate the optional field `conditions` (array)
+          for (int i = 0; i < jsonArrayconditions.size(); i++) {
+            V1DaemonSetCondition.validateJsonObject(jsonArrayconditions.get(i).getAsJsonObject());
+          };
+        }
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1DaemonSetStatus.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1DaemonSetStatus' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1DaemonSetStatus> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1DaemonSetStatus.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1DaemonSetStatus>() {
+           @Override
+           public void write(JsonWriter out, V1DaemonSetStatus value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1DaemonSetStatus read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1DaemonSetStatus given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1DaemonSetStatus
+  * @throws IOException if the JSON string is invalid with respect to V1DaemonSetStatus
+  */
+  public static V1DaemonSetStatus fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1DaemonSetStatus.class);
+  }
+
+ /**
+  * Convert an instance of V1DaemonSetStatus to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

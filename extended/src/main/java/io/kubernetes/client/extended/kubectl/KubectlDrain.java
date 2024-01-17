@@ -63,18 +63,9 @@ public class KubectlDrain extends KubectlCordon {
     V1Node node = performCordon();
 
     V1PodList allPods =
-        api.listPodForAllNamespaces(
-            null,
-            null,
-            "spec.nodeName=" + node.getMetadata().getName(),
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null);
+        api.listPodForAllNamespaces()
+                .fieldSelector("spec.nodeName=" + node.getMetadata().getName())
+                .execute();
 
     validatePods(allPods.getItems());
 
@@ -113,7 +104,7 @@ public class KubectlDrain extends KubectlCordon {
 
   private void deletePod(CoreV1Api api, String name, String namespace)
       throws ApiException, IOException, KubectlException {
-    api.deleteNamespacedPod(name, namespace, null, null, this.gracePeriodSeconds, null, null, null);
+    api.deleteNamespacedPod(name, namespace).gracePeriodSeconds(gracePeriodSeconds).execute();
     waitForPodDelete(api, name, namespace);
   }
 
@@ -122,7 +113,7 @@ public class KubectlDrain extends KubectlCordon {
     long start = System.currentTimeMillis();
     do {
       try {
-        api.readNamespacedPod(name, namespace, null);
+        api.readNamespacedPod(name, namespace).execute();
       } catch (ApiException ex) {
         if (ex.getCode() == HttpURLConnection.HTTP_NOT_FOUND) {
           return;

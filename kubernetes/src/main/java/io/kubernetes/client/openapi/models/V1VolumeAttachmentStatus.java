@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -20,18 +20,39 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1VolumeError;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * VolumeAttachmentStatus is the status of a VolumeAttachment request.
  */
-@ApiModel(description = "VolumeAttachmentStatus is the status of a VolumeAttachment request.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1VolumeAttachmentStatus {
   public static final String SERIALIZED_NAME_ATTACH_ERROR = "attachError";
   @SerializedName(SERIALIZED_NAME_ATTACH_ERROR)
@@ -43,12 +64,14 @@ public class V1VolumeAttachmentStatus {
 
   public static final String SERIALIZED_NAME_ATTACHMENT_METADATA = "attachmentMetadata";
   @SerializedName(SERIALIZED_NAME_ATTACHMENT_METADATA)
-  private Map<String, String> attachmentMetadata = null;
+  private Map<String, String> attachmentMetadata = new HashMap<>();
 
   public static final String SERIALIZED_NAME_DETACH_ERROR = "detachError";
   @SerializedName(SERIALIZED_NAME_DETACH_ERROR)
   private V1VolumeError detachError;
 
+  public V1VolumeAttachmentStatus() {
+  }
 
   public V1VolumeAttachmentStatus attachError(V1VolumeError attachError) {
 
@@ -60,9 +83,7 @@ public class V1VolumeAttachmentStatus {
    * Get attachError
    * @return attachError
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1VolumeError getAttachError() {
     return attachError;
   }
@@ -83,8 +104,7 @@ public class V1VolumeAttachmentStatus {
    * attached indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
    * @return attached
   **/
-  @ApiModelProperty(required = true, value = "attached indicates the volume is successfully attached. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.")
-
+  @jakarta.annotation.Nonnull
   public Boolean getAttached() {
     return attached;
   }
@@ -113,9 +133,7 @@ public class V1VolumeAttachmentStatus {
    * attachmentMetadata is populated with any information returned by the attach operation, upon successful attach, that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.
    * @return attachmentMetadata
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "attachmentMetadata is populated with any information returned by the attach operation, upon successful attach, that must be passed into subsequent WaitForAttach or Mount calls. This field must only be set by the entity completing the attach operation, i.e. the external-attacher.")
-
+  @jakarta.annotation.Nullable
   public Map<String, String> getAttachmentMetadata() {
     return attachmentMetadata;
   }
@@ -136,9 +154,7 @@ public class V1VolumeAttachmentStatus {
    * Get detachError
    * @return detachError
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1VolumeError getDetachError() {
     return detachError;
   }
@@ -149,8 +165,9 @@ public class V1VolumeAttachmentStatus {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -169,7 +186,6 @@ public class V1VolumeAttachmentStatus {
     return Objects.hash(attachError, attached, attachmentMetadata, detachError);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -186,11 +202,113 @@ public class V1VolumeAttachmentStatus {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("attachError");
+    openapiFields.add("attached");
+    openapiFields.add("attachmentMetadata");
+    openapiFields.add("detachError");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("attached");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1VolumeAttachmentStatus
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1VolumeAttachmentStatus.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1VolumeAttachmentStatus is not found in the empty JSON string", V1VolumeAttachmentStatus.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1VolumeAttachmentStatus.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1VolumeAttachmentStatus` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1VolumeAttachmentStatus.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      // validate the optional field `attachError`
+      if (jsonObj.get("attachError") != null && !jsonObj.get("attachError").isJsonNull()) {
+        V1VolumeError.validateJsonObject(jsonObj.getAsJsonObject("attachError"));
+      }
+      // validate the optional field `detachError`
+      if (jsonObj.get("detachError") != null && !jsonObj.get("detachError").isJsonNull()) {
+        V1VolumeError.validateJsonObject(jsonObj.getAsJsonObject("detachError"));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1VolumeAttachmentStatus.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1VolumeAttachmentStatus' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1VolumeAttachmentStatus> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1VolumeAttachmentStatus.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1VolumeAttachmentStatus>() {
+           @Override
+           public void write(JsonWriter out, V1VolumeAttachmentStatus value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1VolumeAttachmentStatus read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1VolumeAttachmentStatus given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1VolumeAttachmentStatus
+  * @throws IOException if the JSON string is invalid with respect to V1VolumeAttachmentStatus
+  */
+  public static V1VolumeAttachmentStatus fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1VolumeAttachmentStatus.class);
+  }
+
+ /**
+  * Convert an instance of V1VolumeAttachmentStatus to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

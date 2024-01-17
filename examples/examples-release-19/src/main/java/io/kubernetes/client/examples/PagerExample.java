@@ -45,19 +45,11 @@ public class PagerExample {
         new Pager<V1Namespace, V1NamespaceList>(
             (Pager.PagerParams param) -> {
               try {
-                return api.listNamespaceCall(
-                    null,
-                    null,
-                    param.getContinueToken(),
-                    null,
-                    null,
-                    param.getLimit(),
-                    null,
-                    null,
-                    null,
-                    1,
-                    null,
-                    null);
+                return api.listNamespace()
+                        ._continue(param.getContinueToken())
+                        .limit(param.getLimit())
+                        .timeoutSeconds(1)
+                        .buildCall(null);
               } catch (Exception e) {
                 throw new RuntimeException(e);
               }

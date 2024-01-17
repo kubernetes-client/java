@@ -58,7 +58,7 @@ public class ConfigMapLock implements Lock {
 
   @Override
   public LeaderElectionRecord get() throws ApiException {
-    V1ConfigMap configMap = coreV1Client.readNamespacedConfigMap(name, namespace, null);
+    V1ConfigMap configMap = coreV1Client.readNamespacedConfigMap(name, namespace).execute();
     configMapRefer.set(configMap);
 
     Map<String, String> annotations = configMap.getMetadata().getAnnotations();
@@ -97,7 +97,7 @@ public class ConfigMapLock implements Lock {
       }
       configMap.setMetadata(objectMeta);
       V1ConfigMap createdConfigMap =
-          coreV1Client.createNamespacedConfigMap(namespace, configMap, null, null, null, null);
+          coreV1Client.createNamespacedConfigMap(namespace, configMap).execute();
       configMapRefer.set(createdConfigMap);
       return true;
     } catch (ApiException e) {
@@ -122,7 +122,7 @@ public class ConfigMapLock implements Lock {
       // TODO consider to retry if receiving a 409 code
       V1ConfigMap replacedConfigMap =
           coreV1Client.replaceNamespacedConfigMap(
-              name, namespace, configMap, null, null, null, null);
+              name, namespace, configMap).execute();
       configMapRefer.set(replacedConfigMap);
       return true;
     } catch (ApiException e) {

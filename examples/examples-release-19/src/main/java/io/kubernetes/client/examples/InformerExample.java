@@ -51,19 +51,11 @@ public class InformerExample {
             // HTTPs requests, the effective apiClient is the one specified when constructing
             // the informer-factory.
             (CallGeneratorParams params) -> {
-              return coreV1Api.listNodeCall(
-                  null,
-                  null,
-                  null,
-                  null,
-                  null,
-                  null,
-                  params.resourceVersion,
-                  null,
-                  null,
-                  params.timeoutSeconds,
-                  params.watch,
-                  null);
+              return coreV1Api.listNode()
+                      .resourceVersion(params.resourceVersion)
+                      .watch(params.watch)
+                      .timeoutSeconds(params.timeoutSeconds)
+                      .buildCall(null);
             },
             V1Node.class,
             V1NodeList.class);
@@ -94,7 +86,7 @@ public class InformerExample {
     V1ObjectMeta metadata = new V1ObjectMeta();
     metadata.setName("noxu");
     nodeToCreate.setMetadata(metadata);
-    V1Node createdNode = coreV1Api.createNode(nodeToCreate, null, null, null, null);
+    V1Node createdNode = coreV1Api.createNode(nodeToCreate).execute();
     Thread.sleep(3000);
 
     Lister<V1Node> nodeLister = new Lister<V1Node>(nodeInformer.getIndexer());

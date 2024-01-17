@@ -2,14 +2,14 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getServiceAccountIssuerOpenIDKeyset**](OpenidApi.md#getServiceAccountIssuerOpenIDKeyset) | **GET** /openid/v1/jwks | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getServiceAccountIssuerOpenIDKeyset**](OpenidApi.md#getServiceAccountIssuerOpenIDKeyset) | **GET** /openid/v1/jwks |  |
 
 
-<a name="getServiceAccountIssuerOpenIDKeyset"></a>
+<a id="getServiceAccountIssuerOpenIDKeyset"></a>
 # **getServiceAccountIssuerOpenIDKeyset**
-> String getServiceAccountIssuerOpenIDKeyset()
+> String getServiceAccountIssuerOpenIDKeyset().execute();
 
 
 
@@ -38,7 +38,8 @@ public class Example {
 
     OpenidApi apiInstance = new OpenidApi(defaultClient);
     try {
-      String result = apiInstance.getServiceAccountIssuerOpenIDKeyset();
+      String result = apiInstance.getServiceAccountIssuerOpenIDKeyset()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling OpenidApi#getServiceAccountIssuerOpenIDKeyset");
@@ -70,6 +71,6 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
 

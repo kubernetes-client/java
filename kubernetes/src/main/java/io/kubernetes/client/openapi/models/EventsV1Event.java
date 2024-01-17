@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -23,16 +23,38 @@ import io.kubernetes.client.openapi.models.EventsV1EventSeries;
 import io.kubernetes.client.openapi.models.V1EventSource;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.
  */
-@ApiModel(description = "Event is a report of an event somewhere in the cluster. It generally denotes some state change in the system. Events have a limited retention time and triggers and messages may evolve with time.  Event consumers should not rely on the timing of an event with a given Reason reflecting a consistent underlying trigger, or the continued existence of events with that Reason.  Events should be treated as informative, best-effort, supplemental data.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class EventsV1Event implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_ACTION = "action";
   @SerializedName(SERIALIZED_NAME_ACTION)
@@ -102,6 +124,8 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public EventsV1Event() {
+  }
 
   public EventsV1Event action(String action) {
 
@@ -113,9 +137,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field cannot be empty for new Events and it can have at most 128 characters.
    * @return action
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "action is what action was taken/failed regarding to the regarding object. It is machine-readable. This field cannot be empty for new Events and it can have at most 128 characters.")
-
+  @jakarta.annotation.Nullable
   public String getAction() {
     return action;
   }
@@ -136,9 +158,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
    * @return apiVersion
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources")
-
+  @jakarta.annotation.Nullable
   public String getApiVersion() {
     return apiVersion;
   }
@@ -159,9 +179,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * deprecatedCount is the deprecated field assuring backward compatibility with core.v1 Event type.
    * @return deprecatedCount
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "deprecatedCount is the deprecated field assuring backward compatibility with core.v1 Event type.")
-
+  @jakarta.annotation.Nullable
   public Integer getDeprecatedCount() {
     return deprecatedCount;
   }
@@ -182,9 +200,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * deprecatedFirstTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.
    * @return deprecatedFirstTimestamp
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "deprecatedFirstTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.")
-
+  @jakarta.annotation.Nullable
   public OffsetDateTime getDeprecatedFirstTimestamp() {
     return deprecatedFirstTimestamp;
   }
@@ -205,9 +221,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * deprecatedLastTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.
    * @return deprecatedLastTimestamp
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "deprecatedLastTimestamp is the deprecated field assuring backward compatibility with core.v1 Event type.")
-
+  @jakarta.annotation.Nullable
   public OffsetDateTime getDeprecatedLastTimestamp() {
     return deprecatedLastTimestamp;
   }
@@ -228,9 +242,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * Get deprecatedSource
    * @return deprecatedSource
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1EventSource getDeprecatedSource() {
     return deprecatedSource;
   }
@@ -251,8 +263,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * eventTime is the time when this Event was first observed. It is required.
    * @return eventTime
   **/
-  @ApiModelProperty(required = true, value = "eventTime is the time when this Event was first observed. It is required.")
-
+  @jakarta.annotation.Nonnull
   public OffsetDateTime getEventTime() {
     return eventTime;
   }
@@ -273,9 +284,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
    * @return kind
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds")
-
+  @jakarta.annotation.Nullable
   public String getKind() {
     return kind;
   }
@@ -296,9 +305,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * Get metadata
    * @return metadata
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1ObjectMeta getMetadata() {
     return metadata;
   }
@@ -319,9 +326,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * note is a human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.
    * @return note
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "note is a human-readable description of the status of this operation. Maximal length of the note is 1kB, but libraries should be prepared to handle values up to 64kB.")
-
+  @jakarta.annotation.Nullable
   public String getNote() {
     return note;
   }
@@ -342,9 +347,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * reason is why the action was taken. It is human-readable. This field cannot be empty for new Events and it can have at most 128 characters.
    * @return reason
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "reason is why the action was taken. It is human-readable. This field cannot be empty for new Events and it can have at most 128 characters.")
-
+  @jakarta.annotation.Nullable
   public String getReason() {
     return reason;
   }
@@ -365,9 +368,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * Get regarding
    * @return regarding
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1ObjectReference getRegarding() {
     return regarding;
   }
@@ -388,9 +389,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * Get related
    * @return related
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1ObjectReference getRelated() {
     return related;
   }
@@ -411,9 +410,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * reportingController is the name of the controller that emitted this Event, e.g. &#x60;kubernetes.io/kubelet&#x60;. This field cannot be empty for new Events.
    * @return reportingController
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "reportingController is the name of the controller that emitted this Event, e.g. `kubernetes.io/kubelet`. This field cannot be empty for new Events.")
-
+  @jakarta.annotation.Nullable
   public String getReportingController() {
     return reportingController;
   }
@@ -434,9 +431,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * reportingInstance is the ID of the controller instance, e.g. &#x60;kubelet-xyzf&#x60;. This field cannot be empty for new Events and it can have at most 128 characters.
    * @return reportingInstance
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "reportingInstance is the ID of the controller instance, e.g. `kubelet-xyzf`. This field cannot be empty for new Events and it can have at most 128 characters.")
-
+  @jakarta.annotation.Nullable
   public String getReportingInstance() {
     return reportingInstance;
   }
@@ -457,9 +452,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * Get series
    * @return series
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public EventsV1EventSeries getSeries() {
     return series;
   }
@@ -480,9 +473,7 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable. This field cannot be empty for new Events.
    * @return type
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "type is the type of this event (Normal, Warning), new types could be added in the future. It is machine-readable. This field cannot be empty for new Events.")
-
+  @jakarta.annotation.Nullable
   public String getType() {
     return type;
   }
@@ -493,8 +484,9 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -526,7 +518,6 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
     return Objects.hash(action, apiVersion, deprecatedCount, deprecatedFirstTimestamp, deprecatedLastTimestamp, deprecatedSource, eventTime, kind, metadata, note, reason, regarding, related, reportingController, reportingInstance, series, type);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -556,11 +547,162 @@ public class EventsV1Event implements io.kubernetes.client.common.KubernetesObje
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("action");
+    openapiFields.add("apiVersion");
+    openapiFields.add("deprecatedCount");
+    openapiFields.add("deprecatedFirstTimestamp");
+    openapiFields.add("deprecatedLastTimestamp");
+    openapiFields.add("deprecatedSource");
+    openapiFields.add("eventTime");
+    openapiFields.add("kind");
+    openapiFields.add("metadata");
+    openapiFields.add("note");
+    openapiFields.add("reason");
+    openapiFields.add("regarding");
+    openapiFields.add("related");
+    openapiFields.add("reportingController");
+    openapiFields.add("reportingInstance");
+    openapiFields.add("series");
+    openapiFields.add("type");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("eventTime");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to EventsV1Event
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!EventsV1Event.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in EventsV1Event is not found in the empty JSON string", EventsV1Event.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!EventsV1Event.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `EventsV1Event` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : EventsV1Event.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) && !jsonObj.get("action").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `action` to be a primitive type in the JSON string but got `%s`", jsonObj.get("action").toString()));
+      }
+      if ((jsonObj.get("apiVersion") != null && !jsonObj.get("apiVersion").isJsonNull()) && !jsonObj.get("apiVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `apiVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("apiVersion").toString()));
+      }
+      // validate the optional field `deprecatedSource`
+      if (jsonObj.get("deprecatedSource") != null && !jsonObj.get("deprecatedSource").isJsonNull()) {
+        V1EventSource.validateJsonObject(jsonObj.getAsJsonObject("deprecatedSource"));
+      }
+      if ((jsonObj.get("kind") != null && !jsonObj.get("kind").isJsonNull()) && !jsonObj.get("kind").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kind` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kind").toString()));
+      }
+      // validate the optional field `metadata`
+      if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
+        V1ObjectMeta.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+      }
+      if ((jsonObj.get("note") != null && !jsonObj.get("note").isJsonNull()) && !jsonObj.get("note").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `note` to be a primitive type in the JSON string but got `%s`", jsonObj.get("note").toString()));
+      }
+      if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull()) && !jsonObj.get("reason").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reason` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reason").toString()));
+      }
+      // validate the optional field `regarding`
+      if (jsonObj.get("regarding") != null && !jsonObj.get("regarding").isJsonNull()) {
+        V1ObjectReference.validateJsonObject(jsonObj.getAsJsonObject("regarding"));
+      }
+      // validate the optional field `related`
+      if (jsonObj.get("related") != null && !jsonObj.get("related").isJsonNull()) {
+        V1ObjectReference.validateJsonObject(jsonObj.getAsJsonObject("related"));
+      }
+      if ((jsonObj.get("reportingController") != null && !jsonObj.get("reportingController").isJsonNull()) && !jsonObj.get("reportingController").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reportingController` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reportingController").toString()));
+      }
+      if ((jsonObj.get("reportingInstance") != null && !jsonObj.get("reportingInstance").isJsonNull()) && !jsonObj.get("reportingInstance").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `reportingInstance` to be a primitive type in the JSON string but got `%s`", jsonObj.get("reportingInstance").toString()));
+      }
+      // validate the optional field `series`
+      if (jsonObj.get("series") != null && !jsonObj.get("series").isJsonNull()) {
+        EventsV1EventSeries.validateJsonObject(jsonObj.getAsJsonObject("series"));
+      }
+      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!EventsV1Event.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'EventsV1Event' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<EventsV1Event> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(EventsV1Event.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<EventsV1Event>() {
+           @Override
+           public void write(JsonWriter out, EventsV1Event value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public EventsV1Event read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of EventsV1Event given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of EventsV1Event
+  * @throws IOException if the JSON string is invalid with respect to EventsV1Event
+  */
+  public static EventsV1Event fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, EventsV1Event.class);
+  }
+
+ /**
+  * Convert an instance of EventsV1Event to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

@@ -90,20 +90,14 @@ public class YamlExample {
     // CoreV1API
     CoreV1Api api = new CoreV1Api();
     V1Service createResult =
-        api.createNamespacedService("default", yamlSvc, null, null, null, null);
+        api.createNamespacedService("default", yamlSvc).execute();
 
     System.out.println(createResult);
 
     V1Service deleteResult =
         api.deleteNamespacedService(
             yamlSvc.getMetadata().getName(),
-            "default",
-            null,
-            null,
-            null,
-            null,
-            null,
-            new V1DeleteOptions());
+            "default").execute();
     System.out.println(deleteResult);
   }
 }

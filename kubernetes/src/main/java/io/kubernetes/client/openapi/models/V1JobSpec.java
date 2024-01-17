@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -22,15 +22,37 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LabelSelector;
 import io.kubernetes.client.openapi.models.V1PodFailurePolicy;
 import io.kubernetes.client.openapi.models.V1PodTemplateSpec;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * JobSpec describes how the job execution will look like.
  */
-@ApiModel(description = "JobSpec describes how the job execution will look like.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1JobSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -88,6 +110,8 @@ public class V1JobSpec {
   @SerializedName(SERIALIZED_NAME_TTL_SECONDS_AFTER_FINISHED)
   private Integer ttlSecondsAfterFinished;
 
+  public V1JobSpec() {
+  }
 
   public V1JobSpec activeDeadlineSeconds(Long activeDeadlineSeconds) {
 
@@ -99,9 +123,7 @@ public class V1JobSpec {
    * Specifies the duration in seconds relative to the startTime that the job may be continuously active before the system tries to terminate it; value must be positive integer. If a Job is suspended (at creation or through an update), this timer will effectively be stopped and reset when the Job is resumed again.
    * @return activeDeadlineSeconds
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the duration in seconds relative to the startTime that the job may be continuously active before the system tries to terminate it; value must be positive integer. If a Job is suspended (at creation or through an update), this timer will effectively be stopped and reset when the Job is resumed again.")
-
+  @jakarta.annotation.Nullable
   public Long getActiveDeadlineSeconds() {
     return activeDeadlineSeconds;
   }
@@ -122,9 +144,7 @@ public class V1JobSpec {
    * Specifies the number of retries before marking this job failed. Defaults to 6
    * @return backoffLimit
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the number of retries before marking this job failed. Defaults to 6")
-
+  @jakarta.annotation.Nullable
   public Integer getBackoffLimit() {
     return backoffLimit;
   }
@@ -145,9 +165,7 @@ public class V1JobSpec {
    * Specifies the limit for the number of retries within an index before marking this index as failed. When enabled the number of failures per index is kept in the pod&#39;s batch.kubernetes.io/job-index-failure-count annotation. It can only be set when Job&#39;s completionMode&#x3D;Indexed, and the Pod&#39;s restart policy is Never. The field is immutable. This field is alpha-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (disabled by default).
    * @return backoffLimitPerIndex
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the limit for the number of retries within an index before marking this index as failed. When enabled the number of failures per index is kept in the pod's batch.kubernetes.io/job-index-failure-count annotation. It can only be set when Job's completionMode=Indexed, and the Pod's restart policy is Never. The field is immutable. This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).")
-
+  @jakarta.annotation.Nullable
   public Integer getBackoffLimitPerIndex() {
     return backoffLimitPerIndex;
   }
@@ -168,9 +186,7 @@ public class V1JobSpec {
    * completionMode specifies how Pod completions are tracked. It can be &#x60;NonIndexed&#x60; (default) or &#x60;Indexed&#x60;.  &#x60;NonIndexed&#x60; means that the Job is considered complete when there have been .spec.completions successfully completed Pods. Each Pod completion is homologous to each other.  &#x60;Indexed&#x60; means that the Pods of a Job get an associated completion index from 0 to (.spec.completions - 1), available in the annotation batch.kubernetes.io/job-completion-index. The Job is considered complete when there is one successfully completed Pod for each index. When value is &#x60;Indexed&#x60;, .spec.completions must be specified and &#x60;.spec.parallelism&#x60; must be less than or equal to 10^5. In addition, The Pod name takes the form &#x60;$(job-name)-$(index)-$(random-string)&#x60;, the Pod hostname takes the form &#x60;$(job-name)-$(index)&#x60;.  More completion modes can be added in the future. If the Job controller observes a mode that it doesn&#39;t recognize, which is possible during upgrades due to version skew, the controller skips updates for the Job.
    * @return completionMode
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "completionMode specifies how Pod completions are tracked. It can be `NonIndexed` (default) or `Indexed`.  `NonIndexed` means that the Job is considered complete when there have been .spec.completions successfully completed Pods. Each Pod completion is homologous to each other.  `Indexed` means that the Pods of a Job get an associated completion index from 0 to (.spec.completions - 1), available in the annotation batch.kubernetes.io/job-completion-index. The Job is considered complete when there is one successfully completed Pod for each index. When value is `Indexed`, .spec.completions must be specified and `.spec.parallelism` must be less than or equal to 10^5. In addition, The Pod name takes the form `$(job-name)-$(index)-$(random-string)`, the Pod hostname takes the form `$(job-name)-$(index)`.  More completion modes can be added in the future. If the Job controller observes a mode that it doesn't recognize, which is possible during upgrades due to version skew, the controller skips updates for the Job.")
-
+  @jakarta.annotation.Nullable
   public String getCompletionMode() {
     return completionMode;
   }
@@ -191,9 +207,7 @@ public class V1JobSpec {
    * Specifies the desired number of successfully finished pods the job should be run with.  Setting to null means that the success of any pod signals the success of all pods, and allows parallelism to have any positive value.  Setting to 1 means that parallelism is limited to 1 and the success of that pod signals the success of the job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
    * @return completions
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the desired number of successfully finished pods the job should be run with.  Setting to null means that the success of any pod signals the success of all pods, and allows parallelism to have any positive value.  Setting to 1 means that parallelism is limited to 1 and the success of that pod signals the success of the job. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/")
-
+  @jakarta.annotation.Nullable
   public Integer getCompletions() {
     return completions;
   }
@@ -214,9 +228,7 @@ public class V1JobSpec {
    * manualSelector controls generation of pod labels and pod selectors. Leave &#x60;manualSelector&#x60; unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template.  When true, the user is responsible for picking unique labels and specifying the selector.  Failure to pick a unique label may cause this and other jobs to not function correctly.  However, You may see &#x60;manualSelector&#x3D;true&#x60; in jobs that were created with the old &#x60;extensions/v1beta1&#x60; API. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#specifying-your-own-pod-selector
    * @return manualSelector
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "manualSelector controls generation of pod labels and pod selectors. Leave `manualSelector` unset unless you are certain what you are doing. When false or unset, the system pick labels unique to this job and appends those labels to the pod template.  When true, the user is responsible for picking unique labels and specifying the selector.  Failure to pick a unique label may cause this and other jobs to not function correctly.  However, You may see `manualSelector=true` in jobs that were created with the old `extensions/v1beta1` API. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/#specifying-your-own-pod-selector")
-
+  @jakarta.annotation.Nullable
   public Boolean getManualSelector() {
     return manualSelector;
   }
@@ -237,9 +249,7 @@ public class V1JobSpec {
    * Specifies the maximal number of failed indexes before marking the Job as failed, when backoffLimitPerIndex is set. Once the number of failed indexes exceeds this number the entire Job is marked as Failed and its execution is terminated. When left as null the job continues execution of all of its indexes and is marked with the &#x60;Complete&#x60; Job condition. It can only be specified when backoffLimitPerIndex is set. It can be null or up to completions. It is required and must be less than or equal to 10^4 when is completions greater than 10^5. This field is alpha-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (disabled by default).
    * @return maxFailedIndexes
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the maximal number of failed indexes before marking the Job as failed, when backoffLimitPerIndex is set. Once the number of failed indexes exceeds this number the entire Job is marked as Failed and its execution is terminated. When left as null the job continues execution of all of its indexes and is marked with the `Complete` Job condition. It can only be specified when backoffLimitPerIndex is set. It can be null or up to completions. It is required and must be less than or equal to 10^4 when is completions greater than 10^5. This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).")
-
+  @jakarta.annotation.Nullable
   public Integer getMaxFailedIndexes() {
     return maxFailedIndexes;
   }
@@ -260,9 +270,7 @@ public class V1JobSpec {
    * Specifies the maximum desired number of pods the job should run at any given time. The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) &lt; .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
    * @return parallelism
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the maximum desired number of pods the job should run at any given time. The actual number of pods running in steady state will be less than this number when ((.spec.completions - .status.successful) < .spec.parallelism), i.e. when the work left to do is less than max parallelism. More info: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/")
-
+  @jakarta.annotation.Nullable
   public Integer getParallelism() {
     return parallelism;
   }
@@ -283,9 +291,7 @@ public class V1JobSpec {
    * Get podFailurePolicy
    * @return podFailurePolicy
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1PodFailurePolicy getPodFailurePolicy() {
     return podFailurePolicy;
   }
@@ -306,9 +312,7 @@ public class V1JobSpec {
    * podReplacementPolicy specifies when to create replacement Pods. Possible values are: - TerminatingOrFailed means that we recreate pods   when they are terminating (has a metadata.deletionTimestamp) or failed. - Failed means to wait until a previously created Pod is fully terminated (has phase   Failed or Succeeded) before creating a replacement Pod.  When using podFailurePolicy, Failed is the the only allowed value. TerminatingOrFailed and Failed are allowed values when podFailurePolicy is not in use. This is an alpha field. Enable JobPodReplacementPolicy to be able to use this field.
    * @return podReplacementPolicy
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "podReplacementPolicy specifies when to create replacement Pods. Possible values are: - TerminatingOrFailed means that we recreate pods   when they are terminating (has a metadata.deletionTimestamp) or failed. - Failed means to wait until a previously created Pod is fully terminated (has phase   Failed or Succeeded) before creating a replacement Pod.  When using podFailurePolicy, Failed is the the only allowed value. TerminatingOrFailed and Failed are allowed values when podFailurePolicy is not in use. This is an alpha field. Enable JobPodReplacementPolicy to be able to use this field.")
-
+  @jakarta.annotation.Nullable
   public String getPodReplacementPolicy() {
     return podReplacementPolicy;
   }
@@ -329,9 +333,7 @@ public class V1JobSpec {
    * Get selector
    * @return selector
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
-
+  @jakarta.annotation.Nullable
   public V1LabelSelector getSelector() {
     return selector;
   }
@@ -352,9 +354,7 @@ public class V1JobSpec {
    * suspend specifies whether the Job controller should create Pods or not. If a Job is created with suspend set to true, no Pods are created by the Job controller. If a Job is suspended after creation (i.e. the flag goes from false to true), the Job controller will delete all active Pods associated with this Job. Users must design their workload to gracefully handle this. Suspending a Job will reset the StartTime field of the Job, effectively resetting the ActiveDeadlineSeconds timer too. Defaults to false.
    * @return suspend
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "suspend specifies whether the Job controller should create Pods or not. If a Job is created with suspend set to true, no Pods are created by the Job controller. If a Job is suspended after creation (i.e. the flag goes from false to true), the Job controller will delete all active Pods associated with this Job. Users must design their workload to gracefully handle this. Suspending a Job will reset the StartTime field of the Job, effectively resetting the ActiveDeadlineSeconds timer too. Defaults to false.")
-
+  @jakarta.annotation.Nullable
   public Boolean getSuspend() {
     return suspend;
   }
@@ -375,8 +375,7 @@ public class V1JobSpec {
    * Get template
    * @return template
   **/
-  @ApiModelProperty(required = true, value = "")
-
+  @jakarta.annotation.Nonnull
   public V1PodTemplateSpec getTemplate() {
     return template;
   }
@@ -397,9 +396,7 @@ public class V1JobSpec {
    * ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed). If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won&#39;t be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes.
    * @return ttlSecondsAfterFinished
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "ttlSecondsAfterFinished limits the lifetime of a Job that has finished execution (either Complete or Failed). If this field is set, ttlSecondsAfterFinished after the Job finishes, it is eligible to be automatically deleted. When the Job is being deleted, its lifecycle guarantees (e.g. finalizers) will be honored. If this field is unset, the Job won't be automatically deleted. If this field is set to zero, the Job becomes eligible to be deleted immediately after it finishes.")
-
+  @jakarta.annotation.Nullable
   public Integer getTtlSecondsAfterFinished() {
     return ttlSecondsAfterFinished;
   }
@@ -410,8 +407,9 @@ public class V1JobSpec {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -440,7 +438,6 @@ public class V1JobSpec {
     return Objects.hash(activeDeadlineSeconds, backoffLimit, backoffLimitPerIndex, completionMode, completions, manualSelector, maxFailedIndexes, parallelism, podFailurePolicy, podReplacementPolicy, selector, suspend, template, ttlSecondsAfterFinished);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -467,11 +464,131 @@ public class V1JobSpec {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("activeDeadlineSeconds");
+    openapiFields.add("backoffLimit");
+    openapiFields.add("backoffLimitPerIndex");
+    openapiFields.add("completionMode");
+    openapiFields.add("completions");
+    openapiFields.add("manualSelector");
+    openapiFields.add("maxFailedIndexes");
+    openapiFields.add("parallelism");
+    openapiFields.add("podFailurePolicy");
+    openapiFields.add("podReplacementPolicy");
+    openapiFields.add("selector");
+    openapiFields.add("suspend");
+    openapiFields.add("template");
+    openapiFields.add("ttlSecondsAfterFinished");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("template");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1JobSpec
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1JobSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1JobSpec is not found in the empty JSON string", V1JobSpec.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1JobSpec.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1JobSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1JobSpec.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("completionMode") != null && !jsonObj.get("completionMode").isJsonNull()) && !jsonObj.get("completionMode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `completionMode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("completionMode").toString()));
+      }
+      // validate the optional field `podFailurePolicy`
+      if (jsonObj.get("podFailurePolicy") != null && !jsonObj.get("podFailurePolicy").isJsonNull()) {
+        V1PodFailurePolicy.validateJsonObject(jsonObj.getAsJsonObject("podFailurePolicy"));
+      }
+      if ((jsonObj.get("podReplacementPolicy") != null && !jsonObj.get("podReplacementPolicy").isJsonNull()) && !jsonObj.get("podReplacementPolicy").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `podReplacementPolicy` to be a primitive type in the JSON string but got `%s`", jsonObj.get("podReplacementPolicy").toString()));
+      }
+      // validate the optional field `selector`
+      if (jsonObj.get("selector") != null && !jsonObj.get("selector").isJsonNull()) {
+        V1LabelSelector.validateJsonObject(jsonObj.getAsJsonObject("selector"));
+      }
+      // validate the required field `template`
+      V1PodTemplateSpec.validateJsonObject(jsonObj.getAsJsonObject("template"));
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1JobSpec.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1JobSpec' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1JobSpec> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1JobSpec.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1JobSpec>() {
+           @Override
+           public void write(JsonWriter out, V1JobSpec value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1JobSpec read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1JobSpec given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1JobSpec
+  * @throws IOException if the JSON string is invalid with respect to V1JobSpec
+  */
+  public static V1JobSpec fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1JobSpec.class);
+  }
+
+ /**
+  * Convert an instance of V1JobSpec to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

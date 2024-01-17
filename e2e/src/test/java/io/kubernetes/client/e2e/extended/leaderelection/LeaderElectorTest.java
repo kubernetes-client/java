@@ -277,7 +277,7 @@ public class LeaderElectorTest {
     try {
       CoreV1Api coreV1Api = new CoreV1Api(apiClient);
       coreV1Api.deleteNamespacedConfigMap(
-          LOCK_RESOURCE_NAME, NAMESPACE, null, null, null, null, null, null);
+          LOCK_RESOURCE_NAME, NAMESPACE).execute();
     } catch (ApiException ex) {
       if (ex.getCode() != HttpURLConnection.HTTP_NOT_FOUND) {
         throw ex;
@@ -289,7 +289,7 @@ public class LeaderElectorTest {
     try {
       CoreV1Api coreV1Api = new CoreV1Api(apiClient);
       coreV1Api.deleteNamespacedEndpoints(
-          LOCK_RESOURCE_NAME, NAMESPACE, null, null, null, null, null, null);
+          LOCK_RESOURCE_NAME, NAMESPACE).execute();
     } catch (ApiException ex) {
       if (ex.getCode() != HttpURLConnection.HTTP_NOT_FOUND) {
         throw ex;
@@ -301,7 +301,7 @@ public class LeaderElectorTest {
     try {
       CoordinationV1Api coordinationV1Api = new CoordinationV1Api(apiClient);
       coordinationV1Api.deleteNamespacedLease(
-          LOCK_RESOURCE_NAME, NAMESPACE, null, null, null, null, null, null);
+          LOCK_RESOURCE_NAME, NAMESPACE).execute();
     } catch (ApiException ex) {
       if (ex.getCode() != HttpURLConnection.HTTP_NOT_FOUND) {
         throw ex;

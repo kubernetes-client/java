@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,15 +19,37 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * NodeSystemInfo is a set of ids/uuids to uniquely identify the node.
  */
-@ApiModel(description = "NodeSystemInfo is a set of ids/uuids to uniquely identify the node.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1NodeSystemInfo {
   public static final String SERIALIZED_NAME_ARCHITECTURE = "architecture";
   @SerializedName(SERIALIZED_NAME_ARCHITECTURE)
@@ -69,6 +91,8 @@ public class V1NodeSystemInfo {
   @SerializedName(SERIALIZED_NAME_SYSTEM_U_U_I_D)
   private String systemUUID;
 
+  public V1NodeSystemInfo() {
+  }
 
   public V1NodeSystemInfo architecture(String architecture) {
 
@@ -80,8 +104,7 @@ public class V1NodeSystemInfo {
    * The Architecture reported by the node
    * @return architecture
   **/
-  @ApiModelProperty(required = true, value = "The Architecture reported by the node")
-
+  @jakarta.annotation.Nonnull
   public String getArchitecture() {
     return architecture;
   }
@@ -102,8 +125,7 @@ public class V1NodeSystemInfo {
    * Boot ID reported by the node.
    * @return bootID
   **/
-  @ApiModelProperty(required = true, value = "Boot ID reported by the node.")
-
+  @jakarta.annotation.Nonnull
   public String getBootID() {
     return bootID;
   }
@@ -124,8 +146,7 @@ public class V1NodeSystemInfo {
    * ContainerRuntime Version reported by the node through runtime remote API (e.g. containerd://1.4.2).
    * @return containerRuntimeVersion
   **/
-  @ApiModelProperty(required = true, value = "ContainerRuntime Version reported by the node through runtime remote API (e.g. containerd://1.4.2).")
-
+  @jakarta.annotation.Nonnull
   public String getContainerRuntimeVersion() {
     return containerRuntimeVersion;
   }
@@ -146,8 +167,7 @@ public class V1NodeSystemInfo {
    * Kernel Version reported by the node from &#39;uname -r&#39; (e.g. 3.16.0-0.bpo.4-amd64).
    * @return kernelVersion
   **/
-  @ApiModelProperty(required = true, value = "Kernel Version reported by the node from 'uname -r' (e.g. 3.16.0-0.bpo.4-amd64).")
-
+  @jakarta.annotation.Nonnull
   public String getKernelVersion() {
     return kernelVersion;
   }
@@ -168,8 +188,7 @@ public class V1NodeSystemInfo {
    * KubeProxy Version reported by the node.
    * @return kubeProxyVersion
   **/
-  @ApiModelProperty(required = true, value = "KubeProxy Version reported by the node.")
-
+  @jakarta.annotation.Nonnull
   public String getKubeProxyVersion() {
     return kubeProxyVersion;
   }
@@ -190,8 +209,7 @@ public class V1NodeSystemInfo {
    * Kubelet Version reported by the node.
    * @return kubeletVersion
   **/
-  @ApiModelProperty(required = true, value = "Kubelet Version reported by the node.")
-
+  @jakarta.annotation.Nonnull
   public String getKubeletVersion() {
     return kubeletVersion;
   }
@@ -212,8 +230,7 @@ public class V1NodeSystemInfo {
    * MachineID reported by the node. For unique machine identification in the cluster this field is preferred. Learn more from man(5) machine-id: http://man7.org/linux/man-pages/man5/machine-id.5.html
    * @return machineID
   **/
-  @ApiModelProperty(required = true, value = "MachineID reported by the node. For unique machine identification in the cluster this field is preferred. Learn more from man(5) machine-id: http://man7.org/linux/man-pages/man5/machine-id.5.html")
-
+  @jakarta.annotation.Nonnull
   public String getMachineID() {
     return machineID;
   }
@@ -234,8 +251,7 @@ public class V1NodeSystemInfo {
    * The Operating System reported by the node
    * @return operatingSystem
   **/
-  @ApiModelProperty(required = true, value = "The Operating System reported by the node")
-
+  @jakarta.annotation.Nonnull
   public String getOperatingSystem() {
     return operatingSystem;
   }
@@ -256,8 +272,7 @@ public class V1NodeSystemInfo {
    * OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy)).
    * @return osImage
   **/
-  @ApiModelProperty(required = true, value = "OS Image reported by the node from /etc/os-release (e.g. Debian GNU/Linux 7 (wheezy)).")
-
+  @jakarta.annotation.Nonnull
   public String getOsImage() {
     return osImage;
   }
@@ -278,8 +293,7 @@ public class V1NodeSystemInfo {
    * SystemUUID reported by the node. For unique machine identification MachineID is preferred. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/rhsm/uuid
    * @return systemUUID
   **/
-  @ApiModelProperty(required = true, value = "SystemUUID reported by the node. For unique machine identification MachineID is preferred. This field is specific to Red Hat hosts https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/rhsm/uuid")
-
+  @jakarta.annotation.Nonnull
   public String getSystemUUID() {
     return systemUUID;
   }
@@ -290,8 +304,9 @@ public class V1NodeSystemInfo {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -316,7 +331,6 @@ public class V1NodeSystemInfo {
     return Objects.hash(architecture, bootID, containerRuntimeVersion, kernelVersion, kubeProxyVersion, kubeletVersion, machineID, operatingSystem, osImage, systemUUID);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -339,11 +353,150 @@ public class V1NodeSystemInfo {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("architecture");
+    openapiFields.add("bootID");
+    openapiFields.add("containerRuntimeVersion");
+    openapiFields.add("kernelVersion");
+    openapiFields.add("kubeProxyVersion");
+    openapiFields.add("kubeletVersion");
+    openapiFields.add("machineID");
+    openapiFields.add("operatingSystem");
+    openapiFields.add("osImage");
+    openapiFields.add("systemUUID");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("architecture");
+    openapiRequiredFields.add("bootID");
+    openapiRequiredFields.add("containerRuntimeVersion");
+    openapiRequiredFields.add("kernelVersion");
+    openapiRequiredFields.add("kubeProxyVersion");
+    openapiRequiredFields.add("kubeletVersion");
+    openapiRequiredFields.add("machineID");
+    openapiRequiredFields.add("operatingSystem");
+    openapiRequiredFields.add("osImage");
+    openapiRequiredFields.add("systemUUID");
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1NodeSystemInfo
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1NodeSystemInfo.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1NodeSystemInfo is not found in the empty JSON string", V1NodeSystemInfo.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1NodeSystemInfo.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1NodeSystemInfo` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : V1NodeSystemInfo.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
+      }
+      if (!jsonObj.get("architecture").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `architecture` to be a primitive type in the JSON string but got `%s`", jsonObj.get("architecture").toString()));
+      }
+      if (!jsonObj.get("bootID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `bootID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("bootID").toString()));
+      }
+      if (!jsonObj.get("containerRuntimeVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `containerRuntimeVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("containerRuntimeVersion").toString()));
+      }
+      if (!jsonObj.get("kernelVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kernelVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kernelVersion").toString()));
+      }
+      if (!jsonObj.get("kubeProxyVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kubeProxyVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kubeProxyVersion").toString()));
+      }
+      if (!jsonObj.get("kubeletVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `kubeletVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("kubeletVersion").toString()));
+      }
+      if (!jsonObj.get("machineID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `machineID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("machineID").toString()));
+      }
+      if (!jsonObj.get("operatingSystem").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `operatingSystem` to be a primitive type in the JSON string but got `%s`", jsonObj.get("operatingSystem").toString()));
+      }
+      if (!jsonObj.get("osImage").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `osImage` to be a primitive type in the JSON string but got `%s`", jsonObj.get("osImage").toString()));
+      }
+      if (!jsonObj.get("systemUUID").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `systemUUID` to be a primitive type in the JSON string but got `%s`", jsonObj.get("systemUUID").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1NodeSystemInfo.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1NodeSystemInfo' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1NodeSystemInfo> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1NodeSystemInfo.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1NodeSystemInfo>() {
+           @Override
+           public void write(JsonWriter out, V1NodeSystemInfo value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1NodeSystemInfo read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1NodeSystemInfo given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1NodeSystemInfo
+  * @throws IOException if the JSON string is invalid with respect to V1NodeSystemInfo
+  */
+  public static V1NodeSystemInfo fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1NodeSystemInfo.class);
+  }
+
+ /**
+  * Convert an instance of V1NodeSystemInfo to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }

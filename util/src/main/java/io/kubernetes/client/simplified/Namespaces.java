@@ -27,10 +27,10 @@ public class Namespaces {
     }
 
     public V1Namespace createNamespace(V1Namespace body) throws ApiException {
-        return api.createNamespace(body, null, null, null, null);
+        return api.createNamespace(body).execute();
     }
 
     public V1Status deleteNamespace(String name) throws ApiException {
-        return api.deleteNamespace(name, null, null, null, null, null, null);
+        return api.deleteNamespace(name).execute();
     }
 }

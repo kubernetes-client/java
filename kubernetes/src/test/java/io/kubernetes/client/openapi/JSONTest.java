@@ -15,7 +15,15 @@ package io.kubernetes.client.openapi;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
+import java.io.IOException;
+import java.io.StringReader;
 import java.time.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.stream.JsonReader;
+import io.kubernetes.client.openapi.models.V1ListMeta;
+import io.kubernetes.client.openapi.models.V1Status;
 import okio.ByteString;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -73,5 +81,19 @@ public class JSONTest {
     String serializedTsStr = json.serialize(dateTime);
     String expectedStr = "\"2018-04-03T11:32:26.000000Z\"";
     assertEquals(expectedStr, serializedTsStr);
+  }
+
+  @Test
+  public void testV1StatusTypeValidationDisabled() throws IOException {
+    Gson gson = new Gson();
+    JsonReader jsonReader = new JsonReader(new StringReader("{\"foo\":\"bar\"}"));
+    new V1Status.CustomTypeAdapterFactory().create(gson, TypeToken.get(V1Status.class)).read(jsonReader);
+  }
+
+  @Test
+  public void testV1ListMetaTypeValidationDisabled() throws IOException {
+    Gson gson = new Gson();
+    JsonReader jsonReader = new JsonReader(new StringReader("{\"foo\":\"bar\"}"));
+    new V1ListMeta.CustomTypeAdapterFactory().create(gson, TypeToken.get(V1ListMeta.class)).read(jsonReader);
   }
 }

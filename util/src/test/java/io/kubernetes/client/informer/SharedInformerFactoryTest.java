@@ -50,19 +50,11 @@ public class SharedInformerFactoryTest {
     SharedInformer<V1Namespace> nsInformer =
         factory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
-              return coreV1Api.listNamespaceCall(
-                  null,
-                  null,
-                  null,
-                  null,
-                  null,
-                  null,
-                  params.resourceVersion,
-                  null,
-                  null,
-                  params.timeoutSeconds,
-                  params.watch,
-                  null);
+              return coreV1Api.listNamespace()
+                      .resourceVersion(params.resourceVersion)
+                      .timeoutSeconds(params.timeoutSeconds)
+                      .watch(params.watch)
+                      .buildCall(null);
             },
             V1Namespace.class,
             V1NamespaceList.class);

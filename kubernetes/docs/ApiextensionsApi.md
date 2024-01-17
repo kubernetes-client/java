@@ -2,14 +2,14 @@
 
 All URIs are relative to *http://localhost*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getAPIGroup**](ApiextensionsApi.md#getAPIGroup) | **GET** /apis/apiextensions.k8s.io/ | 
+| Method | HTTP request | Description |
+|------------- | ------------- | -------------|
+| [**getAPIGroup**](ApiextensionsApi.md#getAPIGroup) | **GET** /apis/apiextensions.k8s.io/ |  |
 
 
-<a name="getAPIGroup"></a>
+<a id="getAPIGroup"></a>
 # **getAPIGroup**
-> V1APIGroup getAPIGroup()
+> V1APIGroup getAPIGroup().execute();
 
 
 
@@ -38,7 +38,8 @@ public class Example {
 
     ApiextensionsApi apiInstance = new ApiextensionsApi(defaultClient);
     try {
-      V1APIGroup result = apiInstance.getAPIGroup();
+      V1APIGroup result = apiInstance.getAPIGroup()
+            .execute();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ApiextensionsApi#getAPIGroup");
@@ -70,6 +71,6 @@ This endpoint does not need any parameter.
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | OK |  -  |
-**401** | Unauthorized |  -  |
+| **200** | OK |  -  |
+| **401** | Unauthorized |  -  |
 

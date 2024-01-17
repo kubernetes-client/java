@@ -56,19 +56,11 @@ public class ControllerExample {
     SharedIndexInformer<V1Node> nodeInformer =
         informerFactory.sharedIndexInformerFor(
             (CallGeneratorParams params) -> {
-              return coreV1Api.listNodeCall(
-                  null,
-                  null,
-                  null,
-                  null,
-                  null,
-                  null,
-                  params.resourceVersion,
-                      null,
-                  null,
-                  params.timeoutSeconds,
-                  params.watch,
-                  null);
+              return coreV1Api.listNode()
+                      .resourceVersion(params.resourceVersion)
+                      .timeoutSeconds(params.timeoutSeconds)
+                      .watch(params.watch)
+                      .buildCall(null);
             },
             V1Node.class,
             V1NodeList.class);

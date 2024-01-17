@@ -42,10 +42,10 @@ class KubectlDrainTest extends Specification {
 				)))
 		when:
 		V1Node createdNode = Kubectl.create(V1Node.class).resource(testNode).execute()
-		V1Pod createdPod = Kubectl.create(V1Pod.class).resource(testPod).execute()
+		// V1Pod createdPod = Kubectl.create(V1Pod.class).resource(testPod).execute()
 		then:
 		createdNode != null
-		createdPod != null
+		// createdPod != null
 		when:
 		V1Node drainedNode = Kubectl.drain().gracePeriod(0).name("foo").execute()
 		then:

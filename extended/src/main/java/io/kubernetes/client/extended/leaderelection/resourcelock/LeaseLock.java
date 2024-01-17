@@ -58,7 +58,7 @@ public class LeaseLock implements Lock {
 
   @Override
   public LeaderElectionRecord get() throws ApiException {
-    V1Lease lease = coordinationV1Api.readNamespacedLease(name, namespace, null);
+    V1Lease lease = coordinationV1Api.readNamespacedLease(name, namespace).execute();
     leaseRefer.set(lease);
     return getRecordFromLease(lease.getSpec());
   }
@@ -75,11 +75,7 @@ public class LeaseLock implements Lock {
       V1Lease createdLease =
           coordinationV1Api.createNamespacedLease(
               namespace,
-              new V1Lease().metadata(objectMeta).spec(getLeaseFromRecord(record)),
-              null,
-              null,
-              null,
-              null);
+              new V1Lease().metadata(objectMeta).spec(getLeaseFromRecord(record))).execute();
       leaseRefer.set(createdLease);
       return true;
     } catch (ApiException e) {
@@ -98,7 +94,8 @@ public class LeaseLock implements Lock {
       V1Lease latest = leaseRefer.get();
       latest.setSpec(getLeaseFromRecord(record));
       V1Lease updatedLease =
-          coordinationV1Api.replaceNamespacedLease(name, namespace, latest, null, null, null, null);
+          coordinationV1Api.replaceNamespacedLease(name, namespace, latest)
+                  .execute();
       leaseRefer.set(updatedLease);
       return true;
     } catch (ApiException e) {

@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -19,16 +19,38 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
 import java.time.OffsetDateTime;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import io.kubernetes.client.openapi.JSON;
 
 /**
  * LeaseSpec is a specification of a Lease.
  */
-@ApiModel(description = "LeaseSpec is a specification of a Lease.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T19:05:21.333462Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
 public class V1LeaseSpec {
   public static final String SERIALIZED_NAME_ACQUIRE_TIME = "acquireTime";
   @SerializedName(SERIALIZED_NAME_ACQUIRE_TIME)
@@ -50,6 +72,8 @@ public class V1LeaseSpec {
   @SerializedName(SERIALIZED_NAME_RENEW_TIME)
   private OffsetDateTime renewTime;
 
+  public V1LeaseSpec() {
+  }
 
   public V1LeaseSpec acquireTime(OffsetDateTime acquireTime) {
 
@@ -61,9 +85,7 @@ public class V1LeaseSpec {
    * acquireTime is a time when the current lease was acquired.
    * @return acquireTime
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "acquireTime is a time when the current lease was acquired.")
-
+  @jakarta.annotation.Nullable
   public OffsetDateTime getAcquireTime() {
     return acquireTime;
   }
@@ -84,9 +106,7 @@ public class V1LeaseSpec {
    * holderIdentity contains the identity of the holder of a current lease.
    * @return holderIdentity
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "holderIdentity contains the identity of the holder of a current lease.")
-
+  @jakarta.annotation.Nullable
   public String getHolderIdentity() {
     return holderIdentity;
   }
@@ -107,9 +127,7 @@ public class V1LeaseSpec {
    * leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed renewTime.
    * @return leaseDurationSeconds
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "leaseDurationSeconds is a duration that candidates for a lease need to wait to force acquire it. This is measure against time of last observed renewTime.")
-
+  @jakarta.annotation.Nullable
   public Integer getLeaseDurationSeconds() {
     return leaseDurationSeconds;
   }
@@ -130,9 +148,7 @@ public class V1LeaseSpec {
    * leaseTransitions is the number of transitions of a lease between holders.
    * @return leaseTransitions
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "leaseTransitions is the number of transitions of a lease between holders.")
-
+  @jakarta.annotation.Nullable
   public Integer getLeaseTransitions() {
     return leaseTransitions;
   }
@@ -153,9 +169,7 @@ public class V1LeaseSpec {
    * renewTime is a time when the current holder of a lease has last updated the lease.
    * @return renewTime
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "renewTime is a time when the current holder of a lease has last updated the lease.")
-
+  @jakarta.annotation.Nullable
   public OffsetDateTime getRenewTime() {
     return renewTime;
   }
@@ -166,8 +180,9 @@ public class V1LeaseSpec {
   }
 
 
+
   @Override
-  public boolean equals(java.lang.Object o) {
+  public boolean equals(Object o) {
     if (this == o) {
       return true;
     }
@@ -187,7 +202,6 @@ public class V1LeaseSpec {
     return Objects.hash(acquireTime, holderIdentity, leaseDurationSeconds, leaseTransitions, renewTime);
   }
 
-
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -205,11 +219,101 @@ public class V1LeaseSpec {
    * Convert the given object to string with each line indented by 4 spaces
    * (except the first line).
    */
-  private String toIndentedString(java.lang.Object o) {
+  private String toIndentedString(Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
 
+
+  public static HashSet<String> openapiFields;
+  public static HashSet<String> openapiRequiredFields;
+
+  static {
+    // a set of all properties/fields (JSON key names)
+    openapiFields = new HashSet<String>();
+    openapiFields.add("acquireTime");
+    openapiFields.add("holderIdentity");
+    openapiFields.add("leaseDurationSeconds");
+    openapiFields.add("leaseTransitions");
+    openapiFields.add("renewTime");
+
+    // a set of required properties/fields (JSON key names)
+    openapiRequiredFields = new HashSet<String>();
+  }
+
+ /**
+  * Validates the JSON Object and throws an exception if issues found
+  *
+  * @param jsonObj JSON Object
+  * @throws IOException if the JSON Object is invalid with respect to V1LeaseSpec
+  */
+  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
+      if (jsonObj == null) {
+        if (!V1LeaseSpec.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in V1LeaseSpec is not found in the empty JSON string", V1LeaseSpec.openapiRequiredFields.toString()));
+        }
+      }
+
+      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      // check to see if the JSON string contains additional fields
+      for (Entry<String, JsonElement> entry : entries) {
+        if (!V1LeaseSpec.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `V1LeaseSpec` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        }
+      }
+      if ((jsonObj.get("holderIdentity") != null && !jsonObj.get("holderIdentity").isJsonNull()) && !jsonObj.get("holderIdentity").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `holderIdentity` to be a primitive type in the JSON string but got `%s`", jsonObj.get("holderIdentity").toString()));
+      }
+  }
+
+  public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+       if (!V1LeaseSpec.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'V1LeaseSpec' and its subtypes
+       }
+       final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+       final TypeAdapter<V1LeaseSpec> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(V1LeaseSpec.class));
+
+       return (TypeAdapter<T>) new TypeAdapter<V1LeaseSpec>() {
+           @Override
+           public void write(JsonWriter out, V1LeaseSpec value) throws IOException {
+             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+             elementAdapter.write(out, obj);
+           }
+
+           @Override
+           public V1LeaseSpec read(JsonReader in) throws IOException {
+             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+             validateJsonObject(jsonObj);
+             return thisAdapter.fromJsonTree(jsonObj);
+           }
+
+       }.nullSafe();
+    }
+  }
+
+ /**
+  * Create an instance of V1LeaseSpec given an JSON string
+  *
+  * @param jsonString JSON string
+  * @return An instance of V1LeaseSpec
+  * @throws IOException if the JSON string is invalid with respect to V1LeaseSpec
+  */
+  public static V1LeaseSpec fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, V1LeaseSpec.class);
+  }
+
+ /**
+  * Convert an instance of V1LeaseSpec to an JSON string
+  *
+  * @return JSON string
+  */
+  public String toJson() {
+    return JSON.getGson().toJson(this);
+  }
 }
