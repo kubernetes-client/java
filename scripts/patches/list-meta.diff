@@ -1,0 +1,15 @@
+diff --git a/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1ListMeta.java b/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1ListMeta.java
+index 60381b312..7fb47e230 100644
+--- a/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1ListMeta.java
++++ b/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1ListMeta.java
+@@ -266,7 +266,9 @@ public class V1ListMeta {
+            @Override
+            public V1ListMeta read(JsonReader in) throws IOException {
+              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+-             validateJsonObject(jsonObj);
++
++             // Disable validation so delete API can tolerate non-status return object (graceful deletion)
++             // validateJsonObject(jsonObj);
+              return thisAdapter.fromJsonTree(jsonObj);
+            }
+ 

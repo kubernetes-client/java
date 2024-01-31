@@ -1,0 +1,14 @@
+diff --git a/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1Status.java b/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1Status.java
+index b2b6db803..8a8a9765d 100644
+--- a/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1Status.java
++++ b/kubernetes/src/main/java/io/kubernetes/client/openapi/models/V1Status.java
+@@ -394,7 +394,8 @@ public class V1Status {
+            @Override
+            public V1Status read(JsonReader in) throws IOException {
+              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
+-             validateJsonObject(jsonObj);
++             // Disable validation so delete API can tolerate non-status return object (graceful deletion)
++             // validateJsonObject(jsonObj);
+              return thisAdapter.fromJsonTree(jsonObj);
+            }
+ 
