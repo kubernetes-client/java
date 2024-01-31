@@ -76,6 +76,10 @@ jobs:
       - name: Formatter
         run: |
           mvn spotless:apply
+      - name: Apply Manual Diffs
+        run: |
+          ls scripts/patches/*.diff | xargs git apply
+          git commit -s -m 'Applied patches under scripts/patches/*.diff'
       - name: Commit and push
         run: |
           # Commit and push
