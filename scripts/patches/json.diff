@@ -1,0 +1,85 @@
+diff --git a/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java b/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java
+index 4406c2199..f56413a25 100644
+--- a/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java
++++ b/kubernetes/src/main/java/io/kubernetes/client/openapi/JSON.java
+@@ -23,6 +23,8 @@ import com.google.gson.JsonElement;
+ import io.gsonfire.GsonFireBuilder;
+ import io.gsonfire.TypeSelector;
+ 
++import io.kubernetes.client.gson.V1StatusPreProcessor;
++import io.kubernetes.client.openapi.models.V1Status;
+ import okio.ByteString;
+ 
+ import java.io.IOException;
+@@ -34,6 +36,9 @@ import java.text.ParsePosition;
+ import java.time.LocalDate;
+ import java.time.OffsetDateTime;
+ import java.time.format.DateTimeFormatter;
++import java.time.format.DateTimeFormatterBuilder;
++import java.time.format.DateTimeParseException;
++import java.time.temporal.ChronoField;
+ import java.util.Date;
+ import java.util.Locale;
+ import java.util.Map;
+@@ -48,9 +53,19 @@ import java.util.HashMap;
+ public class JSON {
+     private static Gson gson;
+     private static boolean isLenientOnJson = false;
++
++    private static final DateTimeFormatter RFC3339MICRO_FORMATTER =
++            new DateTimeFormatterBuilder()
++                    .parseDefaulting(ChronoField.OFFSET_SECONDS, 0)
++                    .append(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss"))
++                    .optionalStart()
++                    .appendFraction(ChronoField.NANO_OF_SECOND, 6, 6, true)
++                    .optionalEnd()
++                    .appendLiteral("Z")
++                    .toFormatter();
+     private static DateTypeAdapter dateTypeAdapter = new DateTypeAdapter();
+     private static SqlDateTypeAdapter sqlDateTypeAdapter = new SqlDateTypeAdapter();
+-    private static OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter();
++    private static OffsetDateTimeTypeAdapter offsetDateTimeTypeAdapter = new OffsetDateTimeTypeAdapter(RFC3339MICRO_FORMATTER);
+     private static LocalDateTypeAdapter localDateTypeAdapter = new LocalDateTypeAdapter();
+     private static ByteArrayAdapter byteArrayAdapter = new ByteArrayAdapter();
+ 
+@@ -58,7 +73,10 @@ public class JSON {
+     public static GsonBuilder createGson() {
+         GsonFireBuilder fireBuilder = new GsonFireBuilder()
+         ;
+-        GsonBuilder builder = fireBuilder.createGsonBuilder();
++        GsonBuilder builder =
++                fireBuilder
++                        .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())
++                        .createGsonBuilder();
+         return builder;
+     }
+ 
+@@ -721,11 +739,14 @@ public class JSON {
+ 
+         @Override
+         public void write(JsonWriter out, byte[] value) throws IOException {
++            boolean oldHtmlSafe = out.isHtmlSafe();
++            out.setHtmlSafe(false);
+             if (value == null) {
+                 out.nullValue();
+             } else {
+                 out.value(ByteString.of(value).base64());
+             }
++            out.setHtmlSafe(oldHtmlSafe);
+         }
+ 
+         @Override
+@@ -781,7 +802,12 @@ public class JSON {
+                     if (date.endsWith("+0000")) {
+                         date = date.substring(0, date.length()-5) + "Z";
+                     }
+-                    return OffsetDateTime.parse(date, formatter);
++                    try {
++                        return OffsetDateTime.parse(date, formatter);
++                    } catch (DateTimeParseException e) {
++                        // backward-compatibility for ISO8601 timestamp format
++                        return OffsetDateTime.parse(date, DateTimeFormatter.ISO_OFFSET_DATE_TIME);
++                    }
+             }
+         }
+     }
