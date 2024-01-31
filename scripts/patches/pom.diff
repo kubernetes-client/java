@@ -1,0 +1,15 @@
+diff --git a/kubernetes/pom.xml b/kubernetes/pom.xml
+index 73e701486..94df7bed8 100644
+--- a/kubernetes/pom.xml
++++ b/kubernetes/pom.xml
+@@ -176,6 +176,10 @@
+       <groupId>com.google.code.findbugs</groupId>
+       <artifactId>jsr305</artifactId>
+     </dependency>
++    <dependency>
++      <groupId>jakarta.ws.rs</groupId>
++      <artifactId>jakarta.ws.rs-api</artifactId>
++    </dependency>
+ 
+     <!-- test dependencies -->
+     <dependency>
