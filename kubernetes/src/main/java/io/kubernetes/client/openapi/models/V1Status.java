@@ -51,7 +51,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Status is a return value for calls that don&#39;t return other objects.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
 public class V1Status {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)
@@ -394,7 +394,7 @@ public class V1Status {
            @Override
            public V1Status read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             // Disable validation so delete API won't crash due to V1Status/delete-object duality
+             // Disable validation so delete API can tolerate non-status return object (graceful deletion)
              // validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
            }

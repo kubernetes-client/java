@@ -73,7 +73,7 @@ public class CustomObjectsApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
-    private okhttp3.Call createClusterCustomObjectCall(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createClusterCustomObjectCall(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -113,6 +113,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -134,7 +138,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createClusterCustomObjectValidateBeforeCall(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createClusterCustomObjectValidateBeforeCall(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling createClusterCustomObject(Async)");
@@ -155,20 +159,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling createClusterCustomObject(Async)");
         }
 
-        return createClusterCustomObjectCall(group, version, plural, body, pretty, dryRun, fieldManager, _callback);
+        return createClusterCustomObjectCall(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
 
-    private ApiResponse<Object> createClusterCustomObjectWithHttpInfo(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, dryRun, fieldManager, null);
+    private ApiResponse<Object> createClusterCustomObjectWithHttpInfo(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createClusterCustomObjectAsync(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call createClusterCustomObjectAsync(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -182,6 +186,7 @@ public class CustomObjectsApi {
         private String pretty;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
 
         private APIcreateClusterCustomObjectRequest(String group, String version, String plural, Object body) {
             this.group = group;
@@ -221,6 +226,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIcreateClusterCustomObjectRequest
+         */
+        public APIcreateClusterCustomObjectRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Build call for createClusterCustomObject
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -233,7 +248,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return createClusterCustomObjectCall(group, version, plural, body, pretty, dryRun, fieldManager, _callback);
+            return createClusterCustomObjectCall(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         }
 
         /**
@@ -248,7 +263,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = createClusterCustomObjectWithHttpInfo(group, version, plural, body, pretty, dryRun, fieldManager);
+            ApiResponse<Object> localVarResp = createClusterCustomObjectWithHttpInfo(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation);
             return localVarResp.getData();
         }
 
@@ -264,7 +279,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return createClusterCustomObjectWithHttpInfo(group, version, plural, body, pretty, dryRun, fieldManager);
+            return createClusterCustomObjectWithHttpInfo(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation);
         }
 
         /**
@@ -280,7 +295,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return createClusterCustomObjectAsync(group, version, plural, body, pretty, dryRun, fieldManager, _callback);
+            return createClusterCustomObjectAsync(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         }
     }
 
@@ -302,7 +317,7 @@ public class CustomObjectsApi {
     public APIcreateClusterCustomObjectRequest createClusterCustomObject(String group, String version, String plural, Object body) {
         return new APIcreateClusterCustomObjectRequest(group, version, plural, body);
     }
-    private okhttp3.Call createNamespacedCustomObjectCall(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedCustomObjectCall(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -343,6 +358,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -364,7 +383,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling createNamespacedCustomObject(Async)");
@@ -390,20 +409,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling createNamespacedCustomObject(Async)");
         }
 
-        return createNamespacedCustomObjectCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, _callback);
+        return createNamespacedCustomObjectCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
 
-    private ApiResponse<Object> createNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, null);
+    private ApiResponse<Object> createNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call createNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call createNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -418,6 +437,7 @@ public class CustomObjectsApi {
         private String pretty;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
 
         private APIcreateNamespacedCustomObjectRequest(String group, String version, String namespace, String plural, Object body) {
             this.group = group;
@@ -458,6 +478,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIcreateNamespacedCustomObjectRequest
+         */
+        public APIcreateNamespacedCustomObjectRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Build call for createNamespacedCustomObject
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -470,7 +500,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return createNamespacedCustomObjectCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, _callback);
+            return createNamespacedCustomObjectCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         }
 
         /**
@@ -485,7 +515,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = createNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, body, pretty, dryRun, fieldManager);
+            ApiResponse<Object> localVarResp = createNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation);
             return localVarResp.getData();
         }
 
@@ -501,7 +531,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return createNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, body, pretty, dryRun, fieldManager);
+            return createNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation);
         }
 
         /**
@@ -517,7 +547,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return createNamespacedCustomObjectAsync(group, version, namespace, plural, body, pretty, dryRun, fieldManager, _callback);
+            return createNamespacedCustomObjectAsync(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         }
     }
 
@@ -796,7 +826,7 @@ public class CustomObjectsApi {
     public APIdeleteClusterCustomObjectRequest deleteClusterCustomObject(String group, String version, String plural, String name) {
         return new APIdeleteClusterCustomObjectRequest(group, version, plural, name);
     }
-    private okhttp3.Call deleteCollectionClusterCustomObjectCall(String group, String version, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionClusterCustomObjectCall(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -826,6 +856,10 @@ public class CustomObjectsApi {
 
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
         }
 
         if (gracePeriodSeconds != null) {
@@ -865,7 +899,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling deleteCollectionClusterCustomObject(Async)");
@@ -881,20 +915,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'plural' when calling deleteCollectionClusterCustomObject(Async)");
         }
 
-        return deleteCollectionClusterCustomObjectCall(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        return deleteCollectionClusterCustomObjectCall(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
 
     }
 
 
-    private ApiResponse<Object> deleteCollectionClusterCustomObjectWithHttpInfo(String group, String version, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
+    private ApiResponse<Object> deleteCollectionClusterCustomObjectWithHttpInfo(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionClusterCustomObjectAsync(String group, String version, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionClusterCustomObjectAsync(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -905,6 +939,7 @@ public class CustomObjectsApi {
         private final String version;
         private final String plural;
         private String pretty;
+        private String labelSelector;
         private Integer gracePeriodSeconds;
         private Boolean orphanDependents;
         private String propagationPolicy;
@@ -924,6 +959,16 @@ public class CustomObjectsApi {
          */
         public APIdeleteCollectionClusterCustomObjectRequest pretty(String pretty) {
             this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set labelSelector
+         * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+         * @return APIdeleteCollectionClusterCustomObjectRequest
+         */
+        public APIdeleteCollectionClusterCustomObjectRequest labelSelector(String labelSelector) {
+            this.labelSelector = labelSelector;
             return this;
         }
 
@@ -990,7 +1035,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionClusterCustomObjectCall(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+            return deleteCollectionClusterCustomObjectCall(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         }
 
         /**
@@ -1005,7 +1050,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = deleteCollectionClusterCustomObjectWithHttpInfo(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+            ApiResponse<Object> localVarResp = deleteCollectionClusterCustomObjectWithHttpInfo(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
             return localVarResp.getData();
         }
 
@@ -1021,7 +1066,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionClusterCustomObjectWithHttpInfo(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+            return deleteCollectionClusterCustomObjectWithHttpInfo(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
         }
 
         /**
@@ -1037,7 +1082,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return deleteCollectionClusterCustomObjectAsync(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+            return deleteCollectionClusterCustomObjectAsync(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         }
     }
 
@@ -1058,7 +1103,7 @@ public class CustomObjectsApi {
     public APIdeleteCollectionClusterCustomObjectRequest deleteCollectionClusterCustomObject(String group, String version, String plural) {
         return new APIdeleteCollectionClusterCustomObjectRequest(group, version, plural);
     }
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1089,6 +1134,10 @@ public class CustomObjectsApi {
 
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
         }
 
         if (gracePeriodSeconds != null) {
@@ -1128,7 +1177,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling deleteCollectionNamespacedCustomObject(Async)");
@@ -1149,20 +1198,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'plural' when calling deleteCollectionNamespacedCustomObject(Async)");
         }
 
-        return deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        return deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
 
     }
 
 
-    private ApiResponse<Object> deleteCollectionNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
+    private ApiResponse<Object> deleteCollectionNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1174,6 +1223,7 @@ public class CustomObjectsApi {
         private final String namespace;
         private final String plural;
         private String pretty;
+        private String labelSelector;
         private Integer gracePeriodSeconds;
         private Boolean orphanDependents;
         private String propagationPolicy;
@@ -1194,6 +1244,16 @@ public class CustomObjectsApi {
          */
         public APIdeleteCollectionNamespacedCustomObjectRequest pretty(String pretty) {
             this.pretty = pretty;
+            return this;
+        }
+
+        /**
+         * Set labelSelector
+         * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
+         * @return APIdeleteCollectionNamespacedCustomObjectRequest
+         */
+        public APIdeleteCollectionNamespacedCustomObjectRequest labelSelector(String labelSelector) {
+            this.labelSelector = labelSelector;
             return this;
         }
 
@@ -1260,7 +1320,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+            return deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         }
 
         /**
@@ -1275,7 +1335,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+            ApiResponse<Object> localVarResp = deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
             return localVarResp.getData();
         }
 
@@ -1291,7 +1351,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+            return deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
         }
 
         /**
@@ -1307,7 +1367,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return deleteCollectionNamespacedCustomObjectAsync(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+            return deleteCollectionNamespacedCustomObjectAsync(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         }
     }
 
@@ -3560,7 +3620,7 @@ public class CustomObjectsApi {
     public APIlistNamespacedCustomObjectRequest listNamespacedCustomObject(String group, String version, String namespace, String plural) {
         return new APIlistNamespacedCustomObjectRequest(group, version, namespace, plural);
     }
-    private okhttp3.Call patchClusterCustomObjectCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3597,6 +3657,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         if (force != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
@@ -3622,7 +3686,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchClusterCustomObject(Async)");
@@ -3648,20 +3712,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling patchClusterCustomObject(Async)");
         }
 
-        return patchClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        return patchClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
 
-    private ApiResponse<Object> patchClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, null);
+    private ApiResponse<Object> patchClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3675,6 +3739,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
         private Boolean force;
 
         private APIpatchClusterCustomObjectRequest(String group, String version, String plural, String name, Object body) {
@@ -3706,6 +3771,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIpatchClusterCustomObjectRequest
+         */
+        public APIpatchClusterCustomObjectRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Set force
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchClusterCustomObjectRequest
@@ -3728,7 +3803,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return patchClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
 
         /**
@@ -3743,7 +3818,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = patchClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, force);
+            ApiResponse<Object> localVarResp = patchClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force);
             return localVarResp.getData();
         }
 
@@ -3759,7 +3834,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return patchClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, force);
+            return patchClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         }
 
         /**
@@ -3775,7 +3850,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return patchClusterCustomObjectAsync(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchClusterCustomObjectAsync(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
     }
 
@@ -3798,7 +3873,7 @@ public class CustomObjectsApi {
     public APIpatchClusterCustomObjectRequest patchClusterCustomObject(String group, String version, String plural, String name, Object body) {
         return new APIpatchClusterCustomObjectRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call patchClusterCustomObjectScaleCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectScaleCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -3835,6 +3910,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         if (force != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
@@ -3862,7 +3941,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchClusterCustomObjectScale(Async)");
@@ -3888,20 +3967,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling patchClusterCustomObjectScale(Async)");
         }
 
-        return patchClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        return patchClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
 
-    private ApiResponse<Object> patchClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, null);
+    private ApiResponse<Object> patchClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchClusterCustomObjectScaleAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectScaleAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3915,6 +3994,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
         private Boolean force;
 
         private APIpatchClusterCustomObjectScaleRequest(String group, String version, String plural, String name, Object body) {
@@ -3946,6 +4026,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIpatchClusterCustomObjectScaleRequest
+         */
+        public APIpatchClusterCustomObjectScaleRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Set force
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchClusterCustomObjectScaleRequest
@@ -3968,7 +4058,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return patchClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
 
         /**
@@ -3983,7 +4073,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = patchClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, force);
+            ApiResponse<Object> localVarResp = patchClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force);
             return localVarResp.getData();
         }
 
@@ -3999,7 +4089,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return patchClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, force);
+            return patchClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         }
 
         /**
@@ -4015,7 +4105,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return patchClusterCustomObjectScaleAsync(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchClusterCustomObjectScaleAsync(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
     }
 
@@ -4038,7 +4128,7 @@ public class CustomObjectsApi {
     public APIpatchClusterCustomObjectScaleRequest patchClusterCustomObjectScale(String group, String version, String plural, String name, Object body) {
         return new APIpatchClusterCustomObjectScaleRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call patchClusterCustomObjectStatusCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectStatusCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4075,6 +4165,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         if (force != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
@@ -4102,7 +4196,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchClusterCustomObjectStatus(Async)");
@@ -4128,20 +4222,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling patchClusterCustomObjectStatus(Async)");
         }
 
-        return patchClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        return patchClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
 
-    private ApiResponse<Object> patchClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, null);
+    private ApiResponse<Object> patchClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchClusterCustomObjectStatusAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectStatusAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4155,6 +4249,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
         private Boolean force;
 
         private APIpatchClusterCustomObjectStatusRequest(String group, String version, String plural, String name, Object body) {
@@ -4186,6 +4281,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIpatchClusterCustomObjectStatusRequest
+         */
+        public APIpatchClusterCustomObjectStatusRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Set force
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchClusterCustomObjectStatusRequest
@@ -4208,7 +4313,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return patchClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
 
         /**
@@ -4223,7 +4328,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = patchClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, force);
+            ApiResponse<Object> localVarResp = patchClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force);
             return localVarResp.getData();
         }
 
@@ -4239,7 +4344,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return patchClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, force);
+            return patchClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         }
 
         /**
@@ -4255,7 +4360,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return patchClusterCustomObjectStatusAsync(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchClusterCustomObjectStatusAsync(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
     }
 
@@ -4278,7 +4383,7 @@ public class CustomObjectsApi {
     public APIpatchClusterCustomObjectStatusRequest patchClusterCustomObjectStatus(String group, String version, String plural, String name, Object body) {
         return new APIpatchClusterCustomObjectStatusRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call patchNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4316,6 +4421,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         if (force != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
@@ -4341,7 +4450,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchNamespacedCustomObject(Async)");
@@ -4372,20 +4481,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedCustomObject(Async)");
         }
 
-        return patchNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        return patchNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
 
-    private ApiResponse<Object> patchNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, null);
+    private ApiResponse<Object> patchNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4400,6 +4509,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
         private Boolean force;
 
         private APIpatchNamespacedCustomObjectRequest(String group, String version, String namespace, String plural, String name, Object body) {
@@ -4432,6 +4542,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIpatchNamespacedCustomObjectRequest
+         */
+        public APIpatchNamespacedCustomObjectRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Set force
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedCustomObjectRequest
@@ -4454,7 +4574,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return patchNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
 
         /**
@@ -4469,7 +4589,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = patchNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
+            ApiResponse<Object> localVarResp = patchNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force);
             return localVarResp.getData();
         }
 
@@ -4485,7 +4605,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return patchNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
+            return patchNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         }
 
         /**
@@ -4501,7 +4621,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return patchNamespacedCustomObjectAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchNamespacedCustomObjectAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
     }
 
@@ -4525,7 +4645,7 @@ public class CustomObjectsApi {
     public APIpatchNamespacedCustomObjectRequest patchNamespacedCustomObject(String group, String version, String namespace, String plural, String name, Object body) {
         return new APIpatchNamespacedCustomObjectRequest(group, version, namespace, plural, name, body);
     }
-    private okhttp3.Call patchNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4563,6 +4683,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         if (force != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
@@ -4590,7 +4714,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchNamespacedCustomObjectScale(Async)");
@@ -4621,20 +4745,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedCustomObjectScale(Async)");
         }
 
-        return patchNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        return patchNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
 
-    private ApiResponse<Object> patchNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, null);
+    private ApiResponse<Object> patchNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4649,6 +4773,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
         private Boolean force;
 
         private APIpatchNamespacedCustomObjectScaleRequest(String group, String version, String namespace, String plural, String name, Object body) {
@@ -4681,6 +4806,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIpatchNamespacedCustomObjectScaleRequest
+         */
+        public APIpatchNamespacedCustomObjectScaleRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Set force
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedCustomObjectScaleRequest
@@ -4703,7 +4838,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return patchNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
 
         /**
@@ -4718,7 +4853,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = patchNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
+            ApiResponse<Object> localVarResp = patchNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force);
             return localVarResp.getData();
         }
 
@@ -4734,7 +4869,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return patchNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
+            return patchNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         }
 
         /**
@@ -4750,7 +4885,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return patchNamespacedCustomObjectScaleAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchNamespacedCustomObjectScaleAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
     }
 
@@ -4774,7 +4909,7 @@ public class CustomObjectsApi {
     public APIpatchNamespacedCustomObjectScaleRequest patchNamespacedCustomObjectScale(String group, String version, String namespace, String plural, String name, Object body) {
         return new APIpatchNamespacedCustomObjectScaleRequest(group, version, namespace, plural, name, body);
     }
-    private okhttp3.Call patchNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -4812,6 +4947,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         if (force != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
         }
@@ -4839,7 +4978,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling patchNamespacedCustomObjectStatus(Async)");
@@ -4870,20 +5009,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling patchNamespacedCustomObjectStatus(Async)");
         }
 
-        return patchNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        return patchNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
 
     }
 
 
-    private ApiResponse<Object> patchNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, null);
+    private ApiResponse<Object> patchNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call patchNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4898,6 +5037,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
         private Boolean force;
 
         private APIpatchNamespacedCustomObjectStatusRequest(String group, String version, String namespace, String plural, String name, Object body) {
@@ -4930,6 +5070,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIpatchNamespacedCustomObjectStatusRequest
+         */
+        public APIpatchNamespacedCustomObjectStatusRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Set force
          * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
          * @return APIpatchNamespacedCustomObjectStatusRequest
@@ -4952,7 +5102,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return patchNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
 
         /**
@@ -4967,7 +5117,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = patchNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
+            ApiResponse<Object> localVarResp = patchNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force);
             return localVarResp.getData();
         }
 
@@ -4983,7 +5133,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return patchNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
+            return patchNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         }
 
         /**
@@ -4999,7 +5149,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return patchNamespacedCustomObjectStatusAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+            return patchNamespacedCustomObjectStatusAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         }
     }
 
@@ -5023,7 +5173,7 @@ public class CustomObjectsApi {
     public APIpatchNamespacedCustomObjectStatusRequest patchNamespacedCustomObjectStatus(String group, String version, String namespace, String plural, String name, Object body) {
         return new APIpatchNamespacedCustomObjectStatusRequest(group, version, namespace, plural, name, body);
     }
-    private okhttp3.Call replaceClusterCustomObjectCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5060,6 +5210,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -5081,7 +5235,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceClusterCustomObject(Async)");
@@ -5107,20 +5261,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling replaceClusterCustomObject(Async)");
         }
 
-        return replaceClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        return replaceClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
 
-    private ApiResponse<Object> replaceClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, null);
+    private ApiResponse<Object> replaceClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5134,6 +5288,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
 
         private APIreplaceClusterCustomObjectRequest(String group, String version, String plural, String name, Object body) {
             this.group = group;
@@ -5164,6 +5319,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIreplaceClusterCustomObjectRequest
+         */
+        public APIreplaceClusterCustomObjectRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Build call for replaceClusterCustomObject
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -5176,7 +5341,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return replaceClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
 
         /**
@@ -5191,7 +5356,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = replaceClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager);
+            ApiResponse<Object> localVarResp = replaceClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation);
             return localVarResp.getData();
         }
 
@@ -5207,7 +5372,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return replaceClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager);
+            return replaceClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation);
         }
 
         /**
@@ -5223,7 +5388,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return replaceClusterCustomObjectAsync(group, version, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceClusterCustomObjectAsync(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
     }
 
@@ -5246,7 +5411,7 @@ public class CustomObjectsApi {
     public APIreplaceClusterCustomObjectRequest replaceClusterCustomObject(String group, String version, String plural, String name, Object body) {
         return new APIreplaceClusterCustomObjectRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call replaceClusterCustomObjectScaleCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectScaleCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5283,6 +5448,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
@@ -5306,7 +5475,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceClusterCustomObjectScale(Async)");
@@ -5332,20 +5501,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling replaceClusterCustomObjectScale(Async)");
         }
 
-        return replaceClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        return replaceClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
 
-    private ApiResponse<Object> replaceClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, null);
+    private ApiResponse<Object> replaceClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceClusterCustomObjectScaleAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectScaleAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5359,6 +5528,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
 
         private APIreplaceClusterCustomObjectScaleRequest(String group, String version, String plural, String name, Object body) {
             this.group = group;
@@ -5389,6 +5559,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIreplaceClusterCustomObjectScaleRequest
+         */
+        public APIreplaceClusterCustomObjectScaleRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Build call for replaceClusterCustomObjectScale
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -5402,7 +5582,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return replaceClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
 
         /**
@@ -5418,7 +5598,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = replaceClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager);
+            ApiResponse<Object> localVarResp = replaceClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation);
             return localVarResp.getData();
         }
 
@@ -5435,7 +5615,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return replaceClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager);
+            return replaceClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation);
         }
 
         /**
@@ -5452,7 +5632,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return replaceClusterCustomObjectScaleAsync(group, version, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceClusterCustomObjectScaleAsync(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
     }
 
@@ -5476,7 +5656,7 @@ public class CustomObjectsApi {
     public APIreplaceClusterCustomObjectScaleRequest replaceClusterCustomObjectScale(String group, String version, String plural, String name, Object body) {
         return new APIreplaceClusterCustomObjectScaleRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call replaceClusterCustomObjectStatusCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectStatusCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5513,6 +5693,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
@@ -5536,7 +5720,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceClusterCustomObjectStatus(Async)");
@@ -5562,20 +5746,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling replaceClusterCustomObjectStatus(Async)");
         }
 
-        return replaceClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        return replaceClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
 
-    private ApiResponse<Object> replaceClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, null);
+    private ApiResponse<Object> replaceClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceClusterCustomObjectStatusAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectStatusAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5589,6 +5773,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
 
         private APIreplaceClusterCustomObjectStatusRequest(String group, String version, String plural, String name, Object body) {
             this.group = group;
@@ -5619,6 +5804,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIreplaceClusterCustomObjectStatusRequest
+         */
+        public APIreplaceClusterCustomObjectStatusRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Build call for replaceClusterCustomObjectStatus
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -5632,7 +5827,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return replaceClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
 
         /**
@@ -5648,7 +5843,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = replaceClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager);
+            ApiResponse<Object> localVarResp = replaceClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation);
             return localVarResp.getData();
         }
 
@@ -5665,7 +5860,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return replaceClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager);
+            return replaceClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation);
         }
 
         /**
@@ -5682,7 +5877,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return replaceClusterCustomObjectStatusAsync(group, version, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceClusterCustomObjectStatusAsync(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
     }
 
@@ -5706,7 +5901,7 @@ public class CustomObjectsApi {
     public APIreplaceClusterCustomObjectStatusRequest replaceClusterCustomObjectStatus(String group, String version, String plural, String name, Object body) {
         return new APIreplaceClusterCustomObjectStatusRequest(group, version, plural, name, body);
     }
-    private okhttp3.Call replaceNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5744,6 +5939,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -5765,7 +5964,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceNamespacedCustomObject(Async)");
@@ -5796,20 +5995,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedCustomObject(Async)");
         }
 
-        return replaceNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        return replaceNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
 
-    private ApiResponse<Object> replaceNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, null);
+    private ApiResponse<Object> replaceNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5824,6 +6023,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
 
         private APIreplaceNamespacedCustomObjectRequest(String group, String version, String namespace, String plural, String name, Object body) {
             this.group = group;
@@ -5855,6 +6055,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIreplaceNamespacedCustomObjectRequest
+         */
+        public APIreplaceNamespacedCustomObjectRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Build call for replaceNamespacedCustomObject
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -5867,7 +6077,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return replaceNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
 
         /**
@@ -5882,7 +6092,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager);
+            ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation);
             return localVarResp.getData();
         }
 
@@ -5898,7 +6108,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return replaceNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager);
+            return replaceNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation);
         }
 
         /**
@@ -5914,7 +6124,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return replaceNamespacedCustomObjectAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceNamespacedCustomObjectAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
     }
 
@@ -5938,7 +6148,7 @@ public class CustomObjectsApi {
     public APIreplaceNamespacedCustomObjectRequest replaceNamespacedCustomObject(String group, String version, String namespace, String plural, String name, Object body) {
         return new APIreplaceNamespacedCustomObjectRequest(group, version, namespace, plural, name, body);
     }
-    private okhttp3.Call replaceNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -5976,6 +6186,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
@@ -5999,7 +6213,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceNamespacedCustomObjectScale(Async)");
@@ -6030,20 +6244,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedCustomObjectScale(Async)");
         }
 
-        return replaceNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        return replaceNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
 
-    private ApiResponse<Object> replaceNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, null);
+    private ApiResponse<Object> replaceNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6058,6 +6272,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
 
         private APIreplaceNamespacedCustomObjectScaleRequest(String group, String version, String namespace, String plural, String name, Object body) {
             this.group = group;
@@ -6089,6 +6304,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIreplaceNamespacedCustomObjectScaleRequest
+         */
+        public APIreplaceNamespacedCustomObjectScaleRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Build call for replaceNamespacedCustomObjectScale
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -6102,7 +6327,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return replaceNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
 
         /**
@@ -6118,7 +6343,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager);
+            ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation);
             return localVarResp.getData();
         }
 
@@ -6135,7 +6360,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return replaceNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager);
+            return replaceNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation);
         }
 
         /**
@@ -6152,7 +6377,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return replaceNamespacedCustomObjectScaleAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceNamespacedCustomObjectScaleAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
     }
 
@@ -6177,7 +6402,7 @@ public class CustomObjectsApi {
     public APIreplaceNamespacedCustomObjectScaleRequest replaceNamespacedCustomObjectScale(String group, String version, String namespace, String plural, String name, Object body) {
         return new APIreplaceNamespacedCustomObjectScaleRequest(group, version, namespace, plural, name, body);
     }
-    private okhttp3.Call replaceNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -6215,6 +6440,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         final String[] localVarAccepts = {
             "application/json",
             "application/yaml",
@@ -6238,7 +6467,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'group' is set
         if (group == null) {
             throw new ApiException("Missing the required parameter 'group' when calling replaceNamespacedCustomObjectStatus(Async)");
@@ -6269,20 +6498,20 @@ public class CustomObjectsApi {
             throw new ApiException("Missing the required parameter 'body' when calling replaceNamespacedCustomObjectStatus(Async)");
         }
 
-        return replaceNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        return replaceNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
 
     }
 
 
-    private ApiResponse<Object> replaceNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, null);
+    private ApiResponse<Object> replaceNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
-    private okhttp3.Call replaceNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -6297,6 +6526,7 @@ public class CustomObjectsApi {
         private final Object body;
         private String dryRun;
         private String fieldManager;
+        private String fieldValidation;
 
         private APIreplaceNamespacedCustomObjectStatusRequest(String group, String version, String namespace, String plural, String name, Object body) {
             this.group = group;
@@ -6328,6 +6558,16 @@ public class CustomObjectsApi {
         }
 
         /**
+         * Set fieldValidation
+         * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
+         * @return APIreplaceNamespacedCustomObjectStatusRequest
+         */
+        public APIreplaceNamespacedCustomObjectStatusRequest fieldValidation(String fieldValidation) {
+            this.fieldValidation = fieldValidation;
+            return this;
+        }
+
+        /**
          * Build call for replaceNamespacedCustomObjectStatus
          * @param _callback ApiCallback API callback
          * @return Call to execute
@@ -6341,7 +6581,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call buildCall(final ApiCallback _callback) throws ApiException {
-            return replaceNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
 
         /**
@@ -6357,7 +6597,7 @@ public class CustomObjectsApi {
          </table>
          */
         public Object execute() throws ApiException {
-            ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager);
+            ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation);
             return localVarResp.getData();
         }
 
@@ -6374,7 +6614,7 @@ public class CustomObjectsApi {
          </table>
          */
         public ApiResponse<Object> executeWithHttpInfo() throws ApiException {
-            return replaceNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager);
+            return replaceNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation);
         }
 
         /**
@@ -6391,7 +6631,7 @@ public class CustomObjectsApi {
          </table>
          */
         public okhttp3.Call executeAsync(final ApiCallback<Object> _callback) throws ApiException {
-            return replaceNamespacedCustomObjectStatusAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+            return replaceNamespacedCustomObjectStatusAsync(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         }
     }
 

@@ -55,7 +55,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * JSONSchemaProps is a JSON-Schema following Specification Draft 4 (http://json-schema.org/).
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
 public class V1JSONSchemaProps {
   public static final String SERIALIZED_NAME_$_REF = "$ref";
   @SerializedName(SERIALIZED_NAME_$_REF)

@@ -53,7 +53,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * SubjectRulesReviewStatus contains the result of a rules check. This check can be incomplete depending on the set of authorizers the server is configured with and any errors experienced during evaluation. Because authorization rules are additive, if a rule appears in a list it&#39;s safe to assume the subject has that permission, even if that list is incomplete.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
 public class V1SubjectRulesReviewStatus {
   public static final String SERIALIZED_NAME_EVALUATION_ERROR = "evaluationError";
   @SerializedName(SERIALIZED_NAME_EVALUATION_ERROR)

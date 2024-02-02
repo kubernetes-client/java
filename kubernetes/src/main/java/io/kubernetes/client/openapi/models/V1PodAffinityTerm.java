@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * Defines a set of pods (namely those matching the labelSelector relative to the given namespace(s)) that this pod should be co-located (affinity) or not co-located (anti-affinity) with, where co-located is defined as running on a node whose value of the label with key &lt;topologyKey&gt; matches that of any node on which a pod of the set of pods is running
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
 public class V1PodAffinityTerm {
   public static final String SERIALIZED_NAME_LABEL_SELECTOR = "labelSelector";
   @SerializedName(SERIALIZED_NAME_LABEL_SELECTOR)
