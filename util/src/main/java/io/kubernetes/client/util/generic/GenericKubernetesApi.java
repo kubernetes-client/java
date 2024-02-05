@@ -720,6 +720,7 @@ public class GenericKubernetesApi<
             null,
             createOptions.getDryRun(),
             createOptions.getFieldManager(),
+            null,
             null);
   }
 
@@ -752,6 +753,7 @@ public class GenericKubernetesApi<
             null,
             createOptions.getDryRun(),
             createOptions.getFieldManager(),
+            null,
             null);
   }
 
@@ -830,6 +832,7 @@ public class GenericKubernetesApi<
                 object,
                 updateOptions.getDryRun(),
                 updateOptions.getFieldManager(),
+                null,
                 null)
             : customObjectsApi.replaceClusterCustomObjectCall(
                 this.apiGroup,
@@ -839,6 +842,7 @@ public class GenericKubernetesApi<
                 object,
                 updateOptions.getDryRun(),
                 updateOptions.getFieldManager(),
+                null,
                 null);
   }
 
@@ -907,6 +911,7 @@ public class GenericKubernetesApi<
                 updateOptions.getDryRun(),
                 updateOptions.getFieldManager(),
                 null,
+                null,
                 null)
             : customObjectsApi.patchClusterCustomObjectStatusCall(
                 this.apiGroup,
@@ -916,6 +921,7 @@ public class GenericKubernetesApi<
                 Arrays.asList(new StatusPatch(status.apply(object))),
                 updateOptions.getDryRun(),
                 updateOptions.getFieldManager(),
+                null,
                 null,
                 null);
   }
@@ -1002,6 +1008,7 @@ public class GenericKubernetesApi<
                 patch,
                 patchOptions.getDryRun(),
                 patchOptions.getFieldManager(),
+                    null,
                 patchOptions.getForce(),
                 null),
             patchType);
@@ -1053,6 +1060,7 @@ public class GenericKubernetesApi<
                 patch,
                 patchOptions.getDryRun(),
                 patchOptions.getFieldManager(),
+                null,
                 patchOptions.getForce(),
                 null),
             patchType);
