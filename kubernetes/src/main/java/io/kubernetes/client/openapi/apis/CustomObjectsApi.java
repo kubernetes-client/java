@@ -1,5 +1,5 @@
 /*
-Copyright 2023 The Kubernetes Authors.
+Copyright 2024 The Kubernetes Authors.
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
@@ -63,6 +63,7 @@ public class CustomObjectsApi {
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -73,7 +74,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createClusterCustomObjectCall(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createClusterCustomObjectCall(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -94,6 +95,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -118,7 +123,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createClusterCustomObjectValidateBeforeCall(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createClusterCustomObjectValidateBeforeCall(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -141,7 +146,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = createClusterCustomObjectCall(group, version, plural, body, pretty, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = createClusterCustomObjectCall(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         return localVarCall;
 
     }
@@ -156,6 +161,7 @@ public class CustomObjectsApi {
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -165,8 +171,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object createClusterCustomObject(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager) throws ApiException {
-        ApiResponse<Object> localVarResp = createClusterCustomObjectWithHttpInfo(group, version, plural, body, pretty, dryRun, fieldManager);
+    public Object createClusterCustomObject(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        ApiResponse<Object> localVarResp = createClusterCustomObjectWithHttpInfo(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation);
         return localVarResp.getData();
     }
 
@@ -180,6 +186,7 @@ public class CustomObjectsApi {
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -189,8 +196,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> createClusterCustomObjectWithHttpInfo(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, dryRun, fieldManager, null);
+    public ApiResponse<Object> createClusterCustomObjectWithHttpInfo(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -205,6 +212,7 @@ public class CustomObjectsApi {
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -215,9 +223,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createClusterCustomObjectAsync(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call createClusterCustomObjectAsync(String group, String version, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = createClusterCustomObjectValidateBeforeCall(group, version, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -232,6 +240,7 @@ public class CustomObjectsApi {
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -242,7 +251,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createNamespacedCustomObjectCall(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createNamespacedCustomObjectCall(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -266,6 +275,10 @@ public class CustomObjectsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
         }
 
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
+        }
+
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
@@ -288,7 +301,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call createNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -316,7 +329,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = createNamespacedCustomObjectCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = createNamespacedCustomObjectCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         return localVarCall;
 
     }
@@ -332,6 +345,7 @@ public class CustomObjectsApi {
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -341,8 +355,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object createNamespacedCustomObject(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager) throws ApiException {
-        ApiResponse<Object> localVarResp = createNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, body, pretty, dryRun, fieldManager);
+    public Object createNamespacedCustomObject(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        ApiResponse<Object> localVarResp = createNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation);
         return localVarResp.getData();
     }
 
@@ -357,6 +371,7 @@ public class CustomObjectsApi {
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -366,8 +381,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> createNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, null);
+    public ApiResponse<Object> createNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -383,6 +398,7 @@ public class CustomObjectsApi {
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -393,9 +409,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call createNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, Object body, String pretty, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = createNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, body, pretty, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -587,6 +603,7 @@ public class CustomObjectsApi {
      * @param version The custom resource&#39;s version (required)
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
@@ -602,7 +619,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionClusterCustomObjectCall(String group, String version, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionClusterCustomObjectCall(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -615,6 +632,10 @@ public class CustomObjectsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
         }
 
         if (gracePeriodSeconds != null) {
@@ -655,7 +676,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -673,7 +694,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectCall(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectCall(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         return localVarCall;
 
     }
@@ -685,6 +706,7 @@ public class CustomObjectsApi {
      * @param version The custom resource&#39;s version (required)
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
@@ -699,8 +721,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object deleteCollectionClusterCustomObject(String group, String version, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
-        ApiResponse<Object> localVarResp = deleteCollectionClusterCustomObjectWithHttpInfo(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+    public Object deleteCollectionClusterCustomObject(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteCollectionClusterCustomObjectWithHttpInfo(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
         return localVarResp.getData();
     }
 
@@ -711,6 +733,7 @@ public class CustomObjectsApi {
      * @param version The custom resource&#39;s version (required)
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
@@ -725,8 +748,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> deleteCollectionClusterCustomObjectWithHttpInfo(String group, String version, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
+    public ApiResponse<Object> deleteCollectionClusterCustomObjectWithHttpInfo(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -738,6 +761,7 @@ public class CustomObjectsApi {
      * @param version The custom resource&#39;s version (required)
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
@@ -753,9 +777,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionClusterCustomObjectAsync(String group, String version, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionClusterCustomObjectAsync(String group, String version, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionClusterCustomObjectValidateBeforeCall(group, version, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -767,6 +791,7 @@ public class CustomObjectsApi {
      * @param namespace The custom resource&#39;s namespace (required)
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
@@ -782,7 +807,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -796,6 +821,10 @@ public class CustomObjectsApi {
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
         if (pretty != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pretty", pretty));
+        }
+
+        if (labelSelector != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("labelSelector", labelSelector));
         }
 
         if (gracePeriodSeconds != null) {
@@ -836,7 +865,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteCollectionNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call deleteCollectionNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -859,7 +888,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         return localVarCall;
 
     }
@@ -872,6 +901,7 @@ public class CustomObjectsApi {
      * @param namespace The custom resource&#39;s namespace (required)
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
@@ -886,8 +916,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object deleteCollectionNamespacedCustomObject(String group, String version, String namespace, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
-        ApiResponse<Object> localVarResp = deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
+    public Object deleteCollectionNamespacedCustomObject(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
+        ApiResponse<Object> localVarResp = deleteCollectionNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body);
         return localVarResp.getData();
     }
 
@@ -899,6 +929,7 @@ public class CustomObjectsApi {
      * @param namespace The custom resource&#39;s namespace (required)
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
@@ -913,8 +944,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> deleteCollectionNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
-        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
+    public ApiResponse<Object> deleteCollectionNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body) throws ApiException {
+        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -927,6 +958,7 @@ public class CustomObjectsApi {
      * @param namespace The custom resource&#39;s namespace (required)
      * @param plural The custom resource&#39;s plural name. For TPRs this would be lowercase plural kind. (required)
      * @param pretty If &#39;true&#39;, then the output is pretty printed. (optional)
+     * @param labelSelector A selector to restrict the list of returned objects by their labels. Defaults to everything. (optional)
      * @param gracePeriodSeconds The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately. (optional)
      * @param orphanDependents Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the \&quot;orphan\&quot; finalizer will be added to/removed from the object&#39;s finalizers list. Either this field or PropagationPolicy may be set, but not both. (optional)
      * @param propagationPolicy Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. (optional)
@@ -942,9 +974,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call deleteCollectionNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call deleteCollectionNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String pretty, String labelSelector, Integer gracePeriodSeconds, Boolean orphanDependents, String propagationPolicy, String dryRun, V1DeleteOptions body, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
+        okhttp3.Call localVarCall = deleteCollectionNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, pretty, labelSelector, gracePeriodSeconds, orphanDependents, propagationPolicy, dryRun, body, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2614,6 +2646,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to patch. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2625,7 +2658,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchClusterCustomObjectCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchClusterCustomObjectCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -2643,6 +2676,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         if (force != null) {
@@ -2671,7 +2708,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -2699,7 +2736,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = patchClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         return localVarCall;
 
     }
@@ -2714,6 +2751,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to patch. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2724,8 +2762,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object patchClusterCustomObject(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        ApiResponse<Object> localVarResp = patchClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, force);
+    public Object patchClusterCustomObject(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        ApiResponse<Object> localVarResp = patchClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         return localVarResp.getData();
     }
 
@@ -2739,6 +2777,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to patch. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2749,8 +2788,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> patchClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, null);
+    public ApiResponse<Object> patchClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2765,6 +2804,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to patch. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2776,9 +2816,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call patchClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2792,6 +2832,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2803,7 +2844,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchClusterCustomObjectScaleCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchClusterCustomObjectScaleCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -2821,6 +2862,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         if (force != null) {
@@ -2849,7 +2894,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -2877,7 +2922,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = patchClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         return localVarCall;
 
     }
@@ -2892,6 +2937,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2902,8 +2948,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object patchClusterCustomObjectScale(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        ApiResponse<Object> localVarResp = patchClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, force);
+    public Object patchClusterCustomObjectScale(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        ApiResponse<Object> localVarResp = patchClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         return localVarResp.getData();
     }
 
@@ -2917,6 +2963,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2927,8 +2974,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> patchClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, null);
+    public ApiResponse<Object> patchClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2943,6 +2990,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2954,9 +3002,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchClusterCustomObjectScaleAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call patchClusterCustomObjectScaleAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2970,6 +3018,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2981,7 +3030,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchClusterCustomObjectStatusCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchClusterCustomObjectStatusCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -2999,6 +3048,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         if (force != null) {
@@ -3027,7 +3080,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -3055,7 +3108,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = patchClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         return localVarCall;
 
     }
@@ -3070,6 +3123,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3080,8 +3134,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object patchClusterCustomObjectStatus(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        ApiResponse<Object> localVarResp = patchClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, force);
+    public Object patchClusterCustomObjectStatus(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        ApiResponse<Object> localVarResp = patchClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         return localVarResp.getData();
     }
 
@@ -3095,6 +3149,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3105,8 +3160,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> patchClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, null);
+    public ApiResponse<Object> patchClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3121,6 +3176,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3132,9 +3188,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchClusterCustomObjectStatusAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call patchClusterCustomObjectStatusAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3149,6 +3205,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to patch. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3160,7 +3217,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -3179,6 +3236,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         if (force != null) {
@@ -3207,7 +3268,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -3240,7 +3301,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         return localVarCall;
 
     }
@@ -3256,6 +3317,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to patch. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3266,8 +3328,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object patchNamespacedCustomObject(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        ApiResponse<Object> localVarResp = patchNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
+    public Object patchNamespacedCustomObject(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        ApiResponse<Object> localVarResp = patchNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         return localVarResp.getData();
     }
 
@@ -3282,6 +3344,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to patch. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3292,8 +3355,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> patchNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, null);
+    public ApiResponse<Object> patchNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3309,6 +3372,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to patch. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3320,9 +3384,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call patchNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3337,6 +3401,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3348,7 +3413,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -3367,6 +3432,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         if (force != null) {
@@ -3395,7 +3464,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -3428,7 +3497,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         return localVarCall;
 
     }
@@ -3444,6 +3513,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3454,8 +3524,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object patchNamespacedCustomObjectScale(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        ApiResponse<Object> localVarResp = patchNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
+    public Object patchNamespacedCustomObjectScale(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        ApiResponse<Object> localVarResp = patchNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         return localVarResp.getData();
     }
 
@@ -3470,6 +3540,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3480,8 +3551,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> patchNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, null);
+    public ApiResponse<Object> patchNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3497,6 +3568,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3508,9 +3580,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call patchNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3525,6 +3597,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3536,7 +3609,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call patchNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -3555,6 +3628,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         if (force != null) {
@@ -3583,7 +3660,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call patchNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call patchNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -3616,7 +3693,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         return localVarCall;
 
     }
@@ -3632,6 +3709,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3642,8 +3720,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object patchNamespacedCustomObjectStatus(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        ApiResponse<Object> localVarResp = patchNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, force);
+    public Object patchNamespacedCustomObjectStatus(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        ApiResponse<Object> localVarResp = patchNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force);
         return localVarResp.getData();
     }
 
@@ -3658,6 +3736,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3668,8 +3747,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> patchNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force) throws ApiException {
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, null);
+    public ApiResponse<Object> patchNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force) throws ApiException {
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3685,6 +3764,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. This field is required for apply requests (application/apply-patch) but optional for non-apply patch types (JsonPatch, MergePatch, StrategicMergePatch). (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param force Force is going to \&quot;force\&quot; Apply requests. It means user will re-acquire conflicting fields owned by other people. Force flag must be unset for non-apply patch requests. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3696,9 +3776,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call patchNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call patchNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, Boolean force, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, force, _callback);
+        okhttp3.Call localVarCall = patchNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, force, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3712,6 +3792,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to replace. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3722,7 +3803,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceClusterCustomObjectCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call replaceClusterCustomObjectCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -3740,6 +3821,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -3764,7 +3849,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -3792,7 +3877,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = replaceClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceClusterCustomObjectCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         return localVarCall;
 
     }
@@ -3807,6 +3892,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to replace. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3816,8 +3902,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object replaceClusterCustomObject(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        ApiResponse<Object> localVarResp = replaceClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager);
+    public Object replaceClusterCustomObject(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        ApiResponse<Object> localVarResp = replaceClusterCustomObjectWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation);
         return localVarResp.getData();
     }
 
@@ -3831,6 +3917,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to replace. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3840,8 +3927,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> replaceClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, null);
+    public ApiResponse<Object> replaceClusterCustomObjectWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3856,6 +3943,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to replace. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3866,9 +3954,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call replaceClusterCustomObjectAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceClusterCustomObjectValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3882,6 +3970,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3893,7 +3982,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceClusterCustomObjectScaleCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call replaceClusterCustomObjectScaleCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -3911,6 +4000,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -3935,7 +4028,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectScaleValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -3963,7 +4056,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = replaceClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceClusterCustomObjectScaleCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         return localVarCall;
 
     }
@@ -3978,6 +4071,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3988,8 +4082,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object replaceClusterCustomObjectScale(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        ApiResponse<Object> localVarResp = replaceClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager);
+    public Object replaceClusterCustomObjectScale(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        ApiResponse<Object> localVarResp = replaceClusterCustomObjectScaleWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation);
         return localVarResp.getData();
     }
 
@@ -4003,6 +4097,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4013,8 +4108,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> replaceClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, null);
+    public ApiResponse<Object> replaceClusterCustomObjectScaleWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4029,6 +4124,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4040,9 +4136,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceClusterCustomObjectScaleAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call replaceClusterCustomObjectScaleAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceClusterCustomObjectScaleValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4056,6 +4152,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4067,7 +4164,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceClusterCustomObjectStatusCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call replaceClusterCustomObjectStatusCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -4085,6 +4182,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -4109,7 +4210,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceClusterCustomObjectStatusValidateBeforeCall(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -4137,7 +4238,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = replaceClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceClusterCustomObjectStatusCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         return localVarCall;
 
     }
@@ -4152,6 +4253,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4162,8 +4264,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object replaceClusterCustomObjectStatus(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        ApiResponse<Object> localVarResp = replaceClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager);
+    public Object replaceClusterCustomObjectStatus(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        ApiResponse<Object> localVarResp = replaceClusterCustomObjectStatusWithHttpInfo(group, version, plural, name, body, dryRun, fieldManager, fieldValidation);
         return localVarResp.getData();
     }
 
@@ -4177,6 +4279,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4187,8 +4290,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> replaceClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, null);
+    public ApiResponse<Object> replaceClusterCustomObjectStatusWithHttpInfo(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4203,6 +4306,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4214,9 +4318,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceClusterCustomObjectStatusAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call replaceClusterCustomObjectStatusAsync(String group, String version, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceClusterCustomObjectStatusValidateBeforeCall(group, version, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4231,6 +4335,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to replace. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4241,7 +4346,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedCustomObjectCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -4260,6 +4365,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -4284,7 +4393,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -4317,7 +4426,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         return localVarCall;
 
     }
@@ -4333,6 +4442,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to replace. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4342,8 +4452,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object replaceNamespacedCustomObject(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager);
+    public Object replaceNamespacedCustomObject(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation);
         return localVarResp.getData();
     }
 
@@ -4358,6 +4468,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to replace. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4367,8 +4478,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> replaceNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, null);
+    public ApiResponse<Object> replaceNamespacedCustomObjectWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4384,6 +4495,7 @@ public class CustomObjectsApi {
      * @param body The JSON schema of the Resource to replace. (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4394,9 +4506,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedCustomObjectAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4411,6 +4523,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4422,7 +4535,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedCustomObjectScaleCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -4441,6 +4554,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -4465,7 +4582,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectScaleValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -4498,7 +4615,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         return localVarCall;
 
     }
@@ -4514,6 +4631,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4524,8 +4642,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object replaceNamespacedCustomObjectScale(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager);
+    public Object replaceNamespacedCustomObjectScale(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectScaleWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation);
         return localVarResp.getData();
     }
 
@@ -4540,6 +4658,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4550,8 +4669,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> replaceNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, null);
+    public ApiResponse<Object> replaceNamespacedCustomObjectScaleWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4567,6 +4686,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4578,9 +4698,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedCustomObjectScaleAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectScaleValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4595,6 +4715,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4606,7 +4727,7 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedCustomObjectStatusCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
         Object localVarPostBody = body;
 
         // create path and map variables
@@ -4625,6 +4746,10 @@ public class CustomObjectsApi {
 
         if (fieldManager != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldManager", fieldManager));
+        }
+
+        if (fieldValidation != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fieldValidation", fieldValidation));
         }
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
@@ -4649,7 +4774,7 @@ public class CustomObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call replaceNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call replaceNamespacedCustomObjectStatusValidateBeforeCall(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback _callback) throws ApiException {
 
         // verify the required parameter 'group' is set
         if (group == null) {
@@ -4682,7 +4807,7 @@ public class CustomObjectsApi {
         }
 
 
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         return localVarCall;
 
     }
@@ -4698,6 +4823,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4708,8 +4834,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public Object replaceNamespacedCustomObjectStatus(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager);
+    public Object replaceNamespacedCustomObjectStatus(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        ApiResponse<Object> localVarResp = replaceNamespacedCustomObjectStatusWithHttpInfo(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation);
         return localVarResp.getData();
     }
 
@@ -4724,6 +4850,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4734,8 +4861,8 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Object> replaceNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager) throws ApiException {
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, null);
+    public ApiResponse<Object> replaceNamespacedCustomObjectStatusWithHttpInfo(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation) throws ApiException {
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, null);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4751,6 +4878,7 @@ public class CustomObjectsApi {
      * @param body  (required)
      * @param dryRun When present, indicates that modifications should not be persisted. An invalid or unrecognized dryRun directive will result in an error response and no further processing of the request. Valid values are: - All: all dry run stages will be processed (optional)
      * @param fieldManager fieldManager is a name associated with the actor or entity that is making these changes. The value must be less than or 128 characters long, and only contain printable characters, as defined by https://golang.org/pkg/unicode/#IsPrint. (optional)
+     * @param fieldValidation fieldValidation instructs the server on how to handle objects in the request (POST/PUT/PATCH) containing unknown or duplicate fields. Valid values are: - Ignore: This will ignore any unknown fields that are silently dropped from the object, and will ignore all but the last duplicate field that the decoder encounters. This is the default behavior prior to v1.23. - Warn: This will send a warning via the standard warning response header for each unknown field that is dropped from the object, and for each duplicate field that is encountered. The request will still succeed if there are no other errors, and will only persist the last of any duplicate fields. This is the default in v1.23+ - Strict: This will fail the request with a BadRequest error if any unknown fields would be dropped from the object, or if any duplicate fields are present. The error returned from the server will contain all unknown and duplicate fields encountered. (optional) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4762,9 +4890,9 @@ public class CustomObjectsApi {
         <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call replaceNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, final ApiCallback<Object> _callback) throws ApiException {
+    public okhttp3.Call replaceNamespacedCustomObjectStatusAsync(String group, String version, String namespace, String plural, String name, Object body, String dryRun, String fieldManager, String fieldValidation, final ApiCallback<Object> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, _callback);
+        okhttp3.Call localVarCall = replaceNamespacedCustomObjectStatusValidateBeforeCall(group, version, namespace, plural, name, body, dryRun, fieldManager, fieldValidation, _callback);
         Type localVarReturnType = new TypeToken<Object>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
