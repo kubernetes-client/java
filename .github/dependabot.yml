@@ -5,6 +5,12 @@ updates:
     schedule:
       interval: "daily"
       time: "02:00"
+  - package-ecosystem: "maven"
+    directory: "/"
+    target-branch: "master-java8"
+    schedule:
+      interval: "daily"
+      time: "02:00"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
