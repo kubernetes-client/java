@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * CertificateSigningRequest objects provide a mechanism to obtain x509 certificates by submitting a certificate signing request, and having it asynchronously approved and issued.  Kubelets use this API to obtain:  1. client certificates to authenticate to kube-apiserver (with the \&quot;kubernetes.io/kube-apiserver-client-kubelet\&quot; signerName).  2. serving certificates for TLS endpoints kube-apiserver can connect to securely (with the \&quot;kubernetes.io/kubelet-serving\&quot; signerName).  This API can be used to request client certificates to authenticate to kube-apiserver (with the \&quot;kubernetes.io/kube-apiserver-client\&quot; signerName), or to obtain certificates from custom non-Kubernetes signers.
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
 public class V1CertificateSigningRequest implements io.kubernetes.client.common.KubernetesObject {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

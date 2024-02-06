@@ -52,7 +52,7 @@ import io.kubernetes.client.openapi.JSON;
 /**
  * ObjectMetricSource indicates how to scale on a metric describing a kubernetes object (for example, hits-per-second on an Ingress object).
  */
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-01-10T18:43:25.181149Z[Etc/UTC]")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T17:56:12.287571Z[Etc/UTC]")
 public class V2ObjectMetricSource {
   public static final String SERIALIZED_NAME_DESCRIBED_OBJECT = "describedObject";
   @SerializedName(SERIALIZED_NAME_DESCRIBED_OBJECT)
