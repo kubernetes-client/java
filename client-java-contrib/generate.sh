@@ -22,6 +22,7 @@ OUTPUT_DIR=${OUTPUT_DIR:-}
 KUBERNETES_CRD_GROUP_PREFIX=${KUBERNETES_CRD_GROUP_PREFIX:-}
 PACKAGE_NAME=${PACKAGE_NAME:-}
 CLUSTER_NAME=${CLUSTER_NAME:-"crd-model-gen"}
+APPLY_ARGS=${APPLY_ARGS:-}
 
 print_usage() {
   echo "Usage: generate Java model classes from CRDs" >& 2
@@ -29,16 +30,18 @@ print_usage() {
   echo " -p: the base package name of the generated java project. " >& 2
   echo " -o: output directory of the generated java project. " >& 2
   echo " -u: url location of the YAML manifest to install CRDs to a Kubernetes cluster. " >& 2
+  echo " -a: arguments to pass to kubectl when the CRDs are applied. " >& 2
   echo " -c: cluster name of kind. " >& 2
 }
 
-while getopts 'u:n:p:o:c:' flag; do
+while getopts 'u:n:p:o:c:a:' flag; do
   case "${flag}" in
     u) CRD_URLS+=("${OPTARG}") ;;
     n) KUBERNETES_CRD_GROUP_PREFIX="${OPTARG}" ;;
     p) PACKAGE_NAME="${OPTARG}" ;;
     o) OUTPUT_DIR="${OPTARG}" ;;
     c) CLUSTER_NAME="${OPTARG}" ;;
+    a) APPLY_ARGS="${OPTARG}" ;;
     *) print_usage
        exit 1 ;;
   esac
@@ -52,7 +55,7 @@ kind create cluster --name ${CLUSTER_NAME}
 # install CRDs to the KinD cluster and dump the swagger spec
 for url in "${CRD_URLS[@]}"; do
   if [[ ! -z $url ]]; then
-    kubectl create -f "$url"
+    kubectl create $APPLY_ARGS -f "$url"
   fi
 done
 
