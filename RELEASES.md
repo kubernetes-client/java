@@ -15,7 +15,7 @@ branches.
 Maintainers meet the following requirements will be able to perform automated
 release to maven central via Github Action job named "Maven Release":
 
-* Has "collaborator" permission or greater access (otherwise the can't run the
+* Has "collaborator" permission or greater access (otherwise can't run the
   job manually).
 * Should be in the OWNERS file.
 
@@ -24,20 +24,21 @@ release to maven central via Github Action job named "Maven Release":
 #### Make sure the release job runs on the release branch
 
 When cutting the next major release, firstly we need to fork out a new release
-branch named `release-<major>`. So the release job will execute the maven 
-release plugin and push generated releasing commits to the release branch
-if the `release:prepare` process finishes successfully. Note that if we're 
-bumping a new patch version from an existing release branch, this step can be
-omitted.
+branch named `release-<major>` or `release-legacy-<major>`. So the release job 
+will execute the maven release plugin and push generated releasing commits to 
+the release branch if the `release:prepare` process finishes successfully. Note 
+that if we're bumping a new patch version from an existing release branch, this 
+step can be omitted.
 
 #### Filling release job input manually
 
 The github action job will require three manual input:
 
-* The POM releasing version, must be a valid semver `X.Y.Z` (without "v" prefix).
+* The POM releasing version, must be a valid semver `X.Y.Z` (without "v" prefix). 
+For `master-java8` branch, the version should adhere to format `X.Y.Z-legacy`.
 * The next development POM version, conventionally we should bump a patch 
   version from the current release version and add a `-SNAPSHOT` suffix. i.e.
-  `X.Y.(Z+1)-SNAPSHOT`.
+  `X.Y.(Z+1)-SNAPSHOT`. (for `master-java8` branch it's `X.Y.(Z+1)-legacy-SNAPSHOT`)
 * Dry-Run: Indicating whether the release job will push the generated release
   commits to the release branch and actually upload the artifacts.
   
