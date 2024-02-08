@@ -47,8 +47,8 @@ jobs:
           export GPG_TTY=$(tty)
           (echo 5; echo y; echo save) | gpg --command-fd 0 --no-tty --pinentry-mode loopback --passphrase ${{ secrets.GPG_PASSWORD }} --no-greeting --edit-key 'Kubernetes Client Publishers' trust
           (echo 0; echo y; echo save) | gpg --command-fd 0 --no-tty --pinentry-mode loopback --passphrase ${{ secrets.GPG_PASSWORD }} --no-greeting --edit-key 'Kubernetes Client Publishers' expire
-          git config user.email "k8s.ci.robot@gmail.com"
-          git config user.name "Kubernetes Prow Robot"
+          git config user.email "k8s-publishing-bot@users.noreply.github.com"
+          git config user.name "Kubernetes Publisher"
       - name: Check Current Version
         run: |
           mvn -q \
