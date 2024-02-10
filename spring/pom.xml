@@ -10,7 +10,7 @@
   <parent>
     <artifactId>client-java-parent</artifactId>
     <groupId>io.kubernetes</groupId>
-    <version>20.0.0-legacy</version>
+    <version>20.0.1-legacy-SNAPHOST</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
