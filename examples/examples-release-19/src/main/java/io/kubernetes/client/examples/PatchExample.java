@@ -60,7 +60,7 @@ public class PatchExample {
 
       // create a deployment
       V1Deployment deploy1 =
-          api.createNamespacedDeployment("default", body).execute();
+          api.createNamespacedDeployment("default", body, null, null, null, null);
       System.out.println("original deployment" + deploy1);
 
       // json-patch a deployment
@@ -68,11 +68,16 @@ public class PatchExample {
           PatchUtils.patch(
               V1Deployment.class,
               () ->
-                  api.patchNamespacedDeployment(
+                  api.patchNamespacedDeploymentCall(
                       "hello-node",
                       "default",
-                      new V1Patch(jsonPatchStr))
-                          .buildCall(null),
+                      new V1Patch(jsonPatchStr),
+                      null,
+                      null,
+                      null,
+                      null, // field-manager is optional
+                      null,
+                      null),
               V1Patch.PATCH_FORMAT_JSON_PATCH,
               api.getApiClient());
       System.out.println("json-patched deployment" + deploy2);
@@ -82,11 +87,16 @@ public class PatchExample {
           PatchUtils.patch(
               V1Deployment.class,
               () ->
-                  api.patchNamespacedDeployment(
+                  api.patchNamespacedDeploymentCall(
                       "hello-node",
                       "default",
-                      new V1Patch(strategicMergePatchStr))
-                          .buildCall(null),
+                      new V1Patch(strategicMergePatchStr),
+                      null,
+                      null,
+                      null, // field-manager is optional
+                      null,
+                      null,
+                      null),
               V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
               api.getApiClient());
       System.out.println("strategic-merge-patched deployment" + deploy3);
@@ -98,13 +108,16 @@ public class PatchExample {
           PatchUtils.patch(
               V1Deployment.class,
               () ->
-                  api.patchNamespacedDeployment(
+                  api.patchNamespacedDeploymentCall(
                       "hello-node",
                       "default",
-                      new V1Patch(applyYamlStr))
-                          .fieldManager("example-field-manager")
-                          .force(true)
-                          .buildCall(null),
+                      new V1Patch(applyYamlStr),
+                      null,
+                      null,
+                      "example-field-manager", // field-manager is required for server-side apply
+                      null,
+                      true,
+                      null),
               V1Patch.PATCH_FORMAT_APPLY_YAML,
               api.getApiClient());
       System.out.println("application/apply-patch+yaml deployment" + deploy4);

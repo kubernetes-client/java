@@ -101,7 +101,8 @@ public class ExpandedExample {
    */
   public static List<String> getAllNameSpaces() throws ApiException {
     V1NamespaceList listNamespace =
-        COREV1_API.listNamespace().execute();
+        COREV1_API.listNamespace(
+            null, null, null, null, null, null, null, null, null, null, null);
     List<String> list =
         listNamespace.getItems().stream()
             .map(v1Namespace -> v1Namespace.getMetadata().getName())
@@ -117,7 +118,8 @@ public class ExpandedExample {
    */
   public static List<String> getPods() throws ApiException {
     V1PodList v1podList =
-        COREV1_API.listPodForAllNamespaces().execute();
+        COREV1_API.listPodForAllNamespaces(
+            null, null, null, null, null, null, null, null, null, null, null);
     List<String> podList =
         v1podList.getItems().stream()
             .map(v1Pod -> v1Pod.getMetadata().getName())
@@ -157,11 +159,18 @@ public class ExpandedExample {
   public static List<String> getNamespacedPod(String namespace, String label) throws ApiException {
     V1PodList listNamespacedPod =
         COREV1_API.listNamespacedPod(
-            namespace)
-                .labelSelector(label)
-                .timeoutSeconds(TIME_OUT_VALUE)
-                .watch(false)
-                .execute();
+            namespace,
+            null,
+            null,
+            null,
+            null,
+            label,
+            null,
+            null,
+            null,
+            null,
+            TIME_OUT_VALUE,
+            Boolean.FALSE);
     List<String> listPods =
         listNamespacedPod.getItems().stream()
             .map(v1pod -> v1pod.getMetadata().getName())
@@ -177,10 +186,19 @@ public class ExpandedExample {
    */
   public static List<String> getServices() throws ApiException {
     V1ServiceList listNamespacedService =
-        COREV1_API.listNamespacedService(DEFAULT_NAME_SPACE)
-                .timeoutSeconds(TIME_OUT_VALUE)
-                .watch(false)
-                .execute();
+        COREV1_API.listNamespacedService(
+            DEFAULT_NAME_SPACE,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            TIME_OUT_VALUE,
+            Boolean.FALSE);
     return listNamespacedService.getItems().stream()
         .map(v1service -> v1service.getMetadata().getName())
         .collect(Collectors.toList());
@@ -199,9 +217,18 @@ public class ExpandedExample {
     appsV1Api.setApiClient(COREV1_API.getApiClient());
     V1DeploymentList listNamespacedDeployment =
         appsV1Api.listNamespacedDeployment(
-            DEFAULT_NAME_SPACE)
-                .watch(false)
-                .execute();
+            DEFAULT_NAME_SPACE,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            Boolean.FALSE);
 
     List<V1Deployment> appsV1DeploymentItems = listNamespacedDeployment.getItems();
     Optional<V1Deployment> findedDeployment =
@@ -216,7 +243,7 @@ public class ExpandedExample {
             V1DeploymentSpec newSpec = deploy.getSpec().replicas(numberOfReplicas);
             V1Deployment newDeploy = deploy.spec(newSpec);
             appsV1Api.replaceNamespacedDeployment(
-                deploymentName, DEFAULT_NAME_SPACE, newDeploy).execute();
+                deploymentName, DEFAULT_NAME_SPACE, newDeploy, null, null, null, null);
           } catch (ApiException ex) {
             LOGGER.warn("Scale the pod failed for Deployment:" + deploymentName, ex);
           }
@@ -233,12 +260,18 @@ public class ExpandedExample {
   public static void printLog(String namespace, String podName) throws ApiException {
     // https://github.com/kubernetes-client/java/blob/master/kubernetes/docs/CoreV1Api.md#readNamespacedPodLog
     String readNamespacedPodLog =
-        COREV1_API.readNamespacedPodLog(podName, namespace)
-                .follow(false)
-                .limitBytes(Integer.MAX_VALUE)
-                .sinceSeconds(Integer.MAX_VALUE)
-                .tailLines(40)
-                .execute();
+        COREV1_API.readNamespacedPodLog(
+            podName,
+            namespace,
+            null,
+            Boolean.FALSE,
+            null,
+            Integer.MAX_VALUE,
+            null,
+            Boolean.FALSE,
+            Integer.MAX_VALUE,
+            40,
+            Boolean.FALSE);
     System.out.println(readNamespacedPodLog);
   }
 }
