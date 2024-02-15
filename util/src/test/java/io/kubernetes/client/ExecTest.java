@@ -19,6 +19,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -280,5 +281,19 @@ public class ExecTest {
         new ByteArrayInputStream(OUTPUT_EXIT_BAD_INT.getBytes(StandardCharsets.UTF_8));
     int exitCode = Exec.parseExitCode(client, inputStream);
     assertEquals(-1, exitCode);
+  }
+
+  @Test
+  public void testExecutionBuilderNull() {
+    Exec exec = new Exec(null);
+    assertThrows(NullPointerException.class, () -> {
+      exec.newExecutionBuilder(null, null, null);
+    });
+    assertThrows(NullPointerException.class, () -> {
+      exec.newExecutionBuilder("", null, null);
+    });
+    assertThrows(NullPointerException.class, () -> {
+      exec.newExecutionBuilder("", "", null);
+    });
   }
 }

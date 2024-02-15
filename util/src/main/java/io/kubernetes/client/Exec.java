@@ -39,6 +39,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
@@ -359,9 +360,9 @@ public class Exec {
     private Consumer<Throwable> onUnhandledError;
 
     private ExecutionBuilder(String namespace, String name, String[] command) {
-      this.namespace = namespace;
-      this.name = name;
-      this.command = command;
+      this.namespace = Objects.requireNonNull(namespace, "namespace");
+      this.name = Objects.requireNonNull(name, "name");
+      this.command = Objects.requireNonNull(command, "command");
       this.stdin = true;
       this.stdout = true;
       this.stderr = true;
