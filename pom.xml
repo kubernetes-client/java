@@ -159,7 +159,7 @@
       <dependency>
         <groupId>org.bitbucket.b_c</groupId>
         <artifactId>jose4j</artifactId>
-        <version>0.9.4</version>
+        <version>0.9.5</version>
       </dependency>
       <dependency>
         <groupId>com.github.vladimir-bukhtoyarov</groupId>
