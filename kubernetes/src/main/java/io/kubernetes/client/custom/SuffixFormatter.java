@@ -38,10 +38,14 @@ public class SuffixFormatter {
           put("m", new BaseExponent(10, -3, Quantity.Format.DECIMAL_SI));
           put("", new BaseExponent(10, 0, Quantity.Format.DECIMAL_SI));
           put("k", new BaseExponent(10, 3, Quantity.Format.DECIMAL_SI));
+          put("K", new BaseExponent(10, 3, Quantity.Format.DECIMAL_SI));
           put("M", new BaseExponent(10, 6, Quantity.Format.DECIMAL_SI));
           put("G", new BaseExponent(10, 9, Quantity.Format.DECIMAL_SI));
+          put("g", new BaseExponent(10, 9, Quantity.Format.DECIMAL_SI));
           put("T", new BaseExponent(10, 12, Quantity.Format.DECIMAL_SI));
+          put("t", new BaseExponent(10, 12, Quantity.Format.DECIMAL_SI));
           put("P", new BaseExponent(10, 15, Quantity.Format.DECIMAL_SI));
+          put("p", new BaseExponent(10, 15, Quantity.Format.DECIMAL_SI));
           put("E", new BaseExponent(10, 18, Quantity.Format.DECIMAL_SI));
         }
       };

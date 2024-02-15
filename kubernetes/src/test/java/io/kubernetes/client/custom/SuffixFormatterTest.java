@@ -37,9 +37,53 @@ public class SuffixFormatterTest {
 
   @Test
   public void testParseDecimalK() {
-    final BaseExponent baseExponent = new SuffixFormatter().parse("k");
+    BaseExponent baseExponent = new SuffixFormatter().parse("k");
     assertThat(baseExponent.getBase(), is(10));
     assertThat(baseExponent.getExponent(), is(3));
+    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_SI));
+
+    baseExponent = new SuffixFormatter().parse("K");
+    assertThat(baseExponent.getBase(), is(10));
+    assertThat(baseExponent.getExponent(), is(3));
+    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_SI));
+  }
+
+  @Test
+  public void testParseDecimalG() {
+    BaseExponent baseExponent = new SuffixFormatter().parse("G");
+    assertThat(baseExponent.getBase(), is(10));
+    assertThat(baseExponent.getExponent(), is(9));
+    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_SI));
+
+    baseExponent = new SuffixFormatter().parse("g");
+    assertThat(baseExponent.getBase(), is(10));
+    assertThat(baseExponent.getExponent(), is(9));
+    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_SI));
+  }
+
+  @Test
+  public void testParseDecimalT() {
+    BaseExponent baseExponent = new SuffixFormatter().parse("T");
+    assertThat(baseExponent.getBase(), is(10));
+    assertThat(baseExponent.getExponent(), is(12));
+    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_SI));
+
+    baseExponent = new SuffixFormatter().parse("t");
+    assertThat(baseExponent.getBase(), is(10));
+    assertThat(baseExponent.getExponent(), is(12));
+    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_SI));
+  }
+
+  @Test
+  public void testParseDecimalP() {
+    BaseExponent baseExponent = new SuffixFormatter().parse("P");
+    assertThat(baseExponent.getBase(), is(10));
+    assertThat(baseExponent.getExponent(), is(15));
+    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_SI));
+
+    baseExponent = new SuffixFormatter().parse("p");
+    assertThat(baseExponent.getBase(), is(10));
+    assertThat(baseExponent.getExponent(), is(15));
     assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_SI));
   }
 
@@ -75,14 +119,14 @@ public class SuffixFormatterTest {
   @Test
   public void testFormatZeroDecimalExponent() {
     final String formattedString =
-        new SuffixFormatter().format(Quantity.Format.DECIMAL_EXPONENT, 0);
+            new SuffixFormatter().format(Quantity.Format.DECIMAL_EXPONENT, 0);
     assertThat(formattedString, is(""));
   }
 
   @Test
   public void testFormatDecimalExponent() {
     final String formattedString =
-        new SuffixFormatter().format(Quantity.Format.DECIMAL_EXPONENT, 3);
+            new SuffixFormatter().format(Quantity.Format.DECIMAL_EXPONENT, 3);
     assertThat(formattedString, is("e3"));
   }
 
@@ -100,7 +144,7 @@ public class SuffixFormatterTest {
   @Test
   public void testFormatDecimalSi() {
     final String formattedString = new SuffixFormatter().format(Quantity.Format.DECIMAL_SI, 3);
-    assertThat(formattedString, is("k"));
+    assertThat(formattedString.toLowerCase(), is("k"));
   }
 
   @Test

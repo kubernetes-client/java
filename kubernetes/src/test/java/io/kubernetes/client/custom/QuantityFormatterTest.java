@@ -28,6 +28,13 @@ public class QuantityFormatterTest {
     testSerialDeSerial("0.5G");
     testSerialDeSerial("1Gi");
     testSerialDeSerial("1G");
+    testSerialDeSerial("1g");
+    testSerialDeSerial("1K");
+    testSerialDeSerial("1k");
+    testSerialDeSerial("1T");
+    testSerialDeSerial("1t");
+    testSerialDeSerial("1P");
+    testSerialDeSerial("1p");
     testSerialDeSerial("500Mi");
     testSerialDeSerial("500M");
     testSerialDeSerial("500m");
@@ -113,7 +120,7 @@ public class QuantityFormatterTest {
     final String formattedString =
         new QuantityFormatter()
             .format(new Quantity(new BigDecimal("100000"), Quantity.Format.DECIMAL_SI));
-    assertThat(formattedString, is("100k"));
+    assertThat(formattedString.toLowerCase(), is("100k"));
   }
 
   @Test

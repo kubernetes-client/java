@@ -19,7 +19,7 @@ import org.apache.commons.lang3.tuple.Pair;
 
 public class QuantityFormatter {
 
-  private static final String PARTS_RE = "[eEinumkKMGTP]+";
+  private static final String PARTS_RE = "[eEinumkKMgGtTpP]+";
 
   public Quantity parse(final String value) {
     if (value == null || value.isEmpty()) {
