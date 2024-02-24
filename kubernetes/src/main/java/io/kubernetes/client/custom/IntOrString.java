@@ -43,17 +43,11 @@ public class IntOrString {
   }
 
   public String getStrValue() {
-    if (isInt) {
-      throw new IllegalStateException("Not a string");
-    }
-    return strValue;
+    return isInt ? null : strValue;
   }
 
   public Integer getIntValue() {
-    if (!isInt) {
-      throw new IllegalStateException("Not an integer");
-    }
-    return intValue;
+    return isInt ? intValue : null;
   }
 
   @Override
