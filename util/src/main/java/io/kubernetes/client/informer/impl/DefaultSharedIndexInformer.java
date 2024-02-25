@@ -24,9 +24,11 @@ import io.kubernetes.client.informer.cache.DeltaFIFO;
 import io.kubernetes.client.informer.cache.Indexer;
 import io.kubernetes.client.informer.cache.ProcessorListener;
 import io.kubernetes.client.informer.cache.SharedProcessor;
+import io.kubernetes.client.util.Threads;
 import java.util.Deque;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ThreadFactory;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 import org.apache.commons.collections4.CollectionUtils;
@@ -142,8 +144,9 @@ public class DefaultSharedIndexInformer<
             resyncCheckPeriodMillis,
             exceptionHandler);
 
-    controllerThread =
-        new Thread(controller::run, "informer-controller-" + apiTypeClass.getSimpleName());
+    ThreadFactory threadFactory =
+        Threads.threadFactory("informer-controller-" + apiTypeClass.getSimpleName());
+    controllerThread = threadFactory.newThread(controller::run);
   }
 
   /** add event callback */
