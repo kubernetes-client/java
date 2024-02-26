@@ -38,7 +38,6 @@ import java.security.SecureRandom;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
@@ -51,7 +50,6 @@ import java.util.regex.Pattern;
 
 import io.kubernetes.client.openapi.auth.Authentication;
 import io.kubernetes.client.openapi.auth.HttpBasicAuth;
-import io.kubernetes.client.openapi.auth.HttpBearerAuth;
 import io.kubernetes.client.openapi.auth.ApiKeyAuth;
 
 /**
@@ -88,6 +86,8 @@ public class ApiClient {
     private OkHttpClient httpClient;
     private JSON json;
 
+    // Visible for testing
+    HttpLoggingInterceptor.Logger debugLogger = HttpLoggingInterceptor.Logger.DEFAULT;
     private HttpLoggingInterceptor loggingInterceptor;
 
     /**
@@ -518,8 +518,9 @@ public class ApiClient {
     public ApiClient setDebugging(boolean debugging) {
         if (debugging != this.debugging) {
             if (debugging) {
-                loggingInterceptor = new HttpLoggingInterceptor();
+                loggingInterceptor = new HttpLoggingInterceptor(debugLogger);
                 loggingInterceptor.setLevel(Level.BODY);
+                loggingInterceptor.redactHeader("authorization");
                 httpClient = httpClient.newBuilder().addInterceptor(loggingInterceptor).build();
             } else {
                 final OkHttpClient.Builder builder = httpClient.newBuilder();
