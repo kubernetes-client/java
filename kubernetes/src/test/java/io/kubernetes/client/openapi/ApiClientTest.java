@@ -12,24 +12,29 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi;
 
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
+import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.not;
 import static org.junit.Assert.assertThat;
 
+import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.matching.EqualToPattern;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import okhttp3.Call;
 import okhttp3.Response;
-import okhttp3.mockwebserver.MockResponse;
-import okhttp3.mockwebserver.MockWebServer;
 import org.junit.Rule;
 import org.junit.Test;
 
 public class ApiClientTest {
-  static final String TEST_PATH =
-      "/api/v1/namespaces/default/services?resourceVersion=1&watch=false";
+  static final String TEST_PATH = "/api/v1/namespaces/default/services";
   static final String TEST_API_KEY = "abracadabra";
   static final String TEST_RESPONSE_BODY =
       "{\n"
@@ -50,12 +55,12 @@ public class ApiClientTest {
           + "  ]\n"
           + "}\n";
 
-  @Rule public MockWebServer server = new MockWebServer();
+  @Rule public WireMockRule server = new WireMockRule(options().dynamicPort());
 
   @Test
   public void testRedactsAuthorizationHeader() throws Exception {
     // Set up the client with an API key
-    ApiClient apiClient = new ApiClient().setBasePath(server.url("").toString());
+    ApiClient apiClient = new ApiClient().setBasePath(server.baseUrl());
     apiClient.setApiKey(TEST_API_KEY);
 
     // Setup debug logging, taking care to capture logs instead of propagating to Java logging
@@ -64,6 +69,7 @@ public class ApiClientTest {
     apiClient.setDebugging(true);
 
     // Make a request in the same fashion openapi generated code does
+    List<Pair> queryParams = Arrays.asList(new Pair("resourceVersion","1"), new Pair("watch", "false"));
     Map<String, String> headers = new HashMap<>();
     headers.put("Accept", "application/json");
     Call testCall =
@@ -71,7 +77,7 @@ public class ApiClientTest {
             null,
             TEST_PATH,
             "GET",
-            Collections.emptyList(),
+            queryParams,
             Collections.emptyList(),
             null,
             headers,
@@ -81,18 +87,20 @@ public class ApiClientTest {
             null);
 
     // Enqueue a response on the mock server
-    server.enqueue(
-        new MockResponse()
-            .addHeader("Content-Type", "application/json")
-            .setBody(TEST_RESPONSE_BODY));
+    server.stubFor(
+        get(urlEqualTo(TEST_PATH +"?resourceVersion=1&watch=false"))
+            // Verify the server saw the API key
+            .withHeader("authorization", new EqualToPattern(TEST_API_KEY))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody(TEST_RESPONSE_BODY)));
 
     // Ensure the request completes, by verifying it received the expected response
     try (Response response = testCall.execute()) {
       assertThat(response.body().string(), equalTo(TEST_RESPONSE_BODY));
     }
-
-    // Verify the server saw the API key
-    assertThat(server.takeRequest().getHeader("authorization"), equalTo(TEST_API_KEY));
 
     // Verify the logs never saw the API key
     assertThat(logs.toString(), containsString("authorization: ██"));

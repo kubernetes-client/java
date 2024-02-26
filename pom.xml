@@ -220,11 +220,6 @@
         <version>${okhttp3.version}</version>
       </dependency>
       <dependency>
-        <groupId>com.squareup.okhttp3</groupId>
-        <artifactId>mockwebserver</artifactId>
-        <version>${okhttp3.version}</version>
-      </dependency>
-      <dependency>
         <groupId>io.swagger</groupId>
         <artifactId>swagger-annotations</artifactId>
         <version>${swagger-core.version}</version>
@@ -296,7 +291,7 @@
       <dependency>
         <groupId>com.github.tomakehurst</groupId>
         <artifactId>wiremock</artifactId>
-        <version>2.27.2</version>
+        <version>3.0.1</version>
         <scope>test</scope>
       </dependency>
       <dependency>
