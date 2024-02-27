@@ -51,7 +51,7 @@ jobs:
           git config user.name "Kubernetes Publisher"
       - name: Check Current Version
         run: |
-          mvn -q \
+          ./mvnw -q \
             -Dexec.executable=echo \
             -Dexec.args='${project.version}' \
             -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
@@ -60,7 +60,7 @@ jobs:
       - name: Release Prepare
         run: |
           git checkout -b 'automated-release-${{ github.event.inputs.releaseVersion }}'
-          mvn --batch-mode \
+          ./mvnw --batch-mode \
             release:prepare \
             -Dtag=v${{ github.event.inputs.releaseVersion }} \
             -DconnectionUrl=https://${{ github.token }}@github.com/${{ github.repository }}.git \
@@ -76,7 +76,7 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSWORD }}
         run: |
           # The tests are already executed in the prepare, skipping
-          mvn -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -DlocalCheckout=true -Darguments=-DskipTests release:perform
+          ./mvnw -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn -DlocalCheckout=true -Darguments=-DskipTests release:perform
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git \
             automated-release-${{ github.event.inputs.releaseVersion }}:automated-release-${{ github.event.inputs.releaseVersion }}
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git v${{ github.event.inputs.releaseVersion }}

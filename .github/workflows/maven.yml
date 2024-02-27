@@ -21,7 +21,7 @@ jobs:
           distribution: 'temurin'
           java-version: 11
       - name: Verify Format and License
-        run: mvn spotless:check
+        run: ./mvnw spotless:check
   build:
     name: Java ${{ matrix.java }} Maven Test on ${{ matrix.os }}
     strategy:
@@ -51,7 +51,7 @@ jobs:
             EXCLUDED_EXAMPLE_MODULES=`ls examples | grep examples | xargs -I {} echo '!examples/{}'   | tr '\n' ',' | sed 's/.$//'`
             MODS_OVERRIDES=$MODS_OVERRIDES,$EXCLUDED_EXAMPLE_MODULES
           fi
-          mvn -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn $MODS_OVERRIDES clean test
+          ./mvnw -q -B --define=org.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn $MODS_OVERRIDES clean test
   build-graalvm:
     runs-on: ubuntu-latest
     name: GraalVM Maven Test
@@ -63,7 +63,7 @@ jobs:
           java-version: '17'
           components: 'native-image'
       - name: Build with Maven
-        run: mvn -q test -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        run: ./mvnw -q test -B -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
   e2e:
     runs-on: ubuntu-latest
     name: End-to-End Test Against Real Cluster
@@ -78,12 +78,12 @@ jobs:
           java-version: 17.0.x
       - name: Run E2E with Maven
         run: |
-          mvn clean install \
+          ./mvnw clean install \
           -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
           -q \
           -Dmaven.test.skip=true
           cd e2e
-          mvn test \
+          ./mvnw test \
             -B \
             -De2e.skip=false \
             -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
@@ -106,21 +106,21 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Build with Maven
         run: |
-          mvn clean install \
+          ./mvnw clean install \
           -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
           -q \
           -Dmaven.test.skip=true
       - name: Build Cert Manager Contrib
         run: |
           cd client-java-contrib/cert-manager
-          mvn clean install \
+          ./mvnw clean install \
           -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
           -q \
           -Dmaven.test.skip=true
       - name: Build Prometheus Contrib
         run: |
           cd client-java-contrib/prometheus-operator
-          mvn clean install \
+          ./mvnw clean install \
           -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
           -q \
           -Dmaven.test.skip=true
@@ -128,7 +128,7 @@ jobs:
         run: |
           for d in $(find examples* -maxdepth 1 -type d)
           do
-            mvn clean install -Dmaven.test.skip=true -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            ./mvnw clean install -Dmaven.test.skip=true -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
           done
   codegen:
     runs-on: ubuntu-latest
