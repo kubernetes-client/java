@@ -83,10 +83,12 @@ jobs:
           -q \
           -Dmaven.test.skip=true
           cd e2e
-          ./mvnw test \
+          ../mvnw test \
             -B \
             -De2e.skip=false \
             -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+        env:
+          mvnw: ${{ github.workspace }}/mvnw
   examples:
     runs-on: ubuntu-latest
     name: Examples smoke test
@@ -113,14 +115,14 @@ jobs:
       - name: Build Cert Manager Contrib
         run: |
           cd client-java-contrib/cert-manager
-          ./mvnw clean install \
+          ../../mvnw clean install \
           -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
           -q \
           -Dmaven.test.skip=true
       - name: Build Prometheus Contrib
         run: |
           cd client-java-contrib/prometheus-operator
-          ./mvnw clean install \
+          ../../mvnw clean install \
           -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn \
           -q \
           -Dmaven.test.skip=true
@@ -128,8 +130,10 @@ jobs:
         run: |
           for d in $(find examples* -maxdepth 1 -type d)
           do
-            ./mvnw clean install -Dmaven.test.skip=true -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
+            ${MVNW} clean install -Dmaven.test.skip=true -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=warn
           done
+        env:
+          MVNW: ${{ github.workspace }}/mvnw
   codegen:
     runs-on: ubuntu-latest
     services:
