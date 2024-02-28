@@ -12,16 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.openapi;
 
-import okhttp3.*;
-import okhttp3.internal.http.HttpMethod;
-import okhttp3.internal.tls.OkHostnameVerifier;
-import okhttp3.logging.HttpLoggingInterceptor;
-import okhttp3.logging.HttpLoggingInterceptor.Level;
-import okio.Buffer;
-import okio.BufferedSink;
-import okio.Okio;
-
-import javax.net.ssl.*;
+import io.kubernetes.client.openapi.auth.ApiKeyAuth;
+import io.kubernetes.client.openapi.auth.Authentication;
+import io.kubernetes.client.openapi.auth.HttpBasicAuth;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,15 +40,21 @@ import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import io.kubernetes.client.openapi.auth.Authentication;
-import io.kubernetes.client.openapi.auth.HttpBasicAuth;
-import io.kubernetes.client.openapi.auth.ApiKeyAuth;
+import javax.net.ssl.*;
+import okhttp3.*;
+import okhttp3.internal.http.HttpMethod;
+import okhttp3.internal.tls.OkHostnameVerifier;
+import okhttp3.logging.HttpLoggingInterceptor;
+import okhttp3.logging.HttpLoggingInterceptor.Level;
+import okio.Buffer;
+import okio.BufferedSink;
+import okio.Okio;
 
 /**
  * <p>ApiClient class.</p>
  */
 public class ApiClient {
+    static final String AUTHORIZATION_NAME = "authorization";
 
     private String basePath = "http://localhost";
     protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
@@ -114,7 +113,7 @@ public class ApiClient {
         httpClient = client;
 
         // Setup authentications (key: authentication name, value: authentication).
-        authentications.put("BearerToken", new ApiKeyAuth("header", "authorization"));
+        authentications.put("BearerToken", new ApiKeyAuth("header", AUTHORIZATION_NAME));
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }

@@ -16,6 +16,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
+import static io.kubernetes.client.openapi.ApiClient.AUTHORIZATION_NAME;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.not;
@@ -58,7 +59,7 @@ public class ApiClientTest {
   @Rule public WireMockRule server = new WireMockRule(options().dynamicPort());
 
   @Test
-  public void testRedactsAuthorizationHeader() throws Exception {
+  public void testRedactsBearerAuthorizationHeader() throws Exception {
     // Set up the client with an API key
     ApiClient apiClient = new ApiClient().setBasePath(server.baseUrl());
     apiClient.setApiKey(TEST_API_KEY);
@@ -69,7 +70,8 @@ public class ApiClientTest {
     apiClient.setDebugging(true);
 
     // Make a request in the same fashion openapi generated code does
-    List<Pair> queryParams = Arrays.asList(new Pair("resourceVersion","1"), new Pair("watch", "false"));
+    List<Pair> queryParams =
+        Arrays.asList(new Pair("resourceVersion", "1"), new Pair("watch", "false"));
     Map<String, String> headers = new HashMap<>();
     headers.put("Accept", "application/json");
     Call testCall =
@@ -88,9 +90,9 @@ public class ApiClientTest {
 
     // Enqueue a response on the mock server
     server.stubFor(
-        get(urlEqualTo(TEST_PATH +"?resourceVersion=1&watch=false"))
+        get(urlEqualTo(TEST_PATH + "?resourceVersion=1&watch=false"))
             // Verify the server saw the API key
-            .withHeader("authorization", new EqualToPattern(TEST_API_KEY))
+            .withHeader(AUTHORIZATION_NAME, new EqualToPattern(TEST_API_KEY))
             .willReturn(
                 aResponse()
                     .withStatus(200)
@@ -103,7 +105,61 @@ public class ApiClientTest {
     }
 
     // Verify the logs never saw the API key
-    assertThat(logs.toString(), containsString("authorization: ██"));
-    assertThat(logs.toString(), not(containsString("authorization: " + TEST_API_KEY)));
+    assertThat(logs.toString(), containsString(AUTHORIZATION_NAME + ": ██"));
+    assertThat(logs.toString(), not(containsString(AUTHORIZATION_NAME + ": " + TEST_API_KEY)));
+  }
+
+  @Test
+  public void testRedactsCustomAuthorizationHeader() throws Exception {
+    ApiClient apiClient = new ApiClient().setBasePath(server.baseUrl());
+
+    // Setup debug logging, taking care to capture logs instead of propagating to Java logging
+    StringBuilder logs = new StringBuilder();
+    apiClient.debugLogger = l -> logs.append(l).append('\n');
+    apiClient.setDebugging(true);
+
+    // Make a request in the same fashion openapi generated code does
+    List<Pair> queryParams =
+        Arrays.asList(new Pair("resourceVersion", "1"), new Pair("watch", "false"));
+    Map<String, String> headers = new HashMap<>();
+    headers.put("Accept", "application/json");
+    // Add a custom authorization header
+    String customAuthHeader = "Authorization"; // intentionally uppercase as default is lower
+    // Use Basic from https://en.wikipedia.org/wiki/Basic_access_authentication
+    String customAuthValue = "Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==";
+    headers.put(customAuthHeader, customAuthValue);
+    Call testCall =
+        apiClient.buildCall(
+            null,
+            TEST_PATH,
+            "GET",
+            queryParams,
+            Collections.emptyList(),
+            null,
+            headers,
+            Collections.emptyMap(),
+            Collections.emptyMap(),
+            new String[] {}, // no built-in auth
+            null);
+
+    // Enqueue a response on the mock server
+    server.stubFor(
+        get(urlEqualTo(TEST_PATH + "?resourceVersion=1&watch=false"))
+            // Verify the server saw the API key
+            .withHeader(customAuthHeader, new EqualToPattern(customAuthValue))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withHeader("Content-Type", "application/json")
+                    .withBody(TEST_RESPONSE_BODY)));
+
+    // Ensure the request completes, by verifying it received the expected response
+    try (Response response = testCall.execute()) {
+      assertThat(response.body().string(), equalTo(TEST_RESPONSE_BODY));
+    }
+
+    // Verify the logs never saw the API key
+    assertThat(logs.toString(), containsString(customAuthHeader + ": ██"));
+    assertThat(logs.toString(), not(containsString(customAuthHeader + ": " + customAuthValue)));
   }
 }
