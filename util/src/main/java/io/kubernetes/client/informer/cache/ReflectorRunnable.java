@@ -16,12 +16,14 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ListerWatcher;
+import io.kubernetes.client.informer.SharedInformer;
 import io.kubernetes.client.informer.exception.WatchExpiredException;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.Strings;
+import io.kubernetes.client.util.Watch.Response;
 import io.kubernetes.client.util.Watchable;
 import java.io.IOException;
 import java.net.ConnectException;
@@ -38,9 +40,9 @@ public class ReflectorRunnable<
         ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
     implements Runnable {
 
-  public static Duration REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT = Duration.ofMinutes(5);
+  public static final Duration REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT = Duration.ofMinutes(5);
 
-  public static Duration REFLECTOR_WATCH_CLIENTSIDE_MAX_TIMEOUT = Duration.ofMinutes(5 * 2);
+  public static final Duration REFLECTOR_WATCH_CLIENTSIDE_MAX_TIMEOUT = Duration.ofMinutes(5 * 2);
 
   private static final Logger log = LoggerFactory.getLogger(ReflectorRunnable.class);
 
@@ -50,13 +52,16 @@ public class ReflectorRunnable<
 
   private Watchable<ApiType> watch;
 
-  private ListerWatcher<ApiType, ApiListType> listerWatcher;
+  private final ListerWatcher<ApiType, ApiListType> listerWatcher;
 
-  private DeltaFIFO store;
+  private final DeltaFIFO store;
 
-  private Class<ApiType> apiTypeClass;
+  private final Class<ApiType> apiTypeClass;
+  private final String apiTypeClassName;
 
-  private AtomicBoolean isActive = new AtomicBoolean(true);
+  private final AtomicBoolean isActive = new AtomicBoolean(true);
+
+  private volatile boolean shouldDebugItems; // volatile as set and read from different threads.
 
   /* visible for testing */ final BiConsumer<Class<ApiType>, Throwable> exceptionHandler;
 
@@ -75,6 +80,7 @@ public class ReflectorRunnable<
     this.listerWatcher = listerWatcher;
     this.store = store;
     this.apiTypeClass = apiTypeClass;
+    this.apiTypeClassName = apiTypeClass.getSimpleName();
     this.exceptionHandler =
         exceptionHandler == null ? ReflectorRunnable::defaultWatchErrorHandler : exceptionHandler;
   }
@@ -84,7 +90,7 @@ public class ReflectorRunnable<
    * resource version to watch.
    */
   public void run() {
-    log.info("{}#Start listing and watching...", apiTypeClass);
+    log.info("{}#Start listing and watching...", apiTypeClassName);
 
     try {
       ApiListType list =
@@ -95,16 +101,15 @@ public class ReflectorRunnable<
       String resourceVersion = listMeta.getResourceVersion();
       List<? extends KubernetesObject> items = list.getItems();
 
-      if (log.isDebugEnabled()) {
-        log.debug("{}#Extract resourceVersion {} list meta", apiTypeClass, resourceVersion);
+      log.debug("{}#Extract resourceVersion {} list meta", apiTypeClassName, resourceVersion);
+      if (shouldDebugItems) {
+        log.debug("{}#Initial items {}", apiTypeClassName, items);
       }
       this.syncWith(items, resourceVersion);
       this.lastSyncResourceVersion = resourceVersion;
       this.isLastSyncResourceVersionUnavailable = false;
 
-      if (log.isDebugEnabled()) {
-        log.debug("{}#Start watching with {}...", apiTypeClass, lastSyncResourceVersion);
-      }
+      log.debug("{}#Start watching with {}...", apiTypeClassName, lastSyncResourceVersion);
       while (true) {
         if (!isActive.get()) {
           closeWatch();
@@ -112,10 +117,8 @@ public class ReflectorRunnable<
         }
 
         try {
-          if (log.isDebugEnabled()) {
-            log.debug(
-                "{}#Start watch with resource version {}", apiTypeClass, lastSyncResourceVersion);
-          }
+          log.debug(
+              "{}#Start watch with resource version {}", apiTypeClassName, lastSyncResourceVersion);
 
           long jitteredWatchTimeoutSeconds =
               Double.valueOf(REFLECTOR_WATCH_CLIENTSIDE_TIMEOUT.getSeconds() * (1 + Math.random()))
@@ -135,11 +138,14 @@ public class ReflectorRunnable<
             watch = newWatch;
           }
           watchHandler(newWatch);
+          if (shouldDebugItems) {
+            log.debug("{}#Exhausted items", apiTypeClassName);
+          }
         } catch (WatchExpiredException e) {
           // Watch calls were failed due to expired resource-version. Returning
           // to unwind the list-watch loops so that we can respawn a new round
           // of list-watching.
-          log.info("{}#Watch expired, will re-list-watch soon", this.apiTypeClass);
+          log.info("{}#Watch expired, will re-list-watch soon", this.apiTypeClassName);
           return;
         } catch (Throwable t) {
           if (isConnectException(t)) {
@@ -147,7 +153,7 @@ public class ReflectorRunnable<
             // apiserver is not responsive. It doesn't make sense to re-list all
             // objects because most likely we will be able to restart watch where
             // we ended. If that's the case wait and resend watch request.
-            log.info("{}#Watch get connect exception, retry watch", this.apiTypeClass);
+            log.info("{}#Watch get connect exception, retry watch", this.apiTypeClassName);
             try {
               Thread.sleep(1000L);
             } catch (InterruptedException e) {
@@ -158,7 +164,7 @@ public class ReflectorRunnable<
           if ((t instanceof RuntimeException)
               && t.getMessage() != null
               && t.getMessage().contains("IO Exception during hasNext")) {
-            log.info("{}#Read timeout retry list and watch", this.apiTypeClass);
+            log.info("{}#Read timeout retry list and watch", apiTypeClassName);
             // IO timeout should be taken as a normal case
             return;
           }
@@ -171,7 +177,8 @@ public class ReflectorRunnable<
     } catch (ApiException e) {
       if (e.getCode() == HttpURLConnection.HTTP_GONE) {
         log.info(
-            "ResourceVersion {} expired, will retry w/o resourceVersion at the next time",
+            "{}#ResourceVersion {} expired, will retry w/o resourceVersion at the next time",
+            apiTypeClassName,
             getRelistResourceVersion());
         isLastSyncResourceVersionUnavailable = true;
       } else {
@@ -229,26 +236,39 @@ public class ReflectorRunnable<
     return lastSyncResourceVersion;
   }
 
+  /**
+   * Implements {@link SharedInformer#setDebugItems}
+   *
+   * @param shouldDebugItems whether initial and streamed items should be logged at DEBUG level.
+   */
+  public void setDebugItems(boolean shouldDebugItems) {
+    this.shouldDebugItems = shouldDebugItems;
+  }
+
   private void watchHandler(Watchable<ApiType> watch) {
     while (watch.hasNext()) {
-      io.kubernetes.client.util.Watch.Response<ApiType> item = watch.next();
+      Response<ApiType> item = watch.next();
+      if (shouldDebugItems) {
+        log.debug("{}#Next item {}", apiTypeClassName, item.object);
+      }
 
       Optional<EventType> eventType = EventType.findByType(item.type);
       if (!eventType.isPresent()) {
-        log.error("unrecognized event {}", item);
+        log.error("{}#Unrecognized event {}", apiTypeClassName, item);
         continue;
       }
       if (eventType.get() == EventType.ERROR) {
         if (item.status != null && item.status.getCode() == HttpURLConnection.HTTP_GONE) {
           log.info(
-              "ResourceVersion {} and Watch connection expired: {} , will retry w/o resourceVersion next time",
+              "{}#ResourceVersion {} and Watch connection expired: {}, will retry w/o resourceVersion next time",
+              apiTypeClassName,
               getRelistResourceVersion(),
               item.status.getMessage());
           isLastSyncResourceVersionUnavailable = true;
           throw new WatchExpiredException();
         } else {
           String errorMessage =
-              String.format("got ERROR event and its status: %s", item.status.toString());
+              String.format("%s#Got ERROR event and its status: %s", apiTypeClassName, item.status);
           log.error(errorMessage);
           throw new RuntimeException(errorMessage);
         }
@@ -274,9 +294,7 @@ public class ReflectorRunnable<
           // A `Bookmark` means watch has synced here, just update the resourceVersion
       }
       lastSyncResourceVersion = newResourceVersion;
-      if (log.isDebugEnabled()) {
-        log.debug("{}#Receiving resourceVersion {}", apiTypeClass, lastSyncResourceVersion);
-      }
+      log.debug("{}#Receiving resourceVersion {}", apiTypeClassName, lastSyncResourceVersion);
     }
   }
 

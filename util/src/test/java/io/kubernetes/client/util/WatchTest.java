@@ -28,7 +28,7 @@ public class WatchTest {
     JSON json = new JSON();
     Watch<V1ConfigMap> watch =
         new Watch<V1ConfigMap>(
-            json, null, new TypeToken<Watch.Response<V1ConfigMap>>() {}.getType(), null, null);
+            json, null, new TypeToken<Watch.Response<V1ConfigMap>>() {}.getType(), null);
     JsonObject metadata = new JsonObject();
 
     JsonObject status = new JsonObject();

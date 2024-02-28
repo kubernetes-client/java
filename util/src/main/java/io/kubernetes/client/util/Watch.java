@@ -67,11 +67,10 @@ public class Watch<T> implements Watchable<T>, Closeable {
     }
   }
 
-  final Type watchType;
-  final String watchName;
-  final ResponseBody response;
-  final JSON json;
-  final Call call;
+  Type watchType;
+  ResponseBody response;
+  JSON json;
+  Call call;
 
   /**
    * Creates a watch on a TYPENAME (T) using an API Client and a Call object.
@@ -93,8 +92,6 @@ public class Watch<T> implements Watchable<T>, Closeable {
       throw new ApiException("Watch is incompatible with debugging mode active.");
     }
     try {
-      String watchName = call.request().url().encodedPath();
-      log.debug("creating watch {}", watchName);
       okhttp3.Response response = call.execute();
       if (!response.isSuccessful()) {
         String respBody = null;
@@ -109,16 +106,15 @@ public class Watch<T> implements Watchable<T>, Closeable {
         throw new ApiException(
             response.message(), response.code(), response.headers().toMultimap(), respBody);
       }
-      return new Watch<>(client.getJSON(), response.body(), watchType, watchName, call);
+      return new Watch<>(client.getJSON(), response.body(), watchType, call);
     } catch (IOException e) {
       throw new ApiException(e);
     }
   }
 
-  protected Watch(JSON json, ResponseBody body, Type watchType, String watchName, Call call) {
+  protected Watch(JSON json, ResponseBody body, Type watchType, Call call) {
     this.response = body;
     this.watchType = watchType;
-    this.watchName = watchName;
     this.json = json;
     this.call = call;
   }
@@ -129,7 +125,6 @@ public class Watch<T> implements Watchable<T>, Closeable {
       if (line == null) {
         throw new RuntimeException("Null response from the server.");
       }
-      log.debug("{} response line: {}", watchName, line);
       return parseLine(line);
     } catch (IOException e) {
       throw new RuntimeException("IO Exception during next method.", e);
@@ -182,16 +177,11 @@ public class Watch<T> implements Watchable<T>, Closeable {
   }
 
   public boolean hasNext() {
-    boolean exhausted;
     try {
-      exhausted = response.source().exhausted();
+      return !response.source().exhausted();
     } catch (IOException e) {
       throw new RuntimeException("IO Exception during hasNext method.", e);
     }
-    if (exhausted) {
-      log.debug("{} response exhausted", watchName);
-    }
-    return !exhausted;
   }
 
   public Iterator<Response<T>> iterator() {
@@ -203,7 +193,6 @@ public class Watch<T> implements Watchable<T>, Closeable {
   }
 
   public void close() throws IOException {
-    log.debug("{} closing", watchName);
     this.call.cancel();
     this.response.close();
   }

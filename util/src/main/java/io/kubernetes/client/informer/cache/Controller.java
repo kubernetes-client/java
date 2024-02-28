@@ -16,6 +16,7 @@ import io.kubernetes.client.common.KubernetesListObject;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ListerWatcher;
 import io.kubernetes.client.informer.ResyncRunnable;
+import io.kubernetes.client.informer.SharedInformer;
 import io.kubernetes.client.util.Threads;
 import java.util.Deque;
 import java.util.concurrent.Executors;
@@ -32,7 +33,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Controller is a java port of k/client-go's informer#Controller. It plumbs reflector and the queue
- * implementation and it runs re-sync function periodically.
+ * implementation. Then, it runs re-sync function periodically.
  */
 public class Controller<
     ApiType extends KubernetesObject, ApiListType extends KubernetesListObject> {
@@ -65,6 +66,8 @@ public class Controller<
   private Class<ApiType> apiTypeClass;
 
   private ScheduledFuture reflectorFuture;
+
+  private boolean shouldDebugItems; // guarded by this
 
   /* visible for testing */ BiConsumer<Class<ApiType>, Throwable> exceptionHandler;
 
@@ -114,6 +117,18 @@ public class Controller<
     this(apiTypeClass, queue, listerWatcher, popProcessFunc, null, 0);
   }
 
+  /**
+   * Implements {@link SharedInformer#setDebugItems}
+   *
+   * @param shouldDebugItems whether initial and streamed items should be logged at DEBUG level.
+   */
+  public synchronized void setDebugItems(boolean shouldDebugItems) {
+    if (reflector != null) {
+      reflector.setDebugItems(shouldDebugItems);
+    }
+    this.shouldDebugItems = shouldDebugItems;
+  }
+
   public void run() {
     log.info("informer#Controller: ready to run resync & reflector runnable");
 
@@ -130,6 +145,7 @@ public class Controller<
     synchronized (this) {
       // TODO(yue9944882): proper naming for reflector
       reflector = newReflector();
+      reflector.setDebugItems(shouldDebugItems);
       try {
         reflectorFuture =
             reflectExecutor.scheduleWithFixedDelay(

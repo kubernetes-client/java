@@ -48,6 +48,8 @@ public class SharedInformerFactory {
 
   private ApiClient apiClient;
 
+  private boolean shouldDebugItems; // guarded by this
+
   /** Constructor w/ default thread pool. */
   /** DEPRECATE: In favor of explicit apiClient constructor to avoid misguiding */
   @Deprecated
@@ -170,6 +172,17 @@ public class SharedInformerFactory {
     return sharedIndexInformerFor(listerWatcher, apiTypeClass, resyncPeriodInMillis, null);
   }
 
+  /**
+   * Toggles {@linkplain SharedInformer#setDebugItems} on any existing or new
+   * informer created by this factory.
+   *
+   * @param shouldDebugItems whether initial and streamed items should be logged at DEBUG level.
+   */
+  public synchronized void setDebugItems(boolean shouldDebugItems) {
+    this.informers.values().forEach(i -> i.setDebugItems(shouldDebugItems));
+    this.shouldDebugItems = shouldDebugItems;
+  }
+
   public synchronized <ApiType extends KubernetesObject, ApiListType extends KubernetesListObject>
       SharedIndexInformer<ApiType> sharedIndexInformerFor(
           ListerWatcher<ApiType, ApiListType> listerWatcher,
@@ -180,6 +193,7 @@ public class SharedInformerFactory {
     SharedIndexInformer<ApiType> informer =
         new DefaultSharedIndexInformer<>(
             apiTypeClass, listerWatcher, resyncPeriodInMillis, new Cache<>(), exceptionHandler);
+    informer.setDebugItems(shouldDebugItems);
     this.informers.putIfAbsent(TypeToken.get(apiTypeClass).getType(), informer);
     return informer;
   }
