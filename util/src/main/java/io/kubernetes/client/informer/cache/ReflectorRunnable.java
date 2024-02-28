@@ -234,7 +234,7 @@ public class ReflectorRunnable<
       io.kubernetes.client.util.Watch.Response<ApiType> item = watch.next();
 
       Optional<EventType> eventType = EventType.findByType(item.type);
-      if (!eventType.isPresent()) {
+      if (eventType.isEmpty()) {
         log.error("unrecognized event {}", item);
         continue;
       }

@@ -97,7 +97,7 @@ public class Discovery {
     // parse raw discovery responses to APIResource for better readability
     Set<APIResource> resources =
         resourceList.getResources().stream()
-            .filter(r -> !getSubResourceNameIfPossible(r.getName()).isPresent())
+            .filter(r -> getSubResourceNameIfPossible(r.getName()).isEmpty())
             .map(
                 r ->
                     new APIResource(

@@ -13,6 +13,10 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
 
+  <properties>
+    <!-- Spring Boot 3.x is minimum JRE 17 -->
+    <java.version>17</java.version>
+  </properties>
 
   <dependencies>
     <dependency>
@@ -91,8 +95,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
-          <source>8</source>
-          <target>8</target>
+          <release>${java.version}</release>
         </configuration>
       </plugin>
     </plugins>
