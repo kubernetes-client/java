@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.custom;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
@@ -21,6 +22,7 @@ import java.io.IOException;
 import java.util.Objects;
 
 @JsonAdapter(IntOrString.IntOrStringAdapter.class)
+@JsonSerialize(using = IntOrStringJacksonSerializer.class)
 public class IntOrString {
   private final boolean isInt;
   private final String strValue;
@@ -67,7 +69,9 @@ public class IntOrString {
   }
 
   private boolean equals(IntOrString o) {
-    if (isInt != o.isInt) return false;
+    if (isInt != o.isInt) {
+      return false;
+    }
     return isInt ? Objects.equals(intValue, o.intValue) : Objects.equals(strValue, o.strValue);
   }
 
