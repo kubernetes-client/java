@@ -88,4 +88,5 @@ bash java-crd-cmd.sh -n "${KUBERNETES_CRD_GROUP_PREFIX}" -p "${PACKAGE_NAME}" -l
 # only keep the model classes
 mkdir -p "${OUTPUT_DIR}/src/main/java/${PACKAGE_NAME//.//}"
 cp -r "${OUTPUT_DIR}/gen/src/main/java/${PACKAGE_NAME//.//}/models" "${OUTPUT_DIR}/src/main/java/${PACKAGE_NAME//.//}"
+rm "${OUTPUT_DIR}/src/main/java/${PACKAGE_NAME//.//}/models/AbstractOpenApiSchema.java" # probably caused by https://github.com/OpenAPITools/openapi-generator/issues/16257
 rm -rf "${OUTPUT_DIR}/gen"
