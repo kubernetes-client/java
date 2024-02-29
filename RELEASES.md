@@ -136,11 +136,11 @@ Now we are ready to perform the release.
 Make sure there are no unstaged changes, otherwise `mvn` will reject the
 release. There are two commands to be run in the root directory:
 
-1. `mvn release:prepare -DdryRun=true`: This will perform a dry run of the
+1. `./mvnw release:prepare -DdryRun=true`: This will perform a dry run of the
    automated SCM modifications that will performed in the next step. If
    everything looks OK - you're good to continue.
 
-2. `mvn release:clean release:prepare release:perform`: This will first clean
+2. `./mvnw release:clean release:prepare release:perform`: This will first clean
    any staged modifications made in the prior run, commit a new `pom.xml`
    version, tag your source with the current release, build and sign your
    artifacts with your GPG key, and publish the release to Maven central.
@@ -157,7 +157,7 @@ PR against the main repository.
 
 Now that the release is consumable, there are two things left to do:
 
-1. Find the newly released tag that was pushed by `mvn release:prepare` under
+1. Find the newly released tag that was pushed by `./mvnw release:prepare` under
    the [tags](https://github.com/kubernetes-client/java/tags) of the client
    library, and click "Add release notes". Title the release version of the form
    `MAJOR.MINOR.PATCH`, and include the changelog in the release description.
@@ -173,7 +173,7 @@ Let's add entries here as we run into problems.
 * **Authentication problems**: Ensure your git SSH keys & JIRA account have
   access to https://github.com/kubernetes-client/java and the
   `io.kubernetes:client-java` repositories respectively. If this is the case,
-  check `mvn release:<command>` output for complaints of malformed
+  check `./mvnw release:<command>` output for complaints of malformed
   `settings.xml` entries.
 
 * **Undo a mistake**: If you've made a mistake during a release, and the
