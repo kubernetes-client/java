@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.common.KubernetesObject;
@@ -178,8 +178,8 @@ public class KubernetesReconcilerCreatorTest {
 
   @Test
   public void testSimplePodController() throws InterruptedException {
-    assertNotNull(testController);
-    assertNotNull(testReconciler);
+    assertThat(testController).isNotNull();
+    assertThat(testReconciler).isNotNull();
 
     sharedInformerFactory.startAllRegisteredInformers();
 
@@ -197,11 +197,8 @@ public class KubernetesReconcilerCreatorTest {
     Thread.sleep(500);
 
     WorkQueue<Request> workQueue = ((DefaultController) testController).getWorkQueue();
-    assertEquals(1, workQueue.length());
-    if (workQueue.length() != 1) {
-      fail();
-    }
-    assertEquals("foo", workQueue.get().getName());
+    assertThat(workQueue.length()).isEqualTo(1);
+    assertThat(workQueue.get().getName()).isEqualTo("foo");
     sharedInformerFactory.stopAllRegisteredInformers();
   }
 }

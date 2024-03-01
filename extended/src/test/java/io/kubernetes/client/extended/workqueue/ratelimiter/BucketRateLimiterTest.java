@@ -12,8 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue.ratelimiter;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Duration;
 import org.junit.Rule;
@@ -26,39 +25,39 @@ public class BucketRateLimiterTest {
   @Test
   public void testBucketRateLimiterBasic() {
     RateLimiter<String> rateLimiter = new BucketRateLimiter<>(2, 1, Duration.ofMinutes(10));
-    assertEquals(Duration.ZERO, rateLimiter.when("one"));
-    assertEquals(Duration.ZERO, rateLimiter.when("one"));
+    assertThat(rateLimiter.when("one")).isZero();
+    assertThat(rateLimiter.when("one")).isZero();
 
     Duration waitDuration = rateLimiter.when("one");
     Duration expectDuration = Duration.ofMinutes(10);
 
     Duration diff = waitDuration.minus(expectDuration);
     // waitDuration might be smaller than expect duration because of time is elapsed.
-    assertTrue(diff.isZero() || (diff.isNegative() && !diff.plusSeconds(1).isNegative()));
+    assertThat(diff.isZero() || (diff.isNegative() && !diff.plusSeconds(1).isNegative())).isTrue();
 
     waitDuration = rateLimiter.when("one");
     expectDuration = Duration.ofMinutes(20);
     diff = waitDuration.minus(expectDuration);
 
-    assertTrue(diff.isZero() || (diff.isNegative() && !diff.plusSeconds(1).isNegative()));
+    assertThat(diff.isZero() || (diff.isNegative() && !diff.plusSeconds(1).isNegative())).isTrue();
   }
 
   @Test
   public void testBucketRateLimiterTokenAdded() throws InterruptedException {
     RateLimiter<String> rateLimiter = new BucketRateLimiter<>(2, 1, Duration.ofSeconds(2));
 
-    assertEquals(Duration.ZERO, rateLimiter.when("one"));
-    assertEquals(Duration.ZERO, rateLimiter.when("one"));
+    assertThat(rateLimiter.when("one")).isZero();
+    assertThat(rateLimiter.when("one")).isZero();
 
     Duration waitDuration = rateLimiter.when("one");
-    assertTrue(waitDuration.getSeconds() > 0);
+    assertThat(waitDuration.getSeconds()).isPositive();
 
     Thread.sleep(4000);
 
-    assertEquals(Duration.ZERO, rateLimiter.when("two"));
+    assertThat(rateLimiter.when("two")).isZero();
 
     waitDuration = rateLimiter.when("two");
-    assertTrue(waitDuration.getSeconds() > 0);
+    assertThat(waitDuration.getSeconds()).isPositive();
   }
 
   @Test

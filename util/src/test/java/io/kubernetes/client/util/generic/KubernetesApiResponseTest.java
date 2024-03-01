@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.delete;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.google.gson.Gson;
@@ -27,7 +27,6 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.ClientBuilder;
-import java.io.IOException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.junit.Before;
 import org.junit.Rule;
@@ -39,7 +38,7 @@ public class KubernetesApiResponseTest {
   private GenericKubernetesApi<V1Pod, V1PodList> podClient;
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     ApiClient apiClient =
         new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     podClient =
@@ -53,15 +52,15 @@ public class KubernetesApiResponseTest {
         delete(urlEqualTo("/api/v1/namespaces/default/pods/foo"))
             .willReturn(aResponse().withStatus(403).withBody(new Gson().toJson(forbiddenStatus))));
     AtomicBoolean catched = new AtomicBoolean(false);
-    assertNull(
+    assertThat(
         podClient
             .delete("default", "foo")
             .onFailure(
                 (code, errStatus) -> {
                   catched.set(true);
                 })
-            .getObject());
-    assertTrue(catched.get());
+            .getObject()).isNull();
+    assertThat(catched).isTrue();
   }
 
   @Test
@@ -71,7 +70,7 @@ public class KubernetesApiResponseTest {
         get(urlEqualTo("/api/v1/namespaces/default/pods/foo"))
             .willReturn(aResponse().withStatus(403).withBody(message)));
     KubernetesApiResponse response = podClient.get("default", "foo");
-    assertFalse(response.isSuccess());
-    assertEquals(response.getStatus().getMessage(), message);
+    assertThat(response.isSuccess()).isFalse();
+    assertThat(message).isEqualTo(response.getStatus().getMessage());
   }
 }

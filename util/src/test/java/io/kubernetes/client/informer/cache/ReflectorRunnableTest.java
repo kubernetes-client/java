@@ -12,10 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertSame;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
@@ -39,7 +36,6 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.BiConsumer;
 import org.awaitility.Awaitility;
-import org.hamcrest.core.IsEqual;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -89,7 +85,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testReflectorWatchConnectionCloseOnError() throws InterruptedException {
+  public void testReflectorWatchConnectionCloseOnError() {
     Watchable<V1Pod> watch =
         new MockWatch<V1Pod>(
             new Watch.Response<V1Pod>(EventType.ERROR.name(), new V1Status().status("403")));
@@ -141,7 +137,7 @@ public class ReflectorRunnableTest {
       Awaitility.await()
           .atMost(Duration.ofSeconds(1))
           .pollInterval(Duration.ofMillis(100))
-          .untilAtomic(actualException, new IsEqual<>(expectedException));
+          .until(() -> expectedException.equals(actualException.get()));
     } finally {
       reflectorRunnable.stop();
     }
@@ -196,7 +192,7 @@ public class ReflectorRunnableTest {
       Awaitility.await()
           .atMost(Duration.ofSeconds(1))
           .pollInterval(Duration.ofMillis(100))
-          .untilAtomic(actualException, new IsEqual<>(expectedException));
+          .until(() -> expectedException.equals(actualException.get()));
     } finally {
       reflectorRunnable.stop();
     }
@@ -223,7 +219,7 @@ public class ReflectorRunnableTest {
       Awaitility.await()
           .atMost(Duration.ofSeconds(1))
           .pollInterval(Duration.ofMillis(100))
-          .untilAtomic(actualException, new IsEqual<>(expectedException));
+          .until(() -> expectedException.equals(actualException.get()));
     } finally {
       reflectorRunnable.stop();
     }
@@ -273,7 +269,7 @@ public class ReflectorRunnableTest {
       Awaitility.await()
           .atMost(Duration.ofSeconds(1))
           .pollInterval(Duration.ofMillis(100))
-          .untilAtomic(requestedResourceVersion, new IsEqual<>(expectedResourceVersion));
+          .until(() -> expectedResourceVersion.equals(requestedResourceVersion.get()));
     } finally {
       reflectorRunnable.stop();
     }
@@ -294,7 +290,7 @@ public class ReflectorRunnableTest {
         .atMost(Duration.ofSeconds(2))
         .pollInterval(Duration.ofMillis(100))
         .until(() -> future.isDone());
-    assertFalse(future.isCompletedExceptionally());
+    assertThat(future.isCompletedExceptionally()).isFalse();
   }
 
   @Test
@@ -318,7 +314,7 @@ public class ReflectorRunnableTest {
         .atMost(Duration.ofSeconds(2))
         .pollInterval(Duration.ofMillis(100))
         .until(() -> future.isDone());
-    assertFalse(future.isCompletedExceptionally());
+    assertThat(future.isCompletedExceptionally()).isFalse();
   }
 
   @Test
@@ -345,7 +341,7 @@ public class ReflectorRunnableTest {
           .pollInterval(Duration.ofMillis(100))
           .until(
               () -> expectedResourceVersion.equals(reflectorRunnable.getLastSyncResourceVersion()));
-      assertTrue(reflectorRunnable.isLastSyncResourceVersionUnavailable());
+      assertThat(reflectorRunnable.isLastSyncResourceVersionUnavailable()).isTrue();
     } finally {
       reflectorRunnable.stop();
     }
@@ -356,7 +352,7 @@ public class ReflectorRunnableTest {
     ReflectorRunnable<V1Pod, V1PodList> reflector =
         new ReflectorRunnable<>(anyApiType, listerWatcher, deltaFIFO);
 
-    assertNotNull(reflector.exceptionHandler);
+    assertThat(reflector.exceptionHandler).isNotNull();
   }
 
   @Test
@@ -364,6 +360,6 @@ public class ReflectorRunnableTest {
     ReflectorRunnable<V1Pod, V1PodList> reflector =
         new ReflectorRunnable<>(anyApiType, listerWatcher, deltaFIFO, exceptionHandler);
 
-    assertSame(exceptionHandler, reflector.exceptionHandler);
+    assertThat(reflector.exceptionHandler).isSameAs(exceptionHandler);
   }
 }

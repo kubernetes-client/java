@@ -13,7 +13,7 @@ limitations under the License.
 package io.kubernetes.client.extended.leaderelection;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 import io.kubernetes.client.openapi.ApiException;
@@ -28,7 +28,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Consumer;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -263,17 +262,16 @@ public class LeaderElectionTest {
   }
 
   private void assertHistory(List<String> history, String... expected) {
-    Assert.assertNotNull(expected);
-    Assert.assertNotNull(history);
-    Assert.assertEquals(expected.length, history.size());
+    assertThat(expected).isNotNull();
+    assertThat(history).isNotNull();
+    assertThat(history).hasSize(expected.length);
 
     for (int index = 0; index < history.size(); ++index) {
-      Assert.assertEquals(
-          String.format(
+      assertThat(history.get(index))
+          .withFailMessage(
               "Not equal at index %d, expected %s, got %s",
-              index, expected[index], history.get(index)),
-          expected[index],
-          history.get(index));
+              index, expected[index], history.get(index))
+          .isEqualTo(expected[index]);
     }
   }
 
@@ -281,8 +279,8 @@ public class LeaderElectionTest {
   // comparison with a '+' suffix. This allows for a semantic rather than literal
   // comparison to avoid issues of timing.
   private void assertWildcardHistory(List<String> history, String... expected) {
-    Assert.assertNotNull(expected);
-    Assert.assertNotNull(history);
+    assertThat(expected).isNotNull();
+    assertThat(history).isNotNull();
 
     // TODO: This code is too complicated and a little bit buggy, but it works
     // for the current limited use case. Clean this up!
@@ -299,11 +297,10 @@ public class LeaderElectionTest {
       } else {
         expectedIx++;
       }
-      Assert.assertEquals(
-          String.format(
-              "Not equal at index %d, expected %s, got %s", index, compare, history.get(index)),
-          compare,
-          history.get(index));
+      assertThat(history.get(index))
+          .withFailMessage(
+              "Not equal at index %d, expected %s, got %s", index, compare, history.get(index))
+          .isEqualTo(compare);
     }
   }
 
@@ -333,7 +330,7 @@ public class LeaderElectionTest {
         });
     cLatch.await();
 
-    assertEquals(expectedException, actualException.get().getCause());
+    assertThat(actualException.get()).hasCause(expectedException);
   }
 
   @Test
@@ -384,9 +381,7 @@ public class LeaderElectionTest {
     // wait for two notifications to occur.
     cLatch.await();
 
-    assertEquals(2, notifications.size());
-    assertEquals("foo2", notifications.get(0));
-    assertEquals("foo3", notifications.get(1));
+    assertThat(notifications).containsExactly("foo2", "foo3");
   }
 
   @Test
@@ -425,8 +420,8 @@ public class LeaderElectionTest {
         });
 
     cLatch.await();
-    assertEquals(1, notifications.size());
-    assertEquals("foo1", notifications.get(0));
+    assertThat(notifications).hasSize(1);
+    assertThat(notifications.get(0)).isEqualTo("foo1");
   }
 
   public static class MockResourceLock implements Lock {

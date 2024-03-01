@@ -12,8 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.custom;
 
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
@@ -22,49 +21,49 @@ public class SuffixFormatterTest {
   @Test
   public void testParseBinaryKi() {
     final BaseExponent baseExponent = new SuffixFormatter().parse("Ki");
-    assertThat(baseExponent.getBase(), is(2));
-    assertThat(baseExponent.getExponent(), is(10));
-    assertThat(baseExponent.getFormat(), is(Quantity.Format.BINARY_SI));
+    assertThat(baseExponent.getBase()).isEqualTo(2);
+    assertThat(baseExponent.getExponent()).isEqualTo(10);
+    assertThat(baseExponent.getFormat()).isEqualTo(Quantity.Format.BINARY_SI);
   }
 
   @Test
   public void testParseDecimalZero() {
     final BaseExponent baseExponent = new SuffixFormatter().parse("");
-    assertThat(baseExponent.getBase(), is(10));
-    assertThat(baseExponent.getExponent(), is(0));
-    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_SI));
+    assertThat(baseExponent.getBase()).isEqualTo(10);
+    assertThat(baseExponent.getExponent()).isZero();
+    assertThat(baseExponent.getFormat()).isEqualTo(Quantity.Format.DECIMAL_SI);
   }
 
   @Test
   public void testParseDecimalK() {
     final BaseExponent baseExponent = new SuffixFormatter().parse("k");
-    assertThat(baseExponent.getBase(), is(10));
-    assertThat(baseExponent.getExponent(), is(3));
-    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_SI));
+    assertThat(baseExponent.getBase()).isEqualTo(10);
+    assertThat(baseExponent.getExponent()).isEqualTo(3);
+    assertThat(baseExponent.getFormat()).isEqualTo(Quantity.Format.DECIMAL_SI);
   }
 
   @Test
   public void testParseDecimalExponent() {
     final BaseExponent baseExponent = new SuffixFormatter().parse("E2");
-    assertThat(baseExponent.getBase(), is(10));
-    assertThat(baseExponent.getExponent(), is(2));
-    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_EXPONENT));
+    assertThat(baseExponent.getBase()).isEqualTo(10);
+    assertThat(baseExponent.getExponent()).isEqualTo(2);
+    assertThat(baseExponent.getFormat()).isEqualTo(Quantity.Format.DECIMAL_EXPONENT);
   }
 
   @Test
   public void testParseDecimalExponentPositive() {
     final BaseExponent baseExponent = new SuffixFormatter().parse("e+3");
-    assertThat(baseExponent.getBase(), is(10));
-    assertThat(baseExponent.getExponent(), is(3));
-    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_EXPONENT));
+    assertThat(baseExponent.getBase()).isEqualTo(10);
+    assertThat(baseExponent.getExponent()).isEqualTo(3);
+    assertThat(baseExponent.getFormat()).isEqualTo(Quantity.Format.DECIMAL_EXPONENT);
   }
 
   @Test
   public void testParseDecimalExponentNegative() {
     final BaseExponent baseExponent = new SuffixFormatter().parse("e-3");
-    assertThat(baseExponent.getBase(), is(10));
-    assertThat(baseExponent.getExponent(), is(-3));
-    assertThat(baseExponent.getFormat(), is(Quantity.Format.DECIMAL_EXPONENT));
+    assertThat(baseExponent.getBase()).isEqualTo(10);
+    assertThat(baseExponent.getExponent()).isEqualTo(-3);
+    assertThat(baseExponent.getFormat()).isEqualTo(Quantity.Format.DECIMAL_EXPONENT);
   }
 
   @Test(expected = QuantityFormatException.class)
@@ -76,20 +75,20 @@ public class SuffixFormatterTest {
   public void testFormatZeroDecimalExponent() {
     final String formattedString =
         new SuffixFormatter().format(Quantity.Format.DECIMAL_EXPONENT, 0);
-    assertThat(formattedString, is(""));
+    assertThat(formattedString).isEmpty();
   }
 
   @Test
   public void testFormatDecimalExponent() {
     final String formattedString =
         new SuffixFormatter().format(Quantity.Format.DECIMAL_EXPONENT, 3);
-    assertThat(formattedString, is("e3"));
+    assertThat(formattedString).isEqualTo("e3");
   }
 
   @Test
   public void testFormatZeroDecimalSi() {
     final String formattedString = new SuffixFormatter().format(Quantity.Format.DECIMAL_SI, 0);
-    assertThat(formattedString, is(""));
+    assertThat(formattedString).isEmpty();
   }
 
   @Test(expected = IllegalArgumentException.class)
@@ -100,25 +99,25 @@ public class SuffixFormatterTest {
   @Test
   public void testFormatDecimalSi() {
     final String formattedString = new SuffixFormatter().format(Quantity.Format.DECIMAL_SI, 3);
-    assertThat(formattedString, is("k"));
+    assertThat(formattedString).isEqualTo("k");
   }
 
   @Test
   public void testFormatNegativeDecimalSi() {
     final String formattedString = new SuffixFormatter().format(Quantity.Format.DECIMAL_SI, -6);
-    assertThat(formattedString, is("u"));
+    assertThat(formattedString).isEqualTo("u");
   }
 
   @Test
   public void testFormatBinarySi() {
     final String formattedString = new SuffixFormatter().format(Quantity.Format.BINARY_SI, 10);
-    assertThat(formattedString, is("Ki"));
+    assertThat(formattedString).isEqualTo("Ki");
   }
 
   @Test
   public void testFormatNoExponentBinarySi() {
     final String formattedString = new SuffixFormatter().format(Quantity.Format.BINARY_SI, 0);
-    assertThat(formattedString, is(""));
+    assertThat(formattedString).isEmpty();
   }
 
   @Test(expected = IllegalArgumentException.class)

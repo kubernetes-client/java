@@ -13,9 +13,9 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import static io.kubernetes.client.util.Preconditions.precondition;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 public class PreconditionsTest {
@@ -31,6 +31,6 @@ public class PreconditionsTest {
   @Test
   public void testNonEmptyString() {
     String abc = precondition("abc", Strings::isNullOrEmpty, () -> "string can not be empty");
-    Assertions.assertThat(abc).isEqualTo("abc");
+    assertThat(abc).isEqualTo("abc");
   }
 }

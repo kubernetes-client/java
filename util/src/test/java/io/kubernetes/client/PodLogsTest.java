@@ -18,8 +18,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
@@ -56,7 +55,7 @@ public class PodLogsTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
 
     namespace = "default";
@@ -86,10 +85,10 @@ public class PodLogsTest {
     try {
       logs.streamNamespacedPodLog(pod);
     } catch (ApiException ex) {
-      assertEquals(404, ex.getCode());
+      assertThat(ex.getCode()).isEqualTo(404);
       thrown = true;
     }
-    assertEquals(thrown, true);
+    assertThat(thrown).isTrue();
     wireMockRule.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/log"))
@@ -133,7 +132,7 @@ public class PodLogsTest {
 
     ByteArrayOutputStream bos = new ByteArrayOutputStream();
     Streams.copy(is, bos);
-    assertEquals(content, bos.toString());
+    assertThat(bos).hasToString(content);
   }
 
   @Test
@@ -162,11 +161,11 @@ public class PodLogsTest {
     try (InputStream ignored = logs.streamNamespacedPodLog(pod)) {
       thrown = false;
     } catch (ApiException ex) {
-      assertEquals(404, ex.getCode());
+      assertThat(ex.getCode()).isEqualTo(404);
       thrown = true;
     }
 
-    assertTrue(thrown);
+    assertThat(thrown).isTrue();
     verify(mockResponse).close();
   }
 }

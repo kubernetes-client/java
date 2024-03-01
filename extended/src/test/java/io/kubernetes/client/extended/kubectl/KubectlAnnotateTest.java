@@ -14,8 +14,8 @@ package io.kubernetes.client.extended.kubectl;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
@@ -24,7 +24,6 @@ import io.kubernetes.client.openapi.models.V1Node;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.ModelMapper;
-import java.io.IOException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -36,7 +35,7 @@ public class KubectlAnnotateTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     ModelMapper.addModelMap("", "v1", "Pod", "pods", true, V1Pod.class);
     ModelMapper.addModelMap("", "v1", "Node", "nodes", false, V1Node.class);
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
@@ -67,7 +66,7 @@ public class KubectlAnnotateTest {
             .execute();
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
     wireMockRule.verify(1, putRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
-    assertNotNull(annotatedPod);
+    assertThat(annotatedPod).isNotNull();
   }
 
   @Test
@@ -82,18 +81,17 @@ public class KubectlAnnotateTest {
     wireMockRule.stubFor(
         put(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
             .willReturn(aResponse().withStatus(403).withBody("{\"metadata\":{}}")));
-    assertThrows(
-        KubectlException.class,
-        () -> {
-          Kubectl.annotate(V1Pod.class)
-              .apiClient(apiClient)
-              .skipDiscovery()
-              .namespace("default")
-              .name("foo")
-              .addAnnotation("k1", "v1")
-              .addAnnotation("k2", "v2")
-              .execute();
-        });
+    assertThatThrownBy(
+            () ->
+                Kubectl.annotate(V1Pod.class)
+                    .apiClient(apiClient)
+                    .skipDiscovery()
+                    .namespace("default")
+                    .name("foo")
+                    .addAnnotation("k1", "v1")
+                    .addAnnotation("k2", "v2")
+                    .execute())
+        .isInstanceOf(KubectlException.class);
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
     wireMockRule.verify(1, putRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
   }
@@ -116,7 +114,7 @@ public class KubectlAnnotateTest {
             .execute();
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
     wireMockRule.verify(1, putRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
-    assertNotNull(annotatedNode);
+    assertThat(annotatedNode).isNotNull();
   }
 
   @Test
@@ -128,33 +126,31 @@ public class KubectlAnnotateTest {
     wireMockRule.stubFor(
         put(urlPathEqualTo("/api/v1/nodes/foo"))
             .willReturn(aResponse().withStatus(403).withBody("{\"metadata\":{}}")));
-    assertThrows(
-        KubectlException.class,
-        () -> {
-          Kubectl.annotate(V1Node.class)
-              .apiClient(apiClient)
-              .skipDiscovery()
-              .name("foo")
-              .addAnnotation("k1", "v1")
-              .addAnnotation("k2", "v2")
-              .execute();
-        });
+    assertThatThrownBy(
+            () ->
+                Kubectl.annotate(V1Node.class)
+                    .apiClient(apiClient)
+                    .skipDiscovery()
+                    .name("foo")
+                    .addAnnotation("k1", "v1")
+                    .addAnnotation("k2", "v2")
+                    .execute())
+        .isInstanceOf(KubectlException.class);
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
     wireMockRule.verify(1, putRequestedFor(urlPathEqualTo("/api/v1/nodes/foo")));
   }
 
   @Test
   public void testMissingArgumentsShouldFail() throws KubectlException {
-    assertThrows(
-        KubectlException.class,
-        () -> {
-          Kubectl.annotate(V1Node.class)
-              .apiClient(apiClient)
-              .skipDiscovery()
-              // .name("foo") # missing name
-              .addAnnotation("k1", "v1")
-              .addAnnotation("k2", "v2")
-              .execute();
-        });
+    assertThatThrownBy(
+            () ->
+                Kubectl.annotate(V1Node.class)
+                    .apiClient(apiClient)
+                    .skipDiscovery()
+                    // .name("foo") # missing name
+                    .addAnnotation("k1", "v1")
+                    .addAnnotation("k2", "v2")
+                    .execute())
+        .isInstanceOf(KubectlException.class);
   }
 }

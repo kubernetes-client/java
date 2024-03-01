@@ -19,7 +19,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.patch;
 import static com.github.tomakehurst.wiremock.client.WireMock.patchRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static org.junit.Assert.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.matching.EqualToPattern;
@@ -39,7 +40,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import org.junit.Assert;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -103,7 +104,7 @@ public class KubectlRolloutTest {
           .toString();
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     ModelMapper.addModelMap(
         "apps",
         "v1",
@@ -154,7 +155,7 @@ public class KubectlRolloutTest {
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
-    Assert.assertEquals(3, histories.size());
+    assertThat(histories).hasSize(3);
   }
 
   @Test
@@ -187,7 +188,7 @@ public class KubectlRolloutTest {
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
-    Assert.assertNotNull(template);
+    assertThat(template).isNotNull();
   }
 
   @Test
@@ -220,7 +221,7 @@ public class KubectlRolloutTest {
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
-    Assert.assertEquals(3, histories.size());
+    assertThat(histories).hasSize(3);
   }
 
   @Test
@@ -265,7 +266,7 @@ public class KubectlRolloutTest {
         1,
         patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/daemonsets/foo")))
             .withQueryParam("dryRun", new EqualToPattern("All")));
-    Assert.assertNotNull(template);
+    assertThat(template).isNotNull();
   }
 
   @Test
@@ -300,7 +301,7 @@ public class KubectlRolloutTest {
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
-    Assert.assertEquals(3, histories.size());
+    assertThat(histories).hasSize(3);
   }
 
   @Test
@@ -346,7 +347,7 @@ public class KubectlRolloutTest {
         1,
         patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo")))
             .withQueryParam("dryRun", new EqualToPattern("All")));
-    Assert.assertNotNull(template);
+    assertThat(template).isNotNull();
   }
 
   @Test
@@ -364,16 +365,16 @@ public class KubectlRolloutTest {
                     .withStatus(200)
                     .withBody(new String(Files.readAllBytes(Paths.get(REPLICASET_LIST))))));
 
-    assertThrows(
-        KubectlException.class,
-        () ->
-            Kubectl.rollout(V1Deployment.class)
-                .history()
-                .apiClient(apiClient)
-                .name("foo")
-                .namespace("default")
-                .revision(999)
-                .skipDiscovery()
-                .execute());
+    assertThatThrownBy(
+            () ->
+                Kubectl.rollout(V1Deployment.class)
+                    .history()
+                    .apiClient(apiClient)
+                    .name("foo")
+                    .namespace("default")
+                    .revision(999)
+                    .skipDiscovery()
+                    .execute())
+        .isInstanceOf(KubectlException.class);
   }
 }

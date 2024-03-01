@@ -15,7 +15,7 @@ package io.kubernetes.client.openapi;
 import io.kubernetes.client.openapi.models.V1Secret;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
 
@@ -30,6 +30,6 @@ public class V1SecretTest {
                 .data(new HashMap<String, byte[]>() {{
                     put("foo", "bar".getBytes());
                 }});
-        assertEquals(left, right);
+        assertThat(right).isEqualTo(left);
     }
 }

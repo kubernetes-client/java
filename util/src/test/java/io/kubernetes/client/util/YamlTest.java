@@ -13,13 +13,8 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.common.KubernetesType;
@@ -34,11 +29,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.io.UncheckedIOException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Test;
+import org.yaml.snakeyaml.composer.ComposerException;
+import org.yaml.snakeyaml.error.MarkedYAMLException;
 
 public class YamlTest {
 
@@ -87,26 +85,22 @@ public class YamlTest {
       "kind: " + "XXXX" + "\n" + "apiVersion: " + "YYYY" + "\n" + "metadata:\n" + "  name: foo";
 
   @Test
-  public void testLoad() {
+  public void testLoad() throws Exception {
     for (int i = 0; i < kinds.length; i++) {
       String className = classNames[i];
-      try {
-        Object obj =
-            Yaml.load(
-                new StringReader(input.replace("XXXX", kinds[i]).replace("YYYY", apiVersions[i])));
-        Method m = obj.getClass().getMethod("getMetadata");
-        V1ObjectMeta metadata = (V1ObjectMeta) m.invoke(obj);
+      Object obj =
+          Yaml.load(
+              new StringReader(input.replace("XXXX", kinds[i]).replace("YYYY", apiVersions[i])));
+      Method m = obj.getClass().getMethod("getMetadata");
+      V1ObjectMeta metadata = (V1ObjectMeta) m.invoke(obj);
 
-        assertEquals("foo", metadata.getName());
-        assertEquals(className, obj.getClass().getSimpleName());
-      } catch (Exception ex) {
-        assertNull("Unexpected exception: " + ex.toString(), ex);
-      }
+      assertThat(metadata.getName()).isEqualTo("foo");
+      assertThat(obj.getClass().getSimpleName()).isEqualTo(className);
     }
   }
 
   @Test
-  public void testLoadAll() throws IOException {
+  public void testLoadAll() throws Exception {
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < kinds.length; i++) {
       sb.append(input.replace("XXXX", kinds[i]).replace("YYYY", apiVersions[i]));
@@ -117,16 +111,12 @@ public class YamlTest {
     list = (List<Object>) Yaml.loadAll(sb.toString());
     for (int i = 0; i < kinds.length; i++) {
       String className = classNames[i];
-      try {
-        Object obj = list.get(i);
-        Method m = obj.getClass().getMethod("getMetadata");
-        V1ObjectMeta metadata = (V1ObjectMeta) m.invoke(obj);
+      Object obj = list.get(i);
+      Method m = obj.getClass().getMethod("getMetadata");
+      V1ObjectMeta metadata = (V1ObjectMeta) m.invoke(obj);
 
-        assertEquals("foo", metadata.getName());
-        assertEquals(className, obj.getClass().getSimpleName());
-      } catch (Exception ex) {
-        assertNull("Unexpected exception: " + ex.toString(), ex);
-      }
+      assertThat(metadata.getName()).isEqualTo("foo");
+      assertThat(obj.getClass().getSimpleName()).isEqualTo(className);
     }
   }
 
@@ -138,22 +128,22 @@ public class YamlTest {
       String type = object.getClass().getSimpleName();
       if (type.equals("V1Service")) {
         V1Service svc = (V1Service) object;
-        assertEquals("v1", svc.getApiVersion());
-        assertEquals("Service", svc.getKind());
-        assertEquals("mock", svc.getMetadata().getName());
+        assertThat(svc.getApiVersion()).isEqualTo("v1");
+        assertThat(svc.getKind()).isEqualTo("Service");
+        assertThat(svc.getMetadata().getName()).isEqualTo("mock");
         k8ObjectList.add(svc);
       } else if (type.equals("V1Deployment")) {
         V1Deployment deploy = (V1Deployment) object;
-        assertEquals("apps/v1", deploy.getApiVersion());
-        assertEquals("Deployment", deploy.getKind());
-        assertEquals("helloworld", deploy.getMetadata().getName());
+        assertThat(deploy.getApiVersion()).isEqualTo("apps/v1");
+        assertThat(deploy.getKind()).isEqualTo("Deployment");
+        assertThat(deploy.getMetadata().getName()).isEqualTo("helloworld");
         k8ObjectList.add(deploy);
       } else if (type.equals("V1Secret")) {
         V1Secret secret = (V1Secret) object;
-        assertEquals("Secret", secret.getKind());
-        assertEquals("secret", secret.getMetadata().getName());
-        assertEquals("Opaque", secret.getType());
-        assertEquals("hello", new String(secret.getData().get("secret-data"), UTF_8));
+        assertThat(secret.getKind()).isEqualTo("Secret");
+        assertThat(secret.getMetadata().getName()).isEqualTo("secret");
+        assertThat(secret.getType()).isEqualTo("Opaque");
+        assertThat( new String(secret.getData().get("secret-data"), UTF_8)).isEqualTo("hello");
         k8ObjectList.add(secret);
       } else {
         throw new Exception("some thing wrong happened");
@@ -161,136 +151,111 @@ public class YamlTest {
     }
     String result = Yaml.dumpAll(k8ObjectList.iterator());
     String expected = Resources.toString(EXPECTED_YAML_FILE, UTF_8).replace("\r\n", "\n");
-    assertThat(result, equalTo(expected));
+    assertThat(result).isEqualTo(expected);
   }
 
   @Test
   public void testLoadIntOrString() {
-    try {
-      String strInput = "targetPort: test";
-      String intInput = "targetPort: 1";
+    String strInput = "targetPort: test";
+    String intInput = "targetPort: 1";
 
-      V1ServicePort stringPort = Yaml.loadAs(strInput, V1ServicePort.class);
-      V1ServicePort intPort = Yaml.loadAs(intInput, V1ServicePort.class);
+    V1ServicePort stringPort = Yaml.loadAs(strInput, V1ServicePort.class);
+    V1ServicePort intPort = Yaml.loadAs(intInput, V1ServicePort.class);
 
-      assertFalse(
-          "Target port for 'stringPort' was parsed to an integer, string expected.",
-          stringPort.getTargetPort().isInteger());
-      assertEquals("test", stringPort.getTargetPort().getStrValue());
+    assertThat(stringPort.getTargetPort().isInteger())
+        .withFailMessage("Target port for 'stringPort' was parsed to an integer, string expected.")
+        .isFalse();
+    assertThat(stringPort.getTargetPort().getStrValue()).isEqualTo("test");
 
-      assertTrue(
-          "Target port for 'intPort' was parsed to a string, integer expected.",
-          intPort.getTargetPort().isInteger());
-      assertEquals(1L, (long) intPort.getTargetPort().getIntValue());
-    } catch (Exception ex) {
-      assertNull("Unexpected exception: " + ex.toString(), ex);
-    }
+    assertThat(intPort.getTargetPort().isInteger())
+        .withFailMessage("Target port for 'intPort' was parsed to a string, integer expected.")
+        .isTrue();
+    assertThat((long) intPort.getTargetPort().getIntValue()).isEqualTo(1L);
   }
 
   @Test
   public void testDumpIntOrString() {
-    try {
-      String strInput = "targetPort: test\n";
-      String intInput = "targetPort: 1\n";
+    String strInput = "targetPort: test\n";
+    String intInput = "targetPort: 1\n";
 
-      V1ServicePort stringPort = Yaml.loadAs(strInput, V1ServicePort.class);
-      V1ServicePort intPort = Yaml.loadAs(intInput, V1ServicePort.class);
+    V1ServicePort stringPort = Yaml.loadAs(strInput, V1ServicePort.class);
+    V1ServicePort intPort = Yaml.loadAs(intInput, V1ServicePort.class);
 
-      StringWriter strOutput = new StringWriter();
-      Yaml.dump(stringPort, strOutput);
+    StringWriter strOutput = new StringWriter();
+    Yaml.dump(stringPort, strOutput);
 
-      StringWriter intOutput = new StringWriter();
-      Yaml.dump(intPort, intOutput);
+    StringWriter intOutput = new StringWriter();
+    Yaml.dump(intPort, intOutput);
 
-      assertEquals(strInput, strOutput.toString());
-      assertEquals(intInput, intOutput.toString());
-
-    } catch (Exception ex) {
-      assertNull("Unexpected exception: " + ex.toString(), ex);
-    }
+    assertThat(strOutput).hasToString(strInput);
+    assertThat(intOutput).hasToString(intInput);
   }
 
   @Test
   public void testLoadBytes() {
-    try {
-      String strInput = "data:\n  hello: aGVsbG8=";
+    String strInput = "data:\n  hello: aGVsbG8=";
 
-      V1Secret secret = Yaml.loadAs(strInput, V1Secret.class);
+    V1Secret secret = Yaml.loadAs(strInput, V1Secret.class);
 
-      assertEquals(
-          "Incorrect value loaded for Base64 encoded secret",
-          "hello",
-          new String(secret.getData().get("hello"), UTF_8));
-
-    } catch (Exception ex) {
-      assertNull("Unexpected exception: " + ex.toString(), ex);
-    }
+    assertThat(new String(secret.getData().get("hello"), UTF_8))
+        .withFailMessage("Incorrect value loaded for Base64 encoded secret")
+        .isEqualTo("hello");
   }
 
   @Test
   public void testDateTime() {
-    try {
-      String strInput =
-          "apiVersion: v1\n"
-              + "kind: Pod\n"
-              + "metadata:\n"
-              + "  creationTimestamp: 2018-09-06T15:12:24Z";
+    String strInput =
+        "apiVersion: v1\n"
+            + "kind: Pod\n"
+            + "metadata:\n"
+            + "  creationTimestamp: 2018-09-06T15:12:24Z";
 
-      V1Pod pod = Yaml.loadAs(strInput, V1Pod.class);
+    V1Pod pod = Yaml.loadAs(strInput, V1Pod.class);
 
-      assertEquals(
-          "Incorrect value loaded for creationTimestamp",
-          "2018-09-06T15:12:24Z",
-          new String(pod.getMetadata().getCreationTimestamp().toString().getBytes(), UTF_8));
-
-    } catch (Exception ex) {
-      assertNull("Unexpected exception: " + ex.toString(), ex);
-    }
+    assertThat(new String(pod.getMetadata().getCreationTimestamp().toString().getBytes(), UTF_8))
+        .withFailMessage("Incorrect value loaded for creationTimestamp")
+        .isEqualTo("2018-09-06T15:12:24Z");
   }
 
   @Test
   public void testDateTimeRoundTrip() {
     // There was an issue with dumping JODA DateTime as String.
     // This test verifies that its fixed.
-    try {
-      String data = Resources.toString(CREATED_TIMESTAMP_FILE, UTF_8);
-      V1Pod pod = Yaml.loadAs(data, V1Pod.class);
-      String output = Yaml.dump(pod);
-      V1Pod pod2 = Yaml.loadAs(output, V1Pod.class);
-      assertEquals(pod, pod2);
-    } catch (Exception ex) {
-      assertNull("Unexpected exception: " + ex.toString(), ex);
-    }
+    String data = Resources.toString(CREATED_TIMESTAMP_FILE, UTF_8);
+    V1Pod pod = Yaml.loadAs(data, V1Pod.class);
+    String output = Yaml.dump(pod);
+    V1Pod pod2 = Yaml.loadAs(output, V1Pod.class);
+    assertThat(pod2).isEqualTo(pod);
   }
 
   @Test
-  public void testYamlCantConstructObjects() {
+  public void testYamlCantConstructObjects() throws IOException {
     try {
       String data = Resources.toString(TAGGED_FILE, UTF_8);
-      Object pod = Yaml.load(data);
-    } catch (Exception ex) {
+      Yaml.load(data);
+      failBecauseExceptionWasNotThrown(MarkedYAMLException.class);
+    } catch (MarkedYAMLException ex) {
       // pass
     }
-    assertFalse("Object should not be constructed!", TestPoJ.hasBeenConstructed());
   }
 
   @Test
   public void testLoadAsYamlCantConstructObjects() {
     try {
       String data = Resources.toString(TAGGED_FILE, UTF_8);
-      V1Pod pod = Yaml.loadAs(data, V1Pod.class);
-    } catch (Exception ex) {
+      Yaml.loadAs(data, V1Pod.class);
+      failBecauseExceptionWasNotThrown(MarkedYAMLException.class);
+    } catch (MarkedYAMLException ex) {
       // pass
     }
-    assertFalse("Object should not be constructed!", TestPoJ.hasBeenConstructed());
   }
 
   @Test
   public void testLoadDumpCRDWithIntOrStringExtension() {
     String data = Resources.toString(CRD_INT_OR_STRING_FILE, UTF_8).replace("\r\n", "\n");
     V1CustomResourceDefinition crd = Yaml.loadAs(data, V1CustomResourceDefinition.class);
-    assertNotNull(crd);
-    assertTrue(
+    assertThat(crd).isNotNull();
+    assertThat(
         crd.getSpec()
             .getVersions()
             .get(0)
@@ -298,8 +263,8 @@ public class YamlTest {
             .getOpenAPIV3Schema()
             .getProperties()
             .get("foo")
-            .getxKubernetesIntOrString());
+            .getxKubernetesIntOrString()).isTrue();
     String dumped = Yaml.dump(crd);
-    assertEquals(data, dumped);
+    assertThat(dumped).isEqualTo(data);
   }
 }

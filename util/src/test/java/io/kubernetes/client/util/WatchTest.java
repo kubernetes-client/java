@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
@@ -45,6 +45,6 @@ public class WatchTest {
     obj.add("object", status);
     String data = json.getGson().toJson(obj);
     Watch.Response<V1ConfigMap> response = watch.parseLine(data);
-    assertEquals(null, response.object);
+    assertThat(response.object).isEqualTo(null);
   }
 }

@@ -12,8 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util.generic.dynamic;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.gson.Gson;
 import io.kubernetes.client.common.KubernetesListObject;
@@ -50,14 +49,14 @@ public class DynamicKubernetesTypeAdaptorFactoryTest {
   @Test
   public void testSingleDynamicObjectRoundTrip() {
     KubernetesObject dynamicObj = gson.fromJson(jsonContent, KubernetesObject.class);
-    assertTrue(dynamicObj instanceof DynamicKubernetesObject);
+    assertThat(dynamicObj instanceof DynamicKubernetesObject).isTrue();
 
-    assertEquals("v1", dynamicObj.getApiVersion());
-    assertEquals("Namespace", dynamicObj.getKind());
-    assertEquals(new V1ObjectMeta().name("foo"), dynamicObj.getMetadata());
+    assertThat(dynamicObj.getApiVersion()).isEqualTo("v1");
+    assertThat(dynamicObj.getKind()).isEqualTo("Namespace");
+    assertThat(dynamicObj.getMetadata()).isEqualTo(new V1ObjectMeta().name("foo"));
 
     String dumped = gson.toJson(dynamicObj);
-    assertEquals(jsonContent, dumped);
+    assertThat(dumped).isEqualTo(jsonContent);
   }
 
   @Test
@@ -73,12 +72,12 @@ public class DynamicKubernetesTypeAdaptorFactoryTest {
 
     KubernetesListObject dynamicListObj =
         gson.fromJson(listJsonContent, KubernetesListObject.class);
-    assertTrue(dynamicListObj instanceof DynamicKubernetesListObject);
+    assertThat(dynamicListObj instanceof DynamicKubernetesListObject).isTrue();
 
-    assertEquals(1, dynamicListObj.getItems().size());
+    assertThat(dynamicListObj.getItems()).hasSize(1);
 
     String dumped = gson.toJson(dynamicListObj);
-    assertEquals(listJsonContent, dumped);
+    assertThat(dumped).isEqualTo(listJsonContent);
   }
 
   // Registering the same factory twice is not a good idea, but we should not explode if it happens.
@@ -87,6 +86,6 @@ public class DynamicKubernetesTypeAdaptorFactoryTest {
   public void testMultipleRegistration() {
     Gson badGson = gson.newBuilder().registerTypeAdapterFactory(factory).create();
     Object x = badGson.fromJson("{}", Map.class);
-    assertEquals(Collections.emptyMap(), x);
+    assertThat(x).isEqualTo(Collections.emptyMap());
   }
 }

@@ -19,12 +19,12 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
-import io.kubernetes.client.openapi.models.VersionInfo;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import org.junit.Before;
@@ -38,12 +38,12 @@ public class VersionTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
   @Test
-  public void testUrl() throws InterruptedException, IOException, ApiException {
+  public void testUrl() throws IOException, ApiException {
 
     wireMockRule.stubFor(
         get(urlPathEqualTo("/version/"))
@@ -55,11 +55,7 @@ public class VersionTest {
                             "\"gitTreeState\":\"\",\"platform\":\"\"}")));
 
     Version versionUtil = new Version(client);
-    try {
-      VersionInfo versionInfo = versionUtil.getVersion();
-    } catch (ApiException ex) {
-
-    }
+    assertThat(versionUtil.getVersion()).isNotNull();
 
     verify(
         getRequestedFor(urlPathEqualTo("/version/"))
@@ -67,7 +63,7 @@ public class VersionTest {
   }
 
   @Test
-  public void testFailure() throws InterruptedException, IOException, ApiException {
+  public void testFailure() throws IOException, ApiException {
 
     wireMockRule.stubFor(
         get(urlPathEqualTo("/version/"))
@@ -78,14 +74,12 @@ public class VersionTest {
                     .withBody("{}")));
 
     Version versionUtil = new Version(client);
-    boolean thrown = false;
     try {
-      VersionInfo versionInfo = versionUtil.getVersion();
+      versionUtil.getVersion();
+      failBecauseExceptionWasNotThrown(ApiException.class);
     } catch (ApiException ex) {
-      assertEquals(401, ex.getCode());
-      thrown = true;
+      assertThat(ex.getCode()).isEqualTo(401);
     }
-    assertEquals(thrown, true);
 
     verify(
         getRequestedFor(urlPathEqualTo("/version/"))

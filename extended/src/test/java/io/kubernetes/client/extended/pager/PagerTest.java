@@ -20,8 +20,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -64,7 +63,7 @@ public class PagerTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
@@ -94,7 +93,7 @@ public class PagerTest {
             1,
             V1NamespaceList.class);
     Iterator<V1Namespace> it = pager.iterator();
-    assertFalse("Iterator should be empty.", it.hasNext());
+    assertThat(it).isExhausted();
   }
 
   @Test
@@ -146,10 +145,10 @@ public class PagerTest {
           () -> {
             int size = 0;
             for (V1Namespace namespace : pager) {
-              assertEquals("default", namespace.getMetadata().getName());
+              assertThat(namespace.getMetadata().getName()).isEqualTo("default");
               size++;
             }
-            assertEquals(2, size);
+            assertThat(size).isEqualTo(2);
             latch.countDown();
           });
     }
@@ -197,11 +196,11 @@ public class PagerTest {
     int count = 0;
     try {
       for (V1Namespace namespace : pager) {
-        assertEquals("default", namespace.getMetadata().getName());
+        assertThat(namespace.getMetadata().getName()).isEqualTo("default");
         count++;
       }
     } catch (Exception e) {
-      assertEquals(status400Str, e.getMessage());
+      assertThat(e.getMessage()).isEqualTo(status400Str);
     }
 
     verify(
@@ -243,10 +242,10 @@ public class PagerTest {
     try {
       for (V1Namespace namespace : pager) {
         count++;
-        assertEquals("default", namespace.getMetadata().getName());
+        assertThat(namespace.getMetadata().getName()).isEqualTo("default");
       }
     } catch (Exception e) {
-      assertEquals(status400Str, e.getMessage());
+      assertThat(e.getMessage()).isEqualTo(status400Str);
     }
 
     verify(

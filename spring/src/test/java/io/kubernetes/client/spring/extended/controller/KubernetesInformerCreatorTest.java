@@ -20,8 +20,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlMatching;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.core.Admin;
 import com.github.tomakehurst.wiremock.extension.Parameters;
@@ -110,8 +109,8 @@ public class KubernetesInformerCreatorTest {
 
   @Test
   public void testInformerInjection() throws InterruptedException {
-    assertNotNull(podInformer);
-    assertNotNull(configMapInformer);
+    assertThat(podInformer).isNotNull();
+    assertThat(configMapInformer).isNotNull();
 
     Semaphore getCount = new Semaphore(2);
     Semaphore watchCount = new Semaphore(2);
@@ -188,7 +187,7 @@ public class KubernetesInformerCreatorTest {
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/configmaps"))
             .withQueryParam("watch", equalTo("true")));
 
-    assertEquals(1, new Lister<>(podInformer.getIndexer()).list().size());
-    assertEquals(1, new Lister<>(configMapInformer.getIndexer()).list().size());
+    assertThat(new Lister<>(podInformer.getIndexer()).list()).hasSize(1);
+    assertThat(new Lister<>(configMapInformer.getIndexer()).list()).hasSize(1);
   }
 }

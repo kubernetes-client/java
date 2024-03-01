@@ -18,8 +18,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.patch;
 import static com.github.tomakehurst.wiremock.client.WireMock.patchRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
@@ -29,7 +29,6 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1ReplicaSet;
 import io.kubernetes.client.openapi.models.V1StatefulSet;
 import io.kubernetes.client.util.ClientBuilder;
-import java.io.IOException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -41,7 +40,7 @@ public class KubectlScaleTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort(), false);
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
@@ -65,7 +64,7 @@ public class KubectlScaleTest {
         patchRequestedFor(urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))
             .withRequestBody(
                 equalToJson("[{\"op\":\"replace\",\"path\":\"/spec/replicas\",\"value\":2}]")));
-    assertNotNull(scaled);
+    assertThat(scaled).isNotNull();
   }
 
   @Test
@@ -88,7 +87,7 @@ public class KubectlScaleTest {
         patchRequestedFor(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets/foo"))
             .withRequestBody(
                 equalToJson("[{\"op\":\"replace\",\"path\":\"/spec/replicas\",\"value\":4}]")));
-    assertNotNull(scaled);
+    assertThat(scaled).isNotNull();
   }
 
   @Test
@@ -111,21 +110,19 @@ public class KubectlScaleTest {
         patchRequestedFor(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
             .withRequestBody(
                 equalToJson("[{\"op\":\"replace\",\"path\":\"/spec/replicas\",\"value\":8}]")));
-    assertNotNull(scaled);
+    assertThat(scaled).isNotNull();
   }
 
   @Test
   public void testKubectlScaleShouldThrow() {
-    assertThrows(
-        KubectlException.class,
-        () -> {
-          V1Pod scaled =
-              Kubectl.scale(V1Pod.class)
-                  .apiClient(apiClient)
-                  .name("foo")
-                  .namespace("default")
-                  .replicas(2)
-                  .execute();
-        });
+    assertThatThrownBy(
+            () ->
+                Kubectl.scale(V1Pod.class)
+                    .apiClient(apiClient)
+                    .name("foo")
+                    .namespace("default")
+                    .replicas(2)
+                    .execute())
+        .isInstanceOf(KubectlException.class);
   }
 }

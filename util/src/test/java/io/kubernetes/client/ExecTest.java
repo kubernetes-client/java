@@ -18,8 +18,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -85,7 +85,7 @@ public class ExecTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
 
     namespace = "default";
@@ -147,10 +147,10 @@ public class ExecTest {
     cLatch.await();
     process.destroy();
 
-    assertEquals(msgData, stdout.toString());
-    assertEquals(errData, stderr.toString());
-    assertEquals(false, process.isAlive());
-    assertEquals(0, process.exitValue());
+    assertThat(stdout).hasToString(msgData);
+    assertThat(stderr).hasToString(errData);
+    assertThat(process.isAlive()).isFalse();
+    assertThat(process.exitValue()).isZero();
   }
 
   @Test
@@ -163,8 +163,8 @@ public class ExecTest {
     process.waitFor();
 
     verify(throwable, times(1)).printStackTrace();
-    assertEquals(false, process.isAlive());
-    assertEquals(-1975219, process.exitValue());
+    assertThat(process.isAlive()).isFalse();
+    assertThat(process.exitValue()).isEqualTo(-1975219);
   }
 
   @Test
@@ -179,8 +179,8 @@ public class ExecTest {
 
     verify(throwable, times(0)).printStackTrace();
     verify(consumer, times(1)).accept(throwable);
-    assertEquals(false, process.isAlive());
-    assertEquals(-1975219, process.exitValue());
+    assertThat(process.isAlive()).isFalse();
+    assertThat(process.exitValue()).isEqualTo(-1975219);
   }
 
   @Test
@@ -239,7 +239,7 @@ public class ExecTest {
             .withQueryParam("tty", equalTo("false"))
             .withQueryParam("command", equalTo("cmd")));
 
-    assertEquals(-1975219, p.exitValue());
+    assertThat(p.exitValue()).isEqualTo(-1975219);
     verify(consumer, times(1)).accept(any(Throwable.class));
   }
 
@@ -248,7 +248,7 @@ public class ExecTest {
     InputStream inputStream =
         new ByteArrayInputStream(OUTPUT_EXIT0.getBytes(StandardCharsets.UTF_8));
     int exitCode = Exec.parseExitCode(client, inputStream);
-    assertEquals(0, exitCode);
+    assertThat(exitCode).isZero();
   }
 
   @Test
@@ -256,7 +256,7 @@ public class ExecTest {
     InputStream inputStream =
         new ByteArrayInputStream(OUTPUT_EXIT1.getBytes(StandardCharsets.UTF_8));
     int exitCode = Exec.parseExitCode(client, inputStream);
-    assertEquals(1, exitCode);
+    assertThat(exitCode).isEqualTo(1);
   }
 
   @Test
@@ -264,7 +264,7 @@ public class ExecTest {
     InputStream inputStream =
         new ByteArrayInputStream(OUTPUT_EXIT126.getBytes(StandardCharsets.UTF_8));
     int exitCode = Exec.parseExitCode(client, inputStream);
-    assertEquals(126, exitCode);
+    assertThat(exitCode).isEqualTo(126);
   }
 
   @Test
@@ -272,7 +272,7 @@ public class ExecTest {
     InputStream inputStream =
         new ByteArrayInputStream(BAD_OUTPUT_INCOMPLETE_MSG1.getBytes(StandardCharsets.UTF_8));
     int exitCode = Exec.parseExitCode(client, inputStream);
-    assertEquals(-1, exitCode);
+    assertThat(exitCode).isEqualTo(-1);
   }
 
   @Test
@@ -280,20 +280,20 @@ public class ExecTest {
     InputStream inputStream =
         new ByteArrayInputStream(OUTPUT_EXIT_BAD_INT.getBytes(StandardCharsets.UTF_8));
     int exitCode = Exec.parseExitCode(client, inputStream);
-    assertEquals(-1, exitCode);
+    assertThat(exitCode).isEqualTo(-1);
   }
 
   @Test
   public void testExecutionBuilderNull() {
     Exec exec = new Exec(null);
-    assertThrows(NullPointerException.class, () -> {
+    assertThatThrownBy(() -> {
       exec.newExecutionBuilder(null, null, null);
-    });
-    assertThrows(NullPointerException.class, () -> {
+    }).isInstanceOf(NullPointerException.class);
+    assertThatThrownBy(() -> {
       exec.newExecutionBuilder("", null, null);
-    });
-    assertThrows(NullPointerException.class, () -> {
+    }).isInstanceOf(NullPointerException.class);
+    assertThatThrownBy(() -> {
       exec.newExecutionBuilder("", "", null);
-    });
+    }).isInstanceOf(NullPointerException.class);
   }
 }

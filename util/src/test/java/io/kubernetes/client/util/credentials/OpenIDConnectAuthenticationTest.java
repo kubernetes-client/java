@@ -17,10 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.matching;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
@@ -33,7 +30,6 @@ import java.security.KeyStore;
 import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.cert.X509Certificate;
-import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
@@ -62,7 +58,7 @@ public class OpenIDConnectAuthenticationTest {
 
   @Test
   public void testTokenExpiredNotExpired()
-      throws InvalidKeySpecException, NoSuchAlgorithmException, Exception {
+      throws NoSuchAlgorithmException, Exception {
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
 
@@ -78,12 +74,12 @@ public class OpenIDConnectAuthenticationTest {
 
     config.put(OpenIDConnectAuthenticator.OIDC_ID_TOKEN, jwt);
 
-    assertFalse(oidcAuth.isExpired(config));
+    assertThat(oidcAuth.isExpired(config)).isFalse();
   }
 
   @Test
   public void testTokenExpiredHasExpired()
-      throws InvalidKeySpecException, NoSuchAlgorithmException, Exception {
+      throws NoSuchAlgorithmException, Exception {
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
 
@@ -99,21 +95,20 @@ public class OpenIDConnectAuthenticationTest {
 
     config.put(OpenIDConnectAuthenticator.OIDC_ID_TOKEN, jwt);
 
-    assertTrue(oidcAuth.isExpired(config));
+    assertThat(oidcAuth.isExpired(config)).isTrue();
   }
 
-  public void testTokenExpiredNull()
-      throws InvalidKeySpecException, NoSuchAlgorithmException, Exception {
+  public void testTokenExpiredNull() {
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
 
     // no id_token
 
-    assertTrue(oidcAuth.isExpired(config));
+    assertThat(oidcAuth.isExpired(config)).isTrue();
   }
 
   @Test
-  public void testLoadToken() throws InvalidKeySpecException, NoSuchAlgorithmException, Exception {
+  public void testLoadToken() throws NoSuchAlgorithmException, Exception {
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
 
@@ -129,16 +124,15 @@ public class OpenIDConnectAuthenticationTest {
 
     config.put(OpenIDConnectAuthenticator.OIDC_ID_TOKEN, jwt);
 
-    assertEquals(oidcAuth.getToken(config), jwt);
+    assertThat(jwt).isEqualTo(oidcAuth.getToken(config));
   }
 
   @Test
-  public void testLoadNullToken()
-      throws InvalidKeySpecException, NoSuchAlgorithmException, Exception {
+  public void testLoadNullToken() {
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
 
-    assertNull(oidcAuth.getToken(config));
+    assertThat(oidcAuth.getToken(config)).isNull();
   }
 
   @Test
@@ -196,8 +190,8 @@ public class OpenIDConnectAuthenticationTest {
 
     Map<String, Object> respMap = oidcAuth.refresh(config);
 
-    assertEquals(refreshedJWT, respMap.get(OpenIDConnectAuthenticator.OIDC_ID_TOKEN));
-    assertEquals("new_refresh_token", respMap.get(OpenIDConnectAuthenticator.OIDC_REFRESH_TOKEN));
+    assertThat(respMap).containsEntry(OpenIDConnectAuthenticator.OIDC_ID_TOKEN, refreshedJWT);
+    assertThat(respMap).containsEntry(OpenIDConnectAuthenticator.OIDC_REFRESH_TOKEN, "new_refresh_token");
   }
 
   @Test(expected = RuntimeException.class)
