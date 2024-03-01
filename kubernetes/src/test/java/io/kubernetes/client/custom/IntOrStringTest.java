@@ -17,6 +17,8 @@ import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.*;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
 public class IntOrStringTest {
@@ -114,5 +116,15 @@ public class IntOrStringTest {
     IntOrString intOrString2 = new IntOrString("13");
 
     assertThat(intOrString1, not(equalTo(intOrString2)));
+  }
+
+  @Test
+  public void jacksonSerializer_writeValueAsString() throws JsonProcessingException {
+    IntOrString intOrString1 = new IntOrString(17);
+    IntOrString intOrString2 = new IntOrString("17");
+
+    ObjectMapper mapper = new ObjectMapper();
+    mapper.writeValueAsString(intOrString1);
+    mapper.writeValueAsString(intOrString2);
   }
 }
