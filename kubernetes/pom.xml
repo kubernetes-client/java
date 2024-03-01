@@ -114,6 +114,9 @@
           </execution>
         </executions>
         <configuration>
+          <!-- TODO: workaround until openapi stops generating a dependency on
+               the un-exported module: com.google.gson.internal.bind.util -->
+          <legacyMode>true</legacyMode>
           <tags>
             <tag>
               <name>http.response.details</name>

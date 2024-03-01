@@ -163,7 +163,7 @@ public class EventCorrelatorTest {
       event.setFirstTimestamp(now);
       event.setLastTimestamp(now);
       Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(event);
-      if (!result.isPresent()) {
+      if (result.isEmpty()) {
         correlator.updateState(event);
       }
     }
@@ -173,7 +173,7 @@ public class EventCorrelatorTest {
     newEvent.setLastTimestamp(now);
     Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(newEvent);
 
-    assertEquals(expectedSkip, !result.isPresent());
+    assertEquals(expectedSkip, result.isEmpty());
     if (!expectedSkip) {
       CoreV1Event correlatedEvent = result.get().getLeft();
       correlatedEvent.setMetadata(new V1ObjectMetaBuilder().withName("").withNamespace("").build());
