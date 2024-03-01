@@ -12,6 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
+import com.google.protobuf.CodedOutputStream;
 import com.google.protobuf.Message;
 import com.google.protobuf.Message.Builder;
 import io.kubernetes.client.openapi.ApiClient;
@@ -22,17 +23,15 @@ import io.kubernetes.client.proto.Meta.DeleteOptions;
 import io.kubernetes.client.proto.Meta.Status;
 import io.kubernetes.client.proto.Runtime.TypeMeta;
 import io.kubernetes.client.proto.Runtime.Unknown;
-import io.kubernetes.client.util.Streams;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import org.apache.commons.codec.binary.Hex;
+import okio.BufferedSource;
+import okio.ByteString;
 
 public class ProtoClient {
   /**
@@ -62,9 +61,10 @@ public class ProtoClient {
   // Magic number for the beginning of proto encoded.
   // https://github.com/kubernetes/apimachinery/blob/release-1.13/pkg/runtime/serializer/protobuf/protobuf.go#L44
   private static final byte[] MAGIC = new byte[] {0x6b, 0x38, 0x73, 0x00};
+  private static final ByteString MAGIC_BYTESTRING = ByteString.of(MAGIC);
   private static final String MEDIA_TYPE = "application/vnd.kubernetes.protobuf";
 
-  /** Simple Protocol Budder API client constructor, uses default configuration */
+  /** Simple Protocol Buffers API client constructor, uses default configuration */
   public ProtoClient() {
     this(Configuration.getDefaultApiClient());
   }
@@ -280,17 +280,19 @@ public class ProtoClient {
 
   private <T extends Message> ObjectOrStatus<T> getObjectOrStatusFromServer(
       Builder builder, Request request) throws IOException, ApiException {
-    Response resp = apiClient.getHttpClient().newCall(request).execute();
-    Unknown u = parse(resp.body().byteStream());
-    resp.body().close();
+    Unknown u;
+    try (Response resp = apiClient.getHttpClient().newCall(request).execute()) {
+      // Note: closing the response, closes the body and the underlying source.
+      u = parse(resp.body().source());
+    }
 
     if (u.getTypeMeta().getApiVersion().equals("v1")
         && u.getTypeMeta().getKind().equals("Status")) {
       Status status = Status.newBuilder().mergeFrom(u.getRaw()).build();
-      return new ObjectOrStatus(null, status);
+      return new ObjectOrStatus<>(null, status);
     }
 
-    return new ObjectOrStatus((T) builder.mergeFrom(u.getRaw()).build(), null);
+    return new ObjectOrStatus<>((T) builder.mergeFrom(u.getRaw()).build(), null);
   }
 
   // This isn't really documented anywhere except the code, but
@@ -301,7 +303,7 @@ public class ProtoClient {
   //     encoding of the actual object.
   // TODO: Document this somewhere proper.
 
-  private byte[] encode(Message msg, String apiVersion, String kind) {
+  private static byte[] encode(Message msg, String apiVersion, String kind) throws IOException {
     // It is unfortunate that we have to include apiVersion and kind,
     // since we should be able to extract it from the Message, but
     // for now at least, those fields are missing from the proto-buffer.
@@ -310,22 +312,27 @@ public class ProtoClient {
             .setTypeMeta(TypeMeta.newBuilder().setApiVersion(apiVersion).setKind(kind))
             .setRaw(msg.toByteString())
             .build();
-    return concat(MAGIC, u.toByteArray());
-  }
 
-  private static byte[] concat(byte[] one, byte[] two) {
-    byte[] result = new byte[one.length + two.length];
-    System.arraycopy(one, 0, result, 0, one.length);
-    System.arraycopy(two, 0, result, one.length, two.length);
+    // Encode directly to a sized array, to eliminate buffering
+    int serializedSize = u.getSerializedSize();
+    byte[] result = new byte[MAGIC.length + u.getSerializedSize()];
+    System.arraycopy(MAGIC, 0, result, 0, MAGIC.length);
+    u.writeTo(CodedOutputStream.newInstance(result, MAGIC.length, serializedSize));
     return result;
   }
 
-  private Unknown parse(InputStream stream) throws ApiException, IOException {
-    byte[] magic = new byte[4];
-    Streams.readFully(stream, magic);
-    if (!Arrays.equals(magic, MAGIC)) {
-      throw new ApiException("Unexpected magic number: " + Hex.encodeHexString(magic));
+  private static Unknown parse(BufferedSource responseBody) throws ApiException, IOException {
+    if (!responseBody.request(MAGIC.length)) {
+      throw new ApiException("Truncated reading magic number");
     }
-    return Unknown.parseFrom(stream);
+
+    // Check the magic without allocating a byte array
+    if (responseBody.rangeEquals(0, MAGIC_BYTESTRING)) {
+      responseBody.skip(MAGIC.length);
+    } else {
+      ByteString badMagic = responseBody.readByteString(MAGIC.length);
+      throw new ApiException("Unexpected magic number: " + badMagic.hex());
+    }
+    return Unknown.parseFrom(responseBody.inputStream());
   }
 }
