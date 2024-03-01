@@ -313,9 +313,7 @@ public class ProtoClient {
             .setRaw(msg.toByteString())
             .build();
 
-    // Encode directly to an array, to reduce buffering. CodedOutputStream will
-    // still allocate arrays internally, but this is the best we can do without
-    // something that quickly looks like square/wire.
+    // Encode directly to a sized array, to eliminate buffering
     int serializedSize = u.getSerializedSize();
     byte[] result = new byte[MAGIC.length + u.getSerializedSize()];
     System.arraycopy(MAGIC, 0, result, 0, MAGIC.length);
