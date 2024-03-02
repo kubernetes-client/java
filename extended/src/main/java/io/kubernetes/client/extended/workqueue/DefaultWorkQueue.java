@@ -104,4 +104,9 @@ public class DefaultWorkQueue<T> implements WorkQueue<T> {
   public synchronized boolean isShuttingDown() {
     return shuttingDown;
   }
+
+  public synchronized Set<T> getDirtySet() {
+    return new HashSet<>(this.dirty);
+  }
+
 }

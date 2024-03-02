@@ -21,6 +21,8 @@ import io.prometheus.client.CollectorRegistry;
 import io.prometheus.client.Counter;
 import io.prometheus.client.Gauge;
 import java.time.Duration;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
@@ -58,6 +60,7 @@ public class DefaultController implements Controller {
 
   private Duration readyTimeout;
   private Duration readyCheckInternal;
+  private final Runnable initialCatchUpCompleteHandler;
 
   /**
    * Instantiates a new Default controller.
@@ -65,14 +68,17 @@ public class DefaultController implements Controller {
    * @param name the name
    * @param reconciler the reconciler
    * @param workQueue the work queue
+   * @param initialCatchUpCompleteHandler the handler
    * @param readyFuncs the ready funcs
    */
   public DefaultController(
       String name,
       Reconciler reconciler,
       RateLimitingQueue<Request> workQueue,
-      Supplier<Boolean>... readyFuncs) {
-    this(name, reconciler, workQueue, null, readyFuncs);
+      Runnable initialCatchUpCompleteHandler,
+      Supplier<Boolean>... readyFuncs
+  ) {
+    this(name, reconciler, workQueue, null, initialCatchUpCompleteHandler, readyFuncs);
   }
 
   /**
@@ -89,13 +95,16 @@ public class DefaultController implements Controller {
       Reconciler reconciler,
       RateLimitingQueue<Request> workQueue,
       CollectorRegistry collectorRegistry,
-      Supplier<Boolean>... readyFuncs) {
+      Runnable initialCatchUpCompleteHandler,
+      Supplier<Boolean>... readyFuncs
+      ) {
     this.name = name;
     this.reconciler = reconciler;
     this.workQueue = workQueue;
     this.readyFuncs = readyFuncs;
     this.readyTimeout = Duration.ofSeconds(30);
     this.readyCheckInternal = Duration.ofSeconds(1);
+    this.initialCatchUpCompleteHandler = initialCatchUpCompleteHandler;
   }
 
   // preFlightCheck checks if the controller is ready for working.
@@ -143,6 +152,13 @@ public class DefaultController implements Controller {
       return;
     }
 
+    // fixes initial request set.
+    Set<Request> initialRequests = new HashSet<>(workQueue.getItemsNeedToBeProcessed());
+    if (initialRequests.isEmpty() && initialCatchUpCompleteHandler != null) {
+      // If there is nothing in the work queue, it has already caught up, so the handler will be triggered immediately
+      initialCatchUpCompleteHandler.run();
+    }
+
     // spawns worker threads for the controller.
     CountDownLatch latch = new CountDownLatch(workerCount);
     for (int i = 0; i < this.workerCount; i++) {
@@ -151,7 +167,7 @@ public class DefaultController implements Controller {
           () -> {
             log.debug("Starting controller {} worker {}..", this.name, workerIndex);
             try {
-              this.worker();
+              this.worker(initialRequests);
             } catch (Throwable t) {
               log.error("Unexpected controller loop abortion", t);
             } finally {
@@ -180,7 +196,7 @@ public class DefaultController implements Controller {
     workerThreadPool.shutdown();
   }
 
-  private void worker() {
+  private void worker(Set<Request> initialRequests) {
     // taking tasks from work-queue in a loop
     while (!workQueue.isShuttingDown()) {
       gaugeWorkQueueLength.labels(name).set(workQueue.length());
@@ -231,6 +247,23 @@ public class DefaultController implements Controller {
         }
       } finally {
         workQueue.done(request);
+
+        // Removes a request from the set as processed only if it successfully reconciles
+        if (!result.isRequeue()) {
+          synchronized (initialRequests) {
+            if (initialRequests.remove(request) &&
+                initialRequests.isEmpty() &&
+                initialCatchUpCompleteHandler != null) {
+              try {
+                // Triggers the handler only once when all requests queued at the start have been successfully processed
+                initialCatchUpCompleteHandler.run();
+              } catch (Throwable t) {
+                log.error("initialCatchUpCompleteHandler failed unexpectedly", t);
+              }
+            }
+          }
+        }
+
         gaugeWorkQueueLength.labels(name).set(workQueue.length());
         log.debug("Controller {} finished reconciling {}..", this.name, request);
       }

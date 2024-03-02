@@ -12,6 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue;
 
+import java.util.Set;
+
 /** RateLimitingQueue defines a queue that rate limits items being added to the queue. */
 public interface RateLimitingQueue<T> extends DelayingQueue<T> {
 
@@ -38,4 +40,10 @@ public interface RateLimitingQueue<T> extends DelayingQueue<T> {
    * @return times the item was requeued
    */
   int numRequeues(T item);
+
+  /**
+   * getItemsNeedToBeProcessed returns the set of Items that need to be processed.
+   * @return items that need to be processed
+   */
+  Set<T> getItemsNeedToBeProcessed();
 }

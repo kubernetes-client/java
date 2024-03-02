@@ -42,6 +42,7 @@ public class DefaultControllerBuilder {
   private SharedInformerFactory informerFactory;
   private List<Supplier<Boolean>> readyFuncs;
   private Reconciler reconciler;
+  private Runnable initialCatchUpCompleteHandler;
 
   DefaultControllerBuilder() {
     this.workerCount = Constants.DEFAULT_WORKER_COUNT;
@@ -147,6 +148,16 @@ public class DefaultControllerBuilder {
   }
 
   /**
+   * Set a handler that will be triggered only once when all requests queued at the start have been successfully processed.
+   * @param initialCatchUpCompleteHandler the handler
+   * @return the controller builder
+   */
+  public DefaultControllerBuilder withInitialCatchUpCompleteHandler(Runnable initialCatchUpCompleteHandler) {
+    this.initialCatchUpCompleteHandler = initialCatchUpCompleteHandler;
+    return this;
+  }
+
+  /**
    * Build the controller.
    *
    * @return the controller
@@ -162,6 +173,7 @@ public class DefaultControllerBuilder {
             this.controllerName,
             this.reconciler,
             this.workQueue,
+            this.initialCatchUpCompleteHandler,
             this.readyFuncs.stream().toArray(Supplier[]::new));
 
     if (this.readyTimeout != null) {
