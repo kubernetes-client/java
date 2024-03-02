@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static uk.org.webcompere.systemstubs.SystemStubs.withEnvironmentVariable;
 
 import io.kubernetes.client.openapi.ApiClient;
@@ -29,21 +29,17 @@ public class ConfigTest {
   @Rule public TemporaryFolder folder = new TemporaryFolder();
 
   @Test
-  public void testDefaultClientNothingPresent() {
-    try {
-      String path =
-          withEnvironmentVariable("HOME", "/non-existent")
-              .and("HOMEDRIVE", null)
-              .and("USERPROFILE", null)
-              .execute(
-                  () -> {
-                    ApiClient client = Config.defaultClient();
-                    return client.getBasePath();
-                  });
-      assertEquals("http://localhost:8080", path);
-    } catch (Exception ex) {
-      fail("Unexpected exception: " + ex);
-    }
+  public void testDefaultClientNothingPresent() throws Exception {
+    String path =
+        withEnvironmentVariable("HOME", "/non-existent")
+            .and("HOMEDRIVE", null)
+            .and("USERPROFILE", null)
+            .execute(
+                () -> {
+                  ApiClient client = Config.defaultClient();
+                  return client.getBasePath();
+                });
+    assertThat(path).isEqualTo("http://localhost:8080");
   }
 
   public static String HOME_CONFIG =
@@ -94,56 +90,41 @@ public class ConfigTest {
   }
 
   @Test
-  public void testDefaultClientHomeDir() {
-    try {
-      String path =
-          withEnvironmentVariable("HOME", dir.getCanonicalPath())
-              .execute(
-                  () -> {
-                    ApiClient client = Config.defaultClient();
-                    return client.getBasePath();
-                  });
-      assertEquals("http://home.dir.com", path);
-    } catch (Exception ex) {
-      ex.printStackTrace();
-      fail("Unexpected exception: " + ex);
-    }
+  public void testDefaultClientHomeDir() throws Exception {
+    String path =
+        withEnvironmentVariable("HOME", dir.getCanonicalPath())
+            .execute(
+                () -> {
+                  ApiClient client = Config.defaultClient();
+                  return client.getBasePath();
+                });
+    assertThat(path).isEqualTo("http://home.dir.com");
   }
 
   @Test
-  public void testDefaultClientKubeConfig() {
-    try {
-      String path =
-          withEnvironmentVariable("KUBECONFIG", configFile.getCanonicalPath())
-              .execute(
-                  () -> {
-                    ApiClient client = Config.defaultClient();
-                    return client.getBasePath();
-                  });
-      assertEquals("http://kubeconfig.dir.com", path);
-    } catch (Exception ex) {
-      ex.printStackTrace();
-      fail("Unexpected exception: " + ex);
-    }
+  public void testDefaultClientKubeConfig() throws Exception {
+    String path =
+        withEnvironmentVariable("KUBECONFIG", configFile.getCanonicalPath())
+            .execute(
+                () -> {
+                  ApiClient client = Config.defaultClient();
+                  return client.getBasePath();
+                });
+    assertThat(path).isEqualTo("http://kubeconfig.dir.com");
   }
 
   @Test
-  public void testDefaultClientPrecedence() {
-    try {
-      String path =
-          withEnvironmentVariable("HOME", dir.getCanonicalPath())
-              .and("KUBECONFIG", configFile.getCanonicalPath())
-              .execute(
-                  () -> {
-                    ApiClient client = Config.defaultClient();
-                    return client.getBasePath();
-                  });
+  public void testDefaultClientPrecedence() throws Exception {
+    String path =
+        withEnvironmentVariable("HOME", dir.getCanonicalPath())
+            .and("KUBECONFIG", configFile.getCanonicalPath())
+            .execute(
+                () -> {
+                  ApiClient client = Config.defaultClient();
+                  return client.getBasePath();
+                });
 
-      // $KUBECONFIG should take precedence over $HOME/.kube/config
-      assertEquals("http://kubeconfig.dir.com", path);
-    } catch (Exception ex) {
-      ex.printStackTrace();
-      fail("Unexpected exception: " + ex);
-    }
+    // $KUBECONFIG should take precedence over $HOME/.kube/config
+    assertThat(path).isEqualTo("http://kubeconfig.dir.com");
   }
 }

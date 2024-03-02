@@ -13,8 +13,7 @@ limitations under the License.
 package io.kubernetes.client.spring.extended.manifests;
 
 import static org.awaitility.Awaitility.await;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import io.kubernetes.client.spring.extended.manifests.annotation.FromConfigMap;
@@ -80,15 +79,15 @@ public class KubernetesFromConfigMapTest {
 
   @Test
   public void testReadOnce() {
-    assertNotNull(myBean.staticData);
-    assertEquals("bar", myBean.staticData.get("foo"));
+    assertThat(myBean.staticData).isNotNull();
+    assertThat(myBean.staticData).containsEntry("foo", "bar");
   }
 
   @Test
-  public void testValueUpdate() throws InterruptedException {
-    assertEquals(Duration.ofSeconds(1), manifestsProperties.getRefreshInterval());
-    assertNotNull(myBean.dynamicData);
-    assertEquals("bar1", myBean.dynamicData.get("foo"));
+  public void testValueUpdate() {
+    assertThat(manifestsProperties.getRefreshInterval()).isEqualTo(Duration.ofSeconds(1));
+    assertThat(myBean.dynamicData).isNotNull();
+    assertThat(myBean.dynamicData).containsEntry("foo", "bar1");
     mockAtomicConfigMapGetter.configMapAtomicReference.set(
         new V1ConfigMap().putDataItem("foo", "bar2"));
     await()
@@ -97,10 +96,10 @@ public class KubernetesFromConfigMapTest {
   }
 
   @Test
-  public void testKeyUpdate() throws InterruptedException {
-    assertEquals(Duration.ofSeconds(1), manifestsProperties.getRefreshInterval());
-    assertNotNull(myBean.dynamicData);
-    assertEquals("bar1", myBean.dynamicData.get("foo"));
+  public void testKeyUpdate() {
+    assertThat(manifestsProperties.getRefreshInterval()).isEqualTo(Duration.ofSeconds(1));
+    assertThat(myBean.dynamicData).isNotNull();
+    assertThat(myBean.dynamicData).containsEntry("foo", "bar1");
     mockAtomicConfigMapGetter.configMapAtomicReference.set(
         new V1ConfigMap().putDataItem("foo1", "bar"));
     await()

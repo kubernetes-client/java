@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue;
 
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.extended.workqueue.ratelimiter.RateLimiter;
 import java.time.Duration;
@@ -57,8 +57,6 @@ public class DefaultRateLimitQueueTest {
     long elapsed = t2-t1;
     long elapsedMillis = Math.round((float) elapsed / 1000_000f);
     long backoffMillis = Math.round((float) MockRateLimiter.mockConstantBackoff.toNanos() / 1000_000f);
-    assertTrue(
-        "Unexpected time: " + elapsedMillis + " vs " + backoffMillis,
-            elapsedMillis >= backoffMillis);
+    assertThat(elapsedMillis).isGreaterThanOrEqualTo(backoffMillis);
   }
 }

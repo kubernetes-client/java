@@ -13,8 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util.credentials;
 
 import static io.kubernetes.client.util.TestUtils.getApiKeyAuthFromClient;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.openapi.ApiClient;
 import java.nio.charset.StandardCharsets;
@@ -32,9 +31,8 @@ public class UsernamePasswordAuthenticationTest {
   public void testUsernamePasswordProvided() {
     final ApiClient client = new ApiClient();
     new UsernamePasswordAuthentication(USERNAME, PASSWORD).provide(client);
-    assertThat(getApiKeyAuthFromClient(client).getApiKeyPrefix(), is("Basic"));
-    assertThat(
-        getApiKeyAuthFromClient(client).getApiKey(),
-        is(ByteString.of(USERNAME_PASSWORD_BYTES).base64()));
+    assertThat(getApiKeyAuthFromClient(client).getApiKeyPrefix()).isEqualTo("Basic");
+    assertThat(getApiKeyAuthFromClient(client).getApiKey())
+        .isEqualTo(ByteString.of(USERNAME_PASSWORD_BYTES).base64());
   }
 }

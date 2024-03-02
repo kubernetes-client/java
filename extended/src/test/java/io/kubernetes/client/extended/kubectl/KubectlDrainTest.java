@@ -22,7 +22,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.patch;
 import static com.github.tomakehurst.wiremock.client.WireMock.patchRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
@@ -50,14 +50,14 @@ public class KubectlDrainTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(8384);
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     ModelMapper.addModelMap("", "v1", "Pod", "pods", true, V1Pod.class);
     ModelMapper.addModelMap("", "v1", "Node", "nodes", false, V1Node.class);
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8384).build();
   }
 
   @Test
-  public void testDrainNodeNoPods() throws KubectlException, IOException {
+  public void testDrainNodeNoPods() throws KubectlException {
     // /api/v1/pods?fieldSelector=spec.nodeName%3Dkube3
     wireMockRule.stubFor(
         patch(urlPathEqualTo("/api/v1/nodes/node1"))
@@ -70,7 +70,7 @@ public class KubectlDrainTest {
     V1Node node = new KubectlDrain().skipDiscovery().apiClient(apiClient).name("node1").execute();
     wireMockRule.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/nodes/node1")));
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
-    assertEquals("node1", node.getMetadata().getName());
+    assertThat(node.getMetadata().getName()).isEqualTo("node1");
   }
 
   @Test
@@ -102,7 +102,7 @@ public class KubectlDrainTest {
         deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/mssql/pods/mssql-75b8b44f6b-znftp")));
     wireMockRule.verify(
         1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/mssql/pods/mssql-75b8b44f6b-znftp")));
-    assertEquals("node1", node.getMetadata().getName());
-    assertEquals(0, findUnmatchedRequests().size());
+    assertThat(node.getMetadata().getName()).isEqualTo("node1");
+    assertThat(findUnmatchedRequests()).isEmpty();
   }
 }

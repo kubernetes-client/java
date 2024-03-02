@@ -19,10 +19,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static io.kubernetes.client.ExecTest.makeStream;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.PortForward.PortForwardResult;
@@ -51,7 +49,7 @@ public class PortForwardTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
 
     namespace = "default";
@@ -59,7 +57,7 @@ public class PortForwardTest {
   }
 
   @Test
-  public void testUrl() throws IOException, ApiException, InterruptedException {
+  public void testUrl() throws IOException, ApiException {
     PortForward forward = new PortForward(client);
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));
@@ -75,14 +73,13 @@ public class PortForwardTest {
     int portNumber = 8080;
     List<Integer> ports = new ArrayList<>();
     ports.add(portNumber);
-    assertThrows(
-        ApiException.class,
+    assertThatThrownBy(
         () -> {
           InputStream inputStream = forward.forward(pod, ports).getInputStream(portNumber);
           // block until the connection is established
           inputStream.read();
           inputStream.close();
-        });
+        }).isInstanceOf(ApiException.class);
 
     wireMockRule.verify(
         getRequestedFor(
@@ -130,28 +127,28 @@ public class PortForwardTest {
     }
 
     InputStream is = result.getInputStream(80);
-    assertNotNull(is);
+    assertThat(is).isNotNull();
 
     InputStream is2 = result.getInputStream(800);
-    assertNotNull(is2);
+    assertThat(is2).isNotNull();
 
     byte[] bytes = new byte[msgData.length()];
     for (int i = 0; i < msgData.length(); i++) {
       bytes[i] = (byte) is.read();
     }
 
-    assertEquals(msgData, new String(bytes, StandardCharsets.UTF_8));
+    assertThat(new String(bytes, StandardCharsets.UTF_8)).isEqualTo(msgData);
 
     bytes = new byte[msgData2.length()];
     for (int i = 0; i < msgData2.length(); i++) {
       bytes[i] = (byte) is2.read();
     }
 
-    assertEquals(msgData2, new String(bytes, StandardCharsets.UTF_8));
+    assertThat(new String(bytes, StandardCharsets.UTF_8)).isEqualTo(msgData2);
 
-    assertEquals(null, result.getInputStream(8080));
-    assertEquals(null, result.getErrorStream(8080));
-    assertEquals(null, result.getOutboundStream(8080));
+    assertThat(result.getInputStream(8080)).isEqualTo(null);
+    assertThat(result.getErrorStream(8080)).isEqualTo(null);
+    assertThat(result.getOutboundStream(8080)).isEqualTo(null);
   }
 
   private Exception thrownException;
@@ -189,7 +186,6 @@ public class PortForwardTest {
       block.wait();
     }
 
-    assertNotNull(thrownException);
-    assertTrue(thrownException instanceof IOException);
+    assertThat(thrownException).isInstanceOf(IOException.class);
   }
 }

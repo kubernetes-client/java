@@ -12,13 +12,12 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.Resources;
 import java.io.IOException;
 import java.net.URL;
 import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.spec.InvalidKeySpecException;
 import org.apache.commons.io.IOUtils;
@@ -43,30 +42,30 @@ public class SSLUtilsTest {
   @Test
   public void testLoadKeyRsaPkcs8() throws IOException, GeneralSecurityException {
     final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_RSA_PKCS8);
-    assertEquals(RSA_ALGORITHM, privateKey.getAlgorithm());
+    assertThat(privateKey.getAlgorithm()).isEqualTo(RSA_ALGORITHM);
   }
 
   @Test
   public void testLoadKeyRsaPkcs1() throws IOException, GeneralSecurityException {
     final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_RSA_PKCS1);
-    assertEquals(RSA_ALGORITHM, privateKey.getAlgorithm());
+    assertThat(privateKey.getAlgorithm()).isEqualTo(RSA_ALGORITHM);
   }
 
   @Test
   public void testLoadKeyEcdsaPkcs7() throws IOException, GeneralSecurityException {
     final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_ECDSA_PKCS7);
-    assertEquals(ECDSA_ALGORITHM, privateKey.getAlgorithm());
+    assertThat(privateKey.getAlgorithm()).isEqualTo(ECDSA_ALGORITHM);
   }
 
   @Test
   public void testLoadKeyEcdsaPkcs8() throws IOException, GeneralSecurityException {
     final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_ECDSA_PKCS8);
-    assertEquals(ECDSA_ALGORITHM, privateKey.getAlgorithm());
+    assertThat(privateKey.getAlgorithm()).isEqualTo(ECDSA_ALGORITHM);
   }
 
   @Test(expected = InvalidKeySpecException.class)
   public void testLoadKeyCertificateNotSupported()
-      throws IOException, InvalidKeySpecException, NoSuchAlgorithmException {
+      throws IOException, InvalidKeySpecException {
     final byte[] resourceBytes = getResourceBytes(CLIENT_CERT);
     SSLUtils.loadKey(resourceBytes);
   }
@@ -79,7 +78,7 @@ public class SSLUtilsTest {
     byte[] dumpedKey = SSLUtils.dumpKey(privateKey);
     final PrivateKey reloadedPrivateKey = SSLUtils.loadKey(dumpedKey);
 
-    assertEquals(privateKey, reloadedPrivateKey);
+    assertThat(reloadedPrivateKey).isEqualTo(privateKey);
 
     return privateKey;
   }

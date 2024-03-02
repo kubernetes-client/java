@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util.labels;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -26,7 +26,7 @@ public class LabelsTest {
   public void testAddLabels() {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta());
     Labels.addLabels(pod, "foo", "bar");
-    assertEquals(pod.getMetadata().getLabels().get("foo"), "bar");
+    assertThat("bar").isEqualTo(pod.getMetadata().getLabels().get("foo"));
   }
 
   @Test
@@ -36,7 +36,7 @@ public class LabelsTest {
     newLabels.put("foo1", "bar1");
     newLabels.put("foo2", "bar2");
     Labels.addLabels(pod, newLabels);
-    assertEquals(pod.getMetadata().getLabels().get("foo1"), "bar1");
-    assertEquals(pod.getMetadata().getLabels().get("foo2"), "bar2");
+    assertThat("bar1").isEqualTo(pod.getMetadata().getLabels().get("foo1"));
+    assertThat("bar2").isEqualTo(pod.getMetadata().getLabels().get("foo2"));
   }
 }

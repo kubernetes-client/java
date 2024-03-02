@@ -13,8 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util.credentials;
 
 import static io.kubernetes.client.util.TestUtils.getApiKeyAuthFromClient;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.openapi.ApiClient;
 import org.junit.Test;
@@ -25,8 +24,8 @@ public class AccessTokenAuthenticationTest {
   public void testTokenProvided() {
     final ApiClient client = new ApiClient();
     new AccessTokenAuthentication("token").provide(client);
-    assertThat(getApiKeyAuthFromClient(client).getApiKeyPrefix(), is("Bearer"));
-    assertThat(getApiKeyAuthFromClient(client).getApiKey(), is("token"));
+    assertThat(getApiKeyAuthFromClient(client).getApiKeyPrefix()).isEqualTo("Bearer");
+    assertThat(getApiKeyAuthFromClient(client).getApiKey()).isEqualTo("token");
   }
 
   @Test(expected = NullPointerException.class)

@@ -12,9 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.event;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.fail;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.extended.event.legacy.EventAggregator;
@@ -173,7 +171,7 @@ public class EventCorrelatorTest {
     newEvent.setLastTimestamp(now);
     Optional<MutablePair<CoreV1Event, V1Patch>> result = correlator.correlate(newEvent);
 
-    assertEquals(expectedSkip, result.isEmpty());
+    assertThat(result.isEmpty()).isEqualTo(expectedSkip);
     if (!expectedSkip) {
       CoreV1Event correlatedEvent = result.get().getLeft();
       correlatedEvent.setMetadata(new V1ObjectMetaBuilder().withName("").withNamespace("").build());
@@ -183,26 +181,26 @@ public class EventCorrelatorTest {
 
   private void validateEvent(CoreV1Event expectedEvent, CoreV1Event actualEvent) {
     CoreV1Event recvEvent = new CoreV1EventBuilder(actualEvent).build();
-    assertNotEquals(0, recvEvent.getFirstTimestamp().toInstant().toEpochMilli());
-    assertNotEquals(0, recvEvent.getLastTimestamp().toInstant().toEpochMilli());
+    assertThat(recvEvent.getFirstTimestamp().toInstant().toEpochMilli()).isNotEqualTo(0);
+    assertThat(recvEvent.getLastTimestamp().toInstant().toEpochMilli()).isNotEqualTo(0);
     if (actualEvent.getFirstTimestamp().equals(actualEvent.getLastTimestamp())) {
-      if (expectedEvent.getCount() > 1) {
-        fail("firstTimestamp and lastTimestamp must not be equal to indicate compression happen");
-      }
+      assertThat(expectedEvent.getCount())
+          .withFailMessage("firstTimestamp and lastTimestamp must not be equal to indicate compression happen")
+          .isLessThanOrEqualTo(1);
     } else {
-      if (expectedEvent.getCount() == 1) {
-        fail("firstTimestamp and lastTimestamp must be equal to indicate there's only one event");
-      }
+      assertThat(expectedEvent.getCount())
+          .withFailMessage("firstTimestamp and lastTimestamp must be equal to indicate there's only one event")
+          .isNotEqualTo(1);
     }
     // clear the timestamps
     recvEvent.setFirstTimestamp(expectedEvent.getFirstTimestamp());
     recvEvent.setLastTimestamp(expectedEvent.getLastTimestamp());
 
-    if (!recvEvent.getMetadata().getName().startsWith(expectedEvent.getMetadata().getName())) {
-      fail("prefix doesnt match");
-    }
+    assertThat(recvEvent.getMetadata().getName())
+        .withFailMessage("prefix doesnt match")
+        .startsWith(expectedEvent.getMetadata().getName());
 
-    assertEquals(expectedEvent, recvEvent);
+    assertThat(recvEvent).isEqualTo(expectedEvent);
   }
 
   private static CoreV1Event deepCopy(CoreV1Event event) {

@@ -12,9 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
+import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 public class GroupVersionKindTest {
@@ -28,7 +28,7 @@ public class GroupVersionKindTest {
 
   @Test
   public void testValidKind() {
-    Assertions.assertThatNoException()
+    assertThatNoException()
         .isThrownBy(() -> new GroupVersionKind("group", "version", "kind"));
   }
 }

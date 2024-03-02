@@ -48,7 +48,7 @@ public class CopyTest {
   @Rule public TemporaryFolder folder = new TemporaryFolder();
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
 
     namespace = "default";
@@ -56,7 +56,7 @@ public class CopyTest {
   }
 
   @Test
-  public void testUrl() throws IOException, ApiException, InterruptedException {
+  public void testUrl() throws IOException, ApiException {
     Copy copy = new Copy(client);
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));

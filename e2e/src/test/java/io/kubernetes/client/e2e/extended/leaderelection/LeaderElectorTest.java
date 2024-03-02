@@ -12,6 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.e2e.extended.leaderelection;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import io.kubernetes.client.extended.leaderelection.LeaderElectionConfig;
 import io.kubernetes.client.extended.leaderelection.LeaderElector;
 import io.kubernetes.client.extended.leaderelection.Lock;
@@ -34,7 +36,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -165,8 +166,8 @@ public class LeaderElectorTest {
 
     // wait till someone becomes leader
     startBeingLeader.await();
-    Assert.assertNotNull(leaderRef.get());
-    Assert.assertTrue(candidate1.equals(leaderRef.get()) || candidate2.equals(leaderRef.get()));
+    assertThat(leaderRef).doesNotHaveNullValue();
+    assertThat(candidate1.equals(leaderRef.get()) || candidate2.equals(leaderRef.get())).isTrue();
 
     // stop both LeaderElectors, in order .. non-leader, then leader so that
     // non-leader doesn't get to become leader
@@ -181,8 +182,8 @@ public class LeaderElectorTest {
     stopBeingLeader.await();
 
     // make sure that only one candidate became leader
-    Assert.assertEquals(1, startBeingLeaderCount.get());
-    Assert.assertEquals(1, stopBeingLeaderCount.get());
+    assertThat(startBeingLeaderCount).hasValue(1);
+    assertThat(stopBeingLeaderCount).hasValue(1);
   }
 
   @Test(timeout = 45000L)

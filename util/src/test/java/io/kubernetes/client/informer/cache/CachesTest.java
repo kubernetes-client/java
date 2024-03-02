@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -26,7 +26,7 @@ public class CachesTest {
     String testName = "test-name";
     String testNamespace = "test-namespace";
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(testName).namespace(testNamespace));
-    assertEquals(testNamespace + "/" + testName, Caches.metaNamespaceKeyFunc(pod));
+    assertThat(Caches.metaNamespaceKeyFunc(pod)).isEqualTo(testNamespace + "/" + testName);
   }
 
   @Test
@@ -35,6 +35,6 @@ public class CachesTest {
     String testNamespace = "test-namespace";
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(testName).namespace(testNamespace));
     List<String> indices = Caches.metaNamespaceIndexFunc(pod);
-    assertEquals(pod.getMetadata().getNamespace(), indices.get(0));
+    assertThat(indices).containsExactly(pod.getMetadata().getNamespace());
   }
 }

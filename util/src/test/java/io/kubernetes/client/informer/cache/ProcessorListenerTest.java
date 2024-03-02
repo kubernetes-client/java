@@ -12,8 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -38,21 +37,21 @@ public class ProcessorListenerTest {
 
               @Override
               public void onAdd(V1Pod obj) {
-                assertEquals(pod, obj);
+                assertThat(obj).isEqualTo(pod);
                 addNotificationReceived = true;
                 cLatch.countDown();
               }
 
               @Override
               public void onUpdate(V1Pod oldObj, V1Pod newObj) {
-                assertEquals(pod, newObj);
+                assertThat(newObj).isEqualTo(pod);
                 updateNotificationReceived = true;
                 cLatch.countDown();
               }
 
               @Override
               public void onDelete(V1Pod obj, boolean deletedFinalStateUnknown) {
-                assertEquals(pod, obj);
+                assertThat(obj).isEqualTo(pod);
                 deleteNotificationReceived = true;
                 cLatch.countDown();
               }
@@ -70,9 +69,9 @@ public class ProcessorListenerTest {
     // wait until consumption of notifications from queue
     cLatch.await();
 
-    assertTrue(addNotificationReceived);
-    assertTrue(updateNotificationReceived);
-    assertTrue(deleteNotificationReceived);
+    assertThat(addNotificationReceived).isTrue();
+    assertThat(updateNotificationReceived).isTrue();
+    assertThat(deleteNotificationReceived).isTrue();
   }
 
   @Test
@@ -87,7 +86,7 @@ public class ProcessorListenerTest {
             new ResourceEventHandler<V1Pod>() {
               @Override
               public void onAdd(V1Pod obj) {
-                assertEquals(pod, obj);
+                assertThat(obj).isEqualTo(pod);
                 count[0]++;
                 cLatch.countDown();
               }
@@ -110,6 +109,6 @@ public class ProcessorListenerTest {
 
     cLatch.await();
 
-    assertEquals(count[0], 2000);
+    assertThat(2000).isEqualTo(count[0]);
   }
 }

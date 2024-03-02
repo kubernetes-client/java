@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -94,17 +94,16 @@ public class CacheTest {
 
     String index = mockIndexFunc(this.obj).get(0);
     String key = mockKeyFunc(this.obj);
-    assertEquals(this.index, index);
+    assertThat(index).isEqualTo(this.index);
 
     List indexedObjectList = cache.byIndex(mockIndexName, index);
-    assertEquals(this.obj, indexedObjectList.get(0));
+    assertThat(indexedObjectList).containsExactly(this.obj);
 
     List indexedObjectlist2 = cache.index(mockIndexName, this.obj);
-    assertEquals(this.obj, indexedObjectlist2.get(0));
+    assertThat(indexedObjectlist2).containsExactly(this.obj);
 
     List<String> allExistingKeys = cache.listKeys();
-    assertEquals(1, allExistingKeys.size());
-    assertEquals(key, allExistingKeys.get(0));
+    assertThat(allExistingKeys).containsExactly(key);
   }
 
   @Test
@@ -120,8 +119,8 @@ public class CacheTest {
 
     V1Pod pod = ((V1Pod) this.obj);
     List indexedObjectList = cache.byIndex(mockIndexName, this.index);
-    assertEquals(0, indexedObjectList.size());
-    assertEquals(null, pod.getMetadata().getResourceVersion());
+    assertThat(indexedObjectList).isEmpty();
+    assertThat(pod.getMetadata().getResourceVersion()).isEqualTo(null);
 
     cache.add(this.obj);
 
@@ -130,8 +129,8 @@ public class CacheTest {
     pod.getMetadata().setResourceVersion(newClusterName);
     cache.update(this.obj);
 
-    assertEquals(1, cache.list().size());
-    assertEquals(newClusterName, pod.getMetadata().getResourceVersion());
+    assertThat(cache.list()).hasSize(1);
+    assertThat(pod.getMetadata().getResourceVersion()).isEqualTo(newClusterName);
   }
 
   @Test
@@ -151,10 +150,10 @@ public class CacheTest {
     podCache.add(testPod);
 
     List<V1Pod> namespaceIndexedPods = podCache.byIndex(Caches.NAMESPACE_INDEX, "ns");
-    assertEquals(1, namespaceIndexedPods.size());
+    assertThat(namespaceIndexedPods).hasSize(1);
 
     List<V1Pod> nodeNameIndexedPods = podCache.byIndex(testIndexFuncName, "node1");
-    assertEquals(1, nodeNameIndexedPods.size());
+    assertThat(nodeNameIndexedPods).hasSize(1);
   }
 
   @Test
@@ -181,9 +180,9 @@ public class CacheTest {
     podCache.add(testPod);
 
     List<V1Pod> namespaceIndexedPods = podCache.byIndex(Caches.NAMESPACE_INDEX, "ns");
-    assertEquals(1, namespaceIndexedPods.size());
+    assertThat(namespaceIndexedPods).hasSize(1);
 
     List<V1Pod> nodeNameIndexedPods = podCache.byIndex(nodeIndex, "node1");
-    assertEquals(1, nodeNameIndexedPods.size());
+    assertThat(nodeNameIndexedPods).hasSize(1);
   }
 }

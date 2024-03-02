@@ -17,13 +17,10 @@ import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.moreThan;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.core.Admin;
 import com.github.tomakehurst.wiremock.extension.Parameters;
@@ -47,7 +44,6 @@ import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.CallGeneratorParams;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.Watch;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.concurrent.CountDownLatch;
@@ -81,7 +77,7 @@ public class DefaultSharedIndexInformerWireMockTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort().extensions(new CountRequestAction()));
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
 
     namespace = "default";
@@ -176,8 +172,8 @@ public class DefaultSharedIndexInformerWireMockTest {
     getCount.acquire(1);
     watchCount.acquire(2);
 
-    assertEquals(true, foundExistingPod.get());
-    assertEquals(endRV, podInformer.lastSyncResourceVersion());
+    assertThat(foundExistingPod).isTrue();
+    assertThat(podInformer.lastSyncResourceVersion()).isEqualTo(endRV);
 
     verify(
         1,
@@ -310,10 +306,10 @@ public class DefaultSharedIndexInformerWireMockTest {
     } catch (IllegalStateException e) {
     }
 
-    assertTrue(foundExistingPod.get());
-    assertTrue(transformed.get());
-    assertFalse(setTransformAfterStarted.get());
-    assertEquals(endRV, podInformer.lastSyncResourceVersion());
+    assertThat(foundExistingPod).isTrue();
+    assertThat(transformed).isTrue();
+    assertThat(setTransformAfterStarted).isFalse();
+    assertThat(podInformer.lastSyncResourceVersion()).isEqualTo(endRV);
 
     verify(
         1,
@@ -419,8 +415,8 @@ public class DefaultSharedIndexInformerWireMockTest {
     watchCount.acquire(2);
 
     // cannot find the pod due to transform failure
-    assertFalse(foundExistingPod.get());
-    assertEquals(endRV, podInformer.lastSyncResourceVersion());
+    assertThat(foundExistingPod).isFalse();
+    assertThat(podInformer.lastSyncResourceVersion()).isEqualTo(endRV);
 
     verify(
         1,

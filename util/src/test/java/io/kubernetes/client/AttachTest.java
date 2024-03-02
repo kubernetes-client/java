@@ -41,7 +41,7 @@ public class AttachTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
 
     namespace = "default";
@@ -50,7 +50,7 @@ public class AttachTest {
   }
 
   @Test
-  public void testUrl() throws IOException, ApiException, InterruptedException {
+  public void testUrl() throws IOException, ApiException {
     Attach attach = new Attach(client);
 
     wireMockRule.stubFor(

@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
@@ -27,7 +27,7 @@ public class ListerTest {
 
     Lister<V1Pod> namespacedPodLister = new Lister<>(podCache, "default");
     List<V1Pod> emptyPodList = namespacedPodLister.list();
-    assertEquals(0, emptyPodList.size());
+    assertThat(emptyPodList).isEmpty();
 
     podCache.replace(
         Arrays.asList(
@@ -36,13 +36,13 @@ public class ListerTest {
             new V1Pod().metadata(new V1ObjectMeta().name("foo3").namespace("default"))),
         "0");
     List<V1Pod> namespacedPodList = namespacedPodLister.list();
-    assertEquals(3, namespacedPodList.size());
+    assertThat(namespacedPodList).hasSize(3);
 
     Lister<V1Pod> allNamespacedPodLister = new Lister<>(podCache);
     List<V1Pod> allPodList = allNamespacedPodLister.list();
-    assertEquals(3, allPodList.size());
+    assertThat(allPodList).hasSize(3);
 
     namespacedPodList = allNamespacedPodLister.namespace("default").list();
-    assertEquals(3, namespacedPodList.size());
+    assertThat(namespacedPodList).hasSize(3);
   }
 }

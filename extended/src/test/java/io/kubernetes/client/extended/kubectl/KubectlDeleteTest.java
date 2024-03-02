@@ -14,12 +14,10 @@ package io.kubernetes.client.extended.kubectl;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static org.junit.Assert.assertThrows;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.stubbing.Scenario;
-import io.kubernetes.client.extended.kubectl.Kubectl;
-import io.kubernetes.client.extended.kubectl.KubectlDelete;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -132,7 +130,7 @@ public class KubectlDeleteTest {
     }
 
     @Test
-    public void testKubectlDelete() throws KubectlException, IOException, ApiException {
+    public void testKubectlDelete() throws KubectlException, ApiException {
         wireMockRule.stubFor(
                 post(urlPathEqualTo("/apis/batch/v1/namespaces/foo/jobs"))
                         .willReturn(
@@ -209,12 +207,12 @@ public class KubectlDeleteTest {
         kubectlDelete.namespace("foo").name("bar");
         kubectlDelete.execute();
 
-        assertThrows(KubectlException.class, () -> {
+        assertThatThrownBy(() -> {
             KubectlDelete<V1Job> kubectlDelete2 = Kubectl.delete(V1Job.class);
             kubectlDelete2.apiClient(apiClient);
             kubectlDelete2.namespace("foo").name("bar");
             kubectlDelete2.execute();
-        });
+        }).isInstanceOf(KubectlException.class);
 
         KubectlDelete<V1Job> kubectlDelete2 = Kubectl.delete(V1Job.class);
         kubectlDelete2.apiClient(apiClient);

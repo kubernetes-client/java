@@ -31,17 +31,15 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.common.KubernetesType;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
+import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
@@ -76,7 +74,7 @@ public class GenericKubernetesApiForCoreApiTest {
   private GenericKubernetesApi<V1Pod, V1PodList> podClient;
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     ApiClient apiClient =
         new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     apiClient.setHttpClient(
@@ -94,9 +92,9 @@ public class GenericKubernetesApiForCoreApiTest {
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(status))));
 
     KubernetesApiResponse<V1Pod> deletePodResp = podClient.delete("default", "foo1", null);
-    assertTrue(deletePodResp.isSuccess());
-    assertEquals(status, deletePodResp.getStatus());
-    assertNull(deletePodResp.getObject());
+    assertThat(deletePodResp.isSuccess()).isTrue();
+    assertThat(deletePodResp.getStatus()).isEqualTo(status);
+    assertThat(deletePodResp.getObject()).isNull();
     verify(1, deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -111,11 +109,11 @@ public class GenericKubernetesApiForCoreApiTest {
     Future<KubernetesApiResponse<V1Pod>> deletePodFuture =
         podClient.deleteAsync("default", "foo1", null, callback);
     KubernetesApiResponse<V1Pod> deletePodResp = callback.waitForAndGetResponse();
-    assertTrue(deletePodResp.isSuccess());
-    assertEquals(status, deletePodResp.getStatus());
-    assertNull(deletePodResp.getObject());
-    assertTrue(deletePodFuture.isDone());
-    assertFalse(deletePodFuture.isCancelled());
+    assertThat(deletePodResp.isSuccess()).isTrue();
+    assertThat(deletePodResp.getStatus()).isEqualTo(status);
+    assertThat(deletePodResp.getObject()).isNull();
+    assertThat(deletePodFuture.isDone()).isTrue();
+    assertThat(deletePodFuture.isCancelled()).isFalse();
 
     verify(1, deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
@@ -130,9 +128,9 @@ public class GenericKubernetesApiForCoreApiTest {
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
 
     KubernetesApiResponse<V1Pod> deletePodResp = podClient.delete("default", "foo1");
-    assertTrue(deletePodResp.isSuccess());
-    assertEquals(foo1, deletePodResp.getObject());
-    assertNull(deletePodResp.getStatus());
+    assertThat(deletePodResp.isSuccess()).isTrue();
+    assertThat(deletePodResp.getObject()).isEqualTo(foo1);
+    assertThat(deletePodResp.getStatus()).isNull();
     verify(1, deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -149,11 +147,11 @@ public class GenericKubernetesApiForCoreApiTest {
     Future<KubernetesApiResponse<V1Pod>> deletePodFuture =
         podClient.deleteAsync("default", "foo1", callback);
     KubernetesApiResponse<V1Pod> deletePodResp = callback.waitForAndGetResponse();
-    assertTrue(deletePodResp.isSuccess());
-    assertEquals(foo1, deletePodResp.getObject());
-    assertNull(deletePodResp.getStatus());
-    assertTrue(deletePodFuture.isDone());
-    assertFalse(deletePodFuture.isCancelled());
+    assertThat(deletePodResp.isSuccess()).isTrue();
+    assertThat(deletePodResp.getObject()).isEqualTo(foo1);
+    assertThat(deletePodResp.getStatus()).isNull();
+    assertThat(deletePodFuture.isDone()).isTrue();
+    assertThat(deletePodFuture.isCancelled()).isFalse();
     verify(1, deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -166,9 +164,9 @@ public class GenericKubernetesApiForCoreApiTest {
             .willReturn(aResponse().withStatus(403).withBody(json.serialize(status))));
 
     KubernetesApiResponse<V1Pod> deletePodResp = podClient.delete("default", "foo1");
-    assertFalse(deletePodResp.isSuccess());
-    assertEquals(status, deletePodResp.getStatus());
-    assertNull(deletePodResp.getObject());
+    assertThat(deletePodResp.isSuccess()).isFalse();
+    assertThat(deletePodResp.getStatus()).isEqualTo(status);
+    assertThat(deletePodResp.getObject()).isNull();
     verify(1, deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -184,11 +182,11 @@ public class GenericKubernetesApiForCoreApiTest {
     Future<KubernetesApiResponse<V1Pod>> deletePodFuture =
         podClient.deleteAsync("default", "foo1", callback);
     KubernetesApiResponse<V1Pod> deletePodResp = callback.waitForAndGetResponse();
-    assertFalse(deletePodResp.isSuccess());
-    assertEquals(status, deletePodResp.getStatus());
-    assertNull(deletePodResp.getObject());
-    assertTrue(deletePodFuture.isDone());
-    assertFalse(deletePodFuture.isCancelled());
+    assertThat(deletePodResp.isSuccess()).isFalse();
+    assertThat(deletePodResp.getStatus()).isEqualTo(status);
+    assertThat(deletePodResp.getObject()).isNull();
+    assertThat(deletePodFuture.isDone()).isTrue();
+    assertThat(deletePodFuture.isCancelled()).isFalse();
     verify(1, deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -200,9 +198,9 @@ public class GenericKubernetesApiForCoreApiTest {
         get(urlPathEqualTo("/api/v1/namespaces/default/pods"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
     KubernetesApiResponse<V1PodList> podListResp = podClient.list("default");
-    assertTrue(podListResp.isSuccess());
-    assertEquals(podList, podListResp.getObject());
-    assertNull(podListResp.getStatus());
+    assertThat(podListResp.isSuccess()).isTrue();
+    assertThat(podListResp.getObject()).isEqualTo(podList);
+    assertThat(podListResp.getStatus()).isNull();
     verify(1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods")));
   }
 
@@ -218,11 +216,11 @@ public class GenericKubernetesApiForCoreApiTest {
     Future<KubernetesApiResponse<V1PodList>> podListFuture =
         podClient.listAsync("default", callback);
     KubernetesApiResponse<V1PodList> podListResp = callback.waitForAndGetResponse();
-    assertTrue(podListResp.isSuccess());
-    assertEquals(podList, podListResp.getObject());
-    assertNull(podListResp.getStatus());
-    assertTrue(podListFuture.isDone());
-    assertFalse(podListFuture.isCancelled());
+    assertThat(podListResp.isSuccess()).isTrue();
+    assertThat(podListResp.getObject()).isEqualTo(podList);
+    assertThat(podListResp.getStatus()).isNull();
+    assertThat(podListFuture.isDone()).isTrue();
+    assertThat(podListFuture.isCancelled()).isFalse();
     verify(1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods")));
   }
 
@@ -234,9 +232,9 @@ public class GenericKubernetesApiForCoreApiTest {
         get(urlPathEqualTo("/api/v1/pods"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(podList))));
     KubernetesApiResponse<V1PodList> podListResp = podClient.list();
-    assertTrue(podListResp.isSuccess());
-    assertEquals(podList, podListResp.getObject());
-    assertNull(podListResp.getStatus());
+    assertThat(podListResp.isSuccess()).isTrue();
+    assertThat(podListResp.getObject()).isEqualTo(podList);
+    assertThat(podListResp.getStatus()).isNull();
     verify(
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
@@ -256,20 +254,21 @@ public class GenericKubernetesApiForCoreApiTest {
 
     Future<KubernetesApiResponse<V1PodList>> podListFuture = podClient.listAsync(callback);
 
-    assertFalse(podListFuture.isDone());
-    assertFalse(podListFuture.isCancelled());
+    assertThat(podListFuture.isDone()).isFalse();
+    assertThat(podListFuture.isCancelled()).isFalse();
 
-    assertThrows(TimeoutException.class, () -> podListFuture.get(10, TimeUnit.MILLISECONDS));
+    assertThatThrownBy(() -> podListFuture.get(10, TimeUnit.MILLISECONDS))
+        .isInstanceOf(TimeoutException.class);
 
     waitForRequest.proceed();
 
     KubernetesApiResponse<V1PodList> podListResp = callback.waitForAndGetResponse();
-    assertTrue(podListResp.isSuccess());
-    assertEquals(podList, podListResp.getObject());
-    assertNull(podListResp.getStatus());
-    assertTrue(podListFuture.isDone());
-    assertFalse(podListFuture.isCancelled());
-    assertEquals(podListResp, podListFuture.get());
+    assertThat(podListResp.isSuccess()).isTrue();
+    assertThat(podListResp.getObject()).isEqualTo(podList);
+    assertThat(podListResp.getStatus()).isNull();
+    assertThat(podListFuture.isDone()).isTrue();
+    assertThat(podListFuture.isCancelled()).isFalse();
+    assertThat(podListFuture.get()).isEqualTo(podListResp);
     verify(
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
@@ -289,22 +288,23 @@ public class GenericKubernetesApiForCoreApiTest {
 
     Future<KubernetesApiResponse<V1PodList>> podListFuture = podClient.listAsync(callback);
 
-    assertFalse(podListFuture.isDone());
-    assertFalse(podListFuture.isCancelled());
+    assertThat(podListFuture.isDone()).isFalse();
+    assertThat(podListFuture.isCancelled()).isFalse();
 
     // cancel request
-    assertTrue(podListFuture.cancel(true));
+    assertThat(podListFuture.cancel(true)).isTrue();
 
-    assertTrue(podListFuture.isCancelled());
-    assertTrue(podListFuture.isDone());
+    assertThat(podListFuture.isCancelled()).isTrue();
+    assertThat(podListFuture.isDone()).isTrue();
 
     // unblock thread to clean up
     waitForRequest.proceed();
 
-    assertThrows(CancellationException.class, podListFuture::get);
-    assertThrows(CancellationException.class, () -> podListFuture.get(10, TimeUnit.MILLISECONDS));
+    assertThatThrownBy(podListFuture::get).isInstanceOf(CancellationException.class);
+    assertThatThrownBy(() -> podListFuture.get(10, TimeUnit.MILLISECONDS))
+        .isInstanceOf(CancellationException.class);
 
-    assertFalse(callback.hasBeenCalled());
+    assertThat(callback.hasBeenCalled()).isFalse();
 
     verify(
         exactly(0),
@@ -320,9 +320,9 @@ public class GenericKubernetesApiForCoreApiTest {
         post(urlEqualTo("/api/v1/namespaces/default/pods"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Pod> podListResp = podClient.create(foo1);
-    assertTrue(podListResp.isSuccess());
-    assertEquals(foo1, podListResp.getObject());
-    assertNull(podListResp.getStatus());
+    assertThat(podListResp.isSuccess()).isTrue();
+    assertThat(podListResp.getObject()).isEqualTo(foo1);
+    assertThat(podListResp.getStatus()).isNull();
     verify(1, postRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods")));
   }
 
@@ -338,11 +338,11 @@ public class GenericKubernetesApiForCoreApiTest {
 
     Future<KubernetesApiResponse<V1Pod>> podListFuture = podClient.createAsync(foo1, callback);
     KubernetesApiResponse<V1Pod> podListResp = callback.waitForAndGetResponse();
-    assertTrue(podListResp.isSuccess());
-    assertEquals(foo1, podListResp.getObject());
-    assertNull(podListResp.getStatus());
-    assertTrue(podListFuture.isDone());
-    assertFalse(podListFuture.isCancelled());
+    assertThat(podListResp.isSuccess()).isTrue();
+    assertThat(podListResp.getObject()).isEqualTo(foo1);
+    assertThat(podListResp.getStatus()).isNull();
+    assertThat(podListFuture.isDone()).isTrue();
+    assertThat(podListFuture.isCancelled()).isFalse();
     verify(1, postRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods")));
   }
 
@@ -355,9 +355,9 @@ public class GenericKubernetesApiForCoreApiTest {
         put(urlEqualTo("/api/v1/namespaces/default/pods/foo1"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Pod> podListResp = podClient.update(foo1);
-    assertTrue(podListResp.isSuccess());
-    assertEquals(foo1, podListResp.getObject());
-    assertNull(podListResp.getStatus());
+    assertThat(podListResp.isSuccess()).isTrue();
+    assertThat(podListResp.getObject()).isEqualTo(foo1);
+    assertThat(podListResp.getStatus()).isNull();
     verify(1, putRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -373,11 +373,11 @@ public class GenericKubernetesApiForCoreApiTest {
 
     Future<KubernetesApiResponse<V1Pod>> podListFuture = podClient.updateAsync(foo1, callback);
     KubernetesApiResponse<V1Pod> podListResp = callback.waitForAndGetResponse();
-    assertTrue(podListResp.isSuccess());
-    assertEquals(foo1, podListResp.getObject());
-    assertNull(podListResp.getStatus());
-    assertTrue(podListFuture.isDone());
-    assertFalse(podListFuture.isCancelled());
+    assertThat(podListResp.isSuccess()).isTrue();
+    assertThat(podListResp.getObject()).isEqualTo(foo1);
+    assertThat(podListResp.getStatus()).isNull();
+    assertThat(podListFuture.isDone()).isTrue();
+    assertThat(podListFuture.isCancelled()).isFalse();
     verify(1, putRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -393,9 +393,9 @@ public class GenericKubernetesApiForCoreApiTest {
     KubernetesApiResponse<V1Pod> podPatchResp =
         podClient.patch("default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
 
-    assertTrue(podPatchResp.isSuccess());
-    assertEquals(foo1, podPatchResp.getObject());
-    assertNull(podPatchResp.getStatus());
+    assertThat(podPatchResp.isSuccess()).isTrue();
+    assertThat(podPatchResp.getObject()).isEqualTo(foo1);
+    assertThat(podPatchResp.getStatus()).isNull();
     verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -415,11 +415,11 @@ public class GenericKubernetesApiForCoreApiTest {
             "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch, callback);
     KubernetesApiResponse<V1Pod> podPatchResp = callback.waitForAndGetResponse();
 
-    assertTrue(podPatchResp.isSuccess());
-    assertEquals(foo1, podPatchResp.getObject());
-    assertNull(podPatchResp.getStatus());
-    assertTrue(podPatchFuture.isDone());
-    assertFalse(podPatchFuture.isCancelled());
+    assertThat(podPatchResp.isSuccess()).isTrue();
+    assertThat(podPatchResp.getObject()).isEqualTo(foo1);
+    assertThat(podPatchResp.getStatus()).isNull();
+    assertThat(podPatchFuture.isDone()).isTrue();
+    assertThat(podPatchFuture.isCancelled()).isFalse();
     verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -449,9 +449,9 @@ public class GenericKubernetesApiForCoreApiTest {
         rancherPodClient.patch(
             "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
 
-    assertTrue(podPatchResp.isSuccess());
-    assertEquals(foo1, podPatchResp.getObject());
-    assertNull(podPatchResp.getStatus());
+    assertThat(podPatchResp.isSuccess()).isTrue();
+    assertThat(podPatchResp.getObject()).isEqualTo(foo1);
+    assertThat(podPatchResp.getStatus()).isNull();
     verify(1, patchRequestedFor(urlPathEqualTo(prefix + "/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -483,11 +483,11 @@ public class GenericKubernetesApiForCoreApiTest {
             "default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch, callback);
     KubernetesApiResponse<V1Pod> podPatchResp = callback.waitForAndGetResponse();
 
-    assertTrue(podPatchResp.isSuccess());
-    assertEquals(foo1, podPatchResp.getObject());
-    assertNull(podPatchResp.getStatus());
-    assertTrue(podPatchFuture.isDone());
-    assertFalse(podPatchFuture.isCancelled());
+    assertThat(podPatchResp.isSuccess()).isTrue();
+    assertThat(podPatchResp.getObject()).isEqualTo(foo1);
+    assertThat(podPatchResp.getStatus()).isNull();
+    assertThat(podPatchFuture.isDone()).isTrue();
+    assertThat(podPatchFuture.isCancelled()).isFalse();
     verify(1, patchRequestedFor(urlPathEqualTo(prefix + "/api/v1/namespaces/default/pods/foo1")));
   }
 
@@ -507,12 +507,11 @@ public class GenericKubernetesApiForCoreApiTest {
     podClient =
         new GenericKubernetesApi<>(V1Pod.class, V1PodList.class, "", "v1", "pods", apiClient);
     try {
-      KubernetesApiResponse<V1Pod> response = podClient.get("foo", "test");
-    } catch (Throwable t) {
-      assertTrue(t.getCause() instanceof SocketTimeoutException);
-      return;
+      podClient.get("foo", "test");
+      failBecauseExceptionWasNotThrown(IllegalStateException.class);
+    } catch (IllegalStateException e) {
+      assertThat(e).hasCauseInstanceOf(SocketTimeoutException.class);
     }
-    fail("no exception happened");
   }
 
   static class TestCallback<ApiType extends KubernetesType>
