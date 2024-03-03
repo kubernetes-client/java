@@ -50,7 +50,7 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
     return new KubectlRolloutHistory();
   }
 
-  class KubectlRolloutHistory extends Kubectl.ResourceBuilder<ApiType, KubectlRolloutHistory>
+ public class KubectlRolloutHistory extends Kubectl.ResourceBuilder<ApiType, KubectlRolloutHistory>
       implements Kubectl.Executable<List<History>> {
 
     KubectlRolloutHistory() {
@@ -268,7 +268,7 @@ public class KubectlRollout<ApiType extends KubernetesObject> {
       return meta.getAnnotations().get(CHANGE_CAUSE_ANNOTATION);
     }
 
-    class KubectlRolloutHistoryRevision
+    public class KubectlRolloutHistoryRevision
         extends Kubectl.ResourceBuilder<ApiType, KubectlRolloutHistoryRevision>
         implements Kubectl.Executable<V1PodTemplateSpec> {
 
