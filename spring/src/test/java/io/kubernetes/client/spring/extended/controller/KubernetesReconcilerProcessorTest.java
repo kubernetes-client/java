@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.controller;
 
-import static org.junit.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.extended.controller.Controller;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
@@ -100,7 +100,7 @@ public class KubernetesReconcilerProcessorTest {
 
   @Test
   public void testAutowiredFieldsOfReconcilerBeansAreSet() {
-    assertNotNull(testReconciler1ToBeInjected.informerToBeInjected);
-    assertNotNull(testReconciler2ToBeInjected.informerToBeInjected);
+    assertThat(testReconciler1ToBeInjected.informerToBeInjected).isNotNull();
+    assertThat(testReconciler2ToBeInjected.informerToBeInjected).isNotNull();
   }
 }

@@ -17,8 +17,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class MapUtilsTest {
     @Test
@@ -29,7 +28,7 @@ public class MapUtilsTest {
         Map<String, byte[]> right = new HashMap<String, byte[]>() {{
             put("foo", "bar".getBytes());
         }};
-        assertTrue(MapUtils.equals(left, right));
+        assertThat(MapUtils.equals(left, right)).isTrue();
     }
 
     @Test
@@ -40,6 +39,6 @@ public class MapUtilsTest {
         Map<String, byte[]> right = new HashMap<String, byte[]>() {{
             put("foo", "bar".getBytes());
         }};
-        assertFalse(MapUtils.equals(left, right));
+        assertThat(MapUtils.equals(left, right)).isFalse();
     }
 }

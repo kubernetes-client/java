@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.event;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.extended.event.legacy.EventSpamFilter;
 import io.kubernetes.client.extended.event.legacy.EventUtils;
@@ -50,10 +50,10 @@ public class EventSpamFilterTest {
             .withInvolvedObject(new V1ObjectReference())
             .build();
     for (int i = 0; i < burst; i++) {
-      assertEquals(true, filter.filter(spammingEvent1));
+      assertThat(filter.filter(spammingEvent1)).isTrue();
     }
-    assertEquals(false, filter.filter(spammingEvent1));
-    assertEquals(false, filter.filter(spammingEvent2));
-    assertEquals(true, filter.filter(spammingEvent3));
+    assertThat(filter.filter(spammingEvent1)).isFalse();
+    assertThat(filter.filter(spammingEvent2)).isFalse();
+    assertThat(filter.filter(spammingEvent3)).isTrue();
   }
 }

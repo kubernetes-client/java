@@ -17,6 +17,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.matching.EqualToPattern;
@@ -35,7 +36,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -59,7 +59,7 @@ public class DeploymentHelperTest {
           .toString();
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
@@ -83,9 +83,9 @@ public class DeploymentHelperTest {
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
-    Assert.assertNotNull(newRs);
-    Assert.assertEquals(1, oldRSes.size());
-    Assert.assertEquals(2, allOldRSes.size());
+    assertThat(newRs).isNotNull();
+    assertThat(oldRSes).hasSize(1);
+    assertThat(allOldRSes).hasSize(2);
   }
 
   @Test
@@ -100,6 +100,6 @@ public class DeploymentHelperTest {
     }
     revisions.sort(Long::compareTo);
     List<Long> exceptRevisions = Arrays.asList(1L, 2L, 2L, 3L, 4L);
-    Assert.assertEquals(exceptRevisions, revisions);
+    assertThat(revisions).isEqualTo(exceptRevisions);
   }
 }

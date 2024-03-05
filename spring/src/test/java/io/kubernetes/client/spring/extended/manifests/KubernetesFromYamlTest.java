@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.spring.extended.manifests;
 
-import static junit.framework.TestCase.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.openapi.models.V1Service;
 import io.kubernetes.client.spring.extended.manifests.annotation.FromYaml;
@@ -63,7 +63,7 @@ public class KubernetesFromYamlTest {
 
   @Test
   public void test() {
-    assertNotNull(myBean.service);
-    assertNotNull(service);
+    assertThat(myBean.service).isNotNull();
+    assertThat(service).isNotNull();
   }
 }

@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.controller;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
@@ -54,10 +54,10 @@ public class DefaultControllerTest {
   }
 
   @Before
-  public void setUp() throws Exception {}
+  public void setUp() {}
 
   @After
-  public void tearDown() throws Exception {}
+  public void tearDown() {}
 
   @Mock private Reconciler mockReconciler;
 
@@ -181,7 +181,7 @@ public class DefaultControllerTest {
     latch.acquire();
     testController.shutdown();
 
-    assertTrue(resumed.get());
-    assertTrue(finishedRequests.size() >= 1);
+    assertThat(resumed).isTrue();
+    assertThat(finishedRequests).isNotEmpty();
   }
 }

@@ -28,7 +28,6 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import java.io.File;
-import java.io.IOException;
 import java.time.Instant;
 import org.junit.Before;
 import org.junit.Rule;
@@ -45,7 +44,7 @@ public class TokenFileAuthenticationTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     final ApiClient client = new ApiClient();
     client.setBasePath("http://localhost:" + wireMockRule.port());
     this.auth = new TokenFileAuthentication(SERVICEACCOUNT_TOKEN1_PATH);
@@ -54,7 +53,7 @@ public class TokenFileAuthenticationTest {
   }
 
   @Test
-  public void testTokenProvided() throws IOException, ApiException {
+  public void testTokenProvided() throws ApiException {
     stubFor(
         get(urlPathEqualTo("/api/v1/pods")).willReturn(okForContentType("application/json",
                 "{\"items\":[]}")));

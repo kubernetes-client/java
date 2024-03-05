@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.gson;
 
-import static org.junit.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.gson.Gson;
 import io.gsonfire.GsonFireBuilder;
@@ -37,18 +37,18 @@ public class V1StatusJsonDeserializerTest {
   @Test
   public void testDeserializeNormalStatusIntoStatus() {
     V1Status status = gson.fromJson(JSON_STATUS, V1Status.class);
-    assertNotNull(status);
+    assertThat(status).isNotNull();
   }
 
   @Test
   public void testDeserializeNullStatusIntoStatus() {
     V1Status status = gson.fromJson(JSON_STATUS_NULL, V1Status.class);
-    assertNotNull(status);
+    assertThat(status).isNotNull();
   }
 
   @Test
   public void testDeserializeDeploymentIntoStatus() {
     V1Status status = gson.fromJson(JSON_DEPLOYMENT, V1Status.class);
-    assertNotNull(status);
+    assertThat(status).isNotNull();
   }
 }

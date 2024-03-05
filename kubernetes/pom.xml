@@ -1,6 +1,5 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>io.kubernetes</groupId>
   <artifactId>client-java-api</artifactId>
   <packaging>bundle</packaging>
   <name>client-java-api</name>
@@ -115,6 +114,9 @@
           </execution>
         </executions>
         <configuration>
+          <!-- TODO: workaround until openapi stops generating a dependency on
+               the un-exported module: com.google.gson.internal.bind.util -->
+          <legacyMode>true</legacyMode>
           <tags>
             <tag>
               <name>http.response.details</name>
@@ -165,6 +167,10 @@
       <artifactId>gson</artifactId>
     </dependency>
     <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+    <dependency>
       <groupId>io.gsonfire</groupId>
       <artifactId>gson-fire</artifactId>
     </dependency>
@@ -183,11 +189,6 @@
 
     <!-- test dependencies -->
     <dependency>
-        <groupId>org.hamcrest</groupId>
-        <artifactId>hamcrest-junit</artifactId>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <scope>test</scope>
@@ -195,6 +196,11 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

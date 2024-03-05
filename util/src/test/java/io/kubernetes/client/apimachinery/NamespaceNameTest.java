@@ -12,9 +12,9 @@ limitations under the License.
 */
 package io.kubernetes.client.apimachinery;
 
+import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 public class NamespaceNameTest {
@@ -35,6 +35,6 @@ public class NamespaceNameTest {
 
   @Test
   public void testValidNamespaceName() {
-    Assertions.assertThatNoException().isThrownBy(() -> new NamespaceName("namespace", "name"));
+    assertThatNoException().isThrownBy(() -> new NamespaceName("namespace", "name"));
   }
 }

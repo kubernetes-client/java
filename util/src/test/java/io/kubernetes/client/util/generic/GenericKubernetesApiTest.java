@@ -14,7 +14,8 @@ package io.kubernetes.client.util.generic;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.custom.V1Patch;
@@ -31,7 +32,7 @@ import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.options.GetOptions;
 import io.kubernetes.client.util.generic.options.ListOptions;
-import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.TimeUnit;
 import org.junit.Before;
@@ -46,7 +47,7 @@ public class GenericKubernetesApiTest {
   private GenericKubernetesApi<V1Job, V1JobList> jobClient;
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     ApiClient apiClient =
         new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
     jobClient =
@@ -62,9 +63,9 @@ public class GenericKubernetesApiTest {
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(status))));
 
     KubernetesApiResponse<V1Job> deleteJobResp = jobClient.delete("default", "foo1", null);
-    assertTrue(deleteJobResp.isSuccess());
-    assertEquals(status, deleteJobResp.getStatus());
-    assertNull(deleteJobResp.getObject());
+    assertThat(deleteJobResp.isSuccess()).isTrue();
+    assertThat(deleteJobResp.getStatus()).isEqualTo(status);
+    assertThat(deleteJobResp.getObject()).isNull();
     verify(1, deleteRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
@@ -78,9 +79,9 @@ public class GenericKubernetesApiTest {
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
 
     KubernetesApiResponse<V1Job> deleteJobResp = jobClient.delete("default", "foo1");
-    assertTrue(deleteJobResp.isSuccess());
-    assertEquals(foo1, deleteJobResp.getObject());
-    assertNull(deleteJobResp.getStatus());
+    assertThat(deleteJobResp.isSuccess()).isTrue();
+    assertThat(deleteJobResp.getObject()).isEqualTo(foo1);
+    assertThat(deleteJobResp.getStatus()).isNull();
     verify(1, deleteRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
@@ -93,9 +94,9 @@ public class GenericKubernetesApiTest {
             .willReturn(aResponse().withStatus(403).withBody(json.serialize(status))));
 
     KubernetesApiResponse<V1Job> deleteJobResp = jobClient.delete("default", "foo1");
-    assertFalse(deleteJobResp.isSuccess());
-    assertEquals(status, deleteJobResp.getStatus());
-    assertNull(deleteJobResp.getObject());
+    assertThat(deleteJobResp.isSuccess()).isFalse();
+    assertThat(deleteJobResp.getStatus()).isEqualTo(status);
+    assertThat(deleteJobResp.getObject()).isNull();
     verify(1, deleteRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
@@ -107,9 +108,9 @@ public class GenericKubernetesApiTest {
         get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
     KubernetesApiResponse<V1JobList> jobListResp = jobClient.list("default");
-    assertTrue(jobListResp.isSuccess());
-    assertEquals(jobList, jobListResp.getObject());
-    assertNull(jobListResp.getStatus());
+    assertThat(jobListResp.isSuccess()).isTrue();
+    assertThat(jobListResp.getObject()).isEqualTo(jobList);
+    assertThat(jobListResp.getStatus()).isNull();
     verify(1, getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs")));
   }
 
@@ -128,9 +129,9 @@ public class GenericKubernetesApiTest {
 
     KubernetesApiResponse<V1JobList> jobListResp =
         pomClient.list("default", new ListOptions().isPartialObjectMetadataListRequest(true));
-    assertTrue(jobListResp.isSuccess());
-    assertEquals(jobList, jobListResp.getObject());
-    assertNull(jobListResp.getStatus());
+    assertThat(jobListResp.isSuccess()).isTrue();
+    assertThat(jobListResp.getObject()).isEqualTo(jobList);
+    assertThat(jobListResp.getStatus()).isNull();
     verify(
         1,
         getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
@@ -154,9 +155,9 @@ public class GenericKubernetesApiTest {
 
     KubernetesApiResponse<V1Job> jobResp =
         pomClient.get("default", "noxu", new GetOptions().isPartialObjectMetadataRequest(true));
-    assertTrue(jobResp.isSuccess());
-    assertEquals(job, jobResp.getObject());
-    assertNull(jobResp.getStatus());
+    assertThat(jobResp.isSuccess()).isTrue();
+    assertThat(jobResp.getObject()).isEqualTo(job);
+    assertThat(jobResp.getStatus()).isNull();
     verify(
         1,
         getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/noxu"))
@@ -174,9 +175,9 @@ public class GenericKubernetesApiTest {
         get(urlPathEqualTo("/apis/batch/v1/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
     KubernetesApiResponse<V1JobList> jobListResp = jobClient.list();
-    assertTrue(jobListResp.isSuccess());
-    assertEquals(jobList, jobListResp.getObject());
-    assertNull(jobListResp.getStatus());
+    assertThat(jobListResp.isSuccess()).isTrue();
+    assertThat(jobListResp.getObject()).isEqualTo(jobList);
+    assertThat(jobListResp.getStatus()).isNull();
     verify(1, getRequestedFor(urlPathEqualTo("/apis/batch/v1/jobs")));
   }
 
@@ -189,9 +190,9 @@ public class GenericKubernetesApiTest {
         post(urlEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.create(foo1);
-    assertTrue(jobListResp.isSuccess());
-    assertEquals(foo1, jobListResp.getObject());
-    assertNull(jobListResp.getStatus());
+    assertThat(jobListResp.isSuccess()).isTrue();
+    assertThat(jobListResp.getObject()).isEqualTo(foo1);
+    assertThat(jobListResp.getStatus()).isNull();
     verify(1, postRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs")));
   }
 
@@ -204,9 +205,9 @@ public class GenericKubernetesApiTest {
         put(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.update(foo1);
-    assertTrue(jobListResp.isSuccess());
-    assertEquals(foo1, jobListResp.getObject());
-    assertNull(jobListResp.getStatus());
+    assertThat(jobListResp.isSuccess()).isTrue();
+    assertThat(jobListResp.getObject()).isEqualTo(foo1);
+    assertThat(jobListResp.getStatus()).isNull();
     verify(1, putRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
@@ -220,9 +221,9 @@ public class GenericKubernetesApiTest {
         patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1/status"))
             .willReturn(aResponse().withStatus(200).withBody(new JSON().serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.updateStatus(foo1, t -> t.getStatus());
-    assertTrue(jobListResp.isSuccess());
-    assertEquals(foo1, jobListResp.getObject());
-    assertNull(jobListResp.getStatus());
+    assertThat(jobListResp.isSuccess()).isTrue();
+    assertThat(jobListResp.getObject()).isEqualTo(foo1);
+    assertThat(jobListResp.getStatus()).isNull();
     verify(
         1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1/status")));
   }
@@ -239,9 +240,9 @@ public class GenericKubernetesApiTest {
     KubernetesApiResponse<V1Job> jobPatchResp =
         jobClient.patch("default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
 
-    assertTrue(jobPatchResp.isSuccess());
-    assertEquals(foo1, jobPatchResp.getObject());
-    assertNull(jobPatchResp.getStatus());
+    assertThat(jobPatchResp.isSuccess()).isTrue();
+    assertThat(jobPatchResp.getObject()).isEqualTo(foo1);
+    assertThat(jobPatchResp.getStatus()).isNull();
     verify(1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
@@ -255,10 +256,10 @@ public class GenericKubernetesApiTest {
     KubernetesApiResponse<V1Job> jobPatchResp =
         jobClient.patch("default", "foo1", V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH, v1Patch);
 
-    assertTrue(jobPatchResp.isSuccess());
-    assertNull(jobPatchResp.getObject());
-    assertEquals("Unexpected response body", jobPatchResp.getStatus().getMessage());
-    assertEquals(200, jobPatchResp.getStatus().getCode().intValue());
+    assertThat(jobPatchResp.isSuccess()).isTrue();
+    assertThat(jobPatchResp.getObject()).isNull();
+    assertThat(jobPatchResp.getStatus().getMessage()).isEqualTo("Unexpected response body");
+    assertThat(jobPatchResp.getStatus().getCode().intValue()).isEqualTo(200);
     verify(1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
@@ -292,11 +293,10 @@ public class GenericKubernetesApiTest {
     jobClient =
         new GenericKubernetesApi<>(V1Job.class, V1JobList.class, "batch", "v1", "jobs", apiClient);
     try {
-      KubernetesApiResponse<V1Job> response = jobClient.get("foo", "test");
-    } catch (Throwable t) {
-      assertTrue(t.getCause() instanceof SocketTimeoutException);
-      return;
+      jobClient.get("foo", "test");
+      failBecauseExceptionWasNotThrown(IllegalStateException.class);
+    } catch (IllegalStateException e) {
+      assertThat(e).hasCauseInstanceOf(SocketTimeoutException.class);
     }
-    fail("no exception happened");
   }
 }

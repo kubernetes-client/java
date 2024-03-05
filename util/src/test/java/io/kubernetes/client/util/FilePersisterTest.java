@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.Resources;
 import java.io.File;
@@ -47,9 +47,9 @@ public class FilePersisterTest {
 
     KubeConfig configOut = KubeConfig.loadKubeConfig(new FileReader(file));
 
-    assertEquals(config.getCurrentContext(), configOut.getCurrentContext());
-    assertEquals(config.getClusters(), configOut.getClusters());
-    assertEquals(config.getContexts(), configOut.getContexts());
-    assertEquals(config.getUsers(), configOut.getUsers());
+    assertThat(configOut.getCurrentContext()).isEqualTo(config.getCurrentContext());
+    assertThat(configOut.getClusters()).isEqualTo(config.getClusters());
+    assertThat(configOut.getContexts()).isEqualTo(config.getContexts());
+    assertThat(configOut.getUsers()).isEqualTo(config.getUsers());
   }
 }

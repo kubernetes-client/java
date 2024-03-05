@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue.ratelimiter;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Duration;
 import org.junit.Test;
@@ -24,22 +24,22 @@ public class ItemFastSlowRateLimiterTest {
     RateLimiter<String> rateLimiter =
         new ItemFastSlowRateLimiter<>(Duration.ofMillis(5), Duration.ofSeconds(10), 3);
 
-    assertEquals(Duration.ofMillis(5), rateLimiter.when("one"));
-    assertEquals(Duration.ofMillis(5), rateLimiter.when("one"));
-    assertEquals(Duration.ofMillis(5), rateLimiter.when("one"));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(5));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(5));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(5));
 
-    assertEquals(Duration.ofSeconds(10), rateLimiter.when("one"));
-    assertEquals(Duration.ofSeconds(10), rateLimiter.when("one"));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(10));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(10));
 
-    assertEquals(5, rateLimiter.numRequeues("one"));
+    assertThat(rateLimiter.numRequeues("one")).isEqualTo(5);
 
-    assertEquals(Duration.ofMillis(5), rateLimiter.when("two"));
-    assertEquals(Duration.ofMillis(5), rateLimiter.when("two"));
-    assertEquals(2, rateLimiter.numRequeues("two"));
+    assertThat(rateLimiter.when("two")).isEqualTo(Duration.ofMillis(5));
+    assertThat(rateLimiter.when("two")).isEqualTo(Duration.ofMillis(5));
+    assertThat(rateLimiter.numRequeues("two")).isEqualTo(2);
 
     rateLimiter.forget("one");
-    assertEquals(0, rateLimiter.numRequeues("one"));
-    assertEquals(Duration.ofMillis(5), rateLimiter.when("one"));
+    assertThat(rateLimiter.numRequeues("one")).isZero();
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(5));
   }
 
   @Test
@@ -47,13 +47,13 @@ public class ItemFastSlowRateLimiterTest {
     RateLimiter<String> rateLimiter =
         new ItemFastSlowRateLimiter<>(Duration.ofMillis(5), Duration.ofSeconds(10), -1);
 
-    assertEquals(Duration.ofSeconds(10), rateLimiter.when("one"));
-    assertEquals(Duration.ofSeconds(10), rateLimiter.when("one"));
-    assertEquals(Duration.ofSeconds(10), rateLimiter.when("one"));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(10));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(10));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(10));
 
     rateLimiter = new ItemFastSlowRateLimiter<>(Duration.ofMillis(5), Duration.ofSeconds(10), 0);
-    assertEquals(Duration.ofSeconds(10), rateLimiter.when("two"));
-    assertEquals(Duration.ofSeconds(10), rateLimiter.when("two"));
-    assertEquals(Duration.ofSeconds(10), rateLimiter.when("two"));
+    assertThat(rateLimiter.when("two")).isEqualTo(Duration.ofSeconds(10));
+    assertThat(rateLimiter.when("two")).isEqualTo(Duration.ofSeconds(10));
+    assertThat(rateLimiter.when("two")).isEqualTo(Duration.ofSeconds(10));
   }
 }

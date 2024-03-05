@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.controller;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.informer.SharedInformerFactory;
 import org.junit.Test;
@@ -27,12 +27,12 @@ public class ControllerManagerTest {
     ControllerManager cm = new ControllerManager(new SharedInformerFactory(), dummy1, dummy2);
 
     cm.run();
-    assertTrue(dummy1.started);
-    assertTrue(dummy2.started);
+    assertThat(dummy1.started).isTrue();
+    assertThat(dummy2.started).isTrue();
 
     cm.shutdown();
-    assertTrue(dummy1.stopped);
-    assertTrue(dummy2.stopped);
+    assertThat(dummy1.stopped).isTrue();
+    assertThat(dummy2.stopped).isTrue();
   }
 
   static class DummyController implements Controller {

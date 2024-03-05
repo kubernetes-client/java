@@ -12,9 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.util.WebSocketStreamHandler;
 import java.io.ByteArrayInputStream;
@@ -53,9 +51,9 @@ public class WebsocketStreamHandlerTest {
     inputStream.read(receivingData);
     handler.close();
 
-    assertEquals(testData, receivingData[0]);
-    assertEquals(testData, receivingData[1]);
-    assertTrue(mockWebSocket.closed);
+    assertThat(receivingData[0]).isEqualTo(testData);
+    assertThat(receivingData[1]).isEqualTo(testData);
+    assertThat(mockWebSocket.closed).isTrue();
   }
 
   @Test
@@ -82,7 +80,7 @@ public class WebsocketStreamHandlerTest {
     outputStream.write(bytes);
     outputStream.flush();
 
-    assertArrayEquals(output, mockWebSocket.data);
+    assertThat(mockWebSocket.data).containsExactly(output);
   }
 
   @Test
@@ -119,7 +117,7 @@ public class WebsocketStreamHandlerTest {
     outputStream.write(bytes);
     outputStream.flush();
 
-    assertArrayEquals(output, mockWebSocket.data);
+    assertThat(mockWebSocket.data).containsExactly(output);
   }
 
   private static class MockWebSocket implements WebSocket {

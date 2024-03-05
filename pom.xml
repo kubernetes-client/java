@@ -36,7 +36,7 @@
   </scm>
 
   <properties>
-    <java.version>1.8</java.version>
+    <java.version>11</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven-plugin-version>1.0.0</maven-plugin-version>
@@ -54,6 +54,7 @@
     <bucket4j.version>7.6.0</bucket4j.version>
     <bouncycastle.version>1.77</bouncycastle.version>
     <gson.version>2.10.1</gson.version>
+    <jackson.version>2.16.1</jackson.version>
     <jsr305.version>3.0.2</jsr305.version>
     <okhttp3.version>4.12.0</okhttp3.version>
     <swagger-core.version>1.6.13</swagger-core.version>
@@ -148,7 +149,7 @@
       <dependency>
         <groupId>com.amazonaws</groupId>
         <artifactId>aws-java-sdk-sts</artifactId>
-        <version>1.12.665</version>
+        <version>1.12.671</version>
         <optional>true</optional>
       </dependency>
       <dependency>
@@ -203,6 +204,11 @@
         <groupId>com.google.code.gson</groupId>
         <artifactId>gson</artifactId>
         <version>${gson.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>
+        <artifactId>jackson-databind</artifactId>
+        <version>${jackson.version}</version>
       </dependency>
       <dependency>
         <groupId>io.gsonfire</groupId>
@@ -261,7 +267,7 @@
       <dependency>
         <groupId>ch.qos.logback</groupId>
         <artifactId>logback-classic</artifactId>
-        <version>1.5.0</version>
+        <version>1.5.2</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -273,7 +279,7 @@
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
-        <version>5.10.0</version>
+        <version>5.11.0</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -289,9 +295,9 @@
         <scope>test</scope>
       </dependency>
       <dependency>
-        <groupId>com.github.tomakehurst</groupId>
+        <groupId>org.wiremock</groupId>
         <artifactId>wiremock</artifactId>
-        <version>2.27.2</version>
+        <version>3.4.2</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -310,23 +316,23 @@
         <groupId>com.flipkart.zjsonpatch</groupId>
         <artifactId>zjsonpatch</artifactId>
         <version>0.4.16</version>
+        <exclusions>
+          <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+          </exclusion>
+        </exclusions>
       </dependency>
       <dependency>
-        <groupId>org.hamcrest</groupId>
-        <artifactId>hamcrest-junit</artifactId>
-        <version>2.0.0.0</version>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>3.25.3</version>
         <scope>test</scope>
       </dependency>
       <dependency>
         <groupId>org.awaitility</groupId>
         <artifactId>awaitility</artifactId>
         <version>4.2.0</version>
-        <scope>test</scope>
-      </dependency>
-      <dependency>
-        <groupId>org.assertj</groupId>
-        <artifactId>assertj-core</artifactId>
-        <version>3.25.3</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
@@ -348,6 +354,11 @@
   <build>
     <pluginManagement>
       <plugins>
+        <plugin>
+          <groupId>com.diffplug.spotless</groupId>
+          <artifactId>spotless-maven-plugin</artifactId>
+          <version>2.43.0</version>
+        </plugin>
         <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
@@ -465,7 +476,6 @@
       <plugin>
         <groupId>com.diffplug.spotless</groupId>
         <artifactId>spotless-maven-plugin</artifactId>
-        <version>2.43.0</version>
         <configuration>
           <formats>
             <!-- common settings -->

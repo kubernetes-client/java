@@ -17,8 +17,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.Discovery.APIResource;
@@ -32,7 +32,6 @@ import io.kubernetes.client.openapi.models.V1APIVersions;
 import io.kubernetes.client.openapi.models.V1GroupVersionForDiscovery;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.exception.IncompleteDiscoveryException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -48,7 +47,7 @@ public class DiscoveryTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
@@ -67,7 +66,7 @@ public class DiscoveryTest {
     Discovery discovery = new Discovery(apiClient);
     V1APIVersions versions = discovery.versionDiscovery("/foo");
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/foo")));
-    assertEquals(2, versions.getVersions().size());
+    assertThat(versions.getVersions()).hasSize(2);
   }
 
   @Test
@@ -96,18 +95,18 @@ public class DiscoveryTest {
                             .kind("Zig")
                             .namespaced(false)
                             .singularName("zig"))));
-    assertEquals(2, discoveredResources.size());
+    assertThat(discoveredResources).hasSize(2);
 
     Discovery.APIResource meow =
         discoveredResources.stream()
             .filter(r -> r.getResourcePlural().equals("meows"))
             .findFirst()
             .get();
-    assertEquals(1, meow.getSubResources().size());
-    assertEquals("meows", meow.getResourcePlural());
-    assertEquals("meow", meow.getResourceSingular());
-    assertEquals(true, meow.getNamespaced());
-    assertEquals("mouse", meow.getSubResources().get(0));
+    assertThat(meow.getSubResources()).hasSize(1);
+    assertThat(meow.getResourcePlural()).isEqualTo("meows");
+    assertThat(meow.getResourceSingular()).isEqualTo("meow");
+    assertThat(meow.getNamespaced()).isTrue();
+    assertThat(meow.getSubResources()).containsExactly("mouse");
   }
 
   @Test
@@ -178,7 +177,7 @@ public class DiscoveryTest {
     versions.add(version);
     Set<APIResource> apiResources = discovery.findAll();
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(path)));
-    assertEquals(2, apiResources.size());
+    assertThat(apiResources).hasSize(2);
   }
 
   @Test
@@ -265,12 +264,12 @@ public class DiscoveryTest {
     Set<APIResource> apiResources = null;
     try{
       discovery.findAll();
-      fail("Should have throw ImcompleteDiscoveryException");
+      failBecauseExceptionWasNotThrown(IncompleteDiscoveryException.class);
     } catch (IncompleteDiscoveryException e) {
       apiResources = e.getDiscoveredResources();
     }
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(pathError)));
     wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(pathSuccess)));
-    assertEquals(2, apiResources.size());
+    assertThat(apiResources).hasSize(2);
   }
 }

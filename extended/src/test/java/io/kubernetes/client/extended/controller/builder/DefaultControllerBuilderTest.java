@@ -13,7 +13,7 @@ limitations under the License.
 package io.kubernetes.client.extended.controller.builder;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.extended.controller.Controller;
@@ -56,12 +56,12 @@ public class DefaultControllerBuilderTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
 
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     client = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
   }
 
   @After
-  public void tearDown() throws Exception {}
+  public void tearDown() {}
 
   @Test
   public void testWithLeaderElectorProxiesDefaultController() {}
@@ -188,10 +188,7 @@ public class DefaultControllerBuilderTest {
     latch.acquire(1);
 
     Request expectedRequest = new Request("hostname1/test-pod1");
-    assertEquals(1, keyFuncReceivingRequests.size());
-    assertEquals(expectedRequest, keyFuncReceivingRequests.get(0));
-
-    assertEquals(1, controllerReceivingRequests.size());
-    assertEquals(expectedRequest, controllerReceivingRequests.get(0));
+    assertThat(keyFuncReceivingRequests).containsExactly(expectedRequest);
+    assertThat(controllerReceivingRequests).containsExactly(expectedRequest);
   }
 }

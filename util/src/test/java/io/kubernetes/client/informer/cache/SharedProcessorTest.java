@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.informer.cache;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.informer.ResourceEventHandler;
@@ -57,9 +57,9 @@ public class SharedProcessorTest {
 
     latch.await();
 
-    assertTrue(expectAddHandler.isSatisfied());
-    assertTrue(expectUpdateHandler.isSatisfied());
-    assertTrue(expectDeleteHandler.isSatisfied());
+    assertThat(expectAddHandler.isSatisfied()).isTrue();
+    assertThat(expectUpdateHandler.isSatisfied()).isTrue();
+    assertThat(expectDeleteHandler.isSatisfied()).isTrue();
   }
 
   @Test
@@ -83,7 +83,7 @@ public class SharedProcessorTest {
     sharedProcessor.addAndStartListener(slowWorker);
     sharedProcessor.stop();
     latch.await();
-    assertTrue(interrupted[0]);
+    assertThat(interrupted[0]).isTrue();
   }
 
   private static class ExpectingNoticationHandler<ApiType extends KubernetesObject>

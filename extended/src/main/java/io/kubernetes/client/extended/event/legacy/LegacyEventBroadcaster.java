@@ -121,7 +121,7 @@ public class LegacyEventBroadcaster implements EventBroadcaster {
   private void recordToSink(CoreV1Event event) throws InterruptedException {
     Optional<MutablePair<CoreV1Event, V1Patch>> eventAndPatch =
         this.eventCorrelator.correlate(event);
-    if (!eventAndPatch.isPresent()) {
+    if (eventAndPatch.isEmpty()) {
       // skip
       return;
     }

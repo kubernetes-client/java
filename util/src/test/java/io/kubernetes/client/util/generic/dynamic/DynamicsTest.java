@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util.generic.dynamic;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.google.gson.JsonObject;
 import io.kubernetes.client.Resources;
@@ -40,9 +40,8 @@ public class DynamicsTest {
     String podJsonContent = new String(Files.readAllBytes(Paths.get(TEST_POD_JSON_FILE)));
     String convertedJsonContent = Dynamics.fromYamlToJson(podYamlContent);
 
-    assertEquals(
-        json.getGson().fromJson(podJsonContent, JsonObject.class),
-        json.getGson().fromJson(convertedJsonContent, JsonObject.class));
+    assertThat(json.getGson().fromJson(convertedJsonContent, JsonObject.class))
+        .isEqualTo(json.getGson().fromJson(podJsonContent, JsonObject.class));
   }
 
   @Test
@@ -51,7 +50,7 @@ public class DynamicsTest {
     String podJsonContent = new String(Files.readAllBytes(Paths.get(TEST_POD_JSON_FILE)));
     String convertedYamlContent = Dynamics.fromJsonToYaml(podJsonContent);
 
-    assertEquals(Yaml.load(podYamlContent), Yaml.load(convertedYamlContent));
+    assertThat(Yaml.load(convertedYamlContent)).isEqualTo(Yaml.load(podYamlContent));
   }
 
   @Test
@@ -59,8 +58,8 @@ public class DynamicsTest {
     String podJsonContent = new String(Files.readAllBytes(Paths.get(TEST_POD_JSON_FILE)));
     DynamicKubernetesObject obj = Dynamics.newFromJson(podJsonContent);
 
-    assertEquals(obj.getApiVersion(), "v1");
-    assertEquals(obj.getKind(), "Pod");
+    assertThat("v1").isEqualTo(obj.getApiVersion());
+    assertThat("Pod").isEqualTo(obj.getKind());
   }
 
   @Test
@@ -68,7 +67,7 @@ public class DynamicsTest {
     String podYamlContent = new String(Files.readAllBytes(Paths.get(TEST_POD_YAML_FILE)));
     DynamicKubernetesObject obj = Dynamics.newFromYaml(podYamlContent);
 
-    assertEquals(obj.getApiVersion(), "v1");
-    assertEquals(obj.getKind(), "Pod");
+    assertThat("v1").isEqualTo(obj.getApiVersion());
+    assertThat("Pod").isEqualTo(obj.getKind());
   }
 }

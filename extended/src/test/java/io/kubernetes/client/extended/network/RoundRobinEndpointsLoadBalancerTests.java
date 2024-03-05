@@ -12,7 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.network;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import io.kubernetes.client.extended.network.exception.NoAvailableAddressException;
 import io.kubernetes.client.openapi.models.CoreV1EndpointPort;
@@ -38,33 +39,27 @@ public class RoundRobinEndpointsLoadBalancerTests {
   @Test
   public void testChooseIPFromNullListShouldThrowException() {
     RoundRobinLoadBalanceStrategy strategy = new RoundRobinLoadBalanceStrategy();
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> {
-          strategy.chooseIP(null);
-        });
+    assertThatThrownBy(() -> strategy.chooseIP(null))
+        .isInstanceOf(IllegalArgumentException.class);
   }
 
   @Test
   public void testChooseIPFromEmptyListShouldThrowException() {
     RoundRobinLoadBalanceStrategy strategy = new RoundRobinLoadBalanceStrategy();
-    assertThrows(
-        IllegalArgumentException.class,
-        () -> {
-          strategy.chooseIP(new ArrayList<>());
-        });
+    assertThatThrownBy(() -> strategy.chooseIP(new ArrayList<>()))
+        .isInstanceOf(IllegalArgumentException.class);
   }
 
   @Test
   public void testChooseFixedMultipleIPShouldWork() {
     RoundRobinLoadBalanceStrategy strategy = new RoundRobinLoadBalanceStrategy();
     List<String> availables = Arrays.asList("127.0.0.1", "127.0.0.2", "127.0.0.3");
-    assertEquals("127.0.0.1", strategy.chooseIP(availables));
-    assertEquals("127.0.0.2", strategy.chooseIP(availables));
-    assertEquals("127.0.0.3", strategy.chooseIP(availables));
-    assertEquals("127.0.0.1", strategy.chooseIP(availables));
-    assertEquals("127.0.0.2", strategy.chooseIP(availables));
-    assertEquals("127.0.0.3", strategy.chooseIP(availables));
+    assertThat(strategy.chooseIP(availables)).isEqualTo("127.0.0.1");
+    assertThat(strategy.chooseIP(availables)).isEqualTo("127.0.0.2");
+    assertThat(strategy.chooseIP(availables)).isEqualTo("127.0.0.3");
+    assertThat(strategy.chooseIP(availables)).isEqualTo("127.0.0.1");
+    assertThat(strategy.chooseIP(availables)).isEqualTo("127.0.0.2");
+    assertThat(strategy.chooseIP(availables)).isEqualTo("127.0.0.3");
   }
 
   @Test
@@ -73,25 +68,22 @@ public class RoundRobinEndpointsLoadBalancerTests {
     List<String> availables = Arrays.asList("127.0.0.1", "127.0.0.2", "127.0.0.3");
     List<String> availablesChanged =
         Arrays.asList("127.0.0.1", "127.0.0.2", "127.0.0.3", "127.0.0.4", "127.0.0.5");
-    assertEquals("127.0.0.1", strategy.chooseIP(availables));
-    assertEquals("127.0.0.2", strategy.chooseIP(availables));
-    assertEquals("127.0.0.3", strategy.chooseIP(availables));
+    assertThat(strategy.chooseIP(availables)).isEqualTo("127.0.0.1");
+    assertThat(strategy.chooseIP(availables)).isEqualTo("127.0.0.2");
+    assertThat(strategy.chooseIP(availables)).isEqualTo("127.0.0.3");
 
-    assertEquals("127.0.0.4", strategy.chooseIP(availablesChanged));
-    assertEquals("127.0.0.5", strategy.chooseIP(availablesChanged));
+    assertThat(strategy.chooseIP(availablesChanged)).isEqualTo("127.0.0.4");
+    assertThat(strategy.chooseIP(availablesChanged)).isEqualTo("127.0.0.5");
   }
 
   @Test
   public void testEndpointLoadBalancing() throws NoAvailableAddressException {
     EndpointsLoadBalancer loadBalancer =
         new EndpointsLoadBalancer(() -> twoPortTwoHostEp, new RoundRobinLoadBalanceStrategy());
-    assertEquals("127.0.0.1", loadBalancer.getTargetIP());
-    assertEquals("127.0.0.2", loadBalancer.getTargetIP());
-    assertEquals("127.0.0.1", loadBalancer.getTargetIP(8081));
-    assertThrows(
-        NoAvailableAddressException.class,
-        () -> {
-          loadBalancer.getTargetIP(9999);
-        });
+    assertThat(loadBalancer.getTargetIP()).isEqualTo("127.0.0.1");
+    assertThat(loadBalancer.getTargetIP()).isEqualTo("127.0.0.2");
+    assertThat(loadBalancer.getTargetIP(8081)).isEqualTo("127.0.0.1");
+    assertThatThrownBy(() ->loadBalancer.getTargetIP(9999))
+        .isInstanceOf(NoAvailableAddressException.class);
   }
 }

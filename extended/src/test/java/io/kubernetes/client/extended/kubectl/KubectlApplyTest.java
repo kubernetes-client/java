@@ -18,7 +18,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.patch;
 import static com.github.tomakehurst.wiremock.client.WireMock.patchRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static org.junit.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.matching.EqualToPattern;
@@ -63,7 +63,7 @@ public class KubectlApplyTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
@@ -111,7 +111,7 @@ public class KubectlApplyTest {
             .execute();
     wireMockRule.verify(
         1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/foo/configmaps/bar")));
-    assertNotNull(configMap);
+    assertThat(configMap).isNotNull();
   }
 
   @Test
@@ -155,6 +155,6 @@ public class KubectlApplyTest {
         Kubectl.apply(DynamicKubernetesObject.class).apiClient(apiClient).resource(obj).execute();
     wireMockRule.verify(
         1, patchRequestedFor(urlPathEqualTo("/apis/example.com/v1/namespaces/foo/bars/something")));
-    assertNotNull(out);
+    assertThat(out).isNotNull();
   }
 }

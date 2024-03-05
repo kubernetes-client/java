@@ -18,8 +18,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.patch;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.openapi.ApiClient;
@@ -197,12 +196,12 @@ public class KubernetesManifestTest {
 
   @Test
   public void test() {
-    assertNotNull(createdNamespace);
-    assertNotNull(createdServiceAccount);
-    assertNotNull(createdPod);
+    assertThat(createdNamespace).isNotNull();
+    assertThat(createdServiceAccount).isNotNull();
+    assertThat(createdPod).isNotNull();
 
-    assertEquals("true", createdNamespace.getMetadata().getLabels().get("created"));
-    assertEquals("true", createdServiceAccount.getMetadata().getLabels().get("created"));
-    assertEquals("true", createdPod.getMetadata().getLabels().get("created"));
+    assertThat(createdNamespace.getMetadata().getLabels()).containsEntry("created", "true");
+    assertThat(createdServiceAccount.getMetadata().getLabels()).containsEntry("created", "true");
+    assertThat(createdPod.getMetadata().getLabels()).containsEntry("created", "true");
   }
 }

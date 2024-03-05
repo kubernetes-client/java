@@ -12,8 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.openapi.models.V1CustomResourceDefinition;
@@ -26,11 +25,12 @@ public class ModelMapperTest {
   @Test
   public void testPrebuiltModelMapping() {
 
-    assertEquals(V1Pod.class, ModelMapper.getApiTypeClass("", "v1", "Pod"));
-    assertEquals(V1Deployment.class, ModelMapper.getApiTypeClass("", "v1", "Deployment"));
-    assertEquals(
-            V1CustomResourceDefinition.class,
-            ModelMapper.getApiTypeClass("", "v1", "CustomResourceDefinition"));
+    assertThat(ModelMapper.getApiTypeClass("", "v1", "Pod"))
+        .isEqualTo(V1Pod.class);
+    assertThat(ModelMapper.getApiTypeClass("", "v1", "Deployment"))
+        .isEqualTo(V1Deployment.class);
+    assertThat(ModelMapper.getApiTypeClass("", "v1", "CustomResourceDefinition"))
+        .isEqualTo(V1CustomResourceDefinition.class);
   }
 
   @Test
@@ -43,35 +43,33 @@ public class ModelMapperTest {
 
     ModelMapper.addModelMap("example.io", "v1", "Toss", objClass);
 
-    assertEquals(objClass, ModelMapper.getApiTypeClass("example.io/v1", "Toss"));
-    assertEquals(objClass, ModelMapper.getApiTypeClass("example.io", "v1", "Toss"));
+    assertThat(ModelMapper.getApiTypeClass("example.io/v1", "Toss"))
+        .isEqualTo(objClass);
+    assertThat(ModelMapper.getApiTypeClass("example.io", "v1", "Toss"))
+        .isEqualTo(objClass);
 
-    assertNull(ModelMapper.getApiTypeClass("example.io/V1", "Toss"));
-    assertNull(ModelMapper.getApiTypeClass("example.io", "V1", "Toss"));
+    assertThat(ModelMapper.getApiTypeClass("example.io/V1", "Toss")).isNull();
+    assertThat(ModelMapper.getApiTypeClass("example.io", "V1", "Toss")).isNull();
 
-    assertNull(ModelMapper.getApiTypeClass("example.io/v1", "Tofu"));
-    assertNull(ModelMapper.getApiTypeClass("example.io", "v1", "Tofu"));
+    assertThat(ModelMapper.getApiTypeClass("example.io/v1", "Tofu")).isNull();
+    assertThat(ModelMapper.getApiTypeClass("example.io", "v1", "Tofu")).isNull();
 
-    assertNull(ModelMapper.getApiTypeClass("v1", "Togu"));
+    assertThat(ModelMapper.getApiTypeClass("v1", "Togu")).isNull();
     ModelMapper.addModelMap("v1", "Togu", objClass);
-    assertEquals(objClass, ModelMapper.getApiTypeClass("", "v1", "Togu"));
-    assertEquals(objClass, ModelMapper.getApiTypeClass("v1", "Togu"));
+    assertThat(ModelMapper.getApiTypeClass("", "v1", "Togu"))
+        .isEqualTo(objClass);
+    assertThat(ModelMapper.getApiTypeClass("v1", "Togu"))
+        .isEqualTo(objClass);
   }
 
 
   @Test
   public void testPreBuiltGetGroupVersionKindByClass() {
-    assertEquals(
-            new GroupVersionKind("", "v1", "Pod"),
-            ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class).orElse(null));
-    assertEquals(
-            new GroupVersionKind("", "v1", "Pod"),
-            ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class).orElse(null));
-    assertEquals(
-            new GroupVersionKind("", "v1", "Deployment"),
-            ModelMapper.preBuiltGetGroupVersionKindByClass(V1Deployment.class).orElse(null));
-    assertEquals(
-            new GroupVersionKind("", "v1", "CustomResourceDefinition"),
-            ModelMapper.preBuiltGetGroupVersionKindByClass(V1CustomResourceDefinition.class).orElse(null));
+    assertThat(ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class))
+        .hasValue(new GroupVersionKind("", "v1", "Pod"));
+    assertThat(ModelMapper.preBuiltGetGroupVersionKindByClass(V1Deployment.class))
+        .hasValue(new GroupVersionKind("", "v1", "Deployment"));
+    assertThat(ModelMapper.preBuiltGetGroupVersionKindByClass(V1CustomResourceDefinition.class))
+        .hasValue(new GroupVersionKind("", "v1", "CustomResourceDefinition"));
   }
 }

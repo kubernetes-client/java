@@ -14,8 +14,7 @@ package io.kubernetes.client.util.generic;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.openapi.ApiClient;
@@ -68,10 +67,10 @@ public class GenericKubernetesGetApiTest {
     KubernetesApiResponse<V1Job> jobResp = jobClient.get("default", "noxu");
     KubernetesApiResponse<FooCustomResource> fooResp = fooClient.get("default", "noxu");
 
-    assertEquals(job, jobResp.getObject());
-    assertEquals(foo, fooResp.getObject());
-    assertNull(jobResp.getStatus());
-    assertNull(fooResp.getStatus());
+    assertThat(jobResp.getObject()).isEqualTo(job);
+    assertThat(fooResp.getObject()).isEqualTo(foo);
+    assertThat(jobResp.getStatus()).isNull();
+    assertThat(fooResp.getStatus()).isNull();
   }
 
   @Test
@@ -88,9 +87,9 @@ public class GenericKubernetesGetApiTest {
     KubernetesApiResponse<V1Job> jobResp = jobClient.get("default", "noxu");
     KubernetesApiResponse<FooCustomResource> fooResp = fooClient.get("default", "noxu");
 
-    assertEquals(forbiddenStatus, jobResp.getStatus());
-    assertEquals(forbiddenStatus, fooResp.getStatus());
-    assertNull(jobResp.getObject());
-    assertNull(fooResp.getObject());
+    assertThat(jobResp.getStatus()).isEqualTo(forbiddenStatus);
+    assertThat(fooResp.getStatus()).isEqualTo(forbiddenStatus);
+    assertThat(jobResp.getObject()).isNull();
+    assertThat(fooResp.getObject()).isNull();
   }
 }

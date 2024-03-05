@@ -12,26 +12,26 @@ limitations under the License.
 */
 package io.kubernetes.client.custom;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 
+// Note: Do not use AssertJ .isEquqlTo to test .equals, as this doesn't necessarily invoke it!
 public class IntOrStringTest {
   @Test
   public void whenCreatedWithInt_isInteger() {
     IntOrString intOrString = new IntOrString(17);
 
-    assertThat(intOrString.isInteger(), is(true));
+    assertThat(intOrString.isInteger()).isTrue();
   }
 
   @Test
   public void whenCreatedWithInt_canRetrieveIntValue() {
     IntOrString intOrString = new IntOrString(17);
 
-    assertThat(intOrString.getIntValue(), equalTo(17));
+    assertThat(intOrString.getIntValue()).isEqualTo(17);
   }
 
   @Test(expected = IllegalStateException.class)
@@ -45,7 +45,7 @@ public class IntOrStringTest {
   public void whenCreatedWithInt_equalsItself() {
     IntOrString intOrString = new IntOrString(17);
 
-    assertThat(intOrString, equalTo(intOrString));
+    assertThat(intOrString.equals(intOrString)).isTrue();
   }
 
   @Test
@@ -53,7 +53,7 @@ public class IntOrStringTest {
     IntOrString intOrString1 = new IntOrString(17);
     IntOrString intOrString2 = new IntOrString(17);
 
-    assertThat(intOrString1, equalTo(intOrString2));
+    assertThat(intOrString1.equals(intOrString2)).isTrue();
   }
 
   @Test
@@ -61,7 +61,7 @@ public class IntOrStringTest {
     IntOrString intOrString1 = new IntOrString(17);
     IntOrString intOrString2 = new IntOrString(13);
 
-    assertThat(intOrString1, not(equalTo(intOrString2)));
+    assertThat(intOrString1.equals(intOrString2)).isFalse();
   }
 
   @Test
@@ -69,14 +69,14 @@ public class IntOrStringTest {
     IntOrString intOrString1 = new IntOrString(17);
     IntOrString intOrString2 = new IntOrString("17");
 
-    assertThat(intOrString1, not(equalTo(intOrString2)));
+    assertThat(intOrString1.equals(intOrString2)).isFalse();
   }
 
   @Test
   public void whenCreatedWithString_isNotInteger() {
     IntOrString intOrString = new IntOrString("17");
 
-    assertThat(intOrString.isInteger(), is(false));
+    assertThat(intOrString.isInteger()).isFalse();
   }
 
   @Test(expected = IllegalStateException.class)
@@ -90,14 +90,14 @@ public class IntOrStringTest {
   public void whenCreatedWithString_canRetrieveStringValue() {
     IntOrString intOrString = new IntOrString("17");
 
-    assertThat(intOrString.getStrValue(), equalTo("17"));
+    assertThat(intOrString.getStrValue()).isEqualTo("17");
   }
 
   @Test
   public void whenCreatedWithString_equalsItself() {
     IntOrString intOrString = new IntOrString("17");
 
-    assertThat(intOrString, equalTo(intOrString));
+    assertThat(intOrString.equals(intOrString)).isTrue();
   }
 
   @Test
@@ -105,7 +105,7 @@ public class IntOrStringTest {
     IntOrString intOrString1 = new IntOrString("17");
     IntOrString intOrString2 = new IntOrString("17");
 
-    assertThat(intOrString1, equalTo(intOrString2));
+    assertThat(intOrString1.equals(intOrString2)).isTrue();
   }
 
   @Test
@@ -113,6 +113,16 @@ public class IntOrStringTest {
     IntOrString intOrString1 = new IntOrString("17");
     IntOrString intOrString2 = new IntOrString("13");
 
-    assertThat(intOrString1, not(equalTo(intOrString2)));
+    assertThat(intOrString1.equals(intOrString2)).isFalse();
+  }
+
+  @Test
+  public void jacksonSerializer_writeValueAsString() throws JsonProcessingException {
+    IntOrString intOrString1 = new IntOrString(17);
+    IntOrString intOrString2 = new IntOrString("17");
+
+    ObjectMapper mapper = new ObjectMapper();
+    mapper.writeValueAsString(intOrString1);
+    mapper.writeValueAsString(intOrString2);
   }
 }

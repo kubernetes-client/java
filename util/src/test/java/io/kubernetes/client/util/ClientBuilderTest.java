@@ -14,10 +14,8 @@ package io.kubernetes.client.util;
 
 import static io.kubernetes.client.util.Config.ENV_SERVICE_HOST;
 import static io.kubernetes.client.util.Config.ENV_SERVICE_PORT;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static uk.org.webcompere.systemstubs.SystemStubs.withEnvironmentVariable;
@@ -71,7 +69,7 @@ public class ClientBuilderTest {
                   final ApiClient client = ClientBuilder.defaultClient();
                   return client.getBasePath();
                 });
-    assertEquals("http://localhost:8080", path);
+    assertThat(path).isEqualTo("http://localhost:8080");
   }
 
   @Test
@@ -83,7 +81,7 @@ public class ClientBuilderTest {
                   ApiClient client = ClientBuilder.defaultClient();
                   return client.getBasePath();
                 });
-    assertEquals("http://home.dir.com", path);
+    assertThat(path).isEqualTo("http://home.dir.com");
   }
 
   @Test
@@ -95,7 +93,7 @@ public class ClientBuilderTest {
                   final ApiClient client = ClientBuilder.defaultClient();
                   return client.getBasePath();
                 });
-    assertEquals("http://kubeconfig.dir.com", path);
+    assertThat(path).isEqualTo("http://kubeconfig.dir.com");
   }
 
   @Test
@@ -107,7 +105,7 @@ public class ClientBuilderTest {
                   final ApiClient client = ClientBuilder.defaultClient();
                   return client.getBasePath();
                 });
-    assertEquals("http://kubeconfig.dir.com", path);
+    assertThat(path).isEqualTo("http://kubeconfig.dir.com");
   }
 
   @Test
@@ -120,7 +118,7 @@ public class ClientBuilderTest {
                   final ApiClient client = ClientBuilder.defaultClient();
                   return client.getBasePath();
                 });
-    assertEquals("http://kubeconfig.dir.com", path);
+    assertThat(path).isEqualTo("http://kubeconfig.dir.com");
   }
 
   @Test
@@ -134,7 +132,7 @@ public class ClientBuilderTest {
                   return client.getBasePath();
                 });
     // $KUBECONFIG should take precedence over $HOME/.kube/config
-    assertEquals("http://kubeconfig.dir.com", path);
+    assertThat(path).isEqualTo("http://kubeconfig.dir.com");
   }
 
   @Test
@@ -149,7 +147,7 @@ public class ClientBuilderTest {
                   final ApiClient client = ClientBuilder.standard().build();
                   return client.getBasePath();
                 });
-    assertThat(path, is(Config.DEFAULT_FALLBACK_HOST));
+    assertThat(path).isEqualTo(Config.DEFAULT_FALLBACK_HOST);
   }
 
   @Test
@@ -161,7 +159,7 @@ public class ClientBuilderTest {
                   final ApiClient client = ClientBuilder.standard().build();
                   return client.getBasePath();
                 });
-    assertThat(path, is("https://localhost:443"));
+    assertThat(path).isEqualTo("https://localhost:443");
   }
 
   @Test
@@ -173,7 +171,7 @@ public class ClientBuilderTest {
                   final ApiClient client = ClientBuilder.standard().build();
                   return client.getBasePath();
                 });
-    assertThat(path, is("http://localhost"));
+    assertThat(path).isEqualTo("http://localhost");
   }
 
   @Test
@@ -185,13 +183,13 @@ public class ClientBuilderTest {
                   final ApiClient client = ClientBuilder.standard().build();
                   return client.isVerifyingSsl();
                 });
-    assertThat(isVerifyingSsl, is(false));
+    assertThat(isVerifyingSsl).isFalse();
   }
 
   @Test
   public void testBasePathTrailingSlash() throws Exception {
     final ApiClient client = ClientBuilder.standard().setBasePath("http://localhost/").build();
-    assertThat(client.getBasePath(), is("http://localhost"));
+    assertThat(client.getBasePath()).isEqualTo("http://localhost");
   }
 
   @Test
@@ -203,7 +201,7 @@ public class ClientBuilderTest {
                   final ApiClient client = ClientBuilder.standard().build();
                   return client.isVerifyingSsl();
                 });
-    assertThat(isVerifyingSsl, is(true));
+    assertThat(isVerifyingSsl).isTrue();
   }
 
   @Test
@@ -245,7 +243,7 @@ public class ClientBuilderTest {
                   final ApiClient client = ClientBuilder.standard().build();
                   return client.getBasePath();
                 });
-    assertEquals(path, "http://home.dir.com");
+    assertThat("http://home.dir.com").isEqualTo(path);
   }
 
   @Test
@@ -266,7 +264,7 @@ public class ClientBuilderTest {
                       }.setBasePath(ipv4Host, port);
                   return builder.getBasePath();
                 });
-    assertEquals(path, "https://127.0.0.1:6443");
+    assertThat("https://127.0.0.1:6443").isEqualTo(path);
   }
 
   @Test
@@ -287,7 +285,7 @@ public class ClientBuilderTest {
                       }.setBasePath(ipv4Host, port);
                   return builder.getBasePath();
                 });
-    assertEquals(path, "https://[::1]:6443");
+    assertThat("https://[::1]:6443").isEqualTo(path);
   }
 
   @Test
@@ -300,21 +298,18 @@ public class ClientBuilderTest {
     KubeconfigAuthentication receivingAuthn =
         (KubeconfigAuthentication) builder.getAuthentication();
     builder.build();
-    assertEquals(
-        expectedPassphrase,
+    assertThat(
         ((ClientCertificateAuthentication) receivingAuthn.getDelegateAuthentication())
-            .getPassphrase());
+            .getPassphrase()).isEqualTo(expectedPassphrase);
   }
 
   @Test
   public void testDetectsServerNotSet() {
-    assertThrows(
-        "No server in kubeconfig",
-        IllegalArgumentException.class,
+    assertThatThrownBy(
         () -> {
           KubeConfig kubeConfigWithoutServer = mock(KubeConfig.class);
 
           ClientBuilder.kubeconfig(kubeConfigWithoutServer);
-        });
+        }).hasMessage("No server in kubeconfig").isInstanceOf(IllegalArgumentException.class);
   }
 }

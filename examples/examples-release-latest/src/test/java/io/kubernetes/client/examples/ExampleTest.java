@@ -25,7 +25,6 @@ import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
-import java.io.IOException;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -34,7 +33,7 @@ public class ExampleTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
 
   @Test
-  public void exactUrlOnly() throws IOException, ApiException {
+  public void exactUrlOnly() throws ApiException {
     ApiClient client = new ApiClient();
     client.setBasePath("http://localhost:" + PORT);
     Configuration.setDefaultApiClient(client);

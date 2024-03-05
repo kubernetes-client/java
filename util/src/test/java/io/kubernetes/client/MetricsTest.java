@@ -14,14 +14,13 @@ package io.kubernetes.client;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.ClientBuilder;
-import java.io.IOException;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -33,7 +32,7 @@ public class MetricsTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
@@ -50,9 +49,9 @@ public class MetricsTest {
                     .withBody("Service Unavailable")));
     try {
       metrics.getPodMetrics(namespace);
-      fail("Expected ApiException to be thrown");
+      failBecauseExceptionWasNotThrown(ApiException.class);
     } catch (ApiException ex) {
-      assertEquals(503, ex.getCode());
+      assertThat(ex.getCode()).isEqualTo(503);
     }
   }
 
@@ -68,9 +67,9 @@ public class MetricsTest {
                     .withBody("Service Unavailable")));
     try {
       metrics.getNodeMetrics();
-      fail("Expected ApiException to be thrown");
+      failBecauseExceptionWasNotThrown(ApiException.class);
     } catch (ApiException ex) {
-      assertEquals(503, ex.getCode());
+      assertThat(ex.getCode()).isEqualTo(503);
     }
   }
 }

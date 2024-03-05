@@ -12,8 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -63,8 +62,9 @@ public class DefaultWorkQueueTest {
                 try {
                   for (; ; ) {
                     String item = queue.get();
-                    assertNotEquals(
-                        "Got an item added after shutdown.", "added after shutdown!", item);
+                    assertThat(item)
+                        .withFailMessage("Got an item added after shutdown")
+                        .isNotEqualTo("added after shutdown!");
                     if (item == null) {
                       return;
                     }
@@ -145,14 +145,14 @@ public class DefaultWorkQueueTest {
   }
 
   @Test
-  public void testLen() throws Exception {
+  public void testLen() {
     DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
     queue.add("foo");
-    assertEquals(1, queue.length());
+    assertThat(queue.length()).isEqualTo(1);
     queue.add("bar");
-    assertEquals(2, queue.length());
+    assertThat(queue.length()).isEqualTo(2);
     queue.add("foo"); // should not increase the queue length.
-    assertEquals(2, queue.length());
+    assertThat(queue.length()).isEqualTo(2);
   }
 
   @Test
@@ -162,7 +162,7 @@ public class DefaultWorkQueueTest {
 
     // Start processing
     String item = queue.get();
-    assertEquals("foo", item);
+    assertThat(item).isEqualTo("foo");
 
     // Add it back while processing
     queue.add(item);
@@ -172,11 +172,11 @@ public class DefaultWorkQueueTest {
 
     // It should be back on the queue
     item = queue.get();
-    assertEquals("foo", item);
+    assertThat(item).isEqualTo("foo");
 
     // Finish that one up
     queue.done(item);
 
-    assertEquals(0, queue.length());
+    assertThat(queue.length()).isZero();
   }
 }

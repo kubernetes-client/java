@@ -12,7 +12,8 @@ limitations under the License.
 */
 package io.kubernetes.client;
 
-import static org.junit.Assert.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 
 import io.kubernetes.client.custom.IOTrio;
 import io.kubernetes.client.openapi.ApiException;
@@ -44,9 +45,10 @@ public class ExecCallbacksTest {
     int exitCode = promise.get(10_000, TimeUnit.MILLISECONDS);
     long delta = System.currentTimeMillis() - startTime;
 
-    assertTrue(delta <= 10_000);
-    assertTrue(delta >= 1_000L);
-    assertEquals(Integer.MAX_VALUE, exitCode);
+    assertThat(delta)
+        .isGreaterThanOrEqualTo(1_000L)
+        .isLessThanOrEqualTo(10_000L);
+    assertThat(exitCode).isEqualTo(Integer.MAX_VALUE);
   }
 
   @Test
@@ -75,9 +77,8 @@ public class ExecCallbacksTest {
             true,
             "random-command");
 
-    assertEquals(Integer.valueOf(1), promise.get());
-    assertEquals(1, errors.size());
-    assertEquals("Some error", errors.get(0));
+    assertThat(promise.get()).isEqualTo(1);
+    assertThat(errors).containsExactly("Some error");
   }
 
   @Test
@@ -107,9 +108,8 @@ public class ExecCallbacksTest {
             true,
             "random-command");
 
-    assertEquals(Integer.valueOf(0), promise.get());
-    assertEquals(1, output.size());
-    assertEquals("Some stream", output.get(0));
+    assertThat(promise.get()).isZero();
+    assertThat(output).containsExactly("Some stream");
   }
 
   @Test
@@ -128,9 +128,8 @@ public class ExecCallbacksTest {
             true,
             "random-command");
 
-    assertEquals(Integer.valueOf(9), promise.get());
-    assertEquals(1, codes.size());
-    assertEquals(Integer.valueOf(9), codes.get(0));
+    assertThat(promise.get()).isEqualTo(9);
+    assertThat(codes).containsExactly(9);
   }
 
   @Test
@@ -190,10 +189,9 @@ public class ExecCallbacksTest {
             "bash",
             "-i");
 
-    assertEquals(Integer.valueOf(5), promise.get());
-    assertEquals(1, codes.size());
-    assertEquals(Integer.valueOf(5), codes.get(0));
-    assertTrue(callbackInvoked.get());
+    assertThat(promise.get()).isEqualTo(5);
+    assertThat(codes).containsExactly(5);
+    assertThat(callbackInvoked).isTrue();
   }
 
   // helper functions
@@ -206,14 +204,14 @@ public class ExecCallbacksTest {
     try {
       task.run();
     } catch (Exception e) {
-      e.printStackTrace();
-      fail();
+      e.printStackTrace(); // TODO: junit-jupiter fail(e);
+      fail(e.getMessage());
     }
   }
 
   private String read(InputStream is, String expectedText) {
     String readText = read(is, expectedText.length());
-    assertEquals(expectedText, readText);
+    assertThat(readText).isEqualTo(expectedText);
     return readText;
   }
 
@@ -227,8 +225,8 @@ public class ExecCallbacksTest {
       is.read(buff);
       return new String(buff);
     } catch (IOException e) {
-      e.printStackTrace();
-      fail();
+      e.printStackTrace(); // TODO: junit-jupiter fail(e);
+      fail(e.getMessage());
     }
     return null;
   }

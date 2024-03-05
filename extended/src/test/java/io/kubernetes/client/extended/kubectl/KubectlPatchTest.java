@@ -18,7 +18,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.patch;
 import static com.github.tomakehurst.wiremock.client.WireMock.patchRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
-import static org.junit.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.github.tomakehurst.wiremock.matching.EqualToPattern;
@@ -58,7 +58,7 @@ public class KubectlPatchTest {
   @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
 
   @Before
-  public void setup() throws IOException {
+  public void setup() {
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
   }
 
@@ -101,6 +101,6 @@ public class KubectlPatchTest {
             .execute();
     wireMockRule.verify(
         1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/foo/configmaps/bar")));
-    assertNotNull(configMap);
+    assertThat(configMap).isNotNull();
   }
 }

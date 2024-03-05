@@ -12,8 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.event;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.extended.event.legacy.EventAggregator;
 import io.kubernetes.client.extended.event.legacy.EventUtils;
@@ -42,7 +41,7 @@ public class EventAggregatorTest {
                       .build())
               .getLeft()
               .getMessage();
-      assertNotEquals(aggregatedMessage, message);
+      assertThat(message).isNotEqualTo(aggregatedMessage);
     }
     CoreV1Event aggregatedEvent =
         aggregator
@@ -53,6 +52,6 @@ public class EventAggregatorTest {
                     .withMessage("not_noxu")
                     .build())
             .getLeft();
-    assertEquals(aggregatedMessage, aggregatedEvent.getMessage());
+    assertThat(aggregatedEvent.getMessage()).isEqualTo(aggregatedMessage);
   }
 }

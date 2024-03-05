@@ -12,8 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.workqueue.ratelimiter;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Duration;
 import org.junit.Test;
@@ -25,21 +24,21 @@ public class ItemExponentialFailureRateLimiterTest {
     RateLimiter<String> rateLimiter =
         new ItemExponentialFailureRateLimiter<>(Duration.ofMillis(1), Duration.ofSeconds(1));
 
-    assertEquals(Duration.ofMillis(1), rateLimiter.when("one"));
-    assertEquals(Duration.ofMillis(2), rateLimiter.when("one"));
-    assertEquals(Duration.ofMillis(4), rateLimiter.when("one"));
-    assertEquals(Duration.ofMillis(8), rateLimiter.when("one"));
-    assertEquals(Duration.ofMillis(16), rateLimiter.when("one"));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(1));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(2));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(4));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(8));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(16));
 
-    assertEquals(5, rateLimiter.numRequeues("one"));
+    assertThat(rateLimiter.numRequeues("one")).isEqualTo(5);
 
-    assertEquals(Duration.ofMillis(1), rateLimiter.when("two"));
-    assertEquals(Duration.ofMillis(2), rateLimiter.when("two"));
-    assertEquals(2, rateLimiter.numRequeues("two"));
+    assertThat(rateLimiter.when("two")).isEqualTo(Duration.ofMillis(1));
+    assertThat(rateLimiter.when("two")).isEqualTo(Duration.ofMillis(2));
+    assertThat(rateLimiter.numRequeues("two")).isEqualTo(2);
 
     rateLimiter.forget("one");
-    assertEquals(0, rateLimiter.numRequeues("one"));
-    assertEquals(Duration.ofMillis(1), rateLimiter.when("one"));
+    assertThat(rateLimiter.numRequeues("one")).isZero();
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(1));
   }
 
   @Test
@@ -50,24 +49,24 @@ public class ItemExponentialFailureRateLimiterTest {
     for (int i = 0; i < 5; i++) {
       rateLimiter.when("one");
     }
-    assertEquals(Duration.ofMillis(32), rateLimiter.when("one"));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(32));
 
     for (int i = 0; i < 1000; i++) {
       rateLimiter.when("overflow1");
     }
-    assertEquals(Duration.ofSeconds(1000), rateLimiter.when("overflow1"));
+    assertThat(rateLimiter.when("overflow1")).isEqualTo(Duration.ofSeconds(1000));
 
     rateLimiter =
         new ItemExponentialFailureRateLimiter<>(Duration.ofMinutes(1), Duration.ofHours(1000));
     for (int i = 0; i < 2; i++) {
       rateLimiter.when("two");
     }
-    assertEquals(Duration.ofMinutes(4), rateLimiter.when("two"));
+    assertThat(rateLimiter.when("two")).isEqualTo(Duration.ofMinutes(4));
 
     for (int i = 0; i < 1000; i++) {
       rateLimiter.when("overflow2");
     }
-    assertEquals(Duration.ofHours(1000), rateLimiter.when("overflow2"));
+    assertThat(rateLimiter.when("overflow2")).isEqualTo(Duration.ofHours(1000));
   }
 
   @Test
@@ -78,11 +77,11 @@ public class ItemExponentialFailureRateLimiterTest {
     for (int i = 0; i < 5; i++) {
       rateLimiter.when("one");
     }
-    assertEquals(Duration.ofMillis(-32), rateLimiter.when("one"));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(-32));
     for (int i = 0; i < 1000; i++) {
       rateLimiter.when("overflow1");
     }
-    assertTrue(rateLimiter.when("overflow1").isNegative());
+    assertThat(rateLimiter.when("overflow1")).isNegative();
   }
 
   @Test
@@ -90,9 +89,9 @@ public class ItemExponentialFailureRateLimiterTest {
     RateLimiter<String> rateLimiter =
         new ItemExponentialFailureRateLimiter<>(Duration.ofMillis(1), Duration.ofSeconds(-1000));
 
-    assertEquals(Duration.ofSeconds(-1000), rateLimiter.when("one"));
-    assertEquals(Duration.ofSeconds(-1000), rateLimiter.when("one"));
-    assertEquals(Duration.ofSeconds(-1000), rateLimiter.when("one"));
-    assertEquals(Duration.ofSeconds(-1000), rateLimiter.when("one"));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(-1000));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(-1000));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(-1000));
+    assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofSeconds(-1000));
   }
 }
