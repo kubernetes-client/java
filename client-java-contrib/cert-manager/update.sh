@@ -17,7 +17,7 @@
 # under src/main/java/io/cert/manager/models.
 
 DEFAULT_IMAGE_NAME=docker.pkg.github.com/kubernetes-client/java/crd-model-gen
-DEFAULT_IMAGE_TAG=v1.0.6
+DEFAULT_IMAGE_TAG=v2.0.0
 IMAGE_NAME=${IMAGE_NAME:=$DEFAULT_IMAGE_NAME}
 IMAGE_TAG=${IMAGE_TAG:=$DEFAULT_IMAGE_TAG}
 
@@ -31,7 +31,7 @@ docker run \
   --network host \
   ${IMAGE_NAME}:${IMAGE_TAG} \
   /generate.sh \
-  -u https://github.com/jetstack/cert-manager/releases/download/v0.16.1/cert-manager.crds.yaml \
+  -u https://github.com/jetstack/cert-manager/releases/download/v1.13.4/cert-manager.crds.yaml \
   -n io.cert-manager \
   -p io.cert.manager \
   -o "$(pwd)"
