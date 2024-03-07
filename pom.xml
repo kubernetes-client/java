@@ -523,7 +523,8 @@
           <java>
             <removeUnusedImports /> <!-- self-explanatory -->
             <googleJavaFormat>
-              <version>1.15.0</version>
+              <!-- Use the floor LTS Java version used in CI -->
+              <version>1.17.0</version>
             </googleJavaFormat>
           </java>
           <groovy>
