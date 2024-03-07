@@ -73,7 +73,7 @@ public class ExpandedExample {
                   System.out.println("----- " + namespace + " -----");
                   getNamespacedPod(namespace).stream().forEach(System.out::println);
                 } catch (ApiException ex) {
-                  LOGGER.warn("Couldn't get the pods in namespace:" + namespace, ex);
+                  LOGGER.warn("Couldn't get the pods in namespace:{}", namespace, ex);
                 }
               });
 
@@ -218,7 +218,7 @@ public class ExpandedExample {
             appsV1Api.replaceNamespacedDeployment(
                 deploymentName, DEFAULT_NAME_SPACE, newDeploy).execute();
           } catch (ApiException ex) {
-            LOGGER.warn("Scale the pod failed for Deployment:" + deploymentName, ex);
+            LOGGER.warn("Scale the pod failed for Deployment:{}", deploymentName, ex);
           }
         });
   }

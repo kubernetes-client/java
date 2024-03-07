@@ -185,7 +185,7 @@ public class Copy extends Exec {
           entry != null;
           entry = archive.getNextEntry()) {
         if (!archive.canReadEntryData(entry)) {
-          log.error("Can't read: " + entry);
+          log.error("Can't read: {}", entry);
           continue;
         }
         String normalName = FilenameUtils.normalize(entry.getName());

@@ -231,7 +231,7 @@ public class KubeConfig {
           credentials.put(CRED_TOKEN_KEY, auth.getToken(authConfig));
           return credentials;
         } else {
-          log.error("Unknown auth provider: " + name);
+          log.error("Unknown auth provider: {}", name);
         }
       }
     }
@@ -358,7 +358,7 @@ public class KubeConfig {
           Reader r = new InputStreamReader(is, StandardCharsets.UTF_8)) {
         root = JsonParser.parseReader(r);
       } catch (JsonParseException x) {
-        log.error("Failed to parse output of " + command, x);
+        log.error("Failed to parse output of {}", command, x);
         return null;
       }
       int r = proc.waitFor();
@@ -368,7 +368,7 @@ public class KubeConfig {
       }
       return root;
     } catch (IOException | InterruptedException x) {
-      log.error("Failed to run " + command, x);
+      log.error("Failed to run {}", command, x);
       return null;
     }
   }

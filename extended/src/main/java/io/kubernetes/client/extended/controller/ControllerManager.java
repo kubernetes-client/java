@@ -24,7 +24,7 @@ import org.slf4j.LoggerFactory;
  * factory.
  */
 public class ControllerManager implements Controller {
-  private static final Logger log = LoggerFactory.getLogger(DefaultController.class);
+  private static final Logger log = LoggerFactory.getLogger(ControllerManager.class);
   private Controller[] controllers;
   private ExecutorService controllerThreadPool;
   private SharedInformerFactory informerFactory;

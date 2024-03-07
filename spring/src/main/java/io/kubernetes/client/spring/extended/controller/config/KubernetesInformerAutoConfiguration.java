@@ -41,10 +41,7 @@ public class KubernetesInformerAutoConfiguration {
       ApiClient apiClient = ClientBuilder.defaultClient();
       return apiClient;
     } catch (Exception e) {
-      LOGGER.warn(
-          "Could not create a Kubernetes ApiClient from either a cluster or standard environment. "
-              + "Will return one that always connects to localhost:8080",
-          e);
+      LOGGER.warn("Could not create a Kubernetes ApiClient from either a cluster or standard environment. " + "Will return one that always connects to localhost:8080", e);
       return new ClientBuilder().build();
     }
   }

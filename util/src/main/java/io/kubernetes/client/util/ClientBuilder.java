@@ -159,9 +159,7 @@ public class ClientBuilder {
       final String[] filePaths = kubeConfigEnv.split(File.pathSeparator);
       final String kubeConfigPath = filePaths[0];
       if (filePaths.length > 1) {
-        log.warn(
-            "Found multiple kubeconfigs files, $KUBECONFIG: " + kubeConfigEnv + " using first: {}",
-            kubeConfigPath);
+        log.warn("Found multiple kubeconfigs files, $KUBECONFIG: {} using first: {}", kubeConfigEnv, kubeConfigPath);
       }
 
       return kubeConfigPath;

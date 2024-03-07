@@ -92,7 +92,7 @@ public class HttpUtils {
             if ( headers != null ) {
                 log.debug("--------- Request headers ---------");
                 for ( String headerKey : headers.keySet() ) {
-                    log.debug(headerKey + ": " + headers.get(headerKey));
+                    log.debug("{}: {}", headerKey, headers.get(headerKey));
                     connection.setRequestProperty(headerKey, headers.get(headerKey));
                 }
             }
