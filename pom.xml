@@ -521,7 +521,7 @@
             </format>
           </formats>
           <java>
-            <removeUnusedImports /> <!-- self-explanatory -->
+            <removeUnusedImports />
             <googleJavaFormat>
               <!-- Use the floor LTS Java version used in CI -->
               <version>1.17.0</version>
