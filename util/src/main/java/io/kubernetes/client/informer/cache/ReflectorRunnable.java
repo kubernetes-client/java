@@ -282,7 +282,7 @@ public class ReflectorRunnable<
 
   static <ApiType extends KubernetesObject> void defaultWatchErrorHandler(
       Class<ApiType> watchingApiTypeClass, Throwable t) {
-    log.error(String.format("%s#Reflector loop failed unexpectedly", watchingApiTypeClass), t);
+    log.error("{}#Reflector loop failed unexpectedly", watchingApiTypeClass, t);
   }
 
   private boolean isConnectException(Throwable t) {

@@ -64,7 +64,7 @@ public class KubernetesBeanFactoryInitializationAotProcessor
             "io.kubernetes.client.util.Watch$Response" //
           };
       for (String className : classNames) {
-        LOGGER.info("registering " + className + " for reflection");
+        LOGGER.info("registering {} for reflection", className);
         hints.reflection().registerType(TypeReference.of(className), allMemberCategories);
       }
       registerForPackage("io.kubernetes", hints);
@@ -85,7 +85,7 @@ public class KubernetesBeanFactoryInitializationAotProcessor
     all.addAll(controllers);
     all.addAll(apiModels);
     for (Class<?> clazz : all) {
-      LOGGER.info("registering " + clazz.getName() + " for reflection");
+      LOGGER.info("registering {} for reflection", clazz.getName());
       hints.reflection().registerType(clazz, allMemberCategories);
     }
   }
