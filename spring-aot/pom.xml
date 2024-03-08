@@ -13,7 +13,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <properties>
-        <spring.boot.version>3.0.0</spring.boot.version>
         <!-- Spring Boot 3.x is minimum JRE 17 -->
         <java.version>17</java.version>
     </properties>
