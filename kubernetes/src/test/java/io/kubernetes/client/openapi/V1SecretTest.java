@@ -13,15 +13,15 @@ limitations under the License.
 package io.kubernetes.client.openapi;
 
 import io.kubernetes.client.openapi.models.V1Secret;
-import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.HashMap;
+import org.junit.jupiter.api.Test;
 
-public class V1SecretTest {
-    @Test
-    public void testV1SecretEquality() {
+class V1SecretTest {
+  @Test
+  void v1SecretEquality() {
         V1Secret left = new V1Secret()
                 .data(new HashMap<String, byte[]>() {{
                     put("foo", "bar".getBytes());

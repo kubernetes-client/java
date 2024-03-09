@@ -15,17 +15,17 @@ package io.kubernetes.client.util.credentials;
 import com.amazonaws.auth.AWSSessionCredentialsProvider;
 import com.amazonaws.auth.BasicSessionCredentials;
 import io.kubernetes.client.openapi.ApiClient;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
-public class EKSAuthenticationTest {
+@ExtendWith(MockitoExtension.class)
+class EKSAuthenticationTest {
 
     @Mock
     private AWSSessionCredentialsProvider provider;
@@ -37,8 +37,8 @@ public class EKSAuthenticationTest {
 
     private String clusterName = "test-2";
 
-    @Test
-    public void testProvideApiClient() {
+  @Test
+  void provideApiClient() {
         when(provider.getCredentials()).thenReturn(new BasicSessionCredentials("ak", "sk", "session"));
         EKSAuthentication authentication = new EKSAuthentication(provider, region, clusterName);
         authentication.provide(apiClient);

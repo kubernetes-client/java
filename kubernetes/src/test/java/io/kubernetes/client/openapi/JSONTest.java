@@ -24,14 +24,14 @@ import com.google.gson.stream.JsonReader;
 import io.kubernetes.client.openapi.models.V1ListMeta;
 import io.kubernetes.client.openapi.models.V1Status;
 import okio.ByteString;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class JSONTest {
+class JSONTest {
 
   private final JSON json = new JSON();
 
   @Test
-  public void testSerializeByteArray() {
+  void serializeByteArray() {
     final String plainText = "string that contains '=' when encoded";
     final String base64String = json.serialize(plainText.getBytes());
     // serialize returns string surrounded by quotes: "\"[base64]\""
@@ -47,7 +47,7 @@ public class JSONTest {
   }
 
   @Test
-  public void testOffsetDateTime1e6Parse() {
+  void offsetDateTime1e6Parse() {
     String timeStr = "\"2018-04-03T11:32:26.123456Z\"";
     OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
     String serializedTsStr = json.serialize(dateTime);
@@ -55,7 +55,7 @@ public class JSONTest {
   }
 
   @Test
-  public void testOffsetDateTime1e4Parse() {
+  void offsetDateTime1e4Parse() {
     String timeStr = "\"2018-04-03T11:32:26.1234Z\"";
     OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
     String serializedTsStr = json.serialize(dateTime);
@@ -64,7 +64,7 @@ public class JSONTest {
   }
 
   @Test
-  public void testOffsetDateTime1e3Parse() {
+  void offsetDateTime1e3Parse() {
     String timeStr = "\"2018-04-03T11:32:26.123Z\"";
     OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
     String serializedTsStr = json.serialize(dateTime);
@@ -73,7 +73,7 @@ public class JSONTest {
   }
 
   @Test
-  public void testOffsetDateTimeNoFractionParse() {
+  void offsetDateTimeNoFractionParse() {
     String timeStr = "\"2018-04-03T11:32:26Z\"";
     OffsetDateTime dateTime = json.deserialize(timeStr, OffsetDateTime.class);
     String serializedTsStr = json.serialize(dateTime);
@@ -82,14 +82,14 @@ public class JSONTest {
   }
 
   @Test
-  public void testV1StatusTypeValidationDisabled() throws IOException {
+  void v1StatusTypeValidationDisabled() throws IOException {
     Gson gson = new Gson();
     JsonReader jsonReader = new JsonReader(new StringReader("{\"foo\":\"bar\"}"));
     new V1Status.CustomTypeAdapterFactory().create(gson, TypeToken.get(V1Status.class)).read(jsonReader);
   }
 
   @Test
-  public void testV1ListMetaTypeValidationDisabled() throws IOException {
+  void v1ListMetaTypeValidationDisabled() throws IOException {
     Gson gson = new Gson();
     JsonReader jsonReader = new JsonReader(new StringReader("{\"foo\":\"bar\"}"));
     new V1ListMeta.CustomTypeAdapterFactory().create(gson, TypeToken.get(V1ListMeta.class)).read(jsonReader);

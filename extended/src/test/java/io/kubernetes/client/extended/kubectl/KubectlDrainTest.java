@@ -16,7 +16,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.delete;
 import static com.github.tomakehurst.wiremock.client.WireMock.deleteRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.equalTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.findUnmatchedRequests;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.patch;
@@ -24,7 +23,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.patchRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Node;
@@ -35,11 +35,11 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class KubectlDrainTest {
+class KubectlDrainTest {
 
   private static final String POD_LIST_API =
       new File(KubectlDrainTest.class.getClassLoader().getResource("pod-list.json").getPath())
@@ -47,62 +47,64 @@ public class KubectlDrainTest {
 
   private ApiClient apiClient;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(8384);
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(WireMockConfiguration.options().port(8384)).build();
 
-  @Before
-  public void setup() {
+  @BeforeEach
+  void setup() {
     ModelMapper.addModelMap("", "v1", "Pod", "pods", true, V1Pod.class);
     ModelMapper.addModelMap("", "v1", "Node", "nodes", false, V1Node.class);
     apiClient = new ClientBuilder().setBasePath("http://localhost:" + 8384).build();
   }
 
   @Test
-  public void testDrainNodeNoPods() throws KubectlException {
+  void drainNodeNoPods() throws KubectlException {
     // /api/v1/pods?fieldSelector=spec.nodeName%3Dkube3
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         patch(urlPathEqualTo("/api/v1/nodes/node1"))
             .willReturn(
                 aResponse().withStatus(200).withBody("{\"metadata\": { \"name\": \"node1\" } }")));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
             .withQueryParam("fieldSelector", equalTo("spec.nodeName=node1"))
             .willReturn(aResponse().withStatus(200).withBody("{\"items\":[]}")));
     V1Node node = new KubectlDrain().skipDiscovery().apiClient(apiClient).name("node1").execute();
-    wireMockRule.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/nodes/node1")));
-    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
+    apiServer.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/nodes/node1")));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
     assertThat(node.getMetadata().getName()).isEqualTo("node1");
   }
 
   @Test
-  public void testDrainNodePods() throws KubectlException, IOException {
+  void drainNodePods() throws KubectlException, IOException {
     // /api/v1/pods?fieldSelector=spec.nodeName%3Dkube3
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         patch(urlPathEqualTo("/api/v1/nodes/node1"))
             .willReturn(
                 aResponse().withStatus(200).withBody("{\"metadata\": { \"name\": \"node1\" } }")));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
             .withQueryParam("fieldSelector", equalTo("spec.nodeName=node1"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(new String(Files.readAllBytes(Paths.get(POD_LIST_API))))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         delete(urlPathEqualTo("/api/v1/namespaces/mssql/pods/mssql-75b8b44f6b-znftp"))
             .willReturn(aResponse().withStatus(200).withBody("{}")));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/mssql/pods/mssql-75b8b44f6b-znftp"))
             .willReturn(aResponse().withStatus(404).withBody("{}")));
 
     V1Node node = new KubectlDrain().skipDiscovery().apiClient(apiClient).name("node1").execute();
-    wireMockRule.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/nodes/node1")));
-    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
-    wireMockRule.verify(
+    apiServer.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/nodes/node1")));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
+    apiServer.verify(
         1,
         deleteRequestedFor(urlPathEqualTo("/api/v1/namespaces/mssql/pods/mssql-75b8b44f6b-znftp")));
-    wireMockRule.verify(
+    apiServer.verify(
         1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/mssql/pods/mssql-75b8b44f6b-znftp")));
     assertThat(node.getMetadata().getName()).isEqualTo("node1");
-    assertThat(findUnmatchedRequests()).isEmpty();
+    assertThat(apiServer.findUnmatchedRequests().getRequests()).isEmpty();
   }
 }

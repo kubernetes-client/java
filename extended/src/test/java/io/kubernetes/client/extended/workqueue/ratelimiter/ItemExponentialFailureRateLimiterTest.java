@@ -15,12 +15,12 @@ package io.kubernetes.client.extended.workqueue.ratelimiter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Duration;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class ItemExponentialFailureRateLimiterTest {
+class ItemExponentialFailureRateLimiterTest {
 
   @Test
-  public void testItemExponentialFailureRateLimiter() {
+  void itemExponentialFailureRateLimiter() {
     RateLimiter<String> rateLimiter =
         new ItemExponentialFailureRateLimiter<>(Duration.ofMillis(1), Duration.ofSeconds(1));
 
@@ -42,7 +42,7 @@ public class ItemExponentialFailureRateLimiterTest {
   }
 
   @Test
-  public void testItemExponentialFailureRateLimiterOverFlow() {
+  void itemExponentialFailureRateLimiterOverFlow() {
     RateLimiter<String> rateLimiter =
         new ItemExponentialFailureRateLimiter<>(Duration.ofMillis(1), Duration.ofSeconds(1000));
 
@@ -70,7 +70,7 @@ public class ItemExponentialFailureRateLimiterTest {
   }
 
   @Test
-  public void testNegativeBaseDelay() {
+  void negativeBaseDelay() {
     RateLimiter<String> rateLimiter =
         new ItemExponentialFailureRateLimiter<>(Duration.ofMillis(-1), Duration.ofSeconds(1000));
 
@@ -85,7 +85,7 @@ public class ItemExponentialFailureRateLimiterTest {
   }
 
   @Test
-  public void testNegativeMaxDelay() {
+  void negativeMaxDelay() {
     RateLimiter<String> rateLimiter =
         new ItemExponentialFailureRateLimiter<>(Duration.ofMillis(1), Duration.ofSeconds(-1000));
 

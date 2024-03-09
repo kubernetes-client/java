@@ -19,7 +19,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.matching.EqualToPattern;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -36,15 +36,20 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class DeploymentHelperTest {
+class DeploymentHelperTest {
 
   private ApiClient apiClient;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort(), false);
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance()
+          .options(options().dynamicPort())
+          .failOnUnmatchedRequests(false)
+          .build();
 
   private static final String DEPLOYMENT =
       new File(DeploymentHelperTest.class.getClassLoader().getResource("deployment.json").getPath())
@@ -58,14 +63,14 @@ public class DeploymentHelperTest {
                   .getPath())
           .toString();
 
-  @Before
-  public void setup() {
-    apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+    apiClient = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
   }
 
   @Test
-  public void testGetAllReplicaSetsShouldWork() throws IOException, ApiException {
-    wireMockRule.stubFor(
+  void getAllReplicaSetsShouldWork() throws IOException, ApiException {
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets"))
             .willReturn(
                 aResponse()
@@ -79,7 +84,7 @@ public class DeploymentHelperTest {
     List<V1ReplicaSet> oldRSes = new ArrayList<>();
     List<V1ReplicaSet> allOldRSes = new ArrayList<>();
     V1ReplicaSet newRs = DeploymentHelper.getAllReplicaSets(deployment, api, oldRSes, allOldRSes);
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
@@ -89,7 +94,7 @@ public class DeploymentHelperTest {
   }
 
   @Test
-  public void testRevisionShouldWork() throws IOException {
+  void revisionShouldWork() throws IOException {
     V1ReplicaSetList replicaSetList =
         new JSON()
             .deserialize(

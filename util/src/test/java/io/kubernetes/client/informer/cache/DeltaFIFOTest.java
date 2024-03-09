@@ -24,11 +24,11 @@ import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 import org.apache.commons.lang3.tuple.MutablePair;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class DeltaFIFOTest {
+class DeltaFIFOTest {
   @Test
-  public void testDeltaFIFOBasic() throws InterruptedException {
+  void deltaFIFOBasic() throws InterruptedException {
     Deque<MutablePair<DeltaFIFO.DeltaType, KubernetesObject>> receivingDeltas = new LinkedList<>();
     V1Pod foo1 = new V1Pod().metadata(new V1ObjectMeta().name("foo1").namespace("default"));
     Cache cache = new Cache();
@@ -89,7 +89,7 @@ public class DeltaFIFOTest {
   }
 
   @Test
-  public void testDeltaFIFODedup() {
+  void deltaFIFODedup() {
     V1Pod foo1 =
         new V1Pod()
             .metadata(new V1ObjectMeta().name("foo1").namespace("default").resourceVersion("ver"));
@@ -128,7 +128,7 @@ public class DeltaFIFOTest {
   }
 
   @Test
-  public void testDeltaFIFOResync() {
+  void deltaFIFOResync() {
     V1Pod foo1 = new V1Pod().metadata(new V1ObjectMeta().name("foo1").namespace("default"));
     Cache cache = new Cache();
     DeltaFIFO deltaFIFO = new DeltaFIFO(Caches::deletionHandlingMetaNamespaceKeyFunc, cache);
@@ -146,7 +146,7 @@ public class DeltaFIFOTest {
   }
 
   @Test
-  public void testDeltaFIFOReplaceWithDeleteDeltaIn() throws InterruptedException {
+  void deltaFIFOReplaceWithDeleteDeltaIn() throws InterruptedException {
     V1Pod oldPod = new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo1"));
     V1Pod newPod = new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo2"));
 

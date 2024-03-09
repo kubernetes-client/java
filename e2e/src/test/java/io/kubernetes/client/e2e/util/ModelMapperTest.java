@@ -22,12 +22,12 @@ import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.ModelMapper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class ModelMapperTest {
+class ModelMapperTest {
 
   @Test
-  public void apiDiscoveryShouldWork() throws Exception {
+  void apiDiscoveryShouldWork() throws Exception {
     Discovery discovery = new Discovery(ClientBuilder.defaultClient());
     ModelMapper.refresh(discovery);
 

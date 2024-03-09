@@ -18,12 +18,12 @@ import io.kubernetes.client.apimachinery.GroupVersionKind;
 import io.kubernetes.client.openapi.models.V1CustomResourceDefinition;
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1Pod;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class ModelMapperTest {
+class ModelMapperTest {
 
   @Test
-  public void testPrebuiltModelMapping() {
+  void prebuiltModelMapping() {
 
     assertThat(ModelMapper.getApiTypeClass("", "v1", "Pod"))
         .isEqualTo(V1Pod.class);
@@ -34,7 +34,7 @@ public class ModelMapperTest {
   }
 
   @Test
-  public void testAddingModel() {
+  void addingModel() {
     Class objClass =
             new Object() {
               {
@@ -64,7 +64,7 @@ public class ModelMapperTest {
 
 
   @Test
-  public void testPreBuiltGetGroupVersionKindByClass() {
+  void preBuiltGetGroupVersionKindByClass() {
     assertThat(ModelMapper.preBuiltGetGroupVersionKindByClass(V1Pod.class))
         .hasValue(new GroupVersionKind("", "v1", "Pod"));
     assertThat(ModelMapper.preBuiltGetGroupVersionKindByClass(V1Deployment.class))

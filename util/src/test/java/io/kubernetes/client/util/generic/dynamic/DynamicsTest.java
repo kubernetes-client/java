@@ -22,9 +22,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class DynamicsTest {
+class DynamicsTest {
 
   private static final String TEST_POD_YAML_FILE =
       new File(Resources.getResource("test-pod.yaml").getPath()).toString();
@@ -35,7 +35,7 @@ public class DynamicsTest {
   private JSON json = new JSON();
 
   @Test
-  public void testYamlToJson() throws IOException {
+  void yamlToJson() throws IOException {
     String podYamlContent = new String(Files.readAllBytes(Paths.get(TEST_POD_YAML_FILE)));
     String podJsonContent = new String(Files.readAllBytes(Paths.get(TEST_POD_JSON_FILE)));
     String convertedJsonContent = Dynamics.fromYamlToJson(podYamlContent);
@@ -45,7 +45,7 @@ public class DynamicsTest {
   }
 
   @Test
-  public void testJsonToYaml() throws IOException {
+  void jsonToYaml() throws IOException {
     String podYamlContent = new String(Files.readAllBytes(Paths.get(TEST_POD_YAML_FILE)));
     String podJsonContent = new String(Files.readAllBytes(Paths.get(TEST_POD_JSON_FILE)));
     String convertedYamlContent = Dynamics.fromJsonToYaml(podJsonContent);
@@ -54,7 +54,7 @@ public class DynamicsTest {
   }
 
   @Test
-  public void testLoadingJsonToDynamicObj() throws IOException {
+  void loadingJsonToDynamicObj() throws IOException {
     String podJsonContent = new String(Files.readAllBytes(Paths.get(TEST_POD_JSON_FILE)));
     DynamicKubernetesObject obj = Dynamics.newFromJson(podJsonContent);
 
@@ -63,7 +63,7 @@ public class DynamicsTest {
   }
 
   @Test
-  public void testLoadingYamlToDynamicObj() throws IOException {
+  void loadingYamlToDynamicObj() throws IOException {
     String podYamlContent = new String(Files.readAllBytes(Paths.get(TEST_POD_YAML_FILE)));
     DynamicKubernetesObject obj = Dynamics.newFromYaml(podYamlContent);
 

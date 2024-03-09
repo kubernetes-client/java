@@ -23,9 +23,9 @@ import io.kubernetes.client.openapi.models.V1Endpoints;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class RoundRobinEndpointsLoadBalancerTests {
+class RoundRobinEndpointsLoadBalancerTests {
 
   private final V1Endpoints twoPortTwoHostEp =
       new V1Endpoints()
@@ -37,21 +37,21 @@ public class RoundRobinEndpointsLoadBalancerTests {
                   .addPortsItem(new CoreV1EndpointPort().port(8081)));
 
   @Test
-  public void testChooseIPFromNullListShouldThrowException() {
+  void chooseIPFromNullListShouldThrowException() {
     RoundRobinLoadBalanceStrategy strategy = new RoundRobinLoadBalanceStrategy();
     assertThatThrownBy(() -> strategy.chooseIP(null))
         .isInstanceOf(IllegalArgumentException.class);
   }
 
   @Test
-  public void testChooseIPFromEmptyListShouldThrowException() {
+  void chooseIPFromEmptyListShouldThrowException() {
     RoundRobinLoadBalanceStrategy strategy = new RoundRobinLoadBalanceStrategy();
     assertThatThrownBy(() -> strategy.chooseIP(new ArrayList<>()))
         .isInstanceOf(IllegalArgumentException.class);
   }
 
   @Test
-  public void testChooseFixedMultipleIPShouldWork() {
+  void chooseFixedMultipleIPShouldWork() {
     RoundRobinLoadBalanceStrategy strategy = new RoundRobinLoadBalanceStrategy();
     List<String> availables = Arrays.asList("127.0.0.1", "127.0.0.2", "127.0.0.3");
     assertThat(strategy.chooseIP(availables)).isEqualTo("127.0.0.1");
@@ -63,7 +63,7 @@ public class RoundRobinEndpointsLoadBalancerTests {
   }
 
   @Test
-  public void testChooseChangingMultipleIPShouldWork() {
+  void chooseChangingMultipleIPShouldWork() {
     RoundRobinLoadBalanceStrategy strategy = new RoundRobinLoadBalanceStrategy();
     List<String> availables = Arrays.asList("127.0.0.1", "127.0.0.2", "127.0.0.3");
     List<String> availablesChanged =
@@ -77,7 +77,7 @@ public class RoundRobinEndpointsLoadBalancerTests {
   }
 
   @Test
-  public void testEndpointLoadBalancing() throws NoAvailableAddressException {
+  void endpointLoadBalancing() throws NoAvailableAddressException {
     EndpointsLoadBalancer loadBalancer =
         new EndpointsLoadBalancer(() -> twoPortTwoHostEp, new RoundRobinLoadBalanceStrategy());
     assertThat(loadBalancer.getTargetIP()).isEqualTo("127.0.0.1");

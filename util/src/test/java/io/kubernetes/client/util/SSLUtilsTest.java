@@ -13,6 +13,7 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import io.kubernetes.client.Resources;
 import java.io.IOException;
@@ -21,9 +22,9 @@ import java.security.GeneralSecurityException;
 import java.security.PrivateKey;
 import java.security.spec.InvalidKeySpecException;
 import org.apache.commons.io.IOUtils;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class SSLUtilsTest {
+class SSLUtilsTest {
 
   private static final String CLIENT_CERT = "clientauth.cert";
 
@@ -40,34 +41,35 @@ public class SSLUtilsTest {
   private static final String ECDSA_ALGORITHM = "ECDSA";
 
   @Test
-  public void testLoadKeyRsaPkcs8() throws IOException, GeneralSecurityException {
+  void loadKeyRsaPkcs8() throws IOException, GeneralSecurityException {
     final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_RSA_PKCS8);
     assertThat(privateKey.getAlgorithm()).isEqualTo(RSA_ALGORITHM);
   }
 
   @Test
-  public void testLoadKeyRsaPkcs1() throws IOException, GeneralSecurityException {
+  void loadKeyRsaPkcs1() throws IOException, GeneralSecurityException {
     final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_RSA_PKCS1);
     assertThat(privateKey.getAlgorithm()).isEqualTo(RSA_ALGORITHM);
   }
 
   @Test
-  public void testLoadKeyEcdsaPkcs7() throws IOException, GeneralSecurityException {
+  void loadKeyEcdsaPkcs7() throws IOException, GeneralSecurityException {
     final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_ECDSA_PKCS7);
     assertThat(privateKey.getAlgorithm()).isEqualTo(ECDSA_ALGORITHM);
   }
 
   @Test
-  public void testLoadKeyEcdsaPkcs8() throws IOException, GeneralSecurityException {
+  void loadKeyEcdsaPkcs8() throws IOException, GeneralSecurityException {
     final PrivateKey privateKey = assertLoadDumpReloadKeyEquals(CLIENT_KEY_ECDSA_PKCS8);
     assertThat(privateKey.getAlgorithm()).isEqualTo(ECDSA_ALGORITHM);
   }
 
-  @Test(expected = InvalidKeySpecException.class)
-  public void testLoadKeyCertificateNotSupported()
-      throws IOException, InvalidKeySpecException {
+  @Test
+  void loadKeyCertificateNotSupported() throws Exception {
     final byte[] resourceBytes = getResourceBytes(CLIENT_CERT);
-    SSLUtils.loadKey(resourceBytes);
+
+    assertThatThrownBy(() -> SSLUtils.loadKey(resourceBytes))
+        .isInstanceOf(InvalidKeySpecException.class);
   }
 
   private PrivateKey assertLoadDumpReloadKeyEquals(final String filePath)

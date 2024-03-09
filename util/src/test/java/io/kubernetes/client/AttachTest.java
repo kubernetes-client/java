@@ -19,30 +19,32 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.Attach.AttachResult;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.ClientBuilder;
 import java.io.IOException;
 import java.io.InputStream;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
 /** Tests for the Attach helper class */
-public class AttachTest {
+class AttachTest {
   private String namespace;
   private String podName;
   private String container;
 
   private ApiClient client;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(options().dynamicPort()).build();
 
-  @Before
-  public void setup() {
-    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+    client = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
 
     namespace = "default";
     podName = "apod";
@@ -50,10 +52,10 @@ public class AttachTest {
   }
 
   @Test
-  public void testUrl() throws IOException, ApiException {
+  void url() throws IOException, ApiException {
     Attach attach = new Attach(client);
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .willReturn(
                 aResponse()
@@ -90,7 +92,7 @@ public class AttachTest {
     res2.close();
     res3.close();
 
-    wireMockRule.verify(
+    apiServer.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .withQueryParam("stdin", equalTo("false"))
@@ -99,7 +101,7 @@ public class AttachTest {
             .withQueryParam("tty", equalTo("false"))
             .withQueryParam("container", equalTo(container)));
 
-    wireMockRule.verify(
+    apiServer.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .withQueryParam("stdin", equalTo("true"))
@@ -107,7 +109,7 @@ public class AttachTest {
             .withQueryParam("stderr", equalTo("false"))
             .withQueryParam("tty", equalTo("false")));
 
-    wireMockRule.verify(
+    apiServer.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/attach"))
             .withQueryParam("stdin", equalTo("false"))

@@ -12,10 +12,14 @@ limitations under the License.
 */
 package io.kubernetes.client.extended.controller.builder;
 
-import static com.github.tomakehurst.wiremock.client.WireMock.*;
+import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
+import static com.github.tomakehurst.wiremock.client.WireMock.get;
+import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.extended.controller.Controller;
 import io.kubernetes.client.extended.controller.reconciler.Reconciler;
 import io.kubernetes.client.extended.controller.reconciler.Request;
@@ -39,12 +43,12 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.function.Function;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class DefaultControllerBuilderTest {
+class DefaultControllerBuilderTest {
 
   private SharedInformerFactory informerFactory = new SharedInformerFactory();
   private ExecutorService controllerThead = Executors.newSingleThreadExecutor();
@@ -53,26 +57,29 @@ public class DefaultControllerBuilderTest {
 
   private static final int PORT = 8089;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(WireMockConfiguration.options().port(PORT)).build();
 
-  @Before
-  public void setUp() {
+  @BeforeEach
+  void setUp() {
     client = new ClientBuilder().setBasePath("http://localhost:" + PORT).build();
   }
 
-  @After
-  public void tearDown() {}
+  @AfterEach
+  void tearDown() {}
 
   @Test
-  public void testWithLeaderElectorProxiesDefaultController() {}
+  void withLeaderElectorProxiesDefaultController() {}
 
-  @Test(expected = IllegalStateException.class)
-  public void testDummyBuildShouldFail() {
-    ControllerBuilder.defaultBuilder(informerFactory).build();
+  @Test
+  void dummyBuildShouldFail() {
+    assertThatThrownBy(() -> ControllerBuilder.defaultBuilder(informerFactory).build())
+        .isInstanceOf(IllegalStateException.class);
   }
 
   @Test
-  public void testBuildWatchShouldWorkIfInformerPresent() {
+  void buildWatchShouldWorkIfInformerPresent() {
     CoreV1Api api = new CoreV1Api();
     informerFactory.sharedIndexInformerFor(
         (CallGeneratorParams params) -> {
@@ -98,10 +105,9 @@ public class DefaultControllerBuilderTest {
   }
 
   @Test
-  public void testControllerBuilderCustomizationShouldWork() {
+  void controllerBuilderCustomizationShouldWork() {
     String testName = "test-controller";
     int testWorkerCount = 1024;
-    ExecutorService threadPool = Executors.newCachedThreadPool();
 
     ControllerBuilder.defaultBuilder(informerFactory)
         .withName(testName)
@@ -118,7 +124,7 @@ public class DefaultControllerBuilderTest {
   }
 
   @Test
-  public void testBuildWatchEventNotificationShouldWork() throws InterruptedException {
+  void buildWatchEventNotificationShouldWork() throws InterruptedException {
     V1PodList podList =
         new V1PodList()
             .metadata(new V1ListMeta().resourceVersion("0"))
@@ -128,7 +134,7 @@ public class DefaultControllerBuilderTest {
                         .metadata(new V1ObjectMeta().name("test-pod1"))
                         .spec(new V1PodSpec().hostname("hostname1"))));
 
-    stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
             .willReturn(
                 aResponse()

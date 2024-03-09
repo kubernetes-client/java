@@ -15,18 +15,18 @@ package io.kubernetes.client.apimachinery;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class GroupVersionResourceTest {
+class GroupVersionResourceTest {
   @Test
-  public void testInvalidResource() {
+  void invalidResource() {
     assertThatThrownBy(() -> new GroupVersionResource("group", "version", null))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessage("resource must not be null");
   }
 
   @Test
-  public void testValidResource() {
+  void validResource() {
     assertThatNoException()
         .isThrownBy(() -> new GroupVersionResource("group", "version", "resource"));
   }

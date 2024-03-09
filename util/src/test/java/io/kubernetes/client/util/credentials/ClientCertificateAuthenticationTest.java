@@ -12,14 +12,17 @@ limitations under the License.
 */
 package io.kubernetes.client.util.credentials;
 
+
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.openapi.ApiClient;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class ClientCertificateAuthenticationTest {
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+
+class ClientCertificateAuthenticationTest {
   private static final String CLIENT_CERT_PATH =
       new File(Resources.getResource("clientauth.cert").getPath()).toString();
   private static final String CLIENT_EC_CERT_PATH =
@@ -44,21 +47,23 @@ public class ClientCertificateAuthenticationTest {
       new File(Resources.getResource("clientauth-chain.key").getPath()).toString();
 
   @Test
-  public void testValidCertificates() throws Exception {
+  void validCertificates() throws Exception {
     final ApiClient client = new ApiClient();
     final byte[] certificate = Files.readAllBytes(Paths.get(CLIENT_CERT_PATH));
     final byte[] key = Files.readAllBytes(Paths.get(CLIENT_KEY_PATH));
     new ClientCertificateAuthentication(certificate, key).provide(client);
   }
 
-  @Test(expected = RuntimeException.class)
-  public void testInvalidCertificates() {
+  @Test
+  void invalidCertificates() {
     final ApiClient client = new ApiClient();
-    new ClientCertificateAuthentication(new byte[] {}, new byte[] {}).provide(client);
+    assertThatThrownBy(
+            () -> new ClientCertificateAuthentication(new byte[] {}, new byte[] {}).provide(client))
+        .isInstanceOf(RuntimeException.class);
   }
 
   @Test
-  public void testValidECCertificates() throws Exception {
+  void validECCertificates() throws Exception {
     try {
       final ApiClient client = new ApiClient();
       final byte[] certificate = Files.readAllBytes(Paths.get(CLIENT_EC_CERT_PATH));
@@ -70,7 +75,7 @@ public class ClientCertificateAuthenticationTest {
   }
 
   @Test
-  public void testValidCertificatesChain() throws Exception {
+  void validCertificatesChain() throws Exception {
     try {
       final ApiClient client = new ApiClient();
       final byte[] certificate = Files.readAllBytes(Paths.get(CLIENT_CERT_CHAIN_PATH));
@@ -82,7 +87,7 @@ public class ClientCertificateAuthenticationTest {
   }
 
   @Test
-  public void testValidOldECCertificates() throws Exception {
+  void validOldECCertificates() throws Exception {
     try {
       final ApiClient client = new ApiClient();
       final byte[] certificate = Files.readAllBytes(Paths.get(CLIENT_EC_CERT_PATH));

@@ -18,19 +18,19 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class LabelsTest {
+class LabelsTest {
 
   @Test
-  public void testAddLabels() {
+  void addLabels() {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta());
     Labels.addLabels(pod, "foo", "bar");
     assertThat("bar").isEqualTo(pod.getMetadata().getLabels().get("foo"));
   }
 
   @Test
-  public void testAddMultipleLabels() {
+  void addMultipleLabels() {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta());
     Map<String, String> newLabels = new HashMap<>();
     newLabels.put("foo1", "bar1");

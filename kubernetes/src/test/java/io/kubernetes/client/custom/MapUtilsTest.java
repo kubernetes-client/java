@@ -12,16 +12,15 @@ limitations under the License.
 */
 package io.kubernetes.client.custom;
 
-import org.junit.Test;
-
 import java.util.HashMap;
 import java.util.Map;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MapUtilsTest {
-    @Test
-    public void testEquals() {
+class MapUtilsTest {
+  @Test
+  void equals() {
         Map<String, byte[]> left = new HashMap<String, byte[]>() {{
             put("foo", "bar".getBytes());
         }};
@@ -31,8 +30,8 @@ public class MapUtilsTest {
         assertThat(MapUtils.equals(left, right)).isTrue();
     }
 
-    @Test
-    public void testNotEquals() {
+  @Test
+  void notEquals() {
         Map<String, byte[]> left = new HashMap<String, byte[]>() {{
             put("foo", "baz".getBytes());
         }};

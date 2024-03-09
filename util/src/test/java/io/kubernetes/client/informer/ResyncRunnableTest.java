@@ -17,22 +17,22 @@ import static org.mockito.Mockito.when;
 
 import io.kubernetes.client.informer.cache.DeltaFIFO;
 import java.util.function.Supplier;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 /** @author wind57 */
-@RunWith(MockitoJUnitRunner.class)
-public class ResyncRunnableTest {
+@ExtendWith(MockitoExtension.class)
+class ResyncRunnableTest {
 
   @Mock private DeltaFIFO deltaFIFO;
 
   @Mock private Supplier<Boolean> shouldResync;
 
   @Test
-  public void testNullSupplier() {
+  void nullSupplier() {
     when(shouldResync.get()).thenReturn(true);
     ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, shouldResync);
     underTest.run();
@@ -41,7 +41,7 @@ public class ResyncRunnableTest {
   }
 
   @Test
-  public void testSupplierReturnsFalse() {
+  void supplierReturnsFalse() {
     when(shouldResync.get()).thenReturn(false);
     ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, shouldResync);
     underTest.run();
@@ -50,7 +50,7 @@ public class ResyncRunnableTest {
   }
 
   @Test
-  public void testSupplierReturnsTrue() {
+  void supplierReturnsTrue() {
     when(shouldResync.get()).thenReturn(true);
     ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, shouldResync);
     underTest.run();
@@ -60,7 +60,7 @@ public class ResyncRunnableTest {
 
   // "() -> null" is going to be treated as false
   @Test
-  public void testSupplierReturnsNull() {
+  void supplierReturnsNull() {
     when(shouldResync.get()).thenReturn(null);
     ResyncRunnable underTest = new ResyncRunnable(deltaFIFO, shouldResync);
     underTest.run();

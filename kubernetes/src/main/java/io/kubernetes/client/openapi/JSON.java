@@ -71,8 +71,7 @@ public class JSON {
 
     @SuppressWarnings("unchecked")
     public static GsonBuilder createGson() {
-        GsonFireBuilder fireBuilder = new GsonFireBuilder()
-        ;
+        GsonFireBuilder fireBuilder = new GsonFireBuilder();
         GsonBuilder builder =
                 fireBuilder
                         .registerPreProcessor(V1Status.class, new V1StatusPreProcessor())

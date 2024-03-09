@@ -15,19 +15,19 @@ package io.kubernetes.client.apimachinery;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class GroupVersionKindTest {
+class GroupVersionKindTest {
 
   @Test
-  public void testInvalidKind() {
+  void invalidKind() {
     assertThatThrownBy(() -> new GroupVersionKind("group", "version", null))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessage("kind must not be null");
   }
 
   @Test
-  public void testValidKind() {
+  void validKind() {
     assertThatNoException()
         .isThrownBy(() -> new GroupVersionKind("group", "version", "kind"));
   }

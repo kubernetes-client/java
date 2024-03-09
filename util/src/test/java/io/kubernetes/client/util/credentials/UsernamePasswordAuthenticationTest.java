@@ -18,9 +18,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import io.kubernetes.client.openapi.ApiClient;
 import java.nio.charset.StandardCharsets;
 import okio.ByteString;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class UsernamePasswordAuthenticationTest {
+class UsernamePasswordAuthenticationTest {
 
   private static final String USERNAME = "username";
   private static final String PASSWORD = "password";
@@ -28,7 +28,7 @@ public class UsernamePasswordAuthenticationTest {
       (USERNAME + ":" + PASSWORD).getBytes(StandardCharsets.ISO_8859_1);
 
   @Test
-  public void testUsernamePasswordProvided() {
+  void usernamePasswordProvided() {
     final ApiClient client = new ApiClient();
     new UsernamePasswordAuthentication(USERNAME, PASSWORD).provide(client);
     assertThat(getApiKeyAuthFromClient(client).getApiKeyPrefix()).isEqualTo("Basic");

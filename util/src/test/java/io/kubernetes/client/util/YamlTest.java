@@ -29,16 +29,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.io.UncheckedIOException;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Test;
-import org.yaml.snakeyaml.composer.ComposerException;
+import org.junit.jupiter.api.Test;
 import org.yaml.snakeyaml.error.MarkedYAMLException;
 
-public class YamlTest {
+class YamlTest {
 
   private static final URL TEST_YAML_FILE = Resources.getResource("test.yaml");
   private static final String TEST_YAML_FILE_PATH = new File(TEST_YAML_FILE.getPath()).toString();
@@ -85,7 +83,7 @@ public class YamlTest {
       "kind: " + "XXXX" + "\n" + "apiVersion: " + "YYYY" + "\n" + "metadata:\n" + "  name: foo";
 
   @Test
-  public void testLoad() throws Exception {
+  void load() throws Exception {
     for (int i = 0; i < kinds.length; i++) {
       String className = classNames[i];
       Object obj =
@@ -100,7 +98,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testLoadAll() throws Exception {
+  void loadAll() throws Exception {
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < kinds.length; i++) {
       sb.append(input.replace("XXXX", kinds[i]).replace("YYYY", apiVersions[i]));
@@ -121,7 +119,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testLoadAllFile() throws Exception {
+  void loadAllFile() throws Exception {
     List<Object> list = Yaml.loadAll(new File(TEST_YAML_FILE_PATH));
     List<KubernetesType> k8ObjectList = new ArrayList<>();
     for (Object object : list) {
@@ -155,7 +153,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testLoadIntOrString() {
+  void loadIntOrString() {
     String strInput = "targetPort: test";
     String intInput = "targetPort: 1";
 
@@ -174,7 +172,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testDumpIntOrString() {
+  void dumpIntOrString() {
     String strInput = "targetPort: test\n";
     String intInput = "targetPort: 1\n";
 
@@ -192,7 +190,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testLoadBytes() {
+  void loadBytes() {
     String strInput = "data:\n  hello: aGVsbG8=";
 
     V1Secret secret = Yaml.loadAs(strInput, V1Secret.class);
@@ -203,7 +201,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testDateTime() {
+  void dateTime() {
     String strInput =
         "apiVersion: v1\n"
             + "kind: Pod\n"
@@ -218,7 +216,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testDateTimeRoundTrip() {
+  void dateTimeRoundTrip() {
     // There was an issue with dumping JODA DateTime as String.
     // This test verifies that its fixed.
     String data = Resources.toString(CREATED_TIMESTAMP_FILE, UTF_8);
@@ -229,7 +227,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testYamlCantConstructObjects() throws IOException {
+  void yamlCantConstructObjects() throws IOException {
     try {
       String data = Resources.toString(TAGGED_FILE, UTF_8);
       Yaml.load(data);
@@ -240,7 +238,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testLoadAsYamlCantConstructObjects() {
+  void loadAsYamlCantConstructObjects() {
     try {
       String data = Resources.toString(TAGGED_FILE, UTF_8);
       Yaml.loadAs(data, V1Pod.class);
@@ -251,7 +249,7 @@ public class YamlTest {
   }
 
   @Test
-  public void testLoadDumpCRDWithIntOrStringExtension() {
+  void loadDumpCRDWithIntOrStringExtension() {
     String data = Resources.toString(CRD_INT_OR_STRING_FILE, UTF_8).replace("\r\n", "\n");
     V1CustomResourceDefinition crd = Yaml.loadAs(data, V1CustomResourceDefinition.class);
     assertThat(crd).isNotNull();

@@ -16,11 +16,11 @@ import static io.kubernetes.client.util.taints.Taints.taints;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.openapi.models.V1Node;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class TaintsTest {
+class TaintsTest {
   @Test
-  public void testAddTaints() {
+  void addTaints() {
     V1Node node = new V1Node();
     taints(node)
         .addTaint("key1", Taints.Effect.NO_SCHEDULE)
@@ -31,7 +31,7 @@ public class TaintsTest {
   }
 
   @Test
-  public void testRemoveTaints() {
+  void removeTaints() {
     V1Node node = new V1Node();
     taints(node)
         .addTaint("key1", Taints.Effect.NO_SCHEDULE)
@@ -58,7 +58,7 @@ public class TaintsTest {
   }
 
   @Test
-  public void testNoExecuteTaints() {
+  void noExecuteTaints() {
     V1Node node = new V1Node();
     String effect = "NoExecute";
     taints(node).addTaint("key1", "value1", Taints.Effect.NO_EXECUTE);

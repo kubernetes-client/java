@@ -22,12 +22,12 @@ import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesApi;
 import io.kubernetes.client.util.generic.dynamic.DynamicKubernetesObject;
 import io.kubernetes.client.util.generic.dynamic.Dynamics;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class DynamicApiTest {
+class DynamicApiTest {
 
   @Test
-  public void testDynamicApiCreateAndDeleteNamespace() throws Exception {
+  void dynamicApiCreateAndDeleteNamespace() throws Exception {
     ApiClient client = ClientBuilder.defaultClient();
     DynamicKubernetesApi dynamicApi =
         new DynamicKubernetesApi("", "v1", "namespaces", client);

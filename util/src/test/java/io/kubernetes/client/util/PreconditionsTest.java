@@ -16,12 +16,12 @@ import static io.kubernetes.client.util.Preconditions.precondition;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class PreconditionsTest {
+class PreconditionsTest {
 
   @Test
-  public void testEmptyString() {
+  void emptyString() {
     assertThatThrownBy(
             () -> precondition("", Strings::isNullOrEmpty, () -> "string can not be empty"))
         .isInstanceOf(IllegalArgumentException.class)
@@ -29,7 +29,7 @@ public class PreconditionsTest {
   }
 
   @Test
-  public void testNonEmptyString() {
+  void nonEmptyString() {
     String abc = precondition("abc", Strings::isNullOrEmpty, () -> "string can not be empty");
     assertThat(abc).isEqualTo("abc");
   }

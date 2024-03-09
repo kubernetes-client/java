@@ -23,14 +23,14 @@ import java.nio.charset.Charset;
 import okhttp3.Request;
 import okhttp3.WebSocket;
 import okio.ByteString;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class WebsocketStreamHandlerTest {
+class WebsocketStreamHandlerTest {
 
   private static String testProtocol = "test-protocol";
 
   @Test
-  public void testHandlerReceivingData() throws IOException {
+  void handlerReceivingData() throws IOException {
     int testStreamId = 0;
     byte testData = 1;
     byte[] testDatas =
@@ -57,12 +57,8 @@ public class WebsocketStreamHandlerTest {
   }
 
   @Test
-  public void testHandlerSendingData() throws IOException {
+  void handlerSendingData() throws IOException {
     int testStreamId = 0;
-    byte testData = 1;
-    byte[] testDatas =
-        new byte[] {(byte) testStreamId, testData, testData}; // first byte stands for stream id,
-    ByteArrayInputStream testBytesInputStream = new ByteArrayInputStream(testDatas);
 
     WebSocketStreamHandler handler = new WebSocketStreamHandler();
     MockWebSocket mockWebSocket = new MockWebSocket();
@@ -84,12 +80,8 @@ public class WebsocketStreamHandlerTest {
   }
 
   @Test
-  public void testHandlerSendingLargeData() throws IOException {
+  void handlerSendingLargeData() throws IOException {
     int testStreamId = 0;
-    byte testData = 1;
-    byte[] testDatas =
-        new byte[] {(byte) testStreamId, testData, testData}; // first byte stands for stream id,
-    ByteArrayInputStream testBytesInputStream = new ByteArrayInputStream(testDatas);
 
     WebSocketStreamHandler handler = new WebSocketStreamHandler();
     MockWebSocket mockWebSocket = new MockWebSocket();

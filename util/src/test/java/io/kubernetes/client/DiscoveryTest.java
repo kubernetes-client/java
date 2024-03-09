@@ -20,7 +20,7 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.Discovery.APIResource;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -36,24 +36,26 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class DiscoveryTest {
+class DiscoveryTest {
 
   private ApiClient apiClient;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(options().dynamicPort()).build();
 
-  @Before
-  public void setup() {
-    apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+    apiClient = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
   }
 
   @Test
-  public void testDiscoveryRequest() throws ApiException {
-    wireMockRule.stubFor(
+  void discoveryRequest() throws ApiException {
+    apiServer.stubFor(
         get(urlPathEqualTo("/foo"))
             .willReturn(
                 aResponse()
@@ -65,12 +67,12 @@ public class DiscoveryTest {
                             .serialize(new V1APIVersions().versions(Arrays.asList("v1", "v2"))))));
     Discovery discovery = new Discovery(apiClient);
     V1APIVersions versions = discovery.versionDiscovery("/foo");
-    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/foo")));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/foo")));
     assertThat(versions.getVersions()).hasSize(2);
   }
 
   @Test
-  public void testGroupResourcesByName() {
+  void groupResourcesByName() {
     Discovery discovery = new Discovery(apiClient);
     Set<Discovery.APIResource> discoveredResources =
         discovery.groupResourcesByName(
@@ -110,10 +112,10 @@ public class DiscoveryTest {
   }
 
   @Test
-  public void findAllShouldReturnAllApiResourceWhenAllResourceDiscoveryApiResponseAreSuccess() throws ApiException {
+  void findAllShouldReturnAllApiResourceWhenAllResourceDiscoveryApiResponseAreSuccess() throws ApiException {
     Discovery discovery = new Discovery(apiClient);
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get("/api")
             .willReturn(
                 aResponse()
@@ -129,7 +131,7 @@ public class DiscoveryTest {
     String groupVersion = "test.com/v1";
     String path="/apis/"+group+'/'+version;
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get("/apis")
             .willReturn(
                 aResponse()
@@ -145,7 +147,7 @@ public class DiscoveryTest {
                                     .versions(Arrays.asList(
                                         new V1GroupVersionForDiscovery().groupVersion(groupVersion).version(version))))))));
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo(path))
             .willReturn(
                 aResponse()
@@ -176,15 +178,15 @@ public class DiscoveryTest {
     List<String> versions = new ArrayList<>();
     versions.add(version);
     Set<APIResource> apiResources = discovery.findAll();
-    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(path)));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo(path)));
     assertThat(apiResources).hasSize(2);
   }
 
   @Test
-  public void findAllShouldThrowImcompleteDiscoveryExceptionWhenAtLeastOneResourceDiscoveryApiResponseIsNotSuccess() throws ApiException {
+  void findAllShouldThrowImcompleteDiscoveryExceptionWhenAtLeastOneResourceDiscoveryApiResponseIsNotSuccess() throws ApiException {
     Discovery discovery = new Discovery(apiClient);
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get("/api")
             .willReturn(
                 aResponse()
@@ -204,7 +206,7 @@ public class DiscoveryTest {
     String groupVersionError = "test.com/v1";
     String pathError="/apis/"+groupError+'/'+version;
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get("/apis")
             .willReturn(
                 aResponse()
@@ -225,13 +227,13 @@ public class DiscoveryTest {
                                     .versions(Arrays.asList(
                                         new V1GroupVersionForDiscovery().groupVersion(groupVersionSuccess).version(version))))))));
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo(pathError))
             .willReturn(
                 aResponse()
                     .withStatus(503)));
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo(pathSuccess))
             .willReturn(
                 aResponse()
@@ -268,8 +270,8 @@ public class DiscoveryTest {
     } catch (IncompleteDiscoveryException e) {
       apiResources = e.getDiscoveredResources();
     }
-    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(pathError)));
-    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo(pathSuccess)));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo(pathError)));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo(pathSuccess)));
     assertThat(apiResources).hasSize(2);
   }
 }

@@ -16,18 +16,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.openapi.models.V1Service;
 import io.kubernetes.client.spring.extended.manifests.annotation.FromYaml;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-public class KubernetesFromYamlTest {
+class KubernetesFromYamlTest {
 
   @SpringBootConfiguration
   static class App {
@@ -62,7 +59,7 @@ public class KubernetesFromYamlTest {
   private V1Service service;
 
   @Test
-  public void test() {
+  void test() {
     assertThat(myBean.service).isNotNull();
     assertThat(service).isNotNull();
   }

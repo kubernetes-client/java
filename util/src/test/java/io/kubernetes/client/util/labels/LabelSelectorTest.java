@@ -23,12 +23,12 @@ import io.kubernetes.client.openapi.models.V1LabelSelectorRequirement;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class LabelSelectorTest {
+class LabelSelectorTest {
 
   @Test
-  public void normalLabelSelectionEqualShouldWork() {
+  void normalLabelSelectionEqualShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(equal("foo", "v1"));
     assertThat(
         labelSelector.test(
@@ -48,7 +48,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void normalLabelSelectionNotEqualShouldWork() {
+  void normalLabelSelectionNotEqualShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(notEqual("foo", "v1"));
     assertThat(
         labelSelector.test(
@@ -68,7 +68,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void normalLabelSelectionInShouldWork() {
+  void normalLabelSelectionInShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(in("foo", "v1", "v2"));
     assertThat(
         labelSelector.test(
@@ -95,7 +95,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void normalLabelSelectionNotInShouldWork() {
+  void normalLabelSelectionNotInShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(notIn("foo", "v1", "v2"));
     assertThat(
         labelSelector.test(
@@ -122,7 +122,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void normalLabelSelectionConjuctionShouldWork() {
+  void normalLabelSelectionConjuctionShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(in("foo", "v1", "v2"), equal("fok", "v1"));
     assertThat(
         labelSelector.test(
@@ -150,7 +150,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void normalLabelSelectionExistsShouldWork() {
+  void normalLabelSelectionExistsShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(exists("foo"));
     assertThat(
         labelSelector.test(
@@ -171,7 +171,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void normalLabelSelectionNotExistsShouldWork() {
+  void normalLabelSelectionNotExistsShouldWork() {
     LabelSelector labelSelector = LabelSelector.and(notExists("foo"));
     assertThat(
         labelSelector.test(
@@ -192,7 +192,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void emptyLabelSelectorShouldWork() {
+  void emptyLabelSelectorShouldWork() {
     LabelSelector labelSelector = LabelSelector.empty();
     assertThat(
         labelSelector.test(
@@ -205,7 +205,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void parseWithLabelsShouldWork() throws IllegalArgumentException {
+  void parseWithLabelsShouldWork() throws IllegalArgumentException {
     HashMap<String, String> labels =
         new HashMap<String, String>() {
           {
@@ -228,7 +228,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void parseWithExpressionsShouldWork() throws IllegalArgumentException {
+  void parseWithExpressionsShouldWork() throws IllegalArgumentException {
     List<V1LabelSelectorRequirement> exprs =
         new LinkedList<V1LabelSelectorRequirement>() {
           {
@@ -278,7 +278,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void parseWithLabelsAndExpressionsShouldWork() throws IllegalArgumentException {
+  void parseWithLabelsAndExpressionsShouldWork() throws IllegalArgumentException {
     HashMap<String, String> labels =
         new HashMap<String, String>() {
           {
@@ -338,7 +338,7 @@ public class LabelSelectorTest {
   }
 
   @Test
-  public void parseWithWrongOpShouldThrowIllegalArgumentException() {
+  void parseWithWrongOpShouldThrowIllegalArgumentException() {
     List<V1LabelSelectorRequirement> exprs =
         new LinkedList<V1LabelSelectorRequirement>() {
           {

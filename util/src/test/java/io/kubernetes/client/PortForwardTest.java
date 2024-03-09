@@ -22,7 +22,7 @@ import static io.kubernetes.client.ExecTest.makeStream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.PortForward.PortForwardResult;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -35,34 +35,36 @@ import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
 /** Tests for the PortForward helper class */
-public class PortForwardTest {
+class PortForwardTest {
   private String namespace;
   private String podName;
 
   private ApiClient client;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(options().dynamicPort()).build();
 
-  @Before
-  public void setup() {
-    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+    client = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
 
     namespace = "default";
     podName = "apod";
   }
 
   @Test
-  public void testUrl() throws IOException, ApiException {
+  void url() throws IOException, ApiException {
     PortForward forward = new PortForward(client);
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/portforward"))
             .willReturn(
                 aResponse()
@@ -81,7 +83,7 @@ public class PortForwardTest {
           inputStream.close();
         }).isInstanceOf(ApiException.class);
 
-    wireMockRule.verify(
+    apiServer.verify(
         getRequestedFor(
                 urlPathEqualTo(
                     "/api/v1/namespaces/" + namespace + "/pods/" + podName + "/portforward"))
@@ -89,7 +91,7 @@ public class PortForwardTest {
   }
 
   @Test
-  public void testPortForwardResult() throws IOException, InterruptedException {
+  void portForwardResult() throws IOException, InterruptedException {
     WebSocketStreamHandler handler = new WebSocketStreamHandler();
     List<Integer> ports = new ArrayList<>();
     ports.add(80);
@@ -154,7 +156,7 @@ public class PortForwardTest {
   private Exception thrownException;
 
   @Test
-  public void testBrokenPortPassing() throws IOException, InterruptedException {
+  void brokenPortPassing() throws IOException, InterruptedException {
     WebSocketStreamHandler handler = new WebSocketStreamHandler();
     List<Integer> ports = new ArrayList<>();
     ports.add(80);

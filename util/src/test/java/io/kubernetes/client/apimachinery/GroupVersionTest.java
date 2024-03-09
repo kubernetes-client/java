@@ -17,40 +17,40 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import io.kubernetes.client.openapi.models.V1Deployment;
 import io.kubernetes.client.openapi.models.V1Pod;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class GroupVersionTest {
+class GroupVersionTest {
 
   @Test
-  public void parseV1() {
+  void parseV1() {
     GroupVersion left = new GroupVersion("", "v1");
     GroupVersion right = GroupVersion.parse(new V1Pod().apiVersion("v1"));
     assertThat(left).isEqualTo(right);
   }
 
   @Test
-  public void parseAppsV1() {
+  void parseAppsV1() {
     GroupVersion left = new GroupVersion("apps", "v1");
     GroupVersion right = GroupVersion.parse(new V1Deployment().apiVersion("apps/v1"));
     assertThat(left).isEqualTo(right);
   }
 
   @Test
-  public void parseInvalid1() {
+  void parseInvalid1() {
     assertThatThrownBy(() -> GroupVersion.parse(new V1Pod()))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessage("apiVersion can not be null");
   }
 
   @Test
-  public void parseInvalid2() {
+  void parseInvalid2() {
     assertThatThrownBy(() -> GroupVersion.parse(new V1Pod().apiVersion(null)))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessage("apiVersion can not be null");
   }
 
   @Test
-  public void parseInvalid3() {
+  void parseInvalid3() {
     assertThatThrownBy(() -> GroupVersion.parse(new V1Pod().apiVersion("foo/bar/f")))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessage("Invalid apiVersion: foo/bar/f");

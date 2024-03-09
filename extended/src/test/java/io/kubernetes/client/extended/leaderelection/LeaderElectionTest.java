@@ -28,17 +28,17 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Consumer;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
-public class LeaderElectionTest {
+@ExtendWith(MockitoExtension.class)
+class LeaderElectionTest {
 
-  @Before
-  public void setUp() {
+  @BeforeEach
+  void setUp() {
     MockResourceLock.lock = new ReentrantLock();
     MockResourceLock.leaderRecord = null;
   }
@@ -46,7 +46,7 @@ public class LeaderElectionTest {
   @Mock private Lock lock;
 
   @Test
-  public void testSimpleLeaderElection() throws InterruptedException {
+  void simpleLeaderElection() throws InterruptedException {
     List<String> electionHistory = new ArrayList<>();
     List<String> leadershipHistory = new ArrayList<>();
 
@@ -95,7 +95,7 @@ public class LeaderElectionTest {
   }
 
   @Test
-  public void testLeaderElection() throws InterruptedException {
+  void leaderElection() throws InterruptedException {
     List<String> electionHistory = new ArrayList<>();
     List<String> leadershipHistory = new ArrayList<>();
     CountDownLatch lockAStopLeading = new CountDownLatch(1);
@@ -196,7 +196,7 @@ public class LeaderElectionTest {
   }
 
   @Test
-  public void testLeaderElectionWithRenewDeadline() throws InterruptedException {
+  void leaderElectionWithRenewDeadline() throws InterruptedException {
     List<String> electionHistory = new ArrayList<>();
     List<String> leadershipHistory = new ArrayList<>();
 
@@ -305,7 +305,7 @@ public class LeaderElectionTest {
   }
 
   @Test
-  public void testLeaderElectionCaptureException() throws ApiException, InterruptedException {
+  void leaderElectionCaptureException() throws ApiException, InterruptedException {
     RuntimeException expectedException = new RuntimeException("noxu");
     AtomicReference<Throwable> actualException = new AtomicReference<>();
     when(lock.get()).thenThrow(expectedException);
@@ -334,7 +334,7 @@ public class LeaderElectionTest {
   }
 
   @Test
-  public void testLeaderElectionReportLeaderOnStart() throws ApiException, InterruptedException {
+  void leaderElectionReportLeaderOnStart() throws ApiException, InterruptedException {
     when(lock.identity()).thenReturn("foo1");
     when(lock.get())
         .thenReturn(
@@ -385,7 +385,7 @@ public class LeaderElectionTest {
   }
 
   @Test
-  public void testLeaderElectionShouldReportLeaderItAcquiresOnStart()
+  void leaderElectionShouldReportLeaderItAcquiresOnStart()
       throws ApiException, InterruptedException {
     when(lock.identity()).thenReturn("foo1");
     when(lock.get())

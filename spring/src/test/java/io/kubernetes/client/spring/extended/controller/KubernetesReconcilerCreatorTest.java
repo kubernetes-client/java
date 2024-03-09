@@ -14,7 +14,8 @@ package io.kubernetes.client.spring.extended.controller;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.extended.controller.Controller;
 import io.kubernetes.client.extended.controller.DefaultController;
@@ -49,21 +50,20 @@ import java.util.LinkedList;
 import java.util.function.Function;
 import javax.annotation.Resource;
 import org.apache.commons.lang3.tuple.MutablePair;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = {KubernetesReconcilerCreatorTest.App.class})
-public class KubernetesReconcilerCreatorTest {
+class KubernetesReconcilerCreatorTest {
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(8189);
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(WireMockConfiguration.options().port(8189)).build();
 
   @SpringBootApplication
   @EnableAutoConfiguration
@@ -177,7 +177,7 @@ public class KubernetesReconcilerCreatorTest {
   }
 
   @Test
-  public void testSimplePodController() throws InterruptedException {
+  void simplePodController() throws InterruptedException {
     assertThat(testController).isNotNull();
     assertThat(testReconciler).isNotNull();
 

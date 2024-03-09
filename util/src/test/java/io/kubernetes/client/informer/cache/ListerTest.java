@@ -18,11 +18,11 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class ListerTest {
+class ListerTest {
   @Test
-  public void testListerBasic() {
+  void listerBasic() {
     Cache<V1Pod> podCache = new Cache<>();
 
     Lister<V1Pod> namespacedPodLister = new Lister<>(podCache, "default");

@@ -22,23 +22,21 @@ import io.kubernetes.client.spring.extended.manifests.configmaps.ConfigMapGetter
 import java.time.Duration;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TestRule;
-import org.junit.runner.Description;
-import org.junit.runner.RunWith;
-import org.junit.runners.model.Statement;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest("kubernetes.manifests.refreshInterval=1s")
-public class KubernetesFromConfigMapTest {
+class KubernetesFromConfigMapTest {
 
-  @Rule public ConfigMapResetter configMapResetter = new ConfigMapResetter();
+  @BeforeEach void resetConfigMap() {
+    mockAtomicConfigMapGetter.configMapAtomicReference.set(
+        new V1ConfigMap().putDataItem("foo", "bar1"));
+    await().until(() -> "bar1".equals(myBean.dynamicData.get("foo")));
+  }
 
   @SpringBootApplication
   static class App {
@@ -78,13 +76,13 @@ public class KubernetesFromConfigMapTest {
   @Autowired private KubernetesManifestsProperties manifestsProperties;
 
   @Test
-  public void testReadOnce() {
+  void readOnce() {
     assertThat(myBean.staticData).isNotNull();
     assertThat(myBean.staticData).containsEntry("foo", "bar");
   }
 
   @Test
-  public void testValueUpdate() {
+  void valueUpdate() {
     assertThat(manifestsProperties.getRefreshInterval()).isEqualTo(Duration.ofSeconds(1));
     assertThat(myBean.dynamicData).isNotNull();
     assertThat(myBean.dynamicData).containsEntry("foo", "bar1");
@@ -96,7 +94,7 @@ public class KubernetesFromConfigMapTest {
   }
 
   @Test
-  public void testKeyUpdate() {
+  void keyUpdate() {
     assertThat(manifestsProperties.getRefreshInterval()).isEqualTo(Duration.ofSeconds(1));
     assertThat(myBean.dynamicData).isNotNull();
     assertThat(myBean.dynamicData).containsEntry("foo", "bar1");
@@ -125,21 +123,6 @@ public class KubernetesFromConfigMapTest {
     @Override
     public V1ConfigMap get(String namespace, String name) {
       return configMapAtomicReference.get();
-    }
-  }
-
-  class ConfigMapResetter implements TestRule {
-    @Override
-    public Statement apply(Statement statement, Description description) {
-      return new Statement() {
-        @Override
-        public void evaluate() throws Throwable {
-          mockAtomicConfigMapGetter.configMapAtomicReference.set(
-              new V1ConfigMap().putDataItem("foo", "bar1"));
-          await().until(() -> "bar1".equals(myBean.dynamicData.get("foo")));
-          statement.evaluate();
-        }
-      };
     }
   }
 }

@@ -30,17 +30,14 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.spring.extended.network.endpoints.EndpointsGetter;
 import io.kubernetes.client.spring.extended.network.endpoints.InformerEndpointsGetter;
 import java.util.List;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-public class KubernetesEndpointsLoadBalancerCreatorTest {
+class KubernetesEndpointsLoadBalancerCreatorTest {
 
   @SpringBootApplication
   static class TestConfig {
@@ -121,7 +118,7 @@ public class KubernetesEndpointsLoadBalancerCreatorTest {
   @Autowired private Cache<V1Endpoints> endpointsCache;
 
   @Test
-  public void testLoadBalancer() throws NoAvailableAddressException {
+  void loadBalancer() throws NoAvailableAddressException {
 
     assertThat(myBean.fooLoadBalancer).isNotNull();
     endpointsCache.add(twoPortTwoHostEp);
@@ -131,7 +128,7 @@ public class KubernetesEndpointsLoadBalancerCreatorTest {
   }
 
   @Test
-  public void testCustomStrategyLoadBalancer() throws NoAvailableAddressException {
+  void customStrategyLoadBalancer() throws NoAvailableAddressException {
     assertThat(myBean.customStrategyLoadBalancer).isNotNull();
     endpointsCache.add(twoPortTwoHostEp);
     assertThat(myBean.customStrategyLoadBalancer.getTargetIP()).isEqualTo(MyStrategy.alwaysReturn);
@@ -139,14 +136,14 @@ public class KubernetesEndpointsLoadBalancerCreatorTest {
   }
 
   @Test
-  public void testCustomEndpointsGetterLoadBalancer() throws NoAvailableAddressException {
+  void customEndpointsGetterLoadBalancer() throws NoAvailableAddressException {
     assertThat(myBean.customEndpointGetterLoadBalancer).isNotNull();
     assertThat(myBean.customEndpointGetterLoadBalancer.getTargetIP()).isEqualTo("127.0.0.2");
     assertThat(myBean.customEndpointGetterLoadBalancer.getTargetIP(8080)).isEqualTo("127.0.0.2");
   }
 
   @Test
-  public void testDeletedEndpointLoadBalancer() {
+  void deletedEndpointLoadBalancer() {
     assertThat(myBean.noSuchLoadBalancer).isNotNull();
     assertThatThrownBy(() -> myBean.noSuchLoadBalancer.getTargetIP())
         .isInstanceOf(NoAvailableAddressException.class);

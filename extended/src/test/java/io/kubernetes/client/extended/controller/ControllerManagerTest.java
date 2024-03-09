@@ -15,12 +15,12 @@ package io.kubernetes.client.extended.controller;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import io.kubernetes.client.informer.SharedInformerFactory;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class ControllerManagerTest {
+class ControllerManagerTest {
 
   @Test
-  public void testControllerStartShutdown() {
+  void controllerStartShutdown() {
     DummyController dummy1 = new DummyController();
     DummyController dummy2 = new DummyController();
 

@@ -12,7 +12,7 @@ limitations under the License.
 */
 package io.kubernetes.client.util;
 
-public class TestPoJ {
+class TestPoJ {
   private static boolean marker = false;
 
   public TestPoJ() {

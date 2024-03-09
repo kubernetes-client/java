@@ -22,18 +22,18 @@ import io.kubernetes.client.util.KubeConfig;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
-public class KubeconfigAuthenticationTest {
+@ExtendWith(MockitoExtension.class)
+class KubeconfigAuthenticationTest {
 
   @Mock private KubeConfig kubeConfig;
 
   @Test
-  public void testCertificateAuthenticationFromExecCommand() throws IOException {
+  void certificateAuthenticationFromExecCommand() throws IOException {
     Map<String, String> certCredentials = new HashMap<>();
     certCredentials.put(KubeConfig.CRED_CLIENT_CERTIFICATE_DATA_KEY, "cert");
     certCredentials.put(KubeConfig.CRED_CLIENT_KEY_DATA_KEY, "key");
@@ -46,7 +46,7 @@ public class KubeconfigAuthenticationTest {
   }
 
   @Test
-  public void testCertificateAuthenticationFromKubeConfig() throws IOException {
+  void certificateAuthenticationFromKubeConfig() throws IOException {
     when(kubeConfig.getDataOrFileRelative(any(), any())).thenReturn("data".getBytes());
 
     KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig);
@@ -57,7 +57,7 @@ public class KubeconfigAuthenticationTest {
   }
 
   @Test
-  public void testUsernamePasswordAuthenticationFromKubeConfig() throws IOException {
+  void usernamePasswordAuthenticationFromKubeConfig() throws IOException {
     when(kubeConfig.getUsername()).thenReturn("user");
     when(kubeConfig.getPassword()).thenReturn("password");
 
@@ -68,7 +68,7 @@ public class KubeconfigAuthenticationTest {
   }
 
   @Test
-  public void testAccessTokenAuthenticationFromExecComand() throws IOException {
+  void accessTokenAuthenticationFromExecComand() throws IOException {
     Map<String, String> certCredentials = new HashMap<>();
     certCredentials.put(KubeConfig.CRED_TOKEN_KEY, "token");
     when(kubeConfig.getCredentials()).thenReturn(certCredentials);
@@ -80,7 +80,7 @@ public class KubeconfigAuthenticationTest {
   }
 
   @Test
-  public void testDummyAuthentication() throws IOException {
+  void dummyAuthentication() throws IOException {
     KubeconfigAuthentication kubeconfigAuthentication = new KubeconfigAuthentication(kubeConfig);
 
     assertThat(kubeconfigAuthentication.getDelegateAuthentication())

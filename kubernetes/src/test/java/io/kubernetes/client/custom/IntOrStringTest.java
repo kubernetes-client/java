@@ -13,43 +13,43 @@ limitations under the License.
 package io.kubernetes.client.custom;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 // Note: Do not use AssertJ .isEquqlTo to test .equals, as this doesn't necessarily invoke it!
-public class IntOrStringTest {
+class IntOrStringTest {
   @Test
-  public void whenCreatedWithInt_isInteger() {
+  void whenCreatedWithInt_isInteger() {
     IntOrString intOrString = new IntOrString(17);
 
     assertThat(intOrString.isInteger()).isTrue();
   }
 
   @Test
-  public void whenCreatedWithInt_canRetrieveIntValue() {
+  void whenCreatedWithInt_canRetrieveIntValue() {
     IntOrString intOrString = new IntOrString(17);
 
     assertThat(intOrString.getIntValue()).isEqualTo(17);
   }
 
-  @Test(expected = IllegalStateException.class)
-  public void whenCreatedWithInt_cannotRetrieveStringValue() {
+  @Test
+  void whenCreatedWithInt_cannotRetrieveStringValue() {
     IntOrString intOrString = new IntOrString(17);
-
-    intOrString.getStrValue();
+    assertThatThrownBy(intOrString::getStrValue).isInstanceOf(IllegalStateException.class);
   }
 
   @Test
-  public void whenCreatedWithInt_equalsItself() {
+  void whenCreatedWithInt_equalsItself() {
     IntOrString intOrString = new IntOrString(17);
 
     assertThat(intOrString.equals(intOrString)).isTrue();
   }
 
   @Test
-  public void whenCreatedWithInt_equalsAnotherWithSameValue() {
+  void whenCreatedWithInt_equalsAnotherWithSameValue() {
     IntOrString intOrString1 = new IntOrString(17);
     IntOrString intOrString2 = new IntOrString(17);
 
@@ -57,7 +57,7 @@ public class IntOrStringTest {
   }
 
   @Test
-  public void whenCreatedWithInt_notEqualAnotherWithDifferentValue() {
+  void whenCreatedWithInt_notEqualAnotherWithDifferentValue() {
     IntOrString intOrString1 = new IntOrString(17);
     IntOrString intOrString2 = new IntOrString(13);
 
@@ -65,7 +65,7 @@ public class IntOrStringTest {
   }
 
   @Test
-  public void whenCreatedWithInt_notEqualOneCreatedFromString() {
+  void whenCreatedWithInt_notEqualOneCreatedFromString() {
     IntOrString intOrString1 = new IntOrString(17);
     IntOrString intOrString2 = new IntOrString("17");
 
@@ -73,35 +73,34 @@ public class IntOrStringTest {
   }
 
   @Test
-  public void whenCreatedWithString_isNotInteger() {
+  void whenCreatedWithString_isNotInteger() {
     IntOrString intOrString = new IntOrString("17");
 
     assertThat(intOrString.isInteger()).isFalse();
   }
 
-  @Test(expected = IllegalStateException.class)
-  public void whenCreatedWithInt_cannotRetrieveIntValue() {
+  @Test
+  void whenCreatedWithInt_cannotRetrieveIntValue() {
     IntOrString intOrString = new IntOrString("17");
-
-    intOrString.getIntValue();
+    assertThatThrownBy(intOrString::getIntValue).isInstanceOf(IllegalStateException.class);
   }
 
   @Test
-  public void whenCreatedWithString_canRetrieveStringValue() {
+  void whenCreatedWithString_canRetrieveStringValue() {
     IntOrString intOrString = new IntOrString("17");
 
     assertThat(intOrString.getStrValue()).isEqualTo("17");
   }
 
   @Test
-  public void whenCreatedWithString_equalsItself() {
+  void whenCreatedWithString_equalsItself() {
     IntOrString intOrString = new IntOrString("17");
 
     assertThat(intOrString.equals(intOrString)).isTrue();
   }
 
   @Test
-  public void whenCreatedWithString_equalsAnotherWithSameValue() {
+  void whenCreatedWithString_equalsAnotherWithSameValue() {
     IntOrString intOrString1 = new IntOrString("17");
     IntOrString intOrString2 = new IntOrString("17");
 
@@ -109,7 +108,7 @@ public class IntOrStringTest {
   }
 
   @Test
-  public void whenCreatedWithString_notEqualAnotherWithDifferentValue() {
+  void whenCreatedWithString_notEqualAnotherWithDifferentValue() {
     IntOrString intOrString1 = new IntOrString("17");
     IntOrString intOrString2 = new IntOrString("13");
 
@@ -117,7 +116,7 @@ public class IntOrStringTest {
   }
 
   @Test
-  public void jacksonSerializer_writeValueAsString() throws JsonProcessingException {
+  void jacksonSerializer_writeValueAsString() throws JsonProcessingException {
     IntOrString intOrString1 = new IntOrString(17);
     IntOrString intOrString2 = new IntOrString("17");
 

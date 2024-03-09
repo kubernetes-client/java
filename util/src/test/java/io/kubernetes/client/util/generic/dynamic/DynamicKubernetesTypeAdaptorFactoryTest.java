@@ -20,10 +20,10 @@ import io.kubernetes.client.common.KubernetesObject;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import java.util.Collections;
 import java.util.Map;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class DynamicKubernetesTypeAdaptorFactoryTest {
+class DynamicKubernetesTypeAdaptorFactoryTest {
 
   private Gson gson;
 
@@ -41,13 +41,13 @@ public class DynamicKubernetesTypeAdaptorFactoryTest {
   private final DynamicKubernetesTypeAdaptorFactory factory =
       new DynamicKubernetesTypeAdaptorFactory();
 
-  @Before
-  public void setup() {
+  @BeforeEach
+  void setup() {
     gson = new Gson().newBuilder().registerTypeAdapterFactory(factory).create();
   }
 
   @Test
-  public void testSingleDynamicObjectRoundTrip() {
+  void singleDynamicObjectRoundTrip() {
     KubernetesObject dynamicObj = gson.fromJson(jsonContent, KubernetesObject.class);
     assertThat(dynamicObj instanceof DynamicKubernetesObject).isTrue();
 
@@ -60,7 +60,7 @@ public class DynamicKubernetesTypeAdaptorFactoryTest {
   }
 
   @Test
-  public void testListDynamicObjectRoundTrip() {
+  void listDynamicObjectRoundTrip() {
     String listJsonContent =
         new StringBuilder()
             .append("{")
@@ -83,7 +83,7 @@ public class DynamicKubernetesTypeAdaptorFactoryTest {
   // Registering the same factory twice is not a good idea, but we should not explode if it happens.
   // See https://github.com/google/gson/issues/2312
   @Test
-  public void testMultipleRegistration() {
+  void multipleRegistration() {
     Gson badGson = gson.newBuilder().registerTypeAdapterFactory(factory).create();
     Object x = badGson.fromJson("{}", Map.class);
     assertThat(x).isEqualTo(Collections.emptyMap());

@@ -19,18 +19,18 @@ import static org.mockito.Mockito.when;
 import io.kubernetes.client.openapi.ApiException;
 import java.net.HttpURLConnection;
 import java.util.concurrent.atomic.AtomicInteger;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
-public class RetryUtilsTest {
+@ExtendWith(MockitoExtension.class)
+class RetryUtilsTest {
 
   @Mock private ApiInvocation apiInvocation;
 
   @Test
-  public void testRetryUponConflictShouldWorkWithinMaxRetry() throws ApiException {
+  void retryUponConflictShouldWorkWithinMaxRetry() throws ApiException {
     AtomicInteger conflictCount = new AtomicInteger(2);
     Object expectedReturn = new Object();
     when(apiInvocation.call())
@@ -48,7 +48,7 @@ public class RetryUtilsTest {
   }
 
   @Test
-  public void testRetryUponConflictShouldFailExceedingMaxRetry() throws ApiException {
+  void retryUponConflictShouldFailExceedingMaxRetry() throws ApiException {
     AtomicInteger conflictCount = new AtomicInteger(3);
     Object expectedReturn = new Object();
     when(apiInvocation.call())
@@ -66,7 +66,7 @@ public class RetryUtilsTest {
   }
 
   @Test
-  public void testRetryUponConflictShouldThrowNonConflictException() throws ApiException {
+  void retryUponConflictShouldThrowNonConflictException() throws ApiException {
     when(apiInvocation.call()).thenThrow(IllegalArgumentException.class);
     assertThatThrownBy(() -> RetryUtils.retryUponConflict(apiInvocation, 3))
         .isInstanceOf(IllegalArgumentException.class);
