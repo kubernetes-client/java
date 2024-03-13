@@ -25,7 +25,6 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoordinationV1Api;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.util.ClientBuilder;
-import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -37,7 +36,6 @@ import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Timeout;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -70,17 +68,8 @@ class LeaderElectorTest {
   private ApiClient apiClient;
   private LockType lockType;
 
-  public void initLeaderElectorTest(LockType lockType) {
-    try {
-      apiClient = ClientBuilder.defaultClient();
-    } catch (IOException ex) {
-      throw new RuntimeException("Couldn't create ApiClient", ex);
-    }
-    this.lockType = lockType;
-  }
-
-  @BeforeEach
-  void setup() throws Exception {
+  private void initLeaderElectorTest(LockType lockType) throws Exception {
+    apiClient = ClientBuilder.defaultClient();
     // delete the lock resource if it exists, or else first leader candidate might need to wait for
     // a whole leaseDuration configured
     switch (lockType) {
@@ -96,6 +85,7 @@ class LeaderElectorTest {
       default:
         throw new RuntimeException("Unknown LockType " + lockType);
     }
+    this.lockType = lockType;
   }
 
   @MethodSource("constructorFeeder")
@@ -110,8 +100,8 @@ class LeaderElectorTest {
         makeAndRunLeaderElectorAsync(
             "candidate",
             null,
-            () -> startLeadershipLatch.countDown(),
-            () -> stopLeadershipLatch.countDown(),
+            startLeadershipLatch::countDown,
+            stopLeadershipLatch::countDown,
             apiClient);
 
     startLeadershipLatch.await();
@@ -203,8 +193,8 @@ class LeaderElectorTest {
         makeAndRunLeaderElectorAsync(
             "candidate1",
             null,
-            () -> startBeingLeader1.countDown(),
-            () -> stopBeingLeader1.countDown(),
+            startBeingLeader1::countDown,
+            stopBeingLeader1::countDown,
             apiClient);
 
     // wait for candidate1 to become leader
@@ -217,8 +207,8 @@ class LeaderElectorTest {
         makeAndRunLeaderElectorAsync(
             "candidate2",
             null,
-            () -> startBeingLeader2.countDown(),
-            () -> stopBeingLeader2.countDown(),
+            startBeingLeader2::countDown,
+            stopBeingLeader2::countDown,
             apiClient);
 
     leaderElector1.close();

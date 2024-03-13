@@ -14,12 +14,14 @@ package io.kubernetes.client.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import io.kubernetes.client.Resources;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import org.junit.jupiter.api.Test;
+import io.kubernetes.client.Resources;
 import io.kubernetes.client.persister.FilePersister;
 import org.junit.jupiter.api.io.TempDir;
 
@@ -30,11 +32,14 @@ class FilePersisterTest {
 
   @Test
   void persistence(@TempDir Path tempDir) throws IOException {
-    Path file = Files.createTempFile(tempDir, "testconfig", null);
-    FilePersister fp = new FilePersister(file.toString());
+    File file = Files.createTempFile(tempDir, "testconfig", null).toFile();
 
-    KubeConfig config = KubeConfig.loadKubeConfig(new FileReader(KUBECONFIG_FILE_PATH));
+    KubeConfig config;
+    try (Reader reader = new FileReader(KUBECONFIG_FILE_PATH)) {
+      config = KubeConfig.loadKubeConfig(reader);
+    }
 
+    FilePersister fp = new FilePersister(file);
     fp.save(
         config.getContexts(),
         config.getClusters(),
@@ -42,11 +47,12 @@ class FilePersisterTest {
         config.getPreferences(),
         config.getCurrentContext());
 
-    KubeConfig configOut = KubeConfig.loadKubeConfig(new FileReader(file.toFile()));
-
-    assertThat(configOut.getCurrentContext()).isEqualTo(config.getCurrentContext());
-    assertThat(configOut.getClusters()).isEqualTo(config.getClusters());
-    assertThat(configOut.getContexts()).isEqualTo(config.getContexts());
-    assertThat(configOut.getUsers()).isEqualTo(config.getUsers());
+    try (Reader reader = new FileReader(file)) {
+      KubeConfig configOut = KubeConfig.loadKubeConfig(reader);
+      assertThat(configOut.getCurrentContext()).isEqualTo(config.getCurrentContext());
+      assertThat(configOut.getClusters()).isEqualTo(config.getClusters());
+      assertThat(configOut.getContexts()).isEqualTo(config.getContexts());
+      assertThat(configOut.getUsers()).isEqualTo(config.getUsers());
+    }
   }
 }

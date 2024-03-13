@@ -22,6 +22,7 @@ import io.kubernetes.client.util.authenticators.GCPAuthenticator;
 import java.io.ByteArrayInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Reader;
 import java.io.StringReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -99,8 +100,10 @@ class KubeConfigTest {
     Path config = Files.createTempFile(tempDir, "config", null);
     Files.writeString(config, GCP_CONFIG);
 
-    KubeConfig kc = KubeConfig.loadKubeConfig(new FileReader(config.toFile()));
-    assertThat(kc.getCredentials()).containsEntry(KubeConfig.CRED_TOKEN_KEY, "fake-token");
+    try (Reader reader = new FileReader(config.toFile())) {
+      KubeConfig kc = KubeConfig.loadKubeConfig(reader);
+      assertThat(kc.getCredentials()).containsEntry(KubeConfig.CRED_TOKEN_KEY, "fake-token");
+    }
   }
 
   private static String GCP_TEST_DATE_STRING =
@@ -130,8 +133,10 @@ class KubeConfigTest {
     Path config = Files.createTempFile(tempDir, "config", null);
     Files.writeString(config, GCP_TEST_DATE_STRING);
 
-    KubeConfig kc = KubeConfig.loadKubeConfig(new FileReader(config.toFile()));
-    assertThat(kc.getCredentials()).containsEntry(KubeConfig.CRED_TOKEN_KEY, "fake-token");
+    try (Reader reader = new FileReader(config.toFile())) {
+      KubeConfig kc = KubeConfig.loadKubeConfig(reader);
+      assertThat(kc.getCredentials()).containsEntry(KubeConfig.CRED_TOKEN_KEY, "fake-token");
+    }
   }
 
   @Test
