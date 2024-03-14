@@ -21,12 +21,12 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Executors;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class SharedProcessorTest {
+class SharedProcessorTest {
 
   @Test
-  public void testListenerAddition() throws InterruptedException {
+  void listenerAddition() throws InterruptedException {
 
     SharedProcessor<V1Pod> sharedProcessor = new SharedProcessor<>();
 
@@ -63,7 +63,7 @@ public class SharedProcessorTest {
   }
 
   @Test
-  public void testShutdownGracefully() throws InterruptedException {
+  void shutdownGracefully() throws InterruptedException {
     SharedProcessor<V1Pod> sharedProcessor =
         new SharedProcessor<>(Executors.newCachedThreadPool(), Duration.ofSeconds(5));
     TestWorker<V1Pod> slowWorker = new TestWorker<>(null, 0);

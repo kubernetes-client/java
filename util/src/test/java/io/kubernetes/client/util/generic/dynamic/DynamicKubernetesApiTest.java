@@ -21,18 +21,18 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1NamespaceList;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.ClientBuilder;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class DynamicKubernetesApiTest {
+class DynamicKubernetesApiTest {
 
   private static final String jsonContent =
       new StringBuilder()
@@ -48,20 +48,25 @@ public class DynamicKubernetesApiTest {
 
   private ApiClient apiClient;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort(), false);
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance()
+          .options(options().dynamicPort())
+          .failOnUnmatchedRequests(false)
+          .build();
 
-  @Before
-  public void setup() {
-    apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+    apiClient = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
   }
 
   @Test
-  public void testListNamespaceShouldWork() throws ApiException {
+  void listNamespaceShouldWork() throws ApiException {
     V1NamespaceList expectedList =
         new V1NamespaceList()
             .addItemsItem(new V1Namespace().metadata(new V1ObjectMeta().name("foo1")))
             .addItemsItem(new V1Namespace().metadata(new V1ObjectMeta().name("foo2")));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces"))
             .willReturn(
                 aResponse()
@@ -71,13 +76,13 @@ public class DynamicKubernetesApiTest {
     DynamicKubernetesApi api = new DynamicKubernetesApi("", "v1", "namespaces", apiClient);
     DynamicKubernetesListObject listObj = api.list().throwsApiException().getObject();
     assertThat(listObj.getItems()).hasSize(expectedList.getItems().size());
-    wireMockRule.verify(getRequestedFor(urlPathEqualTo("/api/v1/namespaces")));
+    apiServer.verify(getRequestedFor(urlPathEqualTo("/api/v1/namespaces")));
   }
 
   @Test
-  public void testUpdateNamespaceShouldWork() throws ApiException {
+  void updateNamespaceShouldWork() throws ApiException {
     V1Namespace updating = new V1Namespace().metadata(new V1ObjectMeta().name("foo1"));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         put(urlPathEqualTo("/api/v1/namespaces/foo1"))
             .willReturn(
                 aResponse()
@@ -89,12 +94,12 @@ public class DynamicKubernetesApiTest {
         Dynamics.newFromJson(apiClient.getJSON().serialize(updating));
     DynamicKubernetesObject updatedObj = api.update(updatingObj).throwsApiException().getObject();
     assertThat(updatedObj).isEqualTo(updatingObj);
-    wireMockRule.verify(putRequestedFor(urlPathEqualTo("/api/v1/namespaces/foo1")));
+    apiServer.verify(putRequestedFor(urlPathEqualTo("/api/v1/namespaces/foo1")));
   }
 
   @Test
-  public void testListCustomResourceShouldWork() throws ApiException {
-    wireMockRule.stubFor(
+  void listCustomResourceShouldWork() throws ApiException {
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/mygroup.io/myversion/namespaces/default/customresources"))
             .willReturn(
                 aResponse()
@@ -105,14 +110,14 @@ public class DynamicKubernetesApiTest {
         new DynamicKubernetesApi("mygroup.io", "myversion", "customresources", apiClient);
     DynamicKubernetesListObject listObj = api.list("default").throwsApiException().getObject();
     assertThat(listObj).isNotNull();
-    wireMockRule.verify(
+    apiServer.verify(
         getRequestedFor(
             urlPathEqualTo("/apis/mygroup.io/myversion/namespaces/default/customresources")));
   }
 
   @Test
-  public void testUpdateCustomResourceShouldWork() throws ApiException {
-    wireMockRule.stubFor(
+  void updateCustomResourceShouldWork() throws ApiException {
+    apiServer.stubFor(
         put(urlPathEqualTo("/apis/mygroup.io/myversion/namespaces/default/customresources/foo"))
             .willReturn(
                 aResponse()
@@ -125,7 +130,7 @@ public class DynamicKubernetesApiTest {
     DynamicKubernetesObject updatedObj = api.update(updatingObj).throwsApiException().getObject();
     assertThat(updatedObj).isNotNull();
     assertThat(apiClient.getJSON().serialize(updatedObj)).isEqualTo("{}");
-    wireMockRule.verify(
+    apiServer.verify(
         putRequestedFor(
             urlPathEqualTo("/apis/mygroup.io/myversion/namespaces/default/customresources/foo")));
   }

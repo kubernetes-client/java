@@ -21,12 +21,12 @@ import io.kubernetes.client.openapi.models.V1NamespaceSpec;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.ClientBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class CoreV1ApiTest {
+class CoreV1ApiTest {
 
 	@Test
-	public void testCreateAndDeleteNamespace() throws Exception {
+	void createAndDeleteNamespace() throws Exception {
 		ApiClient client = ClientBuilder.defaultClient();
 		CoreV1Api coreV1Api = new CoreV1Api(client);
 		V1Namespace namespaceFoo = new V1Namespace()

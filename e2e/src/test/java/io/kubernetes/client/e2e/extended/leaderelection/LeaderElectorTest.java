@@ -25,7 +25,6 @@ import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoordinationV1Api;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.util.ClientBuilder;
-import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -34,17 +33,16 @@ import java.util.List;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@RunWith(Parameterized.class)
-public class LeaderElectorTest {
+class LeaderElectorTest {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(LeaderElectorTest.class);
 
@@ -57,7 +55,6 @@ public class LeaderElectorTest {
     Lease
   }
 
-  @Parameterized.Parameters(name = "{0}")
   public static Collection<Object[]> constructorFeeder() {
     final List<Object[]> args = new ArrayList<>();
 
@@ -68,20 +65,11 @@ public class LeaderElectorTest {
     return args;
   }
 
-  private final ApiClient apiClient;
-  private final LockType lockType;
+  private ApiClient apiClient;
+  private LockType lockType;
 
-  public LeaderElectorTest(LockType lockType) {
-    try {
-      apiClient = ClientBuilder.defaultClient();
-    } catch (IOException ex) {
-      throw new RuntimeException("Couldn't create ApiClient", ex);
-    }
-    this.lockType = lockType;
-  }
-
-  @Before
-  public void setup() throws Exception {
+  private void initLeaderElectorTest(LockType lockType) throws Exception {
+    apiClient = ClientBuilder.defaultClient();
     // delete the lock resource if it exists, or else first leader candidate might need to wait for
     // a whole leaseDuration configured
     switch (lockType) {
@@ -97,10 +85,14 @@ public class LeaderElectorTest {
       default:
         throw new RuntimeException("Unknown LockType " + lockType);
     }
+    this.lockType = lockType;
   }
 
-  @Test(timeout = 30000L)
-  public void testSingleCandidateLeaderElection() throws Exception {
+  @MethodSource("constructorFeeder")
+  @ParameterizedTest(name = "{0}")
+  @Timeout(value = 30000L, unit = TimeUnit.MILLISECONDS)
+  void singleCandidateLeaderElection(LockType lockType) throws Exception {
+    initLeaderElectorTest(lockType);
     CountDownLatch startLeadershipLatch = new CountDownLatch(1);
     CountDownLatch stopLeadershipLatch = new CountDownLatch(1);
 
@@ -108,8 +100,8 @@ public class LeaderElectorTest {
         makeAndRunLeaderElectorAsync(
             "candidate",
             null,
-            () -> startLeadershipLatch.countDown(),
-            () -> stopLeadershipLatch.countDown(),
+            startLeadershipLatch::countDown,
+            stopLeadershipLatch::countDown,
             apiClient);
 
     startLeadershipLatch.await();
@@ -119,8 +111,11 @@ public class LeaderElectorTest {
     stopLeadershipLatch.await();
   }
 
-  @Test(timeout = 30000L)
-  public void testMultiCandidateLeaderElection() throws Exception {
+  @MethodSource("constructorFeeder")
+  @ParameterizedTest(name = "{0}")
+  @Timeout(value = 30000L, unit = TimeUnit.MILLISECONDS)
+  void multiCandidateLeaderElection(LockType lockType) throws Exception {
+    initLeaderElectorTest(lockType);
     CyclicBarrier startBarrier = new CyclicBarrier(2);
 
     CountDownLatch startBeingLeader = new CountDownLatch(1);
@@ -186,8 +181,11 @@ public class LeaderElectorTest {
     assertThat(stopBeingLeaderCount).hasValue(1);
   }
 
-  @Test(timeout = 45000L)
-  public void testLeaderGracefulShutdown() throws Exception {
+  @MethodSource("constructorFeeder")
+  @ParameterizedTest(name = "{0}")
+  @Timeout(value = 45000L, unit = TimeUnit.MILLISECONDS)
+  void leaderGracefulShutdown(LockType lockType) throws Exception {
+    initLeaderElectorTest(lockType);
     CountDownLatch startBeingLeader1 = new CountDownLatch(1);
     CountDownLatch stopBeingLeader1 = new CountDownLatch(1);
 
@@ -195,8 +193,8 @@ public class LeaderElectorTest {
         makeAndRunLeaderElectorAsync(
             "candidate1",
             null,
-            () -> startBeingLeader1.countDown(),
-            () -> stopBeingLeader1.countDown(),
+            startBeingLeader1::countDown,
+            stopBeingLeader1::countDown,
             apiClient);
 
     // wait for candidate1 to become leader
@@ -209,8 +207,8 @@ public class LeaderElectorTest {
         makeAndRunLeaderElectorAsync(
             "candidate2",
             null,
-            () -> startBeingLeader2.countDown(),
-            () -> stopBeingLeader2.countDown(),
+            startBeingLeader2::countDown,
+            stopBeingLeader2::countDown,
             apiClient);
 
     leaderElector1.close();

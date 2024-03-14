@@ -13,27 +13,34 @@ limitations under the License.
 package io.kubernetes.client.util;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static uk.org.webcompere.systemstubs.SystemStubs.withEnvironmentVariable;
 
 import io.kubernetes.client.openapi.ApiClient;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.io.TempDir;
+import uk.org.webcompere.systemstubs.environment.EnvironmentVariables;
+import uk.org.webcompere.systemstubs.jupiter.SystemStub;
+import uk.org.webcompere.systemstubs.jupiter.SystemStubsExtension;
 
 /** Tests for the Config helper class */
-public class ConfigTest {
-  @Rule public TemporaryFolder folder = new TemporaryFolder();
+@ExtendWith(SystemStubsExtension.class)
+class ConfigTest {
+  @TempDir
+  private Path tempDir;
+
+  @SystemStub
+  private final EnvironmentVariables variables = new EnvironmentVariables();
 
   @Test
-  public void testDefaultClientNothingPresent() throws Exception {
+  void defaultClientNothingPresent() throws Exception {
     String path =
-        withEnvironmentVariable("HOME", "/non-existent")
-            .and("HOMEDRIVE", null)
-            .and("USERPROFILE", null)
+        variables.set("HOME", "/non-existent")
+            .set("HOMEDRIVE", null)
+            .set("USERPROFILE", null)
             .execute(
                 () -> {
                   ApiClient client = Config.defaultClient();
@@ -66,33 +73,24 @@ public class ConfigTest {
           + "  name: foo-context\n"
           + "current-context: foo-context\n";
 
-  File config = null;
-  File dir = null;
-  File kubedir = null;
-  File configFile = null;
+  Path config;
+  Path kubedir;
+  Path configFile;
 
-  @Before
-  public void setUp() throws IOException {
-    dir = folder.newFolder();
-    kubedir = new File(dir, ".kube");
-    kubedir.mkdir();
-    config = new File(kubedir, "config");
-    FileWriter writer = new FileWriter(config);
-    writer.write(HOME_CONFIG);
-    writer.flush();
-    writer.close();
+  @BeforeEach
+  void setUp() throws IOException {
+    kubedir = Files.createDirectory(tempDir.resolve(".kube"));
+    config = Files.createFile(kubedir.resolve("config"));
+    Files.writeString(config, HOME_CONFIG);
 
-    configFile = folder.newFile("config");
-    writer = new FileWriter(configFile);
-    writer.write(KUBECONFIG);
-    writer.flush();
-    writer.close();
+    configFile = Files.createTempFile(tempDir, "config", null);
+    Files.writeString(configFile, KUBECONFIG);
   }
 
   @Test
-  public void testDefaultClientHomeDir() throws Exception {
+  void defaultClientHomeDir() throws Exception {
     String path =
-        withEnvironmentVariable("HOME", dir.getCanonicalPath())
+        variables.set("HOME", tempDir.toString())
             .execute(
                 () -> {
                   ApiClient client = Config.defaultClient();
@@ -102,9 +100,9 @@ public class ConfigTest {
   }
 
   @Test
-  public void testDefaultClientKubeConfig() throws Exception {
+  void defaultClientKubeConfig() throws Exception {
     String path =
-        withEnvironmentVariable("KUBECONFIG", configFile.getCanonicalPath())
+        variables.set("KUBECONFIG", configFile.toString())
             .execute(
                 () -> {
                   ApiClient client = Config.defaultClient();
@@ -114,10 +112,10 @@ public class ConfigTest {
   }
 
   @Test
-  public void testDefaultClientPrecedence() throws Exception {
+  void defaultClientPrecedence() throws Exception {
     String path =
-        withEnvironmentVariable("HOME", dir.getCanonicalPath())
-            .and("KUBECONFIG", configFile.getCanonicalPath())
+        variables.set("HOME", tempDir.toString())
+            .set("KUBECONFIG", configFile.toString())
             .execute(
                 () -> {
                   ApiClient client = Config.defaultClient();

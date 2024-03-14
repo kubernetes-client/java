@@ -21,14 +21,14 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodSpec;
 import java.time.Duration;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class ControllerWatchTest {
+class ControllerWatchTest {
   private V1Pod testPod =
       new V1Pod().metadata(new V1ObjectMeta().namespace("ns1").name("pod1")).spec(new V1PodSpec());
 
   @Test
-  public void testOnAdd() {
+  void onAdd() {
     WorkQueue<Request> workQueue = new DefaultWorkQueue<>();
     DefaultControllerWatch<V1Pod> controllerWatch =
         new DefaultControllerWatch(
@@ -42,7 +42,7 @@ public class ControllerWatchTest {
   }
 
   @Test
-  public void testOnUpdate() {
+  void onUpdate() {
     WorkQueue<Request> workQueue = new DefaultWorkQueue<>();
     DefaultControllerWatch<V1Pod> controllerWatch =
         new DefaultControllerWatch(
@@ -56,7 +56,7 @@ public class ControllerWatchTest {
   }
 
   @Test
-  public void testOnDelete() {
+  void onDelete() {
     WorkQueue<Request> workQueue = new DefaultWorkQueue<>();
     DefaultControllerWatch<V1Pod> controllerWatch =
         new DefaultControllerWatch(

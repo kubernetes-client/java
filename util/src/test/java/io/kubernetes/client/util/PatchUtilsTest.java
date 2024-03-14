@@ -15,31 +15,33 @@ package io.kubernetes.client.util;
 import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Pod;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class PatchUtilsTest {
+class PatchUtilsTest {
 
   private ApiClient client;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(options().dynamicPort()).build();
 
-  @Before
-  public void setup() {
-    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+    client = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
   }
 
   @Test
-  public void testJsonPatchPod() throws ApiException {
+  void jsonPatchPod() throws ApiException {
     CoreV1Api coreV1Api = new CoreV1Api(client);
-    stubFor(
+    apiServer.stubFor(
         patch(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
             .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_JSON_PATCH))
             .willReturn(
@@ -56,13 +58,13 @@ public class PatchUtilsTest {
         V1Patch.PATCH_FORMAT_JSON_PATCH,
         client);
 
-    verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
+    apiServer.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
   }
 
   @Test
-  public void testMergePatchPod() throws ApiException {
+  void mergePatchPod() throws ApiException {
     CoreV1Api coreV1Api = new CoreV1Api(client);
-    stubFor(
+    apiServer.stubFor(
         patch(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
             .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_JSON_MERGE_PATCH))
             .willReturn(
@@ -79,13 +81,13 @@ public class PatchUtilsTest {
         V1Patch.PATCH_FORMAT_JSON_MERGE_PATCH,
         client);
 
-    verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
+    apiServer.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
   }
 
   @Test
-  public void testStrategicMergePatchPod() throws ApiException {
+  void strategicMergePatchPod() throws ApiException {
     CoreV1Api coreV1Api = new CoreV1Api(client);
-    stubFor(
+    apiServer.stubFor(
         patch(urlPathEqualTo("/api/v1/namespaces/default/pods/foo"))
             .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
             .willReturn(
@@ -102,6 +104,6 @@ public class PatchUtilsTest {
         V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH,
         client);
 
-    verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
+    apiServer.verify(1, patchRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo")));
   }
 }

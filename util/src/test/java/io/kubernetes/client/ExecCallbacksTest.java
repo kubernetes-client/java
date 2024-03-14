@@ -13,7 +13,7 @@ limitations under the License.
 package io.kubernetes.client;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import io.kubernetes.client.custom.IOTrio;
 import io.kubernetes.client.openapi.ApiException;
@@ -31,12 +31,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.BiConsumer;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class ExecCallbacksTest {
+class ExecCallbacksTest {
 
   @Test
-  public void testMaxTimeout() throws Exception {
+  void maxTimeout() throws Exception {
     Exec exec = getExec((future, io) -> Thread.sleep(30_000L));
 
     long startTime = System.currentTimeMillis();
@@ -52,7 +52,7 @@ public class ExecCallbacksTest {
   }
 
   @Test
-  public void stderrTest() throws Exception {
+  void stderrTest() throws Exception {
     Exec exec =
         getExec(
             (future, io) -> {
@@ -82,7 +82,7 @@ public class ExecCallbacksTest {
   }
 
   @Test
-  public void stdoutTest() throws Exception {
+  void stdoutTest() throws Exception {
     Exec exec =
         getExec(
             (future, io) -> {
@@ -113,7 +113,7 @@ public class ExecCallbacksTest {
   }
 
   @Test
-  public void onClosedTriggerTest() throws Exception {
+  void onClosedTriggerTest() throws Exception {
     Exec exec = getExec((future, io) -> future.complete(9));
 
     List<Integer> codes = new ArrayList<>(1);
@@ -133,7 +133,7 @@ public class ExecCallbacksTest {
   }
 
   @Test
-  public void mockedExecutionWithMixedEventsTest() throws Exception {
+  void mockedExecutionWithMixedEventsTest() throws Exception {
     Exec exec =
         getExec(
             (future, io) ->
@@ -204,8 +204,7 @@ public class ExecCallbacksTest {
     try {
       task.run();
     } catch (Exception e) {
-      e.printStackTrace(); // TODO: junit-jupiter fail(e);
-      fail(e.getMessage());
+      fail(e);
     }
   }
 
@@ -225,8 +224,7 @@ public class ExecCallbacksTest {
       is.read(buff);
       return new String(buff);
     } catch (IOException e) {
-      e.printStackTrace(); // TODO: junit-jupiter fail(e);
-      fail(e.getMessage());
+      fail(e);
     }
     return null;
   }

@@ -17,12 +17,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.util.List;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class CachesTest {
+class CachesTest {
 
   @Test
-  public void testDefaultNamespaceNameKey() {
+  void defaultNamespaceNameKey() {
     String testName = "test-name";
     String testNamespace = "test-namespace";
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(testName).namespace(testNamespace));
@@ -30,7 +30,7 @@ public class CachesTest {
   }
 
   @Test
-  public void testDefaultNamespaceIndex() {
+  void defaultNamespaceIndex() {
     String testName = "test-name";
     String testNamespace = "test-namespace";
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(testName).namespace(testNamespace));

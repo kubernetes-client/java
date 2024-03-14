@@ -16,11 +16,11 @@ import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.matching;
 import static com.github.tomakehurst.wiremock.client.WireMock.post;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.Resources;
 import io.kubernetes.client.util.TestUtils;
 import io.kubernetes.client.util.authenticators.OpenIDConnectAuthenticator;
@@ -34,11 +34,11 @@ import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.codec.binary.Base64;
 import org.jose4j.json.internal.json_simple.JSONObject;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
 /** OpenIDConnectAuthenticationTest */
-public class OpenIDConnectAuthenticationTest {
+class OpenIDConnectAuthenticationTest {
 
   private static final String OIDC_KS_PATH = Resources.getResource("oidc-signing.p12").getPath();
   private static final String OIDC_SERVER_KS_PATH =
@@ -46,18 +46,17 @@ public class OpenIDConnectAuthenticationTest {
   private static final char[] OIDC_KS_PASSWORD = "changeme".toCharArray();
   private static final int PORT = 8043;
 
-  @Rule
-  public WireMockRule wireMockRule =
-      new WireMockRule(
-          WireMockConfiguration.options()
-              .httpsPort(PORT)
-              .keystoreType("JKS")
-              .keystorePath(OIDC_SERVER_KS_PATH)
-              .keyManagerPassword("changeme")
-              .keystorePassword("changeme"));
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(WireMockConfiguration.options()
+          .httpsPort(PORT)
+          .keystoreType("JKS")
+          .keystorePath(OIDC_SERVER_KS_PATH)
+          .keyManagerPassword("changeme")
+          .keystorePassword("changeme")).build();
 
   @Test
-  public void testTokenExpiredNotExpired()
+  void tokenExpiredNotExpired()
       throws NoSuchAlgorithmException, Exception {
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
@@ -78,7 +77,7 @@ public class OpenIDConnectAuthenticationTest {
   }
 
   @Test
-  public void testTokenExpiredHasExpired()
+  void tokenExpiredHasExpired()
       throws NoSuchAlgorithmException, Exception {
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
@@ -98,7 +97,8 @@ public class OpenIDConnectAuthenticationTest {
     assertThat(oidcAuth.isExpired(config)).isTrue();
   }
 
-  public void testTokenExpiredNull() {
+  @Test
+  void tokenExpiredNull() {
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
 
@@ -108,7 +108,7 @@ public class OpenIDConnectAuthenticationTest {
   }
 
   @Test
-  public void testLoadToken() throws NoSuchAlgorithmException, Exception {
+  void loadToken() throws NoSuchAlgorithmException, Exception {
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
 
@@ -128,7 +128,7 @@ public class OpenIDConnectAuthenticationTest {
   }
 
   @Test
-  public void testLoadNullToken() {
+  void loadNullToken() {
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
 
@@ -136,7 +136,7 @@ public class OpenIDConnectAuthenticationTest {
   }
 
   @Test
-  public void testRefreshSuccess() throws Exception {
+  void refreshSuccess() throws Exception {
     KeyStore ks = KeyStore.getInstance("PKCS12");
     ks.load(new FileInputStream(OIDC_KS_PATH), OIDC_KS_PASSWORD);
 
@@ -147,7 +147,7 @@ public class OpenIDConnectAuthenticationTest {
             (PrivateKey) ks.getKey("oidc-sig", OIDC_KS_PASSWORD),
             TestUtils.DateOptions.Now);
 
-    stubFor(
+    apiServer.stubFor(
         get("/.well-known/openid-configuration")
             .willReturn(
                 aResponse()
@@ -159,7 +159,7 @@ public class OpenIDConnectAuthenticationTest {
     respToken.put("id_token", refreshedJWT);
     respToken.put("refresh_token", "new_refresh_token");
 
-    stubFor(
+    apiServer.stubFor(
         post("/token")
             .withBasicAuth("kubernetes", "")
             .withRequestBody(matching("refresh_token=refresh-me-please&grant_type=refresh_token"))
@@ -194,8 +194,8 @@ public class OpenIDConnectAuthenticationTest {
     assertThat(respMap).containsEntry(OpenIDConnectAuthenticator.OIDC_REFRESH_TOKEN, "new_refresh_token");
   }
 
-  @Test(expected = RuntimeException.class)
-  public void testRefreshUnauthorized() throws Exception {
+  @Test
+  void refreshUnauthorized() throws Exception {
     KeyStore ks = KeyStore.getInstance("PKCS12");
     ks.load(new FileInputStream(OIDC_KS_PATH), OIDC_KS_PASSWORD);
 
@@ -206,7 +206,7 @@ public class OpenIDConnectAuthenticationTest {
             (PrivateKey) ks.getKey("oidc-sig", OIDC_KS_PASSWORD),
             TestUtils.DateOptions.Now);
 
-    stubFor(
+    apiServer.stubFor(
         get("/.well-known/openid-configuration")
             .willReturn(
                 aResponse()
@@ -218,7 +218,7 @@ public class OpenIDConnectAuthenticationTest {
     respToken.put("id_token", refreshedJWT);
     respToken.put("refresh_token", "new_refresh_token");
 
-    stubFor(post("/token").willReturn(aResponse().withStatus(401)));
+    apiServer.stubFor(post("/token").willReturn(aResponse().withStatus(401)));
 
     OpenIDConnectAuthenticator oidcAuth = new OpenIDConnectAuthenticator();
     Map<String, Object> config = new HashMap<String, Object>();
@@ -243,7 +243,7 @@ public class OpenIDConnectAuthenticationTest {
             exportCert((X509Certificate) serverKs.getCertificate("mykey"))
                 .getBytes(StandardCharsets.UTF_8)));
 
-    Map<String, Object> respMap = oidcAuth.refresh(config);
+    assertThatThrownBy(() -> oidcAuth.refresh(config)).isInstanceOf(RuntimeException.class);
   }
 
   private static String exportCert(X509Certificate cert) throws Exception {

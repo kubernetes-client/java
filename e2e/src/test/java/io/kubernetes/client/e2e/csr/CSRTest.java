@@ -25,12 +25,12 @@ import io.kubernetes.client.util.version.Version;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.SecureRandom;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class CSRTest {
+class CSRTest {
 
 	@Test
-	public void testBuildClientWithCSR() throws Exception {
+	void buildClientWithCSR() throws Exception {
 		// initialize test environment
 		KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
 		keyGen.initialize(2048, new SecureRandom());

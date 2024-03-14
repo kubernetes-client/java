@@ -17,14 +17,14 @@ import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.util.ClientBuilder;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class KubectlNamespaceTest {
+class KubectlNamespaceTest {
 
   @Test
-  public void testCreateApplyDelete() throws Exception {
+  void createApplyDelete() throws Exception {
     ApiClient client = ClientBuilder.standard().build();
 
     // Create a namespace

@@ -21,23 +21,21 @@ import io.kubernetes.client.util.Threads;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.function.BiConsumer;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
-public class DefaultSharedIndexInformerTest {
+@ExtendWith(MockitoExtension.class)
+class DefaultSharedIndexInformerTest {
 
   private static final Class<V1Pod> anyApiType = V1Pod.class;
   private static final long anyResyncPeriod = 1000L;
-
-  @Rule public MockitoRule mockitoRule = MockitoJUnit.rule();
 
   @Mock private ListerWatcher<V1Pod, V1PodList> listerWatcher;
   @Mock private DeltaFIFO deltaFIFOMock;
@@ -47,7 +45,7 @@ public class DefaultSharedIndexInformerTest {
   @Mock private Thread thread;
 
   @Test
-  public void testConstructorUsesDefaultThreadFactory() {
+  void constructorUsesDefaultThreadFactory() {
     when(threadFactory.newThread(any())).thenReturn(thread);
 
     try {
@@ -64,21 +62,21 @@ public class DefaultSharedIndexInformerTest {
   }
 
   @Test
-  public void testConstructorWithExceptionHandlerExists() {
+  void constructorWithExceptionHandlerExists() {
 
     new DefaultSharedIndexInformer<>(
         anyApiType, listerWatcher, anyResyncPeriod, deltaFIFOMock, indexerMock, exceptionHandler);
   }
 
   @Test
-  public void testConstructorWithoutExceptionHandlerExists() {
+  void constructorWithoutExceptionHandlerExists() {
 
     new DefaultSharedIndexInformer<>(
         anyApiType, listerWatcher, anyResyncPeriod, deltaFIFOMock, indexerMock);
   }
 
   @Test
-  public void testMinimalConstructorExists() {
+  void minimalConstructorExists() {
 
     new DefaultSharedIndexInformer<>(anyApiType, listerWatcher, anyResyncPeriod);
   }

@@ -19,12 +19,12 @@ import com.google.gson.reflect.TypeToken;
 import io.kubernetes.client.openapi.JSON;
 import io.kubernetes.client.openapi.models.V1ConfigMap;
 import java.io.IOException;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /** Tests for the Watch helper class */
-public class WatchTest {
+class WatchTest {
   @Test
-  public void testWatchEnd() throws IOException {
+  void watchEnd() throws IOException {
     JSON json = new JSON();
     Watch<V1ConfigMap> watch =
         new Watch<V1ConfigMap>(

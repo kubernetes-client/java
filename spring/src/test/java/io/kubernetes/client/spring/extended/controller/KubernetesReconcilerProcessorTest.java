@@ -26,18 +26,15 @@ import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInfo
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesInformers;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconciler;
 import io.kubernetes.client.spring.extended.controller.annotation.KubernetesReconcilerWatches;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = KubernetesReconcilerProcessorTest.App.class)
-public class KubernetesReconcilerProcessorTest {
+class KubernetesReconcilerProcessorTest {
 
   @SpringBootApplication
   static class App {
@@ -99,7 +96,7 @@ public class KubernetesReconcilerProcessorTest {
   private TestReconciler testReconciler2ToBeInjected;
 
   @Test
-  public void testAutowiredFieldsOfReconcilerBeansAreSet() {
+  void autowiredFieldsOfReconcilerBeansAreSet() {
     assertThat(testReconciler1ToBeInjected.informerToBeInjected).isNotNull();
     assertThat(testReconciler2ToBeInjected.informerToBeInjected).isNotNull();
   }

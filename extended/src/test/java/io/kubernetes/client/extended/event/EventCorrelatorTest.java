@@ -33,30 +33,12 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import org.apache.commons.lang3.tuple.MutablePair;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.Parameter;
-import org.junit.runners.Parameterized.Parameters;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-@RunWith(Parameterized.class)
-public class EventCorrelatorTest {
-
-  @Parameter(0)
-  public CoreV1Event[] previousEvents;
-
-  @Parameter(1)
-  public CoreV1Event newEvent;
-
-  @Parameter(2)
-  public CoreV1Event expectedEvent;
-
-  @Parameter(3)
-  public Boolean expectedSkip;
-
+class EventCorrelatorTest {
   // creates the test data
-  @Parameters
-  public static Collection<Object[]> data() {
+  static Collection<Object[]> data() {
     V1ObjectReference podRef =
         new V1ObjectReferenceBuilder()
             .withApiVersion("v1")
@@ -153,8 +135,14 @@ public class EventCorrelatorTest {
     return Arrays.asList(data);
   }
 
-  @Test
-  public void testEventCorrelate() throws InterruptedException {
+  @MethodSource("data")
+  @ParameterizedTest
+  void eventCorrelate(
+      CoreV1Event[] previousEvents,
+      CoreV1Event newEvent,
+      CoreV1Event expectedEvent,
+      Boolean expectedSkip)
+      throws Exception {
     EventCorrelator correlator = new EventCorrelator();
     for (CoreV1Event event : previousEvents) {
       OffsetDateTime now = OffsetDateTime.now();

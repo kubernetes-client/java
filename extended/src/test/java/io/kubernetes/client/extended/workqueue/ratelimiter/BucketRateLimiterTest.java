@@ -13,17 +13,14 @@ limitations under the License.
 package io.kubernetes.client.extended.workqueue.ratelimiter;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.time.Duration;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.Test;
 
-public class BucketRateLimiterTest {
-  @Rule public ExpectedException thrown = ExpectedException.none();
-
+class BucketRateLimiterTest {
   @Test
-  public void testBucketRateLimiterBasic() {
+  void bucketRateLimiterBasic() {
     RateLimiter<String> rateLimiter = new BucketRateLimiter<>(2, 1, Duration.ofMinutes(10));
     assertThat(rateLimiter.when("one")).isZero();
     assertThat(rateLimiter.when("one")).isZero();
@@ -43,7 +40,7 @@ public class BucketRateLimiterTest {
   }
 
   @Test
-  public void testBucketRateLimiterTokenAdded() throws InterruptedException {
+  void bucketRateLimiterTokenAdded() throws InterruptedException {
     RateLimiter<String> rateLimiter = new BucketRateLimiter<>(2, 1, Duration.ofSeconds(2));
 
     assertThat(rateLimiter.when("one")).isZero();
@@ -61,32 +58,34 @@ public class BucketRateLimiterTest {
   }
 
   @Test
-  public void testNegativeCapacity() {
-    thrown.expect(IllegalArgumentException.class);
-    thrown.expectMessage("-2 is wrong value for capacity, because capacity should be positive");
-    RateLimiter<String> rateLimiter = new BucketRateLimiter<>(-2, 1, Duration.ofSeconds(2));
+  void negativeCapacity() {
+    assertThatThrownBy(() -> new BucketRateLimiter<>(-2, 1, Duration.ofSeconds(2)))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageContaining(
+            "-2 is wrong value for capacity, because capacity should be positive");
   }
 
   @Test
-  public void testNegativeTokensGeneratedInPeriod() {
-    thrown.expect(IllegalArgumentException.class);
-    thrown.expectMessage("-1 is wrong value for period tokens, because tokens should be positive");
-    RateLimiter<String> rateLimiter = new BucketRateLimiter<>(2, -1, Duration.ofSeconds(2));
+  void negativeTokensGeneratedInPeriod() {
+    assertThatThrownBy(() -> new BucketRateLimiter<>(2, -1, Duration.ofSeconds(2)))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageContaining(
+            "-1 is wrong value for period tokens, because tokens should be positive");
   }
 
   @Test
-  public void testNegativePeriod() {
-    thrown.expect(IllegalArgumentException.class);
-    thrown.expectMessage(
-        "-1 is wrong value for period of bandwidth, because period should be positive");
-    RateLimiter<String> rateLimiter = new BucketRateLimiter<>(2, 1, Duration.ofNanos(-1));
+  void negativePeriod() {
+    assertThatThrownBy(() -> new BucketRateLimiter<>(2, 1, Duration.ofNanos(-1)))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageContaining(
+            "-1 is wrong value for period of bandwidth, because period should be positive");
   }
 
   @Test
-  public void testTokensLargerThanNanos() {
-    thrown.expect(IllegalArgumentException.class);
-    thrown.expectMessage(
-        "100 token/nanosecond is not permitted refill rate, because highest supported rate is 1 token/nanosecond");
-    RateLimiter<String> rateLimiter = new BucketRateLimiter<>(2, 100, Duration.ofNanos(1));
+  void tokensLargerThanNanos() {
+    assertThatThrownBy(() -> new BucketRateLimiter<>(2, 100, Duration.ofNanos(1)))
+        .isInstanceOf(IllegalArgumentException.class)
+        .hasMessageContaining(
+            "100 token/nanosecond is not permitted refill rate, because highest supported rate is 1 token/nanosecond");
   }
 }

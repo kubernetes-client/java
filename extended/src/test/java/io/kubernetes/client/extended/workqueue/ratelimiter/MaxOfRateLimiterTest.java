@@ -15,12 +15,12 @@ package io.kubernetes.client.extended.workqueue.ratelimiter;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.time.Duration;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class MaxOfRateLimiterTest {
+class MaxOfRateLimiterTest {
 
   @Test
-  public void testMaxOfRateLimiter() {
+  void maxOfRateLimiter() {
     RateLimiter<String> rateLimiter =
         new MaxOfRateLimiter<>(
             new ItemFastSlowRateLimiter<>(Duration.ofMillis(5), Duration.ofSeconds(3), 3),
@@ -45,7 +45,7 @@ public class MaxOfRateLimiterTest {
   }
 
   @Test
-  public void testDefaultRateLimiter() {
+  void defaultRateLimiter() {
     RateLimiter<String> rateLimiter = new DefaultControllerRateLimiter<>();
 
     assertThat(rateLimiter.when("one")).isEqualTo(Duration.ofMillis(5));

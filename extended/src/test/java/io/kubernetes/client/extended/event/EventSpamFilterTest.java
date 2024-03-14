@@ -21,12 +21,12 @@ import io.kubernetes.client.openapi.models.CoreV1EventBuilder;
 import io.kubernetes.client.openapi.models.V1EventSourceBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
 import java.time.Duration;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class EventSpamFilterTest {
+class EventSpamFilterTest {
 
   @Test
-  public void testSpammingEventFiltering() {
+  void spammingEventFiltering() {
     int burst = 10;
     EventSpamFilter filter =
         new EventSpamFilter(

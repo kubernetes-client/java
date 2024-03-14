@@ -14,33 +14,36 @@ package io.kubernetes.client.examples;
 
 import static com.github.tomakehurst.wiremock.client.WireMock.aResponse;
 import static com.github.tomakehurst.wiremock.client.WireMock.get;
-import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.apis.CoreV1Api;
 import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class ExampleTest {
+class ExampleTest {
   private static final int PORT = 8089;
-  @Rule public WireMockRule wireMockRule = new WireMockRule(PORT);
+
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(WireMockConfiguration.options().port(PORT)).build();
 
   @Test
-  public void exactUrlOnly() throws ApiException {
+  void exactUrlOnly() throws ApiException {
     ApiClient client = new ApiClient();
     client.setBasePath("http://localhost:" + PORT);
     Configuration.setDefaultApiClient(client);
 
     V1Namespace ns1 = new V1Namespace().metadata(new V1ObjectMeta().name("name"));
 
-    stubFor(
+    apiServer.stubFor(
         get(urlEqualTo("/api/v1/namespaces/name"))
             .willReturn(
                 aResponse()

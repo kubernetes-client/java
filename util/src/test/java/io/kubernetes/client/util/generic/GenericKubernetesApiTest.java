@@ -17,7 +17,7 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMoc
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.custom.V1Patch;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -32,33 +32,34 @@ import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.Watchable;
 import io.kubernetes.client.util.generic.options.GetOptions;
 import io.kubernetes.client.util.generic.options.ListOptions;
-import java.io.UncheckedIOException;
 import java.net.SocketTimeoutException;
 import java.util.concurrent.TimeUnit;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class GenericKubernetesApiTest {
+class GenericKubernetesApiTest {
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(wireMockConfig().dynamicPort()).build();
 
   private JSON json = new JSON();
   private GenericKubernetesApi<V1Job, V1JobList> jobClient;
 
-  @Before
-  public void setup() {
+  @BeforeEach
+  void setup() {
     ApiClient apiClient =
-        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+        new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
     jobClient =
         new GenericKubernetesApi<>(V1Job.class, V1JobList.class, "batch", "v1", "jobs", apiClient);
   }
 
   // test delete
   @Test
-  public void deleteNamespacedJobReturningStatus() {
+  void deleteNamespacedJobReturningStatus() {
     V1Status status = new V1Status().kind("Status").code(200).message("good!");
-    stubFor(
+    apiServer.stubFor(
         delete(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(status))));
 
@@ -66,15 +67,15 @@ public class GenericKubernetesApiTest {
     assertThat(deleteJobResp.isSuccess()).isTrue();
     assertThat(deleteJobResp.getStatus()).isEqualTo(status);
     assertThat(deleteJobResp.getObject()).isNull();
-    verify(1, deleteRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
+    apiServer.verify(1, deleteRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
   @Test
-  public void deleteNamespacedJobReturningDeletedObject() {
+  void deleteNamespacedJobReturningDeletedObject() {
     V1Job foo1 =
         new V1Job().kind("Job").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
 
-    stubFor(
+    apiServer.stubFor(
         delete(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
 
@@ -82,14 +83,14 @@ public class GenericKubernetesApiTest {
     assertThat(deleteJobResp.isSuccess()).isTrue();
     assertThat(deleteJobResp.getObject()).isEqualTo(foo1);
     assertThat(deleteJobResp.getStatus()).isNull();
-    verify(1, deleteRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
+    apiServer.verify(1, deleteRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
   @Test
-  public void deleteNamespacedJobReturningForbiddenStatus() {
+  void deleteNamespacedJobReturningForbiddenStatus() {
     V1Status status = new V1Status().kind("Status").code(403).message("good!");
 
-    stubFor(
+    apiServer.stubFor(
         delete(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .willReturn(aResponse().withStatus(403).withBody(json.serialize(status))));
 
@@ -97,29 +98,29 @@ public class GenericKubernetesApiTest {
     assertThat(deleteJobResp.isSuccess()).isFalse();
     assertThat(deleteJobResp.getStatus()).isEqualTo(status);
     assertThat(deleteJobResp.getObject()).isNull();
-    verify(1, deleteRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
+    apiServer.verify(1, deleteRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
   @Test
-  public void listNamespacedJobReturningObject() {
+  void listNamespacedJobReturningObject() {
     V1JobList jobList = new V1JobList().kind("JobList").metadata(new V1ListMeta());
 
-    stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
     KubernetesApiResponse<V1JobList> jobListResp = jobClient.list("default");
     assertThat(jobListResp.isSuccess()).isTrue();
     assertThat(jobListResp.getObject()).isEqualTo(jobList);
     assertThat(jobListResp.getStatus()).isNull();
-    verify(1, getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs")));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs")));
   }
 
   @Test
-  public void listNamespacedJobWithPartialMetadataObjectListHeader() {
+  void listNamespacedJobWithPartialMetadataObjectListHeader() {
     V1JobList jobList =
         new V1JobList().kind("PartialObjectMetadataList").metadata(new V1ListMeta());
 
-    stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
 
@@ -132,7 +133,7 @@ public class GenericKubernetesApiTest {
     assertThat(jobListResp.isSuccess()).isTrue();
     assertThat(jobListResp.getObject()).isEqualTo(jobList);
     assertThat(jobListResp.getStatus()).isNull();
-    verify(
+    apiServer.verify(
         1,
         getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .withHeader(
@@ -142,10 +143,10 @@ public class GenericKubernetesApiTest {
   }
 
   @Test
-  public void getNamespacedJobWithPartialMetadataObjectHeader() {
+  void getNamespacedJobWithPartialMetadataObjectHeader() {
     V1Job job = new V1Job().kind("PartialObjectMetadata").metadata(new V1ObjectMeta());
 
-    stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/noxu"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(job))));
 
@@ -158,7 +159,7 @@ public class GenericKubernetesApiTest {
     assertThat(jobResp.isSuccess()).isTrue();
     assertThat(jobResp.getObject()).isEqualTo(job);
     assertThat(jobResp.getStatus()).isNull();
-    verify(
+    apiServer.verify(
         1,
         getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/noxu"))
             .withHeader(
@@ -168,72 +169,72 @@ public class GenericKubernetesApiTest {
   }
 
   @Test
-  public void listClusterJobReturningObject() {
+  void listClusterJobReturningObject() {
     V1JobList jobList = new V1JobList().kind("JobList").metadata(new V1ListMeta());
 
-    stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/batch/v1/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
     KubernetesApiResponse<V1JobList> jobListResp = jobClient.list();
     assertThat(jobListResp.isSuccess()).isTrue();
     assertThat(jobListResp.getObject()).isEqualTo(jobList);
     assertThat(jobListResp.getStatus()).isNull();
-    verify(1, getRequestedFor(urlPathEqualTo("/apis/batch/v1/jobs")));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/apis/batch/v1/jobs")));
   }
 
   @Test
-  public void createNamespacedJobReturningObject() {
+  void createNamespacedJobReturningObject() {
     V1Job foo1 =
         new V1Job().kind("Job").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
 
-    stubFor(
+    apiServer.stubFor(
         post(urlEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.create(foo1);
     assertThat(jobListResp.isSuccess()).isTrue();
     assertThat(jobListResp.getObject()).isEqualTo(foo1);
     assertThat(jobListResp.getStatus()).isNull();
-    verify(1, postRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs")));
+    apiServer.verify(1, postRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs")));
   }
 
   @Test
-  public void updateNamespacedJobReturningObject() {
+  void updateNamespacedJobReturningObject() {
     V1Job foo1 =
         new V1Job().kind("Job").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
 
-    stubFor(
+    apiServer.stubFor(
         put(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.update(foo1);
     assertThat(jobListResp.isSuccess()).isTrue();
     assertThat(jobListResp.getObject()).isEqualTo(foo1);
     assertThat(jobListResp.getStatus()).isNull();
-    verify(1, putRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
+    apiServer.verify(1, putRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
   @Test
-  public void updateStatusNamespacedJobReturningObject() {
+  void updateStatusNamespacedJobReturningObject() {
     V1Job foo1 =
         new V1Job().kind("Job").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
     foo1.setStatus(new V1JobStatus().failed(1));
 
-    stubFor(
+    apiServer.stubFor(
         patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1/status"))
             .willReturn(aResponse().withStatus(200).withBody(new JSON().serialize(foo1))));
     KubernetesApiResponse<V1Job> jobListResp = jobClient.updateStatus(foo1, t -> t.getStatus());
     assertThat(jobListResp.isSuccess()).isTrue();
     assertThat(jobListResp.getObject()).isEqualTo(foo1);
     assertThat(jobListResp.getStatus()).isNull();
-    verify(
+    apiServer.verify(
         1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1/status")));
   }
 
   @Test
-  public void patchNamespacedJobReturningObject() {
+  void patchNamespacedJobReturningObject() {
     V1Patch v1Patch = new V1Patch("{}");
     V1Job foo1 =
         new V1Job().kind("Job").metadata(new V1ObjectMeta().namespace("default").name("foo1"));
-    stubFor(
+    apiServer.stubFor(
         patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(foo1))));
@@ -243,13 +244,13 @@ public class GenericKubernetesApiTest {
     assertThat(jobPatchResp.isSuccess()).isTrue();
     assertThat(jobPatchResp.getObject()).isEqualTo(foo1);
     assertThat(jobPatchResp.getStatus()).isNull();
-    verify(1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
+    apiServer.verify(1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
   @Test
-  public void patchNamespacedJobReturningEmpty() {
+  void patchNamespacedJobReturningEmpty() {
     V1Patch v1Patch = new V1Patch("{}");
-    stubFor(
+    apiServer.stubFor(
         patch(urlEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1"))
             .withHeader("Content-Type", containing(V1Patch.PATCH_FORMAT_STRATEGIC_MERGE_PATCH))
             .willReturn(aResponse().withStatus(200).withBody("")));
@@ -260,34 +261,34 @@ public class GenericKubernetesApiTest {
     assertThat(jobPatchResp.getObject()).isNull();
     assertThat(jobPatchResp.getStatus().getMessage()).isEqualTo("Unexpected response body");
     assertThat(jobPatchResp.getStatus().getCode().intValue()).isEqualTo(200);
-    verify(1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
+    apiServer.verify(1, patchRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs/foo1")));
   }
 
   @Test
-  public void watchNamespacedJobReturningObject() throws ApiException {
+  void watchNamespacedJobReturningObject() throws ApiException {
     V1JobList jobList = new V1JobList().kind("JobList").metadata(new V1ListMeta());
 
-    stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .willReturn(aResponse().withStatus(200).withBody(json.serialize(jobList))));
     Watchable<V1Job> jobListWatch = jobClient.watch("default", new ListOptions());
-    verify(
+    apiServer.verify(
         1,
         getRequestedFor(urlPathEqualTo("/apis/batch/v1/namespaces/default/jobs"))
             .withQueryParam("watch", equalTo("true")));
   }
 
   @Test
-  public void testReadTimeoutShouldThrowException() {
+  void readTimeoutShouldThrowException() {
     ApiClient apiClient =
-        new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+        new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
     apiClient.setHttpClient(
         apiClient
             .getHttpClient()
             .newBuilder()
             .readTimeout(1, TimeUnit.MILLISECONDS) // timeout everytime
             .build());
-    stubFor(
+    apiServer.stubFor(
         get(urlEqualTo("/apis/batch/v1/namespaces/foo/jobs/test"))
             .willReturn(aResponse().withFixedDelay(99999).withStatus(200).withBody("")));
     jobClient =

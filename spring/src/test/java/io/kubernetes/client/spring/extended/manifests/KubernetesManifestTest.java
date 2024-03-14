@@ -20,7 +20,8 @@ import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.core.WireMockConfiguration;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.Configuration;
 import io.kubernetes.client.openapi.models.V1Namespace;
@@ -30,23 +31,20 @@ import io.kubernetes.client.openapi.models.V1ServiceAccount;
 import io.kubernetes.client.spring.extended.manifests.annotation.KubectlApply;
 import io.kubernetes.client.spring.extended.manifests.annotation.KubectlCreate;
 import io.kubernetes.client.util.ClientBuilder;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import org.junit.ClassRule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-public class KubernetesManifestTest {
+class KubernetesManifestTest {
 
   private static final Resource DISCOVERY_API = new ClassPathResource("discovery-api.json");
 
@@ -54,14 +52,15 @@ public class KubernetesManifestTest {
 
   private static final Resource DISCOVERY_APIS = new ClassPathResource("discovery-apis.json");
 
-  @ClassRule public static WireMockRule wireMockRule = new WireMockRule(8288);
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(WireMockConfiguration.options().port(8288)).build();
 
   @SpringBootConfiguration
   static class App {
     @Bean
     public ApiClient testingApiClient() {
-      ApiClient apiClient = new ClientBuilder().setBasePath(wireMockRule.baseUrl()).build();
-      return apiClient;
+      return new ClientBuilder().setBasePath(apiServer.baseUrl()).build();
     }
 
     @Bean
@@ -132,11 +131,12 @@ public class KubernetesManifestTest {
                   .namespace("spring-boot-test-namespace")
                   .putLabelsItem("created", "true"));
 
-  static {
-    wireMockRule.resetMappings();
-    wireMockRule.resetScenarios();
-    wireMockRule.resetRequests();
-    wireMockRule.stubFor(
+  @BeforeAll
+  static void setupApiServer() throws Exception {
+    apiServer.resetMappings();
+    apiServer.resetScenarios();
+    apiServer.resetRequests();
+    apiServer.stubFor(
         post(urlEqualTo("/api/v1/namespaces"))
             .willReturn(
                 aResponse()
@@ -145,7 +145,7 @@ public class KubernetesManifestTest {
                         Configuration.getDefaultApiClient()
                             .getJSON()
                             .serialize(returningCreatedNamespace))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         post(urlEqualTo("/api/v1/namespaces/spring-boot-test-namespace/serviceaccounts"))
             .willReturn(
                 aResponse()
@@ -155,7 +155,7 @@ public class KubernetesManifestTest {
                             .getJSON()
                             .serialize(returningCreatedServiceAccount))));
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         patch(
                 urlEqualTo(
                     "/api/v1/namespaces/spring-boot-test-namespace/pods/spring-boot-test-pod?fieldManager=kubernetes-java-kubectl-apply&force=false"))
@@ -167,35 +167,29 @@ public class KubernetesManifestTest {
                             .getJSON()
                             .serialize(returningCreatedPod))));
 
-    try {
-      wireMockRule.stubFor(
-          get(urlPathEqualTo("/api"))
-              .willReturn(
-                  aResponse()
-                      .withStatus(200)
-                      .withBody(
-                          new String(Files.readAllBytes(Paths.get(DISCOVERY_API.getURI()))))));
-      wireMockRule.stubFor(
-          get(urlPathEqualTo("/apis"))
-              .willReturn(
-                  aResponse()
-                      .withStatus(200)
-                      .withBody(
-                          new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS.getURI()))))));
-      wireMockRule.stubFor(
-          get(urlPathEqualTo("/api/v1"))
-              .willReturn(
-                  aResponse()
-                      .withStatus(200)
-                      .withBody(
-                          new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1.getURI()))))));
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    apiServer.stubFor(
+        get(urlPathEqualTo("/api"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_API.getURI()))))));
+    apiServer.stubFor(
+        get(urlPathEqualTo("/apis"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(new String(Files.readAllBytes(Paths.get(DISCOVERY_APIS.getURI()))))));
+    apiServer.stubFor(
+        get(urlPathEqualTo("/api/v1"))
+            .willReturn(
+                aResponse()
+                    .withStatus(200)
+                    .withBody(
+                        new String(Files.readAllBytes(Paths.get(DISCOVERY_APIV1.getURI()))))));
   }
 
   @Test
-  public void test() {
+  void test() {
     assertThat(createdNamespace).isNotNull();
     assertThat(createdServiceAccount).isNotNull();
     assertThat(createdPod).isNotNull();

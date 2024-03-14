@@ -18,14 +18,13 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.moreThan;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
-import static com.github.tomakehurst.wiremock.client.WireMock.verify;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.github.tomakehurst.wiremock.core.Admin;
 import com.github.tomakehurst.wiremock.extension.Parameters;
 import com.github.tomakehurst.wiremock.extension.PostServeAction;
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.stubbing.ServeEvent;
 import io.kubernetes.client.informer.EventType;
 import io.kubernetes.client.informer.ResourceEventHandler;
@@ -49,11 +48,11 @@ import java.util.Collections;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.AtomicBoolean;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class DefaultSharedIndexInformerWireMockTest {
+class DefaultSharedIndexInformerWireMockTest {
 
   private String namespace;
   private String podName;
@@ -74,11 +73,15 @@ public class DefaultSharedIndexInformerWireMockTest {
         }
   }
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort().extensions(new CountRequestAction()));
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance()
+          .options(options().dynamicPort().extensions(new CountRequestAction()))
+          .build();
 
-  @Before
-  public void setup() {
-    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+    client = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
 
     namespace = "default";
     podName = "apod";
@@ -86,7 +89,7 @@ public class DefaultSharedIndexInformerWireMockTest {
   }
 
   @Test
-  public void testNamespacedPodInformerNormalBehavior() throws InterruptedException {
+  void namespacedPodInformerNormalBehavior() throws InterruptedException {
 
     CoreV1Api coreV1Api = new CoreV1Api(client);
     Semaphore getCount = new Semaphore(1);
@@ -101,7 +104,7 @@ public class DefaultSharedIndexInformerWireMockTest {
     V1PodList podList =
         new V1PodList().metadata(new V1ListMeta().resourceVersion(startRV)).items(Arrays.asList());
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
@@ -116,7 +119,7 @@ public class DefaultSharedIndexInformerWireMockTest {
             new V1Pod()
                 .metadata(
                     new V1ObjectMeta().namespace(namespace).name(podName).resourceVersion(endRV)));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
@@ -175,11 +178,11 @@ public class DefaultSharedIndexInformerWireMockTest {
     assertThat(foundExistingPod).isTrue();
     assertThat(podInformer.lastSyncResourceVersion()).isEqualTo(endRV);
 
-    verify(
+    apiServer.verify(
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
             .withQueryParam("watch", equalTo("false")));
-    verify(
+    apiServer.verify(
         moreThan(1),
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
             .withQueryParam("watch", equalTo("true")));
@@ -188,7 +191,7 @@ public class DefaultSharedIndexInformerWireMockTest {
   }
 
   @Test
-  public void testAllNamespacedPodInformerNormalBehavior() throws InterruptedException {
+  void allNamespacedPodInformerNormalBehavior() throws InterruptedException {
 
     CoreV1Api coreV1Api = new CoreV1Api(client);
     Semaphore getCount = new Semaphore(1);
@@ -203,7 +206,7 @@ public class DefaultSharedIndexInformerWireMockTest {
     V1PodList podList =
         new V1PodList().metadata(new V1ListMeta().resourceVersion(startRV)).items(Arrays.asList());
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
@@ -225,7 +228,7 @@ public class DefaultSharedIndexInformerWireMockTest {
                         .labels(Collections.singletonMap("foo", "bar"))
                         .annotations(Collections.singletonMap("foo", "bar"))));
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
@@ -311,17 +314,17 @@ public class DefaultSharedIndexInformerWireMockTest {
     assertThat(setTransformAfterStarted).isFalse();
     assertThat(podInformer.lastSyncResourceVersion()).isEqualTo(endRV);
 
-    verify(
+    apiServer.verify(
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
-    verify(
+    apiServer.verify(
         moreThan(1),
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("true")));
     factory.stopAllRegisteredInformers();
   }
 
   @Test
-  public void testAllNamespacedPodInformerTransformFailure() throws InterruptedException {
+  void allNamespacedPodInformerTransformFailure() throws InterruptedException {
 
     CoreV1Api coreV1Api = new CoreV1Api(client);
     Semaphore getCount = new Semaphore(1);
@@ -336,7 +339,7 @@ public class DefaultSharedIndexInformerWireMockTest {
     V1PodList podList =
         new V1PodList().metadata(new V1ListMeta().resourceVersion(startRV)).items(Arrays.asList());
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
@@ -353,7 +356,7 @@ public class DefaultSharedIndexInformerWireMockTest {
                 .metadata(
                     new V1ObjectMeta().namespace(namespace).name(podName).resourceVersion(endRV)));
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
@@ -418,17 +421,17 @@ public class DefaultSharedIndexInformerWireMockTest {
     assertThat(foundExistingPod).isFalse();
     assertThat(podInformer.lastSyncResourceVersion()).isEqualTo(endRV);
 
-    verify(
+    apiServer.verify(
         1,
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("false")));
-    verify(
+    apiServer.verify(
         moreThan(1),
         getRequestedFor(urlPathEqualTo("/api/v1/pods")).withQueryParam("watch", equalTo("true")));
     factory.stopAllRegisteredInformers();
   }
 
   @Test
-  public void testInformerReListWatchOnWatchConflict() throws InterruptedException {
+  void informerReListWatchOnWatchConflict() throws InterruptedException {
 
     CoreV1Api coreV1Api = new CoreV1Api(client);
 
@@ -443,7 +446,7 @@ public class DefaultSharedIndexInformerWireMockTest {
     watchParams.put("semaphore", watchCount);
 
 
-      wireMockRule.stubFor(
+      apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
@@ -456,7 +459,7 @@ public class DefaultSharedIndexInformerWireMockTest {
     Watch.Response<V1Pod> watchResponse =
         new Watch.Response<>(
             EventType.ERROR.name(), new V1Status().apiVersion("v1").kind("Status").code(409));
-      wireMockRule.stubFor(
+      apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
             .withPostServeAction("semaphore", watchParams)
             .withQueryParam("watch", equalTo("true"))
@@ -492,11 +495,11 @@ public class DefaultSharedIndexInformerWireMockTest {
     getCount.acquire(2);
     watchCount.acquire(2);
 
-    verify(
+    apiServer.verify(
         moreThan(1),
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
             .withQueryParam("watch", equalTo("false")));
-    verify(
+    apiServer.verify(
         moreThan(1),
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
             .withQueryParam("watch", equalTo("true")));
@@ -504,14 +507,14 @@ public class DefaultSharedIndexInformerWireMockTest {
   }
 
   @Test
-  public void testInformerReListingOnListForbidden() throws InterruptedException {
+  void informerReListingOnListForbidden() throws InterruptedException {
 
     CoreV1Api coreV1Api = new CoreV1Api(client);
     Semaphore getCount = new Semaphore(2);
     Parameters getParams = new Parameters();
     getParams.put("semaphore", getCount);
 
-      wireMockRule.stubFor(
+      apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
             .withPostServeAction("semaphore", getParams)
             .withQueryParam("watch", equalTo("false"))
@@ -549,7 +552,7 @@ public class DefaultSharedIndexInformerWireMockTest {
     factory.startAllRegisteredInformers();
     getCount.acquire(2);
 
-    verify(
+    apiServer.verify(
         moreThan(1),
         getRequestedFor(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods"))
             .withQueryParam("watch", equalTo("false")));

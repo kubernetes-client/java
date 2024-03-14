@@ -23,11 +23,11 @@ import io.kubernetes.client.openapi.models.V1Namespace;
 import io.kubernetes.client.openapi.models.V1NamespaceList;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.generic.GenericKubernetesApi;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class NamespaceInformerTest {
+class NamespaceInformerTest {
   @Test
-  public void testListWatchingNamespaces() throws Exception {
+  void listWatchingNamespaces() throws Exception {
     ApiClient client = ClientBuilder.defaultClient();
     SharedInformerFactory informerFactory = new SharedInformerFactory(client);
 

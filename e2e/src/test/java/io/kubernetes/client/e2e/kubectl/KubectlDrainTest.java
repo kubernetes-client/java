@@ -25,11 +25,11 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1PodSpec;
 import io.kubernetes.client.util.ClientBuilder;
 import java.util.List;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class KubectlDrainTest {
+class KubectlDrainTest {
   @Test
-  public void testPodInvisibleAfterDrain() throws Exception {
+  void podInvisibleAfterDrain() throws Exception {
     Configuration.setDefaultApiClient(ClientBuilder.defaultClient());
 
     V1Node testNode = new V1Node().metadata(new V1ObjectMeta().name("foo"));

@@ -17,30 +17,32 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
 import io.kubernetes.client.util.ClientBuilder;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class MetricsTest {
+class MetricsTest {
 
   private ApiClient client;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort());
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(options().dynamicPort()).build();
 
-  @Before
-  public void setup() {
-    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+    client = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
   }
 
   @Test
-  public void getPodMetricsThrowsAPIExceptionWhenServerReturnsError() {
+  void getPodMetricsThrowsAPIExceptionWhenServerReturnsError() {
     String namespace = "default";
     Metrics metrics = new Metrics(client);
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathMatching("^/apis/metrics.k8s.io/v1beta1/namespaces/" + namespace + "/pods.*"))
             .willReturn(
                 aResponse()
@@ -56,9 +58,9 @@ public class MetricsTest {
   }
 
   @Test
-  public void getNodeMetricsThrowsAPIExceptionWhenServerReturnsError() {
+  void getNodeMetricsThrowsAPIExceptionWhenServerReturnsError() {
     Metrics metrics = new Metrics(client);
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathMatching("^/apis/metrics.k8s.io/v1beta1/nodes.*"))
             .willReturn(
                 aResponse()

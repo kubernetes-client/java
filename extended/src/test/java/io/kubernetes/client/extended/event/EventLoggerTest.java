@@ -23,12 +23,12 @@ import io.kubernetes.client.openapi.models.V1EventSourceBuilder;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1ObjectReferenceBuilder;
 import org.apache.commons.lang3.tuple.MutablePair;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class EventLoggerTest {
+class EventLoggerTest {
 
   @Test
-  public void testPatchComputing() {
+  void patchComputing() {
     CoreV1Event event1 =
         new CoreV1EventBuilder()
             .withSource(new V1EventSourceBuilder().build())

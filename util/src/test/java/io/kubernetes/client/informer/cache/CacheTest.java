@@ -24,12 +24,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
-@RunWith(Parameterized.class)
-public class CacheTest {
+class CacheTest {
 
   private static String mockIndexName = "mock";
 
@@ -50,7 +48,7 @@ public class CacheTest {
   private static Cache cache =
       new Cache<>(mockIndexName, CacheTest::mockIndexFunc, CacheTest::mockKeyFunc);
 
-  public CacheTest(KubernetesObject obj, String index) {
+  public void initCacheTest(KubernetesObject obj, String index) {
     this.obj = obj;
     this.index = index;
   }
@@ -58,7 +56,6 @@ public class CacheTest {
   private KubernetesObject obj;
   private String index;
 
-  @Parameterized.Parameters
   public static Collection data() {
 
     V1Pod normalPod = new V1Pod();
@@ -88,15 +85,17 @@ public class CacheTest {
         });
   }
 
-  @Test
-  public void testCacheIndex() {
+  @MethodSource("data")
+  @ParameterizedTest
+  void cacheIndex(KubernetesObject obj, String index) {
+    initCacheTest(obj, index);
     cache.replace(Arrays.asList(this.obj), "0");
 
-    String index = mockIndexFunc(this.obj).get(0);
+    String objectIndex = mockIndexFunc(this.obj).get(0);
     String key = mockKeyFunc(this.obj);
     assertThat(index).isEqualTo(this.index);
 
-    List indexedObjectList = cache.byIndex(mockIndexName, index);
+    List indexedObjectList = cache.byIndex(mockIndexName, objectIndex);
     assertThat(indexedObjectList).containsExactly(this.obj);
 
     List indexedObjectlist2 = cache.index(mockIndexName, this.obj);
@@ -106,8 +105,10 @@ public class CacheTest {
     assertThat(allExistingKeys).containsExactly(key);
   }
 
-  @Test
-  public void testCacheStore() {
+  @MethodSource("data")
+  @ParameterizedTest
+  void cacheStore(KubernetesObject obj, String index) {
+    initCacheTest(obj, index);
     if (this.obj == null) {
       // skip null object storing test b/c it should be checked before invoking cache
       return;
@@ -133,8 +134,10 @@ public class CacheTest {
     assertThat(pod.getMetadata().getResourceVersion()).isEqualTo(newClusterName);
   }
 
-  @Test
-  public void testMultiIndexFuncCacheStore() {
+  @MethodSource("data")
+  @ParameterizedTest
+  void multiIndexFuncCacheStore(KubernetesObject obj, String index) {
+    initCacheTest(obj, index);
     String testIndexFuncName = "test-idx-func";
     Cache<V1Pod> podCache = new Cache<>();
     podCache.addIndexFunc(
@@ -156,8 +159,10 @@ public class CacheTest {
     assertThat(nodeNameIndexedPods).hasSize(1);
   }
 
-  @Test
-  public void testAddIndexers() {
+  @MethodSource("data")
+  @ParameterizedTest
+  void addIndexers(KubernetesObject obj, String index) {
+    initCacheTest(obj, index);
     Cache<V1Pod> podCache = new Cache<>();
 
     String nodeIndex = "node-index";

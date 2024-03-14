@@ -27,21 +27,24 @@ import io.kubernetes.client.openapi.ApiException;
 import java.net.HttpURLConnection;
 import java.time.Duration;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
-public class LeaderElectingControllerTest {
+@ExtendWith(MockitoExtension.class)
+class LeaderElectingControllerTest {
 
   @Mock private Controller mockController;
 
   @Mock private Lock mockLock;
 
-  @Test(timeout = 90000)
-  public void testLeaderElectingController() throws ApiException, InterruptedException {
+  @Test
+  @Timeout(value = 90000, unit = TimeUnit.MILLISECONDS)
+  void leaderElectingController() throws ApiException, InterruptedException {
 
     AtomicReference<LeaderElectionRecord> record = new AtomicReference<>();
     record.set(new LeaderElectionRecord());

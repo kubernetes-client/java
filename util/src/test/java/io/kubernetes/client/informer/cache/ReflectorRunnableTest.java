@@ -36,13 +36,13 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.BiConsumer;
 import org.awaitility.Awaitility;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(MockitoJUnitRunner.class)
-public class ReflectorRunnableTest {
+@ExtendWith(MockitoExtension.class)
+class ReflectorRunnableTest {
 
   private static final Class<V1Pod> anyApiType = V1Pod.class;
 
@@ -53,7 +53,7 @@ public class ReflectorRunnableTest {
   @Mock private BiConsumer<Class<V1Pod>, Throwable> exceptionHandler;
 
   @Test
-  public void testReflectorRunOnce() throws ApiException {
+  void reflectorRunOnce() throws ApiException {
     String mockResourceVersion = "1000";
     when(listerWatcher.list(any()))
         .thenReturn(
@@ -85,7 +85,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testReflectorWatchConnectionCloseOnError() {
+  void reflectorWatchConnectionCloseOnError() {
     Watchable<V1Pod> watch =
         new MockWatch<V1Pod>(
             new Watch.Response<V1Pod>(EventType.ERROR.name(), new V1Status().status("403")));
@@ -118,7 +118,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testReflectorRunnableCaptureListRuntimeException() throws ApiException {
+  void reflectorRunnableCaptureListRuntimeException() throws ApiException {
     RuntimeException expectedException = new RuntimeException("noxu");
     AtomicReference<Throwable> actualException = new AtomicReference<>();
     when(listerWatcher.list(any())).thenThrow(expectedException);
@@ -144,7 +144,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testReflectorRunnableShouldPardonList410ApiException() throws ApiException {
+  void reflectorRunnableShouldPardonList410ApiException() throws ApiException {
     ApiException expectedException = new ApiException(410, "noxu");
     AtomicReference<Throwable> actualException = new AtomicReference<>();
     when(listerWatcher.list(any())).thenThrow(expectedException);
@@ -173,7 +173,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testReflectorRunnableShouldCaptureListNon410ApiException() throws ApiException {
+  void reflectorRunnableShouldCaptureListNon410ApiException() throws ApiException {
     ApiException expectedException = new ApiException(403, "noxu");
     AtomicReference<Throwable> actualException = new AtomicReference<>();
     when(listerWatcher.list(any())).thenThrow(expectedException);
@@ -199,7 +199,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testReflectorRunnableCaptureWatchException() throws ApiException {
+  void reflectorRunnableCaptureWatchException() throws ApiException {
     RuntimeException expectedException = new RuntimeException("noxu");
     AtomicReference<Throwable> actualException = new AtomicReference<>();
     when(listerWatcher.list(any())).thenReturn(new V1PodList().metadata(new V1ListMeta()));
@@ -226,7 +226,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testReflectorRelistShouldHonorLastSyncResourceVersion() {
+  void reflectorRelistShouldHonorLastSyncResourceVersion() {
     String expectedResourceVersion = "999";
     AtomicReference<String> requestedResourceVersion = new AtomicReference<>();
     ReflectorRunnable<V1Pod, V1PodList> reflectorRunnable =
@@ -276,7 +276,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testReflectorListShouldHandleExpiredResourceVersion() throws ApiException {
+  void reflectorListShouldHandleExpiredResourceVersion() throws ApiException {
     String expectedResourceVersion = "100";
     when(listerWatcher.list(any()))
         .thenReturn(
@@ -294,7 +294,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testReflectorWatchShouldRelistUponExpiredWatchItem() throws ApiException {
+  void reflectorWatchShouldRelistUponExpiredWatchItem() throws ApiException {
     String expectedResourceVersion = "100";
     Watchable<V1Pod> expiredWatchable = mock(Watchable.class);
     when(expiredWatchable.hasNext()).thenReturn(true);
@@ -318,7 +318,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testReflectorListShouldHandleExpiredResourceVersionFromWatchHandler()
+  void reflectorListShouldHandleExpiredResourceVersionFromWatchHandler()
       throws ApiException {
     String expectedResourceVersion = "100";
     when(listerWatcher.list(any()))
@@ -348,7 +348,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testDefaultExceptionHandlerSetPerDefault() {
+  void defaultExceptionHandlerSetPerDefault() {
     ReflectorRunnable<V1Pod, V1PodList> reflector =
         new ReflectorRunnable<>(anyApiType, listerWatcher, deltaFIFO);
 
@@ -356,7 +356,7 @@ public class ReflectorRunnableTest {
   }
 
   @Test
-  public void testGivemExceptionHandlerSet() {
+  void givemExceptionHandlerSet() {
     ReflectorRunnable<V1Pod, V1PodList> reflector =
         new ReflectorRunnable<>(anyApiType, listerWatcher, deltaFIFO, exceptionHandler);
 

@@ -16,7 +16,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.stubbing.Scenario;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
@@ -29,11 +29,11 @@ import java.io.IOException;
 import java.util.Objects;
 
 import org.apache.commons.io.IOUtils;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class KubectlDeleteTest {
+class KubectlDeleteTest {
 
     private ApiClient apiClient;
 
@@ -122,22 +122,24 @@ public class KubectlDeleteTest {
         }
     }
 
-    @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(wireMockConfig().dynamicPort()).build();
 
-    @Before
-    public void setup() {
-        apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+        apiClient = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
     }
 
-    @Test
-    public void testKubectlDelete() throws KubectlException, ApiException {
-        wireMockRule.stubFor(
+  @Test
+  void kubectlDelete() throws KubectlException, ApiException {
+        apiServer.stubFor(
                 post(urlPathEqualTo("/apis/batch/v1/namespaces/foo/jobs"))
                         .willReturn(
                                 aResponse()
                                         .withStatus(201)
                                         .withBody(ADD_JOB)));
-        wireMockRule.stubFor(
+        apiServer.stubFor(
                 delete(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
                         .inScenario("JobDeletionScenario")
                         .whenScenarioStateIs(Scenario.STARTED)
@@ -148,7 +150,7 @@ public class KubectlDeleteTest {
                         .willSetStateTo("SecondCall")
         );
 
-        wireMockRule.stubFor(
+        apiServer.stubFor(
                 delete(urlPathEqualTo("/apis/batch%2Fv1/batch%2Fv1/namespaces/foo/jobs/bar"))
                         .inScenario("JobDeletionScenario")
                         .whenScenarioStateIs("SecondCall")
@@ -159,25 +161,25 @@ public class KubectlDeleteTest {
         );
 
 
-        wireMockRule.stubFor(
+        apiServer.stubFor(
                 get(urlPathEqualTo("/api"))
                         .willReturn(
                                 aResponse()
                                         .withStatus(200)
                                         .withBody(DISCOVERY_API)));
-        wireMockRule.stubFor(
+        apiServer.stubFor(
                 get(urlPathEqualTo("/apis"))
                         .willReturn(
                                 aResponse()
                                         .withStatus(200)
                                         .withBody(DISCOVERY_APIS)));
-        wireMockRule.stubFor(
+        apiServer.stubFor(
                 get(urlPathEqualTo("/api/v1"))
                         .willReturn(
                                 aResponse()
                                         .withStatus(200)
                                         .withBody(DISCOVERY_APIV1)));
-        wireMockRule.stubFor(
+        apiServer.stubFor(
                 get(urlPathEqualTo("/apis/batch/v1/"))
                         .willReturn(
                                 aResponse()

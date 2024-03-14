@@ -17,16 +17,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CountDownLatch;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DefaultWorkQueueTest {
+class DefaultWorkQueueTest {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(DefaultWorkQueueTest.class);
 
   @Test
-  public void testMultiProducerAndConsumers() throws Exception {
+  void multiProducerAndConsumers() throws Exception {
     DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
     final int producerCount = 10;
     final int consumerCount = 5;
@@ -90,7 +90,7 @@ public class DefaultWorkQueueTest {
   }
 
   @Test
-  public void testAddWhileProcessing() throws Exception {
+  void addWhileProcessing() throws Exception {
     DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
     final int producerCount = 10;
     final int consumerCount = 5;
@@ -145,7 +145,7 @@ public class DefaultWorkQueueTest {
   }
 
   @Test
-  public void testLen() {
+  void len() {
     DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
     queue.add("foo");
     assertThat(queue.length()).isEqualTo(1);
@@ -156,7 +156,7 @@ public class DefaultWorkQueueTest {
   }
 
   @Test
-  public void testReinsert() throws Exception {
+  void reinsert() throws Exception {
     DefaultWorkQueue<String> queue = new DefaultWorkQueue<>();
     queue.add("foo");
 

@@ -28,27 +28,27 @@ import io.kubernetes.client.util.Yaml;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class KubectlRolloutTest {
-  @Before
-  public void setup() throws Exception {
+class KubectlRolloutTest {
+  @BeforeEach
+  void setup() throws Exception {
     Configuration.setDefaultApiClient(ClientBuilder.defaultClient());
   }
 
   @Test
-  public void testRolloutDaemonSet() throws Exception {
+  void rolloutDaemonSet() throws Exception {
     testRollout(V1DaemonSet.class, "/test-daemonset.yaml", "/test-daemonset-updated.yaml");
   }
 
   @Test
-  public void testRolloutDeployment() throws Exception {
+  void rolloutDeployment() throws Exception {
     testRollout(V1Deployment.class, "/test-deployment.yaml", "/test-deployment-updated.yaml");
   }
 
   @Test
-  public void testRolloutStatefulSet() throws Exception {
+  void rolloutStatefulSet() throws Exception {
     testRollout(V1StatefulSet.class, "/test-statefulset.yaml", "/test-statefulset-updated.yaml");
   }
 

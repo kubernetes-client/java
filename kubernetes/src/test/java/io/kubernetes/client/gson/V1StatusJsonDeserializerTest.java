@@ -17,9 +17,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.google.gson.Gson;
 import io.gsonfire.GsonFireBuilder;
 import io.kubernetes.client.openapi.models.V1Status;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class V1StatusJsonDeserializerTest {
+class V1StatusJsonDeserializerTest {
 
   private final Gson gson =
       new GsonFireBuilder()
@@ -35,19 +35,19 @@ public class V1StatusJsonDeserializerTest {
       "{\"apiVersion\":\"v1\",\"kind\":\"Status\",\"status\":null}";
 
   @Test
-  public void testDeserializeNormalStatusIntoStatus() {
+  void deserializeNormalStatusIntoStatus() {
     V1Status status = gson.fromJson(JSON_STATUS, V1Status.class);
     assertThat(status).isNotNull();
   }
 
   @Test
-  public void testDeserializeNullStatusIntoStatus() {
+  void deserializeNullStatusIntoStatus() {
     V1Status status = gson.fromJson(JSON_STATUS_NULL, V1Status.class);
     assertThat(status).isNotNull();
   }
 
   @Test
-  public void testDeserializeDeploymentIntoStatus() {
+  void deserializeDeploymentIntoStatus() {
     V1Status status = gson.fromJson(JSON_DEPLOYMENT, V1Status.class);
     assertThat(status).isNotNull();
   }

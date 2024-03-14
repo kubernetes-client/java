@@ -21,9 +21,9 @@ import io.kubernetes.client.openapi.models.V1EndpointSubset;
 import io.kubernetes.client.openapi.models.V1Endpoints;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class EndpointsLoadBalancerTests {
+class EndpointsLoadBalancerTests {
 
   private final V1Endpoints onePortTwoHostEp =
       new V1Endpoints()
@@ -56,7 +56,7 @@ public class EndpointsLoadBalancerTests {
                   .addPortsItem(new CoreV1EndpointPort().port(8082)));
 
   @Test
-  public void testGetTargetIP1() throws NoAvailableAddressException {
+  void getTargetIP1() throws NoAvailableAddressException {
     AtomicReference<List<String>> receivingAvailableIPs = new AtomicReference<>();
     EndpointsLoadBalancer endpointsLoadBalancer =
         new EndpointsLoadBalancer(
@@ -70,7 +70,7 @@ public class EndpointsLoadBalancerTests {
   }
 
   @Test
-  public void testGetTargetIP2() throws NoAvailableAddressException {
+  void getTargetIP2() throws NoAvailableAddressException {
     AtomicReference<List<String>> receivingAvailableIPs = new AtomicReference<>();
     EndpointsLoadBalancer endpointsLoadBalancer =
         new EndpointsLoadBalancer(
@@ -84,7 +84,7 @@ public class EndpointsLoadBalancerTests {
   }
 
   @Test
-  public void testGetTargetIP3() throws NoAvailableAddressException {
+  void getTargetIP3() throws NoAvailableAddressException {
     AtomicReference<List<String>> receivingAvailableIPs = new AtomicReference<>();
     EndpointsLoadBalancer endpointsLoadBalancer =
         new EndpointsLoadBalancer(

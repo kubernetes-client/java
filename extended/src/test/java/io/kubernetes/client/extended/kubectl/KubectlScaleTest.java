@@ -21,7 +21,7 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.options
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.models.V1Deployment;
@@ -29,24 +29,29 @@ import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.openapi.models.V1ReplicaSet;
 import io.kubernetes.client.openapi.models.V1StatefulSet;
 import io.kubernetes.client.util.ClientBuilder;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class KubectlScaleTest {
+class KubectlScaleTest {
 
   private ApiClient apiClient;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(options().dynamicPort(), false);
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance()
+          .options(options().dynamicPort())
+          .failOnUnmatchedRequests(false)
+          .build();
 
-  @Before
-  public void setup() {
-    apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+    apiClient = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
   }
 
   @Test
-  public void testKubectlScaleShouldWork() throws KubectlException {
-    wireMockRule.stubFor(
+  void kubectlScaleShouldWork() throws KubectlException {
+    apiServer.stubFor(
         patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))
             .willReturn(
                 aResponse()
@@ -59,7 +64,7 @@ public class KubectlScaleTest {
             .namespace("default")
             .replicas(2)
             .execute();
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         patchRequestedFor(urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))
             .withRequestBody(
@@ -68,8 +73,8 @@ public class KubectlScaleTest {
   }
 
   @Test
-  public void testKubectlScaleReplicaSetShouldWork() throws KubectlException {
-    wireMockRule.stubFor(
+  void kubectlScaleReplicaSetShouldWork() throws KubectlException {
+    apiServer.stubFor(
         patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets/foo"))
             .willReturn(
                 aResponse()
@@ -82,7 +87,7 @@ public class KubectlScaleTest {
             .name("foo")
             .namespace("default")
             .execute();
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         patchRequestedFor(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets/foo"))
             .withRequestBody(
@@ -91,8 +96,8 @@ public class KubectlScaleTest {
   }
 
   @Test
-  public void testKubectlScaleStatefulSetShouldWork() throws KubectlException {
-    wireMockRule.stubFor(
+  void kubectlScaleStatefulSetShouldWork() throws KubectlException {
+    apiServer.stubFor(
         patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
             .willReturn(
                 aResponse()
@@ -105,7 +110,7 @@ public class KubectlScaleTest {
             .namespace("default")
             .replicas(8)
             .execute();
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         patchRequestedFor(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
             .withRequestBody(
@@ -114,7 +119,7 @@ public class KubectlScaleTest {
   }
 
   @Test
-  public void testKubectlScaleShouldThrow() {
+  void kubectlScaleShouldThrow() {
     assertThatThrownBy(
             () ->
                 Kubectl.scale(V1Pod.class)

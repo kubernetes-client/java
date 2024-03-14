@@ -16,16 +16,18 @@ import java.time.Duration;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
 
 /** Leader Election tests using "simulated" locks created by {@link LockSmith} */
-public class LeaderElectorTest {
+class LeaderElectorTest {
   /**
    * Tests that when a leader candidate is stopped gracefully, second candidate immediately becomes
    * leader.
    */
-  @Test(timeout = 20000L)
-  public void testLeaderGracefulShutdown() throws Exception {
+  @Test
+  @Timeout(value = 20000L, unit = TimeUnit.MILLISECONDS)
+  void leaderGracefulShutdown() throws Exception {
     LockSmith lockSmith = new LockSmith();
 
     CountDownLatch startBeingLeader1 = new CountDownLatch(1);
@@ -54,8 +56,9 @@ public class LeaderElectorTest {
     leaderElector2.close();
   }
 
-  @Test(timeout = 20000L)
-  public void testLeaderTransitionHook() throws InterruptedException {
+  @Test
+  @Timeout(value = 20000L, unit = TimeUnit.MILLISECONDS)
+  void leaderTransitionHook() throws InterruptedException {
     LockSmith lockSmith = new LockSmith();
 
     CountDownLatch startBeingLeader1 = new CountDownLatch(1);

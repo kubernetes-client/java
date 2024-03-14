@@ -26,11 +26,11 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-public class GCPAuthenticatorTest {
+class GCPAuthenticatorTest {
 
   private final String cmdPath = "/usr/lib/google-cloud-sdk/bin/gcloud";
   private final String cmdArgs = "config config-helper --format=json";
@@ -64,8 +64,8 @@ public class GCPAuthenticatorTest {
   private final GoogleCredentials mockGC = Mockito.mock(GoogleCredentials.class);
   private final GCPAuthenticator gcpAuthenticator = new GCPAuthenticator(mockPB, mockGC);
 
-  @Before
-  public void setup() throws IOException {
+  @BeforeEach
+  void setup() throws IOException {
     Process mockProcess = Mockito.mock(Process.class);
     Mockito.when(mockProcess.exitValue()).thenReturn(0);
     Mockito.when(mockProcess.getInputStream())
@@ -76,7 +76,7 @@ public class GCPAuthenticatorTest {
   }
 
   @Test
-  public void testRefresh() {
+  void refresh() {
     final Map<String, Object> gcpConfig =
         new HashMap<String, Object>() {
           {
@@ -92,7 +92,7 @@ public class GCPAuthenticatorTest {
   }
 
   @Test
-  public void testRefreshTrailingWhitespaceInPath() {
+  void refreshTrailingWhitespaceInPath() {
     final Map<String, Object> gcpConfig =
         new HashMap<String, Object>() {
           {
@@ -108,7 +108,7 @@ public class GCPAuthenticatorTest {
   }
 
   @Test
-  public void testRefreshTrailingWhitespaceInArgs() {
+  void refreshTrailingWhitespaceInArgs() {
     final Map<String, Object> gcpConfig =
         new HashMap<String, Object>() {
           {
@@ -124,7 +124,7 @@ public class GCPAuthenticatorTest {
   }
 
   @Test
-  public void testRefreshTrailingWhitespaceInPathAndArgs() {
+  void refreshTrailingWhitespaceInPathAndArgs() {
     final Map<String, Object> gcpConfig =
         new HashMap<String, Object>() {
           {
@@ -140,7 +140,7 @@ public class GCPAuthenticatorTest {
   }
 
   @Test
-  public void testRefreshLeadingWhitespaceInPath() {
+  void refreshLeadingWhitespaceInPath() {
     final Map<String, Object> gcpConfig =
         new HashMap<String, Object>() {
           {
@@ -156,7 +156,7 @@ public class GCPAuthenticatorTest {
   }
 
   @Test
-  public void testRefreshLeadingWhitespaceInArgs() {
+  void refreshLeadingWhitespaceInArgs() {
     final Map<String, Object> gcpConfig =
         new HashMap<String, Object>() {
           {
@@ -172,7 +172,7 @@ public class GCPAuthenticatorTest {
   }
 
   @Test
-  public void testRefreshLeadingWhitespaceInPathAndArgs() {
+  void refreshLeadingWhitespaceInPathAndArgs() {
     final Map<String, Object> gcpConfig =
         new HashMap<String, Object>() {
           {
@@ -188,7 +188,7 @@ public class GCPAuthenticatorTest {
   }
 
   @Test
-  public void testRefreshApplicationDefaultCredentials() {
+  void refreshApplicationDefaultCredentials() {
     Date fakeTokenExpiryDate = Date.from(Instant.parse(fakeTokenExpiry));
     Mockito.when(mockGC.getAccessToken())
         .thenReturn(new AccessToken(fakeToken, fakeTokenExpiryDate));

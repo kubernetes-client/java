@@ -19,7 +19,7 @@ import static com.github.tomakehurst.wiremock.client.WireMock.getRequestedFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlPathEqualTo;
 import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMockConfig;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.matching.AnythingPattern;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -27,41 +27,43 @@ import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.exception.CopyNotSupportedException;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
+import org.junit.jupiter.api.io.TempDir;
 
 /** Tests for the Copy helper class */
-public class CopyTest {
+class CopyTest {
   private String namespace;
   private String podName;
   private String[] cmd;
 
   private ApiClient client;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
-  @Rule public TemporaryFolder folder = new TemporaryFolder();
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(wireMockConfig().dynamicPort()).build();
 
-  @Before
-  public void setup() {
-    client = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+  @BeforeEach
+  void setup() {
+    client = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
 
     namespace = "default";
     podName = "apod";
   }
 
   @Test
-  public void testUrl() throws IOException, ApiException {
+  void url() {
     Copy copy = new Copy(client);
 
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name(podName).namespace(namespace));
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .willReturn(
                 aResponse()
@@ -78,7 +80,7 @@ public class CopyTest {
       e.printStackTrace();
     }
 
-    wireMockRule.verify(
+    apiServer.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .withQueryParam("stdin", equalTo("false"))
@@ -89,14 +91,13 @@ public class CopyTest {
   }
 
   @Test
-  public void testCopyFileToPod() throws IOException, InterruptedException {
+  void copyFileToPod(@TempDir Path tempDir) throws Exception {
 
-    File testFile = File.createTempFile("testfile", null);
-    testFile.deleteOnExit();
+    Path testFile = Files.createTempFile(tempDir, "testfile", null);
 
     Copy copy = new Copy(client);
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .willReturn(
                 aResponse()
@@ -113,7 +114,7 @@ public class CopyTest {
               public void run() {
                 try {
                   copy.copyFileToPod(
-                      namespace, podName, "", testFile.toPath(), Paths.get("/copied-testfile"));
+                      namespace, podName, "", testFile, Paths.get("/copied-testfile"));
                 } catch (IOException | ApiException ex) {
                   ex.printStackTrace();
                 }
@@ -123,7 +124,7 @@ public class CopyTest {
     Thread.sleep(2000);
     t.interrupt();
 
-    wireMockRule.verify(
+    apiServer.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .withQueryParam("stdin", equalTo("true"))
@@ -136,13 +137,13 @@ public class CopyTest {
   }
 
   @Test
-  public void testCopyBinaryDataToPod() throws InterruptedException {
+  void copyBinaryDataToPod() throws InterruptedException {
 
     byte[] testSrc = new byte[0];
 
     Copy copy = new Copy(client);
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .willReturn(
                 aResponse()
@@ -169,7 +170,7 @@ public class CopyTest {
     Thread.sleep(2000);
     t.interrupt();
 
-    wireMockRule.verify(
+    apiServer.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .withQueryParam("stdin", equalTo("true"))
@@ -181,14 +182,11 @@ public class CopyTest {
             .withQueryParam("command", equalTo("tar -xmf - -C /")));
   }
 
-  public void testCopyDirectoryFromPod() throws IOException, ApiException, InterruptedException {
-
-    // Create a temp directory
-    File tempFolder = folder.newFolder("destinationFolder");
-
+  @Test
+  void testCopyDirectoryFromPod(@TempDir Path tempDir) throws Exception {
     Copy copy = new Copy(client);
 
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .willReturn(
                 aResponse()
@@ -205,7 +203,7 @@ public class CopyTest {
                       namespace,
                       podName,
                       "",
-                      tempFolder.toPath().toString(),
+                      tempDir.toString(),
                       Paths.get("/copied-testDir"));
                 } catch (IOException | ApiException | CopyNotSupportedException ex) {
                   ex.printStackTrace();
@@ -216,7 +214,7 @@ public class CopyTest {
     Thread.sleep(2000);
     t.interrupt();
 
-    wireMockRule.verify(
+    apiServer.verify(
         getRequestedFor(
                 urlPathEqualTo("/api/v1/namespaces/" + namespace + "/pods/" + podName + "/exec"))
             .withQueryParam("stdin", equalTo("false"))

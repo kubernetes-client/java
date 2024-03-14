@@ -20,7 +20,7 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMoc
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.failBecauseExceptionWasNotThrown;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
 import io.kubernetes.client.openapi.ApiException;
@@ -32,54 +32,55 @@ import io.kubernetes.client.openapi.models.V1PodList;
 import io.kubernetes.client.openapi.models.V1Status;
 import io.kubernetes.client.util.ClientBuilder;
 import io.kubernetes.client.util.ModelMapper;
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class KubectlGetTest {
+class KubectlGetTest {
 
   private ApiClient apiClient;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(wireMockConfig().dynamicPort()).build();
 
-  @Before
-  public void setup() {
+  @BeforeEach
+  void setup() {
     ModelMapper.addModelMap("", "v1", "Pod", "pods", true, V1Pod.class);
     ModelMapper.addModelMap("", "v1", "Node", "nodes", false, V1Node.class);
-    apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+    apiClient = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
   }
 
   @Test
-  public void testGetAllNamespacePods() throws KubectlException {
+  void getAllNamespacePods() throws KubectlException {
     V1PodList podList =
         new V1PodList()
             .items(
                 Arrays.asList(
                     new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo1")),
                     new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo2"))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/pods"))
             .willReturn(
                 aResponse().withStatus(200).withBody(apiClient.getJSON().serialize(podList))));
 
     List<V1Pod> pods = Kubectl.get(V1Pod.class).apiClient(apiClient).skipDiscovery().execute();
 
-    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/pods")));
     assertThat(pods).hasSize(2);
   }
 
   @Test
-  public void testGetDefaultNamespacePods() throws KubectlException {
+  void getDefaultNamespacePods() throws KubectlException {
     V1PodList podList =
         new V1PodList()
             .items(
                 Arrays.asList(
                     new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo1")),
                     new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo2"))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/default/pods"))
             .willReturn(
                 aResponse().withStatus(200).withBody(apiClient.getJSON().serialize(podList))));
@@ -91,14 +92,14 @@ public class KubectlGetTest {
             .namespace("default")
             .execute();
 
-    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods")));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods")));
     assertThat(pods).hasSize(2);
   }
 
   @Test
-  public void testGetDefaultNamespaceOnePod() throws KubectlException {
+  void getDefaultNamespaceOnePod() throws KubectlException {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().namespace("default").name("foo1"));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1"))
             .willReturn(aResponse().withStatus(200).withBody(apiClient.getJSON().serialize(pod))));
 
@@ -116,12 +117,12 @@ public class KubectlGetTest {
         .namespace("default")
         .execute();
 
-    wireMockRule.verify(2, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
+    apiServer.verify(2, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
   }
 
   @Test
-  public void testGetDefaultNamespaceOnePodForbiddenShouldThrowException() {
-    wireMockRule.stubFor(
+  void getDefaultNamespaceOnePodForbiddenShouldThrowException() {
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1"))
             .willReturn(
                 aResponse()
@@ -138,41 +139,41 @@ public class KubectlGetTest {
     } catch (KubectlException e) {
       assertThat(e).hasCauseInstanceOf(ApiException.class);
     } finally {
-      wireMockRule.verify(
+      apiServer.verify(
           1, getRequestedFor(urlPathEqualTo("/api/v1/namespaces/default/pods/foo1")));
     }
   }
 
   @Test
-  public void testGetAllNodes() throws KubectlException {
+  void getAllNodes() throws KubectlException {
     V1NodeList nodeList =
         new V1NodeList()
             .items(
                 Arrays.asList(
                     new V1Node().metadata(new V1ObjectMeta().name("foo1")),
                     new V1Node().metadata(new V1ObjectMeta().name("foo2"))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/nodes"))
             .willReturn(
                 aResponse().withStatus(200).withBody(apiClient.getJSON().serialize(nodeList))));
 
     List<V1Node> nodes = Kubectl.get(V1Node.class).apiClient(apiClient).skipDiscovery().execute();
 
-    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/nodes")));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/nodes")));
     assertThat(nodes).hasSize(2);
   }
 
   @Test
-  public void testGetOneNode() throws KubectlException {
+  void getOneNode() throws KubectlException {
     V1Node node = new V1Node().metadata(new V1ObjectMeta().name("foo1"));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/api/v1/nodes/foo1"))
             .willReturn(aResponse().withStatus(200).withBody(apiClient.getJSON().serialize(node))));
 
     V1Node getNode =
         Kubectl.get(V1Node.class).apiClient(apiClient).skipDiscovery().name("foo1").execute();
 
-    wireMockRule.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/nodes/foo1")));
+    apiServer.verify(1, getRequestedFor(urlPathEqualTo("/api/v1/nodes/foo1")));
     assertThat(getNode).isEqualTo(node);
   }
 }

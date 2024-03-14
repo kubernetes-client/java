@@ -18,16 +18,16 @@ import io.kubernetes.client.informer.ResourceEventHandler;
 import io.kubernetes.client.openapi.models.V1ObjectMeta;
 import io.kubernetes.client.openapi.models.V1Pod;
 import java.util.concurrent.CountDownLatch;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class ProcessorListenerTest {
+class ProcessorListenerTest {
 
   private static boolean addNotificationReceived;
   private static boolean updateNotificationReceived;
   private static boolean deleteNotificationReceived;
 
   @Test
-  public void testNotificationHandling() throws InterruptedException {
+  void notificationHandling() throws InterruptedException {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name("foo").namespace("default"));
 
     final CountDownLatch cLatch = new CountDownLatch(3);
@@ -75,7 +75,7 @@ public class ProcessorListenerTest {
   }
 
   @Test
-  public void testMultipleNotificationsHandling() throws InterruptedException {
+  void multipleNotificationsHandling() throws InterruptedException {
     V1Pod pod = new V1Pod().metadata(new V1ObjectMeta().name("foo").namespace("default"));
     final int[] count = {0};
 

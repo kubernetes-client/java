@@ -22,7 +22,7 @@ import static com.github.tomakehurst.wiremock.core.WireMockConfiguration.wireMoc
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import com.github.tomakehurst.wiremock.junit.WireMockRule;
+import com.github.tomakehurst.wiremock.junit5.WireMockExtension;
 import com.github.tomakehurst.wiremock.matching.EqualToPattern;
 import io.kubernetes.client.extended.kubectl.exception.KubectlException;
 import io.kubernetes.client.openapi.ApiClient;
@@ -41,15 +41,17 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
 
-public class KubectlRolloutTest {
+class KubectlRolloutTest {
 
   private ApiClient apiClient;
 
-  @Rule public WireMockRule wireMockRule = new WireMockRule(wireMockConfig().dynamicPort());
+  @RegisterExtension
+  static WireMockExtension apiServer =
+      WireMockExtension.newInstance().options(wireMockConfig().dynamicPort()).build();
 
   private static final String DEPLOYMENT =
       new File(KubectlRolloutTest.class.getClassLoader().getResource("deployment.json").getPath())
@@ -103,8 +105,8 @@ public class KubectlRolloutTest {
                   .getPath())
           .toString();
 
-  @Before
-  public void setup() {
+  @BeforeEach
+  void setup() {
     ModelMapper.addModelMap(
         "apps",
         "v1",
@@ -123,18 +125,18 @@ public class KubectlRolloutTest {
         true,
         V1StatefulSet.class,
         V1StatefulSetList.class);
-    apiClient = new ClientBuilder().setBasePath("http://localhost:" + wireMockRule.port()).build();
+    apiClient = new ClientBuilder().setBasePath("http://localhost:" + apiServer.getPort()).build();
   }
 
   @Test
-  public void testKubectlRolloutHistoryDeploymentShouldWork() throws KubectlException, IOException {
-    wireMockRule.stubFor(
+  void kubectlRolloutHistoryDeploymentShouldWork() throws KubectlException, IOException {
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(new String(Files.readAllBytes(Paths.get(DEPLOYMENT))))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets"))
             .willReturn(
                 aResponse()
@@ -149,9 +151,9 @@ public class KubectlRolloutTest {
             .skipDiscovery()
             .execute();
 
-    wireMockRule.verify(
+    apiServer.verify(
         1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))));
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
@@ -159,15 +161,15 @@ public class KubectlRolloutTest {
   }
 
   @Test
-  public void testKubectlRolloutHistoryDeploymentWithRevisionShouldWork()
+  void kubectlRolloutHistoryDeploymentWithRevisionShouldWork()
       throws KubectlException, IOException {
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(new String(Files.readAllBytes(Paths.get(DEPLOYMENT))))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets"))
             .willReturn(
                 aResponse()
@@ -182,9 +184,9 @@ public class KubectlRolloutTest {
             .revision(3)
             .skipDiscovery()
             .execute();
-    wireMockRule.verify(
+    apiServer.verify(
         1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))));
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
@@ -192,14 +194,14 @@ public class KubectlRolloutTest {
   }
 
   @Test
-  public void testKubectlRolloutHistoryDaemonSetShouldWork() throws KubectlException, IOException {
-    wireMockRule.stubFor(
+  void kubectlRolloutHistoryDaemonSetShouldWork() throws KubectlException, IOException {
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/daemonsets/foo"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(new String(Files.readAllBytes(Paths.get(DAEMON_SET))))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
             .willReturn(
                 aResponse()
@@ -215,9 +217,9 @@ public class KubectlRolloutTest {
             .namespace("default")
             .skipDiscovery()
             .execute();
-    wireMockRule.verify(
+    apiServer.verify(
         1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/daemonsets/foo"))));
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
@@ -225,15 +227,15 @@ public class KubectlRolloutTest {
   }
 
   @Test
-  public void testKubectlRolloutHistoryDaemonSetWithRevisionShouldWork()
+  void kubectlRolloutHistoryDaemonSetWithRevisionShouldWork()
       throws KubectlException, IOException {
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/daemonsets/foo"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(new String(Files.readAllBytes(Paths.get(DAEMON_SET))))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
             .willReturn(
                 aResponse()
@@ -241,7 +243,7 @@ public class KubectlRolloutTest {
                     .withBody(
                         new String(
                             Files.readAllBytes(Paths.get(DAEMON_SET_CONTROLLER_REVISION_LIST))))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/daemonsets/foo"))
             .willReturn(
                 aResponse()
@@ -256,13 +258,13 @@ public class KubectlRolloutTest {
             .revision(2)
             .skipDiscovery()
             .execute();
-    wireMockRule.verify(
+    apiServer.verify(
         1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/daemonsets/foo"))));
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/daemonsets/foo")))
             .withQueryParam("dryRun", new EqualToPattern("All")));
@@ -270,15 +272,15 @@ public class KubectlRolloutTest {
   }
 
   @Test
-  public void testKubectlRolloutHistoryStatefulSetShouldWork()
+  void kubectlRolloutHistoryStatefulSetShouldWork()
       throws KubectlException, IOException {
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(new String(Files.readAllBytes(Paths.get(STATEFUL_SET))))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
             .willReturn(
                 aResponse()
@@ -295,9 +297,9 @@ public class KubectlRolloutTest {
             .namespace("default")
             .skipDiscovery()
             .execute();
-    wireMockRule.verify(
+    apiServer.verify(
         1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))));
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
@@ -305,15 +307,15 @@ public class KubectlRolloutTest {
   }
 
   @Test
-  public void testKubectlRolloutHistoryStatefulSetWithRevisionShouldWork()
+  void kubectlRolloutHistoryStatefulSetWithRevisionShouldWork()
       throws KubectlException, IOException {
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(new String(Files.readAllBytes(Paths.get(STATEFUL_SET))))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions"))
             .willReturn(
                 aResponse()
@@ -322,7 +324,7 @@ public class KubectlRolloutTest {
                         new String(
                             Files.readAllBytes(
                                 Paths.get(STATEFUL_SET_CONTROLLER_REVISION_LIST))))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         patch(urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))
             .willReturn(
                 aResponse()
@@ -337,13 +339,13 @@ public class KubectlRolloutTest {
             .revision(2)
             .skipDiscovery()
             .execute();
-    wireMockRule.verify(
+    apiServer.verify(
         1, getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo"))));
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         getRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/controllerrevisions")))
             .withQueryParam("labelSelector", new EqualToPattern("app = bar")));
-    wireMockRule.verify(
+    apiServer.verify(
         1,
         patchRequestedFor((urlPathEqualTo("/apis/apps/v1/namespaces/default/statefulsets/foo")))
             .withQueryParam("dryRun", new EqualToPattern("All")));
@@ -351,14 +353,14 @@ public class KubectlRolloutTest {
   }
 
   @Test
-  public void testKubectlRolloutHistoryWithInvalidRevisionShouldThrow() throws IOException {
-    wireMockRule.stubFor(
+  void kubectlRolloutHistoryWithInvalidRevisionShouldThrow() throws IOException {
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/deployments/foo"))
             .willReturn(
                 aResponse()
                     .withStatus(200)
                     .withBody(new String(Files.readAllBytes(Paths.get(DEPLOYMENT))))));
-    wireMockRule.stubFor(
+    apiServer.stubFor(
         get(urlPathEqualTo("/apis/apps/v1/namespaces/default/replicasets"))
             .willReturn(
                 aResponse()

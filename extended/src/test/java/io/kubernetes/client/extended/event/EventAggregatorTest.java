@@ -20,12 +20,12 @@ import io.kubernetes.client.openapi.models.CoreV1Event;
 import io.kubernetes.client.openapi.models.CoreV1EventBuilder;
 import io.kubernetes.client.openapi.models.V1EventSource;
 import io.kubernetes.client.openapi.models.V1ObjectReference;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
-public class EventAggregatorTest {
+class EventAggregatorTest {
 
   @Test
-  public void testSpammingEventsShouldBeAggregated() {
+  void spammingEventsShouldBeAggregated() {
     String aggregatedMessage = "noxu";
     EventAggregator aggregator =
         new EventAggregator(
