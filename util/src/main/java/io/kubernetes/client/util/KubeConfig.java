@@ -330,7 +330,14 @@ public class KubeConfig {
     if (command.contains("/") || command.contains("\\")) {
       // Spec is unclear on what should be treated as a “relative command path”.
       // This clause should cover anything not resolved from $PATH / %Path%.
-      Path resolvedCommand = file.toPath().getParent().resolve(command).normalize();
+      Path resolvedCommand;
+      if (file != null) {
+        // If we know where the Kubeconfig was located, use that as the base.
+        resolvedCommand = file.toPath().getParent().resolve(command).normalize();
+      } else {
+        // Otherwise, try the current working directory
+        resolvedCommand = Paths.get(command).normalize();
+      }
       if (!Files.exists(resolvedCommand)) {
         log.error("No such file: {}", resolvedCommand);
         return null;
