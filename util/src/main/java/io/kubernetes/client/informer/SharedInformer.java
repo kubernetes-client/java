@@ -13,9 +13,10 @@ limitations under the License.
 package io.kubernetes.client.informer;
 
 import io.kubernetes.client.common.KubernetesObject;
+import io.kubernetes.client.informer.cache.ReflectorRunnable;
 
-/*
- * SharedInformer defines basic methods of a informer.
+/**
+ * Defines basic methods of an informer.
  */
 public interface SharedInformer<ApiType extends KubernetesObject> {
 
@@ -69,4 +70,14 @@ public interface SharedInformer<ApiType extends KubernetesObject> {
    * @param transformFunc the transform function
    */
   void setTransform(TransformFunc transformFunc);
+
+  /**
+   * Toggles DEBUG of initial and streamed items on the {@link ReflectorRunnable} logger.
+   *
+   * <p>Note: This can cause a high volume of logging even in a small cluster, depending on rate of
+   * change.
+   *
+   * @param shouldDebugItems whether initial and streamed items should be logged at DEBUG level.
+   */
+  default void setDebugItems(boolean shouldDebugItems) {}
 }

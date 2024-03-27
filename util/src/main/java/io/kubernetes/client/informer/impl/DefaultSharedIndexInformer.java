@@ -226,6 +226,11 @@ public class DefaultSharedIndexInformer<
   }
 
   @Override
+  public void setDebugItems(boolean shouldDebugItems) {
+    this.controller.setDebugItems(shouldDebugItems);
+  }
+
+  @Override
   public void run() {
     if (started) {
       return;
