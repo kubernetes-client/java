@@ -21,6 +21,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.jetbrains.annotations.NotNull;
 import org.reflections.Reflections;
+import org.reflections.scanners.Scanners;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aot.hint.MemberCategory;
@@ -55,38 +56,52 @@ public class KubernetesBeanFactoryInitializationAotProcessor
       @NotNull ConfigurableListableBeanFactory beanFactory) {
     return (generationContext, beanFactoryInitializationCode) -> {
       RuntimeHints hints = generationContext.getRuntimeHints();
-      String[] classNames =
-          new String[] {
-            "com.google.gson.JsonElement", //
-            "io.kubernetes.client.informer.cache.ProcessorListener", //
-            "io.kubernetes.client.extended.controller.Controller", //
-            "io.kubernetes.client.util.generic.GenericKubernetesApi$StatusPatch", //
-            "io.kubernetes.client.util.Watch$Response" //
-          };
-      for (String className : classNames) {
-        LOGGER.info("registering {} for reflection", className);
-        hints.reflection().registerType(TypeReference.of(className), allMemberCategories);
-      }
+      registerStaticClasses(hints);
+      registerModels(hints);
       registerForPackage("io.kubernetes", hints);
-      Collection<String> packages = AutoConfigurationPackages.get(beanFactory);
-      for (String packageName : packages) {
-        registerForPackage(packageName, hints);
-      }
+      registerAutoconfigurationPackages(beanFactory, hints);
     };
+  }
+
+  private void registerStaticClasses(RuntimeHints hints) {
+    Set<String> classNames = Set.of(
+            "com.google.gson.JsonElement",
+            "io.kubernetes.client.informer.cache.ProcessorListener",
+            "io.kubernetes.client.extended.controller.Controller",
+            "io.kubernetes.client.util.generic.GenericKubernetesApi$StatusPatch",
+            "io.kubernetes.client.util.Watch$Response"
+    );
+    for (String className : classNames) {
+      LOGGER.info("registering {} for reflection", className);
+      hints.reflection().registerType(TypeReference.of(className), allMemberCategories);
+    }
+  }
+
+  private void registerModels(RuntimeHints hints) {
+    Reflections reflections = new Reflections("io.kubernetes.client.openapi.models",
+            Scanners.SubTypes.filterResultsBy(s -> true));
+    Set<Class<?>> models = reflections.getSubTypesOf(Object.class);
+    LOGGER.info("Found {} models", models.size());
+    registerClassesForReflection(models, hints);
   }
 
   private void registerForPackage(String packageName, RuntimeHints hints) {
     Reflections reflections = new Reflections(packageName);
-    Set<Class<?>> apiModels = reflections.getTypesAnnotatedWith(ApiModel.class);
     Set<Class<? extends Controller>> controllers = reflections.getSubTypesOf(Controller.class);
+    LOGGER.info("Found {} controllers", controllers.size());
     Set<Class<?>> jsonAdapters = findJsonAdapters(reflections);
+    LOGGER.info("Found {} jsonAdapters", jsonAdapters.size());
     Set<Class<?>> all = new HashSet<>();
     all.addAll(jsonAdapters);
     all.addAll(controllers);
-    all.addAll(apiModels);
-    for (Class<?> clazz : all) {
-      LOGGER.info("registering {} for reflection", clazz.getName());
-      hints.reflection().registerType(clazz, allMemberCategories);
+    registerClassesForReflection(all, hints);
+  }
+
+  private void registerAutoconfigurationPackages(ConfigurableListableBeanFactory beanFactory,
+                                                 RuntimeHints hints) {
+    Collection<String> packages = AutoConfigurationPackages.get(beanFactory);
+    for (String packageName : packages) {
+      registerForPackage(packageName, hints);
     }
   }
 
@@ -101,5 +116,12 @@ public class KubernetesBeanFactoryInitializationAotProcessor
       classes.add(clazz);
     }
     return classes;
+  }
+
+  private void registerClassesForReflection(Set<Class<?>> classes, RuntimeHints hints) {
+    for (Class<?> clazz : classes) {
+      LOGGER.info("registering {} for reflection", clazz);
+      hints.reflection().registerType(clazz, allMemberCategories);
+    }
   }
 }
