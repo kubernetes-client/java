@@ -8,7 +8,7 @@ IPAddressSpec describe the attributes in an IP Address.
 
 | Name | Type | Description | Notes |
 |------------ | ------------- | ------------- | -------------|
-|**parentRef** | [**V1alpha1ParentReference**](V1alpha1ParentReference.md) |  |  [optional] |
+|**parentRef** | [**V1alpha1ParentReference**](V1alpha1ParentReference.md) |  |  |
 
 
 
