@@ -25,6 +25,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   public V1PodSecurityContextFluent(V1PodSecurityContext instance) {
     this.copyInstance(instance);
   }
+  private V1AppArmorProfileBuilder appArmorProfile;
   private Long fsGroup;
   private String fsGroupChangePolicy;
   private Long runAsGroup;
@@ -39,6 +40,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   protected void copyInstance(V1PodSecurityContext instance) {
     instance = (instance != null ? instance : new V1PodSecurityContext());
     if (instance != null) {
+          this.withAppArmorProfile(instance.getAppArmorProfile());
           this.withFsGroup(instance.getFsGroup());
           this.withFsGroupChangePolicy(instance.getFsGroupChangePolicy());
           this.withRunAsGroup(instance.getRunAsGroup());
@@ -50,6 +52,46 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
           this.withSysctls(instance.getSysctls());
           this.withWindowsOptions(instance.getWindowsOptions());
         }
+  }
+  
+  public V1AppArmorProfile buildAppArmorProfile() {
+    return this.appArmorProfile != null ? this.appArmorProfile.build() : null;
+  }
+  
+  public A withAppArmorProfile(V1AppArmorProfile appArmorProfile) {
+    this._visitables.remove("appArmorProfile");
+    if (appArmorProfile != null) {
+        this.appArmorProfile = new V1AppArmorProfileBuilder(appArmorProfile);
+        this._visitables.get("appArmorProfile").add(this.appArmorProfile);
+    } else {
+        this.appArmorProfile = null;
+        this._visitables.get("appArmorProfile").remove(this.appArmorProfile);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasAppArmorProfile() {
+    return this.appArmorProfile != null;
+  }
+  
+  public AppArmorProfileNested<A> withNewAppArmorProfile() {
+    return new AppArmorProfileNested(null);
+  }
+  
+  public AppArmorProfileNested<A> withNewAppArmorProfileLike(V1AppArmorProfile item) {
+    return new AppArmorProfileNested(item);
+  }
+  
+  public AppArmorProfileNested<A> editAppArmorProfile() {
+    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(null));
+  }
+  
+  public AppArmorProfileNested<A> editOrNewAppArmorProfile() {
+    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(new V1AppArmorProfileBuilder().build()));
+  }
+  
+  public AppArmorProfileNested<A> editOrNewAppArmorProfileLike(V1AppArmorProfile item) {
+    return withNewAppArmorProfileLike(java.util.Optional.ofNullable(buildAppArmorProfile()).orElse(item));
   }
   
   public Long getFsGroup() {
@@ -487,6 +529,7 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
     if (o == null || getClass() != o.getClass()) return false;
     if (!super.equals(o)) return false;
     V1PodSecurityContextFluent that = (V1PodSecurityContextFluent) o;
+    if (!java.util.Objects.equals(appArmorProfile, that.appArmorProfile)) return false;
     if (!java.util.Objects.equals(fsGroup, that.fsGroup)) return false;
     if (!java.util.Objects.equals(fsGroupChangePolicy, that.fsGroupChangePolicy)) return false;
     if (!java.util.Objects.equals(runAsGroup, that.runAsGroup)) return false;
@@ -501,12 +544,13 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(fsGroup,  fsGroupChangePolicy,  runAsGroup,  runAsNonRoot,  runAsUser,  seLinuxOptions,  seccompProfile,  supplementalGroups,  sysctls,  windowsOptions,  super.hashCode());
+    return java.util.Objects.hash(appArmorProfile,  fsGroup,  fsGroupChangePolicy,  runAsGroup,  runAsNonRoot,  runAsUser,  seLinuxOptions,  seccompProfile,  supplementalGroups,  sysctls,  windowsOptions,  super.hashCode());
   }
   
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
+    if (appArmorProfile != null) { sb.append("appArmorProfile:"); sb.append(appArmorProfile + ","); }
     if (fsGroup != null) { sb.append("fsGroup:"); sb.append(fsGroup + ","); }
     if (fsGroupChangePolicy != null) { sb.append("fsGroupChangePolicy:"); sb.append(fsGroupChangePolicy + ","); }
     if (runAsGroup != null) { sb.append("runAsGroup:"); sb.append(runAsGroup + ","); }
@@ -523,6 +567,22 @@ public class V1PodSecurityContextFluent<A extends V1PodSecurityContextFluent<A>>
   
   public A withRunAsNonRoot() {
     return withRunAsNonRoot(true);
+  }
+  public class AppArmorProfileNested<N> extends V1AppArmorProfileFluent<AppArmorProfileNested<N>> implements Nested<N>{
+    AppArmorProfileNested(V1AppArmorProfile item) {
+      this.builder = new V1AppArmorProfileBuilder(this, item);
+    }
+    V1AppArmorProfileBuilder builder;
+    
+    public N and() {
+      return (N) V1PodSecurityContextFluent.this.withAppArmorProfile(builder.build());
+    }
+    
+    public N endAppArmorProfile() {
+      return and();
+    }
+    
+  
   }
   public class SeLinuxOptionsNested<N> extends V1SELinuxOptionsFluent<SeLinuxOptionsNested<N>> implements Nested<N>{
     SeLinuxOptionsNested(V1SELinuxOptions item) {

@@ -41,6 +41,7 @@ public class V1ServiceSpecBuilder extends V1ServiceSpecFluent<V1ServiceSpecBuild
     buildable.setSelector(fluent.getSelector());
     buildable.setSessionAffinity(fluent.getSessionAffinity());
     buildable.setSessionAffinityConfig(fluent.buildSessionAffinityConfig());
+    buildable.setTrafficDistribution(fluent.getTrafficDistribution());
     buildable.setType(fluent.getType());
     return buildable;
   }

@@ -5,6 +5,7 @@ import io.kubernetes.client.fluent.Nested;
 import java.lang.String;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.lang.Object;
+import java.lang.Boolean;
 
 /**
  * Generated
@@ -22,6 +23,7 @@ public class V1alpha2ResourceClassFluent<A extends V1alpha2ResourceClassFluent<A
   private String kind;
   private V1ObjectMetaBuilder metadata;
   private V1alpha2ResourceClassParametersReferenceBuilder parametersRef;
+  private Boolean structuredParameters;
   private V1NodeSelectorBuilder suitableNodes;
   
   protected void copyInstance(V1alpha2ResourceClass instance) {
@@ -32,6 +34,7 @@ public class V1alpha2ResourceClassFluent<A extends V1alpha2ResourceClassFluent<A
           this.withKind(instance.getKind());
           this.withMetadata(instance.getMetadata());
           this.withParametersRef(instance.getParametersRef());
+          this.withStructuredParameters(instance.getStructuredParameters());
           this.withSuitableNodes(instance.getSuitableNodes());
         }
   }
@@ -155,6 +158,19 @@ public class V1alpha2ResourceClassFluent<A extends V1alpha2ResourceClassFluent<A
     return withNewParametersRefLike(java.util.Optional.ofNullable(buildParametersRef()).orElse(item));
   }
   
+  public Boolean getStructuredParameters() {
+    return this.structuredParameters;
+  }
+  
+  public A withStructuredParameters(Boolean structuredParameters) {
+    this.structuredParameters = structuredParameters;
+    return (A) this;
+  }
+  
+  public boolean hasStructuredParameters() {
+    return this.structuredParameters != null;
+  }
+  
   public V1NodeSelector buildSuitableNodes() {
     return this.suitableNodes != null ? this.suitableNodes.build() : null;
   }
@@ -205,12 +221,13 @@ public class V1alpha2ResourceClassFluent<A extends V1alpha2ResourceClassFluent<A
     if (!java.util.Objects.equals(kind, that.kind)) return false;
     if (!java.util.Objects.equals(metadata, that.metadata)) return false;
     if (!java.util.Objects.equals(parametersRef, that.parametersRef)) return false;
+    if (!java.util.Objects.equals(structuredParameters, that.structuredParameters)) return false;
     if (!java.util.Objects.equals(suitableNodes, that.suitableNodes)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(apiVersion,  driverName,  kind,  metadata,  parametersRef,  suitableNodes,  super.hashCode());
+    return java.util.Objects.hash(apiVersion,  driverName,  kind,  metadata,  parametersRef,  structuredParameters,  suitableNodes,  super.hashCode());
   }
   
   public String toString() {
@@ -221,9 +238,14 @@ public class V1alpha2ResourceClassFluent<A extends V1alpha2ResourceClassFluent<A
     if (kind != null) { sb.append("kind:"); sb.append(kind + ","); }
     if (metadata != null) { sb.append("metadata:"); sb.append(metadata + ","); }
     if (parametersRef != null) { sb.append("parametersRef:"); sb.append(parametersRef + ","); }
+    if (structuredParameters != null) { sb.append("structuredParameters:"); sb.append(structuredParameters + ","); }
     if (suitableNodes != null) { sb.append("suitableNodes:"); sb.append(suitableNodes); }
     sb.append("}");
     return sb.toString();
+  }
+  
+  public A withStructuredParameters() {
+    return withStructuredParameters(true);
   }
   public class MetadataNested<N> extends V1ObjectMetaFluent<MetadataNested<N>> implements Nested<N>{
     MetadataNested(V1ObjectMeta item) {

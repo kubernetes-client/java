@@ -25,6 +25,7 @@ public class V1alpha2ResourceHandleBuilder extends V1alpha2ResourceHandleFluent<
     V1alpha2ResourceHandle buildable = new V1alpha2ResourceHandle();
     buildable.setData(fluent.getData());
     buildable.setDriverName(fluent.getDriverName());
+    buildable.setStructuredData(fluent.buildStructuredData());
     return buildable;
   }
   

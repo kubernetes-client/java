@@ -51,6 +51,7 @@ public class V1PersistentVolumeSpecBuilder extends V1PersistentVolumeSpecFluent<
     buildable.setScaleIO(fluent.buildScaleIO());
     buildable.setStorageClassName(fluent.getStorageClassName());
     buildable.setStorageos(fluent.buildStorageos());
+    buildable.setVolumeAttributesClassName(fluent.getVolumeAttributesClassName());
     buildable.setVolumeMode(fluent.getVolumeMode());
     buildable.setVsphereVolume(fluent.buildVsphereVolume());
     return buildable;

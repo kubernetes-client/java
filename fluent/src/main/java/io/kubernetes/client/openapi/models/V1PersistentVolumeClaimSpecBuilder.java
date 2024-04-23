@@ -29,6 +29,7 @@ public class V1PersistentVolumeClaimSpecBuilder extends V1PersistentVolumeClaimS
     buildable.setResources(fluent.buildResources());
     buildable.setSelector(fluent.buildSelector());
     buildable.setStorageClassName(fluent.getStorageClassName());
+    buildable.setVolumeAttributesClassName(fluent.getVolumeAttributesClassName());
     buildable.setVolumeMode(fluent.getVolumeMode());
     buildable.setVolumeName(fluent.getVolumeName());
     return buildable;

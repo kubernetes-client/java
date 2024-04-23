@@ -25,6 +25,7 @@ public class V1LifecycleHandlerBuilder extends V1LifecycleHandlerFluent<V1Lifecy
     V1LifecycleHandler buildable = new V1LifecycleHandler();
     buildable.setExec(fluent.buildExec());
     buildable.setHttpGet(fluent.buildHttpGet());
+    buildable.setSleep(fluent.buildSleep());
     buildable.setTcpSocket(fluent.buildTcpSocket());
     return buildable;
   }

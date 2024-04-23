@@ -25,12 +25,14 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
   private Integer backoffLimitPerIndex;
   private String completionMode;
   private Integer completions;
+  private String managedBy;
   private Boolean manualSelector;
   private Integer maxFailedIndexes;
   private Integer parallelism;
   private V1PodFailurePolicyBuilder podFailurePolicy;
   private String podReplacementPolicy;
   private V1LabelSelectorBuilder selector;
+  private V1SuccessPolicyBuilder successPolicy;
   private Boolean suspend;
   private V1PodTemplateSpecBuilder template;
   private Integer ttlSecondsAfterFinished;
@@ -43,12 +45,14 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
           this.withBackoffLimitPerIndex(instance.getBackoffLimitPerIndex());
           this.withCompletionMode(instance.getCompletionMode());
           this.withCompletions(instance.getCompletions());
+          this.withManagedBy(instance.getManagedBy());
           this.withManualSelector(instance.getManualSelector());
           this.withMaxFailedIndexes(instance.getMaxFailedIndexes());
           this.withParallelism(instance.getParallelism());
           this.withPodFailurePolicy(instance.getPodFailurePolicy());
           this.withPodReplacementPolicy(instance.getPodReplacementPolicy());
           this.withSelector(instance.getSelector());
+          this.withSuccessPolicy(instance.getSuccessPolicy());
           this.withSuspend(instance.getSuspend());
           this.withTemplate(instance.getTemplate());
           this.withTtlSecondsAfterFinished(instance.getTtlSecondsAfterFinished());
@@ -118,6 +122,19 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
   
   public boolean hasCompletions() {
     return this.completions != null;
+  }
+  
+  public String getManagedBy() {
+    return this.managedBy;
+  }
+  
+  public A withManagedBy(String managedBy) {
+    this.managedBy = managedBy;
+    return (A) this;
+  }
+  
+  public boolean hasManagedBy() {
+    return this.managedBy != null;
   }
   
   public Boolean getManualSelector() {
@@ -252,6 +269,46 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
     return withNewSelectorLike(java.util.Optional.ofNullable(buildSelector()).orElse(item));
   }
   
+  public V1SuccessPolicy buildSuccessPolicy() {
+    return this.successPolicy != null ? this.successPolicy.build() : null;
+  }
+  
+  public A withSuccessPolicy(V1SuccessPolicy successPolicy) {
+    this._visitables.remove("successPolicy");
+    if (successPolicy != null) {
+        this.successPolicy = new V1SuccessPolicyBuilder(successPolicy);
+        this._visitables.get("successPolicy").add(this.successPolicy);
+    } else {
+        this.successPolicy = null;
+        this._visitables.get("successPolicy").remove(this.successPolicy);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasSuccessPolicy() {
+    return this.successPolicy != null;
+  }
+  
+  public SuccessPolicyNested<A> withNewSuccessPolicy() {
+    return new SuccessPolicyNested(null);
+  }
+  
+  public SuccessPolicyNested<A> withNewSuccessPolicyLike(V1SuccessPolicy item) {
+    return new SuccessPolicyNested(item);
+  }
+  
+  public SuccessPolicyNested<A> editSuccessPolicy() {
+    return withNewSuccessPolicyLike(java.util.Optional.ofNullable(buildSuccessPolicy()).orElse(null));
+  }
+  
+  public SuccessPolicyNested<A> editOrNewSuccessPolicy() {
+    return withNewSuccessPolicyLike(java.util.Optional.ofNullable(buildSuccessPolicy()).orElse(new V1SuccessPolicyBuilder().build()));
+  }
+  
+  public SuccessPolicyNested<A> editOrNewSuccessPolicyLike(V1SuccessPolicy item) {
+    return withNewSuccessPolicyLike(java.util.Optional.ofNullable(buildSuccessPolicy()).orElse(item));
+  }
+  
   public Boolean getSuspend() {
     return this.suspend;
   }
@@ -328,12 +385,14 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
     if (!java.util.Objects.equals(backoffLimitPerIndex, that.backoffLimitPerIndex)) return false;
     if (!java.util.Objects.equals(completionMode, that.completionMode)) return false;
     if (!java.util.Objects.equals(completions, that.completions)) return false;
+    if (!java.util.Objects.equals(managedBy, that.managedBy)) return false;
     if (!java.util.Objects.equals(manualSelector, that.manualSelector)) return false;
     if (!java.util.Objects.equals(maxFailedIndexes, that.maxFailedIndexes)) return false;
     if (!java.util.Objects.equals(parallelism, that.parallelism)) return false;
     if (!java.util.Objects.equals(podFailurePolicy, that.podFailurePolicy)) return false;
     if (!java.util.Objects.equals(podReplacementPolicy, that.podReplacementPolicy)) return false;
     if (!java.util.Objects.equals(selector, that.selector)) return false;
+    if (!java.util.Objects.equals(successPolicy, that.successPolicy)) return false;
     if (!java.util.Objects.equals(suspend, that.suspend)) return false;
     if (!java.util.Objects.equals(template, that.template)) return false;
     if (!java.util.Objects.equals(ttlSecondsAfterFinished, that.ttlSecondsAfterFinished)) return false;
@@ -341,7 +400,7 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(activeDeadlineSeconds,  backoffLimit,  backoffLimitPerIndex,  completionMode,  completions,  manualSelector,  maxFailedIndexes,  parallelism,  podFailurePolicy,  podReplacementPolicy,  selector,  suspend,  template,  ttlSecondsAfterFinished,  super.hashCode());
+    return java.util.Objects.hash(activeDeadlineSeconds,  backoffLimit,  backoffLimitPerIndex,  completionMode,  completions,  managedBy,  manualSelector,  maxFailedIndexes,  parallelism,  podFailurePolicy,  podReplacementPolicy,  selector,  successPolicy,  suspend,  template,  ttlSecondsAfterFinished,  super.hashCode());
   }
   
   public String toString() {
@@ -352,12 +411,14 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
     if (backoffLimitPerIndex != null) { sb.append("backoffLimitPerIndex:"); sb.append(backoffLimitPerIndex + ","); }
     if (completionMode != null) { sb.append("completionMode:"); sb.append(completionMode + ","); }
     if (completions != null) { sb.append("completions:"); sb.append(completions + ","); }
+    if (managedBy != null) { sb.append("managedBy:"); sb.append(managedBy + ","); }
     if (manualSelector != null) { sb.append("manualSelector:"); sb.append(manualSelector + ","); }
     if (maxFailedIndexes != null) { sb.append("maxFailedIndexes:"); sb.append(maxFailedIndexes + ","); }
     if (parallelism != null) { sb.append("parallelism:"); sb.append(parallelism + ","); }
     if (podFailurePolicy != null) { sb.append("podFailurePolicy:"); sb.append(podFailurePolicy + ","); }
     if (podReplacementPolicy != null) { sb.append("podReplacementPolicy:"); sb.append(podReplacementPolicy + ","); }
     if (selector != null) { sb.append("selector:"); sb.append(selector + ","); }
+    if (successPolicy != null) { sb.append("successPolicy:"); sb.append(successPolicy + ","); }
     if (suspend != null) { sb.append("suspend:"); sb.append(suspend + ","); }
     if (template != null) { sb.append("template:"); sb.append(template + ","); }
     if (ttlSecondsAfterFinished != null) { sb.append("ttlSecondsAfterFinished:"); sb.append(ttlSecondsAfterFinished); }
@@ -399,6 +460,22 @@ public class V1JobSpecFluent<A extends V1JobSpecFluent<A>> extends BaseFluent<A>
     }
     
     public N endSelector() {
+      return and();
+    }
+    
+  
+  }
+  public class SuccessPolicyNested<N> extends V1SuccessPolicyFluent<SuccessPolicyNested<N>> implements Nested<N>{
+    SuccessPolicyNested(V1SuccessPolicy item) {
+      this.builder = new V1SuccessPolicyBuilder(this, item);
+    }
+    V1SuccessPolicyBuilder builder;
+    
+    public N and() {
+      return (N) V1JobSpecFluent.this.withSuccessPolicy(builder.build());
+    }
+    
+    public N endSuccessPolicy() {
       return and();
     }
     

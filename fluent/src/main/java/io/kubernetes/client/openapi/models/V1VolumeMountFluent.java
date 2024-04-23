@@ -21,6 +21,7 @@ public class V1VolumeMountFluent<A extends V1VolumeMountFluent<A>> extends BaseF
   private String mountPropagation;
   private String name;
   private Boolean readOnly;
+  private String recursiveReadOnly;
   private String subPath;
   private String subPathExpr;
   
@@ -31,6 +32,7 @@ public class V1VolumeMountFluent<A extends V1VolumeMountFluent<A>> extends BaseF
           this.withMountPropagation(instance.getMountPropagation());
           this.withName(instance.getName());
           this.withReadOnly(instance.getReadOnly());
+          this.withRecursiveReadOnly(instance.getRecursiveReadOnly());
           this.withSubPath(instance.getSubPath());
           this.withSubPathExpr(instance.getSubPathExpr());
         }
@@ -88,6 +90,19 @@ public class V1VolumeMountFluent<A extends V1VolumeMountFluent<A>> extends BaseF
     return this.readOnly != null;
   }
   
+  public String getRecursiveReadOnly() {
+    return this.recursiveReadOnly;
+  }
+  
+  public A withRecursiveReadOnly(String recursiveReadOnly) {
+    this.recursiveReadOnly = recursiveReadOnly;
+    return (A) this;
+  }
+  
+  public boolean hasRecursiveReadOnly() {
+    return this.recursiveReadOnly != null;
+  }
+  
   public String getSubPath() {
     return this.subPath;
   }
@@ -123,13 +138,14 @@ public class V1VolumeMountFluent<A extends V1VolumeMountFluent<A>> extends BaseF
     if (!java.util.Objects.equals(mountPropagation, that.mountPropagation)) return false;
     if (!java.util.Objects.equals(name, that.name)) return false;
     if (!java.util.Objects.equals(readOnly, that.readOnly)) return false;
+    if (!java.util.Objects.equals(recursiveReadOnly, that.recursiveReadOnly)) return false;
     if (!java.util.Objects.equals(subPath, that.subPath)) return false;
     if (!java.util.Objects.equals(subPathExpr, that.subPathExpr)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(mountPath,  mountPropagation,  name,  readOnly,  subPath,  subPathExpr,  super.hashCode());
+    return java.util.Objects.hash(mountPath,  mountPropagation,  name,  readOnly,  recursiveReadOnly,  subPath,  subPathExpr,  super.hashCode());
   }
   
   public String toString() {
@@ -139,6 +155,7 @@ public class V1VolumeMountFluent<A extends V1VolumeMountFluent<A>> extends BaseF
     if (mountPropagation != null) { sb.append("mountPropagation:"); sb.append(mountPropagation + ","); }
     if (name != null) { sb.append("name:"); sb.append(name + ","); }
     if (readOnly != null) { sb.append("readOnly:"); sb.append(readOnly + ","); }
+    if (recursiveReadOnly != null) { sb.append("recursiveReadOnly:"); sb.append(recursiveReadOnly + ","); }
     if (subPath != null) { sb.append("subPath:"); sb.append(subPath + ","); }
     if (subPathExpr != null) { sb.append("subPathExpr:"); sb.append(subPathExpr); }
     sb.append("}");

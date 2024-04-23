@@ -26,6 +26,7 @@ public class V1ValidationRuleBuilder extends V1ValidationRuleFluent<V1Validation
     buildable.setFieldPath(fluent.getFieldPath());
     buildable.setMessage(fluent.getMessage());
     buildable.setMessageExpression(fluent.getMessageExpression());
+    buildable.setOptionalOldSelf(fluent.getOptionalOldSelf());
     buildable.setReason(fluent.getReason());
     buildable.setRule(fluent.getRule());
     return buildable;

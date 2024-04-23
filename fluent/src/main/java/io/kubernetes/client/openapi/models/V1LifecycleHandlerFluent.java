@@ -19,6 +19,7 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
   }
   private V1ExecActionBuilder exec;
   private V1HTTPGetActionBuilder httpGet;
+  private V1SleepActionBuilder sleep;
   private V1TCPSocketActionBuilder tcpSocket;
   
   protected void copyInstance(V1LifecycleHandler instance) {
@@ -26,6 +27,7 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
     if (instance != null) {
           this.withExec(instance.getExec());
           this.withHttpGet(instance.getHttpGet());
+          this.withSleep(instance.getSleep());
           this.withTcpSocket(instance.getTcpSocket());
         }
   }
@@ -110,6 +112,46 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
     return withNewHttpGetLike(java.util.Optional.ofNullable(buildHttpGet()).orElse(item));
   }
   
+  public V1SleepAction buildSleep() {
+    return this.sleep != null ? this.sleep.build() : null;
+  }
+  
+  public A withSleep(V1SleepAction sleep) {
+    this._visitables.remove("sleep");
+    if (sleep != null) {
+        this.sleep = new V1SleepActionBuilder(sleep);
+        this._visitables.get("sleep").add(this.sleep);
+    } else {
+        this.sleep = null;
+        this._visitables.get("sleep").remove(this.sleep);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasSleep() {
+    return this.sleep != null;
+  }
+  
+  public SleepNested<A> withNewSleep() {
+    return new SleepNested(null);
+  }
+  
+  public SleepNested<A> withNewSleepLike(V1SleepAction item) {
+    return new SleepNested(item);
+  }
+  
+  public SleepNested<A> editSleep() {
+    return withNewSleepLike(java.util.Optional.ofNullable(buildSleep()).orElse(null));
+  }
+  
+  public SleepNested<A> editOrNewSleep() {
+    return withNewSleepLike(java.util.Optional.ofNullable(buildSleep()).orElse(new V1SleepActionBuilder().build()));
+  }
+  
+  public SleepNested<A> editOrNewSleepLike(V1SleepAction item) {
+    return withNewSleepLike(java.util.Optional.ofNullable(buildSleep()).orElse(item));
+  }
+  
   public V1TCPSocketAction buildTcpSocket() {
     return this.tcpSocket != null ? this.tcpSocket.build() : null;
   }
@@ -157,12 +199,13 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
     V1LifecycleHandlerFluent that = (V1LifecycleHandlerFluent) o;
     if (!java.util.Objects.equals(exec, that.exec)) return false;
     if (!java.util.Objects.equals(httpGet, that.httpGet)) return false;
+    if (!java.util.Objects.equals(sleep, that.sleep)) return false;
     if (!java.util.Objects.equals(tcpSocket, that.tcpSocket)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(exec,  httpGet,  tcpSocket,  super.hashCode());
+    return java.util.Objects.hash(exec,  httpGet,  sleep,  tcpSocket,  super.hashCode());
   }
   
   public String toString() {
@@ -170,6 +213,7 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
     sb.append("{");
     if (exec != null) { sb.append("exec:"); sb.append(exec + ","); }
     if (httpGet != null) { sb.append("httpGet:"); sb.append(httpGet + ","); }
+    if (sleep != null) { sb.append("sleep:"); sb.append(sleep + ","); }
     if (tcpSocket != null) { sb.append("tcpSocket:"); sb.append(tcpSocket); }
     sb.append("}");
     return sb.toString();
@@ -201,6 +245,22 @@ public class V1LifecycleHandlerFluent<A extends V1LifecycleHandlerFluent<A>> ext
     }
     
     public N endHttpGet() {
+      return and();
+    }
+    
+  
+  }
+  public class SleepNested<N> extends V1SleepActionFluent<SleepNested<N>> implements Nested<N>{
+    SleepNested(V1SleepAction item) {
+      this.builder = new V1SleepActionBuilder(this, item);
+    }
+    V1SleepActionBuilder builder;
+    
+    public N and() {
+      return (N) V1LifecycleHandlerFluent.this.withSleep(builder.build());
+    }
+    
+    public N endSleep() {
       return and();
     }
     

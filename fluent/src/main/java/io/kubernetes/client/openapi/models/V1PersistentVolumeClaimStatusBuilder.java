@@ -28,6 +28,8 @@ public class V1PersistentVolumeClaimStatusBuilder extends V1PersistentVolumeClai
     buildable.setAllocatedResources(fluent.getAllocatedResources());
     buildable.setCapacity(fluent.getCapacity());
     buildable.setConditions(fluent.buildConditions());
+    buildable.setCurrentVolumeAttributesClassName(fluent.getCurrentVolumeAttributesClassName());
+    buildable.setModifyVolumeStatus(fluent.buildModifyVolumeStatus());
     buildable.setPhase(fluent.getPhase());
     return buildable;
   }
