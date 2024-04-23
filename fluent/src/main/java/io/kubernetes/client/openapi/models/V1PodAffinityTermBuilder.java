@@ -24,6 +24,8 @@ public class V1PodAffinityTermBuilder extends V1PodAffinityTermFluent<V1PodAffin
   public V1PodAffinityTerm build() {
     V1PodAffinityTerm buildable = new V1PodAffinityTerm();
     buildable.setLabelSelector(fluent.buildLabelSelector());
+    buildable.setMatchLabelKeys(fluent.getMatchLabelKeys());
+    buildable.setMismatchLabelKeys(fluent.getMismatchLabelKeys());
     buildable.setNamespaceSelector(fluent.buildNamespaceSelector());
     buildable.setNamespaces(fluent.getNamespaces());
     buildable.setTopologyKey(fluent.getTopologyKey());

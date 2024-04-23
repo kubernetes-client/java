@@ -20,9 +20,9 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LabelSelector;
-import io.kubernetes.client.openapi.models.V1ResourceRequirements;
 import io.kubernetes.client.openapi.models.V1TypedLocalObjectReference;
 import io.kubernetes.client.openapi.models.V1TypedObjectReference;
+import io.kubernetes.client.openapi.models.V1VolumeResourceRequirements;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -33,7 +33,7 @@ import java.util.List;
  * PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes
  */
 @ApiModel(description = "PersistentVolumeClaimSpec describes the common attributes of storage devices and allows a Source for provider-specific attributes")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1PersistentVolumeClaimSpec {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -49,7 +49,7 @@ public class V1PersistentVolumeClaimSpec {
 
   public static final String SERIALIZED_NAME_RESOURCES = "resources";
   @SerializedName(SERIALIZED_NAME_RESOURCES)
-  private V1ResourceRequirements resources;
+  private V1VolumeResourceRequirements resources;
 
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
@@ -58,6 +58,10 @@ public class V1PersistentVolumeClaimSpec {
   public static final String SERIALIZED_NAME_STORAGE_CLASS_NAME = "storageClassName";
   @SerializedName(SERIALIZED_NAME_STORAGE_CLASS_NAME)
   private String storageClassName;
+
+  public static final String SERIALIZED_NAME_VOLUME_ATTRIBUTES_CLASS_NAME = "volumeAttributesClassName";
+  @SerializedName(SERIALIZED_NAME_VOLUME_ATTRIBUTES_CLASS_NAME)
+  private String volumeAttributesClassName;
 
   public static final String SERIALIZED_NAME_VOLUME_MODE = "volumeMode";
   @SerializedName(SERIALIZED_NAME_VOLUME_MODE)
@@ -145,7 +149,7 @@ public class V1PersistentVolumeClaimSpec {
   }
 
 
-  public V1PersistentVolumeClaimSpec resources(V1ResourceRequirements resources) {
+  public V1PersistentVolumeClaimSpec resources(V1VolumeResourceRequirements resources) {
 
     this.resources = resources;
     return this;
@@ -158,12 +162,12 @@ public class V1PersistentVolumeClaimSpec {
   @javax.annotation.Nullable
   @ApiModelProperty(value = "")
 
-  public V1ResourceRequirements getResources() {
+  public V1VolumeResourceRequirements getResources() {
     return resources;
   }
 
 
-  public void setResources(V1ResourceRequirements resources) {
+  public void setResources(V1VolumeResourceRequirements resources) {
     this.resources = resources;
   }
 
@@ -211,6 +215,29 @@ public class V1PersistentVolumeClaimSpec {
 
   public void setStorageClassName(String storageClassName) {
     this.storageClassName = storageClassName;
+  }
+
+
+  public V1PersistentVolumeClaimSpec volumeAttributesClassName(String volumeAttributesClassName) {
+
+    this.volumeAttributesClassName = volumeAttributesClassName;
+    return this;
+  }
+
+   /**
+   * volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it&#39;s not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Alpha) Using this field requires the VolumeAttributesClass feature gate to be enabled.
+   * @return volumeAttributesClassName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it's not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ (Alpha) Using this field requires the VolumeAttributesClass feature gate to be enabled.")
+
+  public String getVolumeAttributesClassName() {
+    return volumeAttributesClassName;
+  }
+
+
+  public void setVolumeAttributesClassName(String volumeAttributesClassName) {
+    this.volumeAttributesClassName = volumeAttributesClassName;
   }
 
 
@@ -275,13 +302,14 @@ public class V1PersistentVolumeClaimSpec {
         Objects.equals(this.resources, v1PersistentVolumeClaimSpec.resources) &&
         Objects.equals(this.selector, v1PersistentVolumeClaimSpec.selector) &&
         Objects.equals(this.storageClassName, v1PersistentVolumeClaimSpec.storageClassName) &&
+        Objects.equals(this.volumeAttributesClassName, v1PersistentVolumeClaimSpec.volumeAttributesClassName) &&
         Objects.equals(this.volumeMode, v1PersistentVolumeClaimSpec.volumeMode) &&
         Objects.equals(this.volumeName, v1PersistentVolumeClaimSpec.volumeName);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessModes, dataSource, dataSourceRef, resources, selector, storageClassName, volumeMode, volumeName);
+    return Objects.hash(accessModes, dataSource, dataSourceRef, resources, selector, storageClassName, volumeAttributesClassName, volumeMode, volumeName);
   }
 
 
@@ -295,6 +323,7 @@ public class V1PersistentVolumeClaimSpec {
     sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
     sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    storageClassName: ").append(toIndentedString(storageClassName)).append("\n");
+    sb.append("    volumeAttributesClassName: ").append(toIndentedString(volumeAttributesClassName)).append("\n");
     sb.append("    volumeMode: ").append(toIndentedString(volumeMode)).append("\n");
     sb.append("    volumeName: ").append(toIndentedString(volumeName)).append("\n");
     sb.append("}");

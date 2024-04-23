@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1CustomResourceColumnDefinition;
 import io.kubernetes.client.openapi.models.V1CustomResourceSubresources;
 import io.kubernetes.client.openapi.models.V1CustomResourceValidation;
+import io.kubernetes.client.openapi.models.V1SelectableField;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -32,7 +33,7 @@ import java.util.List;
  * CustomResourceDefinitionVersion describes a version for CRD.
  */
 @ApiModel(description = "CustomResourceDefinitionVersion describes a version for CRD.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1CustomResourceDefinitionVersion {
   public static final String SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS = "additionalPrinterColumns";
   @SerializedName(SERIALIZED_NAME_ADDITIONAL_PRINTER_COLUMNS)
@@ -53,6 +54,10 @@ public class V1CustomResourceDefinitionVersion {
   public static final String SERIALIZED_NAME_SCHEMA = "schema";
   @SerializedName(SERIALIZED_NAME_SCHEMA)
   private V1CustomResourceValidation schema;
+
+  public static final String SERIALIZED_NAME_SELECTABLE_FIELDS = "selectableFields";
+  @SerializedName(SERIALIZED_NAME_SELECTABLE_FIELDS)
+  private List<V1SelectableField> selectableFields = null;
 
   public static final String SERIALIZED_NAME_SERVED = "served";
   @SerializedName(SERIALIZED_NAME_SERVED)
@@ -189,6 +194,37 @@ public class V1CustomResourceDefinitionVersion {
   }
 
 
+  public V1CustomResourceDefinitionVersion selectableFields(List<V1SelectableField> selectableFields) {
+
+    this.selectableFields = selectableFields;
+    return this;
+  }
+
+  public V1CustomResourceDefinitionVersion addSelectableFieldsItem(V1SelectableField selectableFieldsItem) {
+    if (this.selectableFields == null) {
+      this.selectableFields = new ArrayList<>();
+    }
+    this.selectableFields.add(selectableFieldsItem);
+    return this;
+  }
+
+   /**
+   * selectableFields specifies paths to fields that may be used as field selectors. A maximum of 8 selectable fields are allowed. See https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors
+   * @return selectableFields
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "selectableFields specifies paths to fields that may be used as field selectors. A maximum of 8 selectable fields are allowed. See https://kubernetes.io/docs/concepts/overview/working-with-objects/field-selectors")
+
+  public List<V1SelectableField> getSelectableFields() {
+    return selectableFields;
+  }
+
+
+  public void setSelectableFields(List<V1SelectableField> selectableFields) {
+    this.selectableFields = selectableFields;
+  }
+
+
   public V1CustomResourceDefinitionVersion served(Boolean served) {
 
     this.served = served;
@@ -270,6 +306,7 @@ public class V1CustomResourceDefinitionVersion {
         Objects.equals(this.deprecationWarning, v1CustomResourceDefinitionVersion.deprecationWarning) &&
         Objects.equals(this.name, v1CustomResourceDefinitionVersion.name) &&
         Objects.equals(this.schema, v1CustomResourceDefinitionVersion.schema) &&
+        Objects.equals(this.selectableFields, v1CustomResourceDefinitionVersion.selectableFields) &&
         Objects.equals(this.served, v1CustomResourceDefinitionVersion.served) &&
         Objects.equals(this.storage, v1CustomResourceDefinitionVersion.storage) &&
         Objects.equals(this.subresources, v1CustomResourceDefinitionVersion.subresources);
@@ -277,7 +314,7 @@ public class V1CustomResourceDefinitionVersion {
 
   @Override
   public int hashCode() {
-    return Objects.hash(additionalPrinterColumns, deprecated, deprecationWarning, name, schema, served, storage, subresources);
+    return Objects.hash(additionalPrinterColumns, deprecated, deprecationWarning, name, schema, selectableFields, served, storage, subresources);
   }
 
 
@@ -290,6 +327,7 @@ public class V1CustomResourceDefinitionVersion {
     sb.append("    deprecationWarning: ").append(toIndentedString(deprecationWarning)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    schema: ").append(toIndentedString(schema)).append("\n");
+    sb.append("    selectableFields: ").append(toIndentedString(selectableFields)).append("\n");
     sb.append("    served: ").append(toIndentedString(served)).append("\n");
     sb.append("    storage: ").append(toIndentedString(storage)).append("\n");
     sb.append("    subresources: ").append(toIndentedString(subresources)).append("\n");

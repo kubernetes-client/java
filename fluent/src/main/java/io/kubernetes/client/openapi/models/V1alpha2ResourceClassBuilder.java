@@ -28,6 +28,7 @@ public class V1alpha2ResourceClassBuilder extends V1alpha2ResourceClassFluent<V1
     buildable.setKind(fluent.getKind());
     buildable.setMetadata(fluent.buildMetadata());
     buildable.setParametersRef(fluent.buildParametersRef());
+    buildable.setStructuredParameters(fluent.getStructuredParameters());
     buildable.setSuitableNodes(fluent.buildSuitableNodes());
     return buildable;
   }

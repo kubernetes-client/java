@@ -29,7 +29,7 @@ import java.io.IOException;
  * EnvFromSource represents the source of a set of ConfigMaps
  */
 @ApiModel(description = "EnvFromSource represents the source of a set of ConfigMaps")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1EnvFromSource {
   public static final String SERIALIZED_NAME_CONFIG_MAP_REF = "configMapRef";
   @SerializedName(SERIALIZED_NAME_CONFIG_MAP_REF)

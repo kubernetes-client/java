@@ -20,6 +20,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.custom.Quantity;
+import io.kubernetes.client.openapi.models.V1ModifyVolumeStatus;
 import io.kubernetes.client.openapi.models.V1PersistentVolumeClaimCondition;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -33,7 +34,7 @@ import java.util.Map;
  * PersistentVolumeClaimStatus is the current status of a persistent volume claim.
  */
 @ApiModel(description = "PersistentVolumeClaimStatus is the current status of a persistent volume claim.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_ACCESS_MODES = "accessModes";
   @SerializedName(SERIALIZED_NAME_ACCESS_MODES)
@@ -54,6 +55,14 @@ public class V1PersistentVolumeClaimStatus {
   public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
   @SerializedName(SERIALIZED_NAME_CONDITIONS)
   private List<V1PersistentVolumeClaimCondition> conditions = null;
+
+  public static final String SERIALIZED_NAME_CURRENT_VOLUME_ATTRIBUTES_CLASS_NAME = "currentVolumeAttributesClassName";
+  @SerializedName(SERIALIZED_NAME_CURRENT_VOLUME_ATTRIBUTES_CLASS_NAME)
+  private String currentVolumeAttributesClassName;
+
+  public static final String SERIALIZED_NAME_MODIFY_VOLUME_STATUS = "modifyVolumeStatus";
+  @SerializedName(SERIALIZED_NAME_MODIFY_VOLUME_STATUS)
+  private V1ModifyVolumeStatus modifyVolumeStatus;
 
   public static final String SERIALIZED_NAME_PHASE = "phase";
   @SerializedName(SERIALIZED_NAME_PHASE)
@@ -199,11 +208,11 @@ public class V1PersistentVolumeClaimStatus {
   }
 
    /**
-   * conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to &#39;ResizeStarted&#39;.
+   * conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to &#39;Resizing&#39;.
    * @return conditions
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'ResizeStarted'.")
+  @ApiModelProperty(value = "conditions is the current Condition of persistent volume claim. If underlying persistent volume is being resized then the Condition will be set to 'Resizing'.")
 
   public List<V1PersistentVolumeClaimCondition> getConditions() {
     return conditions;
@@ -212,6 +221,52 @@ public class V1PersistentVolumeClaimStatus {
 
   public void setConditions(List<V1PersistentVolumeClaimCondition> conditions) {
     this.conditions = conditions;
+  }
+
+
+  public V1PersistentVolumeClaimStatus currentVolumeAttributesClassName(String currentVolumeAttributesClassName) {
+
+    this.currentVolumeAttributesClassName = currentVolumeAttributesClassName;
+    return this;
+  }
+
+   /**
+   * currentVolumeAttributesClassName is the current name of the VolumeAttributesClass the PVC is using. When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is an alpha field and requires enabling VolumeAttributesClass feature.
+   * @return currentVolumeAttributesClassName
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "currentVolumeAttributesClassName is the current name of the VolumeAttributesClass the PVC is using. When unset, there is no VolumeAttributeClass applied to this PersistentVolumeClaim This is an alpha field and requires enabling VolumeAttributesClass feature.")
+
+  public String getCurrentVolumeAttributesClassName() {
+    return currentVolumeAttributesClassName;
+  }
+
+
+  public void setCurrentVolumeAttributesClassName(String currentVolumeAttributesClassName) {
+    this.currentVolumeAttributesClassName = currentVolumeAttributesClassName;
+  }
+
+
+  public V1PersistentVolumeClaimStatus modifyVolumeStatus(V1ModifyVolumeStatus modifyVolumeStatus) {
+
+    this.modifyVolumeStatus = modifyVolumeStatus;
+    return this;
+  }
+
+   /**
+   * Get modifyVolumeStatus
+   * @return modifyVolumeStatus
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1ModifyVolumeStatus getModifyVolumeStatus() {
+    return modifyVolumeStatus;
+  }
+
+
+  public void setModifyVolumeStatus(V1ModifyVolumeStatus modifyVolumeStatus) {
+    this.modifyVolumeStatus = modifyVolumeStatus;
   }
 
 
@@ -252,12 +307,14 @@ public class V1PersistentVolumeClaimStatus {
         Objects.equals(this.allocatedResources, v1PersistentVolumeClaimStatus.allocatedResources) &&
         Objects.equals(this.capacity, v1PersistentVolumeClaimStatus.capacity) &&
         Objects.equals(this.conditions, v1PersistentVolumeClaimStatus.conditions) &&
+        Objects.equals(this.currentVolumeAttributesClassName, v1PersistentVolumeClaimStatus.currentVolumeAttributesClassName) &&
+        Objects.equals(this.modifyVolumeStatus, v1PersistentVolumeClaimStatus.modifyVolumeStatus) &&
         Objects.equals(this.phase, v1PersistentVolumeClaimStatus.phase);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(accessModes, allocatedResourceStatuses, allocatedResources, capacity, conditions, phase);
+    return Objects.hash(accessModes, allocatedResourceStatuses, allocatedResources, capacity, conditions, currentVolumeAttributesClassName, modifyVolumeStatus, phase);
   }
 
 
@@ -270,6 +327,8 @@ public class V1PersistentVolumeClaimStatus {
     sb.append("    allocatedResources: ").append(toIndentedString(allocatedResources)).append("\n");
     sb.append("    capacity: ").append(toIndentedString(capacity)).append("\n");
     sb.append("    conditions: ").append(toIndentedString(conditions)).append("\n");
+    sb.append("    currentVolumeAttributesClassName: ").append(toIndentedString(currentVolumeAttributesClassName)).append("\n");
+    sb.append("    modifyVolumeStatus: ").append(toIndentedString(modifyVolumeStatus)).append("\n");
     sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
     sb.append("}");
     return sb.toString();

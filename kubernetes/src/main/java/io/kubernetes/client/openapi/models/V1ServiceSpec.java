@@ -33,7 +33,7 @@ import java.util.Map;
  * ServiceSpec describes the attributes that a user creates on a service.
  */
 @ApiModel(description = "ServiceSpec describes the attributes that a user creates on a service.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS = "allocateLoadBalancerNodePorts";
   @SerializedName(SERIALIZED_NAME_ALLOCATE_LOAD_BALANCER_NODE_PORTS)
@@ -106,6 +106,10 @@ public class V1ServiceSpec {
   public static final String SERIALIZED_NAME_SESSION_AFFINITY_CONFIG = "sessionAffinityConfig";
   @SerializedName(SERIALIZED_NAME_SESSION_AFFINITY_CONFIG)
   private V1SessionAffinityConfig sessionAffinityConfig;
+
+  public static final String SERIALIZED_NAME_TRAFFIC_DISTRIBUTION = "trafficDistribution";
+  @SerializedName(SERIALIZED_NAME_TRAFFIC_DISTRIBUTION)
+  private String trafficDistribution;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -574,6 +578,29 @@ public class V1ServiceSpec {
   }
 
 
+  public V1ServiceSpec trafficDistribution(String trafficDistribution) {
+
+    this.trafficDistribution = trafficDistribution;
+    return this;
+  }
+
+   /**
+   * TrafficDistribution offers a way to express preferences for how traffic is distributed to Service endpoints. Implementations can use this field as a hint, but are not required to guarantee strict adherence. If the field is not set, the implementation will apply its default routing strategy. If set to \&quot;PreferClose\&quot;, implementations should prioritize endpoints that are topologically close (e.g., same zone).
+   * @return trafficDistribution
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "TrafficDistribution offers a way to express preferences for how traffic is distributed to Service endpoints. Implementations can use this field as a hint, but are not required to guarantee strict adherence. If the field is not set, the implementation will apply its default routing strategy. If set to \"PreferClose\", implementations should prioritize endpoints that are topologically close (e.g., same zone).")
+
+  public String getTrafficDistribution() {
+    return trafficDistribution;
+  }
+
+
+  public void setTrafficDistribution(String trafficDistribution) {
+    this.trafficDistribution = trafficDistribution;
+  }
+
+
   public V1ServiceSpec type(String type) {
 
     this.type = type;
@@ -624,12 +651,13 @@ public class V1ServiceSpec {
         Objects.equals(this.selector, v1ServiceSpec.selector) &&
         Objects.equals(this.sessionAffinity, v1ServiceSpec.sessionAffinity) &&
         Objects.equals(this.sessionAffinityConfig, v1ServiceSpec.sessionAffinityConfig) &&
+        Objects.equals(this.trafficDistribution, v1ServiceSpec.trafficDistribution) &&
         Objects.equals(this.type, v1ServiceSpec.type);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(allocateLoadBalancerNodePorts, clusterIP, clusterIPs, externalIPs, externalName, externalTrafficPolicy, healthCheckNodePort, internalTrafficPolicy, ipFamilies, ipFamilyPolicy, loadBalancerClass, loadBalancerIP, loadBalancerSourceRanges, ports, publishNotReadyAddresses, selector, sessionAffinity, sessionAffinityConfig, type);
+    return Objects.hash(allocateLoadBalancerNodePorts, clusterIP, clusterIPs, externalIPs, externalName, externalTrafficPolicy, healthCheckNodePort, internalTrafficPolicy, ipFamilies, ipFamilyPolicy, loadBalancerClass, loadBalancerIP, loadBalancerSourceRanges, ports, publishNotReadyAddresses, selector, sessionAffinity, sessionAffinityConfig, trafficDistribution, type);
   }
 
 
@@ -655,6 +683,7 @@ public class V1ServiceSpec {
     sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
     sb.append("    sessionAffinity: ").append(toIndentedString(sessionAffinity)).append("\n");
     sb.append("    sessionAffinityConfig: ").append(toIndentedString(sessionAffinityConfig)).append("\n");
+    sb.append("    trafficDistribution: ").append(toIndentedString(trafficDistribution)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("}");
     return sb.toString();

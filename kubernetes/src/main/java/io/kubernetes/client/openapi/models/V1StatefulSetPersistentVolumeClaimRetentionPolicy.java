@@ -27,7 +27,7 @@ import java.io.IOException;
  * StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.
  */
 @ApiModel(description = "StatefulSetPersistentVolumeClaimRetentionPolicy describes the policy used for PVCs created from the StatefulSet VolumeClaimTemplates.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1StatefulSetPersistentVolumeClaimRetentionPolicy {
   public static final String SERIALIZED_NAME_WHEN_DELETED = "whenDeleted";
   @SerializedName(SERIALIZED_NAME_WHEN_DELETED)

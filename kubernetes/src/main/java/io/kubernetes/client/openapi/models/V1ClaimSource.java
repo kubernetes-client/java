@@ -27,7 +27,7 @@ import java.io.IOException;
  * ClaimSource describes a reference to a ResourceClaim.  Exactly one of these fields should be set.  Consumers of this type must treat an empty object as if it has an unknown value.
  */
 @ApiModel(description = "ClaimSource describes a reference to a ResourceClaim.  Exactly one of these fields should be set.  Consumers of this type must treat an empty object as if it has an unknown value.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1ClaimSource {
   public static final String SERIALIZED_NAME_RESOURCE_CLAIM_NAME = "resourceClaimName";
   @SerializedName(SERIALIZED_NAME_RESOURCE_CLAIM_NAME)

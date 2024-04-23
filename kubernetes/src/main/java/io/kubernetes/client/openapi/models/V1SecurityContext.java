@@ -19,6 +19,7 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.kubernetes.client.openapi.models.V1AppArmorProfile;
 import io.kubernetes.client.openapi.models.V1Capabilities;
 import io.kubernetes.client.openapi.models.V1SELinuxOptions;
 import io.kubernetes.client.openapi.models.V1SeccompProfile;
@@ -31,11 +32,15 @@ import java.io.IOException;
  * SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.
  */
 @ApiModel(description = "SecurityContext holds security configuration that will be applied to a container. Some fields are present in both SecurityContext and PodSecurityContext.  When both are set, the values in SecurityContext take precedence.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1SecurityContext {
   public static final String SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION = "allowPrivilegeEscalation";
   @SerializedName(SERIALIZED_NAME_ALLOW_PRIVILEGE_ESCALATION)
   private Boolean allowPrivilegeEscalation;
+
+  public static final String SERIALIZED_NAME_APP_ARMOR_PROFILE = "appArmorProfile";
+  @SerializedName(SERIALIZED_NAME_APP_ARMOR_PROFILE)
+  private V1AppArmorProfile appArmorProfile;
 
   public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
   @SerializedName(SERIALIZED_NAME_CAPABILITIES)
@@ -98,6 +103,29 @@ public class V1SecurityContext {
 
   public void setAllowPrivilegeEscalation(Boolean allowPrivilegeEscalation) {
     this.allowPrivilegeEscalation = allowPrivilegeEscalation;
+  }
+
+
+  public V1SecurityContext appArmorProfile(V1AppArmorProfile appArmorProfile) {
+
+    this.appArmorProfile = appArmorProfile;
+    return this;
+  }
+
+   /**
+   * Get appArmorProfile
+   * @return appArmorProfile
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1AppArmorProfile getAppArmorProfile() {
+    return appArmorProfile;
+  }
+
+
+  public void setAppArmorProfile(V1AppArmorProfile appArmorProfile) {
+    this.appArmorProfile = appArmorProfile;
   }
 
 
@@ -341,6 +369,7 @@ public class V1SecurityContext {
     }
     V1SecurityContext v1SecurityContext = (V1SecurityContext) o;
     return Objects.equals(this.allowPrivilegeEscalation, v1SecurityContext.allowPrivilegeEscalation) &&
+        Objects.equals(this.appArmorProfile, v1SecurityContext.appArmorProfile) &&
         Objects.equals(this.capabilities, v1SecurityContext.capabilities) &&
         Objects.equals(this.privileged, v1SecurityContext.privileged) &&
         Objects.equals(this.procMount, v1SecurityContext.procMount) &&
@@ -355,7 +384,7 @@ public class V1SecurityContext {
 
   @Override
   public int hashCode() {
-    return Objects.hash(allowPrivilegeEscalation, capabilities, privileged, procMount, readOnlyRootFilesystem, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, windowsOptions);
+    return Objects.hash(allowPrivilegeEscalation, appArmorProfile, capabilities, privileged, procMount, readOnlyRootFilesystem, runAsGroup, runAsNonRoot, runAsUser, seLinuxOptions, seccompProfile, windowsOptions);
   }
 
 
@@ -364,6 +393,7 @@ public class V1SecurityContext {
     StringBuilder sb = new StringBuilder();
     sb.append("class V1SecurityContext {\n");
     sb.append("    allowPrivilegeEscalation: ").append(toIndentedString(allowPrivilegeEscalation)).append("\n");
+    sb.append("    appArmorProfile: ").append(toIndentedString(appArmorProfile)).append("\n");
     sb.append("    capabilities: ").append(toIndentedString(capabilities)).append("\n");
     sb.append("    privileged: ").append(toIndentedString(privileged)).append("\n");
     sb.append("    procMount: ").append(toIndentedString(procMount)).append("\n");

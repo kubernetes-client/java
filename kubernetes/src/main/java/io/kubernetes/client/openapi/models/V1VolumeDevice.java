@@ -27,7 +27,7 @@ import java.io.IOException;
  * volumeDevice describes a mapping of a raw block device within a container.
  */
 @ApiModel(description = "volumeDevice describes a mapping of a raw block device within a container.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1VolumeDevice {
   public static final String SERIALIZED_NAME_DEVICE_PATH = "devicePath";
   @SerializedName(SERIALIZED_NAME_DEVICE_PATH)

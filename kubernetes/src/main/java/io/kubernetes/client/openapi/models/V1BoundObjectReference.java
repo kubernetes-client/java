@@ -27,7 +27,7 @@ import java.io.IOException;
  * BoundObjectReference is a reference to an object that a token is bound to.
  */
 @ApiModel(description = "BoundObjectReference is a reference to an object that a token is bound to.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1BoundObjectReference {
   public static final String SERIALIZED_NAME_API_VERSION = "apiVersion";
   @SerializedName(SERIALIZED_NAME_API_VERSION)

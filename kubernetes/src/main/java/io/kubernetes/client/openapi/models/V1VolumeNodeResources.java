@@ -27,7 +27,7 @@ import java.io.IOException;
  * VolumeNodeResources is a set of resource limits for scheduling of volumes.
  */
 @ApiModel(description = "VolumeNodeResources is a set of resource limits for scheduling of volumes.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1VolumeNodeResources {
   public static final String SERIALIZED_NAME_COUNT = "count";
   @SerializedName(SERIALIZED_NAME_COUNT)

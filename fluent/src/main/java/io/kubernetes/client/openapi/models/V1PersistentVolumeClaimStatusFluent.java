@@ -4,15 +4,15 @@ import io.kubernetes.client.fluent.VisitableBuilder;
 import java.lang.SuppressWarnings;
 import io.kubernetes.client.fluent.Nested;
 import java.util.ArrayList;
-import io.kubernetes.client.custom.Quantity;
 import java.lang.String;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
 import io.kubernetes.client.fluent.BaseFluent;
 import java.util.Iterator;
+import java.util.List;
+import io.kubernetes.client.custom.Quantity;
 import java.util.Collection;
 import java.lang.Object;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,6 +31,8 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
   private Map<String,Quantity> allocatedResources;
   private Map<String,Quantity> capacity;
   private ArrayList<V1PersistentVolumeClaimConditionBuilder> conditions;
+  private String currentVolumeAttributesClassName;
+  private V1ModifyVolumeStatusBuilder modifyVolumeStatus;
   private String phase;
   
   protected void copyInstance(V1PersistentVolumeClaimStatus instance) {
@@ -41,6 +43,8 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
           this.withAllocatedResources(instance.getAllocatedResources());
           this.withCapacity(instance.getCapacity());
           this.withConditions(instance.getConditions());
+          this.withCurrentVolumeAttributesClassName(instance.getCurrentVolumeAttributesClassName());
+          this.withModifyVolumeStatus(instance.getModifyVolumeStatus());
           this.withPhase(instance.getPhase());
         }
   }
@@ -401,6 +405,59 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
     return setNewConditionLike(index, buildCondition(index));
   }
   
+  public String getCurrentVolumeAttributesClassName() {
+    return this.currentVolumeAttributesClassName;
+  }
+  
+  public A withCurrentVolumeAttributesClassName(String currentVolumeAttributesClassName) {
+    this.currentVolumeAttributesClassName = currentVolumeAttributesClassName;
+    return (A) this;
+  }
+  
+  public boolean hasCurrentVolumeAttributesClassName() {
+    return this.currentVolumeAttributesClassName != null;
+  }
+  
+  public V1ModifyVolumeStatus buildModifyVolumeStatus() {
+    return this.modifyVolumeStatus != null ? this.modifyVolumeStatus.build() : null;
+  }
+  
+  public A withModifyVolumeStatus(V1ModifyVolumeStatus modifyVolumeStatus) {
+    this._visitables.remove("modifyVolumeStatus");
+    if (modifyVolumeStatus != null) {
+        this.modifyVolumeStatus = new V1ModifyVolumeStatusBuilder(modifyVolumeStatus);
+        this._visitables.get("modifyVolumeStatus").add(this.modifyVolumeStatus);
+    } else {
+        this.modifyVolumeStatus = null;
+        this._visitables.get("modifyVolumeStatus").remove(this.modifyVolumeStatus);
+    }
+    return (A) this;
+  }
+  
+  public boolean hasModifyVolumeStatus() {
+    return this.modifyVolumeStatus != null;
+  }
+  
+  public ModifyVolumeStatusNested<A> withNewModifyVolumeStatus() {
+    return new ModifyVolumeStatusNested(null);
+  }
+  
+  public ModifyVolumeStatusNested<A> withNewModifyVolumeStatusLike(V1ModifyVolumeStatus item) {
+    return new ModifyVolumeStatusNested(item);
+  }
+  
+  public ModifyVolumeStatusNested<A> editModifyVolumeStatus() {
+    return withNewModifyVolumeStatusLike(java.util.Optional.ofNullable(buildModifyVolumeStatus()).orElse(null));
+  }
+  
+  public ModifyVolumeStatusNested<A> editOrNewModifyVolumeStatus() {
+    return withNewModifyVolumeStatusLike(java.util.Optional.ofNullable(buildModifyVolumeStatus()).orElse(new V1ModifyVolumeStatusBuilder().build()));
+  }
+  
+  public ModifyVolumeStatusNested<A> editOrNewModifyVolumeStatusLike(V1ModifyVolumeStatus item) {
+    return withNewModifyVolumeStatusLike(java.util.Optional.ofNullable(buildModifyVolumeStatus()).orElse(item));
+  }
+  
   public String getPhase() {
     return this.phase;
   }
@@ -424,12 +481,14 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
     if (!java.util.Objects.equals(allocatedResources, that.allocatedResources)) return false;
     if (!java.util.Objects.equals(capacity, that.capacity)) return false;
     if (!java.util.Objects.equals(conditions, that.conditions)) return false;
+    if (!java.util.Objects.equals(currentVolumeAttributesClassName, that.currentVolumeAttributesClassName)) return false;
+    if (!java.util.Objects.equals(modifyVolumeStatus, that.modifyVolumeStatus)) return false;
     if (!java.util.Objects.equals(phase, that.phase)) return false;
     return true;
   }
   
   public int hashCode() {
-    return java.util.Objects.hash(accessModes,  allocatedResourceStatuses,  allocatedResources,  capacity,  conditions,  phase,  super.hashCode());
+    return java.util.Objects.hash(accessModes,  allocatedResourceStatuses,  allocatedResources,  capacity,  conditions,  currentVolumeAttributesClassName,  modifyVolumeStatus,  phase,  super.hashCode());
   }
   
   public String toString() {
@@ -440,6 +499,8 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
     if (allocatedResources != null && !allocatedResources.isEmpty()) { sb.append("allocatedResources:"); sb.append(allocatedResources + ","); }
     if (capacity != null && !capacity.isEmpty()) { sb.append("capacity:"); sb.append(capacity + ","); }
     if (conditions != null && !conditions.isEmpty()) { sb.append("conditions:"); sb.append(conditions + ","); }
+    if (currentVolumeAttributesClassName != null) { sb.append("currentVolumeAttributesClassName:"); sb.append(currentVolumeAttributesClassName + ","); }
+    if (modifyVolumeStatus != null) { sb.append("modifyVolumeStatus:"); sb.append(modifyVolumeStatus + ","); }
     if (phase != null) { sb.append("phase:"); sb.append(phase); }
     sb.append("}");
     return sb.toString();
@@ -457,6 +518,22 @@ public class V1PersistentVolumeClaimStatusFluent<A extends V1PersistentVolumeCla
     }
     
     public N endCondition() {
+      return and();
+    }
+    
+  
+  }
+  public class ModifyVolumeStatusNested<N> extends V1ModifyVolumeStatusFluent<ModifyVolumeStatusNested<N>> implements Nested<N>{
+    ModifyVolumeStatusNested(V1ModifyVolumeStatus item) {
+      this.builder = new V1ModifyVolumeStatusBuilder(this, item);
+    }
+    V1ModifyVolumeStatusBuilder builder;
+    
+    public N and() {
+      return (N) V1PersistentVolumeClaimStatusFluent.this.withModifyVolumeStatus(builder.build());
+    }
+    
+    public N endModifyVolumeStatus() {
       return and();
     }
     

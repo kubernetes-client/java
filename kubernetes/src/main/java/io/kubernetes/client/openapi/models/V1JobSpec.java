@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1LabelSelector;
 import io.kubernetes.client.openapi.models.V1PodFailurePolicy;
 import io.kubernetes.client.openapi.models.V1PodTemplateSpec;
+import io.kubernetes.client.openapi.models.V1SuccessPolicy;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
@@ -30,7 +31,7 @@ import java.io.IOException;
  * JobSpec describes how the job execution will look like.
  */
 @ApiModel(description = "JobSpec describes how the job execution will look like.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1JobSpec {
   public static final String SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS = "activeDeadlineSeconds";
   @SerializedName(SERIALIZED_NAME_ACTIVE_DEADLINE_SECONDS)
@@ -51,6 +52,10 @@ public class V1JobSpec {
   public static final String SERIALIZED_NAME_COMPLETIONS = "completions";
   @SerializedName(SERIALIZED_NAME_COMPLETIONS)
   private Integer completions;
+
+  public static final String SERIALIZED_NAME_MANAGED_BY = "managedBy";
+  @SerializedName(SERIALIZED_NAME_MANAGED_BY)
+  private String managedBy;
 
   public static final String SERIALIZED_NAME_MANUAL_SELECTOR = "manualSelector";
   @SerializedName(SERIALIZED_NAME_MANUAL_SELECTOR)
@@ -75,6 +80,10 @@ public class V1JobSpec {
   public static final String SERIALIZED_NAME_SELECTOR = "selector";
   @SerializedName(SERIALIZED_NAME_SELECTOR)
   private V1LabelSelector selector;
+
+  public static final String SERIALIZED_NAME_SUCCESS_POLICY = "successPolicy";
+  @SerializedName(SERIALIZED_NAME_SUCCESS_POLICY)
+  private V1SuccessPolicy successPolicy;
 
   public static final String SERIALIZED_NAME_SUSPEND = "suspend";
   @SerializedName(SERIALIZED_NAME_SUSPEND)
@@ -142,11 +151,11 @@ public class V1JobSpec {
   }
 
    /**
-   * Specifies the limit for the number of retries within an index before marking this index as failed. When enabled the number of failures per index is kept in the pod&#39;s batch.kubernetes.io/job-index-failure-count annotation. It can only be set when Job&#39;s completionMode&#x3D;Indexed, and the Pod&#39;s restart policy is Never. The field is immutable. This field is alpha-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (disabled by default).
+   * Specifies the limit for the number of retries within an index before marking this index as failed. When enabled the number of failures per index is kept in the pod&#39;s batch.kubernetes.io/job-index-failure-count annotation. It can only be set when Job&#39;s completionMode&#x3D;Indexed, and the Pod&#39;s restart policy is Never. The field is immutable. This field is beta-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (enabled by default).
    * @return backoffLimitPerIndex
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the limit for the number of retries within an index before marking this index as failed. When enabled the number of failures per index is kept in the pod's batch.kubernetes.io/job-index-failure-count annotation. It can only be set when Job's completionMode=Indexed, and the Pod's restart policy is Never. The field is immutable. This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).")
+  @ApiModelProperty(value = "Specifies the limit for the number of retries within an index before marking this index as failed. When enabled the number of failures per index is kept in the pod's batch.kubernetes.io/job-index-failure-count annotation. It can only be set when Job's completionMode=Indexed, and the Pod's restart policy is Never. The field is immutable. This field is beta-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (enabled by default).")
 
   public Integer getBackoffLimitPerIndex() {
     return backoffLimitPerIndex;
@@ -204,6 +213,29 @@ public class V1JobSpec {
   }
 
 
+  public V1JobSpec managedBy(String managedBy) {
+
+    this.managedBy = managedBy;
+    return this;
+  }
+
+   /**
+   * ManagedBy field indicates the controller that manages a Job. The k8s Job controller reconciles jobs which don&#39;t have this field at all or the field value is the reserved string &#x60;kubernetes.io/job-controller&#x60;, but skips reconciling Jobs with a custom value for this field. The value must be a valid domain-prefixed path (e.g. acme.io/foo) - all characters before the first \&quot;/\&quot; must be a valid subdomain as defined by RFC 1123. All characters trailing the first \&quot;/\&quot; must be valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 64 characters.  This field is alpha-level. The job controller accepts setting the field when the feature gate JobManagedBy is enabled (disabled by default).
+   * @return managedBy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "ManagedBy field indicates the controller that manages a Job. The k8s Job controller reconciles jobs which don't have this field at all or the field value is the reserved string `kubernetes.io/job-controller`, but skips reconciling Jobs with a custom value for this field. The value must be a valid domain-prefixed path (e.g. acme.io/foo) - all characters before the first \"/\" must be a valid subdomain as defined by RFC 1123. All characters trailing the first \"/\" must be valid HTTP Path characters as defined by RFC 3986. The value cannot exceed 64 characters.  This field is alpha-level. The job controller accepts setting the field when the feature gate JobManagedBy is enabled (disabled by default).")
+
+  public String getManagedBy() {
+    return managedBy;
+  }
+
+
+  public void setManagedBy(String managedBy) {
+    this.managedBy = managedBy;
+  }
+
+
   public V1JobSpec manualSelector(Boolean manualSelector) {
 
     this.manualSelector = manualSelector;
@@ -234,11 +266,11 @@ public class V1JobSpec {
   }
 
    /**
-   * Specifies the maximal number of failed indexes before marking the Job as failed, when backoffLimitPerIndex is set. Once the number of failed indexes exceeds this number the entire Job is marked as Failed and its execution is terminated. When left as null the job continues execution of all of its indexes and is marked with the &#x60;Complete&#x60; Job condition. It can only be specified when backoffLimitPerIndex is set. It can be null or up to completions. It is required and must be less than or equal to 10^4 when is completions greater than 10^5. This field is alpha-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (disabled by default).
+   * Specifies the maximal number of failed indexes before marking the Job as failed, when backoffLimitPerIndex is set. Once the number of failed indexes exceeds this number the entire Job is marked as Failed and its execution is terminated. When left as null the job continues execution of all of its indexes and is marked with the &#x60;Complete&#x60; Job condition. It can only be specified when backoffLimitPerIndex is set. It can be null or up to completions. It is required and must be less than or equal to 10^4 when is completions greater than 10^5. This field is beta-level. It can be used when the &#x60;JobBackoffLimitPerIndex&#x60; feature gate is enabled (enabled by default).
    * @return maxFailedIndexes
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "Specifies the maximal number of failed indexes before marking the Job as failed, when backoffLimitPerIndex is set. Once the number of failed indexes exceeds this number the entire Job is marked as Failed and its execution is terminated. When left as null the job continues execution of all of its indexes and is marked with the `Complete` Job condition. It can only be specified when backoffLimitPerIndex is set. It can be null or up to completions. It is required and must be less than or equal to 10^4 when is completions greater than 10^5. This field is alpha-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (disabled by default).")
+  @ApiModelProperty(value = "Specifies the maximal number of failed indexes before marking the Job as failed, when backoffLimitPerIndex is set. Once the number of failed indexes exceeds this number the entire Job is marked as Failed and its execution is terminated. When left as null the job continues execution of all of its indexes and is marked with the `Complete` Job condition. It can only be specified when backoffLimitPerIndex is set. It can be null or up to completions. It is required and must be less than or equal to 10^4 when is completions greater than 10^5. This field is beta-level. It can be used when the `JobBackoffLimitPerIndex` feature gate is enabled (enabled by default).")
 
   public Integer getMaxFailedIndexes() {
     return maxFailedIndexes;
@@ -303,11 +335,11 @@ public class V1JobSpec {
   }
 
    /**
-   * podReplacementPolicy specifies when to create replacement Pods. Possible values are: - TerminatingOrFailed means that we recreate pods   when they are terminating (has a metadata.deletionTimestamp) or failed. - Failed means to wait until a previously created Pod is fully terminated (has phase   Failed or Succeeded) before creating a replacement Pod.  When using podFailurePolicy, Failed is the the only allowed value. TerminatingOrFailed and Failed are allowed values when podFailurePolicy is not in use. This is an alpha field. Enable JobPodReplacementPolicy to be able to use this field.
+   * podReplacementPolicy specifies when to create replacement Pods. Possible values are: - TerminatingOrFailed means that we recreate pods   when they are terminating (has a metadata.deletionTimestamp) or failed. - Failed means to wait until a previously created Pod is fully terminated (has phase   Failed or Succeeded) before creating a replacement Pod.  When using podFailurePolicy, Failed is the the only allowed value. TerminatingOrFailed and Failed are allowed values when podFailurePolicy is not in use. This is an beta field. To use this, enable the JobPodReplacementPolicy feature toggle. This is on by default.
    * @return podReplacementPolicy
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "podReplacementPolicy specifies when to create replacement Pods. Possible values are: - TerminatingOrFailed means that we recreate pods   when they are terminating (has a metadata.deletionTimestamp) or failed. - Failed means to wait until a previously created Pod is fully terminated (has phase   Failed or Succeeded) before creating a replacement Pod.  When using podFailurePolicy, Failed is the the only allowed value. TerminatingOrFailed and Failed are allowed values when podFailurePolicy is not in use. This is an alpha field. Enable JobPodReplacementPolicy to be able to use this field.")
+  @ApiModelProperty(value = "podReplacementPolicy specifies when to create replacement Pods. Possible values are: - TerminatingOrFailed means that we recreate pods   when they are terminating (has a metadata.deletionTimestamp) or failed. - Failed means to wait until a previously created Pod is fully terminated (has phase   Failed or Succeeded) before creating a replacement Pod.  When using podFailurePolicy, Failed is the the only allowed value. TerminatingOrFailed and Failed are allowed values when podFailurePolicy is not in use. This is an beta field. To use this, enable the JobPodReplacementPolicy feature toggle. This is on by default.")
 
   public String getPodReplacementPolicy() {
     return podReplacementPolicy;
@@ -339,6 +371,29 @@ public class V1JobSpec {
 
   public void setSelector(V1LabelSelector selector) {
     this.selector = selector;
+  }
+
+
+  public V1JobSpec successPolicy(V1SuccessPolicy successPolicy) {
+
+    this.successPolicy = successPolicy;
+    return this;
+  }
+
+   /**
+   * Get successPolicy
+   * @return successPolicy
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1SuccessPolicy getSuccessPolicy() {
+    return successPolicy;
+  }
+
+
+  public void setSuccessPolicy(V1SuccessPolicy successPolicy) {
+    this.successPolicy = successPolicy;
   }
 
 
@@ -424,12 +479,14 @@ public class V1JobSpec {
         Objects.equals(this.backoffLimitPerIndex, v1JobSpec.backoffLimitPerIndex) &&
         Objects.equals(this.completionMode, v1JobSpec.completionMode) &&
         Objects.equals(this.completions, v1JobSpec.completions) &&
+        Objects.equals(this.managedBy, v1JobSpec.managedBy) &&
         Objects.equals(this.manualSelector, v1JobSpec.manualSelector) &&
         Objects.equals(this.maxFailedIndexes, v1JobSpec.maxFailedIndexes) &&
         Objects.equals(this.parallelism, v1JobSpec.parallelism) &&
         Objects.equals(this.podFailurePolicy, v1JobSpec.podFailurePolicy) &&
         Objects.equals(this.podReplacementPolicy, v1JobSpec.podReplacementPolicy) &&
         Objects.equals(this.selector, v1JobSpec.selector) &&
+        Objects.equals(this.successPolicy, v1JobSpec.successPolicy) &&
         Objects.equals(this.suspend, v1JobSpec.suspend) &&
         Objects.equals(this.template, v1JobSpec.template) &&
         Objects.equals(this.ttlSecondsAfterFinished, v1JobSpec.ttlSecondsAfterFinished);
@@ -437,7 +494,7 @@ public class V1JobSpec {
 
   @Override
   public int hashCode() {
-    return Objects.hash(activeDeadlineSeconds, backoffLimit, backoffLimitPerIndex, completionMode, completions, manualSelector, maxFailedIndexes, parallelism, podFailurePolicy, podReplacementPolicy, selector, suspend, template, ttlSecondsAfterFinished);
+    return Objects.hash(activeDeadlineSeconds, backoffLimit, backoffLimitPerIndex, completionMode, completions, managedBy, manualSelector, maxFailedIndexes, parallelism, podFailurePolicy, podReplacementPolicy, selector, successPolicy, suspend, template, ttlSecondsAfterFinished);
   }
 
 
@@ -450,12 +507,14 @@ public class V1JobSpec {
     sb.append("    backoffLimitPerIndex: ").append(toIndentedString(backoffLimitPerIndex)).append("\n");
     sb.append("    completionMode: ").append(toIndentedString(completionMode)).append("\n");
     sb.append("    completions: ").append(toIndentedString(completions)).append("\n");
+    sb.append("    managedBy: ").append(toIndentedString(managedBy)).append("\n");
     sb.append("    manualSelector: ").append(toIndentedString(manualSelector)).append("\n");
     sb.append("    maxFailedIndexes: ").append(toIndentedString(maxFailedIndexes)).append("\n");
     sb.append("    parallelism: ").append(toIndentedString(parallelism)).append("\n");
     sb.append("    podFailurePolicy: ").append(toIndentedString(podFailurePolicy)).append("\n");
     sb.append("    podReplacementPolicy: ").append(toIndentedString(podReplacementPolicy)).append("\n");
     sb.append("    selector: ").append(toIndentedString(selector)).append("\n");
+    sb.append("    successPolicy: ").append(toIndentedString(successPolicy)).append("\n");
     sb.append("    suspend: ").append(toIndentedString(suspend)).append("\n");
     sb.append("    template: ").append(toIndentedString(template)).append("\n");
     sb.append("    ttlSecondsAfterFinished: ").append(toIndentedString(ttlSecondsAfterFinished)).append("\n");

@@ -28,6 +28,7 @@ public class V1CustomResourceDefinitionVersionBuilder extends V1CustomResourceDe
     buildable.setDeprecationWarning(fluent.getDeprecationWarning());
     buildable.setName(fluent.getName());
     buildable.setSchema(fluent.buildSchema());
+    buildable.setSelectableFields(fluent.buildSelectableFields());
     buildable.setServed(fluent.getServed());
     buildable.setStorage(fluent.getStorage());
     buildable.setSubresources(fluent.buildSubresources());

@@ -28,7 +28,7 @@ import java.time.OffsetDateTime;
  * PersistentVolumeStatus is the current status of a persistent volume.
  */
 @ApiModel(description = "PersistentVolumeStatus is the current status of a persistent volume.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1PersistentVolumeStatus {
   public static final String SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME = "lastPhaseTransitionTime";
   @SerializedName(SERIALIZED_NAME_LAST_PHASE_TRANSITION_TIME)
@@ -54,11 +54,11 @@ public class V1PersistentVolumeStatus {
   }
 
    /**
-   * lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions. This is an alpha field and requires enabling PersistentVolumeLastPhaseTransitionTime feature.
+   * lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions. This is a beta field and requires the PersistentVolumeLastPhaseTransitionTime feature to be enabled (enabled by default).
    * @return lastPhaseTransitionTime
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions. This is an alpha field and requires enabling PersistentVolumeLastPhaseTransitionTime feature.")
+  @ApiModelProperty(value = "lastPhaseTransitionTime is the time the phase transitioned from one to another and automatically resets to current time everytime a volume phase transitions. This is a beta field and requires the PersistentVolumeLastPhaseTransitionTime feature to be enabled (enabled by default).")
 
   public OffsetDateTime getLastPhaseTransitionTime() {
     return lastPhaseTransitionTime;

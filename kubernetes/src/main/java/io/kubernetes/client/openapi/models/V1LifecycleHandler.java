@@ -21,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.kubernetes.client.openapi.models.V1ExecAction;
 import io.kubernetes.client.openapi.models.V1HTTPGetAction;
+import io.kubernetes.client.openapi.models.V1SleepAction;
 import io.kubernetes.client.openapi.models.V1TCPSocketAction;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -30,7 +31,7 @@ import java.io.IOException;
  * LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.
  */
 @ApiModel(description = "LifecycleHandler defines a specific action that should be taken in a lifecycle hook. One and only one of the fields, except TCPSocket must be specified.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1LifecycleHandler {
   public static final String SERIALIZED_NAME_EXEC = "exec";
   @SerializedName(SERIALIZED_NAME_EXEC)
@@ -39,6 +40,10 @@ public class V1LifecycleHandler {
   public static final String SERIALIZED_NAME_HTTP_GET = "httpGet";
   @SerializedName(SERIALIZED_NAME_HTTP_GET)
   private V1HTTPGetAction httpGet;
+
+  public static final String SERIALIZED_NAME_SLEEP = "sleep";
+  @SerializedName(SERIALIZED_NAME_SLEEP)
+  private V1SleepAction sleep;
 
   public static final String SERIALIZED_NAME_TCP_SOCKET = "tcpSocket";
   @SerializedName(SERIALIZED_NAME_TCP_SOCKET)
@@ -91,6 +96,29 @@ public class V1LifecycleHandler {
   }
 
 
+  public V1LifecycleHandler sleep(V1SleepAction sleep) {
+
+    this.sleep = sleep;
+    return this;
+  }
+
+   /**
+   * Get sleep
+   * @return sleep
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(value = "")
+
+  public V1SleepAction getSleep() {
+    return sleep;
+  }
+
+
+  public void setSleep(V1SleepAction sleep) {
+    this.sleep = sleep;
+  }
+
+
   public V1LifecycleHandler tcpSocket(V1TCPSocketAction tcpSocket) {
 
     this.tcpSocket = tcpSocket;
@@ -125,12 +153,13 @@ public class V1LifecycleHandler {
     V1LifecycleHandler v1LifecycleHandler = (V1LifecycleHandler) o;
     return Objects.equals(this.exec, v1LifecycleHandler.exec) &&
         Objects.equals(this.httpGet, v1LifecycleHandler.httpGet) &&
+        Objects.equals(this.sleep, v1LifecycleHandler.sleep) &&
         Objects.equals(this.tcpSocket, v1LifecycleHandler.tcpSocket);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(exec, httpGet, tcpSocket);
+    return Objects.hash(exec, httpGet, sleep, tcpSocket);
   }
 
 
@@ -140,6 +169,7 @@ public class V1LifecycleHandler {
     sb.append("class V1LifecycleHandler {\n");
     sb.append("    exec: ").append(toIndentedString(exec)).append("\n");
     sb.append("    httpGet: ").append(toIndentedString(httpGet)).append("\n");
+    sb.append("    sleep: ").append(toIndentedString(sleep)).append("\n");
     sb.append("    tcpSocket: ").append(toIndentedString(tcpSocket)).append("\n");
     sb.append("}");
     return sb.toString();

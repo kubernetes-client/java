@@ -28,7 +28,7 @@ import java.io.IOException;
  * DeploymentStrategy describes how to replace existing pods with new ones.
  */
 @ApiModel(description = "DeploymentStrategy describes how to replace existing pods with new ones.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1DeploymentStrategy {
   public static final String SERIALIZED_NAME_ROLLING_UPDATE = "rollingUpdate";
   @SerializedName(SERIALIZED_NAME_ROLLING_UPDATE)

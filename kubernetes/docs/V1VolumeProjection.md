@@ -7,6 +7,7 @@ Projection that may be projected along with other supported volume types
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**clusterTrustBundle** | [**V1ClusterTrustBundleProjection**](V1ClusterTrustBundleProjection.md) |  |  [optional]
 **configMap** | [**V1ConfigMapProjection**](V1ConfigMapProjection.md) |  |  [optional]
 **downwardAPI** | [**V1DownwardAPIProjection**](V1DownwardAPIProjection.md) |  |  [optional]
 **secret** | [**V1SecretProjection**](V1SecretProjection.md) |  |  [optional]

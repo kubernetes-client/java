@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **exec** | [**V1ExecAction**](V1ExecAction.md) |  |  [optional]
 **httpGet** | [**V1HTTPGetAction**](V1HTTPGetAction.md) |  |  [optional]
+**sleep** | [**V1SleepAction**](V1SleepAction.md) |  |  [optional]
 **tcpSocket** | [**V1TCPSocketAction**](V1TCPSocketAction.md) |  |  [optional]
 
 

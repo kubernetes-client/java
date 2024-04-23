@@ -27,7 +27,7 @@ import java.io.IOException;
  * ResourceClaimConsumerReference contains enough information to let you locate the consumer of a ResourceClaim. The user must be a resource in the same namespace as the ResourceClaim.
  */
 @ApiModel(description = "ResourceClaimConsumerReference contains enough information to let you locate the consumer of a ResourceClaim. The user must be a resource in the same namespace as the ResourceClaim.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-02T21:37:40.170033Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-23T13:45:08.546919Z[Etc/UTC]")
 public class V1alpha2ResourceClaimConsumerReference {
   public static final String SERIALIZED_NAME_API_GROUP = "apiGroup";
   @SerializedName(SERIALIZED_NAME_API_GROUP)
